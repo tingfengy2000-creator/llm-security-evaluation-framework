@@ -1,0 +1,30 @@
+# Python environments and caches
+.venv/
+**/.venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Runtime caches and local configuration
+**/xdg_cache/
+**/xdg_config/
+**/xdg_data/
+.env
+.env.*
+!.env.example
+
+# Local temporary files
+tmp_*/
+*.tmp
+*.bak
+
+# IDE and OS metadata
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Raw provider traces are not approved artifacts
+**/raw_provider_trace*
+**/garak.log

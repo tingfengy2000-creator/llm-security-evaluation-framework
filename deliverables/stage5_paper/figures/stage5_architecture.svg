@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3200" height="1800" viewBox="0 0 3200 1800">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<line x1="420" y1="795.0" x2="470" y2="795.0" stroke="#333" stroke-width="5" marker-end="url(#arrow)"/>
+<line x1="770" y1="795.0" x2="830" y2="795.0" stroke="#333" stroke-width="5" marker-end="url(#arrow)"/>
+<line x1="1130" y1="795.0" x2="1200" y2="795.0" stroke="#333" stroke-width="5" marker-end="url(#arrow)"/>
+<line x1="1500" y1="795.0" x2="1540" y2="795.0" stroke="#333" stroke-width="5" marker-end="url(#arrow)"/>
+<line x1="1840" y1="795.0" x2="1940" y2="585.0" stroke="#333" stroke-width="5" marker-end="url(#arrow)"/>
+<line x1="1840" y1="795.0" x2="1940" y2="1005.0" stroke="#333" stroke-width="5" marker-end="url(#arrow)"/>
+<line x1="2240" y1="585.0" x2="2350" y2="795.0" stroke="#333" stroke-width="5" marker-end="url(#arrow)"/>
+<line x1="2240" y1="1005.0" x2="2350" y2="795.0" stroke="#333" stroke-width="5" marker-end="url(#arrow)"/>
+<line x1="2650" y1="795.0" x2="2760" y2="795.0" stroke="#333" stroke-width="5" marker-end="url(#arrow)"/>
+<rect x="120" y="690" width="300" height="210" rx="12" fill="#E8F1FA" stroke="#333" stroke-width="4"/>
+<text x="270.0" y="780" text-anchor="middle" font-family="Arial" font-size="28">Dataset Runner</text>
+<text x="270.0" y="828" text-anchor="middle" font-family="Arial" font-size="28">(not garak scheduler)</text>
+<rect x="470" y="690" width="300" height="210" rx="12" fill="#F4F7F9" stroke="#333" stroke-width="4"/>
+<text x="620.0" y="780" text-anchor="middle" font-family="Arial" font-size="28">Prompt Renderer</text>
+<text x="620.0" y="828" text-anchor="middle" font-family="Arial" font-size="28">[[TURN:*]]</text>
+<rect x="830" y="690" width="300" height="210" rx="12" fill="#DDEFE8" stroke="#333" stroke-width="4"/>
+<text x="980.0" y="780" text-anchor="middle" font-family="Arial" font-size="28">OpenAI-compatible</text>
+<text x="980.0" y="828" text-anchor="middle" font-family="Arial" font-size="28">Guard Proxy</text>
+<rect x="1200" y="690" width="300" height="210" rx="12" fill="#F8E9D2" stroke="#333" stroke-width="4"/>
+<text x="1350.0" y="780" text-anchor="middle" font-family="Arial" font-size="28">Groq / Mock Model</text>
+<rect x="1540" y="690" width="300" height="210" rx="12" fill="#EADFF2" stroke="#333" stroke-width="4"/>
+<text x="1690.0" y="780" text-anchor="middle" font-family="Arial" font-size="28">P / I / O / F</text>
+<text x="1690.0" y="828" text-anchor="middle" font-family="Arial" font-size="28">Guard Layer</text>
+<rect x="1940" y="480" width="300" height="210" rx="12" fill="#D8EAF8" stroke="#333" stroke-width="4"/>
+<text x="2090.0" y="570" text-anchor="middle" font-family="Arial" font-size="28">garak detectors</text>
+<rect x="1940" y="900" width="300" height="210" rx="12" fill="#F5E3E7" stroke="#333" stroke-width="4"/>
+<text x="2090.0" y="990" text-anchor="middle" font-family="Arial" font-size="28">stage5_pattern</text>
+<rect x="2350" y="690" width="300" height="210" rx="12" fill="#E4EED8" stroke="#333" stroke-width="4"/>
+<text x="2500.0" y="780" text-anchor="middle" font-family="Arial" font-size="28">T1-T9 Taxonomy</text>
+<rect x="2760" y="690" width="300" height="210" rx="12" fill="#E8E8E8" stroke="#333" stroke-width="4"/>
+<text x="2910.0" y="780" text-anchor="middle" font-family="Arial" font-size="28">Metrics + Reports</text>
+</svg>

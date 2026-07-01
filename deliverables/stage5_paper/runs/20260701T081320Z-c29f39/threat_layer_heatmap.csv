@@ -1,0 +1,13 @@
+﻿threat_layer,guard_code,attempts,risk_count,asr_percent
+Retrieval,P,2,2,100.0
+Retrieval,I,2,2,100.0
+Retrieval,O,2,2,100.0
+Retrieval,F,2,2,100.0
+Runtime,P,6,6,100.0
+Runtime,I,6,5,83.33
+Runtime,O,6,6,100.0
+Runtime,F,6,5,83.33
+Training,P,4,4,100.0
+Training,I,4,4,100.0
+Training,O,4,4,100.0
+Training,F,4,4,100.0

@@ -1,0 +1,11 @@
+system:
+  narrow_output: true
+  parallel_requests: 1
+  parallel_attempts: 1
+
+run:
+  generations: 1
+  soft_probe_prompt_cap: 1
+
+reporting:
+  confidence_interval_method: none

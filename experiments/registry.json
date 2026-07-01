@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "experiments": [
+    {
+      "stage_id": "stage1",
+      "name": "garak 最小安全扫描",
+      "status": "completed",
+      "code_entry": "llm-security-stage1",
+      "dataset": "garak probes",
+      "deliverables": "deliverables/stage1",
+      "real_api": false,
+      "conclusion_boundary": "基础流程学习"
+    },
+    {
+      "stage_id": "stage2",
+      "name": "OpenAI-compatible Mock API 对照",
+      "status": "completed",
+      "code_entry": "llm-security-stage1/scripts/run_stage2_scan.ps1",
+      "dataset": "garak smoke probes",
+      "deliverables": "deliverables/stage2",
+      "real_api": false,
+      "conclusion_boundary": "mock 行为"
+    },
+    {
+      "stage_id": "stage3",
+      "name": "Groq 真实模型扫描",
+      "status": "completed",
+      "code_entry": "llm-security-stage1/scripts/run_stage3_groq_scan_safe.ps1",
+      "dataset": "两类 garak probe",
+      "deliverables": "deliverables/stage3",
+      "real_api": true,
+      "conclusion_boundary": "两条 smoke probe"
+    },
+    {
+      "stage_id": "stage4",
+      "name": "真实 Guard A/B",
+      "status": "completed",
+      "code_entry": "llm-security-stage1/scripts/run_stage4_guarded_scan.ps1",
+      "dataset": "两类 garak probe",
+      "deliverables": "deliverables/stage4",
+      "real_api": true,
+      "conclusion_boundary": "rule-based baseline"
+    },
+    {
+      "stage_id": "stage4.1",
+      "name": "Input/Output Guard 消融",
+      "status": "completed",
+      "code_entry": "llm-security-stage1/scripts/run_stage4_ablation_safe.ps1",
+      "dataset": "两类 smoke probe",
+      "deliverables": "deliverables/stage4_ablation",
+      "real_api": true,
+      "conclusion_boundary": "四模式小样本"
+    },
+    {
+      "stage_id": "stage5",
+      "name": "Attack Matrix 基础框架",
+      "status": "completed_mock",
+      "code_entry": "scripts/run_stage5_regression.ps1",
+      "dataset": "data/stage5",
+      "deliverables": "deliverables/stage5",
+      "real_api": false,
+      "conclusion_boundary": "离线框架回归"
+    },
+    {
+      "stage_id": "stage5-paper",
+      "name": "跨层论文级评测框架",
+      "status": "completed_mock",
+      "code_entry": "scripts/run_stage5_paper_regression.ps1",
+      "dataset": "data/stage5_paper",
+      "deliverables": "deliverables/stage5_paper",
+      "real_api": false,
+      "latest_execution_id": "20260701T081320Z-c29f39",
+      "latest_execution_fingerprint": "053cdf03de8feba242ce07fd8d948f4e9cd25dfbb47dd2a067a55db5a74ac625",
+      "sample_count": 22,
+      "attempt_count": 88,
+      "guard_modes": [
+        "P",
+        "I",
+        "O",
+        "F"
+      ],
+      "detector_sources": [
+        "garak",
+        "stage5_pattern"
+      ],
+      "conclusion_boundary": "A1/A2 为运行时表现模拟；当前指标只来自确定性 mock，真实 Groq 尚未运行"
+    }
+  ]
+}

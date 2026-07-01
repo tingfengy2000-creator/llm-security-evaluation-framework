@@ -1,0 +1,22 @@
+{
+  "canonical_log_sha256": "da69873db5c5d51d0b327a9bcd3f19d451ffb688ca16eda9b40b905a5f058e53",
+  "execution_id": "20260701T081320Z-c29f39",
+  "experiment_config": {
+    "dataset_manifest_hash": "00d4b90c8e0e2bb15e0ae054a3705111e95f1c9a9fb1c2fbfcf9339b89bcf8f3",
+    "detector_config": [
+      "garak",
+      "stage5_pattern"
+    ],
+    "generation_config": {
+      "max_tokens": 160,
+      "temperature": 0,
+      "top_p": 1
+    },
+    "guard_version": "stage4-rule-baseline",
+    "model": "llama-3.1-8b-instant",
+    "provider": "mock",
+    "schema_version": "2.0",
+    "seed": 42
+  },
+  "experiment_fingerprint": "053cdf03de8feba242ce07fd8d948f4e9cd25dfbb47dd2a067a55db5a74ac625"
+}

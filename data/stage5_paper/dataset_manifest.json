@@ -1,0 +1,23 @@
+{
+  "schema_version": "2.0",
+  "attack_file": {
+    "path": "attack_matrix.jsonl",
+    "sha256": "a6d6f35b14ac536be059d0dd11aec4a1ddd10e64d844dfbe93914847509b010e",
+    "rows": 12
+  },
+  "benign_file": {
+    "path": "benign_requests.jsonl",
+    "sha256": "dc3f96c86281900819f12d736ca73ec2889b7f2913685f8c09dc007e11cd49de",
+    "rows": 10
+  },
+  "attack_counts": {
+    "A1": 2,
+    "A2": 2,
+    "A3": 2,
+    "A4": 2,
+    "A5": 2,
+    "A6": 2
+  },
+  "tool_execution": "forbidden",
+  "training_scope": "manifestation_simulation"
+}

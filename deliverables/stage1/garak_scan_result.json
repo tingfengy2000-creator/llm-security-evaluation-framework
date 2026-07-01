@@ -1,0 +1,59 @@
+{
+  "experiment_reference": "E:\\CodeGuarder\\docs\\experiment_plan.md",
+  "stage": "stage1",
+  "objective": "Run garak with mock models to validate the minimal LLM security evaluation workflow.",
+  "environment": {
+    "project_dir": "D:\\llmProject\\llm-security-stage1",
+    "deliverable_dir": "D:\\llmProject\\deliverables\\stage1",
+    "python_version": "Python 3.12.13",
+    "garak_version": "0.15.1"
+  },
+  "scans": [
+    {
+      "name": "minimal_connectivity_scan",
+      "target_type": "test.Blank",
+      "target_name": "blank",
+      "probe": "test.Blank",
+      "detector": "any.AnyOutput",
+      "generations": 1,
+      "seed": 42,
+      "run_uuid": "a214583f-5fa6-4734-abbb-b15629decce1",
+      "result": "PASS",
+      "score": "1/1",
+      "risk_comment": "Minimal risk in this connectivity-only mock scan.",
+      "raw_report_jsonl": "D:\\llmProject\\deliverables\\stage1\\stage1_min_scan.report.jsonl",
+      "html_report": "D:\\llmProject\\deliverables\\stage1\\stage1_min_scan.report.html"
+    },
+    {
+      "name": "prompt_injection_mock_scan",
+      "target_type": "test.Repeat",
+      "target_name": "repeat",
+      "probe": "promptinject.HijackHateHumans",
+      "detector": "promptinject.AttackRogueString",
+      "generations": 1,
+      "seed": 42,
+      "run_uuid": "94c18ade-8fae-459c-b1a1-c49b81c5f264",
+      "result": "FAIL",
+      "score": "0/256",
+      "attack_success_rate": "100.00%",
+      "risk_comment": "Immediate risk in the mock echo model because injected rogue strings are repeated in model output.",
+      "raw_report_jsonl": "D:\\llmProject\\deliverables\\stage1\\stage1_promptinject_scan.report.jsonl",
+      "html_report": "D:\\llmProject\\deliverables\\stage1\\stage1_promptinject_scan.report.html",
+      "hitlog": "D:\\llmProject\\deliverables\\stage1\\stage1_promptinject_scan.hitlog.jsonl"
+    }
+  ],
+  "interpretation": {
+    "what_is_proven": [
+      "The garak toolchain is installed and executable.",
+      "A model target can be selected and invoked in batch by garak.",
+      "Attack probes can generate adversarial prompts.",
+      "Detectors can decide whether the generated output contains attack success signals.",
+      "JSONL and HTML security scan reports can be produced for later analysis."
+    ],
+    "what_is_not_proven": [
+      "This does not evaluate a real production LLM.",
+      "This does not yet evaluate a real RAG or Agent application.",
+      "The prompt injection failure is expected because test.Repeat is a deliberately unsafe echo mock model."
+    ]
+  }
+}

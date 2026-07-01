@@ -1,0 +1,19 @@
+{
+    "openai":  {
+                   "OpenAICompatible":  {
+                                            "uri":  "http://127.0.0.1:8011/v1/",
+                                            "temperature":  0.1,
+                                            "max_tokens":  96,
+                                            "seed":  42,
+                                            "retry_json":  true,
+                                            "suppressed_params":  [
+                                                                      "n",
+                                                                      "frequency_penalty",
+                                                                      "presence_penalty",
+                                                                      "logprobs",
+                                                                      "logit_bias",
+                                                                      "top_logprobs"
+                                                                  ]
+                                        }
+               }
+}

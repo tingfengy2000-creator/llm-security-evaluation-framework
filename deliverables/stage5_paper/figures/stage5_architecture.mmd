@@ -1,0 +1,10 @@
+flowchart LR
+  A["Dataset Runner<br/>(not garak scheduler)"] --> B["Prompt Renderer<br/>[[TURN:*]]"]
+  B --> C["OpenAI-compatible Guard Proxy"]
+  C --> D["Groq / Mock Model"]
+  D --> E["P / I / O / F Guard Layer"]
+  E --> G["garak detectors"]
+  E --> H["stage5_pattern"]
+  G --> I["T1-T9 Taxonomy"]
+  H --> I
+  I --> J["Metrics + Reports"]
