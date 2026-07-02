@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import hashlib
 import json
+import re
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from typing import TypeAlias
@@ -16,41 +18,132 @@ AuditValue: TypeAlias = (
     | dict[str, "AuditValue"]
 )
 
-_BODY_FIELD_NAMES = frozenset(
+_BODY_KEY_COMPONENTS = frozenset(
     {
         "answer",
-        "answer_body",
         "body",
         "content",
+        "context",
         "document",
-        "document_body",
-        "document_content",
-        "final_answer",
+        "documenttext",
+        "documents",
+        "message",
+        "messages",
+        "output",
+        "prompt",
+        "rawresponse",
+        "response",
+        "text",
+    }
+)
+_BODY_KEY_PATTERN = re.compile(
+    "|".join(
+        re.escape(component)
+        for component in sorted(_BODY_KEY_COMPONENTS, key=len, reverse=True)
+    )
+)
+_FORBIDDEN_PIPELINE_FIELD_NAMES = frozenset(
+    {
+        "poisoned",
+        "label",
+        "attack_goal",
+        "expected_answer",
+        "failure_type",
+        "ground_truth",
     }
 )
 
 
+def _normalize_audit_key(key: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", key.casefold())
+
+
+def _is_body_bearing_key(key: str) -> bool:
+    return _BODY_KEY_PATTERN.search(_normalize_audit_key(key)) is not None
+
+
+def _canonical_hash_value(value: object) -> AuditValue:
+    if isinstance(value, Mapping):
+        if not all(isinstance(key, str) for key in value):
+            raise TypeError("audit mapping keys must be strings")
+        return {
+            key: _canonical_hash_value(value[key])
+            for key in sorted(value)
+        }
+    if isinstance(value, Sequence) and not isinstance(value, (str, bytes, bytearray)):
+        return [_canonical_hash_value(item) for item in value]
+    if value is None or isinstance(value, (str, int, float, bool)):
+        return value
+    raise TypeError(f"unsupported audit value type: {type(value).__name__}")
+
+
+def _body_fingerprint(value: object) -> dict[str, AuditValue]:
+    if isinstance(value, str):
+        payload = value.encode("utf-8")
+        length = len(value)
+    elif isinstance(value, (bytes, bytearray)):
+        payload = bytes(value)
+        length = len(value)
+    else:
+        try:
+            canonical = _canonical_hash_value(value)
+        except TypeError as error:
+            raise ValueError(
+                "body-bearing audit fields must contain deterministic values"
+            ) from error
+        payload = json.dumps(
+            canonical,
+            ensure_ascii=True,
+            separators=(",", ":"),
+            sort_keys=True,
+        ).encode("utf-8")
+        length = len(value) if isinstance(value, (Mapping, Sequence)) else len(payload)
+    return {
+        "sha256": hashlib.sha256(payload).hexdigest(),
+        "length": length,
+    }
+
+
+def _find_forbidden_pipeline_field(
+    value: object,
+    path: str = "$",
+) -> tuple[str, str] | None:
+    if isinstance(value, Mapping):
+        for key, nested_value in value.items():
+            if isinstance(key, str) and key in _FORBIDDEN_PIPELINE_FIELD_NAMES:
+                return key, f"{path}.{key}"
+            found = _find_forbidden_pipeline_field(
+                nested_value,
+                f"{path}.{key}",
+            )
+            if found is not None:
+                return found
+    elif isinstance(value, Sequence) and not isinstance(
+        value,
+        (str, bytes, bytearray),
+    ):
+        for index, nested_value in enumerate(value):
+            found = _find_forbidden_pipeline_field(
+                nested_value,
+                f"{path}[{index}]",
+            )
+            if found is not None:
+                return found
+    return None
+
+
 def _canonical_audit_value(value: object) -> AuditValue:
     if isinstance(value, Mapping):
+        if not all(isinstance(key, str) for key in value):
+            raise TypeError("audit mapping keys must be strings")
         result: dict[str, AuditValue] = {}
         for key in sorted(value):
-            if not isinstance(key, str):
-                raise TypeError("audit mapping keys must be strings")
-            if key.lower() in _BODY_FIELD_NAMES:
-                continue
-            result[key] = _canonical_audit_value(value[key])
+            nested_value = value[key]
+            if _is_body_bearing_key(key):
+                result[key] = _body_fingerprint(nested_value)
+            else:
+                result[key] = _canonical_audit_value(nested_value)
         return result
-    if isinstance(value, (set, frozenset)):
-        serialized = [_canonical_audit_value(item) for item in value]
-        return sorted(
-            serialized,
-            key=lambda item: json.dumps(
-                item,
-                ensure_ascii=True,
-                separators=(",", ":"),
-                sort_keys=True,
-            ),
-        )
     if isinstance(value, Sequence) and not isinstance(value, (str, bytes, bytearray)):
         return [_canonical_audit_value(item) for item in value]
     if value is None or isinstance(value, (str, int, float, bool)):
@@ -84,6 +177,15 @@ class QueryRecord:
     retrieval_query: str
     generation_question: str
     expected_clean_doc_ids: tuple[str, ...]
+    metadata: Mapping[str, object]
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.metadata, Mapping):
+            raise ValueError("metadata must be a mapping")
+        forbidden = _find_forbidden_pipeline_field(self.metadata, "$.metadata")
+        if forbidden is not None:
+            field_name, path = forbidden
+            raise ValueError(f"forbidden field '{field_name}' at {path}")
 
 
 @dataclass(frozen=True)

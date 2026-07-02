@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import unittest
 from dataclasses import FrozenInstanceError, fields
@@ -15,6 +16,7 @@ from codeguarder.stage6_rag.contracts.models import (
 )
 from codeguarder.stage6_rag.contracts.schemas import (
     FORBIDDEN_PIPELINE_FIELDS,
+    REQUIRED_DOCUMENT_FIELDS,
     validate_document,
     validate_document_collection,
 )
@@ -87,33 +89,56 @@ class ModelContractTests(unittest.TestCase):
             TrustAssessment.off(),
         )
 
-    def test_all_pipeline_dataclasses_are_frozen_and_have_no_ground_truth_fields(self):
-        model_types = (
-            DocumentRecord,
-            QueryRecord,
-            RetrievalEvidence,
-            EvidenceSignal,
-            TrustAssessment,
-            RAGAttemptRecord,
-            RAGSecurityEnvelope,
-        )
-
-        for model_type in model_types:
-            with self.subTest(model=model_type.__name__):
-                self.assertTrue(model_type.__dataclass_params__.frozen)
-                self.assertTrue(
-                    FORBIDDEN_PIPELINE_FIELDS.isdisjoint(
-                        field.name for field in fields(model_type)
-                    )
-                )
-
-        document = DocumentRecord(**valid_document())
-        with self.assertRaises(FrozenInstanceError):
-            document.doc_id = "changed"
-
-    def test_attempt_record_has_exact_semantic_fields(self):
-        self.assertEqual(
-            (
+    def test_all_pipeline_dataclasses_are_frozen_and_have_exact_fields(self):
+        expected_fields = {
+            DocumentRecord: (
+                "doc_id",
+                "content",
+                "source_id",
+                "source_type",
+                "timestamp",
+                "version",
+                "content_hash",
+            ),
+            QueryRecord: (
+                "query_id",
+                "attack_id",
+                "category",
+                "retrieval_query",
+                "generation_question",
+                "expected_clean_doc_ids",
+                "metadata",
+            ),
+            RetrievalEvidence: (
+                "query_id",
+                "doc_id",
+                "rank",
+                "distance",
+                "similarity",
+                "source_id",
+                "source_type",
+                "timestamp",
+                "version",
+                "content_hash",
+                "content_ref",
+            ),
+            EvidenceSignal: (
+                "signal_type",
+                "query_id",
+                "doc_ids",
+                "value",
+                "features",
+                "method_version",
+                "evidence_hash",
+            ),
+            TrustAssessment: (
+                "mode",
+                "aggregate_score",
+                "ranking_changed",
+                "blocked_doc_ids",
+                "signals",
+            ),
+            RAGAttemptRecord: (
                 "attempt_id",
                 "run_id",
                 "query_id",
@@ -133,8 +158,58 @@ class ModelContractTests(unittest.TestCase):
                 "latency",
                 "validation_status",
             ),
-            tuple(field.name for field in fields(RAGAttemptRecord)),
+            RAGSecurityEnvelope: (
+                "query_id",
+                "retrieved_doc_ids",
+                "evidence_hashes",
+                "trust_signal_summary",
+                "retrieval_policy",
+                "failure_types",
+                "context_hash",
+                "final_answer_hash",
+                "run_id",
+            ),
+        }
+
+        for model_type, expected in expected_fields.items():
+            with self.subTest(model=model_type.__name__):
+                self.assertTrue(model_type.__dataclass_params__.frozen)
+                self.assertEqual(
+                    expected,
+                    tuple(field.name for field in fields(model_type)),
+                )
+                self.assertTrue(
+                    FORBIDDEN_PIPELINE_FIELDS.isdisjoint(
+                        field.name for field in fields(model_type)
+                    )
+                )
+
+        document = DocumentRecord(**valid_document())
+        with self.assertRaises(FrozenInstanceError):
+            document.doc_id = "changed"
+
+    def test_query_record_rejects_nested_ground_truth_metadata(self):
+        safe_query = QueryRecord(
+            query_id="query-1",
+            attack_id=None,
+            category="benign",
+            retrieval_query="policy",
+            generation_question="What is the policy?",
+            expected_clean_doc_ids=("doc-1",),
+            metadata={"source": "fixture", "tags": ["clean"]},
         )
+        self.assertEqual("fixture", safe_query.metadata["source"])
+
+        with self.assertRaisesRegex(ValueError, "forbidden field.*ground_truth"):
+            QueryRecord(
+                query_id="query-2",
+                attack_id=None,
+                category="benign",
+                retrieval_query="policy",
+                generation_question="What is the policy?",
+                expected_clean_doc_ids=("doc-1",),
+                metadata={"nested": [{"ground_truth": "clean"}]},
+            )
 
     def test_attempt_audit_serialization_is_deterministic_and_safe(self):
         first = self._attempt(
@@ -175,6 +250,63 @@ class ModelContractTests(unittest.TestCase):
             "doc-1",
             first.to_audit_dict()["retrieval_evidence"][0]["doc_id"],
         )
+
+    def test_attempt_audit_fingerprints_body_aliases_and_keeps_metadata(self):
+        sentinels = {
+            "raw_response": "RAW RESPONSE SENTINEL",
+            "text": "TEXT SENTINEL",
+            "document_text": "DOCUMENT TEXT SENTINEL",
+            "prompt": "PROMPT SENTINEL",
+            "messages": "MESSAGES SENTINEL",
+        }
+        attempt = self._attempt(
+            retrieval_policy={
+                "model_name": "retriever-v1",
+                "nested": {
+                    "RAW-Response": sentinels["raw_response"],
+                    "Document.Text": sentinels["document_text"],
+                },
+            },
+            detector_results={
+                "detector_source": "guard",
+                "score": 0.8,
+                "TeXt": sentinels["text"],
+                "deeper": [
+                    {"Prompt": sentinels["prompt"]},
+                    {"MESSAGES": sentinels["messages"]},
+                ],
+            },
+            evidence_signals=(signal(),),
+        )
+
+        audit = attempt.to_audit_dict()
+        serialized = json.dumps(audit)
+
+        for sentinel in sentinels.values():
+            self.assertNotIn(sentinel, serialized)
+        self.assertEqual("retriever-v1", audit["retrieval_policy"]["model_name"])
+        self.assertEqual("guard", audit["detector_results"]["detector_source"])
+        self.assertEqual(0.8, audit["detector_results"]["score"])
+        self.assertEqual(
+            {
+                "sha256": hashlib.sha256(
+                    sentinels["raw_response"].encode("utf-8")
+                ).hexdigest(),
+                "length": len(sentinels["raw_response"]),
+            },
+            audit["retrieval_policy"]["nested"]["RAW-Response"],
+        )
+
+    def test_attempt_audit_rejects_non_json_set_values(self):
+        attempt = self._attempt(
+            retrieval_policy={"top_k": 2},
+            detector_results={"score": 0.8},
+            evidence_signals=(signal(),),
+            metrics={"sample_ids": {"sample-2", "sample-1"}},
+        )
+
+        with self.assertRaisesRegex(TypeError, "unsupported audit value type: set"):
+            attempt.to_audit_dict()
 
     def test_security_envelope_audit_serialization_is_deterministic_and_safe(self):
         first = RAGSecurityEnvelope(
@@ -218,12 +350,51 @@ class ModelContractTests(unittest.TestCase):
             first.to_audit_dict()["retrieved_doc_ids"],
         )
 
+    def test_security_envelope_fingerprints_nested_body_aliases(self):
+        sentinels = (
+            "OUTPUT SENTINEL",
+            "CONTEXT SENTINEL",
+            "DOCUMENT SENTINEL",
+        )
+        envelope = RAGSecurityEnvelope(
+            query_id="query-1",
+            retrieved_doc_ids=("doc-1",),
+            evidence_hashes=("a" * 64,),
+            trust_signal_summary={
+                "detector_source": "trust-engine",
+                "score": 0.6,
+                "nested": {
+                    "OUTPUT": sentinels[0],
+                    "Con.Text": sentinels[1],
+                    "documents": [{"body": sentinels[2]}],
+                },
+            },
+            retrieval_policy={"model_name": "retriever-v1"},
+            failure_types=(),
+            context_hash="c" * 64,
+            final_answer_hash="d" * 64,
+            run_id="run-1",
+        )
+
+        audit = envelope.to_audit_dict()
+        serialized = json.dumps(audit)
+
+        for sentinel in sentinels:
+            self.assertNotIn(sentinel, serialized)
+        self.assertEqual(
+            "trust-engine",
+            audit["trust_signal_summary"]["detector_source"],
+        )
+        self.assertEqual(0.6, audit["trust_signal_summary"]["score"])
+        self.assertEqual("retriever-v1", audit["retrieval_policy"]["model_name"])
+
     @staticmethod
     def _attempt(
         *,
         retrieval_policy: dict[str, object],
         detector_results: dict[str, object],
         evidence_signals: tuple[EvidenceSignal, ...],
+        metrics: dict[str, object] | None = None,
     ) -> RAGAttemptRecord:
         return RAGAttemptRecord(
             attempt_id="attempt-1",
@@ -240,7 +411,11 @@ class ModelContractTests(unittest.TestCase):
             final_answer_hash="d" * 64,
             final_answer_length=42,
             detector_results=detector_results,
-            metrics={"faithfulness": {"rate": 0.5}},
+            metrics=(
+                metrics
+                if metrics is not None
+                else {"faithfulness": {"rate": 0.5}}
+            ),
             failure_types=("T10",),
             latency={"total_ms": 12.5},
             validation_status="valid",
@@ -248,6 +423,31 @@ class ModelContractTests(unittest.TestCase):
 
 
 class DocumentSchemaTests(unittest.TestCase):
+    def test_schema_field_sets_are_exact(self):
+        self.assertEqual(
+            {
+                "doc_id",
+                "content",
+                "source_id",
+                "source_type",
+                "timestamp",
+                "version",
+                "content_hash",
+            },
+            REQUIRED_DOCUMENT_FIELDS,
+        )
+        self.assertEqual(
+            {
+                "poisoned",
+                "label",
+                "attack_goal",
+                "expected_answer",
+                "failure_type",
+                "ground_truth",
+            },
+            FORBIDDEN_PIPELINE_FIELDS,
+        )
+
     def test_valid_document_is_converted_to_record(self):
         self.assertEqual(
             DocumentRecord(**valid_document()),
@@ -281,6 +481,9 @@ class DocumentSchemaTests(unittest.TestCase):
         invalid_timestamps = (
             "2026-07-01T00:00:00",
             "2026-07-01T08:00:00+08:00",
+            "2026-07-01X00:00:00Z",
+            "2026-07-01 00:00:00Z",
+            "2026-07-01t00:00:00Z",
             "not-a-timestamp",
         )
 
@@ -288,6 +491,21 @@ class DocumentSchemaTests(unittest.TestCase):
             with self.subTest(timestamp=timestamp):
                 with self.assertRaisesRegex(ValueError, "timestamp"):
                     validate_document(valid_document(timestamp=timestamp))
+
+    def test_accepts_canonical_utc_timestamp_forms(self):
+        timestamps = (
+            "2026-07-01T00:00:00Z",
+            "2026-07-01T00:00:00.123456Z",
+            "2026-07-01T00:00:00+00:00",
+            "2026-07-01T00:00:00.5+00:00",
+        )
+
+        for timestamp in timestamps:
+            with self.subTest(timestamp=timestamp):
+                self.assertEqual(
+                    timestamp,
+                    validate_document(valid_document(timestamp=timestamp)).timestamp,
+                )
 
     def test_rejects_invalid_or_non_lowercase_sha256_hash(self):
         invalid_hashes = ("a" * 63, "A" * 64, "g" * 64)
