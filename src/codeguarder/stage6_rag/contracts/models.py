@@ -1,10 +1,11 @@
 from __future__ import annotations
 
-import hashlib
 import json
+import math
 import re
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+from types import MappingProxyType
 from typing import TypeAlias
 
 
@@ -18,30 +19,6 @@ AuditValue: TypeAlias = (
     | dict[str, "AuditValue"]
 )
 
-_BODY_KEY_COMPONENTS = frozenset(
-    {
-        "answer",
-        "body",
-        "content",
-        "context",
-        "document",
-        "documenttext",
-        "documents",
-        "message",
-        "messages",
-        "output",
-        "prompt",
-        "rawresponse",
-        "response",
-        "text",
-    }
-)
-_BODY_KEY_PATTERN = re.compile(
-    "|".join(
-        re.escape(component)
-        for component in sorted(_BODY_KEY_COMPONENTS, key=len, reverse=True)
-    )
-)
 _FORBIDDEN_PIPELINE_FIELD_NAMES = frozenset(
     {
         "poisoned",
@@ -52,56 +29,79 @@ _FORBIDDEN_PIPELINE_FIELD_NAMES = frozenset(
         "ground_truth",
     }
 )
+_NORMALIZED_FORBIDDEN_PIPELINE_FIELDS = frozenset(
+    re.sub(r"[^a-z0-9]+", "", name.casefold())
+    for name in _FORBIDDEN_PIPELINE_FIELD_NAMES
+)
 
-
-def _normalize_audit_key(key: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "", key.casefold())
-
-
-def _is_body_bearing_key(key: str) -> bool:
-    return _BODY_KEY_PATTERN.search(_normalize_audit_key(key)) is not None
-
-
-def _canonical_hash_value(value: object) -> AuditValue:
-    if isinstance(value, Mapping):
-        if not all(isinstance(key, str) for key in value):
-            raise TypeError("audit mapping keys must be strings")
-        return {
-            key: _canonical_hash_value(value[key])
-            for key in sorted(value)
-        }
-    if isinstance(value, Sequence) and not isinstance(value, (str, bytes, bytearray)):
-        return [_canonical_hash_value(item) for item in value]
-    if value is None or isinstance(value, (str, int, float, bool)):
-        return value
-    raise TypeError(f"unsupported audit value type: {type(value).__name__}")
-
-
-def _body_fingerprint(value: object) -> dict[str, AuditValue]:
-    if isinstance(value, str):
-        payload = value.encode("utf-8")
-        length = len(value)
-    elif isinstance(value, (bytes, bytearray)):
-        payload = bytes(value)
-        length = len(value)
-    else:
-        try:
-            canonical = _canonical_hash_value(value)
-        except TypeError as error:
-            raise ValueError(
-                "body-bearing audit fields must contain deterministic values"
-            ) from error
-        payload = json.dumps(
-            canonical,
-            ensure_ascii=True,
-            separators=(",", ":"),
-            sort_keys=True,
-        ).encode("utf-8")
-        length = len(value) if isinstance(value, (Mapping, Sequence)) else len(payload)
-    return {
-        "sha256": hashlib.sha256(payload).hexdigest(),
-        "length": length,
+_GENERATOR_AUDIT_KEYS = frozenset(
+    {
+        "provider",
+        "model",
+        "model_name",
+        "seed",
+        "temperature",
+        "max_tokens",
+        "revision",
     }
+)
+_DETECTOR_RESULT_AUDIT_KEYS = frozenset(
+    {
+        "detector_id",
+        "detector_name",
+        "detector_source",
+        "passed",
+        "score",
+        "matched",
+        "rule_ids",
+        "output_hash",
+        "output_length",
+        "method_version",
+    }
+)
+_METRICS_AUDIT_KEYS = frozenset(
+    {
+        "rpr",
+        "cir",
+        "rmsr",
+        "faithfulness",
+        "cross_layer_leakage",
+        "retrieval_poison_rate",
+        "context_injection_rate",
+        "retrieval_manipulation_success_rate",
+        "cross_layer_leakage_rate",
+    }
+)
+_LATENCY_AUDIT_KEYS = frozenset(
+    {
+        "retrieval_ms",
+        "evidence_ms",
+        "trust_ms",
+        "context_ms",
+        "generation_ms",
+        "evaluation_ms",
+        "total_ms",
+    }
+)
+_VALIDATION_STATUS_AUDIT_KEYS = frozenset(
+    {
+        "status",
+        "valid",
+        "issue_codes",
+        "method_version",
+    }
+)
+_TRUST_SIGNAL_SUMMARY_AUDIT_KEYS = frozenset(
+    {
+        "signal_count",
+        "signal_types",
+        "method_versions",
+        "evidence_hashes",
+        "aggregate_score",
+        "ranking_changed",
+        "blocked_doc_ids",
+    }
+)
 
 
 def _find_forbidden_pipeline_field(
@@ -110,18 +110,20 @@ def _find_forbidden_pipeline_field(
 ) -> tuple[str, str] | None:
     if isinstance(value, Mapping):
         for key, nested_value in value.items():
-            if isinstance(key, str) and key in _FORBIDDEN_PIPELINE_FIELD_NAMES:
-                return key, f"{path}.{key}"
+            if isinstance(key, str):
+                normalized_key = re.sub(r"[^a-z0-9]+", "", key.casefold())
+                if normalized_key in _NORMALIZED_FORBIDDEN_PIPELINE_FIELDS:
+                    return key, f"{path}.{key}"
             found = _find_forbidden_pipeline_field(
                 nested_value,
                 f"{path}.{key}",
             )
             if found is not None:
                 return found
-    elif isinstance(value, Sequence) and not isinstance(
-        value,
-        (str, bytes, bytearray),
-    ):
+    elif (
+        isinstance(value, Sequence)
+        and not isinstance(value, (str, bytes, bytearray))
+    ) or isinstance(value, (set, frozenset)):
         for index, nested_value in enumerate(value):
             found = _find_forbidden_pipeline_field(
                 nested_value,
@@ -132,30 +134,94 @@ def _find_forbidden_pipeline_field(
     return None
 
 
-def _canonical_audit_value(value: object) -> AuditValue:
+def _deep_freeze(value: object) -> object:
     if isinstance(value, Mapping):
         if not all(isinstance(key, str) for key in value):
-            raise TypeError("audit mapping keys must be strings")
-        result: dict[str, AuditValue] = {}
-        for key in sorted(value):
-            nested_value = value[key]
-            if _is_body_bearing_key(key):
-                result[key] = _body_fingerprint(nested_value)
-            else:
-                result[key] = _canonical_audit_value(nested_value)
-        return result
+            raise TypeError("mapping keys must be strings")
+        return MappingProxyType(
+            {
+                key: _deep_freeze(value[key])
+                for key in sorted(value)
+            }
+        )
     if isinstance(value, Sequence) and not isinstance(value, (str, bytes, bytearray)):
-        return [_canonical_audit_value(item) for item in value]
+        return tuple(_deep_freeze(item) for item in value)
+    if isinstance(value, (set, frozenset)):
+        frozen_items = tuple(_deep_freeze(item) for item in value)
+        return tuple(sorted(frozen_items, key=_frozen_sort_key))
     if value is None or isinstance(value, (str, int, float, bool)):
         return value
-    raise TypeError(f"unsupported audit value type: {type(value).__name__}")
+    raise TypeError(f"unsupported immutable value type: {type(value).__name__}")
 
 
-def _canonical_audit_mapping(value: Mapping[str, object]) -> dict[str, AuditValue]:
-    serialized = _canonical_audit_value(value)
-    if not isinstance(serialized, dict):
-        raise TypeError("audit value must be a mapping")
-    return serialized
+def _frozen_sort_key(value: object) -> str:
+    return json.dumps(
+        _thaw_json_value(value),
+        ensure_ascii=True,
+        separators=(",", ":"),
+        sort_keys=True,
+    )
+
+
+def _thaw_json_value(value: object) -> AuditValue:
+    if isinstance(value, Mapping):
+        return {
+            key: _thaw_json_value(value[key])
+            for key in sorted(value)
+        }
+    if isinstance(value, tuple):
+        return [_thaw_json_value(item) for item in value]
+    return _audit_scalar(value, "value")
+
+
+def _freeze_mapping(
+    value: Mapping[str, object],
+    field_name: str,
+) -> Mapping[str, object]:
+    if not isinstance(value, Mapping):
+        raise ValueError(f"{field_name} must be a mapping")
+    frozen = _deep_freeze(value)
+    assert isinstance(frozen, Mapping)
+    return frozen
+
+
+def _audit_scalar(value: object, path: str) -> str | int | float | bool | None:
+    if value is None or isinstance(value, (str, bool, int)):
+        return value
+    if isinstance(value, float) and math.isfinite(value):
+        return value
+    raise ValueError(f"{path} must contain only JSON-safe scalar values")
+
+
+def _audit_sequence(value: object, path: str) -> list[AuditValue]:
+    if not isinstance(value, tuple):
+        raise ValueError(f"{path} must be a deterministic sequence")
+    return [_audit_scalar(item, path) for item in value]
+
+
+def _allowlisted_audit_mapping(
+    value: Mapping[str, object],
+    *,
+    allowed_keys: frozenset[str],
+    sequence_keys: frozenset[str] = frozenset(),
+    field_name: str,
+) -> dict[str, AuditValue]:
+    unknown = set(value) - allowed_keys
+    if unknown:
+        raise ValueError(f"{field_name} contains unknown keys: {sorted(unknown)}")
+
+    result: dict[str, AuditValue] = {}
+    for key in sorted(value):
+        item = value[key]
+        if isinstance(item, Mapping):
+            raise ValueError(f"{field_name}.{key} nested mappings are not allowed")
+        if key in sequence_keys:
+            result[key] = _audit_sequence(item, f"{field_name}.{key}")
+        else:
+            if isinstance(item, tuple):
+                raise ValueError(f"{field_name}.{key} sequences are not allowed")
+            result[key] = _audit_scalar(item, f"{field_name}.{key}")
+    return result
 
 
 @dataclass(frozen=True)
@@ -186,6 +252,16 @@ class QueryRecord:
         if forbidden is not None:
             field_name, path = forbidden
             raise ValueError(f"forbidden field '{field_name}' at {path}")
+        object.__setattr__(
+            self,
+            "expected_clean_doc_ids",
+            tuple(self.expected_clean_doc_ids),
+        )
+        object.__setattr__(
+            self,
+            "metadata",
+            _freeze_mapping(self.metadata, "metadata"),
+        )
 
 
 @dataclass(frozen=True)
@@ -228,13 +304,21 @@ class EvidenceSignal:
     method_version: str
     evidence_hash: str
 
+    def __post_init__(self) -> None:
+        object.__setattr__(self, "doc_ids", tuple(self.doc_ids))
+        object.__setattr__(
+            self,
+            "features",
+            _freeze_mapping(self.features, "features"),
+        )
+
     def to_audit_dict(self) -> dict[str, AuditValue]:
         return {
             "signal_type": self.signal_type,
             "query_id": self.query_id,
             "doc_ids": list(self.doc_ids),
             "value": self.value,
-            "features": _canonical_audit_mapping(self.features),
+            "features": _thaw_json_value(self.features),
             "method_version": self.method_version,
             "evidence_hash": self.evidence_hash,
         }
@@ -247,6 +331,10 @@ class TrustAssessment:
     ranking_changed: bool
     blocked_doc_ids: tuple[str, ...]
     signals: tuple[EvidenceSignal, ...]
+
+    def __post_init__(self) -> None:
+        object.__setattr__(self, "blocked_doc_ids", tuple(self.blocked_doc_ids))
+        object.__setattr__(self, "signals", tuple(self.signals))
 
     @classmethod
     def off(cls) -> TrustAssessment:
@@ -276,7 +364,7 @@ class RAGAttemptRecord:
     query_id: str
     attack_id: str | None
     guard_mode: str
-    retrieval_policy: Mapping[str, object]
+    retrieval_policy: str
     retrieval_evidence: tuple[RetrievalEvidence, ...]
     evidence_signals: tuple[EvidenceSignal, ...]
     context_hash: str
@@ -284,11 +372,54 @@ class RAGAttemptRecord:
     generator: Mapping[str, object]
     final_answer_hash: str
     final_answer_length: int
-    detector_results: Mapping[str, object]
+    detector_results: tuple[Mapping[str, object], ...]
     metrics: Mapping[str, object]
     failure_types: tuple[str, ...]
     latency: Mapping[str, object]
-    validation_status: str
+    validation_status: Mapping[str, object]
+
+    def __post_init__(self) -> None:
+        if self.retrieval_policy not in {"off", "observe"}:
+            raise ValueError("retrieval_policy must be 'off' or 'observe'")
+        object.__setattr__(
+            self,
+            "retrieval_evidence",
+            tuple(self.retrieval_evidence),
+        )
+        object.__setattr__(
+            self,
+            "evidence_signals",
+            tuple(self.evidence_signals),
+        )
+        object.__setattr__(self, "failure_types", tuple(self.failure_types))
+        object.__setattr__(
+            self,
+            "generator",
+            _freeze_mapping(self.generator, "generator"),
+        )
+        object.__setattr__(
+            self,
+            "detector_results",
+            tuple(
+                _freeze_mapping(result, "detector_results item")
+                for result in self.detector_results
+            ),
+        )
+        object.__setattr__(
+            self,
+            "metrics",
+            _freeze_mapping(self.metrics, "metrics"),
+        )
+        object.__setattr__(
+            self,
+            "latency",
+            _freeze_mapping(self.latency, "latency"),
+        )
+        object.__setattr__(
+            self,
+            "validation_status",
+            _freeze_mapping(self.validation_status, "validation_status"),
+        )
 
     def to_audit_dict(self) -> dict[str, AuditValue]:
         return {
@@ -297,7 +428,7 @@ class RAGAttemptRecord:
             "query_id": self.query_id,
             "attack_id": self.attack_id,
             "guard_mode": self.guard_mode,
-            "retrieval_policy": _canonical_audit_mapping(self.retrieval_policy),
+            "retrieval_policy": self.retrieval_policy,
             "retrieval_evidence": [
                 item.to_audit_dict() for item in self.retrieval_evidence
             ],
@@ -306,14 +437,39 @@ class RAGAttemptRecord:
             ],
             "context_hash": self.context_hash,
             "context_length": self.context_length,
-            "generator": _canonical_audit_mapping(self.generator),
+            "generator": _allowlisted_audit_mapping(
+                self.generator,
+                allowed_keys=_GENERATOR_AUDIT_KEYS,
+                field_name="generator",
+            ),
             "final_answer_hash": self.final_answer_hash,
             "final_answer_length": self.final_answer_length,
-            "detector_results": _canonical_audit_mapping(self.detector_results),
-            "metrics": _canonical_audit_mapping(self.metrics),
+            "detector_results": [
+                _allowlisted_audit_mapping(
+                    result,
+                    allowed_keys=_DETECTOR_RESULT_AUDIT_KEYS,
+                    sequence_keys=frozenset({"rule_ids"}),
+                    field_name="detector_results item",
+                )
+                for result in self.detector_results
+            ],
+            "metrics": _allowlisted_audit_mapping(
+                self.metrics,
+                allowed_keys=_METRICS_AUDIT_KEYS,
+                field_name="metrics",
+            ),
             "failure_types": list(self.failure_types),
-            "latency": _canonical_audit_mapping(self.latency),
-            "validation_status": self.validation_status,
+            "latency": _allowlisted_audit_mapping(
+                self.latency,
+                allowed_keys=_LATENCY_AUDIT_KEYS,
+                field_name="latency",
+            ),
+            "validation_status": _allowlisted_audit_mapping(
+                self.validation_status,
+                allowed_keys=_VALIDATION_STATUS_AUDIT_KEYS,
+                sequence_keys=frozenset({"issue_codes"}),
+                field_name="validation_status",
+            ),
         }
 
 
@@ -323,21 +479,54 @@ class RAGSecurityEnvelope:
     retrieved_doc_ids: tuple[str, ...]
     evidence_hashes: tuple[str, ...]
     trust_signal_summary: Mapping[str, object]
-    retrieval_policy: Mapping[str, object]
+    retrieval_policy: str
     failure_types: tuple[str, ...]
     context_hash: str
     final_answer_hash: str
     run_id: str
+
+    def __post_init__(self) -> None:
+        if self.retrieval_policy not in {"off", "observe"}:
+            raise ValueError("retrieval_policy must be 'off' or 'observe'")
+        object.__setattr__(
+            self,
+            "retrieved_doc_ids",
+            tuple(self.retrieved_doc_ids),
+        )
+        object.__setattr__(
+            self,
+            "evidence_hashes",
+            tuple(self.evidence_hashes),
+        )
+        object.__setattr__(self, "failure_types", tuple(self.failure_types))
+        object.__setattr__(
+            self,
+            "trust_signal_summary",
+            _freeze_mapping(
+                self.trust_signal_summary,
+                "trust_signal_summary",
+            ),
+        )
 
     def to_audit_dict(self) -> dict[str, AuditValue]:
         return {
             "query_id": self.query_id,
             "retrieved_doc_ids": list(self.retrieved_doc_ids),
             "evidence_hashes": list(self.evidence_hashes),
-            "trust_signal_summary": _canonical_audit_mapping(
-                self.trust_signal_summary
+            "trust_signal_summary": _allowlisted_audit_mapping(
+                self.trust_signal_summary,
+                allowed_keys=_TRUST_SIGNAL_SUMMARY_AUDIT_KEYS,
+                sequence_keys=frozenset(
+                    {
+                        "signal_types",
+                        "method_versions",
+                        "evidence_hashes",
+                        "blocked_doc_ids",
+                    }
+                ),
+                field_name="trust_signal_summary",
             ),
-            "retrieval_policy": _canonical_audit_mapping(self.retrieval_policy),
+            "retrieval_policy": self.retrieval_policy,
             "failure_types": list(self.failure_types),
             "context_hash": self.context_hash,
             "final_answer_hash": self.final_answer_hash,

@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import hashlib
 import json
 import unittest
 from dataclasses import FrozenInstanceError, fields
@@ -58,7 +57,7 @@ def signal(features: dict[str, object] | None = None) -> EvidenceSignal:
         query_id="query-1",
         doc_ids=("doc-1",),
         value=0.75,
-        features=features or {"complete": True},
+        features=features if features is not None else {"complete": True},
         method_version="1",
         evidence_hash="b" * 64,
     )
@@ -188,137 +187,189 @@ class ModelContractTests(unittest.TestCase):
         with self.assertRaises(FrozenInstanceError):
             document.doc_id = "changed"
 
-    def test_query_record_rejects_nested_ground_truth_metadata(self):
-        safe_query = QueryRecord(
+    def test_query_record_deep_freezes_caller_metadata(self):
+        tags = ["clean"]
+        labels = {"public"}
+        nested = {"tags": tags, "labels": labels}
+        metadata = {"source": "fixture", "nested": nested}
+        query = QueryRecord(
             query_id="query-1",
             attack_id=None,
             category="benign",
             retrieval_query="policy",
             generation_question="What is the policy?",
             expected_clean_doc_ids=("doc-1",),
-            metadata={"source": "fixture", "tags": ["clean"]},
+            metadata=metadata,
         )
-        self.assertEqual("fixture", safe_query.metadata["source"])
 
-        with self.assertRaisesRegex(ValueError, "forbidden field.*ground_truth"):
-            QueryRecord(
-                query_id="query-2",
-                attack_id=None,
-                category="benign",
-                retrieval_query="policy",
-                generation_question="What is the policy?",
-                expected_clean_doc_ids=("doc-1",),
-                metadata={"nested": [{"ground_truth": "clean"}]},
-            )
+        metadata["source"] = "mutated"
+        nested["added"] = True
+        tags.append("mutated")
+        labels.add("private")
+
+        self.assertEqual("fixture", query.metadata["source"])
+        self.assertEqual(
+            {"labels": ("public",), "tags": ("clean",)},
+            dict(query.metadata["nested"]),
+        )
+        with self.assertRaises(TypeError):
+            query.metadata["source"] = "blocked"
+
+    def test_query_record_rejects_normalized_forbidden_metadata_keys(self):
+        forbidden_variants = (
+            "Ground_Truth",
+            "ground-truth",
+            "GROUND TRUTH",
+            "Poisoned",
+            "LABEL",
+            "attack-goal",
+            "expected answer",
+            "failure.type",
+        )
+
+        for key in forbidden_variants:
+            with self.subTest(key=key):
+                with self.assertRaisesRegex(ValueError, "forbidden field"):
+                    QueryRecord(
+                        query_id="query-1",
+                        attack_id=None,
+                        category="benign",
+                        retrieval_query="policy",
+                        generation_question="What is the policy?",
+                        expected_clean_doc_ids=("doc-1",),
+                        metadata={"nested": [{key: "label"}]},
+                    )
+
+    def test_evidence_signal_deep_freezes_features(self):
+        counts = {"present": 4}
+        tags = ["complete"]
+        sources = {"source-1"}
+        features = {"counts": counts, "tags": tags, "sources": sources}
+        item = signal(features)
+
+        counts["present"] = 0
+        tags.append("mutated")
+        sources.add("source-2")
+
+        self.assertEqual({"present": 4}, dict(item.features["counts"]))
+        self.assertEqual(("complete",), item.features["tags"])
+        self.assertEqual(("source-1",), item.features["sources"])
+        with self.assertRaises(TypeError):
+            item.features["new"] = True
 
     def test_attempt_audit_serialization_is_deterministic_and_safe(self):
         first = self._attempt(
-            retrieval_policy={
-                "z_option": 2,
-                "content": "document body",
-                "a_option": {"second": 2, "first": 1},
-            },
-            detector_results={
-                "detector": {"score": 0.2, "answer": "answer body"}
-            },
-            evidence_signals=(
-                signal({"z": 2, "document_body": "private", "a": 1}),
+            generator={"temperature": 0, "model": "mock", "provider": "local"},
+            detector_results=(
+                {
+                    "score": 0.2,
+                    "output_length": 12,
+                    "output_hash": "a" * 64,
+                    "detector_id": "detector-1",
+                },
             ),
+            metrics={"faithfulness": 0.5, "rpr": 0.1},
+            latency={"total_ms": 12.5, "context_ms": 1.5},
+            validation_status={
+                "valid": True,
+                "status": "valid",
+                "issue_codes": (),
+            },
         )
         second = self._attempt(
-            retrieval_policy={
-                "a_option": {"first": 1, "second": 2},
-                "content": "document body",
-                "z_option": 2,
-            },
-            detector_results={
-                "detector": {"answer": "answer body", "score": 0.2}
-            },
-            evidence_signals=(
-                signal({"a": 1, "document_body": "private", "z": 2}),
+            generator={"provider": "local", "model": "mock", "temperature": 0},
+            detector_results=(
+                {
+                    "detector_id": "detector-1",
+                    "output_hash": "a" * 64,
+                    "output_length": 12,
+                    "score": 0.2,
+                },
             ),
+            metrics={"rpr": 0.1, "faithfulness": 0.5},
+            latency={"context_ms": 1.5, "total_ms": 12.5},
+            validation_status={
+                "issue_codes": (),
+                "status": "valid",
+                "valid": True,
+            },
         )
 
         first_json = json.dumps(first.to_audit_dict())
         second_json = json.dumps(second.to_audit_dict())
 
         self.assertEqual(first_json, second_json)
-        self.assertNotIn("document body", first_json)
-        self.assertNotIn("answer body", first_json)
-        self.assertNotIn("private", first_json)
+        audit = first.to_audit_dict()
+        self.assertEqual("mock", audit["generator"]["model"])
+        self.assertEqual(1.5, audit["latency"]["context_ms"])
+        self.assertEqual(
+            "a" * 64,
+            audit["detector_results"][0]["output_hash"],
+        )
+        self.assertEqual(12, audit["detector_results"][0]["output_length"])
         self.assertEqual(
             "doc-1",
-            first.to_audit_dict()["retrieval_evidence"][0]["doc_id"],
+            audit["retrieval_evidence"][0]["doc_id"],
         )
 
-    def test_attempt_audit_fingerprints_body_aliases_and_keeps_metadata(self):
-        sentinels = {
-            "raw_response": "RAW RESPONSE SENTINEL",
-            "text": "TEXT SENTINEL",
-            "document_text": "DOCUMENT TEXT SENTINEL",
-            "prompt": "PROMPT SENTINEL",
-            "messages": "MESSAGES SENTINEL",
-        }
-        attempt = self._attempt(
-            retrieval_policy={
-                "model_name": "retriever-v1",
-                "nested": {
-                    "RAW-Response": sentinels["raw_response"],
-                    "Document.Text": sentinels["document_text"],
-                },
-            },
-            detector_results={
-                "detector_source": "guard",
-                "score": 0.8,
-                "TeXt": sentinels["text"],
-                "deeper": [
-                    {"Prompt": sentinels["prompt"]},
-                    {"MESSAGES": sentinels["messages"]},
-                ],
-            },
-            evidence_signals=(signal(),),
+    def test_attempt_audit_rejects_unknown_keys_in_each_mapping(self):
+        attempts = (
+            self._attempt(generator={"model": "mock", "Completion": "secret"}),
+            self._attempt(
+                detector_results=(
+                    {"detector_id": "d1", "assistant_reply": "secret"},
+                )
+            ),
+            self._attempt(metrics={"faithfulness": 0.5, "result": "secret"}),
+            self._attempt(latency={"total_ms": 1.0, "payload": "secret"}),
+            self._attempt(
+                validation_status={"status": "invalid", "raw_response": "secret"}
+            ),
         )
 
-        audit = attempt.to_audit_dict()
-        serialized = json.dumps(audit)
+        for attempt in attempts:
+            with self.subTest(attempt=attempt):
+                with self.assertRaisesRegex(ValueError, "unknown keys"):
+                    attempt.to_audit_dict()
 
-        for sentinel in sentinels.values():
-            self.assertNotIn(sentinel, serialized)
-        self.assertEqual("retriever-v1", audit["retrieval_policy"]["model_name"])
-        self.assertEqual("guard", audit["detector_results"]["detector_source"])
-        self.assertEqual(0.8, audit["detector_results"]["score"])
-        self.assertEqual(
-            {
-                "sha256": hashlib.sha256(
-                    sentinels["raw_response"].encode("utf-8")
-                ).hexdigest(),
-                "length": len(sentinels["raw_response"]),
-            },
-            audit["retrieval_policy"]["nested"]["RAW-Response"],
-        )
+    def test_attempt_audit_rejects_nested_mapping_values(self):
+        attempt = self._attempt(generator={"model": {"payload": "secret"}})
 
-    def test_attempt_audit_rejects_non_json_set_values(self):
-        attempt = self._attempt(
-            retrieval_policy={"top_k": 2},
-            detector_results={"score": 0.8},
-            evidence_signals=(signal(),),
-            metrics={"sample_ids": {"sample-2", "sample-1"}},
-        )
-
-        with self.assertRaisesRegex(TypeError, "unsupported audit value type: set"):
+        with self.assertRaisesRegex(ValueError, "nested mappings"):
             attempt.to_audit_dict()
 
-    def test_security_envelope_audit_serialization_is_deterministic_and_safe(self):
+    def test_attempt_metadata_is_deeply_immutable(self):
+        generator = {"model": "mock"}
+        detector = {"detector_id": "d1", "rule_ids": ["R1"]}
+        metrics = {"faithfulness": 0.5}
+        attempt = self._attempt(
+            generator=generator,
+            detector_results=(detector,),
+            metrics=metrics,
+        )
+
+        generator["model"] = "mutated"
+        detector["rule_ids"].append("R2")
+        metrics["faithfulness"] = 0.0
+
+        audit = attempt.to_audit_dict()
+        self.assertEqual("mock", audit["generator"]["model"])
+        self.assertEqual(["R1"], audit["detector_results"][0]["rule_ids"])
+        self.assertEqual(0.5, audit["metrics"]["faithfulness"])
+        with self.assertRaises(TypeError):
+            attempt.generator["model"] = "blocked"
+
+    def test_security_envelope_audit_is_allowlisted_and_deterministic(self):
         first = RAGSecurityEnvelope(
             query_id="query-1",
             retrieved_doc_ids=("doc-1", "doc-2"),
             evidence_hashes=("a" * 64, "b" * 64),
             trust_signal_summary={
-                "z": 2,
-                "content": "document body",
-                "a": {"answer": "answer body", "score": 0.5},
+                "signal_types": ("provenance_signal",),
+                "signal_count": 1,
+                "aggregate_score": None,
             },
-            retrieval_policy={"top_k": 2, "method": "cosine"},
+            retrieval_policy="observe",
             failure_types=("T10",),
             context_hash="c" * 64,
             final_answer_hash="d" * 64,
@@ -329,11 +380,11 @@ class ModelContractTests(unittest.TestCase):
             retrieved_doc_ids=("doc-1", "doc-2"),
             evidence_hashes=("a" * 64, "b" * 64),
             trust_signal_summary={
-                "a": {"score": 0.5, "answer": "answer body"},
-                "content": "document body",
-                "z": 2,
+                "aggregate_score": None,
+                "signal_count": 1,
+                "signal_types": ("provenance_signal",),
             },
-            retrieval_policy={"method": "cosine", "top_k": 2},
+            retrieval_policy="observe",
             failure_types=("T10",),
             context_hash="c" * 64,
             final_answer_hash="d" * 64,
@@ -343,58 +394,85 @@ class ModelContractTests(unittest.TestCase):
         first_json = json.dumps(first.to_audit_dict())
 
         self.assertEqual(first_json, json.dumps(second.to_audit_dict()))
-        self.assertNotIn("document body", first_json)
-        self.assertNotIn("answer body", first_json)
         self.assertEqual(
             ["doc-1", "doc-2"],
             first.to_audit_dict()["retrieved_doc_ids"],
         )
-
-    def test_security_envelope_fingerprints_nested_body_aliases(self):
-        sentinels = (
-            "OUTPUT SENTINEL",
-            "CONTEXT SENTINEL",
-            "DOCUMENT SENTINEL",
+        self.assertEqual(
+            ["provenance_signal"],
+            first.to_audit_dict()["trust_signal_summary"]["signal_types"],
         )
+
+    def test_security_envelope_rejects_unknown_trust_summary_keys(self):
+        aliases = (
+            "Completion",
+            "assistant_reply",
+            "content",
+            "answer",
+            "output",
+            "response",
+            "result",
+            "payload",
+            "raw_response",
+            "text",
+            "document_text",
+            "prompt",
+            "context",
+            "messages",
+            "document",
+            "documents",
+            "body",
+        )
+
+        for alias in aliases:
+            with self.subTest(alias=alias):
+                envelope = self._envelope({alias: "secret"})
+                with self.assertRaisesRegex(ValueError, "unknown keys"):
+                    envelope.to_audit_dict()
+
+    def test_security_envelope_deep_freezes_trust_summary(self):
+        signal_types = ["provenance_signal"]
+        summary = {"signal_count": 1, "signal_types": signal_types}
+        envelope = self._envelope(summary)
+
+        signal_types.append("mutated")
+        summary["signal_count"] = 0
+
+        audit = envelope.to_audit_dict()
+        self.assertEqual(1, audit["trust_signal_summary"]["signal_count"])
+        self.assertEqual(
+            ["provenance_signal"],
+            audit["trust_signal_summary"]["signal_types"],
+        )
+        with self.assertRaises(TypeError):
+            envelope.trust_signal_summary["signal_count"] = 0
+
+    @staticmethod
+    def _envelope(
+        trust_signal_summary: dict[str, object],
+    ) -> RAGSecurityEnvelope:
         envelope = RAGSecurityEnvelope(
             query_id="query-1",
             retrieved_doc_ids=("doc-1",),
             evidence_hashes=("a" * 64,),
-            trust_signal_summary={
-                "detector_source": "trust-engine",
-                "score": 0.6,
-                "nested": {
-                    "OUTPUT": sentinels[0],
-                    "Con.Text": sentinels[1],
-                    "documents": [{"body": sentinels[2]}],
-                },
-            },
-            retrieval_policy={"model_name": "retriever-v1"},
+            trust_signal_summary=trust_signal_summary,
+            retrieval_policy="observe",
             failure_types=(),
             context_hash="c" * 64,
             final_answer_hash="d" * 64,
             run_id="run-1",
         )
-
-        audit = envelope.to_audit_dict()
-        serialized = json.dumps(audit)
-
-        for sentinel in sentinels:
-            self.assertNotIn(sentinel, serialized)
-        self.assertEqual(
-            "trust-engine",
-            audit["trust_signal_summary"]["detector_source"],
-        )
-        self.assertEqual(0.6, audit["trust_signal_summary"]["score"])
-        self.assertEqual("retriever-v1", audit["retrieval_policy"]["model_name"])
+        return envelope
 
     @staticmethod
     def _attempt(
         *,
-        retrieval_policy: dict[str, object],
-        detector_results: dict[str, object],
-        evidence_signals: tuple[EvidenceSignal, ...],
+        generator: dict[str, object] | None = None,
+        detector_results: tuple[dict[str, object], ...] | None = None,
+        evidence_signals: tuple[EvidenceSignal, ...] = (),
         metrics: dict[str, object] | None = None,
+        latency: dict[str, object] | None = None,
+        validation_status: dict[str, object] | None = None,
     ) -> RAGAttemptRecord:
         return RAGAttemptRecord(
             attempt_id="attempt-1",
@@ -402,23 +480,31 @@ class ModelContractTests(unittest.TestCase):
             query_id="query-1",
             attack_id=None,
             guard_mode="observe",
-            retrieval_policy=retrieval_policy,
+            retrieval_policy="observe",
             retrieval_evidence=(evidence(),),
             evidence_signals=evidence_signals,
             context_hash="c" * 64,
             context_length=120,
-            generator={"model": "mock", "temperature": 0},
+            generator=generator if generator is not None else {"model": "mock"},
             final_answer_hash="d" * 64,
             final_answer_length=42,
-            detector_results=detector_results,
+            detector_results=(
+                detector_results
+                if detector_results is not None
+                else ({"detector_id": "detector-1", "score": 0.8},)
+            ),
             metrics=(
                 metrics
                 if metrics is not None
-                else {"faithfulness": {"rate": 0.5}}
+                else {"faithfulness": 0.5}
             ),
             failure_types=("T10",),
-            latency={"total_ms": 12.5},
-            validation_status="valid",
+            latency=latency if latency is not None else {"total_ms": 12.5},
+            validation_status=(
+                validation_status
+                if validation_status is not None
+                else {"status": "valid", "valid": True}
+            ),
         )
 
 
