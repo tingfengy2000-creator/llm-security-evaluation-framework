@@ -34,7 +34,7 @@ _NORMALIZED_FORBIDDEN_PIPELINE_FIELDS = frozenset(
     for name in _FORBIDDEN_PIPELINE_FIELD_NAMES
 )
 
-_GENERATOR_AUDIT_KEYS = frozenset(
+GENERATOR_AUDIT_KEYS = frozenset(
     {
         "provider",
         "model",
@@ -45,7 +45,7 @@ _GENERATOR_AUDIT_KEYS = frozenset(
         "revision",
     }
 )
-_DETECTOR_RESULT_AUDIT_KEYS = frozenset(
+DETECTOR_RESULT_AUDIT_KEYS = frozenset(
     {
         "detector_id",
         "detector_name",
@@ -59,7 +59,7 @@ _DETECTOR_RESULT_AUDIT_KEYS = frozenset(
         "method_version",
     }
 )
-_METRICS_AUDIT_KEYS = frozenset(
+METRICS_AUDIT_KEYS = frozenset(
     {
         "rpr",
         "cir",
@@ -72,7 +72,7 @@ _METRICS_AUDIT_KEYS = frozenset(
         "cross_layer_leakage_rate",
     }
 )
-_LATENCY_AUDIT_KEYS = frozenset(
+LATENCY_AUDIT_KEYS = frozenset(
     {
         "retrieval_ms",
         "evidence_ms",
@@ -83,7 +83,7 @@ _LATENCY_AUDIT_KEYS = frozenset(
         "total_ms",
     }
 )
-_VALIDATION_STATUS_AUDIT_KEYS = frozenset(
+VALIDATION_STATUS_AUDIT_KEYS = frozenset(
     {
         "status",
         "valid",
@@ -91,7 +91,7 @@ _VALIDATION_STATUS_AUDIT_KEYS = frozenset(
         "method_version",
     }
 )
-_TRUST_SIGNAL_SUMMARY_AUDIT_KEYS = frozenset(
+TRUST_SIGNAL_SUMMARY_AUDIT_KEYS = frozenset(
     {
         "signal_count",
         "signal_types",
@@ -155,6 +155,41 @@ _EVIDENCE_FEATURE_SEQUENCE_KEYS: Mapping[str, frozenset[str]] = MappingProxyType
     }
 )
 _NORMALIZED_GROUND_TRUTH_FIELDS = frozenset({"groundtruth"})
+_CONTENT_REF_PATTERN = re.compile(
+    r"\Achroma:[A-Za-z0-9][A-Za-z0-9._-]*"
+    r"(?::[A-Za-z0-9][A-Za-z0-9._-]*)?\Z"
+)
+_CONTENT_REF_MAX_LENGTH = 256
+
+_AUDIT_MAPPING_CONTRACTS: Mapping[
+    str,
+    tuple[frozenset[str], frozenset[str]],
+] = MappingProxyType(
+    {
+        "generator": (GENERATOR_AUDIT_KEYS, frozenset()),
+        "detector_results item": (
+            DETECTOR_RESULT_AUDIT_KEYS,
+            frozenset({"rule_ids"}),
+        ),
+        "metrics": (METRICS_AUDIT_KEYS, frozenset()),
+        "latency": (LATENCY_AUDIT_KEYS, frozenset()),
+        "validation_status": (
+            VALIDATION_STATUS_AUDIT_KEYS,
+            frozenset({"issue_codes"}),
+        ),
+        "trust_signal_summary": (
+            TRUST_SIGNAL_SUMMARY_AUDIT_KEYS,
+            frozenset(
+                {
+                    "signal_types",
+                    "method_versions",
+                    "evidence_hashes",
+                    "blocked_doc_ids",
+                }
+            ),
+        ),
+    }
+)
 
 
 def _find_normalized_field(
@@ -291,6 +326,61 @@ def _allowlisted_audit_mapping(
     return result
 
 
+def _audit_mapping_to_dict(
+    value: Mapping[str, object],
+    field_name: str,
+) -> dict[str, AuditValue]:
+    allowed_keys, sequence_keys = _AUDIT_MAPPING_CONTRACTS[field_name]
+    return _allowlisted_audit_mapping(
+        value,
+        allowed_keys=allowed_keys,
+        sequence_keys=sequence_keys,
+        field_name=field_name,
+    )
+
+
+def _validate_and_freeze_allowlisted_mapping(
+    value: Mapping[str, object],
+    *,
+    allowed_keys: frozenset[str],
+    sequence_keys: frozenset[str] = frozenset(),
+    field_name: str,
+) -> Mapping[str, object]:
+    if not isinstance(value, Mapping):
+        raise ValueError(f"{field_name} must be a mapping")
+
+    forbidden = _find_normalized_field(
+        value,
+        _NORMALIZED_GROUND_TRUTH_FIELDS,
+        f"$.{field_name}",
+    )
+    if forbidden is not None:
+        forbidden_name, path = forbidden
+        raise ValueError(f"forbidden field '{forbidden_name}' at {path}")
+
+    frozen = _freeze_mapping(value, field_name)
+    _allowlisted_audit_mapping(
+        frozen,
+        allowed_keys=allowed_keys,
+        sequence_keys=sequence_keys,
+        field_name=field_name,
+    )
+    return frozen
+
+
+def _validate_and_freeze_audit_mapping(
+    value: Mapping[str, object],
+    field_name: str,
+) -> Mapping[str, object]:
+    allowed_keys, sequence_keys = _AUDIT_MAPPING_CONTRACTS[field_name]
+    return _validate_and_freeze_allowlisted_mapping(
+        value,
+        allowed_keys=allowed_keys,
+        sequence_keys=sequence_keys,
+        field_name=field_name,
+    )
+
+
 @dataclass(frozen=True)
 class DocumentRecord:
     doc_id: str
@@ -345,6 +435,14 @@ class RetrievalEvidence:
     content_hash: str
     content_ref: str
 
+    def __post_init__(self) -> None:
+        if (
+            not isinstance(self.content_ref, str)
+            or len(self.content_ref) > _CONTENT_REF_MAX_LENGTH
+            or _CONTENT_REF_PATTERN.fullmatch(self.content_ref) is None
+        ):
+            raise ValueError("content_ref must be a bounded Chroma reference")
+
     def to_audit_dict(self) -> dict[str, AuditValue]:
         return {
             "query_id": self.query_id,
@@ -375,27 +473,20 @@ class EvidenceSignal:
         allowed_keys = EVIDENCE_FEATURE_ALLOWLISTS.get(self.signal_type)
         if allowed_keys is None:
             raise ValueError(f"unknown signal_type: {self.signal_type}")
-        if not isinstance(self.features, Mapping):
-            raise ValueError("features must be a mapping")
-
-        forbidden = _find_normalized_field(
-            self.features,
-            _NORMALIZED_GROUND_TRUTH_FIELDS,
-            "$.features",
-        )
-        if forbidden is not None:
-            field_name, path = forbidden
-            raise ValueError(f"forbidden field '{field_name}' at {path}")
-
-        unknown = set(self.features) - allowed_keys
-        if unknown:
-            raise ValueError(f"features contains unknown keys: {sorted(unknown)}")
 
         object.__setattr__(self, "doc_ids", tuple(self.doc_ids))
         object.__setattr__(
             self,
             "features",
-            _freeze_mapping(self.features, "features"),
+            _validate_and_freeze_allowlisted_mapping(
+                self.features,
+                allowed_keys=allowed_keys,
+                sequence_keys=_EVIDENCE_FEATURE_SEQUENCE_KEYS.get(
+                    self.signal_type,
+                    frozenset(),
+                ),
+                field_name="features",
+            ),
         )
 
     def to_audit_dict(self) -> dict[str, AuditValue]:
@@ -427,8 +518,21 @@ class TrustAssessment:
     signals: tuple[EvidenceSignal, ...]
 
     def __post_init__(self) -> None:
-        object.__setattr__(self, "blocked_doc_ids", tuple(self.blocked_doc_ids))
-        object.__setattr__(self, "signals", tuple(self.signals))
+        blocked_doc_ids = tuple(self.blocked_doc_ids)
+        signals = tuple(self.signals)
+        object.__setattr__(self, "blocked_doc_ids", blocked_doc_ids)
+        object.__setattr__(self, "signals", signals)
+
+        if self.mode not in {"off", "observe"}:
+            raise ValueError("mode must be 'off' or 'observe'")
+        if self.aggregate_score is not None:
+            raise ValueError("Stage 6 aggregate_score must be None")
+        if self.ranking_changed is not False:
+            raise ValueError("Stage 6 ranking_changed must be False")
+        if blocked_doc_ids:
+            raise ValueError("Stage 6 blocked_doc_ids must be empty")
+        if self.mode == "off" and signals:
+            raise ValueError("off mode must not contain signals")
 
     @classmethod
     def off(cls) -> TrustAssessment:
@@ -489,30 +593,36 @@ class RAGAttemptRecord:
         object.__setattr__(
             self,
             "generator",
-            _freeze_mapping(self.generator, "generator"),
+            _validate_and_freeze_audit_mapping(self.generator, "generator"),
         )
         object.__setattr__(
             self,
             "detector_results",
             tuple(
-                _freeze_mapping(result, "detector_results item")
+                _validate_and_freeze_audit_mapping(
+                    result,
+                    "detector_results item",
+                )
                 for result in self.detector_results
             ),
         )
         object.__setattr__(
             self,
             "metrics",
-            _freeze_mapping(self.metrics, "metrics"),
+            _validate_and_freeze_audit_mapping(self.metrics, "metrics"),
         )
         object.__setattr__(
             self,
             "latency",
-            _freeze_mapping(self.latency, "latency"),
+            _validate_and_freeze_audit_mapping(self.latency, "latency"),
         )
         object.__setattr__(
             self,
             "validation_status",
-            _freeze_mapping(self.validation_status, "validation_status"),
+            _validate_and_freeze_audit_mapping(
+                self.validation_status,
+                "validation_status",
+            ),
         )
 
     def to_audit_dict(self) -> dict[str, AuditValue]:
@@ -531,38 +641,31 @@ class RAGAttemptRecord:
             ],
             "context_hash": self.context_hash,
             "context_length": self.context_length,
-            "generator": _allowlisted_audit_mapping(
+            "generator": _audit_mapping_to_dict(
                 self.generator,
-                allowed_keys=_GENERATOR_AUDIT_KEYS,
-                field_name="generator",
+                "generator",
             ),
             "final_answer_hash": self.final_answer_hash,
             "final_answer_length": self.final_answer_length,
             "detector_results": [
-                _allowlisted_audit_mapping(
+                _audit_mapping_to_dict(
                     result,
-                    allowed_keys=_DETECTOR_RESULT_AUDIT_KEYS,
-                    sequence_keys=frozenset({"rule_ids"}),
-                    field_name="detector_results item",
+                    "detector_results item",
                 )
                 for result in self.detector_results
             ],
-            "metrics": _allowlisted_audit_mapping(
+            "metrics": _audit_mapping_to_dict(
                 self.metrics,
-                allowed_keys=_METRICS_AUDIT_KEYS,
-                field_name="metrics",
+                "metrics",
             ),
             "failure_types": list(self.failure_types),
-            "latency": _allowlisted_audit_mapping(
+            "latency": _audit_mapping_to_dict(
                 self.latency,
-                allowed_keys=_LATENCY_AUDIT_KEYS,
-                field_name="latency",
+                "latency",
             ),
-            "validation_status": _allowlisted_audit_mapping(
+            "validation_status": _audit_mapping_to_dict(
                 self.validation_status,
-                allowed_keys=_VALIDATION_STATUS_AUDIT_KEYS,
-                sequence_keys=frozenset({"issue_codes"}),
-                field_name="validation_status",
+                "validation_status",
             ),
         }
 
@@ -596,7 +699,7 @@ class RAGSecurityEnvelope:
         object.__setattr__(
             self,
             "trust_signal_summary",
-            _freeze_mapping(
+            _validate_and_freeze_audit_mapping(
                 self.trust_signal_summary,
                 "trust_signal_summary",
             ),
@@ -607,18 +710,9 @@ class RAGSecurityEnvelope:
             "query_id": self.query_id,
             "retrieved_doc_ids": list(self.retrieved_doc_ids),
             "evidence_hashes": list(self.evidence_hashes),
-            "trust_signal_summary": _allowlisted_audit_mapping(
+            "trust_signal_summary": _audit_mapping_to_dict(
                 self.trust_signal_summary,
-                allowed_keys=_TRUST_SIGNAL_SUMMARY_AUDIT_KEYS,
-                sequence_keys=frozenset(
-                    {
-                        "signal_types",
-                        "method_versions",
-                        "evidence_hashes",
-                        "blocked_doc_ids",
-                    }
-                ),
-                field_name="trust_signal_summary",
+                "trust_signal_summary",
             ),
             "retrieval_policy": self.retrieval_policy,
             "failure_types": list(self.failure_types),
