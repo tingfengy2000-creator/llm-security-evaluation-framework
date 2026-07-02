@@ -8,6 +8,13 @@ version = "0.1.0"
 description = "可复现的大模型安全评测实验项目"
 requires-python = ">=3.12"
 
+[project.optional-dependencies]
+stage6-rag = [
+    "chromadb==1.5.9",
+    "sentence-transformers==5.6.0",
+    "Pillow==12.2.0",
+]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
