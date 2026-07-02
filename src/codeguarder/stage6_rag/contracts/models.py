@@ -103,19 +103,74 @@ _TRUST_SIGNAL_SUMMARY_AUDIT_KEYS = frozenset(
     }
 )
 
+# Stage 6.1 signal extensions require an explicit feature contract.
+EVIDENCE_FEATURE_ALLOWLISTS: Mapping[str, frozenset[str]] = MappingProxyType(
+    {
+        "provenance_signal": frozenset(
+            {
+                "source_id",
+                "source_type",
+                "timestamp",
+                "version",
+                "content_hash",
+                "source_count",
+                "document_count",
+                "age_days",
+            }
+        ),
+        "embedding_anomaly_signal": frozenset(
+            {
+                "rank",
+                "distance",
+                "similarity",
+                "mean_distance",
+                "std_distance",
+                "z_score",
+                "top_k",
+            }
+        ),
+        "semantic_conflict_signal": frozenset(
+            {
+                "pair_count",
+                "conflict_count",
+                "max_conflict_score",
+                "mean_conflict_score",
+                "compared_doc_ids",
+            }
+        ),
+        "source_diversity_signal": frozenset(
+            {
+                "source_count",
+                "document_count",
+                "diversity_ratio",
+                "source_types",
+            }
+        ),
+    }
+)
+_EVIDENCE_FEATURE_SEQUENCE_KEYS: Mapping[str, frozenset[str]] = MappingProxyType(
+    {
+        "semantic_conflict_signal": frozenset({"compared_doc_ids"}),
+        "source_diversity_signal": frozenset({"source_types"}),
+    }
+)
+_NORMALIZED_GROUND_TRUTH_FIELDS = frozenset({"groundtruth"})
 
-def _find_forbidden_pipeline_field(
+
+def _find_normalized_field(
     value: object,
+    normalized_fields: frozenset[str],
     path: str = "$",
 ) -> tuple[str, str] | None:
     if isinstance(value, Mapping):
         for key, nested_value in value.items():
             if isinstance(key, str):
                 normalized_key = re.sub(r"[^a-z0-9]+", "", key.casefold())
-                if normalized_key in _NORMALIZED_FORBIDDEN_PIPELINE_FIELDS:
+                if normalized_key in normalized_fields:
                     return key, f"{path}.{key}"
-            found = _find_forbidden_pipeline_field(
+            found = _find_normalized_field(
                 nested_value,
+                normalized_fields,
                 f"{path}.{key}",
             )
             if found is not None:
@@ -125,13 +180,25 @@ def _find_forbidden_pipeline_field(
         and not isinstance(value, (str, bytes, bytearray))
     ) or isinstance(value, (set, frozenset)):
         for index, nested_value in enumerate(value):
-            found = _find_forbidden_pipeline_field(
+            found = _find_normalized_field(
                 nested_value,
+                normalized_fields,
                 f"{path}[{index}]",
             )
             if found is not None:
                 return found
     return None
+
+
+def _find_forbidden_pipeline_field(
+    value: object,
+    path: str = "$",
+) -> tuple[str, str] | None:
+    return _find_normalized_field(
+        value,
+        _NORMALIZED_FORBIDDEN_PIPELINE_FIELDS,
+        path,
+    )
 
 
 def _deep_freeze(value: object) -> object:
@@ -305,6 +372,25 @@ class EvidenceSignal:
     evidence_hash: str
 
     def __post_init__(self) -> None:
+        allowed_keys = EVIDENCE_FEATURE_ALLOWLISTS.get(self.signal_type)
+        if allowed_keys is None:
+            raise ValueError(f"unknown signal_type: {self.signal_type}")
+        if not isinstance(self.features, Mapping):
+            raise ValueError("features must be a mapping")
+
+        forbidden = _find_normalized_field(
+            self.features,
+            _NORMALIZED_GROUND_TRUTH_FIELDS,
+            "$.features",
+        )
+        if forbidden is not None:
+            field_name, path = forbidden
+            raise ValueError(f"forbidden field '{field_name}' at {path}")
+
+        unknown = set(self.features) - allowed_keys
+        if unknown:
+            raise ValueError(f"features contains unknown keys: {sorted(unknown)}")
+
         object.__setattr__(self, "doc_ids", tuple(self.doc_ids))
         object.__setattr__(
             self,
@@ -318,7 +404,15 @@ class EvidenceSignal:
             "query_id": self.query_id,
             "doc_ids": list(self.doc_ids),
             "value": self.value,
-            "features": _thaw_json_value(self.features),
+            "features": _allowlisted_audit_mapping(
+                self.features,
+                allowed_keys=EVIDENCE_FEATURE_ALLOWLISTS[self.signal_type],
+                sequence_keys=_EVIDENCE_FEATURE_SEQUENCE_KEYS.get(
+                    self.signal_type,
+                    frozenset(),
+                ),
+                field_name="features",
+            ),
             "method_version": self.method_version,
             "evidence_hash": self.evidence_hash,
         }

@@ -51,13 +51,17 @@ def evidence() -> RetrievalEvidence:
     )
 
 
-def signal(features: dict[str, object] | None = None) -> EvidenceSignal:
+def signal(
+    features: dict[str, object] | None = None,
+    *,
+    signal_type: str = "provenance_signal",
+) -> EvidenceSignal:
     return EvidenceSignal(
-        signal_type="provenance_signal",
+        signal_type=signal_type,
         query_id="query-1",
         doc_ids=("doc-1",),
         value=0.75,
-        features=features if features is not None else {"complete": True},
+        features=features if features is not None else {"source_count": 1},
         method_version="1",
         evidence_hash="b" * 64,
     )
@@ -241,21 +245,138 @@ class ModelContractTests(unittest.TestCase):
                     )
 
     def test_evidence_signal_deep_freezes_features(self):
-        counts = {"present": 4}
-        tags = ["complete"]
-        sources = {"source-1"}
-        features = {"counts": counts, "tags": tags, "sources": sources}
-        item = signal(features)
+        source_types = ["policy"]
+        features = {"source_count": 1, "source_types": source_types}
+        item = signal(features, signal_type="source_diversity_signal")
 
-        counts["present"] = 0
-        tags.append("mutated")
-        sources.add("source-2")
+        features["source_count"] = 0
+        source_types.append("mutated")
 
-        self.assertEqual({"present": 4}, dict(item.features["counts"]))
-        self.assertEqual(("complete",), item.features["tags"])
-        self.assertEqual(("source-1",), item.features["sources"])
+        self.assertEqual(1, item.features["source_count"])
+        self.assertEqual(("policy",), item.features["source_types"])
         with self.assertRaises(TypeError):
             item.features["new"] = True
+
+    def test_evidence_signal_rejects_unknown_signal_type(self):
+        with self.assertRaisesRegex(ValueError, "unknown signal_type"):
+            signal({"source_count": 1}, signal_type="future_signal")
+
+    def test_evidence_signal_rejects_body_aliases_and_ground_truth_variants(self):
+        forbidden_feature_keys = (
+            "Completion",
+            "assistant_reply",
+            "result",
+            "payload",
+            "raw_response",
+            "text",
+            "document_text",
+            "Ground_Truth",
+            "ground-truth",
+            "GROUND TRUTH",
+        )
+
+        for key in forbidden_feature_keys:
+            with self.subTest(key=key):
+                with self.assertRaisesRegex(
+                    ValueError,
+                    "unknown keys|forbidden field",
+                ):
+                    signal({key: "secret"})
+
+    def test_evidence_signal_supports_exact_features_for_all_signal_types(self):
+        feature_contracts = {
+            "provenance_signal": {
+                "source_id": "source-1",
+                "source_type": "policy",
+                "timestamp": "2026-07-01T00:00:00Z",
+                "version": "1",
+                "content_hash": "a" * 64,
+                "source_count": 2,
+                "document_count": 3,
+                "age_days": 0.5,
+            },
+            "embedding_anomaly_signal": {
+                "rank": 1,
+                "distance": 0.1,
+                "similarity": 0.9,
+                "mean_distance": 0.2,
+                "std_distance": 0.05,
+                "z_score": -2.0,
+                "top_k": 5,
+            },
+            "semantic_conflict_signal": {
+                "pair_count": 3,
+                "conflict_count": 1,
+                "max_conflict_score": 0.8,
+                "mean_conflict_score": 0.4,
+                "compared_doc_ids": ("doc-1", "doc-2"),
+            },
+            "source_diversity_signal": {
+                "source_count": 2,
+                "document_count": 3,
+                "diversity_ratio": 2 / 3,
+                "source_types": ("policy", "wiki"),
+            },
+        }
+
+        for signal_type, features in feature_contracts.items():
+            with self.subTest(signal_type=signal_type):
+                first = signal(features, signal_type=signal_type)
+                second = signal(
+                    dict(reversed(tuple(features.items()))),
+                    signal_type=signal_type,
+                )
+
+                first_audit = first.to_audit_dict()
+                second_audit = second.to_audit_dict()
+
+                self.assertEqual(
+                    json.dumps(first_audit),
+                    json.dumps(second_audit),
+                )
+                self.assertEqual(
+                    sorted(features),
+                    list(first_audit["features"]),
+                )
+                expected_features = {
+                    key: (
+                        list(value)
+                        if isinstance(value, tuple)
+                        else value
+                    )
+                    for key, value in features.items()
+                }
+                self.assertEqual(expected_features, first_audit["features"])
+
+    def test_attempt_audit_rejects_transitive_unknown_signal_features(self):
+        forbidden_feature_keys = (
+            "Completion",
+            "assistant_reply",
+            "result",
+            "payload",
+            "raw_response",
+            "text",
+            "document_text",
+            "Ground_Truth",
+            "ground-truth",
+            "GROUND TRUTH",
+        )
+
+        for key in forbidden_feature_keys:
+            with self.subTest(key=key):
+                malformed_signal = signal()
+                object.__setattr__(
+                    malformed_signal,
+                    "features",
+                    {"source_count": 1, key: "secret"},
+                )
+                attempt = self._attempt(evidence_signals=(malformed_signal,))
+
+                with self.assertRaisesRegex(
+                    ValueError,
+                    "unknown keys|forbidden field",
+                ):
+                    attempt.to_audit_dict()
 
     def test_attempt_audit_serialization_is_deterministic_and_safe(self):
         first = self._attempt(
