@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "data_version": "1.0.0",
+  "files": {
+    "queries/attack_queries.jsonl": {
+      "sha256": "7ade2c7533575639cdbaad71a03ea635f9165045c2133cc2f9f3c074502a68c8",
+      "count": 12
+    },
+    "queries/benign_queries.jsonl": {
+      "sha256": "4b3d854cae149c00d5c4fef4bc6e6d8de29109ae92ce2af748397810d413466c",
+      "count": 10
+    },
+    "documents/clean_docs.jsonl": {
+      "sha256": "f6ee1463fd192072d21975fa2667f74dc185ff5c42329e63e5bc3db20a800f50",
+      "count": 18
+    },
+    "documents/poisoned_docs.jsonl": {
+      "sha256": "874574d61ab2e4348719b39dffb4bdb0af53ea96915fb42c259ecd0b70cac49c",
+      "count": 10
+    }
+  },
+  "provenance": {
+    "method": "manually-curated-fictional-fixtures",
+    "created_at": "2026-07-01T00:00:00Z",
+    "content_scope": "retrieval-security-evaluation"
+  }
+}
