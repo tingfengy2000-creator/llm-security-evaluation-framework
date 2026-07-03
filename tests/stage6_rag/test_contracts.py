@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 import json
+import re
 import unittest
-from dataclasses import FrozenInstanceError, fields
+from dataclasses import FrozenInstanceError, fields, replace
 
 from codeguarder.stage6_rag.contracts import models as contract_models
 from codeguarder.stage6_rag.contracts.models import (
@@ -85,12 +86,7 @@ class ModelContractTests(unittest.TestCase):
 
         for content_ref in references:
             with self.subTest(content_ref=content_ref):
-                item = RetrievalEvidence(
-                    **{
-                        **evidence().__dict__,
-                        "content_ref": content_ref,
-                    }
-                )
+                item = replace(evidence(), content_ref=content_ref)
                 self.assertEqual(content_ref, item.content_ref)
 
     def test_retrieval_evidence_rejects_body_text_and_invalid_references(self):
@@ -105,12 +101,7 @@ class ModelContractTests(unittest.TestCase):
         for content_ref in invalid_references:
             with self.subTest(content_ref=content_ref):
                 with self.assertRaisesRegex(ValueError, "content_ref"):
-                    RetrievalEvidence(
-                        **{
-                            **evidence().__dict__,
-                            "content_ref": content_ref,
-                        }
-                    )
+                    replace(evidence(), content_ref=content_ref)
 
     def test_trust_assessment_observe_is_pass_through(self):
         signals = [signal()]
@@ -164,6 +155,220 @@ class ModelContractTests(unittest.TestCase):
             with self.subTest(assessment=violation):
                 with self.assertRaises(ValueError):
                     TrustAssessment(*violation)
+
+    def test_persisted_attempt_policy_matches_pass_through_signals(self):
+        off = self._attempt(
+            retrieval_policy="off",
+            evidence_signals=(),
+        )
+        observed = self._attempt(
+            retrieval_policy="observe",
+            evidence_signals=(signal(),),
+        )
+
+        self.assertEqual((), off.evidence_signals)
+        self.assertEqual(1, len(observed.evidence_signals))
+        with self.assertRaisesRegex(ValueError, "off.*evidence_signals"):
+            self._attempt(
+                retrieval_policy="off",
+                evidence_signals=(signal(),),
+            )
+
+    def test_persisted_envelope_rejects_enforcement_claims_in_both_modes(self):
+        invalid_summaries = (
+            {"aggregate_score": 0.1},
+            {"ranking_changed": True},
+            {"blocked_doc_ids": ("doc-1",)},
+        )
+
+        for retrieval_policy in ("off", "observe"):
+            for summary in invalid_summaries:
+                with self.subTest(
+                    retrieval_policy=retrieval_policy,
+                    summary=summary,
+                ):
+                    with self.assertRaisesRegex(ValueError, "pass-through"):
+                        self._envelope(
+                            summary,
+                            retrieval_policy=retrieval_policy,
+                            evidence_hashes=(),
+                        )
+
+    def test_persisted_off_envelope_rejects_signal_claims(self):
+        invalid_summaries = (
+            {
+                "signal_count": 1,
+                "signal_types": ("provenance_signal",),
+                "method_versions": ("1",),
+            },
+            {"signal_types": ("provenance_signal",)},
+            {"method_versions": ("1",)},
+        )
+
+        for summary in invalid_summaries:
+            with self.subTest(summary=summary):
+                with self.assertRaises(ValueError):
+                    self._envelope(
+                        summary,
+                        retrieval_policy="off",
+                    )
+
+    def test_persisted_off_envelope_allows_document_hashes_but_no_signals(self):
+        envelope = self._envelope(
+            {
+                "signal_count": 0,
+                "signal_types": (),
+                "method_versions": (),
+                "aggregate_score": None,
+                "ranking_changed": False,
+                "blocked_doc_ids": (),
+            },
+            retrieval_policy="off",
+        )
+
+        self.assertEqual(("doc-1",), envelope.retrieved_doc_ids)
+        self.assertEqual(("a" * 64,), envelope.evidence_hashes)
+
+    def test_strict_json_serialization_succeeds_for_all_audit_records(self):
+        records = (
+            evidence(),
+            signal(),
+            self._attempt(evidence_signals=(signal(),)),
+            self._envelope(
+                {
+                    "signal_count": 1,
+                    "signal_types": ("provenance_signal",),
+                    "method_versions": ("1",),
+                    "aggregate_score": None,
+                    "ranking_changed": False,
+                    "blocked_doc_ids": (),
+                },
+                evidence_hashes=("b" * 64,),
+            ),
+        )
+
+        for record in records:
+            with self.subTest(record=type(record).__name__):
+                json.dumps(record.to_audit_dict(), allow_nan=False)
+
+    def test_direct_document_and_query_construction_validate_runtime_types(self):
+        invalid_documents = (
+            {"doc_id": ""},
+            {"content": 1},
+            {"timestamp": "2026-07-01T08:00:00+08:00"},
+            {"content_hash": "A" * 64},
+        )
+        for overrides in invalid_documents:
+            with self.subTest(model="DocumentRecord", overrides=overrides):
+                with self.assertRaises(ValueError):
+                    DocumentRecord(**valid_document(**overrides))
+
+        invalid_queries = (
+            {"query_id": ""},
+            {"attack_id": 1},
+            {"category": " "},
+            {"retrieval_query": 1},
+            {"generation_question": ""},
+            {"expected_clean_doc_ids": "doc-1"},
+            {"expected_clean_doc_ids": ("doc-1", 2)},
+            {"metadata": []},
+        )
+        for overrides in invalid_queries:
+            with self.subTest(model="QueryRecord", overrides=overrides):
+                with self.assertRaises(ValueError):
+                    self._query(**overrides)
+
+    def test_retrieval_evidence_validates_numeric_and_scalar_semantics(self):
+        invalid_values = (
+            {"query_id": ""},
+            {"rank": 0},
+            {"rank": True},
+            {"distance": -0.1},
+            {"distance": float("nan")},
+            {"distance": float("inf")},
+            {"similarity": -1.1},
+            {"similarity": float("nan")},
+            {"timestamp": "2026-07-01T00:00:00"},
+            {"content_hash": "A" * 64},
+        )
+
+        for overrides in invalid_values:
+            with self.subTest(overrides=overrides):
+                with self.assertRaises(ValueError):
+                    replace(evidence(), **overrides)
+
+    def test_enormous_integers_are_rejected_as_path_bearing_value_errors(self):
+        enormous = 10**10000
+        invalid_builders = (
+            ("rank", lambda: replace(evidence(), rank=enormous)),
+            ("distance", lambda: replace(evidence(), distance=enormous)),
+            (
+                "$.metadata.nested.count",
+                lambda: self._query(
+                    metadata={"nested": {"count": enormous}}
+                ),
+            ),
+            (
+                "$.metrics.faithfulness",
+                lambda: self._attempt(metrics={"faithfulness": enormous}),
+            ),
+        )
+
+        for expected_path, builder in invalid_builders:
+            with self.subTest(expected_path=expected_path):
+                with self.assertRaisesRegex(ValueError, re.escape(expected_path)):
+                    builder()
+
+    def test_evidence_signal_validates_top_level_runtime_semantics(self):
+        invalid_values = (
+            {"query_id": ""},
+            {"doc_ids": "doc-1"},
+            {"doc_ids": ("doc-1", 2)},
+            {"value": True},
+            {"value": -0.1},
+            {"value": 1.1},
+            {"value": float("nan")},
+            {"method_version": ""},
+            {"evidence_hash": "A" * 64},
+        )
+
+        for overrides in invalid_values:
+            with self.subTest(overrides=overrides):
+                with self.assertRaises(ValueError):
+                    replace(signal(), **overrides)
+
+    def test_attempt_and_envelope_validate_top_level_runtime_semantics(self):
+        invalid_attempts = (
+            {"attempt_id": ""},
+            {"attack_id": 1},
+            {"guard_mode": " "},
+            {"context_length": -1},
+            {"context_length": True},
+            {"final_answer_length": -1},
+            {"context_hash": "A" * 64},
+            {"retrieval_evidence": ("not-evidence",)},
+            {"failure_types": ("T10", 1)},
+            {"detector_results": ("not-a-mapping",)},
+            {"metrics": {"faithfulness": float("nan")}},
+        )
+        for overrides in invalid_attempts:
+            with self.subTest(model="RAGAttemptRecord", overrides=overrides):
+                with self.assertRaises(ValueError):
+                    self._attempt(**overrides)
+
+        invalid_envelopes = (
+            {"query_id": ""},
+            {"retrieved_doc_ids": "doc-1"},
+            {"retrieved_doc_ids": ("doc-1", 2)},
+            {"evidence_hashes": ("A" * 64,)},
+            {"failure_types": ("T10", 1)},
+            {"context_hash": "A" * 64},
+            {"run_id": ""},
+        )
+        for overrides in invalid_envelopes:
+            with self.subTest(model="RAGSecurityEnvelope", overrides=overrides):
+                with self.assertRaises(ValueError):
+                    self._envelope({}, **overrides)
 
     def test_all_pipeline_dataclasses_are_frozen_and_have_exact_fields(self):
         expected_fields = {
@@ -334,7 +539,6 @@ class ModelContractTests(unittest.TestCase):
                     "signal_count",
                     "signal_types",
                     "method_versions",
-                    "evidence_hashes",
                     "aggregate_score",
                     "ranking_changed",
                     "blocked_doc_ids",
@@ -461,6 +665,50 @@ class ModelContractTests(unittest.TestCase):
                         metadata={"nested": [{key: "label"}]},
                     )
 
+    def test_unicode_compatibility_forbidden_keys_are_rejected_everywhere(self):
+        compatibility_key = "ｇｒｏｕｎｄ＿ｔｒｕｔｈ"
+        builders = (
+            lambda: self._query(metadata={compatibility_key: "secret"}),
+            lambda: signal({compatibility_key: "secret"}),
+            lambda: self._attempt(
+                generator={compatibility_key: "secret"}
+            ),
+            lambda: self._envelope({compatibility_key: "secret"}),
+        )
+
+        for index, builder in enumerate(builders):
+            with self.subTest(index=index):
+                with self.assertRaisesRegex(ValueError, "forbidden field"):
+                    builder()
+
+    def test_recursive_inputs_reject_cycles_and_excessive_depth(self):
+        cyclic_metadata: dict[str, object] = {}
+        cyclic_metadata["self"] = cyclic_metadata
+        cyclic_generator: dict[str, object] = {"model": "mock"}
+        cyclic_generator["self"] = cyclic_generator
+        deeply_nested: dict[str, object] = {}
+        cursor = deeply_nested
+        for _ in range(40):
+            nested: dict[str, object] = {}
+            cursor["nested"] = nested
+            cursor = nested
+
+        invalid_builders = (
+            lambda: self._query(metadata=cyclic_metadata),
+            lambda: self._attempt(generator=cyclic_generator),
+            lambda: self._query(metadata=deeply_nested),
+        )
+
+        for index, builder in enumerate(invalid_builders):
+            with self.subTest(index=index):
+                try:
+                    builder()
+                except Exception as error:
+                    self.assertIsInstance(error, ValueError)
+                    self.assertRegex(str(error), "cycle|depth")
+                else:
+                    self.fail("recursive input was accepted")
+
     def test_evidence_signal_deep_freezes_features(self):
         source_types = ["policy"]
         features = {"source_count": 1, "source_types": source_types}
@@ -473,6 +721,70 @@ class ModelContractTests(unittest.TestCase):
         self.assertEqual(("policy",), item.features["source_types"])
         with self.assertRaises(TypeError):
             item.features["new"] = True
+
+    def test_evidence_signal_rejects_invalid_typed_feature_semantics(self):
+        invalid_features = (
+            ("provenance_signal", {"source_id": " "}),
+            ("provenance_signal", {"timestamp": "2026-07-01T00:00:00"}),
+            ("provenance_signal", {"content_hash": "A" * 64}),
+            ("provenance_signal", {"source_count": "RAW DOCUMENT BODY"}),
+            ("provenance_signal", {"document_count": -1}),
+            ("provenance_signal", {"source_count": True}),
+            ("provenance_signal", {"age_days": -0.1}),
+            ("embedding_anomaly_signal", {"rank": 0}),
+            ("embedding_anomaly_signal", {"distance": -0.1}),
+            ("embedding_anomaly_signal", {"similarity": 1.1}),
+            ("embedding_anomaly_signal", {"mean_distance": float("nan")}),
+            ("embedding_anomaly_signal", {"std_distance": -0.1}),
+            ("embedding_anomaly_signal", {"z_score": float("inf")}),
+            ("embedding_anomaly_signal", {"top_k": True}),
+            ("semantic_conflict_signal", {"pair_count": -1}),
+            ("semantic_conflict_signal", {"conflict_count": True}),
+            ("semantic_conflict_signal", {"max_conflict_score": 1.1}),
+            ("semantic_conflict_signal", {"mean_conflict_score": -0.1}),
+            (
+                "semantic_conflict_signal",
+                {"compared_doc_ids": ("doc-1", 2)},
+            ),
+            ("source_diversity_signal", {"source_count": -1}),
+            ("source_diversity_signal", {"document_count": True}),
+            ("source_diversity_signal", {"diversity_ratio": 1.1}),
+            ("source_diversity_signal", {"source_types": ("policy", ["bad"])}),
+        )
+
+        for signal_type, features in invalid_features:
+            with self.subTest(signal_type=signal_type, features=features):
+                with self.assertRaises(ValueError):
+                    signal(features, signal_type=signal_type)
+
+    def test_mixed_mapping_keys_are_rejected_before_sorting_with_paths(self):
+        invalid_builders = (
+            (
+                "$.features",
+                lambda: signal({"source_count": 1, 2: "secret"}),
+            ),
+            (
+                "$.metadata.nested",
+                lambda: self._query(
+                    metadata={"nested": {"safe": True, 2: "secret"}}
+                ),
+            ),
+            (
+                "$.metrics",
+                lambda: self._attempt(
+                    metrics={"faithfulness": 0.5, 2: "secret"}
+                ),
+            ),
+            (
+                "$.trust_signal_summary",
+                lambda: self._envelope({"signal_count": 0, 2: "secret"}),
+            ),
+        )
+
+        for expected_path, builder in invalid_builders:
+            with self.subTest(expected_path=expected_path):
+                with self.assertRaisesRegex(ValueError, re.escape(expected_path)):
+                    builder()
 
     def test_evidence_signal_rejects_unknown_signal_type(self):
         with self.assertRaisesRegex(ValueError, "unknown signal_type"):
@@ -585,35 +897,91 @@ class ModelContractTests(unittest.TestCase):
                 }
                 self.assertEqual(expected_features, first_audit["features"])
 
-    def test_attempt_audit_rejects_transitive_unknown_signal_features(self):
-        forbidden_feature_keys = (
-            "Completion",
-            "assistant_reply",
-            "result",
-            "payload",
-            "raw_response",
-            "text",
-            "document_text",
-            "Ground_Truth",
-            "ground-truth",
-            "GROUND TRUTH",
+    def test_tuple_inputs_are_defensively_copied_across_models(self):
+        expected_ids = ["doc-1"]
+        query = self._query(expected_clean_doc_ids=expected_ids)
+        signal_doc_ids = ["doc-1"]
+        observed_signal = replace(signal(), doc_ids=signal_doc_ids)
+        retrieval_items = [evidence()]
+        signal_items = [signal()]
+        failure_types = ["T10"]
+        detector_items = [{"detector_id": "d1", "rule_ids": ["R1"]}]
+        attempt = self._attempt(
+            retrieval_evidence=retrieval_items,
+            evidence_signals=signal_items,
+            failure_types=failure_types,
+            detector_results=detector_items,
+        )
+        retrieved_doc_ids = ["doc-1"]
+        evidence_hashes = ["a" * 64]
+        summary_types = ["provenance_signal"]
+        summary_versions = ["1"]
+        envelope_failures = ["T10"]
+        envelope = self._envelope(
+            {
+                "signal_count": 1,
+                "signal_types": summary_types,
+                "method_versions": summary_versions,
+            },
+            retrieved_doc_ids=retrieved_doc_ids,
+            evidence_hashes=evidence_hashes,
+            failure_types=envelope_failures,
         )
 
-        for key in forbidden_feature_keys:
-            with self.subTest(key=key):
-                malformed_signal = signal()
-                object.__setattr__(
-                    malformed_signal,
-                    "features",
-                    {"source_count": 1, key: "secret"},
-                )
-                attempt = self._attempt(evidence_signals=(malformed_signal,))
+        expected_ids.append("mutated")
+        signal_doc_ids.append("mutated")
+        retrieval_items.clear()
+        signal_items.clear()
+        failure_types.append("mutated")
+        detector_items[0]["rule_ids"].append("R2")
+        retrieved_doc_ids.append("mutated")
+        evidence_hashes.append("b" * 64)
+        summary_types.append("mutated")
+        summary_versions.append("mutated")
+        envelope_failures.append("mutated")
 
-                with self.assertRaisesRegex(
-                    ValueError,
-                    "unknown keys|forbidden field",
-                ):
-                    attempt.to_audit_dict()
+        self.assertEqual(("doc-1",), query.expected_clean_doc_ids)
+        self.assertEqual(("doc-1",), observed_signal.doc_ids)
+        self.assertEqual(1, len(attempt.retrieval_evidence))
+        self.assertEqual(1, len(attempt.evidence_signals))
+        self.assertEqual(("T10",), attempt.failure_types)
+        self.assertEqual(
+            ["R1"],
+            attempt.to_audit_dict()["detector_results"][0]["rule_ids"],
+        )
+        self.assertEqual(("doc-1",), envelope.retrieved_doc_ids)
+        self.assertEqual(("a" * 64,), envelope.evidence_hashes)
+        self.assertEqual(("T10",), envelope.failure_types)
+        self.assertEqual(
+            ["provenance_signal"],
+            envelope.to_audit_dict()["trust_signal_summary"]["signal_types"],
+        )
+        self.assertEqual(
+            ["1"],
+            envelope.to_audit_dict()["trust_signal_summary"]["method_versions"],
+        )
+
+    def test_tuple_fields_reject_nested_or_arbitrary_items(self):
+        invalid_builders = (
+            lambda: self._query(expected_clean_doc_ids=(["doc-1"],)),
+            lambda: replace(signal(), doc_ids=(["doc-1"],)),
+            lambda: TrustAssessment("observe", None, False, (), (object(),)),
+            lambda: self._attempt(retrieval_evidence=(object(),)),
+            lambda: self._attempt(evidence_signals=(object(),)),
+            lambda: self._attempt(failure_types=(["T10"],)),
+            lambda: self._attempt(detector_results=(object(),)),
+            lambda: self._envelope({}, retrieved_doc_ids=(["doc-1"],)),
+            lambda: self._envelope({}, failure_types=(object(),)),
+        )
+
+        for index, builder in enumerate(invalid_builders):
+            with self.subTest(index=index):
+                with self.assertRaises(ValueError):
+                    builder()
+
+    def test_attempt_rejects_non_signal_items(self):
+        with self.assertRaisesRegex(ValueError, "evidence_signals"):
+            self._attempt(evidence_signals=("not-a-signal",))
 
     def test_attempt_audit_serialization_is_deterministic_and_safe(self):
         first = self._attempt(
@@ -816,6 +1184,7 @@ class ModelContractTests(unittest.TestCase):
             evidence_hashes=("a" * 64, "b" * 64),
             trust_signal_summary={
                 "signal_types": ("provenance_signal",),
+                "method_versions": ("1",),
                 "signal_count": 1,
                 "aggregate_score": None,
             },
@@ -832,6 +1201,7 @@ class ModelContractTests(unittest.TestCase):
             trust_signal_summary={
                 "aggregate_score": None,
                 "signal_count": 1,
+                "method_versions": ("1",),
                 "signal_types": ("provenance_signal",),
             },
             retrieval_policy="observe",
@@ -898,9 +1268,103 @@ class ModelContractTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "nested mappings"):
             self._envelope({"signal_count": {"payload": "secret"}})
 
+    def test_security_envelope_validates_typed_summary_sequences_and_counts(self):
+        invalid_summaries = (
+            {"signal_count": True},
+            {"signal_count": -1},
+            {"signal_types": ("future_signal",)},
+            {"signal_types": ("provenance_signal", 1)},
+            {"method_versions": ("1", "")},
+            {"blocked_doc_ids": (1,)},
+        )
+
+        for summary in invalid_summaries:
+            with self.subTest(summary=summary):
+                with self.assertRaises(ValueError):
+                    self._envelope(summary)
+
+    def test_security_envelope_rejects_duplicate_summary_hash_source(self):
+        with self.assertRaisesRegex(ValueError, "unknown keys"):
+            self._envelope({"evidence_hashes": ("a" * 64,)})
+
+    def test_security_envelope_requires_one_hash_per_retrieved_document(self):
+        mismatches = (
+            {
+                "retrieved_doc_ids": ("doc-1", "doc-2"),
+                "evidence_hashes": ("a" * 64,),
+            },
+            {
+                "retrieved_doc_ids": ("doc-1",),
+                "evidence_hashes": ("a" * 64, "b" * 64),
+            },
+        )
+
+        for overrides in mismatches:
+            with self.subTest(overrides=overrides):
+                with self.assertRaisesRegex(
+                    ValueError,
+                    "retrieved_doc_ids.*evidence_hashes",
+                ):
+                    self._envelope({}, **overrides)
+
+    def test_security_envelope_rejects_signal_summary_cross_field_mismatches(
+        self,
+    ):
+        invalid_summaries = (
+            {
+                "signal_count": 2,
+                "signal_types": ("provenance_signal",),
+                "method_versions": ("1",),
+            },
+            {
+                "signal_count": 1,
+                "signal_types": ("provenance_signal",),
+                "method_versions": ("1", "2"),
+            },
+            {
+                "signal_count": 1,
+                "signal_types": ("provenance_signal",),
+            },
+            {
+                "signal_count": 1,
+                "method_versions": ("1",),
+            },
+        )
+
+        for summary in invalid_summaries:
+            with self.subTest(summary=summary):
+                with self.assertRaisesRegex(ValueError, "signal"):
+                    self._envelope(summary)
+
+    def test_security_envelope_accepts_zero_and_nonzero_observe_summaries(self):
+        zero = self._envelope(
+            {
+                "signal_count": 0,
+                "signal_types": (),
+                "method_versions": (),
+            }
+        )
+        nonzero = self._envelope(
+            {
+                "signal_count": 2,
+                "signal_types": (
+                    "provenance_signal",
+                    "source_diversity_signal",
+                ),
+                "method_versions": ("1", "2"),
+            }
+        )
+
+        self.assertEqual(0, zero.trust_signal_summary["signal_count"])
+        self.assertEqual(2, nonzero.trust_signal_summary["signal_count"])
+
     def test_security_envelope_deep_freezes_trust_summary(self):
         signal_types = ["provenance_signal"]
-        summary = {"signal_count": 1, "signal_types": signal_types}
+        summary = {
+            "signal_count": 1,
+            "signal_types": signal_types,
+            "method_versions": ("1",),
+        }
         envelope = self._envelope(summary)
 
         signal_types.append("mutated")
@@ -918,19 +1382,35 @@ class ModelContractTests(unittest.TestCase):
     @staticmethod
     def _envelope(
         trust_signal_summary: dict[str, object],
+        **overrides: object,
     ) -> RAGSecurityEnvelope:
-        envelope = RAGSecurityEnvelope(
-            query_id="query-1",
-            retrieved_doc_ids=("doc-1",),
-            evidence_hashes=("a" * 64,),
-            trust_signal_summary=trust_signal_summary,
-            retrieval_policy="observe",
-            failure_types=(),
-            context_hash="c" * 64,
-            final_answer_hash="d" * 64,
-            run_id="run-1",
-        )
-        return envelope
+        values: dict[str, object] = {
+            "query_id": "query-1",
+            "retrieved_doc_ids": ("doc-1",),
+            "evidence_hashes": ("a" * 64,),
+            "trust_signal_summary": trust_signal_summary,
+            "retrieval_policy": "observe",
+            "failure_types": (),
+            "context_hash": "c" * 64,
+            "final_answer_hash": "d" * 64,
+            "run_id": "run-1",
+        }
+        values.update(overrides)
+        return RAGSecurityEnvelope(**values)
+
+    @staticmethod
+    def _query(**overrides: object) -> QueryRecord:
+        values: dict[str, object] = {
+            "query_id": "query-1",
+            "attack_id": None,
+            "category": "benign",
+            "retrieval_query": "policy",
+            "generation_question": "What is the policy?",
+            "expected_clean_doc_ids": ("doc-1",),
+            "metadata": {"source": "fixture"},
+        }
+        values.update(overrides)
+        return QueryRecord(**values)
 
     @staticmethod
     def _attempt(
@@ -941,39 +1421,46 @@ class ModelContractTests(unittest.TestCase):
         metrics: dict[str, object] | None = None,
         latency: dict[str, object] | None = None,
         validation_status: dict[str, object] | None = None,
+        **overrides: object,
     ) -> RAGAttemptRecord:
-        return RAGAttemptRecord(
-            attempt_id="attempt-1",
-            run_id="run-1",
-            query_id="query-1",
-            attack_id=None,
-            guard_mode="observe",
-            retrieval_policy="observe",
-            retrieval_evidence=(evidence(),),
-            evidence_signals=evidence_signals,
-            context_hash="c" * 64,
-            context_length=120,
-            generator=generator if generator is not None else {"model": "mock"},
-            final_answer_hash="d" * 64,
-            final_answer_length=42,
-            detector_results=(
+        values: dict[str, object] = {
+            "attempt_id": "attempt-1",
+            "run_id": "run-1",
+            "query_id": "query-1",
+            "attack_id": None,
+            "guard_mode": "observe",
+            "retrieval_policy": "observe",
+            "retrieval_evidence": (evidence(),),
+            "evidence_signals": evidence_signals,
+            "context_hash": "c" * 64,
+            "context_length": 120,
+            "generator": (
+                generator if generator is not None else {"model": "mock"}
+            ),
+            "final_answer_hash": "d" * 64,
+            "final_answer_length": 42,
+            "detector_results": (
                 detector_results
                 if detector_results is not None
                 else ({"detector_id": "detector-1", "score": 0.8},)
             ),
-            metrics=(
+            "metrics": (
                 metrics
                 if metrics is not None
                 else {"faithfulness": 0.5}
             ),
-            failure_types=("T10",),
-            latency=latency if latency is not None else {"total_ms": 12.5},
-            validation_status=(
+            "failure_types": ("T10",),
+            "latency": (
+                latency if latency is not None else {"total_ms": 12.5}
+            ),
+            "validation_status": (
                 validation_status
                 if validation_status is not None
                 else {"status": "valid", "valid": True}
             ),
-        )
+        }
+        values.update(overrides)
+        return RAGAttemptRecord(**values)
 
 
 class DocumentSchemaTests(unittest.TestCase):
@@ -1001,6 +1488,12 @@ class DocumentSchemaTests(unittest.TestCase):
             },
             FORBIDDEN_PIPELINE_FIELDS,
         )
+        self.assertIsInstance(REQUIRED_DOCUMENT_FIELDS, frozenset)
+        self.assertIsInstance(FORBIDDEN_PIPELINE_FIELDS, frozenset)
+        with self.assertRaises(AttributeError):
+            REQUIRED_DOCUMENT_FIELDS.add("document_text")
+        with self.assertRaises(AttributeError):
+            FORBIDDEN_PIPELINE_FIELDS.clear()
 
     def test_valid_document_is_converted_to_record(self):
         self.assertEqual(
@@ -1029,6 +1522,12 @@ class DocumentSchemaTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "forbidden field.*ground_truth"):
             validate_document(
                 valid_document(metadata=[{"ground_truth": "poisoned"}])
+            )
+
+    def test_rejects_unicode_compatibility_forbidden_field(self):
+        with self.assertRaisesRegex(ValueError, "forbidden field"):
+            validate_document(
+                valid_document(**{"ｇｒｏｕｎｄ＿ｔｒｕｔｈ": "secret"})
             )
 
     def test_rejects_non_utc_or_invalid_timestamp(self):

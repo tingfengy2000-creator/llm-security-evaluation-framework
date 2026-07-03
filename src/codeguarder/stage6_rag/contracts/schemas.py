@@ -11,17 +11,19 @@ from codeguarder.stage6_rag.contracts.models import (
 )
 
 
-REQUIRED_DOCUMENT_FIELDS = {
-    "doc_id",
-    "content",
-    "source_id",
-    "source_type",
-    "timestamp",
-    "version",
-    "content_hash",
-}
+REQUIRED_DOCUMENT_FIELDS = frozenset(
+    {
+        "doc_id",
+        "content",
+        "source_id",
+        "source_type",
+        "timestamp",
+        "version",
+        "content_hash",
+    }
+)
 
-FORBIDDEN_PIPELINE_FIELDS = set(_FORBIDDEN_PIPELINE_FIELD_NAMES)
+FORBIDDEN_PIPELINE_FIELDS = frozenset(_FORBIDDEN_PIPELINE_FIELD_NAMES)
 
 _DOCUMENT_STRING_FIELDS = (
     "doc_id",
@@ -71,15 +73,15 @@ def validate_document(document: Mapping[str, object]) -> DocumentRecord:
     if extra:
         raise SchemaError(f"unexpected fields: {sorted(extra)}")
 
+    validated_strings: dict[str, str] = {}
     for field_name in _DOCUMENT_STRING_FIELDS:
         value = document[field_name]
         if not isinstance(value, str) or not value.strip():
             raise SchemaError(f"{field_name} must be a non-empty string")
+        validated_strings[field_name] = value
 
-    timestamp = document["timestamp"]
-    content_hash = document["content_hash"]
-    assert isinstance(timestamp, str)
-    assert isinstance(content_hash, str)
+    timestamp = validated_strings["timestamp"]
+    content_hash = validated_strings["content_hash"]
     _validate_utc_timestamp(timestamp)
     if _SHA256_PATTERN.fullmatch(content_hash) is None:
         raise SchemaError(
@@ -87,12 +89,12 @@ def validate_document(document: Mapping[str, object]) -> DocumentRecord:
         )
 
     return DocumentRecord(
-        doc_id=document["doc_id"],
-        content=document["content"],
-        source_id=document["source_id"],
-        source_type=document["source_type"],
+        doc_id=validated_strings["doc_id"],
+        content=validated_strings["content"],
+        source_id=validated_strings["source_id"],
+        source_type=validated_strings["source_type"],
         timestamp=timestamp,
-        version=document["version"],
+        version=validated_strings["version"],
         content_hash=content_hash,
     )
 
