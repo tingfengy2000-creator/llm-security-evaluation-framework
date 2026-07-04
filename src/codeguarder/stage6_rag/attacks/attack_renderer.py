@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import re
+import unicodedata
 from collections.abc import Mapping, Sequence
 
 from codeguarder.stage6_rag.contracts import QueryRecord
@@ -15,6 +17,17 @@ PUBLIC_QUERY_FIELDS = frozenset(
         "expected_clean_doc_ids",
         "metadata",
     }
+)
+GENERATION_QUESTION_INJECTION_PATTERNS = (
+    r"(?:ignore|disregard|override)"
+    r"(?:all(?:prior|previous)?|prior|previous)instructions?",
+    r"(?:unrestricted|unfiltered)assistant",
+    r"developermode",
+    r"jailbreak",
+    r"bypass(?:the)?(?:safety|guardrails)",
+    r"(?:reveal|show)(?:the)?(?:(?:hidden)?(?:system|developer)|hidden)prompt",
+    r"(?:follow|execute)(?:these|the)instructions?",
+    r"roleplay(?:ing)?[a-z0-9]{0,80}bypass",
 )
 
 
@@ -46,6 +59,12 @@ def render_query_record(raw_record: Mapping[str, object]) -> QueryRecord:
         raw_record["generation_question"],
         "generation_question",
     )
+    normalized_question = _compact_security_text(generation_question)
+    if any(
+        re.search(pattern, normalized_question)
+        for pattern in GENERATION_QUESTION_INJECTION_PATTERNS
+    ):
+        raise ValueError("generation_question contains a direct injection pattern")
     expected_ids = raw_record["expected_clean_doc_ids"]
     if not isinstance(expected_ids, Sequence) or isinstance(
         expected_ids,
@@ -78,3 +97,8 @@ def _require_string(value: object, field_name: str) -> str:
     if not isinstance(value, str) or not value.strip():
         raise ValueError(f"{field_name} must be a nonblank string")
     return value
+
+
+def _compact_security_text(value: str) -> str:
+    normalized = unicodedata.normalize("NFKC", value).casefold()
+    return re.sub(r"[^a-z0-9]+", "", normalized)

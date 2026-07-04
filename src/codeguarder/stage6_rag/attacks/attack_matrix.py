@@ -28,12 +28,15 @@ class AttackDefinition:
 
 ATTACK_MATRIX: Mapping[str, AttackDefinition] = MappingProxyType(
     {
-        "R1": AttackDefinition("R1", "retrieval query manipulation"),
-        "R2": AttackDefinition("R2", "keyword-stuffed document"),
-        "R3": AttackDefinition("R3", "authority impersonation"),
-        "R4": AttackDefinition("R4", "instruction-like context"),
-        "R5": AttackDefinition("R5", "semantic contradiction"),
-        "R6": AttackDefinition("R6", "cross-document context steering"),
+        "R1": AttackDefinition("R1", "Query Injection"),
+        "R2": AttackDefinition("R2", "Retrieval Poisoning"),
+        "R3": AttackDefinition(
+            "R3",
+            "Context Injection via retrieved docs",
+        ),
+        "R4": AttackDefinition("R4", "Embedding Attack"),
+        "R5": AttackDefinition("R5", "Document Poisoning"),
+        "R6": AttackDefinition("R6", "Hallucination Steering"),
     }
 )
 

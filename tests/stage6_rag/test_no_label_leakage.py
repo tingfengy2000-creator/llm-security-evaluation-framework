@@ -5,7 +5,11 @@ import json
 import re
 import unicodedata
 import unittest
+from collections import UserList
+from collections.abc import Mapping, Sequence, Set
+from dataclasses import dataclass, fields, is_dataclass
 from pathlib import Path
+from types import MappingProxyType
 from typing import Any
 from unittest.mock import patch
 
@@ -42,14 +46,29 @@ def normalize_field_name(value: str) -> str:
 NORMALIZED_FORBIDDEN = {normalize_field_name(field) for field in FORBIDDEN}
 
 
-def walk_keys(value: object, path: str = "$"):
-    if isinstance(value, dict):
+def walk_public_strings(
+    value: object,
+    path: str = "$",
+    kind: str = "value",
+):
+    if isinstance(value, str):
+        yield kind, path, value
+    elif is_dataclass(value) and not isinstance(value, type):
+        for field in fields(value):
+            yield from walk_public_strings(
+                getattr(value, field.name),
+                f"{path}.{field.name}",
+            )
+    elif isinstance(value, Mapping):
         for key, nested in value.items():
-            yield path, key
-            yield from walk_keys(nested, f"{path}.{key}")
-    elif isinstance(value, list):
+            yield from walk_public_strings(key, path, "key")
+            yield from walk_public_strings(nested, f"{path}.{key}")
+    elif isinstance(value, Sequence):
         for index, nested in enumerate(value):
-            yield from walk_keys(nested, f"{path}[{index}]")
+            yield from walk_public_strings(nested, f"{path}[{index}]")
+    elif isinstance(value, Set):
+        for index, nested in enumerate(sorted(value, key=repr)):
+            yield from walk_public_strings(nested, f"{path}{{{index}}}")
 
 
 def read_public_values(path: Path) -> list[object]:
@@ -60,15 +79,87 @@ def read_public_values(path: Path) -> list[object]:
 
 
 class LabelIsolationTests(unittest.TestCase):
-    def test_public_files_recursively_exclude_forbidden_field_variants(self):
+    def test_walker_visits_forbidden_keys_and_values_inside_dataclass_metadata(self):
+        @dataclass(frozen=True)
+        class PublicFixture:
+            metadata: Mapping[str, object]
+
+        fixture = PublicFixture(
+            metadata=MappingProxyType(
+                {
+                    "nested": (
+                        [{"attack_goal": "safe"}],
+                        UserList([{"safe": "GROUND－TRUTH"}]),
+                        {"expected_answer"},
+                    )
+                }
+            )
+        )
+
+        visited = {
+            (kind, normalize_field_name(public_string))
+            for kind, _, public_string in walk_public_strings(fixture)
+        }
+
+        self.assertIn(("key", "attackgoal"), visited)
+        self.assertIn(("value", "groundtruth"), visited)
+        self.assertIn(("value", "expectedanswer"), visited)
+
+    def test_walker_finds_strings_in_real_public_dataset(self):
+        dataset = load_public_dataset(DATA_ROOT)
+        visited = list(walk_public_strings(dataset))
+        public_strings = {public_string for _, _, public_string in visited}
+
+        self.assertGreater(len(visited), 0)
+        self.assertIn("R1-Q01", public_strings)
+        self.assertIn("attack_technique", public_strings)
+
+    def test_public_files_recursively_exclude_forbidden_key_and_value_variants(self):
         for public_file in PUBLIC_FILES:
             for value in read_public_values(public_file):
-                for path, key in walk_keys(value):
-                    with self.subTest(file=public_file.name, path=path, key=key):
-                        self.assertNotIn(
-                            normalize_field_name(key),
-                            NORMALIZED_FORBIDDEN,
+                for kind, path, public_string in walk_public_strings(value):
+                    normalized = normalize_field_name(public_string)
+                    with self.subTest(
+                        file=public_file.name,
+                        kind=kind,
+                        path=path,
+                    ):
+                        is_required_manifest_path = (
+                            public_file.name == "corpus_manifest.json"
+                            and kind == "key"
+                            and path == "$.files"
                         )
+                        if not is_required_manifest_path:
+                            self.assertFalse(
+                                any(
+                                    forbidden in normalized
+                                    for forbidden in NORMALIZED_FORBIDDEN
+                                ),
+                                msg=(f"forbidden evaluator token in {kind} at {path}"),
+                            )
+
+    def test_value_scan_normalizes_unicode_case_and_separators(self):
+        variants = (
+            "Contains ＧＲＯＵＮＤ－ＴＲＵＴＨ data",
+            "Evaluator Attack Goal is hidden",
+            "unexpected result should not appear",
+        )
+
+        self.assertTrue(
+            all(
+                any(
+                    forbidden in normalize_field_name(value)
+                    for forbidden in NORMALIZED_FORBIDDEN
+                )
+                for value in variants[:2]
+            )
+        )
+        self.assertFalse(
+            any(
+                forbidden in normalize_field_name(variants[2])
+                for forbidden in NORMALIZED_FORBIDDEN
+            )
+        )
 
     def test_public_loader_never_opens_ground_truth_paths(self):
         original_open = Path.open
@@ -99,7 +190,7 @@ class LabelIsolationTests(unittest.TestCase):
         }
 
         self.assertEqual("1.0.0", manifest["schema_version"])
-        self.assertEqual("1.0.0", manifest["data_version"])
+        self.assertEqual("1.0.1", manifest["data_version"])
         self.assertEqual(expected_paths, set(manifest["files"]))
         self.assertEqual(
             {"method", "created_at", "content_scope"},

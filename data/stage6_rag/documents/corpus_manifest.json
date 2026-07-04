@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0.0",
-  "data_version": "1.0.0",
+  "data_version": "1.0.1",
   "files": {
     "queries/attack_queries.jsonl": {
-      "sha256": "7ade2c7533575639cdbaad71a03ea635f9165045c2133cc2f9f3c074502a68c8",
+      "sha256": "1a6dc5df875c026ac3d1bbc179c8a3a225ce30a2283807df3091f6ee3d20a4f9",
       "count": 12
     },
     "queries/benign_queries.jsonl": {
@@ -15,7 +15,7 @@
       "count": 18
     },
     "documents/poisoned_docs.jsonl": {
-      "sha256": "874574d61ab2e4348719b39dffb4bdb0af53ea96915fb42c259ecd0b70cac49c",
+      "sha256": "c764efe74c31fcc1b8a2640dd48b8cd4600bdd4ae01325eec8bb6e798ccaf564",
       "count": 10
     }
   },
