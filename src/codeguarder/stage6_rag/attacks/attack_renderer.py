@@ -21,10 +21,21 @@ PUBLIC_QUERY_FIELDS = frozenset(
 GENERATION_QUESTION_INJECTION_PATTERNS = (
     r"(?:ignore|disregard|override)"
     r"(?:all(?:prior|previous)?|prior|previous)instructions?",
-    r"(?:unrestricted|unfiltered)assistant",
+    r"(?:ignore|disregard|override)(?:all|any)?(?:the)?instructions?"
+    r"(?:(?:from|given|stated|written)?(?:above|earlier|before)|thatcamebefore)",
+    r"forget(?:all(?:of)?(?:your|the)?|your|the)?"
+    r"(?:prior|previous)?instructions?",
+    r"(?:pretend|act)(?:youare|as|tobe)(?:an?)?(?:dan|doanythingnow)",
+    r"(?:activate|enable|switchto|use)(?:the)?dan(?:mode|persona)?",
+    r"doanythingnow",
+    r"(?:unrestricted|unfiltered|uncensored)"
+    r"(?:ai(?:assistant|bot|chatbot|model|persona|mode|agent)?"
+    r"|assistant|bot|chatbot|model|persona|mode|agent)",
     r"developermode",
     r"jailbreak",
-    r"bypass(?:the)?(?:safety|guardrails)",
+    r"bypass(?:all|any|the|allthe)?"
+    r"(?:safeguards?|safetyprotections?|(?:content|safety|security)?filters?"
+    r"|safety|guardrails)",
     r"(?:reveal|show)(?:the)?(?:(?:hidden)?(?:system|developer)|hidden)prompt",
     r"(?:follow|execute)(?:these|the)instructions?",
     r"roleplay(?:ing)?[a-z0-9]{0,80}bypass",
