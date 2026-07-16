@@ -1,4 +1,4 @@
-# CodeGuarder 项目总控文档
+# LLMGuard 项目总控文档
 
 > 这是项目唯一的总览与决策入口。它回答：为什么做、已经做了什么、证据在哪里、当前代码处于什么状态、未来架构如何同时支撑面试、论文和科技立项。
 
@@ -6,9 +6,29 @@
 
 当前研究分支：`feature/stage6-rag`
 
-文档状态：架构重设计基线 v1；Architecture Task 0 已冻结长期边界
+文档状态：A0 架构冻结与 A1R 命名/namespace 迁移已完成
 
-## 0.1 Architecture Task 0：长期架构冻结（2026-07-16）
+## 0.1 A1R：LLMGuard 命名冻结与 Retrieval Domain 落地（2026-07-16）
+
+项目正式名称现为 **LLMGuard Research Framework（简称 LLMGuard）**，中文名称为
+**LLMGuard 大模型安全评测与可信检索研究框架**。distribution 固定为
+`llmguard-research-framework`，唯一规范 import namespace 为 `llmguard`。
+
+本任务已完成以下边界迁移：
+
+- Stage 6 Task 1–3 的规范实现从 `codeguarder.stage6_rag` 迁至
+  `llmguard.domains.retrieval`；
+- 旧 `codeguarder.stage6_rag` 改为 re-export facade，兼容测试确认新旧类型与加载器 identity
+  相同；
+- 阶段导航迁移为 frozen canonical slug；已进入 manifest 的数据与测试路径继续保留旧路径；
+- `src/codeguarder/` 中 Stage 5/Stage 5 Paper 为受保护 legacy 例外，不移动、不复制、不新增；
+- 未开始 `S6-T4`，没有下载 Embedding、建立 ChromaDB 或调用 Groq。
+
+命名治理：[project_identity.md](docs/governance/project_identity.md)、
+[naming_conventions.md](docs/governance/naming_conventions.md)、
+[namespace_migration.md](docs/governance/namespace_migration.md)；架构依据：[ADR 0006](docs/architecture/0006_namespace_migration.md)。
+
+## 0.2 Architecture Task 0：长期架构冻结（2026-07-16，历史架构基线）
 
 本节是本仓库的**权威架构补充**。它优先于本文件中较早的目录草案，以及
 `docs/superpowers/` 中仍引用 `stage6_rag` 作为规范实现目录的历史实施计划；这些
@@ -66,7 +86,7 @@ Architecture Task 1，不能跳到 Embedding、ChromaDB 或 Groq。
 
 ## 0. 先看结论
 
-CodeGuarder 已经不是一个“运行 garak 的练习项目”，而是一条逐步扩展的 LLM Security Evaluation 研究路线：
+LLMGuard 已经不是一个“运行 garak 的练习项目”，而是一条逐步扩展的 LLM Security Evaluation 研究路线：
 
 ```text
 模型层安全评测
@@ -187,7 +207,7 @@ CodeGuarder 已经不是一个“运行 garak 的练习项目”，而是一条�
 | Stage 4.1 | 已完成 | passthrough/input-only/output-only/full-guard 消融 | `deliverables/stage4_ablation/` | 2 条 smoke prompts |
 | Stage 5 | 已完成（Mock） | 六类 Attack Matrix；benign；T1–T9；指标与报告 | `data/stage5/`、`deliverables/stage5/` | 离线框架回归 |
 | Stage 5 Paper | 已完成（Mock） | A1–A6；P/I/O/F；双 Detector；确定性 AttemptRecord | `src/codeguarder/stage5_paper/` | 22 样本、88 attempts，未跑真实 Groq 全矩阵 |
-| Stage 6 | 架构冻结后待迁移 | Task 1–3 早期依赖、契约、R1–R6 数据、Ground Truth 隔离 | `feature/stage6-rag`、`docs/architecture/` | Task 0 已完成；Architecture Task 1 后才开始真实检索基线 |
+| Stage 6 | A1R 已迁移，S6-T4 待批准 | Task 1–3 契约、R1–R6 数据、Ground Truth 隔离、llmguard namespace | `src/llmguard/domains/retrieval/`、`data/stage6_rag/` | 未实现 Embedding、Chroma、Retriever、Trust 或真实调用 |
 | Stage 6.1 | 规划中 | 隐蔽知识污染、多证据可信检索 | 本文目标架构预留 | 无实验结论 |
 | Stage 7 | 规划中 | Agent 安全评测 | 本文目标架构预留 | 无实验结论 |
 
@@ -282,9 +302,9 @@ Stage 5 Paper 已建立确定性 Dataset Runner、Prompt Renderer、多 Detector
 | 目录 | 角色 | 管理规则 |
 | --- | --- | --- |
 | `llm-security-stage1/` | Stage 1–4.1 历史代码 | 只读兼容层，不重构覆盖 |
-| `src/codeguarder/` | Stage 5 基础框架 | 保留，逐步抽取稳定内核 |
-| `src/codeguarder/stage5_paper/` | Stage 5 论文框架 | 作为新内核的重要来源 |
-| `src/codeguarder/stage6_rag/` | Stage 6 早期实现 | 未来仅作兼容外观；新业务实现迁入 `domains/retrieval/` |
+| `src/llmguard/` | 唯一规范实现根 | 新业务代码只在此处新增 |
+| `src/codeguarder/` | legacy namespace | Stage 5/5 Paper 历史例外与 Stage 6 facade，不新增业务 |
+| `src/llmguard/domains/retrieval/` | Stage 6 规范实现 | A1R 已迁入 Task 1–3；后续 S6-T4 起继续增量实现 |
 | `data/` | 合成攻击、benign、Ground Truth | 数据版本化、标签隔离、manifest |
 | `tests/` | 单元、集成、回归、安全校验 | TDD，重型模型测试单独分组 |
 | `deliverables/` | 报告、脱敏日志、学习材料 | 历史不覆盖；新 run 使用独立 ID |
@@ -313,7 +333,7 @@ Stage 5 Paper 已建立确定性 Dataset Runner、Prompt Renderer、多 Detector
 
 ---
 
-## 6. 目标架构：CodeGuarder Research Platform
+## 6. 目标架构：LLMGuard Research Framework
 
 ### 6.1 总体调用链
 
@@ -347,10 +367,10 @@ JSON / CSV / Markdown / Figures
 ### 6.2 分层设计
 
 ```text
-src/codeguarder/
+src/llmguard/
 ├── core/
 │   ├── contracts/       # Attempt、Evidence、Verdict、RunManifest
-│   ├── datasets/        # schema、loader、renderer、manifest
+│   ├── experiments/     # schema、loader、renderer、manifest
 │   ├── providers/       # Mock、OpenAI-compatible、Groq
 │   ├── guards/          # Input、Output、Retrieval、Policy
 │   ├── detectors/       # garak、自定义规则、Judge
@@ -362,9 +382,11 @@ src/codeguarder/
 │   ├── retrieval/       # RAG、Evidence、Trust、Poisoning
 │   └── agent/           # Tool、Memory、Planning、Side-effect
 └── compatibility/
+    ├── garak/           # garak Generator/Detector 适配器
+    ├── stage1_4/        # Stage 1–4.1 历史适配器
     ├── stage4_guard/    # 旧 GuardEngine 适配器
     ├── stage5/          # 旧 Stage 5 接口适配器
-    └── garak/           # garak Generator/Detector 适配器
+    └── stage6_rag/      # 旧 Stage 6 import 适配器
 ```
 
 声明式实验放在：
@@ -383,14 +405,17 @@ experiments/
 
 ```text
 stages/
-├── stage1_garak/
-├── stage2_mock_api/
-├── stage3_groq/
+├── stage1_garak_baseline/
+├── stage2_openai_mock_api/
+├── stage3_real_model_scan/
 ├── stage4_guard_ab/
-├── stage4_1_ablation/
-├── stage5_attack_matrix/
-├── stage6_rag/
-└── stage7_agent/
+├── stage4_1_guard_ablation/
+├── stage5_runtime_attack_matrix/
+├── stage5_paper_baseline/
+├── stage6_rag_security/
+├── stage6_1_hidden_knowledge_poisoning/
+├── stage6_2_trustworthy_retrieval/
+└── stage7_agent_security/
 ```
 
 ### 6.3 六个稳定核心对象
@@ -637,13 +662,9 @@ Public Artifact Repository / public-release branch
 
 ## 13. 当前下一步
 
-当前不应直接继续写 ChromaDB 代码。先完成架构决策评审：
-
-1. 是否接受“稳定 core + domains + compatibility + 声明式 experiments”的目标架构；
-2. 是否接受私有研究仓库与公开发布面分离；
-3. Stage 6 是否作为 Baseline，Stage 6.1 是否作为论文/立项核心创新；
-4. 确认后再为重构建立独立 design spec 和实施计划；
-5. 重构只增量迁移，不修改 Stage 1–5 历史文件。
+`A1R` 已完成。下一步仍不自动开始 ChromaDB 代码；只有明确批准后才可进入 `S6-T4`：在
+`src/llmguard/domains/retrieval/` 中以 TDD 实现 `EmbeddingModelSpec`、Static/SentenceTransformer
+Provider、InMemoryStore 与 Persistent ChromaStore，并继续保持不下载模型、不触网的默认测试。
 
 面试表达：我先通过五个阶段建立模型层评测、防护和失败分类，再把系统扩展到检索层。为了让项目能够从演示走向论文，我将阶段脚本重构为稳定研究内核，并把 RAG 的证据表示、可信分析和风险传播设计成可插拔领域模块，同时用兼容层保护历史实验可复现性。
 

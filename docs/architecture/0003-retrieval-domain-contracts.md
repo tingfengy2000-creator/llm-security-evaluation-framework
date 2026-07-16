@@ -1,5 +1,8 @@
 # ADR 0003：Retrieval Domain 契约与标签隔离
 
+> A1R 补充：规范 Retrieval 根已从 A0 草案中的 `src/codeguarder/` 迁至
+> `src/llmguard/`；旧 `codeguarder.stage6_rag` 仅作兼容 facade。
+
 ## 状态
 
 已接受，2026-07-16。
@@ -9,7 +12,7 @@
 未来 Retrieval 领域实现固定为：
 
 ```text
-src/codeguarder/domains/retrieval/
+src/llmguard/domains/retrieval/
 ├── contracts/       # RAG 领域不可变对象与 schema
 ├── attacks/         # R1–R6、攻击配方与研究映射
 ├── corpus/          # 加载、规范化、切分、快照、污染构造

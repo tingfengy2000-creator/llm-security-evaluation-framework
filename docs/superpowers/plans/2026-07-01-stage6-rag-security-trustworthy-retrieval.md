@@ -1,5 +1,18 @@
 # Stage 6 RAG Security + Trustworthy Retrieval Implementation Plan
 
+> ## 2026-07-16 A1R 完成记录（当前有效）
+>
+> `Architecture Task 1` 已由 `A1R` 替代并完成：项目名称冻结为 LLMGuard Research
+> Framework，distribution 为 `llmguard-research-framework`，规范 namespace 为 `llmguard`。
+> Task 1–3 的规范实现现在位于 `src/llmguard/domains/retrieval/`，旧
+> `codeguarder.stage6_rag` 是 re-export facade，且兼容测试断言新旧对象 identity 相同。
+>
+> 新导航 slug 为 `stage6_rag_security`；requirements 为
+> `requirements_stage6_rag_security.txt`；运行时目录为 `runtime/stage6_rag_security/`。本计划
+> 下方所有旧名称、旧路径和“Create”步骤都保留为历史实施记录，不能作为 S6-T4 之后的新代码
+> 位置。下一项只能是经批准的 `S6-T4`，其内容是 Embedding 与 VectorStore 基线；A1R 没有
+> 下载模型、创建 ChromaDB 或调用 Groq。
+
 > ## 2026-07-16 Architecture Task 0 收口与后续执行顺序
 >
 > 本计划的 Task 1–3 是已发生的早期 Stage 6 实施记录，不能删除、移动、覆盖或重写。

@@ -1,5 +1,17 @@
 # Stage 6 RAG 安全与可信检索基线设计规格
 
+> ## 2026-07-16 A1R 命名与 Namespace 迁移补充（当前有效）
+>
+> 项目正式名称现为 **LLMGuard Research Framework（简称 LLMGuard）**。规范实现根为
+> `src/llmguard/`，A1R 已将 Task 1–3 的 Retrieval contracts 与 attacks 迁至
+> `src/llmguard/domains/retrieval/`。旧 `codeguarder.stage6_rag` 仅作为 import facade；
+> `data/stage6_rag/`、`tests/stage6_rag/` 是已入 manifest 的历史路径，保留不动。
+>
+> 新 Stage slug 为 `stage6_rag_security`，当前 requirements 为
+> `requirements_stage6_rag_security.txt`，运行时目录为
+> `runtime/stage6_rag_security/`。本补充优先于下方旧目录描述；那些描述是 Task 1–3 的历史
+> 实施记录。A1R 不实现 S6-T4，不下载 Embedding 模型、不创建 ChromaDB、不调用 Groq。
+
 > ## 2026-07-16 架构冻结补充（优先级高于本文早期目录描述）
 >
 > 本规格保留 2026-07-01 的设计和 Task 1–3 实施历史，不删除、不改写其证据。经过

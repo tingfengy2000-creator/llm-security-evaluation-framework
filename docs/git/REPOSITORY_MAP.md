@@ -1,8 +1,8 @@
 # 仓库目录地图
 
 - `llm-security-stage1/`：Stage 1–4.1 历史代码与虚拟环境入口。
-- `src/codeguarder/`：Stage 5 基础框架。
-- `src/codeguarder/stage5_paper/`：论文级新框架。
+- `src/llmguard/`：LLMGuard 的唯一规范源码根；当前包含 Retrieval Domain 的 A1R 迁移结果。
+- `src/codeguarder/`：旧 namespace facade 与受保护的 Stage 5/Stage 5 Paper 历史实现。
 - `data/`：合成攻击与 benign 数据。
 - `deliverables/`：已脱敏报告、日志和学习文档。
 - `interview_prep/`：中文面试集中复习区。

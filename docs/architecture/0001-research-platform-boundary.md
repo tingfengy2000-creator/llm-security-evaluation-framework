@@ -1,15 +1,18 @@
 # ADR 0001：研究平台边界与稳定分层
 
+> A1R 补充：本文 A0 时的 `src/codeguarder/` 目标根已由
+> [ADR 0006](0006_namespace_migration.md) 替换为 `src/llmguard/`；下方旧名称保留为决策历史。
+
 ## 状态
 
 已接受，2026-07-16。
 
 ## 决策
 
-CodeGuarder 冻结为三层研究平台：
+LLMGuard Research Framework 冻结为三层研究平台：
 
 ```text
-src/codeguarder/
+src/llmguard/
 ├── core/           # Runtime、Retrieval、Agent 共同复用的稳定能力
 ├── domains/        # 领域能力：runtime、retrieval、agent
 └── compatibility/  # 历史阶段到新内核的适配器

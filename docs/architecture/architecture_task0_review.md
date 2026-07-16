@@ -1,5 +1,8 @@
 # Architecture Task 0 架构评审报告
 
+> A1R 后续记录：本报告描述的是改名前的 A0 事实。`A1R` 已将允许范围内的 Stage 6 Task 1–3
+> 实现迁至 `src/llmguard/domains/retrieval/`，并保留旧 facade；完整现状见 ADR 0006。
+
 ## 结论
 
 Architecture Task 0 冻结了 CodeGuarder 的长期边界，但没有实现或迁移业务代码。当前可安全进入 Architecture Task 1；在获得下一次明确指令前，不开始 `core/`、`domains/retrieval/`、真实 Embedding、ChromaDB 或 Groq 调用。

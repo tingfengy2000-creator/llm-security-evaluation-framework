@@ -446,3 +446,53 @@ Task 1–3 证明了 RAG 数据和标签隔离的起点。Task 0 没有替代这
 
 先阅读 `docs/architecture/` 与 `stages/README.md`，确认长期边界；得到确认后才执行
 Architecture Task 1 的测试先行迁移。
+
+## 2026-07-16：Architecture Task 1R - LLMGuard 命名冻结与 Retrieval Domain 迁移
+
+### 我现在做了什么
+
+- 项目正式名称冻结为 **LLMGuard Research Framework**（中文：**LLMGuard 大模型安全评测与
+  可信检索研究框架**）；安装分发名为 `llmguard-research-framework`，规范 Python import 为
+  `llmguard`。
+- 已将当前已实现的 Stage 6 Task 1–3 契约、攻击矩阵和 prompt renderer 迁移到
+  `src/llmguard/domains/retrieval/`；旧 `codeguarder.stage6_rag` 只保留 facade，确保旧导入
+  与新导入指向同一个对象。
+- Stage 导航采用统一 slug，并给每个阶段 README 增加可机器核查的 Metadata；新建命名治理、
+  迁移台账和精确 legacy allowlist。
+
+### 为什么这样做、企业里为什么这样做
+
+项目名、包名和长期领域边界若在每个阶段反复变化，会让实验记录、依赖关系、CI 和团队协作
+难以追溯。企业通常通过一个规范实现、一个兼容外观和自动化测试来完成迁移：新功能只进入
+规范 namespace，旧调用不被突然打断，历史证据也不会为了“看起来统一”而被篡改。
+
+### 与上一阶段的关系
+
+Architecture Task 0 冻结了研究平台边界；A1R 将其中“Retrieval 是长期领域”的设计落到真实
+源码位置。它没有替代 Stage 1–5 的模型层实验，也没有替代 Stage 6 的真实检索实验，而是让
+后续 Embedding、Chroma、Retriever、Trust 和 Agent 都有稳定、可审计的接入位置。
+
+### 面试官可能追问
+
+- 为什么不直接把旧目录整体重命名？答：Stage 5 仍是受保护的历史实现，批量移动会破坏回归
+  与历史引用；因此只迁移允许的 Stage 6 Task 1–3，并用 facade 保留旧 import。
+- 如何证明旧兼容不是复制了一套代码？答：测试同时断言旧、新 `DocumentRecord` 的对象身份
+  相同，并检查旧 Stage 6 facade 不定义业务类或函数。
+- 为什么此时不实现 Chroma 或真实 Embedding？答：A1R 是边界迁移任务；先下载模型或建立
+  collection 会混入 S6-T4 的实验变量，削弱可复现性和因果归因。
+
+### 初学者最容易误解的地方
+
+- `llmguard` 与 `llm-guard` 不是同一个命名选择：前者是本项目冻结的 import，后者不作为
+  本项目 distribution 或 namespace，以避免第三方项目身份混淆。
+- facade 不是双份实现。它只 re-export 规范实现，真正的业务逻辑只能存在于
+  `src/llmguard/`。
+- 测试通过说明迁移和隔离约束成立，不说明 RAG 防护有效；真实 Retrieval 指标要等 S6-T4
+  及后续受控实验产生。
+
+### 验证与下一步
+
+- A1R 范围内 Ruff、MyPy、架构测试和 Stage 6 离线回归均通过；Stage 1–5 历史资产与
+  `data/stage6_rag/` 均未改动，新增差异未匹配真实密钥或绝对路径模式。
+- 下一步仅在单独批准后进入 **S6-T4**：实现真实 Embedding 与持久化 Chroma 的最小、可复现
+  基线；不在本次架构迁移中提前下载模型、创建 collection 或调用 Groq。
