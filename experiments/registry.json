@@ -84,6 +84,36 @@
         "stage5_pattern"
       ],
       "conclusion_boundary": "A1/A2 为运行时表现模拟；当前指标只来自确定性 mock，真实 Groq 尚未运行"
+    },
+    {
+      "stage_id": "stage6-rag",
+      "name": "RAG Security + Trustworthy Retrieval 基线",
+      "status": "development_paused",
+      "code_entry": "feature/stage6-rag 分支",
+      "dataset": "data/stage6_rag（功能分支）",
+      "deliverables": "deliverables/stage6_rag（规划）",
+      "real_api": false,
+      "conclusion_boundary": "依赖、稳定契约和攻击矩阵基础已开发；检索、Trust、评估与报告尚未完成"
+    },
+    {
+      "stage_id": "stage6.1",
+      "name": "隐蔽知识污染检测与多证据可信检索",
+      "status": "planned",
+      "code_entry": "未实施",
+      "dataset": "未实施",
+      "deliverables": "未实施",
+      "real_api": false,
+      "conclusion_boundary": "仅保留扩展方向，不存在实验结论"
+    },
+    {
+      "stage_id": "stage7-agent",
+      "name": "Agent Security Evaluation",
+      "status": "planned",
+      "code_entry": "未实施",
+      "dataset": "未实施",
+      "deliverables": "未实施",
+      "real_api": false,
+      "conclusion_boundary": "仅保留扩展方向，不执行真实危险工具"
     }
   ]
 }
