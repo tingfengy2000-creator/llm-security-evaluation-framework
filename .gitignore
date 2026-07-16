@@ -32,3 +32,6 @@ Thumbs.db
 
 # Stage 6 RAG runtime artifacts
 runtime/stage6_rag/
+# Generated local planning exports
+/docs/superpowers/plans/*.pdf
+/docs/superpowers/specs/*.pdf

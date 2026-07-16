@@ -27,8 +27,10 @@ PUBLIC_FILES = (
 )
 FORBIDDEN = {
     "poisoned",
+    "poison_status",
     "label",
     "attack_goal",
+    "attack_objective",
     "expected_answer",
     "failure_type",
     "ground_truth",
@@ -111,8 +113,10 @@ class LabelIsolationTests(unittest.TestCase):
         public_strings = {public_string for _, _, public_string in visited}
 
         self.assertGreater(len(visited), 0)
-        self.assertIn("R1-Q01", public_strings)
-        self.assertIn("attack_technique", public_strings)
+        self.assertIn("Q-0001", public_strings)
+        self.assertIn("delivery_layer", public_strings)
+        self.assertNotIn("R1-Q01", public_strings)
+        self.assertNotIn("attack_technique", public_strings)
 
     def test_public_files_recursively_exclude_forbidden_key_and_value_variants(self):
         for public_file in PUBLIC_FILES:
@@ -140,9 +144,12 @@ class LabelIsolationTests(unittest.TestCase):
 
     def test_value_scan_normalizes_unicode_case_and_separators(self):
         variants = (
-            "Contains ＧＲＯＵＮＤ－ＴＲＵＴＨ data",
+            "Contains p-o-i-s-o-n-e-d data",
             "Evaluator Attack Goal is hidden",
+            "poison-status field is hidden",
+            "attack objective alias is hidden",
             "unexpected result should not appear",
+            "ordinary prose about attack surface is allowed",
         )
 
         self.assertTrue(
@@ -151,12 +158,13 @@ class LabelIsolationTests(unittest.TestCase):
                     forbidden in normalize_field_name(value)
                     for forbidden in NORMALIZED_FORBIDDEN
                 )
-                for value in variants[:2]
+                for value in variants[:4]
             )
         )
         self.assertFalse(
             any(
-                forbidden in normalize_field_name(variants[2])
+                forbidden in normalize_field_name(value)
+                for value in variants[4:]
                 for forbidden in NORMALIZED_FORBIDDEN
             )
         )
@@ -179,6 +187,19 @@ class LabelIsolationTests(unittest.TestCase):
         self.assertTrue(opened_paths)
         self.assertFalse(any("ground_truth" in path.parts for path in opened_paths))
 
+        for kind, path, public_string in walk_public_strings(dataset):
+            normalized = normalize_field_name(public_string)
+            with self.subTest(kind=kind, path=path):
+                self.assertFalse(
+                    any(
+                        forbidden in normalized
+                        for forbidden in NORMALIZED_FORBIDDEN
+                    ),
+                    msg=(f"forbidden evaluator token in {kind} at {path}"),
+                )
+                self.assertNotRegex(normalized, r"r[1-6](?:q|a)\d{2}")
+                self.assertNotRegex(normalized, r"pr[1-6]\d{2}")
+
     def test_manifest_hashes_and_counts_match_physical_public_files(self):
         manifest_path = DATA_ROOT / "documents" / "corpus_manifest.json"
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -190,12 +211,19 @@ class LabelIsolationTests(unittest.TestCase):
         }
 
         self.assertEqual("1.0.0", manifest["schema_version"])
+        self.assertIsInstance(manifest["data_version"], str)
+        self.assertRegex(manifest["data_version"], r"^\d+\.\d+\.\d+$")
         self.assertEqual("1.0.1", manifest["data_version"])
         self.assertEqual(expected_paths, set(manifest["files"]))
+        provenance = manifest["provenance"]
+        self.assertIsInstance(provenance, dict)
         self.assertEqual(
             {"method", "created_at", "content_scope"},
-            set(manifest["provenance"]),
+            set(provenance),
         )
+        self.assertEqual("manually-curated-fictional-fixtures", provenance["method"])
+        self.assertRegex(provenance["created_at"], r"^\d{4}-\d{2}-\d{2}T")
+        self.assertEqual("retrieval-security-evaluation", provenance["content_scope"])
         for relative_path, entry in manifest["files"].items():
             with self.subTest(relative_path=relative_path):
                 physical_path = DATA_ROOT / relative_path
