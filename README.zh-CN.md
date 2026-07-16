@@ -1,5 +1,7 @@
 # CodeGuarder 大模型安全实验项目
 
+> 项目完整进度、架构重设计、论文与科技立项路线请先阅读：`PROJECT_MASTER_CONTEXT.md`。
+
 本项目按 Stage 1 到 Stage 5 Paper 记录大模型安全评测学习过程，覆盖：
 
 1. garak 的 Probe、Generator、Detector、Harness 与 Report；
