@@ -10,6 +10,7 @@ from .base import (
     EmbeddingVector,
 )
 from .model_spec import EmbeddingModelSpec
+from .sentence_transformer_provider import SentenceTransformerEmbeddingProvider
 from .static_provider import StaticEmbeddingProvider
 
 __all__ = [
@@ -21,5 +22,6 @@ __all__ = [
     "EmbeddingProvider",
     "EmbeddingRuntimeError",
     "EmbeddingVector",
+    "SentenceTransformerEmbeddingProvider",
     "StaticEmbeddingProvider",
 ]
