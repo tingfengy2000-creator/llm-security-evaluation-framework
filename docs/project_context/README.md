@@ -8,6 +8,7 @@
 2. `02_stage_progress.md`：Stage 1–7 的真实进度、成果和结论边界。
 3. `03_artifact_management.md`：代码、数据、日志、报告和 Git 管理规则。
 4. `04_collaboration_context.md`：后续实施必须保留的技术上下文与执行清单。
+5. `05_project_roadmap.md`：Stage 1–7 的后续优先级、里程碑和完成标准。
 
 状态词统一含义：
 
