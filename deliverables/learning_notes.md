@@ -402,3 +402,47 @@
   10 条。
 - 下一步：先人工审查 12 条 smoke 样本，再运行真实 smoke；不要把 mock 指标写成
   模型安全结论。
+
+## 2026-07-16：Architecture Task 0 - 从阶段项目到研究平台的架构冻结
+
+### 我现在做了什么
+
+- 只完成了架构、兼容性、研究对齐、公开风险和阶段导航的决策记录；没有迁移业务代码，
+  没有运行 Embedding、ChromaDB、Groq，也没有产生新的安全指标。
+- 冻结了 `core + domains + compatibility` 的职责：新 RAG 代码将进入
+  `src/codeguarder/domains/retrieval/`，早期 `stage6_rag` 以后仅承担旧导入兼容。
+- 把 Stage 6 的运行时最小上下文 `TrustedContextPackage` 与审计证据
+  `RAGSecurityEnvelope` 分开，并冻结了 Stage 7 只能消费这两个脱敏对象的边界。
+
+### 为什么这样做、企业里为什么这样做
+
+阶段式学习项目可以很快验证一个想法，但模块一多就容易重复实现、泄露标签、破坏历史实验
+或让 Agent 直接依赖向量库。企业会在扩展到 RAG/Agent 前冻结接口、数据权限、审计对象与
+兼容策略，目的是让旧证据可复现、新能力可插拔、事故能追溯且团队可以并行开发。
+
+### 与上一阶段的关系
+
+Stage 1–5 证明了模型层评测、Guard 对照、消融、攻击矩阵和失败分类；Stage 6 的早期
+Task 1–3 证明了 RAG 数据和标签隔离的起点。Task 0 没有替代这些实验，而是把它们固定为
+历史证据，并为 Retrieval Trust、隐蔽污染研究和 Stage 7 Agent 消费定义共同接口。
+
+### 面试官可能追问
+
+- 为什么不直接在 `stage6_rag` 中继续加 ChromaDB？答：那会把阶段名称变成长期业务边界，
+  同时难以让 Stage 7 复用稳定契约；先迁移再实现可以降低 import、审计和复现风险。
+- 为什么需要两个对象而不是一个 AttemptRecord？答：运行时上下文需要最小可用信息，审计
+  需要 hash、版本、failure 和 provenance；混在一起会造成权限扩大和日志泄露。
+- 为什么 private 仓库不直接公开？答：即使严格 Key 扫描为零，历史对话、绝对路径、trace、
+  HTML 和二进制附件仍需分层脱敏和许可审查。
+
+### 初学者最容易误解的地方
+
+- “目录迁移”不是删旧代码或篡改历史报告；这里采用 facade 保留旧 import，且历史证据不动。
+- “EvidenceSignal”不是把 `poison_label` 换个名字交给模型；它只能基于运行时可见的来源、
+  版本、语义、向量或检索行为构造。
+- “架构完成”不等于“RAG 实验完成”。真实检索、可信策略、指标和真实模型 smoke 都尚未开始。
+
+### 下一步
+
+先阅读 `docs/architecture/` 与 `stages/README.md`，确认长期边界；得到确认后才执行
+Architecture Task 1 的测试先行迁移。

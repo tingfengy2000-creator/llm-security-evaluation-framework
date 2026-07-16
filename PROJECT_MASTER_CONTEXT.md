@@ -6,7 +6,63 @@
 
 当前研究分支：`feature/stage6-rag`
 
-文档状态：架构重设计基线 v1
+文档状态：架构重设计基线 v1；Architecture Task 0 已冻结长期边界
+
+## 0.1 Architecture Task 0：长期架构冻结（2026-07-16）
+
+本节是本仓库的**权威架构补充**。它优先于本文件中较早的目录草案，以及
+`docs/superpowers/` 中仍引用 `stage6_rag` 作为规范实现目录的历史实施计划；这些
+历史文本保留以解释演进过程，但不再决定新代码的位置。
+
+### 已核验的事实
+
+- 当前工作分支是 `feature/stage6-rag`；Stage 6 Task 1–3 的早期实现和测试存在，真实
+  Embedding、Persistent ChromaDB、检索器、Trust、RAG Evaluator 均尚未实现；
+- Stage 1–5 的版本化历史相对本任务起点未发生修改；
+- GitHub 的未认证公开 API 返回 404，而本地已认证 Git 远端可访问，因此仓库当前确认是
+  **Private**，而不是“尚未确认的待公开仓库”；
+- 本轮只冻结架构、记录决策和补齐导航，不迁移代码、不执行真实模型，也不把任何指标写成
+  新实验结论。
+
+### 冻结后的唯一目标代码边界
+
+```text
+src/codeguarder/
+├── core/
+│   ├── contracts/ providers/ guards/ detectors/
+│   ├── evaluation/ reporting/ experiments/ audit/
+├── domains/
+│   ├── runtime/
+│   ├── retrieval/
+│   └── agent/
+└── compatibility/
+    ├── stage1_4/ stage4_guard/ stage5/ stage6_rag/ garak/
+```
+
+`core/` 只容纳跨领域对象与能力，绝不放 RAG 专属类型；RAG 规范实现只写入
+`domains/retrieval/`；`compatibility/` 只做旧路径和旧接口的转换，不承载业务逻辑。
+早期 `src/codeguarder/stage6_rag/` 将在 Architecture Task 1 后成为兼容外观，旧导入
+路径继续可用。详情见 [架构 ADR](docs/architecture/README.md)。
+
+### 冻结的 RAG 边界
+
+`TrustedContextPackage` 是运行时最小上下文包，只携带经策略准入的有限文本、引用、来源、
+信任和置信信息；`RAGSecurityEnvelope` 是脱敏审计包，只携带 ID、hash、策略版本、指标、
+failure 与 provenance。Stage 7 只能消费这两个对象，不能直接读取 Chroma、Ground Truth、
+完整文档或 Guard 内部状态。
+
+### 固定研究阶段
+
+- Stage 6A：可复现检索安全基线，`off/observe` 与 `PassThrough`；
+- Stage 6B：透明规则的 filter/rerank 基线；
+- Stage 6C：端到端可复现实验与受控真实模型 smoke；
+- Stage 6.1：隐蔽知识污染检测与多证据可信检索研究扩展；
+- Stage 6.2：论文级比较、统计、迁移与 artifact；
+- Stage 7：消费稳定脱敏契约的 Agent 安全，不绕过 RetrievalEvidence。
+
+Task 0 的交付、风险、验收和下一步都记录在
+`docs/architecture/architecture_task0_review.md`。在用户确认前，后续工作只允许进入
+Architecture Task 1，不能跳到 Embedding、ChromaDB 或 Groq。
 
 ## 0. 先看结论
 
@@ -27,7 +83,10 @@ CodeGuarder 已经不是一个“运行 garak 的练习项目”，而是一条�
 
 下一步不应继续堆叠阶段脚本，而应把项目重构为“稳定研究内核 + 可插拔安全领域 + 声明式实验配置 + 独立研究交付”的平台。重构采用增量兼容方式，绝不推翻 Stage 1–5 历史证据。
 
-仓库当前不建议立即公开。源码没有问题，但仓库同时包含对话导出、原始 HTML 报告、绝对路径、运行日志和可能需要进一步审查的实验输出。正确做法是建立可公开发布面，而不是直接切换整个私有仓库的可见性。
+仓库当前**已确认是 Private**，且不建议直接改为 Public。它仍包含对话导出、原始 HTML
+报告、绝对路径、运行日志和需逐项审查的实验输出。正确做法是建立独立公开发布面，而不是
+直接切换整个研究仓库的可见性；审计结论见
+`docs/security/PUBLIC_REPOSITORY_AUDIT.md`。
 
 ---
 
@@ -128,7 +187,7 @@ CodeGuarder 已经不是一个“运行 garak 的练习项目”，而是一条�
 | Stage 4.1 | 已完成 | passthrough/input-only/output-only/full-guard 消融 | `deliverables/stage4_ablation/` | 2 条 smoke prompts |
 | Stage 5 | 已完成（Mock） | 六类 Attack Matrix；benign；T1–T9；指标与报告 | `data/stage5/`、`deliverables/stage5/` | 离线框架回归 |
 | Stage 5 Paper | 已完成（Mock） | A1–A6；P/I/O/F；双 Detector；确定性 AttemptRecord | `src/codeguarder/stage5_paper/` | 22 样本、88 attempts，未跑真实 Groq 全矩阵 |
-| Stage 6 | 开发中 | 依赖、核心契约、R1–R6 数据、Ground Truth 隔离 | `feature/stage6-rag` | Task 3 已完成；Task 4 尚未开始 |
+| Stage 6 | 架构冻结后待迁移 | Task 1–3 早期依赖、契约、R1–R6 数据、Ground Truth 隔离 | `feature/stage6-rag`、`docs/architecture/` | Task 0 已完成；Architecture Task 1 后才开始真实检索基线 |
 | Stage 6.1 | 规划中 | 隐蔽知识污染、多证据可信检索 | 本文目标架构预留 | 无实验结论 |
 | Stage 7 | 规划中 | Agent 安全评测 | 本文目标架构预留 | 无实验结论 |
 
@@ -225,7 +284,7 @@ Stage 5 Paper 已建立确定性 Dataset Runner、Prompt Renderer、多 Detector
 | `llm-security-stage1/` | Stage 1–4.1 历史代码 | 只读兼容层，不重构覆盖 |
 | `src/codeguarder/` | Stage 5 基础框架 | 保留，逐步抽取稳定内核 |
 | `src/codeguarder/stage5_paper/` | Stage 5 论文框架 | 作为新内核的重要来源 |
-| `src/codeguarder/stage6_rag/` | RAG 领域实现 | 继续开发，但依赖统一内核 |
+| `src/codeguarder/stage6_rag/` | Stage 6 早期实现 | 未来仅作兼容外观；新业务实现迁入 `domains/retrieval/` |
 | `data/` | 合成攻击、benign、Ground Truth | 数据版本化、标签隔离、manifest |
 | `tests/` | 单元、集成、回归、安全校验 | TDD，重型模型测试单独分组 |
 | `deliverables/` | 报告、脱敏日志、学习材料 | 历史不覆盖；新 run 使用独立 ID |

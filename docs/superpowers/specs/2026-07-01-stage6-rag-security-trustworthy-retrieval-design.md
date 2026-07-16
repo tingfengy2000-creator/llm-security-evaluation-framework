@@ -1,5 +1,32 @@
 # Stage 6 RAG 安全与可信检索基线设计规格
 
+> ## 2026-07-16 架构冻结补充（优先级高于本文早期目录描述）
+>
+> 本规格保留 2026-07-01 的设计和 Task 1–3 实施历史，不删除、不改写其证据。经过
+> Architecture Task 0 评审后，**新 Stage 6 规范实现路径改为**
+> `src/codeguarder/domains/retrieval/`；`src/codeguarder/stage6_rag/` 只保留为后续的
+> compatibility facade。早期出现的 `vector_db_simulator.py` 不能作为真实向量库的规范
+> 名称：真实实现固定为 `vectorstore/chroma_store.py`，测试替代固定为
+> `vectorstore/in_memory_store.py`。
+>
+> 通用对象只位于 `src/codeguarder/core/`，包括 `RunManifest`、`ProviderRequest`、
+> `ProviderResponse`、`GuardDecision`、`DetectorVerdict`、`MetricValue`、`ValidatorResult`、
+> `ArtifactReference` 和 `HashReference`。RAG 专属对象不进入 core，统一放入 retrieval
+> domain：`DocumentRecord`、`ChunkRecord`、`QueryRecord`、`RetrieverQueryRecord`、
+> `RetrievalCandidate`、`RetrievalEvidence`、`EvidenceSignal`、`TrustAssessment`、
+> `RetrievalDecision`、`TrustedContextPackage`、`RAGAttemptRecord` 和
+> `RAGSecurityEnvelope`。
+>
+> `TrustedContextPackage` 与 `RAGSecurityEnvelope` 必须保持分离：前者是运行时最小上下文，
+> 后者是脱敏审计证据；Stage 7 只可消费二者，不能读取 Chroma、Ground Truth、完整文档或
+> Guard 内部状态。检索运行时不得经由文件名、路径、metadata、ID 前缀、debug repr 或任意
+> 其他通道获得 `poisoned`、`poison_label`、`attack_goal`、`expected_answer`、`failure_type`、
+> `oracle`、`ground_truth` 等标签。只有 GroundTruthVault 与 RAGEvaluator 可以访问。
+>
+> 后续实施顺序以 `docs/architecture/`、`target_repository_structure.md` 和实施计划顶部的
+> 2026-07-16 补充为准；本文下面的 `stage6_rag` 目录树是**历史实施记录**，不再作为新文件
+> 的落点。
+
 ## 1. 文档状态
 
 - 状态：已完成设计评审，等待实施计划评审。

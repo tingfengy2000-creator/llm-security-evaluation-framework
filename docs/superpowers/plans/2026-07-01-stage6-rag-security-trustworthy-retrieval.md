@@ -1,5 +1,27 @@
 # Stage 6 RAG Security + Trustworthy Retrieval Implementation Plan
 
+> ## 2026-07-16 Architecture Task 0 收口与后续执行顺序
+>
+> 本计划的 Task 1–3 是已发生的早期 Stage 6 实施记录，不能删除、移动、覆盖或重写。
+> Architecture Task 0 已冻结新代码边界：新的规范实现写入
+> `src/codeguarder/core/`、`src/codeguarder/domains/retrieval/` 和
+> `src/codeguarder/compatibility/stage6_rag/`；本文后续所有指向
+> `src/codeguarder/stage6_rag/` 的“Create”路径都被视为历史草案，而不是新的实施位置。
+>
+> 后续只能依次执行：
+>
+> 1. **Architecture Task 1**：先写测试，最小引入 core contracts，迁移 Task 1–3 的 Stage 6
+>    规范实现至 `domains/retrieval/`，并提供旧 import facade；
+> 2. **Stage 6 Task 4**：EmbeddingModelSpec、Static/SentenceTransformer provider、
+>    InMemory/Chroma store；
+> 3. **Task 5–6**：RetrievalEvidence、检索 trace、受限 ContextBuilder、EvidenceSignal 和
+>    `off/observe` + PassThrough；
+> 4. **Task 7–10**：Provider/Guard adapter、Evaluator、T10–T15、metric、runner、报告；
+> 5. **Task 11–14**：脚本、导航、受控真实 API smoke、provenance、公开前治理。
+>
+> 每个稳定 Task 都必须先有独立测试、可执行配置、run manifest、泄露检查、学习记录和独立
+> Git 提交。Task 0 本身只写架构和导航文档，未运行 Embedding、ChromaDB 或 Groq。
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** 在不修改 Stage 1–5 代码与数据的前提下，实现使用真实 multilingual SentenceTransformers Embedding、Persistent ChromaDB、确定性 Mock LLM 和可选 Groq 的 Stage 6 RAG 安全与可信检索基线。
