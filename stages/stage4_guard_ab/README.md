@@ -1,5 +1,22 @@
 # Stage 4：Guard Proxy 真实 A/B
 
+## Metadata
+
+- stage_id: `S4`
+- canonical_name: `Guard Proxy A/B Evaluation`
+- canonical_slug: `stage4_guard_ab`
+- legacy_paths: 无；slug 已规范。
+- status: `completed`
+- objective: 在同一代理链比较无防护与规则防护。
+- source_locations: `llm-security-stage1/scripts/guard_proxy.py`
+- data_locations: Stage 3 同一小样本 probe。
+- test_locations: `llm-security-stage1/tests/test_guard_proxy.py`
+- script_locations: `llm-security-stage1/scripts/run_stage4_guarded_scan.ps1`
+- deliverable_locations: `deliverables/stage4/`
+- evidence_locations: `deliverables/stage4/guarded_groq_scan_result.json`
+- conclusion_boundary: rule-based、小样本 A/B。
+- next_stage: `S4.1 stage4_1_guard_ablation`
+
 目标：使用同一条 OpenAI-compatible 代理链，比较无防护与规则防护的攻击结果。
 
 - 学习顺序：[Stage 4 总览](../../deliverables/stage4/00_stage4_overview.md) → 代理设计 → 输入输出规则；

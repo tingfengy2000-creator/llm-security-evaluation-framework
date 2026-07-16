@@ -13,7 +13,7 @@ from types import MappingProxyType
 from typing import Any
 from unittest.mock import patch
 
-from codeguarder.stage6_rag.attacks import load_public_dataset
+from llmguard.domains.retrieval.attacks import load_public_dataset
 
 
 ROOT = Path(__file__).resolve().parents[2]

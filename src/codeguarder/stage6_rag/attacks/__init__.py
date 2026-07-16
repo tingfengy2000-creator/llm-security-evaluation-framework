@@ -1,33 +1,4 @@
-"""Retrieval attack fixtures and physically separated dataset loaders."""
+"""Legacy facade for canonical LLMGuard retrieval attack fixtures."""
 
-from codeguarder.stage6_rag.attacks.attack_matrix import (
-    ATTACK_MATRIX,
-    AttackDefinition,
-    EvaluationGroundTruth,
-    LoadedRAGDataset,
-    PublicRAGDataset,
-    RetrieverQueryRecord,
-    load_dataset,
-    load_evaluation_ground_truth,
-    load_public_dataset,
-)
-from codeguarder.stage6_rag.attacks.attack_renderer import (
-    GENERATION_QUESTION_INJECTION_PATTERNS,
-    PUBLIC_QUERY_FIELDS,
-    render_query_record,
-)
-
-__all__ = [
-    "ATTACK_MATRIX",
-    "GENERATION_QUESTION_INJECTION_PATTERNS",
-    "PUBLIC_QUERY_FIELDS",
-    "AttackDefinition",
-    "EvaluationGroundTruth",
-    "LoadedRAGDataset",
-    "PublicRAGDataset",
-    "RetrieverQueryRecord",
-    "load_dataset",
-    "load_evaluation_ground_truth",
-    "load_public_dataset",
-    "render_query_record",
-]
+from llmguard.domains.retrieval.attacks import *  # noqa: F403
+from llmguard.domains.retrieval.attacks import __all__ as __all__

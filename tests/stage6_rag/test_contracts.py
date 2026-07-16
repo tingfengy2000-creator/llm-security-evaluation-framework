@@ -5,8 +5,8 @@ import re
 import unittest
 from dataclasses import FrozenInstanceError, fields, replace
 
-from codeguarder.stage6_rag.contracts import models as contract_models
-from codeguarder.stage6_rag.contracts.models import (
+from llmguard.domains.retrieval.contracts import models as contract_models
+from llmguard.domains.retrieval.contracts.models import (
     DocumentRecord,
     EvidenceSignal,
     QueryRecord,
@@ -15,7 +15,7 @@ from codeguarder.stage6_rag.contracts.models import (
     RetrievalEvidence,
     TrustAssessment,
 )
-from codeguarder.stage6_rag.contracts.schemas import (
+from llmguard.domains.retrieval.contracts.schemas import (
     FORBIDDEN_PIPELINE_FIELDS,
     REQUIRED_DOCUMENT_FIELDS,
     validate_document,

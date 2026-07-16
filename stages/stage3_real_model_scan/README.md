@@ -1,5 +1,22 @@
 # Stage 3：Groq 真实 API 安全评测
 
+## Metadata
+
+- stage_id: `S3`
+- canonical_name: `Real Model Security Scan`
+- canonical_slug: `stage3_real_model_scan`
+- legacy_paths: `stages/stage3_groq/`
+- status: `completed`
+- objective: 通过 OpenAI-compatible API 评测真实模型。
+- source_locations: `llm-security-stage1/scripts/`
+- data_locations: garak 的 PromptInject 与 Base64 probe。
+- test_locations: `llm-security-stage1/tests/test_stage3_scripts.ps1`
+- script_locations: `llm-security-stage1/scripts/run_stage3_groq_scan_safe.ps1`
+- deliverable_locations: `deliverables/stage3/`
+- evidence_locations: `deliverables/stage3/groq_scan_result.json`
+- conclusion_boundary: 仅代表当时模型、参数与 detector。
+- next_stage: `S4 stage4_guard_ab`
+
 目标：理解 garak 如何经 OpenAI-compatible API 评测真实模型，并正确解释 PASS/FAIL。
 
 - 学习顺序：[Stage 3 总览](../../deliverables/stage3/00_stage3_overview.md) → API 设置 → probe → 结果；

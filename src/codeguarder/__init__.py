@@ -1,1 +1,1 @@
-"""CodeGuarder experiment framework."""
+"""Legacy compatibility namespace for the historical CodeGuarder project."""

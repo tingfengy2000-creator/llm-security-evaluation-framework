@@ -1,0 +1,71 @@
+version: 1
+purpose: >-
+  Exact paths allowed to retain the historical CodeGuarder/codeguarder name.
+  New source must not use this list to add business logic under the legacy namespace.
+legacy_paths:
+  - deliverables/learning_notes.md
+  - deliverables/stage1/garak_install_notes.md
+  - deliverables/stage1/garak_run_commands.md
+  - deliverables/stage1/garak_scan_result.json
+  - deliverables/stage1/garak_scan_summary.md
+  - deliverables/stage1_learning/04_stage1_output_analysis.md
+  - deliverables/stage2/stage2_api_notes.md
+  - deliverables/stage2/stage2_data_index.md
+  - deliverables/stage2/stage2_run_commands.md
+  - deliverables/stage2/stage2_scan_result.json
+  - docs/git/REPOSITORY_MAP.md
+  - docs/superpowers/plans/2026-06-30-stage3-groq-garak.md
+  - docs/superpowers/plans/2026-06-30-stage4-1-guard-ablation.md
+  - docs/superpowers/plans/2026-06-30-stage4-guard-proxy.md
+  - docs/superpowers/plans/2026-07-01-stage5-attack-matrix-taxonomy.md
+  - docs/superpowers/plans/2026-07-01-stage5-paper-refinement-git-ready.md
+  - docs/superpowers/specs/2026-06-30-stage3-groq-garak-design.md
+  - docs/superpowers/specs/2026-06-30-stage5-attack-matrix-taxonomy-design.md
+  - docs/superpowers/specs/2026-07-01-stage5-paper-refinement-git-ready-design.md
+  - provenance/file_manifest.json
+  - provenance/historical_baseline.sha256
+  - scripts/build_file_manifest.py
+  - scripts/run_stage5_full.ps1
+  - scripts/run_stage5_paper_single_attack.ps1
+  - scripts/run_stage5_paper_smoke.ps1
+  - scripts/run_stage5_single_category.ps1
+  - scripts/run_stage5_smoke.ps1
+  - src/codeguarder/__init__.py
+  - src/codeguarder/evaluation/garak_adapter.py
+  - src/codeguarder/evaluation/guard_mode_runner.py
+  - src/codeguarder/evaluation/result_collector.py
+  - src/codeguarder/evaluation/stage5_runner.py
+  - src/codeguarder/proxy/guard_proxy_stage5.py
+  - src/codeguarder/stage5_paper/audit/fingerprints.py
+  - src/codeguarder/stage5_paper/detectors/garak_adapter.py
+  - src/codeguarder/stage5_paper/evaluation/stage5_runner.py
+  - src/codeguarder/stage5_paper/proxy/http_api.py
+  - src/codeguarder/stage5_paper/proxy/service.py
+  - tests/stage5/test_attack_schema.py
+  - tests/stage5/test_benign_overblock.py
+  - tests/stage5/test_failure_taxonomy.py
+  - tests/stage5/test_hash_parity.py
+  - tests/stage5/test_matrix_loader.py
+  - tests/stage5/test_metrics.py
+  - tests/stage5/test_no_key_leak.py
+  - tests/stage5/test_output_only_validation.py
+  - tests/stage5/test_report_integrity.py
+  - tests/stage5_paper/test_attack_schema.py
+  - tests/stage5_paper/test_benign_overblock.py
+  - tests/stage5_paper/test_detector_adapter.py
+  - tests/stage5_paper/test_deterministic_logs.py
+  - tests/stage5_paper/test_hash_parity.py
+  - tests/stage5_paper/test_historical_immutability.py
+  - tests/stage5_paper/test_metrics.py
+  - tests/stage5_paper/test_output_only_behavior.py
+  - tests/stage5_paper/test_proxy_api.py
+  - tests/stage5_paper/test_report_integrity.py
+  - tests/stage5_paper/test_taxonomy.py
+compatibility_paths:
+  - src/codeguarder/stage6_rag/__init__.py
+  - src/codeguarder/stage6_rag/contracts/__init__.py
+  - src/codeguarder/stage6_rag/contracts/models.py
+  - src/codeguarder/stage6_rag/contracts/schemas.py
+  - src/codeguarder/stage6_rag/attacks/__init__.py
+  - src/codeguarder/stage6_rag/attacks/attack_matrix.py
+  - src/codeguarder/stage6_rag/attacks/attack_renderer.py

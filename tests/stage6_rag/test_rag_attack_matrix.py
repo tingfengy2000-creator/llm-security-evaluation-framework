@@ -11,8 +11,8 @@ from dataclasses import FrozenInstanceError
 from pathlib import Path
 from typing import ClassVar
 
-import codeguarder.stage6_rag.attacks as attacks_module
-from codeguarder.stage6_rag.attacks import (
+import llmguard.domains.retrieval.attacks as attacks_module
+from llmguard.domains.retrieval.attacks import (
     ATTACK_MATRIX,
     EvaluationGroundTruth,
     LoadedRAGDataset,
@@ -23,7 +23,7 @@ from codeguarder.stage6_rag.attacks import (
     load_public_dataset,
     render_query_record,
 )
-from codeguarder.stage6_rag.contracts import DocumentRecord, QueryRecord, validate_document
+from llmguard.domains.retrieval.contracts import DocumentRecord, QueryRecord, validate_document
 
 
 ROOT = Path(__file__).resolve().parents[2]

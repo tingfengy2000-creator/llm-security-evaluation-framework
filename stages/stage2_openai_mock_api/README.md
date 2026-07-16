@@ -1,5 +1,22 @@
 # Stage 2：OpenAI-compatible Mock API
 
+## Metadata
+
+- stage_id: `S2`
+- canonical_name: `OpenAI-Compatible Mock API`
+- canonical_slug: `stage2_openai_mock_api`
+- legacy_paths: `stages/stage2_mock_api/`
+- status: `completed`
+- objective: 用可控 Mock 分离 API 协议与模型随机性。
+- source_locations: `llm-security-stage1/scripts/mock_openai_compatible_api.py`
+- data_locations: `deliverables/stage2/`
+- test_locations: `llm-security-stage1/tests/`
+- script_locations: `llm-security-stage1/scripts/run_stage2_scan.ps1`
+- deliverable_locations: `deliverables/stage2/`
+- evidence_locations: `deliverables/stage2/stage2_scan_result.json`
+- conclusion_boundary: Mock 不代表真实模型安全性。
+- next_stage: `S3 stage3_real_model_scan`
+
 目标：把评测工具与模型随机性分离，理解 vulnerable/guarded 对照。
 
 - 学习顺序：先读 Stage 1，再阅读 [Stage 2 交付物](../../deliverables/stage2/)；

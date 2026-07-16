@@ -30,8 +30,8 @@ Thumbs.db
 **/raw_provider_trace*
 **/garak.log
 
-# Stage 6 RAG runtime artifacts
-runtime/stage6_rag/
+# Stage 6 RAG Security runtime artifacts
+runtime/stage6_rag_security/
 # Generated local planning exports
 /docs/superpowers/plans/*.pdf
 /docs/superpowers/specs/*.pdf

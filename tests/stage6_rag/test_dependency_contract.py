@@ -53,14 +53,14 @@ class RequirementParsingTests(unittest.TestCase):
 class DependencyContractTests(unittest.TestCase):
     def test_stage6_rag_dependency_and_runtime_contract(self):
         requirements = parse_effective_requirements(
-            (ROOT / "requirements-stage6-rag.txt").read_text(encoding="utf-8")
+            (ROOT / "requirements_stage6_rag_security.txt").read_text(encoding="utf-8")
         )
         with (ROOT / "pyproject.toml").open("rb") as pyproject_file:
             pyproject = tomllib.load(pyproject_file)
 
         project = pyproject["project"]
         optional_dependencies = frozenset(
-            project["optional-dependencies"]["stage6-rag"]
+            project["optional-dependencies"]["stage6_rag_security"]
         )
         ignore_check = subprocess.run(
             [
@@ -68,7 +68,7 @@ class DependencyContractTests(unittest.TestCase):
                 "check-ignore",
                 "-v",
                 "--",
-                "runtime/stage6_rag/.contract-probe",
+                "runtime/stage6_rag_security/.contract-probe",
             ],
             cwd=ROOT,
             capture_output=True,
