@@ -28,6 +28,23 @@
 [naming_conventions.md](docs/governance/naming_conventions.md)、
 [namespace_migration.md](docs/governance/namespace_migration.md)；架构依据：[ADR 0006](docs/architecture/0006_namespace_migration.md)。
 
+### S6-T4：Embedding Provider 与 Persistent Vector Store（2026-07-16）
+
+S6-T4 已完成并以多个小提交落地：规范代码仅位于
+`src/llmguard/domains/retrieval/embedding/` 与 `vectorstore/`。它提供不可变
+`EmbeddingModelSpec`、离线确定性 `StaticEmbeddingProvider`、惰性加载的
+`SentenceTransformerEmbeddingProvider`、稳定 `VectorStore` 协议、`InMemoryVectorStore`、
+持久化 `ChromaVectorStore`、collection fingerprint 与严格公开 metadata 白名单。
+
+实现使用固定 Stage 6 基线模型 ID 和不可变 revision；真实模型集成测试默认 skip，只有显式设置
+`LLMGUARD_RUN_REAL_EMBEDDING_TESTS=1` 才允许加载/下载模型。正常快速测试不联网。Chroma
+测试只使用临时目录；正式运行时目录固定为 `runtime/stage6_rag_security/chroma/` 并由 Git
+忽略。Ground Truth、攻击标签、完整正文和绝对路径不会进入 collection metadata 或 fingerprint。
+
+本任务**没有**实现 Retriever、RetrievalEvidence 编排、ContextBuilder、Trust、LLM、Groq、
+RAG Evaluator、T10–T15、实验矩阵或报告；因此没有新的安全指标或真实 RAG 实验结论。下一步
+只能在单独批准后进入 S6-T5。
+
 ## 0.2 Architecture Task 0：长期架构冻结（2026-07-16，历史架构基线）
 
 本节是本仓库的**权威架构补充**。它优先于本文件中较早的目录草案，以及

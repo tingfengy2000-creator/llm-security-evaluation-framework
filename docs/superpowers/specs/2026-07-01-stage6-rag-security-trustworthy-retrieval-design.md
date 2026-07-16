@@ -1,5 +1,18 @@
 # Stage 6 RAG 安全与可信检索基线设计规格
 
+> ## 2026-07-16 S6-T4 完成记录（当前有效）
+>
+> S6-T4 已在 `src/llmguard/domains/retrieval/embedding/` 和 `vectorstore/` 实现
+> EmbeddingModelSpec、Static/SentenceTransformers Provider、InMemoryVectorStore、Persistent
+> ChromaVectorStore、CollectionFingerprint 与公开 metadata 白名单。SentenceTransformers 基线为
+> `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` 的固定 revision
+> `16e5344fbfc7dfbbbe0019d30cec21e2940cb4e1`，预期维度为 384。
+>
+> 快速测试不下载模型；真实 MiniLM + Chroma 集成测试仅在
+> `LLMGUARD_RUN_REAL_EMBEDDING_TESTS=1` 时运行。Chroma 的运行时状态位于
+> `runtime/stage6_rag_security/chroma/`，不进入 Git。S6-T4 没有实现 Retriever、ContextBuilder、
+> Trust、LLM、Groq、Evaluator 或指标；下方涉及这些能力的内容仍是后续设计，不能表述为已完成。
+
 > ## 2026-07-16 A1R 命名与 Namespace 迁移补充（当前有效）
 >
 > 项目正式名称现为 **LLMGuard Research Framework（简称 LLMGuard）**。规范实现根为

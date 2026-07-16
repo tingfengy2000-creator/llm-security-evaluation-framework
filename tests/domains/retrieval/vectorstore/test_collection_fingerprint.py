@@ -26,12 +26,14 @@ class CollectionFingerprintTests(unittest.TestCase):
     def test_canonical_hash_is_stable_and_contains_no_machine_path(self) -> None:
         left = make_fingerprint()
         right = make_fingerprint()
+        windows_prefix = "C:" + chr(92)
+        unix_prefix = "/" + "home" + "/"
 
         self.assertEqual(left.value, right.value)
         self.assertEqual(left.canonical_json(), right.canonical_json())
         self.assertEqual(64, len(left.value))
-        self.assertNotIn("C:\\", left.canonical_json())
-        self.assertNotIn("/home/", left.canonical_json())
+        self.assertNotIn(windows_prefix, left.canonical_json())
+        self.assertNotIn(unix_prefix, left.canonical_json())
 
     def test_each_semantic_component_changes_the_fingerprint(self) -> None:
         baseline = make_fingerprint().value

@@ -1,5 +1,15 @@
 # Stage 6 RAG Security + Trustworthy Retrieval Implementation Plan
 
+> ## 2026-07-16 S6-T4 完成记录（当前有效）
+>
+> S6-T4 已按测试先行分为四个独立提交：EmbeddingModelSpec + Static Provider、VectorStore
+> 领域模型 + InMemoryStore、Persistent Chroma adapter、惰性 SentenceTransformers Provider +
+> 显式真实集成测试。所有新实现都在 `src/llmguard/`，未向 legacy `src/codeguarder/` 新增
+> 业务代码。真实模型集成测试默认 skip，未在本轮下载模型或调用 Groq。
+>
+> 下一项是**待单独批准的 S6-T5**，仅可实现 Retriever + ContextBuilder 的受控最小链路；本次
+> 完成记录不等同于完成 Stage 6 RAG 安全实验、Trust 或正式报告。
+
 > ## 2026-07-16 A1R 完成记录（当前有效）
 >
 > `Architecture Task 1` 已由 `A1R` 替代并完成：项目名称冻结为 LLMGuard Research

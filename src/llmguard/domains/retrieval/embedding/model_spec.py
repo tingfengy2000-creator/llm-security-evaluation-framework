@@ -76,6 +76,7 @@ class EmbeddingModelSpec:
         return {
             "batch_size": self.batch_size,
             "dimension": self.dimension,
+            "device": self.device,
             "document_prefix": self.document_prefix,
             "expected_output_dtype": self.expected_output_dtype,
             "implementation_version": self.implementation_version,

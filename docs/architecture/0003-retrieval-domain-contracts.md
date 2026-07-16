@@ -29,6 +29,18 @@ src/llmguard/domains/retrieval/
 
 真实 Chroma 实现固定命名为 `vectorstore/chroma_store.py`；测试替代固定命名为 `vectorstore/in_memory_store.py`。`vector_db_simulator.py` 不得成为规范实现名称；如旧调用确实需要，未来只提供兼容 alias。
 
+## S6-T4 基础设施边界
+
+S6-T4 已实现 `EmbeddingModelSpec`、Static/SentenceTransformers Provider、`VectorStore`、
+InMemory 与 Persistent Chroma adapter。该层只处理文本向量、公开 metadata、collection
+provenance 和稳定排序；它不创建 `RetrievalEvidence`，不读取 Ground Truth，不决定哪些文档
+应被业务检索，也不构建 Prompt 或 Context。
+
+collection fingerprint 只包含语料公开 hash、切分配置 hash、模型 ID/revision/dimension、归一化、
+距离度量和公开 schema 版本；它不包含本机路径、创建时间、随机数或 Ground Truth hash。文档
+metadata 只允许 `doc_id`、来源、时间、版本、content hash 和有限的公开索引字段。完整正文仍由
+未来 S6-T5 的受控 ContentResolver 解析；Chroma 的 `documents` 字段仅保存受控 `content_ref`。
+
 ## 稳定对象
 
 通用层未来提供 `RunManifest`、`ArtifactReference`、`HashReference`、`ProviderRequest`、`ProviderResponse`、`GuardDecision`、`DetectorVerdict`、`MetricValue` 和 `ValidatorResult`。

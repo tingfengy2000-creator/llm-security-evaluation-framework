@@ -62,29 +62,29 @@ class DependencyContractTests(unittest.TestCase):
         optional_dependencies = frozenset(
             project["optional-dependencies"]["stage6_rag_security"]
         )
-        ignore_check = subprocess.run(
-            [
-                "git",
-                "check-ignore",
-                "-v",
-                "--",
-                "runtime/stage6_rag_security/.contract-probe",
-            ],
-            cwd=ROOT,
-            capture_output=True,
-            text=True,
-            check=False,
+        ignored_runtime_paths = (
+            "runtime/stage6_rag_security/.contract-probe",
+            "runtime/stage6_rag_security/chroma/chroma.sqlite3",
         )
 
         self.assertEqual(EXPECTED_PINS, requirements)
         self.assertEqual(EXPECTED_PINS, optional_dependencies)
         self.assertEqual(requirements, optional_dependencies)
         self.assertEqual(">=3.12", project["requires-python"])
-        self.assertEqual(
-            0,
-            ignore_check.returncode,
-            msg=ignore_check.stderr or ignore_check.stdout,
-        )
+        for ignored_path in ignored_runtime_paths:
+            with self.subTest(ignored_path=ignored_path):
+                ignore_check = subprocess.run(
+                    ["git", "check-ignore", "-v", "--", ignored_path],
+                    cwd=ROOT,
+                    capture_output=True,
+                    text=True,
+                    check=False,
+                )
+                self.assertEqual(
+                    0,
+                    ignore_check.returncode,
+                    msg=ignore_check.stderr or ignore_check.stdout,
+                )
 
 
 if __name__ == "__main__":

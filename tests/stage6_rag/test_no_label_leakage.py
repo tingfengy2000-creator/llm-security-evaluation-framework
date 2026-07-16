@@ -14,6 +14,10 @@ from typing import Any
 from unittest.mock import patch
 
 from llmguard.domains.retrieval.attacks import load_public_dataset
+from llmguard.domains.retrieval.vectorstore.models import (
+    FORBIDDEN_METADATA_FIELDS,
+    PUBLIC_METADATA_FIELDS,
+)
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -81,6 +85,35 @@ def read_public_values(path: Path) -> list[object]:
 
 
 class LabelIsolationTests(unittest.TestCase):
+    def test_vectorstore_metadata_schema_remains_public_and_label_free(self):
+        required_public_fields = {
+            "doc_id",
+            "source_id",
+            "source_type",
+            "timestamp",
+            "version",
+            "content_hash",
+        }
+        evaluator_fields = {
+            "poisoned",
+            "poison_label",
+            "label",
+            "attack_id",
+            "attack_goal",
+            "attack_category",
+            "expected_answer",
+            "expected_behavior",
+            "failure_type",
+            "ground_truth",
+            "oracle",
+            "risk_goal",
+            "stealth_level",
+        }
+
+        self.assertTrue(required_public_fields.issubset(PUBLIC_METADATA_FIELDS))
+        self.assertTrue(evaluator_fields.issubset(FORBIDDEN_METADATA_FIELDS))
+        self.assertFalse(PUBLIC_METADATA_FIELDS & evaluator_fields)
+
     def test_walker_visits_forbidden_keys_and_values_inside_dataclass_metadata(self):
         @dataclass(frozen=True)
         class PublicFixture:

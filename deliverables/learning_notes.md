@@ -496,3 +496,55 @@ Architecture Task 0 冻结了研究平台边界；A1R 将其中“Retrieval 是�
   `data/stage6_rag/` 均未改动，新增差异未匹配真实密钥或绝对路径模式。
 - 下一步仅在单独批准后进入 **S6-T4**：实现真实 Embedding 与持久化 Chroma 的最小、可复现
   基线；不在本次架构迁移中提前下载模型、创建 collection 或调用 Groq。
+
+## 2026-07-16：S6-T4 - Embedding Provider 与 Persistent Vector Store
+
+### 我现在做了什么
+
+- 实现不可变 `EmbeddingModelSpec`：模型 ID、40 位 revision、维度、归一化、device、batch、
+  `trust_remote_code=false` 等配置可 canonical serialization 并生成稳定 hash；本机 cache 路径
+  不进入 hash。
+- 实现两个 Provider：Static Provider 用 SHA-256 生成确定性测试向量；SentenceTransformers
+  Provider 只在第一次 embedding 时加载固定 MiniLM revision，失败不会静默替换模型。
+- 实现 VectorStore 协议、InMemoryVectorStore 和 Persistent ChromaVectorStore；cosine 距离固定为
+  `distance = 1 - similarity`，同分按 `doc_id` 排序。
+- collection fingerprint 绑定公开语料 hash、切分配置、模型、归一化、距离和 schema；metadata
+  只允许公开来源字段，Ground Truth 与攻击标签被拒绝。
+
+### 为什么这样做、企业里为什么这样做
+
+Embedding 是把文本映射为数值向量，VectorStore 是按向量相似度保存和查找这些数值的基础设施。
+企业把它们分开，是为了能替换模型、替换数据库，并把“模型输出质量”和“数据库持久化/排序”
+分开排错。Static Provider 让 CI 不依赖网络；真实 Provider 保留真实语义验证入口。
+
+### 与上一阶段的关系
+
+Task 1–3 已提供公开语料、数据契约和标签隔离；S6-T4 只负责把公开文档安全地变成向量并保存。
+它还没有决定“按什么查询检索、取哪些文档、如何拼上下文”，那些属于 S6-T5 的 Retriever 与
+ContextBuilder。因此本轮没有形成 R1–R6 的攻击率、Faithfulness 或 T10–T15 结论。
+
+### 面试官可能追问
+
+- 为什么需要 Static Provider？答：它验证存储、排序、持久化和 fingerprint 是否正确，但不能
+  证明语义检索有效；真实语义结论仍要由固定 revision 的真实模型测试支持。
+- 为什么 collection fingerprint 不包括 Ground Truth？答：向量库运行时不能依赖评测标签；把
+  标签放进去会既破坏隔离，也会让索引版本由 evaluator 数据污染。
+- 为什么 Chroma 还保存 `documents`？答：adapter 只写最小 `content_ref` 以适配后端，不写正文；
+  S6-T5 才通过受控 ContentResolver 获取真正内容。
+- 为什么真实模型测试默认 skip？答：下载、缓存、设备和网络会使 CI 变慢且不稳定；显式开关让
+  它成为可追溯的集成验证，而不是每次快速回归的隐式副作用。
+
+### 初学者最容易误解的地方
+
+- 384 维不是“384 个词”，而是模型把一句话映射到 384 个连续数；相似度是向量间关系，不是
+  关键词数。
+- VectorStore 不等于 Retriever：前者只返回最近向量，后者还要处理查询、过滤、证据和业务
+  决策。
+- Chroma 持久化通过不等于 RAG 安全通过；它只证明索引能重开并遵守 schema。
+
+### 验证与下一步
+
+- 快速单测覆盖 deterministic vector、NaN/Inf、metadata、fingerprint、InMemory、Chroma
+  持久化和 Windows 文件释放；真实 MiniLM + Chroma 测试在未设环境变量时跳过。
+- 本轮未下载模型，未创建项目 runtime 目录，未调用 Groq，也未运行 Retriever 或生成正式
+  实验报告。下一步仅在批准后进入 S6-T5。

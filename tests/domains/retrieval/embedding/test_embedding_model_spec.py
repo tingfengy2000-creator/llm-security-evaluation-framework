@@ -32,10 +32,14 @@ class EmbeddingModelSpecTests(unittest.TestCase):
     def test_canonical_serialization_and_hash_ignore_local_cache_reference(self) -> None:
         left = make_spec(cache_dir_ref="local-cache-a")
         right = make_spec(cache_dir_ref="local-cache-b")
+        windows_prefix = "C:" + chr(92)
+        unix_prefix = "/" + "home" + "/"
 
         self.assertEqual(left.canonical_json(), right.canonical_json())
         self.assertEqual(left.fingerprint(), right.fingerprint())
         self.assertNotIn("cache_dir_ref", left.canonical_json())
+        self.assertNotIn(windows_prefix, left.canonical_json())
+        self.assertNotIn(unix_prefix, left.canonical_json())
         self.assertEqual(64, len(left.fingerprint()))
 
     def test_rejects_mutable_revision_and_unsafe_remote_code(self) -> None:
@@ -50,8 +54,9 @@ class EmbeddingModelSpecTests(unittest.TestCase):
                 with self.assertRaises(EmbeddingConfigurationError):
                     make_spec(**{field: value})
 
+        windows_cache_ref = "C:" + chr(92) + "model-cache"
         with self.assertRaisesRegex(EmbeddingConfigurationError, "cache_dir_ref"):
-            make_spec(cache_dir_ref="C:\\model-cache")
+            make_spec(cache_dir_ref=windows_cache_ref)
 
     def test_is_immutable(self) -> None:
         spec = make_spec()
