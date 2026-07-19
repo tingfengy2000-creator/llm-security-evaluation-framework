@@ -592,3 +592,28 @@ Chroma 关闭重开行为。Windows 上文件句柄在异常路径也必须释�
 用静态向量保证快速可复现；显式真实集成测试则固定 MiniLM revision，验证中英文查询经过持久化 Chroma
 重开后仍能将休假制度排在 Top-1，同时确认 Ground Truth 没有进入 metadata。这个阶段是 RAG 的索引
 基础设施验收，不把它夸大成完整的 RAG 安全实验。”
+
+## 2026-07-19：长期研究需求基线
+
+### 我现在明确了什么
+
+- 项目的第一优先级是 RAG 安全研究；Stage 1–5 的模型层安全评测和 Guard 实验是可复现的前置证据，
+  Stage 7 Agent 安全则必须消费可信检索的脱敏契约；
+- S6-T5 不是“把 Chroma 查询结果拼给模型”这么简单：它必须先建立 Dense Retrieval、chunk/evidence
+  身份、citation mode、结构化转义上下文、Retrieved/Trusted context 分级和标签隔离；
+- 隐蔽知识污染检测属于 Stage 6.1，多证据可信检索、引用核验和拒答属于 Stage 6.2；不能为了赶进度把
+  它们混进 Stage 6 基线，也不能把规划字段当作已经实现的论文方法；
+- 企业制度语料适合面试与工程基线，教育/科研语料适合后续论文迁移；二者都必须使用合成或已许可、无隐私
+  数据，并通过 `corpus_domain` 支持而不是硬编码。
+
+### 为什么这对面试、论文和立项都重要
+
+面试时，这条路线说明我知道攻击会从输入输出层扩展到检索、上下文和 Agent 决策层。论文时，它把稳定
+基线、检测方法和可信聚合分开，避免把规则工程误称为算法创新。立项时，它将“污染建模—检测—评分—
+过滤/重排—可信证据—引用/拒答—原型评测”拆成可验收的研究任务。
+
+### 当前边界
+
+长期需求已固化在 `docs/governance/long_term_research_requirements.md`，但没有自动开始 S6-T5；
+当前仍只有 S6-T4 的 Embedding/VectorStore 基础设施验收。下一步须单独批准，并从测试先行的
+Dense Retriever 与 ContextBuilder 契约开始。

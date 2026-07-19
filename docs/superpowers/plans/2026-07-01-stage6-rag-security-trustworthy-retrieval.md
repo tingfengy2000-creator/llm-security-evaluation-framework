@@ -1,5 +1,13 @@
 # Stage 6 RAG Security + Trustworthy Retrieval Implementation Plan
 
+> ## 2026-07-19 长期需求执行顺序（当前有效）
+>
+> 后续 S6-T5 必须先以 TDD 实现透明 Dense Retrieval 与受控 ContextBuilder；它不能实现 BM25、
+> Hybrid、Query Rewrite、Cross-Encoder、Trust Reranker、真实 LLM 或 Groq。实现设计和验收需遵守
+> [长期研究需求基线](../../governance/long_term_research_requirements.md)：chunking 演进、双层
+> Evidence ID、citation mode、context package 分级、标签隔离、脱敏传播审计和未来 abstention 契约。
+> Stage 6.1/6.2/7 的研究能力仍需独立批准。
+
 > ## 2026-07-19 S6-T4 Hardening 完成记录（当前有效）
 >
 > 本轮只加固 Embedding 与 VectorStore 边界，未进入 S6-T5。新增 document-scope 配置指纹和真实

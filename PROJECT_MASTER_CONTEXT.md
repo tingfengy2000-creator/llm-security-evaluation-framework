@@ -8,6 +8,10 @@
 
 文档状态：A0 架构冻结、A1R 命名/namespace 迁移与 S6-T4 真实集成加固已完成
 
+长期研究需求基线：[docs/governance/long_term_research_requirements.md](docs/governance/long_term_research_requirements.md)。
+它固定 RAG 安全为第一优先级，并约束语料域、标签隔离、证据/引用、上下文分级、拒答和 Stage 6.1/6.2/7
+路线；任何较早实施草案与其冲突时，以该基线和本文的较新状态为准。
+
 ## 0.1 A1R：LLMGuard 命名冻结与 Retrieval Domain 落地（2026-07-16）
 
 项目正式名称现为 **LLMGuard Research Framework（简称 LLMGuard）**，中文名称为
@@ -133,7 +137,9 @@ LLMGuard 已经不是一个“运行 garak 的练习项目”，而是一条逐�
 → Agent 跨层安全
 ```
 
-目前 Stage 1–4.1 已有真实运行证据，Stage 5/Stage 5 Paper 已形成确定性 Mock 论文级评测框架，Stage 6 已完成依赖契约、核心数据契约、R1–R6 数据基础和标签隔离，尚未实现真实 Embedding、ChromaDB 检索、Trust、RAG Evaluator 与最终报告。
+目前 Stage 1–4.1 已有真实运行证据，Stage 5/Stage 5 Paper 已形成确定性 Mock 论文级评测框架，
+Stage 6 已完成依赖/数据契约、R1–R6 数据基础、标签隔离、真实 Embedding 与 Persistent ChromaDB
+基础设施验收；尚未实现 Retriever、ContextBuilder、Trust、RAG Evaluator 与最终报告。
 
 下一步不应继续堆叠阶段脚本，而应把项目重构为“稳定研究内核 + 可插拔安全领域 + 声明式实验配置 + 独立研究交付”的平台。重构采用增量兼容方式，绝不推翻 Stage 1–5 历史证据。
 
@@ -241,7 +247,7 @@ LLMGuard 已经不是一个“运行 garak 的练习项目”，而是一条逐�
 | Stage 4.1 | 已完成 | passthrough/input-only/output-only/full-guard 消融 | `deliverables/stage4_ablation/` | 2 条 smoke prompts |
 | Stage 5 | 已完成（Mock） | 六类 Attack Matrix；benign；T1–T9；指标与报告 | `data/stage5/`、`deliverables/stage5/` | 离线框架回归 |
 | Stage 5 Paper | 已完成（Mock） | A1–A6；P/I/O/F；双 Detector；确定性 AttemptRecord | `src/codeguarder/stage5_paper/` | 22 样本、88 attempts，未跑真实 Groq 全矩阵 |
-| Stage 6 | A1R 已迁移，S6-T4 待批准 | Task 1–3 契约、R1–R6 数据、Ground Truth 隔离、llmguard namespace | `src/llmguard/domains/retrieval/`、`data/stage6_rag/` | 未实现 Embedding、Chroma、Retriever、Trust 或真实调用 |
+| Stage 6 | S6-T4 已完成 | Task 1–3 契约、R1–R6 数据、Ground Truth 隔离、llmguard namespace、真实 Embedding/Chroma 验收 | `src/llmguard/domains/retrieval/`、`data/stage6_rag/` | 未实现 Retriever、ContextBuilder、Trust、LLM 或 RAG 指标 |
 | Stage 6.1 | 规划中 | 隐蔽知识污染、多证据可信检索 | 本文目标架构预留 | 无实验结论 |
 | Stage 7 | 规划中 | Agent 安全评测 | 本文目标架构预留 | 无实验结论 |
 
@@ -696,9 +702,10 @@ Public Artifact Repository / public-release branch
 
 ## 13. 当前下一步
 
-`A1R` 已完成。下一步仍不自动开始 ChromaDB 代码；只有明确批准后才可进入 `S6-T4`：在
-`src/llmguard/domains/retrieval/` 中以 TDD 实现 `EmbeddingModelSpec`、Static/SentenceTransformer
-Provider、InMemoryStore 与 Persistent ChromaStore，并继续保持不下载模型、不触网的默认测试。
+`S6-T4` 已完成。下一步仍不自动开始；只有明确批准后才可进入 `S6-T5`：在
+`src/llmguard/domains/retrieval/` 中以 TDD 实现透明 Dense Retriever、`RetrievalEvidence`、
+`RetrievedContextPackage` 与受控 ContextBuilder。首个链路不得加入 BM25、Hybrid、Query Rewrite、
+Cross-Encoder、Trust Reranker、真实 LLM 或 Groq，具体约束见长期研究需求基线。
 
 面试表达：我先通过五个阶段建立模型层评测、防护和失败分类，再把系统扩展到检索层。为了让项目能够从演示走向论文，我将阶段脚本重构为稳定研究内核，并把 RAG 的证据表示、可信分析和风险传播设计成可插拔领域模块，同时用兼容层保护历史实验可复现性。
 

@@ -1,5 +1,16 @@
 # Stage 6 RAG 安全与可信检索基线设计规格
 
+> ## 2026-07-19 长期研究需求补充（当前有效）
+>
+> [长期研究需求基线](../../governance/long_term_research_requirements.md) 将 RAG 安全确定为项目第一
+> 优先级。获批的 S6-T5 只能先建立 `Query -> SentenceTransformers -> Chroma Top-K ->
+> RetrievalEvidence -> ContextBuilder` 的透明 Dense Retrieval；不得提前加入 BM25、Hybrid、Query
+> Rewrite、Cross-Encoder 或 Trust Reranker。后续稳定契约必须支持 chunking 演进、Evidence UID 与
+> Citation ID 映射、XML-like 转义 evidence block、`off/available/required` citation mode、
+> `RetrievedContextPackage`/`TrustedContextPackage` 分级及 abstention 字段。
+>
+> 这项补充是设计约束，不代表上述 S6-T5 能力已实现，也不授权本轮开始实现。
+
 > ## 2026-07-19 S6-T4 加固与真实集成验收（当前有效）
 >
 > `CollectionFingerprint` 现通过 `document_embedding_spec_hash` 绑定

@@ -14,5 +14,8 @@
 7. [ADR 0006](0006_namespace_migration.md)：LLMGuard 命名冻结与 namespace 迁移；
 8. [目标目录结构](target_repository_structure.md)：未来新增文件的位置。
 
-当前状态：`A0` 与 `A1R` 已完成；下一步在明确批准后才可进入 `S6-T4`，不能跳过测试直接
-实现 Embedding、ChromaDB 或 Groq。
+长期研究需求入口：[治理基线](../governance/long_term_research_requirements.md)。其中规定 RAG 安全
+优先级、语料/标签治理、Evidence/Citation 契约和 S6-T5 以后阶段的最低能力；它不替代原始实验产物。
+
+当前状态：`A0`、`A1R` 与 `S6-T4` 已完成；下一步只有在明确批准后才可进入 `S6-T5` 的
+Retriever + ContextBuilder 最小 Dense Retrieval 链路，不能跨越到 Trust、Groq 或正式 RAG 实验。

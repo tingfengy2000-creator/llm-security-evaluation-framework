@@ -35,3 +35,16 @@ LLMGuard 面向可复现的 LLM、RAG 与 Agent 安全评测。它以 Stage 1–
 `GROQ_API_KEY`，不复制为自定义凭据名。项目自身的运行时变量使用 `LLMGUARD_` 前缀，例如
 `LLMGUARD_LOG_LEVEL`、`LLMGUARD_RUNTIME_DIR`、`LLMGUARD_MODEL_CACHE` 和
 `LLMGUARD_EXPERIMENT_CONFIG`。
+
+## 研究优先级
+
+项目的长期优先级固定为：
+
+1. RAG 安全研究；
+2. 大模型安全评测平台；
+3. AI 安全护栏工程；
+4. Agent 安全扩展。
+
+完整的研究用途、阶段边界、数据治理、证据/引用契约和后续最低能力见
+[长期研究需求基线](long_term_research_requirements.md)。该文档不改写 Stage 1–5 历史资产，
+也不自动授权尚未批准的阶段实现。
