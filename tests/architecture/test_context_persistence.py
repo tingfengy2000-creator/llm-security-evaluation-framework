@@ -8,6 +8,21 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 GOVERNANCE = ROOT / "docs" / "governance"
 WINDOWS_ABSOLUTE_PATH = re.compile(r"(?<![A-Za-z0-9])[A-Za-z]:[\\/]")
+S6_T5_SPEC = (
+    ROOT
+    / "docs"
+    / "superpowers"
+    / "specs"
+    / "2026-07-19-s6-t5-controlled-retrieval-traceable-context-design.md"
+)
+S6_T5_PLAN = (
+    ROOT
+    / "docs"
+    / "superpowers"
+    / "plans"
+    / "2026-07-19-s6-t5-controlled-retrieval-traceable-context.md"
+)
+S6_T5_ADR = ROOT / "docs" / "architecture" / "0008_retrieval_context_boundary.md"
 
 
 class ContextPersistenceTests(unittest.TestCase):
@@ -76,6 +91,41 @@ class ContextPersistenceTests(unittest.TestCase):
         for forbidden_start in ("Trust", "LLM", "Groq"):
             with self.subTest(forbidden_start=forbidden_start):
                 self.assertIn(forbidden_start, state)
+
+    def test_s6_t5_design_freeze_is_unique_and_behind_approval_gate(self) -> None:
+        for path in (S6_T5_SPEC, S6_T5_PLAN, S6_T5_ADR):
+            with self.subTest(path=path.relative_to(ROOT)):
+                self.assertTrue(path.is_file())
+
+        self.assertEqual(
+            [S6_T5_SPEC],
+            sorted(S6_T5_SPEC.parent.glob("*s6-t5-controlled-retrieval*design.md")),
+        )
+        self.assertEqual(
+            [S6_T5_PLAN],
+            sorted(S6_T5_PLAN.parent.glob("*s6-t5-controlled-retrieval*.md")),
+        )
+
+        combined_design = "\n".join(
+            path.read_text(encoding="utf-8")
+            for path in (S6_T5_SPEC, S6_T5_PLAN, S6_T5_ADR)
+        )
+        for required_boundary in (
+            "RetrievedContextPackage",
+            "TrustedContextPackage",
+            "Evidence UID",
+            "Citation ID",
+            "ContentRef",
+            "Ground Truth",
+            "不得实现",
+        ):
+            with self.subTest(required_boundary=required_boundary):
+                self.assertIn(required_boundary, combined_design)
+
+        state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
+        self.assertIn("Completed, pending human review", state)
+        self.assertIn("S6-T5 implementation: Not started", state)
+        self.assertIn("S6-T5.1 Python implementation", state)
 
     def test_long_term_requirements_keep_mandatory_research_capabilities(self) -> None:
         requirements = (

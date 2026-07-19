@@ -74,6 +74,24 @@ Retriever、R1–R6、可信检索策略、RAG 指标或生产安全能力已完
 RAG Evaluator、T10–T15、实验矩阵或报告；因此没有新的安全指标或真实 RAG 实验结论。下一步
 只能在单独批准后进入 S6-T5。
 
+### S6-T5 Design Freeze：受控检索与可追溯上下文（2026-07-19）
+
+已完成唯一 S6-T5 设计规格、八段式 TDD 实施计划和 ADR 0008，冻结以下边界：
+
+- 当前只规划透明 Dense Retrieval，并通过抽象 EmbeddingProvider/VectorStore 复用 S6-T4；
+- Retriever 只输出无正文 `RetrievalEvidence` 与 `RetrievalTrace`；
+- 正文由 canonical ContentRef 指向受控 corpus snapshot，Resolver 解析后必须核对 content hash；
+- Evidence UID 跨运行稳定，Citation ID 只在当前 Context 内有效，由 CitationBinding 建立映射；
+- EvidenceEnvelope 只在受控内存持有正文，XML-like escaping 只保护结构边界，不等于语义防注入；
+- ContextBuilder 未来输出 `RetrievedContextPackage`，Trust Pipeline 之后才允许产生
+  `TrustedContextPackage`；
+- Chunking 当前只允许 Identity 基线，复杂 Token/Overlap/Sentence/Semantic 策略只冻结协议；
+- S6-T5.1–S6-T5.8 必须逐项人工批准、TDD、独立提交和验收。
+
+当前状态是 `Completed, pending human review`，但 `S6-T5 implementation: Not started`。设计文档完成
+只能证明契约和实施路径可审查，不能宣称 Retriever、ContextBuilder、Citation Accuracy、Trust 或 RAG
+安全实验已经实现。
+
 ## 0.2 Architecture Task 0：长期架构冻结（2026-07-16，历史架构基线）
 
 本节是本仓库的**权威架构补充**。它优先于本文件中较早的目录草案，以及
@@ -710,11 +728,18 @@ Public Artifact Repository / public-release branch
 
 ## 13. 当前下一步
 
-`S6-T4` 已完成。下一步仍不自动开始；只有明确批准后才可进入 `S6-T5`：在
-`src/llmguard/domains/retrieval/` 中以 TDD 实现透明 Dense Retriever、`RetrievalEvidence`、
-`RetrievedContextPackage` 与受控 ContextBuilder。首个链路不得加入 BM25、Hybrid、Query Rewrite、
-Cross-Encoder、Trust Reranker、真实 LLM 或 Groq，具体约束见长期研究需求基线。
+`S6-T4` 已完成，`S6-T5 Design Freeze` 已完成并等待人工审查。下一步不是自动写 Python，而是人工审查：
+
+- `docs/superpowers/specs/2026-07-19-s6-t5-controlled-retrieval-traceable-context-design.md`；
+- `docs/superpowers/plans/2026-07-19-s6-t5-controlled-retrieval-traceable-context.md`；
+- `docs/architecture/0008_retrieval_context_boundary.md`。
+
+只有规格和计划获明确批准后，才可单独开始 `S6-T5.1 Chunking Contracts`。`S6-T5.1 Python
+implementation` 当前未批准，其后的 Retriever、ContentResolver、EvidenceEnvelope 和 ContextBuilder
+更不能提前实施。
 
 面试表达：我先通过五个阶段建立模型层评测、防护和失败分类，再把系统扩展到检索层。为了让项目能够从演示走向论文，我将阶段脚本重构为稳定研究内核，并把 RAG 的证据表示、可信分析和风险传播设计成可插拔领域模块，同时用兼容层保护历史实验可复现性。
 
-不能夸大：当前项目已经具备较完整的评测工程基础，但 Stage 6 检索基线、Stage 6.1 方法创新、统计实验和公开 Artifact 尚未完成，不能称为已经发表或达到生产级防护能力。
+不能夸大：当前项目已经具备较完整的评测工程基础、S6-T4 基础设施和 S6-T5 可审查设计，但 Stage 6
+受控检索实现、Stage 6.1 方法创新、统计实验和公开 Artifact 尚未完成，不能称为已经发表或达到生产级
+防护能力。

@@ -641,3 +641,45 @@ Dense Retriever 与 ContextBuilder 契约开始。
   解析，文件只记录接受基线和任务状态；
 - “S6-T5 Design Freeze 已列为当前任务”不等于 S6-T5 Python 实现获批。目前 Retriever、ContextBuilder、
   Trust、LLM 和 Groq 仍禁止启动。
+
+## 2026-07-19：S6-T5 受控检索与可追溯上下文设计冻结
+
+### 我现在做了什么
+
+- 将 `QueryRecord -> RetrievalRequest -> DenseRetriever -> RetrievalEvidence/Trace ->
+  ContentResolver -> EvidenceEnvelope/Citation -> ContextBuilder -> RetrievedContextPackage` 冻结成唯一
+  设计规格；
+- 将未来实现拆为 S6-T5.1 到 S6-T5.8，每一步都必须先写失败测试、单独验收和经过下一审批门；
+- 用 ADR 0008 明确 Retriever 不返回正文、正文通过 ContentRef 受控解析、Retrieved Context 不能提前
+  称为 Trusted；
+- 增加轻量治理测试，防止权威文档重复、审批门丢失或设计完成被误写成实现完成。
+
+### 为什么这样做、企业里为什么这样做
+
+企业知识库中的正文可能敏感，Retriever 若直接把正文塞进日志或 Prompt，会扩大泄漏面，也让索引、
+权限、Trust 和生成难以独立审计。把 Evidence UID、Citation ID、ContentRef 和 Context hash 分开后，
+既能回答“召回了什么、为什么进入上下文、回答引用了哪条证据”，又不需要在普通日志保存完整正文。
+
+论文实验也需要这条边界：召回污染、Context 注入和最终生成影响是不同观测点，只有用稳定 Evidence 和
+CitationBinding 才能做传播归因与消融，而不是只看最终回答是否危险。
+
+### 和 S6-T4 的关系
+
+S6-T4 负责“文本向量如何生成并存储”；S6-T5 负责设计“如何调用这些抽象得到可追溯证据，并受控构造
+上下文”。Retriever 依赖 Provider/Store 协议，不依赖具体 MiniLM 或 Chroma。查询前缀进入运行请求
+hash，不改变只由文档向量决定的 collection fingerprint。
+
+### 面试官可能追问
+
+- 为什么 Evidence UID 和 Citation ID 不能用同一个 ID？前者跨运行稳定，后者服务当前 Context 的可读
+  顺序；两者通过 Binding 同时满足复现和引用。
+- XML escaping 能防 Prompt Injection 吗？不能，它只防正文伪造结构标签，语义攻击仍需后续 Trust、
+  Guard 和评测。
+- 为什么不直接从 Chroma 取正文？向量库不是正文权威源；Resolver 的 snapshot 与 hash 校验能控制权限
+  并检测索引引用与真实语料不一致。
+
+### 当前掌握与仍未完成
+
+已掌握的是受控检索的对象边界、身份/hash、正文权限、Citation、预算、日志和标签隔离设计。仍未实现
+IdentityChunker、DenseRetriever、ContentResolver、EvidenceEnvelope、ContextBuilder 和任何 RAG
+实验结果。下一步是人工审查设计和计划；未批准前不开始 S6-T5.1。

@@ -3,7 +3,7 @@
 ## Repository
 
 - Active branch: `feature/stage6-rag`
-- Current HEAD: 以 `git rev-parse HEAD` 为实时事实；CP-2 启动基线为 `59e29a9`
+- Current HEAD: 以 `git rev-parse HEAD` 为实时事实；S6-T5 Design Freeze 启动基线为 `3f65eb7`
 - Worktree: `feature/stage6-rag` 的 linked worktree；用 `git rev-parse --show-toplevel` 实时解析
 - Working tree status: CP-2 完成后应为 clean；每次启动必须用 `git status` 验证
 - Remote sync status: CP-2 启动时 `0 ahead / 0 behind`；每次启动必须与 upstream 复核
@@ -12,21 +12,21 @@
 
 - Last accepted architecture task: `A1R` namespace migration and governance freeze
 - Last accepted stage task: `S6-T4 Hardening`
-- Last accepted commit before CP-2: `59e29a9 docs(governance): record long-term rag research requirements`
+- Last accepted governance commit before S6-T5 Design Freeze: `3f65eb7 docs(governance): add codex persistent context entrypoint`
 
 ## Current Task
 
 - Task ID: `S6-T5-DESIGN-FREEZE`
 - Task name: `S6-T5 Design Freeze`
 - Task type: Design and governance documentation
-- Status: Design review pending; `S6-T5 implementation: Not started`
+- Status: `Completed, pending human review`; `S6-T5 implementation: Not started`
 - Objective: 冻结透明 Dense Retrieval、Evidence/Citation 和 ContextBuilder 的设计与 TDD 实施计划
 
 ## Approval Gate
 
-- Approved now: Context persistence governance and S6-T5 design documentation only
-- Not approved now: S6-T5 Python implementation, Retriever, ContentResolver, ContextBuilder or EvidenceEnvelope business implementation
-- Next human approval: Review S6-T5 design specification and implementation plan
+- Approved now: S6-T5 Design Freeze 文档、ADR、治理状态和必要验证
+- Not approved now: `S6-T5.1 Python implementation`，以及任何 Retriever、Chunker、ContentResolver、ContextBuilder 或 EvidenceEnvelope 业务实现
+- Next human approval: Human review and approval of S6-T5 design specification and implementation plan
 
 ## Must Not Start
 
@@ -39,7 +39,7 @@
 
 ## Blockers and Technical Debt
 
-- No blocking implementation issue is accepted for CP-2.
+- No blocking implementation issue is accepted for S6-T5 Design Freeze.
 - 旧历史 SHA 测试存在 CRLF/LF 跨 worktree 假阳性；只能登记技术债，不修改历史文件或 hash 基线。
 - 动态 HEAD 和 upstream 状态不可可靠自写入同一个提交；Git 命令始终优先于本文快照。
 
@@ -56,5 +56,5 @@
 ## Last Update
 
 - Date: `2026-07-19`
-- Commit: CP-2 启动基线 `59e29a9`；CP-2 完成提交由 Git 实时解析
-- Updated by: Codex under explicit user-approved CP-2 governance task
+- Commit: S6-T5 Design Freeze 启动基线 `3f65eb7`；完成提交由 Git 实时解析
+- Updated by: Codex under explicit user-approved S6-T5 Design Freeze task
