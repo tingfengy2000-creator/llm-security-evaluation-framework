@@ -12,6 +12,14 @@
 它固定 RAG 安全为第一优先级，并约束语料域、标签隔离、证据/引用、上下文分级、拒答和 Stage 6.1/6.2/7
 路线；任何较早实施草案与其冲突时，以该基线和本文的较新状态为准。
 
+## Repository Context Persistence
+
+根目录 `AGENTS.md` 是 Codex 仓库上下文入口；长期目标以
+`docs/governance/long_term_research_requirements.md` 为准；本文件负责总体架构、阶段进度和结论边界；
+`docs/governance/current_work_state.md` 负责当前任务与审批门。新 Thread、Agent、Workspace 或 Worktree
+必须遵守 `docs/governance/context_recovery_protocol.md`。Git 是 branch、HEAD、工作树、commit、文件
+存在性和远端同步状态的事实来源。
+
 ## 0.1 A1R：LLMGuard 命名冻结与 Retrieval Domain 落地（2026-07-16）
 
 项目正式名称现为 **LLMGuard Research Framework（简称 LLMGuard）**，中文名称为

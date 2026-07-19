@@ -617,3 +617,27 @@ Chroma 关闭重开行为。Windows 上文件句柄在异常路径也必须释�
 长期需求已固化在 `docs/governance/long_term_research_requirements.md`，但没有自动开始 S6-T5；
 当前仍只有 S6-T4 的 Embedding/VectorStore 基础设施验收。下一步须单独批准，并从测试先行的
 Dense Retriever 与 ContextBuilder 契约开始。
+
+## 2026-07-19：CP-2 仓库级 Codex 持久上下文入口
+
+### 我现在做了什么
+
+- 在仓库根建立 `AGENTS.md`，让任何新 Thread、Agent 或 Worktree 先读取同一组权威文件并报告恢复结果；
+- 新增 `current_work_state.md`，只保存当前任务、审批门、禁止启动项和技术债，不复制长期项目总控；
+- 新增 `context_recovery_protocol.md`，记录新 Thread/Worktree 流程、冲突优先级、停止规则和可复制模板；
+- 新增架构测试，防止入口文件丢失、S6-T5 审批门被弱化、长期 Citation/Abstention/Chunking/Retrieval/
+  Agent 要求被误删，或本机绝对路径进入治理文件。
+
+### 为什么企业和研究项目需要这样做
+
+聊天记录不是可靠的项目知识库：新会话、上下文压缩、多人协作和新 worktree 都可能丢失旧对话。企业会
+把长期目标、当前状态、架构约束和 Git 事实分层保存，并用自动测试守住入口。这样 Agent 不会因为“只看见
+一份旧计划”就越过审批门，也不会把历史实验、标签或未完成能力误当成当前事实。
+
+### 初学者最容易误解的地方
+
+- `AGENTS.md` 不是完整项目说明书，而是阅读地图和强制协议；长内容仍属于长期需求和项目总控；
+- `current_work_state.md` 不能永久写死当前 commit，因为提交它本身就会改变 HEAD；实时 HEAD 必须由 Git
+  解析，文件只记录接受基线和任务状态；
+- “S6-T5 Design Freeze 已列为当前任务”不等于 S6-T5 Python 实现获批。目前 Retriever、ContextBuilder、
+  Trust、LLM 和 Groq 仍禁止启动。
