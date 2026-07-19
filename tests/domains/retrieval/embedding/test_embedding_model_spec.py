@@ -42,6 +42,21 @@ class EmbeddingModelSpecTests(unittest.TestCase):
         self.assertNotIn(unix_prefix, left.canonical_json())
         self.assertEqual(64, len(left.fingerprint()))
 
+    def test_document_fingerprint_excludes_query_only_prefix(self) -> None:
+        baseline = make_spec(query_prefix="query: ")
+        query_prefix_changed = make_spec(query_prefix="search_query: ")
+        document_prefix_changed = make_spec(document_prefix="passage: ")
+
+        self.assertNotEqual(baseline.fingerprint(), query_prefix_changed.fingerprint())
+        self.assertEqual(
+            baseline.fingerprint(scope="document"),
+            query_prefix_changed.fingerprint(scope="document"),
+        )
+        self.assertNotEqual(
+            baseline.fingerprint(scope="document"),
+            document_prefix_changed.fingerprint(scope="document"),
+        )
+
     def test_rejects_mutable_revision_and_unsafe_remote_code(self) -> None:
         with self.assertRaisesRegex(EmbeddingConfigurationError, "revision"):
             make_spec(revision="main")

@@ -548,3 +548,47 @@ ContextBuilder。因此本轮没有形成 R1–R6 的攻击率、Faithfulness �
   持久化和 Windows 文件释放；真实 MiniLM + Chroma 测试在未设环境变量时跳过。
 - 本轮未下载模型，未创建项目 runtime 目录，未调用 Groq，也未运行 Retriever 或生成正式
   实验报告。下一步仅在批准后进入 S6-T5。
+
+## 2026-07-19：S6-T4 Hardening 与真实 MiniLM + Chroma 集成验收
+
+### 我现在做了什么
+
+- 将 collection fingerprint 改为 `document_embedding_spec_hash`：它由不可变
+  `EmbeddingModelSpec` 的 document scope 统一计算，不再让调用方手工抄写模型 ID、revision、维度和
+  归一化字段；
+- 明确区分 document prefix 与 query prefix：前者会改变已入库文档向量，因此进入 collection
+  fingerprint；后者只会改变查询向量，留给后续 RunManifest 记录；
+- 使用固定 revision 的真实 multilingual MiniLM，在 CPU 上把五篇主题分离的中文政策文档写入临时
+  ChromaDB，关闭并重开后验证中英文休假查询的 Top-1 都是休假文档；
+- 修复了真实测试在断言失败时未关闭 Chroma reader 的 Windows 文件锁风险，改为 `try/finally`。
+
+### 为什么这样做、企业里为什么这样做
+
+向量索引是否可复现取决于“文档向量由什么配置产生”，而不是只取决于模型名称。企业需要把这些配置
+变成稳定 hash，防止不同模型、不同归一化或不同文档前缀悄悄共用一个旧索引。查询前缀属于一次运行的
+检索策略，记录在 RunManifest 才能既保留审计线索，又不浪费地重建文档库。
+
+真实模型测试揭示了 Static Provider 无法证明的事情：它能够确认 384 维真实向量、实际语义排序和
+Chroma 关闭重开行为。Windows 上文件句柄在异常路径也必须释放，否则测试失败后会留下锁并污染下一次
+实验；这正是企业 CI 和本地复现中常见的稳定性要求。
+
+### 本次真实验收事实与边界
+
+- 固定模型：`sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`，revision
+  `16e5344fbfc7dfbbbe0019d30cec21e2940cb4e1`；
+- 输出：384 维，已检查无 NaN/Inf；
+- 中文 `员工如何申请休假？`：Top-1 `doc-leave`，distance `0.531143`，similarity `0.468857`；
+- 英文 `How should employees request leave?`：Top-1 `doc-leave`，distance `0.846969`，similarity
+  `0.153031`；
+- 语料中的 `leave / leave request` 是企业多语言知识库的术语别名，而非 Ground Truth；metadata
+  仍只含白名单公开字段；
+- 未调用 Groq，未实现 Retriever、ContextBuilder、RetrievalEvidence 或任何 S6-T5 功能；
+- 该结果仅适用于固定模型、五篇测试文档和当前 adapter，不能表述为 RAG 安全率、跨语种泛化能力或
+  生产检索效果。
+
+### 面试可以怎么讲
+
+“我先把向量化和存储解耦，再让 collection 指纹绑定真正影响文档向量的配置，避免索引漂移。单元测试
+用静态向量保证快速可复现；显式真实集成测试则固定 MiniLM revision，验证中英文查询经过持久化 Chroma
+重开后仍能将休假制度排在 Top-1，同时确认 Ground Truth 没有进入 metadata。这个阶段是 RAG 的索引
+基础设施验收，不把它夸大成完整的 RAG 安全实验。”

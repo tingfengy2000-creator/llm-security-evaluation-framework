@@ -1,5 +1,18 @@
 # Stage 6 RAG 安全与可信检索基线设计规格
 
+> ## 2026-07-19 S6-T4 加固与真实集成验收（当前有效）
+>
+> `CollectionFingerprint` 现通过 `document_embedding_spec_hash` 绑定
+> `EmbeddingModelSpec.fingerprint(scope="document")`，不再手工复制部分模型字段。provider、model ID、
+> revision、维度、归一化、document prefix、输出 dtype 或实现版本改变时均生成新 collection；
+> cache 路径、用户名、时间、Ground Truth 和 query prefix 不进入该文档索引 fingerprint。query prefix
+> 将在后续 RunManifest 记录。
+>
+> 已显式运行固定 revision 的真实 MiniLM + 临时 Persistent ChromaDB 集成测试。五篇不同主题的中文
+> 文档关闭重开后，`员工如何申请休假？` 与 `How should employees request leave?` 的 Top-1 均为
+> `doc-leave`；输出维度为 384，向量、distance、similarity 均为有限值，metadata 无 Ground Truth。
+> 这只是一项基础设施与小型语义排序验收，不是 RAG 安全实验或生产指标。
+
 > ## 2026-07-16 S6-T4 完成记录（当前有效）
 >
 > S6-T4 已在 `src/llmguard/domains/retrieval/embedding/` 和 `vectorstore/` 实现

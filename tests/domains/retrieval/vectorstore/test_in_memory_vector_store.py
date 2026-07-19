@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import unittest
 
+from llmguard.domains.retrieval.embedding.model_spec import EmbeddingModelSpec
 from llmguard.domains.retrieval.vectorstore.fingerprint import CollectionFingerprint
 from llmguard.domains.retrieval.vectorstore.in_memory_store import InMemoryVectorStore
 from llmguard.domains.retrieval.vectorstore.models import (
@@ -17,14 +18,23 @@ CONTENT_HASH = "a" * 64
 
 
 def make_fingerprint(corpus_hash: str = "a" * 64) -> CollectionFingerprint:
-    return CollectionFingerprint(
+    document_embedding_spec = EmbeddingModelSpec(
+        provider="llmguard_static",
+        model_id="llmguard/static-fixture",
+        revision="16e5344fbfc7dfbbbe0019d30cec21e2940cb4e1",
+        dimension=3,
+        normalize_embeddings=True,
+        device="cpu",
+        batch_size=16,
+        trust_remote_code=False,
+        local_files_only=True,
+        implementation_version="s6_t4_v1",
+    )
+    return CollectionFingerprint.from_document_embedding_spec(
         corpus_hash=corpus_hash,
         corpus_manifest_version="1.0.1",
         chunking_config_hash="b" * 64,
-        embedding_model_id="llmguard/static-fixture",
-        embedding_revision="16e5344fbfc7dfbbbe0019d30cec21e2940cb4e1",
-        embedding_dimension=3,
-        normalize_embeddings=True,
+        document_embedding_spec=document_embedding_spec,
         distance_metric="cosine",
         vector_schema_version="1.0",
         public_metadata_schema_version="1.0",

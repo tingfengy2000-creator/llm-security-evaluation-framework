@@ -1,5 +1,12 @@
 # Stage 6 RAG Security + Trustworthy Retrieval Implementation Plan
 
+> ## 2026-07-19 S6-T4 Hardening 完成记录（当前有效）
+>
+> 本轮只加固 Embedding 与 VectorStore 边界，未进入 S6-T5。新增 document-scope 配置指纹和真实
+> MiniLM + Chroma 验收：固定 revision、CPU、五篇主题分离中文文档、关闭重开、中文与英文休假
+> 查询 Top-1、metadata 隔离均已通过。真实测试显式开启且不成为快速 CI 强依赖；未调用 Groq，未产生
+> 可提交 runtime 文件。下一项仍是待单独批准的 S6-T5 Retriever + ContextBuilder。
+
 > ## 2026-07-16 S6-T4 完成记录（当前有效）
 >
 > S6-T4 已按测试先行分为四个独立提交：EmbeddingModelSpec + Static Provider、VectorStore

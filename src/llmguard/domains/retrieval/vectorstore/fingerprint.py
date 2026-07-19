@@ -7,6 +7,7 @@ import json
 import re
 from dataclasses import dataclass
 
+from ..embedding.model_spec import EmbeddingModelSpec
 
 _SHA256 = re.compile(r"\A[0-9a-f]{64}\Z")
 _REVISION = re.compile(r"\A[0-9a-f]{40}\Z")
@@ -26,10 +27,7 @@ class CollectionFingerprint:
     corpus_hash: str
     corpus_manifest_version: str
     chunking_config_hash: str
-    embedding_model_id: str
-    embedding_revision: str
-    embedding_dimension: int
-    normalize_embeddings: bool
+    document_embedding_spec_hash: str
     distance_metric: str
     vector_schema_version: str
     public_metadata_schema_version: str
@@ -37,10 +35,13 @@ class CollectionFingerprint:
     def __post_init__(self) -> None:
         _require_hash(self.corpus_hash, "corpus_hash", length=64)
         _require_hash(self.chunking_config_hash, "chunking_config_hash", length=64)
-        _require_hash(self.embedding_revision, "embedding_revision", length=40)
+        _require_hash(
+            self.document_embedding_spec_hash,
+            "document_embedding_spec_hash",
+            length=64,
+        )
         for field_name in (
             "corpus_manifest_version",
-            "embedding_model_id",
             "distance_metric",
             "vector_schema_version",
             "public_metadata_schema_version",
@@ -48,10 +49,36 @@ class CollectionFingerprint:
             value = getattr(self, field_name)
             if not isinstance(value, str) or not value.strip():
                 raise ValueError(f"{field_name} must be a nonblank string")
-        if type(self.embedding_dimension) is not int or self.embedding_dimension <= 0:
-            raise ValueError("embedding_dimension must be a positive integer")
-        if type(self.normalize_embeddings) is not bool:
-            raise ValueError("normalize_embeddings must be a boolean")
+
+    @classmethod
+    def from_document_embedding_spec(
+        cls,
+        *,
+        corpus_hash: str,
+        corpus_manifest_version: str,
+        chunking_config_hash: str,
+        document_embedding_spec: EmbeddingModelSpec,
+        distance_metric: str,
+        vector_schema_version: str,
+        public_metadata_schema_version: str,
+    ) -> CollectionFingerprint:
+        """Build collection provenance from document-vector settings only.
+
+        ``query_prefix`` is intentionally excluded because it cannot alter an
+        already persisted document vector. It belongs in a future RunManifest.
+        """
+
+        return cls(
+            corpus_hash=corpus_hash,
+            corpus_manifest_version=corpus_manifest_version,
+            chunking_config_hash=chunking_config_hash,
+            document_embedding_spec_hash=document_embedding_spec.fingerprint(
+                scope="document"
+            ),
+            distance_metric=distance_metric,
+            vector_schema_version=vector_schema_version,
+            public_metadata_schema_version=public_metadata_schema_version,
+        )
 
     def canonical_payload(self) -> dict[str, object]:
         return {
@@ -59,10 +86,7 @@ class CollectionFingerprint:
             "corpus_hash": self.corpus_hash,
             "corpus_manifest_version": self.corpus_manifest_version,
             "distance_metric": self.distance_metric,
-            "embedding_dimension": self.embedding_dimension,
-            "embedding_model_id": self.embedding_model_id,
-            "embedding_revision": self.embedding_revision,
-            "normalize_embeddings": self.normalize_embeddings,
+            "document_embedding_spec_hash": self.document_embedding_spec_hash,
             "public_metadata_schema_version": self.public_metadata_schema_version,
             "vector_schema_version": self.vector_schema_version,
         }

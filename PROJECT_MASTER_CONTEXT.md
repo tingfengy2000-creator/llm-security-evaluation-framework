@@ -2,11 +2,11 @@
 
 > 这是项目唯一的总览与决策入口。它回答：为什么做、已经做了什么、证据在哪里、当前代码处于什么状态、未来架构如何同时支撑面试、论文和科技立项。
 
-更新时间：2026-07-16
+更新时间：2026-07-19
 
 当前研究分支：`feature/stage6-rag`
 
-文档状态：A0 架构冻结与 A1R 命名/namespace 迁移已完成
+文档状态：A0 架构冻结、A1R 命名/namespace 迁移与 S6-T4 真实集成加固已完成
 
 ## 0.1 A1R：LLMGuard 命名冻结与 Retrieval Domain 落地（2026-07-16）
 
@@ -22,7 +22,7 @@
   相同；
 - 阶段导航迁移为 frozen canonical slug；已进入 manifest 的数据与测试路径继续保留旧路径；
 - `src/codeguarder/` 中 Stage 5/Stage 5 Paper 为受保护 legacy 例外，不移动、不复制、不新增；
-- 未开始 `S6-T4`，没有下载 Embedding、建立 ChromaDB 或调用 Groq。
+- 本节只记录 A1R 当时的边界；其后的 S6-T4 实现与真实 MiniLM + Chroma 验收见下一节。
 
 命名治理：[project_identity.md](docs/governance/project_identity.md)、
 [naming_conventions.md](docs/governance/naming_conventions.md)、
@@ -40,6 +40,23 @@ S6-T4 已完成并以多个小提交落地：规范代码仅位于
 `LLMGUARD_RUN_REAL_EMBEDDING_TESTS=1` 才允许加载/下载模型。正常快速测试不联网。Chroma
 测试只使用临时目录；正式运行时目录固定为 `runtime/stage6_rag_security/chroma/` 并由 Git
 忽略。Ground Truth、攻击标签、完整正文和绝对路径不会进入 collection metadata 或 fingerprint。
+
+### S6-T4 Hardening：document 指纹与真实语义验收（2026-07-19）
+
+collection 身份现使用 `document_embedding_spec_hash`，由
+`EmbeddingModelSpec.fingerprint(scope="document")` 统一派生，避免人工复制模型 ID、revision、
+维度与归一化等片段字段。provider、model ID、revision、维度、归一化、document prefix、输出 dtype
+和实现版本任一变化都会改变 collection fingerprint；本机 cache 路径、用户名、创建时间、Ground Truth
+和 query prefix 不会进入它。query prefix 会在后续 S6-T5 的 RunManifest 中记录，而不会让未改变的
+文档索引被无意义地重建。
+
+已完成一次显式真实验收：固定 `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` revision
+`16e5344fbfc7dfbbbe0019d30cec21e2940cb4e1` 在 CPU 输出 384 维有限向量；五篇不同主题中文政策文档
+写入临时 Persistent ChromaDB、关闭并重开后，中文与英文休假查询 Top-1 都是 `doc-leave`。
+metadata 未出现 Ground Truth 或攻击标签；模型缓存和临时 Chroma 均不在 Git。未调用 Groq。
+
+这项验收只证明当前固定模型、固定语料、向量库 adapter 与跨语言术语别名的基础设施行为，不能宣称
+Retriever、R1–R6、可信检索策略、RAG 指标或生产安全能力已完成。S6-T5 仍需单独批准。
 
 本任务**没有**实现 Retriever、RetrievalEvidence 编排、ContextBuilder、Trust、LLM、Groq、
 RAG Evaluator、T10–T15、实验矩阵或报告；因此没有新的安全指标或真实 RAG 实验结论。下一步

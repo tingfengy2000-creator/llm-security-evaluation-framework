@@ -6,12 +6,15 @@ import hashlib
 import json
 import re
 from dataclasses import dataclass
+from typing import Literal
 
 from .base import EmbeddingConfigurationError
 
 
 _IMMUTABLE_REVISION = re.compile(r"\A[0-9a-f]{40}\Z")
 _LOCAL_PATH_MARKER = re.compile(r"(?:^[A-Za-z]:[\\/]|^[/\\]|[\\/])")
+_FINGERPRINT_SCOPES = frozenset({"full", "document", "query"})
+FingerprintScope = Literal["full", "document", "query"]
 
 
 def _require_nonblank_string(value: object, field_name: str) -> str:
@@ -70,10 +73,19 @@ class EmbeddingModelSpec:
                     "cache_dir_ref must be a non-path symbolic reference"
                 )
 
-    def canonical_payload(self) -> dict[str, object]:
-        """Return only output-relevant, platform-independent configuration values."""
+    def canonical_payload(
+        self, *, scope: FingerprintScope = "full"
+    ) -> dict[str, object]:
+        """Return output-relevant configuration for full, document, or query provenance.
 
-        return {
+        A collection stores document vectors only, so its fingerprint must exclude
+        ``query_prefix``. Query provenance remains available through the query scope
+        for a future run manifest without changing an existing collection identity.
+        """
+
+        if scope not in _FINGERPRINT_SCOPES:
+            raise EmbeddingConfigurationError(f"unsupported fingerprint scope: {scope}")
+        payload: dict[str, object] = {
             "batch_size": self.batch_size,
             "dimension": self.dimension,
             "device": self.device,
@@ -88,18 +100,25 @@ class EmbeddingModelSpec:
             "revision": self.revision,
             "trust_remote_code": self.trust_remote_code,
         }
+        if scope == "document":
+            payload.pop("query_prefix")
+        elif scope == "query":
+            payload.pop("document_prefix")
+        return payload
 
-    def canonical_json(self) -> str:
+    def canonical_json(self, *, scope: FingerprintScope = "full") -> str:
         """Return canonical UTF-8-safe JSON without machine-local cache information."""
 
         return json.dumps(
-            self.canonical_payload(),
+            self.canonical_payload(scope=scope),
             ensure_ascii=True,
             separators=(",", ":"),
             sort_keys=True,
         )
 
-    def fingerprint(self) -> str:
-        """Return a stable SHA-256 hash for collection and audit provenance."""
+    def fingerprint(self, *, scope: FingerprintScope = "full") -> str:
+        """Return a stable SHA-256 hash for the selected provenance scope."""
 
-        return hashlib.sha256(self.canonical_json().encode("utf-8")).hexdigest()
+        return hashlib.sha256(
+            self.canonical_json(scope=scope).encode("utf-8")
+        ).hexdigest()
