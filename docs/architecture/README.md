@@ -19,9 +19,9 @@
 长期研究需求入口：[治理基线](../governance/long_term_research_requirements.md)。其中规定 RAG 安全
 优先级、语料/标签治理、Evidence/Citation 契约和 S6-T5 以后阶段的最低能力；它不替代原始实验产物。
 
-当前状态：`A0`、`A1R` 与 `S6-T4` 已完成；`S6-T5 Design Freeze` 已完成并等待人工审查，Python
-实现尚未开始。只有设计规格和实施计划获明确批准后才可进入 `S6-T5.1`，不能跨越到 Trust、Groq 或
-正式 RAG 实验。
+当前状态：`A0`、`A1R` 与 `S6-T4` 已完成；`S6-T5 Design Hardening` 已完成并等待第二次人工审查，
+Python 实现尚未开始。只有 hardened design、Existing Contract Migration Matrix 和实施计划获明确批准后
+才可进入 `S6-T5.1`，不能跨越到 Trust、Groq 或正式 RAG 实验。
 
 S6-T5 权威入口：
 

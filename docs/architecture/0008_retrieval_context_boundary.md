@@ -2,13 +2,24 @@
 
 ## 状态
 
-设计已接受为 S6-T5 冻结候选，2026-07-19；等待人工审查。Python 实现未开始。
+S6-T5 Design Hardening 已完成，2026-07-19；等待第二次人工审查。Python 实现未开始。
 
 ## 背景
 
 S6-T4 只提供向量化和向量存储。如果 Retriever 直接返回正文、ContextBuilder 直接读取 Chroma，或在
 Trust 计算前把结果命名为 Trusted Context，就会把检索正确性、正文权限、安全策略和审计混成一个无法
 消融的组件。本 ADR 固定 S6-T5 的层间边界。
+
+硬化后的起始边界是：
+
+```text
+Dataset QueryRecord -> safe projection -> RetrieverQueryRecord -> RetrievalRequest
+                                           |
+GroundTruthVault keeps raw record/oracle     +-> DenseRetriever -> Evidence/Trace
+```
+
+这里的 **safe projection** 是 Dataset/Public loader 或 orchestration boundary 的显式责任；Retriever 不得
+接受含 `attack_id`、`expected_clean_doc_ids` 或 `generation_question` 的 Dataset QueryRecord。
 
 ## 决策
 
@@ -18,11 +29,20 @@ Retriever 只返回带稳定身份、来源、rank、distance、similarity、con
 `RetrievalEvidence`，另生成不含 Query/正文的 `RetrievalTrace`。这样普通检索日志可审计而不会自动
 复制敏感语料，Retriever 也无法越权构造 Prompt。
 
+`RetrieverQueryRecord`、`RetrievalRequest`、`RetrievalEvidence` 和 `RetrievalTrace` 是 `contracts/` 中的
+唯一稳定 DTO；`retrieval/` 只实现 orchestration，不能建立第二个 `RetrievalEvidence` 或 `models.py`
+副本。现有 attacks 层的 `RetrieverQueryRecord` import 在迁移时必须 re-export canonical 类型，历史数据
+shape 仅由显式 loader adapter 兼容。
+
 ### 2. 正文通过 ContentRef 受控解析
 
-新规范引用为 `corpus:<corpus_snapshot_id>:<chunk_id>`。`ContentResolver` 在受控 corpus snapshot 中
-解析正文并核对 content hash；hash 不一致立即阻断。S6-T4 的 `chroma:<doc_id>` 仅作为历史测试 fixture
-兼容 scheme，由后续 adapter 显式迁移，不修改历史实现，也不把 Chroma 变成正文权威源。
+新规范引用为 `corpus:<corpus_snapshot_id>:<chunk_id>`。ContentRef 必须是 `contracts/` 中唯一的 value
+object/validation contract，统一接受 canonical `corpus:` 和 legacy `chroma:`，拒绝未知 scheme、正文和
+绝对路径。新 S6-T5 producer 只生成 `corpus:`；S6-T4 fixture 继续使用 `chroma:`。Resolver 根据已验证
+scheme 显式分派，legacy scheme 仅映射受控 fixture corpus，不读取 Chroma 正文。
+
+`ContentResolver` 在受控 corpus snapshot 中解析正文并核对 content hash；hash 不一致立即阻断。兼容
+validation 只能存在这一个 canonical 位置；必要时 VectorStore 只做委托式调用，不能再复制正则。
 
 ### 3. Evidence UID 与 Citation ID 分离
 
@@ -52,6 +72,11 @@ S6-T5 冻结 `off/available/required` 三种 Citation Mode、结构化证据 ID 
 serialization 只保存 ID、hash、有限 metric、来源、版本、数量、时延和错误类型。完整 Query、正文、
 rendered Context、Ground Truth、标签、密钥和本机路径均被禁止。
 
+`EvidenceEnvelope` 与 `RetrievedContextPackage` 是 runtime sensitive object。完整正文或 rendered context
+不进入默认 repr；普通审计只能调用 `to_audit_dict()`。`dataclasses.asdict()` 是敏感操作，不能被当作
+安全 API；完整对象导出必须经过显式 sensitive artifact policy。异常和 logger payload 同样只能使用
+安全 audit representation。
+
 ### 8. 当前只实现 Dense Retrieval
 
 Dense Retrieval 直接复用 S6-T4 的 EmbeddingProvider 与 VectorStore，变量最少，便于先验证 ID、排序、
@@ -70,10 +95,29 @@ Agent 可能把上下文转化为工具调用、记忆和副作用。如果它�
 Trust 决策进入高风险执行链。固定 Trusted Context + Security Envelope 输入，是把 RAG 风险传播到
 Agent 时仍保持最小权限和审计边界的前提。
 
+### 11. 结构性 abstention 不等于完整性异常
+
+`EMPTY_RETRIEVAL`、`NO_EVIDENCE_AFTER_DEDUPLICATION`、`CONTEXT_BUDGET_EXHAUSTED` 与
+`NO_COMPLETE_EVIDENCE_BLOCK_FITS` 表示正常但无可用 Context，可返回 `RetrievedContextPackage` 且令
+`abstention_required=true`。这不是 Trust 判断。
+
+`CONTENT_HASH_MISMATCH`、`UNKNOWN_CONTENT_REF`、`INVALID_CONTENT_REF_SCHEME`、
+`COLLECTION_FINGERPRINT_MISMATCH`、`REQUEST_EVIDENCE_MISMATCH`、`INVALID_METRIC`、
+`CORPUS_SNAPSHOT_INTEGRITY_FAILURE`、`UNEXPECTED_CONTEXT_CONSTRUCTION_FAILURE` 是数据完整性、配置或
+安全边界错误，必须抛出脱敏异常且不得返回 Package。Trust-based abstention 仅属于 Stage 6.2。
+
+### 12. Context 预算是跨平台确定性协议
+
+ContextBuilder 的顺序固定为排序、Evidence UID 去重、数量限制、Resolver/hash 验证、Citation 分配和
+渲染。预算使用最终 escaped string 的 Unicode code point 数量，Context hash 使用最终 UTF-8 bytes，
+换行固定为 LF。预算不足时只排除完整 Evidence block；不允许把截断片段冒充完整证据。
+
 ## 哈希与配置边界
 
-Chunk、Evidence、Trace、Context 和 Package 身份都使用 canonical JSON UTF-8 + SHA-256，排除路径、
-用户名、时间、随机数和 Ground Truth。文档向量配置继续由 S6-T4 的
+Chunk、Evidence、Trace、Context 和 Package 身份都使用 `contracts/` 唯一 helper 的 canonical JSON UTF-8
++ SHA-256，排除路径、用户名、时间、随机数和 Ground Truth。Evidence UID 选择显式重复 `content_hash`
+作为 evidence-content binding；它只承诺在同一 immutable corpus snapshot 内跨运行稳定，snapshot 变化时
+允许变化。短 digest 仅展示，完整 digest 才是身份。文档向量配置继续由 S6-T4 的
 `document_embedding_spec_hash` 进入 collection fingerprint；`query_prefix` 不改变已存文档向量，因此
 只进入 `query_embedding_spec_hash` 和未来 RunManifest。
 

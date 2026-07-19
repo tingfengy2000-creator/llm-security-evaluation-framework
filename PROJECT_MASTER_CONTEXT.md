@@ -88,9 +88,24 @@ RAG Evaluator、T10–T15、实验矩阵或报告；因此没有新的安全指�
 - Chunking 当前只允许 Identity 基线，复杂 Token/Overlap/Sentence/Semantic 策略只冻结协议；
 - S6-T5.1–S6-T5.8 必须逐项人工批准、TDD、独立提交和验收。
 
-当前状态是 `Completed, pending human review`，但 `S6-T5 implementation: Not started`。设计文档完成
-只能证明契约和实施路径可审查，不能宣称 Retriever、ContextBuilder、Citation Accuracy、Trust 或 RAG
+该首轮冻结已由后续 `S6-T5 Design Hardening` 审查收紧；当前状态以其“第二次人工审查”门为准。设计文档
+完成只能证明契约和实施路径可审查，不能宣称 Retriever、ContextBuilder、Citation Accuracy、Trust 或 RAG
 安全实验已经实现。
+
+### S6-T5 Design Hardening：契约与失败边界加固（2026-07-19）
+
+第二次设计审查发现并留痕五类问题：稳定 DTO 可能重复定义、Dataset QueryRecord 可携带评估字段进入
+runtime、`corpus:` 与历史 `chroma:` ContentRef 会在 Resolver 前冲突、Envelope/Package 的敏感序列化语义
+不够精确，以及完整性异常与结构性 abstention 混淆。
+
+加固后的冻结决定是：稳定 DTO、ContentRef、canonical hash 和安全 audit serialization 只归属
+`contracts/`；Dataset QueryRecord 必须经 explicit safe projection 才能成为最小
+`RetrieverQueryRecord`；新 producer 只生成 `corpus:`、legacy fixture 继续可读 `chroma:`；
+`to_audit_dict()` 才是普通审计接口，`asdict()` 是敏感操作；只有无可用 Context 才返回结构性 abstention，
+hash/scheme/fingerprint/metric 等完整性错误必须异常且不得返回 Package。
+
+当前状态为 `Completed, pending second human review`，且 `S6-T5.1 implementation: Not approved`。该加固
+仍只证明设计边界已被审查和收紧，不代表任何 S6-T5 Python 能力已实现。
 
 ## 0.2 Architecture Task 0：长期架构冻结（2026-07-16，历史架构基线）
 
@@ -728,15 +743,15 @@ Public Artifact Repository / public-release branch
 
 ## 13. 当前下一步
 
-`S6-T4` 已完成，`S6-T5 Design Freeze` 已完成并等待人工审查。下一步不是自动写 Python，而是人工审查：
+`S6-T4` 已完成，`S6-T5 Design Hardening` 已完成并等待第二次人工审查。下一步不是自动写 Python，而是
+审查 hardened design、Existing Contract Migration Matrix 与实施计划：
 
 - `docs/superpowers/specs/2026-07-19-s6-t5-controlled-retrieval-traceable-context-design.md`；
 - `docs/superpowers/plans/2026-07-19-s6-t5-controlled-retrieval-traceable-context.md`；
 - `docs/architecture/0008_retrieval_context_boundary.md`。
 
-只有规格和计划获明确批准后，才可单独开始 `S6-T5.1 Chunking Contracts`。`S6-T5.1 Python
-implementation` 当前未批准，其后的 Retriever、ContentResolver、EvidenceEnvelope 和 ContextBuilder
-更不能提前实施。
+只有第二次人工审查明确批准后，才可单独开始 `S6-T5.1 Chunking Contracts`。`S6-T5.1 implementation:
+Not approved`，其后的 Retriever、ContentResolver、EvidenceEnvelope 和 ContextBuilder 更不能提前实施。
 
 面试表达：我先通过五个阶段建立模型层评测、防护和失败分类，再把系统扩展到检索层。为了让项目能够从演示走向论文，我将阶段脚本重构为稳定研究内核，并把 RAG 的证据表示、可信分析和风险传播设计成可插拔领域模块，同时用兼容层保护历史实验可复现性。
 

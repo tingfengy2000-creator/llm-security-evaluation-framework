@@ -683,3 +683,77 @@ hash，不改变只由文档向量决定的 collection fingerprint。
 已掌握的是受控检索的对象边界、身份/hash、正文权限、Citation、预算、日志和标签隔离设计。仍未实现
 IdentityChunker、DenseRetriever、ContentResolver、EvidenceEnvelope、ContextBuilder 和任何 RAG
 实验结果。下一步是人工审查设计和计划；未批准前不开始 S6-T5.1。
+
+## 2026-07-19：S6-T5 Design Hardening 审查问题与处理记录
+
+### 试验/设计审查背景
+
+本次不是运行新的 RAG 实验，也不修改任何 Python 业务代码。人工审查 S6-T5 设计时发现：即使系统还未
+实现，若稳定契约、运行时数据边界和失败语义不先固定，后续代码可能“测试能跑、但安全边界不可信”。因此
+本轮将问题、风险、冻结决定和未来验证方式写入规格、计划、ADR 与本学习记录。
+
+### 问题 1：稳定 DTO 可能重复定义
+
+- 现象：现有 `contracts.RetrievalEvidence` 已公开导出，而原计划拟在 `retrieval/models.py` 再定义同名
+  对象；`RetrieverQueryRecord` 当前又位于 attacks 公共数据层。
+- 风险：不同模块可能持有字段不同、序列化不同、类型不相等的“同名证据”，审计、Evaluator 和 Context
+  无法确认消费的是同一契约。
+- 冻结决定：所有跨层稳定对象统一归属 `contracts/`；chunking/retrieval/context 只实现行为。建立 Existing
+  Contract Migration Matrix，旧 attacks import 通过 re-export 继续工作，旧 public-record shape 只在 loader
+  adapter 处兼容。
+- 未来验证：contract ownership、import identity、旧 import、禁止第二个 `RetrievalEvidence` 的 architecture
+  测试。
+
+### 问题 2：Dataset QueryRecord 与运行时 Query 未物理隔离
+
+- 现象：Dataset QueryRecord 含 `attack_id`、`generation_question`、`expected_clean_doc_ids`，原链路曾直接
+  写成 QueryRecord 到 RetrievalRequest。
+- 风险：攻击标签或 oracle 线索可能污染 Retriever、Trace、Context 或日志，造成标签泄漏和不可信的检索
+  安全结论。
+- 冻结决定：Dataset loader/orchestration 必须做 explicit safe projection，只生成最小
+  `RetrieverQueryRecord(query_id, retrieval_query, public_metadata)`；GroundTruthVault 保留原记录和 oracle。
+- 未来验证：投影后对象、Request、Trace、Package、logger/exception 均不能出现攻击/expected/generation
+  字段。
+
+### 问题 3：`corpus:` 与 legacy `chroma:` ContentRef 会在 Resolver 前冲突
+
+- 现象：现有 RetrievalEvidence 只验证 `chroma:`，而新设计要求 `corpus:<snapshot>:<chunk>`。
+- 风险：只在 Resolver 加 adapter 无效，因为 Evidence 在进入 Resolver 前已被旧校验拒绝；多处正则还会逐渐
+  漂移。
+- 冻结决定：ContentRef 成为 `contracts/` 唯一 validation contract；迁移期同时接受 `corpus:` 和 legacy
+  `chroma:`，新 producer 只写 `corpus:`，旧 fixture 继续有效。legacy scheme 只能映射受控 fixture corpus，
+  不能读取 Chroma 正文。
+- 未来验证：双 scheme、未知 scheme、绝对路径、回滚后的旧 fixture 与 hash 校验测试。
+
+### 问题 4：敏感对象不能被笼统称为“默认序列化安全”
+
+- 现象：EvidenceEnvelope 会含完整正文，RetrievedContextPackage 会含 rendered context；普通 dataclass
+  `asdict()` 会递归导出这些字段。
+- 风险：repr、logger、异常或嵌套字典可能把污染/敏感正文写入普通审计日志。
+- 冻结决定：正文 `repr=False`；普通审计只允许 `to_audit_dict()`；`asdict()` 是敏感操作；完整导出必须走
+  explicit sensitive artifact policy。Package 同样提供不含 rendered context 的 audit view。
+- 未来验证：repr、audit dict、logger payload、exception payload、nested package 和 sensitive artifact export
+  分别测试，不能只测一个 `dict()`。
+
+### 问题 5：结构性 abstention 与完整性异常曾混用
+
+- 现象：设计同时要求 hash mismatch 立即阻断，又写“明确构建失败可返回 abstention”。
+- 风险：攻击、配置或语料完整性错误可能被伪装成正常拒答，导致系统掩盖安全故障。
+- 冻结决定：只有 EMPTY_RETRIEVAL、去重后为空、预算耗尽、无完整 block 能放入时，返回结构性
+  abstention；hash/ref/fingerprint/request/metric/corpus integrity 等错误必须抛出脱敏异常且不得返回 Package。
+- 未来验证：按异常码和 reason code 分别断言返回或抛出，并验证异常中没有 Query、正文、Context、路径或
+  标签。
+
+### 补充：ID 与预算的确定性
+
+- Evidence UID 选择保留 `content_hash` 的显式 evidence-content binding；它只承诺在同一 immutable corpus
+  snapshot 内跨运行稳定，snapshot 变化允许 UID 变化。
+- 所有 canonical hash 未来复用 `contracts/` 的公共 helper；完整 digest 是身份，短 digest 只用于展示。
+- ContextBuilder 固定按排序、UID 去重、数量限制、Resolver/hash、Citation、渲染执行；预算使用最终 escaped
+  string 的 Unicode code point，Context hash 使用 UTF-8 bytes，换行固定 LF，且不截断单条 Evidence。
+
+### 当前结论边界与下一步
+
+本次只完成设计加固与治理留痕，未运行 Groq、未下载模型、未创建 runtime、未实现任何 S6-T5 Python
+对象或检索链路。下一步是第二次人工审查 hardened specification、migration matrix 与计划；
+`S6-T5.1 implementation` 仍未批准。

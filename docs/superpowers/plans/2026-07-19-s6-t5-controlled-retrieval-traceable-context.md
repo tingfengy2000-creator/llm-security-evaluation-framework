@@ -1,6 +1,6 @@
 # S6-T5 受控检索与可追溯上下文构建实施计划
 
-> 状态：Design Freeze completed, pending human review
+> 状态：Design Hardening completed, pending second human review
 >
 > 业务实现：Not started
 >
@@ -28,6 +28,16 @@ Stage 1–5/Stage 6 数据完整性。
 5. 每个任务完成后运行定向测试、架构/namespace/label-isolation、Ruff、MyPy 和 diff 检查。
 6. 不实现 BM25、Hybrid、Rewrite、Reranker、Trust、LLM、Evaluator、T10–T15 或正式实验。
 7. 任一任务若需要改变已冻结协议，先回到设计评审，不在实现中偷偷扩大范围。
+8. 跨层稳定 DTO、value object、hash 与安全 serialization 只在 `contracts/` 定义；`chunking/`、
+   `retrieval/`、`context/` 只消费它们，禁止重复 `models.py`。
+
+### 实施前迁移顺序
+
+S6-T5.1 先把 `ChunkRecord` 规划到 `contracts/`；S6-T5.2 再完成 Existing Contract Migration Matrix 中的
+`RetrieverQueryRecord` safe projection、RetrievalRequest/Trace、ContentRef 和 RetrievalEvidence 原地演进。
+其中旧 `attacks.RetrieverQueryRecord` import 必须 re-export 新 canonical 类型；历史 public record 的
+`generation_question` 只能由 loader adapter 消费并丢弃，不能进入 runtime DTO。不得在 retrieval/models.py
+建立第二个 RetrievalEvidence。
 
 ## 3. S6-T5.1 Chunking Contracts
 
@@ -36,28 +46,31 @@ Stage 1–5/Stage 6 数据完整性。
 - `tests/domains/retrieval/chunking/test_chunking_config.py`
 - `tests/domains/retrieval/chunking/test_identity_chunker.py`
 - `tests/domains/retrieval/chunking/test_chunk_id_stability.py`
+- `tests/architecture/test_contract_ownership.py`（或扩展既有 architecture test）
 - 覆盖 canonical config hash、tokenizer/revision/overlap 参数、相同输入稳定、正文/配置变化改 ID、标签和
   路径不进入公开对象。
 
 **新增文件**
 
 - `src/llmguard/domains/retrieval/chunking/__init__.py`
-- `src/llmguard/domains/retrieval/chunking/models.py`
 - `src/llmguard/domains/retrieval/chunking/base.py`
 - `src/llmguard/domains/retrieval/chunking/identity_chunker.py`
 
 **修改文件**
 
-- 仅必要的 `src/llmguard/domains/retrieval/__init__.py` 公开导出和架构测试。
+- `src/llmguard/domains/retrieval/contracts/models.py`：只在此原地加入 `ChunkRecord`；
+- `src/llmguard/domains/retrieval/contracts/__init__.py`：公开稳定 DTO；
+- 必要的 architecture ownership test。
 
 **不允许修改**
 
-- S6-T4 embedding/vectorstore 实现、Stage 6 数据、旧 namespace；不得实现复杂 Chunker 空壳。
+- S6-T4 embedding/vectorstore 实现、Stage 6 数据、旧 namespace；不得在 chunking 建立稳定 DTO 或实现
+  复杂 Chunker 空壳。
 
 **验收标准**
 
-- IdentityChunker 一文档一 chunk；ID/hash 跨进程稳定；metadata 只读且无标签；未来策略只存在枚举和
-  配置契约，不存在伪实现。
+- IdentityChunker 一文档一 chunk；ID/hash 跨进程稳定；`ChunkRecord` 只存在于 contracts；metadata 只读
+  且无标签；未来策略只存在枚举和配置契约，不存在伪实现。
 
 **建议提交**：`feat(retrieval): add deterministic identity chunking contracts`
 
@@ -73,32 +86,43 @@ Stage 1–5/Stage 6 数据完整性。
 - `tests/domains/retrieval/retrieval/test_evidence_uid.py`
 - `tests/domains/retrieval/retrieval/test_retrieval_evidence.py`
 - `tests/domains/retrieval/retrieval/test_retrieval_trace.py`
-- 覆盖 Evidence UID 稳定/变化、请求 hash、metric 有限、Trace 无 Query/正文、repr/dict/nested
-  serialization 无标签。
+- `tests/domains/retrieval/retrieval/test_runtime_query_projection.py`
+- `tests/domains/retrieval/retrieval/test_content_ref_compatibility.py`
+- `tests/domains/retrieval/retrieval/test_safe_audit_contracts.py`
+- 覆盖 Existing Contract Migration Matrix、攻击/expected/generation 字段无法投影到 runtime、Evidence UID
+  snapshot 内稳定/跨 snapshot 可变、请求 hash、metric 有限、Trace 无 Query/正文、双 scheme ContentRef、
+  `to_audit_dict()` 和 repr-safe 行为。
 
 **新增文件**
 
 - `src/llmguard/domains/retrieval/retrieval/__init__.py`
-- `src/llmguard/domains/retrieval/retrieval/models.py`
-- `src/llmguard/domains/retrieval/retrieval/identifiers.py`
 - `src/llmguard/domains/retrieval/retrieval/errors.py`
 
 **修改文件**
 
-- 仅必要的 canonical serialization 公共 helper 和公开导出；不得改 S6-T4 领域语义。
+- `src/llmguard/domains/retrieval/contracts/models.py`：原地演进现有 `RetrievalEvidence`，新增
+  `RetrieverQueryRecord`、`RetrievalRequest`、`RetrievalTrace`；
+- `src/llmguard/domains/retrieval/contracts/identifiers.py`：唯一 canonical hash helper；
+- `src/llmguard/domains/retrieval/contracts/content_ref.py`：唯一 `corpus:`/legacy `chroma:` validation；
+- `src/llmguard/domains/retrieval/contracts/projections.py`：唯一 safe projection；
+- `src/llmguard/domains/retrieval/contracts/__init__.py`、既有 attacks re-export/loader adapter、必要的
+  VectorStore 委托式 validation 和兼容测试。
 
 **不允许修改**
 
-- 不创建 DenseRetriever、Resolver、Envelope 或 ContextBuilder；不把正文放入 Evidence/Trace。
+- 不创建 `retrieval/models.py` 或第二个 RetrievalEvidence；不创建 DenseRetriever、Resolver、Envelope 或
+  ContextBuilder；不把正文放入 Evidence/Trace；不允许 Dataset QueryRecord 进入 Retriever。
 
 **验收标准**
 
-- Request/Evidence/Trace 不变量明确；Evidence UID 使用完整稳定 digest；Trace hash 排除时延；禁止字段
-  递归扫描通过。
+- Request/Evidence/Trace 不变量明确且只在 contracts 定义；旧 imports 保持可用；safe projection 物理剥离
+  `attack_id`、`expected_clean_doc_ids` 和 generation 字段；新 producer 只生成 `corpus:`，legacy fixture
+  继续接受 `chroma:`；Evidence UID 使用完整 digest，Trace hash 排除时延；禁止字段递归扫描通过。
 
-**建议提交**：`feat(retrieval): add evidence identity and trace contracts`
+**建议提交**：`feat(contracts): migrate retrieval runtime contracts and references`
 
-**回滚边界**：只回滚 retrieval contract、ID helper、导出和对应测试。
+**回滚边界**：只回滚 contracts 演进、attacks re-export/loader adapter 与对应测试；保持旧 `chroma:` fixture
+validator 可用，不能回滚成第二套 DTO。
 
 **后续审批门**：人工确认对象序列化和标签隔离后，才可批准 S6-T5.3。
 
@@ -141,19 +165,19 @@ Stage 1–5/Stage 6 数据完整性。
 
 - `tests/domains/retrieval/context/test_content_resolver.py`
 - `tests/domains/retrieval/context/test_content_hash_verification.py`
-- 覆盖 canonical `corpus:` 引用、未知 snapshot/chunk、hash mismatch 立即阻断、legacy `chroma:` fixture
-  adapter、无 Ground Truth 访问及异常无正文/路径。
+- 覆盖已在 S6-T5.2 验证的 ContentRef scheme 显式分派、未知 snapshot/chunk、hash mismatch 立即阻断、
+  legacy `chroma:` fixture adapter、无 Ground Truth 访问及异常无正文/路径。
 
 **新增文件**
 
 - `src/llmguard/domains/retrieval/context/__init__.py`
-- `src/llmguard/domains/retrieval/context/content_ref.py`
 - `src/llmguard/domains/retrieval/context/resolver.py`
 - `src/llmguard/domains/retrieval/context/errors.py`
 
 **修改文件**
 
-- 仅公开 corpus loader 的受控读取接口或 fixture adapter；如需改变既有 loader，必须先单独审查。
+- 仅公开 corpus loader 的受控读取接口或 fixture adapter；Resolver 必须消费 S6-T5.2 的 contracts
+  ContentRef，不能重写 validation；如需改变既有 loader，必须先单独审查。
 
 **不允许修改**
 
@@ -161,7 +185,8 @@ Stage 1–5/Stage 6 数据完整性。
 
 **验收标准**
 
-- Resolver 只从获准 snapshot 取正文并校验 hash；权限、scheme 和异常边界通过；普通日志无正文。
+- Resolver 只从获准 snapshot 取正文并校验 hash；`chroma:` 只映射 fixture corpus 而不读 Chroma；hash
+  mismatch/unknown scheme 必须抛出完整性异常、不得返回 Package；普通日志无正文。
 
 **建议提交**：`feat(retrieval): add controlled corpus content resolver`
 
@@ -177,27 +202,30 @@ Stage 1–5/Stage 6 数据完整性。
 - `tests/domains/retrieval/context/test_prompt_escaping.py`
 - `tests/domains/retrieval/context/test_citation_binding.py`
 - `tests/domains/retrieval/context/test_citation_modes.py`
-- 覆盖双层 ID、最终顺序分配、三种 instruction、五类 XML 字符和伪造 closing/opening tag、默认审计
-  serialization 不含正文。
+- `tests/domains/retrieval/context/test_sensitive_serialization.py`
+- 覆盖双层 ID、最终顺序分配、三种 instruction、五类 XML 字符和伪造 closing/opening tag、`repr=False`、
+  repr-safe、`to_audit_dict()`、logger/exception payload、显式 sensitive artifact export，以及 `asdict()`
+  被识别为敏感操作而不是安全 API。
 
 **新增文件**
 
-- `src/llmguard/domains/retrieval/context/models.py`
 - `src/llmguard/domains/retrieval/context/citation.py`
 - `src/llmguard/domains/retrieval/context/rendering.py`
 
 **修改文件**
 
-- context 导出和日志/serialization 架构测试。
+- `src/llmguard/domains/retrieval/contracts/models.py`：只在此加入 `EvidenceEnvelope`、`CitationBinding` 与
+  审计/敏感 artifact contract；context 导出和日志/serialization 架构测试。
 
 **不允许修改**
 
-- 不创建 ContextBuilder；不把 escaping 宣称为语义防注入；不计算 Citation Accuracy；不调用 LLM。
+- 不创建 context models DTO 副本或 ContextBuilder；不把 escaping 宣称为语义防注入；不计算 Citation
+  Accuracy；不调用 LLM。
 
 **验收标准**
 
-- Envelope 仅受控内存持有正文；Binding 可回到 Evidence UID；escaping 保证结构不能被正文闭合；三种
-  Citation instruction 确定性。
+- Envelope 仅受控内存持有正文；Binding 可回到 Evidence UID；默认 repr/audit 不含正文；完整导出只能
+  经 explicit sensitive artifact policy；escaping 保证结构不能被正文闭合；三种 Citation instruction 确定性。
 
 **建议提交**：`feat(context): add evidence envelope and citation contracts`
 
@@ -212,27 +240,31 @@ Stage 1–5/Stage 6 数据完整性。
 - `tests/domains/retrieval/context/test_context_budget.py`
 - `tests/domains/retrieval/context/test_retrieved_context_package.py`
 - 补充 Citation/escaping 测试，覆盖排序、去重、数量/字符预算、空结果、首条放不下、整 block 丢弃、
-  hash mismatch、Context/package hash、abstention 默认与原因码。
+  hash mismatch、Context/package hash、Unicode code point 预算、UTF-8 hash、LF 换行、Package
+  repr/audit/sensitive artifact 边界，以及结构性 abstention 与完整性异常的分流。
 
 **新增文件**
 
 - `src/llmguard/domains/retrieval/context/budget.py`
 - `src/llmguard/domains/retrieval/context/builder.py`
-- 必要时增加 `src/llmguard/domains/retrieval/context/package.py`。
 
 **修改文件**
 
-- context 导出和依赖方向测试。
+- `src/llmguard/domains/retrieval/contracts/models.py`：只在此加入 `RetrievedContextPackage` 与安全审计
+  representation；context 导出和依赖方向测试。
 
 **不允许修改**
 
-- 不截断单条 Evidence；不创建 TrustedContextPackage；不 import Chroma、具体 embedding、Evaluator、
-  Trust 或 LLM。
+- 不截断单条 Evidence；不在 context 建立 Package DTO 副本；不创建 TrustedContextPackage；不 import
+  Chroma、具体 embedding、Evaluator、Trust 或 LLM。
 
 **验收标准**
 
-- 相同 Evidence/config 生成相同 Citation、rendered Context、hash 和 package；预算只保留完整 block；
-  空或无可容纳证据要求 abstention；普通日志不泄漏正文。
+- 相同 Evidence/config 生成相同 Citation、rendered Context、UTF-8 hash 和 package；顺序固定为排序、
+  UID 去重、数量限制、Resolver/hash、Citation、render；预算基于 escaped rendered string 的 Unicode
+  code point，换行固定 LF，且只保留完整 block；仅 EMPTY_RETRIEVAL、NO_EVIDENCE_AFTER_DEDUPLICATION、
+  CONTEXT_BUDGET_EXHAUSTED、NO_COMPLETE_EVIDENCE_BLOCK_FITS 返回结构性 abstention；hash/scheme/fingerprint/
+  metric/request 不一致必须异常且不返回 Package；普通审计不泄漏正文或 rendered context。
 
 **建议提交**：`feat(context): build deterministic retrieved context packages`
 
@@ -247,7 +279,8 @@ Stage 1–5/Stage 6 数据完整性。
 - `tests/integration/retrieval/test_static_retrieval_context_pipeline.py`
 - `tests/integration/retrieval/test_real_retrieval_context_pipeline.py`
 - 扩展 architecture/no-label-leakage/namespace/secret/runtime tests，先证明缺失的全链路、重开和泄漏检查
-  会失败。
+  会失败；补充安全投影、contract ownership、ContentRef 双 scheme、safe audit serialization、异常不返回
+  Package 与 LF/UTF-8 budget 的集成验证。
 
 **新增文件**
 
@@ -264,8 +297,8 @@ Stage 1–5/Stage 6 数据完整性。
 
 **验收标准**
 
-- Static 全链路快速稳定；显式真实 MiniLM + 临时 Chroma 可关闭重开并构建 Context；标签、正文、路径、
-  secret、namespace 和 Git-ignore 检查通过；临时文件清理。
+- Static 全链路快速稳定；显式真实 MiniLM + 临时 Chroma 可关闭重开并构建 Context；Query 的攻击/expected
+  字段不会传播；labels、正文、rendered context、路径、secret、namespace 和 Git-ignore 检查通过；临时文件清理。
 
 **建议提交**：`test(retrieval): validate controlled retrieval context pipeline`
 
@@ -299,8 +332,8 @@ Stage 1–5/Stage 6 数据完整性。
 
 **验收标准**
 
-- 文档与 Git 事实一致；测试、Ruff、MyPy、secret/absolute path/runtime/history/data 检查有脱敏证据；
-  commit 已推送，分支同步、工作树干净。
+- 文档与 Git 事实一致；Existing Contract Migration Matrix、第二次审批门与未实现边界可追溯；测试、Ruff、
+  MyPy、secret/absolute path/runtime/history/data 检查有脱敏证据；commit 已推送，分支同步、工作树干净。
 
 **建议提交**：`docs(retrieval): record s6-t5 acceptance and learning evidence`
 
@@ -320,11 +353,16 @@ Stage 1–5/Stage 6 数据完整性。
 - Citation `off/available/required` 输出确定；
 - 空库、超大 top_k、同分、重复 chunk 和预算不足行为明确；
 - Context hash 稳定，标签与敏感文本不进入 repr/log/exception/trace；
+- Dataset QueryRecord 只能经 safe projection 进入 runtime；
+- stable DTO 只由 `contracts/` 定义，旧 import 通过显式 re-export 兼容；
+- `corpus:` 与 legacy `chroma:` 在唯一 ContentRef contract 中校验，未知 scheme 失败；
+- `asdict()` 不被当成安全 API，Envelope/Package 只有 `to_audit_dict()` 可进入普通审计；
+- 结构性 abstention 与完整性异常不会混淆；
 - 真实 MiniLM + 临时 Chroma 重开路径在显式开关下通过；
 - ContextBuilder 不依赖 Chroma，Retriever 不依赖具体 embedding provider；
 - ContentResolver 不访问 Ground Truth；旧 namespace、Stage 1–5、Stage 6 数据与 runtime Git 治理不变。
 
 ## 12. 当前停止点
 
-本计划已冻结实施顺序，但没有批准 S6-T5.1。人工审查并明确回复批准前，不得新增本计划列出的任何
-Python 业务文件，不得把 Design Freeze 状态改成 Implementation in progress。
+本计划已完成 Design Hardening，但没有批准 S6-T5.1。第二次人工审查并明确回复批准前，不得新增本计划
+列出的任何 Python 业务文件，不得把 Design Hardening 状态改成 Implementation in progress。
