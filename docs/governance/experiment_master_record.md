@@ -47,8 +47,8 @@
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
 | 当前最高完成阶段 | Stage 6 的 S6-T5.2 运行时检索契约已实现并复验，等待人工验收。 |
-| 当前任务 | `GOV-ER1 Experiment Master Record`，纯文档治理。 |
-| 当前审批门 | 人工审查 Experiment Master Record 与 S6-T5.2 验收证据。 |
+| 当前任务 | `GOV-ER1-H1 Experiment Master Record Ledger Schema Hardening`，纯文档与测试治理。 |
+| 当前审批门 | GOV-ER1 有条件接受、待最终人工验收；S6-T5.2 仍待人工验收。 |
 | 下一批准任务 | 仅在独立批准后开始 `S6-T5.3 DenseRetriever`。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
 | 最近工程验证 | S6-T5.2 契约迁移复验；无 Retriever、ContextBuilder 或 RAG 攻击矩阵。 |
@@ -152,16 +152,16 @@ ADR、设计规格和实施计划只冻结未来边界与验证方法。设计�
 | ER-S2-20260626-002 | `d2768d63-9c1e-449b-b197-0932af345197` | 2026-06-26 | S2 guarded PromptInject | `FORMAL_EXPERIMENT` | local Mock | completed | PASS 8/8 | [JSON](../../deliverables/stage2/stage2_scan_result.json) | 受控 Mock |
 | ER-S2-20260626-003 | `5a65c350-dd06-442b-a19b-17972979bfec` | 2026-06-26 | S2 vulnerable Base64 | `FORMAL_EXPERIMENT` | local Mock | completed | PASS 8/8 | [JSON](../../deliverables/stage2/stage2_scan_result.json) | detector 未命中不等于安全 |
 | ER-S2-20260626-004 | `882d1505-10a3-41ee-a6d3-9b6451ffd4d5` | 2026-06-26 | S2 guarded Base64 | `FORMAL_EXPERIMENT` | local Mock | completed | PASS 8/8 | [JSON](../../deliverables/stage2/stage2_scan_result.json) | 受控 Mock |
-| ER-S3-20260630-001 | `NOT_RECORDED` | 2026-06-30 | S3 Groq safe smoke | Groq `llama-3.1-8b-instant` | completed | 2 attempts，ASR 50%，detector hit 33.33% | [聚合 JSON](../../deliverables/stage3/groq_scan_result.json) | 单次两条样本 |
-| ER-S4-20260630-001 | `NOT_RECORDED` | 2026-06-30 | S4 paired Guard A/B | Groq `llama-3.1-8b-instant` | completed | P: ASR 50%；guarded: ASR 0%；parity true | [聚合 JSON](../../deliverables/stage4/guarded_groq_scan_result.json) | 2 条 smoke，规则基线 |
-| ER-S4.1-20260630-001 | `NOT_RECORDED` | 2026-06-30 | S4.1 P/I/O/F ablation | Groq `llama-3.1-8b-instant` | completed | P 50%；I/O/F 均 0%；parity true | [聚合 JSON](../../deliverables/stage4_ablation/ablation_result.json) | 2 条 smoke，规则基线 |
-| ER-S5-20260701-001 | `20260701T025836Z-7da785` | 2026-07-01 | S5 attack matrix rerun | Mock | completed | 22 samples，P/I/O/F parity true | [manifest](../../deliverables/stage5/logs/20260701T025836Z-7da785/run_manifest.json) | Mock 回归 |
-| ER-S5-20260701-002 | `20260701T030024Z-37cfd4` | 2026-07-01 | S5 attack matrix rerun | Mock | completed | 22 samples，P/I/O/F parity true | [manifest](../../deliverables/stage5/logs/20260701T030024Z-37cfd4/run_manifest.json) | Mock 回归 |
-| ER-S5-20260701-003 | `20260701T030156Z-91ae2d` | 2026-07-01 | S5 attack matrix rerun | Mock | completed | 22 samples，P/I/O/F parity true | [manifest](../../deliverables/stage5/logs/20260701T030156Z-91ae2d/run_manifest.json) | Mock 回归 |
-| ER-S5-20260701-004 | `20260701T030819Z-05703f` | 2026-07-01 | S5 canonical smoke | Mock | completed | 88 attempts，ASR 95.83%，Over-block 0% | [manifest](../../deliverables/stage5/logs/20260701T030819Z-05703f/run_manifest.json) | 当前规则/矩阵下 |
-| ER-S5P-20260701-001 | `20260701T081320Z-c29f39` | 2026-07-01 | S5 Paper baseline | Mock | completed | 88 attempts，ASR 95.83%，DMR 0%，GBR 94.44% | [manifest](../../deliverables/stage5_paper/runs/20260701T081320Z-c29f39/run_manifest.json) | Mock baseline，不是 Groq 全矩阵 |
+| ER-S3-20260630-001 | `NOT_RECORDED` | 2026-06-30 | S3 Groq safe smoke | `FORMAL_EXPERIMENT` | Groq / `llama-3.1-8b-instant` | completed | 2 attempts，ASR 50%，detector hit 33.33% | [聚合 JSON](../../deliverables/stage3/groq_scan_result.json) | 单次两条样本 |
+| ER-S4-20260630-001 | `NOT_RECORDED` | 2026-06-30 | S4 paired Guard A/B | `FORMAL_EXPERIMENT` | Groq / `llama-3.1-8b-instant` | completed | P: ASR 50%；guarded: ASR 0%；parity true | [聚合 JSON](../../deliverables/stage4/guarded_groq_scan_result.json) | 2 条 smoke，规则基线 |
+| ER-S4.1-20260630-001 | `NOT_RECORDED` | 2026-06-30 | S4.1 P/I/O/F ablation | `FORMAL_EXPERIMENT` | Groq / `llama-3.1-8b-instant` | completed | P 50%；I/O/F 均 0%；parity true | [聚合 JSON](../../deliverables/stage4_ablation/ablation_result.json) | 2 条 smoke，规则基线 |
+| ER-S5-20260701-001 | `20260701T025836Z-7da785` | 2026-07-01 | S5 attack matrix rerun | `FORMAL_EXPERIMENT` | local Mock | completed | 22 samples，P/I/O/F parity true | [manifest](../../deliverables/stage5/logs/20260701T025836Z-7da785/run_manifest.json) | Mock 回归 |
+| ER-S5-20260701-002 | `20260701T030024Z-37cfd4` | 2026-07-01 | S5 attack matrix rerun | `FORMAL_EXPERIMENT` | local Mock | completed | 22 samples，P/I/O/F parity true | [manifest](../../deliverables/stage5/logs/20260701T030024Z-37cfd4/run_manifest.json) | Mock 回归 |
+| ER-S5-20260701-003 | `20260701T030156Z-91ae2d` | 2026-07-01 | S5 attack matrix rerun | `FORMAL_EXPERIMENT` | local Mock | completed | 22 samples，P/I/O/F parity true | [manifest](../../deliverables/stage5/logs/20260701T030156Z-91ae2d/run_manifest.json) | Mock 回归 |
+| ER-S5-20260701-004 | `20260701T030819Z-05703f` | 2026-07-01 | S5 canonical smoke | `FORMAL_EXPERIMENT` | local Mock | completed | 88 attempts，ASR 95.83%，Over-block 0% | [manifest](../../deliverables/stage5/logs/20260701T030819Z-05703f/run_manifest.json) | 当前规则/矩阵下 |
+| ER-S5P-20260701-001 | `20260701T081320Z-c29f39` | 2026-07-01 | S5 Paper baseline | `FORMAL_EXPERIMENT` | local Mock | completed | 88 attempts，ASR 95.83%，DMR 0%，GBR 94.44% | [manifest](../../deliverables/stage5_paper/runs/20260701T081320Z-c29f39/run_manifest.json) | Mock baseline，不是 Groq 全矩阵 |
 
-**账本计数**：12 条 `FORMAL_EXPERIMENT`，2 条 Stage 1 `ENGINEERING_VALIDATION`。S6 的工程/设计条目另见第 10 节。历史 Stage 3、Stage 4 与 Stage 4.1 缺少 machine-readable `run_id`、模型 revision 与数据 fingerprint，按原样标记，不能倒推伪造。
+**账本统计（由上表实际记录计算）**：FORMAL_EXPERIMENT = 12；ENGINEERING_VALIDATION = 2。S6 的工程/设计条目另见第 10 节。历史 Stage 3、Stage 4 与 Stage 4.1 缺少 machine-readable `run_id`、模型 revision 与数据 fingerprint，按原样标记，不能倒推伪造。
 
 ## 9. Stage 1–5 历史结果汇总
 
@@ -231,10 +231,10 @@ ADR、设计规格和实施计划只冻结未来边界与验证方法。设计�
 
 | Gate ID | 当前任务 | 已完成证据 | 人工验收状态 | 获批后可开始 | 仍禁止 | 负责人 |
 | --- | --- | --- | --- | --- | --- | --- |
-| GATE-GOV-ER1 | Experiment Master Record | 本文、入口同步、治理测试 | pending human review | 仅评审下一任务范围 | 不自动批准 S6-T5.3 | 项目负责人 |
+| GATE-GOV-ER1 | Experiment Master Record | 本文、入口同步、治理测试、GOV-ER1-H1 十列账本加固 | conditionally accepted / minor revision required; pending final human acceptance | 仅评审下一任务范围 | 不自动批准 S6-T5.3 | 项目负责人 |
 | GATE-S6-T5.2 | Retrieval Runtime Contracts and IDs | `4c12181`、完成记录、回归测试 | pending human acceptance | 单独评审 S6-T5.3 | DenseRetriever 及以后 | 项目负责人 |
 
-**唯一下一步**：`人工审查 S6-T5.2；通过后单独批准 S6-T5.3 DenseRetriever。`
+**当前审批顺序**：先完成 GOV-ER1 最终人工验收和 S6-T5.2 人工验收；两者均不自动批准 `S6-T5.3 DenseRetriever`，后者仍需独立批准。
 
 ## 15. 当前结论边界
 
@@ -359,3 +359,4 @@ git log -15 --oneline
 | 日期 | 变更类型 | 影响章节 | 变更原因 | 证据 | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-07-20 | 建立 | 全文 | 创建唯一实验总记录，回填 Stage 1–5、登记 Stage 6 工程状态和当前审批门；未进入 S6-T5.3 | 本文链接的原始工件与 Git 历史 | 通过 `git log -1 -- docs/governance/experiment_master_record.md` 动态解析 |
+| 2026-07-20 | 账本结构加固 | 第 2、8、14、20 节 | 修复 S3、S4、S4.1、S5 与 S5 Paper 的十列字段错位；新增列数、枚举、唯一性和计数一致性测试；不改写历史运行事实 | 本文第 8 节、治理测试和学习记录 | 通过 `git log -1 -- docs/governance/experiment_master_record.md` 动态解析 |

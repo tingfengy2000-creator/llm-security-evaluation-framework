@@ -15,6 +15,75 @@ SECRET_SHAPES = (
     re.compile(r"(?<![A-Za-z0-9])sk-[A-Za-z0-9]{8,}"),
     re.compile(r"\bBearer\s+[A-Za-z0-9._-]{8,}"),
 )
+RUN_LEDGER_HEADING = "### 8.1 已回填运行"
+RUN_LEDGER_HEADER = (
+    "Record ID",
+    "Original Run ID",
+    "日期",
+    "Stage/Task",
+    "Run Type",
+    "模型/Provider",
+    "状态",
+    "核心指标",
+    "原始证据",
+    "结论边界",
+)
+RUN_TYPES = frozenset({"FORMAL_EXPERIMENT", "ENGINEERING_VALIDATION"})
+LEDGER_COUNT_SUMMARY = re.compile(
+    r"\*\*账本统计（由上表实际记录计算）\*\*："
+    r"FORMAL_EXPERIMENT = (?P<formal>\d+)；"
+    r"ENGINEERING_VALIDATION = (?P<engineering>\d+)。"
+)
+
+
+def _parse_markdown_table_row(line: str) -> tuple[str, ...]:
+    """Parse one pipe-delimited Markdown row while respecting escaped pipes."""
+    stripped = line.strip()
+    if not stripped.startswith("|") or not stripped.endswith("|"):
+        raise ValueError("Markdown table rows must start and end with a pipe")
+
+    cells: list[str] = []
+    current: list[str] = []
+    escaped = False
+    for character in stripped[1:-1]:
+        if escaped:
+            current.append(character)
+            escaped = False
+        elif character == "\\":
+            escaped = True
+        elif character == "|":
+            cells.append("".join(current).strip())
+            current = []
+        else:
+            current.append(character)
+    if escaped:
+        current.append("\\")
+    cells.append("".join(current).strip())
+    return tuple(cells)
+
+
+def _extract_run_ledger(markdown: str) -> tuple[tuple[str, ...], tuple[tuple[str, ...], ...]]:
+    """Return the fixed-schema ledger directly below the Stage 8.1 heading."""
+    lines = markdown.splitlines()
+    heading_index = lines.index(RUN_LEDGER_HEADING)
+    header_index = next(
+        index
+        for index in range(heading_index + 1, len(lines))
+        if lines[index].strip().startswith("| Record ID |")
+    )
+    header = _parse_markdown_table_row(lines[header_index])
+    separator = _parse_markdown_table_row(lines[header_index + 1])
+    if len(separator) != len(header) or not all(set(cell) <= {"-", ":"} for cell in separator):
+        raise ValueError("Run ledger header must be followed by a Markdown separator")
+
+    rows: list[tuple[str, ...]] = []
+    for line in lines[header_index + 2 :]:
+        if not line.strip():
+            break
+        if not line.strip().startswith("|"):
+            break
+        rows.append(_parse_markdown_table_row(line))
+    return header, tuple(rows)
 
 
 class ExperimentMasterRecordTests(unittest.TestCase):
@@ -85,6 +154,44 @@ class ExperimentMasterRecordTests(unittest.TestCase):
         self.assertIn("不是原始数据仓库", text)
         self.assertIn("工程验证证明代码满足契约和边界", text)
         self.assertIn("不直接证明安全防护效果", text)
+
+    def test_run_ledger_has_a_stable_ten_column_schema(self) -> None:
+        text = MASTER_RECORD.read_text(encoding="utf-8")
+        header, rows = _extract_run_ledger(text)
+        self.assertEqual(RUN_LEDGER_HEADER, header)
+        self.assertTrue(rows)
+
+        record_ids: set[str] = set()
+        counts = {run_type: 0 for run_type in RUN_TYPES}
+        for row in rows:
+            with self.subTest(record_id=row[0] if row else "<missing>"):
+                self.assertEqual(len(header), len(row))
+                record_id, _, _, _, run_type, model_provider, status, *_ = row
+                self.assertTrue(record_id)
+                self.assertNotIn(record_id, record_ids)
+                record_ids.add(record_id)
+
+                normalized_run_type = run_type.strip("`")
+                self.assertIn(normalized_run_type, RUN_TYPES)
+                self.assertNotRegex(
+                    normalized_run_type.casefold(),
+                    r"groq|mock|llama|test\.|completed|failed|invalid|excluded",
+                )
+                self.assertTrue(model_provider)
+                self.assertTrue(status)
+                self.assertNotRegex(
+                    model_provider.casefold(),
+                    r"^(completed|failed|invalid|excluded)$",
+                )
+                counts[normalized_run_type] += 1
+
+        summary_match = LEDGER_COUNT_SUMMARY.search(text)
+        self.assertIsNotNone(summary_match)
+        assert summary_match is not None
+        self.assertEqual(counts["FORMAL_EXPERIMENT"], int(summary_match["formal"]))
+        self.assertEqual(
+            counts["ENGINEERING_VALIDATION"], int(summary_match["engineering"])
+        )
 
     def test_master_record_is_portable_and_secret_free(self) -> None:
         text = MASTER_RECORD.read_text(encoding="utf-8")

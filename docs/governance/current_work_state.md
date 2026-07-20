@@ -16,18 +16,19 @@
 
 ## Current Task
 
-- Task ID: `GOV-ER1`.
-- Task name: `Experiment Master Record`.
+- Task ID: `GOV-ER1-H1`.
+- Task name: `Experiment Master Record Ledger Schema Hardening`.
 - Status: **Completed, pending human review**.
-- Implemented scope: one evidence-backed experiment master record, Stage 1-5 run ledger, Stage 6 engineering-status register, blocker/failed-run/approval registers, handoff guide and governance entrypoint tests.
+- GOV-ER1: **Conditionally accepted; ledger schema hardening completed, pending final human acceptance**.
+- Implemented scope: one evidence-backed experiment master record, Stage 1-5 run ledger, Stage 6 engineering-status register, blocker/failed-run/approval registers, handoff guide and governance entrypoint tests. GOV-ER1-H1 verifies the ledger's fixed ten-column schema without changing historical facts.
 - S6-T5.2 `Retrieval Runtime Contracts and IDs` remains: **Implemented, pending human acceptance**. Its completed scope is explicit safe query projection, canonical `RetrieverQueryRecord`, deterministic `RetrievalRequest`, `ContentRef`, evidence UID, chunk-level `RetrievalEvidence`, safe evidence summaries, deterministic `RetrievalTrace`, and legacy import/adapter compatibility.
 - Audit boundary: ordinary `repr()` and `to_audit_dict()` omit retrieval query text, document plaintext and content-reference expansion. Runtime query objects physically exclude evaluator fields.
 
 ## Approval Gate
 
-- Approved and completed: S6-T5.2 implementation and GOV-ER1 documentation governance task only.
+- Approved and completed: S6-T5.2 implementation, GOV-ER1 documentation governance task, and GOV-ER1-H1 ledger schema hardening only; this does not change either human-acceptance gate.
 - Not approved: `S6-T5.3 DenseRetriever` and every later S6-T5 task.
-- Next human approval: review the Experiment Master Record and S6-T5.2 contracts, migration compatibility, label isolation, audit evidence and verification results before separately approving DenseRetriever work.
+- Next human approval: final review of GOV-ER1, then review S6-T5.2 contracts, migration compatibility, label isolation, audit evidence and verification results before separately approving DenseRetriever work.
 
 ## Must Not Start
 
@@ -50,4 +51,4 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 ## Last Update
 
 - Date: `2026-07-20`.
-- Updated by: Codex under explicit user approval for GOV-ER1; S6-T5.2 acceptance state was not changed.
+- Updated by: Codex under explicit user approval for GOV-ER1-H1; GOV-ER1 and S6-T5.2 acceptance states were not changed.
