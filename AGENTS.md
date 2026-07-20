@@ -29,16 +29,18 @@
 2. `docs/governance/long_term_research_requirements.md`
 3. `PROJECT_MASTER_CONTEXT.md`
 4. `docs/governance/current_work_state.md`
-5. 当前 Stage 的 `README.md`
-6. 当前任务的 design specification
-7. 当前任务的 implementation plan
-8. 最近 15 条 Git commit
-9. 当前 branch、HEAD、worktree、status 和 upstream sync
+5. `docs/governance/experiment_master_record.md`
+6. 当前 Stage 的 `README.md`
+7. 当前任务的 design specification
+8. 当前任务的 implementation plan
+9. 最近 15 条 Git commit
+10. 当前 branch、HEAD、worktree、status 和 upstream sync
 
 文件职责：长期需求记录用户目标、论文/立项方向和后续强制能力；项目总控记录总体架构、阶段进度、
 已验收成果和结论边界；动态状态记录当前任务与审批门；design spec 定义“设计成什么”；implementation
 plan 定义“按什么顺序实现”；Git 是 branch、HEAD、工作树、提交和文件存在性的事实来源。上下文恢复
-流程见 `docs/governance/context_recovery_protocol.md`。
+流程见 `docs/governance/context_recovery_protocol.md`。Experiment Master Record 用于恢复实验路线、运行、指标
+与证据索引；它不替代动态任务状态、项目架构或原始阶段产物。
 
 ## Mandatory Startup Protocol
 

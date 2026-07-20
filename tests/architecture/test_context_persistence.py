@@ -81,15 +81,14 @@ class ContextPersistenceTests(unittest.TestCase):
             with self.subTest(label=label):
                 self.assertIn(label, agents)
 
-    def test_current_state_records_s6_t5_2_and_next_approval_gate(self) -> None:
+    def test_current_state_keeps_s6_t5_2_and_next_approval_gate(self) -> None:
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
 
         for required in (
             "Last accepted stage task: `S6-T5.1 Chunking Contracts`",
             "Last accepted commit: `09584c8`",
-            "Task ID: `S6-T5.2`",
             "Retrieval Runtime Contracts and IDs",
-            "Completed, pending human acceptance",
+            "pending human acceptance",
             "S6-T5.3 DenseRetriever",
         ):
             with self.subTest(required=required):
@@ -160,7 +159,7 @@ class ContextPersistenceTests(unittest.TestCase):
         )
         self.assertIn("safe projection", adr)
         self.assertIn("S6-T5.2", state)
-        self.assertIn("Completed, pending human acceptance", state)
+        self.assertIn("pending human acceptance", state)
 
     def test_long_term_requirements_keep_mandatory_research_capabilities(self) -> None:
         requirements = (

@@ -5,6 +5,7 @@
 - Active branch: `feature/stage6-rag`.
 - Worktree, HEAD, working-tree state and upstream synchronization are dynamic Git facts. Verify them with `git rev-parse`, `git status --short` and `git rev-list --left-right --count @{upstream}...HEAD` before every task.
 - Historical Stage 1-5 assets and Stage 6 fixture data remain immutable. Corrections are additive records, never rewrites of evidence.
+- Experiment route, historical runs, metrics and evidence indexes are recorded in `docs/governance/experiment_master_record.md`; this file remains the sole dynamic task and approval-gate source.
 
 ## Accepted Baseline
 
@@ -15,17 +16,18 @@
 
 ## Current Task
 
-- Task ID: `S6-T5.2`.
-- Task name: `Retrieval Runtime Contracts and IDs`.
-- Status: **Completed, pending human acceptance**.
-- Implemented scope: explicit safe query projection, canonical `RetrieverQueryRecord`, deterministic `RetrievalRequest`, `ContentRef`, evidence UID, chunk-level `RetrievalEvidence`, safe evidence summaries, deterministic `RetrievalTrace`, and legacy import/adapter compatibility.
+- Task ID: `GOV-ER1`.
+- Task name: `Experiment Master Record`.
+- Status: **Completed, pending human review**.
+- Implemented scope: one evidence-backed experiment master record, Stage 1-5 run ledger, Stage 6 engineering-status register, blocker/failed-run/approval registers, handoff guide and governance entrypoint tests.
+- S6-T5.2 `Retrieval Runtime Contracts and IDs` remains: **Implemented, pending human acceptance**. Its completed scope is explicit safe query projection, canonical `RetrieverQueryRecord`, deterministic `RetrievalRequest`, `ContentRef`, evidence UID, chunk-level `RetrievalEvidence`, safe evidence summaries, deterministic `RetrievalTrace`, and legacy import/adapter compatibility.
 - Audit boundary: ordinary `repr()` and `to_audit_dict()` omit retrieval query text, document plaintext and content-reference expansion. Runtime query objects physically exclude evaluator fields.
 
 ## Approval Gate
 
-- Approved and completed: S6-T5.2 implementation only.
+- Approved and completed: S6-T5.2 implementation and GOV-ER1 documentation governance task only.
 - Not approved: `S6-T5.3 DenseRetriever` and every later S6-T5 task.
-- Next human approval: review S6-T5.2 contracts, migration compatibility, label isolation, audit evidence and verification results before separately approving DenseRetriever work.
+- Next human approval: review the Experiment Master Record and S6-T5.2 contracts, migration compatibility, label isolation, audit evidence and verification results before separately approving DenseRetriever work.
 
 ## Must Not Start
 
@@ -48,4 +50,4 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 ## Last Update
 
 - Date: `2026-07-20`.
-- Updated by: Codex under explicit user approval for S6-T5.2 only.
+- Updated by: Codex under explicit user approval for GOV-ER1; S6-T5.2 acceptance state was not changed.

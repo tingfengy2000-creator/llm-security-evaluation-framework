@@ -8,7 +8,7 @@
 ## 新 Thread 启动流程
 
 1. 从仓库根 `AGENTS.md` 开始，按其中的 Canonical Context Sources 顺序读取。
-2. 读取长期需求、项目总控、动态状态、当前 Stage README、当前 design spec 和 implementation plan。
+2. 读取长期需求、项目总控、动态状态、Experiment Master Record、当前 Stage README、当前 design spec 和 implementation plan。
 3. 运行 Git 只读检查：repo/worktree 根、branch、HEAD、status、upstream sync、最近 15 条 commit。
 4. 检查根与当前目录层级是否存在更深的 `AGENTS.md`/`AGENTS.override.md`，并说明作用域。
 5. 用中文输出 Context Recovery Report。
@@ -29,11 +29,15 @@
 2. `docs/governance/long_term_research_requirements.md`
 3. `PROJECT_MASTER_CONTEXT.md`
 4. `docs/governance/current_work_state.md`
-5. 当前 Stage README
-6. 当前任务 design specification
-7. 当前任务 implementation plan
-8. 最近 15 条 Git commit
-9. 当前 branch、HEAD、status 和 remote sync
+5. `docs/governance/experiment_master_record.md`
+6. 当前 Stage README
+7. 当前任务 design specification
+8. 当前任务 implementation plan
+9. 最近 15 条 Git commit
+10. 当前 branch、HEAD、status 和 remote sync
+
+`PROJECT_MASTER_CONTEXT.md` 负责架构与长期阶段叙事，`current_work_state.md` 负责当前任务与审批门，
+Experiment Master Record 负责实验路线、运行、指标和证据恢复；三者不得相互替代。
 
 ## 可复制启动模板
 
@@ -48,11 +52,12 @@
 2. docs/governance/long_term_research_requirements.md
 3. PROJECT_MASTER_CONTEXT.md
 4. docs/governance/current_work_state.md
-5. 当前 Stage README
-6. 当前任务 design spec
-7. 当前任务 implementation plan
-8. git log 最近 15 条
-9. 当前 branch、HEAD 和 git status
+5. docs/governance/experiment_master_record.md
+6. 当前 Stage README
+7. 当前任务 design spec
+8. 当前任务 implementation plan
+9. git log 最近 15 条
+10. 当前 branch、HEAD 和 git status
 
 然后用中文报告：
 
@@ -125,6 +130,6 @@ Git 状态事实优先；文档不能覆盖不存在的 commit、错误 branch �
 
 ## 旧上下文丢失时
 
-不要尝试凭记忆重建旧对话。以 `AGENTS.md` 为入口，结合长期需求、项目总控、动态状态、Stage 文档、
+不要尝试凭记忆重建旧对话。以 `AGENTS.md` 为入口，结合长期需求、项目总控、动态状态、Experiment Master Record、Stage 文档、
 任务 spec/plan、Git history 和原始实验证据恢复。缺失的信息标记为 unknown，等待用户补充；不能把推测写成
 已接受事实。

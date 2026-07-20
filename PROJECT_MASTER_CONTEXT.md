@@ -2,7 +2,7 @@
 
 > 这是项目唯一的总览与决策入口。它回答：为什么做、已经做了什么、证据在哪里、当前代码处于什么状态、未来架构如何同时支撑面试、论文和科技立项。
 
-更新时间：2026-07-19
+更新时间：2026-07-20
 
 当前研究分支：`feature/stage6-rag`
 
@@ -19,6 +19,14 @@
 `docs/governance/current_work_state.md` 负责当前任务与审批门。新 Thread、Agent、Workspace 或 Worktree
 必须遵守 `docs/governance/context_recovery_protocol.md`。Git 是 branch、HEAD、工作树、commit、文件
 存在性和远端同步状态的事实来源。
+
+实验路线、历史运行、指标、证据、失败和交接入口统一见
+`docs/governance/experiment_master_record.md`。该总记录只做控制面与索引，不替代本文件的架构叙事、
+`current_work_state.md` 的动态审批门或 Stage-specific 原始产物。
+
+### GOV-ER1：Experiment Master Record（2026-07-20）
+
+已建立唯一的 [Experiment Master Record](docs/governance/experiment_master_record.md)，用于索引 Stage 1–5 的原始运行、指标、证据、失败记录与结论边界，并登记 Stage 6 的工程验证缺口、审批门和交接顺序。它不改写历史工件、不替代动态工作状态，也不授权 S6-T5.3；当前仍需人工审查总记录与 S6-T5.2 验收证据。
 
 ## 0.1 A1R：LLMGuard 命名冻结与 Retrieval Domain 落地（2026-07-16）
 
