@@ -13,8 +13,10 @@ from llmguard.domains.retrieval.attacks.attack_renderer import render_query_reco
 from llmguard.domains.retrieval.contracts import (
     DocumentRecord,
     QueryRecord,
+    RetrieverQueryRecord,
     validate_document,
 )
+from llmguard.domains.retrieval.contracts.projections import project_retriever_query
 
 RecordValue = TypeVar("RecordValue")
 
@@ -53,29 +55,6 @@ PUBLIC_ISOLATION_FORBIDDEN_TOKENS = frozenset(
         "oracle",
     }
 )
-@dataclass(frozen=True)
-class RetrieverQueryRecord:
-    query_id: str
-    retrieval_query: str
-    generation_question: str
-    metadata: Mapping[str, object]
-
-    def __post_init__(self) -> None:
-        _require_nonblank_label_string(self.query_id, "query_id")
-        _require_nonblank_label_string(self.retrieval_query, "retrieval_query")
-        _require_nonblank_label_string(
-            self.generation_question,
-            "generation_question",
-        )
-        if not isinstance(self.metadata, Mapping):
-            raise ValueError("metadata must be a mapping")
-        object.__setattr__(
-            self,
-            "metadata",
-            MappingProxyType(dict(self.metadata)),
-        )
-
-
 @dataclass(frozen=True)
 class PublicRAGDataset:
     queries: tuple[RetrieverQueryRecord, ...]
@@ -188,11 +167,10 @@ def _load_raw_public_records(
 
 def _sanitize_public_dataset(raw_dataset: _RawRAGDataset) -> PublicRAGDataset:
     queries = tuple(
-        RetrieverQueryRecord(
-            query_id=f"Q-{index:04d}",
-            retrieval_query=query.retrieval_query,
-            generation_question=query.generation_question,
-            metadata=_sanitize_query_metadata(query.metadata),
+        project_retriever_query(
+            query,
+            public_query_id=f"Q-{index:04d}",
+            public_metadata=_sanitize_query_metadata(query.metadata),
         )
         for index, query in enumerate(raw_dataset.queries, start=1)
     )

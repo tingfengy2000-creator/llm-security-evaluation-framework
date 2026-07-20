@@ -12,8 +12,16 @@ from .errors import (
     ChunkingContractError,
     ChunkingInputError,
     ChunkingIntegrityError,
+    ContentRefError,
+    RetrievalConfigurationError,
+    RetrievalContractError,
+    RetrievalInputError,
+    RetrievalIntegrityError,
+    RetrievalProjectionError,
 )
 from .hashing import canonical_json, canonical_json_sha256
+from .content_ref import ContentRef
+from .identifiers import derive_evidence_uid
 from .models import (
     DocumentRecord,
     EvidenceSignal,
@@ -22,6 +30,14 @@ from .models import (
     RAGSecurityEnvelope,
     RetrievalEvidence,
     TrustAssessment,
+)
+from .projections import project_retriever_query
+from .retrieval import (
+    RetrievalEvidenceSummary,
+    RetrievalRequest,
+    RetrievalTrace,
+    RetrieverQueryRecord,
+    adapt_legacy_retrieval_evidence,
 )
 from .schemas import (
     FORBIDDEN_PIPELINE_FIELDS,
@@ -39,20 +55,34 @@ __all__ = [
     "ChunkingInputError",
     "ChunkingIntegrityError",
     "ChunkingStrategy",
+    "ContentRef",
+    "ContentRefError",
     "DocumentRecord",
     "EvidenceSignal",
     "FORBIDDEN_PIPELINE_FIELDS",
     "QueryRecord",
+    "RetrievalConfigurationError",
+    "RetrievalContractError",
     "RAGAttemptRecord",
     "RAGSecurityEnvelope",
     "REQUIRED_DOCUMENT_FIELDS",
     "RetrievalEvidence",
+    "RetrievalEvidenceSummary",
+    "RetrievalInputError",
+    "RetrievalIntegrityError",
+    "RetrievalProjectionError",
+    "RetrievalRequest",
+    "RetrievalTrace",
+    "RetrieverQueryRecord",
     "SchemaError",
     "TrustAssessment",
     "canonical_json",
     "canonical_json_sha256",
+    "adapt_legacy_retrieval_evidence",
+    "derive_evidence_uid",
     "derive_chunk_id",
     "format_corpus_content_ref",
+    "project_retriever_query",
     "validate_document",
     "validate_document_collection",
 ]

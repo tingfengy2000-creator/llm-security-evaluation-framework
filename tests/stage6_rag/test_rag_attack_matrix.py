@@ -143,8 +143,7 @@ def sample_public_query() -> RetrieverQueryRecord:
     return RetrieverQueryRecord(
         query_id="Q-0001",
         retrieval_query="employee travel policy",
-        generation_question="What is the employee travel policy?",
-        metadata={
+        public_metadata={
             "delivery_layer": "retrieval",
             "scenario": "fictional-policy-corpus",
             "variant": 1,
@@ -541,6 +540,7 @@ class AttackMatrixDatasetTests(unittest.TestCase):
             "attack_id",
             "category",
             "expected_clean_doc_ids",
+            "generation_question",
         }
         forbidden_values = ATTACK_IDS | ATTACK_QUERY_IDS | {
             "R1",
@@ -559,10 +559,10 @@ class AttackMatrixDatasetTests(unittest.TestCase):
                 self.assertNotIn(query.query_id, forbidden_values)
                 self.assertEqual(
                     {"delivery_layer", "scenario", "variant"},
-                    set(query.metadata),
+                    set(query.public_metadata),
                 )
                 self.assertFalse(
-                    forbidden_values & {str(value) for value in query.metadata.values()}
+                    forbidden_values & {str(value) for value in query.public_metadata.values()}
                 )
         for document in dataset.documents:
             with self.subTest(document=document.doc_id):

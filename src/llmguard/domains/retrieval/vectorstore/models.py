@@ -9,6 +9,8 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 from types import MappingProxyType
 
+from llmguard.domains.retrieval.contracts.content_ref import ContentRef
+
 
 PUBLIC_METADATA_FIELDS = frozenset(
     {
@@ -41,7 +43,6 @@ FORBIDDEN_METADATA_FIELDS = frozenset(
     }
 )
 _SHA256 = re.compile(r"\A[0-9a-f]{64}\Z")
-_CONTENT_REF = re.compile(r"\Achroma:[A-Za-z0-9][A-Za-z0-9._-]*(?::[A-Za-z0-9][A-Za-z0-9._-]*)?\Z")
 _UTC_ISO8601 = re.compile(r"\A\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|\+00:00)\Z")
 
 
@@ -162,14 +163,16 @@ class VectorDocument:
         doc_id = _require_nonblank(self.doc_id, "doc_id")
         vector = _freeze_vector(self.vector, "vector")
         content_hash = _require_sha256(self.content_hash, "content_hash")
-        if not isinstance(self.content_ref, str) or _CONTENT_REF.fullmatch(self.content_ref) is None:
-            raise ValueError("content_ref must be a controlled chroma reference")
+        content_ref = ContentRef(self.content_ref)
+        if content_ref.scheme != "chroma":
+            raise ValueError("VectorDocument supports legacy chroma content references only")
         metadata = validate_public_metadata(self.metadata, doc_id=doc_id)
         if "content_hash" in metadata and metadata["content_hash"] != content_hash:
             raise MetadataIsolationError("metadata.content_hash must match content_hash")
         object.__setattr__(self, "doc_id", doc_id)
         object.__setattr__(self, "vector", vector)
         object.__setattr__(self, "content_hash", content_hash)
+        object.__setattr__(self, "content_ref", content_ref)
         object.__setattr__(self, "metadata", metadata)
 
 

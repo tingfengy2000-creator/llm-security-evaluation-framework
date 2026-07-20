@@ -6,6 +6,7 @@ import unittest
 from dataclasses import FrozenInstanceError, fields, replace
 
 from llmguard.domains.retrieval.contracts import models as contract_models
+from llmguard.domains.retrieval.contracts import derive_evidence_uid
 from llmguard.domains.retrieval.contracts.models import (
     DocumentRecord,
     EvidenceSignal,
@@ -38,18 +39,32 @@ def valid_document(**overrides: object) -> dict[str, object]:
 
 
 def evidence() -> RetrievalEvidence:
+    chunk_id = "CH-" + "a" * 64
     return RetrievalEvidence(
-        query_id="query-1",
-        doc_id="doc-1",
+        evidence_schema_version="1.0",
+        evidence_uid=derive_evidence_uid(
+            evidence_schema_version="1.0",
+            corpus_snapshot_id="stage6-v1",
+            chunk_id=chunk_id,
+            content_hash="a" * 64,
+        ),
+        query_id="Q-0001",
+        retrieval_request_id="RQ-" + "b" * 64,
+        corpus_snapshot_id="stage6-v1",
+        doc_id=chunk_id,
+        chunk_id=chunk_id,
+        parent_doc_id="doc-1",
+        content_ref=f"corpus:stage6-v1:{chunk_id}",
+        content_hash="a" * 64,
+        source_id="source-1",
+        source_type="policy",
+        version="1",
+        timestamp="2026-07-01T00:00:00Z",
         rank=1,
         distance=0.1,
         similarity=0.9,
-        source_id="source-1",
-        source_type="policy",
-        timestamp="2026-07-01T00:00:00Z",
-        version="1",
-        content_hash="a" * 64,
-        content_ref="chroma:doc-1",
+        collection_fingerprint="c" * 64,
+        public_metadata={"delivery_layer": "retrieval"},
     )
 
 
@@ -74,20 +89,12 @@ class ModelContractTests(unittest.TestCase):
         audit = evidence().to_audit_dict()
 
         self.assertNotIn("content", audit)
-        self.assertEqual("doc-1", audit["doc_id"])
-        self.assertEqual("chroma:doc-1", audit["content_ref"])
+        self.assertTrue(str(audit["doc_id"]).startswith("CH-"))
+        self.assertNotIn("content_ref", audit)
 
-    def test_retrieval_evidence_accepts_planned_chroma_references(self):
-        references = (
-            "chroma:d1",
-            "chroma:policies:doc-1",
-            "chroma:collection_1:doc.v2",
-        )
-
-        for content_ref in references:
-            with self.subTest(content_ref=content_ref):
-                item = replace(evidence(), content_ref=content_ref)
-                self.assertEqual(content_ref, item.content_ref)
+    def test_retrieval_evidence_requires_canonical_corpus_references(self):
+        with self.assertRaisesRegex(ValueError, "content reference"):
+            replace(evidence(), content_ref="chroma:doc-1")
 
     def test_retrieval_evidence_rejects_body_text_and_invalid_references(self):
         invalid_references = (
@@ -391,17 +398,25 @@ class ModelContractTests(unittest.TestCase):
                 "metadata",
             ),
             RetrievalEvidence: (
+                "evidence_schema_version",
+                "evidence_uid",
                 "query_id",
+                "retrieval_request_id",
+                "corpus_snapshot_id",
                 "doc_id",
+                "chunk_id",
+                "parent_doc_id",
+                "content_ref",
+                "content_hash",
+                "source_id",
+                "source_type",
+                "version",
+                "timestamp",
                 "rank",
                 "distance",
                 "similarity",
-                "source_id",
-                "source_type",
-                "timestamp",
-                "version",
-                "content_hash",
-                "content_ref",
+                "collection_fingerprint",
+                "public_metadata",
             ),
             EvidenceSignal: (
                 "signal_type",
@@ -1034,7 +1049,7 @@ class ModelContractTests(unittest.TestCase):
         )
         self.assertEqual(12, audit["detector_results"][0]["output_length"])
         self.assertEqual(
-            "doc-1",
+            "CH-" + "a" * 64,
             audit["retrieval_evidence"][0]["doc_id"],
         )
 

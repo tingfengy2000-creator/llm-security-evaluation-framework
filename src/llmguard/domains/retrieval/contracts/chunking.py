@@ -5,13 +5,13 @@ from __future__ import annotations
 import hashlib
 import math
 import re
-import unicodedata
-from collections.abc import Mapping, Sequence
+from collections.abc import Mapping
 from dataclasses import dataclass, field
 from enum import Enum
-from types import MappingProxyType
 
 from .hashing import canonical_json, canonical_json_sha256
+from .content_ref import ContentRef
+from .public_metadata import freeze_public_metadata, thaw_public_metadata
 from .errors import (
     ChunkingConfigurationError,
     ChunkingInputError,
@@ -25,32 +25,6 @@ _CHUNK_ID = re.compile(r"\ACH-[0-9a-f]{64}\Z")
 _SNAPSHOT_ID = re.compile(r"\A[A-Za-z0-9][A-Za-z0-9._-]{0,127}\Z")
 _UTC_TIMESTAMP = re.compile(
     r"\A\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|\+00:00)\Z"
-)
-_MAX_METADATA_DEPTH = 32
-_FORBIDDEN_METADATA_FIELDS = frozenset(
-    {
-        "poisoned",
-        "poison_label",
-        "label",
-        "attack_id",
-        "attack_goal",
-        "attack_category",
-        "expected_answer",
-        "expected_behavior",
-        "expected_clean_doc_ids",
-        "failure_type",
-        "ground_truth",
-        "oracle",
-        "risk_goal",
-        "stealth_level",
-    }
-)
-_NORMALIZED_FORBIDDEN_METADATA_FIELDS = frozenset(
-    re.sub(r"[^a-z0-9]+", "", unicodedata.normalize("NFKC", name).casefold())
-    for name in _FORBIDDEN_METADATA_FIELDS
-)
-_ABSOLUTE_PATH = re.compile(
-    r"(?:\A[A-Za-z]:[\\/]|\A[\\/]{2}|\A/|\Afile:)", re.IGNORECASE
 )
 
 
@@ -353,7 +327,7 @@ def format_corpus_content_ref(corpus_snapshot_id: str, chunk_id: str) -> str:
     _validate_corpus_snapshot_id(corpus_snapshot_id)
     if not isinstance(chunk_id, str) or _CHUNK_ID.fullmatch(chunk_id) is None:
         raise ChunkingInputError("chunk_id must use the canonical CH-SHA256 form")
-    return f"corpus:{corpus_snapshot_id}:{chunk_id}"
+    return str(ContentRef.corpus(corpus_snapshot_id, chunk_id))
 
 
 def derive_chunk_id(
@@ -451,7 +425,11 @@ class ChunkRecord:
         _require_nonblank(self.version, "version")
         if not isinstance(self.timestamp, str) or _UTC_TIMESTAMP.fullmatch(self.timestamp) is None:
             raise ChunkingInputError("timestamp must use UTC ISO-8601 syntax")
-        object.__setattr__(self, "public_metadata", _freeze_public_metadata(self.public_metadata))
+        object.__setattr__(
+            self,
+            "public_metadata",
+            freeze_public_metadata(self.public_metadata, error_type=ChunkingInputError),
+        )
 
     def to_audit_dict(self) -> dict[str, object]:
         """Return provenance safe for logs; plaintext chunk content is excluded."""
@@ -471,7 +449,7 @@ class ChunkRecord:
             "source_type": self.source_type,
             "version": self.version,
             "timestamp": self.timestamp,
-            "public_metadata": _thaw_metadata(self.public_metadata),
+            "public_metadata": thaw_public_metadata(self.public_metadata),
         }
 
 
@@ -484,99 +462,4 @@ def _validate_corpus_snapshot_id(value: object) -> str:
 def _require_sha256(value: object, field_name: str) -> str:
     if not isinstance(value, str) or _SHA256.fullmatch(value) is None:
         raise ChunkingInputError(f"{field_name} must be a lowercase SHA-256 digest")
-    return value
-
-
-def _normalize_metadata_key(value: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "", unicodedata.normalize("NFKC", value).casefold())
-
-
-def _freeze_public_metadata(
-    value: Mapping[str, object],
-    *,
-    path: str = "$.public_metadata",
-    active_ids: set[int] | None = None,
-    depth: int = 0,
-) -> Mapping[str, object]:
-    if not isinstance(value, Mapping):
-        raise ChunkingInputError("public_metadata must be a mapping")
-    if depth > _MAX_METADATA_DEPTH:
-        raise ChunkingInputError("public_metadata exceeds maximum nesting depth")
-    active = active_ids if active_ids is not None else set()
-    value_id = id(value)
-    if value_id in active:
-        raise ChunkingInputError("public_metadata contains a reference cycle")
-    active.add(value_id)
-    try:
-        keys = tuple(value.keys())
-        if not all(isinstance(key, str) for key in keys):
-            raise ChunkingInputError("public_metadata keys must be strings")
-        frozen: dict[str, object] = {}
-        for key in sorted(keys):
-            if _ABSOLUTE_PATH.search(key) is not None:
-                raise ChunkingInputError("public_metadata keys must not be absolute paths")
-            if _normalize_metadata_key(key) in _NORMALIZED_FORBIDDEN_METADATA_FIELDS:
-                raise ChunkingInputError("public_metadata contains a forbidden field")
-            frozen[key] = _freeze_metadata_value(
-                value[key],
-                active_ids=active,
-                depth=depth + 1,
-            )
-        return MappingProxyType(frozen)
-    finally:
-        active.remove(value_id)
-
-
-def _freeze_metadata_value(
-    value: object,
-    *,
-    active_ids: set[int],
-    depth: int,
-) -> object:
-    if depth > _MAX_METADATA_DEPTH:
-        raise ChunkingInputError("public_metadata exceeds maximum nesting depth")
-    if isinstance(value, str):
-        if _ABSOLUTE_PATH.search(value) is not None:
-            raise ChunkingInputError("public_metadata values must not be absolute paths")
-        return value
-    if value is None or isinstance(value, bool):
-        return value
-    if isinstance(value, int) and not isinstance(value, bool):
-        if not -(2**53 - 1) <= value <= 2**53 - 1:
-            raise ChunkingInputError("public_metadata integer is outside the JSON-safe range")
-        return value
-    if isinstance(value, float):
-        if not math.isfinite(value):
-            raise ChunkingInputError("public_metadata must contain finite numbers")
-        return value
-    if isinstance(value, Mapping):
-        return _freeze_public_metadata(
-            value,
-            active_ids=active_ids,
-            depth=depth,
-        )
-    if isinstance(value, Sequence) and not isinstance(value, (bytes, bytearray)):
-        value_id = id(value)
-        if value_id in active_ids:
-            raise ChunkingInputError("public_metadata contains a reference cycle")
-        active_ids.add(value_id)
-        try:
-            return tuple(
-                _freeze_metadata_value(
-                    item,
-                    active_ids=active_ids,
-                    depth=depth + 1,
-                )
-                for item in value
-            )
-        finally:
-            active_ids.remove(value_id)
-    raise ChunkingInputError("public_metadata contains an unsupported value type")
-
-
-def _thaw_metadata(value: object) -> object:
-    if isinstance(value, Mapping):
-        return {key: _thaw_metadata(value[key]) for key in sorted(value)}
-    if isinstance(value, tuple):
-        return [_thaw_metadata(item) for item in value]
     return value

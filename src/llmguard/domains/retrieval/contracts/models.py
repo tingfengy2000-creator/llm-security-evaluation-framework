@@ -5,10 +5,15 @@ import math
 import re
 import unicodedata
 from collections.abc import Mapping, Sequence
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from types import MappingProxyType
 from typing import Callable, TypeAlias, TypeVar, cast
+
+from .content_ref import ContentRef
+from .errors import RetrievalInputError, RetrievalIntegrityError
+from .identifiers import derive_evidence_uid, require_chunk_id, require_public_identifier, require_public_query_id, require_sha256
+from .public_metadata import freeze_public_metadata, thaw_public_metadata
 
 
 AuditValue: TypeAlias = (
@@ -114,11 +119,6 @@ _UTC_ISO8601_PATTERN = re.compile(
     r"\A\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}"
     r"(?:\.\d+)?(?:Z|\+00:00)\Z"
 )
-_CONTENT_REF_PATTERN = re.compile(
-    r"\Achroma:[A-Za-z0-9][A-Za-z0-9._-]*"
-    r"(?::[A-Za-z0-9][A-Za-z0-9._-]*)?\Z"
-)
-_CONTENT_REF_MAX_LENGTH = 256
 _MAX_NESTING_DEPTH = 32
 _JSON_SAFE_INTEGER_MAX = 2**53 - 1
 
@@ -815,65 +815,107 @@ class QueryRecord:
         )
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True, kw_only=True)
 class RetrievalEvidence:
+    """Chunk-level retrieval result with no query or plaintext content."""
+
+    evidence_schema_version: str
+    evidence_uid: str
     query_id: str
+    retrieval_request_id: str
+    corpus_snapshot_id: str
     doc_id: str
+    chunk_id: str
+    parent_doc_id: str
+    content_ref: str = field(repr=False)
+    content_hash: str
+    source_id: str
+    source_type: str
+    version: str
+    timestamp: str
     rank: int
     distance: float
     similarity: float
-    source_id: str
-    source_type: str
-    timestamp: str
-    version: str
-    content_hash: str
-    content_ref: str
+    collection_fingerprint: str
+    public_metadata: Mapping[str, object]
 
     def __post_init__(self) -> None:
-        _require_nonblank_string(self.query_id, "query_id")
-        _require_nonblank_string(self.doc_id, "doc_id")
-        _require_int(self.rank, "rank", minimum=1)
-        object.__setattr__(
-            self,
-            "distance",
-            _require_number(self.distance, "distance", minimum=0),
+        require_public_identifier(self.evidence_schema_version, "evidence_schema_version")
+        expected_uid = derive_evidence_uid(
+            evidence_schema_version=self.evidence_schema_version,
+            corpus_snapshot_id=self.corpus_snapshot_id,
+            chunk_id=self.chunk_id,
+            content_hash=self.content_hash,
         )
-        object.__setattr__(
-            self,
-            "similarity",
-            _require_number(
-                self.similarity,
-                "similarity",
-                minimum=-1,
-                maximum=1,
-            ),
-        )
-        _require_nonblank_string(self.source_id, "source_id")
-        _require_nonblank_string(self.source_type, "source_type")
+        if self.evidence_uid != expected_uid:
+            raise RetrievalIntegrityError("evidence identity mismatch", error_code="EVIDENCE_UID_MISMATCH")
+        require_public_query_id(self.query_id)
+        require_public_identifier(self.retrieval_request_id, "retrieval_request_id")
+        require_public_identifier(self.corpus_snapshot_id, "corpus_snapshot_id")
+        require_chunk_id(self.chunk_id)
+        if self.doc_id != self.chunk_id:
+            raise RetrievalInputError("doc_id must equal chunk_id for canonical evidence")
+        require_public_identifier(self.parent_doc_id, "parent_doc_id")
+        content_ref = ContentRef(self.content_ref)
+        if content_ref.scheme != "corpus" or content_ref.corpus_snapshot_id != self.corpus_snapshot_id or content_ref.chunk_id != self.chunk_id:
+            raise RetrievalIntegrityError("canonical content reference mismatch", error_code="INVALID_CONTENT_REF")
+        require_sha256(self.content_hash, "content_hash")
+        require_public_identifier(self.source_id, "source_id")
+        require_public_identifier(self.source_type, "source_type")
+        require_public_identifier(self.version, "version")
         _require_utc_timestamp(self.timestamp, "timestamp")
-        _require_nonblank_string(self.version, "version")
-        _require_sha256(self.content_hash, "content_hash")
-        if (
-            not isinstance(self.content_ref, str)
-            or len(self.content_ref) > _CONTENT_REF_MAX_LENGTH
-            or _CONTENT_REF_PATTERN.fullmatch(self.content_ref) is None
-        ):
-            raise ValueError("content_ref must be a bounded Chroma reference")
+        _require_int(self.rank, "rank", minimum=1)
+        distance = _require_retrieval_metric(self.distance, minimum=0)
+        similarity = _require_retrieval_metric(self.similarity, minimum=-1, maximum=1)
+        require_sha256(self.collection_fingerprint, "collection_fingerprint")
+        object.__setattr__(self, "distance", distance)
+        object.__setattr__(self, "similarity", similarity)
+        object.__setattr__(self, "content_ref", content_ref)
+        object.__setattr__(self, "public_metadata", freeze_public_metadata(self.public_metadata))
+
+    def to_summary(self) -> object:
+        from .retrieval import RetrievalEvidenceSummary
+
+        return RetrievalEvidenceSummary.from_evidence(self)
 
     def to_audit_dict(self) -> dict[str, AuditValue]:
         return {
+            "evidence_schema_version": self.evidence_schema_version,
+            "evidence_uid": self.evidence_uid,
             "query_id": self.query_id,
+            "retrieval_request_id": self.retrieval_request_id,
+            "corpus_snapshot_id": self.corpus_snapshot_id,
             "doc_id": self.doc_id,
+            "chunk_id": self.chunk_id,
+            "parent_doc_id": self.parent_doc_id,
+            "content_hash": self.content_hash,
+            "source_id": self.source_id,
+            "source_type": self.source_type,
+            "version": self.version,
+            "timestamp": self.timestamp,
             "rank": self.rank,
             "distance": self.distance,
             "similarity": self.similarity,
-            "source_id": self.source_id,
-            "source_type": self.source_type,
-            "timestamp": self.timestamp,
-            "version": self.version,
-            "content_hash": self.content_hash,
-            "content_ref": self.content_ref,
+            "collection_fingerprint": self.collection_fingerprint,
+            "public_metadata": cast(dict[str, AuditValue], thaw_public_metadata(self.public_metadata)),
         }
+
+
+def _require_retrieval_metric(
+    value: object,
+    *,
+    minimum: float,
+    maximum: float | None = None,
+) -> float:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise RetrievalInputError("distance or similarity is an invalid retrieval metric", error_code="INVALID_RETRIEVAL_METRIC")
+    try:
+        number = float(value)
+    except OverflowError as error:
+        raise RetrievalInputError("distance or similarity is an invalid retrieval metric", error_code="INVALID_RETRIEVAL_METRIC") from error
+    if not math.isfinite(number) or number < minimum or (maximum is not None and number > maximum):
+        raise RetrievalInputError("distance or similarity is an invalid retrieval metric", error_code="INVALID_RETRIEVAL_METRIC")
+    return number
 
 
 @dataclass(frozen=True)

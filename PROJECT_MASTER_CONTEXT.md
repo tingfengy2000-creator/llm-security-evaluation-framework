@@ -786,3 +786,11 @@ token 语义为 `max_tokens`、overlap 语义为 `max_tokens + overlap_tokens`�
 任一字段被篡改即抛脱敏 `ChunkingIntegrityError`。文档 hash mismatch 的异常固定为
 `DOCUMENT_CONTENT_HASH_MISMATCH`，不回显原始 doc ID 或正文。该状态是 `Completed, pending final human
 acceptance`，并不授权 S6-T5.2 或任何检索/上下文功能。
+
+## 15. S6-T5.2：检索运行时契约与稳定标识（2026-07-20，待人工验收）
+
+本任务只实现 `QueryRecord -> safe projection -> RetrieverQueryRecord -> RetrievalRequest -> RetrievalEvidence/Trace` 的数据边界。公开加载器仍读取原有 Stage 6 JSONL，但投影后的运行时对象仅含精确 `retrieval_query`、新的 `Q-` 安全 ID 与 `delivery_layer/scenario/variant` 白名单元数据；攻击标签、类别、生成问题和期望文档不会进入运行时对象。
+
+规范 DTO 统一由 `src/llmguard/domains/retrieval/contracts/` 暴露。`ContentRef` 同时识别新 `corpus:` 和旧 `chroma:` 格式，但新证据只生成 `corpus:`；旧格式必须经显式 adapter 迁移。Evidence UID 可复算；Trace hash 覆盖稳定语义而不包含 latency。普通 audit/repr 不记录查询正文、文档正文或可解析内容引用。
+
+本轮没有实现 DenseRetriever、向量库查询、embedding 调用、ContentResolver、ContextBuilder、Citation、Trust、LLM/Groq、T10-T15 或正式实验。因此它证明的是可审计运行时边界，不是检索质量或 RAG 安全效果。下一步必须由人工单独审批 `S6-T5.3 DenseRetriever`。

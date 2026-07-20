@@ -6,7 +6,7 @@
 - canonical_name: `RAG Security Evaluation`
 - canonical_slug: `stage6_rag_security`
 - legacy_paths: `stages/stage6_rag/`、`data/stage6_rag/`、`tests/stage6_rag/`
-- status: `s6_t5_design_hardening_completed_pending_second_human_review`
+- status: `s6_t5_2_runtime_contracts_completed_pending_human_acceptance`
 - objective: 在 S6-T4 基础上加固受控 Dense Retrieval 的唯一契约、Query 投影、ContentRef、敏感序列化与失败边界。
 - source_locations: `src/llmguard/domains/retrieval/{contracts,attacks,embedding,vectorstore}/`
 - data_locations: `data/stage6_rag/`（已入 manifest 的历史数据路径）
@@ -79,3 +79,13 @@
 - `ChunkRecord` 新增 `chunk_schema_version`，并在构造时用唯一 `derive_chunk_id()` 验证自身 ID；
   content reference 仅能匹配经验证的 canonical identity。
 - 当前状态：`Completed, pending final human acceptance`；S6-T5.2 仍未批准。
+
+## S6-T5.2：检索运行时契约与 ID（已完成，待人工验收）
+
+- 运行时查询不再复用数据集 `QueryRecord`：通过显式 safe projection 生成仅含 `query_id`、隐藏 repr 的 `retrieval_query` 与白名单 `public_metadata` 的 `RetrieverQueryRecord`。
+- `RetrievalRequest` 固定 query hash、collection fingerprint、query embedding spec hash、retrieval config hash 与 `top_k`，以确定性 `RQ-<sha256>` 表示同一检索意图。
+- `RetrievalEvidence` 演进为 chunk 级规范记录；`doc_id == chunk_id`，父文档单独保存。它不包含正文或查询，并且 Evidence UID 可复算。
+- `RetrievalTrace` 仅保存 evidence summary、计数、hash、有限排序指标和 latency；latency 变化不会改变语义 trace hash。
+- `chroma:` 仅为 S6-T4 fixture 兼容格式；新 producer 只使用 `corpus:<snapshot>:<chunk>`。
+
+这仍不是 Retriever 或 RAG pipeline。DenseRetriever、ContentResolver、ContextBuilder、citation、trust、LLM 和正式安全实验全部等待下一轮人工审批。

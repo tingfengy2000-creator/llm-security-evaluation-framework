@@ -81,31 +81,22 @@ class ContextPersistenceTests(unittest.TestCase):
             with self.subTest(label=label):
                 self.assertIn(label, agents)
 
-    def test_current_state_keeps_s6_t5_hardening_behind_second_approval_gate(self) -> None:
+    def test_current_state_records_s6_t5_2_and_next_approval_gate(self) -> None:
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
 
-        self.assertIn("S6-T5 Design Hardening", state)
-        self.assertIn("S6-T5 implementation: Not started", state)
-        self.assertIn("S6-T5.1 implementation: Not approved", state)
-        self.assertIn("Completed, pending second human review", state)
-        self.assertIn("Approved now", state)
-        self.assertIn("Not approved now", state)
-        for forbidden_start in ("Trust", "LLM", "Groq"):
+        for required in (
+            "Last accepted stage task: `S6-T5.1 Chunking Contracts`",
+            "Last accepted commit: `09584c8`",
+            "Task ID: `S6-T5.2`",
+            "Retrieval Runtime Contracts and IDs",
+            "Completed, pending human acceptance",
+            "S6-T5.3 DenseRetriever",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, state)
+        for forbidden_start in ("DenseRetriever", "Trust", "LLM", "Groq"):
             with self.subTest(forbidden_start=forbidden_start):
                 self.assertIn(forbidden_start, state)
-
-    def test_current_state_records_s6_t5_1_hardening_without_approving_s6_t5_2(self) -> None:
-        state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
-
-        for required_term in (
-            "S6-T5.1 Implementation Hardening",
-            "Completed, pending final human acceptance",
-            "S6-T5.1 implementation: `Completed and hardened`",
-            "S6-T5.2 implementation: `Not approved`",
-            "Final human review of S6-T5.1 deterministic contracts",
-        ):
-            with self.subTest(required_term=required_term):
-                self.assertIn(required_term, state)
 
     def test_s6_t5_design_freeze_is_unique_and_behind_approval_gate(self) -> None:
         for path in (S6_T5_SPEC, S6_T5_PLAN, S6_T5_ADR):
@@ -138,9 +129,8 @@ class ContextPersistenceTests(unittest.TestCase):
                 self.assertIn(required_boundary, combined_design)
 
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
-        self.assertIn("Completed, pending second human review", state)
-        self.assertIn("S6-T5 implementation: Not started", state)
-        self.assertIn("S6-T5.1 implementation: Not approved", state)
+        self.assertIn("S6-T5.2", state)
+        self.assertIn("S6-T5.3 DenseRetriever", state)
 
     def test_s6_t5_hardening_keeps_one_contract_path_and_second_review_gate(self) -> None:
         spec = S6_T5_SPEC.read_text(encoding="utf-8")
@@ -169,9 +159,8 @@ class ContextPersistenceTests(unittest.TestCase):
             " ".join(plan.split()),
         )
         self.assertIn("safe projection", adr)
-        self.assertIn("S6-T5 Design Hardening", state)
-        self.assertIn("Completed, pending second human review", state)
-        self.assertIn("S6-T5.1 implementation: Not approved", state)
+        self.assertIn("S6-T5.2", state)
+        self.assertIn("Completed, pending human acceptance", state)
 
     def test_long_term_requirements_keep_mandatory_research_capabilities(self) -> None:
         requirements = (

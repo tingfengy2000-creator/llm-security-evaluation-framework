@@ -37,6 +37,32 @@ class ChunkingContractOwnershipTests(unittest.TestCase):
             inspect.getmodule(ChunkingIntegrityError).__name__,
         )
 
+    def test_retrieval_runtime_dtos_have_one_canonical_contract_owner(self) -> None:
+        from llmguard.domains.retrieval.attacks import RetrieverQueryRecord as attack_query
+        from llmguard.domains.retrieval.contracts import (
+            RetrievalEvidence,
+            RetrievalEvidenceSummary,
+            RetrievalRequest,
+            RetrievalTrace,
+            RetrieverQueryRecord,
+        )
+
+        self.assertIs(attack_query, RetrieverQueryRecord)
+        self.assertEqual(
+            "llmguard.domains.retrieval.contracts.retrieval",
+            inspect.getmodule(RetrieverQueryRecord).__name__,
+        )
+        for contract in (RetrievalRequest, RetrievalEvidenceSummary, RetrievalTrace):
+            with self.subTest(contract=contract.__name__):
+                self.assertEqual(
+                    "llmguard.domains.retrieval.contracts.retrieval",
+                    inspect.getmodule(contract).__name__,
+                )
+        self.assertEqual(
+            "llmguard.domains.retrieval.contracts.models",
+            inspect.getmodule(RetrievalEvidence).__name__,
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
