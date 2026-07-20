@@ -8,6 +8,9 @@
 >
 > 审批门：本规格和配套实施计划经人工批准后，才可开始 S6-T5.1。
 
+> 2026-07-20 实施状态更新：S6-T5.1 已在单独人工批准下完成，待人工验收；本规格的 S6-T5.2
+> 及之后任务仍未获批准。
+
 ## 1. 背景
 
 S6-T4 已提供可替换的 `EmbeddingProvider`、`VectorStore`、确定性内存实现和持久化 Chroma
@@ -465,3 +468,15 @@ ContentRef 解析、hash 校验、结构转义和 CitationBinding 构造 Retriev
 
 本文件只冻结 hardened design。下一步是第二次人工审查本规格、迁移矩阵及配套计划；未明确批准前，
 S6-T5.1 implementation、任何 Retriever/Resolver/ContextBuilder 代码和 S6-T5.2 以后任务均不得开始。
+
+## 23. S6-T5.1 实施落点与持续边界
+
+S6-T5.1 已以最小实现落实以下冻结约束：`ChunkingStrategy`、`ChunkingConfig`、`ChunkRecord`、
+`canonical_json_sha256` 和 `format_corpus_content_ref` 归属 `contracts/`；`Chunker` Protocol、
+`ChunkingError` 与 `IdentityChunker` 归属 `chunking/`。没有创建 `chunking/models.py`，也没有修改既有
+`RetrievalEvidence` validation。
+
+`identity` 是唯一已经存在的算法：其配置只哈希 strategy、schema_version 与
+implementation_version，拒绝 token/sentence/semantic 参数；future enum/config 仅表达并严格验证
+未来语义，不能被误认为已有算法。`corpus:` formatter 仅生成最小新 scheme，尚不承担 legacy `chroma:`
+迁移或 ContentResolver 解析职责；这两项仍属于 S6-T5.2 以后。

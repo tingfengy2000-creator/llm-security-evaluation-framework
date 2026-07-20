@@ -58,3 +58,15 @@
 - Date: `2026-07-19`
 - Commit: S6-T5 Design Hardening 启动基线 `e64063e`；完成提交由 Git 实时解析
 - Updated by: Codex under explicit user-approved S6-T5 Design Hardening task
+
+## 2026-07-20 Runtime Override: S6-T5.1 Completed Pending Human Acceptance
+
+- 最新人工批准已覆盖上方 Design Hardening 时的历史快照：本轮只允许并已完成
+  `S6-T5.1 Chunking Contracts + IdentityChunker`。
+- 新增规范契约位于 `src/llmguard/domains/retrieval/contracts/chunking.py`；行为代码仅位于
+  `src/llmguard/domains/retrieval/chunking/`。未向 legacy `src/codeguarder/` 新增实现。
+- 已完成的能力仅为：`DocumentRecord` 加显式 corpus snapshot、确定性 `identity` 配置与一文一块
+  `ChunkRecord`。它不检索、不读取 Chroma、不构造 Context、不调用 LLM。
+- 本轮仍禁止：S6-T5.2 Retrieval Contracts/IDs、Retriever、ContentResolver、ContextBuilder、Trust、
+  Evidence/Trace 业务对象、Groq、RAG 指标和正式实验。
+- 下一审批门：人工审查 S6-T5.1 的代码、TDD 证据与本状态后，才可单独批准 S6-T5.2。

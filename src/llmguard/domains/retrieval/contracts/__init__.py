@@ -1,5 +1,13 @@
 """Stable public contracts for the canonical Retrieval Security domain."""
 
+from .chunking import (
+    ChunkRecord,
+    ChunkingConfig,
+    ChunkingStrategy,
+    derive_chunk_id,
+    format_corpus_content_ref,
+)
+from .hashing import canonical_json, canonical_json_sha256
 from .models import (
     DocumentRecord,
     EvidenceSignal,
@@ -18,6 +26,9 @@ from .schemas import (
 )
 
 __all__ = [
+    "ChunkRecord",
+    "ChunkingConfig",
+    "ChunkingStrategy",
     "DocumentRecord",
     "EvidenceSignal",
     "FORBIDDEN_PIPELINE_FIELDS",
@@ -28,6 +39,10 @@ __all__ = [
     "RetrievalEvidence",
     "SchemaError",
     "TrustAssessment",
+    "canonical_json",
+    "canonical_json_sha256",
+    "derive_chunk_id",
+    "format_corpus_content_ref",
     "validate_document",
     "validate_document_collection",
 ]

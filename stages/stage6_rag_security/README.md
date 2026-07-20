@@ -54,3 +54,18 @@
   `asdict()` 误称为安全接口；
 - EMPTY/BUDGET 等结构性无 Context 可要求 abstention；hash、scheme、fingerprint、metric 不一致必须异常，
   不得伪装成普通拒答。
+
+## S6-T5.1 已实现：确定性分块契约（待人工验收）
+
+- 实现范围：`src/llmguard/domains/retrieval/contracts/{hashing,chunking}.py` 与
+  `src/llmguard/domains/retrieval/chunking/`；稳定 DTO 只在 `contracts/` 定义，行为只在
+  `chunking/` 实现。
+- 当前能力：`IdentityChunker` 对一个经 `DocumentRecord.content_hash` 校验的文档输出一个未改写的
+  `ChunkRecord`。chunk ID 由 canonical JSON + SHA-256 生成，content reference 固定为
+  `corpus:<corpus_snapshot_id>:CH-<digest>`。
+- 隔离边界：公开 metadata 深度冻结，拒绝 evaluator label、Ground Truth、攻击语义和绝对路径；审计
+  导出不含正文，ChunkRecord 的 repr 不含正文。
+- 验证证据：`tests/domains/retrieval/chunking/` 与 `tests/architecture/test_contract_ownership.py`；
+  完整 TDD/验证留痕见 `deliverables/learning_notes.md`。
+- 未实现：Retriever、ContentResolver、ContextBuilder、Trust、LLM/Groq、RAG 指标与 R1–R6
+  正式实验。S6-T5.2 仍需另行人工批准。

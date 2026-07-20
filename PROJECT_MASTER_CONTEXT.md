@@ -758,3 +758,19 @@ Not approved`，其后的 Retriever、ContentResolver、EvidenceEnvelope 和 Con
 不能夸大：当前项目已经具备较完整的评测工程基础、S6-T4 基础设施和 S6-T5 可审查设计，但 Stage 6
 受控检索实现、Stage 6.1 方法创新、统计实验和公开 Artifact 尚未完成，不能称为已经发表或达到生产级
 防护能力。
+
+## 14. S6-T5.1：确定性分块契约与 IdentityChunker（2026-07-20）
+
+在最新人工批准下，S6-T5.1 已用 TDD 实现并等待人工验收。规范 DTO 仅位于
+`src/llmguard/domains/retrieval/contracts/chunking.py`：`ChunkingStrategy`、不可变
+`ChunkingConfig`、`ChunkRecord`、canonical JSON/SHA-256 与最小 `corpus:` content reference formatter。
+行为实现仅位于 `src/llmguard/domains/retrieval/chunking/`：`Chunker` Protocol、领域异常和
+`IdentityChunker`。
+
+当前基线严格执行“一份 `DocumentRecord` 产生一个原样 `ChunkRecord`”：先按 UTF-8 重算正文哈希，
+再用 corpus snapshot、父文档、索引、内容 hash 与配置 hash 生成完整 `CH-<sha256>`。公开 metadata
+递归冻结并拒绝 evaluator 标签变体、绝对路径、循环、非 JSON-safe 值；`repr` 与 `to_audit_dict()`
+均不展开正文。测试、Retriever、向量库与日志均不把此能力表述为 RAG 安全效果。
+
+本项没有实现 Retriever、RetrievalRequest/Trace、ContentResolver、ContextBuilder、Trust、LLM/Groq、
+T10–T15 或正式实验；下一步仍必须先经人工验收，再单独批准 S6-T5.2。

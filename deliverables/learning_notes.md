@@ -757,3 +757,60 @@ IdentityChunker、DenseRetriever、ContentResolver、EvidenceEnvelope、ContextB
 本次只完成设计加固与治理留痕，未运行 Groq、未下载模型、未创建 runtime、未实现任何 S6-T5 Python
 对象或检索链路。下一步是第二次人工审查 hardened specification、migration matrix 与计划；
 `S6-T5.1 implementation` 仍未批准。
+
+## 2026-07-20：S6-T5.1 - 确定性分块契约与 IdentityChunker
+
+### 我现在做了什么
+
+在新的单独人工批准下，先为 S6-T5.1 写了四份测试，再实现最小的 Document -> Chunk 基线：
+`DocumentRecord + corpus_snapshot_id + ChunkingConfig -> IdentityChunker -> ChunkRecord`。这一步不做
+检索，更不把文本送给 LLM；它只把后续检索可以消费的“可复现分块单位”定义清楚。
+
+### 为什么这样做，以及和 S6-T4 的关系
+
+S6-T4 已回答“文本怎样生成数值向量并存入向量库”；但向量库不能自行说明一个向量来自哪一段文本、
+采用什么切分配置、是否属于同一 corpus snapshot。S6-T5.1 先建立这种可追溯身份，后续 Retriever 才能
+检索 chunk 而不是模糊地检索整篇文档。企业中这相当于先固定数据版本、切分策略和审计 ID，再建设在线
+召回链路；否则检索结果变动时无法判断是模型、语料还是切分规则造成的。
+
+### 核心知识点
+
+- `ChunkingConfig` 是不可变配置。`identity` 只允许 strategy、schema_version、implementation_version；
+  token/overlap/sentence/semantic 的字段只作为未来策略的严格“配置语言”，不是空壳算法。
+- `canonical_json()` 使用固定键排序、紧凑 JSON、UTF-8 和 SHA-256；同一语义输入跨进程保持同一 hash。
+  `ChunkRecord.chunk_id` 使用 `chunk_schema_version + corpus_snapshot_id + parent_doc_id + chunk_index +
+  content_hash + chunking_config_hash`，显示形式为完整 `CH-<sha256>`。
+- `IdentityChunker` 不规范化、不截断、不改写正文：先重算 `sha256(document.content.encode("utf-8"))`，
+  再输出恰好一块。声明的文档 hash 不一致即抛出 `ChunkingIntegrityError`，异常不回显正文。
+- `content_ref` 目前只生成 `corpus:<snapshot>:<chunk_id>`。它只是受控引用字符串，不读取正文、也不做
+  legacy `chroma:` 兼容；这些工作保留给已冻结的后续审批任务。
+- `public_metadata` 递归冻结为只读 Mapping/tuple，并拒绝大小写、下划线或 Unicode 变体的 evaluator
+  标签、绝对路径、循环、NaN/Inf、非 JSON-safe 对象。`ChunkRecord.to_audit_dict()` 给审计系统 hash、长度、
+  来源与公开 metadata，但不返回 content；repr 同样不显示正文。
+
+### TDD 与问题留痕
+
+1. **Red 阶段**：运行
+   `python -m pytest tests/domains/retrieval/chunking tests/architecture/test_contract_ownership.py -q`，
+   得到 3 个收集期错误：`ChunkingConfig` 尚未导出、`llmguard...chunking` 包尚不存在。这是预期的失败，
+   证明测试先于实现，并明确需要新增哪些稳定边界。
+2. **测试缓存告警**：首次 Red 运行还报告 worktree 中既有 `.pytest_cache` 的 Windows 写入权限警告；
+   它不影响测试语义。后续命令显式使用 `-p no:cacheprovider`，避免向历史缓存写入。
+3. **实现期问题**：首次 Green 运行发现 `contracts/__init__.py` 的新增导出被错误放在 `__all__` 结束后，
+   导致 `IndentationError`。已立即修正导出列表，并重新运行测试；这是编辑错误，不是分块算法或数据问题。
+4. **Green 阶段**：新增测试 `11 passed, 9 subtests passed`；与既有 contracts、namespace、依赖方向、
+   标签隔离回归合并后为 `88 passed, 1608 subtests passed`。范围内 Ruff 为 `All checks passed`，
+   MyPy 为 `Success: no issues found in 9 source files`。
+
+### 面试如何讲
+
+“我没有直接把文档丢给向量库，而是先为每个 chunk 建立由语料快照、父文档、内容哈希和切分配置共同决定
+的稳定身份。这样当召回或安全结论变化时，可以回溯到数据版本与策略。IdentityChunker 是可验证基线；
+后续 token 或语义分块只能在同一契约下增加实现，不能悄悄改变已有 collection 的含义。”
+
+### 当前结论边界与下一步
+
+这一轮只证明分块契约、完整性校验、公开元数据隔离和审计输出可复现；不证明检索质量、RAG 安全、抗投毒
+能力或生产防护率。未调用 Groq、未下载模型、未创建 runtime/Chroma 数据、未实现 Retriever、
+RetrievalEvidence 新业务字段、ContentResolver 或 ContextBuilder。下一步必须先人工验收 S6-T5.1，
+再单独批准 S6-T5.2；不得自动继续。

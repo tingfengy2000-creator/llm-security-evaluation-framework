@@ -6,6 +6,8 @@
 >
 > 执行规则：每个子任务单独批准、测试先行、独立提交；不得自动连续执行。
 
+> 2026-07-20 状态更新：仅 S6-T5.1 已获单独批准、实施完成并等待人工验收；S6-T5.2–S6-T5.8 仍未批准。
+
 ## 1. 计划目标
 
 本计划将 S6-T5 拆成八个可独立审查和回滚的任务，把 S6-T4 的 Embedding/VectorStore 基础设施扩展为：
@@ -366,3 +368,11 @@ validator 可用，不能回滚成第二套 DTO。
 
 本计划已完成 Design Hardening，但没有批准 S6-T5.1。第二次人工审查并明确回复批准前，不得新增本计划
 列出的任何 Python 业务文件，不得把 Design Hardening 状态改成 Implementation in progress。
+
+## 13. S6-T5.1 实施留痕（2026-07-20）
+
+本节是对当前人工批准任务的实际状态补充，不改变后续审批门。已先运行第 3 节列出的四个新测试文件
+Red 阶段，再新增 `contracts/hashing.py`、`contracts/chunking.py`、
+`chunking/{__init__,base,errors,identity_chunker}.py`，并导出稳定契约。Green 阶段覆盖一文一块、
+UTF-8 hash 完整性、稳定 ID、config hash、metadata 深冻结、标签/绝对路径拒绝与 contracts ownership；
+没有触及本计划后续的 Retriever/Context/Trust 工作。S6-T5.2 仍须单独人工批准。
