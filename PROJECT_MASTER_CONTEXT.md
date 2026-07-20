@@ -774,3 +774,15 @@ Not approved`，其后的 Retriever、ContentResolver、EvidenceEnvelope 和 Con
 
 本项没有实现 Retriever、RetrievalRequest/Trace、ContentResolver、ContextBuilder、Trust、LLM/Groq、
 T10–T15 或正式实验；下一步仍必须先经人工验收，再单独批准 S6-T5.2。
+
+### S6-T5.1 Implementation Hardening（2026-07-20）
+
+针对初版分块契约的人工审查，本轮完成四项加固：删除不能合法承载任何语义的 `window_size`，统一固定
+token 语义为 `max_tokens`、overlap 语义为 `max_tokens + overlap_tokens`；将稳定错误类型归属到
+`contracts/errors.py` 并从行为层兼容 re-export；为 `ChunkRecord` 增加 `chunk_schema_version` 并在对象
+构造时重算 chunk ID；metadata 在排序前先验证全部 key 为字符串，同时拒绝绝对路径 key/value。
+
+`ChunkRecord` 的完整性现覆盖 schema version、snapshot、parent doc、index、content hash 与 config hash；
+任一字段被篡改即抛脱敏 `ChunkingIntegrityError`。文档 hash mismatch 的异常固定为
+`DOCUMENT_CONTENT_HASH_MISMATCH`，不回显原始 doc ID 或正文。该状态是 `Completed, pending final human
+acceptance`，并不授权 S6-T5.2 或任何检索/上下文功能。

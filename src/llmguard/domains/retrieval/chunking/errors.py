@@ -1,19 +1,20 @@
-"""Safe exception categories for deterministic chunking."""
+"""Backward-compatible error re-exports for deterministic chunking behavior."""
 
 from __future__ import annotations
 
+from ..contracts.errors import (
+    ChunkingConfigurationError,
+    ChunkingContractError,
+    ChunkingInputError,
+    ChunkingIntegrityError,
+)
 
-class ChunkingError(ValueError):
-    """Base class for chunking-domain validation failures."""
+ChunkingError = ChunkingContractError
 
-
-class ChunkingConfigurationError(ChunkingError):
-    """Raised when a chunker receives an incompatible configuration."""
-
-
-class ChunkingIntegrityError(ChunkingError):
-    """Raised when a document's declared hash does not match its UTF-8 content."""
-
-
-class ChunkingInputError(ChunkingError):
-    """Raised when a chunking input is malformed without echoing sensitive text."""
+__all__ = [
+    "ChunkingConfigurationError",
+    "ChunkingContractError",
+    "ChunkingError",
+    "ChunkingInputError",
+    "ChunkingIntegrityError",
+]

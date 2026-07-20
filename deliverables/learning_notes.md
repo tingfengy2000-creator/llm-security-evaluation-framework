@@ -814,3 +814,64 @@ S6-T4 已回答“文本怎样生成数值向量并存入向量库”；但向�
 能力或生产防护率。未调用 Groq、未下载模型、未创建 runtime/Chroma 数据、未实现 Retriever、
 RetrievalEvidence 新业务字段、ContentResolver 或 ContextBuilder。下一步必须先人工验收 S6-T5.1，
 再单独批准 S6-T5.2；不得自动继续。
+
+## 2026-07-20：S6-T5.1 Implementation Hardening
+
+### 为什么需要这次加固
+
+初版 IdentityChunker 已证明“一个文档可以确定性地得到一个 chunk”，但人工审查发现它还不够像可长期
+维护的研究契约：`window_size` 是永远不能合法使用的字段；contracts 和行为层的异常边界不清晰；
+ChunkRecord 只检查 ID 格式而没有验证 ID 是否真由对象字段推导；metadata 混合 key 时可能先触发 Python
+排序错误。这些不是检索算法问题，却会破坏可复现性、可审计性和错误处理一致性。
+
+### 本轮修复的知识点
+
+- **配置语义**：删除 `window_size`。fixed token 的唯一窗口语义是 `max_tokens`；token overlap 的唯一
+  语义是 `max_tokens + overlap_tokens`。配置 hash 只覆盖所属策略真正使用的字段。
+- **异常归属**：稳定的 `ChunkingContractError`、`ChunkingConfigurationError`、
+  `ChunkingIntegrityError`、`ChunkingInputError` 位于 `contracts/errors.py`；行为层继续以旧 import
+  路径 re-export，因而不会形成 contracts -> chunking 的反向依赖。它们全部兼容 `ValueError`。
+- **身份一致性**：ChunkRecord 显式包含 `chunk_schema_version`，当前由 `config.schema_version` 提供，
+  不额外创造一个独立版本源。构造时用 schema、snapshot、parent doc、index、content hash、config hash
+  再次调用 `derive_chunk_id()`；格式正确但字段不匹配的 `CH-...` 也会失败。
+- **脱敏错误**：文档正文 hash 不一致固定返回 `document content hash mismatch` 与
+  `DOCUMENT_CONTENT_HASH_MISMATCH`，不回显原始 doc ID 或正文。metadata 错误同样只给固定错误类型，
+  不展示路径 key 或原始值。
+- **metadata 边界**：先验证所有 key 都是字符串，再排序；key 和 value 都拒绝 Windows、POSIX、UNC、
+  `file:` 绝对路径。结构化字段继续递归拒绝 evaluator 标签、循环、NaN/Inf、超大整数和不支持对象，
+  但不会扫描普通正文自然语言。
+
+### Red/Green 实验留痕
+
+1. **Red 命令**：
+   `python -m pytest tests/domains/retrieval/chunking -q -p no:cacheprovider`。
+   结果为 **1 个 collection error**：`contracts` 未导出 `ChunkingConfigurationError`。这证明新的异常
+   契约测试先于修复存在，而不是只给已有实现补解释。
+2. **Green 命令**：相同定向命令。结果为 **25 passed, 33 subtests passed**。
+3. **扩展回归**：
+   `python -m pytest tests/stage6_rag tests/domains/retrieval tests/architecture -q -p no:cacheprovider`，
+   结果为 **177 passed, 2198 subtests passed**。这不是替代定向验收，而是确认加固未破坏既有契约。
+
+### 面试表达
+
+“我把 ChunkRecord 当作可审计数据契约，而不是普通 DTO。除了格式校验，它会按自身 schema、语料快照、
+父文档、内容 hash 和分块配置重算 identity。这样即使有人把 ID 换成另一个合法 hash，也无法混入后续
+检索链路。错误模型也放在 contracts 层，保证输入校验、完整性校验和配置校验在不同实现间有一致语义。”
+
+### 结论边界
+
+这次加固证明确定性分块基础设施更适合进入下一道人工审查；它仍不证明检索质量、RAG 安全、抗污染率或
+生产防护能力。没有调用 Groq、没有下载模型、没有创建 Chroma runtime，且没有修改 RetrievalEvidence、
+Stage 1–5 或 Stage 6 数据。下一步只能是 S6-T5.1 的最终人工验收，S6-T5.2 仍未批准。
+
+### 验证技术债留痕
+
+- 全量 `mypy src` 本轮仍报告 **20 个既有错误、11 个 legacy `src/codeguarder` 文件**。典型原因是历史
+  Stage 5 的 `openai`/`garak` 缺失 stubs 和既有类型问题；本轮新 retrieval contracts 范围 MyPy 为
+  `Success: no issues found in 10 source files`，没有为了消除历史告警修改受保护代码。
+- `tests/stage5_paper/test_historical_immutability.py` 仍报告 **110 个 changed**，与已登记的 CRLF/LF
+  字节清单假阳性一致。`git diff --name-only HEAD --` 针对 Stage 1–5、`src/codeguarder`、Stage 6 数据
+  和脚本目录均为空；因此本轮按治理规则只登记，不重算 baseline 或重写历史文件。
+- 第一次绝对路径扫描误用了 `rg` 默认不支持的 lookbehind，命令本身失败且没有改变任何文件；改用
+  `rg --pcre2` 后，变更范围内的 `src/llmguard` 和本轮文档无绝对路径。全仓命中仅为冻结历史文档中
+  用于复现说明的旧路径，不能作为本轮修改理由。

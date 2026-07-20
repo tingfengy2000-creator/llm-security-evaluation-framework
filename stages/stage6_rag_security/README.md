@@ -69,3 +69,13 @@
   完整 TDD/验证留痕见 `deliverables/learning_notes.md`。
 - 未实现：Retriever、ContentResolver、ContextBuilder、Trust、LLM/Groq、RAG 指标与 R1–R6
   正式实验。S6-T5.2 仍需另行人工批准。
+
+## S6-T5.1 Implementation Hardening（待最终人工验收）
+
+- `window_size` 已从稳定配置删除：fixed token 只用 `max_tokens`，token overlap 只用
+  `max_tokens + overlap_tokens`，配置 hash 不包含无效字段。
+- Chunking 错误的唯一稳定归属是 `contracts/errors.py`；`chunking.errors` 只作兼容 re-export，
+  所有错误仍是 `ValueError` 子类且不回显正文、原始 doc ID、绝对路径或原始 metadata。
+- `ChunkRecord` 新增 `chunk_schema_version`，并在构造时用唯一 `derive_chunk_id()` 验证自身 ID；
+  content reference 仅能匹配经验证的 canonical identity。
+- 当前状态：`Completed, pending final human acceptance`；S6-T5.2 仍未批准。

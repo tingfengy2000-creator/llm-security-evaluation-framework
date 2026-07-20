@@ -376,3 +376,11 @@ Red 阶段，再新增 `contracts/hashing.py`、`contracts/chunking.py`、
 `chunking/{__init__,base,errors,identity_chunker}.py`，并导出稳定契约。Green 阶段覆盖一文一块、
 UTF-8 hash 完整性、稳定 ID、config hash、metadata 深冻结、标签/绝对路径拒绝与 contracts ownership；
 没有触及本计划后续的 Retriever/Context/Trust 工作。S6-T5.2 仍须单独人工批准。
+
+### 13.1 S6-T5.1 Hardening 实施留痕（2026-07-20）
+
+人工审查后新增验收测试并先运行 Red：初始失败原因为 contracts 尚未导出统一
+`ChunkingConfigurationError`。修复后，`window_size` 被删除、异常稳定归属迁至 contracts、ChunkRecord
+增加 schema version 和对象级 ID 校验、metadata 改为先验证 key 类型再排序。该加固不新增任何
+Retriever、Evidence、Trace、Resolver、Citation、Context 或 Trust 代码。最终状态为
+`Completed, pending final human acceptance`，S6-T5.2 仍未批准。

@@ -27,6 +27,16 @@ class ChunkingContractOwnershipTests(unittest.TestCase):
             inspect.getmodule(IdentityChunker).__name__,
         )
 
+    def test_chunking_errors_are_owned_by_contracts_and_reexported_by_behavior(self) -> None:
+        from llmguard.domains.retrieval.chunking import ChunkingIntegrityError as legacy
+        from llmguard.domains.retrieval.contracts import ChunkingIntegrityError
+
+        self.assertIs(ChunkingIntegrityError, legacy)
+        self.assertEqual(
+            "llmguard.domains.retrieval.contracts.errors",
+            inspect.getmodule(ChunkingIntegrityError).__name__,
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

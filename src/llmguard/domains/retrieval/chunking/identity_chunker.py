@@ -36,7 +36,8 @@ class IdentityChunker:
         actual_content_hash = hashlib.sha256(document.content.encode("utf-8")).hexdigest()
         if actual_content_hash != document.content_hash:
             raise ChunkingIntegrityError(
-                f"document content hash mismatch for doc_id={document.doc_id}"
+                "document content hash mismatch",
+                error_code="DOCUMENT_CONTENT_HASH_MISMATCH",
             )
         config_hash = config.fingerprint()
         chunk_id = derive_chunk_id(
@@ -48,6 +49,7 @@ class IdentityChunker:
             chunking_config_hash=config_hash,
         )
         chunk = ChunkRecord(
+            chunk_schema_version=config.schema_version,
             chunk_id=chunk_id,
             parent_doc_id=document.doc_id,
             corpus_snapshot_id=corpus_snapshot_id,

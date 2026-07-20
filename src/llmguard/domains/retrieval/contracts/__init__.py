@@ -7,6 +7,12 @@ from .chunking import (
     derive_chunk_id,
     format_corpus_content_ref,
 )
+from .errors import (
+    ChunkingConfigurationError,
+    ChunkingContractError,
+    ChunkingInputError,
+    ChunkingIntegrityError,
+)
 from .hashing import canonical_json, canonical_json_sha256
 from .models import (
     DocumentRecord,
@@ -28,6 +34,10 @@ from .schemas import (
 __all__ = [
     "ChunkRecord",
     "ChunkingConfig",
+    "ChunkingConfigurationError",
+    "ChunkingContractError",
+    "ChunkingInputError",
+    "ChunkingIntegrityError",
     "ChunkingStrategy",
     "DocumentRecord",
     "EvidenceSignal",

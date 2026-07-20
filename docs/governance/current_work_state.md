@@ -70,3 +70,16 @@
 - 本轮仍禁止：S6-T5.2 Retrieval Contracts/IDs、Retriever、ContentResolver、ContextBuilder、Trust、
   Evidence/Trace 业务对象、Groq、RAG 指标和正式实验。
 - 下一审批门：人工审查 S6-T5.1 的代码、TDD 证据与本状态后，才可单独批准 S6-T5.2。
+
+## 2026-07-20 Current Task: S6-T5.1 Implementation Hardening
+
+- Current task: `S6-T5.1 Implementation Hardening`。
+- Status: `Completed, pending final human acceptance`。
+- S6-T5.1 implementation: `Completed and hardened`。
+- S6-T5.2 implementation: `Not approved`。
+- 本轮冻结修复：token 策略只使用 `max_tokens`，稳定 API 已删除无效的 `window_size`；Chunking
+  领域异常唯一归属 `contracts/errors.py`，`chunking/errors.py` 仅 re-export；ChunkRecord 现在显式持有
+  `chunk_schema_version` 并重算验证 canonical chunk ID；metadata 先检查 key 类型再排序，且拒绝路径 key。
+- Next approval gate: `Final human review of S6-T5.1 deterministic contracts, error model, identity validation and acceptance tests`。
+- 禁止项不变：不得开始 S6-T5.2、Retriever、Evidence、Trace、Resolver、Citation、Context、Trust、Groq
+  或正式实验。

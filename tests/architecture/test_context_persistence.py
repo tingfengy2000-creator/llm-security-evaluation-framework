@@ -94,6 +94,19 @@ class ContextPersistenceTests(unittest.TestCase):
             with self.subTest(forbidden_start=forbidden_start):
                 self.assertIn(forbidden_start, state)
 
+    def test_current_state_records_s6_t5_1_hardening_without_approving_s6_t5_2(self) -> None:
+        state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
+
+        for required_term in (
+            "S6-T5.1 Implementation Hardening",
+            "Completed, pending final human acceptance",
+            "S6-T5.1 implementation: `Completed and hardened`",
+            "S6-T5.2 implementation: `Not approved`",
+            "Final human review of S6-T5.1 deterministic contracts",
+        ):
+            with self.subTest(required_term=required_term):
+                self.assertIn(required_term, state)
+
     def test_s6_t5_design_freeze_is_unique_and_behind_approval_gate(self) -> None:
         for path in (S6_T5_SPEC, S6_T5_PLAN, S6_T5_ADR):
             with self.subTest(path=path.relative_to(ROOT)):

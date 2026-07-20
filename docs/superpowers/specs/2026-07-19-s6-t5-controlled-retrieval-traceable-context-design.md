@@ -480,3 +480,13 @@ S6-T5.1 已以最小实现落实以下冻结约束：`ChunkingStrategy`、`Chunk
 implementation_version，拒绝 token/sentence/semantic 参数；future enum/config 仅表达并严格验证
 未来语义，不能被误认为已有算法。`corpus:` formatter 仅生成最小新 scheme，尚不承担 legacy `chroma:`
 迁移或 ContentResolver 解析职责；这两项仍属于 S6-T5.2 以后。
+
+### 23.1 S6-T5.1 Hardening Freeze
+
+`window_size` 不再属于 `ChunkingConfig`：它没有合法策略语义，保留会形成无效稳定 API。fixed token
+唯一使用 `max_tokens`，token overlap 唯一使用 `max_tokens + overlap_tokens`。ChunkRecord 使用
+`chunk_schema_version`，当前由 `config.schema_version` 显式传入，避免无意义的第二版本来源；它在构造时
+重新调用唯一 `derive_chunk_id()`，不接受只满足正则格式但与字段不一致的 ID。
+
+稳定 Chunking 异常在 `contracts/errors.py` 定义，行为层只 re-export。异常消息只使用固定、脱敏的描述；
+hash mismatch 可通过 `error_code` 识别，不回显正文、原始 doc ID、路径或 metadata。
