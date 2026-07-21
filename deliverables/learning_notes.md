@@ -12,6 +12,12 @@
 
 接下来的目标是理解“Retriever 是如何把已冻结的请求契约转换成不含正文的 Evidence 与 Trace”，而不是提前构建 Context 或对模型生成结果下结论。实现会先使用 StaticEmbeddingProvider 和 InMemoryVectorStore，以便把排序、去重、身份绑定和脱敏异常变成确定性、可审计的工程行为。
 
+### 启动前 blocker：为什么不能先写一个“能跑”的 Retriever
+
+核查发现：VectorStore 的 `VectorSearchHit` 只含 `doc_id`、距离、相似度、rank 和受限公开 metadata；但 canonical `RetrievalEvidence` 必须拥有真实的 `parent_doc_id`。DenseRetriever 被禁止读取语料、进入 ContentResolver、访问评估标签或用 chunk ID 猜测父文档 ID；多个 chunk 可能属于同一父文档，猜测会破坏可追溯性。
+
+这不是“少写一个字段”的小问题，而是跨层身份契约不完整。我们已在写业务代码前停止，并登记为 `DESIGN_OR_PROTOCOL_BLOCKER`。本轮也不创建 `test_dense_retriever.py` 的 Red 测试：在冻结契约下没有一个既安全又可转绿的行为规格。先写一个依赖伪造身份的失败测试，再为它补不安全实现，不符合 TDD；正确顺序是先获批安全的 identity carrier，再从 Red 测试开始。
+
 ## 2026-07-20：GOV-ER1-H1 实验总账表格模式加固
 
 ### 我现在做了什么

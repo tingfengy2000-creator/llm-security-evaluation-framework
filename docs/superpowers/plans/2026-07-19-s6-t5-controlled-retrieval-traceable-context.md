@@ -388,3 +388,7 @@ Retriever、Evidence、Trace、Resolver、Citation、Context 或 Trust 代码。
 ## 14. S6-T5.3 审批状态说明（2026-07-21）
 
 本节是对项目负责人最新人工审批的追加说明，不改写上文的历史审批快照。GOV-ER1、GOV-ER1-H1 与 S6-T5.2 已获 `HUMAN_ACCEPTED`；`S6-T5.3 DenseRetriever` 已获 `APPROVED_TO_START`，仅允许 Provider-Neutral、离线、无正文的工程实现与验证。`S6-T5.4 ContentResolver` 及后续任务、真实模型/Chroma 运行和正式 RAG 安全实验仍未获批准。
+
+## 15. S6-T5.3 协议 blocker 说明（2026-07-21）
+
+启动前的实现层核查确认：`VectorSearchHit` 只返回 `doc_id`、metric、rank 与白名单 metadata，而 canonical `RetrievalEvidence` 强制要求真实 `parent_doc_id`。当前白名单未包含该字段，且 S6-T5.3 禁止读取语料、伪造身份或修改冻结 contracts。任务因此进入 `DESIGN_OR_PROTOCOL_BLOCKER`：不创建 DenseRetriever、不写不安全测试替身，也不以临时 adapter 绕过边界；恢复实现必须先获得人工批准的 identity 信息载体与对应 contract 变更。

@@ -30,6 +30,8 @@
 
 **状态更新（2026-07-21）**：项目负责人已将 GOV-ER1、GOV-ER1-H1 与 S6-T5.2 标记为 `HUMAN_ACCEPTED`，并单独批准 `S6-T5.3 DenseRetriever` 启动。该审批仅覆盖离线、Provider-Neutral DenseRetriever 的工程实现与验证；不覆盖 ContentResolver、Context、Trust、LLM/Groq 或正式 RAG 安全实验。
 
+**协议 blocker（2026-07-21）**：启动前核查发现，S6-T4 的 `VectorSearchHit` 及公开 metadata 无法提供 S6-T5.2 canonical `RetrievalEvidence` 强制要求的 `parent_doc_id`。Retriever 又不允许读取语料、伪造父文档身份或修改冻结契约，因此 S6-T5.3 正确暂停，等待人工批准安全的 hit-to-evidence identity contract。
+
 ## 0.1 A1R：LLMGuard 命名冻结与 Retrieval Domain 落地（2026-07-16）
 
 项目正式名称现为 **LLMGuard Research Framework（简称 LLMGuard）**，中文名称为
