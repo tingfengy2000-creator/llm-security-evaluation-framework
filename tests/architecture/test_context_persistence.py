@@ -81,19 +81,23 @@ class ContextPersistenceTests(unittest.TestCase):
             with self.subTest(label=label):
                 self.assertIn(label, agents)
 
-    def test_current_state_keeps_s6_t5_2_and_next_approval_gate(self) -> None:
+    def test_current_state_records_accepted_gates_and_active_dense_retriever(self) -> None:
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
 
         for required in (
-            "Last accepted stage task: `S6-T5.1 Chunking Contracts`",
-            "Last accepted commit: `09584c8`",
+            "Last accepted stage task: `S6-T5.2 Retrieval Runtime Contracts and IDs`",
+            "Last accepted implementation commit: `4c12181`",
             "Retrieval Runtime Contracts and IDs",
-            "pending human acceptance",
+            "GOV-ER1: **HUMAN_ACCEPTED**",
+            "GOV-ER1-H1: **HUMAN_ACCEPTED**",
+            "S6-T5.2 `Retrieval Runtime Contracts and IDs`: **HUMAN_ACCEPTED**",
+            "Approved and active: `S6-T5.3 DenseRetriever`",
+            "Not approved: `S6-T5.4 ContentResolver`",
             "S6-T5.3 DenseRetriever",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, state)
-        for forbidden_start in ("DenseRetriever", "Trust", "LLM", "Groq"):
+        for forbidden_start in ("ContentResolver", "Trust", "LLM", "Groq"):
             with self.subTest(forbidden_start=forbidden_start):
                 self.assertIn(forbidden_start, state)
 
@@ -159,7 +163,8 @@ class ContextPersistenceTests(unittest.TestCase):
         )
         self.assertIn("safe projection", adr)
         self.assertIn("S6-T5.2", state)
-        self.assertIn("pending human acceptance", state)
+        self.assertIn("**HUMAN_ACCEPTED**", state)
+        self.assertIn("`S6-T5.4 ContentResolver`", state)
 
     def test_long_term_requirements_keep_mandatory_research_capabilities(self) -> None:
         requirements = (

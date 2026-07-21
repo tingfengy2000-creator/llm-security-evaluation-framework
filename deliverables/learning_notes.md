@@ -1,5 +1,17 @@
 # 学习笔记
 
+## 2026-07-21：S6-T5.3 启动前人工审批留痕
+
+### 审批事实
+
+- GOV-ER1、GOV-ER1-H1 与 S6-T5.2 已获项目负责人 `HUMAN_ACCEPTED`。
+- S6-T5.3 DenseRetriever 已获批准启动；它是离线工程实现与工程验证，不是正式 RAG 安全实验。
+- S6-T5.4 ContentResolver、Context、Trust、LLM/Groq、真实 Chroma runtime、R1–R6 攻击矩阵和后续 Stage 仍未批准。
+
+### 本轮学习边界
+
+接下来的目标是理解“Retriever 是如何把已冻结的请求契约转换成不含正文的 Evidence 与 Trace”，而不是提前构建 Context 或对模型生成结果下结论。实现会先使用 StaticEmbeddingProvider 和 InMemoryVectorStore，以便把排序、去重、身份绑定和脱敏异常变成确定性、可审计的工程行为。
+
 ## 2026-07-20：GOV-ER1-H1 实验总账表格模式加固
 
 ### 我现在做了什么

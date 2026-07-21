@@ -384,3 +384,7 @@ UTF-8 hash 完整性、稳定 ID、config hash、metadata 深冻结、标签/绝
 增加 schema version 和对象级 ID 校验、metadata 改为先验证 key 类型再排序。该加固不新增任何
 Retriever、Evidence、Trace、Resolver、Citation、Context 或 Trust 代码。最终状态为
 `Completed, pending final human acceptance`，S6-T5.2 仍未批准。
+
+## 14. S6-T5.3 审批状态说明（2026-07-21）
+
+本节是对项目负责人最新人工审批的追加说明，不改写上文的历史审批快照。GOV-ER1、GOV-ER1-H1 与 S6-T5.2 已获 `HUMAN_ACCEPTED`；`S6-T5.3 DenseRetriever` 已获 `APPROVED_TO_START`，仅允许 Provider-Neutral、离线、无正文的工程实现与验证。`S6-T5.4 ContentResolver` 及后续任务、真实模型/Chroma 运行和正式 RAG 安全实验仍未获批准。

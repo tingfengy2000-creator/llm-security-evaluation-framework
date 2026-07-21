@@ -46,13 +46,13 @@
 | 项目 | 当前事实 |
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
-| 当前最高完成阶段 | Stage 6 的 S6-T5.2 运行时检索契约已实现并复验，等待人工验收。 |
-| 当前任务 | `GOV-ER1-H1 Experiment Master Record Ledger Schema Hardening`，纯文档与测试治理。 |
-| 当前审批门 | GOV-ER1 有条件接受、待最终人工验收；S6-T5.2 仍待人工验收。 |
-| 下一批准任务 | 仅在独立批准后开始 `S6-T5.3 DenseRetriever`。 |
+| 当前最高完成阶段 | Stage 6 的 S6-T5.2 运行时检索契约已获人工验收。 |
+| 当前任务 | `S6-T5.3 Provider-Neutral DenseRetriever`，离线工程实现与工程验证。 |
+| 当前审批门 | S6-T5.3 已获批准并处于 active；完成后仍需人工验收。 |
+| 下一批准任务 | S6-T5.4 ContentResolver 尚未批准。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
-| 最近工程验证 | S6-T5.2 契约迁移复验；无 Retriever、ContextBuilder 或 RAG 攻击矩阵。 |
-| 当前主要阻塞项 | S6-T5.2 尚未人工验收；历史实验缺少部分 Run Manifest、模型 revision 和数据 fingerprint。 |
+| 最近工程验证 | S6-T5.2 契约迁移复验；S6-T5.3 尚未产生工程验证结果。 |
+| 当前主要阻塞项 | S6-T5.3 仍须保持冻结契约、标签隔离与无正文边界；历史实验缺少部分 Run Manifest、模型 revision 和数据 fingerprint。 |
 | 当前允许宣称 | 已有模型层真实 API 小样本扫描、Guard A/B 和输入/输出消融；Stage 6 已有检索基础设施与标签隔离契约。 |
 | 当前禁止宣称 | 未完成正式 RAG 安全实验、可信检索、抗知识污染、Citation Accuracy、Agent 安全或生产级防护。 |
 
@@ -210,7 +210,7 @@ ADR、设计规格和实施计划只冻结未来边界与验证方法。设计�
 | BLK-HIST-001 | 2026-07-19 | 历史完整性 | medium | Stage 1–5 hash 检查 | `ACCEPTED_TECHNICAL_DEBT` | [学习记录](../../deliverables/learning_notes.md) 的 CRLF/LF 留痕 | Git diff/blob 核验 | 新的跨平台基线方案经批准 | 不重写历史文件 |
 | BLK-HIST-002 | 2026-07-19 | 可复现性 | medium | Stage 1–4.1 | `OPEN` | 本账本 `NOT_RECORDED` 字段 | 保留原始路径和摘要 | 新实验采用 Run Manifest | 不倒填旧事实 |
 | BLK-HIST-003 | 2026-07-19 | 类型检查 | low | legacy Stage 5 | `ACCEPTED_TECHNICAL_DEBT` | 全量 MyPy 的既有 legacy 告警 | scoped MyPy | 历史资产单独批准后修复 | 不修改 legacy |
-| BLK-S6-001 | 当前 | 审批 | high | S6-T5.3 及后续 | `OPEN` | [current state](current_work_state.md) | 暂停业务实现 | 人工验收 S6-T5.2 | 审查契约证据 |
+| BLK-S6-001 | 当前 | 审批 | high | S6-T5.4 及后续 | `OPEN` | [current state](current_work_state.md) | S6-T5.3 仅限获批范围 | 人工验收 S6-T5.3 | 审查 DenseRetriever 证据 |
 | BLK-S6-002 | 当前 | 研究缺口 | high | RAG 安全结论 | `OPEN` | 第 10 节 | 不夸大工程验证 | 完成受控正式实验 | 先获批 DenseRetriever |
 | BLK-S6-003 | 当前 | 环境依赖 | medium | 真实 Embedding/Chroma | `MITIGATED` | S6-T4 真实集成记录 | 环境变量显式开启、临时目录 | 固定可复现环境文档 | 仅按批准运行 |
 | BLK-API-001 | 2026-06-30 | 真实 API 成本/策略 | medium | Groq 扩样 | `OPEN` | [Stage 3/4 文档](../../deliverables/stage3/06_troubleshooting.md) | safe 模式和小样本 | 批准预算和实验设计 | 不无控制扩样 |
@@ -231,10 +231,11 @@ ADR、设计规格和实施计划只冻结未来边界与验证方法。设计�
 
 | Gate ID | 当前任务 | 已完成证据 | 人工验收状态 | 获批后可开始 | 仍禁止 | 负责人 |
 | --- | --- | --- | --- | --- | --- | --- |
-| GATE-GOV-ER1 | Experiment Master Record | 本文、入口同步、治理测试、GOV-ER1-H1 十列账本加固 | conditionally accepted / minor revision required; pending final human acceptance | 仅评审下一任务范围 | 不自动批准 S6-T5.3 | 项目负责人 |
-| GATE-S6-T5.2 | Retrieval Runtime Contracts and IDs | `4c12181`、完成记录、回归测试 | pending human acceptance | 单独评审 S6-T5.3 | DenseRetriever 及以后 | 项目负责人 |
+| GATE-GOV-ER1 | Experiment Master Record | 本文、入口同步、治理测试、GOV-ER1-H1 十列账本加固 | `HUMAN_ACCEPTED` | 已完成 | 不自动批准 S6-T5.4 | 项目负责人 |
+| GATE-S6-T5.2 | Retrieval Runtime Contracts and IDs | `4c12181`、完成记录、回归测试 | `HUMAN_ACCEPTED` | 已批准 S6-T5.3 | S6-T5.4 及以后 | 项目负责人 |
+| GATE-S6-T5.3 | Provider-Neutral DenseRetriever | 审批文本、冻结 contracts、后续 TDD 证据 | `APPROVED_TO_START / ACTIVE` | 完成后申请人工验收 | ContentResolver 及以后 | 项目负责人 |
 
-**当前审批顺序**：先完成 GOV-ER1 最终人工验收和 S6-T5.2 人工验收；两者均不自动批准 `S6-T5.3 DenseRetriever`，后者仍需独立批准。
+**当前审批顺序**：GOV-ER1、GOV-ER1-H1 和 S6-T5.2 已获人工验收；S6-T5.3 已获批准启动。S6-T5.3 完成后仍须人工验收，`S6-T5.4 ContentResolver` 仍需独立批准。
 
 ## 15. 当前结论边界
 
@@ -360,3 +361,4 @@ git log -15 --oneline
 | --- | --- | --- | --- | --- | --- |
 | 2026-07-20 | 建立 | 全文 | 创建唯一实验总记录，回填 Stage 1–5、登记 Stage 6 工程状态和当前审批门；未进入 S6-T5.3 | 本文链接的原始工件与 Git 历史 | 通过 `git log -1 -- docs/governance/experiment_master_record.md` 动态解析 |
 | 2026-07-20 | 账本结构加固 | 第 2、8、14、20 节 | 修复 S3、S4、S4.1、S5 与 S5 Paper 的十列字段错位；新增列数、枚举、唯一性和计数一致性测试；不改写历史运行事实 | 本文第 8 节、治理测试和学习记录 | 通过 `git log -1 -- docs/governance/experiment_master_record.md` 动态解析 |
+| 2026-07-21 | 人工审批状态更新 | 第 2、12、14、20 节 | 项目负责人验收 GOV-ER1、GOV-ER1-H1、S6-T5.2，并批准 S6-T5.3 启动；S6-T5.4+ 与正式 RAG 安全实验仍未批准 | 当前工作状态、审批文本与 Git 历史 | 通过 `git log -1 -- docs/governance/experiment_master_record.md` 动态解析 |

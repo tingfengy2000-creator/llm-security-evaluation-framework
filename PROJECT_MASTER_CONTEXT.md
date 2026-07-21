@@ -28,6 +28,8 @@
 
 已建立唯一的 [Experiment Master Record](docs/governance/experiment_master_record.md)，用于索引 Stage 1–5 的原始运行、指标、证据、失败记录与结论边界，并登记 Stage 6 的工程验证缺口、审批门和交接顺序。它不改写历史工件、不替代动态工作状态，也不授权 S6-T5.3；当前仍需人工审查总记录与 S6-T5.2 验收证据。
 
+**状态更新（2026-07-21）**：项目负责人已将 GOV-ER1、GOV-ER1-H1 与 S6-T5.2 标记为 `HUMAN_ACCEPTED`，并单独批准 `S6-T5.3 DenseRetriever` 启动。该审批仅覆盖离线、Provider-Neutral DenseRetriever 的工程实现与验证；不覆盖 ContentResolver、Context、Trust、LLM/Groq 或正式 RAG 安全实验。
+
 ## 0.1 A1R：LLMGuard 命名冻结与 Retrieval Domain 落地（2026-07-16）
 
 项目正式名称现为 **LLMGuard Research Framework（简称 LLMGuard）**，中文名称为
