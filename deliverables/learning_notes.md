@@ -24,6 +24,12 @@
 
 这一步的意义是把“谁是父文档”变成 VectorStore 的显式合同，而不是让 Retriever 回头翻语料猜答案。企业系统中，这种版本化 schema 能支持审计、回滚和历史索引共存；面试时可强调：metadata 看似普通，却决定了 Evidence 是否可追溯。常见误解是把 `chunk_id` 当父文档 ID；一个父文档可有多个 chunk，二者不能互相替代。
 
+### 2026-07-22：Provider-Neutral DenseRetriever 工程闭环
+
+我实现的是一个不依赖具体 SentenceTransformers 或 Chroma 的 Retriever：它只向 EmbeddingProvider 提供 query，然后把数值向量交给 VectorStore，最后把无正文 hit 转为 Evidence 和 Trace。它会核对 request 的 collection fingerprint、query embedding spec hash、retrieval config hash，以及 collection 的 schema `1.1`；缺少或冲突 provenance 就 fail closed。
+
+企业中这种分层能让模型供应商、向量数据库和检索业务逻辑独立替换，也方便安全审计。面试官可能追问“为什么不直接返回 Chroma 结果”：因为 Chroma 的原始结构不是稳定领域合同，且不会自动保证 parent identity、标签隔离和审计边界。当前完成的是工程链路，不是 Recall、MRR、RAG 安全效果或生产可用性；这些仍需要后续获批实验。
+
 ## 2026-07-20：GOV-ER1-H1 实验总账表格模式加固
 
 ### 我现在做了什么

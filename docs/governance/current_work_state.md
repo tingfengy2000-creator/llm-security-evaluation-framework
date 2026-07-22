@@ -18,18 +18,18 @@
 
 - Task ID: `S6-T5.3`.
 - Task name: `Provider-Neutral DenseRetriever`.
-- Status: **Approved and active after S6-T5.3-P1 protocol repair**.
+- Status: **Completed, pending human acceptance**.
 - GOV-ER1: **HUMAN_ACCEPTED**.
 - GOV-ER1-H1: **HUMAN_ACCEPTED**.
 - S6-T5.2 `Retrieval Runtime Contracts and IDs`: **HUMAN_ACCEPTED**. Its completed scope is explicit safe query projection, canonical `RetrieverQueryRecord`, deterministic `RetrievalRequest`, `ContentRef`, evidence UID, chunk-level `RetrievalEvidence`, safe evidence summaries, deterministic `RetrievalTrace`, and legacy import/adapter compatibility.
 - S6-T5.3-P1: **Completed**. Public metadata schema `1.1` carries a validated, non-label, no-body `parent_doc_id` from VectorDocument to VectorSearchHit; schema `1.0` remains legacy-compatible.
-- Approval fact: S6-T5.3 is approved to resume from TDD Red tests. DenseRetriever must consume only schema `1.1` hits and may not read the corpus, invent parent identity, or weaken frozen contracts.
+- S6-T5.3: **Completed, pending human acceptance**. DenseRetriever accepts only schema `1.1` hits, validates request/store provenance, and produces canonical `RetrievalEvidence` plus `RetrievalTrace` without reading the corpus.
 - Audit boundary: ordinary `repr()` and `to_audit_dict()` omit retrieval query text, document plaintext and content-reference expansion. Runtime query objects physically exclude evaluator fields.
 
 ## Approval Gate
 
 - Human accepted: GOV-ER1, GOV-ER1-H1, and S6-T5.2.
-- Approved and active: `S6-T5.3 DenseRetriever` after `S6-T5.3-P1` completed.
+- Completed pending human acceptance: `S6-T5.3 DenseRetriever` after `S6-T5.3-P1` completed.
 - Not approved: `S6-T5.4 ContentResolver` and every later S6-T5 task.
 - Next human approval: accept completed S6-T5.3 engineering evidence before separately approving S6-T5.4. S6-T5.4 remains separately unapproved.
 
@@ -41,7 +41,7 @@
 
 ## Current Claims Boundary
 
-Can claim: deterministic, label-isolated retrieval runtime contracts have been implemented and accepted; S6-T5.3-P1 repaired the metadata carrier with schema `1.1`, while S6-T5.3 implementation is now in progress. Historical public loader imports remain compatible through the canonical `llmguard` type.
+Can claim: deterministic, label-isolated retrieval runtime contracts have been implemented and accepted; S6-T5.3-P1 repaired the metadata carrier with schema `1.1`, and S6-T5.3 completed provider-neutral DenseRetriever engineering validation. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
 Cannot claim: retrieval quality, retrieval security effectiveness, context safety, citation accuracy, trustworthiness, RAG metrics, production readiness, or research-experiment outcomes.
 
@@ -54,5 +54,5 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 
 ## Last Update
 
-- Date: `2026-07-21`.
-- Updated by: Codex under explicit project-owner approval. S6-T5.3-P1 resolved the versioned public parent-document identity carrier; S6-T5.3 may now resume from TDD Red tests.
+- Date: `2026-07-22`.
+- Updated by: Codex under explicit project-owner approval. S6-T5.3-P1 resolved the versioned public parent-document identity carrier, and S6-T5.3 DenseRetriever completed offline engineering validation; human acceptance remains required.

@@ -392,3 +392,7 @@ Retriever、Evidence、Trace、Resolver、Citation、Context 或 Trust 代码。
 ## 15. S6-T5.3 协议 blocker 说明（2026-07-21）
 
 启动前的实现层核查确认：`VectorSearchHit` 只返回 `doc_id`、metric、rank 与白名单 metadata，而 canonical `RetrievalEvidence` 强制要求真实 `parent_doc_id`。当前白名单未包含该字段，且 S6-T5.3 禁止读取语料、伪造身份或修改冻结 contracts。任务因此进入 `DESIGN_OR_PROTOCOL_BLOCKER`：不创建 DenseRetriever、不写不安全测试替身，也不以临时 adapter 绕过边界；恢复实现必须先获得人工批准的 identity 信息载体与对应 contract 变更。
+
+## 16. S6-T5.3-P1 与 DenseRetriever 实施留痕（2026-07-22）
+
+项目负责人批准了公开、非标签、无正文的 `parent_doc_id` carrier。`2ad3d9c` 保留 schema `1.0`，新增 schema `1.1` retrieval-ready metadata 与统一 validation；schema 版本进入 collection fingerprint，避免旧 collection 被原地升级。随后 DenseRetriever 以 TDD 实现 `RetrievalRequest -> EmbeddingProvider -> VectorStore -> VectorSearchHit -> RetrievalEvidence -> RetrievalTrace`，仅接受 schema `1.1`，按 similarity、distance、doc ID 稳定排序，按 chunk 去重，冲突 provenance 或缺失 parent identity fail closed。它不读取正文、不会访问标签或 GroundTruth、不调用真实模型/Chroma runtime。S6-T5.3 当前为 `Completed, pending human acceptance`；S6-T5.4 仍未批准。

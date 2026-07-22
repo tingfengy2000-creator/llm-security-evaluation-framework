@@ -30,3 +30,10 @@ DenseRetriever 被明确禁止读取或解析语料、访问 ContentResolver、G
 ## 兼容与验证边界
 
 `public_metadata_schema_version` 进入 CollectionFingerprint，因此 1.0 与 1.1 使用不同 collection，不原地升级或覆盖历史 collection。离线测试验证必填字段、路径/标签拒绝、InMemory 传递、Chroma stable-hit 转换及 fingerprint 隔离。该修复只解除 metadata protocol blocker；DenseRetriever 尚未完成，`S6-T5.4 ContentResolver` 仍需独立批准。
+
+## 闭环结果
+
+- 修复提交：`2ad3d9c feat(vectorstore): carry parent document identity in retrieval metadata`。
+- 后续实现：`feat(retrieval): add provider-neutral dense retriever`。
+- 验证：schema `1.0` 不变；schema `1.1` 缺少 provenance fail closed；同一 `parent_doc_id` 的不同 chunk 保留；相同 chunk 的冲突 provenance 立即失败；Evidence 的 `parent_doc_id` 直接取自 hit metadata。
+- 结论边界：这是离线工程与契约验证，不是检索质量、安全效果或正式 RAG 实验。`S6-T5.4 ContentResolver` 仍未批准。

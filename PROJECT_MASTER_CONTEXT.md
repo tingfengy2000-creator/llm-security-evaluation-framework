@@ -32,6 +32,8 @@
 
 **协议 blocker（2026-07-21）**：启动前核查发现，S6-T4 的 `VectorSearchHit` 及公开 metadata 无法提供 S6-T5.2 canonical `RetrievalEvidence` 强制要求的 `parent_doc_id`。Retriever 又不允许读取语料、伪造父文档身份或修改冻结契约，因此 S6-T5.3 正确暂停，等待人工批准安全的 hit-to-evidence identity contract。
 
+**S6-T5.3-P1 与 DenseRetriever（2026-07-22）**：项目负责人批准后，`parent_doc_id` 被定义为公开、非标签、无正文的 provenance identity。VectorStore schema `1.1` 将它沿 `ChunkRecord -> VectorDocument -> VectorSearchHit -> RetrievalEvidence` 传递，schema `1.0` 保持旧 collection 兼容；collection fingerprint 因 schema 版本而隔离。随后实现 Provider-Neutral DenseRetriever，严格执行 `RetrievalRequest -> EmbeddingProvider -> VectorStore -> VectorSearchHit -> RetrievalEvidence -> RetrievalTrace`，不读取正文、不调用 LLM。该能力已完成离线工程验证，仍等待人工验收，不能宣称检索安全或 RAG 实验结论。
+
 ## 0.1 A1R：LLMGuard 命名冻结与 Retrieval Domain 落地（2026-07-16）
 
 项目正式名称现为 **LLMGuard Research Framework（简称 LLMGuard）**，中文名称为
