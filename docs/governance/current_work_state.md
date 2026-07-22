@@ -18,30 +18,30 @@
 
 - Task ID: `S6-T5.3`.
 - Task name: `Provider-Neutral DenseRetriever`.
-- Status: **Blocked: DESIGN_OR_PROTOCOL_BLOCKER**.
+- Status: **Approved and active after S6-T5.3-P1 protocol repair**.
 - GOV-ER1: **HUMAN_ACCEPTED**.
 - GOV-ER1-H1: **HUMAN_ACCEPTED**.
 - S6-T5.2 `Retrieval Runtime Contracts and IDs`: **HUMAN_ACCEPTED**. Its completed scope is explicit safe query projection, canonical `RetrieverQueryRecord`, deterministic `RetrievalRequest`, `ContentRef`, evidence UID, chunk-level `RetrievalEvidence`, safe evidence summaries, deterministic `RetrievalTrace`, and legacy import/adapter compatibility.
-- Approval fact: S6-T5.3 was approved to start, but implementation is paused before code is written because the frozen hit-to-evidence identity contract is incomplete.
-- Blocker: `VectorSearchHit` and its public metadata whitelist do not expose the canonical `RetrievalEvidence.parent_doc_id` required to construct a safe evidence record. DenseRetriever may not read the corpus, invent parent identity, or weaken frozen contracts.
+- S6-T5.3-P1: **Completed**. Public metadata schema `1.1` carries a validated, non-label, no-body `parent_doc_id` from VectorDocument to VectorSearchHit; schema `1.0` remains legacy-compatible.
+- Approval fact: S6-T5.3 is approved to resume from TDD Red tests. DenseRetriever must consume only schema `1.1` hits and may not read the corpus, invent parent identity, or weaken frozen contracts.
 - Audit boundary: ordinary `repr()` and `to_audit_dict()` omit retrieval query text, document plaintext and content-reference expansion. Runtime query objects physically exclude evaluator fields.
 
 ## Approval Gate
 
 - Human accepted: GOV-ER1, GOV-ER1-H1, and S6-T5.2.
-- Approved but blocked: `S6-T5.3 DenseRetriever` (`DESIGN_OR_PROTOCOL_BLOCKER`).
+- Approved and active: `S6-T5.3 DenseRetriever` after `S6-T5.3-P1` completed.
 - Not approved: `S6-T5.4 ContentResolver` and every later S6-T5 task.
-- Next human decision: approve a safe, public, non-label carrier for parent-document identity in the hit-to-evidence contract, then restart S6-T5.3 from Red tests. S6-T5.4 remains separately unapproved.
+- Next human approval: accept completed S6-T5.3 engineering evidence before separately approving S6-T5.4. S6-T5.4 remains separately unapproved.
 
 ## Must Not Start
 
-- DenseRetriever implementation until the `parent_doc_id` protocol gap is resolved; ContentResolver, document-content access, ContextBuilder, evidence envelope, citation binding, abstention, Trust policy or retrieval guard.
+- ContentResolver, document-content access, ContextBuilder, evidence envelope, citation binding, abstention, Trust policy or retrieval guard.
 - Groq, mock/real LLM invocation, evaluator, metrics, T10-T15, formal RAG attack matrix or report generation.
 - New Stage 6 business code under `src/codeguarder/`, any mutation of Stage 1-5, or any mutation of Stage 6 data fixtures.
 
 ## Current Claims Boundary
 
-Can claim: deterministic, label-isolated retrieval runtime contracts have been implemented and accepted; `S6-T5.3` was approved and correctly paused at a protocol blocker before unsafe implementation. Historical public loader imports remain compatible through the canonical `llmguard` type.
+Can claim: deterministic, label-isolated retrieval runtime contracts have been implemented and accepted; S6-T5.3-P1 repaired the metadata carrier with schema `1.1`, while S6-T5.3 implementation is now in progress. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
 Cannot claim: retrieval quality, retrieval security effectiveness, context safety, citation accuracy, trustworthiness, RAG metrics, production readiness, or research-experiment outcomes.
 
@@ -50,9 +50,9 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 - Historical CRLF/LF hash-baseline false positives remain historical facts; do not rewrite their files to silence checks.
 - Dynamic Git state must not be represented as a static assertion in this document.
 - S6-T5.3 must preserve all frozen contracts; any need to change them is a `DESIGN_OR_PROTOCOL_BLOCKER`.
-- `DESIGN_OR_PROTOCOL_BLOCKER`: the frozen VectorStore hit boundary lacks `parent_doc_id`, while canonical `RetrievalEvidence` requires it. See [S6-T5.3 blocker record](s6_t5_3_protocol_blocker_record.md).
+- Resolved protocol record: the former hit boundary lacked `parent_doc_id`; schema `1.1` now carries it through the public metadata contract without changing legacy schema `1.0`. See [S6-T5.3 blocker record](s6_t5_3_protocol_blocker_record.md).
 
 ## Last Update
 
 - Date: `2026-07-21`.
-- Updated by: Codex under explicit project-owner approval. GOV-ER1, GOV-ER1-H1 and S6-T5.2 were accepted; S6-T5.3 was approved to start and then paused before implementation after a contract-level identity gap was verified.
+- Updated by: Codex under explicit project-owner approval. S6-T5.3-P1 resolved the versioned public parent-document identity carrier; S6-T5.3 may now resume from TDD Red tests.

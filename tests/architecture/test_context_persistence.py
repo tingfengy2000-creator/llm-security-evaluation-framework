@@ -81,7 +81,7 @@ class ContextPersistenceTests(unittest.TestCase):
             with self.subTest(label=label):
                 self.assertIn(label, agents)
 
-    def test_current_state_records_accepted_gates_and_blocked_dense_retriever(self) -> None:
+    def test_current_state_records_accepted_gates_and_active_dense_retriever(self) -> None:
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
 
         for required in (
@@ -91,8 +91,8 @@ class ContextPersistenceTests(unittest.TestCase):
             "GOV-ER1: **HUMAN_ACCEPTED**",
             "GOV-ER1-H1: **HUMAN_ACCEPTED**",
             "S6-T5.2 `Retrieval Runtime Contracts and IDs`: **HUMAN_ACCEPTED**",
-            "Approved but blocked: `S6-T5.3 DenseRetriever`",
-            "DESIGN_OR_PROTOCOL_BLOCKER",
+            "Approved and active: `S6-T5.3 DenseRetriever`",
+            "S6-T5.3-P1: **Completed**",
             "Not approved: `S6-T5.4 ContentResolver`",
             "S6-T5.3 DenseRetriever",
         ):

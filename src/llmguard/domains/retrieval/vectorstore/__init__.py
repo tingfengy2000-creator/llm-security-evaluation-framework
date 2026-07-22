@@ -5,6 +5,9 @@ from .chroma_store import ChromaVectorStore
 from .fingerprint import CollectionFingerprint
 from .in_memory_store import InMemoryVectorStore
 from .models import (
+    PUBLIC_METADATA_FIELDS,
+    PUBLIC_METADATA_SCHEMA_VERSIONS,
+    RETRIEVAL_READY_METADATA_FIELDS,
     MetadataIsolationError,
     VectorCollectionInfo,
     VectorCollectionSpec,
@@ -16,6 +19,9 @@ from .models import (
     VectorStoreError,
     VectorStorePersistenceError,
     VectorStoreQueryError,
+    validate_metadata_for_schema,
+    validate_public_metadata,
+    validate_retrieval_ready_metadata,
 )
 
 __all__ = [
@@ -23,6 +29,9 @@ __all__ = [
     "ChromaVectorStore",
     "InMemoryVectorStore",
     "MetadataIsolationError",
+    "PUBLIC_METADATA_FIELDS",
+    "PUBLIC_METADATA_SCHEMA_VERSIONS",
+    "RETRIEVAL_READY_METADATA_FIELDS",
     "VectorCollectionInfo",
     "VectorCollectionSpec",
     "VectorDimensionError",
@@ -34,4 +43,7 @@ __all__ = [
     "VectorStoreError",
     "VectorStorePersistenceError",
     "VectorStoreQueryError",
+    "validate_metadata_for_schema",
+    "validate_public_metadata",
+    "validate_retrieval_ready_metadata",
 ]

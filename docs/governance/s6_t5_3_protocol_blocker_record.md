@@ -2,7 +2,7 @@
 
 - 日期：`2026-07-21`
 - 任务：`S6-T5.3 Provider-Neutral DenseRetriever`
-- 状态：`DESIGN_OR_PROTOCOL_BLOCKER`
+- 状态：`RESOLVED_BY_VERSIONED_PUBLIC_METADATA_CONTRACT`
 - 任务审批：已获 `APPROVED_TO_START`；该审批不授权绕过冻结契约。
 
 ## 发现
@@ -23,6 +23,10 @@ DenseRetriever 被明确禁止读取或解析语料、访问 ContentResolver、G
 - 未创建不安全测试替身，未访问 Stage 6 fixture 数据，未读取正文。
 - 未调用 Embedding、Chroma、Groq 或 LLM，未执行 R1–R6。
 
-## 恢复条件
+## 决策与修复
 
-项目负责人需先批准一个公开、非标签、无正文的 parent-document identity carrier，并明确其 schema owner、VectorStore metadata 白名单、已有 collection 的兼容策略和回归测试。批准后，S6-T5.3 从 TDD Red 阶段恢复；`S6-T5.4 ContentResolver` 仍需独立批准。
+项目负责人已批准 `S6-T5.3-P1 Parent Document Identity Carrier`。schema owner 固定为 `vectorstore/models.py`：schema `1.0` 保持历史兼容，schema `1.1` 要求完整 retrieval provenance，并将 `parent_doc_id` 沿 `ChunkRecord -> VectorDocument.metadata -> VectorSearchHit.metadata -> RetrievalEvidence` 传递。adapter 只复用统一验证入口，不读取正文、不接触标签。
+
+## 兼容与验证边界
+
+`public_metadata_schema_version` 进入 CollectionFingerprint，因此 1.0 与 1.1 使用不同 collection，不原地升级或覆盖历史 collection。离线测试验证必填字段、路径/标签拒绝、InMemory 传递、Chroma stable-hit 转换及 fingerprint 隔离。该修复只解除 metadata protocol blocker；DenseRetriever 尚未完成，`S6-T5.4 ContentResolver` 仍需独立批准。

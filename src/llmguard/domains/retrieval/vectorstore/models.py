@@ -9,12 +9,14 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 from types import MappingProxyType
 
+from llmguard.domains.retrieval.contracts.chunking import ChunkRecord
 from llmguard.domains.retrieval.contracts.content_ref import ContentRef
 
 
 PUBLIC_METADATA_FIELDS = frozenset(
     {
         "doc_id",
+        "parent_doc_id",
         "source_id",
         "source_type",
         "timestamp",
@@ -25,6 +27,19 @@ PUBLIC_METADATA_FIELDS = frozenset(
         "language",
     }
 )
+RETRIEVAL_READY_METADATA_FIELDS = frozenset(
+    {
+        "doc_id",
+        "parent_doc_id",
+        "source_id",
+        "source_type",
+        "timestamp",
+        "version",
+        "content_hash",
+        "corpus_snapshot_id",
+    }
+)
+PUBLIC_METADATA_SCHEMA_VERSIONS = frozenset({"1.0", "1.1"})
 FORBIDDEN_METADATA_FIELDS = frozenset(
     {
         "poisoned",
@@ -44,6 +59,7 @@ FORBIDDEN_METADATA_FIELDS = frozenset(
 )
 _SHA256 = re.compile(r"\A[0-9a-f]{64}\Z")
 _UTC_ISO8601 = re.compile(r"\A\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|\+00:00)\Z")
+_WINDOWS_ABSOLUTE_PATH = re.compile(r"\A[A-Za-z]:[\\/]")
 
 
 class VectorStoreError(RuntimeError):
@@ -115,6 +131,18 @@ def _validate_timestamp(value: object, field_name: str) -> str:
     return timestamp
 
 
+def _validate_parent_doc_id(value: object) -> str:
+    parent_doc_id = _require_nonblank(value, "metadata.parent_doc_id")
+    if (
+        parent_doc_id.startswith(("/", "\\\\"))
+        or _WINDOWS_ABSOLUTE_PATH.match(parent_doc_id) is not None
+        or "\r" in parent_doc_id
+        or "\n" in parent_doc_id
+    ):
+        raise MetadataIsolationError("metadata.parent_doc_id must be a safe public identifier")
+    return parent_doc_id
+
+
 def validate_public_metadata(
     metadata: Mapping[str, object],
     *,
@@ -134,6 +162,8 @@ def validate_public_metadata(
             raise MetadataIsolationError(f"metadata field '{key}' must be a scalar")
         if key in {"doc_id", "source_id", "source_type", "version", "corpus_snapshot_id", "language"}:
             values[key] = _require_nonblank(value, f"metadata.{key}")
+        elif key == "parent_doc_id":
+            values[key] = _validate_parent_doc_id(value)
         elif key == "timestamp":
             values[key] = _validate_timestamp(value, "metadata.timestamp")
         elif key == "content_hash":
@@ -149,6 +179,35 @@ def validate_public_metadata(
     return MappingProxyType({key: values[key] for key in sorted(values)})
 
 
+def validate_retrieval_ready_metadata(
+    metadata: Mapping[str, object],
+    *,
+    doc_id: str,
+) -> Mapping[str, str | int]:
+    """Validate the S6-T5 public provenance contract without reading content."""
+
+    values = validate_public_metadata(metadata, doc_id=doc_id)
+    missing = RETRIEVAL_READY_METADATA_FIELDS - values.keys()
+    if missing:
+        raise MetadataIsolationError("retrieval-ready metadata is missing required provenance")
+    return MappingProxyType({key: values[key] for key in sorted(values)})
+
+
+def validate_metadata_for_schema(
+    metadata: Mapping[str, object],
+    *,
+    doc_id: str,
+    public_metadata_schema_version: str,
+) -> Mapping[str, str | int]:
+    """Use the single metadata validation path selected by collection schema."""
+
+    if public_metadata_schema_version not in PUBLIC_METADATA_SCHEMA_VERSIONS:
+        raise VectorStoreConfigurationError("public metadata schema version is unsupported")
+    if public_metadata_schema_version == "1.1":
+        return validate_retrieval_ready_metadata(metadata, doc_id=doc_id)
+    return validate_public_metadata(metadata, doc_id=doc_id)
+
+
 @dataclass(frozen=True, slots=True)
 class VectorDocument:
     """A content-independent vector row for a public retrieval collection."""
@@ -159,13 +218,42 @@ class VectorDocument:
     content_hash: str
     content_ref: str
 
+    @classmethod
+    def from_chunk_record(
+        cls,
+        chunk: object,
+        *,
+        vector: Sequence[float],
+    ) -> "VectorDocument":
+        """Project only public retrieval provenance from a canonical ChunkRecord."""
+
+        if not isinstance(chunk, ChunkRecord):
+            raise MetadataIsolationError("vector document requires a canonical chunk record")
+        return cls(
+            doc_id=chunk.chunk_id,
+            vector=vector,
+            metadata={
+                "doc_id": chunk.chunk_id,
+                "parent_doc_id": chunk.parent_doc_id,
+                "source_id": chunk.source_id,
+                "source_type": chunk.source_type,
+                "timestamp": chunk.timestamp,
+                "version": chunk.version,
+                "content_hash": chunk.content_hash,
+                "corpus_snapshot_id": chunk.corpus_snapshot_id,
+                "chunk_index": chunk.chunk_index,
+            },
+            content_hash=chunk.content_hash,
+            content_ref=chunk.content_ref,
+        )
+
     def __post_init__(self) -> None:
         doc_id = _require_nonblank(self.doc_id, "doc_id")
         vector = _freeze_vector(self.vector, "vector")
         content_hash = _require_sha256(self.content_hash, "content_hash")
         content_ref = ContentRef(self.content_ref)
-        if content_ref.scheme != "chroma":
-            raise ValueError("VectorDocument supports legacy chroma content references only")
+        if content_ref.scheme not in {"chroma", "corpus"}:
+            raise ValueError("VectorDocument content reference scheme is unsupported")
         metadata = validate_public_metadata(self.metadata, doc_id=doc_id)
         if "content_hash" in metadata and metadata["content_hash"] != content_hash:
             raise MetadataIsolationError("metadata.content_hash must match content_hash")
@@ -235,10 +323,8 @@ class VectorCollectionSpec:
                 "S6-T4 VectorStore supports only cosine distance"
             )
         _require_nonblank(self.vector_schema_version, "vector_schema_version")
-        _require_nonblank(
-            self.public_metadata_schema_version,
-            "public_metadata_schema_version",
-        )
+        if self.public_metadata_schema_version not in PUBLIC_METADATA_SCHEMA_VERSIONS:
+            raise VectorStoreConfigurationError("public metadata schema version is unsupported")
 
     @property
     def collection_name(self) -> str:

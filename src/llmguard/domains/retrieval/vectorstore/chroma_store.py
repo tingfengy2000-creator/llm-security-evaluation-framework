@@ -23,7 +23,7 @@ from .models import (
     VectorStoreConfigurationError,
     VectorStorePersistenceError,
     VectorStoreQueryError,
-    validate_public_metadata,
+    validate_metadata_for_schema,
 )
 
 
@@ -85,6 +85,11 @@ class ChromaVectorStore:
         for document in documents:
             self._validate_dimension(document.vector, collection.dimension, document.doc_id)
             self._require_nonzero(document.vector, "document vector")
+            validate_metadata_for_schema(
+                document.metadata,
+                doc_id=document.doc_id,
+                public_metadata_schema_version=collection.public_metadata_schema_version,
+            )
         if not documents:
             return
         try:
@@ -120,7 +125,7 @@ class ChromaVectorStore:
             )
         except Exception as error:
             raise VectorStoreQueryError("Chroma vector query failed") from error
-        return self._to_stable_hits(raw_result)
+        return self._to_stable_hits(raw_result, collection=collection)
 
     def count(self, collection: VectorCollectionSpec) -> int:
         chroma_collection = self._open_existing(collection)
@@ -204,7 +209,11 @@ class ChromaVectorStore:
                 )
 
     @staticmethod
-    def _to_stable_hits(raw_result: Mapping[str, object]) -> tuple[VectorSearchHit, ...]:
+    def _to_stable_hits(
+        raw_result: Mapping[str, object],
+        *,
+        collection: VectorCollectionSpec,
+    ) -> tuple[VectorSearchHit, ...]:
         ids_outer = raw_result.get("ids")
         metadatas_outer = raw_result.get("metadatas")
         distances_outer = raw_result.get("distances")
@@ -237,7 +246,11 @@ class ChromaVectorStore:
                 (
                     distance_value,
                     doc_id,
-                    validate_public_metadata(metadata, doc_id=doc_id),
+                    validate_metadata_for_schema(
+                        metadata,
+                        doc_id=doc_id,
+                        public_metadata_schema_version=collection.public_metadata_schema_version,
+                    ),
                 )
             )
         candidates.sort(key=lambda item: (item[0], item[1]))

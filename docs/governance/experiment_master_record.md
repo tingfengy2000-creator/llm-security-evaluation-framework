@@ -47,12 +47,12 @@
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
 | 当前最高完成阶段 | Stage 6 的 S6-T5.2 运行时检索契约已获人工验收。 |
-| 当前任务 | `S6-T5.3 Provider-Neutral DenseRetriever`，已获批准但因 `DESIGN_OR_PROTOCOL_BLOCKER` 暂停。 |
-| 当前审批门 | 必须先人工批准安全的 hit-to-evidence parent-document identity contract，才能从 TDD Red 阶段恢复 S6-T5.3。 |
+| 当前任务 | `S6-T5.3 Provider-Neutral DenseRetriever`，S6-T5.3-P1 已完成，正在从 TDD Red 阶段恢复。 |
+| 当前审批门 | S6-T5.3 完成后仍需人工验收；S6-T5.4 仍需独立批准。 |
 | 下一批准任务 | S6-T5.4 ContentResolver 尚未批准。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
 | 最近工程验证 | S6-T5.2 契约迁移复验；S6-T5.3 尚未产生工程验证结果。 |
-| 当前主要阻塞项 | `VectorSearchHit` 的公开字段与 metadata 白名单缺少 `RetrievalEvidence.parent_doc_id`；DenseRetriever 不得读取语料、伪造身份或改写冻结契约。历史实验另缺少部分 Run Manifest、模型 revision 和数据 fingerprint。 |
+| 当前主要阻塞项 | parent identity 协议已由版本化 schema `1.1` 修复；DenseRetriever 仍须保持无正文、标签隔离与 fail-closed 边界。历史实验另缺少部分 Run Manifest、模型 revision 和数据 fingerprint。 |
 | 当前允许宣称 | 已有模型层真实 API 小样本扫描、Guard A/B 和输入/输出消融；Stage 6 已有检索基础设施与标签隔离契约。 |
 | 当前禁止宣称 | 未完成正式 RAG 安全实验、可信检索、抗知识污染、Citation Accuracy、Agent 安全或生产级防护。 |
 
@@ -87,7 +87,7 @@
 | S6-T5 Design Hardening | 设计审查加固 | DTO、投影、ContentRef、审计异常边界 | 完成 | `DESIGN_FROZEN` | `aeb7e48` | 不授权实现 |
 | S6-T5.1 | Chunking Contracts | IdentityChunker 与稳定 Chunk ID | 已接受 | `HUMAN_ACCEPTED` | `412d886`、`09584c8` | 无 |
 | S6-T5.2 | Retrieval Runtime Contracts and IDs | 安全投影、Request、Evidence、Trace、ContentRef | 已实现 | `IMPLEMENTED` | `4c12181`、[完成记录](s6_t5_2_completion_record.md) | 人工验收 |
-| S6-T5.3 | DenseRetriever | 透明 Dense Retrieval | 已批准但协议阻断 | `DESIGN_OR_PROTOCOL_BLOCKER` | [阻断记录](s6_t5_3_protocol_blocker_record.md) | 批准安全的 parent identity carrier |
+| S6-T5.3 | DenseRetriever | 透明 Dense Retrieval | 实施中 | `APPROVED_TO_START` | [阻断记录](s6_t5_3_protocol_blocker_record.md) | 完成后人工验收 |
 | S6-T5.4–S6-T5.8 | Resolver、Context、后续受控能力 | 逐项增量实现 | 未批准 | `PLANNED` | 同上 | 前序任务验收 |
 | Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | 规划中 | `PLANNED` | [长期需求](long_term_research_requirements.md) | Stage 6 基线 |
 | Stage 6.2 | Multi-Evidence Trustworthy Retrieval | 可信聚合、重排、拒答 | 规划中 | `PLANNED` | [长期需求](long_term_research_requirements.md) | Stage 6.1/设计批准 |
@@ -210,7 +210,7 @@ ADR、设计规格和实施计划只冻结未来边界与验证方法。设计�
 | BLK-HIST-001 | 2026-07-19 | 历史完整性 | medium | Stage 1–5 hash 检查 | `ACCEPTED_TECHNICAL_DEBT` | [学习记录](../../deliverables/learning_notes.md) 的 CRLF/LF 留痕 | Git diff/blob 核验 | 新的跨平台基线方案经批准 | 不重写历史文件 |
 | BLK-HIST-002 | 2026-07-19 | 可复现性 | medium | Stage 1–4.1 | `OPEN` | 本账本 `NOT_RECORDED` 字段 | 保留原始路径和摘要 | 新实验采用 Run Manifest | 不倒填旧事实 |
 | BLK-HIST-003 | 2026-07-19 | 类型检查 | low | legacy Stage 5 | `ACCEPTED_TECHNICAL_DEBT` | 全量 MyPy 的既有 legacy 告警 | scoped MyPy | 历史资产单独批准后修复 | 不修改 legacy |
-| BLK-S6-001 | 2026-07-21 | 设计/协议 | high | S6-T5.3 及后续 | `DESIGN_OR_PROTOCOL_BLOCKER` | [阻断记录](s6_t5_3_protocol_blocker_record.md) | 停止实现；不伪造 parent ID、不读取语料、不改写冻结契约 | 人工批准安全 hit-to-evidence parent identity carrier | 再从 Red 测试恢复 DenseRetriever |
+| BLK-S6-001 | 2026-07-22 | 设计/协议 | high | S6-T5.3 | `RESOLVED_BY_VERSIONED_PUBLIC_METADATA_CONTRACT` | [阻断记录](s6_t5_3_protocol_blocker_record.md) | schema `1.1` 公开 carrier；不伪造 parent ID、不读取语料、不改写 schema `1.0` | P1 离线回归 | DenseRetriever 继续保持 fail-closed |
 | BLK-S6-002 | 当前 | 研究缺口 | high | RAG 安全结论 | `OPEN` | 第 10 节 | 不夸大工程验证 | 完成受控正式实验 | 先获批 DenseRetriever |
 | BLK-S6-003 | 当前 | 环境依赖 | medium | 真实 Embedding/Chroma | `MITIGATED` | S6-T4 真实集成记录 | 环境变量显式开启、临时目录 | 固定可复现环境文档 | 仅按批准运行 |
 | BLK-API-001 | 2026-06-30 | 真实 API 成本/策略 | medium | Groq 扩样 | `OPEN` | [Stage 3/4 文档](../../deliverables/stage3/06_troubleshooting.md) | safe 模式和小样本 | 批准预算和实验设计 | 不无控制扩样 |
@@ -233,7 +233,7 @@ ADR、设计规格和实施计划只冻结未来边界与验证方法。设计�
 | --- | --- | --- | --- | --- | --- | --- |
 | GATE-GOV-ER1 | Experiment Master Record | 本文、入口同步、治理测试、GOV-ER1-H1 十列账本加固 | `HUMAN_ACCEPTED` | 已完成 | 不自动批准 S6-T5.4 | 项目负责人 |
 | GATE-S6-T5.2 | Retrieval Runtime Contracts and IDs | `4c12181`、完成记录、回归测试 | `HUMAN_ACCEPTED` | 已批准 S6-T5.3 | S6-T5.4 及以后 | 项目负责人 |
-| GATE-S6-T5.3 | Provider-Neutral DenseRetriever | 审批文本、冻结 contracts、协议阻断记录 | `APPROVED_TO_START / BLOCKED_BY_PROTOCOL` | 先批准安全 parent identity contract，再从 Red 测试恢复 | ContentResolver 及以后 | 项目负责人 |
+| GATE-S6-T5.3 | Provider-Neutral DenseRetriever | 审批文本、P1 metadata contract、后续 TDD 证据 | `APPROVED_TO_START / ACTIVE` | 完成后申请人工验收 | ContentResolver 及以后 | 项目负责人 |
 
 **当前审批顺序**：GOV-ER1、GOV-ER1-H1 和 S6-T5.2 已获人工验收；S6-T5.3 已获批准启动，但在实现前发现 `parent_doc_id` identity contract 缺口并正确暂停。先获得该安全协议的人工批准，才能恢复 S6-T5.3；完成后仍须人工验收，`S6-T5.4 ContentResolver` 仍需独立批准。
 

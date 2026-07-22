@@ -18,6 +18,12 @@
 
 这不是“少写一个字段”的小问题，而是跨层身份契约不完整。我们已在写业务代码前停止，并登记为 `DESIGN_OR_PROTOCOL_BLOCKER`。本轮也不创建 `test_dense_retriever.py` 的 Red 测试：在冻结契约下没有一个既安全又可转绿的行为规格。先写一个依赖伪造身份的失败测试，再为它补不安全实现，不符合 TDD；正确顺序是先获批安全的 identity carrier，再从 Red 测试开始。
 
+### 2026-07-22：S6-T5.3-P1 如何解除身份协议 blocker
+
+项目负责人批准将 `parent_doc_id` 定义为公开 provenance identity，而不是攻击标签或正文。我们保留 schema `1.0` 给历史 S6-T4 collection，新增 schema `1.1`：只有它要求 `doc_id`、`parent_doc_id`、来源、时间、版本、内容 hash 和 corpus snapshot 全部存在。schema 版本进入 collection fingerprint，因此新旧 collection 不会混用。
+
+这一步的意义是把“谁是父文档”变成 VectorStore 的显式合同，而不是让 Retriever 回头翻语料猜答案。企业系统中，这种版本化 schema 能支持审计、回滚和历史索引共存；面试时可强调：metadata 看似普通，却决定了 Evidence 是否可追溯。常见误解是把 `chunk_id` 当父文档 ID；一个父文档可有多个 chunk，二者不能互相替代。
+
 ## 2026-07-20：GOV-ER1-H1 实验总账表格模式加固
 
 ### 我现在做了什么

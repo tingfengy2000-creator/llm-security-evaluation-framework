@@ -15,6 +15,7 @@ from .models import (
     VectorSearchQuery,
     VectorStoreConfigurationError,
     VectorStoreQueryError,
+    validate_metadata_for_schema,
 )
 
 
@@ -55,6 +56,11 @@ class InMemoryVectorStore:
         for document in documents:
             self._validate_dimension(document.vector, collection.dimension, document.doc_id)
             self._require_nonzero(document.vector, "document vector")
+            validate_metadata_for_schema(
+                document.metadata,
+                doc_id=document.doc_id,
+                public_metadata_schema_version=collection.public_metadata_schema_version,
+            )
         for document in documents:
             memory_collection.documents[document.doc_id] = document
 
@@ -80,7 +86,11 @@ class InMemoryVectorStore:
                 doc_id=document.doc_id,
                 distance=distance,
                 similarity=1.0 - distance,
-                metadata=document.metadata,
+                metadata=validate_metadata_for_schema(
+                    document.metadata,
+                    doc_id=document.doc_id,
+                    public_metadata_schema_version=collection.public_metadata_schema_version,
+                ),
                 rank=rank,
             )
             for rank, (distance, _, document) in enumerate(
