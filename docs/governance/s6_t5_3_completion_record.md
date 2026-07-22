@@ -20,6 +20,6 @@
 
 ## 验证与边界
 
-离线 TDD 覆盖 parent identity 从 ChunkRecord 经 VectorDocument、VectorStore 到 Evidence 的一致性，以及排序、去重、三类 request provenance mismatch、legacy schema 拒绝、metadata 缺失/冲突 fail-closed 和无 query/plaintext audit。未调用真实模型、Groq、LLM 或真实 Chroma runtime，未修改 Stage 1–5 或 Stage 6 fixture 数据，未执行正式 RAG 安全实验。
+离线 TDD 覆盖 parent identity 从 ChunkRecord 经 VectorDocument、VectorStore 到 Evidence 的一致性，以及排序、去重、三类 request provenance mismatch、legacy schema 拒绝、metadata 缺失/冲突 fail-closed 和无 query/plaintext audit。新增 DenseRetriever/adapter 测试只使用 fake Chroma hit，不创建项目 `runtime/` 目录；但最终全量回归包含既有 S6-T4 Chroma 临时目录持久化测试，因而会初始化临时 Chroma client。该既有回归不是本轮实验运行，也不产生项目 runtime、模型调用或 RAG 指标。未调用真实模型、Groq 或 LLM，未修改 Stage 1–5 或 Stage 6 fixture 数据，未执行正式 RAG 安全实验。
 
 本记录证明工程合同在当前离线测试配置下成立，不证明检索质量、安全效果、RAG 指标或生产可用性。下一步仅等待人工验收；`S6-T5.4 ContentResolver` 尚未批准。
