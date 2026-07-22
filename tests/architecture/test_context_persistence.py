@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 GOVERNANCE = ROOT / "docs" / "governance"
+DECISION_REGISTER = GOVERNANCE / "project_owner_decision_register.md"
 WINDOWS_ABSOLUTE_PATH = re.compile(r"(?<![A-Za-z0-9])[A-Za-z]:[\\/]")
 S6_T5_SPEC = (
     ROOT
@@ -30,6 +31,7 @@ class ContextPersistenceTests(unittest.TestCase):
         required = (
             ROOT / "AGENTS.md",
             GOVERNANCE / "long_term_research_requirements.md",
+            DECISION_REGISTER,
             ROOT / "PROJECT_MASTER_CONTEXT.md",
             GOVERNANCE / "current_work_state.md",
             GOVERNANCE / "context_recovery_protocol.md",
@@ -43,6 +45,7 @@ class ContextPersistenceTests(unittest.TestCase):
         agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
         references = (
             "docs/governance/long_term_research_requirements.md",
+            "docs/governance/project_owner_decision_register.md",
             "PROJECT_MASTER_CONTEXT.md",
             "docs/governance/current_work_state.md",
             "docs/governance/context_recovery_protocol.md",
@@ -58,6 +61,100 @@ class ContextPersistenceTests(unittest.TestCase):
         self.assertIn("Label Isolation", agents)
         self.assertIn("Approval Gate", agents)
         self.assertIn("未获批准", agents)
+
+    def test_project_owner_decision_register_preserves_current_and_historical_facts(
+        self,
+    ) -> None:
+        register = DECISION_REGISTER.read_text(encoding="utf-8")
+
+        for required in (
+            "Project Owner Confirmed Requirements and Decision Register",
+            "long_term_research_requirements.md",
+            "PROJECT_MASTER_CONTEXT.md",
+            "current_work_state.md",
+            "experiment_master_record.md",
+            "PODR-001",
+            "PODR-011",
+            "LLMGuard Research Framework",
+            "llmguard",
+            "codeguarder",
+            "Stage 1–5",
+            "RAG Security Research",
+            "LLM Security Evaluation Platform",
+            "AI Guard Engineering",
+            "Agent Security Extension",
+            "Stage 6.1 Hidden Knowledge Poisoning Detection",
+            "Stage 6.2 Multi-Evidence Trustworthy Retrieval",
+            "Stage 7",
+            "不属于论文二",
+            "《面向检索增强生成系统的隐蔽知识污染检测与多证据可信检索关键技术研究》",
+            "RetrievedContextPackage",
+            "TrustedContextPackage",
+            "GOV-ER1",
+            "S6-T5.2",
+            "parent_doc_id",
+            "ChunkRecord.parent_doc_id",
+            "VectorDocument.metadata[\"parent_doc_id\"]",
+            "VectorSearchHit.metadata[\"parent_doc_id\"]",
+            "RetrievalEvidence.parent_doc_id",
+            "schema `1.0`",
+            "schema `1.1`",
+            "RESOLVED_BY_VERSIONED_PUBLIC_METADATA_CONTRACT",
+            "2ad3d9c",
+            "bfc329b",
+            "3c22615",
+            "Completed, pending human acceptance",
+            "Not approved",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, register)
+
+        for forbidden_label in (
+            "poisoned",
+            "poison_label",
+            "label",
+            "attack_id",
+            "attack_goal",
+            "attack_category",
+            "expected_answer",
+            "expected_behavior",
+            "failure_type",
+            "ground_truth",
+            "oracle",
+            "risk_goal",
+            "stealth_level",
+        ):
+            with self.subTest(forbidden_label=forbidden_label):
+                self.assertIn(forbidden_label, register)
+
+        self.assertIn("历史快照", register)
+        self.assertIn(
+            "不得把“S6-T5.3 已批准但阻塞、未实现 DenseRetriever”写成当前状态",
+            register,
+        )
+
+    def test_context_entrypoints_reference_decision_register(self) -> None:
+        references = (
+            (ROOT / "AGENTS.md", "docs/governance/project_owner_decision_register.md"),
+            (
+                GOVERNANCE / "context_recovery_protocol.md",
+                "docs/governance/project_owner_decision_register.md",
+            ),
+            (
+                ROOT / "PROJECT_MASTER_CONTEXT.md",
+                "docs/governance/project_owner_decision_register.md",
+            ),
+        )
+
+        for path, required_reference in references:
+            text = path.read_text(encoding="utf-8")
+            with self.subTest(path=path.relative_to(ROOT)):
+                self.assertIn(required_reference, text)
+
+    def test_decision_register_is_safe_for_repository_persistence(self) -> None:
+        text = DECISION_REGISTER.read_text(encoding="utf-8")
+        self.assertIsNone(WINDOWS_ABSOLUTE_PATH.search(text))
+        self.assertNotRegex(text, r"(?i)(?:gsk_|sk-|bearer\s+|groq_api_key|openai_api_key)")
 
     def test_agents_contains_all_runtime_label_isolation_terms(self) -> None:
         agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
@@ -208,6 +305,7 @@ class ContextPersistenceTests(unittest.TestCase):
     def test_new_context_files_do_not_persist_absolute_windows_paths(self) -> None:
         paths = (
             ROOT / "AGENTS.md",
+            DECISION_REGISTER,
             GOVERNANCE / "current_work_state.md",
             GOVERNANCE / "context_recovery_protocol.md",
         )

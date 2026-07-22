@@ -1,5 +1,31 @@
 # 学习笔记
 
+## 2026-07-22：GOV-PODR1 项目负责人决策登记册
+
+### 我现在做了什么
+
+- 新增 `docs/governance/project_owner_decision_register.md`，把项目负责人已确认的身份、优先级、论文路线、
+  数据治理、证据边界、审批规则和 parent identity 处置登记为可检索的治理事实；
+- 将它接入 `AGENTS.md`、上下文恢复协议、项目总控和动态状态，并用架构测试防止新 Thread 漏读；
+- 将“DenseRetriever 未实现”的旧 blocker 描述保留为历史快照，同时明确当前已由 schema `1.1`、`2ad3d9c`
+  和 `bfc329b` 闭环，S6-T5.3 仍等待人工验收。
+
+### 为什么这样做
+
+长期需求、项目总控、动态状态、实验总账与 Git 的职责不同。决策登记册不复制它们，而是记录负责人已经
+确认、又容易在换 Thread 时被误读的解释，例如“Stage 7 不是论文二”“历史 blocker 已解决但原记录不能删除”。
+这类似企业架构治理中的 decision log：未来变化采用 superseding entry，而不是悄悄篡改过去的依据。
+
+### 面试与研究价值
+
+面试时可以说明：安全研究不仅要有模型和指标，还要能证明某项结论对应什么数据、审批和工程状态。论文与
+立项场景中，版本化 metadata 和审计记录让后续复现实验能够区分“设计冻结”“工程验证”和“正式安全结论”。
+
+### 当前边界
+
+本轮只完成治理持久化；没有修改 `src/`、DenseRetriever、VectorStore 协议、Stage 1–5、Stage 6 fixture，
+没有调用 Embedding、Chroma、Groq 或 LLM，也没有开始 S6-T5.4 或正式 RAG 安全实验。
+
 ## 2026-07-21：S6-T5.3 启动前人工审批留痕
 
 ### 审批事实

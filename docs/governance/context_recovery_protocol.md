@@ -8,7 +8,7 @@
 ## 新 Thread 启动流程
 
 1. 从仓库根 `AGENTS.md` 开始，按其中的 Canonical Context Sources 顺序读取。
-2. 读取长期需求、项目总控、动态状态、Experiment Master Record、当前 Stage README、当前 design spec 和 implementation plan。
+2. 读取长期需求、项目负责人决策登记册、项目总控、动态状态、Experiment Master Record、当前 Stage README、当前 design spec 和 implementation plan。
 3. 运行 Git 只读检查：repo/worktree 根、branch、HEAD、status、upstream sync、最近 15 条 commit。
 4. 检查根与当前目录层级是否存在更深的 `AGENTS.md`/`AGENTS.override.md`，并说明作用域。
 5. 用中文输出 Context Recovery Report。
@@ -27,17 +27,19 @@
 
 1. `AGENTS.md`
 2. `docs/governance/long_term_research_requirements.md`
-3. `PROJECT_MASTER_CONTEXT.md`
-4. `docs/governance/current_work_state.md`
-5. `docs/governance/experiment_master_record.md`
-6. 当前 Stage README
-7. 当前任务 design specification
-8. 当前任务 implementation plan
-9. 最近 15 条 Git commit
-10. 当前 branch、HEAD、status 和 remote sync
+3. `docs/governance/project_owner_decision_register.md`
+4. `PROJECT_MASTER_CONTEXT.md`
+5. `docs/governance/current_work_state.md`
+6. `docs/governance/experiment_master_record.md`
+7. 当前 Stage README
+8. 当前任务 design specification
+9. 当前任务 implementation plan
+10. 最近 15 条 Git commit
+11. 当前 branch、HEAD、status 和 remote sync
 
-`PROJECT_MASTER_CONTEXT.md` 负责架构与长期阶段叙事，`current_work_state.md` 负责当前任务与审批门，
-Experiment Master Record 负责实验路线、运行、指标和证据恢复；三者不得相互替代。
+长期需求负责能力基线，项目负责人决策登记册负责已确认的解释与决策；`PROJECT_MASTER_CONTEXT.md` 负责
+架构与长期阶段叙事，`current_work_state.md` 负责当前任务与审批门，Experiment Master Record 负责实验路线、
+运行、指标和证据恢复；这些来源不得相互替代。
 
 ## 可复制启动模板
 
@@ -50,14 +52,15 @@ Experiment Master Record 负责实验路线、运行、指标和证据恢复；�
 
 1. AGENTS.md
 2. docs/governance/long_term_research_requirements.md
-3. PROJECT_MASTER_CONTEXT.md
-4. docs/governance/current_work_state.md
-5. docs/governance/experiment_master_record.md
-6. 当前 Stage README
-7. 当前任务 design spec
-8. 当前任务 implementation plan
-9. git log 最近 15 条
-10. 当前 branch、HEAD 和 git status
+3. docs/governance/project_owner_decision_register.md
+4. PROJECT_MASTER_CONTEXT.md
+5. docs/governance/current_work_state.md
+6. docs/governance/experiment_master_record.md
+7. 当前 Stage README
+8. 当前任务 design spec
+9. 当前任务 implementation plan
+10. git log 最近 15 条
+11. 当前 branch、HEAD 和 git status
 
 然后用中文报告：
 
@@ -70,9 +73,13 @@ Experiment Master Record 负责实验路线、运行、指标和证据恢复；�
 7. 本任务禁止修改什么；
 8. 下一审批门；
 9. blocker 和技术债；
-10. 文档与 Git 是否一致；
-11. 当前可以宣称什么；
-12. 当前不能宣称什么。
+10. 两篇论文路线与 Stage 7 是否属于论文二；
+11. 项目负责人已确认的不可变决策；
+12. 当前 blocker 与已批准解决方向；
+13. 是否有新任务错误改写已接受决策；
+14. 文档与 Git 是否一致；
+15. 当前可以宣称什么；
+16. 当前不能宣称什么。
 
 在我确认前不要修改代码。
 ```
@@ -90,17 +97,21 @@ Context Recovery Report
 7. 允许修改：
 8. 禁止修改：
 9. 下一审批门：
-10. 文档/Git 冲突：
-11. 未提交或未推送修改：
-12. 可以宣称/不能宣称：
+10. 两篇论文路线/Stage 7 定位：
+11. 已确认不可变决策：
+12. blocker 与已批准解决方向：
+13. 已接受决策是否被错误改写：
+14. 文档/Git 冲突：
+15. 未提交或未推送修改：
+16. 可以宣称/不能宣称：
 ```
 
 ## 指令冲突优先级
 
-当前会话用户最新明确要求 > 长期研究需求 > 项目总控 > 动态工作状态 > 当前 design spec > 当前
+当前会话用户最新明确要求 > 长期研究需求 > 项目负责人决策登记册 > 项目总控 > 动态工作状态 > 当前 design spec > 当前
 implementation plan > 历史计划/学习笔记。Git 单独决定 branch、HEAD、工作树、文件、commit 和同步事实。
 
-若较低优先级只是历史快照，由较新文件明确标记即可；若冲突会改变允许范围、数据、历史资产或审批门，
+若长期需求与项目负责人决策登记册冲突，必须停止并报告。若较低优先级只是历史快照，由较新文件明确标记即可；若冲突会改变允许范围、数据、历史资产或审批门，
 必须停止并报告，不得自行选择。
 
 ## 未批准任务停止规则

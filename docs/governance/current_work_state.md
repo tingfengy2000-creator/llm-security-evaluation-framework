@@ -16,6 +16,13 @@
 
 ## Current Task
 
+- Task ID: `GOV-PODR1`.
+- Task name: `Project Owner Confirmed Requirements and Decision Register`.
+- Status: **Completed, pending human review**.
+- Scope: context persistence governance only; no business implementation, model invocation, fixture mutation or formal RAG security experiment.
+
+## Stage 6 Implementation State
+
 - Task ID: `S6-T5.3`.
 - Task name: `Provider-Neutral DenseRetriever`.
 - Status: **Completed, pending human acceptance**.
@@ -31,6 +38,7 @@
 - Human accepted: GOV-ER1, GOV-ER1-H1, and S6-T5.2.
 - Completed pending human acceptance: `S6-T5.3 DenseRetriever` after `S6-T5.3-P1` completed.
 - Not approved: `S6-T5.4 ContentResolver` and every later S6-T5 task.
+- Formal RAG security experiment: **Not started**.
 - Next human approval: accept completed S6-T5.3 engineering evidence before separately approving S6-T5.4. S6-T5.4 remains separately unapproved.
 
 ## Must Not Start

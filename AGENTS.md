@@ -27,16 +27,18 @@
 
 1. `AGENTS.md`
 2. `docs/governance/long_term_research_requirements.md`
-3. `PROJECT_MASTER_CONTEXT.md`
-4. `docs/governance/current_work_state.md`
-5. `docs/governance/experiment_master_record.md`
-6. 当前 Stage 的 `README.md`
-7. 当前任务的 design specification
-8. 当前任务的 implementation plan
-9. 最近 15 条 Git commit
-10. 当前 branch、HEAD、worktree、status 和 upstream sync
+3. `docs/governance/project_owner_decision_register.md`
+4. `PROJECT_MASTER_CONTEXT.md`
+5. `docs/governance/current_work_state.md`
+6. `docs/governance/experiment_master_record.md`
+7. 当前 Stage 的 `README.md`
+8. 当前任务的 design specification
+9. 当前任务的 implementation plan
+10. 最近 15 条 Git commit
+11. 当前 branch、HEAD、worktree、status 和 upstream sync
 
-文件职责：长期需求记录用户目标、论文/立项方向和后续强制能力；项目总控记录总体架构、阶段进度、
+文件职责：长期需求记录用户目标、论文/立项方向和后续强制能力；项目负责人决策登记册记录已确认的解释
+与决策；项目总控记录总体架构、阶段进度、
 已验收成果和结论边界；动态状态记录当前任务与审批门；design spec 定义“设计成什么”；implementation
 plan 定义“按什么顺序实现”；Git 是 branch、HEAD、工作树、提交和文件存在性的事实来源。上下文恢复
 流程见 `docs/governance/context_recovery_protocol.md`。Experiment Master Record 用于恢复实验路线、运行、指标
@@ -67,14 +69,16 @@ plan 定义“按什么顺序实现”；Git 是 branch、HEAD、工作树、提
 
 1. 用户在当前会话中的最新明确要求；
 2. `docs/governance/long_term_research_requirements.md`；
-3. `PROJECT_MASTER_CONTEXT.md`；
-4. `docs/governance/current_work_state.md`；
-5. 当前任务 design specification；
-6. 当前任务 implementation plan；
-7. 较早的历史计划和学习笔记。
+3. `docs/governance/project_owner_decision_register.md`；
+4. `PROJECT_MASTER_CONTEXT.md`；
+5. `docs/governance/current_work_state.md`；
+6. 当前任务 design specification；
+7. 当前任务 implementation plan；
+8. 较早的历史计划和学习笔记。
 
 branch、HEAD、working tree、文件和 commit 是否存在、本地与远端是否同步，始终以 Git 为准。发现无法
-由上述优先级安全解释的冲突时必须停止并报告，不得自行选择版本继续。
+由上述优先级安全解释的冲突时必须停止并报告，不得自行选择版本继续。长期需求与项目负责人决策登记册
+冲突时同样必须停止并报告，不得自行覆盖长期基线。
 
 ## Permanent Project Constraints
 

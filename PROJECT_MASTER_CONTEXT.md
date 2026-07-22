@@ -2,7 +2,7 @@
 
 > 这是项目唯一的总览与决策入口。它回答：为什么做、已经做了什么、证据在哪里、当前代码处于什么状态、未来架构如何同时支撑面试、论文和科技立项。
 
-更新时间：2026-07-20
+更新时间：2026-07-22
 
 当前研究分支：`feature/stage6-rag`
 
@@ -15,7 +15,8 @@
 ## Repository Context Persistence
 
 根目录 `AGENTS.md` 是 Codex 仓库上下文入口；长期目标以
-`docs/governance/long_term_research_requirements.md` 为准；本文件负责总体架构、阶段进度和结论边界；
+`docs/governance/long_term_research_requirements.md` 为准；项目负责人已确认的解释和决策见
+`docs/governance/project_owner_decision_register.md`；本文件负责总体架构、阶段进度和结论边界；
 `docs/governance/current_work_state.md` 负责当前任务与审批门。新 Thread、Agent、Workspace 或 Worktree
 必须遵守 `docs/governance/context_recovery_protocol.md`。Git 是 branch、HEAD、工作树、commit、文件
 存在性和远端同步状态的事实来源。
@@ -23,6 +24,9 @@
 实验路线、历史运行、指标、证据、失败和交接入口统一见
 `docs/governance/experiment_master_record.md`。该总记录只做控制面与索引，不替代本文件的架构叙事、
 `current_work_state.md` 的动态审批门或 Stage-specific 原始产物。
+
+职责边界固定为：长期需求记录长期能力要求；项目负责人决策登记册记录明确确认的解释与决策；项目总控
+记录架构与阶段叙事；动态状态记录当前任务与审批；实验总账记录实验与证据索引；Git 记录动态工程事实。
 
 ### GOV-ER1：Experiment Master Record（2026-07-20）
 
