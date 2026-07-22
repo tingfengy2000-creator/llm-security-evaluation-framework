@@ -7,6 +7,7 @@
 - canonical_slug: `stage6_rag_security`
 - legacy_paths: `stages/stage6_rag/`、`data/stage6_rag/`、`tests/stage6_rag/`
 - status: `s6_t5_3_dense_retriever_completed_pending_human_acceptance`
+- acceptance_hardening: `s6_t5_3_h1_completed_pending_human_review`；仅修复 trace 语义、store provenance 与脱敏失败边界。
 - objective: 在 S6-T4 与已验收 S6-T5.2 契约基础上，实现受控、离线、Provider-Neutral DenseRetriever；本轮只产出 RetrievalEvidence 与 RetrievalTrace。
 - source_locations: `src/llmguard/domains/retrieval/{contracts,attacks,embedding,vectorstore,retrieval}/`
 - data_locations: `data/stage6_rag/`（已入 manifest 的历史数据路径）
@@ -23,14 +24,14 @@
 - S6-T5 权威设计：[受控检索与可追溯上下文规格](../../docs/superpowers/specs/2026-07-19-s6-t5-controlled-retrieval-traceable-context-design.md) → [八段式实施计划](../../docs/superpowers/plans/2026-07-19-s6-t5-controlled-retrieval-traceable-context.md) → [ADR 0008](../../docs/architecture/0008_retrieval_context_boundary.md)；
 - 长期约束：[研究需求基线](../../docs/governance/long_term_research_requirements.md)；它规定 S6-T5 的 Dense-only 边界、Evidence/Citation 契约、上下文分级及 S6.1/6.2/7 路线；
 - 实验总记录：[Experiment Master Record](../../docs/governance/experiment_master_record.md)；它索引 Stage 1–5 历史运行与 Stage 6 工程验证，不替代原始交付物；
-- Codex 恢复入口：从仓库根 `AGENTS.md` 开始，并读取 `docs/governance/current_work_state.md`；S6-T5.2 已获人工验收，S6-T5.3 DenseRetriever 已完成工程验证、等待人工验收；
+- Codex 恢复入口：从仓库根 `AGENTS.md` 开始，并读取 `docs/governance/current_work_state.md`；S6-T5.2 已获人工验收，S6-T5.3 DenseRetriever 已完成工程验证、等待人工验收，S6-T5.3-H1 等待人工复核；
 - 当前代码：[A1R 后的规范实现](../../src/llmguard/domains/retrieval/)；旧 `codeguarder.stage6_rag` 保持 import compatibility；
 - 数据：[Stage 6 R1–R6 数据](../../data/stage6_rag/)；Ground Truth 与运行时视图保持隔离；
 - 复跑入口：可运行 Static、InMemory 与临时目录 Chroma 测试；真实 Embedding 测试默认 skip，需显式设置环境变量；
 - 真实验收：固定 `paraphrase-multilingual-MiniLM-L12-v2` revision、CPU、五篇中文政策文档和临时 Chroma 重开均已验证；中英文休假查询 Top-1 均为 `doc-leave`，不保存正文、标签或 runtime 产物；
 - 原始证据：尚未生成独立 `deliverables/stage6_rag/` 证据包；当前可核查的是早期数据、测试与
   架构决策，不能把它误称为完整 RAG 实验报告；
-- 工程状态：当前是检索基础设施、分块与运行时契约状态，不是正式 RAG 安全攻击实验；下一步仍是 S6-T5.2 人工验收；
+- 工程状态：当前是检索基础设施、分块与运行时契约状态，不是正式 RAG 安全攻击实验；S6-T5.3-H1 已完成，下一步仍是 S6-T5.3 人工验收；
 - 结论边界：已完成的是数据、契约、Embedding 与向量存储基础，不可宣称已有 Retriever、可信策略或 RAG 指标结果；
 - 面试重点：为什么 RetrievalEvidence、EvidenceSignal、TrustedContextPackage 与 RAGSecurityEnvelope 必须分层。
 

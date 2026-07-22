@@ -19,13 +19,18 @@ from llmguard.domains.retrieval.contracts import (
 )
 from llmguard.domains.retrieval.contracts.identifiers import require_sha256
 from llmguard.domains.retrieval.embedding import EmbeddingProvider
-from llmguard.domains.retrieval.embedding.base import validate_embedding_vector
+from llmguard.domains.retrieval.embedding.base import (
+    EmbeddingError,
+    validate_embedding_vector,
+)
 from llmguard.domains.retrieval.vectorstore import (
     MetadataIsolationError,
+    VectorCollectionInfo,
     VectorCollectionSpec,
     VectorSearchHit,
     VectorSearchQuery,
     VectorStore,
+    VectorStoreError,
     validate_retrieval_ready_metadata,
 )
 
@@ -83,15 +88,28 @@ class DenseRetriever:
         self._validate_store_state()
 
         started = time.perf_counter()
-        query_vector = validate_embedding_vector(
-            self._embedding_provider.embed_query(request.retrieval_query),
-            expected_dimension=self._collection.dimension,
-        )
-        candidate_count = self._vector_store.count(self._collection)
-        raw_hits = self._vector_store.query(
-            self._collection,
-            VectorSearchQuery(vector=query_vector, top_k=request.top_k),
-        )
+        query_vector = self._embed_query(request)
+        try:
+            raw_hits: object = self._vector_store.query(
+                self._collection,
+                VectorSearchQuery(vector=query_vector, top_k=request.top_k),
+            )
+        except VectorStoreError as error:
+            raise RetrievalIntegrityError(
+                "vector store query failed",
+                error_code="RETRIEVAL_QUERY_FAILURE",
+            ) from error
+        except Exception as error:
+            raise RetrievalIntegrityError(
+                "vector store query failed",
+                error_code="RETRIEVAL_QUERY_FAILURE",
+            ) from error
+        if not isinstance(raw_hits, tuple):
+            raise RetrievalIntegrityError(
+                "vector store returned invalid hit collection",
+                error_code="INVALID_RETRIEVAL_HIT_PROVENANCE",
+            )
+        candidate_count = len(raw_hits)
         normalized_hits = self._normalize_hits(raw_hits)
         evidence = self._to_evidence(request, normalized_hits)
         latency_ms = (time.perf_counter() - started) * 1000.0
@@ -111,6 +129,25 @@ class DenseRetriever:
         )
         return evidence, trace
 
+    def _embed_query(self, request: RetrievalRequest) -> tuple[float, ...]:
+        """Embed the projected query without exposing provider details outside this layer."""
+
+        try:
+            return validate_embedding_vector(
+                self._embedding_provider.embed_query(request.retrieval_query),
+                expected_dimension=self._collection.dimension,
+            )
+        except EmbeddingError as error:
+            raise RetrievalIntegrityError(
+                "query embedding failed",
+                error_code="RETRIEVAL_EMBEDDING_FAILURE",
+            ) from error
+        except Exception as error:
+            raise RetrievalIntegrityError(
+                "query embedding failed",
+                error_code="RETRIEVAL_EMBEDDING_FAILURE",
+            ) from error
+
     def _validate_request(self, request: RetrievalRequest) -> None:
         if request.collection_fingerprint != self._collection.fingerprint:
             raise RetrievalConfigurationError(
@@ -129,16 +166,49 @@ class DenseRetriever:
             )
 
     def _validate_store_state(self) -> None:
-        info = self._vector_store.get_collection_info(self._collection)
-        if (
-            info.fingerprint != self._collection.fingerprint
-            or info.dimension != self._collection.dimension
-            or info.public_metadata_schema_version != _RETRIEVAL_READY_SCHEMA_VERSION
-        ):
+        try:
+            info = self._vector_store.get_collection_info(self._collection)
+        except VectorStoreError as error:
             raise RetrievalConfigurationError(
-                "vector store collection provenance does not match retriever",
+                "vector store state is unavailable",
+                error_code="RETRIEVAL_STORE_STATE_FAILURE",
+            ) from error
+        except Exception as error:
+            raise RetrievalConfigurationError(
+                "vector store state is unavailable",
+                error_code="RETRIEVAL_STORE_STATE_FAILURE",
+            ) from error
+        if not isinstance(info, VectorCollectionInfo):
+            raise RetrievalConfigurationError(
+                "vector store state is invalid",
+                error_code="RETRIEVAL_STORE_STATE_FAILURE",
+            )
+        if info.fingerprint != self._collection.fingerprint:
+            raise RetrievalConfigurationError(
+                "vector store fingerprint does not match retriever",
+                error_code="RETRIEVAL_COLLECTION_FINGERPRINT_MISMATCH",
+            )
+        if info.dimension != self._collection.dimension:
+            raise RetrievalConfigurationError(
+                "vector store dimension does not match retriever",
+                error_code="RETRIEVAL_DIMENSION_MISMATCH",
+            )
+        if info.distance_metric != self._collection.distance_metric:
+            raise RetrievalConfigurationError(
+                "vector store distance metric does not match retriever",
+                error_code="RETRIEVAL_DISTANCE_METRIC_MISMATCH",
+            )
+        if info.vector_schema_version != self._collection.vector_schema_version:
+            raise RetrievalConfigurationError(
+                "vector store vector schema does not match retriever",
+                error_code="RETRIEVAL_VECTOR_SCHEMA_MISMATCH",
+            )
+        if info.public_metadata_schema_version != _RETRIEVAL_READY_SCHEMA_VERSION:
+            raise RetrievalConfigurationError(
+                "vector store metadata schema does not support dense retrieval",
                 error_code="RETRIEVAL_METADATA_SCHEMA_MISMATCH",
             )
+        # collection_name is a fingerprint-derived display value, not separate provenance.
 
     def _normalize_hits(
         self,

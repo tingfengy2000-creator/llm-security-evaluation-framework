@@ -16,10 +16,11 @@
 
 ## Current Task
 
-- Task ID: `GOV-PODR1`.
-- Task name: `Project Owner Confirmed Requirements and Decision Register`.
+- Task ID: `S6-T5.3-H1`.
+- Task name: `DenseRetriever Trace Semantics and Failure-Boundary Hardening`.
 - Status: **Completed, pending human review**.
-- Scope: context persistence governance only; no business implementation, model invocation, fixture mutation or formal RAG security experiment.
+- Scope: acceptance hardening only: candidate-count semantics, store provenance and redacted external failure mapping; no new retrieval capability, model invocation, fixture mutation or formal RAG security experiment.
+- Previous governance task: `GOV-PODR1 Project Owner Confirmed Requirements and Decision Register` is **Completed, pending human review**.
 
 ## Stage 6 Implementation State
 
@@ -31,6 +32,7 @@
 - S6-T5.2 `Retrieval Runtime Contracts and IDs`: **HUMAN_ACCEPTED**. Its completed scope is explicit safe query projection, canonical `RetrieverQueryRecord`, deterministic `RetrievalRequest`, `ContentRef`, evidence UID, chunk-level `RetrievalEvidence`, safe evidence summaries, deterministic `RetrievalTrace`, and legacy import/adapter compatibility.
 - S6-T5.3-P1: **Completed**. Public metadata schema `1.1` carries a validated, non-label, no-body `parent_doc_id` from VectorDocument to VectorSearchHit; schema `1.0` remains legacy-compatible.
 - S6-T5.3: **Completed, pending human acceptance**. DenseRetriever accepts only schema `1.1` hits, validates request/store provenance, and produces canonical `RetrievalEvidence` plus `RetrievalTrace` without reading the corpus.
+- S6-T5.3-H1: **Completed, pending human review**. Trace `candidate_count` now means raw query hits before sorting/deduplication; store provenance and provider/store failure boundaries fail closed with redacted Retrieval errors.
 - Audit boundary: ordinary `repr()` and `to_audit_dict()` omit retrieval query text, document plaintext and content-reference expansion. Runtime query objects physically exclude evaluator fields.
 
 ## Approval Gate
@@ -63,4 +65,4 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 ## Last Update
 
 - Date: `2026-07-22`.
-- Updated by: Codex under explicit project-owner approval. S6-T5.3-P1 resolved the versioned public parent-document identity carrier, and S6-T5.3 DenseRetriever completed offline engineering validation; human acceptance remains required.
+- Updated by: Codex under explicit project-owner approval. S6-T5.3-P1 resolved the versioned public parent-document identity carrier; S6-T5.3 DenseRetriever completed offline engineering validation; and S6-T5.3-H1 completed trace-semantics and failure-boundary hardening. S6-T5.3 human acceptance remains required.

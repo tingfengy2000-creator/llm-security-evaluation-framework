@@ -1,5 +1,35 @@
 # 学习笔记
 
+## 2026-07-22：S6-T5.3-H1 Trace 语义与失败边界加固
+
+### 我现在做了什么
+
+- 将 `RetrievalTrace.candidate_count` 从“collection 的全部行数”修正为“本次 query 返回的 raw hits 数量”；
+  `returned_count` 保持为排序、校验和去重后的 Evidence 数量；
+- 将 store provenance 拆分为 fingerprint、dimension、distance metric、vector schema 与 metadata schema
+  五项逐一校验，每项具有稳定 Retrieval error code；
+- 将 Embedding provider、store state 和 query 的外部异常统一映射为脱敏 Retrieval 错误，并通过 cause 保留
+  内部诊断信息；
+- 先新增红测，再实现最小修复。红测的失败证明原实现确实调用 `count()`、混淆 raw hits 与 collection rows，
+  且会泄露底层异常；修复后定向测试通过。
+
+### 为什么这样做
+
+`candidate_count` 是本次查询过程的分母，不是数据库库存。若 collection 有 100 条记录但 `top_k=3`，把 100
+写入 trace 会让后续 Recall、去重率和攻击传播分析的分母失真。企业审计同样需要区分“库中有多少文档”和
+“这次实际给模型候选了多少文档”。
+
+异常映射也不是为了隐藏问题：`raise ... from error` 保留内部 cause 供受控调试，而对外只暴露稳定代码和
+固定消息，避免 query、路径、正文或 metadata 在日志/接口中二次泄露。常见误解是“异常越详细越容易排查”；
+安全系统应将详细诊断限制在受控边界内。
+
+### 面试表达与当前边界
+
+可以表述为：“我把检索 trace 的统计口径和失败边界写成了 TDD 合同：候选数来自原始召回，返回数来自最终
+Evidence；底层 provider/store 异常全部转换成稳定、可审计、无敏感回显的领域错误。” 本轮不证明检索质量、
+RAG 安全效果或生产防护率；未调用真实 Embedding、Chroma、Groq 或 LLM，未读取 fixture 正文，未执行正式
+RAG 安全实验。S6-T5.3 仍等待人工验收，S6-T5.4 仍未批准。
+
 ## 2026-07-22：GOV-PODR1 项目负责人决策登记册
 
 ### 我现在做了什么

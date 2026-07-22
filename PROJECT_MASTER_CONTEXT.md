@@ -38,6 +38,12 @@
 
 **S6-T5.3-P1 与 DenseRetriever（2026-07-22）**：项目负责人批准后，`parent_doc_id` 被定义为公开、非标签、无正文的 provenance identity。VectorStore schema `1.1` 将它沿 `ChunkRecord -> VectorDocument -> VectorSearchHit -> RetrievalEvidence` 传递，schema `1.0` 保持旧 collection 兼容；collection fingerprint 因 schema 版本而隔离。随后实现 Provider-Neutral DenseRetriever，严格执行 `RetrievalRequest -> EmbeddingProvider -> VectorStore -> VectorSearchHit -> RetrievalEvidence -> RetrievalTrace`，不读取正文、不调用 LLM。该能力已完成离线工程验证，仍等待人工验收，不能宣称检索安全或 RAG 实验结论。
 
+**S6-T5.3-H1 验收加固（2026-07-22）**：人工验收发现后，trace 的 `candidate_count` 已改为本次 query 的原始
+hit 数量，而非 collection 总量；store fingerprint、dimension、distance metric、vector schema 与 metadata schema
+均逐项 fail closed。Provider/store 的外部错误被映射为稳定、脱敏的 Retrieval 错误。该修复仍只是离线工程
+验证，状态为 `Completed, pending human review`；S6-T5.3 仍为 `Completed, pending human acceptance`，不授权
+S6-T5.4 或正式 RAG 安全实验。
+
 ## 0.1 A1R：LLMGuard 命名冻结与 Retrieval Domain 落地（2026-07-16）
 
 项目正式名称现为 **LLMGuard Research Framework（简称 LLMGuard）**，中文名称为
