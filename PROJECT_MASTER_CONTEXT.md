@@ -832,3 +832,14 @@ acceptance`，并不授权 S6-T5.2 或任何检索/上下文功能。
 规范 DTO 统一由 `src/llmguard/domains/retrieval/contracts/` 暴露。`ContentRef` 同时识别新 `corpus:` 和旧 `chroma:` 格式，但新证据只生成 `corpus:`；旧格式必须经显式 adapter 迁移。Evidence UID 可复算；Trace hash 覆盖稳定语义而不包含 latency。普通 audit/repr 不记录查询正文、文档正文或可解析内容引用。
 
 本轮没有实现 DenseRetriever、向量库查询、embedding 调用、ContentResolver、ContextBuilder、Citation、Trust、LLM/Groq、T10-T15 或正式实验。因此它证明的是可审计运行时边界，不是检索质量或 RAG 安全效果。下一步必须由人工单独审批 `S6-T5.3 DenseRetriever`。
+
+## 16. S6-T5.4-P1：Content Resolution Contract and Permission Boundary Freeze（2026-07-25）
+
+`S6-T5.4-P1` 已完成协议冻结，等待人工验收。它只确定后续 ContentResolver 的最小权限边界：唯一输入为
+`ContentRef` 与预期 hash，敏感 `ResolvedContent` 由 `contracts/` 唯一拥有；受控 snapshot reader 只能按
+chunk ID 读取；legacy `chroma:` 只能经过 immutable exact-match allowlist 映射；错误由
+`contracts/errors.py` 稳定拥有。正文不得进入普通日志、trace、repr、异常或公共数据对象。
+
+该记录不是 ContentResolver、reader、registry 或 adapter 的实现，也没有读取正文、fixture、标签或 Ground
+Truth。父任务 `S6-T5.4` 仍为 `APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER`，blocker 尚未正式解除；
+`S6-T5.5` 及后续任务仍未批准，正式 RAG 安全实验仍未开始。

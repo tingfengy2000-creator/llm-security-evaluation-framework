@@ -16,10 +16,11 @@
 
 ## Current Task
 
-- Task ID: `S6-T5.4`.
-- Task name: `Controlled Corpus ContentResolver`.
+- Task ID: `S6-T5.4-P1`.
+- Task name: `Content Resolution Contract and Permission Boundary Freeze`.
 - Approval: **APPROVED_TO_START** under the project-owner instruction dated `2026-07-25`.
-- Execution status: **DESIGN_OR_PROTOCOL_BLOCKER**. The frozen design lacks the Resolver return/permission contract, controlled snapshot reader interface, legacy `chroma:` fixture mapping and stable error ownership; implementation is paused rather than guessed.
+- Execution status: **Completed, pending human acceptance**. This is a design/governance freeze only: it records the Resolver/ResolvedContent ownership, controlled snapshot reader, legacy exact-match mapping and error hierarchy without creating business code or reading content.
+- Parent task: `S6-T5.4 Controlled Corpus ContentResolver` remains **APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER**. The four protocol decisions now have an approved direction, but the blocker is not formally resolved until P1 human acceptance and a separately approved implementation task.
 - Blocker record: [S6-T5.4 protocol blocker](s6_t5_4_protocol_blocker_record.md).
 - GOV-PODR1: **HUMAN_ACCEPTED**.
 
@@ -68,4 +69,4 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 ## Last Update
 
 - Date: `2026-07-25`.
-- Updated by: Codex under explicit project-owner approval. GOV-PODR1, S6-T5.3-P1, S6-T5.3-H1 and S6-T5.3 are HUMAN_ACCEPTED. S6-T5.4 is APPROVED_TO_START but paused as DESIGN_OR_PROTOCOL_BLOCKER until its four missing protocol decisions are frozen. Formal RAG security experiments remain not started.
+- Updated by: Codex under explicit project-owner approval. GOV-PODR1, S6-T5.3-P1, S6-T5.3-H1 and S6-T5.3 are HUMAN_ACCEPTED. S6-T5.4-P1 is Completed, pending human acceptance; S6-T5.4 remains APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER. S6-T5.5 is Not approved. Formal RAG security experiment: **Not started**.

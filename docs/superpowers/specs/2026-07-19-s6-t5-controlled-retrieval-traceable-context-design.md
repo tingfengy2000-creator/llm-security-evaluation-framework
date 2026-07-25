@@ -490,3 +490,124 @@ implementation_version，拒绝 token/sentence/semantic 参数；future enum/con
 
 稳定 Chunking 异常在 `contracts/errors.py` 定义，行为层只 re-export。异常消息只使用固定、脱敏的描述；
 hash mismatch 可通过 `error_code` 识别，不回显正文、原始 doc ID、路径或 metadata。
+
+## 24. S6-T5.4-P1：Content Resolution Contract and Permission Boundary Freeze
+
+### 24.1 本节性质与冻结边界
+
+本节是 `S6-T5.4-P1` 的协议冻结，不是 `ContentResolver` 的业务实现，不创建 `context/`、不读取
+fixture 正文、不访问 Chroma、不调用 Embedding、Groq 或 LLM。P1 只定义后续 TDD 可以依赖的唯一稳定边界；
+在项目负责人完成 P1 人工验收前，`S6-T5.4` 仍为 `APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER`。
+
+### 24.2 唯一 Resolver 接口与正文能力对象
+
+后续唯一允许的解析接口为：
+
+```python
+class ContentResolver(Protocol):
+    def resolve(
+        self,
+        *,
+        content_ref: ContentRef,
+        expected_content_hash: str,
+    ) -> ResolvedContent:
+        ...
+```
+
+`ContentResolver` 绝不接受 `RetrievalEvidence`、`DocumentRecord`、`QueryRecord`、loader record、
+Ground Truth 或任意 evaluator 标签。它只能依据已验证的 `ContentRef` 与调用方给定的
+`expected_content_hash` 进行最小权限解析。
+
+`ResolvedContent` 是唯一稳定的敏感 DTO，规范归属为
+`src/llmguard/domains/retrieval/contracts/`；未来 `context/` 只能导入或 re-export，不能复制定义。
+冻结字段为：
+
+```text
+resolution_schema_version
+canonical_content_ref
+corpus_snapshot_id
+chunk_id
+content_hash
+content (repr=False)
+```
+
+其不变量为：canonical ContentRef 必须使用 `corpus:` scheme；ref 中 snapshot/chunk 必须分别与 DTO
+字段一致；`sha256(UTF-8(content))` 必须等于 `content_hash`。正文是**短生命周期、进程内正文权限对象**：
+只有 Resolver 可以创建，未来只有受控 Envelope factory 可以消费；不得缓存、持久化或作为公共数据对象传播。
+普通 `repr`、audit、logger、trace、异常与默认序列化不得包含正文；audit 仅可记录 schema、snapshot、chunk、
+hash 与 content length。该对象不提供普通正文序列化或 sensitive artifact export。
+
+### 24.3 受控 snapshot 读取边界
+
+Resolver 后续只能依赖以下协议，registry 的 allowlist、reader 生命周期与 pinned fingerprint 由外层
+composition root 管理；Resolver 不拥有也不关闭 registry/reader：
+
+```python
+class CorpusSnapshotReader(Protocol):
+    @property
+    def corpus_snapshot_id(self) -> str: ...
+
+    @property
+    def snapshot_fingerprint(self) -> str: ...
+
+    def read_chunk(self, *, chunk_id: str) -> str: ...
+
+
+class ApprovedCorpusSnapshotRegistry(Protocol):
+    def get_reader(
+        self,
+        *,
+        corpus_snapshot_id: str,
+    ) -> CorpusSnapshotReader: ...
+```
+
+Reader 只允许按 chunk ID 读取正文；不提供 corpus 枚举、路径、metadata、标签或 Ground Truth。registry 只能
+返回显式批准的 immutable snapshot ID、fingerprint 和 reader；不得目录扫描、不得暴露通用 loader。snapshot
+identity 或 pinned fingerprint 不一致必须 fail closed。
+
+### 24.4 legacy ContentRef 的显式迁移边界
+
+legacy `chroma:` fixture 必须通过唯一 `LegacyContentRefAdapter` 迁移，不能由 Resolver 猜测：
+
+```python
+class LegacyContentRefAdapter(Protocol):
+    @property
+    def mapping_version(self) -> str: ...
+
+    @property
+    def mapping_hash(self) -> str: ...
+
+    def to_canonical(
+        self,
+        *,
+        legacy_content_ref: ContentRef,
+    ) -> ContentRef: ...
+```
+
+映射必须是 immutable `exact-match allowlist`：对完整 legacy ref 精确匹配，输出重新验证后的 `corpus:` ref。
+`mapping_hash` 必须是 canonical、字段排序后的 JSON 的 SHA-256。adapter 不根据 doc_id/source_id/文件名/路径推导，
+不允许任何 fallback，不访问 Chroma；缺少 adapter 或找不到精确映射一律为 `UNKNOWN_CONTENT_REF`。P1 不创建
+实际 mapping，也不读取 fixture 正文。
+
+### 24.5 错误归属与脱敏规则
+
+未来错误唯一归属 `src/llmguard/domains/retrieval/contracts/errors.py`；`context/errors.py` 如存在只能 re-export。
+既有 `ContentRefError` 继续拥有 `INVALID_CONTENT_REF` 与 `INVALID_CONTENT_REF_SCHEME`。新增层级冻结为：
+
+```text
+ContentResolutionError
+├── ContentResolutionLookupError
+├── ContentResolutionIntegrityError
+└── ContentResolutionRuntimeError
+```
+
+`UNKNOWN_CONTENT_REF`、`UNKNOWN_CORPUS_SNAPSHOT`、`UNKNOWN_CORPUS_CHUNK` 映射至 Lookup；
+`CONTENT_HASH_MISMATCH`、`CORPUS_SNAPSHOT_INTEGRITY_FAILURE` 映射至 Integrity；
+`CONTENT_RESOLUTION_FAILURE` 映射至 Runtime。外部消息必须固定且脱敏；后续实现保留内部原因时使用
+`raise ... from error`，但不得回显正文、查询、标签、Ground Truth、API Key、本机路径或底层异常原文。
+
+### 24.6 与后续任务的边界
+
+本冻结不解决或实现 ContentResolver、EvidenceEnvelope、ContextBuilder、Trust、LLM、Groq、评估指标或正式
+RAG 安全实验。`S6-T5.5` 及之后仍未批准。query_prefix 不改变已存储文档向量，未来应进入 RunManifest，
+而不是本正文解析协议或 collection fingerprint。

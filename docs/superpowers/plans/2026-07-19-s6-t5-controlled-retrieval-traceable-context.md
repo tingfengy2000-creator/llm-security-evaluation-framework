@@ -396,3 +396,20 @@ Retriever、Evidence、Trace、Resolver、Citation、Context 或 Trust 代码。
 ## 16. S6-T5.3-P1 与 DenseRetriever 实施留痕（2026-07-22）
 
 项目负责人批准了公开、非标签、无正文的 `parent_doc_id` carrier。`2ad3d9c` 保留 schema `1.0`，新增 schema `1.1` retrieval-ready metadata 与统一 validation；schema 版本进入 collection fingerprint，避免旧 collection 被原地升级。随后 DenseRetriever 以 TDD 实现 `RetrievalRequest -> EmbeddingProvider -> VectorStore -> VectorSearchHit -> RetrievalEvidence -> RetrievalTrace`，仅接受 schema `1.1`，按 similarity、distance、doc ID 稳定排序，按 chunk 去重，冲突 provenance 或缺失 parent identity fail closed。新增 DenseRetriever/adapter 测试不启动项目 runtime 或真实 Chroma；完整回归中保留的既有 S6-T4 临时 Chroma 测试仅验证历史 adapter，不构成新实验。它不读取正文、不会访问标签或 GroundTruth、不调用真实模型或 LLM。S6-T5.3 当前为 `Completed, pending human acceptance`；S6-T5.4 仍未批准。
+
+## 17. S6-T5.4-P1 协议冻结实施记录（2026-07-25）
+
+本子任务名称为 `Content Resolution Contract and Permission Boundary Freeze`。它只完成文档、治理与静态
+协议回归测试：不修改 `src/`、不创建 ContentResolver、不创建 `ResolvedContent` 实现、不读 corpus 正文、不修改
+fixture 数据，不调用模型、Embedding、Chroma、Groq 或 LLM。
+
+冻结输入是项目负责人的四项决定：唯一 `ContentResolver.resolve(content_ref: ContentRef,
+expected_content_hash: str) -> ResolvedContent` 接口；contracts 唯一拥有的正文能力 DTO；
+`CorpusSnapshotReader` / `ApprovedCorpusSnapshotRegistry` 最小读取面；以及
+`LegacyContentRefAdapter` 的 `exact-match allowlist` 与 `mapping_hash`。错误统一归 `contracts/errors.py`，
+`context/errors.py` 未来仅可 re-export。
+
+本轮的 TDD 仅指向“设计记录是否完整、状态是否未越权”的治理测试，不是 ContentResolver 业务 Red 测试。
+P1 完成后的任务状态应写为 `Completed, pending human acceptance`；父任务 S6-T5.4 仍保持
+`APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER`，不得因为设计冻结就宣称 blocker 已正式解决。只有 P1
+人工验收后，才可另行批准最小实现与业务 TDD；`S6-T5.5` 及后续任务仍为 Not approved。

@@ -1043,3 +1043,37 @@ Stage 1–5 或 Stage 6 数据。下一步只能是 S6-T5.1 的最终人工验�
 - 第一次绝对路径扫描误用了 `rg` 默认不支持的 lookbehind，命令本身失败且没有改变任何文件；改用
   `rg --pcre2` 后，变更范围内的 `src/llmguard` 和本轮文档无绝对路径。全仓命中仅为冻结历史文档中
   用于复现说明的旧路径，不能作为本轮修改理由。
+
+## 2026-07-25：S6-T5.4-P1 正文解析协议冻结
+
+### 我现在做了什么
+
+我没有实现 ContentResolver，而是先冻结了“正文从哪里来、谁可以拿到、如何验 hash、失败如何脱敏”的协议。
+唯一 Resolver 将来只接收 `ContentRef` 和预期内容 hash，返回 contracts 层唯一拥有的 `ResolvedContent`；
+它不是普通字符串，而是短生命周期的进程内正文权限对象。
+
+### 为什么必须先冻结
+
+Retriever 已经产出无正文 Evidence；若 Resolver 随意接收 Evidence、数据集记录或 Ground Truth，正文权限和
+评估标签会重新混在一起。先规定 snapshot reader 只能按 chunk ID 读取、legacy ref 只能精确映射、hash 不一致
+必须 fail closed，后续实现才不会把“临时方便”写成长期泄露面。
+
+### 企业与面试怎么讲
+
+企业里这相当于把文档正文从通用对象变成受控 capability：检索服务只知道引用，正文服务只按批准的
+snapshot/chunk 最小读取，审计只保存 hash 和长度。面试可说：我没有让 Retriever 直接把 Chroma document
+交给模型，而是把正文解析、完整性校验、legacy 迁移和错误脱敏拆成独立且可审查的契约。
+
+### 容易误解的地方与当前边界
+
+“协议冻结完成”不等于“ContentResolver 已实现”，更不等于已完成 RAG 安全实验或证明抗知识污染。P1 当前仅为
+`Completed, pending human acceptance`；S6-T5.4 仍是 `APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER`。
+本轮没有读取正文、fixture、标签或 Ground Truth，没有调用 Chroma、Embedding、Groq 或 LLM，也没有修改任何
+Stage 1–5 历史资产。
+
+### 验收脚本小结
+
+PowerShell 中 `git check-ignore -q` 成功时不输出文本，不能写成 `if (-not (git ...))`；空输出会被当作
+`$null`，造成假失败。应检查 `$LASTEXITCODE -eq 0`，或使用 `git check-ignore -v` 输出实际命中的
+`.gitignore` 规则。本轮已验证 `runtime/stage6_rag_security/` 被忽略；这只是治理验证脚本的布尔值误用，
+不代表产生了 runtime 文件，也不需要修改运行时配置。

@@ -128,7 +128,10 @@ metadata；两者使用不同 collection fingerprint，不原地迁移。解决�
 `RESOLVED_BY_VERSIONED_PUBLIC_METADATA_CONTRACT`。
 
 历史快照中的“已完成、等待人工验收”是当时事实，不得删除。当前事实是：S6-T5.3-P1、DenseRetriever 与
-S6-T5.3-H1 均已通过项目负责人 `HUMAN_ACCEPTED`；S6-T5.4 为 `Not approved`；正式 RAG 安全实验为 `Not started`。
+S6-T5.3-H1 均已通过项目负责人 `HUMAN_ACCEPTED`；S6-T5.4 为
+`APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER`，其 P1 协议冻结执行结果为
+`Completed, pending human acceptance`；正式 RAG 安全实验为 `Not started`。此前 “S6-T5.4 为 `Not approved`”
+属于已保留的历史状态，不能被误读为当前审批门。
 不得把“S6-T5.3 已批准但阻塞、未实现 DenseRetriever”写成当前状态。
 
 ## 7. 决策台账
@@ -147,6 +150,7 @@ S6-T5.3-H1 均已通过项目负责人 `HUMAN_ACCEPTED`；S6-T5.4 为 `Not appro
 | PODR-010 | 2026-07-22 | parent_doc_id blocker | 保存原 `DESIGN_OR_PROTOCOL_BLOCKER`，并以公开 provenance metadata 解决 | RESOLVED | s6_t5_3_protocol_blocker_record.md、`2ad3d9c` | — | 不删除原 blocker record，不读取语料或猜测身份 |
 | PODR-011 | 2026-07-22 | Versioned public metadata carrier | schema 1.0/1.1 隔离；1.1 传递 parent_doc_id，DenseRetriever 只接受 1.1 hit | ACCEPTED | `2ad3d9c`、`bfc329b`、`3c22615` | PODR-010 historical blocker state | 当前 S6-T5.3 Completed, pending human acceptance |
 | PODR-012 | 2026-07-25 | S6-T5.3 DenseRetriever 人工验收 | 接受 P1 schema carrier、H1 trace/failure-boundary 加固及 Provider-Neutral DenseRetriever 的离线工程边界 | HUMAN_ACCEPTED | 项目负责人明确决定、`72a2445`、完成记录与治理测试 | — | 不批准 S6-T5.4；不将工程验证改写为正式实验 |
+| PODR-013 | 2026-07-25 | S6-T5.4-P1 Content Resolution Contract and Permission Boundary Freeze | 冻结 Resolver 的最小输入、contracts 唯一 ResolvedContent、受控 snapshot reader/registry、legacy exact-match mapping 与稳定错误归属；不批准业务实现或正文读取 | ACCEPTED | 项目负责人正式批准、S6-T5.4 blocker record、S6-T5 design/ADR | — | 决策已接受；P1 执行结果仍为 Completed, pending human acceptance，父任务 blocker 不因此自动解除 |
 
 ## 8. 新 Thread 最小读取顺序
 

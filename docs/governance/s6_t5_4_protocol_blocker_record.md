@@ -61,3 +61,22 @@ ContentResolver、Context、Citation、Trust 或正式 RAG 安全实验结果。
   Stage 6 label isolation：`8 passed, 1199 subtests passed`。
 - 全部 Stage 6 离线组合回归：`200 passed, 1955 subtests passed`。这些是既有工程契约回归，不是
   ContentResolver 验收，不是正式 RAG 安全实验。
+
+## 7. S6-T5.4-P1 批准的协议冻结方向（2026-07-25）
+
+项目负责人已批准 `S6-T5.4-P1 Content Resolution Contract and Permission Boundary Freeze`。该子任务只
+冻结四项缺失决策的方向：
+
+1. `ContentResolver.resolve(content_ref, expected_content_hash) -> ResolvedContent` 是唯一解析面；
+   `ResolvedContent` 由 `contracts/` 唯一拥有，正文是短生命周期、进程内权限对象；
+2. Resolver 未来只通过 `ApprovedCorpusSnapshotRegistry` 获得 `CorpusSnapshotReader`，按 snapshot 与
+   chunk 最小读取并校验 pinned fingerprint；
+3. legacy `chroma:` 只能经 `LegacyContentRefAdapter` 的 immutable exact-match allowlist 和
+   `mapping_hash` 迁移，不允许推导或 fallback；
+4. 内容解析错误唯一归属 `contracts/errors.py`，分为 Lookup、Integrity、Runtime 三类，所有外部错误
+   固定脱敏。
+
+这是批准的**解决方向**，不是业务实现，也不是对语料正文、fixture、Chroma 或 Ground Truth 的访问许可。
+`S6-T5.4-P1` 当前为 `Completed, pending human acceptance`；本 blocker 尚未正式 RESOLVED。父任务
+`S6-T5.4` 仍是 `APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER`；只有 P1 获人工验收且后续最小实现
+得到单独批准后，才可创建 ContentResolver 的业务 TDD。

@@ -141,3 +141,20 @@ Escaping 只保护结构边界，不能阻止语义 Prompt Injection，也不构
 - S6-T5 唯一实施计划：`docs/superpowers/plans/2026-07-19-s6-t5-controlled-retrieval-traceable-context.md`
 - S6-T4 边界：`docs/architecture/0007_embedding_vectorstore_boundary.md`
 - Trust/Audit 边界：`docs/architecture/0004-trusted-context-vs-audit-envelope.md`
+
+## S6-T5.4-P1：正文解析权限协议冻结
+
+`S6-T5.4-P1` 冻结而不实现 Content Resolution Contract and Permission Boundary。正文解析从检索证据中分离：
+唯一 `ContentResolver` 只接收 `content_ref: ContentRef` 与 `expected_content_hash: str`，并返回
+`ResolvedContent`。`ResolvedContent` 必须由 `src/llmguard/domains/retrieval/contracts/` 唯一拥有，正文为
+短生命周期、进程内正文权限对象，普通日志、trace、repr、异常与默认序列化不得传播正文。
+
+Resolver 将来只从 `ApprovedCorpusSnapshotRegistry` 取得 `CorpusSnapshotReader`，后者只允许按 chunk ID
+读取正文；不提供 corpus 枚举、路径、metadata、标签或 Ground Truth。legacy `chroma:` 只能由
+`LegacyContentRefAdapter` 的 immutable `exact-match allowlist` 映射为 canonical `corpus:` ref，使用稳定
+`mapping_hash`；不根据 doc_id/source_id/文件名/路径推导，不允许任何 fallback，不访问 Chroma。
+
+错误类型由 `contracts/errors.py` 唯一拥有：`ContentResolutionLookupError`、
+`ContentResolutionIntegrityError` 与 `ContentResolutionRuntimeError` 分别描述查找、完整性和运行期失败。
+P1 不创建源码、读取正文或实现 reader/registry/adapter；父任务 S6-T5.4 仍是
+`APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER`，直到人工验收与独立实现批准。

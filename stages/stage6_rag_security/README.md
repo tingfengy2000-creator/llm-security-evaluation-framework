@@ -9,6 +9,7 @@
 - status: `s6_t5_3_dense_retriever_human_accepted`
 - acceptance_hardening: `s6_t5_3_h1_human_accepted`；仅修复 trace 语义、store provenance 与脱敏失败边界。
 - s6_t5_4_status: `APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER`；等待 resolver/reader/legacy/error contract 的项目负责人冻结决定。
+- s6_t5_4_p1_status: `completed_pending_human_acceptance`；已冻结 Content Resolution Contract and Permission Boundary，未创建业务代码，父任务 blocker 仍保留。
 - objective: 在 S6-T4 与已验收 S6-T5.2 契约基础上，实现受控、离线、Provider-Neutral DenseRetriever；本轮只产出 RetrievalEvidence 与 RetrievalTrace。
 - source_locations: `src/llmguard/domains/retrieval/{contracts,attacks,embedding,vectorstore,retrieval}/`
 - data_locations: `data/stage6_rag/`（已入 manifest 的历史数据路径）
@@ -27,6 +28,7 @@
 - 实验总记录：[Experiment Master Record](../../docs/governance/experiment_master_record.md)；它索引 Stage 1–5 历史运行与 Stage 6 工程验证，不替代原始交付物；
 - Codex 恢复入口：从仓库根 `AGENTS.md` 开始，并读取 `docs/governance/current_work_state.md`；GOV-PODR1、S6-T5.2、S6-T5.3-P1、S6-T5.3-H1 与 S6-T5.3 DenseRetriever 均已获人工验收；S6-T5.4 已批准启动但当前为 protocol blocker；
 - 当前代码：[A1R 后的规范实现](../../src/llmguard/domains/retrieval/)；旧 `codeguarder.stage6_rag` 保持 import compatibility；
+- P1 协议冻结：唯一 Resolver 只接收 `ContentRef + expected_content_hash`；正文能力 DTO 属于 `contracts/`，snapshot reader 与 legacy mapping 均为最小权限、无 fallback 设计；这不是 ContentResolver 实现，也不表示正文解析已验收；
 - 数据：[Stage 6 R1–R6 数据](../../data/stage6_rag/)；Ground Truth 与运行时视图保持隔离；
 - 复跑入口：可运行 Static、InMemory 与临时目录 Chroma 测试；真实 Embedding 测试默认 skip，需显式设置环境变量；
 - 真实验收：固定 `paraphrase-multilingual-MiniLM-L12-v2` revision、CPU、五篇中文政策文档和临时 Chroma 重开均已验证；中英文休假查询 Top-1 均为 `doc-leave`，不保存正文、标签或 runtime 产物；
