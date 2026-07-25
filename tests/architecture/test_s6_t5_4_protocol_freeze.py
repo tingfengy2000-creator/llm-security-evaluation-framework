@@ -84,9 +84,9 @@ class S6T54ProtocolFreezeTests(unittest.TestCase):
             "GOV-S6-T5.4-P1-ACCEPTANCE",
             "S6-T5.4-P1: **HUMAN_ACCEPTED**",
             "RESOLVED_BY_APPROVED_PROTOCOL_FREEZE",
-            "S6-T5.4: **Completed, pending human acceptance**",
-            "S6-T5.4-I1",
-            "Completed, pending human acceptance",
+            "S6-T5.4: **HUMAN_ACCEPTED**",
+            "S6-T5.4-I1: **HUMAN_ACCEPTED**",
+            "S6-T5.4-H1: **HUMAN_ACCEPTED**",
             "S6-T5.5",
             "Formal RAG security experiment: **Not started**",
         ):
@@ -105,8 +105,9 @@ class S6T54ProtocolFreezeTests(unittest.TestCase):
         self.assertNotIn("四项协议尚未冻结", state)
         self.assertNotRegex(state, r"S6-T5\.3[^\n]*pending")
         self.assertIn("s6_t5_4_p1_status: `human_accepted`", readme)
-        self.assertIn("s6_t5_4_status: `completed_pending_human_acceptance`", readme)
-        self.assertIn("s6_t5_4_i1_status: `completed_pending_human_acceptance`", readme)
+        self.assertIn("s6_t5_4_status: `human_accepted`", readme)
+        self.assertIn("s6_t5_4_i1_status: `human_accepted`", readme)
+        self.assertIn("s6_t5_4_h1_status: `human_accepted`", readme)
         self.assertTrue((GOVERNANCE / "s6_t5_4_completion_record.md").is_file())
 
     def test_context_package_cannot_own_a_stable_dto_copy(self) -> None:

@@ -76,3 +76,16 @@ Citation 及正式 RAG 安全实验均未获批准。
 验证仅使用 synthetic in-memory content，覆盖 canonical/legacy 正常路径、registry capability 不可见、六个稳定
 code/type 映射、伪造或交叉 code、敏感正文/路径不出现在 `str(exception)`、以及 cause 保留。I1 与父任务仍为
 `Completed, pending human acceptance`；本 H1 不把它们标为 `HUMAN_ACCEPTED`，也不批准 S6-T5.5 或正式 RAG 实验。
+
+## 8. GOV-S6-T5.4-ACCEPTANCE：最终人工验收（2026-07-25）
+
+项目负责人现已接受 `S6-T5.4-P1`、`S6-T5.4-I1`、`S6-T5.4-H1` 及父任务
+`S6-T5.4 Controlled Corpus ContentResolver`。当前状态均为 `HUMAN_ACCEPTED`，最后接受的实现提交为
+`11a72f7`。本次验收确认 contracts 唯一 `ResolvedContent`、`ContentRef + expected_content_hash` 唯一输入、
+仅 `resolve()` 的公共 API、受控 registry/reader、原始 UTF-8 SHA-256、exact-match legacy mapping、
+fail-closed integrity 与异常脱敏/cause 保留；所有验证只使用 synthetic in-memory content。
+
+此前 P1/I1/H1 的 pending 状态、protocol blocker、`RESOLVED_BY_APPROVED_PROTOCOL_FREEZE`、capability escape
+和错误穿透发现均保留为历史审计记录。本次验收仍是 `ENGINEERING_VALIDATION`，不是正式 RAG 安全实验，也不证明
+检索质量、知识污染防护、Citation Accuracy、Trust 或生产可用性。`S6-T5.5`、S6-T5.6 及后续任务均为
+`NOT APPROVED`。

@@ -8,10 +8,10 @@
 - legacy_paths: `stages/stage6_rag/`、`data/stage6_rag/`、`tests/stage6_rag/`
 - status: `s6_t5_3_dense_retriever_human_accepted`
 - acceptance_hardening: `s6_t5_3_h1_human_accepted`；仅修复 trace 语义、store provenance 与脱敏失败边界。
-- s6_t5_4_status: `completed_pending_human_acceptance`；最小 ContentResolver 离线实现完成，等待人工验收。
+- s6_t5_4_status: `human_accepted`；Controlled Corpus ContentResolver 已通过人工验收。
 - s6_t5_4_p1_status: `human_accepted`；Content Resolution Contract and Permission Boundary 已通过人工验收，未创建业务代码。
-- s6_t5_4_i1_status: `completed_pending_human_acceptance`；仅使用合成内存正文，未读取 fixture 或生成真实 legacy mapping。
-- s6_t5_4_h1_status: `completed_pending_human_review`；关闭 Resolver registry capability escape，并加固注入依赖异常的脱敏/类型-code 所有权。
+- s6_t5_4_i1_status: `human_accepted`；仅使用合成内存正文，未读取 fixture 或生成真实 legacy mapping。
+- s6_t5_4_h1_status: `human_accepted`；关闭 Resolver registry capability escape，并加固注入依赖异常的脱敏/类型-code 所有权。
 - objective: 在 S6-T4 与已验收 S6-T5.2 契约基础上，实现受控、离线、Provider-Neutral DenseRetriever；本轮只产出 RetrievalEvidence 与 RetrievalTrace。
 - source_locations: `src/llmguard/domains/retrieval/{contracts,attacks,embedding,vectorstore,retrieval,context}/`
 - data_locations: `data/stage6_rag/`（已入 manifest 的历史数据路径）
@@ -19,8 +19,8 @@
 - script_locations: 真实模型测试由 `LLMGUARD_RUN_REAL_EMBEDDING_TESTS=1` 显式开启，无 S6-T4 运行脚本；2026-07-19 已完成一次固定 revision 的真实验收。
 - deliverable_locations: 尚未生成独立 Stage 6 证据包。
 - evidence_locations: `data/stage6_rag/documents/corpus_manifest.json`
-- conclusion_boundary: 已完成人工验收的 S6-T5.3 离线工程边界包括 embedding/vectorstore 基础设施、S6-T5.2 运行时契约、schema `1.1` parent identity carrier、DenseRetriever 与 H1 trace/failure-boundary 加固；S6-T5.4-I1 已实现 contracts、in-memory reader/registry、exact-match legacy adapter 与 hash-verified resolver，H1 又关闭公开 registry capability 并重建注入错误的固定脱敏外部表述。I1 仍待人工验收，H1 待人工复核。未实现 ContextBuilder、Trust、LLM 或 RAG 指标，也未执行正式 RAG 安全实验。
-- next_stage: S6-T5.4-H1 等待人工复核；`S6-T5.5` 及之后任务尚未批准。
+- conclusion_boundary: 已完成人工验收的 S6-T5.3 离线工程边界包括 embedding/vectorstore 基础设施、S6-T5.2 运行时契约、schema `1.1` parent identity carrier、DenseRetriever 与 H1 trace/failure-boundary 加固；S6-T5.4-I1 已实现 contracts、in-memory reader/registry、exact-match legacy adapter 与 hash-verified resolver，H1 又关闭公开 registry capability 并重建注入错误的固定脱敏外部表述。P1、I1、H1 与父任务均已通过人工验收。未实现 ContextBuilder、Trust、LLM 或 RAG 指标，也未执行正式 RAG 安全实验。
+- next_stage: `S6-T5.5` 及之后任务尚未批准，必须另行审批。
 
 目标：在 Retrieval 层评测 R1–R6，并为隐蔽知识污染检测与可信检索研究建立稳定证据接口。
 

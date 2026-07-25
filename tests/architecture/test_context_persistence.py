@@ -183,8 +183,8 @@ class ContextPersistenceTests(unittest.TestCase):
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
 
         for required in (
-            "Last accepted stage task: `S6-T5.3 Provider-Neutral DenseRetriever`",
-            "Last accepted implementation commit: `72a2445`",
+            "Last accepted stage task: `S6-T5.4 Controlled Corpus ContentResolver`",
+            "Last accepted implementation commit: `11a72f7`",
             "Retrieval Runtime Contracts and IDs",
             "GOV-ER1: **HUMAN_ACCEPTED**",
             "GOV-ER1-H1: **HUMAN_ACCEPTED**",
@@ -194,9 +194,9 @@ class ContextPersistenceTests(unittest.TestCase):
             "S6-T5.3: **HUMAN_ACCEPTED**",
             "S6-T5.3-H1: **HUMAN_ACCEPTED**",
             "S6-T5.4-P1: **HUMAN_ACCEPTED**",
-            "S6-T5.4: **Completed, pending human acceptance**",
-            "`S6-T5.4-I1` remains **Completed, pending human acceptance**",
-            "S6-T5.4-H1: **Completed, pending human review**",
+            "S6-T5.4: **HUMAN_ACCEPTED**",
+            "S6-T5.4-I1: **HUMAN_ACCEPTED**",
+            "S6-T5.4-H1: **HUMAN_ACCEPTED**",
             "Not approved: `S6-T5.5` and every later S6-T5 task.",
             "Formal RAG security experiment: **Not started**",
             "S6-T5.3 DenseRetriever",
@@ -215,9 +215,8 @@ class ContextPersistenceTests(unittest.TestCase):
         for required in (
             "S6-T5.4",
             "RESOLVED_BY_APPROVED_PROTOCOL_FREEZE",
-            "S6-T5.4-I1",
-            "S6-T5.4-H1",
-            "Completed, pending human acceptance",
+            "S6-T5.4-I1: **HUMAN_ACCEPTED**",
+            "S6-T5.4-H1: **HUMAN_ACCEPTED**",
             "S6-T5.5",
             "Formal RAG security experiment: **Not started**",
         ):
@@ -245,10 +244,10 @@ class ContextPersistenceTests(unittest.TestCase):
         for required in (
             "s6_t5_3_dense_retriever_human_accepted",
             "s6_t5_3_h1_human_accepted",
-            "s6_t5_4_status: `completed_pending_human_acceptance`",
+            "s6_t5_4_status: `human_accepted`",
             "s6_t5_4_p1_status: `human_accepted`",
-            "s6_t5_4_i1_status: `completed_pending_human_acceptance`",
-            "s6_t5_4_h1_status: `completed_pending_human_review`",
+            "s6_t5_4_i1_status: `human_accepted`",
+            "s6_t5_4_h1_status: `human_accepted`",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, readme)
@@ -319,7 +318,7 @@ class ContextPersistenceTests(unittest.TestCase):
         self.assertIn("safe projection", adr)
         self.assertIn("S6-T5.2", state)
         self.assertIn("**HUMAN_ACCEPTED**", state)
-        self.assertIn("`S6-T5.4-I1`", state)
+        self.assertIn("`GOV-S6-T5.4-ACCEPTANCE`", state)
         self.assertTrue(
             (GOVERNANCE / "s6_t5_4_completion_record.md").is_file(),
         )

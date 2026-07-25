@@ -153,6 +153,7 @@ S6-T5.3-H1 均已通过项目负责人 `HUMAN_ACCEPTED`；S6-T5.4 为
 | PODR-013 | 2026-07-25 | S6-T5.4-P1 Content Resolution Contract and Permission Boundary Freeze | 冻结 Resolver 的最小输入、contracts 唯一 ResolvedContent、受控 snapshot reader/registry、legacy exact-match mapping 与稳定错误归属；不批准业务实现或正文读取 | ACCEPTED | 项目负责人正式批准、S6-T5.4 blocker record、S6-T5 design/ADR | — | 决策已接受；P1 执行结果仍为 Completed, pending human acceptance，父任务 blocker 不因此自动解除 |
 | PODR-014 | 2026-07-25 | S6-T5.4 Content Resolution Protocol Human Acceptance Record | 接受 P1 的五项协议设计；将 blocker 标记为 RESOLVED_BY_APPROVED_PROTOCOL_FREEZE，父任务进入 READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL | HUMAN_ACCEPTED | 项目负责人明确决定、P1 规格/计划/ADR、blocker record | PODR-013 execution pending state | 不批准 S6-T5.4-I1，不授权正文访问或 ContentResolver 实现，不批准 S6-T5.5 与正式 RAG 实验 |
 | PODR-015 | 2026-07-25 | S6-T5.4-I1 Controlled Corpus ContentResolver Minimal Implementation | 批准并完成只依赖合成内存正文的最小实现：精确引用、UTF-8 SHA-256 校验、受控 registry/reader 和 legacy exact-match 映射 | IMPLEMENTED_PENDING_HUMAN_ACCEPTANCE | 项目负责人 I1 批准、完成记录、TDD 与离线工程验证 | PODR-014 | 不代表正文 fixture 已读取、正式 RAG 安全实验、ContextBuilder/Citation 或 S6-T5.5 获批 |
+| PODR-016 | 2026-07-25 | S6-T5.4 Controlled Corpus ContentResolver Human Acceptance Record | 接受 P1 协议、I1 最小实现、H1 capability/failure-boundary 加固与父任务；确认其只覆盖合成内存工程边界 | HUMAN_ACCEPTED | 项目负责人明确决定、`11a72f7`、完成记录与治理测试 | PODR-013、PODR-014、PODR-015 历史快照 | 不批准 S6-T5.5、EvidenceEnvelope、Citation、ContextBuilder、真实正文 provider 或正式 RAG 实验 |
 
 ## 7.1 S6-T5.4 当前审批解释（2026-07-25）
 
@@ -167,6 +168,14 @@ PODR-015 是对 7.1 历史审批快照的后续事实登记：项目负责人已
 `Completed, pending human acceptance`。实现仅使用测试内的合成内存正文，不读取 Stage 6 fixture、不生成 fixture
 mapping、不调用 Chroma、Embedding、Groq 或 LLM；父任务 `S6-T5.4` 同样为 `Completed, pending human acceptance`。
 `S6-T5.5` 及后续任务仍为 `NOT APPROVED`，正式 RAG 安全实验仍为 `NOT STARTED`。
+
+## 7.3 S6-T5.4 最终人工验收状态（2026-07-25）
+
+PODR-016 是对前述 pending 状态历史快照的当前事实登记：`S6-T5.4-P1`、`S6-T5.4-I1`、`S6-T5.4-H1` 与
+`S6-T5.4 Controlled Corpus ContentResolver` 当前均为 `HUMAN_ACCEPTED`；最后接受的实现提交为 `11a72f7`。
+该验收仅确认 contracts 唯一敏感 DTO、最小 `resolve()` capability、受控 registry/reader、原始 UTF-8 hash、
+legacy exact-match、fail-closed identity/integrity、异常脱敏与 cause 保留，以及合成内存验证边界。它不批准
+S6-T5.5、EvidenceEnvelope、Citation、ContextBuilder、真实正文 provider、LLM 或正式 RAG 安全实验。
 
 ## 8. 新 Thread 最小读取顺序
 

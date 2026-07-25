@@ -171,3 +171,9 @@ P1 不创建源码、读取正文或实现 reader/registry/adapter；父任务 S
 reader/registry 验证 `ContentRef`、精确 legacy allowlist 和 UTF-8 SHA-256，而非读取既有语料或调用任何向量库。
 `ResolvedContent` 仍只由 `contracts/` 拥有，`context/` 不能创建第二个 DTO。该实现不授权 S6-T5.5、ContextBuilder、
 Citation 或正式 RAG 安全实验。
+
+### S6-T5.4 最终人工验收状态附注（2026-07-25）
+
+P1、I1、H1 与父任务当前均为 `HUMAN_ACCEPTED`。这只接受受控正文解析的合成内存工程边界：contracts 唯一 DTO、
+最小 resolve capability、UTF-8 hash、exact-match legacy 迁移和注入错误脱敏；不接受或实现真实 provider、
+ContextBuilder、Citation、Trust、S6-T5.5 或正式 RAG 安全实验。

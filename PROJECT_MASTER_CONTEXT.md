@@ -879,3 +879,14 @@ runtime failure，避免 class/code 错配。
 H1 仅用合成内存内容验证，未读取 Stage 6 fixture、未调用 Chroma、Embedding、Groq 或 LLM，未新增 Retriever、
 ContextBuilder、Citation、Trust 或 S6-T5.5。H1 状态为 `Completed, pending human review`；I1 与父任务仍为
 `Completed, pending human acceptance`，正式 RAG 安全实验仍为 `Not started`。
+
+## 20. GOV-S6-T5.4-ACCEPTANCE：受控正文解析人工验收（2026-07-25）
+
+项目负责人已接受 `S6-T5.4-P1`、I1、H1 与父任务 `S6-T5.4 Controlled Corpus ContentResolver`；最后接受的
+实现提交为 `11a72f7`。验收确认 `ResolvedContent` 的 contracts 唯一归属、`ContentRef + expected_content_hash`
+的唯一解析输入、仅 `resolve()` 的公共 capability、最小 snapshot registry/reader、原始 UTF-8 SHA-256、
+immutable exact-match legacy mapping、fail-closed identity/hash 行为以及注入异常的固定脱敏边界和 cause 保留。
+
+这是合成内存内容上的离线工程验收，不表示已接入真实语料、文件系统、远程 provider、Embedding、Chroma、Groq 或
+LLM。P1/I1/H1 的历史 pending 快照和原 protocol blocker 继续保留；`S6-T5.5`、S6-T5.6 与之后任务仍未批准，
+正式 RAG 安全实验仍为 `Not started`。

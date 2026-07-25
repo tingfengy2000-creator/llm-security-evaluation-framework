@@ -1160,3 +1160,23 @@ type/code 组合；未知 code 或“Lookup 搭配 integrity code”之类的伪
 
 **不能夸大**：H1 是对 ContentResolver 的离线工程加固，不是新的 RAG 防护率结果；未读真实 fixture、未调用模型，
 未开始 S6-T5.5。H1 当前为 `Completed, pending human review`，I1 与父任务仍为 pending human acceptance。
+
+## 2026-07-25: GOV-S6-T5.4-ACCEPTANCE 受控正文解析人工验收
+
+**我现在记录了什么**：项目负责人已接受 P1 协议、I1 最小实现、H1 边界加固和父任务 S6-T5.4。当前它们均为
+`HUMAN_ACCEPTED`，最后接受的实现提交是 `11a72f7`。此前“pending human acceptance/review”的文字是当时的
+历史快照，仍然保留，而当前状态只在治理入口与本节明确更新。
+
+**为什么这很重要**：人工验收确认的是工程边界已按约定实现，例如 Resolver 不泄露 reader capability、hash
+按照原始 UTF-8 bytes 校验、legacy 没有 fallback、注入异常不会向外泄露敏感消息。它不是对检索效果或安全效果的
+统计结论。
+
+**面试表达**：我不仅做了实现和单元测试，还将 protocol freeze、初版实现、验收发现项、修复和最终人工验收分开
+登记。这样可以证明每个能力到底是“设计冻结”“工程验证”还是“人工接受”，避免把一个绿灯测试说成生产安全结论。
+
+**仍然不能做的事**：S6-T5.5、EvidenceEnvelope、Citation、ContextBuilder、Trust、真实正文 provider、LLM 和
+正式 RAG 安全实验均未获批准。
+
+**治理验证留痕**：首次运行治理测试时，5 个断言仍在检查 I1/H1 的旧 pending metadata 与 pending 工程分类，
+因此按预期失败；它们没有暴露业务代码问题。已将断言更新为当前 `human_accepted` 和 `ENGINEERING_VALIDATED`，
+同时保留文档中的历史 pending 快照。这个过程说明“禁止删除历史”并不等于“让当前状态测试继续断言历史状态”。

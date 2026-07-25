@@ -624,3 +624,9 @@ RAG 安全实验。`S6-T5.5` 及之后仍未批准。query_prefix 不改变已�
 内存 snapshot reader/registry 做精确读取及 UTF-8 SHA-256 复核；legacy `chroma:` 只经 immutable exact-match
 allowlist 迁移为 canonical `corpus:`。本附注不改变前文历史审批快照，也不表示 Stage 6 fixture 正文已被读取，
 更不表示 S6-T5.5、ContextBuilder、Citation、正式 RAG 安全实验已获批准。
+
+### S6-T5.4 最终人工验收状态附注（2026-07-25）
+
+P1、I1、H1 与父任务已通过人工验收，最后接受的实现提交为 `11a72f7`。历史 pending 记录不被删除；当前验收只覆盖
+synthetic in-memory resolver 的 contracts、capability、完整性和错误边界，不批准真实正文 provider、S6-T5.5、
+ContextBuilder、Citation 或正式 RAG 实验。

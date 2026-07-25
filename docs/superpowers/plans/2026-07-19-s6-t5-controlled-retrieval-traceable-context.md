@@ -426,3 +426,9 @@ P1 完成后的任务状态应写为 `Completed, pending human acceptance`；父
 ApprovedCorpusSnapshotRegistry -> CorpusSnapshotReader -> ResolvedContent` 已以 TDD 完成，当前为
 `Completed, pending human acceptance`。测试只使用合成内存正文和 mapping，未读取 Stage 6 fixture，未调用
 Embedding、Chroma、Groq 或 LLM。S6-T5.5 仍为 `NOT APPROVED`，正式 RAG 安全实验仍为 `NOT STARTED`。
+
+## 20. S6-T5.4 最终人工验收状态附注（2026-07-25）
+
+项目负责人已接受 P1、I1、H1 和 S6-T5.4；当前均为 `HUMAN_ACCEPTED`。该事实追加在历史 pending 快照之后，
+不改写历史。后续 S6-T5.5、S6-T5.6 及以后任务仍为 `NOT APPROVED`，不自动开始 EvidenceEnvelope、Citation、
+ContextBuilder 或正式 RAG 安全实验。
