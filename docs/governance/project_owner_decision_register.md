@@ -104,7 +104,7 @@ Static/Mock 不证明真实语义或生产安全效果；工程验证不等于�
 每个 Task 和子任务需要单独批准；设计批准不等于实现批准，前序完成不自动批准后序。严格执行 TDD、独立
 提交、blocker 停止留痕和完成后暂停；不得以“先跑起来再补安全”为由越过审批门。
 
-已接受治理事实：`GOV-ER1`、`GOV-ER1-H1` 与 `S6-T5.2` 为 `HUMAN_ACCEPTED`。Experiment Master Record
+已接受治理事实：`GOV-ER1`、`GOV-ER1-H1`、`GOV-PODR1`、`S6-T5.2`、`S6-T5.3-P1`、`S6-T5.3-H1` 与 `S6-T5.3` 为 `HUMAN_ACCEPTED`。Experiment Master Record
 是实验控制面和索引，不替代原始 JSON/JSONL、日志、RunManifest 或阶段报告。
 
 ## 6. S6-T5.3 parent identity：历史 blocker 与当前闭环
@@ -127,8 +127,8 @@ metadata；两者使用不同 collection fingerprint，不原地迁移。解决�
 实现提交为 `bfc329b`；边界澄清提交为 `3c22615`。原 blocker record 保留，其当前历史条目状态为
 `RESOLVED_BY_VERSIONED_PUBLIC_METADATA_CONTRACT`。
 
-当前事实是：S6-T5.3-P1 已完成；DenseRetriever 已实现并完成离线工程验证；S6-T5.3 为
-`Completed, pending human acceptance`；S6-T5.4 为 `Not approved`；正式 RAG 安全实验为 `Not started`。
+历史快照中的“已完成、等待人工验收”是当时事实，不得删除。当前事实是：S6-T5.3-P1、DenseRetriever 与
+S6-T5.3-H1 均已通过项目负责人 `HUMAN_ACCEPTED`；S6-T5.4 为 `Not approved`；正式 RAG 安全实验为 `Not started`。
 不得把“S6-T5.3 已批准但阻塞、未实现 DenseRetriever”写成当前状态。
 
 ## 7. 决策台账
@@ -146,6 +146,7 @@ metadata；两者使用不同 collection fingerprint，不原地迁移。解决�
 | PODR-009 | 2026-07-22 | GOV-ER1 职责 | Experiment Master Record 是控制面和索引，不替代原始工件或审批门 | ACCEPTED | experiment_master_record.md、项目负责人确认 | — | GOV-ER1 与 GOV-ER1-H1 已 HUMAN_ACCEPTED |
 | PODR-010 | 2026-07-22 | parent_doc_id blocker | 保存原 `DESIGN_OR_PROTOCOL_BLOCKER`，并以公开 provenance metadata 解决 | RESOLVED | s6_t5_3_protocol_blocker_record.md、`2ad3d9c` | — | 不删除原 blocker record，不读取语料或猜测身份 |
 | PODR-011 | 2026-07-22 | Versioned public metadata carrier | schema 1.0/1.1 隔离；1.1 传递 parent_doc_id，DenseRetriever 只接受 1.1 hit | ACCEPTED | `2ad3d9c`、`bfc329b`、`3c22615` | PODR-010 historical blocker state | 当前 S6-T5.3 Completed, pending human acceptance |
+| PODR-012 | 2026-07-25 | S6-T5.3 DenseRetriever 人工验收 | 接受 P1 schema carrier、H1 trace/failure-boundary 加固及 Provider-Neutral DenseRetriever 的离线工程边界 | HUMAN_ACCEPTED | 项目负责人明确决定、`72a2445`、完成记录与治理测试 | — | 不批准 S6-T5.4；不将工程验证改写为正式实验 |
 
 ## 8. 新 Thread 最小读取顺序
 

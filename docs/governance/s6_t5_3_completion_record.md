@@ -48,3 +48,11 @@ store state 和 store query 的已知或未知底层异常均使用 `raise ... f
 error code 和未映射外部异常，符合预期 Red 阶段。实施后，DenseRetriever 定向测试为 `18 passed`；完整 Stage 6
 离线组合回归为 `233 passed, 2381 subtests passed`，无 skipped。Ruff、scoped MyPy、标签隔离、秘密形态、
 绝对路径、Markdown 链接、保护路径、runtime Git-ignore 与 diff 检查见本轮最终验证记录。
+
+## 项目负责人人工验收决定（2026-07-25）
+
+- 决定：`S6-T5.3-P1`、`S6-T5.3-H1` 与 `S6-T5.3 Provider-Neutral DenseRetriever` 均为 **HUMAN_ACCEPTED**；`GOV-PODR1` 同时为 **HUMAN_ACCEPTED**。
+- 验收内容严格限于：schema `1.0`/`1.1` 隔离；公开、非标签、无正文的 `parent_doc_id` 传递链；`RetrievalRequest -> RetrievalEvidence + RetrievalTrace`；`candidate_count`/`returned_count` 语义；request/provider/store provenance 校验；稳定排序与 chunk 去重；fail-closed 与异常脱敏；query、正文、标签、Ground Truth 与路径的审计隔离；以及当前离线工程测试范围内的确定性行为。
+- 本决定不改变上述 H1、P1 和 parent-doc-ID blocker 的历史记录。原 blocker 仍保留，状态仍为 `RESOLVED_BY_VERSIONED_PUBLIC_METADATA_CONTRACT`；H1 的 `candidate_count` 修复历史也仍保留。
+- 本验收不证明 Recall、Precision、MRR、NDCG、检索安全效果、抗知识污染、可信检索、Citation Accuracy、ContextBuilder、Trust Pipeline、正式 RAG 安全实验或生产可用性。
+- 后续状态：`S6-T5.4 ContentResolver` **NOT APPROVED**；正式 RAG 安全实验 **NOT STARTED**。本验收不会自动批准任何后续任务。

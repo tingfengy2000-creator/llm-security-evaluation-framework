@@ -178,19 +178,22 @@ class ContextPersistenceTests(unittest.TestCase):
             with self.subTest(label=label):
                 self.assertIn(label, agents)
 
-    def test_current_state_records_accepted_gates_and_completed_dense_retriever(self) -> None:
+    def test_current_state_records_owner_acceptance_of_dense_retriever(self) -> None:
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
 
         for required in (
-            "Last accepted stage task: `S6-T5.2 Retrieval Runtime Contracts and IDs`",
-            "Last accepted implementation commit: `4c12181`",
+            "Last accepted stage task: `S6-T5.3 Provider-Neutral DenseRetriever`",
+            "Last accepted implementation commit: `72a2445`",
             "Retrieval Runtime Contracts and IDs",
             "GOV-ER1: **HUMAN_ACCEPTED**",
             "GOV-ER1-H1: **HUMAN_ACCEPTED**",
             "S6-T5.2 `Retrieval Runtime Contracts and IDs`: **HUMAN_ACCEPTED**",
-            "Completed pending human acceptance: `S6-T5.3 DenseRetriever`",
-            "S6-T5.3-P1: **Completed**",
+            "GOV-PODR1: **HUMAN_ACCEPTED**",
+            "S6-T5.3-P1: **HUMAN_ACCEPTED**",
+            "S6-T5.3: **HUMAN_ACCEPTED**",
+            "S6-T5.3-H1: **HUMAN_ACCEPTED**",
             "Not approved: `S6-T5.4 ContentResolver`",
+            "Formal RAG security experiment: **Not started**",
             "S6-T5.3 DenseRetriever",
         ):
             with self.subTest(required=required):

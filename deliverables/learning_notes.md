@@ -1,5 +1,23 @@
 # 学习笔记
 
+## 2026-07-25：S6-T5.3 人工验收与结论边界
+
+### 我现在记录了什么
+
+项目负责人正式将 `GOV-PODR1`、`S6-T5.3-P1`、`S6-T5.3-H1` 和 `S6-T5.3 Provider-Neutral DenseRetriever` 标记为 `HUMAN_ACCEPTED`。最后接受的实现提交是 `72a2445`。这次记录只更新治理入口、实验总账、完成记录和回归测试，没有新增任何检索业务能力。
+
+### 为什么验收不等于正式实验
+
+人工验收确认的是工程边界是否被正确实现：版本化 metadata、公开 parent identity、无正文和标签隔离、稳定排序、统计语义、provenance 校验、fail-closed 与错误脱敏。它没有回答“检索是否足够准”“知识污染是否被防住”“模型是否忠实于证据”等研究问题，所以不能把 `ENGINEERING_VALIDATION` 写成 `FORMAL_EXPERIMENT`。
+
+### 企业和面试中的意义
+
+企业会把“组件可审计、可回归、可拒绝不一致输入”与“组件在真实攻击/真实业务中的效果”分开验收。面试可以说：“我先完成并人工验收了无正文、标签隔离的 DenseRetriever 基线；它保证证据身份和审计边界，但下一步是否批准 ContentResolver、如何测 Recall@K 或污染传播，仍需独立设计和实验。” 初学者容易把测试全绿理解为系统安全；实际上它只说明当前规格下的工程行为符合预期。
+
+### 当前边界
+
+`S6-T5.4 ContentResolver` 仍为 **NOT APPROVED**，正式 RAG 安全实验仍为 **NOT STARTED**。本轮未修改 `src/` 或数据，未读取正文，未调用 Embedding、Chroma、Groq 或 LLM。
+
 ## 2026-07-22：S6-T5.3-H1 Trace 语义与失败边界加固
 
 ### 我现在做了什么

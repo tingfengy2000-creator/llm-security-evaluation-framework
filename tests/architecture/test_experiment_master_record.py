@@ -213,6 +213,23 @@ class ExperimentMasterRecordTests(unittest.TestCase):
             with self.subTest(target=target):
                 self.assertTrue(candidate.exists(), target)
 
+    def test_dense_retriever_acceptance_keeps_later_work_and_experiments_closed(self) -> None:
+        text = MASTER_RECORD.read_text(encoding="utf-8")
+
+        for required in (
+            "S6-T5.3 DenseRetriever 已通过人工验收",
+            "HUMAN_ACCEPTED",
+            "S6-T5.4 ContentResolver 尚未批准",
+            "正式 RAG 安全实验：**Not started**",
+            "RESOLVED_BY_VERSIONED_PUBLIC_METADATA_CONTRACT",
+            "candidate_count",
+            "ENGINEERING_VALIDATION",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, text)
+
+        self.assertNotIn("S6-T5.3 | DenseRetriever | 透明 Dense Retrieval | 已完成，待人工验收", text)
+
 
 if __name__ == "__main__":
     unittest.main()

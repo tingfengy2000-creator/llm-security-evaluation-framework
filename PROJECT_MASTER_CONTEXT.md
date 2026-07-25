@@ -44,6 +44,13 @@ hit 数量，而非 collection 总量；store fingerprint、dimension、distance
 验证，状态为 `Completed, pending human review`；S6-T5.3 仍为 `Completed, pending human acceptance`，不授权
 S6-T5.4 或正式 RAG 安全实验。
 
+**S6-T5.3 人工验收（2026-07-25）**：项目负责人已将 `GOV-PODR1`、`S6-T5.3-P1`、`S6-T5.3-H1` 及
+`S6-T5.3 Provider-Neutral DenseRetriever` 标记为 `HUMAN_ACCEPTED`，最后接受的实现提交为 `72a2445`。验收仅覆盖
+schema `1.0`/`1.1` 隔离、公开 parent identity、Request/Evidence/Trace 链、candidate/returned count 语义、provenance
+校验、稳定排序/去重、fail-closed、脱敏审计与当前离线确定性测试。它不证明 Recall/Precision/MRR/NDCG、检索安全、
+抗知识污染、可信检索、Citation Accuracy、ContextBuilder、Trust Pipeline、正式 RAG 安全实验或生产可用性。`S6-T5.4`
+仍为 `Not approved`，正式 RAG 安全实验仍为 `Not started`。
+
 ## 0.1 A1R：LLMGuard 命名冻结与 Retrieval Domain 落地（2026-07-16）
 
 项目正式名称现为 **LLMGuard Research Framework（简称 LLMGuard）**，中文名称为
