@@ -229,6 +229,22 @@ class ContextPersistenceTests(unittest.TestCase):
             with self.subTest(required=required):
                 self.assertIn(required, blocker)
 
+    def test_stage6_readme_top_metadata_tracks_accepted_and_blocked_state(self) -> None:
+        readme = (ROOT / "stages" / "stage6_rag_security" / "README.md").read_text(
+            encoding="utf-8"
+        )
+
+        for required in (
+            "s6_t5_3_dense_retriever_human_accepted",
+            "s6_t5_3_h1_human_accepted",
+            "s6_t5_4_status: `APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER`",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, readme)
+
+        self.assertNotIn("s6_t5_3_dense_retriever_completed_pending_human_acceptance", readme)
+        self.assertNotIn("s6_t5_3_h1_completed_pending_human_review", readme)
+
     def test_s6_t5_design_freeze_is_unique_and_behind_approval_gate(self) -> None:
         for path in (S6_T5_SPEC, S6_T5_PLAN, S6_T5_ADR):
             with self.subTest(path=path.relative_to(ROOT)):

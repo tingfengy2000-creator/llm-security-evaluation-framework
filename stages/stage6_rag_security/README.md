@@ -6,8 +6,9 @@
 - canonical_name: `RAG Security Evaluation`
 - canonical_slug: `stage6_rag_security`
 - legacy_paths: `stages/stage6_rag/`、`data/stage6_rag/`、`tests/stage6_rag/`
-- status: `s6_t5_3_dense_retriever_completed_pending_human_acceptance`
-- acceptance_hardening: `s6_t5_3_h1_completed_pending_human_review`；仅修复 trace 语义、store provenance 与脱敏失败边界。
+- status: `s6_t5_3_dense_retriever_human_accepted`
+- acceptance_hardening: `s6_t5_3_h1_human_accepted`；仅修复 trace 语义、store provenance 与脱敏失败边界。
+- s6_t5_4_status: `APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER`；等待 resolver/reader/legacy/error contract 的项目负责人冻结决定。
 - objective: 在 S6-T4 与已验收 S6-T5.2 契约基础上，实现受控、离线、Provider-Neutral DenseRetriever；本轮只产出 RetrievalEvidence 与 RetrievalTrace。
 - source_locations: `src/llmguard/domains/retrieval/{contracts,attacks,embedding,vectorstore,retrieval}/`
 - data_locations: `data/stage6_rag/`（已入 manifest 的历史数据路径）
