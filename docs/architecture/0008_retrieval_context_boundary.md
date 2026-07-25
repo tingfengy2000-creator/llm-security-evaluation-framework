@@ -177,3 +177,19 @@ Citation 或正式 RAG 安全实验。
 P1、I1、H1 与父任务当前均为 `HUMAN_ACCEPTED`。这只接受受控正文解析的合成内存工程边界：contracts 唯一 DTO、
 最小 resolve capability、UTF-8 hash、exact-match legacy 迁移和注入错误脱敏；不接受或实现真实 provider、
 ContextBuilder、Citation、Trust、S6-T5.5 或正式 RAG 安全实验。
+
+## S6-T5.5-P1：EvidenceEnvelope 与 Citation 边界冻结
+
+为消除“Citation ID 按最终 Context 顺序分配”与“Envelope 位于 ContextBuilder 之前”的矛盾，本 ADR 冻结
+`EvidenceEnvelope` 为无 `citation_id` 的敏感运行时对象。`CitationBinding` 是 package-local 映射，只有未来
+S6-T5.6 ContextBuilder 在最终 Evidence 集确定后才创建和分配连续 `E1 ... En`。这避免被去重或预算排除的 Evidence
+持有错误的引用编号，也不使用 `None`、空字符串或 `E0` 这类可被误认作有效引用的状态。
+
+稳定 DTO 与错误仍仅归 `contracts/`；未来 `EvidenceEnvelopeFactory.create(evidence, resolved_content)` 是唯一生产构造
+行为，Context 不得复制 DTO 或以任意正文/metadata 直接拼装对象。Evidence 贡献 provenance、rank 与 metrics，
+ResolvedContent 贡献经过 hash 验证的正文。敏感导出默认拒绝，除非未来有独立批准的 `SensitiveArtifactPolicy`。
+
+未来 rendering 只允许一个 XML escaping API：对原始输入单次 escaping，正文 render-only 地把 CRLF/CR 归一为 LF，
+不做 Unicode normalization；正文 hash 始终基于原始 UTF-8 bytes。该 escaping 只保护结构边界，不是 Prompt Injection
+语义防护。P1 不实现 DTO、factory、Binding、renderer 或 ContextBuilder；完整冻结记录见
+`docs/governance/s6_t5_5_protocol_review_record.md`，当前仅 `Completed, pending human acceptance`。

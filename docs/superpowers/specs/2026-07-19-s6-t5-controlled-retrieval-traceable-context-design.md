@@ -279,7 +279,7 @@ Resolver 不得 import 或读取 `ground_truth/`、Evaluator、攻击标签和 o
 
 ## 10. EvidenceEnvelope 与结构边界
 
-`EvidenceEnvelope` 是 `contracts/` 定义的受控内存对象，字段为：`citation_id`、`evidence_uid`、`doc_id`、`chunk_id`、
+`EvidenceEnvelope` 是 `contracts/` 定义的受控内存对象，字段为：`evidence_uid`、`doc_id`、`chunk_id`、
 `parent_doc_id`、`source_id`、`source_type`、`version`、`timestamp`、`content_hash`、`rank`、
 `distance`、`similarity`、`content`、只读 `public_metadata`。它允许持有正文，`content` 必须使用
 `repr=False`，默认 `__repr__` 不显示正文；但这不使对象自动“可安全序列化”。
@@ -630,3 +630,27 @@ allowlist 迁移为 canonical `corpus:`。本附注不改变前文历史审批�
 P1、I1、H1 与父任务已通过人工验收，最后接受的实现提交为 `11a72f7`。历史 pending 记录不被删除；当前验收只覆盖
 synthetic in-memory resolver 的 contracts、capability、完整性和错误边界，不批准真实正文 provider、S6-T5.5、
 ContextBuilder、Citation 或正式 RAG 实验。
+
+## 25. S6-T5.5-P1：EvidenceEnvelope 与 Citation 边界冻结（2026-07-25）
+
+本次设计审查解决原 `citation_id` 字段草案与 ContextBuilder 最终选择时序的矛盾：`EvidenceEnvelope` 不再包含
+`citation_id`。它只表达已解析、已校验的一条敏感运行时 Evidence；`CitationBinding` 仅在未来 S6-T5.6
+ContextBuilder 完成排序、去重、数量限制、正文解析/hash 验证与预算选择之后，依最终进入 Context 的 Evidence
+顺序创建。Citation ID 只在一个 `RetrievedContextPackage` 内连续分配为 `E1 ... En`，不能用 `None`、空字符串或
+`E0` 表示未绑定。
+
+DTO 的唯一 owner 仍是 `contracts/`；未来唯一生产构造入口是
+`EvidenceEnvelopeFactory.create(evidence: RetrievalEvidence, resolved_content: ResolvedContent)`，其 concrete factory
+属于独立批准的 S6-T5.5 实现。它验证 chunk、content hash、canonical snapshot/chunk identity 与 Resolver 已完成的
+legacy exact-match normalization；Evidence 贡献身份/metadata/metric，ResolvedContent 贡献正文。Context 不得建立 DTO
+副本，不得让调用者直接以 `str` 正文构造 Envelope。
+
+`CitationMode` 保持 `off`、`available`、`required`。未来唯一 instruction generator 位于 `context/citation.py`，唯一
+XML-like rendering owner 位于 `context/rendering.py`；二者均等待实现批准。escaping 对每次原始输入执行一次，渲染层将
+CRLF/CR 统一为 LF 但不做 Unicode normalization，正文 hash 仍按转换前原始 UTF-8 bytes 验证。escaping 只保证结构
+边界，绝不宣称为语义 Prompt Injection 防御。普通审计、repr、logger、exception 不得含正文；敏感正文导出在没有
+单独 `SensitiveArtifactPolicy` 批准前为 deny-by-default。完整协议见
+`docs/governance/s6_t5_5_protocol_review_record.md`。
+
+本 P1 当前为 `Completed, pending human acceptance`；`S6-T5.5` 与 `S6-T5.6+` 仍为 `NOT APPROVED`，没有创建源码、
+调用模型或执行正式 RAG 安全实验。

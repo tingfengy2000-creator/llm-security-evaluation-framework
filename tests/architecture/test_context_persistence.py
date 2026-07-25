@@ -197,7 +197,7 @@ class ContextPersistenceTests(unittest.TestCase):
             "S6-T5.4: **HUMAN_ACCEPTED**",
             "S6-T5.4-I1: **HUMAN_ACCEPTED**",
             "S6-T5.4-H1: **HUMAN_ACCEPTED**",
-            "Not approved: `S6-T5.5` and every later S6-T5 task.",
+            "`S6-T5.5`: **NOT APPROVED**. Every later S6-T5 task is also **NOT APPROVED**.",
             "Formal RAG security experiment: **Not started**",
             "S6-T5.3 DenseRetriever",
         ):
@@ -318,7 +318,7 @@ class ContextPersistenceTests(unittest.TestCase):
         self.assertIn("safe projection", adr)
         self.assertIn("S6-T5.2", state)
         self.assertIn("**HUMAN_ACCEPTED**", state)
-        self.assertIn("`GOV-S6-T5.4-ACCEPTANCE`", state)
+        self.assertIn("`S6-T5.5-P1`", state)
         self.assertTrue(
             (GOVERNANCE / "s6_t5_4_completion_record.md").is_file(),
         )

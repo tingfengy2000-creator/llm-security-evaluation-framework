@@ -432,3 +432,19 @@ Embedding、Chroma、Groq 或 LLM。S6-T5.5 仍为 `NOT APPROVED`，正式 RAG �
 项目负责人已接受 P1、I1、H1 和 S6-T5.4；当前均为 `HUMAN_ACCEPTED`。该事实追加在历史 pending 快照之后，
 不改写历史。后续 S6-T5.5、S6-T5.6 及以后任务仍为 `NOT APPROVED`，不自动开始 EvidenceEnvelope、Citation、
 ContextBuilder 或正式 RAG 安全实验。
+
+## 21. S6-T5.5-P1 协议审查执行记录（2026-07-25）
+
+本轮 `S6-T5.5-P1 EvidenceEnvelope and Citation Boundary Freeze` 只修改设计、ADR、治理材料和静态治理测试。
+它不执行第 7 节列出的 TDD/源码任务；这些任务只在未来父任务 `S6-T5.5` 得到单独实现批准后才可开始。
+
+冻结决定采用 Citation 时序方案 A：Envelope 没有 `citation_id`；future ContextBuilder 在最终 Evidence 集、预算选择
+完成后，按最终顺序创建 Binding 并分配 package-local 的连续 `E1 ... En`。不接受 `None`、空字符串或 `E0` 作为普通
+业务可误用的未绑定 Citation。唯一未来工厂为 `EvidenceEnvelopeFactory.create(evidence, resolved_content)`；DTO 和错误
+归属 contracts，context 只能实现行为。`文档`、label、Ground Truth、Query、rendered block 不得进入普通审计、repr、
+logger 或异常。
+
+本轮同时冻结 exact LF instruction、XML-like template、单次 escaping、render-only CRLF/CR 到 LF 归一与不进行
+Unicode normalization；escaping 只保护结构边界，并不构成语义防注入。敏感 artifact export 延期且默认关闭。详情见
+`docs/governance/s6_t5_5_protocol_review_record.md`。执行状态为 `Completed, pending human acceptance`；S6-T5.5、
+S6-T5.6+ 和正式 RAG 安全实验仍未批准。

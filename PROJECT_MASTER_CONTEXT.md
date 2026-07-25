@@ -890,3 +890,20 @@ immutable exact-match legacy mapping、fail-closed identity/hash 行为以及注
 这是合成内存内容上的离线工程验收，不表示已接入真实语料、文件系统、远程 provider、Embedding、Chroma、Groq 或
 LLM。P1/I1/H1 的历史 pending 快照和原 protocol blocker 继续保留；`S6-T5.5`、S6-T5.6 与之后任务仍未批准，
 正式 RAG 安全实验仍为 `Not started`。
+
+## 21. S6-T5.5-P1：EvidenceEnvelope 与 Citation 边界冻结（2026-07-25，待人工验收）
+
+本轮只完成 `DESIGN_FREEZE / PROTOCOL_REVIEW`，不实现任何业务源码。审查解决了 Citation 时序冲突：
+`EvidenceEnvelope` 不含 `citation_id`，而未来 `ContextBuilder` 仅在最终 Evidence 的排序、去重、数量限制、正文
+解析/hash 验证和预算选择完成后，创建 `CitationBinding` 并在一个 `RetrievedContextPackage` 内连续分配 `E1 ... En`。
+这样稳定的 Evidence UID 与局部展示的 Citation ID 不会混淆，也不会让被排除的证据获得错误引用。
+
+冻结的唯一生产构造行为是未来的 `EvidenceEnvelopeFactory.create(evidence, resolved_content)`：Evidence 提供公开
+provenance/metric，ResolvedContent 提供经 hash 校验的正文，所有 DTO 与错误只归 `contracts/`。instruction、
+XML-like rendering、escaping、错误语义、audit/repr 和敏感导出边界都已有精确协议；escaping 只保护结构，不是
+Prompt Injection 语义防护。正文普通导出继续 deny-by-default，直到单独的 SensitiveArtifactPolicy 得到批准。
+
+本轮没有修改 `src/`、Stage 1–5 或 Stage 6 fixture/data，没有读取语料正文，没有调用 Embedding、Chroma、Groq 或
+LLM，也没有运行正式实验。`S6-T5.5-P1` 当前为 `Completed, pending human acceptance`；`S6-T5.5`、S6-T5.6+
+仍为 `NOT APPROVED`。详细审查证据见
+[S6-T5.5 protocol review record](docs/governance/s6_t5_5_protocol_review_record.md)。

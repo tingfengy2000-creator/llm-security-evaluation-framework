@@ -1180,3 +1180,34 @@ type/code 组合；未知 code 或“Lookup 搭配 integrity code”之类的伪
 **治理验证留痕**：首次运行治理测试时，5 个断言仍在检查 I1/H1 的旧 pending metadata 与 pending 工程分类，
 因此按预期失败；它们没有暴露业务代码问题。已将断言更新为当前 `human_accepted` 和 `ENGINEERING_VALIDATED`，
 同时保留文档中的历史 pending 快照。这个过程说明“禁止删除历史”并不等于“让当前状态测试继续断言历史状态”。
+
+## 2026-07-25: S6-T5.5-P1 EvidenceEnvelope 与 Citation 协议审查
+
+**我现在做了什么**：没有写 Envelope、Binding、XML rendering 或 ContextBuilder 代码，而是先冻结它们的身份、
+构造入口和时序。关键决定是 Envelope 不保存 citation ID；CitationBinding 只在未来 ContextBuilder 完成最终排序、
+去重、预算和正文校验后创建。这样 `Evidence UID` 负责稳定追溯，`E1/E2` 只负责当前 package 内的可读引用。
+
+**为什么这样做**：如果在检索后立刻给每条 Evidence 编号，后续预算排除或去重会造成引用编号与最终 Context 不一致。
+用 `None`、空串或 `E0` 表示未绑定也危险，因为调用方可能把它们当作有效引用。把 Binding 延后，既消除时序冲突，
+也把引用分配的权限收束到唯一组件。
+
+**企业里为什么重要**：企业 RAG 常要求回答能追溯到来源。可追溯不是“显示一个编号”这么简单，而是编号必须能稳定回到
+证据 UID、版本、hash、rank 和来源，同时不能把正文、Query 或评估标签泄露到日志。这个协议使以后做 Citation Accuracy、
+污染归因和审计时有可靠的对象边界。
+
+**最容易误解的点**：XML escaping 只是把 `<`、`>`、`&` 和属性引号变成安全文本，防止正文伪造结构标签；它不会判断正文
+是否在语义上诱导模型，因此不是 Prompt Injection Guard。另一个误解是“设计冻结等于代码完成”：本轮没有调用 LLM、
+没有读取 fixture，也没有产生 RAG 安全实验结论。
+
+**面试可讲**：我先发现了 Citation ID 的时序矛盾，再把稳定 Evidence 身份与上下文内局部 Citation 分离；同时把正文
+作为敏感 runtime object，明确普通 audit/repr/log 禁止正文，敏感导出默认拒绝。这样后续的 ContextBuilder 能在不破坏
+标签隔离与可复现性的前提下工作。
+
+**下一步审批门**：S6-T5.5-P1 当前为 `Completed, pending human acceptance`。只有人工接受这一协议后，才可能单独
+评审 S6-T5.5 的 TDD 实现；S6-T5.6 ContextBuilder、Citation Accuracy、Trust 和正式 RAG 安全实验仍未批准。
+
+**本轮治理回归发现**：首次运行 P1 设计治理测试时，发现当前状态将“未批准”只写作自然语言 `Not approved`，
+Experiment Master Record 也没有同时给出机器易检索的 `NOT APPROVED` / `NOT STARTED` 英文状态；另有一条旧测试仍把
+`GOV-S6-T5.4-ACCEPTANCE` 误当成当前任务。这些都是治理表述漂移，而非业务代码失败。已把状态改为显式枚举、将旧断言
+改为 P1 当前任务，并保留过去验收记录为历史事实。该记录提醒我：审批文档既要让人读懂，也要让回归测试准确区分
+“历史已完成”“当前设计待验收”和“后续未批准”。

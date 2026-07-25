@@ -12,6 +12,9 @@
 - s6_t5_4_p1_status: `human_accepted`；Content Resolution Contract and Permission Boundary 已通过人工验收，未创建业务代码。
 - s6_t5_4_i1_status: `human_accepted`；仅使用合成内存正文，未读取 fixture 或生成真实 legacy mapping。
 - s6_t5_4_h1_status: `human_accepted`；关闭 Resolver registry capability escape，并加固注入依赖异常的脱敏/类型-code 所有权。
+- s6_t5_5_p1_status: `completed_pending_human_acceptance`；只冻结 EvidenceEnvelope/Citation 边界，不创建业务源码。
+- s6_t5_5_status: `not_approved`；必须在 P1 人工验收后另行批准业务实现。
+- s6_t5_6_plus_status: `not_approved`；不得自动开始 ContextBuilder 或后续能力。
 - objective: 在 S6-T4 与已验收 S6-T5.2 契约基础上，实现受控、离线、Provider-Neutral DenseRetriever；本轮只产出 RetrievalEvidence 与 RetrievalTrace。
 - source_locations: `src/llmguard/domains/retrieval/{contracts,attacks,embedding,vectorstore,retrieval,context}/`
 - data_locations: `data/stage6_rag/`（已入 manifest 的历史数据路径）
@@ -19,8 +22,8 @@
 - script_locations: 真实模型测试由 `LLMGUARD_RUN_REAL_EMBEDDING_TESTS=1` 显式开启，无 S6-T4 运行脚本；2026-07-19 已完成一次固定 revision 的真实验收。
 - deliverable_locations: 尚未生成独立 Stage 6 证据包。
 - evidence_locations: `data/stage6_rag/documents/corpus_manifest.json`
-- conclusion_boundary: 已完成人工验收的 S6-T5.3 离线工程边界包括 embedding/vectorstore 基础设施、S6-T5.2 运行时契约、schema `1.1` parent identity carrier、DenseRetriever 与 H1 trace/failure-boundary 加固；S6-T5.4-I1 已实现 contracts、in-memory reader/registry、exact-match legacy adapter 与 hash-verified resolver，H1 又关闭公开 registry capability 并重建注入错误的固定脱敏外部表述。P1、I1、H1 与父任务均已通过人工验收。未实现 ContextBuilder、Trust、LLM 或 RAG 指标，也未执行正式 RAG 安全实验。
-- next_stage: `S6-T5.5` 及之后任务尚未批准，必须另行审批。
+- conclusion_boundary: 已完成人工验收的 S6-T5.3 离线工程边界包括 embedding/vectorstore 基础设施、S6-T5.2 运行时契约、schema `1.1` parent identity carrier、DenseRetriever 与 H1 trace/failure-boundary 加固；S6-T5.4-I1 已实现 contracts、in-memory reader/registry、exact-match legacy adapter 与 hash-verified resolver，H1 又关闭公开 registry capability 并重建注入错误的固定脱敏外部表述。P1、I1、H1 与父任务均已通过人工验收。S6-T5.5-P1 只完成协议冻结，采用无 `citation_id` Envelope 与 future ContextBuilder 的 package-local CitationBinding 分配，仍待人工验收。未实现 Envelope、Citation、ContextBuilder、Trust、LLM 或 RAG 指标，也未执行正式 RAG 安全实验。
+- next_stage: 先审查 `S6-T5.5-P1`；`S6-T5.5: NOT APPROVED`，之后实现任务也为 `NOT APPROVED`，必须另行审批。
 
 目标：在 Retrieval 层评测 R1–R6，并为隐蔽知识污染检测与可信检索研究建立稳定证据接口。
 
@@ -28,7 +31,7 @@
 - S6-T5 权威设计：[受控检索与可追溯上下文规格](../../docs/superpowers/specs/2026-07-19-s6-t5-controlled-retrieval-traceable-context-design.md) → [八段式实施计划](../../docs/superpowers/plans/2026-07-19-s6-t5-controlled-retrieval-traceable-context.md) → [ADR 0008](../../docs/architecture/0008_retrieval_context_boundary.md)；
 - 长期约束：[研究需求基线](../../docs/governance/long_term_research_requirements.md)；它规定 S6-T5 的 Dense-only 边界、Evidence/Citation 契约、上下文分级及 S6.1/6.2/7 路线；
 - 实验总记录：[Experiment Master Record](../../docs/governance/experiment_master_record.md)；它索引 Stage 1–5 历史运行与 Stage 6 工程验证，不替代原始交付物；
-- Codex 恢复入口：从仓库根 `AGENTS.md` 开始，并读取 `docs/governance/current_work_state.md`；GOV-PODR1、S6-T5.2、S6-T5.3-P1、S6-T5.3-H1 与 S6-T5.3 DenseRetriever 均已获人工验收；S6-T5.4 已批准启动但当前为 protocol blocker；
+- Codex 恢复入口：从仓库根 `AGENTS.md` 开始，并读取 `docs/governance/current_work_state.md`；GOV-PODR1、S6-T5.2、S6-T5.3-P1、S6-T5.3-H1、S6-T5.3 DenseRetriever 与 S6-T5.4 均已获人工验收；S6-T5.5-P1 只完成协议审查、等待人工验收；
 - 当前代码：[A1R 后的规范实现](../../src/llmguard/domains/retrieval/)；旧 `codeguarder.stage6_rag` 保持 import compatibility；
 - P1 协议冻结：唯一 Resolver 只接收 `ContentRef + expected_content_hash`；正文能力 DTO 属于 `contracts/`，snapshot reader 与 legacy mapping 均为最小权限、无 fallback 设计；这不是 ContentResolver 实现，也不表示正文解析已验收；
 - 数据：[Stage 6 R1–R6 数据](../../data/stage6_rag/)；Ground Truth 与运行时视图保持隔离；
@@ -36,7 +39,7 @@
 - 真实验收：固定 `paraphrase-multilingual-MiniLM-L12-v2` revision、CPU、五篇中文政策文档和临时 Chroma 重开均已验证；中英文休假查询 Top-1 均为 `doc-leave`，不保存正文、标签或 runtime 产物；
 - 原始证据：尚未生成独立 `deliverables/stage6_rag/` 证据包；当前可核查的是早期数据、测试与
   架构决策，不能把它误称为完整 RAG 实验报告；
-- 工程状态：当前是检索基础设施、分块与运行时契约状态，不是正式 RAG 安全攻击实验；S6-T5.3-H1 与 DenseRetriever 已获人工验收，S6-T5.4 为批准后暂停的 protocol blocker；
+- 工程状态：当前是检索基础设施、分块、运行时契约和合成内存 ContentResolver 状态，不是正式 RAG 安全攻击实验；S6-T5.3-H1、DenseRetriever 与 S6-T5.4 已获人工验收，S6-T5.5-P1 仅完成协议审查、待人工验收；
 - 结论边界：已完成的是数据、契约、Embedding 与向量存储基础，不可宣称已有 Retriever、可信策略或 RAG 指标结果；
 - 面试重点：为什么 RetrievalEvidence、EvidenceSignal、TrustedContextPackage 与 RAGSecurityEnvelope 必须分层。
 
