@@ -1097,3 +1097,36 @@ ContextBuilder 和 Citation 依旧不能开始。
 面试中可以说：我把“发现协议不完整时停止”和“协议经人工验收后解除设计 blocker”都留在 Git 治理记录中，
 避免把设计认可误夸大成安全能力或产品可用性。常见误区是把 `HUMAN_ACCEPTED` 当作运行结果；这里它只验收
 接口边界、权限模型和失败语义，不证明任何正文解析、检索质量或抗污染效果。
+## 2026-07-25: S6-T5.4-I1 受控正文解析最小实现（待人工验收）
+
+### 执行问题留痕
+
+首次运行定向测试时误用了系统 `pytest`，它来自工作树外的 Python 环境，因而在 collection 阶段报
+`ModuleNotFoundError: No module named 'llmguard'`。该错误没有执行任何业务代码、没有修改文件，也不是 resolver
+回归；改用项目 `.venv\\Scripts\\python.exe -m pytest` 后，ContentResolver 定向测试、架构治理测试、Ruff 和 scoped
+MyPy 全部通过。后续所有项目验证均显式使用 `.venv`，避免把宿主环境依赖误判为项目缺陷。
+
+提交后首次同步命令还把 PowerShell 的 `@{upstream}` 直接作为参数，PowerShell 将其解释为 hashtable 并在解析阶段
+失败，因此推送尚未发生；这同样没有改动文件或远端。后续将该 revision 参数用引号包裹后再执行推送与 `0/0` 同步核对。
+
+**我现在做了什么**：用 TDD 建立了一个最小、离线的正文解析闭环。调用方给出 `ContentRef` 与预期 SHA-256，
+`CorpusContentResolver` 只通过注入的 snapshot registry 找到对应 reader，按精确 chunk ID 读取内存中的合成正文，
+按 UTF-8 重算 hash 后才构造 `ResolvedContent`。旧 `chroma:` 引用不能猜测或模糊匹配，只能通过不可变 exact-match
+allowlist 映射为 `corpus:`。
+
+**为什么这样做**：检索层的 evidence 只携带引用，正文是更高权限的短生命周期能力。把“根据引用读正文”集中在一个
+fail-closed resolver 中，可以拒绝未知 snapshot、未知 chunk、hash 不匹配和不受控 legacy 引用；`repr`、audit 和
+异常都不回显正文。真实语料没有被读写，测试正文也是进程内合成数据。
+
+**企业为什么这样做**：企业 RAG 往往要把检索索引、正文仓库和评估标签隔离。解析器的最小权限接口、内容完整性校验、
+审计脱敏和显式旧格式迁移，可以降低错误引用、路径泄露、标签泄露和“为了兼容而静默降级”的风险。
+
+**和上一部分的关系**：S6-T5.3 已把检索请求变为只含公开 metadata 的 `RetrievalEvidence`；I1 不做检索、不做
+ContextBuilder，而是为未来受控地把 evidence 引用解析为正文准备权限边界。它没有启动 S6-T5.5。
+
+**面试可能追问**：为什么不用 doc_id 直接读取？回答是 doc_id 本身没有 snapshot、chunk 和内容完整性约束；
+`ContentRef + expected hash` 把身份和不可篡改内容校验绑定。为什么 hash mismatch 要 fail closed？因为返回错误正文
+比拒绝服务更可能污染后续上下文。
+
+**容易误解的地方**：这不是“RAG 已能安全回答问题”。本轮没有读取真实 fixture，没有向量检索、LLM、攻击矩阵或
+正式指标；它只证明了当前合成测试下的解析权限与完整性边界。状态为 `Completed, pending human acceptance`。

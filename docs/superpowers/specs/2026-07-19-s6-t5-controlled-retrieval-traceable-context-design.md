@@ -617,3 +617,10 @@ RAG 安全实验。`S6-T5.5` 及之后仍未批准。query_prefix 不改变已�
 `GOV-S6-T5.4-P1-ACCEPTANCE` 已将本节冻结的协议标记为 `HUMAN_ACCEPTED`，并将 S6-T5.4 blocker 标记为
 `RESOLVED_BY_APPROVED_PROTOCOL_FREEZE`。这只说明设计前提齐备；`S6-T5.4-I1` 仍为 `NOT YET APPROVED`，
 不得把本附注解释为 ContentResolver 实现、正文访问或正式 RAG 实验授权。
+
+### S6-T5.4-I1 实现状态附注（2026-07-25）
+
+在单独 I1 批准后，最小 ContentResolver 已完成并等待人工验收。实现只接受 `ContentRef` 和预期 hash，使用合成
+内存 snapshot reader/registry 做精确读取及 UTF-8 SHA-256 复核；legacy `chroma:` 只经 immutable exact-match
+allowlist 迁移为 canonical `corpus:`。本附注不改变前文历史审批快照，也不表示 Stage 6 fixture 正文已被读取，
+更不表示 S6-T5.5、ContextBuilder、Citation、正式 RAG 安全实验已获批准。

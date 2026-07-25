@@ -419,3 +419,10 @@ P1 完成后的任务状态应写为 `Completed, pending human acceptance`；父
 项目负责人已接受 P1 设计冻结，blocker 状态为 `RESOLVED_BY_APPROVED_PROTOCOL_FREEZE`，父任务状态为
 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`。本计划仍不自动授权实现：下一步必须是单独审批的
 `S6-T5.4-I1`，当前状态 `NOT YET APPROVED`；不得开始 ContentResolver TDD、读取正文或进入 S6-T5.5。
+
+## 19. S6-T5.4-I1 最小实现状态附注（2026-07-25）
+
+历史快照之后，项目负责人单独批准 I1。`ContentRef + expected_content_hash -> CorpusContentResolver ->
+ApprovedCorpusSnapshotRegistry -> CorpusSnapshotReader -> ResolvedContent` 已以 TDD 完成，当前为
+`Completed, pending human acceptance`。测试只使用合成内存正文和 mapping，未读取 Stage 6 fixture，未调用
+Embedding、Chroma、Groq 或 LLM。S6-T5.5 仍为 `NOT APPROVED`，正式 RAG 安全实验仍为 `NOT STARTED`。

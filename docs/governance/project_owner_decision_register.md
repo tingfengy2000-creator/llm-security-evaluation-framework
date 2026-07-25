@@ -152,6 +152,7 @@ S6-T5.3-H1 均已通过项目负责人 `HUMAN_ACCEPTED`；S6-T5.4 为
 | PODR-012 | 2026-07-25 | S6-T5.3 DenseRetriever 人工验收 | 接受 P1 schema carrier、H1 trace/failure-boundary 加固及 Provider-Neutral DenseRetriever 的离线工程边界 | HUMAN_ACCEPTED | 项目负责人明确决定、`72a2445`、完成记录与治理测试 | — | 不批准 S6-T5.4；不将工程验证改写为正式实验 |
 | PODR-013 | 2026-07-25 | S6-T5.4-P1 Content Resolution Contract and Permission Boundary Freeze | 冻结 Resolver 的最小输入、contracts 唯一 ResolvedContent、受控 snapshot reader/registry、legacy exact-match mapping 与稳定错误归属；不批准业务实现或正文读取 | ACCEPTED | 项目负责人正式批准、S6-T5.4 blocker record、S6-T5 design/ADR | — | 决策已接受；P1 执行结果仍为 Completed, pending human acceptance，父任务 blocker 不因此自动解除 |
 | PODR-014 | 2026-07-25 | S6-T5.4 Content Resolution Protocol Human Acceptance Record | 接受 P1 的五项协议设计；将 blocker 标记为 RESOLVED_BY_APPROVED_PROTOCOL_FREEZE，父任务进入 READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL | HUMAN_ACCEPTED | 项目负责人明确决定、P1 规格/计划/ADR、blocker record | PODR-013 execution pending state | 不批准 S6-T5.4-I1，不授权正文访问或 ContentResolver 实现，不批准 S6-T5.5 与正式 RAG 实验 |
+| PODR-015 | 2026-07-25 | S6-T5.4-I1 Controlled Corpus ContentResolver Minimal Implementation | 批准并完成只依赖合成内存正文的最小实现：精确引用、UTF-8 SHA-256 校验、受控 registry/reader 和 legacy exact-match 映射 | IMPLEMENTED_PENDING_HUMAN_ACCEPTANCE | 项目负责人 I1 批准、完成记录、TDD 与离线工程验证 | PODR-014 | 不代表正文 fixture 已读取、正式 RAG 安全实验、ContextBuilder/Citation 或 S6-T5.5 获批 |
 
 ## 7.1 S6-T5.4 当前审批解释（2026-07-25）
 
@@ -159,6 +160,13 @@ PODR-014 supersedes PODR-013 中“P1 执行结果仍为 pending”的当前状�
 `HUMAN_ACCEPTED`，blocker 当前为 `RESOLVED_BY_APPROVED_PROTOCOL_FREEZE`，父任务当前为
 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`。这不构成实现批准；`S6-T5.4-I1` 为 `NOT YET APPROVED`，
 `S6-T5.5` 及之后为 `NOT APPROVED`，正式 RAG 安全实验为 `NOT STARTED`。
+
+## 7.2 S6-T5.4-I1 当前实现状态（2026-07-25）
+
+PODR-015 是对 7.1 历史审批快照的后续事实登记：项目负责人已单独批准并完成 `S6-T5.4-I1`，其当前状态为
+`Completed, pending human acceptance`。实现仅使用测试内的合成内存正文，不读取 Stage 6 fixture、不生成 fixture
+mapping、不调用 Chroma、Embedding、Groq 或 LLM；父任务 `S6-T5.4` 同样为 `Completed, pending human acceptance`。
+`S6-T5.5` 及后续任务仍为 `NOT APPROVED`，正式 RAG 安全实验仍为 `NOT STARTED`。
 
 ## 8. 新 Thread 最小读取顺序
 

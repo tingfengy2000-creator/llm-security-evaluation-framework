@@ -164,3 +164,10 @@ P1 不创建源码、读取正文或实现 reader/registry/adapter；父任务 S
 本 ADR 中的 P1 协议边界已经 `HUMAN_ACCEPTED`，并解决了 S6-T5.4 的 protocol blocker
 (`RESOLVED_BY_APPROVED_PROTOCOL_FREEZE`)。该决定不改变“协议与实现分离”的架构原则：父任务只进入
 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`，`S6-T5.4-I1` 仍为 `NOT YET APPROVED`。
+
+### S6-T5.4-I1 实现状态附注（2026-07-25）
+
+项目负责人随后单独批准 I1；当前最小实现已完成，状态为 `Completed, pending human acceptance`。它以合成内存
+reader/registry 验证 `ContentRef`、精确 legacy allowlist 和 UTF-8 SHA-256，而非读取既有语料或调用任何向量库。
+`ResolvedContent` 仍只由 `contracts/` 拥有，`context/` 不能创建第二个 DTO。该实现不授权 S6-T5.5、ContextBuilder、
+Citation 或正式 RAG 安全实验。

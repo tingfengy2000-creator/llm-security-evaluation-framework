@@ -854,3 +854,16 @@ Truth。父任务 `S6-T5.4` 仍为 `APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCK
 这是协议验收而不是实现验收：`S6-T5.4-I1` 仍为 `NOT YET APPROVED`，不得创建 ContentResolver、读取
 corpus 正文、生成 fixture mapping、实现 ContextBuilder/Citation 或进行正式 RAG 安全实验。S6-T5.5 及后续
 任务仍未批准。原 blocker 的发现背景、风险和 fail-closed 停止行为必须保留为历史审计证据。
+
+## 18. S6-T5.4-I1：受控语料正文解析最小实现（2026-07-25，待人工验收）
+
+在项目负责人单独批准后，`S6-T5.4-I1` 已按 TDD 实现最小闭环：`ContentRef + expected_content_hash ->
+CorpusContentResolver -> ApprovedCorpusSnapshotRegistry -> CorpusSnapshotReader -> UTF-8 SHA-256 verification ->
+ResolvedContent`。稳定 DTO 与错误唯一归属 `contracts/`；`context/` 只拥有行为协议、注入式内存 registry/reader、
+legacy `chroma:` 精确白名单适配与 resolver，且错误仅 re-export。`ResolvedContent.content` 为短生命周期能力对象，
+不进入 repr、普通审计对象、trace、缓存、持久化或异常消息。
+
+本轮所有正文与 legacy mapping 都是测试内合成内存值：没有读取或修改 Stage 6 fixture、语料正文、Ground Truth 或
+评估器；没有调用 Embedding、Chroma、Groq 或 LLM；没有实现 ContextBuilder、Citation 或 S6-T5.5。父任务
+`S6-T5.4` 与 I1 当前均为 `Completed, pending human acceptance`，正式 RAG 安全实验仍为 `Not started`。这证明
+的是受控正文解析的离线工程边界和完整性校验，不证明检索质量、RAG 安全、抗知识污染或生产能力。

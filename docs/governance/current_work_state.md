@@ -17,13 +17,14 @@
 
 ## Current Task
 
-- Task ID: `GOV-S6-T5.4-P1-ACCEPTANCE`.
-- Task name: `S6-T5.4 Content Resolution Protocol Human Acceptance Record`.
-- Execution status: **Completed**. The project owner has recorded the S6-T5.4-P1 protocol-design human acceptance; this task does not create or test ContentResolver business behavior.
+- Task ID: `S6-T5.4-I1`.
+- Task name: `Controlled Corpus ContentResolver Minimal Implementation`.
+- Execution status: **Completed, pending human acceptance**. The implementation uses only synthetic in-memory content and exact UTF-8 SHA-256 verification.
 - S6-T5.4-P1: **HUMAN_ACCEPTED**.
+- Governance acceptance record: `GOV-S6-T5.4-P1-ACCEPTANCE`.
 - S6-T5.4 protocol blocker: **RESOLVED_BY_APPROVED_PROTOCOL_FREEZE**. The original discovery, risks and fail-closed stop remain preserved in the blocker record.
-- Parent task: `S6-T5.4 Controlled Corpus ContentResolver` is **READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL**.
-- S6-T5.4-I1 implementation: **NOT YET APPROVED**.
+- S6-T5.4: **Completed, pending human acceptance**.
+- S6-T5.4-I1: **Completed, pending human acceptance**. It is an offline engineering implementation, not a formal RAG security experiment.
 - Blocker record: [S6-T5.4 protocol blocker](s6_t5_4_protocol_blocker_record.md).
 
 ## Stage 6 Implementation State
@@ -38,27 +39,27 @@
 - S6-T5.3-P1: **HUMAN_ACCEPTED**. Public metadata schema `1.1` carries a validated, non-label, no-body `parent_doc_id` from VectorDocument to VectorSearchHit; schema `1.0` remains legacy-compatible.
 - S6-T5.3: **HUMAN_ACCEPTED**. DenseRetriever accepts only schema `1.1` hits, validates request/store provenance, and produces canonical `RetrievalEvidence` plus `RetrievalTrace` without reading the corpus.
 - S6-T5.3-H1: **HUMAN_ACCEPTED**. Trace `candidate_count` means raw query hits before sorting/deduplication; store provenance and provider/store failure boundaries fail closed with redacted Retrieval errors.
-- S6-T5.4: **READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL**. The four protocols are frozen and HUMAN_ACCEPTED; ContentResolver business code, corpus-content access and fixture mapping still require the separately approved `S6-T5.4-I1` task.
+- S6-T5.4: **Completed, pending human acceptance**. I1 implements only contracts, injected protocols and synthetic in-memory dependencies; it does not read Stage 6 fixture content or create a real fixture mapping.
 - Audit boundary: ordinary `repr()` and `to_audit_dict()` omit retrieval query text, document plaintext and content-reference expansion. Runtime query objects physically exclude evaluator fields.
 
 ## Approval Gate
 
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, and S6-T5.4-P1.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
-- `S6-T5.4 ContentResolver` is ready only for a separate implementation approval. `S6-T5.4-I1` is **NOT YET APPROVED** and no ContentResolver TDD may start.
+- `S6-T5.4-I1` is **Completed, pending human acceptance**. No follow-up ContextBuilder, citation or S6-T5.5 work is approved before this task receives human acceptance.
 - Not approved: `S6-T5.5` and every later S6-T5 task.
 - Formal RAG security experiment: **Not started**.
-- Next human decision: approve or reject the scoped `S6-T5.4-I1` implementation task. S6-T5.5 remains separately unapproved.
+- Next human decision: accept or reject the scoped `S6-T5.4-I1` engineering implementation. S6-T5.5 remains separately unapproved.
 
 ## Must Not Start
 
-- ContentResolver implementation, document-content access, ContextBuilder, evidence envelope, citation binding, abstention, Trust policy or retrieval guard. The protocol blocker is resolved, but `S6-T5.4-I1` has not been approved.
+- Additional ContentResolver changes, document-content access beyond synthetic test inputs, ContextBuilder, evidence envelope, citation binding, abstention, Trust policy or retrieval guard. I1 is complete and pending human acceptance; no follow-up implementation is approved.
 - Groq, mock/real LLM invocation, evaluator, metrics, T10-T15, formal RAG attack matrix or report generation.
 - New Stage 6 business code under `src/codeguarder/`, any mutation of Stage 1-5, or any mutation of Stage 6 data fixtures.
 
 ## Current Claims Boundary
 
-Can claim: within the offline engineering-test scope, deterministic and label-isolated retrieval runtime contracts plus the provider-neutral DenseRetriever have been HUMAN_ACCEPTED. S6-T5.3-P1 repaired the metadata carrier with schema `1.1`; H1 fixed candidate-count semantics and redacted failure boundaries. S6-T5.4-P1 protocol design has been HUMAN_ACCEPTED and resolved the protocol blocker; implementation remains separately unapproved. Historical public loader imports remain compatible through the canonical `llmguard` type.
+Can claim: within the offline engineering-test scope, deterministic and label-isolated retrieval runtime contracts plus the provider-neutral DenseRetriever have been HUMAN_ACCEPTED. S6-T5.4-P1 protocol design has been HUMAN_ACCEPTED; S6-T5.4-I1 implements a minimal, provider-neutral ContentResolver over synthetic in-memory content and is pending human acceptance. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
 Cannot claim: retrieval quality, retrieval security effectiveness, context safety, citation accuracy, trustworthiness, RAG metrics, production readiness, or research-experiment outcomes.
 
@@ -72,4 +73,4 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 ## Last Update
 
 - Date: `2026-07-25`.
-- Updated by: Codex under explicit project-owner approval. GOV-S6-T5.4-P1-ACCEPTANCE records S6-T5.4-P1 as HUMAN_ACCEPTED and the blocker as RESOLVED_BY_APPROVED_PROTOCOL_FREEZE. S6-T5.4 is READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL; S6-T5.4-I1 is NOT YET APPROVED; S6-T5.5 is Not approved. Formal RAG security experiment: **Not started**.
+- Updated by: Codex under explicit project-owner approval. S6-T5.4-I1 is Completed, pending human acceptance; S6-T5.4 is Completed, pending human acceptance. The implementation used synthetic in-memory content only. S6-T5.5 is Not approved. Formal RAG security experiment: **Not started**.

@@ -12,6 +12,10 @@ from .errors import (
     ChunkingContractError,
     ChunkingInputError,
     ChunkingIntegrityError,
+    ContentResolutionError,
+    ContentResolutionIntegrityError,
+    ContentResolutionLookupError,
+    ContentResolutionRuntimeError,
     ContentRefError,
     RetrievalConfigurationError,
     RetrievalContractError,
@@ -19,6 +23,7 @@ from .errors import (
     RetrievalIntegrityError,
     RetrievalProjectionError,
 )
+from .content_resolution import ResolvedContent
 from .hashing import canonical_json, canonical_json_sha256
 from .content_ref import ContentRef
 from .identifiers import derive_evidence_uid
@@ -55,6 +60,10 @@ __all__ = [
     "ChunkingInputError",
     "ChunkingIntegrityError",
     "ChunkingStrategy",
+    "ContentResolutionError",
+    "ContentResolutionIntegrityError",
+    "ContentResolutionLookupError",
+    "ContentResolutionRuntimeError",
     "ContentRef",
     "ContentRefError",
     "DocumentRecord",
@@ -65,6 +74,7 @@ __all__ = [
     "RetrievalContractError",
     "RAGAttemptRecord",
     "RAGSecurityEnvelope",
+    "ResolvedContent",
     "REQUIRED_DOCUMENT_FIELDS",
     "RetrievalEvidence",
     "RetrievalEvidenceSummary",

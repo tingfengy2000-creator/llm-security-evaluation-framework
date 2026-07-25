@@ -194,8 +194,8 @@ class ContextPersistenceTests(unittest.TestCase):
             "S6-T5.3: **HUMAN_ACCEPTED**",
             "S6-T5.3-H1: **HUMAN_ACCEPTED**",
             "S6-T5.4-P1: **HUMAN_ACCEPTED**",
-            "S6-T5.4: **READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL**",
-            "S6-T5.4-I1` is **NOT YET APPROVED**",
+            "S6-T5.4: **Completed, pending human acceptance**",
+            "S6-T5.4-I1` is **Completed, pending human acceptance**",
             "Not approved: `S6-T5.5` and every later S6-T5 task.",
             "Formal RAG security experiment: **Not started**",
             "S6-T5.3 DenseRetriever",
@@ -214,9 +214,8 @@ class ContextPersistenceTests(unittest.TestCase):
         for required in (
             "S6-T5.4",
             "RESOLVED_BY_APPROVED_PROTOCOL_FREEZE",
-            "READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL",
             "S6-T5.4-I1",
-            "NOT YET APPROVED",
+            "Completed, pending human acceptance",
             "S6-T5.5",
             "Formal RAG security experiment: **Not started**",
         ):
@@ -244,9 +243,9 @@ class ContextPersistenceTests(unittest.TestCase):
         for required in (
             "s6_t5_3_dense_retriever_human_accepted",
             "s6_t5_3_h1_human_accepted",
-            "s6_t5_4_status: `ready_for_separate_implementation_approval`",
+            "s6_t5_4_status: `completed_pending_human_acceptance`",
             "s6_t5_4_p1_status: `human_accepted`",
-            "s6_t5_4_i1_status: `not_yet_approved`",
+            "s6_t5_4_i1_status: `completed_pending_human_acceptance`",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, readme)
@@ -317,7 +316,10 @@ class ContextPersistenceTests(unittest.TestCase):
         self.assertIn("safe projection", adr)
         self.assertIn("S6-T5.2", state)
         self.assertIn("**HUMAN_ACCEPTED**", state)
-        self.assertIn("`S6-T5.4 ContentResolver`", state)
+        self.assertIn("`S6-T5.4-I1`", state)
+        self.assertTrue(
+            (GOVERNANCE / "s6_t5_4_completion_record.md").is_file(),
+        )
 
     def test_long_term_requirements_keep_mandatory_research_capabilities(self) -> None:
         requirements = (

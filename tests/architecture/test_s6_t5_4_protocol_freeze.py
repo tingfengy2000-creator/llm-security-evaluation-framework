@@ -73,7 +73,7 @@ class S6T54ProtocolFreezeTests(unittest.TestCase):
             with self.subTest(required=required):
                 self.assertIn(required, spec)
 
-    def test_human_acceptance_resolves_blocker_without_approving_implementation(
+    def test_accepted_protocol_allows_only_pending_human_review_implementation(
         self,
     ) -> None:
         blocker = BLOCKER.read_text(encoding="utf-8")
@@ -84,9 +84,9 @@ class S6T54ProtocolFreezeTests(unittest.TestCase):
             "GOV-S6-T5.4-P1-ACCEPTANCE",
             "S6-T5.4-P1: **HUMAN_ACCEPTED**",
             "RESOLVED_BY_APPROVED_PROTOCOL_FREEZE",
-            "READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL",
+            "S6-T5.4: **Completed, pending human acceptance**",
             "S6-T5.4-I1",
-            "NOT YET APPROVED",
+            "Completed, pending human acceptance",
             "S6-T5.5",
             "Formal RAG security experiment: **Not started**",
         ):
@@ -105,13 +105,16 @@ class S6T54ProtocolFreezeTests(unittest.TestCase):
         self.assertNotIn("四项协议尚未冻结", state)
         self.assertNotRegex(state, r"S6-T5\.3[^\n]*pending")
         self.assertIn("s6_t5_4_p1_status: `human_accepted`", readme)
-        self.assertIn(
-            "s6_t5_4_status: `ready_for_separate_implementation_approval`", readme
-        )
+        self.assertIn("s6_t5_4_status: `completed_pending_human_acceptance`", readme)
+        self.assertIn("s6_t5_4_i1_status: `completed_pending_human_acceptance`", readme)
+        self.assertTrue((GOVERNANCE / "s6_t5_4_completion_record.md").is_file())
 
     def test_context_package_cannot_own_a_stable_dto_copy(self) -> None:
-        self.assertFalse(CONTEXT_ROOT.exists())
+        self.assertTrue(CONTEXT_ROOT.is_dir())
+        self.assertFalse((CONTEXT_ROOT / "models.py").exists())
         for path in RETRIEVAL_ROOT.rglob("*.py"):
+            if path == RETRIEVAL_ROOT / "contracts" / "content_resolution.py":
+                continue
             module = ast.parse(path.read_text(encoding="utf-8"))
             defined = {
                 node.name

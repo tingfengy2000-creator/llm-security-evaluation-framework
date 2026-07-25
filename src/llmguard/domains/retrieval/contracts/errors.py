@@ -71,3 +71,27 @@ class ContentRefError(RetrievalInputError):
     """Raised when an opaque content reference is not safe to persist."""
 
     error_code = "INVALID_CONTENT_REF"
+
+
+class ContentResolutionError(RetrievalContractError):
+    """Base error for redacted controlled-corpus resolution failures."""
+
+    error_code = "CONTENT_RESOLUTION_FAILURE"
+
+
+class ContentResolutionLookupError(ContentResolutionError):
+    """Raised when an approved content reference, snapshot, or chunk is absent."""
+
+    error_code = "UNKNOWN_CONTENT_REF"
+
+
+class ContentResolutionIntegrityError(ContentResolutionError):
+    """Raised when a controlled-corpus identity or content hash is inconsistent."""
+
+    error_code = "CONTENT_HASH_MISMATCH"
+
+
+class ContentResolutionRuntimeError(ContentResolutionError):
+    """Raised when an injected content-resolution dependency fails unexpectedly."""
+
+    error_code = "CONTENT_RESOLUTION_FAILURE"
