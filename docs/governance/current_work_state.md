@@ -17,14 +17,15 @@
 
 ## Current Task
 
-- Task ID: `S6-T5.4-I1`.
-- Task name: `Controlled Corpus ContentResolver Minimal Implementation`.
-- Execution status: **Completed, pending human acceptance**. The implementation uses only synthetic in-memory content and exact UTF-8 SHA-256 verification.
+- Task ID: `S6-T5.4-H1`.
+- Task name: `ContentResolver Capability and Failure-Boundary Hardening`.
+- Execution status: **Completed, pending human review**. H1 removes the public registry capability and rebuilds injected dependency errors from trusted type/code pairs only.
 - S6-T5.4-P1: **HUMAN_ACCEPTED**.
 - Governance acceptance record: `GOV-S6-T5.4-P1-ACCEPTANCE`.
 - S6-T5.4 protocol blocker: **RESOLVED_BY_APPROVED_PROTOCOL_FREEZE**. The original discovery, risks and fail-closed stop remain preserved in the blocker record.
 - S6-T5.4: **Completed, pending human acceptance**.
 - S6-T5.4-I1: **Completed, pending human acceptance**. It is an offline engineering implementation, not a formal RAG security experiment.
+- S6-T5.4-H1: **Completed, pending human review**. It is an acceptance hardening fix, not a new retrieval or RAG capability.
 - Blocker record: [S6-T5.4 protocol blocker](s6_t5_4_protocol_blocker_record.md).
 
 ## Stage 6 Implementation State
@@ -40,16 +41,17 @@
 - S6-T5.3: **HUMAN_ACCEPTED**. DenseRetriever accepts only schema `1.1` hits, validates request/store provenance, and produces canonical `RetrievalEvidence` plus `RetrievalTrace` without reading the corpus.
 - S6-T5.3-H1: **HUMAN_ACCEPTED**. Trace `candidate_count` means raw query hits before sorting/deduplication; store provenance and provider/store failure boundaries fail closed with redacted Retrieval errors.
 - S6-T5.4: **Completed, pending human acceptance**. I1 implements only contracts, injected protocols and synthetic in-memory dependencies; it does not read Stage 6 fixture content or create a real fixture mapping.
+- S6-T5.4-H1: **Completed, pending human review**. The resolver has no public registry/reader escape hatch; injected adapter, registry and reader errors are re-instantiated with fixed redacted messages while preserving causes.
 - Audit boundary: ordinary `repr()` and `to_audit_dict()` omit retrieval query text, document plaintext and content-reference expansion. Runtime query objects physically exclude evaluator fields.
 
 ## Approval Gate
 
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, and S6-T5.4-P1.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
-- `S6-T5.4-I1` is **Completed, pending human acceptance**. No follow-up ContextBuilder, citation or S6-T5.5 work is approved before this task receives human acceptance.
+- `S6-T5.4-H1` is **Completed, pending human review**; `S6-T5.4-I1` remains **Completed, pending human acceptance**. No follow-up ContextBuilder, citation or S6-T5.5 work is approved before the scoped resolver work receives human acceptance.
 - Not approved: `S6-T5.5` and every later S6-T5 task.
 - Formal RAG security experiment: **Not started**.
-- Next human decision: accept or reject the scoped `S6-T5.4-I1` engineering implementation. S6-T5.5 remains separately unapproved.
+- Next human decision: review `S6-T5.4-H1`, then accept or reject the scoped S6-T5.4 implementation. S6-T5.5 remains separately unapproved.
 
 ## Must Not Start
 
@@ -59,7 +61,7 @@
 
 ## Current Claims Boundary
 
-Can claim: within the offline engineering-test scope, deterministic and label-isolated retrieval runtime contracts plus the provider-neutral DenseRetriever have been HUMAN_ACCEPTED. S6-T5.4-P1 protocol design has been HUMAN_ACCEPTED; S6-T5.4-I1 implements a minimal, provider-neutral ContentResolver over synthetic in-memory content and is pending human acceptance. Historical public loader imports remain compatible through the canonical `llmguard` type.
+Can claim: within the offline engineering-test scope, deterministic and label-isolated retrieval runtime contracts plus the provider-neutral DenseRetriever have been HUMAN_ACCEPTED. S6-T5.4-P1 protocol design has been HUMAN_ACCEPTED; S6-T5.4-I1 implements a minimal provider-neutral ContentResolver over synthetic in-memory content, and H1 closes the public capability escape plus injected-error redaction boundary. I1 remains pending human acceptance; H1 is pending human review. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
 Cannot claim: retrieval quality, retrieval security effectiveness, context safety, citation accuracy, trustworthiness, RAG metrics, production readiness, or research-experiment outcomes.
 
@@ -73,4 +75,4 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 ## Last Update
 
 - Date: `2026-07-25`.
-- Updated by: Codex under explicit project-owner approval. S6-T5.4-I1 is Completed, pending human acceptance; S6-T5.4 is Completed, pending human acceptance. The implementation used synthetic in-memory content only. S6-T5.5 is Not approved. Formal RAG security experiment: **Not started**.
+- Updated by: Codex under explicit project-owner approval. S6-T5.4-H1 is Completed, pending human review; S6-T5.4-I1 and parent S6-T5.4 remain Completed, pending human acceptance. The implementation used synthetic in-memory content only. S6-T5.5 is Not approved. Formal RAG security experiment: **Not started**.

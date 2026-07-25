@@ -6,7 +6,7 @@ import hashlib
 from dataclasses import dataclass, field
 
 from .content_ref import ContentRef
-from .errors import ContentResolutionIntegrityError
+from .errors import ContentResolutionIntegrityError, ContentResolutionRuntimeError
 from .identifiers import require_chunk_id, require_public_identifier, require_sha256
 
 
@@ -44,8 +44,8 @@ class ResolvedContent:
         require_chunk_id(self.chunk_id)
         require_sha256(self.content_hash, "content_hash")
         if not isinstance(self.content, str):
-            raise ContentResolutionIntegrityError(
-                "content resolution contract is invalid",
+            raise ContentResolutionRuntimeError(
+                "content resolution failed",
                 error_code="CONTENT_RESOLUTION_FAILURE",
             )
         if (

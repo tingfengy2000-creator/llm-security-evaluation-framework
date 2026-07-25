@@ -36,12 +36,6 @@ class CorpusContentResolver(ContentResolver):
         self._registry = registry
         self._legacy_adapter = legacy_adapter
 
-    @property
-    def registry(self) -> ApprovedCorpusSnapshotRegistry:
-        """Expose the injected registry only for composition and isolated tests."""
-
-        return self._registry
-
     def resolve(
         self,
         *,
@@ -76,8 +70,8 @@ class CorpusContentResolver(ContentResolver):
                 content_hash=expected_hash,
                 content=content,
             )
-        except ContentResolutionError:
-            raise
+        except ContentResolutionError as error:
+            raise self._redact_dependency_error(error) from error
         except Exception as error:
             raise ContentResolutionRuntimeError(
                 "content resolution failed",
@@ -96,8 +90,8 @@ class CorpusContentResolver(ContentResolver):
             canonical_ref = self._legacy_adapter.to_canonical(
                 legacy_content_ref=content_ref,
             )
-        except ContentResolutionError:
-            raise
+        except ContentResolutionError as error:
+            raise self._redact_dependency_error(error) from error
         except Exception as error:
             raise ContentResolutionRuntimeError(
                 "content resolution failed",
@@ -125,22 +119,22 @@ class CorpusContentResolver(ContentResolver):
     def _get_reader(self, snapshot_id: str) -> object:
         try:
             return self._registry.get_reader(corpus_snapshot_id=snapshot_id)
-        except ContentResolutionError:
-            raise
+        except ContentResolutionError as error:
+            raise self._redact_dependency_error(error) from error
         except Exception as error:
             raise ContentResolutionRuntimeError(
                 "content resolution failed",
                 error_code="CONTENT_RESOLUTION_FAILURE",
             ) from error
 
-    @staticmethod
-    def _validate_reader_identity(reader: object, snapshot_id: str) -> None:
+    @classmethod
+    def _validate_reader_identity(cls, reader: object, snapshot_id: str) -> None:
         try:
             reader_snapshot_id = reader.corpus_snapshot_id  # type: ignore[attr-defined]
             reader_fingerprint = reader.snapshot_fingerprint  # type: ignore[attr-defined]
             require_sha256(reader_fingerprint, "snapshot_fingerprint")
-        except ContentResolutionError:
-            raise
+        except ContentResolutionError as error:
+            raise cls._redact_dependency_error(error) from error
         except Exception as error:
             raise ContentResolutionIntegrityError(
                 "approved corpus snapshot integrity check failed",
@@ -152,12 +146,12 @@ class CorpusContentResolver(ContentResolver):
                 error_code="CORPUS_SNAPSHOT_INTEGRITY_FAILURE",
             )
 
-    @staticmethod
-    def _read_chunk(reader: object, chunk_id: str) -> str:
+    @classmethod
+    def _read_chunk(cls, reader: object, chunk_id: str) -> str:
         try:
             content = reader.read_chunk(chunk_id=chunk_id)  # type: ignore[attr-defined]
-        except ContentResolutionError:
-            raise
+        except ContentResolutionError as error:
+            raise cls._redact_dependency_error(error) from error
         except Exception as error:
             raise ContentResolutionRuntimeError(
                 "content resolution failed",
@@ -169,3 +163,44 @@ class CorpusContentResolver(ContentResolver):
                 error_code="CONTENT_RESOLUTION_FAILURE",
             )
         return content
+
+    @staticmethod
+    def _redact_dependency_error(error: ContentResolutionError) -> ContentResolutionError:
+        """Rebuild injected errors from trusted type/code pairs without their text."""
+
+        error_code = getattr(error, "error_code", None)
+        if isinstance(error, ContentResolutionLookupError):
+            messages = {
+                "UNKNOWN_CONTENT_REF": "approved content reference is unavailable",
+                "UNKNOWN_CORPUS_SNAPSHOT": "approved corpus snapshot is unavailable",
+                "UNKNOWN_CORPUS_CHUNK": "approved corpus chunk is unavailable",
+            }
+            if error_code in messages:
+                return ContentResolutionLookupError(
+                    messages[error_code],
+                    error_code=error_code,
+                )
+        if isinstance(error, ContentResolutionIntegrityError):
+            messages = {
+                "CONTENT_HASH_MISMATCH": "content hash does not match",
+                "CORPUS_SNAPSHOT_INTEGRITY_FAILURE": (
+                    "approved corpus snapshot integrity check failed"
+                ),
+            }
+            if error_code in messages:
+                return ContentResolutionIntegrityError(
+                    messages[error_code],
+                    error_code=error_code,
+                )
+        if (
+            isinstance(error, ContentResolutionRuntimeError)
+            and error_code == "CONTENT_RESOLUTION_FAILURE"
+        ):
+            return ContentResolutionRuntimeError(
+                "content resolution failed",
+                error_code="CONTENT_RESOLUTION_FAILURE",
+            )
+        return ContentResolutionRuntimeError(
+            "content resolution failed",
+            error_code="CONTENT_RESOLUTION_FAILURE",
+        )

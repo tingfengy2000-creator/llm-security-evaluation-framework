@@ -47,8 +47,8 @@
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
 | 当前最高完成阶段 | Stage 6 的 S6-T5.3 DenseRetriever 已通过人工验收，验收边界仅为离线工程行为。 |
-| 当前任务 | `S6-T5.4-I1` 已完成受控、内存内正文解析最小实现，**pending human acceptance**；它不是正式 RAG 安全实验。 |
-| 当前审批门 | S6-T5.3 与 S6-T5.4-P1 已 HUMAN_ACCEPTED；S6-T5.4 blocker 为 `RESOLVED_BY_APPROVED_PROTOCOL_FREEZE`；S6-T5.4/I1 已完成工程实现，等待人工验收。 |
+| 当前任务 | `S6-T5.4-H1` 已完成 capability 与 failure-boundary 加固，**pending human review**；I1 与父任务仍为 pending human acceptance；它不是正式 RAG 安全实验。 |
+| 当前审批门 | S6-T5.3 与 S6-T5.4-P1 已 HUMAN_ACCEPTED；S6-T5.4 blocker 为 `RESOLVED_BY_APPROVED_PROTOCOL_FREEZE`；I1 已完成工程实现，H1 已完成验收加固并等待人工复核。 |
 | 下一批准任务 | `S6-T5.5` 及以后仍未批准；在 I1 人工验收前不得启动 ContextBuilder、Citation 或任何正式 RAG 安全实验。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
 | 最近工程验证 | S6-T5.3-P1 metadata carrier、DenseRetriever 与 S6-T5.3-H1 trace/failure-boundary 离线加固；无正式 RAG 实验。 |
@@ -88,7 +88,7 @@
 | S6-T5.1 | Chunking Contracts | IdentityChunker 与稳定 Chunk ID | 已接受 | `HUMAN_ACCEPTED` | `412d886`、`09584c8` | 无 |
 | S6-T5.2 | Retrieval Runtime Contracts and IDs | 安全投影、Request、Evidence、Trace、ContentRef | 已实现 | `IMPLEMENTED` | `4c12181`、[完成记录](s6_t5_2_completion_record.md) | 人工验收 |
 | S6-T5.3 | DenseRetriever | 透明 Dense Retrieval | S6-T5.3 DenseRetriever 已通过人工验收；P1/H1 均已接受 | `ENGINEERING_VALIDATED` | [完成记录](s6_t5_3_completion_record.md)、[阻断记录](s6_t5_3_protocol_blocker_record.md)、`72a2445` | S6-T5.4 仍需独立批准 |
-| S6-T5.4 | Controlled Corpus ContentResolver | 受控正文解析与 hash 校验 | I1 仅以合成内存正文完成协议实现和离线工程验证，待人工验收 | `ENGINEERING_VALIDATION_PENDING_HUMAN_ACCEPTANCE` | [completion record](s6_t5_4_completion_record.md)、[blocker record](s6_t5_4_protocol_blocker_record.md)、PODR-015 | 人工验收 I1；S6-T5.5 仍须独立批准 |
+| S6-T5.4 | Controlled Corpus ContentResolver | 受控正文解析与 hash 校验 | I1 仅以合成内存正文完成协议实现；H1 完成 capability 与注入错误边界加固，待人工复核 | `ENGINEERING_VALIDATION_PENDING_HUMAN_ACCEPTANCE` | [completion record](s6_t5_4_completion_record.md)、[blocker record](s6_t5_4_protocol_blocker_record.md)、PODR-015 | 人工复核 H1、验收 I1；S6-T5.5 仍须独立批准 |
 | S6-T5.5–S6-T5.8 | Envelope、Context、后续受控能力 | 逐项增量实现 | 未批准 | `PLANNED_NOT_IMPLEMENTED` | 同上 | S6-T5.4-I1 人工验收后仍须单独批准 |
 | Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | 规划中 | `PLANNED` | [长期需求](long_term_research_requirements.md) | Stage 6 基线 |
 | Stage 6.2 | Multi-Evidence Trustworthy Retrieval | 可信聚合、重排、拒答 | 规划中 | `PLANNED` | [长期需求](long_term_research_requirements.md) | Stage 6.1/设计批准 |
@@ -187,7 +187,7 @@ ADR、设计规格和实施计划只冻结未来边界与验证方法。设计�
 | S6-T5.1 | ChunkRecord、IdentityChunker、稳定 ID | human accepted | 工程验证 | [学习记录](../../deliverables/learning_notes.md) | 否 | 无 |
 | S6-T5.2 | safe projection、Request/Evidence/Trace/ContentRef | implemented，pending human acceptance | 工程验证 | [完成记录](s6_t5_2_completion_record.md) | 否 | 人工验收 |
 | S6-T5.3 | DenseRetriever | HUMAN_ACCEPTED；P1/H1 已接受 | `ENGINEERING_VALIDATED` | [完成记录](s6_t5_3_completion_record.md) | 否 | S6-T5.4 独立批准 |
-| S6-T5.4 | Controlled Corpus ContentResolver | I1 已完成受控内存实现，待人工验收 | `ENGINEERING_VALIDATION_PENDING_HUMAN_ACCEPTANCE` | [completion record](s6_t5_4_completion_record.md)、[blocker record](s6_t5_4_protocol_blocker_record.md) | 否 | 人工验收 I1；S6-T5.5 仍未批准 |
+| S6-T5.4 | Controlled Corpus ContentResolver | I1 已完成受控内存实现；H1 已完成验收加固，待人工复核 | `ENGINEERING_VALIDATION_PENDING_HUMAN_ACCEPTANCE` | [completion record](s6_t5_4_completion_record.md)、[blocker record](s6_t5_4_protocol_blocker_record.md) | 否 | 人工复核 H1、验收 I1；S6-T5.5 仍未批准 |
 | S6-T5.5+ | Envelope、Context、Citation、Trust 等 | not approved | `PLANNED_NOT_IMPLEMENTED` | 同上 | 否 | 前序任务 |
 
 截至当前状态，Stage 6 已完成架构、契约、版本化 metadata carrier 与无正文 DenseRetriever 的工程验证。虽然真实 MiniLM 与 Chroma 的固定小语料集成测试已运行，但没有正式 R1–R6 攻击矩阵、RAG 指标或防护效果实验，故不能宣称“Stage 6 RAG 安全实验已完成”。
@@ -237,7 +237,7 @@ ADR、设计规格和实施计划只冻结未来边界与验证方法。设计�
 | GATE-GOV-ER1 | Experiment Master Record | 本文、入口同步、治理测试、GOV-ER1-H1 十列账本加固 | `HUMAN_ACCEPTED` | 已完成 | 不自动批准 S6-T5.4 | 项目负责人 |
 | GATE-S6-T5.2 | Retrieval Runtime Contracts and IDs | `4c12181`、完成记录、回归测试 | `HUMAN_ACCEPTED` | 已批准 S6-T5.3 | S6-T5.4 及以后 | 项目负责人 |
 | GATE-S6-T5.3 | Provider-Neutral DenseRetriever | P1 metadata contract、H1 hardening、完成记录、离线 TDD 证据 | `HUMAN_ACCEPTED` | 不自动批准任何后续任务 | ContentResolver 及以后 | 项目负责人 |
-| GATE-S6-T5.4 | Controlled Corpus ContentResolver | P1 人工验收、I1 合成内存实现、定向/架构/隔离测试 | `COMPLETED_PENDING_HUMAN_ACCEPTANCE` | 人工验收 I1 后才可评估后续独立任务 | S6-T5.5 及以后 | 项目负责人 |
+| GATE-S6-T5.4 | Controlled Corpus ContentResolver | P1 人工验收、I1 合成内存实现、H1 capability/failure-boundary 加固、定向/架构/隔离测试 | `COMPLETED_PENDING_HUMAN_ACCEPTANCE` | 人工复核 H1 并验收 I1 后才可评估后续独立任务 | S6-T5.5 及以后 | 项目负责人 |
 
 **当前审批顺序**：GOV-ER1、GOV-ER1-H1、GOV-PODR1、S6-T5.2、S6-T5.3-P1、S6-T5.3-H1、S6-T5.3 与 S6-T5.4-P1 均已获人工验收。schema `1.1` 已解除 `parent_doc_id` identity contract blocker，且其历史条目仍为 `RESOLVED_BY_VERSIONED_PUBLIC_METADATA_CONTRACT`。S6-T5.4 protocol blocker 已由 `RESOLVED_BY_APPROVED_PROTOCOL_FREEZE` 解决；`S6-T5.4-I1` 已完成合成内存工程实现，等待人工验收；正式 RAG 安全实验：**Not started**。
 
@@ -374,3 +374,4 @@ git log -15 --oneline
 | 2026-07-25 | S6-T5.4-P1 协议冻结 | 第 2、4、10、12、14、20 节 | 冻结 ContentResolver 输入/返回、正文能力 DTO 所有权、受控 snapshot reader、legacy exact-match mapping 与错误层级；P1 完成但待人工验收，未实现正文解析 | [blocker record](s6_t5_4_protocol_blocker_record.md)、PODR-013、设计规格、ADR | 通过 `git log -1 -- docs/governance/experiment_master_record.md` 动态解析 |
 | 2026-07-25 | GOV-S6-T5.4-P1-ACCEPTANCE | 第 2、4、10、12、14、20 节 | 项目负责人接受 P1 协议设计，将 blocker 标记为 RESOLVED_BY_APPROVED_PROTOCOL_FREEZE；S6-T5.4 仅进入独立实现审批等待状态 | [blocker record](s6_t5_4_protocol_blocker_record.md)、PODR-014、治理测试 | 通过 `git log -1 -- docs/governance/experiment_master_record.md` 动态解析 |
 | 2026-07-25 | S6-T5.4-I1 受控正文解析最小实现 | 第 2、4、10、14、20 节 | 仅用合成内存正文实现 `ContentRef + expected hash -> ResolvedContent`、受控 snapshot registry/reader 与 legacy exact-match adapter；未读取 Stage 6 fixture，待人工验收 | [completion record](s6_t5_4_completion_record.md)、PODR-015、定向/架构/隔离测试 | 通过 `git log -1 -- docs/governance/experiment_master_record.md` 动态解析 |
+| 2026-07-25 | S6-T5.4-H1 capability/failure-boundary 加固 | 第 2、4、10、14、20 节 | 删除公开 registry capability；将注入 adapter/registry/reader 的领域异常按受信 type/code 重新构造为固定脱敏外部错误，未知或交叉 code fail closed 为 runtime；仅合成内存测试，待人工复核 | [completion record](s6_t5_4_completion_record.md)、定向/架构/隔离测试 | 通过 `git log -1 -- docs/governance/experiment_master_record.md` 动态解析 |

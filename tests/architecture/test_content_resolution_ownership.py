@@ -55,6 +55,22 @@ class ContentResolutionOwnershipTests(unittest.TestCase):
         module = ast.parse(errors.read_text(encoding="utf-8"))
         self.assertFalse(any(isinstance(node, ast.ClassDef) for node in module.body))
 
+    def test_resolver_has_no_public_capability_escape_hatch(self) -> None:
+        resolver = CONTEXT_ROOT / "resolver.py"
+        module = ast.parse(resolver.read_text(encoding="utf-8"))
+        resolver_class = next(
+            node
+            for node in module.body
+            if isinstance(node, ast.ClassDef) and node.name == "CorpusContentResolver"
+        )
+        public_members = {
+            node.name
+            for node in resolver_class.body
+            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+            and not node.name.startswith("_")
+        }
+        self.assertEqual({"resolve"}, public_members)
+
 
 if __name__ == "__main__":
     unittest.main()

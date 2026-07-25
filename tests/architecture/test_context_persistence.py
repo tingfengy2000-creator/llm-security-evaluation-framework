@@ -195,7 +195,8 @@ class ContextPersistenceTests(unittest.TestCase):
             "S6-T5.3-H1: **HUMAN_ACCEPTED**",
             "S6-T5.4-P1: **HUMAN_ACCEPTED**",
             "S6-T5.4: **Completed, pending human acceptance**",
-            "S6-T5.4-I1` is **Completed, pending human acceptance**",
+            "`S6-T5.4-I1` remains **Completed, pending human acceptance**",
+            "S6-T5.4-H1: **Completed, pending human review**",
             "Not approved: `S6-T5.5` and every later S6-T5 task.",
             "Formal RAG security experiment: **Not started**",
             "S6-T5.3 DenseRetriever",
@@ -215,6 +216,7 @@ class ContextPersistenceTests(unittest.TestCase):
             "S6-T5.4",
             "RESOLVED_BY_APPROVED_PROTOCOL_FREEZE",
             "S6-T5.4-I1",
+            "S6-T5.4-H1",
             "Completed, pending human acceptance",
             "S6-T5.5",
             "Formal RAG security experiment: **Not started**",
@@ -246,6 +248,7 @@ class ContextPersistenceTests(unittest.TestCase):
             "s6_t5_4_status: `completed_pending_human_acceptance`",
             "s6_t5_4_p1_status: `human_accepted`",
             "s6_t5_4_i1_status: `completed_pending_human_acceptance`",
+            "s6_t5_4_h1_status: `completed_pending_human_review`",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, readme)

@@ -59,3 +59,20 @@ Citation 及正式 RAG 安全实验均未获批准。
 1. 该最小 resolver 是否满足正文权限与审计隔离要求？
 2. legacy `chroma:` 的 exact-match allowlist 是否足以作为受控迁移边界？
 3. 是否批准后续任务的独立设计审查？本记录不自动批准 S6-T5.5。
+
+## 7. S6-T5.4-H1 人工验收发现项加固（待人工复核）
+
+`S6-T5.4-H1 ContentResolver Capability and Failure-Boundary Hardening` 已完成，状态为
+`Completed, pending human review`。它没有新增检索、正文来源、上下文构建或实验能力，只修复 I1 的两项边界：
+
+1. 删除 `CorpusContentResolver.registry` 公共属性。调用方只持有 `resolve()` capability，不能通过公共 API 取得
+   registry、reader、`read_chunk` 或原始 chunk mapping；测试需要复用 registry 时由测试 helper 显式返回。
+2. 注入 adapter、registry、reader 所抛出的 `ContentResolutionError` 不再原样上抛。resolver 只信任
+   `(异常类别, error_code)` 的六个合法组合，并以固定、脱敏消息重新构造异常，再使用 `raise ... from error` 保留内部
+   cause。未知 code 或类别/code 交叉均映射为 `ContentResolutionRuntimeError / CONTENT_RESOLUTION_FAILURE`。
+3. `ResolvedContent` 的非字符串正文属于 runtime failure，统一为
+   `ContentResolutionRuntimeError / CONTENT_RESOLUTION_FAILURE`，不再出现 integrity class 与 runtime code 错配。
+
+验证仅使用 synthetic in-memory content，覆盖 canonical/legacy 正常路径、registry capability 不可见、六个稳定
+code/type 映射、伪造或交叉 code、敏感正文/路径不出现在 `str(exception)`、以及 cause 保留。I1 与父任务仍为
+`Completed, pending human acceptance`；本 H1 不把它们标为 `HUMAN_ACCEPTED`，也不批准 S6-T5.5 或正式 RAG 实验。

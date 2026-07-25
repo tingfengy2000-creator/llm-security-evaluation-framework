@@ -1130,3 +1130,33 @@ ContextBuilder，而是为未来受控地把 evidence 引用解析为正文准�
 
 **容易误解的地方**：这不是“RAG 已能安全回答问题”。本轮没有读取真实 fixture，没有向量检索、LLM、攻击矩阵或
 正式指标；它只证明了当前合成测试下的解析权限与完整性边界。状态为 `Completed, pending human acceptance`。
+
+## 2026-07-25: S6-T5.4-H1 Resolver capability 与失败边界加固（待人工复核）
+
+### 执行问题留痕
+
+本轮第一次 Markdown 相对链接检查将 Python 正则经 PowerShell 转义后执行，导致正则本身解析失败；第二次尝试又因
+命令行引号被 shell 剥离而出现 Python `SyntaxError`。两次错误均在检查器启动阶段发生，没有读取或修改 fixture、
+没有修改业务文件，也不是链接缺失。随后改用 PowerShell 的 `[regex]::Matches` 和 `Test-Path` 完成等价检查，结果为
+`markdown-relative-links=clean`。这说明跨 shell 运行临时检查时，应优先使用当前 shell 的原生字符串/正则语义，
+不要把多层转义当成项目代码错误。
+
+提交前审阅还发现新增参数化测试插入时，原有的 canonical reference 一致性断言被错误地缩进到另一个测试函数。
+虽然全套测试仍会通过，但该位置会使覆盖语义变得不清晰。已将断言移回
+`test_resolved_content_rejects_invalid_hash_and_reference_consistency`，并重新运行回归；这个小问题提醒我：
+“测试全绿”不替代对测试归属和断言意图的代码审阅。
+
+**我现在做了什么**：人工验收指出两类“看起来很小、实际会破坏安全边界”的问题。第一，Resolver 的公开
+`registry` 属性会把 reader capability 重新交给调用方，使其有机会绕过 expected hash、UTF-8 校验和
+`ResolvedContent`。第二，注入的 adapter/registry/reader 即使抛出领域异常，也可能在 message 中夹带正文、路径或
+legacy reference。H1 删除了公共 registry，并重建所有注入领域异常的固定脱敏外部错误。
+
+**为什么这样做**：异常类型和 error code 不是调用方随意声明就可信的身份。Resolver 只承认六个既定的
+type/code 组合；未知 code 或“Lookup 搭配 integrity code”之类的伪造组合统一变成 runtime failure。这样保留了
+排障所需的内部 `__cause__`，却不会让外部日志或上游组件拿到依赖的原始消息。
+
+**企业与面试意义**：可以说明我不只检查“正常输入能否成功”，还用恶意依赖模拟 capability escape 与异常注入。
+企业里这相当于把第三方存储、适配器和正文服务当作不完全可信边界：对外只发布稳定错误分类和脱敏消息，对内保留因果链。
+
+**不能夸大**：H1 是对 ContentResolver 的离线工程加固，不是新的 RAG 防护率结果；未读真实 fixture、未调用模型，
+未开始 S6-T5.5。H1 当前为 `Completed, pending human review`，I1 与父任务仍为 pending human acceptance。

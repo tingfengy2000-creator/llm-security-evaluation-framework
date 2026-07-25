@@ -222,6 +222,7 @@ class ExperimentMasterRecordTests(unittest.TestCase):
             "GOV-S6-T5.4-P1-ACCEPTANCE",
             "RESOLVED_BY_APPROVED_PROTOCOL_FREEZE",
             "S6-T5.4-I1",
+            "S6-T5.4-H1",
             "ENGINEERING_VALIDATION_PENDING_HUMAN_ACCEPTANCE",
             "s6_t5_4_completion_record.md",
             "S6-T5.5",

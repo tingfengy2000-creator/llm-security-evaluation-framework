@@ -867,3 +867,15 @@ legacy `chroma:` 精确白名单适配与 resolver，且错误仅 re-export。`R
 评估器；没有调用 Embedding、Chroma、Groq 或 LLM；没有实现 ContextBuilder、Citation 或 S6-T5.5。父任务
 `S6-T5.4` 与 I1 当前均为 `Completed, pending human acceptance`，正式 RAG 安全实验仍为 `Not started`。这证明
 的是受控正文解析的离线工程边界和完整性校验，不证明检索质量、RAG 安全、抗知识污染或生产能力。
+
+## 19. S6-T5.4-H1：Resolver capability 与失败边界加固（2026-07-25，待人工复核）
+
+I1 人工验收发现两个边界问题：公开 `registry` 属性会让调用方绕过 hash 校验和 `ResolvedContent`，而注入依赖抛出的
+领域异常会保留其原始 message。H1 删除该公共属性，并让 resolver 对 adapter、registry、reader 的
+`ContentResolutionError` 仅按受信的异常类别与 error code 重建固定脱敏错误；不受信 code 或类别/code 交叉一律
+fail closed 为 runtime failure，内部 cause 仍由 `raise ... from error` 保存。`ResolvedContent` 非字符串正文也统一为
+runtime failure，避免 class/code 错配。
+
+H1 仅用合成内存内容验证，未读取 Stage 6 fixture、未调用 Chroma、Embedding、Groq 或 LLM，未新增 Retriever、
+ContextBuilder、Citation、Trust 或 S6-T5.5。H1 状态为 `Completed, pending human review`；I1 与父任务仍为
+`Completed, pending human acceptance`，正式 RAG 安全实验仍为 `Not started`。

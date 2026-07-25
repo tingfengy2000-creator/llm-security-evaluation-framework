@@ -29,6 +29,7 @@ def _chunk(letter: str = "a") -> str:
 
 def _resolver(content: str = "Synthetic content\r\nwith exact bytes.") -> tuple[
     CorpusContentResolver,
+    StaticApprovedCorpusSnapshotRegistry,
     ContentRef,
 ]:
     reference = ContentRef.corpus("synthetic-v1", _chunk())
@@ -40,12 +41,12 @@ def _resolver(content: str = "Synthetic content\r\nwith exact bytes.") -> tuple[
     registry = StaticApprovedCorpusSnapshotRegistry(
         registrations={"synthetic-v1": ("b" * 64, reader)}
     )
-    return CorpusContentResolver(registry=registry), reference
+    return CorpusContentResolver(registry=registry), registry, reference
 
 
 def test_canonical_reference_resolves_exact_content_and_audits_only_metadata() -> None:
     content = "Synthetic content\r\nwith exact bytes."
-    resolver, reference = _resolver(content)
+    resolver, _, reference = _resolver(content)
 
     resolved = resolver.resolve(content_ref=reference, expected_content_hash=_hash(content))
 
@@ -56,7 +57,7 @@ def test_canonical_reference_resolves_exact_content_and_audits_only_metadata() -
 
 
 def test_hash_mismatch_fails_closed_without_returning_content() -> None:
-    resolver, reference = _resolver()
+    resolver, _, reference = _resolver()
     with pytest.raises(ContentResolutionIntegrityError) as caught:
         resolver.resolve(content_ref=reference, expected_content_hash="0" * 64)
 
@@ -65,7 +66,7 @@ def test_hash_mismatch_fails_closed_without_returning_content() -> None:
 
 
 def test_malformed_expected_hash_is_input_error_not_content_mismatch() -> None:
-    resolver, reference = _resolver()
+    resolver, _, reference = _resolver()
     with pytest.raises(RetrievalInputError) as caught:
         resolver.resolve(content_ref=reference, expected_content_hash="not-a-sha256")
 
@@ -95,7 +96,7 @@ def test_reader_and_registry_are_immutable_and_do_not_expose_content_in_repr() -
 
 
 def test_unknown_snapshot_and_chunk_are_lookup_errors() -> None:
-    resolver, reference = _resolver()
+    resolver, _, reference = _resolver()
     unknown_snapshot = ContentRef.corpus("unknown-v1", _chunk())
     with pytest.raises(ContentResolutionLookupError) as snapshot_error:
         resolver.resolve(content_ref=unknown_snapshot, expected_content_hash="0" * 64)
@@ -136,7 +137,7 @@ def test_registry_rejects_reader_identity_and_pinned_fingerprint_mismatch() -> N
 
 def test_legacy_adapter_is_exact_deterministic_and_uses_normal_resolution_flow() -> None:
     content = "Synthetic legacy resolution"
-    resolver, canonical = _resolver(content)
+    resolver, registry, canonical = _resolver(content)
     legacy = ContentRef("chroma:legacy-record")
     reversed_mapping = StaticLegacyContentRefAdapter(
         mapping_version="1.0",
@@ -149,7 +150,7 @@ def test_legacy_adapter_is_exact_deterministic_and_uses_normal_resolution_flow()
     assert reversed_mapping.mapping_hash == ordered_mapping.mapping_hash
 
     legacy_resolver = CorpusContentResolver(
-        registry=resolver.registry,
+        registry=registry,
         legacy_adapter=reversed_mapping,
     )
     assert legacy_resolver.resolve(
@@ -168,7 +169,7 @@ def test_legacy_adapter_is_exact_deterministic_and_uses_normal_resolution_flow()
 
 def test_canonical_reference_does_not_call_legacy_adapter() -> None:
     content = "Synthetic canonical content"
-    resolver, reference = _resolver(content)
+    resolver, registry, reference = _resolver(content)
 
     class ExplodingAdapter:
         mapping_version = "1.0"
@@ -178,7 +179,7 @@ def test_canonical_reference_does_not_call_legacy_adapter() -> None:
             raise AssertionError("canonical reference must not use legacy adapter")
 
     guarded = CorpusContentResolver(
-        registry=resolver.registry,
+        registry=registry,
         legacy_adapter=ExplodingAdapter(),
     )
     assert guarded.resolve(
@@ -217,7 +218,7 @@ def test_non_string_reader_output_and_reader_exception_are_redacted_runtime_erro
 
 
 def test_legacy_adapter_output_must_be_a_canonical_corpus_reference() -> None:
-    resolver, _ = _resolver()
+    resolver, registry, _ = _resolver()
 
     class InvalidAdapter:
         mapping_version = "1.0"
@@ -228,7 +229,7 @@ def test_legacy_adapter_output_must_be_a_canonical_corpus_reference() -> None:
 
     with pytest.raises(ContentResolutionIntegrityError) as caught:
         CorpusContentResolver(
-            registry=resolver.registry,
+            registry=registry,
             legacy_adapter=InvalidAdapter(),
         ).resolve(
             content_ref=ContentRef("chroma:legacy-record"),
@@ -238,14 +239,14 @@ def test_legacy_adapter_output_must_be_a_canonical_corpus_reference() -> None:
 
 
 def test_legacy_failures_and_unknown_dependencies_are_redacted() -> None:
-    resolver, _ = _resolver()
+    resolver, registry, _ = _resolver()
     legacy = ContentRef("chroma:legacy-record")
     with pytest.raises(ContentResolutionLookupError) as no_adapter:
         resolver.resolve(content_ref=legacy, expected_content_hash="0" * 64)
     assert no_adapter.value.error_code == "UNKNOWN_CONTENT_REF"
 
     adapter = StaticLegacyContentRefAdapter(mapping_version="1.0", mappings={})
-    mapped_resolver = CorpusContentResolver(registry=resolver.registry, legacy_adapter=adapter)
+    mapped_resolver = CorpusContentResolver(registry=registry, legacy_adapter=adapter)
     with pytest.raises(ContentResolutionLookupError) as unmapped:
         mapped_resolver.resolve(content_ref=legacy, expected_content_hash="0" * 64)
     assert unmapped.value.error_code == "UNKNOWN_CONTENT_REF"
@@ -262,3 +263,210 @@ def test_legacy_failures_and_unknown_dependencies_are_redacted() -> None:
         )
     assert runtime_error.value.error_code == "CONTENT_RESOLUTION_FAILURE"
     assert "sensitive lower-level detail" not in str(runtime_error.value)
+
+
+def test_resolver_public_capability_does_not_expose_registry_or_reader() -> None:
+    resolver, _, reference = _resolver()
+
+    assert not hasattr(resolver, "registry")
+    assert not hasattr(resolver, "reader")
+    public_attributes = {name for name in dir(resolver) if not name.startswith("_")}
+    assert public_attributes == {"resolve"}
+    assert not any("read_chunk" in name for name in public_attributes)
+    assert resolver.resolve(
+        content_ref=reference,
+        expected_content_hash=_hash("Synthetic content\r\nwith exact bytes."),
+    ).canonical_content_ref == reference
+
+
+@pytest.mark.parametrize(
+    ("raised", "expected_type", "expected_code", "expected_message"),
+    [
+        (
+            ContentResolutionLookupError(
+                "Synthetic body / private/path must not escape",
+                error_code="UNKNOWN_CONTENT_REF",
+            ),
+            ContentResolutionLookupError,
+            "UNKNOWN_CONTENT_REF",
+            "approved content reference is unavailable",
+        ),
+        (
+            ContentResolutionLookupError(
+                "Synthetic body / private/path must not escape",
+                error_code="UNKNOWN_CORPUS_SNAPSHOT",
+            ),
+            ContentResolutionLookupError,
+            "UNKNOWN_CORPUS_SNAPSHOT",
+            "approved corpus snapshot is unavailable",
+        ),
+        (
+            ContentResolutionLookupError(
+                "Synthetic body / private/path must not escape",
+                error_code="UNKNOWN_CORPUS_CHUNK",
+            ),
+            ContentResolutionLookupError,
+            "UNKNOWN_CORPUS_CHUNK",
+            "approved corpus chunk is unavailable",
+        ),
+        (
+            ContentResolutionIntegrityError(
+                "Synthetic body / private/path must not escape",
+                error_code="CONTENT_HASH_MISMATCH",
+            ),
+            ContentResolutionIntegrityError,
+            "CONTENT_HASH_MISMATCH",
+            "content hash does not match",
+        ),
+        (
+            ContentResolutionIntegrityError(
+                "C:\\private\\corpus.db must not escape",
+                error_code="CORPUS_SNAPSHOT_INTEGRITY_FAILURE",
+            ),
+            ContentResolutionIntegrityError,
+            "CORPUS_SNAPSHOT_INTEGRITY_FAILURE",
+            "approved corpus snapshot integrity check failed",
+        ),
+        (
+            ContentResolutionRuntimeError(
+                "Synthetic body must not escape",
+                error_code="CONTENT_RESOLUTION_FAILURE",
+            ),
+            ContentResolutionRuntimeError,
+            "CONTENT_RESOLUTION_FAILURE",
+            "content resolution failed",
+        ),
+    ],
+)
+def test_injected_domain_errors_are_rebuilt_with_fixed_redacted_messages(
+    raised: Exception,
+    expected_type: type[Exception],
+    expected_code: str,
+    expected_message: str,
+) -> None:
+    class RaisingAdapter:
+        def to_canonical(self, *, legacy_content_ref: ContentRef) -> ContentRef:
+            raise raised
+
+    resolver, registry, _ = _resolver()
+    legacy_resolver = CorpusContentResolver(
+        registry=registry,
+        legacy_adapter=RaisingAdapter(),
+    )
+    with pytest.raises(expected_type) as caught:
+        legacy_resolver.resolve(
+            content_ref=ContentRef("chroma:legacy-record"),
+            expected_content_hash="0" * 64,
+        )
+
+    assert caught.value.error_code == expected_code
+    assert expected_message in str(caught.value)
+    assert caught.value.__cause__ is raised
+    assert "Synthetic body" not in str(caught.value)
+    assert "private" not in str(caught.value)
+
+
+def test_registry_and_reader_domain_errors_preserve_only_recognized_category_and_code() -> None:
+    class RaisingRegistry:
+        def get_reader(self, *, corpus_snapshot_id: str) -> object:
+            raise ContentResolutionIntegrityError(
+                "D:\\sensitive\\snapshot.json",
+                error_code="CORPUS_SNAPSHOT_INTEGRITY_FAILURE",
+            )
+
+    class RaisingReader:
+        corpus_snapshot_id = "synthetic-v1"
+        snapshot_fingerprint = "b" * 64
+
+        def read_chunk(self, *, chunk_id: str) -> str:
+            raise ContentResolutionLookupError(
+                "Synthetic body and legacy ref chroma:private-record",
+                error_code="UNKNOWN_CORPUS_CHUNK",
+            )
+
+    reference = ContentRef.corpus("synthetic-v1", _chunk())
+    with pytest.raises(ContentResolutionIntegrityError) as registry_error:
+        CorpusContentResolver(registry=RaisingRegistry()).resolve(
+            content_ref=reference,
+            expected_content_hash="0" * 64,
+        )
+    assert registry_error.value.error_code == "CORPUS_SNAPSHOT_INTEGRITY_FAILURE"
+    assert "approved corpus snapshot integrity check failed" in str(registry_error.value)
+    assert "sensitive" not in str(registry_error.value)
+
+    registry = StaticApprovedCorpusSnapshotRegistry(
+        registrations={"synthetic-v1": ("b" * 64, RaisingReader())}
+    )
+    with pytest.raises(ContentResolutionLookupError) as reader_error:
+        CorpusContentResolver(registry=registry).resolve(
+            content_ref=reference,
+            expected_content_hash="0" * 64,
+        )
+    assert reader_error.value.error_code == "UNKNOWN_CORPUS_CHUNK"
+    assert "approved corpus chunk is unavailable" in str(reader_error.value)
+    assert reader_error.value.__cause__ is not None
+
+
+def test_unknown_injected_domain_error_code_is_runtime_and_does_not_escape_message() -> None:
+    class ForgedCodeAdapter:
+        def to_canonical(self, *, legacy_content_ref: ContentRef) -> ContentRef:
+            raise ContentResolutionLookupError(
+                "forged code with Synthetic body",
+                error_code="FORGED_BYPASS_CODE",
+            )
+
+    _, registry, _ = _resolver()
+    resolver = CorpusContentResolver(
+        registry=registry,
+        legacy_adapter=ForgedCodeAdapter(),
+    )
+    with pytest.raises(ContentResolutionRuntimeError) as caught:
+        resolver.resolve(
+            content_ref=ContentRef("chroma:legacy-record"),
+            expected_content_hash="0" * 64,
+        )
+
+    assert caught.value.error_code == "CONTENT_RESOLUTION_FAILURE"
+    assert "content resolution failed" in str(caught.value)
+    assert caught.value.__cause__ is not None
+
+
+@pytest.mark.parametrize(
+    "raised",
+    [
+        ContentResolutionLookupError(
+            "cross-category Synthetic body",
+            error_code="CONTENT_HASH_MISMATCH",
+        ),
+        ContentResolutionIntegrityError(
+            "cross-category Synthetic body",
+            error_code="UNKNOWN_CORPUS_CHUNK",
+        ),
+        ContentResolutionRuntimeError(
+            "cross-category Synthetic body",
+            error_code="UNKNOWN_CONTENT_REF",
+        ),
+    ],
+)
+def test_cross_category_injected_domain_codes_fail_as_runtime(
+    raised: Exception,
+) -> None:
+    class CrossCategoryAdapter:
+        def to_canonical(self, *, legacy_content_ref: ContentRef) -> ContentRef:
+            raise raised
+
+    _, registry, _ = _resolver()
+    resolver = CorpusContentResolver(
+        registry=registry,
+        legacy_adapter=CrossCategoryAdapter(),
+    )
+    with pytest.raises(ContentResolutionRuntimeError) as caught:
+        resolver.resolve(
+            content_ref=ContentRef("chroma:legacy-record"),
+            expected_content_hash="0" * 64,
+        )
+
+    assert caught.value.error_code == "CONTENT_RESOLUTION_FAILURE"
+    assert "content resolution failed" in str(caught.value)
+    assert "Synthetic body" not in str(caught.value)
+    assert caught.value.__cause__ is raised
