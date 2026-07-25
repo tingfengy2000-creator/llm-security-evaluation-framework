@@ -80,3 +80,16 @@ ContentResolver、Context、Citation、Trust 或正式 RAG 安全实验结果。
 `S6-T5.4-P1` 当前为 `Completed, pending human acceptance`；本 blocker 尚未正式 RESOLVED。父任务
 `S6-T5.4` 仍是 `APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER`；只有 P1 获人工验收且后续最小实现
 得到单独批准后，才可创建 ContentResolver 的业务 TDD。
+
+## 8. S6-T5.4-P1 人工验收与 blocker 解决状态（2026-07-25）
+
+项目负责人现已将 `S6-T5.4-P1` 标记为 `HUMAN_ACCEPTED`，并确认本记录第 2 节的四项协议缺口已由已批准的
+协议冻结解决。本 blocker 当前状态为 `RESOLVED_BY_APPROVED_PROTOCOL_FREEZE`。
+
+本状态只认可协议设计：唯一 Resolver 签名、contracts 层 `ResolvedContent` 权限对象、最小 snapshot reader /
+registry、legacy exact-match mapping 以及 contracts 错误归属。它**不**证明 ContentResolver 已实现、正文已解析、
+fixture mapping 已生成、ContextBuilder/Citation 已实现，或任何抗知识污染、可信检索和正式 RAG 安全实验结论。
+
+原发现背景、缺失契约、风险与第 3 节的正确停止行为继续是历史审计证据，未被删除或改写。父任务
+`S6-T5.4` 现为 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`；下一实现任务 `S6-T5.4-I1` 为
+`NOT YET APPROVED`，在其获得独立批准前不得创建 ContentResolver TDD、访问 corpus 正文或生成 fixture mapping。

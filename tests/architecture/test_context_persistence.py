@@ -193,7 +193,9 @@ class ContextPersistenceTests(unittest.TestCase):
             "S6-T5.3-P1: **HUMAN_ACCEPTED**",
             "S6-T5.3: **HUMAN_ACCEPTED**",
             "S6-T5.3-H1: **HUMAN_ACCEPTED**",
-            "S6-T5.4: **APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER**",
+            "S6-T5.4-P1: **HUMAN_ACCEPTED**",
+            "S6-T5.4: **READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL**",
+            "S6-T5.4-I1` is **NOT YET APPROVED**",
             "Not approved: `S6-T5.5` and every later S6-T5 task.",
             "Formal RAG security experiment: **Not started**",
             "S6-T5.3 DenseRetriever",
@@ -204,15 +206,17 @@ class ContextPersistenceTests(unittest.TestCase):
             with self.subTest(forbidden_start=forbidden_start):
                 self.assertIn(forbidden_start, state)
 
-    def test_s6_t5_4_protocol_blocker_preserves_fail_closed_pause(self) -> None:
+    def test_s6_t5_4_protocol_blocker_preserves_history_after_resolution(self) -> None:
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
         blocker = S6_T5_4_BLOCKER.read_text(encoding="utf-8")
 
         self.assertTrue(S6_T5_4_BLOCKER.is_file())
         for required in (
             "S6-T5.4",
-            "APPROVED_TO_START",
-            "DESIGN_OR_PROTOCOL_BLOCKER",
+            "RESOLVED_BY_APPROVED_PROTOCOL_FREEZE",
+            "READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL",
+            "S6-T5.4-I1",
+            "NOT YET APPROVED",
             "S6-T5.5",
             "Formal RAG security experiment: **Not started**",
         ):
@@ -225,11 +229,14 @@ class ContextPersistenceTests(unittest.TestCase):
             "legacy `chroma:` fixture 到 corpus 的唯一映射",
             "错误分类的归属",
             "不创建 `src/llmguard/domains/retrieval/context/`",
+            "RESOLVED_BY_APPROVED_PROTOCOL_FREEZE",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, blocker)
 
-    def test_stage6_readme_top_metadata_tracks_accepted_and_blocked_state(self) -> None:
+    def test_stage6_readme_top_metadata_tracks_accepted_protocol_and_unapproved_implementation(
+        self,
+    ) -> None:
         readme = (ROOT / "stages" / "stage6_rag_security" / "README.md").read_text(
             encoding="utf-8"
         )
@@ -237,7 +244,9 @@ class ContextPersistenceTests(unittest.TestCase):
         for required in (
             "s6_t5_3_dense_retriever_human_accepted",
             "s6_t5_3_h1_human_accepted",
-            "s6_t5_4_status: `APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER`",
+            "s6_t5_4_status: `ready_for_separate_implementation_approval`",
+            "s6_t5_4_p1_status: `human_accepted`",
+            "s6_t5_4_i1_status: `not_yet_approved`",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, readme)

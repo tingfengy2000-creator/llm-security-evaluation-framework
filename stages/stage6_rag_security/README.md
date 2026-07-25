@@ -8,8 +8,9 @@
 - legacy_paths: `stages/stage6_rag/`、`data/stage6_rag/`、`tests/stage6_rag/`
 - status: `s6_t5_3_dense_retriever_human_accepted`
 - acceptance_hardening: `s6_t5_3_h1_human_accepted`；仅修复 trace 语义、store provenance 与脱敏失败边界。
-- s6_t5_4_status: `APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER`；等待 resolver/reader/legacy/error contract 的项目负责人冻结决定。
-- s6_t5_4_p1_status: `completed_pending_human_acceptance`；已冻结 Content Resolution Contract and Permission Boundary，未创建业务代码，父任务 blocker 仍保留。
+- s6_t5_4_status: `ready_for_separate_implementation_approval`；协议 blocker 已由 approved protocol freeze 解决，业务实现仍须独立审批。
+- s6_t5_4_p1_status: `human_accepted`；Content Resolution Contract and Permission Boundary 已通过人工验收，未创建业务代码。
+- s6_t5_4_i1_status: `not_yet_approved`；不得创建 ContentResolver TDD、读取正文或生成 fixture mapping。
 - objective: 在 S6-T4 与已验收 S6-T5.2 契约基础上，实现受控、离线、Provider-Neutral DenseRetriever；本轮只产出 RetrievalEvidence 与 RetrievalTrace。
 - source_locations: `src/llmguard/domains/retrieval/{contracts,attacks,embedding,vectorstore,retrieval}/`
 - data_locations: `data/stage6_rag/`（已入 manifest 的历史数据路径）
@@ -17,8 +18,8 @@
 - script_locations: 真实模型测试由 `LLMGUARD_RUN_REAL_EMBEDDING_TESTS=1` 显式开启，无 S6-T4 运行脚本；2026-07-19 已完成一次固定 revision 的真实验收。
 - deliverable_locations: 尚未生成独立 Stage 6 证据包。
 - evidence_locations: `data/stage6_rag/documents/corpus_manifest.json`
-- conclusion_boundary: 已完成人工验收的 S6-T5.3 离线工程边界包括 embedding/vectorstore 基础设施、S6-T5.2 运行时契约、schema `1.1` parent identity carrier、DenseRetriever 与 H1 trace/failure-boundary 加固；S6-T5.4 已获启动批准但因 resolver protocol 缺口暂停，未实现 ContextBuilder、Trust、LLM 或 RAG 指标，也未执行正式 RAG 安全实验。
-- next_stage: S6-T5.4 是 `APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER`，需先冻结 resolver/reader/legacy/error contract；`S6-T5.5` 及之后任务尚未批准。
+- conclusion_boundary: 已完成人工验收的 S6-T5.3 离线工程边界包括 embedding/vectorstore 基础设施、S6-T5.2 运行时契约、schema `1.1` parent identity carrier、DenseRetriever 与 H1 trace/failure-boundary 加固；S6-T5.4-P1 协议设计已人工验收并解决 blocker，但尚未实现 ContentResolver、ContextBuilder、Trust、LLM 或 RAG 指标，也未执行正式 RAG 安全实验。
+- next_stage: S6-T5.4 是 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`；`S6-T5.4-I1` 与 `S6-T5.5` 及之后任务尚未批准。
 
 目标：在 Retrieval 层评测 R1–R6，并为隐蔽知识污染检测与可信检索研究建立稳定证据接口。
 

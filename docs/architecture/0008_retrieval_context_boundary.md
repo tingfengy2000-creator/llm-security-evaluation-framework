@@ -158,3 +158,9 @@ Resolver 将来只从 `ApprovedCorpusSnapshotRegistry` 取得 `CorpusSnapshotRea
 `ContentResolutionIntegrityError` 与 `ContentResolutionRuntimeError` 分别描述查找、完整性和运行期失败。
 P1 不创建源码、读取正文或实现 reader/registry/adapter；父任务 S6-T5.4 仍是
 `APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER`，直到人工验收与独立实现批准。
+
+### S6-T5.4-P1 人工验收状态附注（2026-07-25）
+
+本 ADR 中的 P1 协议边界已经 `HUMAN_ACCEPTED`，并解决了 S6-T5.4 的 protocol blocker
+(`RESOLVED_BY_APPROVED_PROTOCOL_FREEZE`)。该决定不改变“协议与实现分离”的架构原则：父任务只进入
+`READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`，`S6-T5.4-I1` 仍为 `NOT YET APPROVED`。

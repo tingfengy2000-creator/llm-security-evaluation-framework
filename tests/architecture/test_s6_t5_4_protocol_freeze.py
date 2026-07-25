@@ -27,6 +27,7 @@ DECISION_REGISTER = GOVERNANCE / "project_owner_decision_register.md"
 STATE = GOVERNANCE / "current_work_state.md"
 README = ROOT / "stages" / "stage6_rag_security" / "README.md"
 CONTEXT_ROOT = ROOT / "src" / "llmguard" / "domains" / "retrieval" / "context"
+RETRIEVAL_ROOT = ROOT / "src" / "llmguard" / "domains" / "retrieval"
 
 
 class S6T54ProtocolFreezeTests(unittest.TestCase):
@@ -72,31 +73,45 @@ class S6T54ProtocolFreezeTests(unittest.TestCase):
             with self.subTest(required=required):
                 self.assertIn(required, spec)
 
-    def test_blocker_remains_open_until_p1_human_acceptance(self) -> None:
+    def test_human_acceptance_resolves_blocker_without_approving_implementation(
+        self,
+    ) -> None:
         blocker = BLOCKER.read_text(encoding="utf-8")
         state = STATE.read_text(encoding="utf-8")
         readme = README.read_text(encoding="utf-8")
 
         for required in (
-            "S6-T5.4-P1",
-            "Completed, pending human acceptance",
-            "APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER",
+            "GOV-S6-T5.4-P1-ACCEPTANCE",
+            "S6-T5.4-P1: **HUMAN_ACCEPTED**",
+            "RESOLVED_BY_APPROVED_PROTOCOL_FREEZE",
+            "READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL",
+            "S6-T5.4-I1",
+            "NOT YET APPROVED",
             "S6-T5.5",
             "Formal RAG security experiment: **Not started**",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, state)
 
-        self.assertIn("尚未正式 RESOLVED", blocker)
-        self.assertIn("s6_t5_4_p1_status: `completed_pending_human_acceptance`", readme)
+        for required in (
+            "## 1. 发现背景",
+            "## 2. 缺失的冻结契约",
+            "## 3. 正确处置",
+            "RESOLVED_BY_APPROVED_PROTOCOL_FREEZE",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, blocker)
+
+        self.assertNotIn("四项协议尚未冻结", state)
+        self.assertNotRegex(state, r"S6-T5\.3[^\n]*pending")
+        self.assertIn("s6_t5_4_p1_status: `human_accepted`", readme)
+        self.assertIn(
+            "s6_t5_4_status: `ready_for_separate_implementation_approval`", readme
+        )
 
     def test_context_package_cannot_own_a_stable_dto_copy(self) -> None:
-        models_path = CONTEXT_ROOT / "models.py"
-        self.assertFalse(models_path.exists())
-        if not CONTEXT_ROOT.exists():
-            return
-
-        for path in CONTEXT_ROOT.rglob("*.py"):
+        self.assertFalse(CONTEXT_ROOT.exists())
+        for path in RETRIEVAL_ROOT.rglob("*.py"):
             module = ast.parse(path.read_text(encoding="utf-8"))
             defined = {
                 node.name
@@ -109,8 +124,10 @@ class S6T54ProtocolFreezeTests(unittest.TestCase):
     def test_owner_decision_register_preserves_p1_freeze(self) -> None:
         register = DECISION_REGISTER.read_text(encoding="utf-8")
         self.assertIn("PODR-013", register)
+        self.assertIn("PODR-014", register)
         self.assertIn("S6-T5.4-P1", register)
         self.assertIn("Content Resolution Contract and Permission Boundary Freeze", register)
+        self.assertIn("RESOLVED_BY_APPROVED_PROTOCOL_FREEZE", register)
 
 
 if __name__ == "__main__":

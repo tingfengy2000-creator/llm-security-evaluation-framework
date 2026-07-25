@@ -11,18 +11,20 @@
 
 - Last accepted architecture task: `A1R` namespace migration and governance freeze.
 - Last accepted stage task: `S6-T5.3 Provider-Neutral DenseRetriever`.
+- Last accepted governance protocol task: `S6-T5.4-P1 Content Resolution Contract and Permission Boundary Freeze`.
 - Last accepted implementation commit: `72a2445`.
 - Accepted capability boundary: deterministic, label-isolated provider-neutral DenseRetriever engineering behavior, including the S6-T5.3-H1 trace and failure-boundary hardening. This does not establish retrieval quality, security effectiveness, context safety, trust policy, LLM integration, or a RAG experiment.
 
 ## Current Task
 
-- Task ID: `S6-T5.4-P1`.
-- Task name: `Content Resolution Contract and Permission Boundary Freeze`.
-- Approval: **APPROVED_TO_START** under the project-owner instruction dated `2026-07-25`.
-- Execution status: **Completed, pending human acceptance**. This is a design/governance freeze only: it records the Resolver/ResolvedContent ownership, controlled snapshot reader, legacy exact-match mapping and error hierarchy without creating business code or reading content.
-- Parent task: `S6-T5.4 Controlled Corpus ContentResolver` remains **APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER**. The four protocol decisions now have an approved direction, but the blocker is not formally resolved until P1 human acceptance and a separately approved implementation task.
+- Task ID: `GOV-S6-T5.4-P1-ACCEPTANCE`.
+- Task name: `S6-T5.4 Content Resolution Protocol Human Acceptance Record`.
+- Execution status: **Completed**. The project owner has recorded the S6-T5.4-P1 protocol-design human acceptance; this task does not create or test ContentResolver business behavior.
+- S6-T5.4-P1: **HUMAN_ACCEPTED**.
+- S6-T5.4 protocol blocker: **RESOLVED_BY_APPROVED_PROTOCOL_FREEZE**. The original discovery, risks and fail-closed stop remain preserved in the blocker record.
+- Parent task: `S6-T5.4 Controlled Corpus ContentResolver` is **READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL**.
+- S6-T5.4-I1 implementation: **NOT YET APPROVED**.
 - Blocker record: [S6-T5.4 protocol blocker](s6_t5_4_protocol_blocker_record.md).
-- GOV-PODR1: **HUMAN_ACCEPTED**.
 
 ## Stage 6 Implementation State
 
@@ -31,31 +33,32 @@
 - Status: **HUMAN_ACCEPTED**.
 - GOV-ER1: **HUMAN_ACCEPTED**.
 - GOV-ER1-H1: **HUMAN_ACCEPTED**.
+- GOV-PODR1: **HUMAN_ACCEPTED**.
 - S6-T5.2 `Retrieval Runtime Contracts and IDs`: **HUMAN_ACCEPTED**. Its completed scope is explicit safe query projection, canonical `RetrieverQueryRecord`, deterministic `RetrievalRequest`, `ContentRef`, evidence UID, chunk-level `RetrievalEvidence`, safe evidence summaries, deterministic `RetrievalTrace`, and legacy import/adapter compatibility.
 - S6-T5.3-P1: **HUMAN_ACCEPTED**. Public metadata schema `1.1` carries a validated, non-label, no-body `parent_doc_id` from VectorDocument to VectorSearchHit; schema `1.0` remains legacy-compatible.
 - S6-T5.3: **HUMAN_ACCEPTED**. DenseRetriever accepts only schema `1.1` hits, validates request/store provenance, and produces canonical `RetrievalEvidence` plus `RetrievalTrace` without reading the corpus.
 - S6-T5.3-H1: **HUMAN_ACCEPTED**. Trace `candidate_count` means raw query hits before sorting/deduplication; store provenance and provider/store failure boundaries fail closed with redacted Retrieval errors.
-- S6-T5.4: **APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER**. No ContentResolver code, corpus-content access or fixture adapter may start until the missing protocol decisions are explicitly frozen.
+- S6-T5.4: **READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL**. The four protocols are frozen and HUMAN_ACCEPTED; ContentResolver business code, corpus-content access and fixture mapping still require the separately approved `S6-T5.4-I1` task.
 - Audit boundary: ordinary `repr()` and `to_audit_dict()` omit retrieval query text, document plaintext and content-reference expansion. Runtime query objects physically exclude evaluator fields.
 
 ## Approval Gate
 
-- Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, and S6-T5.3 DenseRetriever.
+- Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, and S6-T5.4-P1.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
-- Approved scope only: `S6-T5.4 ContentResolver`; its implementation is paused by the recorded design/protocol blocker.
+- `S6-T5.4 ContentResolver` is ready only for a separate implementation approval. `S6-T5.4-I1` is **NOT YET APPROVED** and no ContentResolver TDD may start.
 - Not approved: `S6-T5.5` and every later S6-T5 task.
 - Formal RAG security experiment: **Not started**.
-- Next human decision: freeze the four S6-T5.4 resolver protocol gaps in the blocker record before implementation can resume. S6-T5.5 remains separately unapproved.
+- Next human decision: approve or reject the scoped `S6-T5.4-I1` implementation task. S6-T5.5 remains separately unapproved.
 
 ## Must Not Start
 
-- ContentResolver implementation, document-content access, ContextBuilder, evidence envelope, citation binding, abstention, Trust policy or retrieval guard. The S6-T5.4 scope is approved but currently paused by its protocol blocker.
+- ContentResolver implementation, document-content access, ContextBuilder, evidence envelope, citation binding, abstention, Trust policy or retrieval guard. The protocol blocker is resolved, but `S6-T5.4-I1` has not been approved.
 - Groq, mock/real LLM invocation, evaluator, metrics, T10-T15, formal RAG attack matrix or report generation.
 - New Stage 6 business code under `src/codeguarder/`, any mutation of Stage 1-5, or any mutation of Stage 6 data fixtures.
 
 ## Current Claims Boundary
 
-Can claim: within the offline engineering-test scope, deterministic and label-isolated retrieval runtime contracts plus the provider-neutral DenseRetriever have been HUMAN_ACCEPTED. S6-T5.3-P1 repaired the metadata carrier with schema `1.1`; H1 fixed candidate-count semantics and redacted failure boundaries. S6-T5.4 has an approved scope but is correctly paused on a documented protocol blocker. Historical public loader imports remain compatible through the canonical `llmguard` type.
+Can claim: within the offline engineering-test scope, deterministic and label-isolated retrieval runtime contracts plus the provider-neutral DenseRetriever have been HUMAN_ACCEPTED. S6-T5.3-P1 repaired the metadata carrier with schema `1.1`; H1 fixed candidate-count semantics and redacted failure boundaries. S6-T5.4-P1 protocol design has been HUMAN_ACCEPTED and resolved the protocol blocker; implementation remains separately unapproved. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
 Cannot claim: retrieval quality, retrieval security effectiveness, context safety, citation accuracy, trustworthiness, RAG metrics, production readiness, or research-experiment outcomes.
 
@@ -69,4 +72,4 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 ## Last Update
 
 - Date: `2026-07-25`.
-- Updated by: Codex under explicit project-owner approval. GOV-PODR1, S6-T5.3-P1, S6-T5.3-H1 and S6-T5.3 are HUMAN_ACCEPTED. S6-T5.4-P1 is Completed, pending human acceptance; S6-T5.4 remains APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER. S6-T5.5 is Not approved. Formal RAG security experiment: **Not started**.
+- Updated by: Codex under explicit project-owner approval. GOV-S6-T5.4-P1-ACCEPTANCE records S6-T5.4-P1 as HUMAN_ACCEPTED and the blocker as RESOLVED_BY_APPROVED_PROTOCOL_FREEZE. S6-T5.4 is READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL; S6-T5.4-I1 is NOT YET APPROVED; S6-T5.5 is Not approved. Formal RAG security experiment: **Not started**.

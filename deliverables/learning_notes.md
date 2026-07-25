@@ -1077,3 +1077,23 @@ PowerShell 中 `git check-ignore -q` 成功时不输出文本，不能写成 `if
 `$null`，造成假失败。应检查 `$LASTEXITCODE -eq 0`，或使用 `git check-ignore -v` 输出实际命中的
 `.gitignore` 规则。本轮已验证 `runtime/stage6_rag_security/` 被忽略；这只是治理验证脚本的布尔值误用，
 不代表产生了 runtime 文件，也不需要修改运行时配置。
+
+## 2026-07-25：S6-T5.4-P1 协议人工验收
+
+### 我现在做了什么
+
+项目负责人已接受正文解析的五项协议设计，并将 blocker 更新为
+`RESOLVED_BY_APPROVED_PROTOCOL_FREEZE`。这次工作仍是治理记录：没有新增 ContentResolver、没有读取
+正文，也没有运行任何 RAG 安全实验。
+
+### 为什么“解决 blocker”不等于“开始实现”
+
+blocker 解决表示原先不应猜测的公共契约已经获得明确决定；它让团队可以安全地**申请**下一步实现审批，
+却不会自动获得正文访问权限。`S6-T5.4-I1` 仍是 `NOT YET APPROVED`，因此源码、fixture mapping、
+ContextBuilder 和 Citation 依旧不能开始。
+
+### 面试表达与误区
+
+面试中可以说：我把“发现协议不完整时停止”和“协议经人工验收后解除设计 blocker”都留在 Git 治理记录中，
+避免把设计认可误夸大成安全能力或产品可用性。常见误区是把 `HUMAN_ACCEPTED` 当作运行结果；这里它只验收
+接口边界、权限模型和失败语义，不证明任何正文解析、检索质量或抗污染效果。

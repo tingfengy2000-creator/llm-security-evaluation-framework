@@ -611,3 +611,9 @@ ContentResolutionError
 本冻结不解决或实现 ContentResolver、EvidenceEnvelope、ContextBuilder、Trust、LLM、Groq、评估指标或正式
 RAG 安全实验。`S6-T5.5` 及之后仍未批准。query_prefix 不改变已存储文档向量，未来应进入 RunManifest，
 而不是本正文解析协议或 collection fingerprint。
+
+### 24.7 人工验收状态附注（2026-07-25）
+
+`GOV-S6-T5.4-P1-ACCEPTANCE` 已将本节冻结的协议标记为 `HUMAN_ACCEPTED`，并将 S6-T5.4 blocker 标记为
+`RESOLVED_BY_APPROVED_PROTOCOL_FREEZE`。这只说明设计前提齐备；`S6-T5.4-I1` 仍为 `NOT YET APPROVED`，
+不得把本附注解释为 ContentResolver 实现、正文访问或正式 RAG 实验授权。

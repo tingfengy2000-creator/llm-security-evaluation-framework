@@ -413,3 +413,9 @@ expected_content_hash: str) -> ResolvedContent` 接口；contracts 唯一拥有�
 P1 完成后的任务状态应写为 `Completed, pending human acceptance`；父任务 S6-T5.4 仍保持
 `APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER`，不得因为设计冻结就宣称 blocker 已正式解决。只有 P1
 人工验收后，才可另行批准最小实现与业务 TDD；`S6-T5.5` 及后续任务仍为 Not approved。
+
+## 18. S6-T5.4-P1 人工验收状态附注（2026-07-25）
+
+项目负责人已接受 P1 设计冻结，blocker 状态为 `RESOLVED_BY_APPROVED_PROTOCOL_FREEZE`，父任务状态为
+`READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`。本计划仍不自动授权实现：下一步必须是单独审批的
+`S6-T5.4-I1`，当前状态 `NOT YET APPROVED`；不得开始 ContentResolver TDD、读取正文或进入 S6-T5.5。

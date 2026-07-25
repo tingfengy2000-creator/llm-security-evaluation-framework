@@ -843,3 +843,14 @@ chunk ID 读取；legacy `chroma:` 只能经过 immutable exact-match allowlist 
 该记录不是 ContentResolver、reader、registry 或 adapter 的实现，也没有读取正文、fixture、标签或 Ground
 Truth。父任务 `S6-T5.4` 仍为 `APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER`，blocker 尚未正式解除；
 `S6-T5.5` 及后续任务仍未批准，正式 RAG 安全实验仍未开始。
+
+## 17. GOV-S6-T5.4-P1-ACCEPTANCE：正文解析协议人工验收（2026-07-25）
+
+项目负责人已人工接受 `S6-T5.4-P1` 的协议设计：唯一 `ContentResolver` 输入/返回、contracts 唯一
+`ResolvedContent`、最小 snapshot reader/registry、legacy exact-match mapping 和 contracts 错误归属。
+因此 S6-T5.4 的协议 blocker 当前为 `RESOLVED_BY_APPROVED_PROTOCOL_FREEZE`，父任务为
+`READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`。
+
+这是协议验收而不是实现验收：`S6-T5.4-I1` 仍为 `NOT YET APPROVED`，不得创建 ContentResolver、读取
+corpus 正文、生成 fixture mapping、实现 ContextBuilder/Citation 或进行正式 RAG 安全实验。S6-T5.5 及后续
+任务仍未批准。原 blocker 的发现背景、风险和 fail-closed 停止行为必须保留为历史审计证据。
