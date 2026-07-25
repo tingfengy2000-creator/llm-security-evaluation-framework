@@ -219,7 +219,9 @@ class ExperimentMasterRecordTests(unittest.TestCase):
         for required in (
             "S6-T5.3 DenseRetriever 已通过人工验收",
             "HUMAN_ACCEPTED",
-            "S6-T5.4 ContentResolver 尚未批准",
+            "S6-T5.4 ContentResolver` 已获启动批准",
+            "DESIGN_OR_PROTOCOL_BLOCKER",
+            "S6-T5.5 及以后尚未批准",
             "正式 RAG 安全实验：**Not started**",
             "RESOLVED_BY_VERSIONED_PUBLIC_METADATA_CONTRACT",
             "candidate_count",

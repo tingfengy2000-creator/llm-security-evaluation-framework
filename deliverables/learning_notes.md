@@ -1,5 +1,29 @@
 # 学习笔记
 
+## 2026-07-25：S6-T5.4 为什么必须在批准后暂停
+
+### 我现在做了什么
+
+项目负责人批准了 `S6-T5.4 Controlled Corpus ContentResolver` 的目标，但启动核对发现冻结设计没有给出 Resolver 的
+准确返回/正文权限 contract、snapshot 最小只读接口、legacy `chroma:` 的唯一 mapping 和错误归属。我因此创建了
+`DESIGN_OR_PROTOCOL_BLOCKER` 记录，没有写业务代码、没有读取正文，也没有伪造依赖猜测 API 的 TDD 测试。
+
+### 为什么这样做
+
+ContentResolver 是正文从受控语料进入后续 Context 的唯一权限边界。若今天随意返回裸字符串，明天再补“正文权限”或
+Citation/Context 的审计规则，就会让长期 API 倒过来被实现细节绑架。fail-closed 的含义不是所有错误都拒绝用户，
+而是在证据身份、正文来源和完整性无法被证明时，宁可不解析正文，也不做隐式 fallback。
+
+### 企业和面试中的意义
+
+企业安全设计中，“任务被批准”不等于“任何实现细节都可自行决定”。面试可说明：我将正文解析设计成独立的最小权限边界；当返回类型、数据访问能力和 legacy 映射没有冻结时，我登记 protocol blocker，避免通过
+`doc_id`、文件名或 Chroma documents 猜测正文来源。这样才能保证之后的 Citation、Trust 和安全实验有可审计的证据根。
+
+### 当前边界
+
+S6-T5.4 状态为 **APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER**；`S6-T5.5` 仍为 **NOT APPROVED**；正式
+RAG 安全实验仍为 **NOT STARTED**。本轮未修改 `src/`、Stage 1–5 或 Stage 6 fixture，未调用 Embedding、Chroma、Groq 或 LLM。
+
 ## 2026-07-25：S6-T5.3 人工验收与结论边界
 
 ### 我现在记录了什么

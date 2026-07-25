@@ -24,6 +24,7 @@ S6_T5_PLAN = (
     / "2026-07-19-s6-t5-controlled-retrieval-traceable-context.md"
 )
 S6_T5_ADR = ROOT / "docs" / "architecture" / "0008_retrieval_context_boundary.md"
+S6_T5_4_BLOCKER = GOVERNANCE / "s6_t5_4_protocol_blocker_record.md"
 
 
 class ContextPersistenceTests(unittest.TestCase):
@@ -192,7 +193,8 @@ class ContextPersistenceTests(unittest.TestCase):
             "S6-T5.3-P1: **HUMAN_ACCEPTED**",
             "S6-T5.3: **HUMAN_ACCEPTED**",
             "S6-T5.3-H1: **HUMAN_ACCEPTED**",
-            "Not approved: `S6-T5.4 ContentResolver`",
+            "S6-T5.4: **APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER**",
+            "Not approved: `S6-T5.5` and every later S6-T5 task.",
             "Formal RAG security experiment: **Not started**",
             "S6-T5.3 DenseRetriever",
         ):
@@ -201,6 +203,31 @@ class ContextPersistenceTests(unittest.TestCase):
         for forbidden_start in ("ContentResolver", "Trust", "LLM", "Groq"):
             with self.subTest(forbidden_start=forbidden_start):
                 self.assertIn(forbidden_start, state)
+
+    def test_s6_t5_4_protocol_blocker_preserves_fail_closed_pause(self) -> None:
+        state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
+        blocker = S6_T5_4_BLOCKER.read_text(encoding="utf-8")
+
+        self.assertTrue(S6_T5_4_BLOCKER.is_file())
+        for required in (
+            "S6-T5.4",
+            "APPROVED_TO_START",
+            "DESIGN_OR_PROTOCOL_BLOCKER",
+            "S6-T5.5",
+            "Formal RAG security experiment: **Not started**",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, state)
+
+        for required in (
+            "Resolver Protocol 的准确返回类型",
+            "corpus snapshot 的受控读取接口",
+            "legacy `chroma:` fixture 到 corpus 的唯一映射",
+            "错误分类的归属",
+            "不创建 `src/llmguard/domains/retrieval/context/`",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, blocker)
 
     def test_s6_t5_design_freeze_is_unique_and_behind_approval_gate(self) -> None:
         for path in (S6_T5_SPEC, S6_T5_PLAN, S6_T5_ADR):

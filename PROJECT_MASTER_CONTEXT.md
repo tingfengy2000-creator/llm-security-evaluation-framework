@@ -51,6 +51,13 @@ schema `1.0`/`1.1` 隔离、公开 parent identity、Request/Evidence/Trace 链�
 抗知识污染、可信检索、Citation Accuracy、ContextBuilder、Trust Pipeline、正式 RAG 安全实验或生产可用性。`S6-T5.4`
 仍为 `Not approved`，正式 RAG 安全实验仍为 `Not started`。
 
+**S6-T5.4 协议 blocker（2026-07-25）**：项目负责人已单独批准 `Controlled Corpus ContentResolver` 启动。
+启动核对确认既有设计已规定 canonical `ContentRef`、hash verification、受控 fixture legacy mapping 的原则和
+禁止从 Chroma 读取正文，但没有冻结 Resolver 的返回/正文权限 contract、snapshot 受控读取接口、legacy
+`chroma:` 的唯一映射或错误归属。因此 S6-T5.4 被登记为 `APPROVED_TO_START / DESIGN_OR_PROTOCOL_BLOCKER`：
+正确行为是暂停，不创建实现、不读取正文、不猜测 fallback，等待项目负责人冻结最小协议。此 blocker 不影响
+S6-T5.3 的人工验收，也不批准 S6-T5.5、Context、Citation、Trust 或正式 RAG 安全实验。
+
 ## 0.1 A1R：LLMGuard 命名冻结与 Retrieval Domain 落地（2026-07-16）
 
 项目正式名称现为 **LLMGuard Research Framework（简称 LLMGuard）**，中文名称为
