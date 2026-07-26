@@ -160,6 +160,7 @@ S6-T5.3-H1 均已通过项目负责人 `HUMAN_ACCEPTED`；S6-T5.4 为
 | PODR-020 | 2026-07-26 | S6-T5.5-I1 EvidenceEnvelope, Citation Contracts and Structural Rendering Minimal Implementation | 批准并完成 synthetic-only 的 stable DTO、canonical Factory、instruction 与 single-block renderer 最小实现 | IMPLEMENTED_PENDING_HUMAN_ACCEPTANCE | 项目负责人当前批准、完成记录、TDD 与离线工程验证 | PODR-019 | 不批准 ContextBuilder、package-level allocation、Trust、LLM 或正式 RAG 实验 |
 | PODR-021 | 2026-07-26 | S6-T5.5-H1 Evidence and Citation Contract Immutability and Validation Hardening | 修复 I1 人工验收发现：metadata 不可变、timestamp 兼容、固定 Envelope/Binding 错误与 canonical Evidence UID | IMPLEMENTED_PENDING_HUMAN_REVIEW | 项目负责人当前批准、protocol review record、completion record、TDD 与离线工程验证 | PODR-020 | 不批准 S6-T5.6、ContextBuilder、Package、allocator、Trust、LLM 或正式 RAG 实验 |
 | PODR-022 | 2026-07-26 | S6-T5.5 Evidence Envelope and Citation Implementation Human Acceptance Record | 人工接受 I1、H1 与父任务；`6da27a6` 为最终接受的 implementation commit | HUMAN_ACCEPTED | 项目负责人明确决定、completion record、protocol review record、治理测试 | PODR-020、PODR-021 的历史 pending/review 快照 | 不批准 S6-T5.6+、ContextBuilder、Trust、LLM 或正式 RAG 实验 |
+| PODR-023 | 2026-07-26 | S6-T5.6-P1 Context Package Boundary Freeze | 批准只进行 ContextBuilder、预算、Package、Citation 临时绑定和结构性 abstention 的协议审查 | DESIGN_FREEZE_COMPLETED_PENDING_HUMAN_ACCEPTANCE | 项目负责人明确决定、S6-T5.6 protocol review record、设计/治理测试 | PODR-022 的后续独立协议任务 | 不批准任何 S6-T5.6 实现、ContextBuilder、Package、allocator、Trust、LLM 或正式 RAG 实验 |
 
 ## 7.1 S6-T5.4 当前审批解释（2026-07-25）
 
@@ -236,6 +237,18 @@ RetrievedContextPackage、Trust、LLM 集成、生产可用性或正式 RAG 安�
 
 第 7.6--7.8 节中的 pending/review 文字为当时的历史快照，必须保留；本节是 superseding current decision。
 `S6-T5.6` 为 `NOT APPROVED`，`S6-T5.7+` 为 `NOT APPROVED`，Formal RAG security experiment 为 `NOT STARTED`。
+
+## 7.10 S6-T5.6-P1 Context Package 协议审查当前状态（2026-07-26）
+
+PODR-023 只批准设计冻结，不批准业务实现。当前 P1 为 `Completed, pending human acceptance`，冻结
+`ContextBuildConfig`、唯一 ContextBuilder Protocol、Request/Evidence provenance、稳定 sort/dedup、数量限制、
+ContentResolver/EnvelopeFactory 顺序、临时 Citation Binding、Unicode code point budget、safe build trace、
+`RetrievedContextPackage`、package ID 和结构性 abstention 边界。临时 Binding 只在单次 build 调用栈内用于精确
+renderer 预算计算，未被纳入最终 Package 前不消耗 Citation ID。
+
+父任务 `S6-T5.6`、`S6-T5.7+` 和正式 RAG security experiment 分别仍为 `NOT APPROVED`、`NOT APPROVED` 和
+`NOT STARTED`。最后接受的 implementation commit 仍为 `6da27a6`。本冻结不实现 ContextBuilder、
+RetrievedContextPackage、budgeter 或 Citation allocator，也不读取 fixture 或调用 Embedding、Chroma、Groq 或 LLM。
 
 ## 8. 新 Thread 最小读取顺序
 

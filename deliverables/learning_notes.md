@@ -1226,6 +1226,26 @@ metadata、错误脱敏和结构渲染边界；Citation Accuracy、检索质量�
 工程测试范围内，EvidenceEnvelope/Citation 的最小实现已被项目负责人接受。`S6-T5.6`、`S6-T5.7+` 仍为
 `NOT APPROVED`，正式 RAG 安全实验仍为 `NOT STARTED`。
 
+## 2026-07-26: S6-T5.6-P1 Context Package 协议冻结
+
+**我现在做什么**：我没有实现 ContextBuilder，而是先确定它以后如何把多条 Evidence 组合成一个可复现的 Context。
+难点在于 Citation ID 既要由最终集合连续分配，又会改变最终渲染长度。冻结方案让候选使用临时 `E{n+1}` Binding
+调用既有 renderer；只有整个字符串放得进预算，才真正提交编号和 Evidence。
+
+**为什么这样做**：如果先粗略估算长度或提前分配编号，`E9` 与 `E10` 的长度差、XML escaping 和 LF 结尾都会导致
+重跑时 hash 不一致。stable prefix selection 在第一个不适配候选处停止，保持检索排名语义，不让后面更短但低排名的
+正文跳过前面 Evidence。
+
+**企业意义与上一阶段关系**：S6-T5.5 只解决“单条已验证证据如何安全绑定并渲染”；本阶段冻结“多条证据如何在预算内
+安全共存”。这让企业可以重放 Package 决策并记录排除原因，而普通审计仍不保存 Query、正文或 rendered context。
+
+**面试追问**：为什么超预算不能直接截断正文？回答：截断会改变正文、hash 和 provenance；被截断片段不能继续冒充
+完整 chunk。**容易误解**：结构性 abstention 只表示在当前配置下没有完整 Context 能放入，不是模型或 Trust 层对来源
+作出的安全判断。
+
+**当前边界**：`S6-T5.6-P1` 为 `Completed, pending human acceptance`；S6-T5.6 implementation、S6-T5.7+ 和正式
+RAG 安全实验仍为 `NOT APPROVED`/`NOT STARTED`。本轮没有读取 fixture、调用 Embedding、Chroma、Groq 或 LLM。
+
 **本轮治理回归发现**：首次运行 P1 设计治理测试时，发现当前状态将“未批准”只写作自然语言 `Not approved`，
 Experiment Master Record 也没有同时给出机器易检索的 `NOT APPROVED` / `NOT STARTED` 英文状态；另有一条旧测试仍把
 `GOV-S6-T5.4-ACCEPTANCE` 误当成当前任务。这些都是治理表述漂移，而非业务代码失败。已把状态改为显式枚举、将旧断言

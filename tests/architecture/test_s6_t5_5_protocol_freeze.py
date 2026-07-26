@@ -101,7 +101,8 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
         self.assertIn("S6-T5.5-H1: **HUMAN_ACCEPTED**", state)
         self.assertIn("S6-T5.5: **HUMAN_ACCEPTED**", state)
         self.assertIn("Last accepted implementation commit: `6da27a6`", state)
-        self.assertIn("S6-T5.6+", state)
+        self.assertIn("S6-T5.6-P1", state)
+        self.assertIn("S6-T5.7+", state)
         self.assertIn("**NOT APPROVED**", state)
 
     def test_acceptance_preserves_protocol_history_without_claiming_implementation(self) -> None:
@@ -199,13 +200,12 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
         )
 
         for required in (
-            "Task ID: `GOV-S6-T5.5-ACCEPTANCE`",
-            "S6-T5.5 Evidence Envelope and Citation Implementation Human Acceptance Record",
+            "Last accepted stage task: `S6-T5.5 EvidenceEnvelope, Citation Contracts and Structural Rendering`",
             "S6-T5.5-H1: **HUMAN_ACCEPTED**",
             "S6-T5.5-I1: **HUMAN_ACCEPTED**",
             "S6-T5.5: **HUMAN_ACCEPTED**",
             "Last accepted implementation commit: `6da27a6`",
-            "every S6-T5.6+ task is **NOT APPROVED**",
+            "parent `S6-T5.6`, any S6-T5.6 implementation and S6-T5.7+ are **NOT APPROVED**",
             "Formal RAG security experiment: **NOT STARTED**",
         ):
             with self.subTest(required=required):
@@ -225,8 +225,6 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
             with self.subTest(required=required):
                 self.assertIn(required, review + completion)
 
-        self.assertNotIn("Completed, pending human acceptance", state)
-        self.assertNotIn("Completed, pending human review", state)
 
     def test_acceptance_record_keeps_later_capabilities_and_formal_experiment_closed(
         self,

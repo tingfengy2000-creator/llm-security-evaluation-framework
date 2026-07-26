@@ -973,3 +973,14 @@ RetrievedContextPackage、Trust、LLM 集成、生产可用性或正式 RAG 安�
 
 `S6-T5.6` 和 `S6-T5.7+` 仍为 `NOT APPROVED`，正式 RAG security experiment 仍为 `NOT STARTED`。本次状态登记未
 读取或修改 Stage 6 fixture，未调用 Embedding、Chroma、Groq 或 LLM，未改变 Stage 1--5 历史资产。
+
+## 27. S6-T5.6-P1：Context Package 协议审查与设计冻结（2026-07-26）
+
+S6-T5.6-P1 已完成、待人工验收。它不实现任何 ContextBuilder 或 Package，而是冻结 S6-T5.5 之后的唯一 package
+construction contract：Request/Evidence provenance；排序/去重/数量限制；受控 resolve/Envelope 顺序；Citation 与预算
+循环；Unicode code point budget；safe trace；Package identity；以及结构性 abstention 与完整性异常的分流。
+
+关键决策是 stable prefix selection：使用仅存在于单次 build 调用栈内的临时 next Citation Binding 渲染完整候选，
+fit 后才 commit。这样 `E9` 与 `E10` 的不同宽度被真实字符串覆盖，任何未收录候选不会留下编号空洞或泄漏到 audit。
+P1 仍不批准 S6-T5.6 implementation、ContextBuilder、RetrievedContextPackage、Citation allocator、Trust、LLM 或
+正式实验；最后接受 implementation commit 仍是 `6da27a6`。

@@ -201,7 +201,7 @@ class ContextPersistenceTests(unittest.TestCase):
             "S6-T5.5-I1: **HUMAN_ACCEPTED**",
             "S6-T5.5-H1: **HUMAN_ACCEPTED**",
             "S6-T5.5: **HUMAN_ACCEPTED**",
-            "every S6-T5.6+ task is **NOT APPROVED**",
+            "parent `S6-T5.6`, any S6-T5.6 implementation and S6-T5.7+ are **NOT APPROVED**",
             "Formal RAG security experiment: **NOT STARTED**",
             "S6-T5.3 DenseRetriever",
         ):

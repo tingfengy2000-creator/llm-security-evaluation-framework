@@ -227,3 +227,17 @@ P1/P1-H1 已在此前通过协议人工验收；项目负责人现进一步将 I
 脱敏 validation errors、instruction 和单 block renderer。它不改变本 ADR 的核心分层：Envelope/Citation 不等于
 ContextBuilder，不等于 RetrievedContextPackage，更不等于 Trust 或正式 RAG 安全效果。`S6-T5.6+` 仍为
 `NOT APPROVED`，正式 RAG security experiment 仍为 `NOT STARTED`。
+
+### S6-T5.6-P1：Context Package 协议审查（2026-07-26）
+
+本 ADR 现补充未来 Package 级边界：S6-T5.6-P1 已完成、待人工验收，但只冻结协议。ContextBuilder 只接受
+`RetrievalRequest + Sequence[RetrievalEvidence] + CitationMode + ContextBuildConfig`，并仅注入
+ContentResolver 与 EvidenceEnvelopeFactory。RetrievalTrace 是审计工件，不作为 build 的第二个真相来源。
+
+为解决 Citation/预算循环，未来实现只能以临时 `E{included_count + 1}` Binding 调用既有 single-block renderer
+测试最终字符串。只有完整候选能够放入 Unicode code point 预算时才提交 Binding；第一个不适配候选会触发稳定前缀
+停止，避免低 rank 优先级被较短后续 Evidence 反转。临时 Binding 不进入 Package、trace 或 audit，不消耗永久 ID。
+
+未来 `RetrievedContextPackage` 与 `ContextBuildTrace` 仍由 `contracts/` 拥有；前者含敏感 rendered context，后者仅含
+counts、UID 与排除原因。`EMPTY_RETRIEVAL`、instruction 超预算和无完整 block 可形成结构性 abstention；hash、
+provenance 或 Binding 完整性错误仍必须 fail closed。S6-T5.6 implementation、S6-T5.7+ 与正式 RAG 实验未获批准。

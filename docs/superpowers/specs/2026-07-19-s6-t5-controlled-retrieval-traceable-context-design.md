@@ -692,3 +692,19 @@ history，`6da27a6` 是最终接受的 hardening implementation commit。第 25.
 metadata、timestamp parity、Evidence UID、Binding validation、redacted errors、instruction 和 one-block renderer。
 本规格不因此启动 ContextBuilder、RetrievedContextPackage、Citation allocation、Trust、LLM 或正式 RAG 安全实验；
 `S6-T5.6+` 仍为 `NOT APPROVED`，正式实验仍为 `NOT STARTED`。
+
+## 26. S6-T5.6-P1：ContextBuilder、Budget 与 Package 边界冻结（2026-07-26）
+
+本节只冻结后续实现契约。ContextBuilder 的唯一 future build 输入是 Request、Evidence sequence、CitationMode 和
+ContextBuildConfig；构造时只注入 ContentResolver 与 EvidenceEnvelopeFactory，不接收 raw body、Trace、Chroma、
+Embedding、LLM、Trust、Evaluator 或 Ground Truth。Request/Evidence provenance mismatch 与冲突 UID 均为异常。
+
+候选按 `(rank ascending, evidence_uid ascending)` 稳定排序、exact duplicate UID 去重、数量限制、resolve、Envelope
+构造后，使用 temporary `E{included_count + 1}` Binding 和既有 renderer 精确检查最终 rendered string 的 Unicode
+code point 预算。只有 fit 的候选才 commit；first non-fitting candidate 结束选择，产生 deterministic stable prefix；
+temporary Binding 不保存、不审计、不消耗 Citation ID。`NO_EVIDENCE_AFTER_DEDUPLICATION` 被移出 active baseline。
+
+Package 未来存储 config hash、公开 limits、safe `ContextBuildTrace` 和 final rendered hash；其 `package_id` 为
+`PK-<full_sha256>`。结构性 abstention 仅可为 EMPTY_RETRIEVAL、instruction-only budget exhausted 或 no complete block
+fits，且返回空 context、空 binding/envelope tuple 与 deterministic ID。该 P1 为 `Completed, pending human acceptance`；
+S6-T5.6 implementation、S6-T5.7+ 与正式实验均为 `NOT APPROVED`/`NOT STARTED`。

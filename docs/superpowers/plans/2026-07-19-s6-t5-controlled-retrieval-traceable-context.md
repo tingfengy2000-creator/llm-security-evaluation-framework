@@ -483,3 +483,13 @@ canonical Factory、固定 citation instruction、escaping 和单 block renderer
 本实施计划在此结束于已验收的 synthetic-only contracts/rendering 边界。没有因此实现或批准 ContextBuilder、
 RetrievedContextPackage、Citation allocation、Trust、LLM、Citation Accuracy 或正式 RAG 安全实验；S6-T5.6 与
 S6-T5.7+ 均为 `NOT APPROVED`，正式实验为 `NOT STARTED`。
+
+## 26. S6-T5.6-P1 协议审查执行记录（2026-07-26）
+
+本轮没有执行任何 ContextBuilder TDD 或业务源码任务。只冻结了未来实现顺序：provenance validation -> stable sort ->
+UID dedup -> count limit -> resolve -> Envelope -> exact renderer budget -> Package。预算采用 final rendered string 的
+Unicode code point 数，hash 使用该字符串 UTF-8 bytes，且不截断 block。
+
+批准的 future algorithm 使用 temporary next Citation Binding 计算真实 renderer output；commit 后才永久占用 E1...En。
+选择采用 stable prefix cutoff，而非让后续较小 Evidence 跳过前一高优先级候选。safe trace 记录排除 UID/理由，普通
+audit 不记录正文、rendered block 或 Query。P1 是 `Completed, pending human acceptance`，不批准 S6-T5.6 implementation。
