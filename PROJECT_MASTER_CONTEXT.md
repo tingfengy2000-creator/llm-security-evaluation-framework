@@ -1,5 +1,14 @@
 # LLMGuard 项目总控文档
 
+## S6-T5.8 当前状态附注（2026-07-26）
+
+`S6-T5 Controlled Retrieval Baseline Documentation and Acceptance` 已完成候选文档收尾，当前为
+`Completed, pending human acceptance`。唯一的统一索引是 [S6-T5 基线验收报告](docs/governance/s6_t5_baseline_acceptance_report.md)：它区分 protocol、implementation、hardening、integration evidence 和 governance acceptance 提交，并保留所有结论边界。
+
+`b136ee2` 仍是最后已接受 implementation commit；`b6cedf3` 仍是已接受 integration evidence commit；本轮 candidate
+closure commit 在 Git 创建后才可作为事实登记，绝不提前写作 accepted baseline SHA。Stage 6.1 formal research 仍为
+`NOT APPROVED`，Formal RAG security experiment 仍为 `NOT STARTED`；本轮未调用任何模型或真实基础设施，未创建 tag 或研究分支。
+
 ## S6-T5.7 当前状态附注（2026-07-26）
 
 `S6-T5.7 Controlled Retrieval Context Pipeline Integration and Security Validation` 已通过人工验收，当前为 `HUMAN_ACCEPTED`。新增证据只验证既有受控链路的互操作：静态 Query 投影到 Context Package，以及显式开启的固定 MiniLM 与临时 Chroma close/reopen、受控 synthetic-corpus 解析和稳定身份检查。

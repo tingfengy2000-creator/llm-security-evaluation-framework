@@ -21,10 +21,10 @@
 
 ## Current Task
 
-- Task ID: `GOV-S6-T5.7-ACCEPTANCE`.
-- Task name: `Controlled Retrieval Context Pipeline Integration Human Acceptance`.
-- Task type: **GOVERNANCE_ACCEPTANCE_RECORD**.
-- Status: **HUMAN_ACCEPTED**.
+- Task ID: `S6-T5.8`.
+- Task name: `S6-T5 Controlled Retrieval Baseline Documentation and Acceptance`.
+- Task type: **DOCUMENTATION_BASELINE_CLOSURE / GOVERNANCE_EVIDENCE_CONSOLIDATION**.
+- Status: **Completed, pending human acceptance**.
 - S6-T5.6-P1: HUMAN_ACCEPTED.
 - S6-T5.6-P1-H1: HUMAN_ACCEPTED.
 - S6-T5.6-P1-H2: HUMAN_ACCEPTED.
@@ -32,7 +32,9 @@
 - S6-T5.6-I1: HUMAN_ACCEPTED.
 - S6-T5.6-I1-H1: HUMAN_ACCEPTED. It hardens only trace scenarios, package configuration identity, dependency error redaction and abstention/trace consistency.
 - S6-T5.7: **HUMAN_ACCEPTED**. Static and opt-in real-infrastructure integration evidence is recorded in [S6-T5.7 completion record](s6_t5_7_integration_completion_record.md). Its accepted evidence commit is `b6cedf3`, not a new implementation commit.
-- S6-T5.8: NOT APPROVED.
+- S6-T5.8: **Completed, pending human acceptance**. The candidate baseline closure report is [S6-T5 baseline acceptance report](s6_t5_baseline_acceptance_report.md); its candidate closure commit remains `PENDING_GIT_COMMIT` until Git creates this round's commit.
+- Historical approval snapshot: S6-T5.8 was `APPROVED_TO_START / DOCUMENTATION_IN_PROGRESS` under `PODR-032`; this is not its current status.
+- Stage 6.1 formal research: NOT APPROVED.
 - Formal RAG security experiment: NOT STARTED.
 - Historical approval-gate snapshot, not the current status: `S6-T5.7+: NOT APPROVED`. The accepted S6-T5.6 implementation history remains `71067d1` (initial candidate), `b136ee2` (final accepted implementation) and `6da27a6` (previous accepted implementation).
 - S6-T5.5-P1: **HUMAN_ACCEPTED**.
@@ -75,17 +77,18 @@
 - The acceptance did not authorize Citation allocation, a package or ContextBuilder before I1. The separately approved I1 now implements only those frozen offline behaviors; it does not authorize Trust or model calls.
 - S6-T5.6 P1/H1/H2 are HUMAN_ACCEPTED protocol records. `S6-T5.6-I1`, `S6-T5.6-I1-H1` and parent S6-T5.6 are HUMAN_ACCEPTED synthetic/offline implementations.
 - S6-T5.7 is HUMAN_ACCEPTED only for the documented controlled retrieval-context engineering evidence. It does not change the accepted implementation commit or establish a formal RAG experiment.
-- Next approval gate: the project owner must separately approve `S6-T5.8`; it remains NOT APPROVED and must not start automatically.
+- S6-T5.8 has completed candidate baseline documentation only. It does not create an accepted baseline SHA, a tag, a Stage 6.1 branch, or a formal RAG experiment.
+- Next approval gate: the project owner must accept or reject the S6-T5.8 candidate closure; Stage 6.1 remains NOT APPROVED.
 
 ## Must Not Start
 
-- Additional ContentResolver changes, document-content access beyond synthetic test inputs, Trust policy, retrieval guard, or any S6-T5.8 behavior.
+- Additional ContentResolver changes, document-content access beyond synthetic test inputs, Trust policy, retrieval guard, or any S6-T5.8 behavior beyond the completed documentation closure.
 - Groq, mock/real LLM invocation, evaluator, metrics, T10-T15, formal RAG attack matrix or report generation.
 - New Stage 6 business code under `src/codeguarder/`, any mutation of Stage 1-5, or any mutation of Stage 6 data fixtures.
 
 ## Current Claims Boundary
 
-Can claim: within the offline engineering-test scope, deterministic and label-isolated retrieval runtime contracts plus the provider-neutral DenseRetriever have been HUMAN_ACCEPTED. S6-T5.4-P1, I1, H1 and S6-T5.4 Controlled Corpus ContentResolver are HUMAN_ACCEPTED: they establish a minimal provider-neutral resolver over synthetic in-memory content, a closed public capability surface, and a redacted injected-error boundary. S6-T5.5-P1/P1-H1 are HUMAN_ACCEPTED design protocols; S6-T5.5-I1/H1 and parent S6-T5.5 are HUMAN_ACCEPTED offline contracts for Envelope, Citation and one structural rendering block over synthetic objects. S6-T5.6-P1/H1/H2, I1, I1-H1 and parent S6-T5.6 are HUMAN_ACCEPTED within the synthetic/offline boundary: deterministic package construction, stable-prefix selection, package-local citations, structural abstention, trace scenario invariants, configuration identity and dependency-redaction boundaries. S6-T5.7 is HUMAN_ACCEPTED only as controlled integration evidence for this chain, including an opt-in fixed MiniLM plus temporary Chroma close/reopen check; it is not a new implementation capability. Historical public loader imports remain compatible through the canonical `llmguard` type.
+Can claim: within the offline engineering-test scope, deterministic and label-isolated retrieval runtime contracts plus the provider-neutral DenseRetriever have been HUMAN_ACCEPTED. S6-T5.4-P1, I1, H1 and S6-T5.4 Controlled Corpus ContentResolver are HUMAN_ACCEPTED: they establish a minimal provider-neutral resolver over synthetic in-memory content, a closed public capability surface, and a redacted injected-error boundary. S6-T5.5-P1/P1-H1 are HUMAN_ACCEPTED design protocols; S6-T5.5-I1/H1 and parent S6-T5.5 are HUMAN_ACCEPTED offline contracts for Envelope, Citation and one structural rendering block over synthetic objects. S6-T5.6-P1/H1/H2, I1, I1-H1 and parent S6-T5.6 are HUMAN_ACCEPTED within the synthetic/offline boundary: deterministic package construction, stable-prefix selection, package-local citations, structural abstention, trace scenario invariants, configuration identity and dependency-redaction boundaries. S6-T5.7 is HUMAN_ACCEPTED only as controlled integration evidence for this chain, including an opt-in fixed MiniLM plus temporary Chroma close/reopen check; it is not a new implementation capability. S6-T5.8 has organized these facts into a candidate baseline closure report, pending human acceptance. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
 Cannot claim: retrieval quality, retrieval security effectiveness, context safety, citation accuracy, trustworthiness, RAG metrics, production readiness, or research-experiment outcomes.
 
@@ -99,4 +102,4 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 ## Last Update
 
 - Date: `2026-07-26`.
-- Updated by: Codex after recording `GOV-S6-T5.7-ACCEPTANCE`. S6-T5.7 is `HUMAN_ACCEPTED`; its accepted integration evidence commit is `b6cedf3`, while `b136ee2` remains the last accepted implementation commit. `S6-T5.8` remains `NOT APPROVED` and the formal experiment remains `NOT STARTED`.
+- Updated by: Codex after completing the S6-T5.8 candidate documentation closure. S6-T5.8 is `Completed, pending human acceptance`; [baseline report](s6_t5_baseline_acceptance_report.md) is the unified evidence index. `b136ee2` remains the last accepted implementation commit, `b6cedf3` remains the accepted integration evidence commit, Stage 6.1 remains `NOT APPROVED`, and the formal experiment remains `NOT STARTED`.

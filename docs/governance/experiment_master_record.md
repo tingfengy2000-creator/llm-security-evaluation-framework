@@ -88,7 +88,7 @@
 | S6-T5 Design Freeze | 受控检索与 Context 设计 | 边界、ID、引用和预算设计 | 完成 | `DESIGN_FROZEN` | `e64063e` | 不授权实现 |
 | S6-T5 Design Hardening | 设计审查加固 | DTO、投影、ContentRef、审计异常边界 | 完成 | `DESIGN_FROZEN` | `aeb7e48` | 不授权实现 |
 | S6-T5.1 | Chunking Contracts | IdentityChunker 与稳定 Chunk ID | 已接受 | `HUMAN_ACCEPTED` | `412d886`、`09584c8` | 无 |
-| S6-T5.2 | Retrieval Runtime Contracts and IDs | 安全投影、Request、Evidence、Trace、ContentRef | 已实现 | `IMPLEMENTED` | `4c12181`、[完成记录](s6_t5_2_completion_record.md) | 人工验收 |
+| S6-T5.2 | Retrieval Runtime Contracts and IDs | 安全投影、Request、Evidence、Trace、ContentRef | 已接受 | `HUMAN_ACCEPTED` | `4c12181`、`03750d9`、[完成记录](s6_t5_2_completion_record.md) | 无 |
 | S6-T5.3 | DenseRetriever | 透明 Dense Retrieval | S6-T5.3 DenseRetriever 已通过人工验收；P1/H1 均已接受 | `ENGINEERING_VALIDATED` | [完成记录](s6_t5_3_completion_record.md)、[阻断记录](s6_t5_3_protocol_blocker_record.md)、`72a2445` | S6-T5.4 仍需独立批准 |
 | S6-T5.4 | Controlled Corpus ContentResolver | 受控正文解析与 hash 校验 | P1、I1、H1 与父任务均通过人工验收；仅覆盖合成内存 resolver 工程边界 | `ENGINEERING_VALIDATED` | [completion record](s6_t5_4_completion_record.md)、[blocker record](s6_t5_4_protocol_blocker_record.md)、PODR-015、PODR-016 | S6-T5.5 仍须独立批准 |
 | S6-T5.5-P1 | EvidenceEnvelope and Citation Boundary Freeze | 解决 Citation 时序、factory、escaping 与敏感导出边界 | 已人工验收；仅为协议设计 | `DESIGN_FREEZE_HUMAN_ACCEPTED` | [protocol review record](s6_t5_5_protocol_review_record.md)、PODR-019 | 不批准 S6-T5.5 实现 |
@@ -97,7 +97,9 @@
 | S6-T5.6-P1 | Context Package Boundary Freeze | ContextBuilder、预算、Package 与结构性 abstention 协议 | 已人工验收；未实现业务代码 | `DESIGN_FREEZE_HUMAN_ACCEPTED` | [protocol review record](s6_t5_6_protocol_review_record.md)、PODR-023 | 不批准 S6-T5.6-I1 |
 | S6-T5.6-P1-H1 | Sequential Resolution and Context Trace Hardening | 顺序正文解析、精确 UID 冲突、预算 cutoff 与 trace identity 协议 | 已人工验收；未实现业务代码 | `DESIGN_FREEZE_HARDENING_HUMAN_ACCEPTED` | [protocol review record](s6_t5_6_protocol_review_record.md)、PODR-024 | 不批准 S6-T5.6-I1 |
 | S6-T5.6-P1-H2 | Active Specification, Trace Decision and Package Identity Protocol Closure | 活动顺序、instruction-budget 决策、Trace partition 与 Package identity | 已人工验收；未实现业务代码 | `DESIGN_FREEZE_HARDENING_HUMAN_ACCEPTED` | [protocol review record](s6_t5_6_protocol_review_record.md)、PODR-025、`432b07e` | 不批准 S6-T5.6-I1 |
-| S6-T5.6–S6-T5.8 | Context、后续受控能力 | 逐项增量实现 | 未批准 | `PLANNED_NOT_IMPLEMENTED` | [protocol review record](s6_t5_5_protocol_review_record.md) | 不得自动开始 |
+| S6-T5.6 | Deterministic Retrieved Context Package | 稳定排序、顺序解析、预算、Package | 已接受 | `HUMAN_ACCEPTED` | `b136ee2`、`dbf590a`、[completion record](s6_t5_6_completion_record.md) | 无 |
+| S6-T5.7 | Controlled Retrieval Context Integration | 静态与 opt-in 真实基础设施互操作 | 已接受 | `HUMAN_ACCEPTED` | `b6cedf3`、`c1e8c16`、[integration record](s6_t5_7_integration_completion_record.md) | S6-T5.8 仅作候选文档收尾 |
+| S6-T5.8 | Baseline Documentation and Acceptance | 统一证据索引与基线候选整理 | 完成，待人工验收 | `DOCUMENTATION_BASELINE_CLOSURE_PENDING_ACCEPTANCE` | [baseline report](s6_t5_baseline_acceptance_report.md) | 不得创建 tag、分支或 Stage 6.1 |
 | Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | 规划中 | `PLANNED` | [长期需求](long_term_research_requirements.md) | Stage 6 基线 |
 | Stage 6.2 | Multi-Evidence Trustworthy Retrieval | 可信聚合、重排、拒答 | 规划中 | `PLANNED` | [长期需求](long_term_research_requirements.md) | Stage 6.1/设计批准 |
 | Stage 7 | Agent Security Evaluation | Tool/Memory/Planning 安全 | 规划中 | `PLANNED` | [Stage 7 README](../../stages/stage7_agent_security/README.md) | Trusted Context 契约 |
@@ -433,3 +435,4 @@ git log -15 --oneline
 | 2026-07-26 | GOV-S6-T5.6-P1-ACCEPTANCE | 第 2、4、10、12、14、20 节 | 项目负责人接受 P1、P1-H1 与 P1-H2 的未来 Context Package 协议；父任务仅进入 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`，`S6-T5.6-I1` 仍未批准。`6da27a6` 保持最后已接受 implementation commit，`432b07e` 仅为协议闭环提交 | [protocol review record](s6_t5_6_protocol_review_record.md)、PODR-026、治理测试 | 不创建源码、不读 fixture、不调用模型 |
 | 2026-07-26 | S6-T5.6-I1 实施批准 | 第 2、4、10、12、14、20 节 | 项目负责人批准合成离线 TDD 实现 Context Config/Trace/Package 与唯一 ContextBuilder；I1 和父任务进入 `IMPLEMENTATION_IN_PROGRESS`，新提交尚不属于 last accepted implementation | PODR-027、当前任务指令、已验收协议 | 不读 fixture、不调用 Embedding/Chroma/LLM、不进入 Trust、S6-T5.7 或正式实验 |
 | 2026-07-26 | GOV-S6-T5.7-ACCEPTANCE | 第 2、12、14、20 节 | 项目负责人接受既有检索到 Context Package 受控集成验证；`b6cedf3` 仅为集成证据提交，`b136ee2` 仍为最后已接受 implementation commit；S6-T5.8 与正式实验未获批准 | [S6-T5.7 completion record](s6_t5_7_integration_completion_record.md)、PODR-031、治理测试 | 本轮纯治理提交，未改业务源码、测试 fixture/data 或历史资产 |
+| 2026-07-26 | S6-T5.8 baseline documentation closure | 第 2、4、12、14、20 节 | 汇总 S6-T5.1--T5.7 的脱敏证据、提交身份、测试快照、环境说明和技术债；候选 closure 完成但等待人工验收，不创建 accepted baseline SHA、tag 或 Stage 6.1 分支 | [baseline report](s6_t5_baseline_acceptance_report.md)、PODR-032、治理测试 | 纯文档/治理候选，未改业务源码、历史资产或 fixture/data |

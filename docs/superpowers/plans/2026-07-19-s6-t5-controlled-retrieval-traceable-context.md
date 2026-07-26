@@ -546,3 +546,11 @@ Trust、生成式 LLM 或正式实验结论。
 `b136ee2`。真实 MiniLM/Chroma 测试仅在显式环境变量下运行，`local_files_only=False` 使新环境可能首次下载固定
 revision；默认离线 CI 不以网络或下载为前提。`S6-T5.8` 为 `NOT APPROVED`，正式 RAG security experiment 为
 `NOT STARTED`。
+
+## 32. S6-T5.8 Baseline Documentation Closure 状态附注（2026-07-26）
+
+本计划的实施步骤没有扩张。S6-T5.8 已完成候选 documentation baseline closure，当前为
+`Completed, pending human acceptance`；它只收口已有证据，不创建 tag、Stage 6.1 分支、模型调用、业务代码或正式实验。
+最后已接受 implementation commit 仍是 `b136ee2`，integration evidence commit 仍是 `b6cedf3`；候选 closure SHA
+等待 Git 提交和项目负责人验收，不能提前称为 accepted baseline SHA。Stage 6.1 仍为 `NOT APPROVED`，正式实验仍为
+`NOT STARTED`。

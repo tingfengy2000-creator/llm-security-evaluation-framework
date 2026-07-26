@@ -25,6 +25,7 @@ S6_T5_PLAN = (
 )
 S6_T5_ADR = ROOT / "docs" / "architecture" / "0008_retrieval_context_boundary.md"
 S6_T5_4_BLOCKER = GOVERNANCE / "s6_t5_4_protocol_blocker_record.md"
+S6_T5_BASELINE_REPORT = GOVERNANCE / "s6_t5_baseline_acceptance_report.md"
 
 
 class ContextPersistenceTests(unittest.TestCase):
@@ -36,6 +37,7 @@ class ContextPersistenceTests(unittest.TestCase):
             ROOT / "PROJECT_MASTER_CONTEXT.md",
             GOVERNANCE / "current_work_state.md",
             GOVERNANCE / "context_recovery_protocol.md",
+            S6_T5_BASELINE_REPORT,
         )
 
         for path in required:
@@ -62,6 +64,32 @@ class ContextPersistenceTests(unittest.TestCase):
         self.assertIn("Label Isolation", agents)
         self.assertIn("Approval Gate", agents)
         self.assertIn("未获批准", agents)
+
+    def test_s6_t5_baseline_report_preserves_candidate_status_and_boundaries(
+        self,
+    ) -> None:
+        report = S6_T5_BASELINE_REPORT.read_text(encoding="utf-8")
+        state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
+
+        for required in (
+            "S6-T5 Controlled Retrieval and Traceable Context Baseline Acceptance Report",
+            "Completed, pending human acceptance",
+            "b136ee2",
+            "b6cedf3",
+            "c1e8c16",
+            "PENDING_GIT_COMMIT",
+            "BLK-HIST-001",
+            "Stage 6.1 formal research: NOT APPROVED",
+            "Formal RAG security experiment: NOT STARTED",
+            "accepted S6-T5 baseline SHA",
+            "不创建 tag、分支或 Stage 6.1 任务",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, report)
+
+        self.assertIn("S6-T5.8: **Completed, pending human acceptance**", state)
+        self.assertIn("Stage 6.1 formal research: NOT APPROVED", state)
+        self.assertIn("PENDING_GIT_COMMIT", state)
 
     def test_project_owner_decision_register_preserves_current_and_historical_facts(
         self,
@@ -207,7 +235,7 @@ class ContextPersistenceTests(unittest.TestCase):
             "S6-T5.6-I1: HUMAN_ACCEPTED",
             "S6-T5.6-I1-H1: HUMAN_ACCEPTED",
             "S6-T5.7: **HUMAN_ACCEPTED**",
-            "S6-T5.8: NOT APPROVED",
+            "S6-T5.8: **Completed, pending human acceptance**",
             "Formal RAG security experiment: NOT STARTED",
             "S6-T5.3 DenseRetriever",
         ):

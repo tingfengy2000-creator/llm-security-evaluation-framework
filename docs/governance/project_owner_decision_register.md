@@ -324,6 +324,15 @@ implementation commit。历史 pending/review 文本继续保留为当时事实�
 - Environment note: the explicit real integration test uses `local_files_only=False`; only a new environment that explicitly enables the test may download the pinned revision. It is not a default offline CI dependency and is not a blocker.
 - Next gate: `S6-T5.8` remains `NOT APPROVED`; Formal RAG security experiment remains `NOT STARTED`.
 
+## PODR-032: S6-T5.8 Documentation Baseline Closure Approval
+
+- Date: `2026-07-26`.
+- Decision: project owner approved S6-T5.8 `Documentation Baseline Closure` to start. It may consolidate accepted S6-T5.1--S6-T5.7 evidence, document environment and technical-debt boundaries, and add governance consistency checks only.
+- Current status: `Completed, pending human acceptance`.
+- Required identity boundary: `b136ee2` remains the last accepted implementation commit; `b6cedf3` remains the accepted integration evidence commit; the T5.8 candidate closure commit is not an accepted baseline SHA before final human acceptance.
+- Prohibitions: no `src/`, business-test, Stage 1--5, Stage 6 fixture/data or runtime modification; no Embedding/MiniLM/Chroma/Groq/LLM call; no tag, Stage 6.1 branch, formal RAG security experiment, Trust, reranker, policy, Citation Accuracy or poisoning detector.
+- Next gate: project owner acceptance or rejection of the T5.8 candidate baseline closure. Stage 6.1 formal research remains `NOT APPROVED`; Formal RAG security experiment remains `NOT STARTED`.
+
 ## PODR-029: GOV-S6-T5.6-ACCEPTANCE Final Human Acceptance
 
 - Date: `2026-07-26`.

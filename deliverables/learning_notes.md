@@ -1484,3 +1484,26 @@ ContextBuildTrace、预算器或 Citation allocator。
 **面试怎么讲**：可以说：“我把向量检索、正文解析和上下文构建拆成可审计的权限边界，并用静态和可选真实基础设施验证它们的确定性协同。真实模型测试证明互操作，不把它误说成检索质量或安全防护效果。”
 
 **不能误解**：本次人工验收没有计算 Recall、MRR、NDCG 或 Citation Accuracy；没有防住 Prompt Injection，也没有检测 Knowledge Poisoning；没有运行生成式 LLM 或正式 RAG 安全实验。`S6-T5.8` 仍为 `NOT APPROVED`。
+
+## 2026-07-26: S6-T5.8 基线文档收尾（待最终人工验收）
+
+**现在做了什么**：我把 S6-T5.1 至 S6-T5.7 的协议、实现、加固、集成和治理提交整理成唯一的
+`S6-T5 Controlled Retrieval and Traceable Context Baseline Acceptance Report`。报告不复制正文、Query、向量或本机路径，
+只索引可复核的提交、文档、测试范围和结论边界。
+
+**为什么要区分五类提交**：protocol commit 说明“规则被冻结”，implementation commit 说明“行为被写入”，hardening
+commit 说明“验收发现项被修复”，integration evidence commit 说明“既有组件可协同”，governance acceptance commit
+说明“负责人接受了哪个边界”。把它们混成一个“完成提交”，面试和论文审查都会无法判断证据究竟支持什么。
+
+**环境与技术债怎么讲**：真实 MiniLM + Chroma 是 opt-in 的基础设施验证，`local_files_only=False` 只会在显式开启时
+允许新环境下载固定 revision；默认离线 CI 不依赖网络。历史 `BLK-HIST-001` 是 Windows CRLF/LF 造成的旧 SHA-256
+manifest 差异，正确处置是保留并使用 Git protected-path diff 证明本轮没有修改历史资产，而不是改写旧实验文件。
+
+**当前状态与下一步**：S6-T5.8 为 `Completed, pending human acceptance`；`b136ee2` 仍是最后已接受 implementation
+commit，`b6cedf3` 仍是已接受 integration evidence commit。本轮候选 closure commit 尚不能被称为 accepted baseline SHA。
+Stage 6.1 formal research 和正式 RAG security experiment 均未批准/未开始。
+
+**本轮验证留痕**：文档/治理一致性为 `22 passed, 371 subtests passed`；全量 architecture 为
+`76 passed, 902 subtests passed`；namespace + label-isolation 为 `10 passed, 1199 subtests passed`。Markdown、changed-file
+secret/path、protected-path、runtime Git-ignore 和 diff 检查通过。历史 manifest 的 110 个 CRLF/LF 差异仍为
+`BLK-HIST-001`，不能被写成这次文档任务引入的失败。
