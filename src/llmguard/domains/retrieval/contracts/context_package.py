@@ -226,6 +226,8 @@ class ContextBuildTrace:
             raise _invalid_package()
         if self.count_selected_uids + self.max_count_excluded_uids != stable:
             raise _invalid_package()
+        if self.max_count_excluded_uids != stable[self.count_selected_count :]:
+            raise _invalid_package()
         subsets = (
             self.count_selected_uids,
             self.max_count_excluded_uids,
@@ -257,7 +259,62 @@ class ContextBuildTrace:
             raise _invalid_package()
         if set(self.resolved_uids) != set(self.included_uids) | set(self.budget_excluded_uids):
             raise _invalid_package()
-        if self.corpus_snapshot_id == "" and stable:
+        if self.resolved_uids != self.included_uids + self.budget_excluded_uids:
+            raise _invalid_package()
+        if self.included_uids != self.count_selected_uids[: self.included_count]:
+            raise _invalid_package()
+        if len(self.budget_excluded_uids) > 1:
+            raise _invalid_package()
+        if not stable:
+            if (
+                self.input_evidence_count != 0
+                or self.count_selected_count != 0
+                or self.resolved_count != 0
+                or self.included_count != 0
+                or self.corpus_snapshot_id != ""
+                or any(
+                    (
+                        self.count_selected_uids,
+                        self.max_count_excluded_uids,
+                        self.resolved_uids,
+                        self.included_uids,
+                        self.budget_excluded_uids,
+                        self.instruction_budget_not_attempted_uids,
+                        self.not_attempted_after_budget_cutoff_uids,
+                        self.decision_codes,
+                    )
+                )
+            ):
+                raise _invalid_package()
+            return
+        if self.corpus_snapshot_id == "":
+            raise _invalid_package()
+        if self.instruction_budget_not_attempted_uids:
+            if (
+                self.included_uids
+                or self.resolved_uids
+                or self.budget_excluded_uids
+                or self.not_attempted_after_budget_cutoff_uids
+                or self.instruction_budget_not_attempted_uids
+                != self.count_selected_uids
+            ):
+                raise _invalid_package()
+            return
+        if not self.budget_excluded_uids:
+            if (
+                self.included_uids != self.count_selected_uids
+                or self.resolved_uids != self.count_selected_uids
+                or self.not_attempted_after_budget_cutoff_uids
+            ):
+                raise _invalid_package()
+            return
+        expected_budget = self.count_selected_uids[self.included_count : self.included_count + 1]
+        expected_cutoff = self.count_selected_uids[self.included_count + 1 :]
+        if (
+            self.included_uids == self.count_selected_uids
+            or self.budget_excluded_uids != expected_budget
+            or self.not_attempted_after_budget_cutoff_uids != expected_cutoff
+        ):
             raise _invalid_package()
 
     @classmethod
@@ -387,7 +444,20 @@ class RetrievedContextPackage:
         self._validate_identity()
 
     def _validate_identity(self) -> None:
-        if self.build_trace.request_id != self.request_id or self.build_trace.query_id != self.query_id or self.build_trace.context_build_config_hash != self.context_build_config_hash:
+        try:
+            expected_config_hash = ContextBuildConfig(
+                context_schema_version=self.context_schema_version,
+                max_evidence_count=self.max_evidence_count,
+                max_context_characters=self.max_context_characters,
+            ).context_build_config_hash
+        except ContextBuildConfigurationError as error:
+            raise _invalid_package() from error
+        if (
+            expected_config_hash != self.context_build_config_hash
+            or self.build_trace.request_id != self.request_id
+            or self.build_trace.query_id != self.query_id
+            or self.build_trace.context_build_config_hash != self.context_build_config_hash
+        ):
             raise _invalid_package()
         envelope_uids = tuple(item.evidence_uid for item in self.evidence_envelopes)
         if self.build_trace.included_uids != envelope_uids:
@@ -401,11 +471,45 @@ class RetrievedContextPackage:
         if self.abstention_required:
             if len(self.abstention_reason_codes) != 1 or self.evidence_envelopes or self.citation_bindings or self.evidence_count != 0 or self.rendered_context != "":
                 raise _invalid_package()
+            self._validate_abstention_reason()
         elif self.abstention_reason_codes or not self.evidence_envelopes:
+            raise _invalid_package()
+        elif self.build_trace.included_count == 0 or self.build_trace.instruction_budget_not_attempted_uids:
             raise _invalid_package()
         expected_id = "PK-" + canonical_json_sha256(self._identity_payload())
         if self.package_id != expected_id:
             raise _invalid_package()
+
+    def _validate_abstention_reason(self) -> None:
+        trace = self.build_trace
+        reason = self.abstention_reason_codes[0]
+        if reason == "EMPTY_RETRIEVAL":
+            if trace.stable_candidate_uids or trace.input_evidence_count != 0:
+                raise _invalid_package()
+            return
+        if reason == "CONTEXT_BUDGET_EXHAUSTED":
+            if (
+                not trace.count_selected_uids
+                or trace.resolved_count != 0
+                or trace.included_count != 0
+                or trace.instruction_budget_not_attempted_uids != trace.count_selected_uids
+                or trace.budget_excluded_uids
+                or trace.not_attempted_after_budget_cutoff_uids
+            ):
+                raise _invalid_package()
+            return
+        if reason == "NO_COMPLETE_EVIDENCE_BLOCK_FITS":
+            if (
+                trace.included_count != 0
+                or len(trace.budget_excluded_uids) != 1
+                or trace.budget_excluded_uids != trace.count_selected_uids[:1]
+                or trace.not_attempted_after_budget_cutoff_uids
+                != trace.count_selected_uids[1:]
+                or trace.instruction_budget_not_attempted_uids
+            ):
+                raise _invalid_package()
+            return
+        raise _invalid_package()
 
     @classmethod
     def create(

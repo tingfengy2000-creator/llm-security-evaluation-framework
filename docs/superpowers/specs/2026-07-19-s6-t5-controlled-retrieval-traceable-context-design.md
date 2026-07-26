@@ -758,6 +758,12 @@ S6-T5.6 implementation、S6-T5.7+ 与正式实验均为 `NOT APPROVED`/`NOT STAR
 ContextBuildTrace、预算器或 Citation allocator 的实现批准。最后已接受 implementation commit 是 `6da27a6`；
 `432b07e` 仅是人工验收通过的协议闭环提交。
 
+## 29. S6-T5.6-I1-H1 Candidate Hardening Status (2026-07-26)
+
+I1-H1 is `Completed, pending human acceptance`. It does not alter the accepted P1/H1/H2 protocol. The candidate implementation now rejects malformed Trace execution scenarios, recomputes the Package configuration hash from its public schema and limits, re-instantiates resolver/factory/renderer dependency failures through allowlisted redacted errors, and requires every structural abstention reason to match its Trace scenario.
+
+No DTO field, decision/reason code, builder interface, selection order, fixture/data asset, model integration, or experiment scope changed. `71067d1` remains initial I1 candidate history; the last accepted implementation commit remains `6da27a6`; S6-T5.7+ is `NOT APPROVED`; Formal RAG security experiment is `NOT STARTED`.
+
 ## 28. S6-T5.6-I1 实施状态附注（2026-07-26）
 
 本规格的 P1/H1/H2 冻结内容未被改写。项目负责人已批准并完成最小 synthetic-only I1 实现，当前

@@ -511,6 +511,12 @@ audit 不记录正文、rendered block 或 Query。P1 是 `Completed, pending hu
 `6da27a6`；`432b07e` 仅为最终人工验收通过的协议闭环提交。该登记不实现任何 ContextBuilder、
 RetrievedContextPackage、ContextBuildTrace、预算器或 Citation allocator。
 
+## 29. S6-T5.6-I1-H1 Candidate Hardening Status (2026-07-26)
+
+The implementation plan remains unchanged. The completed candidate hardening is limited to executable Trace partition invariants, Package public-configuration identity, dependency-boundary redaction, and abstention-reason/Trace consistency. These changes close implementation defects; they do not add a new context-building behavior or modify the approved sequential stable-prefix algorithm.
+
+Status: `S6-T5.6-I1-H1: Completed, pending human acceptance`; `S6-T5.6-I1` and `S6-T5.6` remain `Completed, pending human acceptance`; `S6-T5.7+` remains `NOT APPROVED`; Formal RAG security experiment remains `NOT STARTED`. The last accepted implementation commit remains `6da27a6`.
+
 ## 28. S6-T5.6-I1 实施状态附注（2026-07-26）
 
 本计划的历史审批快照仍保留。其后已批准的最小 synthetic-only I1 已完成离线实现并等待人工验收：

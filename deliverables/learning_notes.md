@@ -1419,6 +1419,20 @@ ContextBuildTrace、预算器或 Citation allocator。
 已清、协议已冻结，仍必须取得 `S6-T5.6-I1` 的明确批准。最后已接受 implementation commit 仍为 `6da27a6`；
 `432b07e` 只属于最终通过人工验收的协议闭环提交。正式 RAG security experiment 仍为 `NOT STARTED`。
 
+## 2026-07-26: S6-T5.6-I1-H1 Context Package 完整性加固（待人工验收）
+
+**我现在做了什么**：我没有新增 RAG 功能，而是修复了 I1 人工复核暴露的四个一致性缺口：Trace 不再只校验“集合齐全”，还必须对应空检索、instruction 超预算、全部适配或 stable-prefix cutoff 的真实执行情景；Package 会由公开 limits 重新计算 config hash；Resolver、Factory 和 renderer 的注入异常会在各自边界重建为固定脱敏错误；三种 structural abstention 必须能由 Trace 证明。
+
+**为什么这样做**：审计记录的价值在于能回答“系统实际做了什么、为什么没有读取某条正文”。相同 UID 集合不足以证明执行顺序；相同自报 hash 也不足以证明预算配置一致。把它们设为可复算的不变量，才能避免审计日志被错误实现或不可信依赖伪造。
+
+**企业里为什么重要**：依赖服务可能返回自定义错误或把敏感上下文放进异常。边界重建使外层只见稳定分类和固定文案，内部仍由 exception cause 保存诊断链，便于监控、告警和事件复盘，同时减少正文泄露风险。
+
+**和上一阶段的关系**：S6-T5.4 控制单条正文解析，S6-T5.5 控制单条 Evidence 渲染，S6-T5.6-I1 组合多条证据。H1 只让这条组合链更可证明，不改变排序、预算、Citation 或协议。
+
+**面试可能追问**：为什么集合相同仍不够？因为 `included -> budget excluded -> included` 与 stable-prefix cutoff 不可能同时成立；顺序错误会让 Trace 不能证明后续正文未被访问。
+
+**最容易误解**：本轮 437 个测试通过只证明 synthetic/offline 合约加固，不说明 RAG 已安全、引用准确或能够抵抗知识污染。
+
 ## 2026-07-26: S6-T5.6-I1 最小离线 Context Package 实施完成（待人工验收）
 
 **我现在做了什么**：我把已验收的多证据组合协议做成了最小、可重复的离线实现。`ContextBuildConfig` 固定本次构建的数量和字符预算；`ContextBuildTrace` 记录每个候选为何进入、因数量排除、因预算排除或在 cutoff 后从未访问；`RetrievedContextPackage` 保存最终上下文、引用绑定和可复算身份。`DeterministicContextBuilder` 只注入 ContentResolver 与 EnvelopeFactory，并复用既有 instruction 与 renderer。

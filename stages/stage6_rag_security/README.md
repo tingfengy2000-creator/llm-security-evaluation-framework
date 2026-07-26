@@ -32,7 +32,7 @@
 - deliverable_locations: 尚未生成独立 Stage 6 证据包。
 - evidence_locations: `data/stage6_rag/documents/corpus_manifest.json`
 - conclusion_boundary: 已完成人工验收的 S6-T5.3 离线工程边界包括 embedding/vectorstore 基础设施、S6-T5.2 运行时契约、schema `1.1` parent identity carrier、DenseRetriever 与 H1 trace/failure-boundary 加固；S6-T5.4-I1 已实现 contracts、in-memory reader/registry、exact-match legacy adapter 与 hash-verified resolver，H1 又关闭公开 registry capability 并重建注入错误的固定脱敏外部表述。P1、I1、H1 与父任务均已通过人工验收。S6-T5.5-P1/P1-H1 也已通过协议人工验收；S6-T5.5-I1/H1 与父任务已在 synthetic objects 上通过人工验收，覆盖 Envelope、Binding、CitationMode、Factory、instruction 与单 block rendering。未实现 ContextBuilder、package、allocator、Trust、LLM 或 RAG 指标，也未执行正式 RAG 安全实验。
-- next_stage: `S6-T5.6-P1`、P1-H1、P1-H2 已通过人工验收；仅可等待项目负责人对 `S6-T5.6-I1` 的独立批准，`S6-T5.7+` 不得自动开始。
+- next_stage: `S6-T5.6-I1-H1` 已完成、等待人工验收；I1 与父任务仍为 `Completed, pending human acceptance`。H1 只加固 Trace 情景、公开 config hash、依赖错误脱敏与 abstention/Trace 对应关系；`S6-T5.7+` 不得自动开始。
 
 目标：在 Retrieval 层评测 R1–R6，并为隐蔽知识污染检测与可信检索研究建立稳定证据接口。
 

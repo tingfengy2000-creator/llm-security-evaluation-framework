@@ -16,6 +16,7 @@ from llmguard.domains.retrieval.contracts import (
     ContextBuildConfig,
     ContextConstructionIntegrityError,
     ContextConstructionRuntimeError,
+    EvidenceEnvelopeIntegrityError,
 )
 
 from test_context_builder import _builder, _evidence, _register, _request
@@ -221,3 +222,169 @@ def test_renderer_binding_failure_is_redacted_and_fails_closed(monkeypatch: pyte
     assert caught.value.error_code == "CITATION_BINDING_MISMATCH"
     assert "Sensitive body" not in str(caught.value)
     assert caught.value.__cause__ is not None
+
+
+def test_dependency_context_construction_errors_are_not_trusted_from_resolver() -> None:
+    request = _request()
+    evidence = _evidence(request, letter="a", rank=1, body="Sensitive body")
+
+    class InjectedResolver:
+        def resolve(self, **_: object) -> object:
+            raise ContextConstructionIntegrityError(
+                "Sensitive body from injected resolver",
+                error_code="INJECTED_RESOLVER_SECRET",
+            )
+
+    builder = DeterministicContextBuilder(
+        resolver=InjectedResolver(),  # type: ignore[arg-type]
+        envelope_factory=CanonicalEvidenceEnvelopeFactory(),
+    )
+    with pytest.raises(ContextConstructionRuntimeError) as caught:
+        builder.build(
+            request=request,
+            evidence=(evidence,),
+            citation_mode=CitationMode.REQUIRED,
+            config=_config(),
+        )
+
+    assert caught.value.error_code == "UNEXPECTED_CONTEXT_CONSTRUCTION_FAILURE"
+    assert "Sensitive body" not in str(caught.value)
+    assert "INJECTED_RESOLVER_SECRET" not in str(caught.value)
+    assert caught.value.__cause__ is not None
+
+
+def test_factory_and_renderer_context_errors_are_not_trusted_from_dependencies(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    request = _request()
+    evidence = _evidence(request, letter="a", rank=1, body="Sensitive body")
+    _register((evidence, "Sensitive body"))
+    _, resolver = _builder(evidence)
+
+    class InjectedFactory:
+        def create(self, **_: object) -> object:
+            raise ContextConstructionIntegrityError(
+                "Sensitive body from injected factory",
+                error_code="INJECTED_FACTORY_SECRET",
+            )
+
+    factory_builder = DeterministicContextBuilder(
+        resolver=resolver,
+        envelope_factory=InjectedFactory(),  # type: ignore[arg-type]
+    )
+    with pytest.raises(ContextConstructionRuntimeError) as factory_error:
+        factory_builder.build(
+            request=request,
+            evidence=(evidence,),
+            citation_mode=CitationMode.REQUIRED,
+            config=_config(),
+        )
+
+    def _raise_for_test(**_: object) -> str:
+        raise ContextConstructionIntegrityError(
+            "Sensitive body from injected renderer",
+            error_code="INJECTED_RENDERER_SECRET",
+        )
+
+    monkeypatch.setattr(
+        "llmguard.domains.retrieval.context.builder.render_evidence_block",
+        _raise_for_test,
+    )
+    renderer_builder = DeterministicContextBuilder(
+        resolver=resolver,
+        envelope_factory=CanonicalEvidenceEnvelopeFactory(),
+    )
+    with pytest.raises(ContextConstructionRuntimeError) as renderer_error:
+        renderer_builder.build(
+            request=request,
+            evidence=(evidence,),
+            citation_mode=CitationMode.REQUIRED,
+            config=_config(),
+        )
+
+    for caught in (factory_error, renderer_error):
+        assert caught.value.error_code == "UNEXPECTED_CONTEXT_CONSTRUCTION_FAILURE"
+        assert "Sensitive body" not in str(caught.value)
+        assert "INJECTED_" not in str(caught.value)
+        assert caught.value.__cause__ is not None
+
+
+def test_dependency_custom_codes_fall_back_to_their_boundary_default(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    request = _request()
+    evidence = _evidence(request, letter="a", rank=1, body="Sensitive body")
+    _register((evidence, "Sensitive body"))
+
+    class CustomCodeResolver:
+        def resolve(self, **_: object) -> object:
+            raise ContentResolutionLookupError(
+                "Sensitive resolver detail",
+                error_code="CUSTOM_RESOLVER_SECRET",
+            )
+
+    resolver_builder = DeterministicContextBuilder(
+        resolver=CustomCodeResolver(),  # type: ignore[arg-type]
+        envelope_factory=CanonicalEvidenceEnvelopeFactory(),
+    )
+    with pytest.raises(ContentResolutionLookupError) as resolver_error:
+        resolver_builder.build(
+            request=request,
+            evidence=(evidence,),
+            citation_mode=CitationMode.REQUIRED,
+            config=_config(),
+        )
+
+    _, resolver = _builder(evidence)
+
+    class CustomCodeFactory:
+        def create(self, **_: object) -> object:
+            raise EvidenceEnvelopeIntegrityError(
+                "Sensitive factory detail",
+                error_code="CUSTOM_FACTORY_SECRET",
+            )
+
+    factory_builder = DeterministicContextBuilder(
+        resolver=resolver,
+        envelope_factory=CustomCodeFactory(),  # type: ignore[arg-type]
+    )
+    with pytest.raises(EvidenceEnvelopeIntegrityError) as factory_error:
+        factory_builder.build(
+            request=request,
+            evidence=(evidence,),
+            citation_mode=CitationMode.REQUIRED,
+            config=_config(),
+        )
+
+    def _raise_for_test(**_: object) -> str:
+        raise CitationIntegrityError(
+            "Sensitive renderer detail",
+            error_code="CUSTOM_RENDERER_SECRET",
+        )
+
+    monkeypatch.setattr(
+        "llmguard.domains.retrieval.context.builder.render_evidence_block",
+        _raise_for_test,
+    )
+    renderer_builder = DeterministicContextBuilder(
+        resolver=resolver,
+        envelope_factory=CanonicalEvidenceEnvelopeFactory(),
+    )
+    with pytest.raises(CitationIntegrityError) as renderer_error:
+        renderer_builder.build(
+            request=request,
+            evidence=(evidence,),
+            citation_mode=CitationMode.REQUIRED,
+            config=_config(),
+        )
+
+    expected = (
+        (resolver_error, "UNKNOWN_CONTENT_REF"),
+        (factory_error, "EVIDENCE_CONTENT_MISMATCH"),
+        (renderer_error, "CITATION_BINDING_MISMATCH"),
+    )
+    for caught, code in expected:
+        assert caught.value.error_code == code
+        assert "Sensitive" not in str(caught.value)
+        assert "CUSTOM_" not in str(caught.value)
+        assert caught.value.__cause__ is not None

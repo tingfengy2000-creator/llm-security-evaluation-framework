@@ -376,6 +376,14 @@ git log -15 --oneline
 
 正式 Run Record 默认 append-only。错误修正必须写 Change Log；无效运行标记 `INVALIDATED`，不能删除；失败记录不能因后续成功而删除；派生摘要必须可追溯到原始结果。
 
+## S6-T5.6-I1-H1 Candidate Hardening Record (2026-07-26)
+
+- Status: `Completed, pending human acceptance`.
+- Scope: only Trace scenario invariants, Package public configuration identity, injected dependency error redaction, and abstention/Trace correspondence.
+- Evidence: [H1 completion record](s6_t5_6_i1_h1_completion_record.md), targeted tests, full offline retrieval/architecture/label-isolation regression, Ruff and scoped MyPy.
+- Historical boundary: `71067d1` remains the initial I1 candidate history; last accepted implementation commit remains `6da27a6`.
+- Non-claims: no fixture/data read or modification, model invocation, formal RAG security experiment, retrieval-quality conclusion, Citation Accuracy conclusion, or production-readiness conclusion.
+
 ## 20. Change Log
 
 | 日期 | 变更类型 | 影响章节 | 变更原因 | 证据 | Commit |

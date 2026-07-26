@@ -10,6 +10,7 @@ GOVERNANCE = ROOT / "docs" / "governance"
 RETRIEVAL_ROOT = ROOT / "src" / "llmguard" / "domains" / "retrieval"
 REVIEW_RECORD = GOVERNANCE / "s6_t5_6_protocol_review_record.md"
 COMPLETION_RECORD = GOVERNANCE / "s6_t5_6_completion_record.md"
+H1_COMPLETION_RECORD = GOVERNANCE / "s6_t5_6_i1_h1_completion_record.md"
 SPECIFICATION = (
     ROOT
     / "docs"
@@ -294,6 +295,42 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
         ):
             with self.subTest(required=required):
                 self.assertIn(required, text)
+
+    def test_i1_h1_hardening_is_recorded_without_advancing_the_approval_gate(self) -> None:
+        record = H1_COMPLETION_RECORD.read_text(encoding="utf-8")
+        state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
+        master = (GOVERNANCE / "experiment_master_record.md").read_text(
+            encoding="utf-8"
+        )
+        decisions = (GOVERNANCE / "project_owner_decision_register.md").read_text(
+            encoding="utf-8"
+        )
+
+        for text in (record, state, master, decisions):
+            for required in (
+                "S6-T5.6-I1-H1",
+                "Completed, pending human acceptance",
+                "71067d1",
+                "6da27a6",
+                "S6-T5.7+",
+                "NOT APPROVED",
+                "Formal RAG security experiment",
+                "NOT STARTED",
+            ):
+                with self.subTest(required=required):
+                    self.assertIn(required, text)
+
+        for required in (
+            "Trace 分区",
+            "预声明 config hash",
+            "注入依赖",
+            "Structural abstention",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, record)
+
+        self.assertIn("Last accepted implementation commit: `6da27a6`", record)
+        self.assertNotIn("HUMAN_ACCEPTED", _section(record, "## 1. 记录身份"))
 
 
 if __name__ == "__main__":

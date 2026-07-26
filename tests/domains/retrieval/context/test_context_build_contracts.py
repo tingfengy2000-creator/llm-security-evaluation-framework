@@ -170,12 +170,17 @@ def test_package_recomputes_identity_and_keeps_rendered_context_sensitive() -> N
 
 
 def test_abstention_package_requires_exactly_one_reason_and_empty_sensitive_fields() -> None:
+    config = ContextBuildConfig(
+        context_schema_version="1.0",
+        max_evidence_count=1,
+        max_context_characters=1,
+    )
     trace = ContextBuildTrace.create(
         trace_schema_version="1.0",
         request_id="RQ-synthetic",
         query_id="Q-0001",
         corpus_snapshot_id="",
-        context_build_config_hash="a" * 64,
+        context_build_config_hash=config.context_build_config_hash,
         input_evidence_count=0,
         deduplicated_evidence_count=0,
         count_selected_count=0,
@@ -201,7 +206,7 @@ def test_abstention_package_requires_exactly_one_reason_and_empty_sensitive_fiel
         abstention_required=True,
         abstention_reason_codes=("EMPTY_RETRIEVAL",),
         context_schema_version="1.0",
-        context_build_config_hash="a" * 64,
+        context_build_config_hash=config.context_build_config_hash,
         max_evidence_count=1,
         max_context_characters=1,
         build_trace=trace,

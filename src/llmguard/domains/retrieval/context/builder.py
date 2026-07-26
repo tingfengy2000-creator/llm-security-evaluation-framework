@@ -26,8 +26,6 @@ from llmguard.domains.retrieval.contracts import (
     EvidenceEnvelopeRuntimeError,
     RetrievedContextPackage,
     RetrievalContractError,
-    RetrievalInputError,
-    RetrievalIntegrityError,
     RetrievalEvidence,
     RetrievalRequest,
 )
@@ -69,41 +67,73 @@ class DeterministicContextBuilder(ContextBuilder):
             )
         except ContextConstructionError:
             raise
-        except RetrievalContractError as error:
-            raise self._redact_dependency_error(error) from error
+        except RetrievalContractError:
+            raise
         except Exception as error:
             raise ContextConstructionRuntimeError(
                 "context construction failed"
             ) from error
 
     @staticmethod
-    def _redact_dependency_error(error: RetrievalContractError) -> RetrievalContractError:
-        """Keep legal error type/code while discarding injected dependency text."""
+    def _redact_resolver_error(error: BaseException) -> RetrievalContractError:
+        """Allow only resolver-owned canonical errors across the resolver boundary."""
 
-        code = getattr(error, "error_code", None)
         if isinstance(error, ContentResolutionLookupError):
-            return ContentResolutionLookupError("context content lookup failed", error_code=code)
+            return ContentResolutionLookupError("context content lookup failed")
         if isinstance(error, ContentResolutionIntegrityError):
-            return ContentResolutionIntegrityError("context content integrity check failed", error_code=code)
+            return ContentResolutionIntegrityError("context content integrity check failed")
         if isinstance(error, ContentResolutionRuntimeError):
-            return ContentResolutionRuntimeError("context content resolution failed", error_code=code)
-        if isinstance(error, EvidenceEnvelopeInputError):
-            return EvidenceEnvelopeInputError("evidence envelope is invalid", error_code=code)
-        if isinstance(error, EvidenceEnvelopeIntegrityError):
-            return EvidenceEnvelopeIntegrityError("evidence envelope integrity check failed", error_code=code)
-        if isinstance(error, EvidenceEnvelopeRuntimeError):
-            return EvidenceEnvelopeRuntimeError("evidence envelope construction failed", error_code=code)
-        if isinstance(error, CitationInputError):
-            return CitationInputError("citation binding is invalid", error_code=code)
-        if isinstance(error, CitationIntegrityError):
-            return CitationIntegrityError("citation binding does not match evidence", error_code=code)
-        if isinstance(error, ContextRenderingError):
-            return ContextRenderingError("context rendering failed", error_code=code)
-        if isinstance(error, RetrievalInputError):
-            return RetrievalInputError("context construction input is invalid", error_code=code)
-        if isinstance(error, RetrievalIntegrityError):
-            return RetrievalIntegrityError("context construction integrity check failed", error_code=code)
+            return ContentResolutionRuntimeError("context content resolution failed")
         return ContextConstructionRuntimeError("context construction failed")
+
+    @staticmethod
+    def _redact_factory_error(error: BaseException) -> RetrievalContractError:
+        """Allow only envelope-factory canonical errors across the factory boundary."""
+
+        if isinstance(error, EvidenceEnvelopeInputError):
+            return EvidenceEnvelopeInputError("evidence envelope is invalid")
+        if isinstance(error, EvidenceEnvelopeIntegrityError):
+            return EvidenceEnvelopeIntegrityError("evidence envelope integrity check failed")
+        if isinstance(error, EvidenceEnvelopeRuntimeError):
+            return EvidenceEnvelopeRuntimeError("evidence envelope construction failed")
+        return ContextConstructionRuntimeError("context construction failed")
+
+    @staticmethod
+    def _redact_renderer_error(error: BaseException) -> RetrievalContractError:
+        """Allow only renderer-owned canonical errors across the renderer boundary."""
+
+        if isinstance(error, CitationInputError):
+            return CitationInputError("citation binding is invalid")
+        if isinstance(error, CitationIntegrityError):
+            return CitationIntegrityError("citation binding does not match evidence")
+        if isinstance(error, ContextRenderingError):
+            return ContextRenderingError("context rendering failed")
+        return ContextConstructionRuntimeError("context construction failed")
+
+    def _resolve_candidate(self, candidate: RetrievalEvidence) -> object:
+        try:
+            return self._resolver.resolve(
+                content_ref=ContentRef(candidate.content_ref),
+                expected_content_hash=candidate.content_hash,
+            )
+        except BaseException as error:
+            raise self._redact_resolver_error(error) from error
+
+    def _create_envelope(self, *, candidate: RetrievalEvidence, resolved_content: object) -> EvidenceEnvelope:
+        try:
+            return self._envelope_factory.create(
+                evidence=candidate,
+                resolved_content=resolved_content,  # type: ignore[arg-type]
+            )
+        except BaseException as error:
+            raise self._redact_factory_error(error) from error
+
+    @staticmethod
+    def _render_candidate(*, envelope: EvidenceEnvelope, binding: CitationBinding) -> str:
+        try:
+            return render_evidence_block(envelope=envelope, binding=binding)
+        except BaseException as error:
+            raise DeterministicContextBuilder._redact_renderer_error(error) from error
 
     def _build(
         self,
@@ -170,12 +200,9 @@ class DeterministicContextBuilder(ContextBuilder):
         budget_excluded: tuple[RetrievalEvidence, ...] = ()
         cutoff_not_attempted: tuple[RetrievalEvidence, ...] = ()
         for index, candidate in enumerate(count_selected):
-            resolved_content = self._resolver.resolve(
-                content_ref=ContentRef(candidate.content_ref),
-                expected_content_hash=candidate.content_hash,
-            )
-            envelope = self._envelope_factory.create(
-                evidence=candidate,
+            resolved_content = self._resolve_candidate(candidate)
+            envelope = self._create_envelope(
+                candidate=candidate,
                 resolved_content=resolved_content,
             )
             temporary_binding = CitationBinding(
@@ -188,7 +215,7 @@ class DeterministicContextBuilder(ContextBuilder):
                 version=envelope.version,
                 rank=envelope.rank,
             )
-            block = render_evidence_block(
+            block = self._render_candidate(
                 envelope=envelope,
                 binding=temporary_binding,
             )

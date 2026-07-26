@@ -1033,6 +1033,12 @@ resolution、stable-prefix budget selection、package-local Citation allocation 
 RetrievalPolicy、reranker、Citation Accuracy、正式 RAG 实验或 S6-T5.7。最后已接受 implementation commit 仍是
 `6da27a6`；本轮产生的提交只能作为 candidate implementation pending human acceptance。
 
+## 32.1 S6-T5.6-I1-H1：Context Package 完整性候选加固（2026-07-26）
+
+`S6-T5.6-I1-H1` 为 `Completed, pending human acceptance`。这是 I1 候选实现的追加加固记录，不是新能力或正式 RAG 实验。它关闭四项已留痕问题：Trace 分区必须代表有效 stable-prefix 执行情景；Package config hash 必须由公开 schema/limits 重算；Resolver/Factory/renderer 注入异常必须在所属边界固定脱敏重建；三种 structural abstention 必须分别与其 Trace 情景对应。
+
+`71067d1` 仍是 I1 初始 candidate history；最后已接受 implementation commit 仍为 `6da27a6`。本轮未改 Stage 1-5、Stage 6 fixture/data、DTO、协议或选择语义，未调用 Embedding、Chroma、Groq 或 LLM。I1 与 S6-T5.6 仍为 `Completed, pending human acceptance`，`S6-T5.7+` 为 `NOT APPROVED`，Formal RAG security experiment 为 `NOT STARTED`。本记录不证明检索质量、Citation Accuracy、RAG 安全、可信检索或生产可用性。
+
 ## 32. S6-T5.6-I1：最小离线 Context Package 实施完成，等待人工验收（2026-07-26）
 
 I1 已在规范 `llmguard` namespace 完成，并只消费 synthetic Request、Evidence 与 in-memory Resolver。

@@ -292,6 +292,17 @@ safe audit。它不证明任何实现、Citation Accuracy、检索质量/安全�
 最后已接受 implementation commit 仍为 `6da27a6`。`432b07e` 是协议闭环提交和本次验收的证据来源，不能登记为
 implementation commit。历史 pending/review 文本继续保留为当时事实，不重写为当前状态。
 
+## PODR-028: S6-T5.6-I1-H1 Candidate Hardening Record
+
+- Date: `2026-07-26`.
+- Decision: permit the narrowly scoped candidate hardening record; it is **not** a human-acceptance decision.
+- Status: `S6-T5.6-I1-H1: Completed, pending human acceptance`.
+- Scope: only Trace scenario invariants, public configuration-hash identity, injected dependency error redaction, and structural abstention reason/Trace correspondence.
+- Historical relation: `71067d1` remains the initial I1 candidate implementation; it is not the last accepted implementation commit.
+- Last accepted implementation commit: `6da27a6`.
+- Boundaries: no new DTO fields, no protocol expansion, no Stage 1-5 or Stage 6 fixture/data change, no Embedding/Chroma/Groq/LLM invocation, and no formal RAG security experiment.
+- Next gate: human acceptance, rejection, or a separately approved scoped review. `S6-T5.7+` remains `NOT APPROVED`.
+
 ## 8. 新 Thread 最小读取顺序
 
 1. `AGENTS.md`
