@@ -1470,3 +1470,17 @@ ContextBuildTrace、预算器或 Citation allocator。
 **和上一部分的关系**：S6-T5.4 保证一条受控正文只能通过 `ContentRef + hash` 解析；S6-T5.5 保证单条正文只能以正确的 Envelope + Binding 渲染；I1 首次把多条已验证证据按冻结规则组合。它没有做 Trust、模型回答、检索质量评估或安全攻击实验。
 
 **容易误解的地方**：`PASS` 或“测试通过”在这里仅表示 synthetic/offline 合约与边界测试通过，不是 RAG 系统已经安全，也不是 Citation Accuracy 已被证明。I1 当前是 `Completed, pending human acceptance`，最后已接受 implementation commit 仍为 `6da27a6`。
+
+## 2026-07-26: GOV-S6-T5.7-ACCEPTANCE 受控集成链路人工验收
+
+**现在登记了什么**：项目负责人已将 `S6-T5.7` 标记为 `HUMAN_ACCEPTED`。`b6cedf3` 被登记为已接受的集成证据提交；它只包含测试和治理证据，不能替代最后已接受 implementation commit `b136ee2`。
+
+**验收了什么**：验收的是一条受控工程链路：安全 Query 投影、无正文 Evidence/Trace、受 `corpus:` ContentRef 与 hash 约束的正文解析、Envelope/Citation/Context Package 组合、stable-prefix cutoff 后不访问后续正文、确定性 identity、fail-closed 与脱敏审计，以及固定 MiniLM 和临时 Chroma 的 close/reopen 互操作。
+
+**为什么企业要区分证据提交和实现提交**：实现提交回答“产品逻辑发生了什么变化”；集成证据提交回答“既有逻辑能否在受控条件下按预期协同工作”。两者混为一谈会让审计误以为测试结果本身新增了安全能力。
+
+**NON_BLOCKING_ENVIRONMENT_NOTE**：真实集成测试固定模型 revision，但 `local_files_only=False`。已有缓存的机器可直接运行；新机器只有在显式设置 `RUN_REAL_RAG_INTEGRATION=1` 后才可能下载固定模型。默认快速回归仍 skip 该测试，因此网络与下载不是离线 CI 的隐含依赖。
+
+**面试怎么讲**：可以说：“我把向量检索、正文解析和上下文构建拆成可审计的权限边界，并用静态和可选真实基础设施验证它们的确定性协同。真实模型测试证明互操作，不把它误说成检索质量或安全防护效果。”
+
+**不能误解**：本次人工验收没有计算 Recall、MRR、NDCG 或 Citation Accuracy；没有防住 Prompt Injection，也没有检测 Knowledge Poisoning；没有运行生成式 LLM 或正式 RAG 安全实验。`S6-T5.8` 仍为 `NOT APPROVED`。

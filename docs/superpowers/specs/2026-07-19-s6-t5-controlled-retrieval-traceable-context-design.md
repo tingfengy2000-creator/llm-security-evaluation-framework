@@ -782,3 +782,14 @@ This acceptance is limited to the existing synthetic/offline contract and behavi
 `S6-T5.6` 与 `S6-T5.6-I1` 为 `Completed, pending human acceptance`。实现候选只覆盖本规格既有的
 ContextBuildConfig、Trace、Package、唯一 ContextBuilder、顺序解析、stable-prefix cutoff、包内 Citation 和结构性
 abstention；并非 RAG 安全实验、Citation Accuracy、Trust 或模型集成。最后已接受 implementation commit 仍为 `6da27a6`。
+
+## 31. GOV-S6-T5.7-ACCEPTANCE 集成验证人工验收附注（2026-07-26）
+
+本规格的冻结协议和 DTO 语义未被改写。项目负责人已将 S6-T5.7 标记为 `HUMAN_ACCEPTED`，接受的仅是既有
+DenseRetriever、ContentResolver、EvidenceEnvelope/CitationBinding 与 DeterministicContextBuilder 的受控集成证据。
+`b6cedf3` 是集成证据提交，不是 implementation commit；最后已接受 implementation commit 仍为 `b136ee2`。
+
+真实基础设施测试固定 MiniLM model ID/revision，但只在显式设置 `RUN_REAL_RAG_INTEGRATION=1` 时运行，且 provider spec
+使用 `local_files_only=False`；新环境可以在该显式路径首次下载固定 revision，默认离线 CI 不依赖网络或下载。这是
+`NON_BLOCKING_ENVIRONMENT_NOTE`，不改变本规格的安全边界。`S6-T5.8` 仍为 `NOT APPROVED`，正式 RAG security
+experiment 仍为 `NOT STARTED`。

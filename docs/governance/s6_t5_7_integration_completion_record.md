@@ -4,9 +4,10 @@
 
 - 任务：`S6-T5.7 Controlled Retrieval Context Pipeline Integration and Security Validation`。
 - 性质：`INTEGRATION_ENGINEERING_VALIDATION / STATIC_AND_OPT_IN_REAL_INFRASTRUCTURE`。
-- 当前状态：`Completed, pending human acceptance`。
+- 当前状态：`HUMAN_ACCEPTED`。
 - 最后已接受实现提交仍为：`b136ee2`。
-- 本记录是候选集成证据，不是正式 RAG 安全实验，也不是新的已接受实现提交。
+- 已接受集成证据提交：`b6cedf3`。
+- 本记录是已接受的集成工程验证证据，不是正式 RAG 安全实验，也不是新的已接受实现提交。
 
 ## 验证的调用链
 
@@ -46,6 +47,16 @@ Dataset QueryRecord
 
 快速回归中真实集成测试默认 skip 是预期行为；完成前已单独显式启用并通过，不能将 skip 写成通过。
 
+人工验收登记后的最终治理验证为：`tests/architecture` 运行结果 `75 passed, 887 subtests passed`；相对候选阶段
+新增的断言只核对 S6-T5.7 的验收状态、`b6cedf3` 的证据提交身份、`b136ee2` 的 implementation commit 身份和总账
+Change Log，不改变业务行为或实验结果。
+
+## NON_BLOCKING_ENVIRONMENT_NOTE
+
+真实集成测试固定 MiniLM 的 model ID 和 revision，但 provider spec 使用
+`local_files_only=False`。因此已有缓存的环境可直接运行；新环境仅在显式设置
+`RUN_REAL_RAG_INTEGRATION=1` 时，可能首次下载该固定 revision。默认快速回归仍会 skip 此测试，网络和模型下载不是默认离线 CI 的隐含前提。本说明不修改代码、不创建 blocker，也不改变本次验收边界。
+
 ## 问题与处置留痕
 
 1. 首次真实集成测试曾把 synthetic 请假文档的 Top-1 写成断言。该断言会把基础设施可重复性错误扩展成未获授权的检索质量结论，已删除；保留的是 close/reopen 前后同一运行结果和 Package identity 一致性。
@@ -64,4 +75,4 @@ Dataset QueryRecord
 
 ## 下一审批门
 
-等待项目负责人的 S6-T5.7 人工验收。`S6-T5.8` 仍为 `NOT APPROVED`，正式 RAG security experiment 仍为 `NOT STARTED`。
+项目负责人已接受 S6-T5.7 的上述工程验证事实。`b6cedf3` 是集成证据提交，不是 implementation commit；`b136ee2` 仍是最后已接受实现提交。`S6-T5.8` 仍为 `NOT APPROVED`，正式 RAG security experiment 仍为 `NOT STARTED`。

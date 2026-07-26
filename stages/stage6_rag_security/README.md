@@ -1,10 +1,10 @@
 # Stage 6：RAG 安全与可信检索基线
 
-## 当前状态：S6-T5.7 集成候选证据，等待人工验收
+## 当前状态：S6-T5.7 集成证据已人工验收
 
 本阶段新增了从安全 Query 投影到 `RetrievedContextPackage` 的受控集成验证。静态链路验证标签隔离、无正文 Evidence、canonical resolver、连续 Citation 和 stable-prefix 最小权限；显式启用的真实基础设施链路验证固定 MiniLM 与临时 ChromaDB 的 close/reopen 互操作。
 
-正文仍由 synthetic corpus reader 提供，Chroma 只保存向量和公开 metadata。它不表示检索质量、RAG 安全效果、Citation Accuracy 或生产可用性。最后已接受实现提交仍为 `b136ee2`；`S6-T5.8` 仍未批准，正式 RAG 安全实验未开始。详见 [S6-T5.7 集成记录](../../docs/governance/s6_t5_7_integration_completion_record.md)。
+正文仍由 synthetic corpus reader 提供，Chroma 只保存向量和公开 metadata。它不表示检索质量、RAG 安全效果、Citation Accuracy 或生产可用性。最后已接受实现提交仍为 `b136ee2`；`b6cedf3` 是已接受的集成证据提交而非 implementation commit；`S6-T5.8` 仍未批准，正式 RAG 安全实验未开始。详见 [S6-T5.7 集成记录](../../docs/governance/s6_t5_7_integration_completion_record.md)。
 
 ## Metadata
 
@@ -29,10 +29,11 @@
 - s6_t5_6_i1_status: `human_accepted`；初始 candidate implementation `71067d1` 保留为历史证据。
 - s6_t5_6_i1_h1_status: `human_accepted`；最终加固实现 `b136ee2` 接受 Trace 情景、config identity、依赖错误脱敏和 abstention/Trace 对应边界。
 - s6_t5_6_status: `human_accepted`；验收仅限 synthetic/offline Context Package 工程行为。
+- s6_t5_7_status: `human_accepted`；只接受现有组件的 controlled retrieval-to-context integration evidence，提交 `b6cedf3` 不是 implementation commit。
 - s6_t5_6_status: `ready_for_separate_implementation_approval`；父任务可以等待独立实现审批，不能自动实施。
 - s6_t5_6_i1_status: `not_yet_approved`；不得创建 ContextBuilder、Package、Trace、预算器或 Citation allocator。
 - s6_t5_6_plus_status: `not_approved`；不得自动开始后续能力。
-- last_accepted_implementation_commit: `6da27a6`；`432b07e` 仅为协议人工验收闭环提交，不是 implementation commit。
+- last_accepted_implementation_commit: `b136ee2`；last_accepted_integration_evidence_commit: `b6cedf3`；`432b07e` 仅为协议人工验收闭环提交，不是 implementation commit。
 - objective: 在 S6-T4 与已验收 S6-T5.2 契约基础上，实现受控、离线、Provider-Neutral DenseRetriever；本轮只产出 RetrievalEvidence 与 RetrievalTrace。
 - source_locations: `src/llmguard/domains/retrieval/{contracts,attacks,embedding,vectorstore,retrieval,context}/`
 - data_locations: `data/stage6_rag/`（已入 manifest 的历史数据路径）
@@ -40,8 +41,8 @@
 - script_locations: 真实模型测试由 `LLMGUARD_RUN_REAL_EMBEDDING_TESTS=1` 显式开启，无 S6-T4 运行脚本；2026-07-19 已完成一次固定 revision 的真实验收。
 - deliverable_locations: 尚未生成独立 Stage 6 证据包。
 - evidence_locations: `data/stage6_rag/documents/corpus_manifest.json`
-- conclusion_boundary: 已完成人工验收的 S6-T5.3 离线工程边界包括 embedding/vectorstore 基础设施、S6-T5.2 运行时契约、schema `1.1` parent identity carrier、DenseRetriever 与 H1 trace/failure-boundary 加固；S6-T5.4-I1 已实现 contracts、in-memory reader/registry、exact-match legacy adapter 与 hash-verified resolver，H1 又关闭公开 registry capability 并重建注入错误的固定脱敏外部表述。P1、I1、H1 与父任务均已通过人工验收。S6-T5.5-P1/P1-H1 也已通过协议人工验收；S6-T5.5-I1/H1 与父任务已在 synthetic objects 上通过人工验收，覆盖 Envelope、Binding、CitationMode、Factory、instruction 与单 block rendering。未实现 ContextBuilder、package、allocator、Trust、LLM 或 RAG 指标，也未执行正式 RAG 安全实验。
-- next_stage: `S6-T5.6` 已人工验收；最后接受 implementation commit 为 `b136ee2`。`S6-T5.7+` 仍为 `NOT APPROVED`，不得自动开始。
+- conclusion_boundary: 已完成人工验收的 S6-T5.3 离线工程边界包括 embedding/vectorstore 基础设施、S6-T5.2 运行时契约、schema `1.1` parent identity carrier、DenseRetriever 与 H1 trace/failure-boundary 加固；S6-T5.4-I1 已实现 contracts、in-memory reader/registry、exact-match legacy adapter 与 hash-verified resolver，H1 又关闭公开 registry capability 并重建注入错误的固定脱敏外部表述。S6-T5.5 已在 synthetic objects 上接受 Envelope、Binding、CitationMode、Factory、instruction 与单 block rendering；S6-T5.6 已在 synthetic/offline 范围接受 ContextBuilder、Package、allocator 和预算行为；S6-T5.7 已接受这些既有组件的 controlled integration evidence。仍未实现 Trust、生成式 LLM、RAG 指标或正式 RAG 安全实验，不能宣称检索质量、安全效果或生产可用性。
+- next_stage: `S6-T5.7` 已人工验收；最后接受 implementation commit 为 `b136ee2`，集成证据提交为 `b6cedf3`。`S6-T5.8` 仍为 `NOT APPROVED`，不得自动开始。显式真实集成测试使用 `local_files_only=False`，新环境可能下载固定 revision；默认离线 CI 不依赖网络。
 
 目标：在 Retrieval 层评测 R1–R6，并为隐蔽知识污染检测与可信检索研究建立稳定证据接口。
 

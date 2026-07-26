@@ -535,3 +535,14 @@ This is a governance acceptance of existing synthetic/offline behavior, not a pl
 `S6-T5.6` 与 `S6-T5.6-I1` 均为 `Completed, pending human acceptance`。实现仅执行计划中冻结的
 Context package 组合行为，不读取 fixture/data，不调用模型，不启动 Trust、Citation Accuracy 或正式 RAG 安全实验；
 `S6-T5.7+` 仍为 `NOT APPROVED`，最后已接受 implementation commit 仍为 `6da27a6`。
+
+## 31. GOV-S6-T5.7-ACCEPTANCE 集成验证人工验收附注（2026-07-26）
+
+项目负责人已接受 S6-T5.7 的受控检索到上下文包集成验证。验收只覆盖既有组件的互操作、确定性 identity、
+正文最小权限解析、stable-prefix cutoff、fail-closed 和审计隔离；不扩大为检索质量、RAG 安全、Citation Accuracy、
+Trust、生成式 LLM 或正式实验结论。
+
+接受的集成证据提交为 `b6cedf3`，不得登记为 implementation commit；最后已接受 implementation commit 仍为
+`b136ee2`。真实 MiniLM/Chroma 测试仅在显式环境变量下运行，`local_files_only=False` 使新环境可能首次下载固定
+revision；默认离线 CI 不以网络或下载为前提。`S6-T5.8` 为 `NOT APPROVED`，正式 RAG security experiment 为
+`NOT STARTED`。

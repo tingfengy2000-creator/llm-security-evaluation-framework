@@ -313,6 +313,17 @@ implementation commit。历史 pending/review 文本继续保留为当时事实�
 - Status boundary: this is not an acceptance decision and does not advance the last accepted implementation commit from `b136ee2`.
 - Next gate: S6-T5.7 human acceptance or rejection. `S6-T5.8` is `NOT APPROVED`; Formal RAG security experiment is `NOT STARTED`.
 
+## PODR-031: GOV-S6-T5.7-ACCEPTANCE Integration Human Acceptance
+
+- Date: `2026-07-26`.
+- Decision: `S6-T5.7 Controlled Retrieval Context Pipeline Integration` is `HUMAN_ACCEPTED`.
+- Accepted evidence: `b6cedf3` is the accepted integration evidence commit. It contains integration tests and governance evidence only, so it must not be recorded as an implementation commit.
+- Implementation baseline: last accepted implementation commit remains `b136ee2`.
+- Accepted boundary: safe query projection, no-body Evidence/Trace, canonical `corpus:` ContentRef plus hash resolution, Envelope/Citation/Context package composition, stable-prefix no-access cutoff, deterministic identities, fail-closed error boundaries, safe audit, fixed MiniLM plus temporary Chroma close/reopen, and synthetic exact-match legacy `chroma:` mapping.
+- Non-claims: no retrieval quality or Recall/MRR/NDCG metric, Citation Accuracy, prompt-injection defense, knowledge-poisoning detection, trustworthy retrieval, generative LLM chain, formal RAG security experiment, or production readiness.
+- Environment note: the explicit real integration test uses `local_files_only=False`; only a new environment that explicitly enables the test may download the pinned revision. It is not a default offline CI dependency and is not a blocker.
+- Next gate: `S6-T5.8` remains `NOT APPROVED`; Formal RAG security experiment remains `NOT STARTED`.
+
 ## PODR-029: GOV-S6-T5.6-ACCEPTANCE Final Human Acceptance
 
 - Date: `2026-07-26`.

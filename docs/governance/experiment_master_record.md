@@ -395,12 +395,14 @@ git log -15 --oneline
 
 ## S6-T5.7 Controlled Retrieval Context Pipeline Integration Validation (2026-07-26)
 
-- Status: `Completed, pending human acceptance`.
+- Status: `HUMAN_ACCEPTED`.
 - Evidence: [completion record](s6_t5_7_integration_completion_record.md), static integration, explicit MiniLM + temporary Chroma integration, offline and architecture regressions.
 - Scope: candidate interoperability evidence for existing accepted components only; no new pipeline business module and no frozen contract modification.
 - Claim boundary: no retrieval-quality, security-effectiveness, Citation Accuracy, trustworthy-retrieval, LLM-generation, formal-experiment or production-readiness claim.
 - Integrity: the legacy SHA-256 manifest still reports its accepted CRLF/LF baseline debt; Git protected-path diff confirms this task did not modify Stage 1-5 or Stage 6 fixture/data.
-- Next gate: S6-T5.7 human acceptance or rejection. `S6-T5.8` remains `NOT APPROVED`; formal RAG security experiment remains `NOT STARTED`; last accepted implementation commit remains `b136ee2`.
+- Acceptance: project owner accepted this documented integration evidence. `b6cedf3` is the accepted integration evidence commit, not an implementation commit; last accepted implementation commit remains `b136ee2`.
+- Environment note: the opt-in real MiniLM test uses `local_files_only=False`; a new environment may download the pinned revision only when explicitly enabled. Default offline regression does not depend on network access or model download.
+- Next gate: the project owner must separately decide whether to approve `S6-T5.8`. It remains `NOT APPROVED`; formal RAG security experiment remains `NOT STARTED`.
 
 ## 20. Change Log
 
@@ -430,3 +432,4 @@ git log -15 --oneline
 | 2026-07-26 | S6-T5.6-P1-H2 协议闭环 | 第 2、4、10、12、14、20 节 | 清除活动章节的旧顺序，冻结 instruction-budget candidate decision、Trace tuple partition 与 Package/Trace 无冗余 identity；不创建源码或实验结果，待人工复核 | [protocol review record](s6_t5_6_protocol_review_record.md)、PODR-025、治理测试 | 通过 `git log -1 -- docs/governance/experiment_master_record.md` 动态解析 |
 | 2026-07-26 | GOV-S6-T5.6-P1-ACCEPTANCE | 第 2、4、10、12、14、20 节 | 项目负责人接受 P1、P1-H1 与 P1-H2 的未来 Context Package 协议；父任务仅进入 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`，`S6-T5.6-I1` 仍未批准。`6da27a6` 保持最后已接受 implementation commit，`432b07e` 仅为协议闭环提交 | [protocol review record](s6_t5_6_protocol_review_record.md)、PODR-026、治理测试 | 不创建源码、不读 fixture、不调用模型 |
 | 2026-07-26 | S6-T5.6-I1 实施批准 | 第 2、4、10、12、14、20 节 | 项目负责人批准合成离线 TDD 实现 Context Config/Trace/Package 与唯一 ContextBuilder；I1 和父任务进入 `IMPLEMENTATION_IN_PROGRESS`，新提交尚不属于 last accepted implementation | PODR-027、当前任务指令、已验收协议 | 不读 fixture、不调用 Embedding/Chroma/LLM、不进入 Trust、S6-T5.7 或正式实验 |
+| 2026-07-26 | GOV-S6-T5.7-ACCEPTANCE | 第 2、12、14、20 节 | 项目负责人接受既有检索到 Context Package 受控集成验证；`b6cedf3` 仅为集成证据提交，`b136ee2` 仍为最后已接受 implementation commit；S6-T5.8 与正式实验未获批准 | [S6-T5.7 completion record](s6_t5_7_integration_completion_record.md)、PODR-031、治理测试 | 本轮纯治理提交，未改业务源码、测试 fixture/data 或历史资产 |
