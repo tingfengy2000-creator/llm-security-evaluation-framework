@@ -111,3 +111,16 @@
 - `chroma:` 仅为 S6-T4 fixture 兼容格式；新 producer 只使用 `corpus:<snapshot>:<chunk>`。
 
 上述 S6-T5.2 段落是当时的历史契约快照。当前 S6-T5.3 DenseRetriever 与 H1 已获人工验收；S6-T5.4 ContentResolver 已获启动批准但因协议缺口暂停，ContextBuilder、citation、trust、LLM 和正式安全实验仍等待后续独立人工审批。
+
+## S6-T5.6-I1 当前候选实现（2026-07-26）
+
+`S6-T5.6-I1` 已完成最小 synthetic-only 离线工程实现，状态为 `Completed, pending human acceptance`；
+父任务 `S6-T5.6` 同为该状态。规范 DTO 位于
+`src/llmguard/domains/retrieval/contracts/context_package.py`，唯一构建行为位于
+`src/llmguard/domains/retrieval/context/builder.py`：它把已验收的 Resolver、Envelope Factory、Citation instruction
+和 renderer 以顺序方式组合为可审计的 Retrieved Context Package。
+
+本实现验证确定性排序、精确去重、数量限制、Unicode code-point 预算、stable-prefix cutoff、包内 `E1...En`
+Citation、三类结构性 abstention 及脱敏错误传播。它没有读取 fixture/data，也没有调用 Embedding、Chroma、Groq
+或 LLM；不证明检索质量、Citation Accuracy、RAG 安全、可信检索或生产可用性。`S6-T5.7+` 仍为 `NOT APPROVED`，
+Formal RAG security experiment 仍为 `NOT STARTED`。最后已接受 implementation commit 仍为 `6da27a6`。

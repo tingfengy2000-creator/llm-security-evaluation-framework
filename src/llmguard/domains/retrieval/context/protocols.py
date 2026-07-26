@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 from typing import Protocol
 
 from llmguard.domains.retrieval.contracts import (
@@ -9,7 +10,25 @@ from llmguard.domains.retrieval.contracts import (
     EvidenceEnvelope,
     ResolvedContent,
     RetrievalEvidence,
+    RetrievalRequest,
+    CitationMode,
+    ContextBuildConfig,
+    RetrievedContextPackage,
 )
+
+
+class ContextBuilder(Protocol):
+    """Build one deterministic sensitive context package from retrieved evidence."""
+
+    def build(
+        self,
+        *,
+        request: RetrievalRequest,
+        evidence: Sequence[RetrievalEvidence],
+        citation_mode: CitationMode,
+        config: ContextBuildConfig,
+    ) -> RetrievedContextPackage:
+        """Construct one package without retriever, model, or trust dependencies."""
 
 
 class ContentResolver(Protocol):

@@ -131,3 +131,33 @@ class ContextRenderingError(RetrievalContractError):
     """Raised when structural rendering cannot safely produce one block."""
 
     error_code = "CONTEXT_RENDERING_FAILURE"
+
+
+class ContextConstructionError(RetrievalContractError):
+    """Base error for deterministic context-package construction."""
+
+    error_code = "UNEXPECTED_CONTEXT_CONSTRUCTION_FAILURE"
+
+
+class ContextBuildConfigurationError(ContextConstructionError):
+    """Raised when a public context-build configuration is invalid."""
+
+    error_code = "INVALID_CONTEXT_BUILD_CONFIG"
+
+
+class ContextConstructionInputError(ContextConstructionError):
+    """Raised when request, evidence, or construction input types are invalid."""
+
+    error_code = "REQUEST_EVIDENCE_MISMATCH"
+
+
+class ContextConstructionIntegrityError(ContextConstructionError):
+    """Raised when a deterministic context package violates its frozen contract."""
+
+    error_code = "INVALID_RETRIEVED_CONTEXT_PACKAGE"
+
+
+class ContextConstructionRuntimeError(ContextConstructionError):
+    """Raised when an unexpected injected construction dependency fails."""
+
+    error_code = "UNEXPECTED_CONTEXT_CONSTRUCTION_FAILURE"

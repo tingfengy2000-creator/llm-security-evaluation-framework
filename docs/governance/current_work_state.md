@@ -18,14 +18,14 @@
 
 ## Current Task
 
-- Task ID: `GOV-S6-T5.6-P1-ACCEPTANCE`.
-- Task name: `S6-T5.6 Context Package Protocol Human Acceptance Record`.
-- Task type: **GOVERNANCE_ACCEPTANCE_RECORD**. No ContextBuilder, Package, Trace, budgeter or Citation allocator is implemented by this task.
+- Task ID: `S6-T5.6-I1`.
+- Task name: `Deterministic Retrieved Context Package Minimal Offline Implementation`.
+- Task type: **OFFLINE_ENGINEERING_IMPLEMENTATION / SYNTHETIC_ONLY_TDD**.
 - S6-T5.6-P1: HUMAN_ACCEPTED.
 - S6-T5.6-P1-H1: HUMAN_ACCEPTED.
 - S6-T5.6-P1-H2: HUMAN_ACCEPTED.
-- S6-T5.6: READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL.
-- S6-T5.6-I1: NOT YET APPROVED.
+- S6-T5.6: Completed, pending human acceptance.
+- S6-T5.6-I1: Completed, pending human acceptance.
 - S6-T5.7+: NOT APPROVED.
 - Formal RAG security experiment: NOT STARTED.
 - S6-T5.5-P1: **HUMAN_ACCEPTED**.
@@ -65,19 +65,19 @@
 - `S6-T5.4` is **HUMAN_ACCEPTED**. Its acceptance does not approve S6-T5.6 ContextBuilder behavior; that remains a separate boundary.
 - `S6-T5.5-P1` and `S6-T5.5-P1-H1` are **HUMAN_ACCEPTED** design protocols. Their I1/H1 implementation was separately accepted; S6-T5.6-P1 now freezes the future package-level selection contract without implementing it.
 - `S6-T5.5-I1`, `S6-T5.5-H1` and parent `S6-T5.5` are **HUMAN_ACCEPTED**. They implement only Envelope/Citation contracts and one structural block.
-- The acceptance does not authorize Citation allocation, a package, ContextBuilder, Trust or any model call.
-- S6-T5.6 P1/H1/H2 are HUMAN_ACCEPTED protocol records. Parent S6-T5.6 is READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL, but this is not an approval for S6-T5.6-I1 or any runtime implementation.
-- Next human decision: approve, reject or amend the separately proposed `S6-T5.6-I1`. S6-T5.7+ remains NOT APPROVED.
+- The acceptance did not authorize Citation allocation, a package or ContextBuilder before I1. The separately approved I1 now implements only those frozen offline behaviors; it does not authorize Trust or model calls.
+- S6-T5.6 P1/H1/H2 are HUMAN_ACCEPTED protocol records. `S6-T5.6-I1` and parent S6-T5.6 are completed candidate offline implementations, pending human acceptance.
+- Next human decision: accept, reject or request hardening for the candidate `S6-T5.6-I1` implementation. S6-T5.7+ remains NOT APPROVED.
 
 ## Must Not Start
 
-- Additional ContentResolver changes, document-content access beyond synthetic test inputs, ContextBuilder implementation, `RetrievedContextPackage` implementation, package-level Citation allocation, budgeter, Trust policy or retrieval guard. S6-T5.6-I1 remains NOT YET APPROVED.
+- Additional ContentResolver changes, document-content access beyond synthetic test inputs, Trust policy or retrieval guard. I1 may implement only the already accepted ContextBuilder, RetrievedContextPackage, ContextBuildTrace, ContextBuildConfig, package-local Citation allocation and budget behavior.
 - Groq, mock/real LLM invocation, evaluator, metrics, T10-T15, formal RAG attack matrix or report generation.
 - New Stage 6 business code under `src/codeguarder/`, any mutation of Stage 1-5, or any mutation of Stage 6 data fixtures.
 
 ## Current Claims Boundary
 
-Can claim: within the offline engineering-test scope, deterministic and label-isolated retrieval runtime contracts plus the provider-neutral DenseRetriever have been HUMAN_ACCEPTED. S6-T5.4-P1, I1, H1 and S6-T5.4 Controlled Corpus ContentResolver are HUMAN_ACCEPTED: they establish a minimal provider-neutral resolver over synthetic in-memory content, a closed public capability surface, and a redacted injected-error boundary. S6-T5.5-P1/P1-H1 are HUMAN_ACCEPTED design protocols; S6-T5.5-I1/H1 and parent S6-T5.5 are HUMAN_ACCEPTED offline contracts for Envelope, Citation and one structural rendering block over synthetic objects. S6-T5.6-P1/H1/H2 are HUMAN_ACCEPTED future context-package protocols: sequential resolution prevents post-cutoff body access, and Trace decisions remain auditable without body exposure. This acceptance does not implement those future objects. Historical public loader imports remain compatible through the canonical `llmguard` type.
+Can claim: within the offline engineering-test scope, deterministic and label-isolated retrieval runtime contracts plus the provider-neutral DenseRetriever have been HUMAN_ACCEPTED. S6-T5.4-P1, I1, H1 and S6-T5.4 Controlled Corpus ContentResolver are HUMAN_ACCEPTED: they establish a minimal provider-neutral resolver over synthetic in-memory content, a closed public capability surface, and a redacted injected-error boundary. S6-T5.5-P1/P1-H1 are HUMAN_ACCEPTED design protocols; S6-T5.5-I1/H1 and parent S6-T5.5 are HUMAN_ACCEPTED offline contracts for Envelope, Citation and one structural rendering block over synthetic objects. S6-T5.6-P1/H1/H2 are HUMAN_ACCEPTED protocols, and I1 is a completed candidate synthetic/offline implementation of deterministic package construction, stable-prefix selection, package-local citations, structural abstention and safe trace/package identities. I1 remains pending human acceptance. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
 Cannot claim: retrieval quality, retrieval security effectiveness, context safety, citation accuracy, trustworthiness, RAG metrics, production readiness, or research-experiment outcomes.
 
@@ -91,4 +91,4 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 ## Last Update
 
 - Date: `2026-07-26`.
-- Updated by: Codex under the project-owner decision recorded by GOV-S6-T5.6-P1-ACCEPTANCE. S6-T5.6-P1, P1-H1 and P1-H2 are HUMAN_ACCEPTED; S6-T5.6 is READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL while S6-T5.6-I1 remains NOT YET APPROVED. Last accepted implementation commit remains `6da27a6`; `432b07e` is only the protocol acceptance closure commit. Historical pending/review snapshots remain in dated records. No fixture/data change, model call or formal RAG security experiment occurred.
+- Updated by: Codex after completing the project-owner-approved `S6-T5.6-I1` synthetic/offline implementation and its local verification. S6-T5.6-P1, P1-H1 and P1-H2 remain HUMAN_ACCEPTED; S6-T5.6 and I1 are Completed, pending human acceptance. Last accepted implementation commit remains `6da27a6`; this implementation is recorded only as a candidate pending human acceptance, and `432b07e` remains only the protocol acceptance closure commit. Historical pending/review snapshots remain in dated records. No fixture/data change, model call or formal RAG security experiment has occurred.

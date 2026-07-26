@@ -164,6 +164,7 @@ S6-T5.3-H1 均已通过项目负责人 `HUMAN_ACCEPTED`；S6-T5.4 为
 | PODR-024 | 2026-07-26 | S6-T5.6-P1-H1 Sequential Resolution, Duplicate Semantics and Context Trace Protocol Hardening | 批准只修订 P1 的顺序解析、精确 UID 重复语义、预算 cutoff 与 Context trace 身份缺口 | DESIGN_FREEZE_HARDENING_COMPLETED_PENDING_HUMAN_REVIEW | 项目负责人明确决定、S6-T5.6 protocol review record、设计/治理测试 | PODR-023 historical selection wording | 不批准任何 S6-T5.6 实现、ContextBuilder、Package、allocator、Trust、LLM 或正式 RAG 实验 |
 | PODR-025 | 2026-07-26 | S6-T5.6-P1-H2 Active Specification, Trace Decision and Package Identity Protocol Closure | 批准只关闭活动规格顺序、instruction-budget candidate decision、Trace decision partition 与 Package/Trace identity 的协议矛盾 | DESIGN_FREEZE_HARDENING_COMPLETED_PENDING_HUMAN_REVIEW | 项目负责人明确决定、S6-T5.6 protocol review record、设计/治理测试 | PODR-024 remaining active-spec and identity ambiguity | 不批准任何 S6-T5.6 实现、ContextBuilder、Package、allocator、Trust、LLM 或正式 RAG 实验 |
 | PODR-026 | 2026-07-26 | GOV-S6-T5.6-P1-ACCEPTANCE Context Package Protocol Human Acceptance Record | 接受 S6-T5.6-P1、P1-H1、P1-H2 的协议边界；父任务进入 READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL | HUMAN_ACCEPTED | 项目负责人明确决定、`432b07e`、S6-T5.6 protocol review record、治理测试 | PODR-023、PODR-024、PODR-025 的 pending/review 历史快照 | 不批准 S6-T5.6-I1、ContextBuilder、Package、Trace、budgeter、allocator、Trust、LLM 或正式 RAG 实验 |
+| PODR-027 | 2026-07-26 | S6-T5.6-I1 Deterministic Retrieved Context Package Minimal Offline Implementation | 批准只使用 synthetic/offline TDD 实现已验收的 Config、Trace、Package、ContextBuilder、顺序解析、预算选择、package-local Binding 与结构性 abstention | APPROVED_TO_START / IMPLEMENTATION_IN_PROGRESS | 项目负责人本轮明确指令、PODR-026、已接受规格/计划/ADR | PODR-026 protocol acceptance | 不批准 fixture/data 访问、Embedding、Chroma、LLM、Trust、Policy、检索策略、Citation Accuracy、S6-T5.7 或正式 RAG 实验 |
 
 ## 7.1 S6-T5.4 当前审批解释（2026-07-25）
 
@@ -305,3 +306,15 @@ implementation commit。历史 pending/review 文本继续保留为当时事实�
 10. Git 最近 commit、branch、HEAD、worktree、status 与 upstream sync
 
 若长期需求与本登记册冲突，必须停止并报告，不得自行覆盖长期基线。
+
+## 7.14 S6-T5.6-I1 最小离线实现完成记录（2026-07-26）
+
+PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮只在
+`src/llmguard/domains/retrieval/contracts/` 与 `context/` 实现已冻结的
+`ContextBuildConfig`、`ContextBuildTrace`、`RetrievedContextPackage`、唯一 `ContextBuilder`、
+顺序正文解析、stable-prefix 预算选择、包内 Citation 分配、结构性 abstention 和脱敏错误边界。
+
+这是 synthetic-only、离线工程实现候选，不是人工验收。最后已接受 implementation commit 仍为 `6da27a6`；
+本轮提交只能登记为 candidate implementation commit pending human acceptance。未读取或修改 Stage 6 fixture/data，
+未调用 Embedding、Chroma、Groq 或 LLM，未实现 Trust、RetrievalPolicy、reranker、Citation Accuracy 或正式 RAG 实验。
+`S6-T5.7+` 仍为 `NOT APPROVED`，Formal RAG security experiment 仍为 `NOT STARTED`。

@@ -757,3 +757,10 @@ S6-T5.6 implementation、S6-T5.7+ 与正式实验均为 `NOT APPROVED`/`NOT STAR
 此处接受的仅是接口、顺序、审计与失败边界，不是 ContextBuilder、RetrievedContextPackage、
 ContextBuildTrace、预算器或 Citation allocator 的实现批准。最后已接受 implementation commit 是 `6da27a6`；
 `432b07e` 仅是人工验收通过的协议闭环提交。
+
+## 28. S6-T5.6-I1 实施状态附注（2026-07-26）
+
+本规格的 P1/H1/H2 冻结内容未被改写。项目负责人已批准并完成最小 synthetic-only I1 实现，当前
+`S6-T5.6` 与 `S6-T5.6-I1` 为 `Completed, pending human acceptance`。实现候选只覆盖本规格既有的
+ContextBuildConfig、Trace、Package、唯一 ContextBuilder、顺序解析、stable-prefix cutoff、包内 Citation 和结构性
+abstention；并非 RAG 安全实验、Citation Accuracy、Trust 或模型集成。最后已接受 implementation commit 仍为 `6da27a6`。

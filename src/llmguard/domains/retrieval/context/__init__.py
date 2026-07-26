@@ -13,6 +13,7 @@ from .errors import (
     EvidenceEnvelopeRuntimeError,
 )
 from .citation import render_citation_instruction
+from .builder import DeterministicContextBuilder
 from .envelope import CanonicalEvidenceEnvelopeFactory
 from .in_memory import (
     InMemoryCorpusSnapshotReader,
@@ -23,6 +24,7 @@ from .protocols import (
     ApprovedCorpusSnapshotRegistry,
     ContentResolver,
     CorpusSnapshotReader,
+    ContextBuilder,
     LegacyContentRefAdapter,
     EvidenceEnvelopeFactory,
 )
@@ -38,6 +40,7 @@ __all__ = [
     "CitationInputError",
     "CitationIntegrityError",
     "ContextRenderingError",
+    "ContextBuilder",
     "CanonicalEvidenceEnvelopeFactory",
     "EvidenceEnvelopeFactory",
     "EvidenceEnvelopeInputError",
@@ -45,6 +48,7 @@ __all__ = [
     "EvidenceEnvelopeRuntimeError",
     "ContentResolver",
     "CorpusContentResolver",
+    "DeterministicContextBuilder",
     "CorpusSnapshotReader",
     "InMemoryCorpusSnapshotReader",
     "LegacyContentRefAdapter",

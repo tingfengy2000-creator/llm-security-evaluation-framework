@@ -510,3 +510,10 @@ audit 不记录正文、rendered block 或 Query。P1 是 `Completed, pending hu
 因此下一步只能由项目负责人另行批准或拒绝 I1，不能从本计划自动启动实现。最后已接受 implementation commit 仍为
 `6da27a6`；`432b07e` 仅为最终人工验收通过的协议闭环提交。该登记不实现任何 ContextBuilder、
 RetrievedContextPackage、ContextBuildTrace、预算器或 Citation allocator。
+
+## 28. S6-T5.6-I1 实施状态附注（2026-07-26）
+
+本计划的历史审批快照仍保留。其后已批准的最小 synthetic-only I1 已完成离线实现并等待人工验收：
+`S6-T5.6` 与 `S6-T5.6-I1` 均为 `Completed, pending human acceptance`。实现仅执行计划中冻结的
+Context package 组合行为，不读取 fixture/data，不调用模型，不启动 Trust、Citation Accuracy 或正式 RAG 安全实验；
+`S6-T5.7+` 仍为 `NOT APPROVED`，最后已接受 implementation commit 仍为 `6da27a6`。

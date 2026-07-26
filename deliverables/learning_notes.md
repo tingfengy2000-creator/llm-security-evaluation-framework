@@ -1418,3 +1418,15 @@ ContextBuildTrace、预算器或 Citation allocator。
 **容易误解的地方**：`READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL` 不是“已经可以开始编码”。它只表示 blocker
 已清、协议已冻结，仍必须取得 `S6-T5.6-I1` 的明确批准。最后已接受 implementation commit 仍为 `6da27a6`；
 `432b07e` 只属于最终通过人工验收的协议闭环提交。正式 RAG security experiment 仍为 `NOT STARTED`。
+
+## 2026-07-26: S6-T5.6-I1 最小离线 Context Package 实施完成（待人工验收）
+
+**我现在做了什么**：我把已验收的多证据组合协议做成了最小、可重复的离线实现。`ContextBuildConfig` 固定本次构建的数量和字符预算；`ContextBuildTrace` 记录每个候选为何进入、因数量排除、因预算排除或在 cutoff 后从未访问；`RetrievedContextPackage` 保存最终上下文、引用绑定和可复算身份。`DeterministicContextBuilder` 只注入 ContentResolver 与 EnvelopeFactory，并复用既有 instruction 与 renderer。
+
+**为什么这样做**：RAG 的风险不只在“取到了什么”，还在“把哪些证据、以什么顺序、在什么预算下交给模型”。先做稳定排序和 provenance 校验，再逐条解析和渲染，能够保证高优先级候选装不下时不会绕过它去加载后面的短文本；这叫 stable-prefix cutoff。它减少了不必要的正文访问，也让 Trace 可以复盘每一条候选的决策。
+
+**企业与面试怎么讲**：可以说：“我把检索结果到模型上下文之间做成一个独立的、确定性的安全边界。它将正文解析限制在必要的前缀候选中，所有超预算和未访问原因都进入脱敏 Trace；完整正文不进入普通审计。这让问题可复现、可审计，也为后续 Trust 和知识污染检测保留了干净的扩展点。”
+
+**和上一部分的关系**：S6-T5.4 保证一条受控正文只能通过 `ContentRef + hash` 解析；S6-T5.5 保证单条正文只能以正确的 Envelope + Binding 渲染；I1 首次把多条已验证证据按冻结规则组合。它没有做 Trust、模型回答、检索质量评估或安全攻击实验。
+
+**容易误解的地方**：`PASS` 或“测试通过”在这里仅表示 synthetic/offline 合约与边界测试通过，不是 RAG 系统已经安全，也不是 Citation Accuracy 已被证明。I1 当前是 `Completed, pending human acceptance`，最后已接受 implementation commit 仍为 `6da27a6`。

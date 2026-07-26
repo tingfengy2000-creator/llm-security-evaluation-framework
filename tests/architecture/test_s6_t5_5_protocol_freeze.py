@@ -103,7 +103,7 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
         self.assertIn("Last accepted implementation commit: `6da27a6`", state)
         self.assertIn("S6-T5.6-P1", state)
         self.assertIn("S6-T5.7+", state)
-        self.assertIn("S6-T5.6-I1: NOT YET APPROVED", state)
+        self.assertIn("S6-T5.6-I1: Completed, pending human acceptance", state)
 
     def test_acceptance_preserves_protocol_history_without_claiming_implementation(self) -> None:
         review = REVIEW_RECORD.read_text(encoding="utf-8")
@@ -181,7 +181,7 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
                 )
                 self.assertIn(expected_not_approved, text)
 
-    def test_i1_keeps_dtos_in_contracts_and_does_not_start_context_builder(self) -> None:
+    def test_i1_keeps_dtos_in_contracts_and_context_builder_protocol_canonical(self) -> None:
         owners: dict[str, list[str]] = {
             "EvidenceEnvelope": [],
             "CitationBinding": [],
@@ -199,7 +199,9 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
         assert owners["CitationBinding"] == [
             "src\\llmguard\\domains\\retrieval\\contracts\\evidence_envelope.py"
         ]
-        assert owners["ContextBuilder"] == []
+        assert owners["ContextBuilder"] == [
+            "src\\llmguard\\domains\\retrieval\\context\\protocols.py"
+        ]
         self.assertFalse((RETRIEVAL_ROOT / "context" / "models.py").exists())
 
     def test_i1_h1_acceptance_preserves_additive_contract_hardening_history(self) -> None:
@@ -215,8 +217,8 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
             "S6-T5.5-I1: **HUMAN_ACCEPTED**",
             "S6-T5.5: **HUMAN_ACCEPTED**",
             "Last accepted implementation commit: `6da27a6`",
-            "S6-T5.6: READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL",
-            "S6-T5.6-I1: NOT YET APPROVED",
+            "S6-T5.6: Completed, pending human acceptance",
+            "S6-T5.6-I1: Completed, pending human acceptance",
             "S6-T5.7+: NOT APPROVED",
             "Formal RAG security experiment: NOT STARTED",
         ):

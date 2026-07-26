@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[2]
 GOVERNANCE = ROOT / "docs" / "governance"
 RETRIEVAL_ROOT = ROOT / "src" / "llmguard" / "domains" / "retrieval"
 REVIEW_RECORD = GOVERNANCE / "s6_t5_6_protocol_review_record.md"
+COMPLETION_RECORD = GOVERNANCE / "s6_t5_6_completion_record.md"
 SPECIFICATION = (
     ROOT
     / "docs"
@@ -83,7 +84,7 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
             with self.subTest(required=required):
                 self.assertIn(required, text)
 
-    def test_design_freeze_does_not_create_context_builder_or_package_source(self) -> None:
+    def test_approved_i1_keeps_one_canonical_context_package_implementation(self) -> None:
         owners: dict[str, list[str]] = {
             "ContextBuilder": [],
             "RetrievedContextPackage": [],
@@ -94,11 +95,18 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
             module = ast.parse(path.read_text(encoding="utf-8"))
             for node in ast.walk(module):
                 if isinstance(node, ast.ClassDef) and node.name in owners:
-                    owners[node.name].append(str(path.relative_to(ROOT)))
+                    owners[node.name].append(path.relative_to(ROOT).as_posix())
 
-        for class_name, paths in owners.items():
+        self.assertEqual(
+            ["src/llmguard/domains/retrieval/context/protocols.py"],
+            owners["ContextBuilder"],
+        )
+        for class_name in ("RetrievedContextPackage", "ContextBuildConfig", "ContextBuildTrace"):
             with self.subTest(class_name=class_name):
-                self.assertEqual([], paths)
+                self.assertEqual(
+                    ["src/llmguard/domains/retrieval/contracts/context_package.py"],
+                    owners[class_name],
+                )
 
     def test_current_governance_keeps_s6_t5_6_and_formal_experiment_closed(self) -> None:
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
@@ -108,8 +116,8 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
 
         for text in (state, master):
             for required in (
-                "S6-T5.6",
-                "NOT APPROVED",
+                "S6-T5.6-I1",
+                "Completed, pending human acceptance",
                 "Formal RAG security experiment",
                 "NOT STARTED",
             ):
@@ -146,7 +154,7 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
             with self.subTest(required=required):
                 self.assertIn(required, text)
 
-    def test_h1_marks_old_reason_code_historical_and_keeps_source_absent(self) -> None:
+    def test_h1_marks_old_reason_code_historical_and_keeps_dto_ownership(self) -> None:
         plan = PLAN.read_text(encoding="utf-8")
         specification = SPECIFICATION.read_text(encoding="utf-8")
 
@@ -154,20 +162,16 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
             self.assertIn("removed from active baseline by S6-T5.6-P1", text)
             self.assertIn("sequential resolve", text)
 
-        for source_name in (
-            "ContextBuilder",
-            "RetrievedContextPackage",
-            "ContextBuildTrace",
-            "ContextBuildConfig",
-        ):
-            with self.subTest(source_name=source_name):
-                self.assertNotIn(
-                    f"class {source_name}",
-                    "\n".join(
-                        path.read_text(encoding="utf-8")
-                        for path in RETRIEVAL_ROOT.rglob("*.py")
-                    ),
-                )
+        contracts_source = (
+            RETRIEVAL_ROOT / "contracts" / "context_package.py"
+        ).read_text(encoding="utf-8")
+        context_source = "\n".join(
+            path.read_text(encoding="utf-8")
+            for path in (RETRIEVAL_ROOT / "context").rglob("*.py")
+        )
+        for source_name in ("RetrievedContextPackage", "ContextBuildTrace", "ContextBuildConfig"):
+            self.assertIn(f"class {source_name}", contracts_source)
+            self.assertNotIn(f"class {source_name}", context_source)
 
     def test_h2_freezes_one_active_sequential_build_order(self) -> None:
         active_sections = (
@@ -236,7 +240,7 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
             package_fields,
         )
 
-    def test_protocol_acceptance_keeps_implementation_separately_unapproved(self) -> None:
+    def test_protocol_acceptance_allows_only_approved_i1_implementation_scope(self) -> None:
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
         master = (GOVERNANCE / "experiment_master_record.md").read_text(
             encoding="utf-8"
@@ -251,8 +255,8 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
             "S6-T5.6-P1: HUMAN_ACCEPTED",
             "S6-T5.6-P1-H1: HUMAN_ACCEPTED",
             "S6-T5.6-P1-H2: HUMAN_ACCEPTED",
-            "S6-T5.6: READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL",
-            "S6-T5.6-I1: NOT YET APPROVED",
+            "S6-T5.6: Completed, pending human acceptance",
+            "S6-T5.6-I1: Completed, pending human acceptance",
             "S6-T5.7+: NOT APPROVED",
             "Formal RAG security experiment: NOT STARTED",
             "Last accepted implementation commit: `6da27a6`",
@@ -265,8 +269,7 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
             for required in (
                 "GOV-S6-T5.6-P1-ACCEPTANCE",
                 "HUMAN_ACCEPTED",
-                "READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL",
-                "NOT YET APPROVED",
+                "Completed, pending human acceptance",
                 "6da27a6",
                 "432b07e",
             ):
@@ -274,6 +277,23 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
                     self.assertIn(required, text)
 
         self.assertNotIn("Last accepted implementation commit: `432b07e`", state)
+
+    def test_i1_completion_record_preserves_candidate_and_offline_boundaries(self) -> None:
+        text = COMPLETION_RECORD.read_text(encoding="utf-8")
+
+        for required in (
+            "S6-T5.6-I1",
+            "Completed, pending human acceptance",
+            "Last accepted implementation commit: `6da27a6`",
+            "candidate implementation pending human acceptance",
+            "synthetic",
+            "未读取或修改 Stage 6 fixture/data",
+            "未调用 Embedding、Chroma、Groq 或 LLM",
+            "S6-T5.7+` 仍为 `NOT APPROVED",
+            "Formal RAG security experiment 仍为 `NOT STARTED",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, text)
 
 
 if __name__ == "__main__":

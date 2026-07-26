@@ -303,12 +303,21 @@ This P1 record clarifies the earlier S6-T5.5 phrase “Binding after final selec
 are non-observable calculation values, while only committed bindings are final package state. The clarification is
 additive and does not alter accepted historical contracts.
 
-Historical execution snapshots remain above. The current project-owner decision is GOV-S6-T5.6-P1-ACCEPTANCE:
+Historical execution snapshots remain above. At the GOV-S6-T5.6-P1-ACCEPTANCE snapshot, the current project-owner decision was:
 `S6-T5.6-P1: HUMAN_ACCEPTED`; `S6-T5.6-P1-H1: HUMAN_ACCEPTED`; `S6-T5.6-P1-H2: HUMAN_ACCEPTED`; and
 `S6-T5.6: READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`. `S6-T5.6-I1: NOT YET APPROVED`; `S6-T5.7+: NOT APPROVED`;
 and `Formal RAG security experiment: NOT STARTED`. The last accepted implementation commit remains `6da27a6`;
 `432b07e` is the protocol acceptance closure commit, not an implementation commit. This acceptance does not create
 source code, read fixture data or run a formal experiment.
+
+The later explicit `S6-T5.6-I1` implementation approval supersedes only that current approval state: `S6-T5.6` is
+now `IMPLEMENTATION_IN_PROGRESS`, and `S6-T5.6-I1` is `APPROVED_TO_START / IMPLEMENTATION_IN_PROGRESS`. This does
+not change the P1/H1/H2 protocol acceptance, the `6da27a6` last accepted implementation commit, or the prohibition
+on S6-T5.7+, formal RAG experiments, fixture access, models, Trust or policy behavior.
+
+The subsequently completed I1 implementation supersedes only this active execution-status note: `S6-T5.6` and
+`S6-T5.6-I1` are now `Completed, pending human acceptance`. This record's P1/H1/H2 historical design snapshots,
+the `6da27a6` last accepted implementation commit, and the prohibition on unapproved later work remain unchanged.
 
 ## 12. Teaching and Interview Boundary
 

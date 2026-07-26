@@ -22,7 +22,7 @@ def test_evidence_and_citation_dtos_have_one_contract_owner() -> None:
         "CitationMode": [Path("contracts/evidence_envelope.py")],
     }
     assert not (RETRIEVAL / "context" / "models.py").exists()
-    assert not (RETRIEVAL / "context" / "builder.py").exists()
+    assert (RETRIEVAL / "context" / "builder.py").exists()
     assert not any(path.name == "package.py" for path in (RETRIEVAL / "context").glob("*.py"))
 
 
@@ -33,7 +33,7 @@ def test_context_layer_does_not_depend_on_legacy_or_model_backends() -> None:
         assert not any(token in text for token in forbidden), path
 
 
-def test_only_factory_constructs_envelopes_and_production_does_not_create_bindings() -> None:
+def test_only_factory_constructs_envelopes_and_context_builder_creates_bindings() -> None:
     envelope_calls: list[Path] = []
     binding_calls: list[Path] = []
     for path in RETRIEVAL.rglob("*.py"):
@@ -47,4 +47,4 @@ def test_only_factory_constructs_envelopes_and_production_does_not_create_bindin
                 binding_calls.append(path.relative_to(RETRIEVAL))
 
     assert envelope_calls == [Path("context/envelope.py")]
-    assert binding_calls == []
+    assert binding_calls == [Path("context/builder.py")]

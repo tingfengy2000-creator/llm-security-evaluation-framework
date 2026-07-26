@@ -1021,3 +1021,26 @@ Resolver，但会把 selected candidates 记录为 `NOT_ATTEMPTED_INSTRUCTION_BU
 验收确认的是 deterministic future context-package 的接口、选择、审计和失败边界，不是 ContextBuilder、
 `RetrievedContextPackage`、`ContextBuildTrace`、预算器或 Citation allocator 的实现。最后已接受 implementation commit
 保持为 `6da27a6`；`432b07e` 只登记为已经通过人工验收的协议闭环提交。历史 pending/review 快照保留为历史事实。
+
+## 31. S6-T5.6-I1：最小离线 Context Package 实施已批准（2026-07-26）
+
+项目负责人已明确批准 `S6-T5.6-I1` 开始实施。当前只允许在 `llmguard` 规范命名空间以 synthetic/offline TDD
+实现已验收的 ContextBuildConfig、ContextBuildTrace、RetrievedContextPackage、唯一 ContextBuilder、sequential
+resolution、stable-prefix budget selection、package-local Citation allocation 与结构性 abstention。`S6-T5.6` 与 I1
+当前均为 `IMPLEMENTATION_IN_PROGRESS`。
+
+本批准不改变 Stage 1–5 或 Stage 6 fixture/data，不允许调用 Embedding、Chroma、Groq 或 LLM，也不批准 Trust、
+RetrievalPolicy、reranker、Citation Accuracy、正式 RAG 实验或 S6-T5.7。最后已接受 implementation commit 仍是
+`6da27a6`；本轮产生的提交只能作为 candidate implementation pending human acceptance。
+
+## 32. S6-T5.6-I1：最小离线 Context Package 实施完成，等待人工验收（2026-07-26）
+
+I1 已在规范 `llmguard` namespace 完成，并只消费 synthetic Request、Evidence 与 in-memory Resolver。
+三个稳定 DTO 位于 `contracts/context_package.py`；唯一行为实现位于 `context/builder.py`，复用既有
+ContentResolver、EnvelopeFactory、citation instruction 与单 block renderer。实现遵守「先 provenance、稳定排序、
+精确 UID 去重、数量限制、instruction，再顺序 resolve/render/fit」的冻结顺序；首个不适配候选触发 stable-prefix
+cutoff，之后候选不访问正文。Trace 和 Package 的普通 audit 不导出 Query、正文、ContentRef 或 metadata 原值。
+
+当前 `S6-T5.6` 与 `S6-T5.6-I1` 均为 `Completed, pending human acceptance`。这不是对检索质量、Citation Accuracy、
+RAG 安全、可信检索、模型集成或生产可用性的结论；`S6-T5.7+` 和正式 RAG 安全实验仍未批准/未开始。最后已接受
+implementation commit 仍为 `6da27a6`；I1 提交只可作为候选实现留档。

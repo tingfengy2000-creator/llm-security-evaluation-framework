@@ -28,7 +28,13 @@ from .errors import (
     EvidenceEnvelopeInputError,
     EvidenceEnvelopeIntegrityError,
     EvidenceEnvelopeRuntimeError,
+    ContextBuildConfigurationError,
+    ContextConstructionError,
+    ContextConstructionInputError,
+    ContextConstructionIntegrityError,
+    ContextConstructionRuntimeError,
 )
+from .context_package import ContextBuildConfig, ContextBuildTrace, RetrievedContextPackage
 from .evidence_envelope import CitationBinding, CitationMode, EvidenceEnvelope
 from .content_resolution import ResolvedContent
 from .hashing import canonical_json, canonical_json_sha256
@@ -76,6 +82,13 @@ __all__ = [
     "ContentResolutionLookupError",
     "ContentResolutionRuntimeError",
     "ContextRenderingError",
+    "ContextBuildConfig",
+    "ContextBuildConfigurationError",
+    "ContextBuildTrace",
+    "ContextConstructionError",
+    "ContextConstructionInputError",
+    "ContextConstructionIntegrityError",
+    "ContextConstructionRuntimeError",
     "ContentRef",
     "ContentRefError",
     "DocumentRecord",
@@ -100,6 +113,7 @@ __all__ = [
     "RetrievalRequest",
     "RetrievalTrace",
     "RetrieverQueryRecord",
+    "RetrievedContextPackage",
     "SchemaError",
     "TrustAssessment",
     "canonical_json",

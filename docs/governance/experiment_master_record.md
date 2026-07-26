@@ -46,17 +46,17 @@
 | 项目 | 当前事实 |
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
-| 当前最高完成阶段 | Stage 6 的 S6-T5.6 Context Package Protocol 已通过人工验收；验收边界仍仅是未来协议，不是 ContextBuilder 运行时行为。 |
-| 当前任务 | `GOV-S6-T5.6-P1-ACCEPTANCE` 已登记 P1、P1-H1、P1-H2 的人工验收；三者都不是正式 RAG 安全实验。 |
+| 当前最高完成阶段 | Stage 6 的 S6-T5.6 Context Package Protocol 已通过人工验收；其最小 synthetic-only I1 已完成离线工程实现，等待人工验收。 |
+| 当前任务 | `S6-T5.6-I1`：Deterministic Retrieved Context Package Minimal Offline Implementation，Completed, pending human acceptance。 |
 | 当前审批门 | S6-T5.4 blocker 仍保留为 `RESOLVED_BY_APPROVED_PROTOCOL_FREEZE` 的历史记录；S6-T5.4 已 HUMAN_ACCEPTED。 |
-| 下一批准任务 | `S6-T5.6-I1` 仍须独立审批；S6-T5.7+、ContextBuilder 以外的后续能力和正式 RAG 安全实验仍须独立审批。 |
+| 下一批准任务 | I1 已完成，等待人工验收；S6-T5.7+、Trust 和正式 RAG 安全实验仍须独立审批。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
 | 最近工程验证 | S6-T5.3-P1 metadata carrier、DenseRetriever 与 S6-T5.3-H1 trace/failure-boundary 离线加固；无正式 RAG 实验。 |
 | 当前主要阻塞项 | parent identity 协议已由版本化 schema `1.1` 修复；DenseRetriever 仍须保持无正文、标签隔离与 fail-closed 边界。历史实验另缺少部分 Run Manifest、模型 revision 和数据 fingerprint。 |
 | 当前允许宣称 | 已有模型层真实 API 小样本扫描、Guard A/B 和输入/输出消融；Stage 6 已有检索基础设施与标签隔离契约。 |
 | 当前禁止宣称 | 未完成正式 RAG 安全实验、可信检索、抗知识污染、Citation Accuracy、Agent 安全或生产级防护。 |
 
-当前审批状态补充：`S6-T5.5: HUMAN_ACCEPTED`；`S6-T5.5-I1: HUMAN_ACCEPTED`；`S6-T5.5-H1: HUMAN_ACCEPTED`；`S6-T5.6-P1: HUMAN_ACCEPTED`；`S6-T5.6-P1-H1: HUMAN_ACCEPTED`；`S6-T5.6-P1-H2: HUMAN_ACCEPTED`；`S6-T5.6: READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`；`S6-T5.6-I1: NOT YET APPROVED`；`S6-T5.7+: NOT APPROVED`；`Formal RAG security experiment: NOT STARTED`。最后已接受 implementation commit 仍为 `6da27a6`；`432b07e` 是协议验收闭环提交，不是 implementation commit。
+当前审批状态补充：`S6-T5.5: HUMAN_ACCEPTED`；`S6-T5.5-I1: HUMAN_ACCEPTED`；`S6-T5.5-H1: HUMAN_ACCEPTED`；`S6-T5.6-P1: HUMAN_ACCEPTED`；`S6-T5.6-P1-H1: HUMAN_ACCEPTED`；`S6-T5.6-P1-H2: HUMAN_ACCEPTED`；`S6-T5.6: Completed, pending human acceptance`；`S6-T5.6-I1: Completed, pending human acceptance`；`S6-T5.7+: NOT APPROVED`；`Formal RAG security experiment: NOT STARTED`。最后已接受 implementation commit 仍为 `6da27a6`；本轮 implementation commit 仅是 candidate pending human acceptance；`432b07e` 是协议验收闭环提交，不是 implementation commit。
 
 **阅读入口**：先读 [AGENTS.md](../../AGENTS.md)、[长期研究需求](long_term_research_requirements.md)、[项目总控](../../PROJECT_MASTER_CONTEXT.md)、[当前任务状态](current_work_state.md)，再读本文、当前 Stage 设计与原始工件。
 
@@ -403,3 +403,4 @@ git log -15 --oneline
 | 2026-07-26 | S6-T5.6-P1-H1 协议加固 | 第 2、4、10、12、14、20 节 | 修订 P1 的全量预解析缺口：预算选择与正文解析顺序化，冻结精确 UID 重复投影、cutoff 不访问正文与 trace/package 单向身份；不创建源码或实验结果，待人工复核 | [protocol review record](s6_t5_6_protocol_review_record.md)、PODR-024、治理测试 | 通过 `git log -1 -- docs/governance/experiment_master_record.md` 动态解析 |
 | 2026-07-26 | S6-T5.6-P1-H2 协议闭环 | 第 2、4、10、12、14、20 节 | 清除活动章节的旧顺序，冻结 instruction-budget candidate decision、Trace tuple partition 与 Package/Trace 无冗余 identity；不创建源码或实验结果，待人工复核 | [protocol review record](s6_t5_6_protocol_review_record.md)、PODR-025、治理测试 | 通过 `git log -1 -- docs/governance/experiment_master_record.md` 动态解析 |
 | 2026-07-26 | GOV-S6-T5.6-P1-ACCEPTANCE | 第 2、4、10、12、14、20 节 | 项目负责人接受 P1、P1-H1 与 P1-H2 的未来 Context Package 协议；父任务仅进入 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`，`S6-T5.6-I1` 仍未批准。`6da27a6` 保持最后已接受 implementation commit，`432b07e` 仅为协议闭环提交 | [protocol review record](s6_t5_6_protocol_review_record.md)、PODR-026、治理测试 | 不创建源码、不读 fixture、不调用模型 |
+| 2026-07-26 | S6-T5.6-I1 实施批准 | 第 2、4、10、12、14、20 节 | 项目负责人批准合成离线 TDD 实现 Context Config/Trace/Package 与唯一 ContextBuilder；I1 和父任务进入 `IMPLEMENTATION_IN_PROGRESS`，新提交尚不属于 last accepted implementation | PODR-027、当前任务指令、已验收协议 | 不读 fixture、不调用 Embedding/Chroma/LLM、不进入 Trust、S6-T5.7 或正式实验 |
