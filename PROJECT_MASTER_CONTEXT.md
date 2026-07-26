@@ -984,3 +984,17 @@ construction contract：Request/Evidence provenance；排序/去重/数量限制
 fit 后才 commit。这样 `E9` 与 `E10` 的不同宽度被真实字符串覆盖，任何未收录候选不会留下编号空洞或泄漏到 audit。
 P1 仍不批准 S6-T5.6 implementation、ContextBuilder、RetrievedContextPackage、Citation allocator、Trust、LLM 或
 正式实验；最后接受 implementation commit 仍是 `6da27a6`。
+
+## 28. S6-T5.6-P1-H1：顺序解析与 Context Trace 协议加固（2026-07-26）
+
+H1 已完成、待人工复核；它不是业务实现，也不改变 P1 的 `Completed, pending human acceptance` 状态。H1 修复了
+P1 中“先解析所有数量入选候选、再做预算”的最小权限缺口。active 流程必须是：配置/类型/provenance 校验、稳定排序、
+精确 UID duplicate/conflict、数量限制、citation instruction，然后按稳定顺序 **sequential resolution**。每一候选仅在
+轮到它且此前未出现预算 cutoff 时才可调用 Resolver、Factory 和 renderer；instruction 本身超预算时 Resolver 调用为 0，
+首个不适配候选为 `BUDGET_EXCLUDED`，后续候选是 `NOT_ATTEMPTED_AFTER_BUDGET_CUTOFF` 且不得读取正文。
+
+H1 同时冻结跨对象 provenance 的四个精确比较、同 UID 的完整语义投影、single-collection snapshot 约束，以及
+`ContextBuildTrace` 的安全字段和单向 identity：trace hash 不包含 Package ID，Package 只保存
+`context_build_trace_hash`，从而避免循环。`NO_EVIDENCE_AFTER_DEDUPLICATION` 已由 P1 从 active baseline 移除，
+仅作为历史快照保留。父任务 S6-T5.6、S6-T5.7+ 与正式 RAG 安全实验仍未批准/未开始；本轮未读取 fixture、未调用
+Embedding、Chroma、Groq 或 LLM，也未生成实验结论。

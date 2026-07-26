@@ -18,6 +18,7 @@
 - s6_t5_5_i1_status: `human_accepted`；初始实现提交 `2cacef7` 保留为历史证据。
 - s6_t5_5_h1_status: `human_accepted`；最终验收加固提交 `6da27a6`，只覆盖不可变性、时间戳兼容与脱敏错误边界。
 - s6_t5_6_p1_status: `completed_pending_human_acceptance`；只冻结 ContextBuilder、Budget、Package 与 structural abstention 协议，不创建业务代码。
+- s6_t5_6_p1_h1_status: `completed_pending_human_review`；只加固顺序解析、精确 UID 重复、预算 cutoff 与 Context trace identity；不创建业务代码。
 - s6_t5_6_plus_status: `not_approved`；不得自动开始 ContextBuilder 或后续能力。
 - objective: 在 S6-T4 与已验收 S6-T5.2 契约基础上，实现受控、离线、Provider-Neutral DenseRetriever；本轮只产出 RetrievalEvidence 与 RetrievalTrace。
 - source_locations: `src/llmguard/domains/retrieval/{contracts,attacks,embedding,vectorstore,retrieval,context}/`
@@ -27,7 +28,7 @@
 - deliverable_locations: 尚未生成独立 Stage 6 证据包。
 - evidence_locations: `data/stage6_rag/documents/corpus_manifest.json`
 - conclusion_boundary: 已完成人工验收的 S6-T5.3 离线工程边界包括 embedding/vectorstore 基础设施、S6-T5.2 运行时契约、schema `1.1` parent identity carrier、DenseRetriever 与 H1 trace/failure-boundary 加固；S6-T5.4-I1 已实现 contracts、in-memory reader/registry、exact-match legacy adapter 与 hash-verified resolver，H1 又关闭公开 registry capability 并重建注入错误的固定脱敏外部表述。P1、I1、H1 与父任务均已通过人工验收。S6-T5.5-P1/P1-H1 也已通过协议人工验收；S6-T5.5-I1/H1 与父任务已在 synthetic objects 上通过人工验收，覆盖 Envelope、Binding、CitationMode、Factory、instruction 与单 block rendering。未实现 ContextBuilder、package、allocator、Trust、LLM 或 RAG 指标，也未执行正式 RAG 安全实验。
-- next_stage: 先人工验收 `S6-T5.6-P1`；父任务 `S6-T5.6` 和 `S6-T5.7+` 仍为 `NOT APPROVED`，不得自动开始。
+- next_stage: 先人工审查 `S6-T5.6-P1-H1`，再验收 P1；父任务 `S6-T5.6` 和 `S6-T5.7+` 仍为 `NOT APPROVED`，不得自动开始。
 
 目标：在 Retrieval 层评测 R1–R6，并为隐蔽知识污染检测与可信检索研究建立稳定证据接口。
 
@@ -45,7 +46,7 @@
   架构决策，不能把它误称为完整 RAG 实验报告；
 - 工程状态：当前是检索基础设施、分块、运行时契约和合成内存 ContentResolver 状态，不是正式 RAG 安全攻击实验；S6-T5.3-H1、DenseRetriever、S6-T5.4、S6-T5.5-P1 与 P1-H1 均已获人工验收，但后两项仍只是协议设计；
 - 当前验收：`S6-T5.5-I1`、`S6-T5.5-H1` 与父任务已通过人工验收；H1 只修复 metadata 不可重绑、timestamp parity、canonical Evidence UID 与固定错误语义，未实现 ContextBuilder、Package、预算或 Citation allocator；
-- 当前协议：`S6-T5.6-P1` 冻结临时 Binding 的精确 renderer 预算、stable prefix selection、safe build trace、Package identity 和 structural abstention；它仍待人工验收，未创建 ContextBuilder；
+- 当前协议：`S6-T5.6-P1` 冻结临时 Binding 的精确 renderer 预算、stable prefix selection、safe build trace、Package identity 和 structural abstention；H1 将正文解析改为 sequential resolution，并规定 budget cutoff 之后的候选永不访问正文；P1 待人工验收、H1 待人工复核，均未创建 ContextBuilder；
 - 结论边界：已完成的是数据、契约、Embedding 与向量存储基础，不可宣称已有 Retriever、可信策略或 RAG 指标结果；
 - 面试重点：为什么 RetrievalEvidence、EvidenceSignal、TrustedContextPackage 与 RAGSecurityEnvelope 必须分层。
 

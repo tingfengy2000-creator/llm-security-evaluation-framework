@@ -161,6 +161,7 @@ S6-T5.3-H1 均已通过项目负责人 `HUMAN_ACCEPTED`；S6-T5.4 为
 | PODR-021 | 2026-07-26 | S6-T5.5-H1 Evidence and Citation Contract Immutability and Validation Hardening | 修复 I1 人工验收发现：metadata 不可变、timestamp 兼容、固定 Envelope/Binding 错误与 canonical Evidence UID | IMPLEMENTED_PENDING_HUMAN_REVIEW | 项目负责人当前批准、protocol review record、completion record、TDD 与离线工程验证 | PODR-020 | 不批准 S6-T5.6、ContextBuilder、Package、allocator、Trust、LLM 或正式 RAG 实验 |
 | PODR-022 | 2026-07-26 | S6-T5.5 Evidence Envelope and Citation Implementation Human Acceptance Record | 人工接受 I1、H1 与父任务；`6da27a6` 为最终接受的 implementation commit | HUMAN_ACCEPTED | 项目负责人明确决定、completion record、protocol review record、治理测试 | PODR-020、PODR-021 的历史 pending/review 快照 | 不批准 S6-T5.6+、ContextBuilder、Trust、LLM 或正式 RAG 实验 |
 | PODR-023 | 2026-07-26 | S6-T5.6-P1 Context Package Boundary Freeze | 批准只进行 ContextBuilder、预算、Package、Citation 临时绑定和结构性 abstention 的协议审查 | DESIGN_FREEZE_COMPLETED_PENDING_HUMAN_ACCEPTANCE | 项目负责人明确决定、S6-T5.6 protocol review record、设计/治理测试 | PODR-022 的后续独立协议任务 | 不批准任何 S6-T5.6 实现、ContextBuilder、Package、allocator、Trust、LLM 或正式 RAG 实验 |
+| PODR-024 | 2026-07-26 | S6-T5.6-P1-H1 Sequential Resolution, Duplicate Semantics and Context Trace Protocol Hardening | 批准只修订 P1 的顺序解析、精确 UID 重复语义、预算 cutoff 与 Context trace 身份缺口 | DESIGN_FREEZE_HARDENING_COMPLETED_PENDING_HUMAN_REVIEW | 项目负责人明确决定、S6-T5.6 protocol review record、设计/治理测试 | PODR-023 historical selection wording | 不批准任何 S6-T5.6 实现、ContextBuilder、Package、allocator、Trust、LLM 或正式 RAG 实验 |
 
 ## 7.1 S6-T5.4 当前审批解释（2026-07-25）
 
@@ -249,6 +250,17 @@ renderer 预算计算，未被纳入最终 Package 前不消耗 Citation ID。
 父任务 `S6-T5.6`、`S6-T5.7+` 和正式 RAG security experiment 分别仍为 `NOT APPROVED`、`NOT APPROVED` 和
 `NOT STARTED`。最后接受的 implementation commit 仍为 `6da27a6`。本冻结不实现 ContextBuilder、
 RetrievedContextPackage、budgeter 或 Citation allocator，也不读取 fixture 或调用 Embedding、Chroma、Groq 或 LLM。
+
+## 7.11 S6-T5.6-P1-H1 协议加固当前状态（2026-07-26）
+
+PODR-024 只批准设计缺口修订。H1 当前为 `Completed, pending human review`；P1 仍为
+`Completed, pending human acceptance`。它将 active path 固定为先做 provenance、稳定排序、精确 UID
+duplicate/conflict 和数量限制，再执行 citation instruction 与 sequential resolution。instruction 单独超预算
+不得调用 Resolver；第一个无法完整收录的候选触发停止，后续候选不得访问正文或调用 factory/renderer。
+
+H1 还冻结单向 `ContextBuildTrace -> trace_hash -> Package context_build_trace_hash` 身份关系，并保留
+`NO_EVIDENCE_AFTER_DEDUPLICATION` 作为历史快照而非 active code。父任务 `S6-T5.6`、`S6-T5.7+` 与正式实验仍为
+`NOT APPROVED`、`NOT APPROVED` 和 `NOT STARTED`；没有业务代码、fixture 读取、模型调用或正式实验。
 
 ## 8. 新 Thread 最小读取顺序
 

@@ -7,6 +7,8 @@
 - Task nature: `DESIGN_FREEZE / PROTOCOL_REVIEW`
 - Baseline: `feature/stage6-rag` at `ee905cb`; the last accepted implementation commit remains `6da27a6`.
 - Current execution status: `Completed, pending human acceptance`.
+- Hardening task: `S6-T5.6-P1-H1 Sequential Resolution, Duplicate Semantics and Context Trace Protocol Hardening`.
+- H1 execution status: `Completed, pending human review`.
 - Parent `S6-T5.6`: `NOT APPROVED`.
 - `S6-T5.7+`: `NOT APPROVED`.
 - Formal RAG security experiment: `NOT STARTED`.
@@ -77,10 +79,21 @@ record understandable without recovering sensitive text. Neither field is a trus
 
 ## 5. Provenance Validation, Stable Sort and Deduplication
 
-Before any content resolution, ContextBuilder validates that every Evidence belongs to the supplied Request:
-`query_id`, `retrieval_request_id`, `collection_fingerprint`, schema-compatible snapshot identity and canonical
-`corpus:` ContentRef must agree with the Request/Evidence contracts. Any mismatch is the future integrity error
-`REQUEST_EVIDENCE_MISMATCH`, never abstention.
+Before any content resolution, ContextBuilder validates every future cross-object invariant exactly:
+
+```text
+evidence.query_id == request.query_id
+evidence.retrieval_request_id == request.request_id
+evidence.collection_fingerprint == request.collection_fingerprint
+1 <= evidence.rank <= request.top_k
+```
+
+`RetrievalRequest` intentionally has no `corpus_snapshot_id`; therefore ContextBuilder must **not** compare an
+Evidence snapshot to a Request snapshot. Each Evidence first validates its own canonical UID, snapshot, ContentRef,
+chunk, content hash and finite metrics through its existing contract. After exact UID deduplication, the current
+single-collection baseline requires all surviving Evidence to have 相同 corpus_snapshot_id; a mixed snapshot
+sequence is `REQUEST_EVIDENCE_MISMATCH`. An empty retrieval trace records the explicit empty snapshot state `""`,
+not a fabricated snapshot identity. Any mismatch is an integrity error, never abstention.
 
 The frozen candidate order is:
 
@@ -88,36 +101,54 @@ The frozen candidate order is:
 (rank ascending, evidence_uid ascending)
 ```
 
-The original Python sequence order is not semantic. Identical `evidence_uid` records with every stable identity
-field equal are deduplicated by keeping the first record in this stable order. If the same UID conflicts in chunk,
-hash, source, version, rank, request, snapshot or ContentRef, building fails closed with
-`DUPLICATE_EVIDENCE_CONFLICT`; it must not silently choose one record.
+The original Python sequence order is not semantic. Identical `evidence_uid` records are deduplicated only when the
+following exact semantic projection is equal: `evidence_schema_version`, `evidence_uid`, `query_id`,
+`retrieval_request_id`, `corpus_snapshot_id`, `doc_id`, `chunk_id`, `parent_doc_id`, canonical `content_ref`,
+`content_hash`, `source_id`, `source_type`, `version`, `timestamp`, `rank`, `distance`, `similarity`,
+`collection_fingerprint`, and public_metadata 的深层语义值. The first record in stable order is retained only for
+an exact projection match. The same UID with any projection difference fails closed as
+`DUPLICATE_EVIDENCE_CONFLICT`; it is neither selected nor resolved. Error/audit output may name only a safe UID or
+hash and must not contain raw metadata, ContentRef or body text.
 
-`NO_EVIDENCE_AFTER_DEDUPLICATION` is removed from the active baseline reason-code set. Under the frozen exact
-duplicate rule, a non-empty input retains at least one representative, so that code would be unreachable and must
-not be preserved merely to manufacture a test.
+`NO_EVIDENCE_AFTER_DEDUPLICATION` is **removed from active baseline by S6-T5.6-P1**. Under the frozen exact duplicate
+rule, a non-empty input retains at least one representative, so that code would be unreachable and must not be
+preserved merely to manufacture a test. It remains only as a historical protocol snapshot, never as an active reason
+code or implementation target.
 
 因此，`NO_EVIDENCE_AFTER_DEDUPLICATION` 从 active baseline 语义中移除；未来实现不得伪造不可达 reason code。
 
 ## 6. Frozen Build Order and Citation/Budget Algorithm
 
-The future implementation follows exactly this order:
+H1 replaces the earlier P1 historical wording that resolved every count-selected candidate before applying the final
+budget. The active contract is **sequential resolution**: a candidate that is never eligible for inclusion never
+receives body-access capability. The future implementation must execute the following order exactly:
 
-1. validate Request/Evidence provenance;
-2. stable sort;
-3. UID deduplication;
-4. apply `max_evidence_count`;
-5. resolve each remaining body through `ContentResolver`;
-6. verify hash through the resolver result and create each Envelope through `EvidenceEnvelopeFactory`;
+1. validate `ContextBuildConfig`;
+2. validate Request, citation mode and Evidence sequence types;
+3. validate all Request/Evidence provenance;
+4. stable sort;
+5. exact UID duplicate/conflict handling;
+6. apply `max_evidence_count`, recording excluded UIDs as `MAX_EVIDENCE_COUNT_EXCLUDED`;
 7. render the fixed citation instruction;
-8. select complete blocks under the final rendered-string budget;
-9. assemble the Package and its safe trace.
+8. for empty raw input, return `EMPTY_RETRIEVAL` abstention;
+9. if the instruction 本身超过预算, return `CONTEXT_BUDGET_EXHAUSTED` and 不得调用 ContentResolver;
+10. for count-selected candidates, 逐条执行: resolve through `ContentResolver`; create an Envelope through
+    `EvidenceEnvelopeFactory`; create temporary `E{included_count + 1}` Binding; render one complete block; test the
+    full final Unicode code-point budget; commit only if it fits; on the first non-fit record `BUDGET_EXCLUDED` and
+    stop;
+11. every later count-selected candidate after that cutoff is `NOT_ATTEMPTED_AFTER_BUDGET_CUTOFF`: it must never call
+    resolver, factory or renderer and must create no `ResolvedContent`, Envelope or Binding;
+12. assemble Package and ContextBuildTrace.
+
+The future test matrix must verify resolver call counts: empty input `0`; instruction-only over-budget `0`; first
+candidate non-fit `1`; first fit then second non-fit `2`; later cutoff candidates remain uncalled. The implementation
+must never resolve all count-selected candidates beforehand.
 
 Resolution or Envelope creation failures are never skipped. Unknown ref, hash mismatch, snapshot integrity failure,
 request mismatch, duplicate conflict, invalid metric and unexpected resolver/factory/renderer failure raise a
 redacted exception and return no Package.
 
-For step 8, this review freezes **stable prefix selection**:
+For step 10, this review freezes **stable prefix selection**:
 
 1. Keep `included_count` and committed Envelopes, Bindings and rendered blocks.
 2. For the next candidate, create a **临时 Binding** with `E{included_count + 1}`.
@@ -165,7 +196,9 @@ reason code in the following priority order:
 
 1. `EMPTY_RETRIEVAL`: input Evidence count is zero.
 2. `CONTEXT_BUDGET_EXHAUSTED`: the fixed citation instruction alone exceeds the positive character budget.
-3. `NO_COMPLETE_EVIDENCE_BLOCK_FITS`: the instruction fits, but the first complete candidate block does not.
+3. `NO_COMPLETE_EVIDENCE_BLOCK_FITS`: the instruction fits, but the stable-prefix policy cannot admit the first candidate.
+   This is not proof that every lower-ranked candidate would fail; stable ranking intentionally prevents
+   lower evidence from leapfrogging the first candidate.
 
 `CONTEXT_BUDGET_EXHAUSTED` is a structural abstention reason code, not an exception code. `NO_EVIDENCE_AFTER_DEDUPLICATION`
 is not active. Hash mismatch, unknown ref, Binding mismatch and all provenance/integrity errors must raise, not
@@ -185,9 +218,25 @@ hash must exactly match the rendered string. `asdict()` is explicitly sensitive.
 `to_audit_dict()` exclude body text, rendered context and Query text; no ordinary sensitive export is provided.
 The package contains no Trust score, label, Ground Truth or LLM output.
 
-`ContextBuildTrace` is the approved no-body exclusion record, rather than putting routine budget exclusions in
-`abstention_reason_codes`. It contains only counts, Evidence UIDs, safe decision reason codes, config hash and
-package identity fields. It never includes body text, rendered blocks, ContentRef raw values, Query text, metadata
+`ContextBuildTrace` has future canonical ownership in `contracts/`, is frozen, slots-based and kw-only, and contains
+exactly these semantic fields: `trace_schema_version`, `trace_id`, `trace_hash`, `request_id`, `query_id`,
+`corpus_snapshot_id` (or explicit empty state `""`), `context_build_config_hash`, `input_evidence_count`,
+`deduplicated_evidence_count`, `count_selected_count`, `resolved_count`, `included_count`, `stable_candidate_uids`,
+`count_selected_uids`, `max_count_excluded_uids`, `resolved_uids`, `included_uids`, `budget_excluded_uids`,
+`not_attempted_after_budget_cutoff_uids`, and `decision_codes`. UID collections and decision codes are tuples in
+stable order. The count invariants are: `deduplicated_evidence_count == len(stable_candidate_uids)`;
+`count_selected_count == len(count_selected_uids)`; `resolved_count == len(resolved_uids)`;
+`included_count == len(included_uids)`; and `included_count <= resolved_count <= count_selected_count <=
+deduplicated_evidence_count <= input_evidence_count`. `decision_codes` use only `INCLUDED`,
+`MAX_EVIDENCE_COUNT_EXCLUDED`, `BUDGET_EXCLUDED`, and `NOT_ATTEMPTED_AFTER_BUDGET_CUTOFF` for candidate decisions.
+
+Trace identity is independent of Package identity: `trace_hash` covers stable trace semantics but 不包含 package_id,
+and `trace_id = CT-<full_sha256>`. The Package stores `context_build_trace_hash`; its own ID includes that
+`context_build_trace_hash` together with context schema version, request ID, query ID, citation mode, rendered-context
+hash, final Evidence UID order and config hash. This one-way relation prevents an identity cycle.
+
+The trace is the approved no-body exclusion record, rather than putting routine budget exclusions in
+`abstention_reason_codes`. It never includes body text, rendered blocks, ContentRef raw values, Query text, metadata
 values, paths, labels or Ground Truth.
 
 `package_id` uses `PK-<full_sha256>` over canonical UTF-8 JSON containing context schema version, request ID, query
@@ -215,9 +264,10 @@ This P1 record clarifies the earlier S6-T5.5 phrase “Binding after final selec
 are non-observable calculation values, while only committed bindings are final package state. The clarification is
 additive and does not alter accepted historical contracts.
 
-S6-T5.6-P1 is `Completed, pending human acceptance`. S6-T5.6 implementation requires separate approval. S6-T5.7+
-remains `NOT APPROVED`; it may not introduce Trust, policy, generation, LLM integration or formal RAG experiments.
-No source code, fixture data or formal experiment was created by this review.
+S6-T5.6-P1 is `Completed, pending human acceptance`; S6-T5.6-P1-H1 is `Completed, pending human review`.
+S6-T5.6 implementation requires separate approval. S6-T5.7+ remains `NOT APPROVED`; it may not introduce Trust,
+policy, generation, LLM integration or formal RAG experiments. No source code, fixture data or formal experiment was
+created by this review.
 
 ## 12. Teaching and Interview Boundary
 

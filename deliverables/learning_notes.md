@@ -1349,3 +1349,29 @@ sequence 也保持深度只读。第二，Envelope timestamp 与已经验收的 
 目录，pytest 在 collection 前失败，未执行业务代码或读取 fixture。随后按实际仓库路径改为 `tests/domains/retrieval/context/`
 并通过。当前 H1 是 `Completed, pending human review`；I1 与父任务仍是 `Completed, pending human acceptance`。
 本轮未读取 Stage 6 fixture，未调用 Embedding、Chroma、Groq 或 LLM，也未执行正式 RAG 安全实验。
+
+## 2026-07-26: S6-T5.6-P1-H1 顺序解析、重复语义与 Context Trace 协议加固（待人工复核）
+
+**我现在做了什么**：本轮只修订未来 ContextBuilder 的协议，没有创建 ContextBuilder、Package、budgeter 或新的业务
+测试。原 P1 的风险是：数量限制后先解析所有候选正文，最后才根据预算选取。这会让最终不会进入 Context 的候选也获得
+正文访问。H1 将它改为顺序解析：每个候选仅在轮到自己、且前一个候选没有触发预算 cutoff 时，才会 resolve、封装并渲染。
+
+**为什么这样做**：预算不是一个简单字符串长度估计。引用编号、转义和固定 instruction 都会影响最终字符数，因此必须实际
+渲染完整候选再判断。与此同时，最小权限要求“没有被选择机会的候选不应获得正文能力”。所以 instruction 自己超预算时
+resolver 调用必须为 0；首条完整 block 放不下时只解析首条，后续全部是 `NOT_ATTEMPTED_AFTER_BUDGET_CUTOFF`。
+
+**企业为什么这样做**：生产审计不仅要回答“最终用了什么”，还要回答“哪些敏感内容根本没有被读取”。H1 的 trace 用 UID、
+计数与安全 decision code 留下这条证据，不写查询、正文、ContentRef、metadata、标签或路径。这样能支持事故复盘和
+最小权限审计，而不把敏感语料复制到日志。
+
+**和上一部分的关系**：S6-T5.4 只允许受控解析一条由 hash 约束的正文；S6-T5.5 只负责单 Evidence 的 Envelope、
+Binding 和渲染。S6-T5.6-P1/H1 仍只定义未来如何把多条证据组合起来。它没有证明检索质量、Citation Accuracy、RAG
+安全效果或生产可用性。
+
+**面试可能追问**：为什么不先把全部正文读出来再裁剪？回答是：这会扩大敏感数据暴露面，并让“未进入 prompt 的文档”
+仍出现在运行时内存和潜在故障域中。为什么 trace hash 不能包含 package ID？因为 package ID 又要包含 trace hash，会
+形成 hash 循环；采用 trace -> package 的单向关系即可同时复现两者。
+
+**容易误解的地方**：`NO_COMPLETE_EVIDENCE_BLOCK_FITS` 不表示“后面的所有候选都放不下”。它只表示稳定前缀策略不允许
+第一条候选进入；为了不让低 rank 的短文档越过高 rank 候选，系统有意停止。本轮状态为 H1 `Completed, pending human
+review`，P1 仍 `Completed, pending human acceptance`；父任务 S6-T5.6 仍未获批准。

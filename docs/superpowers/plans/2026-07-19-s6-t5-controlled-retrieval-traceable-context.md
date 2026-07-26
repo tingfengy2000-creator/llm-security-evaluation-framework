@@ -263,10 +263,11 @@ validator 可用，不能回滚成第二套 DTO。
 **验收标准**
 
 - 相同 Evidence/config 生成相同 Citation、rendered Context、UTF-8 hash 和 package；顺序固定为排序、
-  UID 去重、数量限制、Resolver/hash、Citation、render；预算基于 escaped rendered string 的 Unicode
-  code point，换行固定 LF，且只保留完整 block；仅 EMPTY_RETRIEVAL、NO_EVIDENCE_AFTER_DEDUPLICATION、
-  CONTEXT_BUDGET_EXHAUSTED、NO_COMPLETE_EVIDENCE_BLOCK_FITS 返回结构性 abstention；hash/scheme/fingerprint/
-  metric/request 不一致必须异常且不返回 Package；普通审计不泄漏正文或 rendered context。
+  UID 精确去重、数量限制、citation instruction 和 sequential resolve；预算基于 escaped rendered string 的
+  Unicode code point，换行固定 LF，且只保留完整 block。`NO_EVIDENCE_AFTER_DEDUPLICATION` is removed from active baseline by S6-T5.6-P1；仅 `EMPTY_RETRIEVAL`、`CONTEXT_BUDGET_EXHAUSTED`、
+  `NO_COMPLETE_EVIDENCE_BLOCK_FITS` 返回结构性 abstention。instruction 超预算时 resolver 调用为 0；第一个
+  不适配候选之后的候选不得解析、封装或渲染。hash/scheme/fingerprint/metric/request 不一致必须异常且不返回
+  Package；普通审计不泄漏正文或 rendered context。
 
 **建议提交**：`feat(context): build deterministic retrieved context packages`
 
@@ -486,9 +487,10 @@ S6-T5.7+ 均为 `NOT APPROVED`，正式实验为 `NOT STARTED`。
 
 ## 26. S6-T5.6-P1 协议审查执行记录（2026-07-26）
 
-本轮没有执行任何 ContextBuilder TDD 或业务源码任务。只冻结了未来实现顺序：provenance validation -> stable sort ->
-UID dedup -> count limit -> resolve -> Envelope -> exact renderer budget -> Package。预算采用 final rendered string 的
-Unicode code point 数，hash 使用该字符串 UTF-8 bytes，且不截断 block。
+本节保留 P1 的历史审查快照。其“count limit 后预先 resolve 全部候选”的旧排序已由 H1 supersede；当前 active
+protocol 必须 `provenance validation -> stable sort -> UID dedup -> count limit -> citation instruction -> sequential resolve
+-> Envelope -> exact renderer budget -> Package`。预算采用 final rendered string 的 Unicode code point 数，hash 使用该
+字符串 UTF-8 bytes，且不截断 block。
 
 批准的 future algorithm 使用 temporary next Citation Binding 计算真实 renderer output；commit 后才永久占用 E1...En。
 选择采用 stable prefix cutoff，而非让后续较小 Evidence 跳过前一高优先级候选。safe trace 记录排除 UID/理由，普通

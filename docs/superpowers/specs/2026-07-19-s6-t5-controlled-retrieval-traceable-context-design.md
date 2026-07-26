@@ -125,6 +125,20 @@ loader 或 orchestration 的 public-boundary adapter 负责调用明确的 **saf
 仅在后续单独的 generation boundary 获批后才可存在。投影测试必须证明这些字段无法进入
 RetrievalRequest、RetrievalTrace、EvidenceEnvelope、RetrievedContextPackage、logger payload 或异常。
 
+### 4.4 S6-T5.6-P1-H1 active selection hardening
+
+未来 ContextBuilder 的 active path 是 `stable sort -> exact UID deduplication -> count limit -> citation instruction -> sequential resolve -> temporary binding -> render -> final Unicode budget`。它不得先解析所有
+count-selected Evidence。`NO_EVIDENCE_AFTER_DEDUPLICATION` is removed from active baseline by S6-T5.6-P1：精确
+重复会保留一个稳定代表，冲突重复直接 fail closed。instruction 本身超过预算时必须返回
+`CONTEXT_BUDGET_EXHAUSTED`，且 resolver 调用次数为零；首个不适配候选为 `BUDGET_EXCLUDED`，之后候选为
+`NOT_ATTEMPTED_AFTER_BUDGET_CUTOFF`，不得读取正文、构造 Envelope/Binding 或调用 renderer。
+
+Request/Evidence cross-object validation 仅比较 `query_id`、`retrieval_request_id`、
+`collection_fingerprint` 和 `1 <= rank <= top_k`。Request 没有 snapshot 字段，不得伪造跨对象 snapshot 比较；
+single-collection baseline 在精确去重后要求所有 Evidence 使用同一个 snapshot。Trace 使用稳定的
+`ContextBuildTrace` 记录 UID、计数、决策码和 config hash，不保存查询、正文、ContentRef、metadata、标签、
+Ground Truth 或路径；其 hash 不含 package ID，Package 反向持有 trace hash 以避免循环。
+
 ## 5. Chunking 契约
 
 ### 5.1 当前能力与扩展点
@@ -338,8 +352,9 @@ provenance，截断片段不得冒充完整 chunk。
 `abstention_required`、`abstention_reason_codes`、`context_schema_version`。
 
 普通有证据基线默认 `abstention_required=false`、reason codes 为空；只有结构性“无可用 Context”情况可
-返回 Package 且要求 abstention：`EMPTY_RETRIEVAL`、`NO_EVIDENCE_AFTER_DEDUPLICATION`、
-`CONTEXT_BUDGET_EXHAUSTED`、`NO_COMPLETE_EVIDENCE_BLOCK_FITS`。`package_id` 由 request、Context hash、citation mode、schema version
+返回 Package 且要求 abstention：`EMPTY_RETRIEVAL`、`CONTEXT_BUDGET_EXHAUSTED`、
+`NO_COMPLETE_EVIDENCE_BLOCK_FITS`。`NO_EVIDENCE_AFTER_DEDUPLICATION` is removed from active baseline by S6-T5.6-P1，
+仅作为历史快照保留。`package_id` 由 request、Context hash、citation mode、schema version
 和 Evidence UID 序列确定性产生。
 
 它只叫 `RetrievedContextPackage`，因为内容尚未经过可信分析。后续边界为：
@@ -699,10 +714,12 @@ metadata、timestamp parity、Evidence UID、Binding validation、redacted error
 ContextBuildConfig；构造时只注入 ContentResolver 与 EvidenceEnvelopeFactory，不接收 raw body、Trace、Chroma、
 Embedding、LLM、Trust、Evaluator 或 Ground Truth。Request/Evidence provenance mismatch 与冲突 UID 均为异常。
 
-候选按 `(rank ascending, evidence_uid ascending)` 稳定排序、exact duplicate UID 去重、数量限制、resolve、Envelope
-构造后，使用 temporary `E{included_count + 1}` Binding 和既有 renderer 精确检查最终 rendered string 的 Unicode
-code point 预算。只有 fit 的候选才 commit；first non-fitting candidate 结束选择，产生 deterministic stable prefix；
-temporary Binding 不保存、不审计、不消耗 Citation ID。`NO_EVIDENCE_AFTER_DEDUPLICATION` 被移出 active baseline。
+候选按 `(rank ascending, evidence_uid ascending)` 稳定排序、exact duplicate UID 去重与数量限制。H1 的 active
+algorithm 是 sequential resolve：每一 count-selected candidate 才 resolve、Envelope 构造、temporary
+`E{included_count + 1}` Binding、renderer 和最终 Unicode code point 预算检查。只有 fit 的候选才 commit；first
+non-fitting candidate 结束选择，后续候选不得访问正文、Factory 或 renderer，产生 deterministic stable prefix；
+temporary Binding 不保存、不审计、不消耗 Citation ID。`NO_EVIDENCE_AFTER_DEDUPLICATION` is removed from active
+baseline by S6-T5.6-P1。
 
 Package 未来存储 config hash、公开 limits、safe `ContextBuildTrace` 和 final rendered hash；其 `package_id` 为
 `PK-<full_sha256>`。结构性 abstention 仅可为 EMPTY_RETRIEVAL、instruction-only budget exhausted 或 no complete block

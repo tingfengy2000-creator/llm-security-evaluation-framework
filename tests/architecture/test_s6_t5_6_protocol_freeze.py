@@ -95,6 +95,71 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
                 with self.subTest(required=required):
                     self.assertIn(required, text)
 
+    def test_h1_freezes_sequential_resolution_and_trace_identity(self) -> None:
+        text = REVIEW_RECORD.read_text(encoding="utf-8")
+
+        for required in (
+            "S6-T5.6-P1-H1",
+            "Completed, pending human review",
+            "sequential resolution",
+            "instruction 本身超过预算",
+            "不得调用 ContentResolver",
+            "逐条执行",
+            "NOT_ATTEMPTED_AFTER_BUDGET_CUTOFF",
+            "evidence.query_id == request.query_id",
+            "evidence.retrieval_request_id == request.request_id",
+            "evidence.collection_fingerprint == request.collection_fingerprint",
+            "1 <= evidence.rank <= request.top_k",
+            "相同 corpus_snapshot_id",
+            "public_metadata 的深层语义值",
+            "trace_schema_version",
+            "count_selected_count",
+            "not_attempted_after_budget_cutoff_uids",
+            "trace_hash",
+            "trace_id = CT-<full_sha256>",
+            "context_build_trace_hash",
+            "不包含 package_id",
+            "NO_COMPLETE_EVIDENCE_BLOCK_FITS",
+            "stable-prefix policy cannot admit the first candidate",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, text)
+
+    def test_h1_marks_old_reason_code_historical_and_keeps_source_absent(self) -> None:
+        plan = (
+            ROOT
+            / "docs"
+            / "superpowers"
+            / "plans"
+            / "2026-07-19-s6-t5-controlled-retrieval-traceable-context.md"
+        ).read_text(encoding="utf-8")
+        specification = (
+            ROOT
+            / "docs"
+            / "superpowers"
+            / "specs"
+            / "2026-07-19-s6-t5-controlled-retrieval-traceable-context-design.md"
+        ).read_text(encoding="utf-8")
+
+        for text in (plan, specification):
+            self.assertIn("removed from active baseline by S6-T5.6-P1", text)
+            self.assertIn("sequential resolve", text)
+
+        for source_name in (
+            "ContextBuilder",
+            "RetrievedContextPackage",
+            "ContextBuildTrace",
+            "ContextBuildConfig",
+        ):
+            with self.subTest(source_name=source_name):
+                self.assertNotIn(
+                    f"class {source_name}",
+                    "\n".join(
+                        path.read_text(encoding="utf-8")
+                        for path in RETRIEVAL_ROOT.rglob("*.py")
+                    ),
+                )
+
 
 if __name__ == "__main__":
     unittest.main()

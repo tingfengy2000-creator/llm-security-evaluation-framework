@@ -97,9 +97,11 @@ Agent 时仍保持最小权限和审计边界的前提。
 
 ### 11. 结构性 abstention 不等于完整性异常
 
-`EMPTY_RETRIEVAL`、`NO_EVIDENCE_AFTER_DEDUPLICATION`、`CONTEXT_BUDGET_EXHAUSTED` 与
-`NO_COMPLETE_EVIDENCE_BLOCK_FITS` 表示正常但无可用 Context，可返回 `RetrievedContextPackage` 且令
+`EMPTY_RETRIEVAL`、`CONTEXT_BUDGET_EXHAUSTED` 与 `NO_COMPLETE_EVIDENCE_BLOCK_FITS` 表示正常但无可用 Context，可返回 `RetrievedContextPackage` 且令
 `abstention_required=true`。这不是 Trust 判断。
+
+`NO_EVIDENCE_AFTER_DEDUPLICATION` is removed from active baseline by S6-T5.6-P1；它只保留为历史协议快照，
+不可作为未来实现的可达原因码。
 
 `CONTENT_HASH_MISMATCH`、`UNKNOWN_CONTENT_REF`、`INVALID_CONTENT_REF_SCHEME`、
 `COLLECTION_FINGERPRINT_MISMATCH`、`REQUEST_EVIDENCE_MISMATCH`、`INVALID_METRIC`、
@@ -108,9 +110,10 @@ Agent 时仍保持最小权限和审计边界的前提。
 
 ### 12. Context 预算是跨平台确定性协议
 
-ContextBuilder 的顺序固定为排序、Evidence UID 去重、数量限制、Resolver/hash 验证、Citation 分配和
-渲染。预算使用最终 escaped string 的 Unicode code point 数量，Context hash 使用最终 UTF-8 bytes，
-换行固定为 LF。预算不足时只排除完整 Evidence block；不允许把截断片段冒充完整证据。
+ContextBuilder 的顺序固定为排序、Evidence UID 精确去重、数量限制、citation instruction、sequential
+resolve、临时 Citation、渲染和最终预算。预算使用最终 escaped string 的 Unicode code point 数量，Context
+hash 使用最终 UTF-8 bytes，换行固定为 LF。instruction 单独超预算时不得调用 Resolver；首个预算不适配
+候选后必须停止，后续候选不得解析或渲染。预算不足时只排除完整 Evidence block；不允许把截断片段冒充完整证据。
 
 ## 哈希与配置边界
 
@@ -235,8 +238,9 @@ ContextBuilder，不等于 RetrievedContextPackage，更不等于 Trust 或正�
 ContentResolver 与 EvidenceEnvelopeFactory。RetrievalTrace 是审计工件，不作为 build 的第二个真相来源。
 
 为解决 Citation/预算循环，未来实现只能以临时 `E{included_count + 1}` Binding 调用既有 single-block renderer
-测试最终字符串。只有完整候选能够放入 Unicode code point 预算时才提交 Binding；第一个不适配候选会触发稳定前缀
-停止，避免低 rank 优先级被较短后续 Evidence 反转。临时 Binding 不进入 Package、trace 或 audit，不消耗永久 ID。
+测试最终字符串。H1 将这一选择与正文权限合并为 sequential resolution：每个 count-selected candidate 只有轮到它时
+才可 resolve、构造 Envelope 并渲染；第一个不适配候选会触发稳定前缀停止，之后候选不得读取正文或调用 factory/renderer，
+避免低 rank 优先级被较短后续 Evidence 反转。临时 Binding 不进入 Package、trace 或 audit，不消耗永久 ID。
 
 未来 `RetrievedContextPackage` 与 `ContextBuildTrace` 仍由 `contracts/` 拥有；前者含敏感 rendered context，后者仅含
 counts、UID 与排除原因。`EMPTY_RETRIEVAL`、instruction 超预算和无完整 block 可形成结构性 abstention；hash、
