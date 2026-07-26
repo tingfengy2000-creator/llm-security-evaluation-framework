@@ -159,6 +159,7 @@ S6-T5.3-H1 均已通过项目负责人 `HUMAN_ACCEPTED`；S6-T5.4 为
 | PODR-019 | 2026-07-26 | S6-T5.5 EvidenceEnvelope and Citation Protocol Human Acceptance Record | 人工接受 P1 与 H1 的协议设计；S6-T5.5 仅进入独立实现审批准备 | HUMAN_ACCEPTED | 项目负责人明确决定、P1/H1 protocol review record、规格/计划/ADR、治理测试 | PODR-017、PODR-018 的历史 pending/review 快照 | 不批准 S6-T5.5-I1、EvidenceEnvelope、CitationBinding、renderer、ContextBuilder 或正式 RAG 实验 |
 | PODR-020 | 2026-07-26 | S6-T5.5-I1 EvidenceEnvelope, Citation Contracts and Structural Rendering Minimal Implementation | 批准并完成 synthetic-only 的 stable DTO、canonical Factory、instruction 与 single-block renderer 最小实现 | IMPLEMENTED_PENDING_HUMAN_ACCEPTANCE | 项目负责人当前批准、完成记录、TDD 与离线工程验证 | PODR-019 | 不批准 ContextBuilder、package-level allocation、Trust、LLM 或正式 RAG 实验 |
 | PODR-021 | 2026-07-26 | S6-T5.5-H1 Evidence and Citation Contract Immutability and Validation Hardening | 修复 I1 人工验收发现：metadata 不可变、timestamp 兼容、固定 Envelope/Binding 错误与 canonical Evidence UID | IMPLEMENTED_PENDING_HUMAN_REVIEW | 项目负责人当前批准、protocol review record、completion record、TDD 与离线工程验证 | PODR-020 | 不批准 S6-T5.6、ContextBuilder、Package、allocator、Trust、LLM 或正式 RAG 实验 |
+| PODR-022 | 2026-07-26 | S6-T5.5 Evidence Envelope and Citation Implementation Human Acceptance Record | 人工接受 I1、H1 与父任务；`6da27a6` 为最终接受的 implementation commit | HUMAN_ACCEPTED | 项目负责人明确决定、completion record、protocol review record、治理测试 | PODR-020、PODR-021 的历史 pending/review 快照 | 不批准 S6-T5.6+、ContextBuilder、Trust、LLM 或正式 RAG 实验 |
 
 ## 7.1 S6-T5.4 当前审批解释（2026-07-25）
 
@@ -220,6 +221,21 @@ RetrievalEvidence 的 canonical UTC 语义对齐，metric/metadata/ID input 对�
 `INVALID_CITATION_BINDING`，Evidence UID 严格为 `EV-[0-9a-f]{64}`。当前 H1 为 `Completed, pending human review`；
 I1 和父任务仍为 `Completed, pending human acceptance`。这不改变 `11a72f7` 仍是最后接受的业务实现提交，也不批准
 S6-T5.6+ 或正式 RAG 安全实验。
+
+## 7.9 GOV-S6-T5.5-ACCEPTANCE：Evidence 与 Citation 实现人工验收（2026-07-26）
+
+PODR-022 记录项目负责人对 `S6-T5.5-I1`、`S6-T5.5-H1` 和父任务 `S6-T5.5` 的人工验收。当前三者均为
+`HUMAN_ACCEPTED`；最后接受的 stage task 为 `S6-T5.5 EvidenceEnvelope, Citation Contracts and Structural
+Rendering`，最后接受的 implementation commit 为 `6da27a6`。`2cacef7` 保留为 I1 的初始实现历史，不能被
+`6da27a6` 覆盖或删除。
+
+本验收确认的边界是：contracts 唯一 DTO owner、canonical Factory、不可变公开 metadata、canonical UTC timestamp、
+Evidence UID、CitationBinding 七字段 identity 校验、固定脱敏错误、固定 instruction 与单 block structural rendering。
+它只覆盖 synthetic objects 上的离线工程行为，不证明 Citation Accuracy、检索质量、检索安全、ContextBuilder、
+RetrievedContextPackage、Trust、LLM 集成、生产可用性或正式 RAG 安全实验结果。
+
+第 7.6--7.8 节中的 pending/review 文字为当时的历史快照，必须保留；本节是 superseding current decision。
+`S6-T5.6` 为 `NOT APPROVED`，`S6-T5.7+` 为 `NOT APPROVED`，Formal RAG security experiment 为 `NOT STARTED`。
 
 ## 8. 新 Thread 最小读取顺序
 

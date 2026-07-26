@@ -78,7 +78,7 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
             with self.subTest(required=required):
                 self.assertIn(required, text)
 
-    def test_current_governance_records_i1_as_pending_human_acceptance(self) -> None:
+    def test_current_governance_records_i1_h1_and_parent_as_human_accepted(self) -> None:
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
         master_record = (GOVERNANCE / "experiment_master_record.md").read_text(
             encoding="utf-8"
@@ -89,7 +89,6 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
                 "S6-T5.5-P1",
                 "HUMAN_ACCEPTED",
                 "S6-T5.5",
-                "Completed, pending human acceptance",
                 "Formal RAG security experiment",
             ):
                 with self.subTest(required=required):
@@ -98,8 +97,10 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
         self.assertIn("EvidenceEnvelope", state)
         self.assertIn("ContextBuilder", state)
         self.assertIn("S6-T5.5-P1-H1", state)
-        self.assertIn("S6-T5.5-I1: **Completed, pending human acceptance**", state)
-        self.assertIn("parent `S6-T5.5` are **Completed, pending human acceptance**", state)
+        self.assertIn("S6-T5.5-I1: **HUMAN_ACCEPTED**", state)
+        self.assertIn("S6-T5.5-H1: **HUMAN_ACCEPTED**", state)
+        self.assertIn("S6-T5.5: **HUMAN_ACCEPTED**", state)
+        self.assertIn("Last accepted implementation commit: `6da27a6`", state)
         self.assertIn("S6-T5.6+", state)
         self.assertIn("**NOT APPROVED**", state)
 
@@ -190,7 +191,7 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
         assert owners["ContextBuilder"] == []
         self.assertFalse((RETRIEVAL_ROOT / "context" / "models.py").exists())
 
-    def test_h1_is_pending_human_review_with_additive_contract_hardening(self) -> None:
+    def test_i1_h1_acceptance_preserves_additive_contract_hardening_history(self) -> None:
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
         review = REVIEW_RECORD.read_text(encoding="utf-8")
         completion = (GOVERNANCE / "s6_t5_5_completion_record.md").read_text(
@@ -198,14 +199,14 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
         )
 
         for required in (
-            "Task ID: `S6-T5.5-H1`",
-            "Evidence and Citation Contract Immutability and Validation Hardening",
-            "S6-T5.5-H1: **Completed, pending human review**",
-            "S6-T5.5-I1: **Completed, pending human acceptance**",
-            "S6-T5.5: **Completed, pending human acceptance**",
-            "Last accepted implementation commit: `11a72f7`",
+            "Task ID: `GOV-S6-T5.5-ACCEPTANCE`",
+            "S6-T5.5 Evidence Envelope and Citation Implementation Human Acceptance Record",
+            "S6-T5.5-H1: **HUMAN_ACCEPTED**",
+            "S6-T5.5-I1: **HUMAN_ACCEPTED**",
+            "S6-T5.5: **HUMAN_ACCEPTED**",
+            "Last accepted implementation commit: `6da27a6`",
             "every S6-T5.6+ task is **NOT APPROVED**",
-            "Formal RAG security experiment: **Not started**",
+            "Formal RAG security experiment: **NOT STARTED**",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, state)
@@ -217,9 +218,48 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
             "metadata wrapper",
             "31 passed, 1527 subtests passed",
             "41 passed, 1595 subtests passed",
+            "2cacef7",
+            "6da27a6",
+            "HUMAN_ACCEPTED",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, review + completion)
+
+        self.assertNotIn("Completed, pending human acceptance", state)
+        self.assertNotIn("Completed, pending human review", state)
+
+    def test_acceptance_record_keeps_later_capabilities_and_formal_experiment_closed(
+        self,
+    ) -> None:
+        state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
+        register = (GOVERNANCE / "project_owner_decision_register.md").read_text(
+            encoding="utf-8"
+        )
+        master = (GOVERNANCE / "experiment_master_record.md").read_text(
+            encoding="utf-8"
+        )
+
+        for text in (state, register, master):
+            for required in (
+                "S6-T5.5-I1",
+                "S6-T5.5-H1",
+                "S6-T5.5",
+                "HUMAN_ACCEPTED",
+                "S6-T5.6",
+                "NOT APPROVED",
+            ):
+                with self.subTest(required=required):
+                    self.assertIn(required, text)
+
+        self.assertIn("PODR-022", register)
+        self.assertIn("2cacef7", register)
+        self.assertIn("6da27a6", register)
+        self.assertIn("ENGINEERING_VALIDATED_HUMAN_ACCEPTED", master)
+        self.assertIn("Formal RAG security experiment: **NOT STARTED**", state)
+        self.assertIn("Formal RAG security experiment", register)
+        self.assertIn("NOT STARTED", register)
+        self.assertIn("Formal RAG security experiment", master)
+        self.assertIn("NOT STARTED", master)
 
 
 if __name__ == "__main__":

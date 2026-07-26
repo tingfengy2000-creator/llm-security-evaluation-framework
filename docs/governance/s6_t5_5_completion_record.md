@@ -108,3 +108,36 @@ Ruff 通过；scoped MyPy 在 42 个 retrieval 源文件上通过。一次误用
 提交前 H1 changed-file 扫描覆盖 17 个变更文件：Markdown 相对链接、secret-shape、绝对路径和 protected-path 均通过；
 `git diff --check`、Stage 1--5/Stage 6 fixture/legacy `src/codeguarder` 完整性检查及 runtime Git-ignore 均通过。全仓受
 版本控制文件仍有 31 个既有 historical secret-shape 命中，未将其改写或误报为本轮新增风险。
+
+## 8. GOV-S6-T5.5-ACCEPTANCE：人工验收记录（2026-07-26）
+
+项目负责人已将 `S6-T5.5-I1`、`S6-T5.5-H1` 与父任务 `S6-T5.5` 标记为 `HUMAN_ACCEPTED`。本节追加当前验收
+事实，不重写第 1--7 节的 pending/review 历史快照。I1 初始实现提交 `2cacef7` 继续作为可追溯历史；`6da27a6` 是
+最终人工接受的 hardening implementation commit。
+
+验收覆盖：`EvidenceEnvelope`、`CitationBinding`、`CitationMode` 的 contracts 唯一 owner；canonical Factory；深度
+不可变公开 metadata；canonical UTC timestamp；`EV-[0-9a-f]{64}` Evidence UID；七字段 Binding identity 校验；
+固定脱敏错误；citation instruction 与单 block structural rendering。所有验证仍为 synthetic objects 的离线工程验证。
+
+验收不覆盖：Citation Accuracy、检索质量或检索安全效果、真实 Stage 6 corpus、ContextBuilder、
+`RetrievedContextPackage`、Citation allocation、Trust、Embedding/Chroma/Groq/LLM 集成、生产可用性或正式 RAG
+安全实验。`S6-T5.6` 为 `NOT APPROVED`，`S6-T5.7+` 为 `NOT APPROVED`，正式 RAG security experiment 为
+`NOT STARTED`。
+
+### 8.1 Secret-shape 计数口径留痕
+
+历史记录中的“31 个既有 secret-shape 文件命中”必须保留，因为它是此前任务使用的扫描器和规则得出的历史事实。
+本次以更严格的 `git grep` 完整 token 形态规则复扫受版本控制文件，得到 30 个文件命中；该差异只说明两次规则
+口径不同，不能被解释为删除了历史风险，也不能把任一数值冒充为另一次扫描的结果。本轮变更文件 secret-shape 与
+绝对路径扫描均为 0。后续若要做跨任务的数量比较，必须先冻结唯一扫描器、正则和排除规则；在此之前，项目只保留
+“历史命中存在且本轮未新增”的定性结论。
+
+### 8.2 GOV-S6-T5.5-ACCEPTANCE 验证留痕
+
+本次纯治理验收实际运行：S6-T5.5 定向治理、context persistence、master record、namespace 与 label-isolation
+检查共 `43 passed, 1636 subtests passed`；全量 architecture tests 为 `61 passed, 702 subtests passed`；Ruff 通过，
+scoped MyPy 在 42 个 retrieval source files 上通过。变更 Markdown 相对链接、变更文件 secret-shape、变更文件
+绝对路径、protected-path、Stage 1--5 与 Stage 6 fixture integrity、runtime Git-ignore 和 `git diff --check` 均通过。
+
+本轮未修改 `src/`、Stage 1--5、Stage 6 fixture 或 corpus；未读取正文；未调用 Embedding、Chroma、Groq 或 LLM；
+未运行正式 RAG 安全实验；未开始 S6-T5.6。

@@ -1206,6 +1206,26 @@ type/code 组合；未知 code 或“Lookup 搭配 integrity code”之类的伪
 **下一步审批门**：S6-T5.5-P1 当前为 `Completed, pending human acceptance`。只有人工接受这一协议后，才可能单独
 评审 S6-T5.5 的 TDD 实现；S6-T5.6 ContextBuilder、Citation Accuracy、Trust 和正式 RAG 安全实验仍未批准。
 
+## 2026-07-26: GOV-S6-T5.5-ACCEPTANCE Evidence 与 Citation 实现人工验收
+
+**我现在记录了什么**：项目负责人已人工接受 `S6-T5.5-I1`、`S6-T5.5-H1` 与父任务 `S6-T5.5`。这次接受把当前
+最后接受的实现提交更新为 `6da27a6`；`2cacef7` 仍是 I1 初始实现的历史证据。此前的 pending/review 文本保留在
+对应完成记录中，因为它们记录的是当时的事实，而不是当前状态。
+
+**为什么这样做**：测试通过回答“代码是否满足明确契约”，人工验收回答“项目负责人是否接受该能力边界并允许把它写入
+项目主线”。企业研发、论文与安全审计都需要区分这两层，否则很容易把一次离线回归误说成一个已验证的安全结论。
+
+**和上一部分的关系**：P1/P1-H1 先冻结 Envelope、Citation 与 renderer 的规则；I1/H1 再以 synthetic objects
+实现并加固它们；本节只是对这条完整链路做治理确认。它没有扩展任何能力，更没有启动 `S6-T5.6`。
+
+**面试可能追问**：人工验收是否证明 Citation Accuracy？回答：不证明。这里接受的是契约所有权、身份校验、不可变
+metadata、错误脱敏和结构渲染边界；Citation Accuracy、检索质量、可信检索、ContextBuilder 和正式 RAG 安全实验仍需要
+独立数据、指标与审批。
+
+**容易误解的地方**：`HUMAN_ACCEPTED` 不是“生产可用”或“已防住知识污染”。当前只允许说：在 synthetic、离线、
+工程测试范围内，EvidenceEnvelope/Citation 的最小实现已被项目负责人接受。`S6-T5.6`、`S6-T5.7+` 仍为
+`NOT APPROVED`，正式 RAG 安全实验仍为 `NOT STARTED`。
+
 **本轮治理回归发现**：首次运行 P1 设计治理测试时，发现当前状态将“未批准”只写作自然语言 `Not approved`，
 Experiment Master Record 也没有同时给出机器易检索的 `NOT APPROVED` / `NOT STARTED` 英文状态；另有一条旧测试仍把
 `GOV-S6-T5.4-ACCEPTANCE` 误当成当前任务。这些都是治理表述漂移，而非业务代码失败。已把状态改为显式枚举、将旧断言

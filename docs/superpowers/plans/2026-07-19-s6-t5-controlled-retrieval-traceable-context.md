@@ -473,3 +473,13 @@ RAG 安全实验保持未批准/未开始。最后接受的 stage implementation
 canonical Factory、固定 citation instruction、escaping 和单 block renderer。验证只构造 synthetic
 `RetrievalEvidence`/`ResolvedContent`；不读取 fixture、不调用模型、不构造 package、不分配 Citation ID。
 当前 I1 与父任务为 `Completed, pending human acceptance`。下一审批门是人工验收 I1，S6-T5.6 仍不自动启动。
+
+## 25. GOV-S6-T5.5-ACCEPTANCE：实施人工验收记录（2026-07-26）
+
+项目负责人现已接受 `S6-T5.5-I1`、`S6-T5.5-H1` 和父任务 `S6-T5.5`。当前最后接受的 stage task 为
+`S6-T5.5 EvidenceEnvelope, Citation Contracts and Structural Rendering`；`2cacef7` 保留为初始实现历史，
+`6da27a6` 为最终接受 implementation commit。本节不改写前文的 pending/review 历史快照。
+
+本实施计划在此结束于已验收的 synthetic-only contracts/rendering 边界。没有因此实现或批准 ContextBuilder、
+RetrievedContextPackage、Citation allocation、Trust、LLM、Citation Accuracy 或正式 RAG 安全实验；S6-T5.6 与
+S6-T5.7+ 均为 `NOT APPROVED`，正式实验为 `NOT STARTED`。

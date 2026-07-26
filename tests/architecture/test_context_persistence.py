@@ -183,8 +183,8 @@ class ContextPersistenceTests(unittest.TestCase):
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
 
         for required in (
-            "Last accepted stage task: `S6-T5.4 Controlled Corpus ContentResolver`",
-            "Last accepted implementation commit: `11a72f7`",
+            "Last accepted stage task: `S6-T5.5 EvidenceEnvelope, Citation Contracts and Structural Rendering`",
+            "Last accepted implementation commit: `6da27a6`",
             "Retrieval Runtime Contracts and IDs",
             "GOV-ER1: **HUMAN_ACCEPTED**",
             "GOV-ER1-H1: **HUMAN_ACCEPTED**",
@@ -197,10 +197,12 @@ class ContextPersistenceTests(unittest.TestCase):
             "S6-T5.4: **HUMAN_ACCEPTED**",
             "S6-T5.4-I1: **HUMAN_ACCEPTED**",
             "S6-T5.4-H1: **HUMAN_ACCEPTED**",
-            "`S6-T5.5-I1` and parent `S6-T5.5` are **Completed, pending human acceptance**",
-            "S6-T5.5-I1: **Completed, pending human acceptance**",
+            "`S6-T5.5-I1`, `S6-T5.5-H1` and parent `S6-T5.5` are **HUMAN_ACCEPTED**",
+            "S6-T5.5-I1: **HUMAN_ACCEPTED**",
+            "S6-T5.5-H1: **HUMAN_ACCEPTED**",
+            "S6-T5.5: **HUMAN_ACCEPTED**",
             "every S6-T5.6+ task is **NOT APPROVED**",
-            "Formal RAG security experiment: **Not started**",
+            "Formal RAG security experiment: **NOT STARTED**",
             "S6-T5.3 DenseRetriever",
         ):
             with self.subTest(required=required):
@@ -220,7 +222,7 @@ class ContextPersistenceTests(unittest.TestCase):
             "S6-T5.4-I1: **HUMAN_ACCEPTED**",
             "S6-T5.4-H1: **HUMAN_ACCEPTED**",
             "S6-T5.5",
-            "Formal RAG security experiment: **Not started**",
+            "Formal RAG security experiment: **NOT STARTED**",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, state)

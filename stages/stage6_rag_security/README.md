@@ -14,8 +14,9 @@
 - s6_t5_4_h1_status: `human_accepted`；关闭 Resolver registry capability escape，并加固注入依赖异常的脱敏/类型-code 所有权。
 - s6_t5_5_p1_status: `human_accepted`；只接受 EvidenceEnvelope/Citation 协议边界，不创建业务源码。
 - s6_t5_5_p1_h1_status: `human_accepted`；`S6-T5.5-P1-H1` 的 Factory 仅接收 canonical Evidence，renderer 仅接收 Envelope + Binding，七项身份不一致为 `CITATION_BINDING_MISMATCH`。
-- s6_t5_5_status: `completed_pending_human_acceptance`；I1 已完成最小 contracts/rendering，不含 ContextBuilder。
-- s6_t5_5_i1_status: `completed_pending_human_acceptance`；仅使用 synthetic objects。
+- s6_t5_5_status: `human_accepted`；I1/H1 与父任务均通过人工验收，仍不含 ContextBuilder。
+- s6_t5_5_i1_status: `human_accepted`；初始实现提交 `2cacef7` 保留为历史证据。
+- s6_t5_5_h1_status: `human_accepted`；最终验收加固提交 `6da27a6`，只覆盖不可变性、时间戳兼容与脱敏错误边界。
 - s6_t5_6_plus_status: `not_approved`；不得自动开始 ContextBuilder 或后续能力。
 - objective: 在 S6-T4 与已验收 S6-T5.2 契约基础上，实现受控、离线、Provider-Neutral DenseRetriever；本轮只产出 RetrievalEvidence 与 RetrievalTrace。
 - source_locations: `src/llmguard/domains/retrieval/{contracts,attacks,embedding,vectorstore,retrieval,context}/`
@@ -24,8 +25,8 @@
 - script_locations: 真实模型测试由 `LLMGUARD_RUN_REAL_EMBEDDING_TESTS=1` 显式开启，无 S6-T4 运行脚本；2026-07-19 已完成一次固定 revision 的真实验收。
 - deliverable_locations: 尚未生成独立 Stage 6 证据包。
 - evidence_locations: `data/stage6_rag/documents/corpus_manifest.json`
-- conclusion_boundary: 已完成人工验收的 S6-T5.3 离线工程边界包括 embedding/vectorstore 基础设施、S6-T5.2 运行时契约、schema `1.1` parent identity carrier、DenseRetriever 与 H1 trace/failure-boundary 加固；S6-T5.4-I1 已实现 contracts、in-memory reader/registry、exact-match legacy adapter 与 hash-verified resolver，H1 又关闭公开 registry capability 并重建注入错误的固定脱敏外部表述。P1、I1、H1 与父任务均已通过人工验收。S6-T5.5-P1/P1-H1 也已通过协议人工验收；S6-T5.5-I1 已用 synthetic objects 完成 Envelope、Binding、CitationMode、Factory、instruction 与单 block rendering，等待人工验收。未实现 ContextBuilder、package、allocator、Trust、LLM 或 RAG 指标，也未执行正式 RAG 安全实验。
-- next_stage: 先人工验收 `S6-T5.5-I1`；`S6-T5.6+` 仍为 `NOT APPROVED`，不得自动开始。
+- conclusion_boundary: 已完成人工验收的 S6-T5.3 离线工程边界包括 embedding/vectorstore 基础设施、S6-T5.2 运行时契约、schema `1.1` parent identity carrier、DenseRetriever 与 H1 trace/failure-boundary 加固；S6-T5.4-I1 已实现 contracts、in-memory reader/registry、exact-match legacy adapter 与 hash-verified resolver，H1 又关闭公开 registry capability 并重建注入错误的固定脱敏外部表述。P1、I1、H1 与父任务均已通过人工验收。S6-T5.5-P1/P1-H1 也已通过协议人工验收；S6-T5.5-I1/H1 与父任务已在 synthetic objects 上通过人工验收，覆盖 Envelope、Binding、CitationMode、Factory、instruction 与单 block rendering。未实现 ContextBuilder、package、allocator、Trust、LLM 或 RAG 指标，也未执行正式 RAG 安全实验。
+- next_stage: `S6-T5.6+` 仍为 `NOT APPROVED`，不得自动开始。
 
 目标：在 Retrieval 层评测 R1–R6，并为隐蔽知识污染检测与可信检索研究建立稳定证据接口。
 
@@ -42,7 +43,7 @@
 - 原始证据：尚未生成独立 `deliverables/stage6_rag/` 证据包；当前可核查的是早期数据、测试与
   架构决策，不能把它误称为完整 RAG 实验报告；
 - 工程状态：当前是检索基础设施、分块、运行时契约和合成内存 ContentResolver 状态，不是正式 RAG 安全攻击实验；S6-T5.3-H1、DenseRetriever、S6-T5.4、S6-T5.5-P1 与 P1-H1 均已获人工验收，但后两项仍只是协议设计；
-- 当前修复：`S6-T5.5-H1` 已完成 Evidence/Citation 契约加固，等待人工复核；只修复 metadata 不可重绑、timestamp parity、canonical Evidence UID 与固定错误语义，未实现 ContextBuilder、Package、预算或 Citation allocator；
+- 当前验收：`S6-T5.5-I1`、`S6-T5.5-H1` 与父任务已通过人工验收；H1 只修复 metadata 不可重绑、timestamp parity、canonical Evidence UID 与固定错误语义，未实现 ContextBuilder、Package、预算或 Citation allocator；
 - 结论边界：已完成的是数据、契约、Embedding 与向量存储基础，不可宣称已有 Retriever、可信策略或 RAG 指标结果；
 - 面试重点：为什么 RetrievalEvidence、EvidenceSignal、TrustedContextPackage 与 RAGSecurityEnvelope 必须分层。
 

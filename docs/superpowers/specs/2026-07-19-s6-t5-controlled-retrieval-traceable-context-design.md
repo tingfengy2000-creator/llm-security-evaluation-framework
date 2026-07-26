@@ -681,3 +681,14 @@ allocator 调用仍只属于 S6-T5.6 ContextBuilder。本 H1 只修订协议，�
 项目负责人已单独批准 I1，并在 synthetic objects 上实现本节冻结的 stable DTO、Factory、instruction 与单 block
 renderer。实现保持 P1/H1 的 Factory canonical-only 与七字段 Binding fail-closed 语义；不创建 Package、allocator 或
 ContextBuilder。I1 与父任务当前均为 `Completed, pending human acceptance`；S6-T5.6+ 和正式实验仍未批准/未开始。
+
+### 25.4 GOV-S6-T5.5-ACCEPTANCE：最终人工验收状态附注（2026-07-26）
+
+项目负责人已将 I1、H1 与父任务 `S6-T5.5` 标记为 `HUMAN_ACCEPTED`。`2cacef7` 是保留的初始 implementation
+history，`6da27a6` 是最终接受的 hardening implementation commit。第 25.2--25.3 节的 pending/approval 文字为
+历史快照；本节是当前状态的唯一补充，不删除原始过程。
+
+接受范围限于 synthetic objects 的 EvidenceEnvelope、CitationBinding、CitationMode、canonical Factory、immutable
+metadata、timestamp parity、Evidence UID、Binding validation、redacted errors、instruction 和 one-block renderer。
+本规格不因此启动 ContextBuilder、RetrievedContextPackage、Citation allocation、Trust、LLM 或正式 RAG 安全实验；
+`S6-T5.6+` 仍为 `NOT APPROVED`，正式实验仍为 `NOT STARTED`。

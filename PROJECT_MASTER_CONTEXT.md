@@ -958,3 +958,18 @@ I1 人工验收发现 metadata wrapper 可重绑、Envelope timestamp 与 Retrie
 H1 当前为 `Completed, pending human review`；I1 与父任务仍为 `Completed, pending human acceptance`，最后接受的
 业务实现提交仍为 `11a72f7`。未读取 fixture，未调用 Embedding、Chroma、Groq 或 LLM；未实现 S6-T5.6 ContextBuilder、
 Package、预算或 Citation allocator，正式 RAG 安全实验仍为 `NOT STARTED`。
+
+## 26. GOV-S6-T5.5-ACCEPTANCE：Evidence 与 Citation 实现人工验收（2026-07-26）
+
+项目负责人已人工接受 `S6-T5.5-I1`、`S6-T5.5-H1` 和父任务 `S6-T5.5`。当前最后接受的 stage task 是
+`S6-T5.5 EvidenceEnvelope, Citation Contracts and Structural Rendering`，最后接受的 implementation commit 是
+`6da27a6`；`2cacef7` 仍保留为 I1 初始实现的历史证据。此前 pending/review 文字为发生时的历史快照，不能删除，
+但不得再作为当前状态引用。
+
+人工验收的工程边界仅包括 synthetic objects 上的 EvidenceEnvelope、CitationBinding、CitationMode、canonical
+Factory、immutable public metadata、canonical timestamp、Evidence UID、七字段 Binding 校验、脱敏错误、instruction
+与单 block structural rendering。它不证明 Citation Accuracy、检索质量、安全效果、可信检索、ContextBuilder、
+RetrievedContextPackage、Trust、LLM 集成、生产可用性或正式 RAG 安全实验。
+
+`S6-T5.6` 和 `S6-T5.7+` 仍为 `NOT APPROVED`，正式 RAG security experiment 仍为 `NOT STARTED`。本次状态登记未
+读取或修改 Stage 6 fixture，未调用 Embedding、Chroma、Groq 或 LLM，未改变 Stage 1--5 历史资产。

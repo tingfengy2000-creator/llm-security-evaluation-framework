@@ -228,3 +228,17 @@ renderer exact output；不读取 fixture、不调用 Embedding、Chroma、Groq 
 预算或 Citation allocator。当前状态为 `Completed, pending human review`；I1 和父任务仍为
 `Completed, pending human acceptance`，S6-T5.6+ 为 `NOT APPROVED`，正式 RAG 安全实验为 `NOT STARTED`，最后接受的
 业务实现提交仍为 `11a72f7`。
+
+## 11. GOV-S6-T5.5-ACCEPTANCE：I1/H1 与父任务人工验收（2026-07-26）
+
+项目负责人已在保留第 1--10 节历史记录的前提下，将 `S6-T5.5-I1`、`S6-T5.5-H1` 和父任务 `S6-T5.5` 标记为
+`HUMAN_ACCEPTED`。`2cacef7` 保留为 I1 初始实现历史；`6da27a6` 是最终接受的 hardening implementation commit。
+第 9 节的 P1/P1-H1 协议人工验收和本节的实现人工验收共同构成当前边界。
+
+本决定只确认本文冻结并实现的 contracts、Factory、immutable metadata、timestamp semantics、canonical Evidence UID、
+Binding identity validation、redacted validation errors、instruction 和单 block renderer。它不把上述离线工程验证提升为
+`FORMAL_EXPERIMENT`，不证明 Citation Accuracy、检索质量、安全效果、ContextBuilder、Context Package、Trust、LLM
+集成或生产可用性。
+
+`S6-T5.6` 和 `S6-T5.7+` 均为 `NOT APPROVED`；正式 RAG security experiment 为 `NOT STARTED`。历史 pending/review
+快照及全仓 31 个既有 secret-shape 文件命中继续保留；本轮结论只能是新增治理变更未引入 secret/path 命中。

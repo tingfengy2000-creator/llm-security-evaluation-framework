@@ -216,3 +216,14 @@ renderer 只消费 `EvidenceEnvelope + CitationBinding`，不接收裸 citation 
 Binding。它在渲染前逐项校验 UID、chunk、parent、hash、source、version、rank，不一致即以固定脱敏的
 `CITATION_BINDING_MISMATCH` 失败。该错误是完整性失败而非 abstention，不能返回 partial block 或重编号。Binding 的创建
 和 allocator 调用仍属于未来 S6-T5.6 ContextBuilder；本 H1 不创建源码，状态为 `Completed, pending human review`。
+
+### GOV-S6-T5.5-ACCEPTANCE：实现人工验收附注（2026-07-26）
+
+P1/P1-H1 已在此前通过协议人工验收；项目负责人现进一步将 I1、H1 和父任务 `S6-T5.5` 标记为
+`HUMAN_ACCEPTED`。最终接受的 implementation commit 是 `6da27a6`，而 `2cacef7` 必须作为初始实现历史保留。
+本附注 supersede 当前状态，不删除前文的 pending/review 历史快照。
+
+验收只确认 synthetic objects 上的 contracts、Factory、不可变 metadata、timestamp、Evidence UID、Binding identity、
+脱敏 validation errors、instruction 和单 block renderer。它不改变本 ADR 的核心分层：Envelope/Citation 不等于
+ContextBuilder，不等于 RetrievedContextPackage，更不等于 Trust 或正式 RAG 安全效果。`S6-T5.6+` 仍为
+`NOT APPROVED`，正式 RAG security experiment 仍为 `NOT STARTED`。
