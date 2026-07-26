@@ -28,6 +28,20 @@ S6_T5_4_BLOCKER = GOVERNANCE / "s6_t5_4_protocol_blocker_record.md"
 S6_T5_BASELINE_REPORT = GOVERNANCE / "s6_t5_baseline_acceptance_report.md"
 
 
+def _parse_s6_t5_taxonomy_matrix(report: str) -> dict[str, dict[str, str]]:
+    lines = report.splitlines()
+    heading = "## 2. S6-T5.1 至 S6-T5.7 提交证据分类矩阵"
+    start = lines.index(heading)
+    header = [cell.strip() for cell in lines[start + 4].strip("|").split("|")]
+    rows: dict[str, dict[str, str]] = {}
+    for line in lines[start + 6 :]:
+        if not line.startswith("|"):
+            break
+        values = [cell.strip() for cell in line.strip("|").split("|")]
+        rows[values[0]] = dict(zip(header, values, strict=True))
+    return rows
+
+
 class ContextPersistenceTests(unittest.TestCase):
     def test_canonical_context_files_exist(self) -> None:
         required = (
@@ -65,7 +79,7 @@ class ContextPersistenceTests(unittest.TestCase):
         self.assertIn("Approval Gate", agents)
         self.assertIn("未获批准", agents)
 
-    def test_s6_t5_baseline_report_preserves_candidate_status_and_boundaries(
+    def test_s6_t5_baseline_report_uses_semantic_commit_taxonomy(
         self,
     ) -> None:
         report = S6_T5_BASELINE_REPORT.read_text(encoding="utf-8")
@@ -77,7 +91,8 @@ class ContextPersistenceTests(unittest.TestCase):
             "b136ee2",
             "b6cedf3",
             "c1e8c16",
-            "PENDING_GIT_COMMIT",
+            "Original T5.8 candidate baseline closure commit",
+            "37cccdc",
             "BLK-HIST-001",
             "Stage 6.1 formal research: NOT APPROVED",
             "Formal RAG security experiment: NOT STARTED",
@@ -88,8 +103,53 @@ class ContextPersistenceTests(unittest.TestCase):
                 self.assertIn(required, report)
 
         self.assertIn("S6-T5.8: **Completed, pending human acceptance**", state)
+        self.assertIn("S6-T5.8-H1: **Completed, pending human acceptance**", state)
         self.assertIn("Stage 6.1 formal research: NOT APPROVED", state)
-        self.assertIn("PENDING_GIT_COMMIT", state)
+        self.assertIn("original candidate baseline closure commit is `37cccdc`", state)
+
+        rows = _parse_s6_t5_taxonomy_matrix(report)
+        required_columns = (
+            "Protocol Design / Freeze",
+            "Protocol Hardening",
+            "Protocol Acceptance",
+            "Initial Implementation",
+            "Implementation Hardening / Final Implementation",
+            "Implementation Acceptance",
+            "Integration Evidence",
+            "Integration Acceptance",
+        )
+        for task, row in rows.items():
+            with self.subTest(task=task):
+                for column in required_columns:
+                    self.assertIn(column, row)
+
+        t54 = rows["S6-T5.4 ContentResolver"]
+        self.assertEqual("`ed21f73`", t54["Protocol Design / Freeze"])
+        self.assertEqual("`4155ed8`", t54["Protocol Acceptance"])
+        self.assertNotIn("4155ed8", t54["Protocol Design / Freeze"])
+
+        t55 = rows["S6-T5.5 Evidence/Citation"]
+        self.assertEqual("`d8f0dc5`", t55["Protocol Design / Freeze"])
+        self.assertEqual("`25fb83d`", t55["Protocol Hardening"])
+        self.assertEqual("`9a51457`", t55["Protocol Acceptance"])
+
+        t56 = rows["S6-T5.6 Context Package"]
+        self.assertEqual("`7bf90eb`", t56["Protocol Design / Freeze"])
+        self.assertIn("8beb858", t56["Protocol Hardening"])
+        self.assertIn("432b07e", t56["Protocol Hardening"])
+        self.assertEqual("`b0c4ef6`", t56["Protocol Acceptance"])
+        self.assertEqual("`b136ee2`", t56["Implementation Hardening / Final Implementation"])
+
+        t57 = rows["S6-T5.7 Integration"]
+        self.assertEqual("`NOT_APPLICABLE`", t57["Initial Implementation"])
+        self.assertEqual("`b6cedf3`", t57["Integration Evidence"])
+        self.assertEqual("`c1e8c16`", t57["Integration Acceptance"])
+        self.assertNotIn("b6cedf3", t57["Initial Implementation"])
+        self.assertNotIn("c1e8c16", t57["Integration Evidence"])
+
+        t53 = rows["S6-T5.3 DenseRetriever"]
+        self.assertIn("2ad3d9c", t53["Protocol Hardening"])
+        self.assertIn("不是纯 Markdown protocol freeze", t53["Protocol Design / Freeze"])
 
     def test_project_owner_decision_register_preserves_current_and_historical_facts(
         self,

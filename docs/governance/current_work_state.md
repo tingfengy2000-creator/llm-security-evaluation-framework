@@ -21,9 +21,9 @@
 
 ## Current Task
 
-- Task ID: `S6-T5.8`.
-- Task name: `S6-T5 Controlled Retrieval Baseline Documentation and Acceptance`.
-- Task type: **DOCUMENTATION_BASELINE_CLOSURE / GOVERNANCE_EVIDENCE_CONSOLIDATION**.
+- Task ID: `S6-T5.8-H1`.
+- Task name: `S6-T5 Baseline Commit Taxonomy and Evidence Mapping Hardening`.
+- Task type: **DOCUMENTATION_GOVERNANCE_HARDENING**.
 - Status: **Completed, pending human acceptance**.
 - S6-T5.6-P1: HUMAN_ACCEPTED.
 - S6-T5.6-P1-H1: HUMAN_ACCEPTED.
@@ -32,8 +32,10 @@
 - S6-T5.6-I1: HUMAN_ACCEPTED.
 - S6-T5.6-I1-H1: HUMAN_ACCEPTED. It hardens only trace scenarios, package configuration identity, dependency error redaction and abstention/trace consistency.
 - S6-T5.7: **HUMAN_ACCEPTED**. Static and opt-in real-infrastructure integration evidence is recorded in [S6-T5.7 completion record](s6_t5_7_integration_completion_record.md). Its accepted evidence commit is `b6cedf3`, not a new implementation commit.
-- S6-T5.8: **Completed, pending human acceptance**. The candidate baseline closure report is [S6-T5 baseline acceptance report](s6_t5_baseline_acceptance_report.md); its candidate closure commit remains `PENDING_GIT_COMMIT` until Git creates this round's commit.
+- S6-T5.8-H1: **Completed, pending human acceptance**. It corrects only the commit-evidence taxonomy and semantic mapping in the [S6-T5 baseline acceptance report](s6_t5_baseline_acceptance_report.md); its own candidate SHA must be registered by a later human-acceptance record after Git creates it.
+- S6-T5.8: **Completed, pending human acceptance**. Its original candidate baseline closure commit is `37cccdc`, which is not an accepted baseline SHA.
 - Historical approval snapshot: S6-T5.8 was `APPROVED_TO_START / DOCUMENTATION_IN_PROGRESS` under `PODR-032`; this is not its current status.
+- Historical approval snapshot: S6-T5.8-H1 was `APPROVED_TO_START / DOCUMENTATION_HARDENING_IN_PROGRESS`; this is not its current status.
 - Stage 6.1 formal research: NOT APPROVED.
 - Formal RAG security experiment: NOT STARTED.
 - Historical approval-gate snapshot, not the current status: `S6-T5.7+: NOT APPROVED`. The accepted S6-T5.6 implementation history remains `71067d1` (initial candidate), `b136ee2` (final accepted implementation) and `6da27a6` (previous accepted implementation).
@@ -77,7 +79,7 @@
 - The acceptance did not authorize Citation allocation, a package or ContextBuilder before I1. The separately approved I1 now implements only those frozen offline behaviors; it does not authorize Trust or model calls.
 - S6-T5.6 P1/H1/H2 are HUMAN_ACCEPTED protocol records. `S6-T5.6-I1`, `S6-T5.6-I1-H1` and parent S6-T5.6 are HUMAN_ACCEPTED synthetic/offline implementations.
 - S6-T5.7 is HUMAN_ACCEPTED only for the documented controlled retrieval-context engineering evidence. It does not change the accepted implementation commit or establish a formal RAG experiment.
-- S6-T5.8 has completed candidate baseline documentation only. It does not create an accepted baseline SHA, a tag, a Stage 6.1 branch, or a formal RAG experiment.
+- S6-T5.8-H1 has completed candidate documentation hardening only. It does not create an accepted baseline SHA, a tag, a Stage 6.1 branch, or a formal RAG experiment.
 - Next approval gate: the project owner must accept or reject the S6-T5.8 candidate closure; Stage 6.1 remains NOT APPROVED.
 
 ## Must Not Start
@@ -102,4 +104,4 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 ## Last Update
 
 - Date: `2026-07-26`.
-- Updated by: Codex after completing the S6-T5.8 candidate documentation closure. S6-T5.8 is `Completed, pending human acceptance`; [baseline report](s6_t5_baseline_acceptance_report.md) is the unified evidence index. `b136ee2` remains the last accepted implementation commit, `b6cedf3` remains the accepted integration evidence commit, Stage 6.1 remains `NOT APPROVED`, and the formal experiment remains `NOT STARTED`.
+- Updated by: Codex after completing the S6-T5.8-H1 candidate taxonomy hardening. S6-T5.8-H1 and parent S6-T5.8 are `Completed, pending human acceptance`; [baseline report](s6_t5_baseline_acceptance_report.md) is the unified evidence index. `37cccdc` remains the original candidate baseline closure commit, never an accepted baseline SHA; `b136ee2` remains the last accepted implementation commit, `b6cedf3` remains the accepted integration evidence commit, Stage 6.1 remains `NOT APPROVED`, and the formal experiment remains `NOT STARTED`.

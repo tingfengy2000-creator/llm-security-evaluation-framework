@@ -11,7 +11,7 @@
 | Last accepted implementation commit | `b136ee2` |
 | Last accepted integration evidence commit | `b6cedf3` |
 | T5.7 governance acceptance commit | `c1e8c16` |
-| T5.8 candidate baseline closure commit | `PENDING_GIT_COMMIT`；本报告不能在同一 Git commit 内写入自身 SHA，完成提交后以 Git `HEAD` 事实回填至后续人工验收记录 |
+| Original T5.8 candidate baseline closure commit | `37cccdc`；这是原始候选基线收尾提交，不是 `accepted S6-T5 baseline SHA`。本轮 S6-T5.8-H1 的自身 SHA 仍须由后续人工验收记录在提交完成后按 Git 事实登记。 |
 | T5.8 start approval | `PODR-032`；历史状态 `APPROVED_TO_START / DOCUMENTATION_IN_PROGRESS` |
 | Formal RAG security experiment | `NOT STARTED` |
 
@@ -19,21 +19,21 @@
 正式安全实验报告、研究论文结论或生产验收。项目负责人完成对本轮提交的最终人工验收前，不得将任何 SHA 称为
 `accepted S6-T5 baseline SHA`，不得创建 tag 或 Stage 6.1 分支。
 
-## 2. S6-T5.1 至 S6-T5.7 状态矩阵
+## 2. S6-T5.1 至 S6-T5.7 提交证据分类矩阵
 
-| Task | 当前状态 | Protocol / closure commit | Implementation commit | Hardening / final accepted commit | Governance acceptance commit | 核心能力 | 证据 | 不可宣称事项 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| S6-T5.1 Chunking | `HUMAN_ACCEPTED` | `NOT_SEPARATELY_RECORDED` | `412d886` | `09584c8` | `NOT_SEPARATELY_RECORDED`；状态由 [Experiment Master Record](experiment_master_record.md) 固化 | IdentityChunker、稳定 Chunk ID、hash/metadata 边界 | [Stage 6 README](../../stages/stage6_rag_security/README.md) | 不代表复杂 Chunking、检索质量或安全效果 |
-| S6-T5.2 Runtime Contracts | `HUMAN_ACCEPTED` | `4c12181` | `4c12181` | `NOT_SEPARATELY_RECORDED` | `03750d9` | safe projection、Request、Evidence、Trace、ContentRef | [completion record](s6_t5_2_completion_record.md) | 不代表 Retriever、正文读取或 RAG 安全 |
-| S6-T5.3 DenseRetriever | `HUMAN_ACCEPTED` | `2ad3d9c` | `bfc329b` | `72a2445` | `142528d` | provider-neutral DenseRetriever、无正文 Evidence/Trace、provenance fail-closed | [completion record](s6_t5_3_completion_record.md) | 不代表 Recall/MRR/NDCG、投毒防护或可信检索 |
-| S6-T5.4 ContentResolver | `HUMAN_ACCEPTED` | `4155ed8` | `af55705` | `11a72f7` | `f7dc552` | canonical `corpus:` 解析、hash 校验、最小正文权限、legacy exact match | [completion record](s6_t5_4_completion_record.md) | 不代表真实 corpus adapter 或检索安全 |
-| S6-T5.5 Evidence/Citation | `HUMAN_ACCEPTED` | `9a51457` | `2cacef7` | `6da27a6` | `ee905cb` | Envelope、CitationBinding、escaping、单 block rendering | [completion record](s6_t5_5_completion_record.md) | 不代表 Citation Accuracy、Trust 或生成效果 |
-| S6-T5.6 Context Package | `HUMAN_ACCEPTED` | `432b07e`；协议验收 `b0c4ef6` | `71067d1` | `b136ee2` | `dbf590a` | deterministic Context Package、顺序解析、stable-prefix、结构 abstention | [completion record](s6_t5_6_completion_record.md) | 不代表 Context 安全、检索质量或生成质量 |
-| S6-T5.7 Integration | `HUMAN_ACCEPTED` | 不适用；不新增协议 | 不适用；不新增业务实现 | integration evidence `b6cedf3` | `c1e8c16` | 静态与 opt-in MiniLM/temporary-Chroma 受控集成验证 | [integration record](s6_t5_7_integration_completion_record.md) | 不代表新实现能力、语义质量或正式实验 |
+本矩阵按提交的**实际职责**分类，不再使用含混的 `Protocol / closure commit` 合并列。`NOT_APPLICABLE` 表示该任务性质不产生该类提交；`NOT_SEPARATELY_RECORDED` 仅表示经 Git 与权威治理记录核验后，没有独立的同类提交，绝不用于猜测历史。
 
-`NOT_SEPARATELY_RECORDED` 是证据分类，不是缺失事实的猜测：它表示在当前权威 Git log 与治理记录中没有独立、同名的
-protocol/hardening/acceptance 提交，应以表中标注的主记录为准。不同提交性质不得互换，例如 `b6cedf3` 永远不能写作
-implementation commit。
+| Task | Current Status | Protocol Design / Freeze | Protocol Hardening | Protocol Acceptance | Initial Implementation | Implementation Hardening / Final Implementation | Implementation Acceptance | Integration Evidence | Integration Acceptance | Evidence Record | Claim Boundary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| S6-T5.1 Chunking | `HUMAN_ACCEPTED` | `NOT_SEPARATELY_RECORDED` | `NOT_SEPARATELY_RECORDED` | `NOT_SEPARATELY_RECORDED` | `412d886` | `09584c8` | `NOT_SEPARATELY_RECORDED`；状态由 [Experiment Master Record](experiment_master_record.md) 固化 | `NOT_APPLICABLE` | `NOT_APPLICABLE` | [Stage 6 README](../../stages/stage6_rag_security/README.md) | 不代表复杂 Chunking、检索质量或安全效果 |
+| S6-T5.2 Runtime Contracts | `HUMAN_ACCEPTED` | `NOT_APPLICABLE` | `NOT_APPLICABLE` | `NOT_APPLICABLE` | `4c12181` | `NOT_SEPARATELY_RECORDED` | `03750d9` | `NOT_APPLICABLE` | `NOT_APPLICABLE` | [completion record](s6_t5_2_completion_record.md) | 不代表 Retriever、正文读取或 RAG 安全 |
+| S6-T5.3 DenseRetriever | `HUMAN_ACCEPTED` | `NOT_APPLICABLE`；`2ad3d9c` 不是纯 Markdown protocol freeze | `2ad3d9c`（P1 versioned metadata contract repair，含对应实现变更） | `NOT_SEPARATELY_RECORDED` | `bfc329b` | `72a2445` | `142528d` | `NOT_APPLICABLE` | `NOT_APPLICABLE` | [completion record](s6_t5_3_completion_record.md) | 不代表 Recall/MRR/NDCG、投毒防护或可信检索 |
+| S6-T5.4 ContentResolver | `HUMAN_ACCEPTED` | `ed21f73` | `NOT_APPLICABLE` | `4155ed8` | `af55705` | `11a72f7` | `f7dc552` | `NOT_APPLICABLE` | `NOT_APPLICABLE` | [completion record](s6_t5_4_completion_record.md) | 不代表真实 corpus adapter 或检索安全 |
+| S6-T5.5 Evidence/Citation | `HUMAN_ACCEPTED` | `d8f0dc5` | `25fb83d` | `9a51457` | `2cacef7` | `6da27a6` | `ee905cb` | `NOT_APPLICABLE` | `NOT_APPLICABLE` | [completion record](s6_t5_5_completion_record.md) | 不代表 Citation Accuracy、Trust 或生成效果 |
+| S6-T5.6 Context Package | `HUMAN_ACCEPTED` | `7bf90eb` | `8beb858`（P1-H1）；`432b07e`（P1-H2 protocol closure） | `b0c4ef6` | `71067d1` | `b136ee2` | `dbf590a` | `NOT_APPLICABLE` | `NOT_APPLICABLE` | [completion record](s6_t5_6_completion_record.md) | 不代表 Context 安全、检索质量或生成质量 |
+| S6-T5.7 Integration | `HUMAN_ACCEPTED` | `NOT_APPLICABLE` | `NOT_APPLICABLE` | `NOT_APPLICABLE` | `NOT_APPLICABLE` | `NOT_APPLICABLE` | `NOT_APPLICABLE` | `b6cedf3` | `c1e8c16` | [integration record](s6_t5_7_integration_completion_record.md) | 不代表新实现能力、语义质量或正式实验 |
+
+分类边界：`b136ee2` 仍是最后已接受 implementation commit；`b6cedf3` 只能作为 integration evidence；`c1e8c16` 只能作为 integration acceptance；`37cccdc` 只是 original T5.8 candidate baseline closure commit，绝不是 accepted baseline SHA。
 
 ## 3. 已接受工程调用链与权限边界
 
@@ -90,15 +90,16 @@ Dataset QueryRecord
 
 ## 6. 脱敏证据索引
 
-| Task ID | Evidence type | Commit / status | 文档或测试入口 | Validation scope | Claim boundary |
+| Task ID | Evidence taxonomy | Commit / status | 文档或测试入口 | Validation scope | Claim boundary |
 | --- | --- | --- | --- | --- | --- |
-| S6-T5.1 | implementation + hardening | `412d886`, `09584c8` | [master record](experiment_master_record.md) | deterministic chunk contracts | 无复杂 Chunking 或检索结论 |
-| S6-T5.2 | contracts + acceptance | `4c12181`, `03750d9` | [completion record](s6_t5_2_completion_record.md) | safe projection and IDs | 无 Retriever/LLM 结论 |
-| S6-T5.3 | protocol / implementation / hardening / acceptance | `2ad3d9c`, `bfc329b`, `72a2445`, `142528d` | [completion record](s6_t5_3_completion_record.md) | DenseRetriever offline contracts | 无质量或安全效果结论 |
-| S6-T5.4 | protocol / implementation / hardening / acceptance | `4155ed8`, `af55705`, `11a72f7`, `f7dc552` | [completion record](s6_t5_4_completion_record.md) | synthetic resolver boundary | 无真实 corpus 结论 |
-| S6-T5.5 | protocol / implementation / hardening / acceptance | `9a51457`, `2cacef7`, `6da27a6`, `ee905cb` | [completion record](s6_t5_5_completion_record.md) | synthetic envelope/citation boundary | 无 Citation Accuracy 结论 |
-| S6-T5.6 | protocol closure / implementation / hardening / acceptance | `432b07e`, `71067d1`, `b136ee2`, `dbf590a` | [completion record](s6_t5_6_completion_record.md) | synthetic deterministic package | 无 Context safety / generation 结论 |
-| S6-T5.7 | integration evidence / acceptance | `b6cedf3`, `c1e8c16` | [integration record](s6_t5_7_integration_completion_record.md) | static + opt-in real infrastructure | 无新 implementation 或正式实验结论 |
+| S6-T5.1 | initial implementation + implementation hardening；其他类别 `NOT_SEPARATELY_RECORDED` | `412d886`, `09584c8` | [master record](experiment_master_record.md) | deterministic chunk contracts | 无复杂 Chunking 或检索结论 |
+| S6-T5.2 | initial implementation + implementation acceptance；protocol 类别 `NOT_APPLICABLE` | `4c12181`, `03750d9` | [completion record](s6_t5_2_completion_record.md) | safe projection and IDs | 无 Retriever/LLM 结论 |
+| S6-T5.3 | versioned metadata contract repair + implementation change (`2ad3d9c`，不是纯 protocol freeze)；initial implementation；implementation hardening；implementation acceptance | `2ad3d9c`, `bfc329b`, `72a2445`, `142528d` | [completion record](s6_t5_3_completion_record.md) | DenseRetriever offline contracts | 无质量或安全效果结论 |
+| S6-T5.4 | protocol design/freeze；protocol acceptance；initial implementation；implementation hardening；implementation acceptance | `ed21f73`, `4155ed8`, `af55705`, `11a72f7`, `f7dc552` | [completion record](s6_t5_4_completion_record.md) | synthetic resolver boundary | 无真实 corpus 结论 |
+| S6-T5.5 | protocol design/review；protocol hardening；protocol acceptance；initial implementation；implementation hardening；implementation acceptance | `d8f0dc5`, `25fb83d`, `9a51457`, `2cacef7`, `6da27a6`, `ee905cb` | [completion record](s6_t5_5_completion_record.md) | synthetic envelope/citation boundary | 无 Citation Accuracy 结论 |
+| S6-T5.6 | protocol design/freeze；protocol hardening P1-H1/P1-H2；protocol acceptance；initial implementation；final implementation；implementation acceptance | `7bf90eb`, `8beb858`, `432b07e`, `b0c4ef6`, `71067d1`, `b136ee2`, `dbf590a` | [completion record](s6_t5_6_completion_record.md) | synthetic deterministic package | 无 Context safety / generation 结论 |
+| S6-T5.7 | integration evidence；integration acceptance；implementation categories `NOT_APPLICABLE` | `b6cedf3`, `c1e8c16` | [integration record](s6_t5_7_integration_completion_record.md) | static + opt-in real infrastructure | 无新 implementation 或正式实验结论 |
+| S6-T5.8 | original candidate baseline closure；H1 documentation hardening is pending later human acceptance | `37cccdc` | [baseline report](s6_t5_baseline_acceptance_report.md) | evidence taxonomy correction only | 不是 accepted baseline SHA、tag 或 Stage 6.1 approval |
 | Governance | architecture / namespace / label isolation | current T5.8 verification | `tests/architecture/`, `tests/stage6_rag/test_no_label_leakage.py` | ownership, approval, labels | 不替代安全实验 |
 | Integrity | protected paths / scans / ignore | current T5.8 verification | Git diff, changed-file scans, `.gitignore` | no protected-path mutation | 不覆盖历史 manifest 技术债 |
 

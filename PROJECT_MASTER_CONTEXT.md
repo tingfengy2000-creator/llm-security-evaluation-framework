@@ -5,15 +5,15 @@
 `S6-T5 Controlled Retrieval Baseline Documentation and Acceptance` 已完成候选文档收尾，当前为
 `Completed, pending human acceptance`。唯一的统一索引是 [S6-T5 基线验收报告](docs/governance/s6_t5_baseline_acceptance_report.md)：它区分 protocol、implementation、hardening、integration evidence 和 governance acceptance 提交，并保留所有结论边界。
 
-`b136ee2` 仍是最后已接受 implementation commit；`b6cedf3` 仍是已接受 integration evidence commit；本轮 candidate
-closure commit 在 Git 创建后才可作为事实登记，绝不提前写作 accepted baseline SHA。Stage 6.1 formal research 仍为
+`b136ee2` 仍是最后已接受 implementation commit；`b6cedf3` 仍是已接受 integration evidence commit；原始 T5.8 candidate
+baseline closure commit 为 `37cccdc`，绝不写作 accepted baseline SHA。S6-T5.8-H1 只修正提交证据 taxonomy，其自身 SHA 仍由后续人工验收按 Git 事实登记。Stage 6.1 formal research 仍为
 `NOT APPROVED`，Formal RAG security experiment 仍为 `NOT STARTED`；本轮未调用任何模型或真实基础设施，未创建 tag 或研究分支。
 
 ## S6-T5.7 当前状态附注（2026-07-26）
 
 `S6-T5.7 Controlled Retrieval Context Pipeline Integration and Security Validation` 已通过人工验收，当前为 `HUMAN_ACCEPTED`。新增证据只验证既有受控链路的互操作：静态 Query 投影到 Context Package，以及显式开启的固定 MiniLM 与临时 Chroma close/reopen、受控 synthetic-corpus 解析和稳定身份检查。
 
-最后已接受实现提交仍为 `b136ee2`；已接受的集成证据提交为 `b6cedf3`，它不属于 implementation commit；`S6-T5.8` 为 `NOT APPROVED`；Formal RAG security experiment 为 `NOT STARTED`。本轮未调用 Groq 或生成式 LLM，未执行 evaluator、Trust、Citation Accuracy 或正式攻击矩阵。详见 [S6-T5.7 集成记录](docs/governance/s6_t5_7_integration_completion_record.md)。
+最后已接受实现提交仍为 `b136ee2`；已接受的集成证据提交为 `b6cedf3`，它不属于 implementation commit；`S6-T5.8` 及其 H1 均为 `Completed, pending human acceptance`，原始 candidate closure 为 `37cccdc`；Formal RAG security experiment 为 `NOT STARTED`。本轮未调用 Groq 或生成式 LLM，未执行 evaluator、Trust、Citation Accuracy 或正式攻击矩阵。详见 [S6-T5.7 集成记录](docs/governance/s6_t5_7_integration_completion_record.md)。
 
 > 这是项目唯一的总览与决策入口。它回答：为什么做、已经做了什么、证据在哪里、当前代码处于什么状态、未来架构如何同时支撑面试、论文和科技立项。
 

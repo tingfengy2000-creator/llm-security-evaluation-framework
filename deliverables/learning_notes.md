@@ -1507,3 +1507,15 @@ Stage 6.1 formal research 和正式 RAG security experiment 均未批准/未开�
 `76 passed, 902 subtests passed`；namespace + label-isolation 为 `10 passed, 1199 subtests passed`。Markdown、changed-file
 secret/path、protected-path、runtime Git-ignore 和 diff 检查通过。历史 manifest 的 110 个 CRLF/LF 差异仍为
 `BLK-HIST-001`，不能被写成这次文档任务引入的失败。
+
+## 2026-07-26: S6-T5.8-H1 基线提交证据分类加固（待人工验收）
+
+**现在做了什么**：把基线报告的合并列 `Protocol / closure commit` 拆为协议设计/冻结、协议加固、协议验收、初始实现、实现加固/最终实现、实现验收、集成证据和集成验收。这样 `ed21f73` 不会再被 `4155ed8` 覆盖，`d8f0dc5`、`25fb83d`、`9a51457` 的不同职责可被分别追溯，`b6cedf3` 也不会被误称为 implementation commit。
+
+**为什么这样做**：Git SHA 只能说明“某次变更存在”，不能自动说明它证明了什么。研究和企业审计需要把设计决策、实现代码、加固修复、集成验证与人工验收分开，否则会把“测试通过”错误扩大为“新能力已经实现”。
+
+**和上一部分的关系**：S6-T5.8 先汇总 S6-T5.1--T5.7 的证据；H1 不新增能力，只修正这份汇总的证据 taxonomy。原始 candidate baseline closure 现在准确登记为 `37cccdc`，它仍不是 accepted baseline SHA。
+
+**面试怎么讲**：可以说：“我给 RAG 安全基线建立了提交证据分类表，把协议冻结、实现、加固、集成证据和人工验收拆开。这样每项结论都能回到对应的提交和测试范围，避免把工程互操作误写成安全效果。”
+
+**最容易误解的地方**：`b136ee2` 是最后已接受 implementation commit，`b6cedf3` 是集成证据，`c1e8c16` 是集成验收，`37cccdc` 是原始候选基线收尾；四者都不能互换。S6-T5.8-H1 与父任务均仍为 `Completed, pending human acceptance`；Stage 6.1 未批准，正式 RAG 安全实验未开始。

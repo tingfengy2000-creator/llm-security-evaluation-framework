@@ -801,3 +801,7 @@ S6-T5.1--S6-T5.7 的提交性质映射、脱敏证据索引、测试矩阵、环
 DTO、算法、权限或安全语义。`b136ee2` 仍是最后已接受 implementation commit，`b6cedf3` 仍是 integration evidence
 commit；本轮 closure SHA 在最终人工验收前不能称为 accepted baseline SHA。Stage 6.1 为 `NOT APPROVED`，正式实验为
 `NOT STARTED`。
+
+## 33. S6-T5.8-H1 提交证据分类加固状态附注（2026-07-26）
+
+S6-T5.8-H1 已完成候选 documentation governance hardening，当前为 `Completed, pending human acceptance`。它只把历史提交按 protocol design/freeze、protocol hardening、protocol acceptance、implementation、implementation hardening/acceptance 与 integration evidence/acceptance 重新分类，不改变本规格的 DTO、算法、权限或安全语义。`37cccdc` 是 original T5.8 candidate baseline closure commit，不是 accepted baseline SHA；`b136ee2` 和 `b6cedf3` 的既有身份不变。Stage 6.1 仍为 `NOT APPROVED`，正式实验仍为 `NOT STARTED`。

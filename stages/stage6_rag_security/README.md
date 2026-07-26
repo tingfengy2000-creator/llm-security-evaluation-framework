@@ -1,10 +1,10 @@
 # Stage 6：RAG 安全与可信检索基线
 
-## 当前状态：S6-T5.8 基线候选文档已完成，等待人工验收
+## 当前状态：S6-T5.8-H1 基线提交证据分类加固已完成，等待人工验收
 
 本阶段新增了从安全 Query 投影到 `RetrievedContextPackage` 的受控集成验证。静态链路验证标签隔离、无正文 Evidence、canonical resolver、连续 Citation 和 stable-prefix 最小权限；显式启用的真实基础设施链路验证固定 MiniLM 与临时 ChromaDB 的 close/reopen 互操作。
 
-正文仍由 synthetic corpus reader 提供，Chroma 只保存向量和公开 metadata。它不表示检索质量、RAG 安全效果、Citation Accuracy 或生产可用性。最后已接受实现提交仍为 `b136ee2`；`b6cedf3` 是已接受的集成证据提交而非 implementation commit；`S6-T5.8` 候选 baseline closure 已完成但等待人工验收，正式 RAG 安全实验未开始。详见 [S6-T5 基线验收报告](../../docs/governance/s6_t5_baseline_acceptance_report.md)。
+正文仍由 synthetic corpus reader 提供，Chroma 只保存向量和公开 metadata。它不表示检索质量、RAG 安全效果、Citation Accuracy 或生产可用性。最后已接受实现提交仍为 `b136ee2`；`b6cedf3` 是已接受的集成证据提交而非 implementation commit；原始 T5.8 candidate baseline closure 是 `37cccdc`，不是 accepted baseline SHA；`S6-T5.8-H1` 和父任务仍等待人工验收，正式 RAG 安全实验未开始。详见 [S6-T5 基线验收报告](../../docs/governance/s6_t5_baseline_acceptance_report.md)。
 
 ## Metadata
 
@@ -30,7 +30,8 @@
 - s6_t5_6_i1_h1_status: `human_accepted`；最终加固实现 `b136ee2` 接受 Trace 情景、config identity、依赖错误脱敏和 abstention/Trace 对应边界。
 - s6_t5_6_status: `human_accepted`；验收仅限 synthetic/offline Context Package 工程行为。
 - s6_t5_7_status: `human_accepted`；只接受现有组件的 controlled retrieval-to-context integration evidence，提交 `b6cedf3` 不是 implementation commit。
-- s6_t5_8_status: `completed_pending_human_acceptance`；只完成基线文档、证据索引和治理一致性收尾，不创建 accepted baseline SHA、tag、Stage 6.1 分支或正式实验。
+- s6_t5_8_status: `completed_pending_human_acceptance`；原始 candidate baseline closure 为 `37cccdc`，不是 accepted baseline SHA。
+- s6_t5_8_h1_status: `completed_pending_human_acceptance`；只完成提交证据 taxonomy、证据索引和治理一致性加固，不创建 accepted baseline SHA、tag、Stage 6.1 分支或正式实验。
 - s6_t5_6_status: `ready_for_separate_implementation_approval`；父任务可以等待独立实现审批，不能自动实施。
 - s6_t5_6_i1_status: `not_yet_approved`；不得创建 ContextBuilder、Package、Trace、预算器或 Citation allocator。
 - s6_t5_6_plus_status: `not_approved`；不得自动开始后续能力。

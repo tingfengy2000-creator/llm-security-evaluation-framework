@@ -333,6 +333,16 @@ implementation commit。历史 pending/review 文本继续保留为当时事实�
 - Prohibitions: no `src/`, business-test, Stage 1--5, Stage 6 fixture/data or runtime modification; no Embedding/MiniLM/Chroma/Groq/LLM call; no tag, Stage 6.1 branch, formal RAG security experiment, Trust, reranker, policy, Citation Accuracy or poisoning detector.
 - Next gate: project owner acceptance or rejection of the T5.8 candidate baseline closure. Stage 6.1 formal research remains `NOT APPROVED`; Formal RAG security experiment remains `NOT STARTED`.
 
+## PODR-033: S6-T5.8-H1 Baseline Commit Taxonomy and Evidence Mapping Hardening
+
+- Date: `2026-07-26`.
+- Decision: project owner approved a documentation-only hardening of the S6-T5.8 candidate report. It may correct commit taxonomy and evidence mapping, and add semantic governance assertions only.
+- Start snapshot: `S6-T5.8-H1: APPROVED_TO_START / DOCUMENTATION_HARDENING_IN_PROGRESS`.
+- Current status: `Completed, pending human acceptance`.
+- Required identity boundary: `b136ee2` remains the last accepted implementation commit; `b6cedf3` remains integration evidence only; `c1e8c16` remains integration acceptance only; `37cccdc` remains the original T5.8 candidate baseline closure commit and is not an accepted baseline SHA.
+- Prohibitions: no `src/`, business-test, Stage 1--5, Stage 6 fixture/data or runtime modification; no MiniLM/Chroma/Embedding/Groq/LLM invocation; no tag, research branch, Stage 6.1 approval, or formal RAG security experiment.
+- Next gate: a later human-acceptance record may register the completed H1 candidate commit after Git creates it. Parent `S6-T5.8` remains `Completed, pending human acceptance`; Stage 6.1 remains `NOT APPROVED`; Formal RAG security experiment remains `NOT STARTED`.
+
 ## PODR-029: GOV-S6-T5.6-ACCEPTANCE Final Human Acceptance
 
 - Date: `2026-07-26`.
