@@ -11,17 +11,19 @@
 
 - Last accepted architecture task: `A1R` namespace migration and governance freeze.
 - Last accepted stage task: `S6-T5.4 Controlled Corpus ContentResolver`.
-- Last accepted governance protocol task: `S6-T5.4-P1 Content Resolution Contract and Permission Boundary Freeze`.
+- Last accepted governance protocol task: `S6-T5.5-P1 EvidenceEnvelope and Citation Boundary Freeze`.
 - Last accepted implementation commit: `11a72f7`.
-- Accepted capability boundary: deterministic, label-isolated provider-neutral DenseRetriever engineering behavior, including the S6-T5.3-H1 trace and failure-boundary hardening. This does not establish retrieval quality, security effectiveness, context safety, trust policy, LLM integration, or a RAG experiment.
+- Accepted capability boundary: deterministic, label-isolated provider-neutral DenseRetriever engineering behavior, including the S6-T5.3-H1 trace and failure-boundary hardening, plus the S6-T5.4 synthetic in-memory ContentResolver capability and integrity boundary. This does not establish retrieval quality, security effectiveness, context safety, trust policy, LLM integration, or a RAG experiment.
 
 ## Current Task
 
-- Task ID: `S6-T5.5-P1-H1`.
-- Task name: `Evidence Canonical Binding and Citation Rendering Protocol Hardening`.
-- Execution status: **Completed, pending human review**. This is a design-freeze hardening record, not a new retrieval capability, implementation approval or a formal RAG security experiment.
-- S6-T5.5-P1: **Completed, pending human acceptance**.
-- S6-T5.5-P1-H1: Factory only accepts canonical `corpus:` RetrievalEvidence; renderer only accepts Envelope + Binding and fails closed on seven-field mismatch.
+- Task ID: `GOV-S6-T5.5-P1-ACCEPTANCE`.
+- Task name: `S6-T5.5 EvidenceEnvelope and Citation Protocol Human Acceptance Record`.
+- Execution status: **Completed, pending human review**. This is a governance acceptance record, not a new retrieval capability, implementation approval or a formal RAG security experiment.
+- S6-T5.5-P1: **HUMAN_ACCEPTED**.
+- S6-T5.5-P1-H1: **HUMAN_ACCEPTED**. Factory only accepts canonical `corpus:` RetrievalEvidence; renderer only accepts Envelope + Binding and fails closed on seven-field mismatch.
+- S6-T5.5: **READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL**. It is not implemented.
+- S6-T5.5-I1: **NOT YET APPROVED**.
 - S6-T5.4-P1: **HUMAN_ACCEPTED**.
 - Governance acceptance record: `GOV-S6-T5.4-P1-ACCEPTANCE`.
 - S6-T5.4 protocol blocker: **RESOLVED_BY_APPROVED_PROTOCOL_FREEZE**. The original discovery, risks and fail-closed stop remain preserved in the blocker record.
@@ -52,11 +54,10 @@
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. This does not approve EvidenceEnvelope, citation, ContextBuilder or S6-T5.5; each remains a separate approval boundary.
-- `S6-T5.5-P1` is **Completed, pending human acceptance**. It freezes a no-`citation_id` Envelope, future package-local Binding allocation, deterministic instruction/rendering rules and sensitive-export deny-by-default; it does not implement any of them.
-- `S6-T5.5-P1-H1` is **Completed, pending human review**. It clarifies canonical Evidence-only Factory input, single-block renderer input and `CITATION_BINDING_MISMATCH`; it does not implement any of them.
-- `S6-T5.5`: **NOT APPROVED**. Every later S6-T5 task is also **NOT APPROVED**.
+- `S6-T5.5-P1` and `S6-T5.5-P1-H1` are **HUMAN_ACCEPTED** design protocols. They freeze a no-`citation_id` Envelope, future package-local Binding allocation, canonical Factory input, deterministic instruction/rendering rules and sensitive-export deny-by-default; they do not implement any of them.
+- `S6-T5.5`: **READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL**. `S6-T5.5-I1` is **NOT YET APPROVED** and every S6-T5.6+ task is **NOT APPROVED**.
 - Formal RAG security experiment: **Not started**.
-- Next human decision: review S6-T5.5-P1-H1, then accept, reject or amend S6-T5.5-P1; only after that may a separately scoped S6-T5.5 implementation be considered. S6-T5.5 remains unapproved.
+- Next human decision: separately approve, reject or amend a narrowly scoped `S6-T5.5-I1` implementation. No acceptance record authorizes implementation by itself.
 
 ## Must Not Start
 
@@ -66,7 +67,7 @@
 
 ## Current Claims Boundary
 
-Can claim: within the offline engineering-test scope, deterministic and label-isolated retrieval runtime contracts plus the provider-neutral DenseRetriever have been HUMAN_ACCEPTED. S6-T5.4-P1, I1, H1 and S6-T5.4 Controlled Corpus ContentResolver are HUMAN_ACCEPTED: they establish a minimal provider-neutral resolver over synthetic in-memory content, a closed public capability surface, and a redacted injected-error boundary. S6-T5.5-P1 has frozen the future EvidenceEnvelope/Citation time boundary but is still pending human acceptance. Historical public loader imports remain compatible through the canonical `llmguard` type.
+Can claim: within the offline engineering-test scope, deterministic and label-isolated retrieval runtime contracts plus the provider-neutral DenseRetriever have been HUMAN_ACCEPTED. S6-T5.4-P1, I1, H1 and S6-T5.4 Controlled Corpus ContentResolver are HUMAN_ACCEPTED: they establish a minimal provider-neutral resolver over synthetic in-memory content, a closed public capability surface, and a redacted injected-error boundary. S6-T5.5-P1 and P1-H1 design protocols are HUMAN_ACCEPTED: they freeze future Envelope/Citation timing, canonical binding and rendering boundaries without implementing them. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
 Cannot claim: retrieval quality, retrieval security effectiveness, context safety, citation accuracy, trustworthiness, RAG metrics, production readiness, or research-experiment outcomes.
 
@@ -79,5 +80,5 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 
 ## Last Update
 
-- Date: `2026-07-25`.
-- Updated by: Codex under explicit project-owner design-review hardening approval. S6-T5.4-P1, I1, H1 and parent S6-T5.4 remain HUMAN_ACCEPTED. S6-T5.5-P1 remains Completed, pending human acceptance; S6-T5.5-P1-H1 is Completed, pending human review; S6-T5.5 and later tasks are Not approved. No source/data change, model call or formal RAG security experiment occurred.
+- Date: `2026-07-26`.
+- Updated by: Codex under explicit project-owner acceptance decision. S6-T5.4 remains the last accepted business implementation; S6-T5.5-P1 and P1-H1 are HUMAN_ACCEPTED protocol designs, S6-T5.5 is READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL, S6-T5.5-I1 is NOT YET APPROVED and S6-T5.6+ are NOT APPROVED. No source/data change, model call or formal RAG security experiment occurred.

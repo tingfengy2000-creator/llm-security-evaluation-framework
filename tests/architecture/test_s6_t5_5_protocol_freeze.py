@@ -87,9 +87,9 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
         for text in (state, master_record):
             for required in (
                 "S6-T5.5-P1",
-                "Completed, pending human acceptance",
+                "HUMAN_ACCEPTED",
                 "S6-T5.5",
-                "NOT APPROVED",
+                "READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL",
                 "Formal RAG security experiment",
             ):
                 with self.subTest(required=required):
@@ -98,7 +98,32 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
         self.assertIn("EvidenceEnvelope implementation", state)
         self.assertIn("ContextBuilder", state)
         self.assertIn("S6-T5.5-P1-H1", state)
-        self.assertIn("Completed, pending human review", state)
+        self.assertIn("S6-T5.5-I1: **NOT YET APPROVED**", state)
+        self.assertIn("S6-T5.6+", state)
+        self.assertIn("**NOT APPROVED**", state)
+
+    def test_acceptance_preserves_protocol_history_without_claiming_implementation(self) -> None:
+        review = REVIEW_RECORD.read_text(encoding="utf-8")
+        register = (GOVERNANCE / "project_owner_decision_register.md").read_text(
+            encoding="utf-8"
+        )
+
+        for text in (review, register):
+            for required in (
+                "S6-T5.5-P1",
+                "S6-T5.5-P1-H1",
+                "HUMAN_ACCEPTED",
+                "READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL",
+                "NOT YET APPROVED",
+                "11a72f7",
+                "25fb83d",
+            ):
+                with self.subTest(required=required):
+                    self.assertIn(required, text)
+
+        self.assertIn("不创建或验证", review)
+        self.assertIn("历史 pending/review 快照", review)
+        self.assertIn("全仓 secret-shape", review)
 
     def test_s6_t5_4_acceptance_remains_intact(self) -> None:
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")

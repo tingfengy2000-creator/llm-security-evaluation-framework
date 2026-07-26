@@ -176,3 +176,29 @@ Markdown 链接扫描因仓库根目录 Markdown 文件的 parent path 为空而
 全仓 secret-shape 扫描会命中不可变的 Stage 1--4 HTML 历史报告、历史 guard 测试样例和 `chatgpt_share_2.html` 导出。
 这些命中属于既有实验/归档内容，不能在本次纯治理任务中被删除或改写；对本轮 11 个变更文件复扫后，secret-shape 和本机
 绝对路径命中均为 0。故本轮的结论是“新增治理变更无 secret/path 命中”，而不是把历史归档误称为不存在的全仓风险。
+
+## 9. GOV-S6-T5.5-P1-ACCEPTANCE：协议人工验收（2026-07-26）
+
+项目负责人已人工接受 `S6-T5.5-P1` 与 `S6-T5.5-P1-H1`。本验收只确认本记录冻结的时序、canonical identity、
+Factory/renderer 输入、七字段 Binding 校验、fail-closed 错误、escaping 和敏感导出边界；它不创建或验证
+`EvidenceEnvelope`、`CitationBinding`、renderer、`RetrievedContextPackage` 或 `ContextBuilder` 业务实现。
+
+当前权威状态为：P1 与 H1 均为 `HUMAN_ACCEPTED`；`S6-T5.5` 为
+`READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`；`S6-T5.5-I1` 为 `NOT YET APPROVED`；`S6-T5.6+` 为
+`NOT APPROVED`；正式 RAG 安全实验为 `NOT STARTED`。最后接受的 stage implementation 仍是 S6-T5.4 的
+`11a72f7`，本设计提交 `25fb83d` 不得被表述为业务实现提交。
+
+历史 pending/review 快照、H1 修订过程和历史全仓 secret-shape 命中继续保留。对于扫描结论，只能准确记录为：
+本轮治理变更未引入新增 secret/path 命中；不得把不可变历史 HTML、测试样例和聊天导出中的既有形态命中表述为全仓零命中。
+
+### 9.1 本次验收验证结果
+
+本次验收实际运行的离线回归为 `290 passed, 2599 subtests passed`；Ruff 和 scoped MyPy 均通过。Markdown 相对链接、
+变更文件 secret-shape、变更文件绝对路径、protected-path、runtime Git-ignore 与 `git diff --check` 均通过。
+本次全仓 secret-shape 复扫发现 31 个文件包含既有形态命中；它们仍属于前述不可变历史资产，不是本轮引入的内容。
+因此验收记录的准确表述保持为“本轮治理变更未引入新增 secret/path 命中”，而不是“全仓零命中”。
+
+首次运行本次治理回归时，测试捕获了三项状态漂移：协议记录的“未实现”措辞与断言不一致、Stage README 使用了
+`P1-H1` 缩写而未写全任务 ID、旧 context-persistence 断言仍把 S6-T5.5 写成 `NOT APPROVED`。均已修正为当前
+人工验收状态；这不是业务实现问题。`PROJECT_MASTER_CONTEXT.md` 中仍保留的 pending 文字属于明确标注的历史快照，
+不应被删除或误判为当前状态。

@@ -178,6 +178,12 @@ P1、I1、H1 与父任务当前均为 `HUMAN_ACCEPTED`。这只接受受控正�
 最小 resolve capability、UTF-8 hash、exact-match legacy 迁移和注入错误脱敏；不接受或实现真实 provider、
 ContextBuilder、Citation、Trust、S6-T5.5 或正式 RAG 安全实验。
 
+### S6-T5.5-P1/P1-H1 人工验收附注（2026-07-26）
+
+P1 与 H1 已 `HUMAN_ACCEPTED`，但此 ADR 的 Factory、Binding、renderer 和 ContextBuilder 仍是未来实现契约，
+不是已存在的业务对象。验收仅将 `S6-T5.5` 推进为 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`；
+`S6-T5.5-I1` 仍为 `NOT YET APPROVED`，不得把设计提交 `25fb83d` 当作业务实现提交。
+
 ## S6-T5.5-P1：EvidenceEnvelope 与 Citation 边界冻结
 
 为消除“Citation ID 按最终 Context 顺序分配”与“Envelope 位于 ContextBuilder 之前”的矛盾，本 ADR 冻结

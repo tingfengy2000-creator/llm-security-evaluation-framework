@@ -668,3 +668,10 @@ renderer。任一 identity 不一致为 `EVIDENCE_CONTENT_MISMATCH`。
 `CITATION_BINDING_MISMATCH` 和固定脱敏消息 `citation binding does not match evidence` fail closed。Binding 创建与
 allocator 调用仍只属于 S6-T5.6 ContextBuilder。本 H1 只修订协议，状态为 `Completed, pending human review`；P1 和
 父任务的审批状态不变。
+
+### 25.2 GOV-S6-T5.5-P1-ACCEPTANCE：协议人工验收附注（2026-07-26）
+
+项目负责人已接受 P1 与 H1 的协议设计。历史 pending/review 表述保留为当时快照；当前事实是 P1 与 H1 均为
+`HUMAN_ACCEPTED`。这不实现本规格中的 Factory、DTO、renderer、Binding、package 或 ContextBuilder。
+`S6-T5.5` 仅变为 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`，`S6-T5.5-I1` 仍为 `NOT YET APPROVED`，
+`S6-T5.6+` 与正式 RAG 安全实验仍为 `NOT APPROVED`/`NOT STARTED`。

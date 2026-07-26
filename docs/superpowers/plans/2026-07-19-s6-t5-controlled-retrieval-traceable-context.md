@@ -459,3 +459,10 @@ ContentResolver 输入通过 exact-match adapter 映射，不得进入 Factory�
 Citation allocation 与 Binding 创建仍是 S6-T5.6 ContextBuilder 的运行期职责；H1 不实现 DTO、factory、renderer、
 Binding 或 ContextBuilder。H1 状态为 `Completed, pending human review`；P1 仍为 `Completed, pending human
 acceptance`，`S6-T5.5`、`S6-T5.6+` 和正式 RAG 安全实验未获批准。
+
+## 23. GOV-S6-T5.5-P1-ACCEPTANCE：协议人工验收执行记录（2026-07-26）
+
+项目负责人已将 P1 与 P1-H1 设为 `HUMAN_ACCEPTED`。这是对本计划第 7 节未来实现前置协议的人工接受，
+不是第 7 节 TDD/源码任务的启动许可。`S6-T5.5` 现为 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`，
+但 `S6-T5.5-I1` 仍为 `NOT YET APPROVED`；S6-T5.6+、ContextBuilder、Citation Accuracy、Trust、LLM 和正式
+RAG 安全实验保持未批准/未开始。最后接受的 stage implementation commit 仍为 `11a72f7`，`25fb83d` 仅是协议加固提交。

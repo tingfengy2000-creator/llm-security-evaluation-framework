@@ -156,6 +156,7 @@ S6-T5.3-H1 均已通过项目负责人 `HUMAN_ACCEPTED`；S6-T5.4 为
 | PODR-016 | 2026-07-25 | S6-T5.4 Controlled Corpus ContentResolver Human Acceptance Record | 接受 P1 协议、I1 最小实现、H1 capability/failure-boundary 加固与父任务；确认其只覆盖合成内存工程边界 | HUMAN_ACCEPTED | 项目负责人明确决定、`11a72f7`、完成记录与治理测试 | PODR-013、PODR-014、PODR-015 历史快照 | 不批准 S6-T5.5、EvidenceEnvelope、Citation、ContextBuilder、真实正文 provider 或正式 RAG 实验 |
 | PODR-017 | 2026-07-25 | S6-T5.5-P1 EvidenceEnvelope and Citation Boundary Freeze | 批准协议审查，采用无 `citation_id` Envelope 与由未来 ContextBuilder 在最终 Evidence 集后创建 package-local Binding 的方案；冻结 instruction、escaping、错误和敏感导出边界 | DESIGN_FREEZE_COMPLETED_PENDING_HUMAN_ACCEPTANCE | 项目负责人当前指令、S6-T5.5 protocol review record、规格/计划/ADR | — | 不批准 S6-T5.5 业务实现、CitationBinding、rendering、ContextBuilder 或正式 RAG 实验 |
 | PODR-018 | 2026-07-26 | S6-T5.5-P1-H1 Evidence Canonical Binding and Citation Rendering Protocol Hardening | 批准修订 Factory canonical Evidence-only 输入、Renderer 的 Envelope + Binding 唯一输入和 `CITATION_BINDING_MISMATCH` fail-closed 语义 | DESIGN_FREEZE_HARDENING_COMPLETED_PENDING_HUMAN_REVIEW | 项目负责人当前指令、S6-T5.5 protocol review record、规格/计划/ADR | PODR-017 ambiguous legacy/renderer boundary | 不批准 S6-T5.5 业务实现、Binding/renderer/ContextBuilder 或正式 RAG 实验 |
+| PODR-019 | 2026-07-26 | S6-T5.5 EvidenceEnvelope and Citation Protocol Human Acceptance Record | 人工接受 P1 与 H1 的协议设计；S6-T5.5 仅进入独立实现审批准备 | HUMAN_ACCEPTED | 项目负责人明确决定、P1/H1 protocol review record、规格/计划/ADR、治理测试 | PODR-017、PODR-018 的历史 pending/review 快照 | 不批准 S6-T5.5-I1、EvidenceEnvelope、CitationBinding、renderer、ContextBuilder 或正式 RAG 实验 |
 
 ## 7.1 S6-T5.4 当前审批解释（2026-07-25）
 
@@ -193,6 +194,15 @@ RetrievalEvidence 且逐项检查 ContentRef、snapshot、chunk、hash；legacy 
 Factory。renderer 只接受 Envelope + Binding，七项 identity 任一不一致即为 `CITATION_BINDING_MISMATCH`，固定脱敏
 外部消息为 `citation binding does not match evidence`，不作为 abstention。P1 仍待人工验收；S6-T5.5、S6-T5.6+ 与
 正式 RAG 安全实验仍为 `NOT APPROVED`/`NOT STARTED`。
+
+## 7.6 S6-T5.5-P1 与 P1-H1 人工验收当前状态（2026-07-26）
+
+PODR-019 将 `S6-T5.5-P1` 与 `S6-T5.5-P1-H1` 标记为 `HUMAN_ACCEPTED`，但只接受其设计协议：无
+`citation_id` Envelope、future package-local Binding allocation、canonical Factory 输入、七字段 Binding
+校验、`CITATION_BINDING_MISMATCH` fail-closed、固定 instruction/rendering 与敏感导出 deny-by-default。该决定不把
+`25fb83d` 登记为业务实现提交；最后接受的 stage implementation 仍是 `S6-T5.4 Controlled Corpus ContentResolver`
+的 `11a72f7`。`S6-T5.5` 现为 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`，但 `S6-T5.5-I1` 是
+`NOT YET APPROVED`，`S6-T5.6+` 为 `NOT APPROVED`，正式 RAG 安全实验为 `NOT STARTED`。
 
 ## 8. 新 Thread 最小读取顺序
 

@@ -2,7 +2,7 @@
 
 > 这是项目唯一的总览与决策入口。它回答：为什么做、已经做了什么、证据在哪里、当前代码处于什么状态、未来架构如何同时支撑面试、论文和科技立项。
 
-更新时间：2026-07-22
+更新时间：2026-07-26
 
 当前研究分支：`feature/stage6-rag`
 
@@ -923,3 +923,14 @@ Citation allocation 与 Binding 创建仍只属于未来 S6-T5.6 ContextBuilder�
 本 H1 没有改动 `src/`、业务测试、Stage 1–5 或 Stage 6 fixture/data；没有调用 Embedding、Chroma、Groq 或 LLM，
 没有产生实验结果。当前为 `Completed, pending human review`；P1 仍为 `Completed, pending human acceptance`，
 `S6-T5.5`、S6-T5.6+ 仍为 `NOT APPROVED`。
+
+## 23. GOV-S6-T5.5-P1-ACCEPTANCE：EvidenceEnvelope 与 Citation 协议人工验收（2026-07-26）
+
+项目负责人已将 `S6-T5.5-P1` 与 `S6-T5.5-P1-H1` 标记为 `HUMAN_ACCEPTED`。这只接受未来对象的协议边界：
+Envelope 不持有 citation ID、Binding 在最终证据集合后创建、Factory 只接收 canonical Evidence、renderer 仅消费
+已绑定对象并对七项身份 mismatch fail closed、escaping 只保护结构、正文导出默认拒绝。没有因此实现任何 DTO、
+renderer 或 ContextBuilder，也没有产生 Citation Accuracy 或 RAG 安全实验结论。
+
+当前最高已接受业务阶段是 `S6-T5.4 Controlled Corpus ContentResolver`，最后接受的业务实现提交仍为 `11a72f7`；
+`25fb83d` 仅为设计协议加固提交。`S6-T5.5` 现为 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`，但
+`S6-T5.5-I1` 仍为 `NOT YET APPROVED`，`S6-T5.6+` 仍为 `NOT APPROVED`，正式 RAG 安全实验仍为 `NOT STARTED`。
