@@ -26,10 +26,10 @@ Evidence UID: 稳定证据身份，可跨同一 immutable corpus snapshot 的运
 Citation ID: 当前 RetrievedContextPackage 内的局部展示编号，只在最终 Context 顺序确定后存在
 ```
 
-`S6-T5.6 ContextBuilder` 的固定顺序仍为：稳定排序、Evidence UID 去重、数量限制、正文解析与 hash 验证、
-预算选择、Citation ID 分配、渲染。它按最终保留的 Evidence 顺序一次性分配连续 `E1 ... En`，再创建对应的
-`CitationBinding`。因此本轮只冻结 allocator 的规则，**不执行**分配；不会为后来被去重或预算排除的 Evidence
-预先生成错误引用。
+`S6-T5.6 ContextBuilder` 的固定顺序仍为：稳定排序、Evidence UID 去重、数量限制、正文解析、hash 验证、
+完整 block 预算选择、连续 Citation ID 分配、`CitationBinding` 创建、单 block 渲染、package 组装。它按最终保留的
+Evidence 顺序一次性分配连续 `E1 ... En`，再创建对应 Binding。因此本轮只冻结 allocator 的规则，**不执行**分配；
+不会为后来被去重或预算排除的 Evidence 预先生成错误引用。
 
 ## 3. 唯一 owner 与构造边界
 
@@ -42,10 +42,16 @@ Citation ID: 当前 RetrievedContextPackage 内的局部展示编号，只在最
 
 唯一生产构造行为冻结为未来的 `EvidenceEnvelopeFactory.create(*, evidence: RetrievalEvidence,
 resolved_content: ResolvedContent) -> EvidenceEnvelope`。此 factory 的 concrete implementation 属于**单独批准的
-S6-T5.5 实现**，本 P1 不创建它。工厂必须验证 chunk、hash 与 canonical `corpus:` snapshot/chunk identity；legacy
-`chroma:` 必须已经由已验收 Resolver 的 exact-match mapping 归一化。`doc_id`、`parent_doc_id`、来源、版本、rank 和
-metric 只能复制自 `RetrievalEvidence`；正文只能复制自 `ResolvedContent`；`public_metadata` 只能复制已冻结的
-Evidence public metadata。任何调用者都不得以任意 `str` 正文和自定义 metadata 直接拼装 Envelope。
+S6-T5.5 实现**，本 P1 不创建它。Factory **只接受 canonical RetrievalEvidence**：`evidence.content_ref` 必须是
+已验证的 `ContentRef`、scheme 必须为 `corpus`，并且它必须严格等于 `resolved_content.canonical_content_ref`；
+`evidence.corpus_snapshot_id`、`chunk_id`、`content_hash` 必须分别等于 ResolvedContent 的同名字段。仅 chunk/hash
+相同但 snapshot 或 canonical reference 不同的组合一律拒绝为 `EVIDENCE_CONTENT_MISMATCH`。
+
+legacy `chroma:` 只属于已验收 ContentResolver 的**输入**边界：`legacy chroma: ContentRef ->
+LegacyContentRefAdapter -> canonical corpus: ContentRef -> ResolvedContent`。它不进入 EnvelopeFactory；Factory 不接受
+legacy Evidence、未验证 ContentRef、任意 legacy record、DocumentRecord、ChunkRecord、裸 metadata 或裸正文 str，且不
+猜测、映射或访问 Legacy Adapter。`doc_id`、`parent_doc_id`、来源、版本、rank、metric 与 public_metadata 只能复制自
+RetrievalEvidence；正文只能复制自 ResolvedContent。任何调用者都不得以任意正文和自定义 metadata 直接拼装 Envelope。
 
 ## 4. EvidenceEnvelope 与 CitationBinding 契约
 
@@ -92,6 +98,21 @@ required:  Use the evidence below to answer the user. Cite every factual claim w
 
 模板的闭合 `</EVIDENCE>` 后必须恰好带一个 LF；无额外空行。
 
+未来唯一单 block renderer 接口为：
+
+```python
+def render_evidence_block(
+    *,
+    envelope: EvidenceEnvelope,
+    binding: CitationBinding,
+) -> str: ...
+```
+
+它不接受裸 `citation_id`、裸正文、裸 metadata、任意 dict，也不从 Envelope rank 猜测 Citation ID 或自行创建 Binding。
+renderer 必须逐项比较 `evidence_uid`、`chunk_id`、`parent_doc_id`、`content_hash`、`source_id`、`version`、`rank`；
+Citation ID 只能来自 `binding.citation_id`。任一字段不一致必须以 `CITATION_BINDING_MISMATCH` fail closed：不返回
+partial/empty block、不跳过后继续、不重编号掩盖错误，也不解释为 abstention。
+
 属性均使用 attribute escaping；正文只使用 text escaping。正文中的 `</EVIDENCE>`、`<EVIDENCE>`、`<SYSTEM>` 与
 `<INSTRUCTION>` 因此不能改变结构。Escaping **只**保护结构边界，不构成语义 Prompt Injection 防御，也不替代
 Guard 或 Trust policy。`S6-T5.5-P1` 不拼接多个 block、不应用预算、不计算 Context hash。
@@ -109,11 +130,14 @@ rendered block、路径、metadata 原值或标签。P1 冻结的语义映射为
 | `INVALID_CITATION_ID` | Citation input | 不满足 `E<positive integer>` |
 | `DUPLICATE_CITATION_ID` | Citation integrity | 同 package 重复 |
 | `CITATION_SEQUENCE_INVALID` | Citation integrity | 非连续或未对应最终顺序 |
+| `CITATION_BINDING_MISMATCH` | Citation / rendering integrity | Binding 与 Envelope 的七项稳定身份字段任一不一致 |
 | `INVALID_CITATION_MODE` | Citation input | 非法枚举或 instruction 请求 |
 | `CONTEXT_RENDERING_FAILURE` | Rendering runtime | 结构化 rendering 失败 |
 
-具体类名与继承关系必须在获批实现前基于现有 `RetrievalContractError` 层级再次审查；不得在本 P1 为了“预占代码”新增
-源码。结构错误必须 fail closed，不能返回空 Envelope，更不能解释为 abstention。
+未来实现前必须再次基于现有 `RetrievalContractError` 层级审查具体类名与继承关系；不得在本 P1 为了“预占代码”新增
+源码。`CITATION_BINDING_MISMATCH` 的固定脱敏外部消息为 `citation binding does not match evidence`；保留内部 cause
+时使用 `raise ... from error`，但不回显正文、rendered block、Query、ContentRef 原值、metadata 原值、标签、
+Ground Truth、本机路径或底层异常原文。结构错误必须 fail closed，不能返回空 Envelope，更不能解释为 abstention。
 
 Envelope、Binding、instruction、rendering 和 audit representation 不得携带 evaluator 标签：`poisoned`、
 `poison_label`、`label`、`attack_id`、`attack_goal`、`attack_category`、`expected_answer`、`expected_behavior`、
@@ -123,8 +147,32 @@ Envelope、Binding、instruction、rendering 和 audit representation 不得携�
 ## 7. 与 S6-T5.6 的边界和人工审查问题
 
 S6-T5.5-P1 只解决长期接口语义，不能构成工程能力或实验结果。未来 S6-T5.5 实现获批前，须先对本记录逐条 TDD；
-S6-T5.6 ContextBuilder 只有在 T5.5 被人工验收后，才可创建最终 package、CitationBinding、多个 Evidence block、
-预算和 Context hash。Citation Accuracy、Trust、LLM、真实正文 provider 和正式 RAG 安全实验均不在本轮范围。
+S6-T5.6 ContextBuilder 只有在 T5.5 被人工验收后，才可实际执行 Citation allocation、创建 Binding、创建最终
+package、组装多个 Evidence block、应用预算和计算 Context hash。Citation Accuracy、Trust、LLM、真实正文 provider 和
+正式 RAG 安全实验均不在本轮范围。
 
 人工审查应确认：方案 A 的时序是否接受；factory 是否能成为唯一生产构造入口；敏感导出继续 deny-by-default 是否
 可接受；精确 instruction/template/escaping 是否满足可复现性需求。批准本 P1 不等于批准 S6-T5.5 实现。
+
+## 8. S6-T5.5-P1-H1：Canonical Binding 与 Renderer 协议加固（2026-07-26）
+
+人工审查发现原记录把“Resolver 可解析 legacy `chroma:` 输入”表述得过于接近 Factory 输入边界，且没有把单 block
+renderer 的 Binding identity 验证写成唯一接口。本 H1 已明确：Factory 只接受 canonical `corpus:`
+RetrievalEvidence，legacy compatibility 在 Resolver 输入边界结束；Factory 不负责 legacy 映射。renderer 唯一输入为
+`EvidenceEnvelope + CitationBinding`，且必须验证七项稳定字段后才取用 `binding.citation_id`。
+
+`CITATION_BINDING_MISMATCH` 是新增的 fail-closed Citation/rendering integrity error，固定外部消息为
+`citation binding does not match evidence`。它不是 abstention、跳过、重编号或空 block 的理由。本 H1 不创建任何源码，
+不调用模型，不读取 fixture；当前状态为 `Completed, pending human review`。P1 仍为 `Completed, pending human
+acceptance`，S6-T5.5 与 S6-T5.6+ 仍为 `NOT APPROVED`，正式实验仍为 `NOT STARTED`。
+
+### 8.1 H1 验证留痕与扫描边界
+
+本轮先后运行了协议治理定向测试、Stage 6/architecture/retrieval 离线回归、Ruff、scoped MyPy、Markdown 相对链接、
+变更文件 secret-shape 与绝对路径扫描、protected-path、runtime Git-ignore 以及 `git diff --check`。其中，第一次
+Markdown 链接扫描因仓库根目录 Markdown 文件的 parent path 为空而在扫描器启动阶段失败；修正扫描器对根目录使用 `.`
+作为 parent 后，结果为零个失效相对链接。该失败不读取 fixture、不涉及业务代码，也不表示文档链接失效。
+
+全仓 secret-shape 扫描会命中不可变的 Stage 1--4 HTML 历史报告、历史 guard 测试样例和 `chatgpt_share_2.html` 导出。
+这些命中属于既有实验/归档内容，不能在本次纯治理任务中被删除或改写；对本轮 11 个变更文件复扫后，secret-shape 和本机
+绝对路径命中均为 0。故本轮的结论是“新增治理变更无 secret/path 命中”，而不是把历史归档误称为不存在的全仓风险。

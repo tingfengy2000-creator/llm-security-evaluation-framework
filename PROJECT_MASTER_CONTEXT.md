@@ -907,3 +907,19 @@ Prompt Injection 语义防护。正文普通导出继续 deny-by-default，直�
 LLM，也没有运行正式实验。`S6-T5.5-P1` 当前为 `Completed, pending human acceptance`；`S6-T5.5`、S6-T5.6+
 仍为 `NOT APPROVED`。详细审查证据见
 [S6-T5.5 protocol review record](docs/governance/s6_t5_5_protocol_review_record.md)。
+
+## 22. S6-T5.5-P1-H1：Canonical Binding 与 Citation Rendering 协议加固（2026-07-26，待人工复核）
+
+人工审查发现两个会在后续实现中混淆权限的缺口。第一，`ContentRef` value object 可为 Resolver 兼容识别 legacy
+`chroma:`，但已实现的 canonical `RetrievalEvidence` 只允许 `corpus:`；因此 Factory 只能消费 canonical Evidence，
+不能再映射、猜测或接受 legacy record。Factory 必须同时比对 ContentRef、snapshot、chunk、hash，防止“chunk/hash
+相同但来自不同 snapshot”的跨语料拼接。
+
+第二，Envelope 不含 citation ID 后，renderer 只能接收 `EvidenceEnvelope + CitationBinding`，并逐项验证 UID、chunk、
+parent、hash、source、version、rank。任一不一致是 `CITATION_BINDING_MISMATCH`，固定脱敏消息为
+`citation binding does not match evidence`；必须 fail closed，而不是输出 partial block、跳过、重编号或作为 abstention。
+Citation allocation 与 Binding 创建仍只属于未来 S6-T5.6 ContextBuilder。
+
+本 H1 没有改动 `src/`、业务测试、Stage 1–5 或 Stage 6 fixture/data；没有调用 Embedding、Chroma、Groq 或 LLM，
+没有产生实验结果。当前为 `Completed, pending human review`；P1 仍为 `Completed, pending human acceptance`，
+`S6-T5.5`、S6-T5.6+ 仍为 `NOT APPROVED`。

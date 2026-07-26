@@ -193,3 +193,14 @@ ResolvedContent 贡献经过 hash 验证的正文。敏感导出默认拒绝，�
 不做 Unicode normalization；正文 hash 始终基于原始 UTF-8 bytes。该 escaping 只保护结构边界，不是 Prompt Injection
 语义防护。P1 不实现 DTO、factory、Binding、renderer 或 ContextBuilder；完整冻结记录见
 `docs/governance/s6_t5_5_protocol_review_record.md`，当前仅 `Completed, pending human acceptance`。
+
+### S6-T5.5-P1-H1：Canonical Evidence 与 Binding Rendering 加固
+
+Factory 位于 Resolver 之后，只消费 canonical `corpus:` RetrievalEvidence 与已验证 ResolvedContent；legacy `chroma:`
+的 exact-match mapping 在 Resolver 输入边界结束，不能被 Factory 重新解释。Factory 必须同时验证 canonical ContentRef、
+snapshot、chunk、hash，任何不一致为 `EVIDENCE_CONTENT_MISMATCH`。
+
+renderer 只消费 `EvidenceEnvelope + CitationBinding`，不接收裸 citation ID、正文、metadata 或 dict，也不猜测编号或创建
+Binding。它在渲染前逐项校验 UID、chunk、parent、hash、source、version、rank，不一致即以固定脱敏的
+`CITATION_BINDING_MISMATCH` 失败。该错误是完整性失败而非 abstention，不能返回 partial block 或重编号。Binding 的创建
+和 allocator 调用仍属于未来 S6-T5.6 ContextBuilder；本 H1 不创建源码，状态为 `Completed, pending human review`。

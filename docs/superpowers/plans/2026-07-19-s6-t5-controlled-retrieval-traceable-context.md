@@ -448,3 +448,14 @@ logger 或异常。
 Unicode normalization；escaping 只保护结构边界，并不构成语义防注入。敏感 artifact export 延期且默认关闭。详情见
 `docs/governance/s6_t5_5_protocol_review_record.md`。执行状态为 `Completed, pending human acceptance`；S6-T5.5、
 S6-T5.6+ 和正式 RAG 安全实验仍未批准。
+
+## 22. S6-T5.5-P1-H1 协议加固执行记录（2026-07-26）
+
+人工审查指出 Factory 的 legacy 表述会模糊 Resolver 与 Envelope 的责任。本 H1 仅补充设计和治理测试：Factory 只接受
+canonical `corpus:` RetrievalEvidence，并验证 ContentRef equality、snapshot、chunk 与 hash；legacy `chroma:` 只在
+ContentResolver 输入通过 exact-match adapter 映射，不得进入 Factory。未来 renderer 的唯一输入冻结为
+`Envelope + Binding`，它必须逐项验证七项 Binding/Evidence identity，并以 `CITATION_BINDING_MISMATCH` fail closed。
+
+Citation allocation 与 Binding 创建仍是 S6-T5.6 ContextBuilder 的运行期职责；H1 不实现 DTO、factory、renderer、
+Binding 或 ContextBuilder。H1 状态为 `Completed, pending human review`；P1 仍为 `Completed, pending human
+acceptance`，`S6-T5.5`、`S6-T5.6+` 和正式 RAG 安全实验未获批准。

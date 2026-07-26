@@ -17,9 +17,11 @@
 
 ## Current Task
 
-- Task ID: `S6-T5.5-P1`.
-- Task name: `EvidenceEnvelope and Citation Boundary Freeze`.
-- Execution status: **Completed, pending human acceptance**. This is a design-freeze/protocol-review record, not a new retrieval capability, implementation approval or a formal RAG security experiment.
+- Task ID: `S6-T5.5-P1-H1`.
+- Task name: `Evidence Canonical Binding and Citation Rendering Protocol Hardening`.
+- Execution status: **Completed, pending human review**. This is a design-freeze hardening record, not a new retrieval capability, implementation approval or a formal RAG security experiment.
+- S6-T5.5-P1: **Completed, pending human acceptance**.
+- S6-T5.5-P1-H1: Factory only accepts canonical `corpus:` RetrievalEvidence; renderer only accepts Envelope + Binding and fails closed on seven-field mismatch.
 - S6-T5.4-P1: **HUMAN_ACCEPTED**.
 - Governance acceptance record: `GOV-S6-T5.4-P1-ACCEPTANCE`.
 - S6-T5.4 protocol blocker: **RESOLVED_BY_APPROVED_PROTOCOL_FREEZE**. The original discovery, risks and fail-closed stop remain preserved in the blocker record.
@@ -51,9 +53,10 @@
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. This does not approve EvidenceEnvelope, citation, ContextBuilder or S6-T5.5; each remains a separate approval boundary.
 - `S6-T5.5-P1` is **Completed, pending human acceptance**. It freezes a no-`citation_id` Envelope, future package-local Binding allocation, deterministic instruction/rendering rules and sensitive-export deny-by-default; it does not implement any of them.
+- `S6-T5.5-P1-H1` is **Completed, pending human review**. It clarifies canonical Evidence-only Factory input, single-block renderer input and `CITATION_BINDING_MISMATCH`; it does not implement any of them.
 - `S6-T5.5`: **NOT APPROVED**. Every later S6-T5 task is also **NOT APPROVED**.
 - Formal RAG security experiment: **Not started**.
-- Next human decision: accept, reject or amend S6-T5.5-P1; only after that may a separately scoped S6-T5.5 implementation be considered. S6-T5.5 remains unapproved.
+- Next human decision: review S6-T5.5-P1-H1, then accept, reject or amend S6-T5.5-P1; only after that may a separately scoped S6-T5.5 implementation be considered. S6-T5.5 remains unapproved.
 
 ## Must Not Start
 
@@ -77,4 +80,4 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 ## Last Update
 
 - Date: `2026-07-25`.
-- Updated by: Codex under explicit project-owner design-review approval. S6-T5.4-P1, I1, H1 and parent S6-T5.4 remain HUMAN_ACCEPTED. S6-T5.5-P1 is Completed, pending human acceptance; S6-T5.5 and later tasks are Not approved. No source/data change, model call or formal RAG security experiment occurred.
+- Updated by: Codex under explicit project-owner design-review hardening approval. S6-T5.4-P1, I1, H1 and parent S6-T5.4 remain HUMAN_ACCEPTED. S6-T5.5-P1 remains Completed, pending human acceptance; S6-T5.5-P1-H1 is Completed, pending human review; S6-T5.5 and later tasks are Not approved. No source/data change, model call or formal RAG security experiment occurred.

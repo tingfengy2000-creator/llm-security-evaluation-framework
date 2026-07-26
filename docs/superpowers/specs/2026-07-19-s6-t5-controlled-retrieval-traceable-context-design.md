@@ -263,9 +263,10 @@ corpus:<corpus_snapshot_id>:<chunk_id>
 它是 opaque、无本机路径的受控引用。兼容迁移顺序固定为：
 
 1. S6-T5.2 在 `contracts/` 建立唯一 ContentRef validation contract；
-2. 实现期同时接受 canonical `corpus:` 与 legacy `chroma:`；
+2. 该 value object 为 Resolver adapter 兼容同时识别 canonical `corpus:` 与 legacy `chroma:`；
 3. 新 S6-T5 producer 只生成 `corpus:`；旧 S6-T4 fixture 继续生成 `chroma:`；
-4. `RetrievalEvidence` 在其**同一个既有 contract**的原地演进中开始接受两种 scheme；
+4. 当前 canonical `RetrievalEvidence` contract 只接受 `corpus:`；legacy ContentRef 不得成为 Evidence、Envelope 或
+   renderer 输入；
 5. S6-T5.4 的 Resolver 按 scheme 显式分派；legacy `chroma:` 只能映射受控 fixture corpus，绝不能
    从 Chroma 读取正文；
 6. 未知 scheme、绝对路径、超长或含正文的 reference 立即失败。
@@ -654,3 +655,16 @@ CRLF/CR 统一为 LF 但不做 Unicode normalization，正文 hash 仍按转换�
 
 本 P1 当前为 `Completed, pending human acceptance`；`S6-T5.5` 与 `S6-T5.6+` 仍为 `NOT APPROVED`，没有创建源码、
 调用模型或执行正式 RAG 安全实验。
+
+### 25.1 S6-T5.5-P1-H1：Canonical Binding 与 Renderer 输入加固（2026-07-26）
+
+`EvidenceEnvelopeFactory` 只接受已满足当前 canonical contract 的 `RetrievalEvidence`：其 `content_ref` 为经验证的
+`ContentRef`、scheme 为 `corpus`，并与 `ResolvedContent.canonical_content_ref` 完全相等；snapshot、chunk、hash 也必须
+逐项相等。legacy `chroma:` 只存在于 Resolver 输入到 exact-match adapter 的迁移边界，不进入 Factory、Envelope 或
+renderer。任一 identity 不一致为 `EVIDENCE_CONTENT_MISMATCH`。
+
+唯一单 block renderer 未来签名为 `render_evidence_block(*, envelope: EvidenceEnvelope, binding: CitationBinding) -> str`。
+它只从 Binding 读取 Citation ID，并逐项验证 UID、chunk、parent、hash、source、version、rank；不一致时以
+`CITATION_BINDING_MISMATCH` 和固定脱敏消息 `citation binding does not match evidence` fail closed。Binding 创建与
+allocator 调用仍只属于 S6-T5.6 ContextBuilder。本 H1 只修订协议，状态为 `Completed, pending human review`；P1 和
+父任务的审批状态不变。

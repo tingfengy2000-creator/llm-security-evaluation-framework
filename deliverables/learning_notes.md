@@ -1211,3 +1211,34 @@ Experiment Master Record 也没有同时给出机器易检索的 `NOT APPROVED` 
 `GOV-S6-T5.4-ACCEPTANCE` 误当成当前任务。这些都是治理表述漂移，而非业务代码失败。已把状态改为显式枚举、将旧断言
 改为 P1 当前任务，并保留过去验收记录为历史事实。该记录提醒我：审批文档既要让人读懂，也要让回归测试准确区分
 “历史已完成”“当前设计待验收”和“后续未批准”。
+
+## 2026-07-26: S6-T5.5-P1-H1 Canonical Binding 与 Renderer 协议加固
+
+**我现在做了什么**：人工审查发现 Factory 的旧表述可能让人以为它也能处理 legacy `chroma:` Evidence。实际已实现
+contract 是：`ContentRef` value object 为 Resolver 兼容可识别 legacy，但 `RetrievalEvidence` 已强制 canonical
+`corpus:`。我据此把 Factory 输入冻结为“canonical RetrievalEvidence + ResolvedContent”，并要求 ContentRef、
+snapshot、chunk、hash 四项同时一致。
+
+**为什么这样做**：只比 chunk ID 和 hash 不够，因为相同正文可能在不同 corpus snapshot 中出现。snapshot 和 canonical
+reference 是语料版本身份的一部分。把 legacy 映射限制在 Resolver 输入端，Factory 就不会偷偷承担迁移、猜测或内容访问
+权限，后续更容易审计责任。
+
+**Renderer 的新边界**：Envelope 没有 citation ID，renderer 只能接收 Envelope 与 Binding，并核对 UID、chunk、parent、
+hash、source、version、rank 七项身份后才使用 `binding.citation_id`。不一致即抛出固定脱敏的
+`CITATION_BINDING_MISMATCH`；它不是“没有证据”的 abstention，也不能用跳过、空 block 或重编号掩盖。
+
+**企业与面试意义**：可以解释为“证据内容、引用编号和渲染权限三权分立”：Resolver 管正文/legacy 映射，Factory 管
+canonical evidence 与正文的完整性绑定，ContextBuilder 管最终编号分配，renderer 只消费已绑定对象。这避免某一层通过
+便利参数绕过 provenance 校验。
+
+**当前边界**：本轮只修订协议与治理测试，不实现 Envelope、Binding、renderer 或 ContextBuilder，不调用模型、不读取
+fixture，也不产生 Citation Accuracy 或 RAG 安全效果结论。H1 为 `Completed, pending human review`；P1 仍待人工验收。
+
+**治理测试留痕**：H1 首次测试失败不是协议遗漏，而是测试把“Citation allocation 属于 S6-T5.6 ContextBuilder”写成一段
+必须连续匹配的文字；协议实际将任务名称与“才可实际执行 allocation、创建 Binding”分行说明。已把断言改为两个语义片段，
+避免让 Markdown 换行决定测试结果。这个问题说明治理测试应验证不变量和责任边界，而不是脆弱地绑定某一行的排版。
+
+**最终验证留痕**：Markdown 相对链接扫描第一次因根目录 Markdown 的 parent path 为空而在扫描器启动阶段失败；将根目录
+按 `.` 处理后，链接检查通过。这是检查器边界修正，不是文档缺链。全仓 secret-shape 扫描仍会命中不可变的 Stage 1--4 HTML
+报告、历史 guard 测试样例及聊天导出；它们不是本轮新增内容，且受“历史产物不改写”约束。对 H1 的 11 个变更文件定向复扫，
+密钥形态和本机绝对路径均为 0；因此只能准确地说本轮变更未引入该类风险，不能把历史命中掩盖成全仓零风险。

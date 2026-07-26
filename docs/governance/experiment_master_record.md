@@ -47,7 +47,7 @@
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
 | 当前最高完成阶段 | Stage 6 的 S6-T5.3 DenseRetriever 已通过人工验收，验收边界仅为离线工程行为。 |
-| 当前任务 | `S6-T5.5-P1` 已完成协议审查，状态为 `Completed, pending human acceptance`；它不是实现或正式 RAG 安全实验。 |
+| 当前任务 | `S6-T5.5-P1-H1` 已完成协议加固，状态为 `Completed, pending human review`；P1 仍为 `Completed, pending human acceptance`；它不是实现或正式 RAG 安全实验。 |
 | 当前审批门 | S6-T5.4 blocker 仍保留为 `RESOLVED_BY_APPROVED_PROTOCOL_FREEZE` 的历史记录；S6-T5.4 已 HUMAN_ACCEPTED。 |
 | 下一批准任务 | 先人工审查 S6-T5.5-P1；`S6-T5.5` 及以后仍未批准，EvidenceEnvelope、Citation、ContextBuilder 和正式 RAG 安全实验均须独立审批。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
@@ -92,6 +92,7 @@
 | S6-T5.3 | DenseRetriever | 透明 Dense Retrieval | S6-T5.3 DenseRetriever 已通过人工验收；P1/H1 均已接受 | `ENGINEERING_VALIDATED` | [完成记录](s6_t5_3_completion_record.md)、[阻断记录](s6_t5_3_protocol_blocker_record.md)、`72a2445` | S6-T5.4 仍需独立批准 |
 | S6-T5.4 | Controlled Corpus ContentResolver | 受控正文解析与 hash 校验 | P1、I1、H1 与父任务均通过人工验收；仅覆盖合成内存 resolver 工程边界 | `ENGINEERING_VALIDATED` | [completion record](s6_t5_4_completion_record.md)、[blocker record](s6_t5_4_protocol_blocker_record.md)、PODR-015、PODR-016 | S6-T5.5 仍须独立批准 |
 | S6-T5.5-P1 | EvidenceEnvelope and Citation Boundary Freeze | 解决 Citation 时序、factory、escaping 与敏感导出边界 | 已完成，待人工验收 | `DESIGN_FREEZE_PENDING_HUMAN_ACCEPTANCE` | [protocol review record](s6_t5_5_protocol_review_record.md) | 不批准 S6-T5.5 实现 |
+| S6-T5.5-P1-H1 | Evidence Canonical Binding and Citation Rendering Protocol Hardening | 收紧 canonical Factory 输入、Renderer Binding identity 与 fail-closed mismatch | 已完成，待人工复核 | `DESIGN_FREEZE_HARDENING_PENDING_HUMAN_REVIEW` | [protocol review record](s6_t5_5_protocol_review_record.md) | 不批准 S6-T5.5 实现 |
 | S6-T5.5–S6-T5.8 | Envelope、Context、后续受控能力 | 逐项增量实现 | 未批准 | `PLANNED_NOT_IMPLEMENTED` | [protocol review record](s6_t5_5_protocol_review_record.md) | P1 人工验收后仍须单独批准 |
 | Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | 规划中 | `PLANNED` | [长期需求](long_term_research_requirements.md) | Stage 6 基线 |
 | Stage 6.2 | Multi-Evidence Trustworthy Retrieval | 可信聚合、重排、拒答 | 规划中 | `PLANNED` | [长期需求](long_term_research_requirements.md) | Stage 6.1/设计批准 |
@@ -380,3 +381,4 @@ git log -15 --oneline
 | 2026-07-25 | S6-T5.4-H1 capability/failure-boundary 加固 | 第 2、4、10、14、20 节 | 删除公开 registry capability；将注入 adapter/registry/reader 的领域异常按受信 type/code 重新构造为固定脱敏外部错误，未知或交叉 code fail closed 为 runtime；仅合成内存测试，待人工复核 | [completion record](s6_t5_4_completion_record.md)、定向/架构/隔离测试 | 通过 `git log -1 -- docs/governance/experiment_master_record.md` 动态解析 |
 | 2026-07-25 | GOV-S6-T5.4-ACCEPTANCE | 第 2、4、10、12、14、20 节 | 项目负责人接受 P1、I1、H1 与父任务；保持工程验证分类，不批准 S6-T5.5、ContextBuilder、Citation 或正式 RAG 实验 | [completion record](s6_t5_4_completion_record.md)、PODR-016、治理测试 | 通过 `git log -1 -- docs/governance/experiment_master_record.md` 动态解析 |
 | 2026-07-25 | S6-T5.5-P1 协议审查 | 第 2、4、12、14、20 节 | 冻结无 `citation_id` Envelope、由未来 ContextBuilder 创建的 package-local CitationBinding、确定性 instruction/XML escaping 和默认关闭敏感导出；未创建业务代码或实验结果，待人工验收 | [protocol review record](s6_t5_5_protocol_review_record.md)、规格、计划、ADR、治理测试 | 通过 `git log -1 -- docs/governance/experiment_master_record.md` 动态解析 |
+| 2026-07-26 | S6-T5.5-P1-H1 协议加固 | 第 2、4、12、14、20 节 | Factory 只接收 canonical Evidence；legacy `chroma:` 只在 Resolver 输入边界；renderer 只消费 Envelope + Binding，七项 identity mismatch 以 `CITATION_BINDING_MISMATCH` fail closed；无源码或实验结果，待人工复核 | [protocol review record](s6_t5_5_protocol_review_record.md)、规格、计划、ADR、治理测试 | 通过 `git log -1 -- docs/governance/experiment_master_record.md` 动态解析 |

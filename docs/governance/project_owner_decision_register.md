@@ -155,6 +155,7 @@ S6-T5.3-H1 均已通过项目负责人 `HUMAN_ACCEPTED`；S6-T5.4 为
 | PODR-015 | 2026-07-25 | S6-T5.4-I1 Controlled Corpus ContentResolver Minimal Implementation | 批准并完成只依赖合成内存正文的最小实现：精确引用、UTF-8 SHA-256 校验、受控 registry/reader 和 legacy exact-match 映射 | IMPLEMENTED_PENDING_HUMAN_ACCEPTANCE | 项目负责人 I1 批准、完成记录、TDD 与离线工程验证 | PODR-014 | 不代表正文 fixture 已读取、正式 RAG 安全实验、ContextBuilder/Citation 或 S6-T5.5 获批 |
 | PODR-016 | 2026-07-25 | S6-T5.4 Controlled Corpus ContentResolver Human Acceptance Record | 接受 P1 协议、I1 最小实现、H1 capability/failure-boundary 加固与父任务；确认其只覆盖合成内存工程边界 | HUMAN_ACCEPTED | 项目负责人明确决定、`11a72f7`、完成记录与治理测试 | PODR-013、PODR-014、PODR-015 历史快照 | 不批准 S6-T5.5、EvidenceEnvelope、Citation、ContextBuilder、真实正文 provider 或正式 RAG 实验 |
 | PODR-017 | 2026-07-25 | S6-T5.5-P1 EvidenceEnvelope and Citation Boundary Freeze | 批准协议审查，采用无 `citation_id` Envelope 与由未来 ContextBuilder 在最终 Evidence 集后创建 package-local Binding 的方案；冻结 instruction、escaping、错误和敏感导出边界 | DESIGN_FREEZE_COMPLETED_PENDING_HUMAN_ACCEPTANCE | 项目负责人当前指令、S6-T5.5 protocol review record、规格/计划/ADR | — | 不批准 S6-T5.5 业务实现、CitationBinding、rendering、ContextBuilder 或正式 RAG 实验 |
+| PODR-018 | 2026-07-26 | S6-T5.5-P1-H1 Evidence Canonical Binding and Citation Rendering Protocol Hardening | 批准修订 Factory canonical Evidence-only 输入、Renderer 的 Envelope + Binding 唯一输入和 `CITATION_BINDING_MISMATCH` fail-closed 语义 | DESIGN_FREEZE_HARDENING_COMPLETED_PENDING_HUMAN_REVIEW | 项目负责人当前指令、S6-T5.5 protocol review record、规格/计划/ADR | PODR-017 ambiguous legacy/renderer boundary | 不批准 S6-T5.5 业务实现、Binding/renderer/ContextBuilder 或正式 RAG 实验 |
 
 ## 7.1 S6-T5.4 当前审批解释（2026-07-25）
 
@@ -184,6 +185,14 @@ PODR-017 只批准 `S6-T5.5-P1` 进行设计审查。当前审查完成，状态
 `EvidenceEnvelope` 不含 `citation_id`；future S6-T5.6 ContextBuilder 在最终 Evidence 集合确定后创建
 `CitationBinding` 并按 package-local 顺序分配 `E1 ... En`。未来 factory、instruction、XML-like rendering、错误
 归属和敏感导出规则均被冻结，但没有实现源码。`S6-T5.5`、S6-T5.6+ 和正式 RAG 安全实验仍为 `NOT APPROVED`/`NOT STARTED`。
+
+## 7.5 S6-T5.5-P1-H1 协议加固当前状态（2026-07-26）
+
+PODR-018 只批准 P1 的人工审查发现项修订。H1 已完成、待人工复核：Factory 只接受 canonical `corpus:`
+RetrievalEvidence 且逐项检查 ContentRef、snapshot、chunk、hash；legacy `chroma:` 只在 Resolver 输入转换，不能进入
+Factory。renderer 只接受 Envelope + Binding，七项 identity 任一不一致即为 `CITATION_BINDING_MISMATCH`，固定脱敏
+外部消息为 `citation binding does not match evidence`，不作为 abstention。P1 仍待人工验收；S6-T5.5、S6-T5.6+ 与
+正式 RAG 安全实验仍为 `NOT APPROVED`/`NOT STARTED`。
 
 ## 8. 新 Thread 最小读取顺序
 

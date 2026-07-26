@@ -13,6 +13,7 @@
 - s6_t5_4_i1_status: `human_accepted`；仅使用合成内存正文，未读取 fixture 或生成真实 legacy mapping。
 - s6_t5_4_h1_status: `human_accepted`；关闭 Resolver registry capability escape，并加固注入依赖异常的脱敏/类型-code 所有权。
 - s6_t5_5_p1_status: `completed_pending_human_acceptance`；只冻结 EvidenceEnvelope/Citation 边界，不创建业务源码。
+- s6_t5_5_p1_h1_status: `completed_pending_human_review`；Factory 仅接收 canonical Evidence，renderer 仅接收 Envelope + Binding，七项身份不一致为 `CITATION_BINDING_MISMATCH`。
 - s6_t5_5_status: `not_approved`；必须在 P1 人工验收后另行批准业务实现。
 - s6_t5_6_plus_status: `not_approved`；不得自动开始 ContextBuilder 或后续能力。
 - objective: 在 S6-T4 与已验收 S6-T5.2 契约基础上，实现受控、离线、Provider-Neutral DenseRetriever；本轮只产出 RetrievalEvidence 与 RetrievalTrace。
@@ -22,8 +23,8 @@
 - script_locations: 真实模型测试由 `LLMGUARD_RUN_REAL_EMBEDDING_TESTS=1` 显式开启，无 S6-T4 运行脚本；2026-07-19 已完成一次固定 revision 的真实验收。
 - deliverable_locations: 尚未生成独立 Stage 6 证据包。
 - evidence_locations: `data/stage6_rag/documents/corpus_manifest.json`
-- conclusion_boundary: 已完成人工验收的 S6-T5.3 离线工程边界包括 embedding/vectorstore 基础设施、S6-T5.2 运行时契约、schema `1.1` parent identity carrier、DenseRetriever 与 H1 trace/failure-boundary 加固；S6-T5.4-I1 已实现 contracts、in-memory reader/registry、exact-match legacy adapter 与 hash-verified resolver，H1 又关闭公开 registry capability 并重建注入错误的固定脱敏外部表述。P1、I1、H1 与父任务均已通过人工验收。S6-T5.5-P1 只完成协议冻结，采用无 `citation_id` Envelope 与 future ContextBuilder 的 package-local CitationBinding 分配，仍待人工验收。未实现 Envelope、Citation、ContextBuilder、Trust、LLM 或 RAG 指标，也未执行正式 RAG 安全实验。
-- next_stage: 先审查 `S6-T5.5-P1`；`S6-T5.5: NOT APPROVED`，之后实现任务也为 `NOT APPROVED`，必须另行审批。
+- conclusion_boundary: 已完成人工验收的 S6-T5.3 离线工程边界包括 embedding/vectorstore 基础设施、S6-T5.2 运行时契约、schema `1.1` parent identity carrier、DenseRetriever 与 H1 trace/failure-boundary 加固；S6-T5.4-I1 已实现 contracts、in-memory reader/registry、exact-match legacy adapter 与 hash-verified resolver，H1 又关闭公开 registry capability 并重建注入错误的固定脱敏外部表述。P1、I1、H1 与父任务均已通过人工验收。S6-T5.5-P1 只完成协议冻结，采用无 `citation_id` Envelope 与 future ContextBuilder 的 package-local CitationBinding 分配，仍待人工验收；P1-H1 又明确 Factory 只收 canonical Evidence、renderer 只收 Envelope + Binding，仍待人工复核。未实现 Envelope、Citation、ContextBuilder、Trust、LLM 或 RAG 指标，也未执行正式 RAG 安全实验。
+- next_stage: 先审查 `S6-T5.5-P1-H1`，再审查 P1；`S6-T5.5: NOT APPROVED`，之后实现任务也为 `NOT APPROVED`，必须另行审批。
 
 目标：在 Retrieval 层评测 R1–R6，并为隐蔽知识污染检测与可信检索研究建立稳定证据接口。
 

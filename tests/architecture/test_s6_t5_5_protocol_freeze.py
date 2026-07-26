@@ -45,6 +45,39 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
             with self.subTest(required=required):
                 self.assertIn(required, text)
 
+    def test_h1_freezes_canonical_factory_inputs_without_legacy_mapping(self) -> None:
+        text = REVIEW_RECORD.read_text(encoding="utf-8")
+
+        for required in (
+            "Factory **只接受 canonical RetrievalEvidence**",
+            "scheme 必须为 `corpus`",
+            "`resolved_content.canonical_content_ref`",
+            "`evidence.corpus_snapshot_id`、`chunk_id`、`content_hash`",
+            "`EVIDENCE_CONTENT_MISMATCH`",
+            "legacy `chroma:` 只属于已验收 ContentResolver 的**输入**边界",
+            "它不进入 EnvelopeFactory",
+            "DocumentRecord、ChunkRecord、裸 metadata 或裸正文 str",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, text)
+
+    def test_h1_freezes_renderer_binding_identity_and_fail_closed_error(self) -> None:
+        text = REVIEW_RECORD.read_text(encoding="utf-8")
+
+        for required in (
+            "def render_evidence_block(",
+            "envelope: EvidenceEnvelope",
+            "binding: CitationBinding",
+            "`evidence_uid`、`chunk_id`、`parent_doc_id`、`content_hash`、`source_id`、`version`、`rank`",
+            "`CITATION_BINDING_MISMATCH`",
+            "citation binding does not match evidence",
+            "不返回\npartial/empty block、不跳过后继续、不重编号掩盖错误，也不解释为 abstention",
+            "S6-T5.6 ContextBuilder",
+            "才可实际执行 Citation allocation、创建 Binding",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, text)
+
     def test_current_governance_keeps_implementation_and_experiments_closed(self) -> None:
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
         master_record = (GOVERNANCE / "experiment_master_record.md").read_text(
@@ -64,6 +97,8 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
 
         self.assertIn("EvidenceEnvelope implementation", state)
         self.assertIn("ContextBuilder", state)
+        self.assertIn("S6-T5.5-P1-H1", state)
+        self.assertIn("Completed, pending human review", state)
 
     def test_s6_t5_4_acceptance_remains_intact(self) -> None:
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
@@ -89,6 +124,22 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
                 self.assertIn("S6-T5.5-P1", text)
                 self.assertIn("citation_id", text)
                 self.assertIn("S6-T5.5", text)
+                self.assertIn("NOT APPROVED", text)
+
+    def test_canonical_governance_entrypoints_record_h1_without_approving_implementation(
+        self,
+    ) -> None:
+        paths = (
+            ROOT / "PROJECT_MASTER_CONTEXT.md",
+            GOVERNANCE / "project_owner_decision_register.md",
+            ROOT / "stages" / "stage6_rag_security" / "README.md",
+        )
+        for path in paths:
+            text = path.read_text(encoding="utf-8")
+            with self.subTest(path=path.relative_to(ROOT)):
+                self.assertIn("S6-T5.5-P1-H1", text)
+                self.assertIn("canonical", text)
+                self.assertIn("CITATION_BINDING_MISMATCH", text)
                 self.assertIn("NOT APPROVED", text)
 
     def test_protocol_review_has_not_created_s6_t5_5_business_types(self) -> None:
