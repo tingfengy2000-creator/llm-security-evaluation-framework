@@ -163,6 +163,7 @@ S6-T5.3-H1 均已通过项目负责人 `HUMAN_ACCEPTED`；S6-T5.4 为
 | PODR-023 | 2026-07-26 | S6-T5.6-P1 Context Package Boundary Freeze | 批准只进行 ContextBuilder、预算、Package、Citation 临时绑定和结构性 abstention 的协议审查 | DESIGN_FREEZE_COMPLETED_PENDING_HUMAN_ACCEPTANCE | 项目负责人明确决定、S6-T5.6 protocol review record、设计/治理测试 | PODR-022 的后续独立协议任务 | 不批准任何 S6-T5.6 实现、ContextBuilder、Package、allocator、Trust、LLM 或正式 RAG 实验 |
 | PODR-024 | 2026-07-26 | S6-T5.6-P1-H1 Sequential Resolution, Duplicate Semantics and Context Trace Protocol Hardening | 批准只修订 P1 的顺序解析、精确 UID 重复语义、预算 cutoff 与 Context trace 身份缺口 | DESIGN_FREEZE_HARDENING_COMPLETED_PENDING_HUMAN_REVIEW | 项目负责人明确决定、S6-T5.6 protocol review record、设计/治理测试 | PODR-023 historical selection wording | 不批准任何 S6-T5.6 实现、ContextBuilder、Package、allocator、Trust、LLM 或正式 RAG 实验 |
 | PODR-025 | 2026-07-26 | S6-T5.6-P1-H2 Active Specification, Trace Decision and Package Identity Protocol Closure | 批准只关闭活动规格顺序、instruction-budget candidate decision、Trace decision partition 与 Package/Trace identity 的协议矛盾 | DESIGN_FREEZE_HARDENING_COMPLETED_PENDING_HUMAN_REVIEW | 项目负责人明确决定、S6-T5.6 protocol review record、设计/治理测试 | PODR-024 remaining active-spec and identity ambiguity | 不批准任何 S6-T5.6 实现、ContextBuilder、Package、allocator、Trust、LLM 或正式 RAG 实验 |
+| PODR-026 | 2026-07-26 | GOV-S6-T5.6-P1-ACCEPTANCE Context Package Protocol Human Acceptance Record | 接受 S6-T5.6-P1、P1-H1、P1-H2 的协议边界；父任务进入 READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL | HUMAN_ACCEPTED | 项目负责人明确决定、`432b07e`、S6-T5.6 protocol review record、治理测试 | PODR-023、PODR-024、PODR-025 的 pending/review 历史快照 | 不批准 S6-T5.6-I1、ContextBuilder、Package、Trace、budgeter、allocator、Trust、LLM 或正式 RAG 实验 |
 
 ## 7.1 S6-T5.4 当前审批解释（2026-07-25）
 
@@ -273,6 +274,22 @@ Trace 的各 UID tuple 是按稳定顺序的完整不相交划分；Package 只�
 
 这不批准任何 ContextBuilder、RetrievedContextPackage、ContextBuildTrace、budgeter 或 Citation allocator
 实现。父任务 `S6-T5.6`、`S6-T5.7+` 和正式实验仍为 `NOT APPROVED`、`NOT APPROVED` 与 `NOT STARTED`。
+
+## 7.13 GOV-S6-T5.6-P1-ACCEPTANCE 当前审批解释（2026-07-26）
+
+项目负责人已接受 S6-T5.6-P1、S6-T5.6-P1-H1 和 S6-T5.6-P1-H2。它们的当前状态均为
+`HUMAN_ACCEPTED`；S6-T5.6 仅变为 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`，并不批准
+`S6-T5.6-I1`。I1 当前为 `NOT YET APPROVED`，S6-T5.7+ 仍为 `NOT APPROVED`，正式 RAG 安全实验仍为
+`NOT STARTED`。
+
+本次接受仅覆盖 future ContextBuilder 接口/依赖边界、稳定排序和精确 UID 去重、数量限制、citation instruction 后的
+sequential resolution、temporary `E{n+1}` Binding、真实 renderer 的 Unicode code-point 预算、fit 后提交、
+stable-prefix cutoff、instruction 超预算零次 Resolver 调用、cutoff 后无正文访问、完整候选决策分区、Package 仅持有
+`build_trace`、从 `build_trace.trace_hash` 派生 package identity、结构性 abstention/integrity failure 分离及无正文
+safe audit。它不证明任何实现、Citation Accuracy、检索质量/安全效果、知识污染检测、可信检索、LLM 集成、正式实验或生产可用性。
+
+最后已接受 implementation commit 仍为 `6da27a6`。`432b07e` 是协议闭环提交和本次验收的证据来源，不能登记为
+implementation commit。历史 pending/review 文本继续保留为当时事实，不重写为当前状态。
 
 ## 8. 新 Thread 最小读取顺序
 

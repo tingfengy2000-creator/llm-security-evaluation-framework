@@ -88,7 +88,7 @@ class S6T54ProtocolFreezeTests(unittest.TestCase):
             "S6-T5.4-I1: **HUMAN_ACCEPTED**",
             "S6-T5.4-H1: **HUMAN_ACCEPTED**",
             "S6-T5.5",
-            "Formal RAG security experiment: **NOT STARTED**",
+            "Formal RAG security experiment: NOT STARTED",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, state)

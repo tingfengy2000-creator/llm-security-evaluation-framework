@@ -1397,3 +1397,24 @@ instruction 超预算时没有正文访问，但审计仍需说明为何 selecte
 语义都可能在未来需要独立设计，但本轮没有定义、禁止或实现它们，也不会为此创建 H3 blocker。
 S6-T5.6 仍未批准。本轮未读取 fixture、未调用 Embedding、Chroma、Groq 或 LLM，未执行 RAG 实验，因此不能宣称
 ContextBuilder、Citation Accuracy、检索安全效果或生产能力已经实现。
+
+## 2026-07-26: S6-T5.6-P1 Context Package 协议人工验收
+
+**现在登记了什么**：项目负责人已将 `S6-T5.6-P1`、`S6-T5.6-P1-H1` 和 `S6-T5.6-P1-H2` 登记为
+`HUMAN_ACCEPTED`。父任务 `S6-T5.6` 仅进入 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`；
+`S6-T5.6-I1` 仍为 `NOT YET APPROVED`，所以没有创建 ContextBuilder、RetrievedContextPackage、
+ContextBuildTrace、预算器或 Citation allocator。
+
+**为什么这样做**：协议人工验收确认“未来实现必须遵守什么”，而独立实现审批才确认“现在可以写代码”。两者分开，能够
+避免把设计正确性误当成运行时能力，也避免未批准的范围借由“下一步很自然”而悄悄扩张。
+
+**和上一节的关系**：P1 冻结接口、预算与 structural abstention；H1 修正 sequential resolution；H2 消除活动文档
+顺序、instruction-budget trace decision 和 Package/Trace identity 的矛盾。本次登记只接受这些已冻结的协议，不改写
+它们在当时处于 pending/review 的历史快照。
+
+**企业与面试怎么讲**：可以回答：“我们把架构协议验收和功能验收分开。协议验收保证权限边界、可审计性与确定性有共同
+定义；功能实现仍需独立 TDD、工程验证和人工验收。这样审计记录不会把设计状态误写成安全效果。”
+
+**容易误解的地方**：`READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL` 不是“已经可以开始编码”。它只表示 blocker
+已清、协议已冻结，仍必须取得 `S6-T5.6-I1` 的明确批准。最后已接受 implementation commit 仍为 `6da27a6`；
+`432b07e` 只属于最终通过人工验收的协议闭环提交。正式 RAG security experiment 仍为 `NOT STARTED`。

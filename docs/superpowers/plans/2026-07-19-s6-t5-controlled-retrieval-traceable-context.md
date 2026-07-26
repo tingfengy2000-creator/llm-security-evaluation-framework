@@ -499,3 +499,14 @@ protocol 必须 `provenance validation -> stable sort -> UID dedup -> count limi
 批准的 future algorithm 使用 temporary next Citation Binding 计算真实 renderer output；commit 后才永久占用 E1...En。
 选择采用 stable prefix cutoff，而非让后续较小 Evidence 跳过前一高优先级候选。safe trace 记录排除 UID/理由，普通
 audit 不记录正文、rendered block 或 Query。P1 是 `Completed, pending human acceptance`，不批准 S6-T5.6 implementation。
+
+## 27. GOV-S6-T5.6-P1-ACCEPTANCE 当前审批状态（2026-07-26）
+
+上节是 P1 的历史审查快照，必须保留。项目负责人随后已将 `S6-T5.6-P1`、
+`S6-T5.6-P1-H1` 与 `S6-T5.6-P1-H2` 登记为 `HUMAN_ACCEPTED`。父任务 `S6-T5.6` 当前为
+`READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`，但 `S6-T5.6-I1` 仍是 `NOT YET APPROVED`；
+`S6-T5.7+` 为 `NOT APPROVED`，Formal RAG security experiment 为 `NOT STARTED`。
+
+因此下一步只能由项目负责人另行批准或拒绝 I1，不能从本计划自动启动实现。最后已接受 implementation commit 仍为
+`6da27a6`；`432b07e` 仅为最终人工验收通过的协议闭环提交。该登记不实现任何 ContextBuilder、
+RetrievedContextPackage、ContextBuildTrace、预算器或 Citation allocator。

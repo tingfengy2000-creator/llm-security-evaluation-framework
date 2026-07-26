@@ -249,3 +249,15 @@ ContentResolver 与 EvidenceEnvelopeFactory。RetrievalTrace 是审计工件，�
 未来 `RetrievedContextPackage` 与 `ContextBuildTrace` 仍由 `contracts/` 拥有；前者含敏感 rendered context，后者仅含
 counts、UID 与排除原因。`EMPTY_RETRIEVAL`、instruction 超预算和无完整 block 可形成结构性 abstention；hash、
 provenance 或 Binding 完整性错误仍必须 fail closed。S6-T5.6 implementation、S6-T5.7+ 与正式 RAG 实验未获批准。
+
+### GOV-S6-T5.6-P1-ACCEPTANCE 当前审批状态（2026-07-26）
+
+本 ADR 保留上文 P1/H1/H2 的历史 pending/review 快照；项目负责人随后已人工接受
+`S6-T5.6-P1`、`S6-T5.6-P1-H1` 与 `S6-T5.6-P1-H2`。父任务 `S6-T5.6` 的当前状态为
+`READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`，这不是对实现的批准；`S6-T5.6-I1` 仍为
+`NOT YET APPROVED`，`S6-T5.7+` 仍为 `NOT APPROVED`，正式 RAG security experiment 仍为
+`NOT STARTED`。
+
+最后已接受 implementation commit 保持为 `6da27a6`。`432b07e` 只登记为完成最终人工验收的协议闭环提交，
+不得将其表述为 implementation commit。本次验收不创建或认可 ContextBuilder、RetrievedContextPackage、
+ContextBuildTrace、预算器或 Citation allocator 的业务实现。

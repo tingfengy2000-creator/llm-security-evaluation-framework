@@ -746,3 +746,14 @@ Package 未来存储 config hash、公开 limits、safe `ContextBuildTrace` 和 
 `PK-<full_sha256>`。结构性 abstention 仅可为 EMPTY_RETRIEVAL、instruction-only budget exhausted 或 no complete block
 fits，且返回空 context、空 binding/envelope tuple 与 deterministic ID。该 P1 为 `Completed, pending human acceptance`；
 S6-T5.6 implementation、S6-T5.7+ 与正式实验均为 `NOT APPROVED`/`NOT STARTED`。
+
+## 27. GOV-S6-T5.6-P1-ACCEPTANCE 当前审批状态（2026-07-26）
+
+本规格保留 P1、H1、H2 的历史审查快照。项目负责人已人工接受 `S6-T5.6-P1`、
+`S6-T5.6-P1-H1` 和 `S6-T5.6-P1-H2` 的 future protocol。当前父任务 `S6-T5.6` 为
+`READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`；`S6-T5.6-I1` 为 `NOT YET APPROVED`；
+`S6-T5.7+` 为 `NOT APPROVED`；Formal RAG security experiment 为 `NOT STARTED`。
+
+此处接受的仅是接口、顺序、审计与失败边界，不是 ContextBuilder、RetrievedContextPackage、
+ContextBuildTrace、预算器或 Citation allocator 的实现批准。最后已接受 implementation commit 是 `6da27a6`；
+`432b07e` 仅是人工验收通过的协议闭环提交。

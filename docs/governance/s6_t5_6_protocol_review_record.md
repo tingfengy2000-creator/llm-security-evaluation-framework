@@ -303,11 +303,12 @@ This P1 record clarifies the earlier S6-T5.5 phrase “Binding after final selec
 are non-observable calculation values, while only committed bindings are final package state. The clarification is
 additive and does not alter accepted historical contracts.
 
-S6-T5.6-P1 is `Completed, pending human acceptance`; S6-T5.6-P1-H1 is `Completed, pending human acceptance`; and
-S6-T5.6-P1-H2 is `Completed, pending human review`.
-S6-T5.6 implementation requires separate approval. S6-T5.7+ remains `NOT APPROVED`; it may not introduce Trust,
-policy, generation, LLM integration or formal RAG experiments. No source code, fixture data or formal experiment was
-created by this review.
+Historical execution snapshots remain above. The current project-owner decision is GOV-S6-T5.6-P1-ACCEPTANCE:
+`S6-T5.6-P1: HUMAN_ACCEPTED`; `S6-T5.6-P1-H1: HUMAN_ACCEPTED`; `S6-T5.6-P1-H2: HUMAN_ACCEPTED`; and
+`S6-T5.6: READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`. `S6-T5.6-I1: NOT YET APPROVED`; `S6-T5.7+: NOT APPROVED`;
+and `Formal RAG security experiment: NOT STARTED`. The last accepted implementation commit remains `6da27a6`;
+`432b07e` is the protocol acceptance closure commit, not an implementation commit. This acceptance does not create
+source code, read fixture data or run a formal experiment.
 
 ## 12. Teaching and Interview Boundary
 

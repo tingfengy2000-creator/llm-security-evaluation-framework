@@ -1010,3 +1010,14 @@ H2 还将 `ContextBuildTrace` 定义为每一稳定候选恰有一个 decision �
 Resolver，但会把 selected candidates 记录为 `NOT_ATTEMPTED_INSTRUCTION_BUDGET_EXHAUSTED`。Package 只持久化
 `build_trace`，而 package identity 从 `build_trace.trace_hash` 派生 canonical `context_build_trace_hash`，避免 DTO
 冗余和 hash 循环。S6-T5.6、S6-T5.7+ 与正式 RAG 安全实验仍未获批准/未开始；未读取 fixture，未调用模型或执行实验。
+
+## 30. GOV-S6-T5.6-P1-ACCEPTANCE：Context Package 协议人工验收（2026-07-26）
+
+项目负责人已人工接受 `S6-T5.6-P1`、`S6-T5.6-P1-H1` 与 `S6-T5.6-P1-H2` 的 future protocol 边界。三者当前均为
+`HUMAN_ACCEPTED`；父任务 `S6-T5.6` 仅为 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`，而
+`S6-T5.6-I1` 仍为 `NOT YET APPROVED`。`S6-T5.7+` 仍为 `NOT APPROVED`，Formal RAG security experiment 仍为
+`NOT STARTED`。
+
+验收确认的是 deterministic future context-package 的接口、选择、审计和失败边界，不是 ContextBuilder、
+`RetrievedContextPackage`、`ContextBuildTrace`、预算器或 Citation allocator 的实现。最后已接受 implementation commit
+保持为 `6da27a6`；`432b07e` 只登记为已经通过人工验收的协议闭环提交。历史 pending/review 快照保留为历史事实。

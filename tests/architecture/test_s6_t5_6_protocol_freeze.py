@@ -236,6 +236,45 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
             package_fields,
         )
 
+    def test_protocol_acceptance_keeps_implementation_separately_unapproved(self) -> None:
+        state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
+        master = (GOVERNANCE / "experiment_master_record.md").read_text(
+            encoding="utf-8"
+        )
+        decisions = (GOVERNANCE / "project_owner_decision_register.md").read_text(
+            encoding="utf-8"
+        )
+        review = REVIEW_RECORD.read_text(encoding="utf-8")
+
+        for required in (
+            "GOV-S6-T5.6-P1-ACCEPTANCE",
+            "S6-T5.6-P1: HUMAN_ACCEPTED",
+            "S6-T5.6-P1-H1: HUMAN_ACCEPTED",
+            "S6-T5.6-P1-H2: HUMAN_ACCEPTED",
+            "S6-T5.6: READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL",
+            "S6-T5.6-I1: NOT YET APPROVED",
+            "S6-T5.7+: NOT APPROVED",
+            "Formal RAG security experiment: NOT STARTED",
+            "Last accepted implementation commit: `6da27a6`",
+            "Protocol acceptance closure commit: `432b07e`",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, state)
+
+        for text in (master, decisions, review):
+            for required in (
+                "GOV-S6-T5.6-P1-ACCEPTANCE",
+                "HUMAN_ACCEPTED",
+                "READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL",
+                "NOT YET APPROVED",
+                "6da27a6",
+                "432b07e",
+            ):
+                with self.subTest(required=required):
+                    self.assertIn(required, text)
+
+        self.assertNotIn("Last accepted implementation commit: `432b07e`", state)
+
 
 if __name__ == "__main__":
     unittest.main()

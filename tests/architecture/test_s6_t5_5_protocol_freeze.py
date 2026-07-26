@@ -103,7 +103,7 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
         self.assertIn("Last accepted implementation commit: `6da27a6`", state)
         self.assertIn("S6-T5.6-P1", state)
         self.assertIn("S6-T5.7+", state)
-        self.assertIn("**NOT APPROVED**", state)
+        self.assertIn("S6-T5.6-I1: NOT YET APPROVED", state)
 
     def test_acceptance_preserves_protocol_history_without_claiming_implementation(self) -> None:
         review = REVIEW_RECORD.read_text(encoding="utf-8")
@@ -152,7 +152,12 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
                 self.assertIn("S6-T5.5-P1", text)
                 self.assertIn("S6-T5.5", text)
                 self.assertIn("human_accepted", text.lower())
-                self.assertIn("NOT APPROVED", text)
+                expected_not_approved = (
+                    "not_approved"
+                    if path.name == "README.md"
+                    else "NOT APPROVED"
+                )
+                self.assertIn(expected_not_approved, text)
 
     def test_canonical_governance_entrypoints_record_h1_and_i1_boundary(
         self,
@@ -169,7 +174,12 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
                 self.assertIn("canonical", text)
                 self.assertIn("CITATION_BINDING_MISMATCH", text)
                 self.assertIn("S6-T5.5-I1", text)
-                self.assertIn("NOT APPROVED", text)
+                expected_not_approved = (
+                    "not_approved"
+                    if path.name == "README.md"
+                    else "NOT APPROVED"
+                )
+                self.assertIn(expected_not_approved, text)
 
     def test_i1_keeps_dtos_in_contracts_and_does_not_start_context_builder(self) -> None:
         owners: dict[str, list[str]] = {
@@ -200,13 +210,15 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
         )
 
         for required in (
-            "Last accepted stage task: `S6-T5.5 EvidenceEnvelope, Citation Contracts and Structural Rendering`",
+            "Last accepted stage task: `S6-T5.6 Context Package Protocol`",
             "S6-T5.5-H1: **HUMAN_ACCEPTED**",
             "S6-T5.5-I1: **HUMAN_ACCEPTED**",
             "S6-T5.5: **HUMAN_ACCEPTED**",
             "Last accepted implementation commit: `6da27a6`",
-            "parent `S6-T5.6`, any S6-T5.6 implementation and S6-T5.7+ are **NOT APPROVED**",
-            "Formal RAG security experiment: **NOT STARTED**",
+            "S6-T5.6: READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL",
+            "S6-T5.6-I1: NOT YET APPROVED",
+            "S6-T5.7+: NOT APPROVED",
+            "Formal RAG security experiment: NOT STARTED",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, state)
@@ -253,7 +265,7 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
         self.assertIn("2cacef7", register)
         self.assertIn("6da27a6", register)
         self.assertIn("ENGINEERING_VALIDATED_HUMAN_ACCEPTED", master)
-        self.assertIn("Formal RAG security experiment: **NOT STARTED**", state)
+        self.assertIn("Formal RAG security experiment: NOT STARTED", state)
         self.assertIn("Formal RAG security experiment", register)
         self.assertIn("NOT STARTED", register)
         self.assertIn("Formal RAG security experiment", master)
