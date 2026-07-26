@@ -162,6 +162,7 @@ S6-T5.3-H1 均已通过项目负责人 `HUMAN_ACCEPTED`；S6-T5.4 为
 | PODR-022 | 2026-07-26 | S6-T5.5 Evidence Envelope and Citation Implementation Human Acceptance Record | 人工接受 I1、H1 与父任务；`6da27a6` 为最终接受的 implementation commit | HUMAN_ACCEPTED | 项目负责人明确决定、completion record、protocol review record、治理测试 | PODR-020、PODR-021 的历史 pending/review 快照 | 不批准 S6-T5.6+、ContextBuilder、Trust、LLM 或正式 RAG 实验 |
 | PODR-023 | 2026-07-26 | S6-T5.6-P1 Context Package Boundary Freeze | 批准只进行 ContextBuilder、预算、Package、Citation 临时绑定和结构性 abstention 的协议审查 | DESIGN_FREEZE_COMPLETED_PENDING_HUMAN_ACCEPTANCE | 项目负责人明确决定、S6-T5.6 protocol review record、设计/治理测试 | PODR-022 的后续独立协议任务 | 不批准任何 S6-T5.6 实现、ContextBuilder、Package、allocator、Trust、LLM 或正式 RAG 实验 |
 | PODR-024 | 2026-07-26 | S6-T5.6-P1-H1 Sequential Resolution, Duplicate Semantics and Context Trace Protocol Hardening | 批准只修订 P1 的顺序解析、精确 UID 重复语义、预算 cutoff 与 Context trace 身份缺口 | DESIGN_FREEZE_HARDENING_COMPLETED_PENDING_HUMAN_REVIEW | 项目负责人明确决定、S6-T5.6 protocol review record、设计/治理测试 | PODR-023 historical selection wording | 不批准任何 S6-T5.6 实现、ContextBuilder、Package、allocator、Trust、LLM 或正式 RAG 实验 |
+| PODR-025 | 2026-07-26 | S6-T5.6-P1-H2 Active Specification, Trace Decision and Package Identity Protocol Closure | 批准只关闭活动规格顺序、instruction-budget candidate decision、Trace decision partition 与 Package/Trace identity 的协议矛盾 | DESIGN_FREEZE_HARDENING_COMPLETED_PENDING_HUMAN_REVIEW | 项目负责人明确决定、S6-T5.6 protocol review record、设计/治理测试 | PODR-024 remaining active-spec and identity ambiguity | 不批准任何 S6-T5.6 实现、ContextBuilder、Package、allocator、Trust、LLM 或正式 RAG 实验 |
 
 ## 7.1 S6-T5.4 当前审批解释（2026-07-25）
 
@@ -261,6 +262,17 @@ duplicate/conflict 和数量限制，再执行 citation instruction 与 sequenti
 H1 还冻结单向 `ContextBuildTrace -> trace_hash -> Package context_build_trace_hash` 身份关系，并保留
 `NO_EVIDENCE_AFTER_DEDUPLICATION` 作为历史快照而非 active code。父任务 `S6-T5.6`、`S6-T5.7+` 与正式实验仍为
 `NOT APPROVED`、`NOT APPROVED` 和 `NOT STARTED`；没有业务代码、fixture 读取、模型调用或正式实验。
+
+## 7.12 S6-T5.6-P1-H2 协议闭环当前状态（2026-07-26）
+
+PODR-025 只批准协议矛盾闭环。P1 与 H1 当前为 `Completed, pending human acceptance`；H2 为
+`Completed, pending human review`。H2 直接修订 active specification、plan 和 ADR，使其使用同一 sequential
+resolution order；instruction-budget exhaustion 有独立 candidate decision；
+Trace 的各 UID tuple 是按稳定顺序的完整不相交划分；Package 只持有 `build_trace`，身份 payload 从
+`build_trace.trace_hash` 派生 `context_build_trace_hash`。
+
+这不批准任何 ContextBuilder、RetrievedContextPackage、ContextBuildTrace、budgeter 或 Citation allocator
+实现。父任务 `S6-T5.6`、`S6-T5.7+` 和正式实验仍为 `NOT APPROVED`、`NOT APPROVED` 与 `NOT STARTED`。
 
 ## 8. 新 Thread 最小读取顺序
 

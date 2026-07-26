@@ -334,11 +334,27 @@ S6-T5 不调用 LLM，但 ContextBuilder 必须为三种模式生成固定、可
 
 ## 12. ContextBuilder 与预算策略
 
-顺序固定且不可重排：先按稳定 rank/Evidence UID 排序，再按 Evidence UID 去重，再应用
-`max_evidence_count`，再解析正文并验证 hash，再分配 Citation ID，最后渲染 citation instruction 和
-完整 Evidence block。预算使用最终 escaped rendered string 的 **Unicode code point** 数量，不使用平台
-字节数；最终 Context hash 始终使用 rendered string 的 UTF-8 bytes。渲染换行固定为 `LF`，禁止平台默认
-换行影响 Context hash。
+当前活动构建顺序固定且不可重排。P1/H1 中任何“先解析全部正文、再做预算”的表述仅为 historical snapshot，
+不得作为 future implementation requirement：
+
+1. validate `ContextBuildConfig`;
+2. validate Request, citation mode and Evidence sequence types;
+3. validate all Request/Evidence provenance;
+4. stable sort;
+5. exact UID duplicate/conflict handling;
+6. apply `max_evidence_count`;
+7. render the fixed citation instruction;
+8. empty input -> `EMPTY_RETRIEVAL`;
+9. instruction over budget -> `CONTEXT_BUDGET_EXHAUSTED`, Resolver calls == 0;
+10. sequentially for each count-selected candidate: resolve -> Envelope -> temporary
+    `E{included_count + 1}` Binding -> real renderer -> exact Unicode code point fit decision;
+11. fit 才提交；
+12. first non-fit 后停止；
+13. cutoff 后不得 resolve/factory/render，记录 `NOT_ATTEMPTED_AFTER_BUDGET_CUTOFF`；
+14. assemble Trace and Package。
+
+预算使用最终 escaped rendered string 的 **Unicode code point** 数量，不使用平台字节数；最终 Context hash
+始终使用 rendered string 的 UTF-8 bytes。渲染换行固定为 `LF`，禁止平台默认换行影响 Context hash。
 
 当前预算使用最大总字符数，未来通过 `TokenBudget` Protocol 增加 tokenizer-aware 预算。默认不截断
 单条 Evidence：超过预算的完整 block 被排除并记录结构性 reason code；若没有完整 block 能放入，返回
@@ -349,13 +365,18 @@ provenance，截断片段不得冒充完整 chunk。
 
 字段固定为：`package_id`、`request_id`、`query_id`、`citation_mode`、`evidence_envelopes`、
 `citation_bindings`、`rendered_context`、`rendered_context_hash`、`evidence_count`、
-`abstention_required`、`abstention_reason_codes`、`context_schema_version`。
+`abstention_required`、`abstention_reason_codes`、`context_schema_version`、`context_build_config_hash`、
+`max_evidence_count`、`max_context_characters`、`build_trace`。`build_trace` 是唯一持久 Trace 字段；DTO 不额外
+保存 `context_build_trace_hash`。该值只在 package identity payload 或 safe audit representation 中从
+`build_trace.trace_hash` 派生。
 
 普通有证据基线默认 `abstention_required=false`、reason codes 为空；只有结构性“无可用 Context”情况可
 返回 Package 且要求 abstention：`EMPTY_RETRIEVAL`、`CONTEXT_BUDGET_EXHAUSTED`、
 `NO_COMPLETE_EVIDENCE_BLOCK_FITS`。`NO_EVIDENCE_AFTER_DEDUPLICATION` is removed from active baseline by S6-T5.6-P1，
-仅作为历史快照保留。`package_id` 由 request、Context hash、citation mode、schema version
-和 Evidence UID 序列确定性产生。
+仅作为历史快照保留。`package_id` 的唯一 canonical payload 为 `context_schema_version`、`request_id`、
+`query_id`、`citation_mode`、`rendered_context_hash`、`evidence_uids`、`context_build_config_hash` 与
+`context_build_trace_hash`；其中 `context_build_trace_hash = build_trace.trace_hash`。Trace hash 不包含
+`package_id`，因此没有身份循环。
 
 它只叫 `RetrievedContextPackage`，因为内容尚未经过可信分析。后续边界为：
 

@@ -110,10 +110,14 @@ Agent 时仍保持最小权限和审计边界的前提。
 
 ### 12. Context 预算是跨平台确定性协议
 
-ContextBuilder 的顺序固定为排序、Evidence UID 精确去重、数量限制、citation instruction、sequential
-resolve、临时 Citation、渲染和最终预算。预算使用最终 escaped string 的 Unicode code point 数量，Context
-hash 使用最终 UTF-8 bytes，换行固定为 LF。instruction 单独超预算时不得调用 Resolver；首个预算不适配
-候选后必须停止，后续候选不得解析或渲染。预算不足时只排除完整 Evidence block；不允许把截断片段冒充完整证据。
+ContextBuilder 的唯一活动顺序是：validate `ContextBuildConfig`；validate Request, citation mode and Evidence sequence types；validate all Request/Evidence provenance；stable sort；exact UID duplicate/conflict handling；
+apply `max_evidence_count`；render the fixed citation instruction；empty input ->
+`EMPTY_RETRIEVAL`；instruction over budget -> `CONTEXT_BUDGET_EXHAUSTED`, Resolver calls == 0；sequentially for each count-selected candidate 执行 resolve -> Envelope -> temporary Binding -> real renderer -> exact Unicode code point
+fit decision；fit 才提交；first non-fit 后停止；cutoff 后 `NOT_ATTEMPTED_AFTER_BUDGET_CUTOFF` 候选不得
+resolve/factory/render；assemble Trace and Package。
+
+预算使用最终 escaped string 的 Unicode code point 数量，Context hash 使用最终 UTF-8 bytes，换行固定为 LF。预算不足时只排除完整
+Evidence block；不允许把截断片段冒充完整证据。
 
 ## 哈希与配置边界
 

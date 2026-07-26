@@ -9,6 +9,27 @@ ROOT = Path(__file__).resolve().parents[2]
 GOVERNANCE = ROOT / "docs" / "governance"
 RETRIEVAL_ROOT = ROOT / "src" / "llmguard" / "domains" / "retrieval"
 REVIEW_RECORD = GOVERNANCE / "s6_t5_6_protocol_review_record.md"
+SPECIFICATION = (
+    ROOT
+    / "docs"
+    / "superpowers"
+    / "specs"
+    / "2026-07-19-s6-t5-controlled-retrieval-traceable-context-design.md"
+)
+PLAN = (
+    ROOT
+    / "docs"
+    / "superpowers"
+    / "plans"
+    / "2026-07-19-s6-t5-controlled-retrieval-traceable-context.md"
+)
+ADR = ROOT / "docs" / "architecture" / "0008_retrieval_context_boundary.md"
+
+
+def _section(text: str, heading: str) -> str:
+    start = text.index(heading)
+    next_heading = text.find("\n## ", start + len(heading))
+    return text[start:] if next_heading == -1 else text[start:next_heading]
 
 
 class S6T56ProtocolFreezeTests(unittest.TestCase):
@@ -126,20 +147,8 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
                 self.assertIn(required, text)
 
     def test_h1_marks_old_reason_code_historical_and_keeps_source_absent(self) -> None:
-        plan = (
-            ROOT
-            / "docs"
-            / "superpowers"
-            / "plans"
-            / "2026-07-19-s6-t5-controlled-retrieval-traceable-context.md"
-        ).read_text(encoding="utf-8")
-        specification = (
-            ROOT
-            / "docs"
-            / "superpowers"
-            / "specs"
-            / "2026-07-19-s6-t5-controlled-retrieval-traceable-context-design.md"
-        ).read_text(encoding="utf-8")
+        plan = PLAN.read_text(encoding="utf-8")
+        specification = SPECIFICATION.read_text(encoding="utf-8")
 
         for text in (plan, specification):
             self.assertIn("removed from active baseline by S6-T5.6-P1", text)
@@ -159,6 +168,73 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
                         for path in RETRIEVAL_ROOT.rglob("*.py")
                     ),
                 )
+
+    def test_h2_freezes_one_active_sequential_build_order(self) -> None:
+        active_sections = (
+            _section(SPECIFICATION.read_text(encoding="utf-8"), "## 12."),
+            _section(PLAN.read_text(encoding="utf-8"), "## 8."),
+            _section(ADR.read_text(encoding="utf-8"), "### 12."),
+        )
+        required_order = (
+            "validate `ContextBuildConfig`",
+            "validate Request, citation mode and Evidence sequence types",
+            "validate all Request/Evidence provenance",
+            "stable sort",
+            "exact UID duplicate/conflict handling",
+            "apply `max_evidence_count`",
+            "render the fixed citation instruction",
+            "EMPTY_RETRIEVAL",
+            "CONTEXT_BUDGET_EXHAUSTED",
+            "sequentially for each count-selected candidate",
+            "first non-fit",
+            "NOT_ATTEMPTED_AFTER_BUDGET_CUTOFF",
+            "assemble Trace and Package",
+        )
+        for active in active_sections:
+            positions = [active.index(item) for item in required_order]
+            self.assertEqual(positions, sorted(positions))
+            self.assertNotIn("再解析正文并验证 hash，再分配 Citation ID", active)
+            self.assertNotIn("resolve each remaining body", active)
+
+    def test_h2_freezes_instruction_budget_decision_and_trace_partition(self) -> None:
+        text = REVIEW_RECORD.read_text(encoding="utf-8")
+        for required in (
+            "S6-T5.6-P1-H2",
+            "Completed, pending human review",
+            "instruction_budget_not_attempted_uids",
+            "NOT_ATTEMPTED_INSTRUCTION_BUDGET_EXHAUSTED",
+            "len(decision_codes) == len(stable_candidate_uids)",
+            "不相交划分",
+            "budget_excluded_uids 长度只能为 0 或 1",
+            "trace_id == \"CT-\" + trace_hash",
+            "trace_id",
+            "package_id",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, text)
+
+        active_sections = (
+            _section(SPECIFICATION.read_text(encoding="utf-8"), "## 12."),
+            _section(PLAN.read_text(encoding="utf-8"), "## 8."),
+            _section(ADR.read_text(encoding="utf-8"), "### 12."),
+        )
+        for active in active_sections:
+            with self.subTest(active=active[:32]):
+                self.assertNotIn("validate global rank/cardinality", active)
+                self.assertNotIn("future policy-filtered/subset Evidence", active)
+                self.assertNotIn("len(stable_candidates) <= request.top_k", active)
+
+    def test_h2_removes_redundant_package_trace_hash_field(self) -> None:
+        text = REVIEW_RECORD.read_text(encoding="utf-8")
+        package_fields = _section(text, "## 9. Future RetrievedContextPackage")
+        self.assertIn("and `build_trace`", package_fields)
+        self.assertIn("not a second persisted DTO field", package_fields)
+        self.assertIn("context_build_trace_hash = build_trace.trace_hash", package_fields)
+        self.assertIn("context_build_trace_hash", package_fields)
+        self.assertNotIn(
+            "and `context_build_trace_hash`, `build_trace`",
+            package_fields,
+        )
 
 
 if __name__ == "__main__":

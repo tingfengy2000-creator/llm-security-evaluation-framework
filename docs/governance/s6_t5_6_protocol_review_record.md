@@ -8,7 +8,9 @@
 - Baseline: `feature/stage6-rag` at `ee905cb`; the last accepted implementation commit remains `6da27a6`.
 - Current execution status: `Completed, pending human acceptance`.
 - Hardening task: `S6-T5.6-P1-H1 Sequential Resolution, Duplicate Semantics and Context Trace Protocol Hardening`.
-- H1 execution status: `Completed, pending human review`.
+- H1 execution status: `Completed, pending human acceptance`.
+- Hardening task: `S6-T5.6-P1-H2 Active Specification, Trace Decision and Package Identity Protocol Closure`.
+- H2 execution status: `Completed, pending human review`.
 - Parent `S6-T5.6`: `NOT APPROVED`.
 - `S6-T5.7+`: `NOT APPROVED`.
 - Formal RAG security experiment: `NOT STARTED`.
@@ -204,6 +206,11 @@ reason code in the following priority order:
 is not active. Hash mismatch, unknown ref, Binding mismatch and all provenance/integrity errors must raise, not
 be converted to these reason codes.
 
+Candidate decision codes are never abstention reason codes. `EMPTY_RETRIEVAL` has no candidate decisions;
+instruction over-budget uses `NOT_ATTEMPTED_INSTRUCTION_BUDGET_EXHAUSTED` for all count-selected candidates while the
+Package reason remains `CONTEXT_BUDGET_EXHAUSTED`; a first candidate non-fit uses `BUDGET_EXCLUDED` then
+`NOT_ATTEMPTED_AFTER_BUDGET_CUTOFF` while the Package reason remains `NO_COMPLETE_EVIDENCE_BLOCK_FITS`.
+
 ## 9. Future RetrievedContextPackage and Safe Decision Trace
 
 The future canonical owner is `contracts/`. `RetrievedContextPackage` is frozen, slots-based and kw-only. Its
@@ -211,6 +218,10 @@ fields are `package_id`, `request_id`, `query_id`, `citation_mode`, `evidence_en
 `rendered_context`, `rendered_context_hash`, `evidence_count`, `abstention_required`,
 `abstention_reason_codes`, `context_schema_version`, `context_build_config_hash`, `max_evidence_count`,
 `max_context_characters`, and `build_trace`.
+
+`build_trace` is the only persisted Trace DTO field. `context_build_trace_hash` is **not a second persisted DTO field**:
+`to_audit_dict()` may derive it, and the package identity payload uses the canonical relation
+`context_build_trace_hash = build_trace.trace_hash`.
 
 `rendered_context` is `repr=False`; Envelopes, Bindings and reason codes are tuples. Evidence count must equal both
 tuple lengths; Binding and Envelope must match one-to-one; citations must be continuous `E1 ... En`; and the stored
@@ -223,26 +234,54 @@ exactly these semantic fields: `trace_schema_version`, `trace_id`, `trace_hash`,
 `corpus_snapshot_id` (or explicit empty state `""`), `context_build_config_hash`, `input_evidence_count`,
 `deduplicated_evidence_count`, `count_selected_count`, `resolved_count`, `included_count`, `stable_candidate_uids`,
 `count_selected_uids`, `max_count_excluded_uids`, `resolved_uids`, `included_uids`, `budget_excluded_uids`,
-`not_attempted_after_budget_cutoff_uids`, and `decision_codes`. UID collections and decision codes are tuples in
-stable order. The count invariants are: `deduplicated_evidence_count == len(stable_candidate_uids)`;
+`instruction_budget_not_attempted_uids`, `not_attempted_after_budget_cutoff_uids`, and `decision_codes`. UID
+collections and decision codes are tuples in stable order. `decision_codes[i]` corresponds to
+`stable_candidate_uids[i]`; `len(decision_codes) == len(stable_candidate_uids)`, every stable candidate has exactly
+one decision, all decision UID tuples form an ordered 不相交划分 of the stable candidates, and each tuple preserves
+stable-candidate order. The permitted codes are `INCLUDED`, `MAX_EVIDENCE_COUNT_EXCLUDED`,
+`NOT_ATTEMPTED_INSTRUCTION_BUDGET_EXHAUSTED`, `BUDGET_EXCLUDED`, and
+`NOT_ATTEMPTED_AFTER_BUDGET_CUTOFF`.
+
+The count invariants are: `input_evidence_count >= deduplicated_evidence_count`;
+`deduplicated_evidence_count == len(stable_candidate_uids)`;
 `count_selected_count == len(count_selected_uids)`; `resolved_count == len(resolved_uids)`;
 `included_count == len(included_uids)`; and `included_count <= resolved_count <= count_selected_count <=
-deduplicated_evidence_count <= input_evidence_count`. `decision_codes` use only `INCLUDED`,
-`MAX_EVIDENCE_COUNT_EXCLUDED`, `BUDGET_EXCLUDED`, and `NOT_ATTEMPTED_AFTER_BUDGET_CUTOFF` for candidate decisions.
+deduplicated_evidence_count <= input_evidence_count`. `max_count_excluded_uids` and `count_selected_uids` are
+disjoint and, concatenated in stable order, equal `stable_candidate_uids`; `budget_excluded_uids 长度只能为 0 或 1`.
 
-Trace identity is independent of Package identity: `trace_hash` covers stable trace semantics but 不包含 package_id,
-and `trace_id = CT-<full_sha256>`. The Package stores `context_build_trace_hash`; its own ID includes that
-`context_build_trace_hash` together with context schema version, request ID, query ID, citation mode, rendered-context
-hash, final Evidence UID order and config hash. This one-way relation prevents an identity cycle.
+For all-fit, included and resolved UIDs equal count-selected UIDs, and all exclusion tuples are empty. For
+instruction over-budget, `resolved_count == 0`, `included_count == 0`,
+`instruction_budget_not_attempted_uids == count_selected_uids`, selected candidates use
+`NOT_ATTEMPTED_INSTRUCTION_BUDGET_EXHAUSTED`, and the budget/cutoff tuples are empty. For first-block non-fit,
+only the first selected UID is resolved and budget-excluded; later selected UIDs are
+`NOT_ATTEMPTED_AFTER_BUDGET_CUTOFF`. For partial fit, included UIDs are a strict selected prefix, resolved UIDs equal
+included UIDs plus the single budget-excluded UID, and all remaining selected UIDs are cutoff-not-attempted. For
+`EMPTY_RETRIEVAL`, every UID tuple and `decision_codes` is empty, every count is zero, and
+`corpus_snapshot_id == ""`.
+
+Trace identity is independent of Package identity. `trace_hash` is SHA-256 over canonical UTF-8 JSON whose exact
+payload keys are `trace_schema_version`, `request_id`, `query_id`, `corpus_snapshot_id`,
+`context_build_config_hash`, `input_evidence_count`, `deduplicated_evidence_count`, `count_selected_count`,
+`resolved_count`, `included_count`, `stable_candidate_uids`, `count_selected_uids`, `max_count_excluded_uids`,
+`resolved_uids`, `included_uids`, `budget_excluded_uids`, `instruction_budget_not_attempted_uids`,
+`not_attempted_after_budget_cutoff_uids`, and `decision_codes`. It excludes `trace_id`, `trace_hash`, and
+`package_id`; `trace_id == "CT-" + trace_hash`. Historical H1 notation `trace_id = CT-<full_sha256>` means the same
+full digest identity; trace hash 不包含 package_id.
+
+The Package ID is `PK-<full_sha256>` over exactly `context_schema_version`, `request_id`, `query_id`,
+`citation_mode`, `rendered_context_hash`, `evidence_uids`, `context_build_config_hash`, and
+`context_build_trace_hash`, where `context_build_trace_hash = build_trace.trace_hash`. This one-way relation
+prevents an identity cycle.
 
 The trace is the approved no-body exclusion record, rather than putting routine budget exclusions in
 `abstention_reason_codes`. It never includes body text, rendered blocks, ContentRef raw values, Query text, metadata
 values, paths, labels or Ground Truth.
 
-`package_id` uses `PK-<full_sha256>` over canonical UTF-8 JSON containing context schema version, request ID, query
-ID, citation mode, rendered context hash, final Evidence UID order and context-build config hash. It excludes text,
-paths, time, randomness, Ground Truth and evaluator labels. Identical Request, Evidence, Config and CitationMode
-must therefore produce identical Package identity.
+Package validation first validates `build_trace` itself, then requires `build_trace.request_id == package.request_id`,
+`build_trace.query_id == package.query_id`, `build_trace.context_build_config_hash ==
+package.context_build_config_hash`, and `build_trace.included_uids == tuple(envelope.evidence_uid for envelope in
+package.evidence_envelopes)`. Binding/Envelope are one-to-one, Citations are continuous `E1 ... En`, and `package_id`
+must be recomputable. It excludes text, paths, time, randomness, Ground Truth and evaluator labels.
 
 ## 10. Future Error Ownership and Dependency Direction
 
@@ -264,7 +303,8 @@ This P1 record clarifies the earlier S6-T5.5 phrase “Binding after final selec
 are non-observable calculation values, while only committed bindings are final package state. The clarification is
 additive and does not alter accepted historical contracts.
 
-S6-T5.6-P1 is `Completed, pending human acceptance`; S6-T5.6-P1-H1 is `Completed, pending human review`.
+S6-T5.6-P1 is `Completed, pending human acceptance`; S6-T5.6-P1-H1 is `Completed, pending human acceptance`; and
+S6-T5.6-P1-H2 is `Completed, pending human review`.
 S6-T5.6 implementation requires separate approval. S6-T5.7+ remains `NOT APPROVED`; it may not introduce Trust,
 policy, generation, LLM integration or formal RAG experiments. No source code, fixture data or formal experiment was
 created by this review.

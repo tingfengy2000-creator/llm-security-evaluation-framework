@@ -262,12 +262,16 @@ validator 可用，不能回滚成第二套 DTO。
 
 **验收标准**
 
-- 相同 Evidence/config 生成相同 Citation、rendered Context、UTF-8 hash 和 package；顺序固定为排序、
-  UID 精确去重、数量限制、citation instruction 和 sequential resolve；预算基于 escaped rendered string 的
-  Unicode code point，换行固定 LF，且只保留完整 block。`NO_EVIDENCE_AFTER_DEDUPLICATION` is removed from active baseline by S6-T5.6-P1；仅 `EMPTY_RETRIEVAL`、`CONTEXT_BUDGET_EXHAUSTED`、
-  `NO_COMPLETE_EVIDENCE_BLOCK_FITS` 返回结构性 abstention。instruction 超预算时 resolver 调用为 0；第一个
-  不适配候选之后的候选不得解析、封装或渲染。hash/scheme/fingerprint/metric/request 不一致必须异常且不返回
-  Package；普通审计不泄漏正文或 rendered context。
+- 相同 Evidence/config 生成相同 Citation、rendered Context、UTF-8 hash 和 package。future implementation 的
+  唯一顺序为：validate `ContextBuildConfig`；validate Request, citation mode and Evidence sequence types；
+  validate all Request/Evidence provenance；stable sort；exact UID duplicate/conflict handling；
+  apply `max_evidence_count`；render the fixed citation instruction；empty input ->
+  `EMPTY_RETRIEVAL`；instruction over budget -> `CONTEXT_BUDGET_EXHAUSTED`, Resolver calls == 0；sequentially for each count-selected candidate；fit 才提交；first non-fit 后停止；`NOT_ATTEMPTED_AFTER_BUDGET_CUTOFF` 的候选不得
+  resolve/factory/render；assemble Trace and Package。
+- 预算基于 escaped rendered string 的 Unicode code point，
+  换行固定 LF，且只保留完整 block。`NO_EVIDENCE_AFTER_DEDUPLICATION` is removed from active baseline by S6-T5.6-P1；
+  仅 `EMPTY_RETRIEVAL`、`CONTEXT_BUDGET_EXHAUSTED`、`NO_COMPLETE_EVIDENCE_BLOCK_FITS` 返回结构性 abstention。
+  hash/scheme/fingerprint/metric/request 不一致必须异常且不返回 Package；普通审计不泄漏正文或 rendered context。
 
 **建议提交**：`feat(context): build deterministic retrieved context packages`
 

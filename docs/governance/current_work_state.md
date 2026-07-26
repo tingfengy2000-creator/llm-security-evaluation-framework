@@ -17,10 +17,10 @@
 
 ## Current Task
 
-- Task ID: `S6-T5.6-P1-H1`.
-- Task name: `Sequential Resolution, Duplicate Semantics and Context Trace Protocol Hardening`.
-- Execution status: **Completed, pending human review**. This is a design-only hardening; it creates no ContextBuilder, Package, budgeter or Citation allocator.
-- S6-T5.6-P1 remains **Completed, pending human acceptance**. H1 supersedes its active selection wording: count-selected candidates are resolved sequentially, and candidates after the first budget cutoff must never receive resolver, envelope-factory or renderer access.
+- Task ID: `S6-T5.6-P1-H2`.
+- Task name: `Active Specification, Trace Decision and Package Identity Protocol Closure`.
+- Execution status: **Completed, pending human review**. This is a design-only closure; it creates no ContextBuilder, Package, budgeter or Citation allocator.
+- S6-T5.6-P1 and H1 are **Completed, pending human acceptance**. H2 closes only the remaining approved ambiguity: active documents use one sequential build order, instruction-budget exhaustion has a candidate decision, and Package/Trace identity has one non-redundant field relationship.
 - S6-T5.5-P1: **HUMAN_ACCEPTED**.
 - S6-T5.5-P1-H1: **HUMAN_ACCEPTED**. Factory only accepts canonical `corpus:` RetrievalEvidence; renderer only accepts Envelope + Binding and fails closed on seven-field mismatch.
 - S6-T5.5: **HUMAN_ACCEPTED**.
@@ -60,8 +60,8 @@
 - `S6-T5.5-I1`, `S6-T5.5-H1` and parent `S6-T5.5` are **HUMAN_ACCEPTED**. They implement only Envelope/Citation contracts and one structural block; parent `S6-T5.6`, any S6-T5.6 implementation and S6-T5.7+ are **NOT APPROVED**.
 - The acceptance does not authorize Citation allocation, a package, ContextBuilder, Trust or any model call.
 - Formal RAG security experiment: **NOT STARTED**.
-- `S6-T5.6-P1` is **Completed, pending human acceptance** and `S6-T5.6-P1-H1` is **Completed, pending human review**. Parent `S6-T5.6` remains **NOT APPROVED**; no protocol acceptance authorizes implementation.
-- Next human decision: review H1, then accept, reject or amend P1/H1. S6-T5.7+ remains **NOT APPROVED**.
+- `S6-T5.6-P1` and `S6-T5.6-P1-H1` are **Completed, pending human acceptance**; `S6-T5.6-P1-H2` is **Completed, pending human review**. Parent `S6-T5.6` remains **NOT APPROVED**; no protocol acceptance authorizes implementation.
+- Next human decision: review H2, then accept, reject or amend P1/H1/H2. S6-T5.7+ remains **NOT APPROVED**.
 
 ## Must Not Start
 
@@ -71,7 +71,7 @@
 
 ## Current Claims Boundary
 
-Can claim: within the offline engineering-test scope, deterministic and label-isolated retrieval runtime contracts plus the provider-neutral DenseRetriever have been HUMAN_ACCEPTED. S6-T5.4-P1, I1, H1 and S6-T5.4 Controlled Corpus ContentResolver are HUMAN_ACCEPTED: they establish a minimal provider-neutral resolver over synthetic in-memory content, a closed public capability surface, and a redacted injected-error boundary. S6-T5.5-P1/P1-H1 are HUMAN_ACCEPTED design protocols; S6-T5.5-I1/H1 and parent S6-T5.5 are HUMAN_ACCEPTED offline contracts for Envelope, Citation and one structural rendering block over synthetic objects. S6-T5.6-P1 froze, and H1 hardened but did not implement, the deterministic context-package and structural-abstention protocol: sequential resolution prevents candidates after a budget cutoff from accessing bodies. Historical public loader imports remain compatible through the canonical `llmguard` type.
+Can claim: within the offline engineering-test scope, deterministic and label-isolated retrieval runtime contracts plus the provider-neutral DenseRetriever have been HUMAN_ACCEPTED. S6-T5.4-P1, I1, H1 and S6-T5.4 Controlled Corpus ContentResolver are HUMAN_ACCEPTED: they establish a minimal provider-neutral resolver over synthetic in-memory content, a closed public capability surface, and a redacted injected-error boundary. S6-T5.5-P1/P1-H1 are HUMAN_ACCEPTED design protocols; S6-T5.5-I1/H1 and parent S6-T5.5 are HUMAN_ACCEPTED offline contracts for Envelope, Citation and one structural rendering block over synthetic objects. S6-T5.6-P1/H1/H2 freeze but do not implement a deterministic context-package protocol: sequential resolution prevents post-cutoff body access, and Trace decisions remain auditable without body exposure. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
 Cannot claim: retrieval quality, retrieval security effectiveness, context safety, citation accuracy, trustworthiness, RAG metrics, production readiness, or research-experiment outcomes.
 
@@ -85,4 +85,4 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 ## Last Update
 
 - Date: `2026-07-26`.
-- Updated by: Codex under explicit project-owner S6-T5.6-P1-H1 protocol-hardening approval. S6-T5.5-I1, S6-T5.5-H1 and parent S6-T5.5 are HUMAN_ACCEPTED; P1 is Completed, pending human acceptance and H1 is Completed, pending human review; parent S6-T5.6 and S6-T5.7+ are NOT APPROVED. Historical pending/review snapshots remain in their dated records. No fixture/data change, model call or formal RAG security experiment occurred.
+- Updated by: Codex under explicit project-owner S6-T5.6-P1-H2 protocol-closure approval. S6-T5.5-I1, S6-T5.5-H1 and parent S6-T5.5 are HUMAN_ACCEPTED; P1/H1 are Completed, pending human acceptance and H2 is Completed, pending human review; parent S6-T5.6 and S6-T5.7+ are NOT APPROVED. Historical pending/review snapshots remain in their dated records. No fixture/data change, model call or formal RAG security experiment occurred.

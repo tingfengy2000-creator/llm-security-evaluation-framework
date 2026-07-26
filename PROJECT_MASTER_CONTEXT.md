@@ -998,3 +998,15 @@ H1 同时冻结跨对象 provenance 的四个精确比较、同 UID 的完整语
 `context_build_trace_hash`，从而避免循环。`NO_EVIDENCE_AFTER_DEDUPLICATION` 已由 P1 从 active baseline 移除，
 仅作为历史快照保留。父任务 S6-T5.6、S6-T5.7+ 与正式 RAG 安全实验仍未批准/未开始；本轮未读取 fixture、未调用
 Embedding、Chroma、Groq 或 LLM，也未生成实验结论。
+
+## 29. S6-T5.6-P1-H2：活动规格、Trace 决策与 Package 身份协议闭环（2026-07-26）
+
+H2 已完成、待人工复核；P1 与 H1 均为待人工验收。H2 不新增业务对象，只把活动规格、实施计划和 ADR 的
+Context 构建顺序统一为：配置/类型/provenance 校验、稳定排序、精确 UID 去重、数量限制、instruction、空输入或
+instruction-budget 分流、顺序 resolve/render/fit、cutoff、Trace/Package 组装。本轮不新增 rank、Evidence 子集或
+多 snapshot 的运行时规则。
+
+H2 还将 `ContextBuildTrace` 定义为每一稳定候选恰有一个 decision 的不相交审计分区；instruction 超预算不调用
+Resolver，但会把 selected candidates 记录为 `NOT_ATTEMPTED_INSTRUCTION_BUDGET_EXHAUSTED`。Package 只持久化
+`build_trace`，而 package identity 从 `build_trace.trace_hash` 派生 canonical `context_build_trace_hash`，避免 DTO
+冗余和 hash 循环。S6-T5.6、S6-T5.7+ 与正式 RAG 安全实验仍未获批准/未开始；未读取 fixture，未调用模型或执行实验。

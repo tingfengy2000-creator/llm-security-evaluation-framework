@@ -1375,3 +1375,25 @@ Binding 和渲染。S6-T5.6-P1/H1 仍只定义未来如何把多条证据组合�
 **容易误解的地方**：`NO_COMPLETE_EVIDENCE_BLOCK_FITS` 不表示“后面的所有候选都放不下”。它只表示稳定前缀策略不允许
 第一条候选进入；为了不让低 rank 的短文档越过高 rank 候选，系统有意停止。本轮状态为 H1 `Completed, pending human
 review`，P1 仍 `Completed, pending human acceptance`；父任务 S6-T5.6 仍未获批准。
+
+## 2026-07-26: S6-T5.6-P1-H2 活动协议闭环（待人工复核）
+
+**我现在做了什么**：本轮没有实现 ContextBuilder，而是关闭了 H1 剩下的三类已确认设计矛盾。第一，把规格第 12 节、
+计划第 8 节与 ADR 的活动顺序改成相同的 14 步流程。第二，instruction 自身超预算时，不访问任何候选正文，但 Trace
+仍为候选记录明确的未访问决策。第三，将 Trace 的每个候选决策和 Package/Trace hash 关系定义为可验证的不变量。
+
+**为什么这样做**：活动规格、计划和 ADR 若对同一处理顺序写得不同，未来实现会出现“每份文档都能解释、但行为不能复现”的风险。
+instruction 超预算时没有正文访问，但审计仍需说明为何 selected candidates 没有被尝试，所以它们获得独立 decision code，
+而不是被错误写成“无证据”。Package 只保存 `build_trace`，并从 `build_trace.trace_hash` 派生审计 hash，避免同一事实被
+两个可漂移字段重复表达。
+
+**企业与面试意义**：这是把“可复现”落实为审计不变量的例子。我会说：Trace 不是一串自由文本日志，而是每个候选
+恰有一个决策、各类 UID 集合不相交且覆盖完整候选集的可校验对象。Package 只持有 Trace，identity 通过
+`build_trace.trace_hash` 派生，避免同一事实存两份后发生漂移。
+
+**边界与状态**：H2 为 `Completed, pending human review`；P1/H1 为 `Completed, pending human acceptance`。
+
+**NON_BLOCKING_FUTURE_NOTE**：全局 rank/cardinality、Evidence 子集输入、多 snapshot、过滤、Trust、rerank 与 policy
+语义都可能在未来需要独立设计，但本轮没有定义、禁止或实现它们，也不会为此创建 H3 blocker。
+S6-T5.6 仍未批准。本轮未读取 fixture、未调用 Embedding、Chroma、Groq 或 LLM，未执行 RAG 实验，因此不能宣称
+ContextBuilder、Citation Accuracy、检索安全效果或生产能力已经实现。
