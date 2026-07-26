@@ -1,5 +1,11 @@
 # Stage 6：RAG 安全与可信检索基线
 
+## 当前状态：S6-T5.7 集成候选证据，等待人工验收
+
+本阶段新增了从安全 Query 投影到 `RetrievedContextPackage` 的受控集成验证。静态链路验证标签隔离、无正文 Evidence、canonical resolver、连续 Citation 和 stable-prefix 最小权限；显式启用的真实基础设施链路验证固定 MiniLM 与临时 ChromaDB 的 close/reopen 互操作。
+
+正文仍由 synthetic corpus reader 提供，Chroma 只保存向量和公开 metadata。它不表示检索质量、RAG 安全效果、Citation Accuracy 或生产可用性。最后已接受实现提交仍为 `b136ee2`；`S6-T5.8` 仍未批准，正式 RAG 安全实验未开始。详见 [S6-T5.7 集成记录](../../docs/governance/s6_t5_7_integration_completion_record.md)。
+
 ## Metadata
 
 - stage_id: `S6`

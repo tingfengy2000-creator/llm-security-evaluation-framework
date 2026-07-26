@@ -1433,6 +1433,22 @@ ContextBuildTrace、预算器或 Citation allocator。
 
 **最容易误解**：本轮 437 个测试通过只证明 synthetic/offline 合约加固，不说明 RAG 已安全、引用准确或能够抵抗知识污染。
 
+## 2026-07-26：S6-T5.7 受控检索到上下文包的集成验证
+
+**我现在学到了什么**：一个 RAG 系统不能把“向量库返回了某个 chunk”直接等同于“模型可以读这段正文”。我把它拆为检索层的无正文 Evidence/Trace，和解析层的 `ContentRef + expected hash -> ResolvedContent`，最后才由 ContextBuilder 用预算与 Citation 组合上下文。
+
+**为什么这样做**：这能让审计记录显示候选为什么被选中或未被访问，而不用把 Query、正文、标签或本机路径写进普通日志。stable-prefix cutoff 还证明了预算耗尽后的候选没有获得正文访问机会。
+
+**企业意义**：企业里的向量库常被当作搜索组件，不应变成任意正文读取接口。把正文读取能力收敛到受控 Resolver，能减少检索污染、误配置和审计泄露的影响面。
+
+**与上一阶段的关系**：S6-T5.3 产生无正文 Evidence；S6-T5.4 受控解析正文；S6-T5.5 绑定正文与引用；S6-T5.6 确定性构建 Package；S6-T5.7 第一次把它们连成一条可重复验证的链路。
+
+**面试可能追问**：为什么 Chroma 不能做正文权威源？答：索引只负责向量和公开 provenance；正文要经独立受控语料读取器与 hash 校验，避免检索结果绕过内容完整性与权限边界。
+
+**容易误解的地方**：真实 MiniLM + Chroma 集成通过，只能证明固定依赖和接口能互操作，不代表检索质量、RAG 安全或抗知识污染已经被证明。
+
+**当前状态**：S6-T5.7 为 `Completed, pending human acceptance`；`S6-T5.8` 未批准；正式 RAG security experiment 未开始；最后已接受实现提交仍为 `b136ee2`。
+
 ## 2026-07-26: GOV-S6-T5.6-ACCEPTANCE Context Package 最终人工验收
 
 **验收了什么**：项目负责人已接受 `S6-T5.6-I1-H1`、`S6-T5.6-I1` 和父任务 `S6-T5.6`。接受的是 synthetic/offline 环境中的确定性 Context Package 工程边界：从配置、Trace、Package、Builder 到顺序解析、stable-prefix 预算、包内 Citation、结构性 abstention、安全审计，以及 H1 修复的 Trace/config/依赖错误/reason 对应关系。

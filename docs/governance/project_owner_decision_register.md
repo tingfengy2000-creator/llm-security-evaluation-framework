@@ -303,6 +303,16 @@ implementation commit。历史 pending/review 文本继续保留为当时事实�
 - Boundaries: no new DTO fields, no protocol expansion, no Stage 1-5 or Stage 6 fixture/data change, no Embedding/Chroma/Groq/LLM invocation, and no formal RAG security experiment.
 - Next gate: human acceptance, rejection, or a separately approved scoped review. `S6-T5.7+` remains `NOT APPROVED`.
 
+## PODR-030: S6-T5.7 Controlled Retrieval Context Pipeline Integration Validation
+
+- Date: `2026-07-26`.
+- Decision: project owner approved S6-T5.7 to start; candidate static and opt-in real-infrastructure validation is now complete and pending human acceptance.
+- Evidence: [S6-T5.7 completion record](s6_t5_7_integration_completion_record.md), integration tests and scoped regressions.
+- Scope: existing accepted components only. No frozen DTO/protocol semantics or Stage 1-5 / Stage 6 fixture data changed.
+- Real-infrastructure evidence: fixed MiniLM revision and temporary ChromaDB completed vectorization, retrieval, close/reopen, controlled resolution and deterministic context-package identity checks.
+- Status boundary: this is not an acceptance decision and does not advance the last accepted implementation commit from `b136ee2`.
+- Next gate: S6-T5.7 human acceptance or rejection. `S6-T5.8` is `NOT APPROVED`; Formal RAG security experiment is `NOT STARTED`.
+
 ## PODR-029: GOV-S6-T5.6-ACCEPTANCE Final Human Acceptance
 
 - Date: `2026-07-26`.

@@ -1,5 +1,11 @@
 # LLMGuard 项目总控文档
 
+## S6-T5.7 当前状态附注（2026-07-26）
+
+`S6-T5.7 Controlled Retrieval Context Pipeline Integration and Security Validation` 已完成候选集成验证，当前为 `Completed, pending human acceptance`。新增证据仅验证既有受控链路的互操作：静态 Query 投影到 Context Package，以及显式开启的固定 MiniLM 与临时 Chroma close/reopen、受控 synthetic-corpus 解析和稳定身份检查。
+
+最后已接受实现提交仍为 `b136ee2`；`S6-T5.8+` 为 `NOT APPROVED`；Formal RAG security experiment 为 `NOT STARTED`。本轮未调用 Groq 或生成式 LLM，未执行 evaluator、Trust、Citation Accuracy 或正式攻击矩阵。详见 [S6-T5.7 集成记录](docs/governance/s6_t5_7_integration_completion_record.md)。
+
 > 这是项目唯一的总览与决策入口。它回答：为什么做、已经做了什么、证据在哪里、当前代码处于什么状态、未来架构如何同时支撑面试、论文和科技立项。
 
 更新时间：2026-07-26

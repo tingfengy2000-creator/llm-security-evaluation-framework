@@ -393,6 +393,15 @@ git log -15 --oneline
 - Non-claims: retrieval quality, prompt-injection defense, knowledge-poisoning detection, Citation Accuracy, trustworthy retrieval, Chroma/MiniLM/LLM full chain, formal RAG security experiment and production readiness.
 - Next gate: `S6-T5.7+` remains `NOT APPROVED`; Formal RAG security experiment remains `NOT STARTED`.
 
+## S6-T5.7 Controlled Retrieval Context Pipeline Integration Validation (2026-07-26)
+
+- Status: `Completed, pending human acceptance`.
+- Evidence: [completion record](s6_t5_7_integration_completion_record.md), static integration, explicit MiniLM + temporary Chroma integration, offline and architecture regressions.
+- Scope: candidate interoperability evidence for existing accepted components only; no new pipeline business module and no frozen contract modification.
+- Claim boundary: no retrieval-quality, security-effectiveness, Citation Accuracy, trustworthy-retrieval, LLM-generation, formal-experiment or production-readiness claim.
+- Integrity: the legacy SHA-256 manifest still reports its accepted CRLF/LF baseline debt; Git protected-path diff confirms this task did not modify Stage 1-5 or Stage 6 fixture/data.
+- Next gate: S6-T5.7 human acceptance or rejection. `S6-T5.8` remains `NOT APPROVED`; formal RAG security experiment remains `NOT STARTED`; last accepted implementation commit remains `b136ee2`.
+
 ## 20. Change Log
 
 | 日期 | 变更类型 | 影响章节 | 变更原因 | 证据 | Commit |

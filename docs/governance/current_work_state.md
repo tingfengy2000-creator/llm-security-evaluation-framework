@@ -18,17 +18,20 @@
 
 ## Current Task
 
-- Task ID: `GOV-S6-T5.6-ACCEPTANCE`.
-- Task name: `S6-T5.6 Deterministic Context Package Implementation Human Acceptance`.
-- Task type: **GOVERNANCE_ACCEPTANCE_RECORD**.
+- Task ID: `S6-T5.7`.
+- Task name: `Controlled Retrieval Context Pipeline Integration and Security Validation`.
+- Task type: **INTEGRATION_ENGINEERING_VALIDATION / STATIC_AND_OPT_IN_REAL_INFRASTRUCTURE**.
+- Status: **Completed, pending human acceptance**.
 - S6-T5.6-P1: HUMAN_ACCEPTED.
 - S6-T5.6-P1-H1: HUMAN_ACCEPTED.
 - S6-T5.6-P1-H2: HUMAN_ACCEPTED.
 - S6-T5.6: HUMAN_ACCEPTED.
 - S6-T5.6-I1: HUMAN_ACCEPTED.
 - S6-T5.6-I1-H1: HUMAN_ACCEPTED. It hardens only trace scenarios, package configuration identity, dependency error redaction and abstention/trace consistency.
-- S6-T5.7+: NOT APPROVED.
+- S6-T5.7: **Completed, pending human acceptance**. Static and opt-in real-infrastructure integration evidence is recorded in [S6-T5.7 completion record](s6_t5_7_integration_completion_record.md); it is not a formal RAG security experiment or an accepted implementation commit.
+- S6-T5.8+: NOT APPROVED.
 - Formal RAG security experiment: NOT STARTED.
+- Historical approval-gate snapshot, not the current status: `S6-T5.7+: NOT APPROVED`. The accepted S6-T5.6 implementation history remains `71067d1` (initial candidate), `b136ee2` (final accepted implementation) and `6da27a6` (previous accepted implementation).
 - S6-T5.5-P1: **HUMAN_ACCEPTED**.
 - S6-T5.5-P1-H1: **HUMAN_ACCEPTED**. Factory only accepts canonical `corpus:` RetrievalEvidence; renderer only accepts Envelope + Binding and fails closed on seven-field mismatch.
 - S6-T5.5: **HUMAN_ACCEPTED**.
@@ -68,7 +71,8 @@
 - `S6-T5.5-I1`, `S6-T5.5-H1` and parent `S6-T5.5` are **HUMAN_ACCEPTED**. They implement only Envelope/Citation contracts and one structural block.
 - The acceptance did not authorize Citation allocation, a package or ContextBuilder before I1. The separately approved I1 now implements only those frozen offline behaviors; it does not authorize Trust or model calls.
 - S6-T5.6 P1/H1/H2 are HUMAN_ACCEPTED protocol records. `S6-T5.6-I1`, `S6-T5.6-I1-H1` and parent S6-T5.6 are HUMAN_ACCEPTED synthetic/offline implementations.
-- Next approval gate: a separately approved S6-T5.7 task. S6-T5.7+ remains NOT APPROVED and must not start automatically.
+- Current approved task: `S6-T5.7` controlled retrieval-context pipeline integration validation. It may add integration tests, test-only helpers and governance evidence only; it must not create a new pipeline business module or change accepted contracts.
+- Next approval gate: `S6-T5.8` remains NOT APPROVED and must not start automatically.
 
 ## Must Not Start
 
@@ -92,4 +96,4 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 ## Last Update
 
 - Date: `2026-07-26`.
-- Updated by: Codex after recording the project-owner final acceptance `GOV-S6-T5.6-ACCEPTANCE`. S6-T5.6-P1, P1-H1, P1-H2, I1, I1-H1 and parent S6-T5.6 are HUMAN_ACCEPTED. `71067d1` remains the initial I1 candidate historical commit; `b136ee2` is the final accepted implementation commit. `432b07e` remains only the protocol acceptance closure commit. Final full Stage 6 offline regression evidence is `438 passed, 2837 subtests passed`; `421/2796`, `437/2796` and `438/2833` are dated pre-final-validation snapshots. The final four additional subtests are governance assertions added during acceptance-state synchronization. No fixture/data change, model call or formal RAG security experiment has occurred.
+- Updated by: Codex after completion of S6-T5.7 candidate integration validation. The static chain and explicitly enabled MiniLM plus temporary Chroma chain passed; the evidence is recorded in [S6-T5.7 completion record](s6_t5_7_integration_completion_record.md). S6-T5.7 is `Completed, pending human acceptance`; `S6-T5.8+` remains `NOT APPROVED`; the formal experiment remains `NOT STARTED`; and `b136ee2` remains the last accepted implementation commit.

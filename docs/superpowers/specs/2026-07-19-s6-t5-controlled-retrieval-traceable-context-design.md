@@ -758,6 +758,12 @@ S6-T5.6 implementation、S6-T5.7+ 与正式实验均为 `NOT APPROVED`/`NOT STAR
 ContextBuildTrace、预算器或 Citation allocator 的实现批准。最后已接受 implementation commit 是 `6da27a6`；
 `432b07e` 仅是人工验收通过的协议闭环提交。
 
+## S6-T5.7 集成状态附注（2026-07-26）
+
+本设计的既有协议未被改写。项目已完成候选集成验证：既有 DTO、DenseRetriever、Resolver、Envelope、Binding 和 ContextBuilder 被静态链路以及显式开启的 MiniLM + 临时 Chroma 链路组合验证。该验证仅证明受控互操作、身份稳定、close/reopen 和审计隔离。
+
+这不构成检索质量、安全效果、Citation Accuracy、Trust、LLM 集成或正式 RAG 安全实验结论。S6-T5.7 等待人工验收；S6-T5.8 未批准；最后已接受实现提交仍为 `b136ee2`。
+
 ## 29. S6-T5.6-I1-H1 Candidate Hardening Status (2026-07-26)
 
 I1-H1 is `Completed, pending human acceptance`. It does not alter the accepted P1/H1/H2 protocol. The candidate implementation now rejects malformed Trace execution scenarios, recomputes the Package configuration hash from its public schema and limits, re-instantiates resolver/factory/renderer dependency failures through allowlisted redacted errors, and requires every structural abstention reason to match its Trace scenario.
