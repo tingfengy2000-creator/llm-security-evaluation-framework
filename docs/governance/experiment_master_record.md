@@ -384,6 +384,15 @@ git log -15 --oneline
 - Historical boundary: `71067d1` remains the initial I1 candidate history; last accepted implementation commit remains `6da27a6`.
 - Non-claims: no fixture/data read or modification, model invocation, formal RAG security experiment, retrieval-quality conclusion, Citation Accuracy conclusion, or production-readiness conclusion.
 
+## GOV-S6-T5.6-ACCEPTANCE: Deterministic Context Package Final Acceptance (2026-07-26)
+
+- Status: `HUMAN_ACCEPTED` for `S6-T5.6-I1-H1`, `S6-T5.6-I1` and parent `S6-T5.6`; P1, P1-H1 and P1-H2 remain `HUMAN_ACCEPTED`.
+- Final accepted implementation commit: `b136ee2`; initial candidate implementation history: `71067d1`; previous accepted implementation commit: `6da27a6`.
+- Accepted boundary: synthetic/offline ContextBuildConfig, ContextBuildTrace, RetrievedContextPackage, DeterministicContextBuilder, stable sort, exact duplicate handling, sequential resolution, stable-prefix budget selection, package-local Citation allocation, Unicode/UTF-8 identity, structural abstention, Trace scenario invariants, public config hash binding, dependency redaction, reason/Trace correspondence and safe audit.
+- Final validation evidence: complete Stage 6 offline regression `438 passed, 2837 subtests passed`; Ruff and scoped MyPy passed. `421/2796`, `437/2796` and `438/2833` are dated pre-final-validation snapshots, not current acceptance figures. The four-subtest increase from `2833` comes from governance assertions added during acceptance-state synchronization.
+- Non-claims: retrieval quality, prompt-injection defense, knowledge-poisoning detection, Citation Accuracy, trustworthy retrieval, Chroma/MiniLM/LLM full chain, formal RAG security experiment and production readiness.
+- Next gate: `S6-T5.7+` remains `NOT APPROVED`; Formal RAG security experiment remains `NOT STARTED`.
+
 ## 20. Change Log
 
 | 日期 | 变更类型 | 影响章节 | 变更原因 | 证据 | Commit |

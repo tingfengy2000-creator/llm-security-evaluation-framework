@@ -517,6 +517,12 @@ The implementation plan remains unchanged. The completed candidate hardening is 
 
 Status: `S6-T5.6-I1-H1: Completed, pending human acceptance`; `S6-T5.6-I1` and `S6-T5.6` remain `Completed, pending human acceptance`; `S6-T5.7+` remains `NOT APPROVED`; Formal RAG security experiment remains `NOT STARTED`. The last accepted implementation commit remains `6da27a6`.
 
+## 30. GOV-S6-T5.6-ACCEPTANCE Final Status (2026-07-26)
+
+The project owner has accepted `S6-T5.6-I1-H1`, `S6-T5.6-I1` and parent `S6-T5.6`. Their current status is `HUMAN_ACCEPTED`; the final accepted implementation commit is `b136ee2`. `71067d1` stays as initial candidate history, and `6da27a6` stays as previous accepted implementation history. The final complete offline regression rerun is `438 passed, 2837 subtests passed`; `421/2796`, `437/2796` and `438/2833` are dated pre-final-validation snapshots. The four-subtest difference from `2833` is acceptance-governance coverage, not a behavior change.
+
+This is a governance acceptance of existing synthetic/offline behavior, not a plan expansion. `S6-T5.7+` remains `NOT APPROVED`; Formal RAG security experiment remains `NOT STARTED`.
+
 ## 28. S6-T5.6-I1 实施状态附注（2026-07-26）
 
 本计划的历史审批快照仍保留。其后已批准的最小 synthetic-only I1 已完成离线实现并等待人工验收：

@@ -10,23 +10,23 @@
 ## Accepted Baseline
 
 - Last accepted architecture task: `A1R` namespace migration and governance freeze.
-- Last accepted stage task: `S6-T5.6 Context Package Protocol`.
-- Last accepted governance protocol task: `GOV-S6-T5.6-P1-ACCEPTANCE`.
-- Last accepted implementation commit: `6da27a6`.
+- Last accepted stage task: `S6-T5.6 Deterministic Context Package Implementation`.
+- Last accepted governance task: `GOV-S6-T5.6-ACCEPTANCE`.
+- Last accepted implementation commit: `b136ee2`.
 - Protocol acceptance closure commit: `432b07e`. It is a governance/design commit, never an implementation commit.
 - Accepted capability boundary: deterministic, label-isolated provider-neutral DenseRetriever engineering behavior, including the S6-T5.3-H1 trace and failure-boundary hardening; the S6-T5.4 synthetic in-memory ContentResolver capability and integrity boundary; and the S6-T5.5 synthetic EvidenceEnvelope, CitationBinding and one-block structural rendering boundary. This does not establish retrieval quality, security effectiveness, context safety, ContextBuilder behavior, trust policy, LLM integration, or a RAG experiment.
 
 ## Current Task
 
-- Task ID: `S6-T5.6-I1-H1`.
-- Task name: `Context Trace Integrity, Config Identity and Dependency Redaction Hardening`.
-- Task type: **OFFLINE_ENGINEERING_HARDENING / SYNTHETIC_ONLY_TDD**.
+- Task ID: `GOV-S6-T5.6-ACCEPTANCE`.
+- Task name: `S6-T5.6 Deterministic Context Package Implementation Human Acceptance`.
+- Task type: **GOVERNANCE_ACCEPTANCE_RECORD**.
 - S6-T5.6-P1: HUMAN_ACCEPTED.
 - S6-T5.6-P1-H1: HUMAN_ACCEPTED.
 - S6-T5.6-P1-H2: HUMAN_ACCEPTED.
-- S6-T5.6: Completed, pending human acceptance.
-- S6-T5.6-I1: Completed, pending human acceptance.
-- S6-T5.6-I1-H1: Completed, pending human acceptance. It hardens only trace scenarios, package configuration identity, dependency error redaction and abstention/trace consistency.
+- S6-T5.6: HUMAN_ACCEPTED.
+- S6-T5.6-I1: HUMAN_ACCEPTED.
+- S6-T5.6-I1-H1: HUMAN_ACCEPTED. It hardens only trace scenarios, package configuration identity, dependency error redaction and abstention/trace consistency.
 - S6-T5.7+: NOT APPROVED.
 - Formal RAG security experiment: NOT STARTED.
 - S6-T5.5-P1: **HUMAN_ACCEPTED**.
@@ -67,8 +67,8 @@
 - `S6-T5.5-P1` and `S6-T5.5-P1-H1` are **HUMAN_ACCEPTED** design protocols. Their I1/H1 implementation was separately accepted; S6-T5.6-P1 now freezes the future package-level selection contract without implementing it.
 - `S6-T5.5-I1`, `S6-T5.5-H1` and parent `S6-T5.5` are **HUMAN_ACCEPTED**. They implement only Envelope/Citation contracts and one structural block.
 - The acceptance did not authorize Citation allocation, a package or ContextBuilder before I1. The separately approved I1 now implements only those frozen offline behaviors; it does not authorize Trust or model calls.
-- S6-T5.6 P1/H1/H2 are HUMAN_ACCEPTED protocol records. `S6-T5.6-I1` and parent S6-T5.6 are completed candidate offline implementations, pending human acceptance.
-- Next human decision: accept, reject or request further scoped review for the candidate `S6-T5.6-I1` implementation and its H1 hardening record. S6-T5.7+ remains NOT APPROVED.
+- S6-T5.6 P1/H1/H2 are HUMAN_ACCEPTED protocol records. `S6-T5.6-I1`, `S6-T5.6-I1-H1` and parent S6-T5.6 are HUMAN_ACCEPTED synthetic/offline implementations.
+- Next approval gate: a separately approved S6-T5.7 task. S6-T5.7+ remains NOT APPROVED and must not start automatically.
 
 ## Must Not Start
 
@@ -78,7 +78,7 @@
 
 ## Current Claims Boundary
 
-Can claim: within the offline engineering-test scope, deterministic and label-isolated retrieval runtime contracts plus the provider-neutral DenseRetriever have been HUMAN_ACCEPTED. S6-T5.4-P1, I1, H1 and S6-T5.4 Controlled Corpus ContentResolver are HUMAN_ACCEPTED: they establish a minimal provider-neutral resolver over synthetic in-memory content, a closed public capability surface, and a redacted injected-error boundary. S6-T5.5-P1/P1-H1 are HUMAN_ACCEPTED design protocols; S6-T5.5-I1/H1 and parent S6-T5.5 are HUMAN_ACCEPTED offline contracts for Envelope, Citation and one structural rendering block over synthetic objects. S6-T5.6-P1/H1/H2 are HUMAN_ACCEPTED protocols, and I1 plus I1-H1 are completed candidate synthetic/offline work: deterministic package construction, stable-prefix selection, package-local citations, structural abstention, trace scenario invariants, configuration identity and dependency-redaction boundaries. I1 and I1-H1 remain pending human acceptance. Historical public loader imports remain compatible through the canonical `llmguard` type.
+Can claim: within the offline engineering-test scope, deterministic and label-isolated retrieval runtime contracts plus the provider-neutral DenseRetriever have been HUMAN_ACCEPTED. S6-T5.4-P1, I1, H1 and S6-T5.4 Controlled Corpus ContentResolver are HUMAN_ACCEPTED: they establish a minimal provider-neutral resolver over synthetic in-memory content, a closed public capability surface, and a redacted injected-error boundary. S6-T5.5-P1/P1-H1 are HUMAN_ACCEPTED design protocols; S6-T5.5-I1/H1 and parent S6-T5.5 are HUMAN_ACCEPTED offline contracts for Envelope, Citation and one structural rendering block over synthetic objects. S6-T5.6-P1/H1/H2, I1, I1-H1 and parent S6-T5.6 are HUMAN_ACCEPTED within the synthetic/offline boundary: deterministic package construction, stable-prefix selection, package-local citations, structural abstention, trace scenario invariants, configuration identity and dependency-redaction boundaries. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
 Cannot claim: retrieval quality, retrieval security effectiveness, context safety, citation accuracy, trustworthiness, RAG metrics, production readiness, or research-experiment outcomes.
 
@@ -92,4 +92,4 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 ## Last Update
 
 - Date: `2026-07-26`.
-- Updated by: Codex after completing the project-owner-approved `S6-T5.6-I1-H1` synthetic/offline hardening and its local verification. S6-T5.6-P1, P1-H1 and P1-H2 remain HUMAN_ACCEPTED; S6-T5.6, I1 and I1-H1 are Completed, pending human acceptance. `71067d1` remains the initial I1 candidate historical commit, and last accepted implementation commit remains `6da27a6`; this hardening is recorded only as a candidate pending human acceptance. `432b07e` remains only the protocol acceptance closure commit. Historical pending/review snapshots remain in dated records. No fixture/data change, model call or formal RAG security experiment has occurred.
+- Updated by: Codex after recording the project-owner final acceptance `GOV-S6-T5.6-ACCEPTANCE`. S6-T5.6-P1, P1-H1, P1-H2, I1, I1-H1 and parent S6-T5.6 are HUMAN_ACCEPTED. `71067d1` remains the initial I1 candidate historical commit; `b136ee2` is the final accepted implementation commit. `432b07e` remains only the protocol acceptance closure commit. Final full Stage 6 offline regression evidence is `438 passed, 2837 subtests passed`; `421/2796`, `437/2796` and `438/2833` are dated pre-final-validation snapshots. The final four additional subtests are governance assertions added during acceptance-state synchronization. No fixture/data change, model call or formal RAG security experiment has occurred.

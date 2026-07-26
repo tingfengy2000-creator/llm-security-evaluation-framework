@@ -303,6 +303,17 @@ implementation commit。历史 pending/review 文本继续保留为当时事实�
 - Boundaries: no new DTO fields, no protocol expansion, no Stage 1-5 or Stage 6 fixture/data change, no Embedding/Chroma/Groq/LLM invocation, and no formal RAG security experiment.
 - Next gate: human acceptance, rejection, or a separately approved scoped review. `S6-T5.7+` remains `NOT APPROVED`.
 
+## PODR-029: GOV-S6-T5.6-ACCEPTANCE Final Human Acceptance
+
+- Date: `2026-07-26`.
+- Decision: `S6-T5.6-I1-H1`, `S6-T5.6-I1` and parent `S6-T5.6` are `HUMAN_ACCEPTED`.
+- Accepted implementation commit: `b136ee2`.
+- Historical preservation: `71067d1` remains the initial candidate implementation history; `6da27a6` remains the previously accepted implementation commit.
+- Accepted scope: synthetic/offline deterministic Context Package behavior only, including the 16 approved items in `GOV-S6-T5.6-ACCEPTANCE`.
+- Final validation: full Stage 6 offline regression `438 passed, 2837 subtests passed`; Ruff and scoped MyPy passed. `421/2796`, `437/2796` and `438/2833` remain dated pre-final-validation snapshots. The four-subtest increase from `2833` is governance assertion coverage added during acceptance-state synchronization.
+- Explicit non-claims: no retrieval-quality, prompt-injection-defense, poisoning-detection, Citation Accuracy, trustworthy-retrieval, Chroma/MiniLM/LLM-chain, formal-experiment or production-readiness claim.
+- Gate: `S6-T5.7+` is `NOT APPROVED`; Formal RAG security experiment is `NOT STARTED`.
+
 ## 8. 新 Thread 最小读取顺序
 
 1. `AGENTS.md`

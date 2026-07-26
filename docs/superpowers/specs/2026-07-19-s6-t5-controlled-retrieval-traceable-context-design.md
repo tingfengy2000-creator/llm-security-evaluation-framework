@@ -764,6 +764,12 @@ I1-H1 is `Completed, pending human acceptance`. It does not alter the accepted P
 
 No DTO field, decision/reason code, builder interface, selection order, fixture/data asset, model integration, or experiment scope changed. `71067d1` remains initial I1 candidate history; the last accepted implementation commit remains `6da27a6`; S6-T5.7+ is `NOT APPROVED`; Formal RAG security experiment is `NOT STARTED`.
 
+## 30. GOV-S6-T5.6-ACCEPTANCE Final Status (2026-07-26)
+
+Project-owner human acceptance now marks `S6-T5.6-I1-H1`, `S6-T5.6-I1` and parent `S6-T5.6` as `HUMAN_ACCEPTED`; P1, P1-H1 and P1-H2 remain `HUMAN_ACCEPTED`. The final accepted implementation commit is `b136ee2`; `71067d1` remains initial candidate history and `6da27a6` remains the previous accepted implementation history. Final complete offline verification is `438 passed, 2837 subtests passed`; `421/2796`, `437/2796` and `438/2833` are dated pre-final-validation snapshots. The four-subtest difference from `2833` is acceptance-governance coverage, not a behavior change.
+
+This acceptance is limited to the existing synthetic/offline contract and behavior boundary. It does not establish retrieval quality, prompt-injection defense, knowledge-poisoning detection, Citation Accuracy, trustworthy retrieval, Chroma/MiniLM/LLM integration, formal RAG security experimentation or production readiness. `S6-T5.7+` remains `NOT APPROVED`; Formal RAG security experiment remains `NOT STARTED`.
+
 ## 28. S6-T5.6-I1 实施状态附注（2026-07-26）
 
 本规格的 P1/H1/H2 冻结内容未被改写。项目负责人已批准并完成最小 synthetic-only I1 实现，当前

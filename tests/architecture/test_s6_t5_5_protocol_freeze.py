@@ -100,10 +100,10 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
         self.assertIn("S6-T5.5-I1: **HUMAN_ACCEPTED**", state)
         self.assertIn("S6-T5.5-H1: **HUMAN_ACCEPTED**", state)
         self.assertIn("S6-T5.5: **HUMAN_ACCEPTED**", state)
-        self.assertIn("Last accepted implementation commit: `6da27a6`", state)
+        self.assertIn("Last accepted implementation commit: `b136ee2`", state)
         self.assertIn("S6-T5.6-P1", state)
         self.assertIn("S6-T5.7+", state)
-        self.assertIn("S6-T5.6-I1: Completed, pending human acceptance", state)
+        self.assertIn("S6-T5.6-I1: HUMAN_ACCEPTED", state)
 
     def test_acceptance_preserves_protocol_history_without_claiming_implementation(self) -> None:
         review = REVIEW_RECORD.read_text(encoding="utf-8")
@@ -212,13 +212,13 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
         )
 
         for required in (
-            "Last accepted stage task: `S6-T5.6 Context Package Protocol`",
+            "Last accepted stage task: `S6-T5.6 Deterministic Context Package Implementation`",
             "S6-T5.5-H1: **HUMAN_ACCEPTED**",
             "S6-T5.5-I1: **HUMAN_ACCEPTED**",
             "S6-T5.5: **HUMAN_ACCEPTED**",
-            "Last accepted implementation commit: `6da27a6`",
-            "S6-T5.6: Completed, pending human acceptance",
-            "S6-T5.6-I1: Completed, pending human acceptance",
+            "Last accepted implementation commit: `b136ee2`",
+            "S6-T5.6: HUMAN_ACCEPTED",
+            "S6-T5.6-I1: HUMAN_ACCEPTED",
             "S6-T5.7+: NOT APPROVED",
             "Formal RAG security experiment: NOT STARTED",
         ):

@@ -1033,11 +1033,13 @@ resolution、stable-prefix budget selection、package-local Citation allocation 
 RetrievalPolicy、reranker、Citation Accuracy、正式 RAG 实验或 S6-T5.7。最后已接受 implementation commit 仍是
 `6da27a6`；本轮产生的提交只能作为 candidate implementation pending human acceptance。
 
-## 32.1 S6-T5.6-I1-H1：Context Package 完整性候选加固（2026-07-26）
+## 33. GOV-S6-T5.6-ACCEPTANCE：Deterministic Context Package 最终人工验收（2026-07-26）
 
-`S6-T5.6-I1-H1` 为 `Completed, pending human acceptance`。这是 I1 候选实现的追加加固记录，不是新能力或正式 RAG 实验。它关闭四项已留痕问题：Trace 分区必须代表有效 stable-prefix 执行情景；Package config hash 必须由公开 schema/limits 重算；Resolver/Factory/renderer 注入异常必须在所属边界固定脱敏重建；三种 structural abstention 必须分别与其 Trace 情景对应。
+项目负责人已将 `S6-T5.6-P1`、`S6-T5.6-P1-H1`、`S6-T5.6-P1-H2`、`S6-T5.6-I1`、`S6-T5.6-I1-H1` 和父任务 `S6-T5.6` 标记为 `HUMAN_ACCEPTED`。本次只接受 synthetic/offline 范围内的 Config、Trace、Package、唯一 ContextBuilder、稳定排序/精确重复、顺序解析、stable-prefix 预算、包内 Citation、Unicode/UTF-8 identity、结构性 abstention、Trace 情景不变量、公开 limits/config hash、依赖异常脱敏、reason/Trace 对应和 safe audit。
 
-`71067d1` 仍是 I1 初始 candidate history；最后已接受 implementation commit 仍为 `6da27a6`。本轮未改 Stage 1-5、Stage 6 fixture/data、DTO、协议或选择语义，未调用 Embedding、Chroma、Groq 或 LLM。I1 与 S6-T5.6 仍为 `Completed, pending human acceptance`，`S6-T5.7+` 为 `NOT APPROVED`，Formal RAG security experiment 为 `NOT STARTED`。本记录不证明检索质量、Citation Accuracy、RAG 安全、可信检索或生产可用性。
+`71067d1` 仍是 I1 初始 candidate implementation history；`b136ee2` 是最终接受的实现提交，`6da27a6` 是此前最后已接受实现提交的历史事实。最终完整离线复跑为 `438 passed, 2837 subtests passed`。`438/2833` 是验收状态同步前的历史快照；四个新增子测试仅覆盖治理断言。本轮未改 Stage 1-5、Stage 6 fixture/data、DTO、协议或选择语义，未调用 Embedding、Chroma、Groq 或 LLM。
+
+本验收不证明检索质量、Prompt Injection 防护、Knowledge Poisoning 检测、Citation Accuracy、可信 Context/Trustworthy Retrieval、Chroma/MiniLM/LLM 全链路、正式 RAG 安全实验或生产可用性。`S6-T5.7+` 为 `NOT APPROVED`，Formal RAG security experiment 为 `NOT STARTED`。
 
 ## 32. S6-T5.6-I1：最小离线 Context Package 实施完成，等待人工验收（2026-07-26）
 

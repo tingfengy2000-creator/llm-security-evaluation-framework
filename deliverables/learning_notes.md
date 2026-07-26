@@ -1433,6 +1433,16 @@ ContextBuildTrace、预算器或 Citation allocator。
 
 **最容易误解**：本轮 437 个测试通过只证明 synthetic/offline 合约加固，不说明 RAG 已安全、引用准确或能够抵抗知识污染。
 
+## 2026-07-26: GOV-S6-T5.6-ACCEPTANCE Context Package 最终人工验收
+
+**验收了什么**：项目负责人已接受 `S6-T5.6-I1-H1`、`S6-T5.6-I1` 和父任务 `S6-T5.6`。接受的是 synthetic/offline 环境中的确定性 Context Package 工程边界：从配置、Trace、Package、Builder 到顺序解析、stable-prefix 预算、包内 Citation、结构性 abstention、安全审计，以及 H1 修复的 Trace/config/依赖错误/reason 对应关系。
+
+**我如何理解最终数字**：重新运行完整 Stage 6 离线回归后，唯一当前验收数字是 `438 passed, 2837 subtests passed`；Ruff 和 scoped MyPy 同次通过。`421/2796`、`437/2796` 与 `438/2833` 是最终复跑之前的历史验证快照，不能和当前数字混写。`2833` 到 `2837` 的变化来自本轮新增四个治理子断言，不是业务行为变化。
+
+**企业与面试意义**：人工验收不是“又跑一次测试”，而是负责人确认代码、测试、审计边界和结论范围对应。可表述为：“我把检索结果进入模型上下文前的组合过程做成确定性、可复算、可审计的边界，并完成了离线工程验收。”
+
+**不能误解**：这不是检索质量、Prompt Injection 防护、知识污染检测、Citation Accuracy、可信检索或生产可用性的证明。未调用 Chroma、MiniLM、Groq 或 LLM；正式 RAG 安全实验仍未开始，`S6-T5.7+` 仍未批准。
+
 ## 2026-07-26: S6-T5.6-I1 最小离线 Context Package 实施完成（待人工验收）
 
 **我现在做了什么**：我把已验收的多证据组合协议做成了最小、可重复的离线实现。`ContextBuildConfig` 固定本次构建的数量和字符预算；`ContextBuildTrace` 记录每个候选为何进入、因数量排除、因预算排除或在 cutoff 后从未访问；`RetrievedContextPackage` 保存最终上下文、引用绑定和可复算身份。`DeterministicContextBuilder` 只注入 ContentResolver 与 EnvelopeFactory，并复用既有 instruction 与 renderer。

@@ -109,7 +109,7 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
                     owners[class_name],
                 )
 
-    def test_current_governance_keeps_s6_t5_6_and_formal_experiment_closed(self) -> None:
+    def test_current_governance_keeps_s6_t5_6_accepted_and_formal_experiment_closed(self) -> None:
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
         master = (GOVERNANCE / "experiment_master_record.md").read_text(
             encoding="utf-8"
@@ -118,7 +118,8 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
         for text in (state, master):
             for required in (
                 "S6-T5.6-I1",
-                "Completed, pending human acceptance",
+                "HUMAN_ACCEPTED",
+                "b136ee2",
                 "Formal RAG security experiment",
                 "NOT STARTED",
             ):
@@ -241,7 +242,7 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
             package_fields,
         )
 
-    def test_protocol_acceptance_allows_only_approved_i1_implementation_scope(self) -> None:
+    def test_final_acceptance_records_the_human_accepted_i1_scope(self) -> None:
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
         master = (GOVERNANCE / "experiment_master_record.md").read_text(
             encoding="utf-8"
@@ -249,28 +250,28 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
         decisions = (GOVERNANCE / "project_owner_decision_register.md").read_text(
             encoding="utf-8"
         )
-        review = REVIEW_RECORD.read_text(encoding="utf-8")
 
         for required in (
-            "GOV-S6-T5.6-P1-ACCEPTANCE",
+            "GOV-S6-T5.6-ACCEPTANCE",
             "S6-T5.6-P1: HUMAN_ACCEPTED",
             "S6-T5.6-P1-H1: HUMAN_ACCEPTED",
             "S6-T5.6-P1-H2: HUMAN_ACCEPTED",
-            "S6-T5.6: Completed, pending human acceptance",
-            "S6-T5.6-I1: Completed, pending human acceptance",
+            "S6-T5.6: HUMAN_ACCEPTED",
+            "S6-T5.6-I1: HUMAN_ACCEPTED",
+            "S6-T5.6-I1-H1: HUMAN_ACCEPTED",
             "S6-T5.7+: NOT APPROVED",
             "Formal RAG security experiment: NOT STARTED",
-            "Last accepted implementation commit: `6da27a6`",
+            "Last accepted implementation commit: `b136ee2`",
             "Protocol acceptance closure commit: `432b07e`",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, state)
 
-        for text in (master, decisions, review):
+        for text in (master, decisions):
             for required in (
-                "GOV-S6-T5.6-P1-ACCEPTANCE",
+                "GOV-S6-T5.6-ACCEPTANCE",
                 "HUMAN_ACCEPTED",
-                "Completed, pending human acceptance",
+                "b136ee2",
                 "6da27a6",
                 "432b07e",
             ):
@@ -284,8 +285,9 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
 
         for required in (
             "S6-T5.6-I1",
-            "Completed, pending human acceptance",
-            "Last accepted implementation commit: `6da27a6`",
+            "HUMAN_ACCEPTED",
+            "Final accepted implementation commit: `b136ee2`",
+            "Initial candidate implementation: `71067d1`",
             "candidate implementation pending human acceptance",
             "synthetic",
             "未读取或修改 Stage 6 fixture/data",
@@ -309,8 +311,9 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
         for text in (record, state, master, decisions):
             for required in (
                 "S6-T5.6-I1-H1",
-                "Completed, pending human acceptance",
+                "HUMAN_ACCEPTED",
                 "71067d1",
+                "b136ee2",
                 "6da27a6",
                 "S6-T5.7+",
                 "NOT APPROVED",
@@ -329,8 +332,9 @@ class S6T56ProtocolFreezeTests(unittest.TestCase):
             with self.subTest(required=required):
                 self.assertIn(required, record)
 
-        self.assertIn("Last accepted implementation commit: `6da27a6`", record)
-        self.assertNotIn("HUMAN_ACCEPTED", _section(record, "## 1. 记录身份"))
+        self.assertIn("Final accepted implementation commit: `b136ee2`", record)
+        self.assertIn("HUMAN_ACCEPTED", _section(record, "## 1. 记录身份"))
+        self.assertIn("438 passed, 2837 subtests passed", record)
 
 
 if __name__ == "__main__":

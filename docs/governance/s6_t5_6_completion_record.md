@@ -5,11 +5,14 @@
 - Task ID: `S6-T5.6-I1`
 - Task name: `Deterministic Retrieved Context Package Minimal Offline Implementation`
 - Task nature: `OFFLINE_ENGINEERING_IMPLEMENTATION / SYNTHETIC_ONLY_TDD`
-- Current status: `Completed, pending human acceptance`
-- Parent task: `S6-T5.6: Completed, pending human acceptance`
-- Last accepted implementation commit: `6da27a6`
+- Current status: `HUMAN_ACCEPTED`
+- Parent task: `S6-T5.6: HUMAN_ACCEPTED`
+- Initial candidate implementation: `71067d1`
+- Final accepted implementation commit: `b136ee2`
+- Previous last accepted implementation commit: `6da27a6`
 
-本记录登记的是候选工程实现（`candidate implementation pending human acceptance`），不是人工验收，
+本记录起初登记的是候选工程实现（`candidate implementation pending human acceptance`），不是人工验收；该历史快照
+保留。随后 `GOV-S6-T5.6-ACCEPTANCE` 已接受 I1、I1-H1 与父任务，当前状态以本文件末尾的最终验收附注为准。
 也不是正式 RAG 安全实验记录。
 
 ## 2. 本轮实现范围
@@ -41,7 +44,7 @@
 
 本轮验证结果：
 
-- Stage 6 离线回归：`421 passed, 2796 subtests passed`。
+- 最终完整 Stage 6 离线回归：`438 passed, 2837 subtests passed`。
 - 治理、namespace、标签隔离和实验总账定向回归：`31 passed, 1548 subtests passed`。
 - Context 与架构定向回归：`221 passed, 841 subtests passed`。
 - Ruff：通过；scoped MyPy：`Success: no issues found in 45 source files`。
@@ -57,5 +60,14 @@ payload 和 RetrievalEvidence 的受控 `ContentRef` 之间缺少静态类型收
 
 ## 5. 后续人工决策
 
-项目负责人应对该候选实现作出接受、拒绝或要求加固的决定。`S6-T5.7+` 仍为 `NOT APPROVED`，
-Formal RAG security experiment 仍为 `NOT STARTED`；不得由本记录自动开启下一任务。
+## 最终人工验收附注（2026-07-26）
+
+`GOV-S6-T5.6-ACCEPTANCE` 已将 `S6-T5.6-I1`、`S6-T5.6-I1-H1` 与父任务 `S6-T5.6` 标记为
+`HUMAN_ACCEPTED`。`71067d1` 保留为初始 candidate implementation history，最终接受的实现提交为 `b136ee2`；
+`6da27a6` 保留为此前已接受实现提交的历史事实。
+
+最终完整 Stage 6 离线回归为 `438 passed, 2837 subtests passed`。此前 `421 passed, 2796 subtests passed`、
+`437 passed, 2796 subtests passed` 与 `438 passed, 2833 subtests passed` 是最终复跑之前的历史验证快照；`2833` 到
+`2837` 的差异来自验收状态同步时新增的四个治理子断言，不再作为当前最终验收数字。
+
+`S6-T5.7+` 仍为 `NOT APPROVED`，Formal RAG security experiment 仍为 `NOT STARTED`；本验收不得自动开启下一任务。

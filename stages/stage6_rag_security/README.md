@@ -20,6 +20,9 @@
 - s6_t5_6_p1_status: `human_accepted`；仅接受 ContextBuilder、Budget、Package 与 structural abstention 的 future protocol，不创建业务代码。
 - s6_t5_6_p1_h1_status: `human_accepted`；仅接受顺序解析、精确 UID 重复、预算 cutoff 与 Context trace identity 的 future protocol，不创建业务代码。
 - s6_t5_6_p1_h2_status: `human_accepted`；仅接受活动规格顺序、Trace decision partition 与 Package identity 的 future protocol，不创建业务代码。
+- s6_t5_6_i1_status: `human_accepted`；初始 candidate implementation `71067d1` 保留为历史证据。
+- s6_t5_6_i1_h1_status: `human_accepted`；最终加固实现 `b136ee2` 接受 Trace 情景、config identity、依赖错误脱敏和 abstention/Trace 对应边界。
+- s6_t5_6_status: `human_accepted`；验收仅限 synthetic/offline Context Package 工程行为。
 - s6_t5_6_status: `ready_for_separate_implementation_approval`；父任务可以等待独立实现审批，不能自动实施。
 - s6_t5_6_i1_status: `not_yet_approved`；不得创建 ContextBuilder、Package、Trace、预算器或 Citation allocator。
 - s6_t5_6_plus_status: `not_approved`；不得自动开始后续能力。
@@ -32,7 +35,7 @@
 - deliverable_locations: 尚未生成独立 Stage 6 证据包。
 - evidence_locations: `data/stage6_rag/documents/corpus_manifest.json`
 - conclusion_boundary: 已完成人工验收的 S6-T5.3 离线工程边界包括 embedding/vectorstore 基础设施、S6-T5.2 运行时契约、schema `1.1` parent identity carrier、DenseRetriever 与 H1 trace/failure-boundary 加固；S6-T5.4-I1 已实现 contracts、in-memory reader/registry、exact-match legacy adapter 与 hash-verified resolver，H1 又关闭公开 registry capability 并重建注入错误的固定脱敏外部表述。P1、I1、H1 与父任务均已通过人工验收。S6-T5.5-P1/P1-H1 也已通过协议人工验收；S6-T5.5-I1/H1 与父任务已在 synthetic objects 上通过人工验收，覆盖 Envelope、Binding、CitationMode、Factory、instruction 与单 block rendering。未实现 ContextBuilder、package、allocator、Trust、LLM 或 RAG 指标，也未执行正式 RAG 安全实验。
-- next_stage: `S6-T5.6-I1-H1` 已完成、等待人工验收；I1 与父任务仍为 `Completed, pending human acceptance`。H1 只加固 Trace 情景、公开 config hash、依赖错误脱敏与 abstention/Trace 对应关系；`S6-T5.7+` 不得自动开始。
+- next_stage: `S6-T5.6` 已人工验收；最后接受 implementation commit 为 `b136ee2`。`S6-T5.7+` 仍为 `NOT APPROVED`，不得自动开始。
 
 目标：在 Retrieval 层评测 R1–R6，并为隐蔽知识污染检测与可信检索研究建立稳定证据接口。
 
@@ -114,8 +117,7 @@
 
 ## S6-T5.6-I1 当前候选实现（2026-07-26）
 
-`S6-T5.6-I1` 已完成最小 synthetic-only 离线工程实现，状态为 `Completed, pending human acceptance`；
-父任务 `S6-T5.6` 同为该状态。规范 DTO 位于
+`S6-T5.6-I1`、`S6-T5.6-I1-H1` 与父任务 `S6-T5.6` 已通过人工验收。规范 DTO 位于
 `src/llmguard/domains/retrieval/contracts/context_package.py`，唯一构建行为位于
 `src/llmguard/domains/retrieval/context/builder.py`：它把已验收的 Resolver、Envelope Factory、Citation instruction
 和 renderer 以顺序方式组合为可审计的 Retrieved Context Package。
@@ -123,4 +125,4 @@
 本实现验证确定性排序、精确去重、数量限制、Unicode code-point 预算、stable-prefix cutoff、包内 `E1...En`
 Citation、三类结构性 abstention 及脱敏错误传播。它没有读取 fixture/data，也没有调用 Embedding、Chroma、Groq
 或 LLM；不证明检索质量、Citation Accuracy、RAG 安全、可信检索或生产可用性。`S6-T5.7+` 仍为 `NOT APPROVED`，
-Formal RAG security experiment 仍为 `NOT STARTED`。最后已接受 implementation commit 仍为 `6da27a6`。
+Formal RAG security experiment 仍为 `NOT STARTED`。最终接受 implementation commit 为 `b136ee2`；`71067d1` 保留为初始 candidate history。最终完整离线复跑为 `438 passed, 2837 subtests passed`；`438/2833` 是验收状态同步前的历史快照，四个新增子测试只覆盖治理断言。

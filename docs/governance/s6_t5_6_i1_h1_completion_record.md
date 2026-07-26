@@ -5,11 +5,12 @@
 - Task ID: `S6-T5.6-I1-H1`
 - Task name: `Context Trace Integrity, Config Identity and Dependency Redaction Hardening`
 - Task nature: `OFFLINE_ENGINEERING_HARDENING / SYNTHETIC_ONLY_TDD`
-- Current status: `Completed, pending human acceptance`
-- Parent task: `S6-T5.6-I1: Completed, pending human acceptance`
-- Parent task: `S6-T5.6: Completed, pending human acceptance`
+- Current status: `HUMAN_ACCEPTED`
+- Parent task: `S6-T5.6-I1: HUMAN_ACCEPTED`
+- Parent task: `S6-T5.6: HUMAN_ACCEPTED`
 - Initial implementation candidate: `71067d1`
-- Last accepted implementation commit: `6da27a6`
+- Final accepted implementation commit: `b136ee2`
+- Previous last accepted implementation commit: `6da27a6`
 - S6-T5.7+: `NOT APPROVED`
 - Formal RAG security experiment: `NOT STARTED`
 
@@ -53,7 +54,7 @@
 
 - 先加入 malformed Trace、config mutation、reason/trace mismatch 和 injected dependency error 的失败测试，再实现最小修复。
 - 定向回归：`24 passed`。
-- Stage 6 离线测试、架构测试与 label-isolation：`437 passed, 2796 subtests passed`。
+- 最终完整 Stage 6 离线测试、架构测试与 label-isolation：`438 passed, 2837 subtests passed`。
 - Ruff：通过；scoped MyPy：通过。
 - 本轮未读取或修改 Stage 6 fixture/data，未修改 Stage 1-5，未调用 Embedding、Chroma、Groq 或 LLM，未执行正式 RAG 安全实验。
 - 验证留痕：首次 runtime Git-ignore 检查把 PowerShell 的“无输出”误当作布尔失败；按 `$LASTEXITCODE` 复核后，`.gitignore` 的 `runtime/stage6_rag_security/` 规则已正确覆盖 Chroma 运行时探针，无需修改忽略规则。
@@ -75,3 +76,12 @@
 **面试追问**：为什么不只校验 Trace 的 UID 集合？回答：集合相同不代表构建顺序相同；稳定前缀算法还需要证明 resolved、included、budget excluded 和 cutoff 的时序关系。
 
 **常见误解**：离线测试全绿不等于“模型不会被 prompt injection 攻击”。本轮没有模型调用，也没有正式攻击矩阵。
+
+## 最终人工验收附注（2026-07-26）
+
+`GOV-S6-T5.6-ACCEPTANCE` 已将 H1、I1 和父任务 `S6-T5.6` 标记为 `HUMAN_ACCEPTED`。`71067d1`
+仍是初始 candidate implementation history；`b136ee2` 是最终接受的实现提交；`6da27a6` 是此前最后已接受实现提交的历史事实。
+
+最终完整离线复跑的唯一当前验收数字是 `438 passed, 2837 subtests passed`。`437 passed, 2796 subtests passed`
+与 `438 passed, 2833 subtests passed` 均为最终复跑前的历史验证快照；`2833` 到 `2837` 的差异来自验收状态同步时新增的四个治理子断言，未被当作同一次测试混写。
+`S6-T5.7+` 仍为 `NOT APPROVED`，Formal RAG security experiment 仍为 `NOT STARTED`。
