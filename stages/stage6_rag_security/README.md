@@ -42,6 +42,7 @@
 - 原始证据：尚未生成独立 `deliverables/stage6_rag/` 证据包；当前可核查的是早期数据、测试与
   架构决策，不能把它误称为完整 RAG 实验报告；
 - 工程状态：当前是检索基础设施、分块、运行时契约和合成内存 ContentResolver 状态，不是正式 RAG 安全攻击实验；S6-T5.3-H1、DenseRetriever、S6-T5.4、S6-T5.5-P1 与 P1-H1 均已获人工验收，但后两项仍只是协议设计；
+- 当前修复：`S6-T5.5-H1` 已完成 Evidence/Citation 契约加固，等待人工复核；只修复 metadata 不可重绑、timestamp parity、canonical Evidence UID 与固定错误语义，未实现 ContextBuilder、Package、预算或 Citation allocator；
 - 结论边界：已完成的是数据、契约、Embedding 与向量存储基础，不可宣称已有 Retriever、可信策略或 RAG 指标结果；
 - 面试重点：为什么 RetrievalEvidence、EvidenceSignal、TrustedContextPackage 与 RAGSecurityEnvelope 必须分层。
 

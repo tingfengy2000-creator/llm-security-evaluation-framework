@@ -1279,3 +1279,33 @@ secret-shape/绝对路径均为 0；全仓复扫仍有 31 个不可变历史文�
 **治理测试也会发现状态漂移**：这次首次回归发现 README 使用了缩写任务 ID，旧断言还把 S6-T5.5 当作未批准，
 以及协议记录中的措辞与断言不同。修复后，测试验证的是当前“协议已验收、实现仍未获批”的边界；而项目总控中被明确
 标为历史快照的 pending 文字继续保留，不能为了让搜索结果更少而删除历史。
+
+## 2026-07-26: S6-T5.5-H1 Evidence 与 Citation 契约验收加固（待人工复核）
+
+**我现在做了什么**：我没有新增 ContextBuilder 或上下文包，而是修复了 I1 人工验收发现的四条契约漏洞。第一，
+`public_metadata` 的内部包装器改为没有 `__dict__` 的 slots-only 对象，外层 `_value` 不能重绑，嵌套 mapping 和
+sequence 也保持深度只读。第二，Envelope timestamp 与已经验收的 `RetrievalEvidence` 对齐，接受 canonical UTC 的
+任意小数秒，例如 7 位、9 位小数秒。第三，超大 metric、NaN、Infinity 和错误 metadata 都统一映射为固定的
+`INVALID_EVIDENCE_ENVELOPE`。第四，Binding 自身字段非法不再误称为 citation ID 非法，而是
+`INVALID_CITATION_BINDING`；Evidence UID 同时收紧为 `EV-` 加 64 位小写 hex。
+
+**为什么这样做**：冻结 dataclass 只能保护 Envelope 的字段重绑，不能自动保证字段内部对象也不可变。若 metadata
+包装器可被替换，调用方可以在构造后塞入标签、路径或其他新值，破坏最初的 label-isolation 校验。另一方面，Envelope
+和 RetrievalEvidence 若接受不同 timestamp，Factory 会在运行期拒绝一个上游已经认可的证据，导致契约层间漂移。
+
+**企业为什么这样做**：安全审计需要稳定的错误分类。上游服务可以根据 `INVALID_CITATION_ID`、
+`INVALID_CITATION_MODE`、`INVALID_CITATION_BINDING` 分别修正调用问题；而正文、路径、metadata 原文仍不进入公开
+错误消息。此类 fail-closed 处理既避免数据泄露，也让监控规则和告警聚合可靠。
+
+**和上一部分的关系**：I1 建立了“Evidence + ResolvedContent -> Envelope -> Binding -> renderer”的最小边界；H1
+不改变该链路、Factory 的 provenance 校验或 renderer 的七字段 mismatch 规则，只让其中每一个对象更难在构造后变形，
+并让输入失败的语义稳定。Citation allocation 依然属于未批准的 S6-T5.6。
+
+**面试可能追问**：`asdict()` 为什么仍能导出正文？这是有意保留的显式敏感操作，用于受控内部工作流；安全要求是普通
+日志和审计只能走 `to_audit_dict()`，而不是假装 `asdict()` 安全。为什么允许 9 位小数秒但 Python datetime 精度更低？
+这里验证的是 canonical 输入语法和 UTC 语义，并原样保留字符串；不在 Envelope 层擅自截断或改写来源 timestamp。
+
+**执行问题留痕**：初次运行 ContentResolver 定向回归时使用了不存在的 `tests/domains/retrieval/context_resolution`
+目录，pytest 在 collection 前失败，未执行业务代码或读取 fixture。随后按实际仓库路径改为 `tests/domains/retrieval/context/`
+并通过。当前 H1 是 `Completed, pending human review`；I1 与父任务仍是 `Completed, pending human acceptance`。
+本轮未读取 Stage 6 fixture，未调用 Embedding、Chroma、Groq 或 LLM，也未执行正式 RAG 安全实验。

@@ -116,7 +116,7 @@ class EvidenceEnvelopeRuntimeError(RetrievalContractError):
 
 
 class CitationInputError(RetrievalInputError):
-    """Raised when a citation identifier or mode is invalid."""
+    """Raised when a citation identifier, binding field, or mode is invalid."""
 
     error_code = "INVALID_CITATION_ID"
 

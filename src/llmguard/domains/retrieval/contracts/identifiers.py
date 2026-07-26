@@ -9,6 +9,7 @@ from .hashing import canonical_json_sha256
 
 _SHA256 = re.compile(r"\A[0-9a-f]{64}\Z")
 _CHUNK_ID = re.compile(r"\ACH-[0-9a-f]{64}\Z")
+_EVIDENCE_UID = re.compile(r"\AEV-[0-9a-f]{64}\Z")
 _PUBLIC_QUERY_ID = re.compile(r"\AQ-[0-9]{4,}\Z")
 _SAFE_ID = re.compile(r"\A[A-Za-z0-9][A-Za-z0-9._-]{0,127}\Z")
 _ABSOLUTE_PATH = re.compile(r"(?:\A[A-Za-z]:[\\/]|\A[\\/]{2}|\A/|\Afile:)", re.IGNORECASE)
@@ -34,6 +35,12 @@ def require_public_query_id(value: object) -> str:
 
 def require_chunk_id(value: object) -> str:
     return require_public_identifier(value, "chunk_id", pattern=_CHUNK_ID)
+
+
+def require_evidence_uid(value: object) -> str:
+    """Require the canonical, cross-run evidence identity."""
+
+    return require_public_identifier(value, "evidence_uid", pattern=_EVIDENCE_UID)
 
 
 def derive_evidence_uid(*, evidence_schema_version: str, corpus_snapshot_id: str, chunk_id: str, content_hash: str) -> str:

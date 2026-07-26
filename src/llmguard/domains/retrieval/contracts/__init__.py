@@ -33,7 +33,7 @@ from .evidence_envelope import CitationBinding, CitationMode, EvidenceEnvelope
 from .content_resolution import ResolvedContent
 from .hashing import canonical_json, canonical_json_sha256
 from .content_ref import ContentRef
-from .identifiers import derive_evidence_uid
+from .identifiers import derive_evidence_uid, require_evidence_uid
 from .models import (
     DocumentRecord,
     EvidenceSignal,
@@ -106,6 +106,7 @@ __all__ = [
     "canonical_json_sha256",
     "adapt_legacy_retrieval_evidence",
     "derive_evidence_uid",
+    "require_evidence_uid",
     "derive_chunk_id",
     "format_corpus_content_ref",
     "project_retriever_query",

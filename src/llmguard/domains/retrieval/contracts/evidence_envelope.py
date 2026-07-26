@@ -11,11 +11,16 @@ from datetime import datetime, timedelta
 from enum import Enum
 
 from .errors import CitationInputError, EvidenceEnvelopeInputError
-from .identifiers import require_chunk_id, require_public_identifier, require_sha256
+from .identifiers import (
+    require_chunk_id,
+    require_evidence_uid,
+    require_public_identifier,
+    require_sha256,
+)
 from .public_metadata import freeze_public_metadata, thaw_public_metadata
 
 _UTC_ISO8601 = re.compile(
-    r"\A\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,6})?(?:Z|\+00:00)\Z"
+    r"\A\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|\+00:00)\Z"
 )
 _CITATION_ID = re.compile(r"\AE(?:[1-9][0-9]*)\Z")
 
@@ -23,8 +28,17 @@ _CITATION_ID = re.compile(r"\AE(?:[1-9][0-9]*)\Z")
 class _FrozenPublicMetadata(Mapping[str, object]):
     """Keep runtime metadata immutable while making sensitive ``asdict`` explicit."""
 
+    __slots__ = ("_value",)
+    _value: Mapping[str, object]
+
     def __init__(self, value: Mapping[str, object]) -> None:
-        self._value = value
+        object.__setattr__(self, "_value", value)
+
+    def __setattr__(self, name: str, value: object) -> None:
+        raise AttributeError("frozen public metadata cannot be modified")
+
+    def __delattr__(self, name: str) -> None:
+        raise AttributeError("frozen public metadata cannot be modified")
 
     def __getitem__(self, key: str) -> object:
         return self._value[key]
@@ -45,12 +59,19 @@ def _invalid_envelope() -> EvidenceEnvelopeInputError:
     return EvidenceEnvelopeInputError("evidence envelope is invalid")
 
 
+def _invalid_binding() -> CitationInputError:
+    return CitationInputError(
+        "citation binding is invalid",
+        error_code="INVALID_CITATION_BINDING",
+    )
+
+
 def _require_timestamp(value: object) -> str:
     if not isinstance(value, str) or _UTC_ISO8601.fullmatch(value) is None:
         raise _invalid_envelope()
     try:
         parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
-    except ValueError as error:
+    except (TypeError, ValueError, OverflowError) as error:
         raise _invalid_envelope() from error
     if parsed.tzinfo is None or parsed.utcoffset() != timedelta(0):
         raise _invalid_envelope()
@@ -60,7 +81,10 @@ def _require_timestamp(value: object) -> str:
 def _require_metric(value: object, *, minimum: float, maximum: float | None = None) -> float:
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise _invalid_envelope()
-    number = float(value)
+    try:
+        number = float(value)
+    except (OverflowError, TypeError, ValueError) as error:
+        raise _invalid_envelope() from error
     if not math.isfinite(number) or number < minimum or (maximum is not None and number > maximum):
         raise _invalid_envelope()
     return number
@@ -115,7 +139,10 @@ class EvidenceEnvelope:
     public_metadata: Mapping[str, object]
 
     def __post_init__(self) -> None:
-        _require_identifier(self.evidence_uid, "evidence_uid")
+        try:
+            require_evidence_uid(self.evidence_uid)
+        except ValueError as error:
+            raise _invalid_envelope() from error
         _require_chunk(self.doc_id)
         _require_chunk(self.chunk_id)
         if self.doc_id != self.chunk_id:
@@ -137,9 +164,7 @@ class EvidenceEnvelope:
                 self.public_metadata,
                 error_type=EvidenceEnvelopeInputError,
             )
-        except ValueError as error:
-            if isinstance(error, EvidenceEnvelopeInputError):
-                raise
+        except (TypeError, ValueError, OverflowError) as error:
             raise _invalid_envelope() from error
         object.__setattr__(self, "public_metadata", _FrozenPublicMetadata(frozen))
 
@@ -184,18 +209,22 @@ class CitationBinding:
     rank: int
 
     def __post_init__(self) -> None:
-        if not isinstance(self.citation_id, str) or _CITATION_ID.fullmatch(self.citation_id) is None:
+        if (
+            not isinstance(self.citation_id, str)
+            or len(self.citation_id) > 128
+            or _CITATION_ID.fullmatch(self.citation_id) is None
+        ):
             raise CitationInputError("citation id is invalid", error_code="INVALID_CITATION_ID")
         try:
-            require_public_identifier(self.evidence_uid, "evidence_uid")
+            require_evidence_uid(self.evidence_uid)
             require_chunk_id(self.chunk_id)
             for name in ("parent_doc_id", "source_id", "version"):
                 require_public_identifier(getattr(self, name), name)
             require_sha256(self.content_hash, "content_hash")
         except ValueError as error:
-            raise CitationInputError("citation id is invalid", error_code="INVALID_CITATION_ID") from error
+            raise _invalid_binding() from error
         if type(self.rank) is not int or self.rank <= 0:
-            raise CitationInputError("citation id is invalid", error_code="INVALID_CITATION_ID")
+            raise _invalid_binding()
 
     def to_audit_dict(self) -> dict[str, str | int]:
         """Return all binding fields; this DTO intentionally has no plaintext."""

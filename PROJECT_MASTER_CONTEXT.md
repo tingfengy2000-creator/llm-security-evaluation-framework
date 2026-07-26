@@ -945,3 +945,16 @@ Binding identity 并 fail closed。正文只来自合成 `ResolvedContent`，普
 I1 当前为 `Completed, pending human acceptance`，父任务 S6-T5.5 同样为 `Completed, pending human acceptance`。
 最后接受的业务实现提交仍是 `11a72f7`；本次不读取 Stage 6 fixture，不实现 package、Citation allocation 或
 ContextBuilder，不调用 Embedding、Chroma、Groq、LLM，也不执行正式 RAG 安全实验。S6-T5.6+ 仍为 `NOT APPROVED`。
+
+## 25. S6-T5.5-H1：Evidence 与 Citation 验收加固（2026-07-26）
+
+I1 人工验收发现 metadata wrapper 可重绑、Envelope timestamp 与 RetrievalEvidence 不一致、超大 metric 会泄露原生
+异常、Binding 字段错误语义不精确。H1 只在 `EvidenceEnvelope`/`CitationBinding` 契约边界修复这些问题：metadata
+改为 slots-only 深度只读包装，timestamp 接受 canonical UTC 的任意小数秒，所有 Envelope input 错误固定为
+`INVALID_EVIDENCE_ENVELOPE`，Binding 字段错误固定为 `INVALID_CITATION_BINDING`，Evidence UID 严格为
+`EV-[0-9a-f]{64}`。H1 不改变 RetrievalEvidence、Resolver、DenseRetriever、Factory provenance checks 或 renderer
+结构输出。
+
+H1 当前为 `Completed, pending human review`；I1 与父任务仍为 `Completed, pending human acceptance`，最后接受的
+业务实现提交仍为 `11a72f7`。未读取 fixture，未调用 Embedding、Chroma、Groq 或 LLM；未实现 S6-T5.6 ContextBuilder、
+Package、预算或 Citation allocator，正式 RAG 安全实验仍为 `NOT STARTED`。

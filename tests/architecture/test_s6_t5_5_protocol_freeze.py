@@ -190,6 +190,37 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
         assert owners["ContextBuilder"] == []
         self.assertFalse((RETRIEVAL_ROOT / "context" / "models.py").exists())
 
+    def test_h1_is_pending_human_review_with_additive_contract_hardening(self) -> None:
+        state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
+        review = REVIEW_RECORD.read_text(encoding="utf-8")
+        completion = (GOVERNANCE / "s6_t5_5_completion_record.md").read_text(
+            encoding="utf-8"
+        )
+
+        for required in (
+            "Task ID: `S6-T5.5-H1`",
+            "Evidence and Citation Contract Immutability and Validation Hardening",
+            "S6-T5.5-H1: **Completed, pending human review**",
+            "S6-T5.5-I1: **Completed, pending human acceptance**",
+            "S6-T5.5: **Completed, pending human acceptance**",
+            "Last accepted implementation commit: `11a72f7`",
+            "every S6-T5.6+ task is **NOT APPROVED**",
+            "Formal RAG security experiment: **Not started**",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, state)
+
+        for required in (
+            "INVALID_CITATION_BINDING",
+            "citation binding is invalid",
+            "EV-[0-9a-f]{64}",
+            "metadata wrapper",
+            "31 passed, 1527 subtests passed",
+            "41 passed, 1595 subtests passed",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, review + completion)
+
 
 if __name__ == "__main__":
     unittest.main()

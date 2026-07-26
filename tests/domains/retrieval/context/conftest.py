@@ -26,6 +26,7 @@ def make_evidence(
     rank: int = 1,
     source_id: str = "source-1",
     version: str = "v1",
+    timestamp: str = "2026-07-26T00:00:00Z",
 ) -> RetrievalEvidence:
     selected_chunk = chunk or chunk_id()
     digest = body_hash(content)
@@ -48,7 +49,7 @@ def make_evidence(
         source_id=source_id,
         source_type="policy",
         version=version,
-        timestamp="2026-07-26T00:00:00Z",
+        timestamp=timestamp,
         rank=rank,
         distance=0.25,
         similarity=0.75,

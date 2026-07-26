@@ -67,3 +67,44 @@ Citation ID 也不是跨运行稳定 ID，它只是未来 package 内的局部�
 
 **不能宣称**：尚未实现 ContextBuilder、budget、package、Citation allocation、Citation Accuracy、Trust、LLM 调用或
 R1--R6 正式实验；没有读取 Stage 6 fixture，也没有调用 Embedding、Chroma、Groq 或 LLM。
+
+## 7. S6-T5.5-H1 人工验收发现项修复（2026-07-26）
+
+H1 只加固 I1 的 object immutability 和 validation boundary。修复前，metadata wrapper 的 `_value` 可以被普通属性
+赋值替换；Envelope 对 7/9 位小数秒比 RetrievalEvidence 更窄；超大整数 metric 会泄露 Python `OverflowError`；
+Binding 字段错误会被误写成 `INVALID_CITATION_ID`。修复后，wrapper 为 slots-only 的不可重绑内部对象，Envelope
+复用 RetrievalEvidence 的 UTC timestamp 接受语义，metric/metadata/ID input 统一对外为固定、脱敏错误，Binding
+字段错误独立映射为 `INVALID_CITATION_BINDING`。canonical Evidence UID 收紧为 `EV-[0-9a-f]{64}`。
+
+两条历史治理数字不冲突：`31 passed, 1527 subtests passed` 是 I1 时运行
+`test_namespace_compatibility.py`、`test_experiment_master_record.py`、`test_context_persistence.py` 与
+`test_no_label_leakage.py` 的集合；`41 passed, 1595 subtests passed` 是在前者基础上额外包含
+`test_s6_t5_5_protocol_freeze.py` 的集合。两者均为 I1 历史结果，不能静默替换成同一个数字。
+
+H1 的 Red 测试新增后有 20 项失败，分别暴露 wrapper 可重绑、7/9 位小数秒不兼容、metric `OverflowError` 外泄、
+noncanonical Evidence UID 被接受、metadata 原始错误消息外泄、citation ID 长度缺口和 Binding 字段错误分类错误。
+Green 后的 H1 定向命令与结果为：
+
+```text
+python -m pytest tests/architecture/test_namespace_compatibility.py \
+  tests/architecture/test_experiment_master_record.py \
+  tests/architecture/test_context_persistence.py \
+  tests/architecture/test_s6_t5_5_protocol_freeze.py \
+  tests/stage6_rag/test_no_label_leakage.py -q -p no:cacheprovider
+# 42 passed, 1611 subtests passed
+
+python -m pytest tests/domains/retrieval/context -q -p no:cacheprovider
+# 122 passed
+
+python -m pytest tests/architecture tests/stage6_rag tests/domains/retrieval \
+  -q -p no:cacheprovider
+# 382 passed, 2632 subtests passed
+```
+
+Ruff 通过；scoped MyPy 在 42 个 retrieval 源文件上通过。一次误用的不存在目录
+`tests/domains/retrieval/context_resolution` 导致 pytest 在 collection 前失败，未执行代码、读取 fixture 或修改文件；
+已改用仓库实际的 `tests/domains/retrieval/context/`。本任务仍是 `OFFLINE_ENGINEERING_HARDENING`，不是正式实验。
+
+提交前 H1 changed-file 扫描覆盖 17 个变更文件：Markdown 相对链接、secret-shape、绝对路径和 protected-path 均通过；
+`git diff --check`、Stage 1--5/Stage 6 fixture/legacy `src/codeguarder` 完整性检查及 runtime Git-ignore 均通过。全仓受
+版本控制文件仍有 31 个既有 historical secret-shape 命中，未将其改写或误报为本轮新增风险。

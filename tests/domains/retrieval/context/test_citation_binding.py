@@ -32,6 +32,36 @@ def test_invalid_citation_ids_fail_closed(citation_id: object) -> None:
     with pytest.raises(CitationInputError) as caught:
         _binding(citation_id=citation_id)
     assert caught.value.error_code == "INVALID_CITATION_ID"
+    assert str(caught.value) == "citation id is invalid [INVALID_CITATION_ID]"
+
+
+def test_citation_id_obeys_the_public_identifier_length_limit() -> None:
+    with pytest.raises(CitationInputError) as caught:
+        _binding(citation_id="E" + "1" * 128)
+
+    assert caught.value.error_code == "INVALID_CITATION_ID"
+    assert str(caught.value) == "citation id is invalid [INVALID_CITATION_ID]"
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("evidence_uid", "evidence-1"),
+        ("evidence_uid", "EV-" + "A" * 64),
+        ("chunk_id", "chunk-1"),
+        ("parent_doc_id", ""),
+        ("content_hash", "0" * 63),
+        ("source_id", "source\n1"),
+        ("version", ""),
+        ("rank", 0),
+    ],
+)
+def test_invalid_binding_fields_have_their_own_fixed_error(field: str, value: object) -> None:
+    with pytest.raises(CitationInputError) as caught:
+        _binding(**{field: value})
+
+    assert caught.value.error_code == "INVALID_CITATION_BINDING"
+    assert str(caught.value) == "citation binding is invalid [INVALID_CITATION_BINDING]"
 
 
 def test_binding_audit_has_no_plaintext_or_metadata() -> None:

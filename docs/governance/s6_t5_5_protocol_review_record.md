@@ -202,3 +202,29 @@ Factory/renderer 输入、七字段 Binding 校验、fail-closed 错误、escapi
 `P1-H1` 缩写而未写全任务 ID、旧 context-persistence 断言仍把 S6-T5.5 写成 `NOT APPROVED`。均已修正为当前
 人工验收状态；这不是业务实现问题。`PROJECT_MASTER_CONTEXT.md` 中仍保留的 pending 文字属于明确标注的历史快照，
 不应被删除或误判为当前状态。
+
+## 10. S6-T5.5-H1：Evidence 与 Citation 契约不可变性和验证加固（2026-07-26）
+
+本 H1 是 I1 人工验收发现项的窄范围离线加固，而不是新的 Context 能力。`_FrozenPublicMetadata` 现为无
+`__dict__` 的 slots-only 内部包装器：外层 `_value` 不能重绑，内部 mapping/sequence 继续深度只读，普通
+`to_audit_dict()` 始终返回 detached dict/list。`dataclasses.asdict()` 仍会显式形成含正文和 metadata 的敏感副本，
+因此没有新增普通敏感导出 API。
+
+Envelope timestamp 现在与已验收 `RetrievalEvidence` 共用同一 canonical UTC 语义：接受任意长度的小数秒和
+`Z`/`+00:00`，仍拒绝非 UTC、无 timezone、非法日期、CR/LF 和非字符串。Envelope metric 的
+`OverflowError`、`ValueError`、`TypeError` 统一转换为 `INVALID_EVIDENCE_ENVELOPE`，固定公开消息为
+`evidence envelope is invalid`，并以 `raise ... from error` 保留内部原因。metadata 类型、标签、路径、深度、
+cycle 和不支持值也使用同一对外错误，不回显原始输入。
+
+为收紧跨运行证据身份，新增 canonical Evidence UID 规则 `EV-[0-9a-f]{64}`；Envelope 与 Binding 都必须使用它。
+Citation ID 仍为不超过 128 字符的 `E<positive integer>`。CitationMode 非法仍是
+`INVALID_CITATION_MODE` / `citation mode is invalid`；Citation ID 非法仍是
+`INVALID_CITATION_ID` / `citation id is invalid`；Binding 的 evidence UID、chunk、parent、hash、source、version
+或 rank 非法现在明确为 `INVALID_CITATION_BINDING` / `citation binding is invalid`。七项 Binding 与 Envelope
+身份不一致的 `CITATION_BINDING_MISMATCH` 语义不变。
+
+本 H1 不改变 RetrievalEvidence、ResolvedContent、ContentResolver、DenseRetriever、Factory canonical checks 或
+renderer exact output；不读取 fixture、不调用 Embedding、Chroma、Groq 或 LLM，不创建 ContextBuilder、Package、
+预算或 Citation allocator。当前状态为 `Completed, pending human review`；I1 和父任务仍为
+`Completed, pending human acceptance`，S6-T5.6+ 为 `NOT APPROVED`，正式 RAG 安全实验为 `NOT STARTED`，最后接受的
+业务实现提交仍为 `11a72f7`。

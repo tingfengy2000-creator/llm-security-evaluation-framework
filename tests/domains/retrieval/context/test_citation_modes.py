@@ -23,3 +23,4 @@ def test_citation_instruction_rejects_raw_string_mode() -> None:
     with pytest.raises(CitationInputError) as caught:
         render_citation_instruction(mode="required")  # type: ignore[arg-type]
     assert caught.value.error_code == "INVALID_CITATION_MODE"
+    assert str(caught.value) == "citation mode is invalid [INVALID_CITATION_MODE]"
