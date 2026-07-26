@@ -78,7 +78,7 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
             with self.subTest(required=required):
                 self.assertIn(required, text)
 
-    def test_current_governance_keeps_implementation_and_experiments_closed(self) -> None:
+    def test_current_governance_records_i1_as_pending_human_acceptance(self) -> None:
         state = (GOVERNANCE / "current_work_state.md").read_text(encoding="utf-8")
         master_record = (GOVERNANCE / "experiment_master_record.md").read_text(
             encoding="utf-8"
@@ -89,16 +89,17 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
                 "S6-T5.5-P1",
                 "HUMAN_ACCEPTED",
                 "S6-T5.5",
-                "READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL",
+                "Completed, pending human acceptance",
                 "Formal RAG security experiment",
             ):
                 with self.subTest(required=required):
                     self.assertIn(required, text)
 
-        self.assertIn("EvidenceEnvelope implementation", state)
+        self.assertIn("EvidenceEnvelope", state)
         self.assertIn("ContextBuilder", state)
         self.assertIn("S6-T5.5-P1-H1", state)
-        self.assertIn("S6-T5.5-I1: **NOT YET APPROVED**", state)
+        self.assertIn("S6-T5.5-I1: **Completed, pending human acceptance**", state)
+        self.assertIn("parent `S6-T5.5` are **Completed, pending human acceptance**", state)
         self.assertIn("S6-T5.6+", state)
         self.assertIn("**NOT APPROVED**", state)
 
@@ -147,11 +148,11 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
             text = path.read_text(encoding="utf-8")
             with self.subTest(path=path.relative_to(ROOT)):
                 self.assertIn("S6-T5.5-P1", text)
-                self.assertIn("citation_id", text)
                 self.assertIn("S6-T5.5", text)
+                self.assertIn("human_accepted", text.lower())
                 self.assertIn("NOT APPROVED", text)
 
-    def test_canonical_governance_entrypoints_record_h1_without_approving_implementation(
+    def test_canonical_governance_entrypoints_record_h1_and_i1_boundary(
         self,
     ) -> None:
         paths = (
@@ -165,23 +166,28 @@ class S6T55ProtocolFreezeTests(unittest.TestCase):
                 self.assertIn("S6-T5.5-P1-H1", text)
                 self.assertIn("canonical", text)
                 self.assertIn("CITATION_BINDING_MISMATCH", text)
+                self.assertIn("S6-T5.5-I1", text)
                 self.assertIn("NOT APPROVED", text)
 
-    def test_protocol_review_has_not_created_s6_t5_5_business_types(self) -> None:
-        forbidden_definitions: list[str] = []
+    def test_i1_keeps_dtos_in_contracts_and_does_not_start_context_builder(self) -> None:
+        owners: dict[str, list[str]] = {
+            "EvidenceEnvelope": [],
+            "CitationBinding": [],
+            "ContextBuilder": [],
+        }
         for path in RETRIEVAL_ROOT.rglob("*.py"):
             module = ast.parse(path.read_text(encoding="utf-8"))
             for node in ast.walk(module):
-                if isinstance(node, ast.ClassDef) and node.name in {
-                    "EvidenceEnvelope",
-                    "CitationBinding",
-                    "ContextBuilder",
-                }:
-                    forbidden_definitions.append(str(path.relative_to(ROOT)))
+                if isinstance(node, ast.ClassDef) and node.name in owners:
+                    owners[node.name].append(str(path.relative_to(ROOT)))
 
-        self.assertEqual([], forbidden_definitions)
-        self.assertFalse((RETRIEVAL_ROOT / "context" / "citation.py").exists())
-        self.assertFalse((RETRIEVAL_ROOT / "context" / "rendering.py").exists())
+        assert owners["EvidenceEnvelope"] == [
+            "src\\llmguard\\domains\\retrieval\\contracts\\evidence_envelope.py"
+        ]
+        assert owners["CitationBinding"] == [
+            "src\\llmguard\\domains\\retrieval\\contracts\\evidence_envelope.py"
+        ]
+        assert owners["ContextBuilder"] == []
         self.assertFalse((RETRIEVAL_ROOT / "context" / "models.py").exists())
 
 

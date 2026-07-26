@@ -4,7 +4,12 @@ from __future__ import annotations
 
 from typing import Protocol
 
-from llmguard.domains.retrieval.contracts import ContentRef, ResolvedContent
+from llmguard.domains.retrieval.contracts import (
+    ContentRef,
+    EvidenceEnvelope,
+    ResolvedContent,
+    RetrievalEvidence,
+)
 
 
 class ContentResolver(Protocol):
@@ -17,6 +22,18 @@ class ContentResolver(Protocol):
         expected_content_hash: str,
     ) -> ResolvedContent:
         """Resolve one controlled content capability."""
+
+
+class EvidenceEnvelopeFactory(Protocol):
+    """Create one envelope only from canonical evidence and verified content."""
+
+    def create(
+        self,
+        *,
+        evidence: RetrievalEvidence,
+        resolved_content: ResolvedContent,
+    ) -> EvidenceEnvelope:
+        """Bind public retrieval provenance to one verified sensitive body."""
 
 
 class CorpusSnapshotReader(Protocol):

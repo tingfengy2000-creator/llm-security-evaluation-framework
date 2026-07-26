@@ -1243,6 +1243,20 @@ fixture，也不产生 Citation Accuracy 或 RAG 安全效果结论。H1 为 `Co
 报告、历史 guard 测试样例及聊天导出；它们不是本轮新增内容，且受“历史产物不改写”约束。对 H1 的 11 个变更文件定向复扫，
 密钥形态和本机绝对路径均为 0；因此只能准确地说本轮变更未引入该类风险，不能把历史命中掩盖成全仓零风险。
 
+## 2026-07-26: S6-T5.5-I1 EvidenceEnvelope、Citation 与结构化渲染最小实现（待人工验收）
+
+**我现在做了什么**：我把 S6-T5.3 的公开 `RetrievalEvidence` 和 S6-T5.4 的短生命周期 `ResolvedContent` 通过唯一的 `CanonicalEvidenceEnvelopeFactory` 绑定为 `EvidenceEnvelope`。正文仍是敏感运行时字段：不会出现在 `repr`、普通 audit、异常或渲染前日志中。`CitationBinding` 则单独保存 `E1...En` 形式的局部引用编号，并在渲染前校验 evidence UID、chunk、parent、hash、source、version、rank 七项身份字段。
+
+**为什么这样做**：证据身份、正文权限、引用编号和提示词渲染是四件不同的事。若检索完成时就分配引用编号，后续去重、排序或预算裁剪会让编号与最终上下文不一致；若 renderer 不核验 Binding，则错误引用可能悄悄进入模型上下文。本轮因此只提供稳定 DTO、工厂、固定引用指令和单 evidence block 渲染，不提前实现 package、allocator 或 ContextBuilder。
+
+**企业为什么这样做**：企业 RAG 审计需要既能追溯“这段内容来自哪一条证据”，又不能把正文、查询或评估标签写进普通日志。Factory 是唯一构造入口，便于集中做 provenance 与 hash 校验；固定、脱敏的领域错误既方便上层分类，也避免把正文或本机路径带入异常。
+
+**和上一部分的关系**：S6-T5.3 解决公开检索证据的确定性与标签隔离，S6-T5.4 解决受控正文解析和内容完整性；S6-T5.5-I1 只建立两者进入未来上下文层之前的安全数据边界。它没有生成上下文包，也没有调用任何 LLM。
+
+**面试可能追问**：为什么 XML escaping 不是 Prompt Injection 防护？答案是 escaping 只阻止正文伪造 `<evidence>` 等结构，不能理解文本语义或判断其是否诱导模型。为什么 `asdict()` 可以得到 content 而普通 audit 不可以？因为前者是显式、受测试约束的敏感导出操作；日常审计和日志必须默认使用 `to_audit_dict()`，它只含公开元数据和长度。
+
+**容易误解的地方**：60 个离线测试通过不等于 Citation Accuracy、RAG 安全性或生产可用性已经证明。本轮未读取 Stage 6 fixture，未调用 Embedding、Chroma、Groq 或 LLM，未执行正式 RAG 安全实验。当前状态是 `S6-T5.5-I1` 与父任务 `S6-T5.5`：`Completed, pending human acceptance`；`S6-T5.6+` 仍为 `NOT APPROVED`。
+
 ## 2026-07-26: GOV-S6-T5.5-P1-ACCEPTANCE 协议人工验收
 
 **我现在记录了什么**：项目负责人已人工接受 P1 与 H1 的 EvidenceEnvelope/Citation 协议。接受的是“未来怎么做才不破坏

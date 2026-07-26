@@ -95,3 +95,39 @@ class ContentResolutionRuntimeError(ContentResolutionError):
     """Raised when an injected content-resolution dependency fails unexpectedly."""
 
     error_code = "CONTENT_RESOLUTION_FAILURE"
+
+
+class EvidenceEnvelopeInputError(RetrievalInputError):
+    """Raised when an envelope input violates its public contract."""
+
+    error_code = "INVALID_EVIDENCE_ENVELOPE"
+
+
+class EvidenceEnvelopeIntegrityError(RetrievalIntegrityError):
+    """Raised when evidence and verified content have different identities."""
+
+    error_code = "EVIDENCE_CONTENT_MISMATCH"
+
+
+class EvidenceEnvelopeRuntimeError(RetrievalContractError):
+    """Raised when an untrusted envelope construction dependency fails."""
+
+    error_code = "UNEXPECTED_ENVELOPE_CONSTRUCTION_FAILURE"
+
+
+class CitationInputError(RetrievalInputError):
+    """Raised when a citation identifier or mode is invalid."""
+
+    error_code = "INVALID_CITATION_ID"
+
+
+class CitationIntegrityError(RetrievalIntegrityError):
+    """Raised when a binding cannot identify the supplied evidence envelope."""
+
+    error_code = "CITATION_BINDING_MISMATCH"
+
+
+class ContextRenderingError(RetrievalContractError):
+    """Raised when structural rendering cannot safely produce one block."""
+
+    error_code = "CONTEXT_RENDERING_FAILURE"

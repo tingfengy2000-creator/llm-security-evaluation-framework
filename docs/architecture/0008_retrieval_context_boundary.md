@@ -184,6 +184,12 @@ P1 与 H1 已 `HUMAN_ACCEPTED`，但此 ADR 的 Factory、Binding、renderer 和
 不是已存在的业务对象。验收仅将 `S6-T5.5` 推进为 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`；
 `S6-T5.5-I1` 仍为 `NOT YET APPROVED`，不得把设计提交 `25fb83d` 当作业务实现提交。
 
+### S6-T5.5-I1 实现状态附注（2026-07-26）
+
+I1 已获单独批准并完成最小实现：DTO 与错误只在 `contracts/`，Factory/instruction/renderer 只在 `context/` 行为层。
+Factory 不接收 legacy/裸正文，renderer 不创建 Binding 或分配编号，且 ContextBuilder 仍不存在。此状态为
+`Completed, pending human acceptance`，不改变 S6-T5.6 的 `NOT APPROVED` 审批门。
+
 ## S6-T5.5-P1：EvidenceEnvelope 与 Citation 边界冻结
 
 为消除“Citation ID 按最终 Context 顺序分配”与“Envelope 位于 ContextBuilder 之前”的矛盾，本 ADR 冻结

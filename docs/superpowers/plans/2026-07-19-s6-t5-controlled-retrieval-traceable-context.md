@@ -466,3 +466,10 @@ acceptance`，`S6-T5.5`、`S6-T5.6+` 和正式 RAG 安全实验未获批准。
 不是第 7 节 TDD/源码任务的启动许可。`S6-T5.5` 现为 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`，
 但 `S6-T5.5-I1` 仍为 `NOT YET APPROVED`；S6-T5.6+、ContextBuilder、Citation Accuracy、Trust、LLM 和正式
 RAG 安全实验保持未批准/未开始。最后接受的 stage implementation commit 仍为 `11a72f7`，`25fb83d` 仅是协议加固提交。
+
+## 24. S6-T5.5-I1 实施留痕（2026-07-26）
+
+在独立批准下，I1 先以 Red 测试确认 DTO/Factory/instruction/renderer 缺失，再实现 contracts 唯一 DTO owner、
+canonical Factory、固定 citation instruction、escaping 和单 block renderer。验证只构造 synthetic
+`RetrievalEvidence`/`ResolvedContent`；不读取 fixture、不调用模型、不构造 package、不分配 Citation ID。
+当前 I1 与父任务为 `Completed, pending human acceptance`。下一审批门是人工验收 I1，S6-T5.6 仍不自动启动。

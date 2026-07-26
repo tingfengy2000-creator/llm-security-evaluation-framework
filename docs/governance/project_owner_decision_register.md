@@ -157,6 +157,7 @@ S6-T5.3-H1 均已通过项目负责人 `HUMAN_ACCEPTED`；S6-T5.4 为
 | PODR-017 | 2026-07-25 | S6-T5.5-P1 EvidenceEnvelope and Citation Boundary Freeze | 批准协议审查，采用无 `citation_id` Envelope 与由未来 ContextBuilder 在最终 Evidence 集后创建 package-local Binding 的方案；冻结 instruction、escaping、错误和敏感导出边界 | DESIGN_FREEZE_COMPLETED_PENDING_HUMAN_ACCEPTANCE | 项目负责人当前指令、S6-T5.5 protocol review record、规格/计划/ADR | — | 不批准 S6-T5.5 业务实现、CitationBinding、rendering、ContextBuilder 或正式 RAG 实验 |
 | PODR-018 | 2026-07-26 | S6-T5.5-P1-H1 Evidence Canonical Binding and Citation Rendering Protocol Hardening | 批准修订 Factory canonical Evidence-only 输入、Renderer 的 Envelope + Binding 唯一输入和 `CITATION_BINDING_MISMATCH` fail-closed 语义 | DESIGN_FREEZE_HARDENING_COMPLETED_PENDING_HUMAN_REVIEW | 项目负责人当前指令、S6-T5.5 protocol review record、规格/计划/ADR | PODR-017 ambiguous legacy/renderer boundary | 不批准 S6-T5.5 业务实现、Binding/renderer/ContextBuilder 或正式 RAG 实验 |
 | PODR-019 | 2026-07-26 | S6-T5.5 EvidenceEnvelope and Citation Protocol Human Acceptance Record | 人工接受 P1 与 H1 的协议设计；S6-T5.5 仅进入独立实现审批准备 | HUMAN_ACCEPTED | 项目负责人明确决定、P1/H1 protocol review record、规格/计划/ADR、治理测试 | PODR-017、PODR-018 的历史 pending/review 快照 | 不批准 S6-T5.5-I1、EvidenceEnvelope、CitationBinding、renderer、ContextBuilder 或正式 RAG 实验 |
+| PODR-020 | 2026-07-26 | S6-T5.5-I1 EvidenceEnvelope, Citation Contracts and Structural Rendering Minimal Implementation | 批准并完成 synthetic-only 的 stable DTO、canonical Factory、instruction 与 single-block renderer 最小实现 | IMPLEMENTED_PENDING_HUMAN_ACCEPTANCE | 项目负责人当前批准、完成记录、TDD 与离线工程验证 | PODR-019 | 不批准 ContextBuilder、package-level allocation、Trust、LLM 或正式 RAG 实验 |
 
 ## 7.1 S6-T5.4 当前审批解释（2026-07-25）
 
@@ -201,8 +202,15 @@ PODR-019 将 `S6-T5.5-P1` 与 `S6-T5.5-P1-H1` 标记为 `HUMAN_ACCEPTED`，但�
 `citation_id` Envelope、future package-local Binding allocation、canonical Factory 输入、七字段 Binding
 校验、`CITATION_BINDING_MISMATCH` fail-closed、固定 instruction/rendering 与敏感导出 deny-by-default。该决定不把
 `25fb83d` 登记为业务实现提交；最后接受的 stage implementation 仍是 `S6-T5.4 Controlled Corpus ContentResolver`
-的 `11a72f7`。`S6-T5.5` 现为 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`，但 `S6-T5.5-I1` 是
+的 `11a72f7`。本段的 `S6-T5.5` 为 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL` 是 I1 获批前的历史快照；当前 `S6-T5.5` 与 `S6-T5.5-I1` 均为 `Completed, pending human acceptance`，但
 `NOT YET APPROVED`，`S6-T5.6+` 为 `NOT APPROVED`，正式 RAG 安全实验为 `NOT STARTED`。
+
+## 7.7 S6-T5.5-I1 当前状态（2026-07-26）
+
+PODR-020 单独批准了 I1 的离线工程实现。当前 `EvidenceEnvelope`、`CitationBinding`、`CitationMode`、稳定错误、
+canonical Factory、citation instruction 与单 block structural renderer 已完成，状态为 `Completed, pending human
+acceptance`。所有正文均为测试中的 synthetic 对象；没有读取 Stage 6 fixture、创建 package/allocator/ContextBuilder，
+也没有调用 Embedding、Chroma、Groq、LLM 或正式 RAG 实验。最后接受的业务实现提交仍为 `11a72f7`。
 
 ## 8. 新 Thread 最小读取顺序
 

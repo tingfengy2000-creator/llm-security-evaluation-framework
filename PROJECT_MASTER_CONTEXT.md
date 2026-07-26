@@ -933,4 +933,15 @@ renderer 或 ContextBuilder，也没有产生 Citation Accuracy 或 RAG 安全�
 
 当前最高已接受业务阶段是 `S6-T5.4 Controlled Corpus ContentResolver`，最后接受的业务实现提交仍为 `11a72f7`；
 `25fb83d` 仅为设计协议加固提交。`S6-T5.5` 现为 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`，但
-`S6-T5.5-I1` 仍为 `NOT YET APPROVED`，`S6-T5.6+` 仍为 `NOT APPROVED`，正式 RAG 安全实验仍为 `NOT STARTED`。
+上述“`S6-T5.5-I1` 仍为 `NOT YET APPROVED`”是 I1 获批前的历史快照；当前 I1 与父任务 S6-T5.5 均为 `Completed, pending human acceptance`。`S6-T5.6+` 仍为 `NOT APPROVED`，正式 RAG 安全实验仍为 `NOT STARTED`。
+
+## 24. S6-T5.5-I1：EvidenceEnvelope、Citation 与结构化渲染最小实现（2026-07-26）
+
+在 P1/P1-H1 人工验收后，项目负责人单独批准 I1。它实现 contracts 唯一 owner 的 `EvidenceEnvelope`、
+`CitationBinding`、`CitationMode` 与稳定错误；唯一 canonical Factory；固定 LF instruction；以及只渲染一个
+Envelope + Binding 的 XML-like block。Factory 校验 canonical ContentRef、snapshot、chunk、hash，renderer 校验七项
+Binding identity 并 fail closed。正文只来自合成 `ResolvedContent`，普通 audit/repr 不含正文。
+
+I1 当前为 `Completed, pending human acceptance`，父任务 S6-T5.5 同样为 `Completed, pending human acceptance`。
+最后接受的业务实现提交仍是 `11a72f7`；本次不读取 Stage 6 fixture，不实现 package、Citation allocation 或
+ContextBuilder，不调用 Embedding、Chroma、Groq、LLM，也不执行正式 RAG 安全实验。S6-T5.6+ 仍为 `NOT APPROVED`。

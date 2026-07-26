@@ -8,6 +8,8 @@ from .chunking import (
     format_corpus_content_ref,
 )
 from .errors import (
+    CitationInputError,
+    CitationIntegrityError,
     ChunkingConfigurationError,
     ChunkingContractError,
     ChunkingInputError,
@@ -16,13 +18,18 @@ from .errors import (
     ContentResolutionIntegrityError,
     ContentResolutionLookupError,
     ContentResolutionRuntimeError,
+    ContextRenderingError,
     ContentRefError,
     RetrievalConfigurationError,
     RetrievalContractError,
     RetrievalInputError,
     RetrievalIntegrityError,
     RetrievalProjectionError,
+    EvidenceEnvelopeInputError,
+    EvidenceEnvelopeIntegrityError,
+    EvidenceEnvelopeRuntimeError,
 )
+from .evidence_envelope import CitationBinding, CitationMode, EvidenceEnvelope
 from .content_resolution import ResolvedContent
 from .hashing import canonical_json, canonical_json_sha256
 from .content_ref import ContentRef
@@ -60,13 +67,22 @@ __all__ = [
     "ChunkingInputError",
     "ChunkingIntegrityError",
     "ChunkingStrategy",
+    "CitationBinding",
+    "CitationInputError",
+    "CitationIntegrityError",
+    "CitationMode",
     "ContentResolutionError",
     "ContentResolutionIntegrityError",
     "ContentResolutionLookupError",
     "ContentResolutionRuntimeError",
+    "ContextRenderingError",
     "ContentRef",
     "ContentRefError",
     "DocumentRecord",
+    "EvidenceEnvelope",
+    "EvidenceEnvelopeInputError",
+    "EvidenceEnvelopeIntegrityError",
+    "EvidenceEnvelopeRuntimeError",
     "EvidenceSignal",
     "FORBIDDEN_PIPELINE_FIELDS",
     "QueryRecord",

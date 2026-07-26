@@ -675,3 +675,9 @@ allocator 调用仍只属于 S6-T5.6 ContextBuilder。本 H1 只修订协议，�
 `HUMAN_ACCEPTED`。这不实现本规格中的 Factory、DTO、renderer、Binding、package 或 ContextBuilder。
 `S6-T5.5` 仅变为 `READY_FOR_SEPARATE_IMPLEMENTATION_APPROVAL`，`S6-T5.5-I1` 仍为 `NOT YET APPROVED`，
 `S6-T5.6+` 与正式 RAG 安全实验仍为 `NOT APPROVED`/`NOT STARTED`。
+
+### 25.3 S6-T5.5-I1 实现状态附注（2026-07-26）
+
+项目负责人已单独批准 I1，并在 synthetic objects 上实现本节冻结的 stable DTO、Factory、instruction 与单 block
+renderer。实现保持 P1/H1 的 Factory canonical-only 与七字段 Binding fail-closed 语义；不创建 Package、allocator 或
+ContextBuilder。I1 与父任务当前均为 `Completed, pending human acceptance`；S6-T5.6+ 和正式实验仍未批准/未开始。
