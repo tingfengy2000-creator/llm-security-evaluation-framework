@@ -1519,3 +1519,17 @@ secret/path、protected-path、runtime Git-ignore 和 diff 检查通过。历史
 **面试怎么讲**：可以说：“我给 RAG 安全基线建立了提交证据分类表，把协议冻结、实现、加固、集成证据和人工验收拆开。这样每项结论都能回到对应的提交和测试范围，避免把工程互操作误写成安全效果。”
 
 **最容易误解的地方**：`b136ee2` 是最后已接受 implementation commit，`b6cedf3` 是集成证据，`c1e8c16` 是集成验收，`37cccdc` 是原始候选基线收尾；四者都不能互换。S6-T5.8-H1 与父任务均仍为 `Completed, pending human acceptance`；Stage 6.1 未批准，正式 RAG 安全实验未开始。
+
+## 2026-07-27: S6-T5 Controlled Retrieval and Traceable Context Baseline 最终人工验收
+
+**现在完成了什么**：项目负责人已接受 `S6-T5.8-H1`、`S6-T5.8` 与整个 S6-T5 基线。`4ecf73a` 是 accepted baseline content commit，包含文档收尾和 taxonomy 修正；本轮新提交只记录 baseline governance acceptance，绝不替代 `b136ee2` 的实现身份或 `b6cedf3` 的集成证据身份。
+
+**为什么这样做**：工程代码、集成验证和人工验收回答的是不同问题。最终验收确认的是“在明确边界内可以作为后续研究的可追溯工程基线”，而不是新增算法能力，更不是安全效果证明。
+
+**企业和面试意义**：可以说：“我把检索到上下文的链路拆成可审计边界，并在最终验收中将实现提交、集成证据和治理验收提交分别管理。这样后续研究或事故复盘都能追溯每项结论来自代码、测试还是人工决策。”
+
+**最新验证快照**：H1 文档/治理测试为 `22 passed, 381 subtests passed`，architecture 为 `76 passed, 912 subtests passed`，namespace + label isolation 为 `10 passed, 1199 subtests passed`；Ruff、scoped MyPy、Markdown links、secret/path、protected-path、runtime Git-ignore 与 `git diff --check` 均通过。`.pytest_cache` 写权限警告属于非阻塞测试环境提示。`BLK-HIST-001` 的 110 个 CRLF/LF 历史 manifest 差异仍保留，本轮 protected-path diff 为零。
+
+**验收记录与历史快照的关系**：本轮最终验收再次运行后，文档/治理为 `22 passed, 388 subtests passed`，architecture 为 `76 passed, 919 subtests passed`，namespace + label isolation 仍为 `10 passed, 1199 subtests passed`。这些新增的治理断言只证明验收状态同步正确；H1 的 `22/381` 与 `76/912` 仍作为独立历史快照保留，不能相互覆盖。
+
+**不能误解**：这项验收不证明 RAG 已安全、Prompt Injection 已防护、Knowledge/Retrieval Poisoning 已检测或缓解、Trustworthy Retrieval 已实现、Citation Accuracy 或 Recall/MRR/NDCG 已得出研究结论，也不代表生成式 LLM 链路、正式攻击矩阵、正式 RAG 实验或生产可用性已经成立。Stage 6.1 仍为 `NOT APPROVED`，正式 RAG 安全实验仍为 `NOT STARTED`。

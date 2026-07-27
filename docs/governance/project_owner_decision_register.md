@@ -343,6 +343,19 @@ implementation commit。历史 pending/review 文本继续保留为当时事实�
 - Prohibitions: no `src/`, business-test, Stage 1--5, Stage 6 fixture/data or runtime modification; no MiniLM/Chroma/Embedding/Groq/LLM invocation; no tag, research branch, Stage 6.1 approval, or formal RAG security experiment.
 - Next gate: a later human-acceptance record may register the completed H1 candidate commit after Git creates it. Parent `S6-T5.8` remains `Completed, pending human acceptance`; Stage 6.1 remains `NOT APPROVED`; Formal RAG security experiment remains `NOT STARTED`.
 
+## PODR-034: GOV-S6-T5-BASELINE-ACCEPTANCE Final Human Acceptance
+
+- Date: `2026-07-27`.
+- Decision: project owner marks `S6-T5.8-H1` and `S6-T5.8` as `HUMAN_ACCEPTED`, and marks the `S6-T5 Controlled Retrieval and Traceable Context Baseline` as `HUMAN_ACCEPTED BASELINE`.
+- Accepted baseline content commit: `4ecf73a`. It contains the T5.8 documentation closure and H1 taxonomy correction.
+- Historical identity preservation: `37cccdc` remains the original candidate baseline closure commit; `b136ee2` remains the last accepted implementation commit; `b6cedf3` remains the last accepted integration evidence commit; `c1e8c16` remains the S6-T5.7 integration governance acceptance commit.
+- Current governance identity: `CURRENT_ACCEPTANCE_COMMIT / verify from Git after commit` is a baseline governance acceptance commit only. It must not be recorded as implementation or integration evidence.
+- Latest H1 verification snapshot: documentation/governance `22 passed, 381 subtests passed`; architecture `76 passed, 912 subtests passed`; namespace plus label isolation `10 passed, 1199 subtests passed`; Ruff, scoped MyPy, Markdown links, changed-file secret/absolute-path scans, protected-path diff, runtime Git-ignore and `git diff --check` passed. The `.pytest_cache` write-permission warning is non-blocking test-environment noise, not a test failure.
+- This acceptance's separate verification snapshot: documentation/governance `22 passed, 388 subtests passed`; architecture `76 passed, 919 subtests passed`; namespace plus label isolation `10 passed, 1199 subtests passed`. These added governance assertions do not overwrite the H1, T5.7 or T5.6 historical validation snapshots.
+- Historical integrity boundary: `BLK-HIST-001` remains 110 existing Windows CRLF/LF manifest differences. This acceptance records zero protected-path changes and does not rewrite Stage 1--5 or Stage 6 fixture/data to erase historical debt.
+- Non-claims: no RAG security, prompt-injection defense, knowledge/retrieval poisoning detection or mitigation, trustworthy retrieval, Trust score/policy, Citation Accuracy, Recall/Precision/MRR/NDCG research conclusion, generative LLM chain, formal attack matrix, formal RAG experiment, paper conclusion or production-readiness claim.
+- Next gate: Stage 6.1 remains `NOT APPROVED`; Formal RAG security experiment remains `NOT STARTED`. This acceptance does not create a tag or research branch.
+
 ## PODR-029: GOV-S6-T5.6-ACCEPTANCE Final Human Acceptance
 
 - Date: `2026-07-26`.

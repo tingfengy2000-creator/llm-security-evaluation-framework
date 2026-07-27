@@ -6,18 +6,18 @@
 | --- | --- |
 | Stage | `S6-T5` |
 | Scope | `Controlled Retrieval and Traceable Context Baseline` |
-| Status | `Completed, pending human acceptance` |
+| Status | `HUMAN_ACCEPTED BASELINE` |
 | Active branch | `feature/stage6-rag` |
 | Last accepted implementation commit | `b136ee2` |
 | Last accepted integration evidence commit | `b6cedf3` |
 | T5.7 governance acceptance commit | `c1e8c16` |
-| Original T5.8 candidate baseline closure commit | `37cccdc`；这是原始候选基线收尾提交，不是 `accepted S6-T5 baseline SHA`。本轮 S6-T5.8-H1 的自身 SHA 仍须由后续人工验收记录在提交完成后按 Git 事实登记。 |
+| Original T5.8 candidate baseline closure commit | `37cccdc`；这是原始候选基线收尾提交，不是 `accepted S6-T5 baseline SHA`。 |
+| Accepted baseline content commit | `4ecf73a`；包含 T5.8 文档收尾与 T5.8-H1 taxonomy 修正。 |
+| Baseline governance acceptance commit | `CURRENT_ACCEPTANCE_COMMIT / verify from Git after commit`；本轮提交是治理验收提交，不是 implementation 或 integration evidence commit。 |
 | T5.8 start approval | `PODR-032`；历史状态 `APPROVED_TO_START / DOCUMENTATION_IN_PROGRESS` |
 | Formal RAG security experiment | `NOT STARTED` |
 
-本报告是 S6-T5.1 至 S6-T5.7 已接受工程边界的统一证据索引，也是 S6-T5.8 的候选 baseline closure 文档。它不是
-正式安全实验报告、研究论文结论或生产验收。项目负责人完成对本轮提交的最终人工验收前，不得将任何 SHA 称为
-`accepted S6-T5 baseline SHA`，不得创建 tag 或 Stage 6.1 分支。
+本报告是 S6-T5.1 至 S6-T5.7 已接受工程边界的统一证据索引，且项目负责人现已接受 `S6-T5.8-H1`、`S6-T5.8` 与整个 `S6-T5 Controlled Retrieval and Traceable Context Baseline`。`4ecf73a` 是 accepted baseline content commit；本轮新提交仅登记这项最终治理验收。它不是正式安全实验报告、研究论文结论或生产验收，也不授权创建 tag、Stage 6.1 分支或正式 RAG 安全实验。
 
 ## 2. S6-T5.1 至 S6-T5.7 提交证据分类矩阵
 
@@ -120,6 +120,13 @@ Dataset QueryRecord
 | S6-T5.8 文档/治理一致性 | context persistence + master record scopes | `22 passed, 371 subtests passed` | 否 | 基线报告、审批门、提交身份和链接一致性 |
 | S6-T5.8 architecture | `tests/architecture` | `76 passed, 902 subtests passed` | 否 | 包含本轮新增基线报告治理断言；不替换早期运行事实 |
 | S6-T5.8 namespace + label isolation | namespace + label-isolation scopes | `10 passed, 1199 subtests passed` | 否 | 本轮未改变 namespace 或标签边界 |
+| S6-T5.8-H1 documentation/governance | context persistence + master record scopes | `22 passed, 381 subtests passed` | 否 | H1 最终 taxonomy 语义映射快照；不覆盖 T5.6、T5.7 或初始 T5.8 历史数字 |
+| S6-T5.8-H1 architecture | `tests/architecture` | `76 passed, 912 subtests passed` | 否 | H1 最终治理断言快照；不代表业务行为变化 |
+| S6-T5.8-H1 namespace + label isolation | namespace + label-isolation scopes | `10 passed, 1199 subtests passed` | 否 | H1 未改变 namespace 或标签边界 |
+| S6-T5.8-H1 engineering gates | Ruff、scoped MyPy、Markdown links、changed-file secret/absolute-path scans、protected-path diff、runtime Git-ignore、`git diff --check` | `passed`；protected-path changes = `0` | 不适用 | `.pytest_cache` 写权限警告是非阻塞测试环境警告，不是失败 |
+| GOV-S6-T5-BASELINE-ACCEPTANCE documentation/governance | context persistence + master record scopes | `22 passed, 388 subtests passed` | 否 | 最终验收状态断言的本轮验证；H1 的 `22/381` 仍为独立历史快照 |
+| GOV-S6-T5-BASELINE-ACCEPTANCE architecture | `tests/architecture` | `76 passed, 919 subtests passed` | 否 | 最终验收状态覆盖增加，不代表业务行为变化 |
+| GOV-S6-T5-BASELINE-ACCEPTANCE namespace + label isolation | namespace + label-isolation scopes | `10 passed, 1199 subtests passed` | 否 | 未改变 namespace 或标签边界 |
 
 Ruff、scoped MyPy、Markdown relative links、changed-file secret/path scans、protected-path diff、runtime Git-ignore
 和 `git diff --check` 只证明相应工程治理门通过；它们不产生 RAG 安全效果指标。
@@ -150,18 +157,21 @@ Citation Accuracy 或正式统计实验。
 
 ## 10. 下一审批门
 
-本轮结束后只应登记：
+本轮结束后应登记：
 
 ```text
-S6-T5.8: Completed, pending human acceptance
-S6-T5: Baseline closure completed, pending human acceptance
+S6-T5.8-H1: HUMAN_ACCEPTED
+S6-T5.8: HUMAN_ACCEPTED
+S6-T5: HUMAN_ACCEPTED BASELINE
+Accepted baseline content commit: 4ecf73a
+Baseline governance acceptance commit: CURRENT_ACCEPTANCE_COMMIT / verify from Git after commit
 Stage 6.1 formal research: NOT APPROVED
 Formal RAG security experiment: NOT STARTED
 Last accepted implementation commit: b136ee2
 Last accepted integration evidence commit: b6cedf3
 ```
 
-只有项目负责人最终人工验收 S6-T5.8 后，才可以将该验收提交定义为 accepted S6-T5 baseline SHA，并另行决定是否：
+本轮治理提交完成后，其完整 SHA 只能由 Git 事实核验并由后续记录作为 baseline governance acceptance commit 使用。它不改变 `4ecf73a` 的 accepted baseline content commit 身份。是否另行：
 
 1. 创建 annotated tag `s6-t5-rag-baseline-v1`；
 2. 从该 SHA 创建 `research/stage6-1-hidden-poisoning`；

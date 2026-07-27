@@ -1,13 +1,10 @@
 # LLMGuard 项目总控文档
 
-## S6-T5.8 当前状态附注（2026-07-26）
+## S6-T5 基线最终人工验收状态附注（2026-07-27）
 
-`S6-T5 Controlled Retrieval Baseline Documentation and Acceptance` 已完成候选文档收尾，当前为
-`Completed, pending human acceptance`。唯一的统一索引是 [S6-T5 基线验收报告](docs/governance/s6_t5_baseline_acceptance_report.md)：它区分 protocol、implementation、hardening、integration evidence 和 governance acceptance 提交，并保留所有结论边界。
+项目负责人已将 `S6-T5.8-H1`、`S6-T5.8` 与 `S6-T5 Controlled Retrieval and Traceable Context Baseline` 分别登记为 `HUMAN_ACCEPTED`、`HUMAN_ACCEPTED` 与 `HUMAN_ACCEPTED BASELINE`。唯一的统一索引是 [S6-T5 基线验收报告](docs/governance/s6_t5_baseline_acceptance_report.md)：它区分 protocol、implementation、hardening、integration evidence 和 governance acceptance 提交，并保留所有结论边界。
 
-`b136ee2` 仍是最后已接受 implementation commit；`b6cedf3` 仍是已接受 integration evidence commit；原始 T5.8 candidate
-baseline closure commit 为 `37cccdc`，绝不写作 accepted baseline SHA。S6-T5.8-H1 只修正提交证据 taxonomy，其自身 SHA 仍由后续人工验收按 Git 事实登记。Stage 6.1 formal research 仍为
-`NOT APPROVED`，Formal RAG security experiment 仍为 `NOT STARTED`；本轮未调用任何模型或真实基础设施，未创建 tag 或研究分支。
+`b136ee2` 仍是最后已接受 implementation commit；`b6cedf3` 仍是已接受 integration evidence commit；原始 T5.8 candidate baseline closure commit 为 `37cccdc`；`4ecf73a` 是 accepted baseline content commit。当前治理提交仅为 baseline governance acceptance commit，其 SHA 在提交后按 Git 事实核验，绝不改写为 implementation 或 integration evidence。Stage 6.1 formal research 仍为 `NOT APPROVED`，Formal RAG security experiment 仍为 `NOT STARTED`；本轮未调用任何模型或真实基础设施，未创建 tag 或研究分支。
 
 ## S6-T5.7 当前状态附注（2026-07-26）
 

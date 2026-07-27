@@ -87,12 +87,15 @@ class ContextPersistenceTests(unittest.TestCase):
 
         for required in (
             "S6-T5 Controlled Retrieval and Traceable Context Baseline Acceptance Report",
-            "Completed, pending human acceptance",
+            "HUMAN_ACCEPTED BASELINE",
             "b136ee2",
             "b6cedf3",
             "c1e8c16",
             "Original T5.8 candidate baseline closure commit",
             "37cccdc",
+            "Accepted baseline content commit",
+            "4ecf73a",
+            "CURRENT_ACCEPTANCE_COMMIT / verify from Git after commit",
             "BLK-HIST-001",
             "Stage 6.1 formal research: NOT APPROVED",
             "Formal RAG security experiment: NOT STARTED",
@@ -102,10 +105,18 @@ class ContextPersistenceTests(unittest.TestCase):
             with self.subTest(required=required):
                 self.assertIn(required, report)
 
-        self.assertIn("S6-T5.8: **Completed, pending human acceptance**", state)
-        self.assertIn("S6-T5.8-H1: **Completed, pending human acceptance**", state)
+        self.assertIn("S6-T5.8: **HUMAN_ACCEPTED**", state)
+        self.assertIn("S6-T5.8-H1: **HUMAN_ACCEPTED**", state)
+        self.assertIn(
+            "S6-T5 Controlled Retrieval and Traceable Context Baseline: **HUMAN_ACCEPTED BASELINE**",
+            state,
+        )
+        self.assertIn("4ecf73a", state)
+        self.assertIn("CURRENT_ACCEPTANCE_COMMIT / verify from Git after commit", state)
         self.assertIn("Stage 6.1 formal research: NOT APPROVED", state)
-        self.assertIn("original candidate baseline closure commit is `37cccdc`", state)
+        self.assertIn(
+            "original candidate baseline closure commit remains `37cccdc`", state
+        )
 
         rows = _parse_s6_t5_taxonomy_matrix(report)
         required_columns = (
@@ -295,7 +306,9 @@ class ContextPersistenceTests(unittest.TestCase):
             "S6-T5.6-I1: HUMAN_ACCEPTED",
             "S6-T5.6-I1-H1: HUMAN_ACCEPTED",
             "S6-T5.7: **HUMAN_ACCEPTED**",
-            "S6-T5.8: **Completed, pending human acceptance**",
+            "S6-T5.8: **HUMAN_ACCEPTED**",
+            "S6-T5.8-H1: **HUMAN_ACCEPTED**",
+            "S6-T5 Controlled Retrieval and Traceable Context Baseline: **HUMAN_ACCEPTED BASELINE**",
             "Formal RAG security experiment: NOT STARTED",
             "S6-T5.3 DenseRetriever",
         ):

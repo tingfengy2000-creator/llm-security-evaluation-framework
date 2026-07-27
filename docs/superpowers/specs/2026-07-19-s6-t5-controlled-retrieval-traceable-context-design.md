@@ -805,3 +805,7 @@ commit；本轮 closure SHA 在最终人工验收前不能称为 accepted baseli
 ## 33. S6-T5.8-H1 提交证据分类加固状态附注（2026-07-26）
 
 S6-T5.8-H1 已完成候选 documentation governance hardening，当前为 `Completed, pending human acceptance`。它只把历史提交按 protocol design/freeze、protocol hardening、protocol acceptance、implementation、implementation hardening/acceptance 与 integration evidence/acceptance 重新分类，不改变本规格的 DTO、算法、权限或安全语义。`37cccdc` 是 original T5.8 candidate baseline closure commit，不是 accepted baseline SHA；`b136ee2` 和 `b6cedf3` 的既有身份不变。Stage 6.1 仍为 `NOT APPROVED`，正式实验仍为 `NOT STARTED`。
+
+## 34. S6-T5 基线最终人工验收状态附注（2026-07-27）
+
+项目负责人已接受 `S6-T5.8-H1`、`S6-T5.8` 与整个 `S6-T5 Controlled Retrieval and Traceable Context Baseline`。`4ecf73a` 是 accepted baseline content commit；`37cccdc` 保留为 original candidate closure；`b136ee2` 和 `b6cedf3` 的实现/集成证据身份不变。本轮治理提交只登记 baseline acceptance，其完整 SHA 在提交后按 Git 事实核验，不是新的 implementation 或 integration evidence。该验收不扩张任何 DTO、算法、权限、安全语义或实验范围；Stage 6.1 仍为 `NOT APPROVED`，正式实验仍为 `NOT STARTED`。

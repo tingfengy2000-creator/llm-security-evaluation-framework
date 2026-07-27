@@ -12,7 +12,7 @@
 - Last accepted architecture task: `A1R` namespace migration and governance freeze.
 - Last accepted implementation stage task: `S6-T5.6 Deterministic Context Package Implementation`.
 - Last accepted integration-validation task: `S6-T5.7 Controlled Retrieval Context Pipeline Integration`.
-- Last accepted governance task: `GOV-S6-T5.7-ACCEPTANCE`.
+- Last accepted governance task: `GOV-S6-T5-BASELINE-ACCEPTANCE`.
 - Historical acceptance snapshot: `GOV-S6-T5.6-ACCEPTANCE`; historical stage label: Last accepted stage task: `S6-T5.6 Deterministic Context Package Implementation`.
 - Last accepted implementation commit: `b136ee2`.
 - Last accepted integration evidence commit: `b6cedf3`. This is a test/governance evidence commit, never an implementation commit.
@@ -21,10 +21,10 @@
 
 ## Current Task
 
-- Task ID: `S6-T5.8-H1`.
-- Task name: `S6-T5 Baseline Commit Taxonomy and Evidence Mapping Hardening`.
-- Task type: **DOCUMENTATION_GOVERNANCE_HARDENING**.
-- Status: **Completed, pending human acceptance**.
+- Task ID: `GOV-S6-T5-BASELINE-ACCEPTANCE`.
+- Task name: `S6-T5 Controlled Retrieval and Traceable Context Baseline Final Human Acceptance`.
+- Task type: **GOVERNANCE_BASELINE_ACCEPTANCE_RECORD**.
+- Status: **HUMAN_ACCEPTED**. The Git commit created by this task is the baseline governance acceptance record and remains subject to post-commit SHA verification.
 - S6-T5.6-P1: HUMAN_ACCEPTED.
 - S6-T5.6-P1-H1: HUMAN_ACCEPTED.
 - S6-T5.6-P1-H2: HUMAN_ACCEPTED.
@@ -32,8 +32,9 @@
 - S6-T5.6-I1: HUMAN_ACCEPTED.
 - S6-T5.6-I1-H1: HUMAN_ACCEPTED. It hardens only trace scenarios, package configuration identity, dependency error redaction and abstention/trace consistency.
 - S6-T5.7: **HUMAN_ACCEPTED**. Static and opt-in real-infrastructure integration evidence is recorded in [S6-T5.7 completion record](s6_t5_7_integration_completion_record.md). Its accepted evidence commit is `b6cedf3`, not a new implementation commit.
-- S6-T5.8-H1: **Completed, pending human acceptance**. It corrects only the commit-evidence taxonomy and semantic mapping in the [S6-T5 baseline acceptance report](s6_t5_baseline_acceptance_report.md); its own candidate SHA must be registered by a later human-acceptance record after Git creates it.
-- S6-T5.8: **Completed, pending human acceptance**. Its original candidate baseline closure commit is `37cccdc`, which is not an accepted baseline SHA.
+- S6-T5.8-H1: **HUMAN_ACCEPTED**. It corrects only the commit-evidence taxonomy and semantic mapping in the [S6-T5 baseline acceptance report](s6_t5_baseline_acceptance_report.md).
+- S6-T5.8: **HUMAN_ACCEPTED**. Its original candidate baseline closure commit remains `37cccdc`; its accepted baseline content commit is `4ecf73a`.
+- S6-T5 Controlled Retrieval and Traceable Context Baseline: **HUMAN_ACCEPTED BASELINE**. The baseline governance acceptance commit is `CURRENT_ACCEPTANCE_COMMIT / verify from Git after commit`; it is neither an implementation commit nor an integration evidence commit.
 - Historical approval snapshot: S6-T5.8 was `APPROVED_TO_START / DOCUMENTATION_IN_PROGRESS` under `PODR-032`; this is not its current status.
 - Historical approval snapshot: S6-T5.8-H1 was `APPROVED_TO_START / DOCUMENTATION_HARDENING_IN_PROGRESS`; this is not its current status.
 - Stage 6.1 formal research: NOT APPROVED.
@@ -79,8 +80,8 @@
 - The acceptance did not authorize Citation allocation, a package or ContextBuilder before I1. The separately approved I1 now implements only those frozen offline behaviors; it does not authorize Trust or model calls.
 - S6-T5.6 P1/H1/H2 are HUMAN_ACCEPTED protocol records. `S6-T5.6-I1`, `S6-T5.6-I1-H1` and parent S6-T5.6 are HUMAN_ACCEPTED synthetic/offline implementations.
 - S6-T5.7 is HUMAN_ACCEPTED only for the documented controlled retrieval-context engineering evidence. It does not change the accepted implementation commit or establish a formal RAG experiment.
-- S6-T5.8-H1 has completed candidate documentation hardening only. It does not create an accepted baseline SHA, a tag, a Stage 6.1 branch, or a formal RAG experiment.
-- Next approval gate: the project owner must accept or reject the S6-T5.8 candidate closure; Stage 6.1 remains NOT APPROVED.
+- S6-T5 baseline final acceptance does not create a tag, a Stage 6.1 branch, or a formal RAG experiment.
+- Next approval gate: the project owner must separately approve any Stage 6.1 design or implementation work; Stage 6.1 remains NOT APPROVED.
 
 ## Must Not Start
 
@@ -90,7 +91,7 @@
 
 ## Current Claims Boundary
 
-Can claim: within the offline engineering-test scope, deterministic and label-isolated retrieval runtime contracts plus the provider-neutral DenseRetriever have been HUMAN_ACCEPTED. S6-T5.4-P1, I1, H1 and S6-T5.4 Controlled Corpus ContentResolver are HUMAN_ACCEPTED: they establish a minimal provider-neutral resolver over synthetic in-memory content, a closed public capability surface, and a redacted injected-error boundary. S6-T5.5-P1/P1-H1 are HUMAN_ACCEPTED design protocols; S6-T5.5-I1/H1 and parent S6-T5.5 are HUMAN_ACCEPTED offline contracts for Envelope, Citation and one structural rendering block over synthetic objects. S6-T5.6-P1/H1/H2, I1, I1-H1 and parent S6-T5.6 are HUMAN_ACCEPTED within the synthetic/offline boundary: deterministic package construction, stable-prefix selection, package-local citations, structural abstention, trace scenario invariants, configuration identity and dependency-redaction boundaries. S6-T5.7 is HUMAN_ACCEPTED only as controlled integration evidence for this chain, including an opt-in fixed MiniLM plus temporary Chroma close/reopen check; it is not a new implementation capability. S6-T5.8 has organized these facts into a candidate baseline closure report, pending human acceptance. Historical public loader imports remain compatible through the canonical `llmguard` type.
+Can claim: within the offline engineering-test scope, the `S6-T5 Controlled Retrieval and Traceable Context Baseline` is HUMAN_ACCEPTED. It comprises deterministic and label-isolated retrieval runtime contracts, provider-neutral DenseRetriever, the synthetic ContentResolver, EvidenceEnvelope/Citation boundaries, deterministic Context Package behavior, and S6-T5.7 controlled integration evidence including an opt-in fixed MiniLM plus temporary Chroma close/reopen check. `4ecf73a` is the accepted baseline content commit; the current governance acceptance commit is not an implementation or integration-evidence commit. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
 Cannot claim: retrieval quality, retrieval security effectiveness, context safety, citation accuracy, trustworthiness, RAG metrics, production readiness, or research-experiment outcomes.
 
@@ -103,5 +104,5 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 
 ## Last Update
 
-- Date: `2026-07-26`.
-- Updated by: Codex after completing the S6-T5.8-H1 candidate taxonomy hardening. S6-T5.8-H1 and parent S6-T5.8 are `Completed, pending human acceptance`; [baseline report](s6_t5_baseline_acceptance_report.md) is the unified evidence index. `37cccdc` remains the original candidate baseline closure commit, never an accepted baseline SHA; `b136ee2` remains the last accepted implementation commit, `b6cedf3` remains the accepted integration evidence commit, Stage 6.1 remains `NOT APPROVED`, and the formal experiment remains `NOT STARTED`.
+- Date: `2026-07-27`.
+- Updated by: Codex after recording final S6-T5 baseline human acceptance. S6-T5.8-H1 and S6-T5.8 are `HUMAN_ACCEPTED`; S6-T5 is `HUMAN_ACCEPTED BASELINE`; [baseline report](s6_t5_baseline_acceptance_report.md) is the unified evidence index. `37cccdc` remains the original candidate closure, `4ecf73a` is the accepted baseline content commit, `b136ee2` remains the last accepted implementation commit, `b6cedf3` remains the accepted integration evidence commit, Stage 6.1 remains `NOT APPROVED`, and the formal experiment remains `NOT STARTED`.

@@ -558,3 +558,7 @@ revision；默认离线 CI 不以网络或下载为前提。`S6-T5.8` 为 `NOT A
 ## 33. S6-T5.8-H1 提交证据分类加固状态附注（2026-07-26）
 
 本计划的实施步骤没有扩张。S6-T5.8-H1 已完成候选 documentation governance hardening，当前为 `Completed, pending human acceptance`；它只校正提交 taxonomy 与证据映射，不创建源码、模型调用、tag、研究分支或正式实验。`37cccdc` 是 original T5.8 candidate baseline closure commit，不是 accepted baseline SHA；最后已接受 implementation commit 仍是 `b136ee2`，integration evidence commit 仍是 `b6cedf3`。Stage 6.1 仍为 `NOT APPROVED`，正式实验仍为 `NOT STARTED`。
+
+## 34. S6-T5 基线最终人工验收状态附注（2026-07-27）
+
+本计划的实施步骤没有扩张。项目负责人已将 `S6-T5.8-H1` 和 `S6-T5.8` 标记为 `HUMAN_ACCEPTED`，并接受整个 S6-T5 基线。`4ecf73a` 是 accepted baseline content commit；本轮新提交只作为 baseline governance acceptance commit，在提交后由 Git 核验其 SHA。最后已接受 implementation commit 仍是 `b136ee2`，integration evidence commit 仍是 `b6cedf3`。不创建 tag、研究分支、模型调用、业务代码或正式实验；Stage 6.1 仍为 `NOT APPROVED`，正式实验仍为 `NOT STARTED`。

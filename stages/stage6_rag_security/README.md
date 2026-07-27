@@ -1,10 +1,10 @@
 # Stage 6：RAG 安全与可信检索基线
 
-## 当前状态：S6-T5.8-H1 基线提交证据分类加固已完成，等待人工验收
+## 当前状态：S6-T5 Controlled Retrieval and Traceable Context Baseline 已完成人工验收
 
 本阶段新增了从安全 Query 投影到 `RetrievedContextPackage` 的受控集成验证。静态链路验证标签隔离、无正文 Evidence、canonical resolver、连续 Citation 和 stable-prefix 最小权限；显式启用的真实基础设施链路验证固定 MiniLM 与临时 ChromaDB 的 close/reopen 互操作。
 
-正文仍由 synthetic corpus reader 提供，Chroma 只保存向量和公开 metadata。它不表示检索质量、RAG 安全效果、Citation Accuracy 或生产可用性。最后已接受实现提交仍为 `b136ee2`；`b6cedf3` 是已接受的集成证据提交而非 implementation commit；原始 T5.8 candidate baseline closure 是 `37cccdc`，不是 accepted baseline SHA；`S6-T5.8-H1` 和父任务仍等待人工验收，正式 RAG 安全实验未开始。详见 [S6-T5 基线验收报告](../../docs/governance/s6_t5_baseline_acceptance_report.md)。
+正文仍由 synthetic corpus reader 提供，Chroma 只保存向量和公开 metadata。它不表示检索质量、RAG 安全效果、Citation Accuracy 或生产可用性。最后已接受实现提交仍为 `b136ee2`；`b6cedf3` 是已接受的集成证据提交而非 implementation commit；原始 T5.8 candidate baseline closure 是 `37cccdc`；`4ecf73a` 是 accepted baseline content commit；`S6-T5.8-H1`、`S6-T5.8` 和整个 S6-T5 基线已人工验收。当前治理提交仅登记验收，不是新的 implementation 或 integration evidence；正式 RAG 安全实验未开始。详见 [S6-T5 基线验收报告](../../docs/governance/s6_t5_baseline_acceptance_report.md)。
 
 ## Metadata
 
@@ -30,8 +30,9 @@
 - s6_t5_6_i1_h1_status: `human_accepted`；最终加固实现 `b136ee2` 接受 Trace 情景、config identity、依赖错误脱敏和 abstention/Trace 对应边界。
 - s6_t5_6_status: `human_accepted`；验收仅限 synthetic/offline Context Package 工程行为。
 - s6_t5_7_status: `human_accepted`；只接受现有组件的 controlled retrieval-to-context integration evidence，提交 `b6cedf3` 不是 implementation commit。
-- s6_t5_8_status: `completed_pending_human_acceptance`；原始 candidate baseline closure 为 `37cccdc`，不是 accepted baseline SHA。
-- s6_t5_8_h1_status: `completed_pending_human_acceptance`；只完成提交证据 taxonomy、证据索引和治理一致性加固，不创建 accepted baseline SHA、tag、Stage 6.1 分支或正式实验。
+- s6_t5_8_status: `human_accepted`；原始 candidate baseline closure 为 `37cccdc`，accepted baseline content commit 为 `4ecf73a`。
+- s6_t5_8_h1_status: `human_accepted`；提交证据 taxonomy、证据索引和治理一致性加固已人工验收。
+- s6_t5_baseline_status: `human_accepted_baseline`；本轮 governance acceptance commit 只登记验收，不能成为 implementation 或 integration evidence。
 - s6_t5_6_status: `ready_for_separate_implementation_approval`；父任务可以等待独立实现审批，不能自动实施。
 - s6_t5_6_i1_status: `not_yet_approved`；不得创建 ContextBuilder、Package、Trace、预算器或 Citation allocator。
 - s6_t5_6_plus_status: `not_approved`；不得自动开始后续能力。
@@ -44,7 +45,7 @@
 - deliverable_locations: 尚未生成独立 Stage 6 证据包。
 - evidence_locations: `data/stage6_rag/documents/corpus_manifest.json`
 - conclusion_boundary: 已完成人工验收的 S6-T5.3 离线工程边界包括 embedding/vectorstore 基础设施、S6-T5.2 运行时契约、schema `1.1` parent identity carrier、DenseRetriever 与 H1 trace/failure-boundary 加固；S6-T5.4-I1 已实现 contracts、in-memory reader/registry、exact-match legacy adapter 与 hash-verified resolver，H1 又关闭公开 registry capability 并重建注入错误的固定脱敏外部表述。S6-T5.5 已在 synthetic objects 上接受 Envelope、Binding、CitationMode、Factory、instruction 与单 block rendering；S6-T5.6 已在 synthetic/offline 范围接受 ContextBuilder、Package、allocator 和预算行为；S6-T5.7 已接受这些既有组件的 controlled integration evidence。仍未实现 Trust、生成式 LLM、RAG 指标或正式 RAG 安全实验，不能宣称检索质量、安全效果或生产可用性。
-- next_stage: S6-T5.8 仅等待项目负责人最终人工验收；最后接受 implementation commit 为 `b136ee2`，集成证据提交为 `b6cedf3`。Stage 6.1 仍为 `NOT APPROVED`，不得自动开始。显式真实集成测试使用 `local_files_only=False`，新环境可能下载固定 revision；默认离线 CI 不依赖网络。
+- next_stage: S6-T5 baseline 已人工验收；最后接受 implementation commit 为 `b136ee2`，集成证据提交为 `b6cedf3`。Stage 6.1 仍为 `NOT APPROVED`，不得自动开始。显式真实集成测试使用 `local_files_only=False`，新环境可能下载固定 revision；默认离线 CI 不依赖网络。
 
 目标：在 Retrieval 层评测 R1–R6，并为隐蔽知识污染检测与可信检索研究建立稳定证据接口。
 
