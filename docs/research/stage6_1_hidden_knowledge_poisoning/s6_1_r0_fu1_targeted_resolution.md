@@ -1,10 +1,11 @@
 # S6.1-R0-FU1 Targeted External Baseline Feasibility Resolution
 
 > Accepted task: `S6.1-R0-FU1-P0 / LOCAL Control-Plane Planning and Execution Contract Freeze`
-> Current task: `S6.1-R0-FU1-L1 / PoisonedRAG Released Artifact Identity and Deterministic Assembly Validation`
-> Status: `P0 HUMAN_ACCEPTED / L1 HUMAN_ACCEPTED`
+> Current task: `S6.1-R0-FU1-W2 / GMTP Detection-Only Minimal Smoke`
+> Status: `P0 HUMAN_ACCEPTED / L1 HUMAN_ACCEPTED / W2 APPROVED_TO_START / NOT_YET_EXECUTED`
 > Execution mode: `LOCAL-FIRST / WORKER-GATED`
-> Evidence class: `CONTROL_PLANE_SOURCE_ANALYSIS / SOURCE_ARTIFACT_VALIDATION / DETERMINISTIC_TRANSFORMATION_VALIDATION`
+> Evidence class: `CONTROL_PLANE_SOURCE_ANALYSIS / SOURCE_ARTIFACT_VALIDATION / DETERMINISTIC_TRANSFORMATION_VALIDATION /
+> ENGINEERING_VALIDATION_APPROVED_NOT_EXECUTED`
 > Formal experiment: `FORMAL_EXPERIMENT = NOT STARTED`
 
 ## 1. Scope and decision boundary
@@ -12,15 +13,16 @@
 The project owner accepted P0 and reassigned the former Worker W1 candidate to LOCAL as `S6.1-R0-FU1-L1`. L1 performed only
 source-artifact identity, whole-file schema and deterministic transformation validation against exact GitHub commit content and
 accepted evidence. It did not run a model, retrieval, external baseline or API service; it did not acquire the NQ corpus or contact
-RTX5090. The former `FU1-W1` is `SUPERSEDED_BY_LOCAL_L1`, not failed. `FU1-W2` is
-`READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED`; this document is not a P1 protocol or experiment result.
+RTX5090. The former `FU1-W1` is `SUPERSEDED_BY_LOCAL_L1`, not failed. The project owner subsequently approved the exact frozen
+`FU1-W2` contract for `RTX5090 / COMPUTE_WORKER`; W2 remains `NOT_YET_EXECUTED`. This document is not a P1 protocol or
+experiment result.
 
 Current baseline roles remain unchanged:
 
 | Baseline | Role | Current evidence status |
 | --- | --- | --- |
 | PoisonedRAG | `PRIMARY_ATTACK_BASELINE` | released attack-text reuse is feasible; exact regeneration identity is not recovered |
-| GMTP | `PRIMARY_DETECTION_BASELINE` | source and detection-only call path are frozen; Worker execution is pending approval |
+| GMTP | `PRIMARY_DETECTION_BASELINE` | source and detection-only call path are frozen; Worker execution is approved but not run |
 | SafeRAG | `PRIMARY_BENCHMARK_REFERENCE` | SN/ICC benchmark-artifact contract is frozen; no full-pipeline prerequisite |
 
 All three remain `NOT_STRICT_COMPARISON_READY` until the applicable future execution evidence and P1 protocol are accepted.
@@ -281,7 +283,7 @@ installation, model, corpus, retrieval or API execution.
 
 ### FU1-W2: GMTP Detection-Only Minimal Smoke
 
-Status: `READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED`.
+Status: `APPROVED_TO_START / NOT_YET_EXECUTED` on `RTX5090 / COMPUTE_WORKER`.
 
 The W2 input is a GMTP-packaged `poisonedrag/hotflip/contriever` artifact. It is not the PoisonedRAG official LM-targeted
 artifact verified by L1. W2 proves only GMTP detector-core executability; it does not create a unified PoisonedRAG LM-targeted ->
@@ -300,10 +302,11 @@ GMTP formal comparison chain.
 | Benign document | field `gt_text`, index 0；351 UTF-8 B；SHA-256 `e177b2da95be6282c2f4c7855e36dde35a875bd21190755b27329353252d2f09` |
 | Poisoned document | field `poisoned_docs`, index 0；363 UTF-8 B；SHA-256 `b94ca256b3ac79d22429abe1d36d90fad352c024cd2b5e19b78cfb2e72135a5b` |
 | `W2_PARAMETER_CONTRACT` | `ret_type=contriever`, `N=5`, `M=5`, `remove_threshold=0.2`, `remove_lambda=1.0`, `topk=10`, `do_sort=false` |
-| Exact call | load exact file through `importlib.util.spec_from_file_location`, instantiate unmodified `GMTP`, call `filter_documents` once with `[gt_text[0], poisoned_docs[0]]`; a read-only trace wrapper may capture local `doc_infos` without source mutation |
+| Exact call | load exact file through `importlib.util.spec_from_file_location`, instantiate unmodified `GMTP`, call `filter_documents` once with `[gt_text[0], poisoned_docs[0]]`; a read-only trace wrapper may capture local `doc_infos` without source mutation；Worker may not select another sample |
 | Required output | source/input/model identities；per-document `sim`, `avg_masked_prob`, threshold `0.2`, retained/filtered flag；exit code；wall time；peak RSS/VRAM；environment/GPU fingerprint |
 | Resource ceiling | model download `<2 GB` expected；disk 5 GB；RAM <=16 GB；VRAM <=8 GiB；runtime <=10 minutes after model availability |
-| Stop conditions | identity/hash mismatch；source patch；CPU fallback；NaN/Inf；OOM/resource ceiling；unexpected Java/Pyserini/FAISS/BEIR/datasets/Docker/API/generator requirement；any ceiling exceedance returns `WORKER_RESOURCE_APPROVAL_REQUIRED` and stops |
+| Evidence directory | `~/experiments/s6_1_r0_fu1/w2/`；main LLMGuard repository remains read-only |
+| Stop conditions | identity/hash mismatch；CPU fallback；NaN/Inf；OOM/resource ceiling；unexpected Java/Pyserini/FAISS/BEIR/datasets/Docker/API/generator requirement；any ceiling exceedance returns `WORKER_RESOURCE_APPROVAL_REQUIRED` and stops；any required source patch returns `COMPATIBILITY_PATCH_REVIEW_REQUIRED` and stops |
 | Claims boundary | engineering detector-core smoke only；no accuracy/F1/AUPRC/AUROC/Filtering Rate/ASR/statistics/strict comparison/formal reproduction claim |
 
 Parameter provenance is explicit: `src/defenses/method.py` constructor defaults are `N=10`, `M=5`,
@@ -313,9 +316,11 @@ Parameter provenance is explicit: `src/defenses/method.py` constructor defaults 
 metric.
 
 W2 must create/use only the independent `gmtp-compat` environment and must not mutate `llmguard-paper1`. Direct loading of
-`src/defenses/method.py` limits imports to its core graph (`typing`, NumPy, PyTorch and Transformers). Java, Pyserini, FAISS,
-BEIR, Docker, `datasets`, generators and evaluators are prohibited. If a top-level compatibility issue still occurs, return
-`COMPATIBILITY_BLOCKER`; any source patch requires separate owner review and must not change detector scoring.
+`src/defenses/method.py` limits imports to its core graph (`typing`, NumPy, PyTorch and Transformers). If that core import chain
+forces another dependency, Worker records `UNEXPECTED_CORE_IMPORT_DEPENDENCY`; only a small ordinary Python dependency that does
+not change the algorithm may be installed. Java, Pyserini, FAISS, BEIR, Docker, `datasets`, generators and evaluators are
+prohibited and cause STOP/return to Control Plane. Any required source patch returns `COMPATIBILITY_PATCH_REVIEW_REQUIRED` and
+stops；no silent patch is allowed.
 
 ## 9. Artifact approval budget
 
@@ -338,7 +343,7 @@ remains closed.
 
 1. `BLK-S6.1-FU1-W1-001` is `RESOLVED_BY_LOCAL_L1 / SUPERSEDED_BY_LOCAL_L1`; no Worker W1 remains.
 2. `BLK-S6.1-FU1-W2-001`: W2 has not verified exact GMTP source compatibility, pinned models, scores and measured resources on
-   RTX5090; execution is not approved.
+   RTX5090; execution is approved but has not started or returned evidence.
 3. PoisonedRAG exact historical generator/API/paper-result identity remains `PARTIAL`; P1 must decide whether author-released
    attack-text reuse is scientifically sufficient instead of pretending full regeneration equivalence.
 4. GMTP/SafeRAG code/data redistribution permission remains unconfirmed; this is a `REDISTRIBUTION_ONLY_ISSUE`, not an internal
@@ -364,7 +369,8 @@ P0/L1 do not satisfy runtime or formal-protocol criteria and do not open P1. End
 - `S6.1-R0-FU1-P0 = HUMAN_ACCEPTED`;
 - `S6.1-R0-FU1-L1 = HUMAN_ACCEPTED`;
 - former `FU1-W1 RTX5090 = SUPERSEDED_BY_LOCAL_L1`;
-- `S6.1-R0-FU1-W2 = READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED`;
+- historical `S6.1-R0-FU1-W2 = READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED` is preserved;
+- `S6.1-R0-FU1-W2 = APPROVED_TO_START / NOT_YET_EXECUTED`;
 - `S6.1-P1 = NOT STARTED`;
 - `Dataset = NOT FROZEN`; `Detector = NOT IMPLEMENTED`; `Training = NOT STARTED`;
 - `FORMAL_EXPERIMENT = NOT STARTED`; `Our Method Result = NONE`.

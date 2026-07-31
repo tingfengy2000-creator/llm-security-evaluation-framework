@@ -75,3 +75,17 @@ validity 的区别。
 - “换成新模型效果更好”不等于“严格复现”。
 - “版本感知”不等于比较一个 version number。
 - “检测准确率高”不能替代 Hard Negative FPR、Utility 和 Efficiency。
+
+## W2 执行批准的教学边界（2026-08-01）
+
+W2 获得 `APPROVED_TO_START` 只表示 RTX5090 可以按冻结合同验证 GMTP detection-core 的最小可执行性；它不表示
+任务已运行、通过或被验收。企业工程中，这种“批准、执行、证据复核、结论接受”四层分离可以防止把环境兼容性
+smoke 误报为防御效果。
+
+W2 的固定 GMTP-packaged HotFlip/Contriever/NQ 样本与 L1 的 PoisonedRAG LM-targeted artifact 不是同一工件，因此
+即使 smoke 通过，也只能回答“该 detector core 在当前兼容环境能否对两个固定文档产出工程中间量”，不能回答
+F1、AUPRC、ASR、论文复现或跨 baseline 正式比较。
+
+面试可追问：为什么 source patch 必须停止？因为兼容性补丁可能改变 tokenizer、gradient 或 threshold 行为；未经
+Control Plane 审查就继续运行，会让“原算法 smoke”与“改写算法实验”失去可区分性。常见误区是把
+`APPROVED_TO_START`、`PASS` 和 `HUMAN_ACCEPTED` 当成同一个状态；本项目要求三者严格分离。

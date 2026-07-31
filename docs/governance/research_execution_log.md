@@ -576,3 +576,47 @@ Approval Gate、Auto Continue。
 - Next Step: project owner decides whether to approve the frozen W2 Worker contract.
 - Next Approval Gate: `FU1-W2 OWNER EXECUTION DECISION`; S6.1-P1 remains not started.
 - Auto Continue: `NO`
+
+## REL-2026-0014 — FU1-W2 GMTP Detection-Core Smoke Execution Approval
+
+- Record ID: `REL-2026-0014`
+- Date: `2026-08-01`
+- Timestamp: `NOT_RECORDED`
+- Machine: `LOCAL`
+- Machine Role: `CONTROL_PLANE`
+- Stage: `Stage 6.1 / R0-FU1`
+- Task ID: `S6.1-R0-FU1-W2-APPROVAL`
+- Task Name: `GMTP Detection-Only Minimal Smoke Execution Approval Registration`
+- Task Type: `GOVERNANCE_EXECUTION_APPROVAL_RECORD`
+- Initial Status: `READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED`
+- Final Status: `APPROVED_TO_START / NOT_YET_EXECUTED`
+- Objective: register owner approval for RTX5090 to execute only the exact frozen W2 detector-core compatibility smoke.
+- Why: P0/L1 resolved planning and attack-artifact identity；W2 runtime compatibility remains the only FU1 execution evidence gap.
+- Previous Gate: `P0 HUMAN_ACCEPTED / L1 HUMAN_ACCEPTED / W1 SUPERSEDED / W2 READY_FOR_OWNER_EXECUTION_APPROVAL`
+- Actions: added PODR-053；promoted only W2's approval status；reaffirmed source/input/model/parameter/environment/output/resource
+  identities, evidence directory and stop codes. LOCAL did not contact or execute the Worker.
+- Files Changed: owner/current/execution/experiment/master context and canonical FU1 contract plus semantic governance tests.
+  No business source, fixture/data, historical evidence, Worker evidence or external repository changed.
+- Commands: mandatory Git fetch/status/branch/HEAD/log/pull preflight；LOCAL documentation and governance validation only.
+- Validation: targeted context recovery `16 passed`；full architecture `98 passed`；namespace + label isolation `10 passed`；
+  Ruff passed；Markdown relative links `208` checked；9 changed files passed secret/private-path and UTF-8 no-BOM/LF checks；
+  protected history/business paths `0`；runtime ignore and `git diff --check` passed。Pytest cache write warning is non-blocking.
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `PENDING_THIS_COMMIT; resolve with git log -1 -- docs/governance/research_execution_log.md`
+- Run ID: `N/A / GOVERNANCE_APPROVAL_ONLY`
+- Dataset Snapshot: no dataset frozen or downloaded；W2 remains bound to the accepted GMTP-packaged NQ record/hashes.
+- Model / Revision: frozen Contriever `abe8c149...` and canonical BERT `86b5e093...`；not downloaded or loaded by LOCAL.
+- Environment Identity: future Worker-only `gmtp-compat`; no LOCAL environment creation or mutation.
+- Result Summary: `S6.1-R0-FU1-W2 = APPROVED_TO_START` on `RTX5090 / COMPUTE_WORKER`; execution evidence does not yet exist.
+- Claims Allowed: exact W2 engineering smoke is approved to start under its frozen contract.
+- Claims Prohibited: W2 executed/passed/accepted；GMTP reproduced；formal comparison/metrics/Paper Result/security effectiveness；
+  S6.1-P1 or Formal Experiment started.
+- Blockers: `BLK-S6.1-FU1-W2-001` remains open until later accepted Worker evidence；formal environment and redistribution items
+  remain downstream.
+- Blocker ID: `BLK-S6.1-FU1-W2-001 OPEN / EXECUTION_APPROVED`
+- Resolution: approval gate opened without converting an approval record into execution evidence.
+- Owner Decisions: `PODR-052; PODR-053`
+- Design Changes: none；the already frozen W2 contract and baseline/artifact distinctions remain authoritative.
+- Next Step: RTX5090 executes the exact W2 contract and stores evidence under `~/experiments/s6_1_r0_fu1/w2/`.
+- Next Approval Gate: later Control Plane evidence review；`S6.1-P1 = NOT STARTED`.
+- Auto Continue: `NO`

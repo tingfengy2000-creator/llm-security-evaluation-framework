@@ -1,5 +1,20 @@
 # LLMGuard 项目总控文档
 
+## S6.1-R0-FU1-W2 GMTP Detection-Core Smoke 执行批准（2026-08-01）
+
+项目负责人已将 `S6.1-R0-FU1-W2 / GMTP Detection-Only Minimal Smoke` 批准为 `APPROVED_TO_START`，执行机器仅为
+`RTX5090 / COMPUTE_WORKER`，任务类型为 `ENGINEERING_VALIDATION / DETECTION_CORE_COMPATIBILITY_SMOKE`。本轮 LOCAL
+只登记并推送执行批准，没有联系 Worker、安装环境、下载模型、运行 GMTP/GPU workload 或进入 P1。
+
+Worker 合同继续严格绑定 GMTP commit `15b48d150f93711371eb8da22c211cd84a0cf4df`、detector blob
+`84e69b3eadeb8adc0ce521501f8b560d6377b489`、既有固定 sample/hashes、两项固定模型 revision、独立 `gmtp-compat`
+环境、已接受参数和资源上限。证据只能写入 `~/experiments/s6_1_r0_fu1/w2/`；LLMGuard 主仓库只读。任何 Java、
+Pyserini、FAISS、BEIR 或 Docker 强制依赖、source patch 或资源超限均按冻结 stop code 返回 Control Plane。
+
+W2 仅验证 detection-core 最小可执行性。其 GMTP-packaged HotFlip/Contriever/NQ 输入不是 L1 的 PoisonedRAG
+LM-targeted artifact；该批准不等于 W2 已执行、通过或验收，也不建立 GMTP paper reproduction、formal comparison、
+指标结果或 security-effectiveness claim。`S6.1-P1 = NOT STARTED`，`FORMAL_EXPERIMENT = NOT STARTED`。Auto Continue = NO。
+
 ## S6.1-R0-FU1-P0/L1 验收与 W2 合同冻结（2026-07-31）
 
 项目负责人已将 `S6.1-R0-FU1-P0` 与 LOCAL 子任务 `S6.1-R0-FU1-L1` 登记为 `HUMAN_ACCEPTED`。L1 在内存中

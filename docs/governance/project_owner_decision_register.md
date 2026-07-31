@@ -667,3 +667,32 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   training, Our Method Result or Formal Experiment is authorized by this decision. Auto Continue = NO.
 - Evidence: [FU1 Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、
   [Current Work State](current_work_state.md)、REL-2026-0013 and governance tests.
+
+## PODR-053: GMTP Detection-Only Minimal Smoke Execution Approval
+
+- Date: `2026-08-01`.
+- Decision: `S6.1-R0-FU1-W2 = APPROVED_TO_START` as
+  `ENGINEERING_VALIDATION / DETECTION_CORE_COMPATIBILITY_SMOKE` on `RTX5090 / COMPUTE_WORKER`.
+- Preconditions retained: `S6.1-R0-FU1-P0 = HUMAN_ACCEPTED`；`S6.1-R0-FU1-L1 = HUMAN_ACCEPTED`；historical W1 is
+  `SUPERSEDED_BY_LOCAL_L1 / NOT FAILED`；`S6.1-P1 = NOT STARTED`；`FORMAL_EXPERIMENT = NOT STARTED`.
+- Frozen identity: `mountinyy/GMTP@15b48d150f93711371eb8da22c211cd84a0cf4df`；detector
+  `src/defenses/method.py` blob `84e69b3eadeb8adc0ce521501f8b560d6377b489`；the exact input record and hashes remain
+  those accepted in the canonical FU1 resolution. Worker sample selection is prohibited.
+- Frozen models: `facebook/contriever-msmarco@abe8c1493371369031bcb1e02acb754cf4e162fa` and canonical
+  `google-bert/bert-base-uncased@86b5e0934494bd15c9632b12f734a8a67f723594`; revisions cannot change.
+- Environment and parameters: independent `gmtp-compat` only；Python 3.11；Torch 2.13.0+cu130；CUDA runtime 13.0；
+  Transformers 4.47.1；NumPy 1.26.4；the accepted `W2_PARAMETER_CONTRACT` is authoritative. `llmguard-paper1` stays unchanged.
+- Import/patch stop: an unexpected ordinary Python core import dependency must be recorded as
+  `UNEXPECTED_CORE_IMPORT_DEPENDENCY` and may be installed only when small and algorithm-neutral. Any Java/Pyserini/FAISS/BEIR/
+  Docker requirement stops and returns to Control Plane. Any required source patch returns
+  `COMPATIBILITY_PATCH_REVIEW_REQUIRED` and stops；no silent patch is allowed.
+- Evidence/resource boundary: engineering evidence only under `~/experiments/s6_1_r0_fu1/w2/`；main LLMGuard repository is
+  read-only；download `<2 GB` expected, disk 5 GB, RAM <=16 GB, VRAM <=8 GiB, runtime <=10 minutes after model availability.
+  Any exceedance returns `WORKER_RESOURCE_APPROVAL_REQUIRED` and stops.
+- Claims boundary: this approves execution only. It does not assert W2 executed/passed/accepted, GMTP paper reproduction,
+  PoisonedRAG-to-GMTP formal comparison, accuracy/F1/AUPRC/AUROC/Filtering Rate/ASR, Paper Result or security effectiveness.
+- Artifact distinction: W2 uses GMTP-packaged HotFlip/Contriever/NQ input, not the L1 PoisonedRAG LM-targeted artifact.
+- Local boundary: LOCAL only registers and pushes this approval；it does not install, download, run GMTP/GPU work, contact the
+  Worker or enter P1. Auto Continue = NO.
+- Evidence: [FU1 Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、
+  [Current Work State](current_work_state.md) and REL-2026-0014.

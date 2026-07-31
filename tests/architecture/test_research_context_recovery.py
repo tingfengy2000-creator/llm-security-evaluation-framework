@@ -130,6 +130,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "PODR-050",
             "PODR-051",
             "PODR-052",
+            "PODR-053",
             "S6.1-LR1: HUMAN_ACCEPTED",
             "Git-Native Research Context Recovery Governance: HUMAN_ACCEPTED",
             "s6-t5-rag-baseline-v1",
@@ -146,6 +147,8 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "S6.1-R0-FU1-L1 = HUMAN_ACCEPTED",
             "SUPERSEDED_BY_LOCAL_L1 / NOT FAILED",
             "READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED",
+            "S6.1-R0-FU1-W2 = APPROVED_TO_START",
+            "DETECTION_CORE_COMPATIBILITY_SMOKE",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, text)
@@ -169,6 +172,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "REL-2026-0011",
             "REL-2026-0012",
             "REL-2026-0013",
+            "REL-2026-0014",
             "Machine Role",
             "Initial Status",
             "Final Status",
@@ -207,6 +211,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("S6.1-R0-FU1-L1: **HUMAN_ACCEPTED**", state)
         self.assertIn("SUPERSEDED_BY_LOCAL_L1 / NOT FAILED", state)
         self.assertIn("READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED", state)
+        self.assertIn("S6.1-R0-FU1-W2: **APPROVED_TO_START / NOT_YET_EXECUTED**", state)
         self.assertIn("S6.1-P1: **NOT STARTED", state)
         self.assertIn("Dataset: **NOT FROZEN**", state)
         self.assertIn("Detector: **NOT IMPLEMENTED**", state)
@@ -440,7 +445,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("RETURNED_FOR_WORKER_CORRECTION", review)
         self.assertIn("No R0-FU1, S6.1-P1, Dataset, Detector, Training", review)
 
-    def test_fu1_p0_l1_acceptance_and_w2_freeze_do_not_open_worker_or_p1(self) -> None:
+    def test_fu1_w2_approval_preserves_frozen_contract_and_does_not_open_p1(self) -> None:
         resolution = FU1_RESOLUTION.read_text(encoding="utf-8")
         state = CURRENT_STATE.read_text(encoding="utf-8")
         combined = "\n".join(
@@ -500,6 +505,12 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "S6.1-R0-FU1-L1 = HUMAN_ACCEPTED",
             "SUPERSEDED_BY_LOCAL_L1",
             "READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED",
+            "S6.1-R0-FU1-W2 = APPROVED_TO_START",
+            "ENGINEERING_VALIDATION / DETECTION_CORE_COMPATIBILITY_SMOKE",
+            "UNEXPECTED_CORE_IMPORT_DEPENDENCY",
+            "COMPATIBILITY_PATCH_REVIEW_REQUIRED",
+            "WORKER_RESOURCE_APPROVAL_REQUIRED",
+            "~/experiments/s6_1_r0_fu1/w2/",
             "OWNER_LARGE_ARTIFACT_APPROVAL_REQUIRED",
             "S6.1-P1_ENTRY_CRITERIA",
             "FORMAL_EXPERIMENT = NOT STARTED",
@@ -508,7 +519,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
                 self.assertIn(required, combined)
 
         self.assertNotIn("S6.1-R0-FU1-W2: **APPROVED_TO_EXECUTE**", state)
-        self.assertIn("W2 and S6.1-P1 are not automatically authorized", state)
+        self.assertIn("S6.1-P1 is not automatically authorized", state)
 
     def test_learning_guides_are_non_authoritative(self) -> None:
         for path in (

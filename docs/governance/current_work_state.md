@@ -16,12 +16,13 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-R0-FU1-L1`.
-- Task name: `PoisonedRAG Released Artifact Identity and Deterministic Assembly Validation`.
-- Task type: **SOURCE_ARTIFACT_VALIDATION / DETERMINISTIC_TRANSFORMATION_VALIDATION**.
-- Status: **HUMAN_ACCEPTED** under the owner's conditional acceptance rule after all L1 evidence passed.
-- Execution machine: **LOCAL / CONTROL_PLANE**；no model/retrieval/API/GPU workload or Worker contact occurred.
-- Current ordered step: project owner decides whether to approve `S6.1-R0-FU1-W2` execution on RTX5090.
+- Task ID: `S6.1-R0-FU1-W2`.
+- Task name: `GMTP Detection-Only Minimal Smoke`.
+- Task type: **ENGINEERING_VALIDATION / DETECTION_CORE_COMPATIBILITY_SMOKE**.
+- Status: **APPROVED_TO_START / NOT_YET_EXECUTED**.
+- Execution machine: **RTX5090 / COMPUTE_WORKER**；LOCAL completed approval registration only and did not execute W2.
+- Current ordered step: RTX5090 executes the exact frozen W2 contract and returns evidence under
+  `~/experiments/s6_1_r0_fu1/w2/`；LOCAL does not contact or run the Worker in this governance task.
 - Historical superseded snapshot: `DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`.
 - Formal RAG security experiment: **NOT STARTED**.
 - Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.
@@ -38,7 +39,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - S6.1-R0-FU1-P0: **HUMAN_ACCEPTED**.
 - S6.1-R0-FU1-L1: **HUMAN_ACCEPTED**.
 - Historical S6.1-R0-FU1-W1 candidate: **SUPERSEDED_BY_LOCAL_L1 / NOT FAILED**.
-- S6.1-R0-FU1-W2: **READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED**.
+- Historical S6.1-R0-FU1-W2 snapshot: **READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED**.
+- S6.1-R0-FU1-W2: **APPROVED_TO_START / NOT_YET_EXECUTED**.
 - S6.1-P1: **NOT STARTED / REQUIRES ACCEPTED W2 EVIDENCE AND SEPARATE P1 APPROVAL**.
 - Dataset: **NOT FROZEN**.
 - Dataset Generation: **NOT APPROVED**.
@@ -137,8 +139,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
 - Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
   evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- Next operational action: the project owner decides whether to approve the hardened W2 contract. W1 no longer exists as a
-  Worker task；W2 and S6.1-P1 are not automatically authorized。
+- Next operational action: RTX5090 executes only the approved frozen W2 contract and returns raw engineering evidence. W1 no
+  longer exists as a Worker task；S6.1-P1 is not automatically authorized。
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. Its acceptance does not approve S6-T5.6 ContextBuilder behavior; that remains a separate boundary.
@@ -153,8 +155,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 ## Must Not Start
 
 - On LOCAL: any external baseline workload, repo clone/install/smoke, dataset/model download or GPU computation.
-- On RTX5090: FU1-W2 or any baseline execution without separate owner approval；new installs、data/model download、API、
-  broad environment exploration、algorithm reimplementation or formal workload。
+- On RTX5090: anything beyond the exact approved FU1-W2 contract；Java/Pyserini/FAISS/BEIR/Docker、API、broad environment
+  exploration、algorithm reimplementation、silent source patch or formal workload。
 - Everywhere: any unapproved FU1 Worker execution、S6.1-P1、Detector implementation、dataset freeze/construction、training、Paper Result、
   formal experiment or SOTA comparison。
 - Additional ContentResolver changes, document-content access beyond synthetic test inputs, Trust policy, retrieval guard, or any S6-T5.8 behavior beyond the completed documentation closure.
@@ -166,7 +168,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 Can additionally claim: P0 and L1 are `HUMAN_ACCEPTED`；the exact released NQ attack-text artifact identity, all 100 records and
 official deterministic LM-targeted assembly are verified；API-free reuse is verified feasible while API-free generation and exact
 paper-generation identity remain unresolved/partial。The GMTP W2 input, models, parameters, isolated environment and resource
-ceiling are frozen for owner execution approval；W2 has not run。The original baseline roles remain unchanged。
+ceiling are frozen and W2 is `APPROVED_TO_START` on RTX5090；W2 has not run。The original baseline roles remain unchanged。
 
 Can claim: within the offline engineering-test scope, the `S6-T5 Controlled Retrieval and Traceable Context Baseline` is HUMAN_ACCEPTED. It comprises deterministic and label-isolated retrieval runtime contracts, provider-neutral DenseRetriever, the synthetic ContentResolver, EvidenceEnvelope/Citation boundaries, deterministic Context Package behavior, and S6-T5.7 controlled integration evidence including an opt-in fixed MiniLM plus temporary Chroma close/reopen check. `4ecf73a` is the accepted baseline content commit; the current governance acceptance commit is not an implementation or integration-evidence commit. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
@@ -183,6 +185,6 @@ are established.
 
 ## Last Update
 
-- Date: `2026-07-31`.
-- Updated by: Codex registering P0/L1 human acceptance, superseding Worker W1 with LOCAL L1 and hardening W2 for owner execution
-  approval. W2、P1 and Formal Experiment remain not executed/not started.
+- Date: `2026-08-01`.
+- Updated by: Codex registering owner approval for the exact frozen W2 Worker contract. W2 remains not executed；P1 and Formal
+  Experiment remain not started.
