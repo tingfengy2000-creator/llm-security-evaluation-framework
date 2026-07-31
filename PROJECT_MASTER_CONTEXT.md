@@ -1,6 +1,28 @@
 # LLMGuard 项目总控文档
 
-## RTX5090 Bootstrap 验收与 S6.1-R0 执行批准（2026-07-31）
+## S6.1-R0-I 证据审查退回与 Token Economy 长期原则（2026-07-31）
+
+LOCAL 已验证 Worker private archive SHA-256
+`0ce85a2bfe24e0456f9d29edc40659786d4273fcfc634df8749aee6d0e3aa9cc`、内部 evidence index `18/18` 和四组
+component sidecars。R0-A environment fingerprint 与三个 official commit identity 有证据支持；SafeRAG 只存在
+`ENGINEERING_DATASET_SMOKE_RESULT_ONLY / DATASET_ARTIFACT_ONLY` 证据。
+
+R0-I 当前决定是 `RETURNED_FOR_WORKER_CORRECTION`，parent R0 为
+`REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE`。原因是 GMTP exact commit 实际包含多组 200-sample artifacts，与 Worker
+“advertised samples absent”冲突；Docker 只是 convenience path；SafeRAG executed-script hash 未与运行绑定且只检查每个
+task 第一条记录。PoisonedRAG、GMTP、SafeRAG 的角色保持 PRIMARY_ATTACK_BASELINE、PRIMARY_DETECTION_BASELINE、
+PRIMARY_BENCHMARK_REFERENCE；三者均 `NOT_STRICT_COMPARISON_READY`。这不是 R0 failed，也不是 R0 accepted。
+
+项目负责人同时接受 `Control-Plane-First Token Economy Principle`，Priority 为
+`LONG_TERM_DUAL_MACHINE_EXECUTION_PRINCIPLE`：不依赖 RTX5090 的设计、分析、协议、解释和写作优先 LOCAL；Worker token
+优先硬件/外部执行与 raw evidence。该资源原则不得覆盖 safety、ethics、Paper-First、evidence quality、label isolation、
+immutable history、approval gates 或 reproducibility。
+
+当前只允许 Worker 返回 [R0-I review](docs/research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_i_control_plane_review.md)
+列出的最小 corrected evidence。`R0-FU1 = RECOMMEND / NOT APPROVED`；S6.1-P1、Dataset、Detector、training、Our Method
+Result 与 Formal Experiment 均未开始。`FORMAL_EXPERIMENT = NOT STARTED`。
+
+## RTX5090 Bootstrap 验收与 S6.1-R0 执行批准历史快照（2026-07-31）
 
 项目负责人已接受 `S6.1-R0-B0 RTX5090 Compute Worker Bootstrap Validation`，状态为
 `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`。被接受的 Worker 证据包括 Windows 11 Pro 25H2/WSL2 Ubuntu 24.04、
@@ -8,12 +30,12 @@ RTX 5090 31.84 GB、PyTorch 2.13.0+cu130 / CUDA runtime 13.0、Compute Capabilit
 `RTX5090_GPU_TEST_OK`、BF16 `BF16_TEST_OK`，以及 branch/remote/tag/clean-tree Git collaboration。CUDA UMD
 capability 13.3 不代表 standalone CUDA Toolkit 13.3 已安装；缺少 NumPy 是非阻断环境完整性观察。
 
-`S6.1-R0` 现为 `APPROVED_TO_START`，执行机器严格为 `RTX5090 / COMPUTE_WORKER`。Worker 必须在 pull 本次最新
+该时间点 `S6.1-R0` 为 `APPROVED_TO_START`，执行机器严格为 `RTX5090 / COMPUTE_WORKER`。Worker 当时必须在 pull
 Control Plane commit 后按 R0-A Environment Fingerprint、PoisonedRAG B/C、GMTP D/E、SafeRAG F/G、R0-H Matrix、
 R0-I Control Plane Review 顺序执行。第三方仓库留在 `~/paper1_external/`，各自隔离 compatibility environment；
 LOCAL 不执行 external baseline。
 
-该批准仍是 `ENGINEERING_VALIDATION / REPRODUCTION_PREFLIGHT`，不证明 baseline reproduction、Paper Result、
+该历史批准属于 `ENGINEERING_VALIDATION / REPRODUCTION_PREFLIGHT`，不证明 baseline reproduction、Paper Result、
 RTX5090 paper-level performance、dataset、Detector、training、SOTA 或 formal experiment。S6.1-P1 仍为 NOT STARTED，
 `FORMAL_EXPERIMENT = NOT STARTED`。
 

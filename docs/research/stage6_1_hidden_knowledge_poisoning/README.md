@@ -2,8 +2,8 @@
 
 ## 当前状态
 
-- 当前任务：`S6.1-R0 Paper 1 Reproduction Environment and Baseline Feasibility Validation`。
-- 任务状态：`APPROVED_TO_START` on `RTX5090 / COMPUTE_WORKER`。
+- 当前任务：`S6.1-R0-I Control Plane Review`。
+- 任务状态：`RETURNED_FOR_WORKER_CORRECTION`；parent R0 为 `REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE`。
 - 历史前置：`S6.1-LR1` 为 `HUMAN_ACCEPTED`。
 - 追加治理：Git-native Context Recovery Governance 与 Paper-First Comparative Evidence Principle 均为 `HUMAN_ACCEPTED`。
 - Paper 1 canonical route：`ACCEPTED AS CURRENT RESEARCH ROUTE`。
@@ -15,7 +15,10 @@
   `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`；后续仍以 Git 动态事实为准。
 - RTX5090 Bootstrap：`HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`。
 - Superseded R0 snapshot：`DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`。
-- 当前 R0 action：Worker pull 最新 Control Plane commit 后执行 `R0-A Environment Fingerprint`。
+- Historical R0 execution snapshot：`APPROVED_TO_START`。
+- Evidence integrity：archive hash verified；internal evidence index `18/18` verified。
+- 当前 action：Worker 只返回 [R0-I Review](s6_1_r0_i_control_plane_review.md) 定义的最小 corrected evidence。
+- Token economy：高推理/设计/审查任务优先 LOCAL；该资源原则不覆盖科学证据与安全治理。
 
 ## 权威入口
 
@@ -31,8 +34,10 @@
 10. [Dual-Machine Context Sync Policy](../../governance/dual_machine_execution_policy.md)
 11. [Stage 6.1 Learning Guide](../../learning/stage6_1_hidden_poisoning.md)
 12. [S6.1-R0 Reproduction Preflight Definition](s6_1_r0_reproduction_preflight.md)
+13. [S6.1-R0-I Control Plane Review](s6_1_r0_i_control_plane_review.md)
 
 ## 下一审批门
 
-R0 已批准，仅 RTX5090 可按 canonical R0 顺序执行；LOCAL 不运行 external baseline。下一研究门是 R0-I Control Plane
-Review。R0 完成并审核后才可考虑 S6.1-P1；本文档不提供自动进入 P1 或正式实验的授权。
+R0-I 未接受当前 Worker summary，状态为 `RETURNED_FOR_WORKER_CORRECTION`。RTX5090 只能生成最小 corrected evidence，
+LOCAL 不运行 external baseline。项目负责人随后决定是否接受 R0 以及是否批准建议的 R0-FU1；S6.1-P1 与正式实验
+仍未开始。Auto Continue = NO。

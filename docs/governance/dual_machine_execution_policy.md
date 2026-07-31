@@ -25,6 +25,18 @@ computation。计划硬件身份为 RTX 5090 32 GB + 64 GB RAM；在实测前只
 Compute Worker 不得自行改变重大研究路线、attack taxonomy、dataset protocol、metric definition、baseline 角色或
 claims boundary。发现设计问题时停止运行，标记 `RESEARCH_ROUTE_REVIEW_REQUIRED`，把证据返回 Control Plane。
 
+## Control-Plane-First Token Economy Principle
+
+Priority：`LONG_TERM_DUAL_MACHINE_EXECUTION_PRINCIPLE`。只要不降低 `research quality`、`reproducibility`、security、
+`evidence quality` 或 governance quality，研究设计、文献分析、Paper route、Threat Model、taxonomy、method、dataset/
+metric design、protocol、governance、architecture、scientific interpretation、paper writing、documentation 和 result review
+优先在 LOCAL 完成。Worker token 优先用于 machine-local environment、install、external execution、GPU、reproduction、
+compatibility、training/inference、resource measurement、raw evidence 和 hardware debugging。
+
+Worker 遇到路线级问题返回 `DELEGATE_TO_LOCAL_CONTROL_PLANE` 或 `RESEARCH_ROUTE_REVIEW_REQUIRED`。这是执行资源
+治理而非科学证据优先级，不能覆盖 safety、ethics、Paper-First Comparative Evidence、`label isolation`、
+`immutable history`、approval gates 或 experimental reproducibility。
+
 ## Git-Native Context Sync
 
 两台机器只通过 Git commit、branch、tag、manifest 和明确的 artifact hash 同步研究上下文，不通过 Thread history、
@@ -92,10 +104,10 @@ Control Plane 在接受 worker 结果前核对：
 
 ## Current Gate
 
-`S6.1-R0-B0` Bootstrap 已人工接受；`S6.1-R0` 已 `APPROVED_TO_START`，只授权 RTX5090 按 canonical R0-A 至
-R0-I 顺序执行。Worker 必须先 pull 最新 Control Plane commit，external repos 留在 `~/paper1_external/` 并隔离环境。
-LOCAL 继续只做治理，不运行 external baseline。`FORMAL_EXPERIMENT = NOT STARTED`；S6.1-P1、Detector、training、
-paid API 和 formal reproduction 仍未批准。
+Historical execution snapshot：`S6.1-R0` 曾 `APPROVED_TO_START`，只授权 RTX5090 按 canonical R0-A 至 R0-I
+执行。当前 R0-I 为 `RETURNED_FOR_WORKER_CORRECTION`；Worker 只允许生成 review record 所列的最小 corrected evidence，
+不得扩展环境探索。LOCAL 只做证据/治理审查，不运行 external baseline。`FORMAL_EXPERIMENT = NOT STARTED`；
+S6.1-P1、R0-FU1、Detector、training、paid API 和 formal reproduction 均未批准。
 
 ## Baseline Integrity
 

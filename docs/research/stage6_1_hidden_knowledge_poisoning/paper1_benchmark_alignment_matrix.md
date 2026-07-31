@@ -30,7 +30,21 @@
 | GMTP | `AVAILABLE` | `UNCONFIRMED` | `NOT_BLOCKED_BY_CURRENT_RESEARCH_PLAN` | `PENDING_REPRODUCTION_VALIDATION` | `TO_VERIFY / LICENSE_NOT_CONFIRMED` | upstream datasets and poisoned samples separately governed |
 | SafeRAG | `AVAILABLE` | `UNCONFIRMED` | `NOT_BLOCKED_BY_CURRENT_RESEARCH_PLAN` | `PENDING_REPRODUCTION_VALIDATION` | `TO_VERIFY / LICENSE_NOT_CONFIRMED` | SafeRAG corpus terms separately governed |
 
-## External Benchmark Matrix
+## S6.1-R0-I Superseding Feasibility Qualification
+
+The detailed matrix below remains the accepted LR1 alignment snapshot. Current R0-I review state supersedes only its
+`reproduction status` and `strict-comparison eligibility` cells:
+
+| baseline | R0-I review status | evidence-qualified outcome | strict comparison |
+| --- | --- | --- | --- |
+| PoisonedRAG | `RETURNED_FOR_WORKER_CORRECTION` | static audit only；single-dataset/API-free path requires correction | `NOT_STRICT_COMPARISON_READY` |
+| GMTP | `RETURNED_FOR_WORKER_CORRECTION` | `GMTP_200_SAMPLE_ARTIFACTS_PRESENT`；`beir gitlink` mapping/path remains unresolved；Docker is optional | `NOT_STRICT_COMPARISON_READY` |
+| SafeRAG | `RETURNED_FOR_WORKER_CORRECTION` | `PARTIAL_REPRODUCTION_READY / DATASET_ARTIFACT_ONLY` is provisional pending script-hash/all-row correction | `NOT_STRICT_COMPARISON_READY` |
+
+Roles remain PRIMARY_ATTACK_BASELINE、PRIMARY_DETECTION_BASELINE and PRIMARY_BENCHMARK_REFERENCE respectively. See
+[R0-I review](s6_1_r0_i_control_plane_review.md).
+
+## LR1 External Benchmark Matrix
 
 | paper | venue | year | role_in_our_paper | official_paper_url | official_repo | verified_commit/tag | license | datasets | dataset_license | attack | defense | retriever | generator | embedding model | Top-K | attack budget | metrics | published main results | required GPU | required RAM | disk estimate | original environment | 5090 compatibility issue | reproduction status | strict-comparison eligibility | gap relative to our method | unresolved questions |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

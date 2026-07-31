@@ -164,5 +164,9 @@ git log -15 --oneline
   `S6.1-R0` 仅定义、尚未批准执行。
 - Superseding current fact：RTX5090 Bootstrap 已 `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`，`S6.1-R0` 已
   `APPROVED_TO_START` on Compute Worker；Formal Experiment 仍未开始。
+- Newer R0-I fact：execution approval remains a historical snapshot；current review is
+  `RETURNED_FOR_WORKER_CORRECTION` and parent R0 is `REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE`。
+- Owner principle：Control-Plane-First Token Economy is accepted as execution-resource governance and cannot override
+  Paper-First、safety、evidence quality、label isolation、immutable history or reproducibility。
 
 这些静态锚点只表达已登记的治理身份；是否存在、当前 branch/HEAD/tag 和远端同步仍须由 L0 动态核验。

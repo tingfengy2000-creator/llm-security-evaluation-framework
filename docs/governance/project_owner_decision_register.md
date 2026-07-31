@@ -575,3 +575,30 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Formal boundary: `FORMAL_EXPERIMENT = NOT STARTED`；S6.1-P1 remains `NOT STARTED` until R0 evidence and R0-I review。
 - Local boundary: this acceptance authorizes the Compute Worker, not LOCAL execution. LOCAL only updates/pushes Control Plane
   governance and then stops。
+
+## PODR-048: Control-Plane-First Token Economy Principle
+
+- Date: `2026-07-31`.
+- Priority: `LONG_TERM_DUAL_MACHINE_EXECUTION_PRINCIPLE`.
+- Decision: 在不降低 research quality、reproducibility、security、evidence quality 或 governance quality 的前提下，
+  高推理/分析/设计/文档工作优先由 `LOCAL / CONTROL_PLANE` 完成；RTX5090 token 优先用于机器环境、外部执行、GPU、
+  reproduction、compatibility、training/inference、resource measurement、raw evidence 和 hardware debugging。
+- Worker escalation: 路线级问题返回 `DELEGATE_TO_LOCAL_CONTROL_PLANE` 或 `RESEARCH_ROUTE_REVIEW_REQUIRED`。
+- Non-override boundary: 该原则是执行资源治理，不是科学证据优先级；不得覆盖 safety、ethics、evidence quality、
+  Paper-First Comparative Evidence、label isolation、immutable history、approval gates 或 experimental reproducibility。
+
+## PODR-049: S6.1-R0-I Returned for Minimal Worker Evidence Correction
+
+- Date: `2026-07-31`.
+- Decision: `S6.1-R0-I = RETURNED_FOR_WORKER_CORRECTION`；parent R0 is
+  `REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE`，not failed and not accepted。
+- Integrity: archive SHA-256 `0ce85a2bfe24e0456f9d29edc40659786d4273fcfc634df8749aee6d0e3aa9cc` and
+  internal evidence index `18/18` verified。
+- Reason: GMTP exact commit contains advertised 200-sample artifacts although Worker evidence says absent；Docker is a
+  convenience path, not algorithm requirement；SafeRAG executed-script hash is not bound and schema coverage checks only the
+  first record per task。
+- Roles: PoisonedRAG `PRIMARY_ATTACK_BASELINE`、GMTP `PRIMARY_DETECTION_BASELINE`、SafeRAG
+  `PRIMARY_BENCHMARK_REFERENCE` remain unchanged。
+- Follow-up: only the minimal corrections in the redacted R0-I review are authorized；no new environment exploration、data/model
+  download、API、R0-FU1、S6.1-P1 or formal experiment。
+- Recommendation: `R0-FU1 = RECOMMEND / NOT APPROVED`；final approval remains with the project owner。

@@ -12,7 +12,12 @@
 
 项目负责人随后将 LR1、Context Recovery Governance、Paper-First Principle 和 current Paper 1 route 正式接受。
 RTX5090 Bootstrap 随后通过人工验收，证明 WSL GPU、PyTorch cu130、FP16/BF16 basic tensor 和 Git sync 可用；
-`S6.1-R0` 已批准在 Worker 按 A-I 顺序开始。LOCAL 仍不运行 baseline，S6.1-P1 仍未开始。
+`S6.1-R0` 的历史执行批准已完成到 R0-I 审查；当前为 `RETURNED_FOR_WORKER_CORRECTION`。Archive/index hash 完整，
+但 GMTP sample-absence/Docker 结论与 exact upstream 冲突，SafeRAG 只有 `DATASET_ARTIFACT_ONLY` smoke 且脚本 provenance/
+all-row coverage 待修正。LOCAL 仍不运行 baseline，S6.1-P1 仍未开始。
+
+项目负责人还接受 Control-Plane-First Token Economy Principle：研究设计、分析、解释和文档优先 LOCAL，硬件执行与
+raw evidence 优先 Worker；节省 token 不能覆盖 Paper-First、研究质量、安全、标签隔离、历史不可变或可复现性。
 
 ## 为什么先做对齐
 
@@ -47,6 +52,12 @@ cheating tokens 很有针对性。但自然的事实篡改可能没有明显低�
 
 两者最接近 Paper 1 的“相关但有噪声/事实冲突”核心。Soft Ad 和 White DoS 更偏内容传播与拒答攻击，当前先延后，
 避免第一篇论文范围膨胀。
+
+### 为什么 hash 全通过仍可能退回证据？
+
+Hash 只能证明“收到的字节没有变化”，不能证明字节中的研究断言正确。R0-I 用 official exact-commit tree 发现 GMTP
+实际包含 200-sample artifacts，而 Worker audit 写成缺失，因此必须纠正再接受。这是 evidence integrity 与 scientific
+validity 的区别。
 
 ### 为什么 5090 不一定比论文的 A6000/H800 更容易复现？
 

@@ -6,7 +6,8 @@
 - Task Name: `Paper 1 Reproduction Environment and Baseline Feasibility Validation`
 - 中文名称：`Paper 1 外部基准复现环境与可行性验证`
 - Task Type: `ENGINEERING_VALIDATION / REPRODUCTION_PREFLIGHT`
-- Status: `APPROVED_TO_START`
+- Status: `REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE`
+- Historical execution status: `APPROVED_TO_START`
 - Superseded snapshot: `DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`
 - Execution machine: `RTX5090 / COMPUTE_WORKER`
 - Bootstrap task: `S6.1-R0-B0 RTX5090 Compute Worker Bootstrap Validation`
@@ -200,3 +201,21 @@ Detector、Our Method、SOTA、统计结果、安全效果或生产能力。`FOR
 RTX5090 pull 本次 Control Plane 治理提交后，从 `R0-A Environment Fingerprint` 开始，按顺序执行并 fail closed。
 本机完成治理提交后停止。R0-I Control Plane Review 完成前，S6.1-P1 仍不得启动。Auto Continue = NO 表示不得从
 R0 自动进入 P1 或 Formal Experiment；不撤销本次已批准的 R0-A 至 R0-I 顺序范围。
+
+## R0-I Review Outcome — 2026-07-31
+
+- Historical snapshot: `S6.1-R0 = APPROVED_TO_START`。
+- Current review: `S6.1-R0-I = RETURNED_FOR_WORKER_CORRECTION`。
+- Parent status: `REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE`；not failed and not accepted。
+- Evidence integrity: archive SHA-256
+  `0ce85a2bfe24e0456f9d29edc40659786d4273fcfc634df8749aee6d0e3aa9cc`；index `18/18` verified。
+- Material mismatch: GMTP exact commit contains 200-sample JSON artifacts, contrary to the Worker absence claim；Docker is
+  optional convenience, while Java/Pyserini/FAISS may remain real native-path dependencies。
+- SafeRAG: dataset-only evidence is qualified as `DATASET_ARTIFACT_ONLY`；the executed script hash is not bound and all-row
+  schema coverage is not demonstrated。
+- Roles remain unchanged；all three baselines are `NOT_STRICT_COMPARISON_READY`。
+- `R0-FU1 = RECOMMEND / NOT APPROVED`；`S6.1-P1 = NOT STARTED`；`FORMAL_EXPERIMENT = NOT STARTED`。
+
+The authoritative redacted findings and minimal correction are in
+[S6.1-R0-I Control Plane Review](s6_1_r0_i_control_plane_review.md). Only that correction package may run next；no data/model
+download、API、environment expansion or formal work is authorized。

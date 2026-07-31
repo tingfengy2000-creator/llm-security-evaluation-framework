@@ -21,6 +21,8 @@ R0_PROTOCOL = RESEARCH / "s6_1_r0_reproduction_preflight.md"
 BENCHMARK_MATRIX = RESEARCH / "paper1_benchmark_alignment_matrix.md"
 BASELINE_PROTOCOL = RESEARCH / "baseline_reproduction_protocol.md"
 ARTIFACT_REGISTRY = RESEARCH / "external_artifact_registry.md"
+R0_I_REVIEW = RESEARCH / "s6_1_r0_i_control_plane_review.md"
+LONG_TERM_REQUIREMENTS = GOVERNANCE / "long_term_research_requirements.md"
 
 WINDOWS_ABSOLUTE_PATH = re.compile(r"(?<![A-Za-z0-9])[A-Za-z]:[\\/]")
 AUTHORITY_LEVEL = re.compile(r"^## L(?P<level>[0-9]) — ", re.MULTILINE)
@@ -69,6 +71,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             LEARNING / "STAGE_LEARNING_GUIDE_TEMPLATE.md",
             LEARNING / "stage6_1_hidden_poisoning.md",
             R0_PROTOCOL,
+            R0_I_REVIEW,
         )
         for path in required:
             with self.subTest(path=path.relative_to(ROOT)):
@@ -120,12 +123,17 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "PODR-045",
             "PODR-046",
             "PODR-047",
+            "PODR-048",
+            "PODR-049",
             "S6.1-LR1: HUMAN_ACCEPTED",
             "Git-Native Research Context Recovery Governance: HUMAN_ACCEPTED",
             "s6-t5-rag-baseline-v1",
             "S6.1-R0",
             "RTX5090_BOOTSTRAP_READY",
             "S6.1-R0: APPROVED_TO_START",
+            "Control-Plane-First Token Economy Principle",
+            "LONG_TERM_DUAL_MACHINE_EXECUTION_PRINCIPLE",
+            "RETURNED_FOR_WORKER_CORRECTION",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, text)
@@ -145,6 +153,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "REL-2026-0007",
             "REL-2026-0008",
             "REL-2026-0009",
+            "REL-2026-0010",
             "Machine Role",
             "Initial Status",
             "Final Status",
@@ -172,11 +181,15 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("Status: **HUMAN_ACCEPTED**", state)
         self.assertIn("FORMAL_EXPERIMENT = NOT STARTED", state)
         self.assertIn("S6.1-R0: **APPROVED_TO_START**", state)
+        self.assertIn("S6.1-R0-I: **RETURNED_FOR_WORKER_CORRECTION**", state)
         self.assertIn(
             "RTX5090 Compute Worker Bootstrap: **HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY**",
             state,
         )
-        self.assertIn("S6.1-P1: **NOT STARTED / DEFERRED UNTIL R0 REVIEW**", state)
+        self.assertIn(
+            "S6.1-P1: **NOT STARTED / DEFERRED UNTIL R0 ACCEPTANCE AND OWNER DECISION**",
+            state,
+        )
         self.assertIn("Dataset Generation: **NOT APPROVED**", state)
         self.assertIn("Detector Implementation: **NOT APPROVED**", state)
         self.assertIn("Model Training: **NOT APPROVED**", state)
@@ -326,8 +339,47 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "model revision",
             "environment fingerprint",
             "fail closed",
+            "Control-Plane-First Token Economy Principle",
+            "DELEGATE_TO_LOCAL_CONTROL_PLANE",
         ):
-            self.assertIn(required, text)
+                self.assertIn(required, text)
+
+    def test_token_economy_is_resource_governance_not_scientific_priority(self) -> None:
+        for path in (LONG_TERM_REQUIREMENTS, DUAL_MACHINE_POLICY):
+            text = path.read_text(encoding="utf-8")
+            with self.subTest(path=path.relative_to(ROOT)):
+                for required in (
+                    "Control-Plane-First Token Economy Principle",
+                    "LONG_TERM_DUAL_MACHINE_EXECUTION_PRINCIPLE",
+                    "research quality",
+                    "reproducibility",
+                    "evidence quality",
+                    "Paper-First Comparative Evidence",
+                    "label isolation",
+                    "immutable history",
+                ):
+                    self.assertIn(required, text)
+
+    def test_r0_i_review_fails_closed_on_material_evidence_mismatch(self) -> None:
+        text = R0_I_REVIEW.read_text(encoding="utf-8")
+        for required in (
+            "RETURNED_FOR_WORKER_CORRECTION",
+            "0ce85a2bfe24e0456f9d29edc40659786d4273fcfc634df8749aee6d0e3aa9cc",
+            "EVIDENCE_INDEX_VERIFIED: 18/18",
+            "f660d72174f06b13fae5163ce656e7b235db858f",
+            "15b48d150f93711371eb8da22c211cd84a0cf4df",
+            "e8f579743b23e0a3937076dcc0792fe29027cba3",
+            "advertised samples absent",
+            "data/poisoned_documents",
+            "Docker is a convenience environment",
+            "DATASET_ARTIFACT_ONLY",
+            "EXECUTED_SCRIPT_HASH_NOT_BOUND",
+            "R0-FU1: RECOMMEND",
+            "R0-FU1 = NOT APPROVED",
+            "FORMAL_EXPERIMENT = NOT STARTED",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, text)
 
     def test_learning_guides_are_non_authoritative(self) -> None:
         for path in (

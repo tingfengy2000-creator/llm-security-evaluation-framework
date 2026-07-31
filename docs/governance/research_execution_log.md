@@ -375,3 +375,53 @@ Approval Gate、Auto Continue。
 - Next Step: push Control Plane commit；RTX5090 pulls it and begins R0-A Environment Fingerprint。
 - Next Approval Gate: `R0-I_CONTROL_PLANE_REVIEW`; S6.1-P1 remains not started。
 - Auto Continue: `NO`
+
+## REL-2026-0010 — S6.1-R0-I Control Plane Evidence Review
+
+- Record ID: `REL-2026-0010`
+- Date: `2026-07-31`
+- Timestamp: `NOT_RECORDED`
+- Machine: `LOCAL`
+- Machine Role: `CONTROL_PLANE`
+- Stage: `Stage 6.1 / R0`
+- Task ID: `S6.1-R0-I`
+- Task Name: `Control Plane Review of Paper 1 Reproduction Preflight Evidence`
+- Task Type: `CONTROL_PLANE_EVIDENCE_REVIEW`
+- Initial Status: `R0_PARTIAL_WITH_BLOCKERS_PENDING_CONTROL_PLANE_REVIEW`
+- Final Status: `RETURNED_FOR_WORKER_CORRECTION`
+- Objective: 验证 Worker archive/inner hashes、审查三项 baseline feasibility facts、规范化 blocker，并决定是否接受 R0。
+- Why: R0 目标是识别可运行路径与真实 blocker，而不是强制三个 baseline 全部跑通；acceptance 仍要求 summary 与
+  raw/official evidence 一致。
+- Previous Gate: `S6.1-R0 APPROVED_TO_START`
+- Actions: 验证 private archive SHA、safe layout、18-object index 和 component sidecars；审阅 fingerprint/audits/smoke/
+  resource/scripts；只读核验三个 official exact commits；未运行 external workload。
+- Files Changed: redacted R0-I review、governance/context/route/matrix/registry/learning and architecture tests；raw archive not in Git。
+- Commands: Git preflight；PowerShell SHA-256/tar/index verification；official GitHub commit/tree/file read-only inspection；
+  governance/test/static checks。No clone/install/data/model/API/baseline execution。
+- Validation: red phase `10 failed / 10 passed` before R0-I governance synchronization；targeted green `20 passed`；full
+  architecture `96 passed`；namespace + label-isolation `10 passed`；Ruff and scoped MyPy passed；20 changed files contain
+  18 Markdown governance/research files and 2 architecture tests；UTF-8 no-BOM/LF、relative links、secret/path scan、raw archive
+  exclusion、runtime-ignore、protected historical path diff and `git diff --check` all passed。
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `PENDING_THIS_COMMIT; resolve with git log -1 -- docs/governance/research_execution_log.md`
+- Run ID: `N/A / CONTROL_PLANE_REVIEW`
+- Dataset Snapshot: SafeRAG repository artifact at `e8f579743b23e0a3937076dcc0792fe29027cba3`；dataset-only counts SN 100 / ICC 93；
+  full dataset identity/license not frozen。
+- Model / Revision: `N/A`; no model executed or downloaded by LOCAL。
+- Environment Identity: Worker R0-A Ubuntu 24.04.4、Python 3.11.15、NumPy 2.4.6、PyTorch 2.13.0+cu130/CUDA 13.0；
+  LOCAL review environment is not baseline execution environment。
+- Result Summary: archive SHA `0ce85a2bfe24e0456f9d29edc40659786d4273fcfc634df8749aee6d0e3aa9cc` and index
+  `18/18` verified；GMTP sample-absence/Docker claims contradicted by exact upstream；SafeRAG script provenance/all-row coverage
+  incomplete；R0 not accepted and returned for minimal correction。
+- Claims Allowed: evidence integrity、R0-A fingerprint、three official commit identities、SafeRAG dataset-only artifact smoke、
+  review mismatch/gaps、unchanged baseline roles。
+- Claims Prohibited: R0 accepted、baseline reproduced、strict comparison ready、SafeRAG pipeline ready、Paper Result、Dataset
+  frozen、Detector/training/SOTA/security effectiveness/formal experiment。
+- Blockers: `R0-I-EVIDENCE-CORRECTION-001`；`BLK-S6.1-LR1-001` remains open；licenses remain redistribution-only issues。
+- Blocker ID: `R0-I-EVIDENCE-CORRECTION-001; BLK-S6.1-LR1-001`
+- Resolution: only corrected GMTP source facts and SafeRAG bound/all-row smoke evidence can close the R0-I correction blocker。
+- Owner Decisions: `PODR-048; PODR-049`
+- Design Changes: registered Control-Plane-First Token Economy Principle；did not change Paper-First or baseline roles。
+- Next Step: RTX5090 returns the minimal corrected archive；LOCAL repeats R0-I。
+- Next Approval Gate: owner decides R0 acceptance and `R0-FU1: RECOMMEND / NOT APPROVED`；S6.1-P1 remains not started。
+- Auto Continue: `NO`

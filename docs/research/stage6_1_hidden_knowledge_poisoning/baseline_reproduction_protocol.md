@@ -8,11 +8,12 @@
 ## 1. 状态
 
 - 协议类型：`ENGINEERING_PREFLIGHT_CONTROL / FORMAL_REPRODUCTION_PLANNING`。
-- 当前状态：`R0_ENGINEERING_PREFLIGHT_APPROVED / FORMAL_REPRODUCTION_NOT_APPROVED`。
+- 当前状态：`R0_I_RETURNED_FOR_WORKER_CORRECTION / FORMAL_REPRODUCTION_NOT_APPROVED`。
+- 历史执行状态：`R0_ENGINEERING_PREFLIGHT_APPROVED`。
 - 正式实验：`NOT STARTED`。
 - 下列上游命令均为 `REFERENCE_ONLY_DO_NOT_RUN`；Worker 必须先做静态审计，再从中提取最小 smoke 所需命令，不得整段盲跑。
 
-R0 只批准 RTX5090 Compute Worker 执行工程验证与复现预检。它允许按最小必要原则使用公开小样本、安装经静态审计确认的必要依赖，并使用小型必要公开模型。它不授权下载完整 NQ、HotpotQA、MS MARCO、完整索引或其他大型语料，不授权付费 API、API key、未经批准的大型 LLM，也不授权生成或声称 Paper Result。若最小 smoke 确实需要更多数据，必须先提交 `MINIMUM_DATA_REQUIREMENT`。
+当前只允许 RTX5090 完成 R0-I review 明确列出的最小证据修正；历史 R0 工程执行授权不再允许扩大环境探索。它不授权下载完整 NQ、HotpotQA、MS MARCO、完整索引或其他大型语料，不授权付费 API、API key、未经批准的大型 LLM，也不授权生成或声称 Paper Result。若未来最小 smoke 确实需要更多数据，必须先提交 `MINIMUM_DATA_REQUIREMENT`。
 
 ### 1.1 License / Access 分层
 

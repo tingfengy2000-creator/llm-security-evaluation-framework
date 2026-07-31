@@ -16,7 +16,7 @@
 `REDISTRIBUTION_ELIGIBILITY`、`CODE_LICENSE` 与 `DATASET_LICENSE` 必须独立判断。这不是法律结论；明确的
 upstream 条款必须遵守。
 
-## Artifact
+## LR1 Artifact Snapshot
 
 正式论文入口：
 
@@ -30,6 +30,18 @@ upstream 条款必须遵守。
 | `EXT-P1-GMTP` | `AVAILABLE`：[official repo](https://github.com/mountinyy/GMTP)，HEAD `15b48d150f93711371eb8da22c211cd84a0cf4df` | `UNCONFIRMED` | `NOT_BLOCKED_BY_CURRENT_RESEARCH_PLAN` | `PENDING_REPRODUCTION_VALIDATION` | `TO_VERIFY / LICENSE_NOT_CONFIRMED` | `NOT_RUN` |
 | `EXT-P1-SAFERAG` | `AVAILABLE`：[official repo](https://github.com/IAAR-Shanghai/SafeRAG)，HEAD `e8f579743b23e0a3937076dcc0792fe29027cba3` | `UNCONFIRMED` | `NOT_BLOCKED_BY_CURRENT_RESEARCH_PLAN` | `PENDING_REPRODUCTION_VALIDATION` | `TO_VERIFY / LICENSE_NOT_CONFIRMED` | `NOT_RUN` |
 | `EXT-P1-ECOSAFERAG` | `OFFICIAL_REPOSITORY_NOT_VERIFIED` | `UNKNOWN` | `NOT_EVALUATED` | `NOT_EVALUATED` | `UNKNOWN` | `DEFERRED` |
+
+## S6.1-R0-I Current Qualification
+
+| ID | R0-I status | Verified/current qualification |
+| --- | --- | --- |
+| `EXT-P1-POISONEDRAG` | `RETURNED_FOR_WORKER_CORRECTION` | static audit only；one selected dataset and attack-generation path remain unresolved；`NOT_STRICT_COMPARISON_READY` |
+| `EXT-P1-GMTP` | `RETURNED_FOR_WORKER_CORRECTION` | `GMTP_200_SAMPLE_ARTIFACTS_PRESENT` at exact commit；`beir gitlink` mapping remains unresolved；`NOT_STRICT_COMPARISON_READY` |
+| `EXT-P1-SAFERAG` | `RETURNED_FOR_WORKER_CORRECTION` | provisional `PARTIAL_REPRODUCTION_READY / DATASET_ARTIFACT_ONLY`；script provenance/all-row coverage correction required；`NOT_STRICT_COMPARISON_READY` |
+
+The absence of a GMTP/SafeRAG root license remains a `REDISTRIBUTION_ONLY_ISSUE`, not an internal research blocker. The
+private Worker archive is not stored in Git；only its SHA-256 and the [redacted R0-I review](s6_1_r0_i_control_plane_review.md)
+are persisted。
 
 ## DATASET_LICENSE 治理
 

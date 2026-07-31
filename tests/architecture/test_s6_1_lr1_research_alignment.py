@@ -21,6 +21,7 @@ def test_s6_1_lr1_control_plane_artifacts_exist_and_are_utf8() -> None:
         STAGE / "hardware_execution_policy.md",
         STAGE / "learning_notes.md",
         STAGE / "s6_1_r0_reproduction_preflight.md",
+        STAGE / "s6_1_r0_i_control_plane_review.md",
     )
 
     for path in required:
@@ -130,8 +131,36 @@ def test_lr1_state_is_planning_only_and_preserves_formal_experiment_gate() -> No
     assert "MINIMUM_DATA_REQUIREMENT" in protocol
     assert "S6.1-P1" in state
     assert "S6.1-R0: **APPROVED_TO_START**" in state
+    assert "S6.1-R0-I: **RETURNED_FOR_WORKER_CORRECTION**" in state
     assert "RTX5090_BOOTSTRAP_READY" in state
     assert "FORMAL_EXPERIMENT = NOT STARTED" in state
+
+
+def test_r0_i_preserves_roles_but_rejects_unsupported_worker_claims() -> None:
+    review = (STAGE / "s6_1_r0_i_control_plane_review.md").read_text(
+        encoding="utf-8"
+    )
+    matrix = (STAGE / "paper1_benchmark_alignment_matrix.md").read_text(
+        encoding="utf-8"
+    )
+    registry = (STAGE / "external_artifact_registry.md").read_text(
+        encoding="utf-8"
+    )
+
+    for required in (
+        "PRIMARY_ATTACK_BASELINE",
+        "PRIMARY_DETECTION_BASELINE",
+        "PRIMARY_BENCHMARK_REFERENCE",
+        "STRICT_COMPARISON_ELIGIBILITY",
+        "RETURNED_FOR_WORKER_CORRECTION",
+    ):
+        assert required in review
+
+    for text in (matrix, registry):
+        assert "GMTP_200_SAMPLE_ARTIFACTS_PRESENT" in text
+        assert "beir gitlink" in text
+        assert "DATASET_ARTIFACT_ONLY" in text
+        assert "NOT_STRICT_COMPARISON_READY" in text
 
 
 def test_new_research_docs_are_portable_and_do_not_claim_results() -> None:

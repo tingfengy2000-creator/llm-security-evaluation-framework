@@ -30,6 +30,19 @@ Experiment Master Record、Research Execution Log 和 accepted route/protocol �
 Formal Experiment Acceptance 的前置科学证据，不得覆盖 Git、Owner Decision、Experiment Record 或 accepted
 protocol。
 
+## Control-Plane-First Token Economy Principle
+
+**状态：已接受，2026-07-31。Priority：`LONG_TERM_DUAL_MACHINE_EXECUTION_PRINCIPLE`。** 在不降低
+`research quality`、`reproducibility`、security、`evidence quality` 和 governance quality 的前提下，凡是不依赖
+RTX5090 硬件即可完成的高推理、高分析和高文档任务，优先由 `LOCAL / CONTROL_PLANE` 完成；RTX5090 token
+优先用于 machine-local environment、dependency install、external repo execution、GPU workload、benchmark
+reproduction、compatibility、training/inference、resource measurement、raw evidence 和硬件调试。
+
+Worker 遇到研究路线级问题必须返回 `DELEGATE_TO_LOCAL_CONTROL_PLANE` 或
+`RESEARCH_ROUTE_REVIEW_REQUIRED`，不得在 Worker 上重新设计研究路线。该原则是执行资源治理原则，不是科学证据
+优先级原则；它不能覆盖 safety、ethics、Paper-First Comparative Evidence、`label isolation`、`immutable history`、
+审批门或 experimental reproducibility。节省 Worker token 不能成为降低研究质量或证据质量的理由。
+
 ## 1. 项目身份与目标顺序
 
 - 英文正式名称：**LLMGuard Research Framework**；

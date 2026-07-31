@@ -57,9 +57,9 @@ poison label、attack ID/goal/category 或 expected answer 作为 inference feat
 
 | Work | Canonical role | Current status |
 | --- | --- | --- |
-| PoisonedRAG | PRIMARY_ATTACK_BASELINE | source aligned; reproduction not started |
-| GMTP | PRIMARY_DETECTION_BASELINE | source available; internal research not blocked by current plan; strict comparison pending; redistribution license to verify |
-| SafeRAG | PRIMARY_BENCHMARK_REFERENCE | source available; internal research not blocked by current plan; strict comparison pending; redistribution license to verify |
+| PoisonedRAG | PRIMARY_ATTACK_BASELINE | R0 static audit；provisional external-dependency blocker；Worker correction pending |
+| GMTP | PRIMARY_DETECTION_BASELINE | 200-sample artifacts present；modified-BEIR identity/path unresolved；Worker correction pending |
+| SafeRAG | PRIMARY_BENCHMARK_REFERENCE | provisional `DATASET_ARTIFACT_ONLY` smoke；provenance/coverage correction pending |
 | EcoSafeRAG | DEFERRED | not a core baseline unless owner re-approves |
 
 Published Result、Reproduced Result、Our Method Result 必须分栏，不能互相替代。
@@ -77,7 +77,7 @@ LICENSE 也不自动阻断未来经批准的内部研究工作流。这不是法
   metric definition、seed protocol 和 environment assumptions。
 - 任一关键条件不一致时标记 NON_STRICT_COMPARISON，不得写“outperforms SOTA by X%”。
 
-当前仅完成资料和协议对齐，没有运行外部 baseline。
+当前没有 external baseline reproduction。SafeRAG 只有 dataset-artifact schema smoke；不得解释为 pipeline reproduction。
 
 ## 8. Versioned Chinese Benchmark Track
 
@@ -209,6 +209,10 @@ adaptive samples，不实现 attack optimizer，也不将其纳入第一版自�
 PyTorch 2.13.0+cu130 / runtime 13.0、FP16/BF16 basic tensor PASS；这些不能自动等价于论文 A6000/H800 或
 baseline-specific performance。完整 data/model/index/disk、peak runtime/resource 与 API 成本仍待 R0。
 
+R0-A evidence additionally records Ubuntu 24.04.4、Python 3.11.15、NumPy 2.4.6 and the accepted PyTorch/CUDA identity。
+SafeRAG dataset-only smoke reports 17,476 KiB maximum RSS and 0.05 s wall time；its script provenance/all-row coverage is
+pending correction and is not baseline performance。
+
 ## 24. Dual-machine Execution
 
 LOCAL = CONTROL_PLANE，RTX5090 = COMPUTE_WORKER，Context Sync = Git。Bootstrap 已人工接受，Worker 的
@@ -216,11 +220,18 @@ LOCAL = CONTROL_PLANE，RTX5090 = COMPUTE_WORKER，Context Sync = Git。Bootstra
 branch、RunManifest.git_commit、clean tree、dataset/config/model identity 和 environment fingerprint；不一致 fail
 closed。详见 [Dual-Machine Policy](../../governance/dual_machine_execution_policy.md)。
 
+The `Control-Plane-First Token Economy Principle` makes LOCAL the preferred location for research design、analysis、protocol、
+interpretation and writing, while Worker token is reserved for hardware-bound execution/evidence. It cannot lower evidence or
+scientific quality。
+
 ## 25. Known Risks
 
-- PoisonedRAG paper-result commit/dependency lock/GPU-RAM-disk 未完整确认；
+- PoisonedRAG paper-result commit/dependency lock/GPU-RAM-disk、single-dataset choice and API-free attack path 未完整确认；
 - GMTP/SafeRAG `CODE_LICENSE=UNCONFIRMED`，因此 `REDISTRIBUTION_ELIGIBILITY=TO_VERIFY`；这不自动阻断未来获批的内部研究；
 - data/model/API revisions 与 evaluator snapshots 可能不可恢复；
+- GMTP exact commit contains 200-sample artifacts；its `beir` gitlink lacks root mapping, and Java/Pyserini/FAISS native path
+  remains unresolved；Docker is convenience rather than algorithm requirement；
+- SafeRAG dataset-only smoke has an executed-script hash/all-record coverage evidence gap；
 - Worker base PyTorch/Blackwell compute 已通过；各 baseline 的旧 CUDA/PyTorch/FAISS/Pyserini 仍有兼容风险；
 - 32 GB VRAM 可能无法容纳论文全部模型矩阵；
 - hard negatives、version lineage 和 split leakage 可能削弱结论可信性；
@@ -238,14 +249,17 @@ closed。详见 [Dual-Machine Policy](../../governance/dual_machine_execution_po
 - LOCAL/RTX5090 分别为 Control Plane/Compute Worker；Git 是 context sync；
 - S6.1-LR1、Context Recovery Governance 与 Paper-First Principle 已 HUMAN_ACCEPTED；
 - RTX5090 Bootstrap 已 `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`；
-- S6.1-R0 已 `APPROVED_TO_START` on Compute Worker；S6.1-P1 在 R0-I 审核前暂缓。
+- Historical S6.1-R0 execution snapshot was `APPROVED_TO_START` on Compute Worker；S6.1-P1 remained deferred。
+- Control-Plane-First Token Economy Principle 已接受，且不覆盖 Paper-First、安全、证据质量、标签隔离或历史不可变；
+- R0-I current status is `RETURNED_FOR_WORKER_CORRECTION`；baseline roles remain unchanged；R0-FU1 is recommended but not approved。
 
 权威 Decision IDs 见 PODR-035–PODR-047。
 
 ## 27. Pending Decisions
 
-- R0-A 至 R0-H 的实际 environment、artifact、compatibility、resource 与 feasibility facts；
-- R0-I 完成后 S6.1-P1 是否批准及其具体协议范围；
+- Worker minimal corrected evidence and repeated R0-I decision；
+- project-owner decision on R0 acceptance and whether to approve recommended R0-FU1；
+- after those gates, whether S6.1-P1 may begin and its specific protocol scope；
 - 外部 artifact 许可、paper-result commits 和 dependency/model/data snapshots；
 - 中文 benchmark 数据源、annotation protocol、split 和 publication license；
 - final feature set/fusion、threshold/calibration、statistics 和 adaptive attack；
@@ -258,8 +272,8 @@ closed。详见 [Dual-Machine Policy](../../governance/dual_machine_execution_po
 可以宣称：Paper 1 路线可由 Git 恢复；RTX5090 Bootstrap 对 WSL GPU、PyTorch cu130、FP16/BF16 basic tensor
 computation 和 Git sync 已人工接受；R0 已批准在 Worker 开始。
 
-不能宣称：dataset、Detector、training、reproduction、5090 measurement、统计结果、SOTA、generalization、security
-effectiveness 或 production readiness 已完成。
+不能宣称：R0 accepted、strict comparison ready、SafeRAG pipeline reproduced、dataset、Detector、training、external
+reproduction、Paper Result、统计结果、SOTA、generalization、security effectiveness 或 production readiness 已完成。
 
 ## 29. Publication Positioning
 
@@ -269,7 +283,7 @@ reproducibility 为支撑；仅有工程框架或治理文档不足以构成论�
 
 ## 30. Next Gate
 
-R0 已批准。RTX5090 pull 最新 Control Plane commit 后按
-[S6.1-R0 Reproduction Preflight](s6_1_r0_reproduction_preflight.md) 从 R0-A 串行执行；不匹配或受限依赖 fail
-closed。R0-I Control Plane Review 后才可考虑 S6.1-P1。Dataset、Detector、training 与 Formal Experiment 仍需后续
-独立批准。Auto Continue = NO，不得从 R0 自动进入 P1。
+R0 execution approval is a preserved historical snapshot. Current R0-I is `RETURNED_FOR_WORKER_CORRECTION`；RTX5090 may
+only produce the minimal corrected evidence in the [R0-I review](s6_1_r0_i_control_plane_review.md). LOCAL then repeats R0-I；
+the project owner decides R0 acceptance and whether to approve `R0-FU1: RECOMMEND / NOT APPROVED`. S6.1-P1、Dataset、
+Detector、training and Formal Experiment remain closed。Auto Continue = NO。

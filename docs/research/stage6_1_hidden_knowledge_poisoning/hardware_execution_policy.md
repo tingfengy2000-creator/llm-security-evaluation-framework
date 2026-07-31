@@ -12,7 +12,14 @@ WSL2 Ubuntu 24.04 LTS GPU passthrough、RTX 5090 PyTorch-reported 31.84 GB、app
 basic tensor PASS。它不是 paper-level performance benchmark。
 
 Windows KMD 610.88、WSL NVIDIA-SMI 610.57.01/WSL KMD 610.88 与 driver CUDA UMD capability 13.3 已记录；最后一项
-不等于 standalone CUDA Toolkit 13.3 installed。NumPy 缺失为非阻断环境完整性观察，R0-A 记录实际 resolved version。
+不等于 standalone CUDA Toolkit 13.3 installed。R0-A records NumPy 2.4.6 as the resolved version；this is environment
+fingerprint evidence, not baseline performance。
+
+## Current R0-I Gate
+
+Historical R0 execution approval has reached Control Plane review. Current status is `RETURNED_FOR_WORKER_CORRECTION`；only
+the narrow source/provenance evidence correction in the [R0-I review](s6_1_r0_i_control_plane_review.md) may run next。No new
+environment install、data/model download、API、R0-FU1、S6.1-P1 or formal workload is approved。
 
 ## 1. 机器角色
 

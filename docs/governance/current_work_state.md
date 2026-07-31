@@ -16,12 +16,13 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-R0`.
-- Task name: `Paper 1 Reproduction Environment and Baseline Feasibility Validation`.
-- Task type: **ENGINEERING_VALIDATION / REPRODUCTION_PREFLIGHT**.
-- Status: **APPROVED_TO_START**.
-- Execution machine: **RTX5090 / COMPUTE_WORKER**.
-- Current ordered step: **R0-A Environment Fingerprint** after Worker pulls the latest Control Plane commit.
+- Task ID: `S6.1-R0-I`.
+- Task name: `Control Plane Review of Paper 1 Reproduction Preflight Evidence`.
+- Task type: **CONTROL_PLANE_EVIDENCE_REVIEW**.
+- Status: **RETURNED_FOR_WORKER_CORRECTION**.
+- Execution machine: **LOCAL / CONTROL_PLANE** for review；RTX5090 only for the minimal correction package.
+- Current ordered step: Worker returns the narrow corrected evidence defined by the
+  [R0-I review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_i_control_plane_review.md).
 - Historical superseded snapshot: `DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`.
 - Formal RAG security experiment: **NOT STARTED**.
 - Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.
@@ -29,17 +30,22 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Paper-First Comparative Evidence Principle: **HUMAN_ACCEPTED**.
 - Paper 1 canonical research route: **ACCEPTED AS CURRENT RESEARCH ROUTE**.
 - RTX5090 Compute Worker Bootstrap: **HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY**.
-- S6.1-R0: **APPROVED_TO_START**.
-- S6.1-P1: **NOT STARTED / DEFERRED UNTIL R0 REVIEW**.
+- Historical superseded execution snapshot — S6.1-R0: **APPROVED_TO_START**.
+- S6.1-R0-I: **RETURNED_FOR_WORKER_CORRECTION**.
+- Parent S6.1-R0: **REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE**.
+- S6.1-R0-FU1: **RECOMMEND / NOT APPROVED**.
+- S6.1-P1: **NOT STARTED / DEFERRED UNTIL R0 ACCEPTANCE AND OWNER DECISION**.
 - Dataset Generation: **NOT APPROVED**.
 - Detector Implementation: **NOT APPROVED**.
 - Model Training: **NOT APPROVED**.
-- Current blocker for starting R0-A after Worker sync: **NONE**. `BLK-S6.1-LR1-001` remains **OPEN** only for future strict
-  reproduction/comparison eligibility because paper-result commits, revisions, baseline compatibility and baseline-specific resources remain incomplete;
-  unconfirmed redistribution licenses do not by themselves block separately approved internal research execution.
-- Environment observation: missing NumPy in `llmguard-paper1` is
-  `NON_BLOCKING_ENVIRONMENT_COMPLETENESS_OBSERVATION`, not GPU/CUDA/PyTorch failure; R0-A may install and fingerprint its
-  resolved version.
+- Current review blocker: `R0-I-EVIDENCE-CORRECTION-001` — GMTP sample-absence/Docker claims conflict with the exact official
+  commit；SafeRAG executed-script hash and all-record schema coverage are incomplete。This blocks R0 acceptance, not baseline roles。
+- `BLK-S6.1-LR1-001` remains **OPEN** for future strict comparison；license/redistribution issues remain separate from internal
+  research access。
+- Environment observation resolved narrowly: R0-A records NumPy 2.4.6 in `llmguard-paper1`；this remains environment evidence,
+  not a baseline result。
+- Evidence archive SHA-256:
+  `0ce85a2bfe24e0456f9d29edc40659786d4273fcfc634df8749aee6d0e3aa9cc`；internal index verified `18/18`。
 - LOCAL Control Plane did not run PoisonedRAG, GMTP or SafeRAG and did not download data/model or invoke an API.
 - Canonical entry: [Stage 6.1 research README](../research/stage6_1_hidden_knowledge_poisoning/README.md).
 - Canonical Paper 1 route: [Paper 1 Research Route](../research/stage6_1_hidden_knowledge_poisoning/paper1_research_route.md).
@@ -113,10 +119,9 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - `S6.1-LR1` is `HUMAN_ACCEPTED` at commits `1294632ca0501e7b999a29383780bec49eaa6b04` and
   `85a565535a38196a7d6003e728b5cb6a2b17fa8a` for its benchmark alignment and Context Recovery Governance records.
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
-- `S6.1-R0 EXECUTION` is approved on RTX5090 under the canonical R0 order and stop conditions. The former pending-approval
-  state is a superseded historical snapshot.
-- Next operational action: RTX5090 pulls the latest Control Plane commit and begins R0-A. Next research gate: R0-I Control Plane
-  Review. S6.1-P1, Detector, training and formal experiment remain separately gated.
+- Historical R0 execution approval remains preserved, but R0-I is now `RETURNED_FOR_WORKER_CORRECTION`; R0 is not accepted。
+- Next operational action: RTX5090 produces only the minimal corrected evidence package. LOCAL then repeats R0-I. The project
+  owner decides R0 acceptance and whether to approve recommended R0-FU1. S6.1-P1 remains closed。
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. Its acceptance does not approve S6-T5.6 ContextBuilder behavior; that remains a separate boundary.
@@ -131,23 +136,25 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 ## Must Not Start
 
 - On LOCAL: any S6.1-R0 execution, external repo clone/install/smoke, dataset/model download or GPU computation.
-- On RTX5090: out-of-order R0 work, all-three-repos-in-one-environment installation, full NQ/HotpotQA/MS MARCO or production
-  indexes without `MINIMUM_DATA_REQUIREMENT` review, paid API/API key, unapproved large LLM download, silent algorithm change.
-- Everywhere: S6.1-P1, Detector implementation, training, Paper Result, formal experiment or SOTA comparison.
+- On RTX5090: anything beyond the three narrow evidence corrections in the R0-I review；new installs、data/model download、API、
+  broad environment exploration、algorithm reimplementation or formal workload。
+- Everywhere: R0-FU1 execution、S6.1-P1、Detector implementation、dataset freeze/construction、training、Paper Result、
+  formal experiment or SOTA comparison。
 - Additional ContentResolver changes, document-content access beyond synthetic test inputs, Trust policy, retrieval guard, or any S6-T5.8 behavior beyond the completed documentation closure.
 - Groq, mock/real LLM invocation, evaluator, metrics, T10-T15, formal RAG attack matrix or report generation.
 - New Stage 6 business code under `src/codeguarder/`, any mutation of Stage 1-5, or any mutation of Stage 6 data fixtures.
 
 ## Current Claims Boundary
 
-Can additionally claim: S6.1-LR1, Context Recovery Governance and Paper-First are accepted；RTX5090 Bootstrap is
-`HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY` for WSL GPU、PyTorch cu130、FP16/BF16 basic tensor computation and Git
-context sync；S6.1-R0 is `APPROVED_TO_START` on the Compute Worker.
+Can additionally claim: the R0 archive and 18 indexed evidence objects passed hash verification；R0-A environment fingerprint is
+supported；the three official commits exist；SafeRAG has a dataset-only smoke artifact；R0-I found a material GMTP mismatch and
+returned only minimal corrections。The original baseline roles remain unchanged。
 
 Can claim: within the offline engineering-test scope, the `S6-T5 Controlled Retrieval and Traceable Context Baseline` is HUMAN_ACCEPTED. It comprises deterministic and label-isolated retrieval runtime contracts, provider-neutral DenseRetriever, the synthetic ContentResolver, EvidenceEnvelope/Citation boundaries, deterministic Context Package behavior, and S6-T5.7 controlled integration evidence including an opt-in fixed MiniLM plus temporary Chroma close/reopen check. `4ecf73a` is the accepted baseline content commit; the current governance acceptance commit is not an implementation or integration-evidence commit. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
-Cannot claim: any external baseline was reproduced；RTX5090 paper-level performance was benchmarked；dataset/Detector/Our
-Method/training/result exists；or retrieval quality/security, SOTA, production readiness or formal-experiment outcomes are established.
+Cannot claim: R0 accepted；any external baseline was reproduced；strict comparison is ready；SafeRAG pipeline is ready；dataset/
+Detector/Our Method/training/result exists；or retrieval quality/security, SOTA, production readiness or formal-experiment outcomes
+are established.
 
 ## Known Technical Debt
 
@@ -159,5 +166,5 @@ Method/training/result exists；or retrieval quality/security, SOTA, production 
 ## Last Update
 
 - Date: `2026-07-31`.
-- Updated by: Codex recording RTX5090 Bootstrap human acceptance and project-owner approval for Worker-only S6.1-R0 execution.
-  LOCAL remains governance-only; Formal Experiment remains not started.
+- Updated by: Codex completing R0-I evidence review as `RETURNED_FOR_WORKER_CORRECTION` and registering the
+  Control-Plane-First Token Economy Principle. Formal Experiment remains not started.
