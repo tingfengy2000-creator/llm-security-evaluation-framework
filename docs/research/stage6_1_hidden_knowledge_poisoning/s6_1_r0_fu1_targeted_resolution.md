@@ -1,16 +1,19 @@
 # S6.1-R0-FU1 Targeted External Baseline Feasibility Resolution
 
-> Task: `S6.1-R0-FU1-P0 / LOCAL Control-Plane Planning and Execution Contract Freeze`
-> Status: `COMPLETED_PENDING_OWNER_REVIEW`
+> Accepted task: `S6.1-R0-FU1-P0 / LOCAL Control-Plane Planning and Execution Contract Freeze`
+> Current task: `S6.1-R0-FU1-L1 / PoisonedRAG Released Artifact Identity and Deterministic Assembly Validation`
+> Status: `P0 HUMAN_ACCEPTED / L1 HUMAN_ACCEPTED`
 > Execution mode: `LOCAL-FIRST / WORKER-GATED`
-> Evidence class: `CONTROL_PLANE_SOURCE_ANALYSIS / CONTRACT_CANDIDATE`
+> Evidence class: `CONTROL_PLANE_SOURCE_ANALYSIS / SOURCE_ARTIFACT_VALIDATION / DETERMINISTIC_TRANSFORMATION_VALIDATION`
 > Formal experiment: `FORMAL_EXPERIMENT = NOT STARTED`
 
 ## 1. Scope and decision boundary
 
-The project owner approved `S6.1-R0-FU1`, but only P0 is currently executable. This record freezes source-backed candidate
-identities and future Worker contracts. LOCAL did not clone or run an external baseline, download a dataset/model, invoke an API,
-or contact RTX5090. `FU1-W1` and `FU1-W2` remain `NOT APPROVED`; this document is not a P1 protocol or experiment result.
+The project owner accepted P0 and reassigned the former Worker W1 candidate to LOCAL as `S6.1-R0-FU1-L1`. L1 performed only
+source-artifact identity, whole-file schema and deterministic transformation validation against exact GitHub commit content and
+accepted evidence. It did not run a model, retrieval, external baseline or API service; it did not acquire the NQ corpus or contact
+RTX5090. The former `FU1-W1` is `SUPERSEDED_BY_LOCAL_L1`, not failed. `FU1-W2` is
+`READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED`; this document is not a P1 protocol or experiment result.
 
 Current baseline roles remain unchanged:
 
@@ -83,6 +86,54 @@ generator revision, API snapshot, prompt-run manifest, seed, or paper-result com
 - `API_FREE_REUSE_OF_RELEASED_ATTACK_TEXTS = FEASIBLE`;
 - `API_FREE_ATTACK_GENERATION = NOT ESTABLISHED`;
 - `EXACT_PAPER_GENERATION_IDENTITY = PARTIAL / UNRESOLVED`.
+
+### L1 whole-artifact and deterministic-assembly validation
+
+L1 read the exact GitHub commit content in memory and recomputed both Git blob framing and ordinary SHA-256. No full attack text
+is stored in this governance record.
+
+| Evidence field | Verified value |
+| --- | --- |
+| Repository / commit | `sleeepeer/PoisonedRAG@f660d72174f06b13fae5163ce656e7b235db858f` |
+| Artifact path | `results/adv_targeted_results/nq.json` |
+| GitHub API / recomputed Git blob | both `d1da818b28da7013864ea465ff88ad4c3ca29562` |
+| File size / SHA-256 | 123,089 B / `44df711454a9bada08e72e9e4a003a2cc845c43707ac93a3493e5168ec415cf2` |
+| Whole-file target count | `NQ_TARGET_COUNT = 100` |
+| Required fields | all 100 records contain non-empty `id`, `question`, `correct answer`, `incorrect answer`, `adv_texts`; map key equals `id` |
+| Adversarial-text distribution | `ADV_TEXTS_PER_TARGET_DISTRIBUTION = {5: 100}` |
+| Schema result | `SCHEMA_VALIDATION = PASS / 0 errors` |
+| Assembly source | `src/attack.py`；Git blob `a29630c42508adbb421cc5ee23eac9bbcd58be44`；SHA-256 `31fb59905812e7656f7206f416dc53228a3089390b0ecd9f0c9e9575dbfc250b` |
+
+Official lines 92-93 first compute `adv_text_a = question + "."`, then compute
+`adv_texts = [adv_text_a + i for i in adv_texts_b]`. Therefore the exact semantics are UTF-8 text
+`question + "." + adv_text`, preserving artifact order and content with no inserted space, strip, normalization or suffix.
+
+The fixed L1 sample is serialized artifact record index 0, map key and `id` both `test1`, followed by `adv_texts[0:5]` in source
+order. The question SHA-256 is `e795764af1655c8de777c4f265400922512e0ab905cdd073b39cca7cc19d9c96`.
+
+| Assembled index | UTF-8 bytes | SHA-256 |
+| ---: | ---: | --- |
+| 0 | 234 | `0bb73269d9294a0417fab16314656c14465472f3b539f4617002839dd98114ac` |
+| 1 | 217 | `2f891304ab4fbf620e6befe0566600c2e7904832b7da3fafd157e0d90836f1c7` |
+| 2 | 207 | `3449b7d5ad7ec0e72d83b35e9c433a0ca9fd2411e2ed7ca6bd8ff46e7e72ffdf` |
+| 3 | 244 | `c82243914a79cacfdbc081cfc4d21524251e8d5c383fd85f509bbec1a924641b` |
+| 4 | 218 | `ef79bbb3741499e288b615fe5ca45cc85a9606fbf2cdc5ac53f3d6d7d1cb474d` |
+
+Ordered-list aggregate rule: SHA-256 over the ASCII lowercase document SHA-256 values joined by LF, with no trailing LF.
+Aggregate: `f22b7576c27926a07a7138e952cf3ee6b86c982b584a3078f3364577d32c60a7`.
+
+L1 decisions:
+
+- `AUTHOR_RELEASED_NQ_ATTACK_TEXT_ARTIFACT_IDENTITY_BOUND = TRUE`;
+- `AUTHOR_RELEASED_ATTACK_TEXT_ARTIFACT = IDENTITY_VERIFIED`;
+- `OFFICIAL_LM_TARGETED_ASSEMBLY = DETERMINISTICALLY_VERIFIED`;
+- `API_FREE_REUSE_OF_RELEASED_ATTACK_TEXTS = VERIFIED_FEASIBLE`;
+- `AUTHOR_RELEASED_ATTACK_ARTIFACT_USABLE = PARTIAL` remains the scientific-equivalence qualification;
+- `API_FREE_ATTACK_GENERATION = NOT ESTABLISHED` and
+  `EXACT_PAPER_GENERATION_IDENTITY = PARTIAL / UNRESOLVED` remain unchanged.
+
+Candidate paper wording is “we reuse the attack artifacts released by PoisonedRAG”, never “we reproduced PoisonedRAG attack
+generation”. Final publication wording remains a P1 decision.
 
 ### Candidate external attack contract
 
@@ -164,7 +215,7 @@ detector path. This is a compatibility hypothesis until W2 executes.
 | Role | Upstream model ID | Frozen candidate revision | Weight bytes | Planned use |
 | --- | --- | --- | ---: | --- |
 | document/question encoder | `facebook/contriever-msmarco` | `abe8c1493371369031bcb1e02acb754cf4e162fa` | 438,007,537 | required |
-| MLM reranker | `bert-base-uncased` | `86b5e0934494bd15c9632b12f734a8a67f723594` | 440,449,768 safetensors | required |
+| MLM reranker | upstream alias `bert-base-uncased` -> canonical `google-bert/bert-base-uncased` | `86b5e0934494bd15c9632b12f734a8a67f723594` | 440,449,768 safetensors | required |
 | alternative MLM | `FacebookAI/roberta-base` | `e2da8e2f811d1448a5b465c236feacd80ffbac7b` | 498,818,054 safetensors | optional, not W2 |
 | DPR context encoder | `facebook/dpr-ctx_encoder-single-nq-base` | `bb21a3c2b1656d60c6a8e920283bc40dabddadb8` | 437,983,985 | optional, not W2 |
 | DPR question encoder | `facebook/dpr-question_encoder-single-nq-base` | `d04a52f6d2f96c60117a925e8c24c4043a75f265` | 437,986,065 | optional, not W2 |
@@ -210,7 +261,7 @@ Comparison classes are `STRICTLY_COMPARABLE`, `PARTIALLY_COMPARABLE`, `TRANSFER_
 | Metrics | ASR, retrieval P/R/F1 | FR, nDCG@10, CACC/ACC, ASR, token precision | task retrieval/generation metrics |
 | Published results | yes | yes | yes |
 | Released artifacts | attack texts + BEIR result JSON | 18 full 200-query artifacts | dataset and task KB files |
-| Formal reproduction need | W1 identity validation, then P1 protocol | W2 core execution, then P1 protocol | artifact contract already sufficient for P1 design |
+| Formal reproduction need | L1 identity validation accepted, then later P1 protocol | W2 core execution, then later P1 protocol | artifact contract already sufficient for later P1 design |
 | Intended use | fixed external attack exposure | raw detection-score baseline | Chinese benchmark/task reference |
 | Current comparability | `PARTIALLY_COMPARABLE` | `PARTIALLY_COMPARABLE` with PoisonedRAG on NQ | `BENCHMARK_REFERENCE_ONLY` |
 
@@ -220,65 +271,72 @@ artifacts, retriever settings and result paths. Using the PoisonedRAG-released t
 `TRANSFER_EVALUATION_ONLY` track; using GMTP's packaged PoisonedRAG corpus provides a GMTP-native detector track. P1 must keep
 those tracks separate.
 
-## 8. Proposed Worker contracts — not approved
+## 8. FU1 execution split and final W2 contract
 
-### FU1-W1: PoisonedRAG Targeted Artifact / Attack Path Validation
+### Historical W1 candidate -> LOCAL L1
 
-| Contract field | Frozen candidate |
-| --- | --- |
-| Repo / commit | `https://github.com/sleeepeer/PoisonedRAG.git` / `f660d72174f06b13fae5163ce656e7b235db858f` |
-| Environment | WSL Ubuntu; system Python 3 stdlib only; no install, model, dataset or API |
-| Exact source | `results/adv_targeted_results/nq.json` blob/SHA-256 above; `src/attack.py` blob `a29630c42508adbb421cc5ee23eac9bbcd58be44` |
-| Exact sample | lexicographically first key `test1`; validate required fields and exactly five `adv_texts` |
-| Exact operation | verify commit/blob/SHA-256/schema/count; construct five strings using the audited `question + "." + adv_text` rule; hash outputs; do not save full texts in public evidence |
-| Exact output | redacted JSON manifest with repo/commit/blob/hash, record count, sample ID, field names, five output SHA-256 values, byte counts and source-code identity |
-| Resource ceiling | network <100 MB preferred via partial/sparse clone; disk 1 GB; RAM 2 GB; no GPU; 5 minutes |
-| Stop conditions | hash/schema/count mismatch, network need beyond repo, API/model/data request, dirty source tree |
-| Claims boundary | validates released-artifact reuse/call-path only; does not regenerate poison, reproduce retrieval/ASR or prove paper-generation identity |
-
-The W1 runner must use `git clone --filter=blob:none --no-checkout`, checkout the exact commit and sparse-select only
-`src/attack.py` plus `results/adv_targeted_results/nq.json`; its validation script and output manifest must be hashed before and
-after execution.
+The P0 Worker candidate `FU1-W1 / PoisonedRAG Targeted Artifact / Attack Path Validation` is
+`SUPERSEDED_BY_LOCAL_L1`, not failed. Its evidence objective was completed locally in section 3 without GPU, environment
+installation, model, corpus, retrieval or API execution.
 
 ### FU1-W2: GMTP Detection-Only Minimal Smoke
 
-| Contract field | Frozen candidate |
+Status: `READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED`.
+
+The W2 input is a GMTP-packaged `poisonedrag/hotflip/contriever` artifact. It is not the PoisonedRAG official LM-targeted
+artifact verified by L1. W2 proves only GMTP detector-core executability; it does not create a unified PoisonedRAG LM-targeted ->
+GMTP formal comparison chain.
+
+| Contract field | Final frozen candidate |
 | --- | --- |
 | Repo / commit | `https://github.com/mountinyy/GMTP.git` / `15b48d150f93711371eb8da22c211cd84a0cf4df` |
-| Environment | isolated clone of accepted Worker Python 3.11 / `torch 2.13.0+cu130`; add only `transformers==4.47.1`, `numpy==1.26.4` and their resolved dependencies; return full freeze |
-| Exact models | local snapshots of Contriever and BERT at the revisions in section 5; pass snapshot paths to unmodified `GMTP` constructor |
-| Exact input | blob `72fb52...`; record index 0 / `query_id=test0`; score `gt_text[0]` and `poisoned_docs[0]` |
-| Exact detector config | `ret_type=contriever`, `N=5`, `M=5`, `remove_threshold=0.2`, `remove_lambda=1.0`, `topk=10`, `do_sort=false` |
-| Exact call | invoke official `GMTP.filter_documents`; a read-only Python trace wrapper may capture its local `doc_infos` at return without editing detector source |
-| Exact output | commit/blob/model revisions, source SHA-256 before/after, sample ID/doc-role hashes, `sim`, `avg_masked_prob`, retained flag, token-score hash/count, wall time, RSS, peak VRAM and environment/GPU identity |
-| Resource ceiling | download 1.2 GB; disk 5 GB; RAM 16 GB; VRAM 8 GiB; 10 minutes after cache availability |
-| Stop conditions | source/model revision mismatch, source mutation, CPU fallback, OOM/ceiling breach, NaN/Inf, unexpected Java/Pyserini/FAISS/API/generator request |
-| Claims boundary | engineering detector-core smoke only; no threshold-quality, attack detection rate, nDCG/ASR, strict comparison or formal reproduction claim |
+| Detector source | `src/defenses/method.py`；blob `84e69b3eadeb8adc0ce521501f8b560d6377b489`；SHA-256 `83531fe0e4933074c0a710f3dc07bb260b5d638d3cd4c8c317a353de135e00f6` |
+| Environment | independent `gmtp-compat`；Python 3.11；`torch 2.13.0+cu130` / CUDA runtime 13.0；`transformers==4.47.1`；`numpy==1.26.4`；only resolved core import dependencies |
+| Exact encoder | `facebook/contriever-msmarco@abe8c1493371369031bcb1e02acb754cf4e162fa` |
+| Exact MLM | canonical `google-bert/bert-base-uncased@86b5e0934494bd15c9632b12f734a8a67f723594`；upstream alias `bert-base-uncased` resolves to this same repository/revision |
+| Input artifact | `data/poisoned_documents/poisonedrag/hotflip/contriever/nq-200.json`；blob `72fb52cda9ea794bafb5c114ee937a00f4d1728a`；975,113 B；SHA-256 `0233a26ecc56d7baf1448b86a114e328beece60624aa88304fa3553e90421e44` |
+| Exact record | serialized array index 0；`query_id=test0` |
+| Question | field `query`；49 UTF-8 B；SHA-256 `53c1176d667577193fa7b4eb171319597c4b99dd80b3e72d8eb779b98a204b0d` |
+| Benign document | field `gt_text`, index 0；351 UTF-8 B；SHA-256 `e177b2da95be6282c2f4c7855e36dde35a875bd21190755b27329353252d2f09` |
+| Poisoned document | field `poisoned_docs`, index 0；363 UTF-8 B；SHA-256 `b94ca256b3ac79d22429abe1d36d90fad352c024cd2b5e19b78cfb2e72135a5b` |
+| `W2_PARAMETER_CONTRACT` | `ret_type=contriever`, `N=5`, `M=5`, `remove_threshold=0.2`, `remove_lambda=1.0`, `topk=10`, `do_sort=false` |
+| Exact call | load exact file through `importlib.util.spec_from_file_location`, instantiate unmodified `GMTP`, call `filter_documents` once with `[gt_text[0], poisoned_docs[0]]`; a read-only trace wrapper may capture local `doc_infos` without source mutation |
+| Required output | source/input/model identities；per-document `sim`, `avg_masked_prob`, threshold `0.2`, retained/filtered flag；exit code；wall time；peak RSS/VRAM；environment/GPU fingerprint |
+| Resource ceiling | model download `<2 GB` expected；disk 5 GB；RAM <=16 GB；VRAM <=8 GiB；runtime <=10 minutes after model availability |
+| Stop conditions | identity/hash mismatch；source patch；CPU fallback；NaN/Inf；OOM/resource ceiling；unexpected Java/Pyserini/FAISS/BEIR/datasets/Docker/API/generator requirement；any ceiling exceedance returns `WORKER_RESOURCE_APPROVAL_REQUIRED` and stops |
+| Claims boundary | engineering detector-core smoke only；no accuracy/F1/AUPRC/AUROC/Filtering Rate/ASR/statistics/strict comparison/formal reproduction claim |
 
-W2 must not install Java, Pyserini, FAISS, BEIR, generators or evaluators. If exact source cannot run with the accepted modern
-Torch base, return `COMPATIBILITY_BLOCKER` with the minimal stack trace; do not downgrade Torch or alter the algorithm without a
-new owner decision.
+Parameter provenance is explicit: `src/defenses/method.py` constructor defaults are `N=10`, `M=5`,
+`remove_threshold=-1.0`, `remove_lambda=1.0`; the official experiment `conf/config.yaml` instead sets `N=5`, `M=5`,
+`remove_threshold=0.2`, `remove_lambda=1.0`. W2 deliberately freezes the official experiment config values, while
+`topk=10` and `do_sort=false` remain the `filter_documents` defaults. The two-document smoke does not use top-k as a research
+metric.
+
+W2 must create/use only the independent `gmtp-compat` environment and must not mutate `llmguard-paper1`. Direct loading of
+`src/defenses/method.py` limits imports to its core graph (`typing`, NumPy, PyTorch and Transformers). Java, Pyserini, FAISS,
+BEIR, Docker, `datasets`, generators and evaluators are prohibited. If a top-level compatibility issue still occurs, return
+`COMPATIBILITY_BLOCKER`; any source patch requires separate owner review and must not change detector scoring.
 
 ## 9. Artifact approval budget
 
 | Artifact | Source / revision | Transfer / disk reserve | RAM / VRAM ceiling | License or usage note | Need |
 | --- | --- | --- | --- | --- | --- |
-| PoisonedRAG NQ attack JSON | exact repo commit/blob above | 123 KB / <1 GB sparse workspace | 2 GB / none | repo code MIT；NQ-derived content remains under dataset terms | required only for W1 |
+| PoisonedRAG NQ attack JSON | exact repo commit/blob above | 123 KB / in-memory LOCAL validation | 2 GB / none | repo code MIT；NQ-derived content remains under dataset terms | L1 completed |
 | GMTP NQ 200 artifact | exact repo commit/blob above | 0.98 MB / included with repo | 2 GB / none before scoring | repository artifact license unconfirmed；internal use only pending terms | required only for W2 |
 | Contriever + BERT | exact Hugging Face revisions above | ~0.9-1.2 GB / 5 GB | 16 GB / 8 GiB | model-card terms must be retained and rechecked on approval | required only for W2 |
 | RoBERTa or DPR alternatives | exact revisions above | ~0.5-0.9 GB extra / 5 GB extra | 16 GB / 8 GiB | model-card terms apply | optional; excluded from W2 |
-| BEIR NQ corpus/index | official BEIR snapshot, final hash not frozen | 0.5 GB zip / 15-30 GB planned | 32 GB / estimated <16 GiB | NQ CC BY-SA obligations | not W1/W2；`OWNER_LARGE_ARTIFACT_APPROVAL_REQUIRED` |
+| BEIR NQ corpus/index | official BEIR snapshot, final hash not frozen | 0.5 GB zip / 15-30 GB planned | 32 GB / estimated <16 GiB | NQ CC BY-SA obligations | not L1/W2；`OWNER_LARGE_ARTIFACT_APPROVAL_REQUIRED` |
 | HotpotQA corpus/index | official BEIR snapshot | 0.65 GB zip / 25-50 GB planned | 32-64 GB / estimated <16 GiB | CC BY-SA 4.0 | optional fallback；`OWNER_LARGE_ARTIFACT_APPROVAL_REQUIRED` |
 | MS MARCO corpus/index | official BEIR snapshot | 1.08 GB zip / 40-80 GB planned | 64 GB / estimated <16 GiB | non-commercial research; underlying rights not granted | optional later track；`OWNER_LARGE_ARTIFACT_APPROVAL_REQUIRED` |
 
-No large-artifact approval is required to approve only W1/W2 under their frozen ceilings. Formal corpus/index work remains closed.
+No large-artifact approval is required for the completed L1 or proposed W2 under its frozen ceiling. Formal corpus/index work
+remains closed.
 
 ## 10. Remaining blockers and P1 entry criteria
 
 ### Remaining blockers
 
-1. `BLK-S6.1-FU1-W1-001`: W1 has not verified the exact sparse-checkout artifact, deterministic assembly hashes and evidence
-   manifest on Worker; execution is not approved.
+1. `BLK-S6.1-FU1-W1-001` is `RESOLVED_BY_LOCAL_L1 / SUPERSEDED_BY_LOCAL_L1`; no Worker W1 remains.
 2. `BLK-S6.1-FU1-W2-001`: W2 has not verified exact GMTP source compatibility, pinned models, scores and measured resources on
    RTX5090; execution is not approved.
 3. PoisonedRAG exact historical generator/API/paper-result identity remains `PARTIAL`; P1 must decide whether author-released
@@ -290,7 +348,7 @@ No large-artifact approval is required to approve only W1/W2 under their frozen 
 
 ### `S6.1-P1_ENTRY_CRITERIA`
 
-P1 may be recommended only when the owner has reviewed P0 and, if approved, accepted W1/W2 evidence showing:
+P1 may be recommended only after the accepted P0/L1 and, if separately approved, accepted W2 evidence showing:
 
 - NQ remains the selected primary external dataset and its later formal snapshot/license obligations are explicit;
 - PoisonedRAG released-artifact identity, exact assembly, retriever/Top-K/attack budget and partial-equivalence boundary are
@@ -300,11 +358,13 @@ P1 may be recommended only when the owner has reviewed P0 and, if approved, acce
 - strict, partial, transfer-only and benchmark-reference boundaries are explicit;
 - formal data/index/model budgets, metrics, thresholds, seeds and comparison protocol remain a separate P1 approval.
 
-P0 alone does not satisfy runtime criteria and does not open P1. End state:
+P0/L1 do not satisfy runtime or formal-protocol criteria and do not open P1. End state:
 
-- `S6.1-R0-FU1-P0 = COMPLETED_PENDING_OWNER_REVIEW`;
-- `FU1-W1 = NOT APPROVED`;
-- `FU1-W2 = NOT APPROVED`;
+- historical `S6.1-R0-FU1-P0 = COMPLETED_PENDING_OWNER_REVIEW` remains preserved;
+- `S6.1-R0-FU1-P0 = HUMAN_ACCEPTED`;
+- `S6.1-R0-FU1-L1 = HUMAN_ACCEPTED`;
+- former `FU1-W1 RTX5090 = SUPERSEDED_BY_LOCAL_L1`;
+- `S6.1-R0-FU1-W2 = READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED`;
 - `S6.1-P1 = NOT STARTED`;
 - `Dataset = NOT FROZEN`; `Detector = NOT IMPLEMENTED`; `Training = NOT STARTED`;
 - `FORMAL_EXPERIMENT = NOT STARTED`; `Our Method Result = NONE`.

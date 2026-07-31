@@ -645,3 +645,25 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   Our Method Result `NONE`；`FORMAL_EXPERIMENT = NOT STARTED`。Auto Continue = NO。
 - Evidence: [FU1 Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、
   upstream exact commits/blob metadata and accepted corrected R0 evidence hashes。
+
+## PODR-052: FU1 Planning and LOCAL Artifact Validation Acceptance; W2 Contract Freeze
+
+- Date: `2026-07-31`.
+- Decision: `S6.1-R0-FU1-P0 = HUMAN_ACCEPTED` and
+  `S6.1-R0-FU1-L1 = HUMAN_ACCEPTED` on `LOCAL / CONTROL_PLANE`.
+- L1 evidence: PoisonedRAG commit `f660d72174f06b13fae5163ce656e7b235db858f`；released NQ artifact blob
+  `d1da818b28da7013864ea465ff88ad4c3ca29562` / SHA-256
+  `44df711454a9bada08e72e9e4a003a2cc845c43707ac93a3493e5168ec415cf2`；all `100` records satisfy the frozen schema and
+  contain exactly five non-empty attack texts；official assembly is exactly `question + "." + adv_text`.
+- Determinism: fixed target `test1` has five ordered assembled-document SHA-256 values and aggregate
+  `f22b7576c27926a07a7138e952cf3ee6b86c982b584a3078f3364577d32c60a7`, as recorded in the canonical FU1 resolution.
+- Boundary: released attack texts are reusable without API calls；this is not attack generation reproduction. Exact historical
+  generator/API/paper-run identity remains `PARTIAL / UNRESOLVED`.
+- Supersession: historical `FU1-W1` is `SUPERSEDED_BY_LOCAL_L1 / NOT FAILED`; no Worker W1 remains.
+- W2: the hardened `GMTP Detection-Only Minimal Smoke` contract is
+  `READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED`. Its GMTP-packaged HotFlip/Contriever input is not the L1
+  LM-targeted artifact and cannot establish a unified or strict comparison.
+- Stop boundary: no RTX5090 contact, W2 execution, model/retrieval/API/NQ-corpus work, S6.1-P1, Dataset freeze, Detector,
+  training, Our Method Result or Formal Experiment is authorized by this decision. Auto Continue = NO.
+- Evidence: [FU1 Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、
+  [Current Work State](current_work_state.md)、REL-2026-0013 and governance tests.

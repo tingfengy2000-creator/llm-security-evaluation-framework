@@ -2,8 +2,8 @@
 
 ## 当前状态
 
-- 当前任务：`S6.1-R0-FU1-P0 LOCAL Control-Plane Planning and Execution Contract Freeze`。
-- 任务状态：`COMPLETED_PENDING_OWNER_REVIEW`；parent FU1 为 `APPROVED / LOCAL-FIRST / WORKER-GATED`。
+- 当前任务：`S6.1-R0-FU1-L1 PoisonedRAG Released Artifact Identity and Deterministic Assembly Validation`。
+- 任务状态：`P0 HUMAN_ACCEPTED / L1 HUMAN_ACCEPTED`；parent FU1 为 `APPROVED / LOCAL-FIRST / WORKER-GATED`。
 - 历史前置：`S6.1-LR1` 为 `HUMAN_ACCEPTED`。
 - 追加治理：Git-native Context Recovery Governance 与 Paper-First Comparative Evidence Principle 均为 `HUMAN_ACCEPTED`。
 - Paper 1 canonical route：`ACCEPTED AS CURRENT RESEARCH ROUTE`。
@@ -17,10 +17,11 @@
 - Superseded R0 snapshot：`DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`。
 - Historical R0 execution snapshot：`APPROVED_TO_START`。
 - R0：`HUMAN_ACCEPTED_WITH_BLOCKERS`；historical first-review return 与 corrected-evidence acceptance 均保留。
-- FU1-P0 outcome：NQ 为 primary external dataset candidate；PoisonedRAG released attack artifact 为 `PARTIAL`；GMTP
-  official BEIR identity 与 detection-only path 已恢复；SafeRAG SN/ICC artifact contract 已冻结。
-- 当前 action：项目负责人复核 [FU1 targeted resolution](s6_1_r0_fu1_targeted_resolution.md) 并决定是否分别批准 W1/W2。
-- Worker 状态：`FU1-W1 = NOT APPROVED`；`FU1-W2 = NOT APPROVED`；不得联系 RTX5090。
+- FU1 outcome：P0 合同已验收；L1 已验证 PoisonedRAG released NQ artifact、100-record schema、官方 LM-targeted
+  `question + "." + adv_text` 拼装与固定样本哈希。工件可 API-free 复用，但不等于复现 API generation。
+- 当前 action：项目负责人仅决定是否批准 [FU1 targeted resolution](s6_1_r0_fu1_targeted_resolution.md) 中冻结的 W2。
+- Worker 状态：原 `FU1-W1 = SUPERSEDED_BY_LOCAL_L1 / NOT FAILED`；`FU1-W2 = READY_FOR_OWNER_EXECUTION_APPROVAL /
+  NOT_YET_EXECUTED`；不得自动联系 RTX5090。
 - Token economy：高推理/设计/审查任务优先 LOCAL；该资源原则不覆盖科学证据与安全治理。
 
 ## 权威入口
@@ -42,6 +43,6 @@
 
 ## 下一审批门
 
-`S6.1-R0-FU1-P0 = COMPLETED_PENDING_OWNER_REVIEW`。项目负责人下一步只决定是否接受 P0，以及是否分别批准候选
-`FU1-W1` / `FU1-W2`。两项 Worker 执行、S6.1-P1、Dataset freeze、Detector、training 和正式实验均未获批准。
+`S6.1-R0-FU1-P0 = HUMAN_ACCEPTED` 且 `S6.1-R0-FU1-L1 = HUMAN_ACCEPTED`。项目负责人下一步只决定是否批准
+`FU1-W2` 执行；W2 尚未执行。S6.1-P1、Dataset freeze、Detector、training 和正式实验均未获批准。
 Auto Continue = NO。

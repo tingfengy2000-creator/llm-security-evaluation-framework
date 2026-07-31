@@ -129,6 +129,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "PODR-049",
             "PODR-050",
             "PODR-051",
+            "PODR-052",
             "S6.1-LR1: HUMAN_ACCEPTED",
             "Git-Native Research Context Recovery Governance: HUMAN_ACCEPTED",
             "s6-t5-rag-baseline-v1",
@@ -141,6 +142,10 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS",
             "S6.1-R0-FU1 = APPROVED",
             "LOCAL-FIRST / WORKER-GATED",
+            "S6.1-R0-FU1-P0 = HUMAN_ACCEPTED",
+            "S6.1-R0-FU1-L1 = HUMAN_ACCEPTED",
+            "SUPERSEDED_BY_LOCAL_L1 / NOT FAILED",
+            "READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, text)
@@ -163,6 +168,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "REL-2026-0010",
             "REL-2026-0011",
             "REL-2026-0012",
+            "REL-2026-0013",
             "Machine Role",
             "Initial Status",
             "Final Status",
@@ -197,9 +203,10 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             state,
         )
         self.assertIn("S6.1-R0-FU1: **APPROVED / LOCAL-FIRST / WORKER-GATED**", state)
-        self.assertIn("S6.1-R0-FU1-P0: **COMPLETED_PENDING_OWNER_REVIEW**", state)
-        self.assertIn("S6.1-R0-FU1-W1: **NOT APPROVED**", state)
-        self.assertIn("S6.1-R0-FU1-W2: **NOT APPROVED**", state)
+        self.assertIn("S6.1-R0-FU1-P0: **HUMAN_ACCEPTED**", state)
+        self.assertIn("S6.1-R0-FU1-L1: **HUMAN_ACCEPTED**", state)
+        self.assertIn("SUPERSEDED_BY_LOCAL_L1 / NOT FAILED", state)
+        self.assertIn("READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED", state)
         self.assertIn("S6.1-P1: **NOT STARTED", state)
         self.assertIn("Dataset: **NOT FROZEN**", state)
         self.assertIn("Detector: **NOT IMPLEMENTED**", state)
@@ -433,7 +440,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("RETURNED_FOR_WORKER_CORRECTION", review)
         self.assertIn("No R0-FU1, S6.1-P1, Dataset, Detector, Training", review)
 
-    def test_fu1_p0_freezes_targeted_contracts_without_opening_worker_or_p1(self) -> None:
+    def test_fu1_p0_l1_acceptance_and_w2_freeze_do_not_open_worker_or_p1(self) -> None:
         resolution = FU1_RESOLUTION.read_text(encoding="utf-8")
         state = CURRENT_STATE.read_text(encoding="utf-8")
         combined = "\n".join(
@@ -452,8 +459,21 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "PRIMARY_EXTERNAL_DATASET_CANDIDATE = NQ",
             "SECONDARY_FALLBACK_DATASET = HotpotQA",
             "AUTHOR_RELEASED_ATTACK_ARTIFACT_USABLE = PARTIAL",
-            "API_FREE_REUSE_OF_RELEASED_ATTACK_TEXTS = FEASIBLE",
+            "AUTHOR_RELEASED_ATTACK_TEXT_ARTIFACT = IDENTITY_VERIFIED",
+            "OFFICIAL_LM_TARGETED_ASSEMBLY = DETERMINISTICALLY_VERIFIED",
+            "API_FREE_REUSE_OF_RELEASED_ATTACK_TEXTS = VERIFIED_FEASIBLE",
             "API_FREE_ATTACK_GENERATION = NOT ESTABLISHED",
+            "d1da818b28da7013864ea465ff88ad4c3ca29562",
+            "44df711454a9bada08e72e9e4a003a2cc845c43707ac93a3493e5168ec415cf2",
+            "a29630c42508adbb421cc5ee23eac9bbcd58be44",
+            "31fb59905812e7656f7206f416dc53228a3089390b0ecd9f0c9e9575dbfc250b",
+            "e795764af1655c8de777c4f265400922512e0ab905cdd073b39cca7cc19d9c96",
+            "0bb73269d9294a0417fab16314656c14465472f3b539f4617002839dd98114ac",
+            "2f891304ab4fbf620e6befe0566600c2e7904832b7da3fafd157e0d90836f1c7",
+            "3449b7d5ad7ec0e72d83b35e9c433a0ca9fd2411e2ed7ca6bd8ff46e7e72ffdf",
+            "c82243914a79cacfdbc081cfc4d21524251e8d5c383fd85f509bbec1a924641b",
+            "ef79bbb3741499e288b615fe5ca45cc85a9606fbf2cdc5ac53f3d6d7d1cb474d",
+            "f22b7576c27926a07a7138e952cf3ee6b86c982b584a3078f3364577d32c60a7",
             "beir-cellar/beir",
             "f062f038c4bfd19a8ca942a9910b1e0d218759d4",
             "DETECTION_ONLY_CALL_PATH",
@@ -464,14 +484,22 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "EVALUATION_ONLY_DEPENDENCY",
             "abe8c1493371369031bcb1e02acb754cf4e162fa",
             "86b5e0934494bd15c9632b12f734a8a67f723594",
+            "0233a26ecc56d7baf1448b86a114e328beece60624aa88304fa3553e90421e44",
+            "ret_type=contriever",
+            "remove_threshold=0.2",
+            "remove_lambda=1.0",
+            "gmtp-compat",
+            "GMTP-packaged",
             "SAFERAG_BENCHMARK_ARTIFACT_CONTRACT",
             "6508f154817910e1f55926c1fee22bca411255df",
             "STRICTLY_COMPARABLE",
             "PARTIALLY_COMPARABLE",
             "TRANSFER_EVALUATION_ONLY",
             "BENCHMARK_REFERENCE_ONLY",
-            "FU1-W1 = NOT APPROVED",
-            "FU1-W2 = NOT APPROVED",
+            "S6.1-R0-FU1-P0 = HUMAN_ACCEPTED",
+            "S6.1-R0-FU1-L1 = HUMAN_ACCEPTED",
+            "SUPERSEDED_BY_LOCAL_L1",
+            "READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED",
             "OWNER_LARGE_ARTIFACT_APPROVAL_REQUIRED",
             "S6.1-P1_ENTRY_CRITERIA",
             "FORMAL_EXPERIMENT = NOT STARTED",
@@ -479,8 +507,8 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             with self.subTest(required=required):
                 self.assertIn(required, combined)
 
-        self.assertNotIn("FU1-W1 = APPROVED", state)
-        self.assertNotIn("FU1-W2 = APPROVED", state)
+        self.assertNotIn("S6.1-R0-FU1-W2: **APPROVED_TO_EXECUTE**", state)
+        self.assertIn("W2 and S6.1-P1 are not automatically authorized", state)
 
     def test_learning_guides_are_non_authoritative(self) -> None:
         for path in (

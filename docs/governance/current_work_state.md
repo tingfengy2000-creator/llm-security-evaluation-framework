@@ -16,12 +16,12 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-R0-FU1-P0`.
-- Task name: `LOCAL Control-Plane Planning and Execution Contract Freeze`.
-- Task type: **CONTROL_PLANE_SOURCE_ANALYSIS / CONTRACT_CANDIDATE**.
-- Status: **COMPLETED_PENDING_OWNER_REVIEW**.
-- Execution machine: **LOCAL / CONTROL_PLANE**；no Worker workload was contacted or executed.
-- Current ordered step: project owner reviews P0 and decides whether to approve `FU1-W1` and/or `FU1-W2` separately.
+- Task ID: `S6.1-R0-FU1-L1`.
+- Task name: `PoisonedRAG Released Artifact Identity and Deterministic Assembly Validation`.
+- Task type: **SOURCE_ARTIFACT_VALIDATION / DETERMINISTIC_TRANSFORMATION_VALIDATION**.
+- Status: **HUMAN_ACCEPTED** under the owner's conditional acceptance rule after all L1 evidence passed.
+- Execution machine: **LOCAL / CONTROL_PLANE**；no model/retrieval/API/GPU workload or Worker contact occurred.
+- Current ordered step: project owner decides whether to approve `S6.1-R0-FU1-W2` execution on RTX5090.
 - Historical superseded snapshot: `DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`.
 - Formal RAG security experiment: **NOT STARTED**.
 - Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.
@@ -34,10 +34,12 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Historical first-review parent snapshot — S6.1-R0: **REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE**.
 - Parent S6.1-R0: **HUMAN_ACCEPTED_WITH_BLOCKERS**.
 - S6.1-R0-FU1: **APPROVED / LOCAL-FIRST / WORKER-GATED**.
-- S6.1-R0-FU1-P0: **COMPLETED_PENDING_OWNER_REVIEW**.
-- S6.1-R0-FU1-W1: **NOT APPROVED**.
-- S6.1-R0-FU1-W2: **NOT APPROVED**.
-- S6.1-P1: **NOT STARTED / DEFERRED UNTIL P0 OWNER REVIEW, REQUIRED W1/W2 ACCEPTANCE AND SEPARATE P1 APPROVAL**.
+- Historical P0 snapshot: **COMPLETED_PENDING_OWNER_REVIEW**.
+- S6.1-R0-FU1-P0: **HUMAN_ACCEPTED**.
+- S6.1-R0-FU1-L1: **HUMAN_ACCEPTED**.
+- Historical S6.1-R0-FU1-W1 candidate: **SUPERSEDED_BY_LOCAL_L1 / NOT FAILED**.
+- S6.1-R0-FU1-W2: **READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED**.
+- S6.1-P1: **NOT STARTED / REQUIRES ACCEPTED W2 EVIDENCE AND SEPARATE P1 APPROVAL**.
 - Dataset: **NOT FROZEN**.
 - Dataset Generation: **NOT APPROVED**.
 - Detector: **NOT IMPLEMENTED**.
@@ -49,8 +51,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   return remain historical evidence。
 - `BLK-S6.1-LR1-001` remains **OPEN** for future strict comparison；license/redistribution issues remain separate from internal
   research access。
-- P0 resolved the source/planning portions of `BLK-S6.1-P1-001/002` by freezing NQ, released-artifact boundaries, official BEIR
-  identity and GMTP's detection-only call path. Runtime acceptance remains blocked by `BLK-S6.1-FU1-W1-001` and
+- P0 source/planning blockers remain resolved. L1 additionally resolves `BLK-S6.1-FU1-W1-001` through exact artifact/schema/
+  assembly evidence and supersedes the Worker W1 route. Runtime acceptance remains blocked only by
   `BLK-S6.1-FU1-W2-001` until separately approved Worker evidence is accepted.
 - Environment observation resolved narrowly: R0-A records NumPy 2.4.6 in `llmguard-paper1`；this remains environment evidence,
   not a baseline result。
@@ -58,7 +60,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   historical first archive `0ce85a2bfe24e0456f9d29edc40659786d4273fcfc634df8749aee6d0e3aa9cc` with index `18/18`；
   corrected archive `904d79c59e35c6aeb157540049b0f44262b86e5c1c5b3e8d4e96ee2fad3f1c6b` with index `12/12` and matrix
   `fd7617eca689fa46fc6908f94aa4fa158aaae4d277bb17943bbcc1baf74db9bc`。
-- LOCAL Control Plane did not run PoisonedRAG, GMTP or SafeRAG and did not download data/model or invoke an API.
+- LOCAL Control Plane read exact small GitHub source/artifact content in memory for L1；it did not acquire the NQ corpus, install
+  dependencies, invoke a model/API service, run retrieval/GMTP/SafeRAG or contact RTX5090.
 - Canonical entry: [Stage 6.1 research README](../research/stage6_1_hidden_knowledge_poisoning/README.md).
 - Canonical Paper 1 route: [Paper 1 Research Route](../research/stage6_1_hidden_knowledge_poisoning/paper1_research_route.md).
 - Canonical FU1-P0 resolution: [Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md).
@@ -134,8 +137,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
 - Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
   evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- Next operational action: the project owner reviews completed P0 and separately decides W1/W2. Neither Worker task nor
-  S6.1-P1 is automatically authorized。
+- Next operational action: the project owner decides whether to approve the hardened W2 contract. W1 no longer exists as a
+  Worker task；W2 and S6.1-P1 are not automatically authorized。
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. Its acceptance does not approve S6-T5.6 ContextBuilder behavior; that remains a separate boundary.
@@ -150,7 +153,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 ## Must Not Start
 
 - On LOCAL: any external baseline workload, repo clone/install/smoke, dataset/model download or GPU computation.
-- On RTX5090: FU1-W1/W2 or any baseline execution without separate owner approval；new installs、data/model download、API、
+- On RTX5090: FU1-W2 or any baseline execution without separate owner approval；new installs、data/model download、API、
   broad environment exploration、algorithm reimplementation or formal workload。
 - Everywhere: any unapproved FU1 Worker execution、S6.1-P1、Detector implementation、dataset freeze/construction、training、Paper Result、
   formal experiment or SOTA comparison。
@@ -160,15 +163,14 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Claims Boundary
 
-Can additionally claim: P0 is a completed Control Plane contract candidate pending owner review；NQ is the primary external
-dataset candidate and HotpotQA the fallback；PoisonedRAG's released NQ attack-text artifact supports API-free reuse but exact
-regeneration identity remains partial；GMTP's gitlink resolves to official `beir-cellar/beir` commit `f062f0...` and its detector
-core does not require Java/Pyserini/FAISS；SafeRAG SN/ICC has a frozen dataset-artifact contract。The original baseline roles
-remain unchanged。
+Can additionally claim: P0 and L1 are `HUMAN_ACCEPTED`；the exact released NQ attack-text artifact identity, all 100 records and
+official deterministic LM-targeted assembly are verified；API-free reuse is verified feasible while API-free generation and exact
+paper-generation identity remain unresolved/partial。The GMTP W2 input, models, parameters, isolated environment and resource
+ceiling are frozen for owner execution approval；W2 has not run。The original baseline roles remain unchanged。
 
 Can claim: within the offline engineering-test scope, the `S6-T5 Controlled Retrieval and Traceable Context Baseline` is HUMAN_ACCEPTED. It comprises deterministic and label-isolated retrieval runtime contracts, provider-neutral DenseRetriever, the synthetic ContentResolver, EvidenceEnvelope/Citation boundaries, deterministic Context Package behavior, and S6-T5.7 controlled integration evidence including an opt-in fixed MiniLM plus temporary Chroma close/reopen check. `4ecf73a` is the accepted baseline content commit; the current governance acceptance commit is not an implementation or integration-evidence commit. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
-Cannot claim: W1/W2 ran；any external baseline was reproduced；strict comparison is ready；SafeRAG pipeline is ready；dataset/
+Cannot claim: W2 ran；any external baseline was reproduced；strict comparison is ready；SafeRAG pipeline is ready；dataset/
 Detector/Our Method/training/result exists；or retrieval quality/security, SOTA, production readiness or formal-experiment outcomes
 are established.
 
@@ -182,5 +184,5 @@ are established.
 ## Last Update
 
 - Date: `2026-07-31`.
-- Updated by: Codex completing FU1-P0 source analysis and candidate Worker contract freeze. P0 awaits owner review；W1/W2、P1
-  and Formal Experiment remain not approved/not started.
+- Updated by: Codex registering P0/L1 human acceptance, superseding Worker W1 with LOCAL L1 and hardening W2 for owner execution
+  approval. W2、P1 and Formal Experiment remain not executed/not started.

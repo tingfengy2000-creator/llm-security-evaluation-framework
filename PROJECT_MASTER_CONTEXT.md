@@ -1,22 +1,24 @@
 # LLMGuard 项目总控文档
 
-## S6.1-R0-FU1-P0 定向消解合同冻结（2026-07-31）
+## S6.1-R0-FU1-P0/L1 验收与 W2 合同冻结（2026-07-31）
 
-项目负责人已批准 `S6.1-R0-FU1 = APPROVED`，执行方式为 `LOCAL-FIRST / WORKER-GATED`；当前唯一获批子任务
-`S6.1-R0-FU1-P0` 已由 LOCAL 完成 source/artifact/dataset/call-path/dependency 分析并登记为
-`COMPLETED_PENDING_OWNER_REVIEW`。Canonical evidence is
+项目负责人已将 `S6.1-R0-FU1-P0` 与 LOCAL 子任务 `S6.1-R0-FU1-L1` 登记为 `HUMAN_ACCEPTED`。L1 在内存中
+核验官方 GitHub 内容，绑定 PoisonedRAG NQ released artifact、全 100-record schema、官方 LM-targeted
+`question + "." + adv_text` 拼装语义和固定样本确定性哈希。Canonical evidence is
 [FU1 Targeted Resolution](docs/research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)。本轮未联系
-RTX5090，未下载数据/模型，未运行 PoisonedRAG、GMTP 或 SafeRAG。
+RTX5090，未下载模型或 NQ corpus，未运行模型、retrieval、API、GMTP、SafeRAG 或正式实验。
 
-P0 冻结的候选结论是：NQ 为 primary external dataset candidate，HotpotQA 为 fallback；PoisonedRAG official released
-NQ attack-text artifact 可 API-free 复用，但其 exact generator/API/paper-run identity 仅为 `PARTIAL`；GMTP 的
+当前结论是：NQ 为 primary external dataset candidate，HotpotQA 为 fallback；PoisonedRAG official released NQ
+attack-text artifact identity 与 deterministic assembly 已验证，可 API-free 复用，但 exact generator/API/paper-run identity
+仍仅为 `PARTIAL`；GMTP 的
 `beir@f062f0...` 已验证属于 official `beir-cellar/beir`，核心 `GMTP.filter_documents` 可直接消费 question/document，
 Java、Pyserini 和 FAISS 仅属 retrieval/indexing path；SafeRAG SN 100/ICC 93 的 benchmark-artifact contract 已冻结，
 full pipeline 非 P1 前置 blocker。三者仍均不是 strict-comparison-ready。
 
-未来候选仅为 `FU1-W1 PoisonedRAG Targeted Artifact / Attack Path Validation` 与 `FU1-W2 GMTP Detection-Only Minimal
-Smoke`；两者均 `NOT APPROVED`。项目负责人下一步复核 P0 并分别决定是否批准 W1/W2，不得自动执行。S6.1-P1、
-Dataset freeze、Detector、training、Our Method Result 与 Formal Experiment 均未开始。Auto Continue = NO。
+原 Worker `FU1-W1` 已被 LOCAL L1 取代，状态为 `SUPERSEDED_BY_LOCAL_L1 / NOT FAILED`。`FU1-W2 GMTP
+Detection-Only Minimal Smoke` 的 input/model/parameter/environment/resource contract 已冻结，状态为
+`READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED`。项目负责人下一步只决定是否批准 W2；不得自动执行。
+S6.1-P1、Dataset freeze、Detector、training、Our Method Result 与 Formal Experiment 均未开始。Auto Continue = NO。
 
 ## S6.1-R0 Corrected Evidence 最终验收历史快照（2026-07-31）
 

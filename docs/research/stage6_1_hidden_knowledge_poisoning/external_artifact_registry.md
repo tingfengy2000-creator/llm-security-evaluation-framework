@@ -47,23 +47,29 @@ The absence of a GMTP/SafeRAG root license remains a `REDISTRIBUTION_ONLY_ISSUE`
 private Worker archives are not stored in Git；only their SHA-256 values, the corrected matrix SHA and the
 [redacted R0-I review](s6_1_r0_i_control_plane_review.md) are persisted。Historical first-review return remains preserved there。
 
-## S6.1-R0-FU1-P0 Exact Artifact Addendum
+## S6.1-R0-FU1-P0/L1 Exact Artifact Addendum
 
-P0 is source analysis only. The following identities are frozen as future contract candidates; none was executed by LOCAL:
+P0 is accepted source planning. L1 validated the released PoisonedRAG artifact and deterministic assembly locally in memory;
+no model, retrieval, API, NQ corpus or external baseline was executed:
 
 | Artifact | Exact identity | Current decision |
 | --- | --- | --- |
-| PoisonedRAG NQ released attack text | commit `f660d72174f06b13fae5163ce656e7b235db858f`；`results/adv_targeted_results/nq.json` blob `d1da818b28da7013864ea465ff88ad4c3ca29562`；SHA-256 `44df711454a9bada08e72e9e4a003a2cc845c43707ac93a3493e5168ec415cf2` | `AUTHOR_RELEASED_ATTACK_ARTIFACT_USABLE = PARTIAL`；API-free reuse yes, regeneration identity unresolved |
+| PoisonedRAG NQ released attack text | commit `f660d72174f06b13fae5163ce656e7b235db858f`；`results/adv_targeted_results/nq.json` blob `d1da818b28da7013864ea465ff88ad4c3ca29562`；SHA-256 `44df711454a9bada08e72e9e4a003a2cc845c43707ac93a3493e5168ec415cf2`；123,089 B；100 targets x 5 texts | `IDENTITY_VERIFIED / L1 HUMAN_ACCEPTED`；API-free reuse yes；generation identity unresolved |
+| PoisonedRAG official assembly source | same commit；`src/attack.py` blob `a29630c42508adbb421cc5ee23eac9bbcd58be44`；source SHA-256 `31fb59905812e7656f7206f416dc53228a3089390b0ecd9f0c9e9575dbfc250b` | exact semantics `question + "." + adv_text`；no inserted space/strip/normalization/suffix；source order preserved |
 | PoisonedRAG NQ/Contriever retrieval result | same commit；`results/beir_results/nq-contriever.json` blob `bb5c039b172e11b6a4750fb7928c9ffb921be576`；SHA-256 `a5e9d9ca8e65b61e2fa34428e154a55c2e97c2064c97af09bf87822a61995fa5` | `AUTHOR_RELEASED_RESULT_ARTIFACT`；not attack corpus |
 | GMTP BEIR gitlink | GMTP commit `15b48d150f93711371eb8da22c211cd84a0cf4df` -> `beir-cellar/beir@f062f038c4bfd19a8ca942a9910b1e0d218759d4` | source identity `VERIFIED`；not a private fork |
-| GMTP NQ detector-core sample | `data/poisoned_documents/poisonedrag/hotflip/contriever/nq-200.json` blob `72fb52cda9ea794bafb5c114ee937a00f4d1728a`；975,113 B；200 records | sufficient for detection-only W2 input；W2 not approved |
+| GMTP NQ detector-core sample | `data/poisoned_documents/poisonedrag/hotflip/contriever/nq-200.json` blob `72fb52cda9ea794bafb5c114ee937a00f4d1728a`；SHA-256 `0233a26ecc56d7baf1448b86a114e328beece60624aa88304fa3553e90421e44`；975,113 B；200 records | W2 input frozen；GMTP-packaged HotFlip/Contriever, not L1 LM-targeted artifact；W2 not executed |
 | SafeRAG dataset | commit `e8f579743b23e0a3937076dcc0792fe29027cba3`；`nctd_datasets/nctd.json` blob `6508f154817910e1f55926c1fee22bca411255df` | SN/ICC `DATASET_ARTIFACT_ONLY` contract |
 | SafeRAG SN KB | `knowledge_base/SN/db.txt` blob `f8ee557c9cb0649f0d8f00569cfdb90cb3eb9e8b` | benchmark artifact；license unconfirmed |
 | SafeRAG ICC KB | `knowledge_base/ICC/db.txt` blob `d831977cd3320ba32af2da129ce710d83d5e4e8c` | benchmark artifact；license unconfirmed |
 
-Exact Hugging Face candidate revisions for a future W2 are Contriever
-`abe8c1493371369031bcb1e02acb754cf4e162fa` and BERT
-`86b5e0934494bd15c9632b12f734a8a67f723594`. Model acquisition remains `NOT APPROVED`. See
+For fixed L1 target `test1`, the five ordered assembled-document SHA-256 values are `0bb73269...14ac`,
+`2f891304...f1c7`, `3449b7d5...ffdf`, `c8224391...641b` and `ef79bbb3...474d`; the canonical full values and aggregate
+`f22b7576c27926a07a7138e952cf3ee6b86c982b584a3078f3364577d32c60a7` are in the FU1 resolution.
+
+Exact W2 model revisions are `facebook/contriever-msmarco@abe8c1493371369031bcb1e02acb754cf4e162fa` and canonical
+`google-bert/bert-base-uncased@86b5e0934494bd15c9632b12f734a8a67f723594`. Model acquisition remains pending separate W2
+approval. See
 [FU1 Targeted Resolution](s6_1_r0_fu1_targeted_resolution.md) for dependency classes and resource ceilings.
 
 ## DATASET_LICENSE 治理
@@ -112,6 +118,6 @@ official links，而不是直接重新托管全部第三方原始数据。
 
 1. PoisonedRAG paper-result commit/tag、exact generator/API snapshot 和完整依赖锁；released attack-text reuse remains partial。
 2. GMTP、SafeRAG 代码与数据的明确许可证。
-3. Formal-run data snapshot/preprocessing hashes；GMTP W2 candidate model revisions are frozen but not executed。
+3. Formal-run data snapshot/preprocessing hashes；GMTP W2 source/input/model/config identities are frozen but not executed。
 4. PoisonedRAG 的作者运行 GPU/RAM/disk；GMTP/SafeRAG 的 RAM/disk。
 5. API 模型的可复现实验 snapshot 或等价的本地模型轨道。

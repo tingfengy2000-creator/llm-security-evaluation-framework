@@ -521,3 +521,58 @@ Approval Gate、Auto Continue。
 - Next Step: project owner reviews P0 and separately decides W1/W2 approvals。
 - Next Approval Gate: `FU1-W1 / FU1-W2 OWNER DECISION`; S6.1-P1 remains not started。
 - Auto Continue: `NO`
+
+## REL-2026-0013 — FU1-P0/L1 Human Acceptance and W2 Contract Freeze
+
+- Record ID: `REL-2026-0013`
+- Date: `2026-07-31`
+- Timestamp: `NOT_RECORDED`
+- Machine: `LOCAL`
+- Machine Role: `CONTROL_PLANE`
+- Stage: `Stage 6.1 / R0-FU1`
+- Task ID: `S6.1-R0-FU1-L1`
+- Task Name: `PoisonedRAG Released Artifact Identity and Deterministic Assembly Validation`
+- Task Type: `SOURCE_ARTIFACT_VALIDATION / DETERMINISTIC_TRANSFORMATION_VALIDATION`
+- Initial Status: `P0 COMPLETED_PENDING_OWNER_REVIEW / W1 NOT APPROVED`
+- Final Status: `P0 HUMAN_ACCEPTED / L1 HUMAN_ACCEPTED / W1 SUPERSEDED_BY_LOCAL_L1 / W2 READY_FOR_OWNER_EXECUTION_APPROVAL`
+- Objective: accept the P0 planning contract, validate the exact released PoisonedRAG NQ artifact and official deterministic
+  LM-targeted assembly locally, and harden—but not execute—the GMTP W2 contract.
+- Why: source/artifact identity can be closed on the Control Plane without consuming Worker compute, while GMTP runtime
+  compatibility still requires a separately approved Worker smoke.
+- Previous Gate: `S6.1-R0-FU1-P0 COMPLETED_PENDING_OWNER_REVIEW; FU1-W1/FU1-W2 NOT APPROVED`
+- Actions: read exact official GitHub blobs in memory；validated all 100 NQ records and 500 attack-text entries；derived five
+  ordered assembled-document hashes and aggregate hash for fixed target `test1`；bound W2 source/input/model/config identities,
+  isolated environment, output schema and resource ceiling. No external artifact was saved in Git.
+- Files Changed: FU1 resolution；owner/current/execution/experiment/master context；Paper 1 README/matrix/registry and semantic
+  governance tests. No business source, fixture/data, historical evidence or Worker archive changed.
+- Commands: mandatory Git startup；read-only official GitHub/Hugging Face metadata/content queries；in-memory JSON/hash/schema
+  validation；LOCAL documentation and test checks. No model, retrieval, API, NQ corpus, GMTP, SafeRAG or RTX5090 execution.
+- Validation: targeted context recovery `16 passed`；full architecture `98 passed`；namespace + label isolation `10 passed`；
+  Ruff passed；Markdown relative links `208` checked；10 changed files passed secret/private-path and UTF-8 no-BOM/LF checks；
+  protected history/business paths `0`；runtime ignore and `git diff --check` passed。Pytest cache write warning is non-blocking.
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `PENDING_THIS_COMMIT; resolve with git log -1 -- docs/governance/research_execution_log.md`
+- Run ID: `N/A / LOCAL_ARTIFACT_VALIDATION`
+- Dataset Snapshot: PoisonedRAG released `results/adv_targeted_results/nq.json` at commit
+  `f660d72174f06b13fae5163ce656e7b235db858f`；blob `d1da818b28da7013864ea465ff88ad4c3ca29562`；file SHA-256
+  `44df711454a9bada08e72e9e4a003a2cc845c43707ac93a3493e5168ec415cf2`；100 targets x 5 texts. Dataset remains not frozen.
+- Model / Revision: no model downloaded or executed. W2 contract only: `facebook/contriever-msmarco@abe8c149...` and canonical
+  `google-bert/bert-base-uncased@86b5e093...`.
+- Environment Identity: L1 used `LOCAL / CONTROL_PLANE` and in-memory transformation only. Future W2 is isolated as
+  `gmtp-compat` with Python 3.11, Torch 2.13.0+cu130, CUDA runtime 13.0, Transformers 4.47.1 and NumPy 1.26.4.
+- Result Summary: released artifact identity/schema and exact `question + "." + adv_text` assembly passed；fixed target aggregate
+  SHA-256 `f22b7576c27926a07a7138e952cf3ee6b86c982b584a3078f3364577d32c60a7`；API-free released-text reuse is feasible.
+- Claims Allowed: P0/L1 accepted；released attack artifact identity and deterministic assembly verified；W2 contract ready for
+  owner approval.
+- Claims Prohibited: attack generation reproduced；exact paper generation identity established；W2/baseline executed；strict
+  comparison ready；P1/Dataset/Detector/training/formal experiment started.
+- Blockers: only `BLK-S6.1-FU1-W2-001` remains in FU1 runtime scope；formal corpus/index, historical API/paper-run identity and
+  redistribution items remain downstream.
+- Blocker ID: `BLK-S6.1-FU1-W1-001 RESOLVED_BY_LOCAL_L1 / SUPERSEDED; BLK-S6.1-FU1-W2-001 OPEN`
+- Resolution: source artifact/schema/assembly identity was resolved locally without Worker or API execution；W2 was hardened but
+  deliberately not run.
+- Owner Decisions: `PODR-048; PODR-050; PODR-051; PODR-052`
+- Design Changes: no Paper 1 method/baseline role change；only identity evidence and execution governance advanced.
+- Next Step: project owner decides whether to approve the frozen W2 Worker contract.
+- Next Approval Gate: `FU1-W2 OWNER EXECUTION DECISION`; S6.1-P1 remains not started.
+- Auto Continue: `NO`
