@@ -3,6 +3,10 @@
 ## 使用说明
 
 - `Published Result` 只转录论文作者报告结果；本轮没有 `Reproduced Result` 或 `Our Method Result`。
+- `Published Result ≠ Reproduced Result ≠ Our Method Result`；三者必须物理分栏并绑定各自证据。
+- Strict comparison 需要尽可能一致的 dataset/split、attack samples/budget、retriever/embedding、Top-K、generator、
+  metric definition、seed protocol 和 environment assumptions；不一致时必须标记 `NON_STRICT_COMPARISON`，不得
+  声称 “outperforms SOTA by X%”。
 - `required RAM` 与 `disk estimate` 若论文未报告，明确写成控制面规划估计，不冒充作者环境。
 - `strict-comparison eligibility` 是当前资格，不是对论文质量的评价。
 

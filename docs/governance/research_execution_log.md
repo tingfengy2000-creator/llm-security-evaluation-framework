@@ -1,0 +1,248 @@
+# LLMGuard Research Execution Log
+
+## Ledger Contract
+
+本文是 **APPEND-ONLY CHRONOLOGICAL RESEARCH LEDGER**。它回答“项目实际上如何一步一步推进”，不替代 Git、
+原始实验 artifact、Experiment Master Record、Current Work State 或 Owner Decision Register。
+
+- 已提交记录不得静默改写或删除。
+- 错误使用新的 `CORRECTION` 记录；方案变化使用新的 `SUPERSEDING_RECORD`。
+- 每条记录的 `Auto Continue` 默认为 `NO`。
+- 未知历史字段写 `NOT_RECORDED`，不得凭聊天记忆补齐。
+- Git SHA、branch、tag 和 artifact existence 冲突时，以动态 Git/L0 事实为准。
+
+## Record Schema
+
+每条记录至少包含：Record ID、Date、Timestamp、Machine、Machine Role、Stage、Task ID、Task Name、Task Type、
+Initial Status、Final Status、Objective、Why、Previous Gate、Actions、Files Changed、Commands、Validation、Git
+Branch、Git SHA、Run ID、Dataset Snapshot、Model / Revision、Environment Identity、Result Summary、Claims
+Allowed、Claims Prohibited、Blockers、Blocker ID、Resolution、Owner Decisions、Design Changes、Next Step、Next
+Approval Gate、Auto Continue。
+
+## REL-2026-0001 — Stage 1–5 Major Milestones Index
+
+- Record ID: `REL-2026-0001`
+- Date: `2026-07-01`
+- Timestamp: `NOT_RECORDED`
+- Machine: `LOCAL`
+- Machine Role: `CONTROL_PLANE`
+- Stage: `Stage 1–5`
+- Task ID: `HISTORICAL-MILESTONE-INDEX`
+- Task Name: `Model Security, Guard A/B and Runtime Evaluation Milestones`
+- Task Type: `DOCUMENTATION`
+- Initial Status: `HISTORICAL_EVIDENCE_EXISTS`
+- Final Status: `INDEXED_WITHOUT_REWRITE`
+- Objective: 为 Stage 1–5 已存在不可变历史实验建立高层索引。
+- Why: 允许新协作者定位证据，同时避免复制或改写完整历史。
+- Previous Gate: `N/A`
+- Actions: 指向 Experiment Master Record 和原始 deliverables；不回填每条日常开发活动。
+- Files Changed: `NOT_RECORDED`
+- Commands: `NOT_RECORDED`
+- Validation: 以历史 manifest、JSON/JSONL、日志、报告及完整性测试为准。
+- Git Branch: `NOT_RECORDED`
+- Git SHA: `MULTIPLE; resolve from Git and Experiment Master Record`
+- Run ID: `MULTIPLE; see Experiment Master Record`
+- Dataset Snapshot: `MULTIPLE; see original artifacts`
+- Model / Revision: `MULTIPLE; missing fields remain NOT_RECORDED`
+- Environment Identity: `PARTIALLY_RECORDED`
+- Result Summary: Stage 1–5 已有模型层扫描、Mock/Real、Guard A/B、消融和确定性 runtime evidence。
+- Claims Allowed: 仅限各历史 artifact 明确支持的配置和样本范围。
+- Claims Prohibited: 不得将历史小样本或 Mock 扩张为生产安全结论。
+- Blockers: 历史 manifest/revision 缺口与 CRLF/LF 技术债。
+- Blocker ID: `BLK-HIST-001; BLK-HIST-002; BLK-HIST-003`
+- Resolution: 保留原始证据，未来 correction/new run 只增量添加。
+- Owner Decisions: `PODR-005; PODR-006`
+- Design Changes: `N/A`
+- Next Step: 只在单独批准后补充历史 Learning Guide 或新实验。
+- Next Approval Gate: `SEPARATE_APPROVAL_REQUIRED`
+- Auto Continue: `NO`
+
+## REL-2026-0002 — S6-T5 Accepted Retrieval/Context Baseline
+
+- Record ID: `REL-2026-0002`
+- Date: `2026-07-27`
+- Timestamp: `NOT_RECORDED`
+- Machine: `LOCAL`
+- Machine Role: `CONTROL_PLANE`
+- Stage: `Stage 6 / S6-T5`
+- Task ID: `GOV-S6-T5-BASELINE-ACCEPTANCE`
+- Task Name: `S6-T5 Controlled Retrieval and Traceable Context Baseline`
+- Task Type: `GOVERNANCE`
+- Initial Status: `COMPLETED_PENDING_HUMAN_ACCEPTANCE`
+- Final Status: `HUMAN_ACCEPTED BASELINE`
+- Objective: 接受 deterministic、controlled retrieval-to-context engineering baseline 并冻结证据 taxonomy。
+- Why: 为 Stage 6.1 提供不混淆实现、集成证据和治理接受的稳定起点。
+- Previous Gate: `S6-T5.8-H1 review`
+- Actions: 接受 S6-T5.8/H1；登记 implementation/integration/content/governance commit 身份。
+- Files Changed: 见 baseline acceptance commit 的 Git diff。
+- Commands: 见历史治理记录。
+- Validation: 见 baseline acceptance report；不覆盖其历史测试快照。
+- Git Branch: `feature/stage6-rag`
+- Git SHA: `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`
+- Run ID: `N/A`
+- Dataset Snapshot: `N/A`
+- Model / Revision: `N/A`
+- Environment Identity: `N/A`
+- Result Summary: `4ecf73a` accepted content；`b136ee2` accepted implementation；`b6cedf3` integration evidence。
+- Claims Allowed: 受控、离线、label-isolated retrieval/context engineering baseline 已接受。
+- Claims Prohibited: 不证明 RAG security、poisoning detection、retrieval metrics、LLM chain 或生产可用性。
+- Blockers: 预期 tag `s6-t5-rag-baseline-v1` 后续动态核验仍缺失。
+- Blocker ID: `TO_VERIFY_TAG; not a formal experiment blocker`
+- Resolution: 不擅自创建或移动 tag；等待明确治理决定。
+- Owner Decisions: `PODR-034`
+- Design Changes: `N/A`
+- Next Step: 任何 Stage 6.1 工作单独审批。
+- Next Approval Gate: `STAGE_6_1_SEPARATE_APPROVAL`
+- Auto Continue: `NO`
+
+## REL-2026-0003 — Stage 6.1 Research Branch Creation
+
+- Record ID: `REL-2026-0003`
+- Date: `2026-07-31`
+- Timestamp: `NOT_RECORDED`
+- Machine: `LOCAL`
+- Machine Role: `CONTROL_PLANE`
+- Stage: `Stage 6.1`
+- Task ID: `S6.1-BRANCH-CREATION`
+- Task Name: `Create research/stage6-1-hidden-poisoning from accepted baseline`
+- Task Type: `GOVERNANCE`
+- Initial Status: `APPROVED_TO_CREATE`
+- Final Status: `COMPLETED`
+- Objective: 从 accepted S6-T5 baseline 建立 Paper 1 研究分支。
+- Why: 隔离长期论文研究与已接受 baseline。
+- Previous Gate: `PODR-034`
+- Actions: 从 `18cf2741...` 创建 `research/stage6-1-hidden-poisoning`；未创建/move tag。
+- Files Changed: `N/A`
+- Commands: `git switch -c research/stage6-1-hidden-poisoning 18cf2741...`
+- Validation: branch/HEAD/worktree 由 Git 动态核验。
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`
+- Run ID: `N/A`
+- Dataset Snapshot: `N/A`
+- Model / Revision: `N/A`
+- Environment Identity: `N/A`
+- Result Summary: 分支建立；baseline 内容未修改。
+- Claims Allowed: 仅可声称研究分支从 accepted baseline 创建。
+- Claims Prohibited: 不得声称 Stage 6.1 experiment 已开始。
+- Blockers: baseline tag absent。
+- Blocker ID: `TO_VERIFY_TAG`
+- Resolution: 保持 tag 不变并记录缺失。
+- Owner Decisions: `PODR-035`
+- Design Changes: `N/A`
+- Next Step: 执行批准的 LR1 对齐。
+- Next Approval Gate: `S6.1-LR1`
+- Auto Continue: `NO`
+
+## REL-2026-0004 — Paper-First Route Supersedes Immediate P1 Drafting
+
+- Record ID: `REL-2026-0004`
+- Date: `2026-07-31`
+- Timestamp: `NOT_RECORDED`
+- Machine: `LOCAL`
+- Machine Role: `CONTROL_PLANE`
+- Stage: `Stage 6.1`
+- Task ID: `S6.1-LR1-ROUTE-SHIFT`
+- Task Name: `Paper 1 Literature / Benchmark / Reproduction Alignment Priority`
+- Task Type: `DESIGN_FREEZE`
+- Initial Status: `S6.1-P1_PLANNED_NEXT`
+- Final Status: `S6.1-P1_DEFERRED_UNTIL_LR1_REVIEW`
+- Objective: 正式协议前先完成权威论文、源码、公开数据、指标、Published Result 和复现性对齐。
+- Why: 防止方法和指标只围绕自建数据，且避免错误 SOTA 比较。
+- Previous Gate: `Stage 6.1 branch created`
+- Actions: 接受 Paper-First Comparative Evidence Principle；建立 LR1。
+- Files Changed: 见 `1294632`。
+- Commands: first-party paper/repository verification；无 experiment command。
+- Validation: source alignment and architecture governance tests。
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `1294632ca0501e7b999a29383780bec49eaa6b04`
+- Run ID: `N/A`
+- Dataset Snapshot: `N/A`
+- Model / Revision: `N/A`
+- Environment Identity: `N/A`
+- Result Summary: S6.1-P1 暂缓，LR1 成为当前任务。
+- Claims Allowed: 可声称 Paper-first 路线已确认。
+- Claims Prohibited: 不得声称 formal protocol/experiment 已开始。
+- Blockers: strict comparison artifact/license/environment gaps。
+- Blocker ID: `BLK-S6.1-LR1-001`
+- Resolution: 先完成 LR1 并等待人工验收。
+- Owner Decisions: `PODR-035; PODR-036`
+- Design Changes: 原计划先做 P1；当前先做 LR1。Who: project owner；When: 2026-07-31；Evidence: owner instruction。
+- Next Step: LR1 evidence alignment。
+- Next Approval Gate: `S6.1-LR1_HUMAN_REVIEW`
+- Auto Continue: `NO`
+
+## REL-2026-0005 — S6.1-LR1 External Alignment Candidate
+
+- Record ID: `REL-2026-0005`
+- Date: `2026-07-31`
+- Timestamp: `NOT_RECORDED`
+- Machine: `LOCAL`
+- Machine Role: `CONTROL_PLANE`
+- Stage: `Stage 6.1`
+- Task ID: `S6.1-LR1`
+- Task Name: `Paper 1 Literature, Benchmark, Source Code, Hardware and Reproduction Alignment`
+- Task Type: `REPRODUCTION_AUDIT / DOCUMENTATION`
+- Initial Status: `APPROVED_TO_START`
+- Final Status: `COMPLETED_PENDING_HUMAN_ACCEPTANCE`
+- Objective: 对齐 PoisonedRAG、GMTP、SafeRAG、硬件和复现边界，形成 Paper 1 三轨路线。
+- Why: 为后续严格比较、可复现性和 5090 worker 规划建立控制面。
+- Previous Gate: `PODR-035`
+- Actions: 核验一手论文/仓库；登记 commit/license；建立 matrix、route、protocol、hardware policy。
+- Files Changed: 见 commit `1294632`。
+- Commands: 仅 source/Git/document/test 检查；未运行外部 baseline。
+- Validation: architecture `81 passed`；namespace/label checks、Ruff、MyPy、links、secret/path/integrity checks。
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `1294632ca0501e7b999a29383780bec49eaa6b04`
+- Run ID: `N/A`
+- Dataset Snapshot: `N/A`
+- Model / Revision: `N/A`
+- Environment Identity: `LOCAL / CONTROL_PLANE`; no experiment environment。
+- Result Summary: 外部对齐候选完成；EcoSafeRAG deferred；formal run 未开始。
+- Claims Allowed: literature/artifact/governance alignment only。
+- Claims Prohibited: reproduction、5090 measurement、detector effectiveness、SOTA、production readiness。
+- Blockers: source/license/revision/hardware unknowns block strict reproduction。
+- Blocker ID: `BLK-S6.1-LR1-001`
+- Resolution: 保持 OPEN，后续单独批准 artifact resolution/reproduction preparation。
+- Owner Decisions: `PODR-035`
+- Design Changes: Paper 1 收缩为四类 attack、五视角与三条 track；没有增加未批准 taxonomy。
+- Next Step: 人工审查 LR1。
+- Next Approval Gate: `ACCEPT_OR_REJECT_S6.1_LR1`
+- Auto Continue: `NO`
+
+## REL-2026-0006 — Git-Native Research Context Recovery Governance
+
+- Record ID: `REL-2026-0006`
+- Date: `2026-07-31`
+- Timestamp: `2026-07-31T17:40:10+08:00`
+- Machine: `LOCAL`
+- Machine Role: `CONTROL_PLANE`
+- Stage: `Stage 6.1`
+- Task ID: `S6.1-LR1-CONTEXT-RECOVERY-GOVERNANCE`
+- Task Name: `Establish Git-native Research Context Recovery System`
+- Task Type: `GOVERNANCE / DOCUMENTATION`
+- Initial Status: `APPROVED_TO_START`
+- Final Status: `COMPLETED_PENDING_HUMAN_ACCEPTANCE`
+- Objective: 让新 Thread、模型或机器仅凭 Git 仓库准确恢复研究事实、决策、证据、blocker 和下一门。
+- Why: 聊天上下文、Codex memory 和人工记忆不能成为唯一事实源。
+- Previous Gate: `S6.1-LR1 external alignment candidate 1294632`
+- Actions: 冻结 L0–L9 authority；建立 append-only ledger、dual-machine sync、learning system；增强 route/blocker/tests。
+- Files Changed: governance、Paper 1 route、learning 和 architecture governance tests；不含业务源码/历史资产。
+- Commands: Git preflight、pytest、Ruff、MyPy、link/secret/path/protected/runtime-ignore checks。
+- Validation: context recovery 红灯 `9 failed` 后绿灯 `9 passed`；architecture `90 passed`；no-label-leakage `8 passed`；Ruff、MyPy、staged diff、Markdown links、secret/absolute-path、UTF-8/LF、runtime-ignore 与 protected historical diff 检查通过。Chroma metadata isolation 在当前 Python 环境因可选 `chromadb` 未安装而未形成绿色证据；历史 manifest 仍保留 `BLK-HIST-001` 所记录的 110 个 CRLF/LF 差异，且受保护历史路径差异为零。
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `PENDING_THIS_COMMIT; resolve with git log -1 -- docs/governance/research_execution_log.md`
+- Run ID: `N/A`
+- Dataset Snapshot: `N/A`
+- Model / Revision: `N/A`
+- Environment Identity: `LOCAL / CONTROL_PLANE`; no experiment environment。
+- Result Summary: Git-native context recovery governance candidate completed；formal experiment unchanged。
+- Claims Allowed: repository-native context recovery architecture and documentation governance exist。
+- Claims Prohibited: 不得写成 formal experiment、security effectiveness、reproduction 或 production readiness。
+- Blockers: 无 approved-governance-scope blocker；strict reproduction blockers 保持 OPEN。
+- Blocker ID: `N/A for this governance scope; BLK-S6.1-LR1-001 remains external`
+- Resolution: `N/A`
+- Owner Decisions: `PODR-036` and related confirmed decisions。
+- Design Changes: 不推翻 `1294632`；只增加 canonical authority、ledger、learning 和 route persistence。
+- Next Step: 提交、推送并等待人工审核。
+- Next Approval Gate: `ACCEPT_OR_REJECT_S6.1_LR1_PLUS_CONTEXT_RECOVERY_GOVERNANCE`
+- Auto Continue: `NO`

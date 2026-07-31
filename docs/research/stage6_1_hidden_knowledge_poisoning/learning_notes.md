@@ -1,5 +1,9 @@
 # S6.1-LR1 学习与面试笔记
 
+> 本文件是 `NON_AUTHORITATIVE_EDUCATIONAL_MATERIAL`。结构化 Stage Guide 见
+> [Stage 6.1 Hidden Poisoning Learning Guide](../../learning/stage6_1_hidden_poisoning.md)；事实冲突时以
+> Git、Owner Decision、Current Work State、Experiment Master Record 和 canonical Paper 1 route 为准。
+
 ## 这一步做了什么
 
 把 Paper 1 从“有研究方向”推进到“有外部证据锚点的研究控制面”：明确 PoisonedRAG 是攻击基线、GMTP 是检测/

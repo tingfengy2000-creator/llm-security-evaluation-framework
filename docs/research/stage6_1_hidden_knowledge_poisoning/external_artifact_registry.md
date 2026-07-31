@@ -1,5 +1,8 @@
 # Paper 1 外部 Artifact 登记册
 
+> 未关闭的 license、paper-result commit、revision、API snapshot 与 hardware facts 统一登记为 canonical blocker
+> `BLK-S6.1-LR1-001`，见 [Experiment Master Record](../../governance/experiment_master_record.md)。
+
 ## 核验口径
 
 - 核验日期：`2026-07-31`。

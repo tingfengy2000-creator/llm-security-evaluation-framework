@@ -1,5 +1,9 @@
 # Paper 1 Hardware and Dual-Machine Execution Policy
 
+> Long-term machine roles and Git context sync are governed by
+> [Dual-Machine Research Execution Policy](../../governance/dual_machine_execution_policy.md). 本文件仅补充 Paper 1
+> artifact/environment/hardware 细节，不是竞争性上下文权威。
+
 ## 1. 机器角色
 
 ### 本机：CONTROL_PLANE

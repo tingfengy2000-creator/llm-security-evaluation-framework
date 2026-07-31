@@ -1,5 +1,21 @@
 # LLMGuard 项目总控文档
 
+## Git-Native Research Context Recovery 状态附注（2026-07-31）
+
+项目负责人已将 Git-native Research Context Recovery System 作为 S6.1-LR1 的追加治理验收条件。当前 canonical
+体系由 `AGENTS.md`、[Context Authority Map](docs/governance/context_authority_map.md)、长期需求、Owner Decision
+Register、本 Project Master Context、Current Work State、Experiment Master Record、append-only
+[Research Execution Log](docs/governance/research_execution_log.md)、accepted protocols/routes 和
+[Stage Learning Guides](docs/learning/README.md) 组成。
+
+L0 Git/raw evidence 决定动态事实；Owner Decision Register 是用户确认决策权威；Current Work State 是唯一动态任务
+入口；Experiment Master Record 是唯一实验控制面；Learning Guide 是非权威教学材料。冲突无法解析时登记
+`CONTEXT_CONFLICT_BLOCKER` 并停止，不依赖聊天记忆猜测。Paper 1 唯一 canonical route 是
+[paper1_research_route.md](docs/research/stage6_1_hidden_knowledge_poisoning/paper1_research_route.md)。
+
+当前治理扩展不改变 S6-T5 accepted baseline、Stage 1–5 immutable assets 或 LR1 benchmark matrix；
+`FORMAL_EXPERIMENT = NOT STARTED`，S6.1-P1 仍暂缓至 LR1 + Context Recovery Governance 人工审核后。
+
 ## S6.1-LR1 Research Alignment 状态附注（2026-07-31）
 
 项目负责人已批准 `S6.1-LR1 Paper 1 Literature, Benchmark, Source Code, Hardware and Reproduction Alignment`。
@@ -8,7 +24,7 @@
 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`，正式 RAG 安全实验仍为 `NOT STARTED`。
 
 研究分支 `research/stage6-1-hidden-poisoning` 从 accepted baseline
-`18cf2741c8383d35604715af6ebf8cbaa2a3ddf1` 创建。fetch 后目标远端分支和预期 tag
+`18cf2741c8383d35604715af6ebf8cbaa2a3ddf1` 创建。该次 fetch 快照中目标远端分支和预期 tag
 `s6-t5-rag-baseline-v1` 均不存在；本轮没有创建、移动或重写 baseline tag。GMTP 与 SafeRAG 官方仓库没有
 发现根 LICENSE，因此再分发保持 blocked。所有硬件容量均为 Control Plane 规划估计，待 5090 worker 实测。
 
@@ -27,7 +43,8 @@
 
 最后已接受实现提交仍为 `b136ee2`；已接受的集成证据提交为 `b6cedf3`，它不属于 implementation commit；`S6-T5.8` 及其 H1 均为 `Completed, pending human acceptance`，原始 candidate closure 为 `37cccdc`；Formal RAG security experiment 为 `NOT STARTED`。本轮未调用 Groq 或生成式 LLM，未执行 evaluator、Trust、Citation Accuracy 或正式攻击矩阵。详见 [S6-T5.7 集成记录](docs/governance/s6_t5_7_integration_completion_record.md)。
 
-> 这是项目唯一的总览与决策入口。它回答：为什么做、已经做了什么、证据在哪里、当前代码处于什么状态、未来架构如何同时支撑面试、论文和科技立项。
+> 这是项目唯一的总体架构与阶段叙事入口。Owner-confirmed decisions 由项目负责人决策登记册负责；当前任务由
+> Current Work State 负责；实验事实由 Experiment Master Record 与原始 evidence 负责。
 
 更新时间：2026-07-26
 
@@ -41,11 +58,12 @@
 
 ## Repository Context Persistence
 
-根目录 `AGENTS.md` 是 Codex 仓库上下文入口；长期目标以
+根目录 `AGENTS.md` 是 Codex 仓库上下文入口；权威层级以
+`docs/governance/context_authority_map.md` 为准；长期目标以
 `docs/governance/long_term_research_requirements.md` 为准；项目负责人已确认的解释和决策见
 `docs/governance/project_owner_decision_register.md`；本文件负责总体架构、阶段进度和结论边界；
 `docs/governance/current_work_state.md` 负责当前任务与审批门。新 Thread、Agent、Workspace 或 Worktree
-必须遵守 `docs/governance/context_recovery_protocol.md`。Git 是 branch、HEAD、工作树、commit、文件
+必须遵守 `docs/governance/context_recovery_protocol.md`。Git 是 branch、HEAD、工作树、commit、tag、文件
 存在性和远端同步状态的事实来源。
 
 实验路线、历史运行、指标、证据、失败和交接入口统一见
@@ -53,7 +71,8 @@
 `current_work_state.md` 的动态审批门或 Stage-specific 原始产物。
 
 职责边界固定为：长期需求记录长期能力要求；项目负责人决策登记册记录明确确认的解释与决策；项目总控
-记录架构与阶段叙事；动态状态记录当前任务与审批；实验总账记录实验与证据索引；Git 记录动态工程事实。
+记录架构与阶段叙事；动态状态记录当前任务与审批；实验总账记录实验与证据索引；Research Execution Log
+记录 append-only 推进时间线；Git 记录动态工程事实；Learning Guides 只负责非权威教学。
 
 ### GOV-ER1：Experiment Master Record（2026-07-20）
 

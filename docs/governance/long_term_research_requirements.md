@@ -18,6 +18,18 @@ benchmark 验证泛化；复现失败必须登记 blocker，不得用不同设�
 完整规则见 [论文优先的外部对标与比较证据原则](../research/paper_comparative_evidence_principle.md)。
 该原则不覆盖安全、伦理、许可、标签隔离、历史不可变和审批门；文献对齐也不自动批准正式实验。
 
+## Git-Native Research Context Recovery
+
+**状态：已接受，2026-07-31。** 项目长期事实不得仅依赖聊天、Codex Thread、单机 memory、模型上下文或人工
+记忆。所有正式任务必须能从 Git、raw evidence、Owner Decision、Project Master Context、Current Work State、
+Experiment Master Record、Research Execution Log 和 accepted route/protocol 恢复。权威层级与冲突规则见
+[Context Authority Map](context_authority_map.md)。无法安全解决的冲突必须登记 `CONTEXT_CONFLICT_BLOCKER` 并停止。
+
+每个稳定 Stage 最终应有结构化 Learning Guide，但其性质固定为
+`NON_AUTHORITATIVE_EDUCATIONAL_MATERIAL` / `EDUCATIONAL / KNOWLEDGE_TRANSFER ARTIFACT`。Learning Guide 不是
+Formal Experiment Acceptance 的前置科学证据，不得覆盖 Git、Owner Decision、Experiment Record 或 accepted
+protocol。
+
 ## 1. 项目身份与目标顺序
 
 - 英文正式名称：**LLMGuard Research Framework**；

@@ -7,12 +7,17 @@
 本文仅记录项目负责人已经明确确认的需求、解释和决策，供新的 Codex Thread、ChatGPT 对话、Workspace 或
 Worktree 在旧对话不可用时恢复项目治理上下文。
 
+本文是唯一的 **OWNER-CONFIRMED DECISION AUTHORITY**。聊天摘要、learning material 和模型记忆都不能把未经
+确认的内容升级为 Owner Decision。
+
 本文不替代以下权威来源：
 
+- `docs/governance/context_authority_map.md`：权威层级、冲突解决与恢复顺序；
 - `docs/governance/long_term_research_requirements.md`：长期能力需求与研究方向；
 - `PROJECT_MASTER_CONTEXT.md`：总体架构、阶段叙事与结论边界；
 - `docs/governance/current_work_state.md`：当前任务和审批门；
 - `docs/governance/experiment_master_record.md`：实验控制面、证据索引和原始工件入口；
+- `docs/governance/research_execution_log.md`：append-only 项目推进时间线；
 - ADR、设计规格、实施计划和 Git：分别负责设计、实施顺序和动态工程事实。
 
 未经项目负责人明确确认的内容不得登记为 `ACCEPTED`；不确定内容必须标记为
@@ -380,18 +385,89 @@ implementation commit。历史 pending/review 文本继续保留为当时事实�
 - Claims boundary: this is literature/artifact/governance alignment only. `FORMAL_EXPERIMENT = NOT STARTED`.
 - Next gate: human acceptance/rejection of S6.1-LR1, followed by separate approval of any S6.1-P1 protocol, environment preparation, smoke test or formal reproduction.
 
+## PODR-036: Git-Native Research Context Recovery and Authority Hierarchy
+
+- Date: `2026-07-31`.
+- Decision: 项目负责人要求建立 Git-native Research Context Recovery System，并接受 L0–L9 Authority Hierarchy、
+  新 Thread Context Recovery Report、Git dynamic fact priority、冲突 fail-closed 和 append-only execution ledger。
+- Status: `ACCEPTED`.
+- Authority: Git/raw evidence 决定 branch/SHA/tag/artifact existence；本文是 Owner Decision Authority；
+  `current_work_state.md` 是动态任务入口；Experiment Master Record 是实验控制面；Learning 是非权威材料。
+- Conflict rule: 新的 owner-confirmed decision 可以 supersede 较旧 route，但历史记录不得删除；无法确认时登记
+  `CONTEXT_CONFLICT_BLOCKER` 并停止关键研究工作。
+- Scope: governance、documentation、context persistence tests；不授权业务实现、数据/模型下载或实验。
+- Evidence: 项目负责人本轮追加治理要求、`context_authority_map.md`、`research_execution_log.md`。
+- Next gate: 与 S6.1-LR1 一并人工审核；不自动批准 S6.1-P1。
+
+## PODR-037: Paper-First Priority and Paper 1 External Baseline Roles
+
+- Date: `2026-07-31`.
+- Decision: `Paper-First Comparative Evidence Principle` 的优先级为
+  `HIGHEST_RESEARCH_METHOD_PRIORITY_FOR_PAPER_WORK`。Paper 1 第一轮角色固定为 PoisonedRAG = Primary Attack
+  Baseline、GMTP = Primary Detection Baseline、SafeRAG = Primary Benchmark Reference；EcoSafeRAG = `DEFERRED`。
+- Status: `ACCEPTED`.
+- Safety precedence: 该方法优先级不覆盖 ethics、privacy、label isolation、immutable historical assets 或 approval gates。
+- Comparison integrity: Published Result、Reproduced Result、Our Method Result 必须分栏；不一致条件标记
+  `NON_STRICT_COMPARISON`，不得宣称 SOTA improvement。
+- Supersedes: 对 EcoSafeRAG 的任何未确认 core-baseline 假设；未经新 Owner Decision 不恢复。
+- Evidence: 项目负责人本轮追加治理要求、Paper 1 benchmark matrix 和 comparative evidence principle。
+
+## PODR-038: Paper 1 Direction, First-Version Scope and Version-Aware Definition
+
+- Date: `2026-07-31`.
+- Decision: Paper 1 当前方向为 *Stealthy Factual Poisoning in Versioned RAG Knowledge Bases*，核心贡献方向是
+  Benchmark + Multi-View Detection。第一版 attack families 固定为 HKP-1 Numeric/Entity、HKP-2
+  Condition/Exception、HKP-3 Temporal/Version、HKP-4 Provenance/Source Camouflage。
+- Status: `ACCEPTED`.
+- First-version views: `Semantic`、`Entity-Claim`、`Provenance`、`Temporal-Version`、`Retrieval-Behavior`；
+  Cross-document conflict 暂并入 Entity-Claim / Temporal-Version，避免第一版无限膨胀。
+- Version-aware: 指 knowledge-document version、predecessor/successor、effective/expiration/repeal、supersedes、
+  amendment、publisher 和 factual changes 的联合关系；不是 Git/model version，也不能退化为版本号大小规则。
+- Hard negatives: 必须覆盖合法更新、新版本、例外、历史有效版本、部门差异、自然冲突、OCR/formatting noise
+  和 paraphrase。
+- Change governance: 新 attack family/view 或重大 route 变化必须经过 Research Route Review，并引用 PODR ID、
+  Research Execution Log ID 和 related Git commit。
+- Evidence: 项目负责人本轮追加治理要求与 canonical Paper 1 route。
+
+## PODR-039: Dual-Machine Roles and Git Context Sync
+
+- Date: `2026-07-31`.
+- Decision: `LOCAL / CONTROL_PLANE` 负责研究决策、Git、代码、protocol、governance 与 result integration；
+  `RTX5090 / COMPUTE_WORKER` 负责未来获批的 GPU、reproduction、embedding、model/benchmark execution。
+- Status: `ACCEPTED`.
+- Context sync: 使用 Git，不使用 Codex memory。Compute Worker 不得自行改变研究路线；发现设计问题必须返回
+  `RESEARCH_ROUTE_REVIEW_REQUIRED`。
+- Worker gate: branch、RunManifest HEAD、clean tree、dataset snapshot、config hash、model revision 和 environment
+  fingerprint 任一不匹配都 fail closed。
+- Compatibility boundary: compatibility environment 只能把 blocker 标记为 `MITIGATED`，除非证明算法等价并正式关闭，
+  不得写 `RESOLVED_NO_IMPACT`。
+- Evidence: 项目负责人本轮追加治理要求、`dual_machine_execution_policy.md`。
+
+## PODR-040: Stage Learning Documentation and Current Stop Boundary
+
+- Date: `2026-07-31`.
+- Decision: 建立 `docs/learning/` index、统一 Stage Learning Guide template 和 Stage 6.1 guide；历史
+  `deliverables/learning_notes.md` 保留，不一次性重写所有 Stage 1–6 材料。
+- Status: `ACCEPTED`.
+- Authority: 所有 Learning Guide 都是 `NON_AUTHORITATIVE_EDUCATIONAL_MATERIAL`；每个稳定 Stage 最终应有 guide，
+  但它不是 Formal Experiment Acceptance 的前置科学证据。
+- Current stop boundary: `S6.1-LR1` 与 Context Recovery Governance 完成后停止，等待人工审核；S6.1-P1、dataset
+  generation、Detector implementation、model training、RTX5090 formal run 均保持未批准/未开始。
+- Evidence: 项目负责人本轮追加治理要求、`docs/learning/README.md`。
+
 ## 8. 新 Thread 最小读取顺序
 
 1. `AGENTS.md`
-2. `docs/governance/long_term_research_requirements.md`
-3. `docs/governance/project_owner_decision_register.md`
-4. `PROJECT_MASTER_CONTEXT.md`
-5. `docs/governance/current_work_state.md`
-6. `docs/governance/experiment_master_record.md`
-7. 当前 Stage README
-8. 当前 design specification
-9. 当前 implementation plan
-10. Git 最近 commit、branch、HEAD、worktree、status 与 upstream sync
+2. `docs/governance/context_authority_map.md`
+3. `docs/governance/long_term_research_requirements.md`
+4. `docs/governance/project_owner_decision_register.md`
+5. `PROJECT_MASTER_CONTEXT.md`
+6. `docs/governance/current_work_state.md`
+7. 当前 Stage canonical research route / README
+8. 当前 task protocol/spec/plan
+9. `docs/governance/experiment_master_record.md` relevant entries
+10. `docs/governance/research_execution_log.md` relevant entries
+11. Git 最近 commit、branch、HEAD、tag、worktree、status 与 upstream sync
 
 若长期需求与本登记册冲突，必须停止并报告，不得自行覆盖长期基线。
 

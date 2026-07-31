@@ -26,23 +26,25 @@
 任何任务开始前按以下顺序读取和核对：
 
 1. `AGENTS.md`
-2. `docs/governance/long_term_research_requirements.md`
-3. `docs/governance/project_owner_decision_register.md`
-4. `PROJECT_MASTER_CONTEXT.md`
-5. `docs/governance/current_work_state.md`
-6. `docs/governance/experiment_master_record.md`
-7. 当前 Stage 的 `README.md`
-8. 当前任务的 design specification
-9. 当前任务的 implementation plan
-10. 最近 15 条 Git commit
-11. 当前 branch、HEAD、worktree、status 和 upstream sync
+2. `docs/governance/context_authority_map.md`
+3. `docs/governance/long_term_research_requirements.md`
+4. `docs/governance/project_owner_decision_register.md`
+5. `PROJECT_MASTER_CONTEXT.md`
+6. `docs/governance/current_work_state.md`
+7. 当前 Stage 的 canonical research route / `README.md`
+8. 当前任务的 protocol/design specification 与 implementation plan
+9. `docs/governance/experiment_master_record.md` 中的相关实验、证据和 blocker
+10. `docs/governance/research_execution_log.md` 的相关时间线记录
+11. 最近 15 条 Git commit
+12. 当前 branch、HEAD、worktree、status、tag 和 upstream sync
 
 文件职责：长期需求记录用户目标、论文/立项方向和后续强制能力；项目负责人决策登记册记录已确认的解释
 与决策；项目总控记录总体架构、阶段进度、
 已验收成果和结论边界；动态状态记录当前任务与审批门；design spec 定义“设计成什么”；implementation
 plan 定义“按什么顺序实现”；Git 是 branch、HEAD、工作树、提交和文件存在性的事实来源。上下文恢复
-流程见 `docs/governance/context_recovery_protocol.md`。Experiment Master Record 用于恢复实验路线、运行、指标
-与证据索引；它不替代动态任务状态、项目架构或原始阶段产物。
+流程见 `docs/governance/context_recovery_protocol.md`；权威层级与冲突规则见
+`docs/governance/context_authority_map.md`。Experiment Master Record 用于恢复实验路线、运行、指标与证据索引；
+Research Execution Log 按时间记录项目推进。二者都不替代动态任务状态、项目架构或原始阶段产物。
 
 ## Mandatory Startup Protocol
 
@@ -60,6 +62,10 @@ plan 定义“按什么顺序实现”；Git 是 branch、HEAD、工作树、提
 10. 文档与 Git 是否冲突；
 11. 是否存在未提交或未推送修改；
 12. 当前可以和不能宣称什么。
+
+Git preflight 至少执行 `git fetch --prune --tags origin`、`git status --short --branch`、
+`git branch --show-current`、`git rev-parse HEAD` 和 `git log -15 --oneline`。只有存在 upstream 且工作树 clean 时
+才执行 `git pull --ff-only`；upstream 缺失、分叉或未知修改必须 fail closed 并报告，不得猜测。
 
 若用户已明确批准当前任务，可在恢复报告后执行；若仍处于设计评审或未批准状态，必须暂停并等待批准。
 
@@ -145,6 +151,11 @@ Stage 7 必须研究 Tool Injection、Memory Poisoning、Planning Manipulation�
 5. 创建清晰 commit 并 push；
 6. 确认本地与远端同步、工作树干净；
 7. 完成后暂停，不自动开始下一任务。
+
+研究路线、Owner Decision、Blocker、实验/工程验证或审批门发生变化时，还必须追加
+`docs/governance/research_execution_log.md`；历史记录错误用 `CORRECTION`/`SUPERSEDING_RECORD`，不得静默覆盖。
+`docs/learning/` 始终是 `NON_AUTHORITATIVE_EDUCATIONAL_MATERIAL`，不能覆盖 Git、Owner Decision、Experiment
+Record 或 accepted protocol。
 
 `docs/governance/long_term_research_requirements.md` 只有在用户长期目标变化时才能修改；普通实现任务不得
 随意重写它。

@@ -2,7 +2,7 @@
 
 > 英文名：Experiment Master Record
 >
-> 文档性质：项目唯一的实验控制面、索引和汇总入口。
+> 文档性质：项目**唯一的实验控制面**、证据索引和汇总入口。
 >
 > 首次建立：2026-07-20。最近更新时间应通过本文件的 Git 历史解析；当前 branch、HEAD 和本文件自身提交均为动态 Git 事实，不在本文静态固化。
 
@@ -11,6 +11,9 @@
 ### 1.1 职责
 
 本记录统一回答项目实验路线、运行、指标、证据、失败、阻塞项、审批门、结论边界和交接顺序。它是**控制面、索引和汇总入口，不是原始数据仓库，也不替代阶段产物**。
+
+普通文档编辑、日常开发步骤和教学记录不得全部塞入本文；项目推进时间线进入
+`research_execution_log.md`，当前任务状态进入 `current_work_state.md`。
 
 - 不记录 API Key、Authorization、完整敏感输出、完整污染文档或本机绝对路径。
 - 不覆盖 Stage 1–5 的历史 JSON/JSONL、HTML、日志、报告、数据或代码；历史勘误以新增条目留痕。
@@ -23,11 +26,15 @@
 | 文档 | 主要职责 | 是否保存当前动态状态 | 是否保存原始实验数据 | 是否是实验总入口 |
 | --- | --- | --- | --- | --- |
 | [AGENTS.md](../../AGENTS.md) | Codex 启动、范围和完成协议 | 否 | 否 | 否 |
+| [context_authority_map.md](context_authority_map.md) | 权威层级、冲突解决与恢复顺序 | 否 | 否 | 否 |
 | [long_term_research_requirements.md](long_term_research_requirements.md) | 长期不可变研究要求 | 否 | 否 | 否 |
+| [project_owner_decision_register.md](project_owner_decision_register.md) | Owner-confirmed decisions | 否 | 否 | 否 |
 | [PROJECT_MASTER_CONTEXT.md](../../PROJECT_MASTER_CONTEXT.md) | 项目架构、路线和长期上下文 | 部分 | 否 | 否 |
 | [current_work_state.md](current_work_state.md) | 当前任务与审批门 | 是 | 否 | 否 |
 | `experiment_master_record.md` | 实验路线、运行、指标、证据、阻塞、交接 | 是，做动态索引 | 只做索引和汇总 | 是 |
+| [research_execution_log.md](research_execution_log.md) | append-only 项目推进时间线 | 否 | 否 | 否 |
 | [learning_notes.md](../../deliverables/learning_notes.md) | 教学过程、问题解释和学习反思 | 否 | 否 | 否 |
+| [docs/learning](../learning/README.md) | 结构化 Stage Learning Guides | 否 | 否 | 否 |
 | Stage-specific deliverables | 原始结果、日志、报告和阶段解释 | 否 | 是 | 否 |
 | Run Manifest | 单次正式运行的机器可读事实 | 否 | 是 | 否 |
 
@@ -46,17 +53,18 @@
 | 项目 | 当前事实 |
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
-| 当前最高完成阶段 | Stage 6 的 S6-T5.6 Context Package Protocol 已通过人工验收；其最小 synthetic-only I1 已完成离线工程实现，等待人工验收。 |
-| 当前任务 | `S6-T5.6-I1`：Deterministic Retrieved Context Package Minimal Offline Implementation，Completed, pending human acceptance。 |
-| 当前审批门 | S6-T5.4 blocker 仍保留为 `RESOLVED_BY_APPROVED_PROTOCOL_FREEZE` 的历史记录；S6-T5.4 已 HUMAN_ACCEPTED。 |
-| 下一批准任务 | I1 已完成，等待人工验收；S6-T5.7+、Trust 和正式 RAG 安全实验仍须独立审批。 |
+| 当前最高完成阶段 | S6-T5 Controlled Retrieval and Traceable Context Baseline 已 `HUMAN_ACCEPTED BASELINE`；Stage 6.1 仅完成 LR1 research-control-plane candidate。 |
+| 当前任务 | `S6.1-LR1` + additive Context Recovery Governance，`COMPLETED_PENDING_HUMAN_ACCEPTANCE`。 |
+| 当前审批门 | 接受或退回 LR1 + Context Recovery Governance；`FORMAL_EXPERIMENT = NOT STARTED`。 |
+| 下一批准任务 | S6.1-P1、environment preparation、data/model download、smoke/reproduction 和 formal experiment 均须单独审批。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
-| 最近工程验证 | S6-T5.3-P1 metadata carrier、DenseRetriever 与 S6-T5.3-H1 trace/failure-boundary 离线加固；无正式 RAG 实验。 |
-| 当前主要阻塞项 | parent identity 协议已由版本化 schema `1.1` 修复；DenseRetriever 仍须保持无正文、标签隔离与 fail-closed 边界。历史实验另缺少部分 Run Manifest、模型 revision 和数据 fingerprint。 |
-| 当前允许宣称 | 已有模型层真实 API 小样本扫描、Guard A/B 和输入/输出消融；Stage 6 已有检索基础设施与标签隔离契约。 |
-| 当前禁止宣称 | 未完成正式 RAG 安全实验、可信检索、抗知识污染、Citation Accuracy、Agent 安全或生产级防护。 |
+| 最近工程验证 | S6-T5.7 controlled retrieval-context integration evidence 已接受；LR1 只执行 governance/documentation tests，无外部 baseline run。 |
+| 当前主要阻塞项 | `BLK-S6.1-LR1-001`：许可、paper-result commit、revision/API snapshot 和硬件实测缺口阻止 strict reproduction/comparison。 |
+| 当前允许宣称 | LR1 已完成一手 source/artifact alignment、三轨 Paper 1 route、benchmark/reproduction/hardware/context-recovery governance candidate。 |
+| 当前禁止宣称 | 未复现外部 baseline，未构建 dataset/Detector，未训练或产生 Paper 1 results；未建立 RAG 安全效果、SOTA 或生产能力。 |
 
-当前审批状态补充：`S6-T5.5: HUMAN_ACCEPTED`；`S6-T5.5-I1: HUMAN_ACCEPTED`；`S6-T5.5-H1: HUMAN_ACCEPTED`；`S6-T5.6-P1: HUMAN_ACCEPTED`；`S6-T5.6-P1-H1: HUMAN_ACCEPTED`；`S6-T5.6-P1-H2: HUMAN_ACCEPTED`；`S6-T5.6: Completed, pending human acceptance`；`S6-T5.6-I1: Completed, pending human acceptance`；`S6-T5.7+: NOT APPROVED`；`Formal RAG security experiment: NOT STARTED`。最后已接受 implementation commit 仍为 `6da27a6`；本轮 implementation commit 仅是 candidate pending human acceptance；`432b07e` 是协议验收闭环提交，不是 implementation commit。
+历史审批快照补充：S6-T5.5/5.6/5.7 已按后续记录完成并通过相应人工验收；早期 pending/NOT APPROVED 文字保留为
+时间点事实。当前 accepted implementation/integration identities 分别是 `b136ee2` 与 `b6cedf3`；LR1 不改变该 taxonomy。
 
 **阅读入口**：先读 [AGENTS.md](../../AGENTS.md)、[长期研究需求](long_term_research_requirements.md)、[项目总控](../../PROJECT_MASTER_CONTEXT.md)、[当前任务状态](current_work_state.md)，再读本文、当前 Stage 设计与原始工件。
 
@@ -224,17 +232,67 @@ ADR、设计规格和实施计划只冻结未来边界与验证方法。设计�
 
 ## 12. Blocker Register
 
+### 12.1 Canonical Blocker Record Schema
+
+Blocker Register 是 canonical blocker authority，不创建第二个竞争文件。每个新 blocker、每个被本轮触及的历史
+blocker，以及每次状态变化都至少记录下列字段：
+
+```text
+blocker_id
+discovered_at
+stage
+task
+machine
+severity
+description
+why_it_blocks
+affected_scope
+evidence
+attempt_1
+attempt_1_result
+attempt_2
+attempt_2_result
+temporary_workaround
+final_resolution
+resolution_commit
+resolution_run
+resolved_at
+status
+```
+
+合法 canonical status 只有 `OPEN`、`MITIGATED`、`RESOLVED`、`ACCEPTED_TECHNICAL_DEBT`。历史复合标签可保存在
+description/final_resolution 中，但不能代替 status。**WORKAROUND is not RESOLVED**；compatibility environment 默认
+只能记为 `MITIGATED_BY_COMPATIBILITY_ENV` / `MITIGATED`，直到算法等价和正式关闭证据成立。
+
+### 12.2 Normalized Blocker Records
+
+| blocker_id | discovered_at | stage | task | machine | severity | description | why_it_blocks | affected_scope | evidence | attempt_1 | attempt_1_result | attempt_2 | attempt_2_result | temporary_workaround | final_resolution | resolution_commit | resolution_run | resolved_at | status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| BLK-HIST-001 | 2026-07-19 | Stage 1–5 | historical integrity | LOCAL | medium | 110 Windows CRLF/LF manifest differences | byte baselines are not portable | integrity regression | learning record and baseline acceptance | Git blob/diff review | confirmed existing line-ending debt | rewrite history | rejected | preserve files and use Git evidence | accepted as historical technical debt | N/A | N/A | 2026-07-27 | ACCEPTED_TECHNICAL_DEBT |
+| BLK-HIST-002 | 2026-07-19 | Stage 1–4.1 | historical reproducibility | LOCAL | medium | missing RunManifest/model revision/data fingerprint | strict rerun identity is incomplete | historical reproduction | NOT_RECORDED fields in this record | preserve original paths | evidence remains usable within limits | infer missing identity | rejected as fabrication | future runs use RunManifest | NOT_RECORDED | N/A | N/A | NOT_RECORDED | OPEN |
+| BLK-HIST-003 | 2026-07-19 | Stage 5 legacy | scoped typing | LOCAL | low | legacy full MyPy warnings | full-project strict typing cannot be claimed | legacy maintenance | scoped MyPy history | scoped MyPy | current code can be checked without history mutation | rewrite legacy | not approved | scoped checking | accepted legacy debt | N/A | N/A | 2026-07-19 | ACCEPTED_TECHNICAL_DEBT |
+| BLK-S6-001 | 2026-07-22 | Stage 6 | S6-T5.3 | LOCAL | high | hit lacked parent identity | canonical RetrievalEvidence could not be built safely | DenseRetriever | protocol blocker record | schema 1.1 public carrier | identity reached RetrievalEvidence | schema 1.0 rewrite | rejected | no workaround after closure | RESOLVED_BY_VERSIONED_PUBLIC_METADATA_CONTRACT | 2ad3d9c | N/A | 2026-07-22 | RESOLVED |
+| BLK-S6-004 | 2026-07-25 | Stage 6 | S6-T5.4 | LOCAL | high | resolver permission/return/reader/mapping/errors were unfrozen | implementation would guess sensitive capability | ContentResolver | S6-T5.4 blocker record | stop implementation | fail-closed preserved | freeze P1 protocol | accepted by owner | no workaround after closure | RESOLVED_BY_APPROVED_PROTOCOL_FREEZE | 4155ed8 | N/A | 2026-07-25 | RESOLVED |
+| BLK-S6-002 | current | Stage 6 | formal RAG research | LOCAL | high | no controlled formal RAG experiment | security/retrieval claims lack evidence | RAG conclusions | Stage 6 engineering state | engineering validation | contracts verified only | formal experiment | not approved | do not overclaim | NOT_RECORDED | N/A | N/A | NOT_RECORDED | OPEN |
+| BLK-S6-003 | current | Stage 6 | real embedding/Chroma | LOCAL | medium | real infrastructure is opt-in/environment-sensitive | default CI cannot prove portable environment | integration validation | S6-T4/T5.7 records | explicit env gate/temp dir | controlled integration passed | full reproducible env | pending | explicit opt-in fixed revision | NOT_RECORDED | N/A | N/A | NOT_RECORDED | MITIGATED |
+| BLK-API-001 | 2026-06-30 | Stage 3–4 | Groq expansion | LOCAL | medium | external API cost/policy and snapshot risk | uncontrolled expansion is not reproducible or bounded | real-model expansion | Stage 3/4 troubleshooting | safe small sample | historical smoke completed | approve budget/protocol | pending | safe mode and small samples | NOT_RECORDED | N/A | N/A | NOT_RECORDED | OPEN |
+| BLK-DOC-001 | 2026-07-20 | Governance | historical S6-T5 snapshots | LOCAL | low | older text contains stale stage snapshots | new readers may mistake history for current state | context recovery | Git/current-state comparison | preserve dated snapshots | history remains auditable | add authority map and current entry | completed candidate | use current state plus authority hierarchy | pending human acceptance | PENDING_THIS_COMMIT | N/A | NOT_RECORDED | MITIGATED |
+| BLK-S6.1-LR1-001 | 2026-07-31 | Stage 6.1 | S6.1-LR1 reproduction eligibility | LOCAL | high | paper-result commit/license/revision/API/hardware facts incomplete | strict reproduction and comparison cannot start | PoisonedRAG/GMTP/SafeRAG and 5090 worker | external artifact registry and benchmark matrix | first-party source alignment | gaps precisely recorded | run/download/install | not approved and would not close license gaps | planning-only protocol; no execution | NOT_RECORDED | N/A | N/A | NOT_RECORDED | OPEN |
+
+### 12.3 Historical Summary View
+
 | Blocker ID | 首次发现 | 类别 | 严重级别 | 影响范围 | 状态 | 当前证据 | 临时处理 | 最终解决条件 | 下一动作 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | BLK-HIST-001 | 2026-07-19 | 历史完整性 | medium | Stage 1–5 hash 检查 | `ACCEPTED_TECHNICAL_DEBT` | [学习记录](../../deliverables/learning_notes.md) 的 CRLF/LF 留痕 | Git diff/blob 核验 | 新的跨平台基线方案经批准 | 不重写历史文件 |
 | BLK-HIST-002 | 2026-07-19 | 可复现性 | medium | Stage 1–4.1 | `OPEN` | 本账本 `NOT_RECORDED` 字段 | 保留原始路径和摘要 | 新实验采用 Run Manifest | 不倒填旧事实 |
 | BLK-HIST-003 | 2026-07-19 | 类型检查 | low | legacy Stage 5 | `ACCEPTED_TECHNICAL_DEBT` | 全量 MyPy 的既有 legacy 告警 | scoped MyPy | 历史资产单独批准后修复 | 不修改 legacy |
-| BLK-S6-001 | 2026-07-22 | 设计/协议 | high | S6-T5.3 | `RESOLVED_BY_VERSIONED_PUBLIC_METADATA_CONTRACT` | [阻断记录](s6_t5_3_protocol_blocker_record.md) | schema `1.1` 公开 carrier；不伪造 parent ID、不读取语料、不改写 schema `1.0` | P1 离线回归 | DenseRetriever 继续保持 fail-closed |
-| BLK-S6-004 | 2026-07-25 | 设计/协议 | high | S6-T5.4 | `DESIGN_OR_PROTOCOL_BLOCKER` | [S6-T5.4 blocker](s6_t5_4_protocol_blocker_record.md) | 停止实现；不读取正文、不猜测 return type/reader/mapping/error ownership | 冻结四项 resolver protocol 决策 | 项目负责人补充决策 |
+| BLK-S6-001 | 2026-07-22 | 设计/协议 | high | S6-T5.3 | `RESOLVED` | [阻断记录](s6_t5_3_protocol_blocker_record.md) | `RESOLVED_BY_VERSIONED_PUBLIC_METADATA_CONTRACT`；不伪造 parent ID、不读取语料、不改写 schema `1.0` | P1 离线回归 | DenseRetriever 继续保持 fail-closed |
+| BLK-S6-004 | 2026-07-25 | 设计/协议 | high | S6-T5.4 | `RESOLVED` | [S6-T5.4 blocker](s6_t5_4_protocol_blocker_record.md) | `RESOLVED_BY_APPROVED_PROTOCOL_FREEZE`；保留 fail-closed 历史 | 协议与实现验收已完成 | 不改写原 blocker evidence |
 | BLK-S6-002 | 当前 | 研究缺口 | high | RAG 安全结论 | `OPEN` | 第 10 节 | 不夸大工程验证 | 完成受控正式实验 | 先获批 DenseRetriever |
 | BLK-S6-003 | 当前 | 环境依赖 | medium | 真实 Embedding/Chroma | `MITIGATED` | S6-T4 真实集成记录 | 环境变量显式开启、临时目录 | 固定可复现环境文档 | 仅按批准运行 |
 | BLK-API-001 | 2026-06-30 | 真实 API 成本/策略 | medium | Groq 扩样 | `OPEN` | [Stage 3/4 文档](../../deliverables/stage3/06_troubleshooting.md) | safe 模式和小样本 | 批准预算和实验设计 | 不无控制扩样 |
 | BLK-DOC-001 | 2026-07-20 | 文档漂移 | low | 早期 S6-T5 架构索引/设计快照 | `OPEN` | Git 已有 `4c12181`，但部分历史文本仍称 Python 未开始 | 当前状态与本记录作为动态事实入口 | 在不改写历史叙述前提下添加历史快照说明 | 后续治理审查 |
+| BLK-S6.1-LR1-001 | 2026-07-31 | 复现准入 | high | Paper 1 strict comparison | `OPEN` | [Artifact Registry](../research/stage6_1_hidden_knowledge_poisoning/external_artifact_registry.md) | 只做 planning；不运行/download/install | 补齐许可、paper-result commit、revision、API snapshot 与硬件证据 | 单独审批后处理 |
 
 ## 13. Failed Run Register
 
@@ -441,3 +499,4 @@ git log -15 --oneline
 | 2026-07-26 | S6-T5.8-H1 evidence taxonomy hardening | 第 2、4、12、14、20 节 | 将基线矩阵拆分为 protocol design/hardening/acceptance、implementation/hardening/acceptance、integration evidence/acceptance；原始 closure `37cccdc` 仅作候选事实，不是 accepted baseline SHA | [baseline report](s6_t5_baseline_acceptance_report.md)、PODR-033、语义治理测试 | 纯文档/治理候选，未改业务源码、历史资产或 fixture/data |
 | 2026-07-27 | GOV-S6-T5-BASELINE-ACCEPTANCE | 第 2、4、12、14、20 节 | 项目负责人接受 S6-T5.8-H1、S6-T5.8 与整个 S6-T5 基线；`4ecf73a` 为 accepted baseline content commit；本轮新提交仅是 baseline governance acceptance commit | [baseline report](s6_t5_baseline_acceptance_report.md)、PODR-034、治理测试 | 不改业务源码/测试 fixture/data；不创建 tag/研究分支；不开始正式实验 |
 | 2026-07-31 | S6.1-LR1 research alignment | 第 2、12、14、20 节 | 建立 paper-first 比较证据原则，核验 PoisonedRAG/GMTP/SafeRAG 一手论文、仓库、commit、许可、协议和硬件事实；只形成 Benchmark/复现/双机控制面文档 | [Stage 6.1 research README](../research/stage6_1_hidden_knowledge_poisoning/README.md)、PODR-035、治理测试 | `FORMAL_EXPERIMENT = NOT STARTED`；无数据/模型下载、无 API/模型调用、无实验 Run Record |
+| 2026-07-31 | Git-native context recovery governance | 第 1、2、12、17、19、20 节 | 明确本文只做实验控制面；增强 canonical Blocker schema/status；连接 authority map、execution ledger、dual-machine Git sync 和 learning 非权威边界 | [Context Authority Map](context_authority_map.md)、[Research Execution Log](research_execution_log.md)、PODR-036--040、context-persistence tests | 纯治理/文档；不创建实验 Run Record，不改变 S6-T5 baseline 或 Stage 1--5 evidence |

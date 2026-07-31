@@ -1,5 +1,8 @@
 # Current Work State
 
+本文是**唯一动态任务状态入口**，只回答当前正在执行什么、当前批准了什么、哪些工作必须停止。Git 仍动态决定
+branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Authority Map](context_authority_map.md)。
+
 ## Repository Facts
 
 - Active branch: `research/stage6-1-hidden-poisoning`.
@@ -8,6 +11,7 @@
 - Worktree, HEAD, working-tree state and upstream synchronization are dynamic Git facts. Verify them with `git rev-parse`, `git status --short` and `git rev-list --left-right --count @{upstream}...HEAD` before every task.
 - Historical Stage 1-5 assets and Stage 6 fixture data remain immutable. Corrections are additive records, never rewrites of evidence.
 - Experiment route, historical runs, metrics and evidence indexes are recorded in `docs/governance/experiment_master_record.md`; this file remains the sole dynamic task and approval-gate source.
+- Chronological project execution is append-only in [Research Execution Log](research_execution_log.md); it does not replace this current-state page.
 
 ## Current Task
 
@@ -15,10 +19,18 @@
 - Task name: `Paper 1 Literature, Benchmark, Source Code, Hardware and Reproduction Alignment`.
 - Task type: **RESEARCH_CONTROL_PLANE_ALIGNMENT**.
 - Status: **COMPLETED_PENDING_HUMAN_ACCEPTANCE**.
-- Approved scope: paper-first governance, first-party source verification, external artifact registry, Benchmark matrix, published-result extraction, reproduction protocol, hardware planning and dual-machine policy.
+- Approved scope: paper-first governance, first-party source verification, external artifact registry, Benchmark matrix, published-result extraction, reproduction protocol, hardware planning, Git-native context recovery, L0-L9 authority map, append-only research ledger, canonical Paper 1 route persistence, dual-machine Git sync and structured Stage Learning Guides.
 - Formal RAG security experiment: **NOT STARTED**.
+- Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.
+- S6.1-P1: **NOT STARTED / DEFERRED UNTIL LR1 REVIEW**.
+- Dataset Generation: **NOT APPROVED**.
+- Detector Implementation: **NOT APPROVED**.
+- Model Training: **NOT APPROVED**.
+- Current blocker for the approved governance scope: **NONE**. `BLK-S6.1-LR1-001` remains **OPEN** for future strict reproduction/comparison because license, paper-result commit, revision and hardware facts are incomplete.
 - No PoisonedRAG, GMTP or SafeRAG experiment was run; no dataset/model was downloaded; no paid API or model was invoked.
 - Canonical entry: [Stage 6.1 research README](../research/stage6_1_hidden_knowledge_poisoning/README.md).
+- Canonical Paper 1 route: [Paper 1 Research Route](../research/stage6_1_hidden_knowledge_poisoning/paper1_research_route.md).
+- Context recovery entry: [Context Authority Map](context_authority_map.md).
 
 ## Accepted Baseline
 
@@ -86,6 +98,7 @@
 ## Approval Gate
 
 - `S6.1-LR1` is completed and pending project-owner human acceptance.
+- The additive Context Recovery Governance acceptance conditions are completed with LR1 and remain pending the same project-owner review; this is not a separate research stage.
 - Next approval gate: accept/reject S6.1-LR1. Any S6.1-P1 protocol, environment installation, data/model download, smoke test, reproduction or formal experiment requires separate approval.
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
@@ -123,4 +136,4 @@ Cannot claim: any external baseline was reproduced; any 5090 requirement was mea
 ## Last Update
 
 - Date: `2026-07-31`.
-- Updated by: Codex after completing the approved S6.1-LR1 research-control-plane alignment. The task awaits human acceptance; S6.1-P1 and all formal experiments remain unapproved/not started.
+- Updated by: Codex after completing the approved S6.1-LR1 research-control-plane alignment and its additive Git-native Context Recovery Governance. The task awaits human acceptance; S6.1-P1 and all formal experiments remain unapproved/not started.

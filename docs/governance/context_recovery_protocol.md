@@ -5,11 +5,15 @@
 本协议让新的 Codex Thread、Agent、Workspace 或 Worktree 在旧对话不可用时，仅依靠仓库文件与 Git
 恢复项目目标、当前状态、审批门和结论边界。它不授权任何业务实现。
 
+权威层级、文件职责和冲突规则由 [Context Authority Map](context_authority_map.md) 冻结；本协议只规定恢复动作。
+
 ## 新 Thread 启动流程
 
-1. 从仓库根 `AGENTS.md` 开始，按其中的 Canonical Context Sources 顺序读取。
-2. 读取长期需求、项目负责人决策登记册、项目总控、动态状态、Experiment Master Record、当前 Stage README、当前 design spec 和 implementation plan。
-3. 运行 Git 只读检查：repo/worktree 根、branch、HEAD、status、upstream sync、最近 15 条 commit。
+1. 从仓库根 `AGENTS.md` 开始，再读 `context_authority_map.md`。
+2. 读取长期需求、项目负责人决策登记册、项目总控、动态状态、canonical research route、当前 task protocol、
+   相关 Experiment Master Record 和 Research Execution Log。
+3. 运行 Git 只读检查：fetch、repo/worktree 根、branch、HEAD、tag、status、upstream sync、最近 15 条 commit；
+   upstream 存在且工作树 clean 时才执行 `git pull --ff-only`。
 4. 检查根与当前目录层级是否存在更深的 `AGENTS.md`/`AGENTS.override.md`，并说明作用域。
 5. 用中文输出 Context Recovery Report。
 6. 若当前任务未批准、文档与 Git 冲突或存在来源不明的未提交修改，停止并等待用户决定。
@@ -23,23 +27,24 @@
 4. 检查当前任务所需依赖和测试，但不因缓存存在就宣称真实集成已运行。
 5. 输出独立 Context Recovery Report，明确该 worktree 与主 worktree 的差异。
 
-## 权威文档读取顺序
+## Canonical Recovery Reading Order
 
 1. `AGENTS.md`
-2. `docs/governance/long_term_research_requirements.md`
-3. `docs/governance/project_owner_decision_register.md`
-4. `PROJECT_MASTER_CONTEXT.md`
-5. `docs/governance/current_work_state.md`
-6. `docs/governance/experiment_master_record.md`
-7. 当前 Stage README
-8. 当前任务 design specification
-9. 当前任务 implementation plan
-10. 最近 15 条 Git commit
-11. 当前 branch、HEAD、status 和 remote sync
+2. `docs/governance/context_authority_map.md`
+3. `docs/governance/long_term_research_requirements.md`
+4. `docs/governance/project_owner_decision_register.md`
+5. `PROJECT_MASTER_CONTEXT.md`
+6. `docs/governance/current_work_state.md`
+7. 当前 Stage canonical research route / README
+8. 当前 task protocol/spec/plan
+9. `docs/governance/experiment_master_record.md` 的相关记录
+10. `docs/governance/research_execution_log.md` 的相关记录
+11. 最近 15 条 Git commit
+12. 当前 branch、HEAD、tag、status 和 remote sync
 
-长期需求负责能力基线，项目负责人决策登记册负责已确认的解释与决策；`PROJECT_MASTER_CONTEXT.md` 负责
+长期需求负责能力基线，项目负责人决策登记册是 `OWNER-CONFIRMED DECISION AUTHORITY`；`PROJECT_MASTER_CONTEXT.md` 负责
 架构与长期阶段叙事，`current_work_state.md` 负责当前任务与审批门，Experiment Master Record 负责实验路线、
-运行、指标和证据恢复；这些来源不得相互替代。
+运行、指标和证据恢复，Research Execution Log 负责 append-only 时间线；这些来源不得相互替代。
 
 ## 可复制启动模板
 
@@ -51,16 +56,17 @@
 请先完整阅读：
 
 1. AGENTS.md
-2. docs/governance/long_term_research_requirements.md
-3. docs/governance/project_owner_decision_register.md
-4. PROJECT_MASTER_CONTEXT.md
-5. docs/governance/current_work_state.md
-6. docs/governance/experiment_master_record.md
-7. 当前 Stage README
-8. 当前任务 design spec
-9. 当前任务 implementation plan
-10. git log 最近 15 条
-11. 当前 branch、HEAD 和 git status
+2. docs/governance/context_authority_map.md
+3. docs/governance/long_term_research_requirements.md
+4. docs/governance/project_owner_decision_register.md
+5. PROJECT_MASTER_CONTEXT.md
+6. docs/governance/current_work_state.md
+7. 当前 Stage canonical research route
+8. 当前 task protocol/spec/plan
+9. relevant experiment record
+10. docs/governance/research_execution_log.md
+11. git log 最近 15 条
+12. 当前 branch、HEAD、tag、upstream 和 git status
 
 然后用中文报告：
 
@@ -88,22 +94,20 @@
 
 ```text
 Context Recovery Report
-1. 长期目标：
-2. 能力优先级：
-3. 已完成 Stage/Task：
-4. Branch：
-5. HEAD：
-6. 当前任务：
-7. 允许修改：
-8. 禁止修改：
-9. 下一审批门：
-10. 两篇论文路线/Stage 7 定位：
-11. 已确认不可变决策：
-12. blocker 与已批准解决方向：
-13. 已接受决策是否被错误改写：
-14. 文档/Git 冲突：
-15. 未提交或未推送修改：
-16. 可以宣称/不能宣称：
+1. Repository / Worktree：
+2. Branch / HEAD / Tag / Upstream / Working Tree：
+3. 项目身份、长期目标与能力优先级：
+4. Current Stage / Task / Status：
+5. Current Paper 1 Route：
+6. Owner-confirmed Decisions：
+7. External Baselines：
+8. Formal Experiment Status：
+9. Current Blocker / Technical Debt：
+10. 允许修改 / 禁止修改：
+11. Claims Boundary：
+12. 文档/Git 冲突与未知项：
+13. 未提交或未推送修改：
+14. Next Approval Gate：
 ```
 
 ## 指令冲突优先级
@@ -127,7 +131,7 @@ implementation plan > 历史计划/学习笔记。Git 单独决定 branch、HEAD
 2. 运行任务要求的测试、架构/兼容性、Ruff、MyPy、标签泄漏、secret 和 runtime-ignore 检查。
 3. 确认未越界修改历史资产、legacy namespace、数据或未批准业务代码。
 4. 创建范围清晰的 commit，push upstream，确认 ahead/behind 为零和工作树 clean。
-5. 在动态状态中保留下一个任务和审批门；暂停，不自动开始。
+5. 在动态状态中保留下一个任务和审批门，并向 `research_execution_log.md` 追加记录；暂停，不自动开始。
 
 ## Git 与文档不一致时
 

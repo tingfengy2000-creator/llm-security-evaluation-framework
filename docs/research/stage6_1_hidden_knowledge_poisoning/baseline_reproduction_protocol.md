@@ -1,5 +1,8 @@
 # Paper 1 Baseline Reproduction Protocol
 
+> Machine roles, Git context sync and worker fail-closed preflight are governed by
+> [Dual-Machine Execution Policy](../../governance/dual_machine_execution_policy.md).
+
 ## 1. 状态
 
 - 协议类型：`PLANNING_ONLY`。
