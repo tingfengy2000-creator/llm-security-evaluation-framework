@@ -425,3 +425,53 @@ Approval Gate、Auto Continue。
 - Next Step: RTX5090 returns the minimal corrected archive；LOCAL repeats R0-I。
 - Next Approval Gate: owner decides R0 acceptance and `R0-FU1: RECOMMEND / NOT APPROVED`；S6.1-P1 remains not started。
 - Auto Continue: `NO`
+
+## REL-2026-0011 — S6.1-R0 Corrected-Evidence Final Acceptance
+
+- Record ID: `REL-2026-0011`
+- Date: `2026-07-31`
+- Timestamp: `NOT_RECORDED`
+- Machine: `LOCAL`
+- Machine Role: `CONTROL_PLANE`
+- Stage: `Stage 6.1 / R0`
+- Task ID: `S6.1-R0-I-CORRECTED-REVIEW`
+- Task Name: `Corrected Worker Evidence Final Control Plane Review`
+- Task Type: `CONTROL_PLANE_EVIDENCE_REVIEW / ENGINEERING_VALIDATION_ACCEPTANCE`
+- Initial Status: `RETURNED_FOR_WORKER_CORRECTION / REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE`
+- Final Status: `HUMAN_ACCEPTED_WITH_BLOCKERS`
+- Objective: 验证 corrected archive/index/matrix 与三项 baseline 修正事实，并对 R0 作最终工程预检验收。
+- Why: R0 的完成条件是可靠识别可行路径与真实 blocker，而不是声称 baseline 或论文结果已复现。
+- Previous Gate: `S6.1-R0-I RETURNED_FOR_WORKER_CORRECTION`
+- Actions: 验证外层 SHA 与 sidecar；安全检查 39 个 archive members；在 Git 外临时目录解包；逐项验证 corrected index
+  `12/12` 与 matrix hash；审阅 command-derived evidence、executed script 和 correction scripts；未运行 external workload。
+- Files Changed: additive R0 acceptance、owner decision、execution/master records、current/master context、route/matrix/
+  registry/preflight/review and semantic governance tests；raw archive and full Worker logs not in Git。
+- Commands: Git preflight；PowerShell/tar SHA、safe-member、inner-index checks；read-only evidence review；LOCAL governance/
+  architecture/namespace/label/Markdown/secret/path/protected-history/static checks。No baseline、data/model、API or GPU workload。
+- Validation: targeted governance/context recovery `21 passed`；full architecture `97 passed`；namespace + label isolation
+  `10 passed`；Ruff passed；Markdown relative links `183` checked；secret/private-path、raw archive exclusion、UTF-8 no-BOM/LF、
+  protected history/business paths and `git diff --check` passed。
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `PENDING_THIS_COMMIT; resolve with git log -1 -- docs/governance/research_execution_log.md`
+- Run ID: `N/A / CONTROL_PLANE_REVIEW`
+- Dataset Snapshot: no dataset frozen；SafeRAG repository artifact at
+  `e8f579743b23e0a3937076dcc0792fe29027cba3` has SN 100/100 and ICC 93/93 required-key validation only。
+- Model / Revision: `N/A`; no model executed or downloaded by LOCAL。
+- Environment Identity: Worker R0-A identity remains historical engineering evidence；LOCAL performed only evidence review。
+- Result Summary: corrected archive
+  `904d79c59e35c6aeb157540049b0f44262b86e5c1c5b3e8d4e96ee2fad3f1c6b`、index `12/12` and matrix
+  `fd7617eca689fa46fc6908f94aa4fa158aaae4d277bb17943bbcc1baf74db9bc` verified；GMTP、SafeRAG and PoisonedRAG
+  corrections passed；R0 accepted with normalized downstream blockers。
+- Claims Allowed: `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS` as reproduction preflight；three final engineering-feasibility
+  qualifications；SafeRAG benchmark artifacts available for SN/ICC under later protocol。
+- Claims Prohibited: baseline/pipeline/benchmark result reproduced；strict comparison ready；Paper Result；Dataset frozen；
+  Detector/training/Our Method/SOTA/security effectiveness/formal experiment。
+- Blockers: P1 protocol and formal-experiment environment items remain；license uncertainty is redistribution-only；SafeRAG full
+  pipeline is non-blocking if only benchmark artifacts are selected。
+- Blocker ID: `R0-I-EVIDENCE-CORRECTION-001 RESOLVED; BLK-S6.1-LR1-001 RECLASSIFIED_DOWNSTREAM`
+- Resolution: corrected command-derived evidence closed the R0-I correction blocker without running new LOCAL workload。
+- Owner Decisions: `PODR-048; PODR-049; PODR-050`
+- Design Changes: none；baseline roles and Paper-First route remain unchanged。
+- Next Step: project owner decides whether to approve narrow `S6.1-R0-FU1`。
+- Next Approval Gate: `S6.1-R0-FU1 APPROVAL_RECOMMENDED / NOT APPROVED`
+- Auto Continue: `NO`

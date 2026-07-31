@@ -37,12 +37,13 @@ The detailed matrix below remains the accepted LR1 alignment snapshot. Current R
 
 | baseline | R0-I review status | evidence-qualified outcome | strict comparison |
 | --- | --- | --- | --- |
-| PoisonedRAG | `RETURNED_FOR_WORKER_CORRECTION` | static audit only；single-dataset/API-free path requires correction | `NOT_STRICT_COMPARISON_READY` |
-| GMTP | `RETURNED_FOR_WORKER_CORRECTION` | `GMTP_200_SAMPLE_ARTIFACTS_PRESENT`；`beir gitlink` mapping/path remains unresolved；Docker is optional | `NOT_STRICT_COMPARISON_READY` |
-| SafeRAG | `RETURNED_FOR_WORKER_CORRECTION` | `PARTIAL_REPRODUCTION_READY / DATASET_ARTIFACT_ONLY` is provisional pending script-hash/all-row correction | `NOT_STRICT_COMPARISON_READY` |
+| PoisonedRAG | `HUMAN_ACCEPTED_WITH_BLOCKERS` | `ENGINEERING_FEASIBILITY_IDENTIFIED / P1_PROTOCOL_BLOCKED`；one selected dataset possible；`API_FREE_ATTACK_GENERATION = NOT ESTABLISHED` | `NOT_STRICT_COMPARISON_READY` |
+| GMTP | `HUMAN_ACCEPTED_WITH_BLOCKERS` | `ENGINEERING_FEASIBILITY_IDENTIFIED / TARGETED_EXECUTION_BLOCKERS_REMAIN`；`GMTP_200_SAMPLE_ARTIFACTS_PRESENT = TRUE`（18 artifacts `AVAILABLE`）；modified `beir gitlink`/detection-only path unresolved；Docker `NOT MANDATORY` | `NOT_STRICT_COMPARISON_READY` |
+| SafeRAG | `HUMAN_ACCEPTED_WITH_BLOCKERS` | `PARTIAL_REPRODUCTION_READY / DATASET_ARTIFACT_ONLY`；SN/ICC `BENCHMARK_ARTIFACT_AVAILABLE`；full pipeline not reproduced | `NOT_STRICT_COMPARISON_READY` for full pipeline |
 
 Roles remain PRIMARY_ATTACK_BASELINE、PRIMARY_DETECTION_BASELINE and PRIMARY_BENCHMARK_REFERENCE respectively. See
-[R0-I review](s6_1_r0_i_control_plane_review.md).
+[R0-I review](s6_1_r0_i_control_plane_review.md). The historical first-review `RETURNED_FOR_WORKER_CORRECTION` snapshot remains
+in that record and is superseded only for current status.
 
 ## LR1 External Benchmark Matrix
 

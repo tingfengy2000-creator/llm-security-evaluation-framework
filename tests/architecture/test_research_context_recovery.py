@@ -125,6 +125,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "PODR-047",
             "PODR-048",
             "PODR-049",
+            "PODR-050",
             "S6.1-LR1: HUMAN_ACCEPTED",
             "Git-Native Research Context Recovery Governance: HUMAN_ACCEPTED",
             "s6-t5-rag-baseline-v1",
@@ -134,6 +135,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "Control-Plane-First Token Economy Principle",
             "LONG_TERM_DUAL_MACHINE_EXECUTION_PRINCIPLE",
             "RETURNED_FOR_WORKER_CORRECTION",
+            "S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, text)
@@ -154,6 +156,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "REL-2026-0008",
             "REL-2026-0009",
             "REL-2026-0010",
+            "REL-2026-0011",
             "Machine Role",
             "Initial Status",
             "Final Status",
@@ -182,14 +185,20 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("FORMAL_EXPERIMENT = NOT STARTED", state)
         self.assertIn("S6.1-R0: **APPROVED_TO_START**", state)
         self.assertIn("S6.1-R0-I: **RETURNED_FOR_WORKER_CORRECTION**", state)
+        self.assertIn("Parent S6.1-R0: **HUMAN_ACCEPTED_WITH_BLOCKERS**", state)
         self.assertIn(
             "RTX5090 Compute Worker Bootstrap: **HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY**",
             state,
         )
         self.assertIn(
-            "S6.1-P1: **NOT STARTED / DEFERRED UNTIL R0 ACCEPTANCE AND OWNER DECISION**",
+            "S6.1-P1: **NOT STARTED / DEFERRED UNTIL R0-FU1 OWNER DECISION AND LATER P1 APPROVAL**",
             state,
         )
+        self.assertIn("S6.1-R0-FU1: **APPROVAL_RECOMMENDED / NOT APPROVED**", state)
+        self.assertIn("Dataset: **NOT FROZEN**", state)
+        self.assertIn("Detector: **NOT IMPLEMENTED**", state)
+        self.assertIn("Training: **NOT STARTED**", state)
+        self.assertIn("Our Method Result: **NONE**", state)
         self.assertIn("Dataset Generation: **NOT APPROVED**", state)
         self.assertIn("Detector Implementation: **NOT APPROVED**", state)
         self.assertIn("Model Training: **NOT APPROVED**", state)
@@ -380,6 +389,43 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         ):
             with self.subTest(required=required):
                 self.assertIn(required, text)
+
+    def test_r0_corrected_evidence_acceptance_is_additive_and_claim_limited(self) -> None:
+        review = R0_I_REVIEW.read_text(encoding="utf-8")
+        protocol = R0_PROTOCOL.read_text(encoding="utf-8")
+        state = CURRENT_STATE.read_text(encoding="utf-8")
+        register = DECISION_REGISTER.read_text(encoding="utf-8")
+        execution = EXECUTION_LOG.read_text(encoding="utf-8")
+        matrix = BENCHMARK_MATRIX.read_text(encoding="utf-8")
+        registry = ARTIFACT_REGISTRY.read_text(encoding="utf-8")
+        combined = "\n".join(
+            (review, protocol, state, register, execution, matrix, registry)
+        )
+
+        for required in (
+            "HUMAN_ACCEPTED_WITH_BLOCKERS",
+            "ENGINEERING_VALIDATION / REPRODUCTION_PREFLIGHT",
+            "904d79c59e35c6aeb157540049b0f44262b86e5c1c5b3e8d4e96ee2fad3f1c6b",
+            "fd7617eca689fa46fc6908f94aa4fa158aaae4d277bb17943bbcc1baf74db9bc",
+            "f062f038c4bfd19a8ca942a9910b1e0d218759d4",
+            "8a38c9f54b963703ae3279f36f53c49083fd76b0f7e96ea27707b728b915db7e",
+            "ENGINEERING_FEASIBILITY_IDENTIFIED / P1_PROTOCOL_BLOCKED",
+            "ENGINEERING_FEASIBILITY_IDENTIFIED / TARGETED_EXECUTION_BLOCKERS_REMAIN",
+            "PARTIAL_REPRODUCTION_READY / DATASET_ARTIFACT_ONLY",
+            "BENCHMARK_ARTIFACT_AVAILABLE",
+            "API_FREE_ATTACK_GENERATION = NOT ESTABLISHED",
+            "P1_PROTOCOL_BLOCKER",
+            "FORMAL_EXPERIMENT_ENVIRONMENT_BLOCKER",
+            "REDISTRIBUTION_ONLY_ISSUE",
+            "APPROVAL_RECOMMENDED / NOT APPROVED",
+            "FORMAL_EXPERIMENT = NOT STARTED",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, combined)
+
+        self.assertIn("Historical First Review Identity", review)
+        self.assertIn("RETURNED_FOR_WORKER_CORRECTION", review)
+        self.assertIn("No R0-FU1, S6.1-P1, Dataset, Detector, Training", review)
 
     def test_learning_guides_are_non_authoritative(self) -> None:
         for path in (

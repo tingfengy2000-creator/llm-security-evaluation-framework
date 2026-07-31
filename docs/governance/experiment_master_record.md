@@ -54,20 +54,20 @@
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
 | 当前最高完成阶段 | S6-T5 Controlled Retrieval and Traceable Context Baseline 已 `HUMAN_ACCEPTED BASELINE`；S6.1-LR1 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`。 |
-| 当前任务 | `S6.1-R0-I`，`RETURNED_FOR_WORKER_CORRECTION`；parent R0 review pending corrected evidence。 |
-| 当前审批门 | Worker 仅返回最小 corrected evidence；LOCAL repeats R0-I；`FORMAL_EXPERIMENT = NOT STARTED`。 |
-| 下一批准任务 | Owner decides R0 acceptance and whether to approve recommended R0-FU1；S6.1-P1 remains closed。 |
+| 当前任务 | `S6.1-R0-I` corrected-evidence review complete；parent R0 `HUMAN_ACCEPTED_WITH_BLOCKERS`。 |
+| 当前审批门 | `S6.1-R0-FU1 = APPROVAL_RECOMMENDED / NOT APPROVED`；`FORMAL_EXPERIMENT = NOT STARTED`。 |
+| 下一批准任务 | Owner decides whether to approve narrow R0-FU1；S6.1-P1 remains closed。 |
 | Baseline tag | annotated `s6-t5-rag-baseline-v1` 已恢复；本地/远端 peeled target 均核验为 `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
-| 最近工程验证 | R0-A fingerprint；SafeRAG `DATASET_ARTIFACT_ONLY` smoke artifact；R0-I evidence review returned for correction。 |
-| 当前主要阻塞项 | `R0-I-EVIDENCE-CORRECTION-001` plus `BLK-S6.1-LR1-001`；redistribution license remains separate。 |
-| 当前允许宣称 | Archive/index hashes verified；R0-A supported；official commits verified；material GMTP mismatch and SafeRAG provenance gap identified。 |
+| 最近工程验证 | R0-A fingerprint；corrected SafeRAG script-bound all-record `DATASET_ARTIFACT_ONLY` smoke；R0 final preflight acceptance。 |
+| 当前主要阻塞项 | `BLK-S6.1-P1-001/002` and `BLK-S6.1-FE-001` are downstream；redistribution license remains separate。 |
+| 当前允许宣称 | R0 engineering preflight accepted with blockers；corrected archive/index/matrix and three baseline qualifications verified。 |
 | 当前禁止宣称 | 未复现外部 baseline，未构建 dataset/Detector，未训练或产生 Paper 1 results；未建立 RAG 安全效果、SOTA 或生产能力。 |
 
 历史审批快照补充：S6-T5.5/5.6/5.7 已按后续记录完成并通过相应人工验收；早期 pending/NOT APPROVED 文字保留为
 时间点事实。当前 accepted implementation/integration identities 分别是 `b136ee2` 与 `b6cedf3`；LR1 不改变该 taxonomy。
 
-正式 RAG 安全实验：**Not started**。Historical R0 execution approval and current returned review do not change this status。
+正式 RAG 安全实验：**Not started**。Historical R0 execution/return snapshots and current R0 acceptance do not change this status。
 
 **阅读入口**：先读 [AGENTS.md](../../AGENTS.md)、[长期研究需求](long_term_research_requirements.md)、[项目总控](../../PROJECT_MASTER_CONTEXT.md)、[当前任务状态](current_work_state.md)，再读本文、当前 Stage 设计与原始工件。
 
@@ -115,8 +115,8 @@
 | S6-T5 Baseline | Controlled Retrieval and Traceable Context Baseline | 受控检索至 Context Package 的离线工程基线 | 已人工验收 | `HUMAN_ACCEPTED_BASELINE` | baseline content `4ecf73a`、PODR-034、[baseline report](s6_t5_baseline_acceptance_report.md) | 本轮治理提交不是 implementation 或 integration evidence；Stage 6.1 未批准 |
 | S6.1-LR1 | Literature / Benchmark / Reproduction Alignment | 外部基准、路线与复现规划 | 已人工验收 | `HUMAN_ACCEPTED` | `1294632`、`85a5655`、PODR-041/042 | S6.1-R0 单独批准 |
 | S6.1-R0-B0 | RTX5090 Compute Worker Bootstrap Validation | WSL GPU、PyTorch basic compute、Git context sync | 已人工验收 | `HUMAN_ACCEPTED_ENGINEERING_ENVIRONMENT_VALIDATION` | PODR-046、REL-2026-0008 | R0-A |
-| S6.1-R0 | Reproduction Environment and Baseline Feasibility Validation | external baseline static audit/minimal smoke 与资源/兼容性证据 | 审查退回最小证据修正 | `REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE` | [R0-I review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_i_control_plane_review.md)、PODR-049 | repeat R0-I；Owner decision |
-| Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | LR1 accepted；R0 approved；P1 not started | `PLANNED` | [长期需求](long_term_research_requirements.md) | R0 后再评审 P1 |
+| S6.1-R0 | Reproduction Environment and Baseline Feasibility Validation | external baseline static audit/minimal smoke 与资源/兼容性证据 | 已带 blocker 人工验收 | `HUMAN_ACCEPTED_WITH_BLOCKERS` | [R0-I review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_i_control_plane_review.md)、PODR-049/050 | Owner decides R0-FU1 |
+| Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | LR1/R0 accepted；R0-FU1 not approved；P1 not started | `PLANNED` | [长期需求](long_term_research_requirements.md) | R0-FU1 owner decision before P1 |
 | Stage 6.2 | Multi-Evidence Trustworthy Retrieval | 可信聚合、重排、拒答 | 规划中 | `PLANNED` | [长期需求](long_term_research_requirements.md) | Stage 6.1/设计批准 |
 | Stage 7 | Agent Security Evaluation | Tool/Memory/Planning 安全 | 规划中 | `PLANNED` | [Stage 7 README](../../stages/stage7_agent_security/README.md) | Trusted Context 契约 |
 
@@ -284,7 +284,10 @@ description/final_resolution 中，但不能代替 status。**WORKAROUND is not 
 | BLK-API-001 | 2026-06-30 | Stage 3–4 | Groq expansion | LOCAL | medium | external API cost/policy and snapshot risk | uncontrolled expansion is not reproducible or bounded | real-model expansion | Stage 3/4 troubleshooting | safe small sample | historical smoke completed | approve budget/protocol | pending | safe mode and small samples | NOT_RECORDED | N/A | N/A | NOT_RECORDED | OPEN |
 | BLK-DOC-001 | 2026-07-20 | Governance | historical S6-T5 snapshots | LOCAL | low | older text contains stale stage snapshots | new readers may mistake history for current state | context recovery | Git/current-state comparison | preserve dated snapshots | history remains auditable | add authority map and current entry | completed candidate | use current state plus authority hierarchy | pending human acceptance | PENDING_THIS_COMMIT | N/A | NOT_RECORDED | MITIGATED |
 | BLK-S6.1-LR1-001 | 2026-07-31 | Stage 6.1 | strict comparison eligibility | LOCAL + RTX5090 | high | paper-result commit/revision/API/baseline compatibility/baseline resource facts incomplete | strict reproduction and comparison cannot start | PoisonedRAG/GMTP/SafeRAG strict comparison | external registry/matrix plus accepted Bootstrap | first-party alignment, six-field license split and Worker base readiness | base hardware/GPU/Git facts validated；baseline-specific gaps remain | S6.1-R0 | approved to characterize gaps | no strict-comparison workaround | NOT_RECORDED | N/A | N/A | NOT_RECORDED | OPEN |
-| R0-I-EVIDENCE-CORRECTION-001 | 2026-07-31 | Stage 6.1 | S6.1-R0-I | LOCAL + RTX5090 | medium | GMTP sample-absence/Docker claims conflict with exact upstream；SafeRAG executed-script hash/all-row coverage incomplete | current Worker summary cannot support R0 acceptance | R0 engineering review only | verified private archive digest/index、official exact-commit trees、[R0-I review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_i_control_plane_review.md) | Control Plane source cross-check | material mismatch confirmed | minimal Worker correction | pending | no acceptance workaround | NOT_RECORDED | N/A | N/A | NOT_RECORDED | OPEN |
+| R0-I-EVIDENCE-CORRECTION-001 | 2026-07-31 | Stage 6.1 | S6.1-R0-I | LOCAL + RTX5090 | medium | GMTP sample-absence/Docker claims conflict with exact upstream；SafeRAG executed-script hash/all-row coverage incomplete | current Worker summary could not support R0 acceptance | R0 engineering review only | first review plus corrected archive/index/matrix and [R0-I review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_i_control_plane_review.md) | Control Plane source cross-check | material mismatch confirmed | minimal Worker correction | corrected GMTP/PoisonedRAG command evidence and bound SafeRAG all-row smoke passed | no acceptance workaround | RESOLVED_BY_CORRECTED_EVIDENCE | PENDING_THIS_COMMIT | N/A | 2026-07-31 | RESOLVED |
+| BLK-S6.1-P1-001 | 2026-07-31 | Stage 6.1 | S6.1-R0-FU1 / P1 | LOCAL | high | PoisonedRAG formal dataset and attack-generation executable identity are not frozen | comparison protocol would otherwise have unstable data/attack identity | P1 protocol only | corrected PoisonedRAG command evidence and accepted R0-I review | establish one-dataset feasibility | passed at engineering level | freeze exact dataset/attack identity | pending owner approval | no P1 workaround | NOT_RECORDED | N/A | N/A | NOT_RECORDED | OPEN |
+| BLK-S6.1-P1-002 | 2026-07-31 | Stage 6.1 | S6.1-R0-FU1 / P1 | LOCAL + RTX5090 | high | GMTP modified-BEIR source identity and exact detection-only comparison path are not frozen | detector comparison cannot be made reproducible | P1 protocol only | gitlink `f062f038c4bfd19a8ca942a9910b1e0d218759d4` and absent root mapping | confirm 18 sample artifacts and split dependency classes | passed | resolve source identity/minimal detection path | pending owner approval | no reimplementation workaround | NOT_RECORDED | N/A | N/A | NOT_RECORDED | OPEN |
+| BLK-S6.1-FE-001 | 2026-07-31 | Stage 6.1 | future formal experiment | RTX5090 | high | GMTP Java/Pyserini/FAISS and any selected generator/model/service compatibility are unvalidated | a future formal run environment is not frozen | formal experiment only | accepted R0-I environment classification | static dependency separation | completed | targeted compatibility validation | not approved | do not infer from Docker or bootstrap | NOT_RECORDED | N/A | N/A | NOT_RECORDED | OPEN |
 
 ### 12.3 Historical Summary View
 
@@ -299,8 +302,11 @@ description/final_resolution 中，但不能代替 status。**WORKAROUND is not 
 | BLK-S6-003 | 当前 | 环境依赖 | medium | 真实 Embedding/Chroma | `MITIGATED` | S6-T4 真实集成记录 | 环境变量显式开启、临时目录 | 固定可复现环境文档 | 仅按批准运行 |
 | BLK-API-001 | 2026-06-30 | 真实 API 成本/策略 | medium | Groq 扩样 | `OPEN` | [Stage 3/4 文档](../../deliverables/stage3/06_troubleshooting.md) | safe 模式和小样本 | 批准预算和实验设计 | 不无控制扩样 |
 | BLK-DOC-001 | 2026-07-20 | 文档漂移 | low | 早期 S6-T5 架构索引/设计快照 | `OPEN` | Git 已有 `4c12181`，但部分历史文本仍称 Python 未开始 | 当前状态与本记录作为动态事实入口 | 在不改写历史叙述前提下添加历史快照说明 | 后续治理审查 |
-| BLK-S6.1-LR1-001 | 2026-07-31 | strict comparison 准入 | high | Paper 1 strict comparison | `OPEN` | [Artifact Registry](../research/stage6_1_hidden_knowledge_poisoning/external_artifact_registry.md)、accepted Bootstrap | 内部研究、严格比较与再分发资格分开；Worker base ready | 通过已批准 R0 补齐 paper-result commit、revision、baseline compatibility 与 baseline-specific resources；再分发许可独立处理 | RTX5090 按 R0-A 至 I 执行 |
-| R0-I-EVIDENCE-CORRECTION-001 | 2026-07-31 | evidence correctness/provenance | medium | R0 acceptance only | `OPEN` | archive/index verified；upstream contradiction documented | no acceptance workaround | corrected archive with command-derived GMTP audit and bound SafeRAG script/all-row check | Worker minimal correction only |
+| BLK-S6.1-LR1-001 | 2026-07-31 | strict comparison 准入 | high | Paper 1 strict comparison | `OPEN` | [Artifact Registry](../research/stage6_1_hidden_knowledge_poisoning/external_artifact_registry.md)、accepted R0 preflight | R0 已识别 feasibility 与 blocker；内部研究、严格比较与再分发资格继续分开 | 通过后续获批协议/环境工作冻结 comparison identity 与兼容环境；再分发许可独立处理 | await narrow R0-FU1 owner decision |
+| R0-I-EVIDENCE-CORRECTION-001 | 2026-07-31 | evidence correctness/provenance | medium | R0 acceptance only | `RESOLVED` | corrected archive/index/matrix verified；GMTP/PoisonedRAG command evidence and SafeRAG bound all-row smoke passed | no acceptance workaround | `RESOLVED_BY_CORRECTED_EVIDENCE` | retain first-return snapshot |
+| BLK-S6.1-P1-001 | 2026-07-31 | P1 protocol | high | PoisonedRAG comparison identity | `OPEN` | one selected dataset is feasible；API-free attack generation not established | none | freeze one dataset and attack-generation executable identity | await R0-FU1 approval |
+| BLK-S6.1-P1-002 | 2026-07-31 | P1 protocol | high | GMTP detection comparison | `OPEN` | gitlink/sample/dependency correction passed | none | freeze modified-BEIR source and detection-only minimal path | await R0-FU1 approval |
+| BLK-S6.1-FE-001 | 2026-07-31 | formal environment | high | future formal experiment | `OPEN` | dependency classes identified | none | validate selected Java/Pyserini/FAISS and generator/model/service path | formal experiment remains unapproved |
 
 ## 13. Failed Run Register
 
@@ -326,13 +332,14 @@ description/final_resolution 中，但不能代替 status。**WORKAROUND is not 
 | GATE-S6-T5.6-P1-H1 | Sequential Resolution and Context Trace Hardening | 顺序正文解析、精确 UID 投影、预算 cutoff 与 trace identity | `DESIGN_FREEZE_HARDENING_HUMAN_ACCEPTED` | 父任务可单独申请实现审批 | S6-T5.6-I1 及以后 | 项目负责人 |
 | GATE-S6-T5.6-P1-H2 | Active Specification, Trace Decision and Package Identity Closure | 活动顺序、instruction-budget candidate decision、Trace decision partition 与非冗余 Package identity | `DESIGN_FREEZE_HARDENING_HUMAN_ACCEPTED` | 父任务可单独申请实现审批 | S6-T5.6-I1 及以后 | 项目负责人 |
 | GATE-S6.1-R0-B0 | RTX5090 Compute Worker Bootstrap | WSL GPU、PyTorch FP16/BF16、Git branch/tag sync | `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY` | R0 可按独立批准开始 | 不证明 baseline/Paper result | 项目负责人 |
-| GATE-S6.1-R0 | Reproduction Environment and Baseline Feasibility Validation | LR1 accepted、Bootstrap accepted、R0 protocol/order | historical `APPROVED_TO_START` | superseded by R0-I review | LOCAL execution、S6.1-P1、formal experiment | 项目负责人 |
-| GATE-S6.1-R0-I | Control Plane evidence review | archive/index verified；official commits cross-checked；material mismatch documented | `RETURNED_FOR_WORKER_CORRECTION` | minimal corrected evidence only | R0 acceptance、R0-FU1、S6.1-P1、formal experiment | 项目负责人 |
+| GATE-S6.1-R0 | Reproduction Environment and Baseline Feasibility Validation | LR1/Bootstrap accepted；original and corrected evidence verified；blockers normalized | `HUMAN_ACCEPTED_WITH_BLOCKERS` | owner may separately approve R0-FU1 | R0-FU1 execution、S6.1-P1、formal experiment | 项目负责人 |
+| GATE-S6.1-R0-I | Control Plane evidence review | historical return preserved；corrected archive `12/12` and matrix verified；three corrections passed | `HUMAN_ACCEPTED_WITH_BLOCKERS` | owner decision on R0-FU1 | automatic R0-FU1、S6.1-P1、formal experiment | 项目负责人 |
 
 **当前审批顺序**：既有 S6-T5 验收历史保持不变；S6.1-LR1、Context Recovery、Paper-First 和 current route 已接受；
 `S6.1-R0-B0` 已 `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`；historical R0 execution approval remains preserved；
-current R0-I is `RETURNED_FOR_WORKER_CORRECTION`。Only minimal corrected evidence may run。R0-FU1、S6.1-P1、Detector、
-training and formal RAG experiment remain unapproved/not started。
+historical R0-I `RETURNED_FOR_WORKER_CORRECTION` remains preserved；the superseding decision is
+`S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。R0-FU1 is `APPROVAL_RECOMMENDED / NOT APPROVED`；S6.1-P1、Dataset、
+Detector、training and formal RAG experiment remain unapproved/not started。
 
 ## 15. 当前结论边界
 
@@ -517,3 +524,4 @@ git log -15 --oneline
 | 2026-07-31 | S6.1-LR1 final human acceptance and R0 definition | 第 2、4、12、14、20 节 | 接受 LR1/Context/Paper-First/current route；拆分 artifact access/use/comparison/redistribution；定义 R0-before-P1 | PODR-041--045、REL-2026-0007、R0 definition、governance tests | R0 未开始；无 external run/data/model/5090/Paper Result |
 | 2026-07-31 | RTX5090 Bootstrap acceptance and R0 execution approval | 第 2、4、12、14、20 节 | 接受 Worker base environment/Git/GPU validation；批准 R0-A 至 I；保持 LOCAL 禁止执行与 Formal Experiment stop | PODR-046--047、REL-2026-0008--0009、R0 definition、governance tests | Bootstrap only；无 external baseline/Paper result；R0 尚待 Worker pull 后执行 |
 | 2026-07-31 | S6.1-R0-I evidence review and token-economy governance | 第 2、4、12、14、15、20 节 | archive/index integrity passed；exact-upstream review found GMTP sample/Docker mismatch and SafeRAG provenance/coverage gap；returned minimal correction；registered Control-Plane-First principle | [R0-I review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_i_control_plane_review.md)、PODR-048--049、REL-2026-0010、governance tests | `RETURNED_FOR_WORKER_CORRECTION`；no R0 acceptance、R0-FU1/P1/formal execution |
+| 2026-07-31 | S6.1-R0 corrected-evidence final acceptance | 第 2、4、12、14、15、20 节 | corrected archive/index/matrix and all three baseline corrections passed；accepted R0 engineering preflight with downstream blockers；historical return preserved | [R0-I review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_i_control_plane_review.md)、PODR-050、REL-2026-0011、governance tests | `HUMAN_ACCEPTED_WITH_BLOCKERS`；R0-FU1 approval recommended but not approved；P1/formal experiment not started |

@@ -35,13 +35,17 @@ upstream 条款必须遵守。
 
 | ID | R0-I status | Verified/current qualification |
 | --- | --- | --- |
-| `EXT-P1-POISONEDRAG` | `RETURNED_FOR_WORKER_CORRECTION` | static audit only；one selected dataset and attack-generation path remain unresolved；`NOT_STRICT_COMPARISON_READY` |
-| `EXT-P1-GMTP` | `RETURNED_FOR_WORKER_CORRECTION` | `GMTP_200_SAMPLE_ARTIFACTS_PRESENT` at exact commit；`beir gitlink` mapping remains unresolved；`NOT_STRICT_COMPARISON_READY` |
-| `EXT-P1-SAFERAG` | `RETURNED_FOR_WORKER_CORRECTION` | provisional `PARTIAL_REPRODUCTION_READY / DATASET_ARTIFACT_ONLY`；script provenance/all-row coverage correction required；`NOT_STRICT_COMPARISON_READY` |
+| `EXT-P1-POISONEDRAG` | `HUMAN_ACCEPTED_WITH_BLOCKERS` | `ENGINEERING_FEASIBILITY_IDENTIFIED / P1_PROTOCOL_BLOCKED`；one selected NQ/HotpotQA/MS MARCO dataset is possible；attack-generation identity unresolved；`NOT_STRICT_COMPARISON_READY` |
+| `EXT-P1-GMTP` | `HUMAN_ACCEPTED_WITH_BLOCKERS` | `ENGINEERING_FEASIBILITY_IDENTIFIED / TARGETED_EXECUTION_BLOCKERS_REMAIN`；`GMTP_200_SAMPLE_ARTIFACTS_PRESENT = TRUE`（18 artifacts `AVAILABLE`）；modified `beir gitlink` source/detection-only path unresolved；Docker `NOT MANDATORY`；`NOT_STRICT_COMPARISON_READY` |
+| `EXT-P1-SAFERAG` | `HUMAN_ACCEPTED_WITH_BLOCKERS` | `PARTIAL_REPRODUCTION_READY / DATASET_ARTIFACT_ONLY`；SN/ICC `BENCHMARK_ARTIFACT_AVAILABLE`；full pipeline `NOT_STRICT_COMPARISON_READY` |
+
+Corrected private-evidence identity: archive SHA-256
+`904d79c59e35c6aeb157540049b0f44262b86e5c1c5b3e8d4e96ee2fad3f1c6b`；inner index `12/12`；corrected matrix
+SHA-256 `fd7617eca689fa46fc6908f94aa4fa158aaae4d277bb17943bbcc1baf74db9bc`。
 
 The absence of a GMTP/SafeRAG root license remains a `REDISTRIBUTION_ONLY_ISSUE`, not an internal research blocker. The
-private Worker archive is not stored in Git；only its SHA-256 and the [redacted R0-I review](s6_1_r0_i_control_plane_review.md)
-are persisted。
+private Worker archives are not stored in Git；only their SHA-256 values, the corrected matrix SHA and the
+[redacted R0-I review](s6_1_r0_i_control_plane_review.md) are persisted。Historical first-review return remains preserved there。
 
 ## DATASET_LICENSE 治理
 

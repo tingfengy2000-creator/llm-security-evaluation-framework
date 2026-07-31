@@ -19,10 +19,9 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Task ID: `S6.1-R0-I`.
 - Task name: `Control Plane Review of Paper 1 Reproduction Preflight Evidence`.
 - Task type: **CONTROL_PLANE_EVIDENCE_REVIEW**.
-- Status: **RETURNED_FOR_WORKER_CORRECTION**.
-- Execution machine: **LOCAL / CONTROL_PLANE** for review；RTX5090 only for the minimal correction package.
-- Current ordered step: Worker returns the narrow corrected evidence defined by the
-  [R0-I review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_i_control_plane_review.md).
+- Status: **HUMAN_ACCEPTED_WITH_BLOCKERS**.
+- Execution machine: **LOCAL / CONTROL_PLANE** completed the corrected-evidence review；no further Worker execution is approved.
+- Current ordered step: project owner decides whether to approve the narrowly recommended `S6.1-R0-FU1`.
 - Historical superseded snapshot: `DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`.
 - Formal RAG security experiment: **NOT STARTED**.
 - Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.
@@ -31,21 +30,28 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Paper 1 canonical research route: **ACCEPTED AS CURRENT RESEARCH ROUTE**.
 - RTX5090 Compute Worker Bootstrap: **HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY**.
 - Historical superseded execution snapshot — S6.1-R0: **APPROVED_TO_START**.
-- S6.1-R0-I: **RETURNED_FOR_WORKER_CORRECTION**.
-- Parent S6.1-R0: **REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE**.
-- S6.1-R0-FU1: **RECOMMEND / NOT APPROVED**.
-- S6.1-P1: **NOT STARTED / DEFERRED UNTIL R0 ACCEPTANCE AND OWNER DECISION**.
+- Historical first-review snapshot — S6.1-R0-I: **RETURNED_FOR_WORKER_CORRECTION**.
+- Historical first-review parent snapshot — S6.1-R0: **REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE**.
+- Parent S6.1-R0: **HUMAN_ACCEPTED_WITH_BLOCKERS**.
+- S6.1-R0-FU1: **APPROVAL_RECOMMENDED / NOT APPROVED**.
+- S6.1-P1: **NOT STARTED / DEFERRED UNTIL R0-FU1 OWNER DECISION AND LATER P1 APPROVAL**.
+- Dataset: **NOT FROZEN**.
 - Dataset Generation: **NOT APPROVED**.
+- Detector: **NOT IMPLEMENTED**.
 - Detector Implementation: **NOT APPROVED**.
+- Training: **NOT STARTED**.
 - Model Training: **NOT APPROVED**.
-- Current review blocker: `R0-I-EVIDENCE-CORRECTION-001` — GMTP sample-absence/Docker claims conflict with the exact official
-  commit；SafeRAG executed-script hash and all-record schema coverage are incomplete。This blocks R0 acceptance, not baseline roles。
+- Our Method Result: **NONE**.
+- Corrected review blocker: `R0-I-EVIDENCE-CORRECTION-001` is **RESOLVED_BY_CORRECTED_EVIDENCE**；its discovery and first
+  return remain historical evidence。
 - `BLK-S6.1-LR1-001` remains **OPEN** for future strict comparison；license/redistribution issues remain separate from internal
   research access。
 - Environment observation resolved narrowly: R0-A records NumPy 2.4.6 in `llmguard-paper1`；this remains environment evidence,
   not a baseline result。
 - Evidence archive SHA-256:
-  `0ce85a2bfe24e0456f9d29edc40659786d4273fcfc634df8749aee6d0e3aa9cc`；internal index verified `18/18`。
+  historical first archive `0ce85a2bfe24e0456f9d29edc40659786d4273fcfc634df8749aee6d0e3aa9cc` with index `18/18`；
+  corrected archive `904d79c59e35c6aeb157540049b0f44262b86e5c1c5b3e8d4e96ee2fad3f1c6b` with index `12/12` and matrix
+  `fd7617eca689fa46fc6908f94aa4fa158aaae4d277bb17943bbcc1baf74db9bc`。
 - LOCAL Control Plane did not run PoisonedRAG, GMTP or SafeRAG and did not download data/model or invoke an API.
 - Canonical entry: [Stage 6.1 research README](../research/stage6_1_hidden_knowledge_poisoning/README.md).
 - Canonical Paper 1 route: [Paper 1 Research Route](../research/stage6_1_hidden_knowledge_poisoning/paper1_research_route.md).
@@ -119,9 +125,9 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - `S6.1-LR1` is `HUMAN_ACCEPTED` at commits `1294632ca0501e7b999a29383780bec49eaa6b04` and
   `85a565535a38196a7d6003e728b5cb6a2b17fa8a` for its benchmark alignment and Context Recovery Governance records.
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
-- Historical R0 execution approval remains preserved, but R0-I is now `RETURNED_FOR_WORKER_CORRECTION`; R0 is not accepted。
-- Next operational action: RTX5090 produces only the minimal corrected evidence package. LOCAL then repeats R0-I. The project
-  owner decides R0 acceptance and whether to approve recommended R0-FU1. S6.1-P1 remains closed。
+- Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
+  evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
+- Next operational action: the project owner decides whether to approve recommended R0-FU1. R0-FU1 and S6.1-P1 remain closed。
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. Its acceptance does not approve S6-T5.6 ContextBuilder behavior; that remains a separate boundary.
@@ -135,8 +141,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Must Not Start
 
-- On LOCAL: any S6.1-R0 execution, external repo clone/install/smoke, dataset/model download or GPU computation.
-- On RTX5090: anything beyond the three narrow evidence corrections in the R0-I review；new installs、data/model download、API、
+- On LOCAL: any external baseline workload, repo clone/install/smoke, dataset/model download or GPU computation.
+- On RTX5090: any new R0-FU1 or baseline execution without separate owner approval；new installs、data/model download、API、
   broad environment exploration、algorithm reimplementation or formal workload。
 - Everywhere: R0-FU1 execution、S6.1-P1、Detector implementation、dataset freeze/construction、training、Paper Result、
   formal experiment or SOTA comparison。
@@ -146,13 +152,14 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Claims Boundary
 
-Can additionally claim: the R0 archive and 18 indexed evidence objects passed hash verification；R0-A environment fingerprint is
-supported；the three official commits exist；SafeRAG has a dataset-only smoke artifact；R0-I found a material GMTP mismatch and
-returned only minimal corrections。The original baseline roles remain unchanged。
+Can additionally claim: R0 is `HUMAN_ACCEPTED_WITH_BLOCKERS` as an engineering reproduction preflight；both archive generations
+and their indexes passed verification；the corrected matrix hash is bound；GMTP has 18 available 200-sample artifacts and Docker
+is not mandatory；PoisonedRAG permits one selected dataset but API-free attack generation is not established；SafeRAG has a
+script-bound all-record dataset-only smoke and SN/ICC benchmark artifacts。The original baseline roles remain unchanged。
 
 Can claim: within the offline engineering-test scope, the `S6-T5 Controlled Retrieval and Traceable Context Baseline` is HUMAN_ACCEPTED. It comprises deterministic and label-isolated retrieval runtime contracts, provider-neutral DenseRetriever, the synthetic ContentResolver, EvidenceEnvelope/Citation boundaries, deterministic Context Package behavior, and S6-T5.7 controlled integration evidence including an opt-in fixed MiniLM plus temporary Chroma close/reopen check. `4ecf73a` is the accepted baseline content commit; the current governance acceptance commit is not an implementation or integration-evidence commit. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
-Cannot claim: R0 accepted；any external baseline was reproduced；strict comparison is ready；SafeRAG pipeline is ready；dataset/
+Cannot claim: any external baseline was reproduced；strict comparison is ready；SafeRAG pipeline is ready；dataset/
 Detector/Our Method/training/result exists；or retrieval quality/security, SOTA, production readiness or formal-experiment outcomes
 are established.
 
@@ -166,5 +173,5 @@ are established.
 ## Last Update
 
 - Date: `2026-07-31`.
-- Updated by: Codex completing R0-I evidence review as `RETURNED_FOR_WORKER_CORRECTION` and registering the
-  Control-Plane-First Token Economy Principle. Formal Experiment remains not started.
+- Updated by: Codex completing the corrected R0-I review and registering `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS` while
+  preserving the historical return snapshot. Formal Experiment remains not started.

@@ -1,6 +1,66 @@
 # S6.1-R0-I Control Plane Review
 
-## Review Identity
+## Superseding Corrected-Evidence Decision — 2026-07-31
+
+- Task: `S6.1-R0-I / Control Plane Review`
+- Machine: `LOCAL / CONTROL_PLANE`
+- Decision: `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`
+- Task type remains: `ENGINEERING_VALIDATION / REPRODUCTION_PREFLIGHT`
+- `S6.1-R0-I = HUMAN_ACCEPTED_WITH_BLOCKERS`
+- `R0-FU1 = APPROVAL_RECOMMENDED / NOT APPROVED`
+- `S6.1-P1 = NOT STARTED`
+- `FORMAL_EXPERIMENT = NOT STARTED`
+- Dataset: `NOT FROZEN`; Detector: `NOT IMPLEMENTED`; Training: `NOT STARTED`; Our Method Result: `NONE`
+
+This supersedes the current-state effect of the historical first-review decision below without deleting or rewriting that
+`RETURNED_FOR_WORKER_CORRECTION` snapshot. `WITH_BLOCKERS` means the R0 engineering-preflight objective is complete and its
+remaining external-baseline decisions are now auditable. It does not mean any baseline was reproduced or that strict comparison
+is ready.
+
+### Corrected Evidence Integrity
+
+- Private corrected archive SHA-256:
+  `904d79c59e35c6aeb157540049b0f44262b86e5c1c5b3e8d4e96ee2fad3f1c6b`.
+- External sidecar and actual archive digest matched exactly.
+- Archive layout: 39 safe entries; no absolute path, traversal component, symlink or hardlink.
+- Corrected inner index: `12/12` files verified.
+- Corrected feasibility matrix SHA-256:
+  `fd7617eca689fa46fc6908f94aa4fa158aaae4d277bb17943bbcc1baf74db9bc`.
+- The raw corrected archive, external source repositories and complete Worker logs remain private LOCAL evidence outside Git.
+
+### Corrected Baseline Verification
+
+| Baseline | Corrected command-derived finding | Final R0 qualification |
+| --- | --- | --- |
+| PoisonedRAG | official commit `f660d72174f06b13fae5163ce656e7b235db858f`; NQ, HotpotQA or MS MARCO can be selected individually; a custom BEIR-format path and named result artifacts exist; `API_FREE_ATTACK_GENERATION = NOT ESTABLISHED` | `ENGINEERING_FEASIBILITY_IDENTIFIED / P1_PROTOCOL_BLOCKED`; `NOT_STRICT_COMPARISON_READY` |
+| GMTP | official commit `15b48d150f93711371eb8da22c211cd84a0cf4df`; mode-160000 `beir` gitlink `f062f038c4bfd19a8ca942a9910b1e0d218759d4`; root `.gitmodules` absent; 18 `*-200.json` artifacts available; Docker is `RECOMMENDED_CONVENIENCE_ENVIRONMENT`; detection-only and generation/end-to-end dependencies are separated | `ENGINEERING_FEASIBILITY_IDENTIFIED / TARGETED_EXECUTION_BLOCKERS_REMAIN`; `NOT_STRICT_COMPARISON_READY` |
+| SafeRAG | official commit `e8f579743b23e0a3937076dcc0792fe29027cba3`; pre/post/executed script SHA-256 all equal `8a38c9f54b963703ae3279f36f53c49083fd76b0f7e96ea27707b728b915db7e`; exact timed command bound that script; SN `100/100` and ICC `93/93` all-record required-key validation passed; exit `0`, wall `0.02 s`, Max RSS `17,628 KiB` | `PARTIAL_REPRODUCTION_READY / DATASET_ARTIFACT_ONLY`; `BENCHMARK_ARTIFACT_AVAILABLE`; full pipeline `NOT_STRICT_COMPARISON_READY` |
+
+The former phrase `advertised samples absent` remains below only as a quoted historical false claim and correction rationale. It
+is not a current GMTP fact or blocker. Docker is not mandatory. SafeRAG remains only
+`ENGINEERING_DATASET_SMOKE_RESULT_ONLY / DATASET_ARTIFACT_ONLY`; neither its pipeline nor benchmark result was reproduced.
+
+### Normalized Remaining Blockers After R0 Acceptance
+
+| Class | Items |
+| --- | --- |
+| `P1_PROTOCOL_BLOCKER` | PoisonedRAG external dataset choice and attack-generation identity; GMTP modified-BEIR source identity and exact detection-only comparison path |
+| `FORMAL_EXPERIMENT_ENVIRONMENT_BLOCKER` | GMTP Java/Pyserini/FAISS compatibility; selected local/API generator path and any ultimately selected model/service requirements |
+| `REDISTRIBUTION_ONLY_ISSUE` | GMTP/SafeRAG license uncertainty; explicit upstream terms still govern |
+| `NON_BLOCKING` | SafeRAG full-pipeline reproduction when Paper 1 uses only the SN/ICC benchmark artifacts under a frozen usage contract |
+
+### R0-FU1 Recommendation and Stop Gate
+
+`S6.1-R0-FU1 / Targeted External Baseline Feasibility Resolution` is `APPROVAL_RECOMMENDED`, but remains
+`NOT APPROVED`. Its proposed scope is narrowly limited to one PoisonedRAG dataset plus attack-generation executable identity,
+the GMTP modified-BEIR identity plus detection-only minimal path and necessary Java/Pyserini/FAISS compatibility, and a SafeRAG
+benchmark-artifact usage contract. The Control-Plane-First Token Economy Principle remains active: LOCAL prepares the source
+analysis and exact execution plan before any short Worker instruction.
+
+No R0-FU1, S6.1-P1, Dataset, Detector, Training or Formal Experiment work starts from this acceptance. The next owner decision is
+whether to approve R0-FU1. Auto Continue = NO.
+
+## Historical First Review Identity
 
 - Task: `S6.1-R0-I / Control Plane Review`
 - Machine: `LOCAL / CONTROL_PLANE`

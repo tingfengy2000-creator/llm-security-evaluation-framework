@@ -602,3 +602,27 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Follow-up: only the minimal corrections in the redacted R0-I review are authorized；no new environment exploration、data/model
   download、API、R0-FU1、S6.1-P1 or formal experiment。
 - Recommendation: `R0-FU1 = RECOMMEND / NOT APPROVED`；final approval remains with the project owner。
+
+## PODR-050: S6.1-R0 Corrected-Evidence Final Acceptance With Blockers
+
+- Date: `2026-07-31`.
+- Decision: `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`；Task Type remains
+  `ENGINEERING_VALIDATION / REPRODUCTION_PREFLIGHT`。
+- Supersedes current-state effect only: PODR-049 and the historical `RETURNED_FOR_WORKER_CORRECTION` snapshot remain preserved
+  as the first-review fact；they are not rewritten or deleted。
+- Integrity: corrected archive SHA-256
+  `904d79c59e35c6aeb157540049b0f44262b86e5c1c5b3e8d4e96ee2fad3f1c6b`；inner index `12/12`；corrected matrix
+  SHA-256 `fd7617eca689fa46fc6908f94aa4fa158aaae4d277bb17943bbcc1baf74db9bc`。
+- Baselines: PoisonedRAG `ENGINEERING_FEASIBILITY_IDENTIFIED / P1_PROTOCOL_BLOCKED`；GMTP
+  `ENGINEERING_FEASIBILITY_IDENTIFIED / TARGETED_EXECUTION_BLOCKERS_REMAIN` with 18 available 200-sample artifacts and
+  Docker not mandatory；SafeRAG `PARTIAL_REPRODUCTION_READY / DATASET_ARTIFACT_ONLY` with SN/ICC
+  `BENCHMARK_ARTIFACT_AVAILABLE`。All remain `NOT_STRICT_COMPARISON_READY`。
+- Claims boundary: no baseline, SafeRAG pipeline or benchmark result was reproduced；no Paper Result、Our Method Result、
+  security-effectiveness or SOTA claim is accepted。
+- Remaining classes: `P1_PROTOCOL_BLOCKER` for PoisonedRAG dataset/attack identity and GMTP modified-BEIR/detection-only path；
+  `FORMAL_EXPERIMENT_ENVIRONMENT_BLOCKER` for GMTP Java/Pyserini/FAISS and selected generator/model/service paths；
+  `REDISTRIBUTION_ONLY_ISSUE` for GMTP/SafeRAG license uncertainty；SafeRAG full pipeline is `NON_BLOCKING` when only its
+  benchmark artifacts are used under a frozen contract。
+- Recommendation: `S6.1-R0-FU1 = APPROVAL_RECOMMENDED / NOT APPROVED`。No R0-FU1 execution is authorized。
+- Stop boundary: `S6.1-P1 = NOT STARTED`；Dataset `NOT FROZEN`；Detector `NOT IMPLEMENTED`；Training `NOT STARTED`；
+  Our Method Result `NONE`；`FORMAL_EXPERIMENT = NOT STARTED`。Auto Continue = NO。

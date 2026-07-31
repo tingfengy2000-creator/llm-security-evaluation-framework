@@ -6,7 +6,7 @@
 - Task Name: `Paper 1 Reproduction Environment and Baseline Feasibility Validation`
 - 中文名称：`Paper 1 外部基准复现环境与可行性验证`
 - Task Type: `ENGINEERING_VALIDATION / REPRODUCTION_PREFLIGHT`
-- Status: `REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE`
+- Status: `HUMAN_ACCEPTED_WITH_BLOCKERS`
 - Historical execution status: `APPROVED_TO_START`
 - Superseded snapshot: `DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`
 - Execution machine: `RTX5090 / COMPUTE_WORKER`
@@ -202,7 +202,7 @@ RTX5090 pull 本次 Control Plane 治理提交后，从 `R0-A Environment Finger
 本机完成治理提交后停止。R0-I Control Plane Review 完成前，S6.1-P1 仍不得启动。Auto Continue = NO 表示不得从
 R0 自动进入 P1 或 Formal Experiment；不撤销本次已批准的 R0-A 至 R0-I 顺序范围。
 
-## R0-I Review Outcome — 2026-07-31
+## Historical First R0-I Review Outcome — 2026-07-31
 
 - Historical snapshot: `S6.1-R0 = APPROVED_TO_START`。
 - Current review: `S6.1-R0-I = RETURNED_FOR_WORKER_CORRECTION`。
@@ -219,3 +219,28 @@ R0 自动进入 P1 或 Formal Experiment；不撤销本次已批准的 R0-A 至 
 The authoritative redacted findings and minimal correction are in
 [S6.1-R0-I Control Plane Review](s6_1_r0_i_control_plane_review.md). Only that correction package may run next；no data/model
 download、API、environment expansion or formal work is authorized。
+
+## R0-I Corrected-Evidence Acceptance — 2026-07-31
+
+- Superseding decision: `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
+- Task type remains `ENGINEERING_VALIDATION / REPRODUCTION_PREFLIGHT`。
+- Historical `RETURNED_FOR_WORKER_CORRECTION` and `REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE` remain preserved above as the
+  first-review snapshot。
+- Corrected archive SHA-256:
+  `904d79c59e35c6aeb157540049b0f44262b86e5c1c5b3e8d4e96ee2fad3f1c6b`；inner index `12/12` verified。
+- Corrected matrix SHA-256:
+  `fd7617eca689fa46fc6908f94aa4fa158aaae4d277bb17943bbcc1baf74db9bc`。
+- PoisonedRAG: `ENGINEERING_FEASIBILITY_IDENTIFIED / P1_PROTOCOL_BLOCKED`；one selected external dataset is possible；
+  `API_FREE_ATTACK_GENERATION = NOT ESTABLISHED`。
+- GMTP: `ENGINEERING_FEASIBILITY_IDENTIFIED / TARGETED_EXECUTION_BLOCKERS_REMAIN`；18 200-sample artifacts are
+  `AVAILABLE`；Docker is `NOT MANDATORY`；modified-BEIR identity and detection-only execution path remain unresolved。
+- SafeRAG: `PARTIAL_REPRODUCTION_READY / DATASET_ARTIFACT_ONLY` and `BENCHMARK_ARTIFACT_AVAILABLE` for Silver Noise and
+  Inter-context Conflict；the all-record script-bound dataset smoke is not pipeline or benchmark-result reproduction。
+- All three baselines remain `NOT_STRICT_COMPARISON_READY`。
+- Remaining issues are reclassified as P1 protocol, formal-experiment environment, redistribution-only or non-blocking issues；
+  they are not unfinished R0 engineering tasks。
+- `S6.1-R0-FU1 = APPROVAL_RECOMMENDED / NOT APPROVED`；`S6.1-P1 = NOT STARTED`；
+  `FORMAL_EXPERIMENT = NOT STARTED`；Auto Continue = NO。
+
+The authoritative corrected-evidence decision and claim boundary are in
+[S6.1-R0-I Control Plane Review](s6_1_r0_i_control_plane_review.md).

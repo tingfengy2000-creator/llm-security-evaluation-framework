@@ -1,6 +1,31 @@
 # LLMGuard 项目总控文档
 
-## S6.1-R0-I 证据审查退回与 Token Economy 长期原则（2026-07-31）
+## S6.1-R0 Corrected Evidence 最终验收（2026-07-31）
+
+LOCAL 已完成 corrected Worker evidence 正式复核：archive SHA-256
+`904d79c59e35c6aeb157540049b0f44262b86e5c1c5b3e8d4e96ee2fad3f1c6b` 与 sidecar 一致，安全 archive 共 39
+个成员，corrected inner index `12/12` 全部通过，corrected matrix SHA-256 为
+`fd7617eca689fa46fc6908f94aa4fa158aaae4d277bb17943bbcc1baf74db9bc`。private archive、外部仓库和完整 Worker
+logs 均留在 Git 外。
+
+S6.1-R0 现以原 Task Type `ENGINEERING_VALIDATION / REPRODUCTION_PREFLIGHT` 登记为
+`HUMAN_ACCEPTED_WITH_BLOCKERS`。历史 `RETURNED_FOR_WORKER_CORRECTION` 与
+`REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE` 快照继续保留，不能解释为当前状态。GMTP 已确认 18 个 200-sample
+artifacts、modified BEIR gitlink `f062f038c4bfd19a8ca942a9910b1e0d218759d4`、root `.gitmodules` 缺失和 Docker
+非强制；SafeRAG 已绑定 exact executed script，逐条验证 SN 100/100 与 ICC 93/93，但只形成
+`ENGINEERING_DATASET_SMOKE_RESULT_ONLY / DATASET_ARTIFACT_ONLY`；PoisonedRAG 可单独选择 NQ、HotpotQA 或
+MS MARCO，但 `API_FREE_ATTACK_GENERATION = NOT ESTABLISHED`。
+
+最终 baseline 状态为：PoisonedRAG `ENGINEERING_FEASIBILITY_IDENTIFIED / P1_PROTOCOL_BLOCKED`；GMTP
+`ENGINEERING_FEASIBILITY_IDENTIFIED / TARGETED_EXECUTION_BLOCKERS_REMAIN`；SafeRAG
+`PARTIAL_REPRODUCTION_READY / DATASET_ARTIFACT_ONLY` 且 SN/ICC `BENCHMARK_ARTIFACT_AVAILABLE`。三者仍均
+`NOT_STRICT_COMPARISON_READY`，没有 external baseline reproduction、Paper Result 或 Our Method Result。
+
+剩余问题已从 R0 工程阻断重新分为 P1 protocol、formal-experiment environment、redistribution-only 与 non-blocking
+事项。`S6.1-R0-FU1 = APPROVAL_RECOMMENDED / NOT APPROVED`；S6.1-P1、Dataset freeze、Detector、training 和
+Formal Experiment 均未开始。下一门仅为项目负责人是否批准窄范围 R0-FU1。Auto Continue = NO。
+
+## S6.1-R0-I 首次证据审查退回与 Token Economy 长期原则历史快照（2026-07-31）
 
 LOCAL 已验证 Worker private archive SHA-256
 `0ce85a2bfe24e0456f9d29edc40659786d4273fcfc634df8749aee6d0e3aa9cc`、内部 evidence index `18/18` 和四组
