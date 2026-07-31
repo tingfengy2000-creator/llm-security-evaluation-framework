@@ -1,6 +1,24 @@
 # LLMGuard 项目总控文档
 
-## S6.1-R0 Corrected Evidence 最终验收（2026-07-31）
+## S6.1-R0-FU1-P0 定向消解合同冻结（2026-07-31）
+
+项目负责人已批准 `S6.1-R0-FU1 = APPROVED`，执行方式为 `LOCAL-FIRST / WORKER-GATED`；当前唯一获批子任务
+`S6.1-R0-FU1-P0` 已由 LOCAL 完成 source/artifact/dataset/call-path/dependency 分析并登记为
+`COMPLETED_PENDING_OWNER_REVIEW`。Canonical evidence is
+[FU1 Targeted Resolution](docs/research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)。本轮未联系
+RTX5090，未下载数据/模型，未运行 PoisonedRAG、GMTP 或 SafeRAG。
+
+P0 冻结的候选结论是：NQ 为 primary external dataset candidate，HotpotQA 为 fallback；PoisonedRAG official released
+NQ attack-text artifact 可 API-free 复用，但其 exact generator/API/paper-run identity 仅为 `PARTIAL`；GMTP 的
+`beir@f062f0...` 已验证属于 official `beir-cellar/beir`，核心 `GMTP.filter_documents` 可直接消费 question/document，
+Java、Pyserini 和 FAISS 仅属 retrieval/indexing path；SafeRAG SN 100/ICC 93 的 benchmark-artifact contract 已冻结，
+full pipeline 非 P1 前置 blocker。三者仍均不是 strict-comparison-ready。
+
+未来候选仅为 `FU1-W1 PoisonedRAG Targeted Artifact / Attack Path Validation` 与 `FU1-W2 GMTP Detection-Only Minimal
+Smoke`；两者均 `NOT APPROVED`。项目负责人下一步复核 P0 并分别决定是否批准 W1/W2，不得自动执行。S6.1-P1、
+Dataset freeze、Detector、training、Our Method Result 与 Formal Experiment 均未开始。Auto Continue = NO。
+
+## S6.1-R0 Corrected Evidence 最终验收历史快照（2026-07-31）
 
 LOCAL 已完成 corrected Worker evidence 正式复核：archive SHA-256
 `904d79c59e35c6aeb157540049b0f44262b86e5c1c5b3e8d4e96ee2fad3f1c6b` 与 sidecar 一致，安全 archive 共 39

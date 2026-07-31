@@ -16,12 +16,12 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-R0-I`.
-- Task name: `Control Plane Review of Paper 1 Reproduction Preflight Evidence`.
-- Task type: **CONTROL_PLANE_EVIDENCE_REVIEW**.
-- Status: **HUMAN_ACCEPTED_WITH_BLOCKERS**.
-- Execution machine: **LOCAL / CONTROL_PLANE** completed the corrected-evidence review；no further Worker execution is approved.
-- Current ordered step: project owner decides whether to approve the narrowly recommended `S6.1-R0-FU1`.
+- Task ID: `S6.1-R0-FU1-P0`.
+- Task name: `LOCAL Control-Plane Planning and Execution Contract Freeze`.
+- Task type: **CONTROL_PLANE_SOURCE_ANALYSIS / CONTRACT_CANDIDATE**.
+- Status: **COMPLETED_PENDING_OWNER_REVIEW**.
+- Execution machine: **LOCAL / CONTROL_PLANE**；no Worker workload was contacted or executed.
+- Current ordered step: project owner reviews P0 and decides whether to approve `FU1-W1` and/or `FU1-W2` separately.
 - Historical superseded snapshot: `DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`.
 - Formal RAG security experiment: **NOT STARTED**.
 - Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.
@@ -33,8 +33,11 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Historical first-review snapshot — S6.1-R0-I: **RETURNED_FOR_WORKER_CORRECTION**.
 - Historical first-review parent snapshot — S6.1-R0: **REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE**.
 - Parent S6.1-R0: **HUMAN_ACCEPTED_WITH_BLOCKERS**.
-- S6.1-R0-FU1: **APPROVAL_RECOMMENDED / NOT APPROVED**.
-- S6.1-P1: **NOT STARTED / DEFERRED UNTIL R0-FU1 OWNER DECISION AND LATER P1 APPROVAL**.
+- S6.1-R0-FU1: **APPROVED / LOCAL-FIRST / WORKER-GATED**.
+- S6.1-R0-FU1-P0: **COMPLETED_PENDING_OWNER_REVIEW**.
+- S6.1-R0-FU1-W1: **NOT APPROVED**.
+- S6.1-R0-FU1-W2: **NOT APPROVED**.
+- S6.1-P1: **NOT STARTED / DEFERRED UNTIL P0 OWNER REVIEW, REQUIRED W1/W2 ACCEPTANCE AND SEPARATE P1 APPROVAL**.
 - Dataset: **NOT FROZEN**.
 - Dataset Generation: **NOT APPROVED**.
 - Detector: **NOT IMPLEMENTED**.
@@ -46,6 +49,9 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   return remain historical evidence。
 - `BLK-S6.1-LR1-001` remains **OPEN** for future strict comparison；license/redistribution issues remain separate from internal
   research access。
+- P0 resolved the source/planning portions of `BLK-S6.1-P1-001/002` by freezing NQ, released-artifact boundaries, official BEIR
+  identity and GMTP's detection-only call path. Runtime acceptance remains blocked by `BLK-S6.1-FU1-W1-001` and
+  `BLK-S6.1-FU1-W2-001` until separately approved Worker evidence is accepted.
 - Environment observation resolved narrowly: R0-A records NumPy 2.4.6 in `llmguard-paper1`；this remains environment evidence,
   not a baseline result。
 - Evidence archive SHA-256:
@@ -55,6 +61,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - LOCAL Control Plane did not run PoisonedRAG, GMTP or SafeRAG and did not download data/model or invoke an API.
 - Canonical entry: [Stage 6.1 research README](../research/stage6_1_hidden_knowledge_poisoning/README.md).
 - Canonical Paper 1 route: [Paper 1 Research Route](../research/stage6_1_hidden_knowledge_poisoning/paper1_research_route.md).
+- Canonical FU1-P0 resolution: [Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md).
 - Context recovery entry: [Context Authority Map](context_authority_map.md).
 
 ## Accepted Baseline
@@ -127,7 +134,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
 - Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
   evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- Next operational action: the project owner decides whether to approve recommended R0-FU1. R0-FU1 and S6.1-P1 remain closed。
+- Next operational action: the project owner reviews completed P0 and separately decides W1/W2. Neither Worker task nor
+  S6.1-P1 is automatically authorized。
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. Its acceptance does not approve S6-T5.6 ContextBuilder behavior; that remains a separate boundary.
@@ -142,9 +150,9 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 ## Must Not Start
 
 - On LOCAL: any external baseline workload, repo clone/install/smoke, dataset/model download or GPU computation.
-- On RTX5090: any new R0-FU1 or baseline execution without separate owner approval；new installs、data/model download、API、
+- On RTX5090: FU1-W1/W2 or any baseline execution without separate owner approval；new installs、data/model download、API、
   broad environment exploration、algorithm reimplementation or formal workload。
-- Everywhere: R0-FU1 execution、S6.1-P1、Detector implementation、dataset freeze/construction、training、Paper Result、
+- Everywhere: any unapproved FU1 Worker execution、S6.1-P1、Detector implementation、dataset freeze/construction、training、Paper Result、
   formal experiment or SOTA comparison。
 - Additional ContentResolver changes, document-content access beyond synthetic test inputs, Trust policy, retrieval guard, or any S6-T5.8 behavior beyond the completed documentation closure.
 - Groq, mock/real LLM invocation, evaluator, metrics, T10-T15, formal RAG attack matrix or report generation.
@@ -152,14 +160,15 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Claims Boundary
 
-Can additionally claim: R0 is `HUMAN_ACCEPTED_WITH_BLOCKERS` as an engineering reproduction preflight；both archive generations
-and their indexes passed verification；the corrected matrix hash is bound；GMTP has 18 available 200-sample artifacts and Docker
-is not mandatory；PoisonedRAG permits one selected dataset but API-free attack generation is not established；SafeRAG has a
-script-bound all-record dataset-only smoke and SN/ICC benchmark artifacts。The original baseline roles remain unchanged。
+Can additionally claim: P0 is a completed Control Plane contract candidate pending owner review；NQ is the primary external
+dataset candidate and HotpotQA the fallback；PoisonedRAG's released NQ attack-text artifact supports API-free reuse but exact
+regeneration identity remains partial；GMTP's gitlink resolves to official `beir-cellar/beir` commit `f062f0...` and its detector
+core does not require Java/Pyserini/FAISS；SafeRAG SN/ICC has a frozen dataset-artifact contract。The original baseline roles
+remain unchanged。
 
 Can claim: within the offline engineering-test scope, the `S6-T5 Controlled Retrieval and Traceable Context Baseline` is HUMAN_ACCEPTED. It comprises deterministic and label-isolated retrieval runtime contracts, provider-neutral DenseRetriever, the synthetic ContentResolver, EvidenceEnvelope/Citation boundaries, deterministic Context Package behavior, and S6-T5.7 controlled integration evidence including an opt-in fixed MiniLM plus temporary Chroma close/reopen check. `4ecf73a` is the accepted baseline content commit; the current governance acceptance commit is not an implementation or integration-evidence commit. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
-Cannot claim: any external baseline was reproduced；strict comparison is ready；SafeRAG pipeline is ready；dataset/
+Cannot claim: W1/W2 ran；any external baseline was reproduced；strict comparison is ready；SafeRAG pipeline is ready；dataset/
 Detector/Our Method/training/result exists；or retrieval quality/security, SOTA, production readiness or formal-experiment outcomes
 are established.
 
@@ -173,5 +182,5 @@ are established.
 ## Last Update
 
 - Date: `2026-07-31`.
-- Updated by: Codex completing the corrected R0-I review and registering `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS` while
-  preserving the historical return snapshot. Formal Experiment remains not started.
+- Updated by: Codex completing FU1-P0 source analysis and candidate Worker contract freeze. P0 awaits owner review；W1/W2、P1
+  and Formal Experiment remain not approved/not started.

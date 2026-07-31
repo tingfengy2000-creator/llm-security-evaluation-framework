@@ -162,10 +162,10 @@ git log -15 --oneline
 - `FORMAL_EXPERIMENT = NOT STARTED` for current Stage 6.1 work。
 - Historical pre-approval snapshot：`S6.1-LR1` 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`；当时
   `S6.1-R0` 仅定义、尚未批准执行。
-- Superseding current fact：RTX5090 Bootstrap 已 `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`，`S6.1-R0` 已
-  `APPROVED_TO_START` on Compute Worker；Formal Experiment 仍未开始。
-- Newer R0-I fact：execution approval remains a historical snapshot；current review is
-  `RETURNED_FOR_WORKER_CORRECTION` and parent R0 is `REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE`。
+- Historical superseded fact：RTX5090 Bootstrap 已 `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`，`S6.1-R0` 曾
+  `APPROVED_TO_START` on Compute Worker；首次 R0-I return 保留为历史快照。
+- Superseding current fact：R0 is `HUMAN_ACCEPTED_WITH_BLOCKERS`；FU1 is `APPROVED / LOCAL-FIRST / WORKER-GATED`；
+  P0 is `COMPLETED_PENDING_OWNER_REVIEW`；W1/W2 and P1 are not approved；Formal Experiment 仍未开始。
 - Owner principle：Control-Plane-First Token Economy is accepted as execution-resource governance and cannot override
   Paper-First、safety、evidence quality、label isolation、immutable history or reproducibility。
 

@@ -2,8 +2,8 @@
 
 ## 当前状态
 
-- 当前任务：`S6.1-R0-I Control Plane Review`。
-- 任务状态：`RETURNED_FOR_WORKER_CORRECTION`；parent R0 为 `REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE`。
+- 当前任务：`S6.1-R0-FU1-P0 LOCAL Control-Plane Planning and Execution Contract Freeze`。
+- 任务状态：`COMPLETED_PENDING_OWNER_REVIEW`；parent FU1 为 `APPROVED / LOCAL-FIRST / WORKER-GATED`。
 - 历史前置：`S6.1-LR1` 为 `HUMAN_ACCEPTED`。
 - 追加治理：Git-native Context Recovery Governance 与 Paper-First Comparative Evidence Principle 均为 `HUMAN_ACCEPTED`。
 - Paper 1 canonical route：`ACCEPTED AS CURRENT RESEARCH ROUTE`。
@@ -16,8 +16,11 @@
 - RTX5090 Bootstrap：`HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`。
 - Superseded R0 snapshot：`DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`。
 - Historical R0 execution snapshot：`APPROVED_TO_START`。
-- Evidence integrity：archive hash verified；internal evidence index `18/18` verified。
-- 当前 action：Worker 只返回 [R0-I Review](s6_1_r0_i_control_plane_review.md) 定义的最小 corrected evidence。
+- R0：`HUMAN_ACCEPTED_WITH_BLOCKERS`；historical first-review return 与 corrected-evidence acceptance 均保留。
+- FU1-P0 outcome：NQ 为 primary external dataset candidate；PoisonedRAG released attack artifact 为 `PARTIAL`；GMTP
+  official BEIR identity 与 detection-only path 已恢复；SafeRAG SN/ICC artifact contract 已冻结。
+- 当前 action：项目负责人复核 [FU1 targeted resolution](s6_1_r0_fu1_targeted_resolution.md) 并决定是否分别批准 W1/W2。
+- Worker 状态：`FU1-W1 = NOT APPROVED`；`FU1-W2 = NOT APPROVED`；不得联系 RTX5090。
 - Token economy：高推理/设计/审查任务优先 LOCAL；该资源原则不覆盖科学证据与安全治理。
 
 ## 权威入口
@@ -35,9 +38,10 @@
 11. [Stage 6.1 Learning Guide](../../learning/stage6_1_hidden_poisoning.md)
 12. [S6.1-R0 Reproduction Preflight Definition](s6_1_r0_reproduction_preflight.md)
 13. [S6.1-R0-I Control Plane Review](s6_1_r0_i_control_plane_review.md)
+14. [S6.1-R0-FU1 Targeted Resolution](s6_1_r0_fu1_targeted_resolution.md)
 
 ## 下一审批门
 
-R0-I 未接受当前 Worker summary，状态为 `RETURNED_FOR_WORKER_CORRECTION`。RTX5090 只能生成最小 corrected evidence，
-LOCAL 不运行 external baseline。项目负责人随后决定是否接受 R0 以及是否批准建议的 R0-FU1；S6.1-P1 与正式实验
-仍未开始。Auto Continue = NO。
+`S6.1-R0-FU1-P0 = COMPLETED_PENDING_OWNER_REVIEW`。项目负责人下一步只决定是否接受 P0，以及是否分别批准候选
+`FU1-W1` / `FU1-W2`。两项 Worker 执行、S6.1-P1、Dataset freeze、Detector、training 和正式实验均未获批准。
+Auto Continue = NO。

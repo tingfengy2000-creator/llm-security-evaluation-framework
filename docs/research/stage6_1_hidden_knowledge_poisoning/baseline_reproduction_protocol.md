@@ -8,12 +8,16 @@
 ## 1. 状态
 
 - 协议类型：`ENGINEERING_PREFLIGHT_CONTROL / FORMAL_REPRODUCTION_PLANNING`。
-- 当前状态：`R0_I_RETURNED_FOR_WORKER_CORRECTION / FORMAL_REPRODUCTION_NOT_APPROVED`。
+- 当前状态：`R0_HUMAN_ACCEPTED_WITH_BLOCKERS / FU1_P0_COMPLETED_PENDING_OWNER_REVIEW / FORMAL_REPRODUCTION_NOT_APPROVED`。
 - 历史执行状态：`R0_ENGINEERING_PREFLIGHT_APPROVED`。
+- 历史首轮复核状态：`R0_I_RETURNED_FOR_WORKER_CORRECTION`；corrected evidence 已关闭该 return blocker。
 - 正式实验：`NOT STARTED`。
 - 下列上游命令均为 `REFERENCE_ONLY_DO_NOT_RUN`；Worker 必须先做静态审计，再从中提取最小 smoke 所需命令，不得整段盲跑。
 
-当前只允许 RTX5090 完成 R0-I review 明确列出的最小证据修正；历史 R0 工程执行授权不再允许扩大环境探索。它不授权下载完整 NQ、HotpotQA、MS MARCO、完整索引或其他大型语料，不授权付费 API、API key、未经批准的大型 LLM，也不授权生成或声称 Paper Result。若未来最小 smoke 确实需要更多数据，必须先提交 `MINIMUM_DATA_REQUIREMENT`。
+当前没有 RTX5090 执行授权。FU1 已采用 `LOCAL-FIRST / WORKER-GATED`，且只有
+[P0 targeted resolution](s6_1_r0_fu1_targeted_resolution.md) 完成并等待 owner review；W1/W2 均未批准。历史 R0 工程
+执行授权不允许扩大环境探索。完整 NQ、HotpotQA、MS MARCO、索引、大型模型、API 和 Paper Result 仍须后续独立批准；
+大于 5 GB 的计划工件/派生 footprint 还必须取得 `OWNER_LARGE_ARTIFACT_APPROVAL_REQUIRED`。
 
 ### 1.1 License / Access 分层
 

@@ -626,3 +626,22 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Recommendation: `S6.1-R0-FU1 = APPROVAL_RECOMMENDED / NOT APPROVED`。No R0-FU1 execution is authorized。
 - Stop boundary: `S6.1-P1 = NOT STARTED`；Dataset `NOT FROZEN`；Detector `NOT IMPLEMENTED`；Training `NOT STARTED`；
   Our Method Result `NONE`；`FORMAL_EXPERIMENT = NOT STARTED`。Auto Continue = NO。
+
+## PODR-051: S6.1-R0-FU1 Approval With LOCAL-First Worker Gate
+
+- Date: `2026-07-31`.
+- Decision: `S6.1-R0-FU1 = APPROVED` under `LOCAL-FIRST / WORKER-GATED` execution；current authorization is limited to
+  `S6.1-R0-FU1-P0 / LOCAL Control-Plane Planning and Execution Contract Freeze`。
+- P0 scope: paper/source reasoning、external artifact analysis、dataset comparison、PoisonedRAG attack identity、GMTP source/
+  call-path/dependency analysis、SafeRAG artifact contract and exact future Worker contract design。
+- P0 completion: `COMPLETED_PENDING_OWNER_REVIEW`；NQ is the primary external dataset candidate, HotpotQA the fallback；
+  PoisonedRAG released attack-text reuse is `PARTIAL`；GMTP BEIR identity resolves to official `beir-cellar/beir@f062f0...` and
+  detection-only scoring excludes Java/Pyserini/FAISS；SafeRAG SN/ICC artifact contract is frozen。
+- Worker gate: `FU1-W1 = NOT APPROVED` and `FU1-W2 = NOT APPROVED`；P0 cannot contact RTX5090, download data/models or run
+  PoisonedRAG、GMTP or SafeRAG。Future W1/W2 require separate owner decisions against the exact candidate contracts。
+- Large artifact gate: any planned artifact or derived corpus/index footprint above 5 GB requires
+  `OWNER_LARGE_ARTIFACT_APPROVAL_REQUIRED`；W1/W2 candidate ceilings are below that threshold。
+- Stop boundary: `S6.1-P1 = NOT STARTED`；Dataset `NOT FROZEN`；Detector `NOT IMPLEMENTED`；Training `NOT STARTED`；
+  Our Method Result `NONE`；`FORMAL_EXPERIMENT = NOT STARTED`。Auto Continue = NO。
+- Evidence: [FU1 Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、
+  upstream exact commits/blob metadata and accepted corrected R0 evidence hashes。

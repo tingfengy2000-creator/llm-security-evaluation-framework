@@ -45,6 +45,20 @@ Roles remain PRIMARY_ATTACK_BASELINE、PRIMARY_DETECTION_BASELINE and PRIMARY_BE
 [R0-I review](s6_1_r0_i_control_plane_review.md). The historical first-review `RETURNED_FOR_WORKER_CORRECTION` snapshot remains
 in that record and is superseded only for current status.
 
+## S6.1-R0-FU1-P0 Superseding Targeted Resolution
+
+P0 supersedes the unresolved *planning facts* above, not the LR1 published-result transcription and not runtime readiness:
+
+| baseline | selected candidate / contract | identity result | current comparability | next evidence gate |
+| --- | --- | --- | --- | --- |
+| PoisonedRAG | NQ primary；HotpotQA fallback；official NQ released attack-text artifact | `AUTHOR_RELEASED_ATTACK_ARTIFACT_USABLE = PARTIAL`；offline reuse yes, exact API regeneration no | `PARTIALLY_COMPARABLE / TRANSFER_EVALUATION_ONLY` | W1 `NOT APPROVED` |
+| GMTP | Contriever+BERT detection-only core on exact NQ record | BEIR gitlink verified as official `beir-cellar/beir@f062f0...`；Java/Pyserini/FAISS not core | `PARTIALLY_COMPARABLE` with NQ PoisonedRAG | W2 `NOT APPROVED` |
+| SafeRAG | SN 100 + ICC 93 artifact contract | exact repository commit, dataset/KB Git blobs and executed-script hash frozen | `BENCHMARK_REFERENCE_ONLY` | no further Worker task by default |
+
+The exact dataset matrix, attack/API boundary, call graph, model revisions, resource ceilings and W1/W2 contracts are canonical in
+[FU1 Targeted Resolution](s6_1_r0_fu1_targeted_resolution.md). `FU1-P0 = COMPLETED_PENDING_OWNER_REVIEW`；no external workload,
+P1 protocol or formal experiment has started.
+
 ## LR1 External Benchmark Matrix
 
 | paper | venue | year | role_in_our_paper | official_paper_url | official_repo | verified_commit/tag | license | datasets | dataset_license | attack | defense | retriever | generator | embedding model | Top-K | attack budget | metrics | published main results | required GPU | required RAM | disk estimate | original environment | 5090 compatibility issue | reproduction status | strict-comparison eligibility | gap relative to our method | unresolved questions |

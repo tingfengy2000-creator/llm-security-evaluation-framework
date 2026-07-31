@@ -475,3 +475,49 @@ Approval Gate、Auto Continue。
 - Next Step: project owner decides whether to approve narrow `S6.1-R0-FU1`。
 - Next Approval Gate: `S6.1-R0-FU1 APPROVAL_RECOMMENDED / NOT APPROVED`
 - Auto Continue: `NO`
+
+## REL-2026-0012 — S6.1-R0-FU1-P0 Targeted Resolution Contract Freeze
+
+- Record ID: `REL-2026-0012`
+- Date: `2026-07-31`
+- Timestamp: `NOT_RECORDED`
+- Machine: `LOCAL`
+- Machine Role: `CONTROL_PLANE`
+- Stage: `Stage 6.1 / R0-FU1`
+- Task ID: `S6.1-R0-FU1-P0`
+- Task Name: `LOCAL Control-Plane Planning and Execution Contract Freeze`
+- Task Type: `CONTROL_PLANE_SOURCE_ANALYSIS / CONTRACT_CANDIDATE`
+- Initial Status: `APPROVED_TO_START`
+- Final Status: `COMPLETED_PENDING_OWNER_REVIEW`
+- Objective: resolve dataset/attack/source/call-path planning blockers and freeze exact future W1/W2 candidates without Worker
+  execution or external workload。
+- Why: minimize Worker research/token use while preserving source identity, reproducibility and approval boundaries。
+- Previous Gate: `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS; R0-FU1 APPROVAL_RECOMMENDED`
+- Actions: compared NQ/HotpotQA/MS MARCO from primary sources；audited PoisonedRAG attack/result identities and API boundary；
+  recovered GMTP's official BEIR commit；traced detector-only code/dependencies；froze model revisions, sample identities,
+  resource ceilings, SafeRAG SN/ICC artifacts and cross-baseline comparability classes。
+- Files Changed: new FU1 resolution；current/owner/execution/master context；experiment master record；Paper 1 route/matrix/
+  registry/README；semantic governance tests。No business source or historical evidence changed。
+- Commands: Git mandatory startup；read-only official GitHub/Hugging Face metadata/source queries；local document/test checks。
+- Validation: targeted context recovery `16 passed`；full architecture `98 passed`；namespace + label isolation `10 passed`；
+  Ruff passed；Markdown relative links `222` checked；14 changed files passed secret/private-path and UTF-8 no-BOM/LF checks；
+  protected history/business paths `0`；`git diff --check` passed。Pytest cache write warning is non-blocking。
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `PENDING_THIS_COMMIT; resolve with git log -1 -- docs/governance/research_execution_log.md`
+- Run ID: `N/A / CONTROL_PLANE_SOURCE_ANALYSIS`
+- Dataset Snapshot: `Dataset = NOT FROZEN`；NQ primary candidate and HotpotQA fallback only；no data downloaded。
+- Model / Revision: W2 candidates Contriever `abe8c149...` and BERT `86b5e093...`；not downloaded or executed。
+- Environment Identity: `LOCAL / CONTROL_PLANE` source analysis only；Worker environment remains historical R0 evidence。
+- Result Summary: PoisonedRAG author-released attack artifact `PARTIAL`；GMTP BEIR source `VERIFIED` and detector-only path
+  frozen；SafeRAG artifact contract frozen；W1/W2 exact candidates prepared。
+- Claims Allowed: P0 contract candidate completed pending owner review；source identities/dependency separation and artifact
+  planning decisions recorded。
+- Claims Prohibited: W1/W2 ran；baseline reproduced；strict comparison ready；P1/Dataset/Detector/training/formal result started。
+- Blockers: `BLK-S6.1-FU1-W1-001`; `BLK-S6.1-FU1-W2-001`; formal corpus/index and redistribution items remain downstream。
+- Blocker ID: `BLK-S6.1-P1-001 RESOLVED; BLK-S6.1-P1-002 RESOLVED; BLK-S6.1-FU1-W1-001 OPEN; BLK-S6.1-FU1-W2-001 OPEN`
+- Resolution: source/planning scope frozen locally；runtime compatibility/evidence requires separate owner-approved W1/W2。
+- Owner Decisions: `PODR-048; PODR-050; PODR-051`
+- Design Changes: none to Paper 1 method/roles；only external baseline candidate identities and execution contracts frozen。
+- Next Step: project owner reviews P0 and separately decides W1/W2 approvals。
+- Next Approval Gate: `FU1-W1 / FU1-W2 OWNER DECISION`; S6.1-P1 remains not started。
+- Auto Continue: `NO`

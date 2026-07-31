@@ -57,9 +57,9 @@ poison label、attack ID/goal/category 或 expected answer 作为 inference feat
 
 | Work | Canonical role | Current status |
 | --- | --- | --- |
-| PoisonedRAG | PRIMARY_ATTACK_BASELINE | `ENGINEERING_FEASIBILITY_IDENTIFIED / P1_PROTOCOL_BLOCKED`；one selected dataset possible；attack identity unresolved |
-| GMTP | PRIMARY_DETECTION_BASELINE | `ENGINEERING_FEASIBILITY_IDENTIFIED / TARGETED_EXECUTION_BLOCKERS_REMAIN`；18 samples available；modified-BEIR/detection path unresolved |
-| SafeRAG | PRIMARY_BENCHMARK_REFERENCE | `PARTIAL_REPRODUCTION_READY / DATASET_ARTIFACT_ONLY`；SN/ICC benchmark artifacts available |
+| PoisonedRAG | PRIMARY_ATTACK_BASELINE | NQ primary candidate；released attack-text reuse `PARTIAL`；W1 not approved |
+| GMTP | PRIMARY_DETECTION_BASELINE | official BEIR identity and detection-only path frozen；W2 not approved |
+| SafeRAG | PRIMARY_BENCHMARK_REFERENCE | SN/ICC `DATASET_ARTIFACT_ONLY` contract frozen；no full-pipeline prerequisite |
 | EcoSafeRAG | DEFERRED | not a core baseline unless owner re-approves |
 
 Published Result、Reproduced Result、Our Method Result 必须分栏，不能互相替代。
@@ -77,8 +77,9 @@ LICENSE 也不自动阻断未来经批准的内部研究工作流。这不是法
   metric definition、seed protocol 和 environment assumptions。
 - 任一关键条件不一致时标记 NON_STRICT_COMPARISON，不得写“outperforms SOTA by X%”。
 
-当前没有 external baseline reproduction。SafeRAG 只有 script-bound all-record dataset-artifact smoke；不得解释为 pipeline
-或 benchmark-result reproduction。
+当前没有 external baseline reproduction。FU1-P0 只形成
+[source analysis and Worker contract candidates](s6_1_r0_fu1_targeted_resolution.md)；SafeRAG 只有 script-bound all-record
+dataset-artifact smoke，不得解释为 pipeline 或 benchmark-result reproduction。
 
 ## 8. Versioned Chinese Benchmark Track
 
@@ -228,11 +229,13 @@ scientific quality。
 
 ## 25. Known Risks
 
-- PoisonedRAG paper-result commit/dependency lock/GPU-RAM-disk、single-dataset choice and API-free attack path 未完整确认；
+- PoisonedRAG paper-result commit/dependency lock/GPU-RAM-disk 与 exact generation/API snapshot 未完整确认；NQ is the primary
+  candidate and API-free released-text reuse is feasible, but artifact equivalence remains `PARTIAL`；
 - GMTP/SafeRAG `CODE_LICENSE=UNCONFIRMED`，因此 `REDISTRIBUTION_ELIGIBILITY=TO_VERIFY`；这不自动阻断未来获批的内部研究；
 - data/model/API revisions 与 evaluator snapshots 可能不可恢复；
-- GMTP exact commit contains 200-sample artifacts；its `beir` gitlink lacks root mapping, and Java/Pyserini/FAISS native path
-  remains unresolved；Docker is convenience rather than algorithm requirement；
+- GMTP exact commit contains 18 200-sample artifacts；its `beir` gitlink is verified as official `beir-cellar/beir` commit
+  `f062f038c4bfd19a8ca942a9910b1e0d218759d4`；Java/Pyserini/FAISS are indexing/search dependencies, not detector-core
+  dependencies；the pinned-model RTX5090 path still requires an approved W2；
 - SafeRAG full pipeline still depends on services/API/model choices, but this is non-blocking when Paper 1 uses only its SN/ICC
   benchmark artifacts under a frozen usage contract；
 - Worker base PyTorch/Blackwell compute 已通过；各 baseline 的旧 CUDA/PyTorch/FAISS/Pyserini 仍有兼容风险；
@@ -255,14 +258,15 @@ scientific quality。
 - Historical S6.1-R0 execution and first-review return snapshots remain preserved；the superseding R0 status is
   `HUMAN_ACCEPTED_WITH_BLOCKERS`。
 - Control-Plane-First Token Economy Principle 已接受，且不覆盖 Paper-First、安全、证据质量、标签隔离或历史不可变；
-- R0-FU1 is `APPROVAL_RECOMMENDED / NOT APPROVED`；baseline roles remain unchanged。
+- R0-FU1 is `APPROVED / LOCAL-FIRST / WORKER-GATED`；P0 is `COMPLETED_PENDING_OWNER_REVIEW`；W1/W2 are `NOT APPROVED`；
+  baseline roles remain unchanged。
 
-权威 Decision IDs 见 PODR-035–PODR-050。
+权威 Decision IDs 见 PODR-035–PODR-051。
 
 ## 27. Pending Decisions
 
-- project-owner decision on whether to approve recommended R0-FU1；
-- after those gates, whether S6.1-P1 may begin and its specific protocol scope；
+- project-owner review of FU1-P0 and separate decisions on W1/W2；
+- after required Worker evidence and another explicit gate, whether S6.1-P1 may begin and its specific protocol scope；
 - 外部 artifact 许可、paper-result commits 和 dependency/model/data snapshots；
 - 中文 benchmark 数据源、annotation protocol、split 和 publication license；
 - final feature set/fusion、threshold/calibration、statistics 和 adaptive attack；
@@ -288,6 +292,5 @@ reproducibility 为支撑；仅有工程框架或治理文档不足以构成论�
 ## 30. Next Gate
 
 R0 execution approval and `RETURNED_FOR_WORKER_CORRECTION` are preserved historical snapshots。Current R0 is
-`HUMAN_ACCEPTED_WITH_BLOCKERS`；the project owner next decides whether to approve
-`R0-FU1: APPROVAL_RECOMMENDED / NOT APPROVED`。S6.1-P1、Dataset、Detector、training and Formal Experiment remain closed。
-Auto Continue = NO。
+`HUMAN_ACCEPTED_WITH_BLOCKERS`；FU1 is approved only through completed P0。The project owner next reviews P0 and separately
+decides whether to approve W1/W2。S6.1-P1、Dataset、Detector、training and Formal Experiment remain closed。Auto Continue = NO。

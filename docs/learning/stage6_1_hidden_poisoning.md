@@ -10,9 +10,9 @@ Stage 6.1 研究 RAG 知识库中的隐蔽事实污染：恶意文档看起来�
 并可能伪装来源、时间和版本。当前 Paper 1 方向是 Benchmark + Multi-View Detection；不是最终 Detector 或已完成实验。
 
 当前治理状态：LR1、Context Recovery Governance、Paper-First Principle 和 current Paper 1 route 已人工接受；
-RTX5090 Bootstrap 已接受。R0-I archive/index integrity passed，但 evidence review 因 GMTP upstream-fact mismatch 与
-SafeRAG provenance/coverage gap 成为 `RETURNED_FOR_WORKER_CORRECTION`。它仍是 engineering preflight，Formal
-Experiment 未开始，LOCAL 不执行 external baseline。
+RTX5090 Bootstrap 与带 blocker 的 R0 engineering preflight 已接受；首次 R0-I return 作为历史快照保留。当前
+`S6.1-R0-FU1-P0 = COMPLETED_PENDING_OWNER_REVIEW`：LOCAL 已冻结 NQ/PoisonedRAG artifact boundary、GMTP official
+BEIR/detection-only path 与 SafeRAG SN/ICC artifact contract。W1/W2 未批准，Formal Experiment 未开始。
 
 Control-Plane-First Token Economy Principle 要求不依赖硬件的设计、分析、解释和写作优先 LOCAL；Worker token 留给
 硬件/外部执行与 raw evidence。它不能降低研究质量、证据质量、安全、标签隔离、历史不可变或可复现性。
@@ -137,16 +137,15 @@ Published Result、Reproduced Result、Our Method Result 必须分栏。
 ## 19. Completed Work
 
 已完成 first-party paper/repository alignment、artifact/license registry、benchmark matrix、reproduction protocol、5090
-planning、Paper 1 route 和 Git-native context recovery governance。后续 Worker R0 完成 static audits 与 SafeRAG
-dataset-only smoke；没有 external baseline reproduction 或 formal result。
+planning、Paper 1 route、Git-native context recovery governance 和 FU1-P0 targeted contract freeze。Worker R0 已完成
+static audits 与 SafeRAG dataset-only smoke；没有 external baseline reproduction 或 formal result。
 
 ## 20. Current Status
 
 `S6.1-LR1: HUMAN_ACCEPTED`；Context Recovery Governance、Paper-First Principle 与 current route 同样已接受。
-RTX5090 Bootstrap 为 `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`；historical
-`S6.1-R0: APPROVED_TO_START` execution snapshot 已推进到 R0-I。Current R0-I is
-`RETURNED_FOR_WORKER_CORRECTION`；S6.1-P1、R0-FU1 execution、dataset generation、Detector implementation 和 model
-training 均未批准。
+RTX5090 Bootstrap 为 `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`；R0 为 `HUMAN_ACCEPTED_WITH_BLOCKERS`。FU1 已按
+`LOCAL-FIRST / WORKER-GATED` 批准，当前只有 P0 完成并等待 owner review；FU1-W1/W2、S6.1-P1、dataset generation、
+Detector implementation 和 model training 均未批准。
 
 ## 21. Blockers
 
@@ -154,8 +153,9 @@ training 均未批准。
 和 hardware measurement 缺口；它不阻止已接受治理或未来单独获批的内部研究，但继续阻止严格复现/比较。
 再分发许可使用独立 `REDISTRIBUTION_ELIGIBILITY` 治理。
 
-`R0-I-EVIDENCE-CORRECTION-001` 只阻断 R0 acceptance：GMTP source fact 需纠正，SafeRAG executed-script hash 和
-all-record schema coverage 需补齐。它不删除 baseline role，也不等同 R0 failed。
+`R0-I-EVIDENCE-CORRECTION-001` 已由 corrected evidence 关闭。FU1-P0 关闭了 source-planning blockers，但 W1 的
+attack-input manifest 与 W2 的 modern RTX5090 detector-core evidence 仍是开放执行 blocker；license uncertainty 仍只影响
+redistribution。
 
 ## 22. Blocker Resolution
 

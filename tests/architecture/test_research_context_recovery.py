@@ -22,6 +22,7 @@ BENCHMARK_MATRIX = RESEARCH / "paper1_benchmark_alignment_matrix.md"
 BASELINE_PROTOCOL = RESEARCH / "baseline_reproduction_protocol.md"
 ARTIFACT_REGISTRY = RESEARCH / "external_artifact_registry.md"
 R0_I_REVIEW = RESEARCH / "s6_1_r0_i_control_plane_review.md"
+FU1_RESOLUTION = RESEARCH / "s6_1_r0_fu1_targeted_resolution.md"
 LONG_TERM_REQUIREMENTS = GOVERNANCE / "long_term_research_requirements.md"
 
 WINDOWS_ABSOLUTE_PATH = re.compile(r"(?<![A-Za-z0-9])[A-Za-z]:[\\/]")
@@ -72,6 +73,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             LEARNING / "stage6_1_hidden_poisoning.md",
             R0_PROTOCOL,
             R0_I_REVIEW,
+            FU1_RESOLUTION,
         )
         for path in required:
             with self.subTest(path=path.relative_to(ROOT)):
@@ -126,6 +128,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "PODR-048",
             "PODR-049",
             "PODR-050",
+            "PODR-051",
             "S6.1-LR1: HUMAN_ACCEPTED",
             "Git-Native Research Context Recovery Governance: HUMAN_ACCEPTED",
             "s6-t5-rag-baseline-v1",
@@ -136,6 +139,8 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "LONG_TERM_DUAL_MACHINE_EXECUTION_PRINCIPLE",
             "RETURNED_FOR_WORKER_CORRECTION",
             "S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS",
+            "S6.1-R0-FU1 = APPROVED",
+            "LOCAL-FIRST / WORKER-GATED",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, text)
@@ -157,6 +162,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "REL-2026-0009",
             "REL-2026-0010",
             "REL-2026-0011",
+            "REL-2026-0012",
             "Machine Role",
             "Initial Status",
             "Final Status",
@@ -190,11 +196,11 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "RTX5090 Compute Worker Bootstrap: **HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY**",
             state,
         )
-        self.assertIn(
-            "S6.1-P1: **NOT STARTED / DEFERRED UNTIL R0-FU1 OWNER DECISION AND LATER P1 APPROVAL**",
-            state,
-        )
-        self.assertIn("S6.1-R0-FU1: **APPROVAL_RECOMMENDED / NOT APPROVED**", state)
+        self.assertIn("S6.1-R0-FU1: **APPROVED / LOCAL-FIRST / WORKER-GATED**", state)
+        self.assertIn("S6.1-R0-FU1-P0: **COMPLETED_PENDING_OWNER_REVIEW**", state)
+        self.assertIn("S6.1-R0-FU1-W1: **NOT APPROVED**", state)
+        self.assertIn("S6.1-R0-FU1-W2: **NOT APPROVED**", state)
+        self.assertIn("S6.1-P1: **NOT STARTED", state)
         self.assertIn("Dataset: **NOT FROZEN**", state)
         self.assertIn("Detector: **NOT IMPLEMENTED**", state)
         self.assertIn("Training: **NOT STARTED**", state)
@@ -426,6 +432,55 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("Historical First Review Identity", review)
         self.assertIn("RETURNED_FOR_WORKER_CORRECTION", review)
         self.assertIn("No R0-FU1, S6.1-P1, Dataset, Detector, Training", review)
+
+    def test_fu1_p0_freezes_targeted_contracts_without_opening_worker_or_p1(self) -> None:
+        resolution = FU1_RESOLUTION.read_text(encoding="utf-8")
+        state = CURRENT_STATE.read_text(encoding="utf-8")
+        combined = "\n".join(
+            (
+                resolution,
+                state,
+                DECISION_REGISTER.read_text(encoding="utf-8"),
+                EXECUTION_LOG.read_text(encoding="utf-8"),
+                MASTER_RECORD.read_text(encoding="utf-8"),
+                BENCHMARK_MATRIX.read_text(encoding="utf-8"),
+                ARTIFACT_REGISTRY.read_text(encoding="utf-8"),
+            )
+        )
+        for required in (
+            "COMPLETED_PENDING_OWNER_REVIEW",
+            "PRIMARY_EXTERNAL_DATASET_CANDIDATE = NQ",
+            "SECONDARY_FALLBACK_DATASET = HotpotQA",
+            "AUTHOR_RELEASED_ATTACK_ARTIFACT_USABLE = PARTIAL",
+            "API_FREE_REUSE_OF_RELEASED_ATTACK_TEXTS = FEASIBLE",
+            "API_FREE_ATTACK_GENERATION = NOT ESTABLISHED",
+            "beir-cellar/beir",
+            "f062f038c4bfd19a8ca942a9910b1e0d218759d4",
+            "DETECTION_ONLY_CALL_PATH",
+            "CORE_DETECTOR_DEPENDENCY",
+            "RETRIEVAL_PREPARATION_DEPENDENCY",
+            "INDEXING_DEPENDENCY",
+            "GENERATION_DEPENDENCY",
+            "EVALUATION_ONLY_DEPENDENCY",
+            "abe8c1493371369031bcb1e02acb754cf4e162fa",
+            "86b5e0934494bd15c9632b12f734a8a67f723594",
+            "SAFERAG_BENCHMARK_ARTIFACT_CONTRACT",
+            "6508f154817910e1f55926c1fee22bca411255df",
+            "STRICTLY_COMPARABLE",
+            "PARTIALLY_COMPARABLE",
+            "TRANSFER_EVALUATION_ONLY",
+            "BENCHMARK_REFERENCE_ONLY",
+            "FU1-W1 = NOT APPROVED",
+            "FU1-W2 = NOT APPROVED",
+            "OWNER_LARGE_ARTIFACT_APPROVAL_REQUIRED",
+            "S6.1-P1_ENTRY_CRITERIA",
+            "FORMAL_EXPERIMENT = NOT STARTED",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, combined)
+
+        self.assertNotIn("FU1-W1 = APPROVED", state)
+        self.assertNotIn("FU1-W2 = APPROVED", state)
 
     def test_learning_guides_are_non_authoritative(self) -> None:
         for path in (
