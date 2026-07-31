@@ -2,10 +2,23 @@
 
 ## Repository Facts
 
-- Active branch: `feature/stage6-rag`.
+- Active branch: `research/stage6-1-hidden-poisoning`.
+- Branch base: accepted S6-T5 baseline `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`.
+- Expected baseline tag `s6-t5-rag-baseline-v1`: `TO_VERIFY`; absent locally and on fetched origin refs on `2026-07-31`. This task did not create or move it.
 - Worktree, HEAD, working-tree state and upstream synchronization are dynamic Git facts. Verify them with `git rev-parse`, `git status --short` and `git rev-list --left-right --count @{upstream}...HEAD` before every task.
 - Historical Stage 1-5 assets and Stage 6 fixture data remain immutable. Corrections are additive records, never rewrites of evidence.
 - Experiment route, historical runs, metrics and evidence indexes are recorded in `docs/governance/experiment_master_record.md`; this file remains the sole dynamic task and approval-gate source.
+
+## Current Task
+
+- Task ID: `S6.1-LR1`.
+- Task name: `Paper 1 Literature, Benchmark, Source Code, Hardware and Reproduction Alignment`.
+- Task type: **RESEARCH_CONTROL_PLANE_ALIGNMENT**.
+- Status: **COMPLETED_PENDING_HUMAN_ACCEPTANCE**.
+- Approved scope: paper-first governance, first-party source verification, external artifact registry, Benchmark matrix, published-result extraction, reproduction protocol, hardware planning and dual-machine policy.
+- Formal RAG security experiment: **NOT STARTED**.
+- No PoisonedRAG, GMTP or SafeRAG experiment was run; no dataset/model was downloaded; no paid API or model was invoked.
+- Canonical entry: [Stage 6.1 research README](../research/stage6_1_hidden_knowledge_poisoning/README.md).
 
 ## Accepted Baseline
 
@@ -19,7 +32,7 @@
 - Protocol acceptance closure commit: `432b07e`. It is a governance/design commit, never an implementation commit.
 - Accepted capability boundary: deterministic, label-isolated provider-neutral DenseRetriever engineering behavior, including the S6-T5.3-H1 trace and failure-boundary hardening; the S6-T5.4 synthetic in-memory ContentResolver boundary; the S6-T5.5 EvidenceEnvelope/Citation boundary; and the S6-T5.6 synthetic/offline deterministic Context Package boundary. S6-T5.7 additionally accepts controlled integration evidence for these existing components. This does not establish retrieval quality, security effectiveness, context safety, trust policy, LLM integration, or a formal RAG experiment.
 
-## Current Task
+## Historical S6-T5 Acceptance Task Snapshot
 
 - Task ID: `GOV-S6-T5-BASELINE-ACCEPTANCE`.
 - Task name: `S6-T5 Controlled Retrieval and Traceable Context Baseline Final Human Acceptance`.
@@ -37,7 +50,7 @@
 - S6-T5 Controlled Retrieval and Traceable Context Baseline: **HUMAN_ACCEPTED BASELINE**. The baseline governance acceptance commit is `CURRENT_ACCEPTANCE_COMMIT / verify from Git after commit`; it is neither an implementation commit nor an integration evidence commit.
 - Historical approval snapshot: S6-T5.8 was `APPROVED_TO_START / DOCUMENTATION_IN_PROGRESS` under `PODR-032`; this is not its current status.
 - Historical approval snapshot: S6-T5.8-H1 was `APPROVED_TO_START / DOCUMENTATION_HARDENING_IN_PROGRESS`; this is not its current status.
-- Stage 6.1 formal research: NOT APPROVED.
+- Historical pre-LR1 snapshot: Stage 6.1 formal research: NOT APPROVED.
 - Formal RAG security experiment: NOT STARTED.
 - Historical approval-gate snapshot, not the current status: `S6-T5.7+: NOT APPROVED`. The accepted S6-T5.6 implementation history remains `71067d1` (initial candidate), `b136ee2` (final accepted implementation) and `6da27a6` (previous accepted implementation).
 - S6-T5.5-P1: **HUMAN_ACCEPTED**.
@@ -72,6 +85,8 @@
 
 ## Approval Gate
 
+- `S6.1-LR1` is completed and pending project-owner human acceptance.
+- Next approval gate: accept/reject S6.1-LR1. Any S6.1-P1 protocol, environment installation, data/model download, smoke test, reproduction or formal experiment requires separate approval.
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. Its acceptance does not approve S6-T5.6 ContextBuilder behavior; that remains a separate boundary.
@@ -81,19 +96,22 @@
 - S6-T5.6 P1/H1/H2 are HUMAN_ACCEPTED protocol records. `S6-T5.6-I1`, `S6-T5.6-I1-H1` and parent S6-T5.6 are HUMAN_ACCEPTED synthetic/offline implementations.
 - S6-T5.7 is HUMAN_ACCEPTED only for the documented controlled retrieval-context engineering evidence. It does not change the accepted implementation commit or establish a formal RAG experiment.
 - S6-T5 baseline final acceptance does not create a tag, a Stage 6.1 branch, or a formal RAG experiment.
-- Next approval gate: the project owner must separately approve any Stage 6.1 design or implementation work; Stage 6.1 remains NOT APPROVED.
+- Historical S6-T5 snapshot: the project owner had to separately approve Stage 6.1; that snapshot is superseded only for the documentation-only S6.1-LR1 scope.
 
 ## Must Not Start
 
+- S6.1-P1, formal PoisonedRAG/GMTP/SafeRAG reproduction, dataset/model download, paid API use, Detector implementation, training, result generation or SOTA comparison.
 - Additional ContentResolver changes, document-content access beyond synthetic test inputs, Trust policy, retrieval guard, or any S6-T5.8 behavior beyond the completed documentation closure.
 - Groq, mock/real LLM invocation, evaluator, metrics, T10-T15, formal RAG attack matrix or report generation.
 - New Stage 6 business code under `src/codeguarder/`, any mutation of Stage 1-5, or any mutation of Stage 6 data fixtures.
 
 ## Current Claims Boundary
 
+Can additionally claim: S6.1-LR1 has verified first-party paper/repository sources and current repository HEADs, recorded known license blockers, and produced a planning-only comparison matrix, reproduction protocol and 5090 execution checklist.
+
 Can claim: within the offline engineering-test scope, the `S6-T5 Controlled Retrieval and Traceable Context Baseline` is HUMAN_ACCEPTED. It comprises deterministic and label-isolated retrieval runtime contracts, provider-neutral DenseRetriever, the synthetic ContentResolver, EvidenceEnvelope/Citation boundaries, deterministic Context Package behavior, and S6-T5.7 controlled integration evidence including an opt-in fixed MiniLM plus temporary Chroma close/reopen check. `4ecf73a` is the accepted baseline content commit; the current governance acceptance commit is not an implementation or integration-evidence commit. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
-Cannot claim: retrieval quality, retrieval security effectiveness, context safety, citation accuracy, trustworthiness, RAG metrics, production readiness, or research-experiment outcomes.
+Cannot claim: any external baseline was reproduced; any 5090 requirement was measured; retrieval quality, retrieval security effectiveness, context safety, citation accuracy, trustworthiness, RAG metrics, SOTA, production readiness, or research-experiment outcomes.
 
 ## Known Technical Debt
 
@@ -104,5 +122,5 @@ Cannot claim: retrieval quality, retrieval security effectiveness, context safet
 
 ## Last Update
 
-- Date: `2026-07-27`.
-- Updated by: Codex after recording final S6-T5 baseline human acceptance. S6-T5.8-H1 and S6-T5.8 are `HUMAN_ACCEPTED`; S6-T5 is `HUMAN_ACCEPTED BASELINE`; [baseline report](s6_t5_baseline_acceptance_report.md) is the unified evidence index. `37cccdc` remains the original candidate closure, `4ecf73a` is the accepted baseline content commit, `b136ee2` remains the last accepted implementation commit, `b6cedf3` remains the accepted integration evidence commit, Stage 6.1 remains `NOT APPROVED`, and the formal experiment remains `NOT STARTED`.
+- Date: `2026-07-31`.
+- Updated by: Codex after completing the approved S6.1-LR1 research-control-plane alignment. The task awaits human acceptance; S6.1-P1 and all formal experiments remain unapproved/not started.

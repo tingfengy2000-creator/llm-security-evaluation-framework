@@ -367,6 +367,19 @@ implementation commit。历史 pending/review 文本继续保留为当时事实�
 - Explicit non-claims: no retrieval-quality, prompt-injection-defense, poisoning-detection, Citation Accuracy, trustworthy-retrieval, Chroma/MiniLM/LLM-chain, formal-experiment or production-readiness claim.
 - Gate: `S6-T5.7+` is `NOT APPROVED`; Formal RAG security experiment is `NOT STARTED`.
 
+## PODR-035: S6.1-LR1 Paper-First Comparative Evidence Alignment
+
+- Date: `2026-07-31`.
+- Decision: project owner accepts the `Paper-First Comparative Evidence Principle` and approves `S6.1-LR1` research-control-plane work.
+- Approved scope: first-party verification of PoisonedRAG, GMTP and SafeRAG papers/repositories; commit and license registry; dataset/model/retriever/Top-K/attack-budget/metric alignment; published-result extraction; hardware and RTX 5090 compatibility planning; reproduction checklist; dual-machine policy; governance synchronization.
+- Completion status: `S6.1-LR1: COMPLETED_PENDING_HUMAN_ACCEPTANCE`.
+- Research branch: `research/stage6-1-hidden-poisoning`, created from accepted baseline `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`.
+- Baseline tag fact: after `git fetch --prune --tags origin`, `s6-t5-rag-baseline-v1` was not present; this task did not create, move or rewrite a tag.
+- Source facts: PoisonedRAG current HEAD `f660d72174f06b13fae5163ce656e7b235db858f` with MIT license; GMTP current HEAD `15b48d150f93711371eb8da22c211cd84a0cf4df` and SafeRAG current HEAD `e8f579743b23e0a3937076dcc0792fe29027cba3`, both with no root LICENSE found.
+- Prohibitions: no formal PoisonedRAG/GMTP/SafeRAG run, dataset/model download, paid API, detector code, training, formal result table, SOTA claim, S6-T5 baseline mutation or automatic S6.1-P1 start.
+- Claims boundary: this is literature/artifact/governance alignment only. `FORMAL_EXPERIMENT = NOT STARTED`.
+- Next gate: human acceptance/rejection of S6.1-LR1, followed by separate approval of any S6.1-P1 protocol, environment preparation, smoke test or formal reproduction.
+
 ## 8. 新 Thread 最小读取顺序
 
 1. `AGENTS.md`

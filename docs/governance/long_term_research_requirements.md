@@ -8,6 +8,16 @@ Stage 6.2 与 Stage 7 的治理基线。若它与较早的实施草案发生冲�
 
 本文不授权提前实现 S6-T5 或更晚阶段的代码。它规定未来实现的方向、稳定对象和验收边界。
 
+## Paper-First Comparative Evidence Principle
+
+**状态：已接受，2026-07-31。** 所有以 Paper 1 / Paper 2 论文结论为目标的任务必须先核验权威论文、
+官方源码、许可、公开数据、模型、attack budget、Retriever、Top-K、指标与原始环境，再冻结内部实验协议。
+`Published Result`、`Reproduced Result`、`Our Method Result` 必须严格分开；自建 Benchmark 必须通过 external
+benchmark 验证泛化；复现失败必须登记 blocker，不得用不同设置的数字宣称超过 SOTA。
+
+完整规则见 [论文优先的外部对标与比较证据原则](../research/paper_comparative_evidence_principle.md)。
+该原则不覆盖安全、伦理、许可、标签隔离、历史不可变和审批门；文献对齐也不自动批准正式实验。
+
 ## 1. 项目身份与目标顺序
 
 - 英文正式名称：**LLMGuard Research Framework**；

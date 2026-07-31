@@ -1,5 +1,20 @@
 # LLMGuard 项目总控文档
 
+## S6.1-LR1 Research Alignment 状态附注（2026-07-31）
+
+项目负责人已批准 `S6.1-LR1 Paper 1 Literature, Benchmark, Source Code, Hardware and Reproduction Alignment`。
+本轮只建立论文优先比较证据原则、Paper 1 三轨路线、PoisonedRAG/GMTP/SafeRAG 一手来源与 commit/license
+登记、Benchmark 矩阵、复现协议、RTX 5090 兼容规划和双机政策。当前状态为
+`COMPLETED_PENDING_HUMAN_ACCEPTANCE`，正式 RAG 安全实验仍为 `NOT STARTED`。
+
+研究分支 `research/stage6-1-hidden-poisoning` 从 accepted baseline
+`18cf2741c8383d35604715af6ebf8cbaa2a3ddf1` 创建。fetch 后目标远端分支和预期 tag
+`s6-t5-rag-baseline-v1` 均不存在；本轮没有创建、移动或重写 baseline tag。GMTP 与 SafeRAG 官方仓库没有
+发现根 LICENSE，因此再分发保持 blocked。所有硬件容量均为 Control Plane 规划估计，待 5090 worker 实测。
+
+权威入口为 [Stage 6.1 研究目录](docs/research/stage6_1_hidden_knowledge_poisoning/README.md) 和
+[论文优先比较证据原则](docs/research/paper_comparative_evidence_principle.md)。
+
 ## S6-T5 基线最终人工验收状态附注（2026-07-27）
 
 项目负责人已将 `S6-T5.8-H1`、`S6-T5.8` 与 `S6-T5 Controlled Retrieval and Traceable Context Baseline` 分别登记为 `HUMAN_ACCEPTED`、`HUMAN_ACCEPTED` 与 `HUMAN_ACCEPTED BASELINE`。唯一的统一索引是 [S6-T5 基线验收报告](docs/governance/s6_t5_baseline_acceptance_report.md)：它区分 protocol、implementation、hardening、integration evidence 和 governance acceptance 提交，并保留所有结论边界。
@@ -16,7 +31,7 @@
 
 更新时间：2026-07-26
 
-当前研究分支：`feature/stage6-rag`
+当前研究分支：`research/stage6-1-hidden-poisoning`
 
 文档状态：A0 架构冻结、A1R 命名/namespace 迁移与 S6-T4 真实集成加固已完成
 
