@@ -10,7 +10,8 @@ Stage 6.1 研究 RAG 知识库中的隐蔽事实污染：恶意文档看起来�
 并可能伪装来源、时间和版本。当前 Paper 1 方向是 Benchmark + Multi-View Detection；不是最终 Detector 或已完成实验。
 
 当前治理状态：LR1、Context Recovery Governance、Paper-First Principle 和 current Paper 1 route 已人工接受；
-S6.1-R0 只定义为下一 engineering preflight，尚未批准执行。Formal Experiment 仍未开始。
+RTX5090 Bootstrap 已接受，S6.1-R0 已批准在 Compute Worker 执行。它仍是 engineering preflight，Formal Experiment
+未开始，LOCAL 不执行 external baseline。
 
 ## 2. 为什么存在
 
@@ -137,8 +138,8 @@ planning、Paper 1 route 和 Git-native context recovery governance。未下载/
 ## 20. Current Status
 
 `S6.1-LR1: HUMAN_ACCEPTED`；Context Recovery Governance、Paper-First Principle 与 current route 同样已接受。
-`S6.1-R0: DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`。S6.1-P1、dataset generation、Detector
-implementation 和 model training 均未批准。
+RTX5090 Bootstrap 为 `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`；`S6.1-R0: APPROVED_TO_START` on Compute
+Worker。S6.1-P1、dataset generation、Detector implementation 和 model training 均未批准。
 
 ## 21. Blockers
 

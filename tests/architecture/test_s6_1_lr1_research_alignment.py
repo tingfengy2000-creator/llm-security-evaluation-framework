@@ -125,9 +125,12 @@ def test_lr1_state_is_planning_only_and_preserves_formal_experiment_gate() -> No
         assert "NOT STARTED" in text
 
     assert "REFERENCE_ONLY_DO_NOT_RUN" in protocol
-    assert "不授权下载数据/模型" in protocol
+    assert "R0_ENGINEERING_PREFLIGHT_APPROVED" in protocol
+    assert "FORMAL_REPRODUCTION_NOT_APPROVED" in protocol
+    assert "MINIMUM_DATA_REQUIREMENT" in protocol
     assert "S6.1-P1" in state
-    assert "PENDING OWNER EXECUTION APPROVAL" in state
+    assert "S6.1-R0: **APPROVED_TO_START**" in state
+    assert "RTX5090_BOOTSTRAP_READY" in state
     assert "FORMAL_EXPERIMENT = NOT STARTED" in state
 
 

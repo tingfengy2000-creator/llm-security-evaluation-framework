@@ -11,7 +11,8 @@
 复现门统一登记。
 
 项目负责人随后将 LR1、Context Recovery Governance、Paper-First Principle 和 current Paper 1 route 正式接受。
-下一门改为先定义并单独审批 `S6.1-R0` engineering reproduction preflight，再考虑 S6.1-P1；R0 当前尚未开始。
+RTX5090 Bootstrap 随后通过人工验收，证明 WSL GPU、PyTorch cu130、FP16/BF16 basic tensor 和 Git sync 可用；
+`S6.1-R0` 已批准在 Worker 按 A-I 顺序开始。LOCAL 仍不运行 baseline，S6.1-P1 仍未开始。
 
 ## 为什么先做对齐
 

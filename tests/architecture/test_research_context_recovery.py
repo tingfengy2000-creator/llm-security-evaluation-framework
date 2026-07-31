@@ -118,10 +118,14 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "PODR-043",
             "PODR-044",
             "PODR-045",
+            "PODR-046",
+            "PODR-047",
             "S6.1-LR1: HUMAN_ACCEPTED",
             "Git-Native Research Context Recovery Governance: HUMAN_ACCEPTED",
             "s6-t5-rag-baseline-v1",
             "S6.1-R0",
+            "RTX5090_BOOTSTRAP_READY",
+            "S6.1-R0: APPROVED_TO_START",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, text)
@@ -139,6 +143,8 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "REL-2026-0005",
             "REL-2026-0006",
             "REL-2026-0007",
+            "REL-2026-0008",
+            "REL-2026-0009",
             "Machine Role",
             "Initial Status",
             "Final Status",
@@ -165,8 +171,9 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("S6.1-LR1", state)
         self.assertIn("Status: **HUMAN_ACCEPTED**", state)
         self.assertIn("FORMAL_EXPERIMENT = NOT STARTED", state)
+        self.assertIn("S6.1-R0: **APPROVED_TO_START**", state)
         self.assertIn(
-            "S6.1-R0: **DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL**",
+            "RTX5090 Compute Worker Bootstrap: **HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY**",
             state,
         )
         self.assertIn("S6.1-P1: **NOT STARTED / DEFERRED UNTIL R0 REVIEW**", state)
@@ -229,7 +236,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "S6.1-R0",
             "Paper 1 Reproduction Environment and Baseline Feasibility Validation",
             "ENGINEERING_VALIDATION / REPRODUCTION_PREFLIGHT",
-            "DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL",
+            "APPROVED_TO_START",
             "RTX5090 / COMPUTE_WORKER",
             "Original Paper Environment",
             "RTX5090 Compatibility Environment",
@@ -238,9 +245,47 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "does not produce Paper Result",
             "external research directory",
             "Auto Continue = NO",
+            "R0-A",
+            "R0-B",
+            "R0-C",
+            "R0-D",
+            "R0-E",
+            "R0-F",
+            "R0-G",
+            "R0-H",
+            "R0-I",
+            "poisonedrag-compat",
+            "gmtp-compat",
+            "saferag-compat",
+            "MINIMUM_DATA_REQUIREMENT",
+            "EXTERNAL_API_REQUIRED",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, text)
+
+    def test_worker_bootstrap_snapshot_is_precise_and_non_experimental(self) -> None:
+        text = R0_PROTOCOL.read_text(encoding="utf-8")
+        for required in (
+            "S6.1-R0-B0",
+            "HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY",
+            "Windows 11 Pro 25H2",
+            "Build 26200",
+            "Intel Core i9-14900",
+            "31.84 GB",
+            "Ubuntu 24.04 LTS",
+            "PyTorch 2.13.0+cu130",
+            "PyTorch CUDA Runtime 13.0",
+            "Compute Capability (12, 0)",
+            "RTX5090_GPU_TEST_OK",
+            "BF16_TEST_OK",
+            "NON_BLOCKING_ENVIRONMENT_COMPLETENESS_OBSERVATION",
+            "No module named 'numpy'",
+            "CUDA Toolkit 13.3 installed",
+            "FORMAL_EXPERIMENT = NOT STARTED",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, text)
+        self.assertIn("不得写成", text)
 
     def test_paper1_route_is_unique_and_complete(self) -> None:
         routes = sorted(ROOT.glob("**/paper1_research_route.md"))

@@ -539,3 +539,39 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Boundary: 本决策只定义 R0，不批准 clone、install、download、smoke、reproduction 或任何 5090 计算；R0 不产生
   Paper Result，S6.1-P1 仍未开始。
 - Next gate: project owner separately approves or rejects `S6.1-R0 EXECUTION`。Auto Continue = NO。
+
+## PODR-046: RTX5090 Compute Worker Bootstrap Human Acceptance
+
+- Date: `2026-07-31`.
+- Decision: `S6.1-R0-B0 RTX5090 Compute Worker Bootstrap Validation` is
+  `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`。
+- Machine: `RTX5090 / COMPUTE_WORKER`；Windows 11 Pro 25H2 Build 26200；Intel Core i9-14900；approximately
+  64 GiB RAM；ADATA SX8200PNP NVMe approximately 2 TB；NVIDIA GeForce RTX 5090 with PyTorch-reported 31.84 GB VRAM。
+- Linux/toolchain: WSL2 + Ubuntu 24.04 LTS；GPU passthrough and WSL `nvidia-smi` PASS；Git 2.43.0；GCC 13.3.0；
+  CMake 3.28.3；ripgrep 14.1.0；Miniforge；Conda 26.3.2；`llmguard-paper1` Python 3.11 environment。
+- GPU evidence: PyTorch 2.13.0+cu130；PyTorch CUDA Runtime 13.0；CUDA available；Compute Capability `(12, 0)`；
+  `sm_120`；FP16 `RTX5090_GPU_TEST_OK`；BF16 `BF16_TEST_OK`。
+- Driver distinction: CUDA UMD capability 13.3 is not evidence that standalone CUDA Toolkit 13.3 is installed。
+- Git evidence: Worker cloned branch `research/stage6-1-hidden-poisoning` at
+  `347dc2bfff2256a7ad6c0c6ab8c468e9f3f833d9` with clean tree and matching remote；baseline tag peeled to
+  `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。
+- Observation: missing NumPy is `NON_BLOCKING_ENVIRONMENT_COMPLETENESS_OBSERVATION` and did not invalidate CUDA/FP16/BF16。
+- Claims boundary: accepts machine bootstrap, basic tensor computation and Git collaboration only；no baseline reproduction、
+  Paper Result、training/retrieval/detector result、SOTA or formal experiment。
+
+## PODR-047: S6.1-R0 Execution Approval
+
+- Date: `2026-07-31`.
+- Decision: `S6.1-R0: APPROVED_TO_START` as `ENGINEERING_VALIDATION / REPRODUCTION_PREFLIGHT` on
+  `RTX5090 / COMPUTE_WORKER`。
+- Supersedes: PODR-045's `DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL` current-state snapshot；the historical
+  definition remains preserved。
+- Ordered scope: R0-A Environment Fingerprint；R0-B/C PoisonedRAG static audit/minimal smoke；R0-D/E GMTP static
+  audit/minimal smoke；R0-F/G SafeRAG static audit/selected-task minimal smoke；R0-H feasibility matrix；R0-I Control Plane review。
+- Isolation: external repos stay under `~/paper1_external/` outside LLMGuard；use separate compatibility environments after
+  static audit；do not vendor upstream code。
+- Data/model boundary: minimal public samples and small necessary public models are permitted；full corpora/indexes require
+  `MINIMUM_DATA_REQUIREMENT` review；paid API/API key and unapproved large LLM download remain prohibited。
+- Formal boundary: `FORMAL_EXPERIMENT = NOT STARTED`；S6.1-P1 remains `NOT STARTED` until R0 evidence and R0-I review。
+- Local boundary: this acceptance authorizes the Compute Worker, not LOCAL execution. LOCAL only updates/pushes Control Plane
+  governance and then stops。

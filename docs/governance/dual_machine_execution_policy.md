@@ -92,10 +92,10 @@ Control Plane 在接受 worker 结果前核对：
 
 ## Current Gate
 
-`S6.1-LR1` 与 Context Recovery Governance 已人工接受；下一任务 `S6.1-R0` 仅为
-`DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`。`FORMAL_EXPERIMENT = NOT STARTED`。当前未批准
-Worker 环境安装、external repository clone、数据/模型下载、PoisonedRAG/GMTP/SafeRAG smoke/reproduction、
-Detector、training 或 S6.1-P1。取得 R0 execution 单独批准前，两台机器均停止在 planning/control-plane 边界。
+`S6.1-R0-B0` Bootstrap 已人工接受；`S6.1-R0` 已 `APPROVED_TO_START`，只授权 RTX5090 按 canonical R0-A 至
+R0-I 顺序执行。Worker 必须先 pull 最新 Control Plane commit，external repos 留在 `~/paper1_external/` 并隔离环境。
+LOCAL 继续只做治理，不运行 external baseline。`FORMAL_EXPERIMENT = NOT STARTED`；S6.1-P1、Detector、training、
+paid API 和 formal reproduction 仍未批准。
 
 ## Baseline Integrity
 

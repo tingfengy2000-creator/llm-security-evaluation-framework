@@ -1,5 +1,22 @@
 # LLMGuard 项目总控文档
 
+## RTX5090 Bootstrap 验收与 S6.1-R0 执行批准（2026-07-31）
+
+项目负责人已接受 `S6.1-R0-B0 RTX5090 Compute Worker Bootstrap Validation`，状态为
+`HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`。被接受的 Worker 证据包括 Windows 11 Pro 25H2/WSL2 Ubuntu 24.04、
+RTX 5090 31.84 GB、PyTorch 2.13.0+cu130 / CUDA runtime 13.0、Compute Capability `(12, 0)`、`sm_120`、FP16
+`RTX5090_GPU_TEST_OK`、BF16 `BF16_TEST_OK`，以及 branch/remote/tag/clean-tree Git collaboration。CUDA UMD
+capability 13.3 不代表 standalone CUDA Toolkit 13.3 已安装；缺少 NumPy 是非阻断环境完整性观察。
+
+`S6.1-R0` 现为 `APPROVED_TO_START`，执行机器严格为 `RTX5090 / COMPUTE_WORKER`。Worker 必须在 pull 本次最新
+Control Plane commit 后按 R0-A Environment Fingerprint、PoisonedRAG B/C、GMTP D/E、SafeRAG F/G、R0-H Matrix、
+R0-I Control Plane Review 顺序执行。第三方仓库留在 `~/paper1_external/`，各自隔离 compatibility environment；
+LOCAL 不执行 external baseline。
+
+该批准仍是 `ENGINEERING_VALIDATION / REPRODUCTION_PREFLIGHT`，不证明 baseline reproduction、Paper Result、
+RTX5090 paper-level performance、dataset、Detector、training、SOTA 或 formal experiment。S6.1-P1 仍为 NOT STARTED，
+`FORMAL_EXPERIMENT = NOT STARTED`。
+
 ## S6.1-LR1 最终人工验收与 R0 下一门（2026-07-31）
 
 项目负责人已将 `S6.1-LR1`、Git-Native Research Context Recovery Governance 和 Paper-First Comparative
@@ -20,9 +37,8 @@ Paper Result、SOTA 或 Formal Experiment 证据。
 PoisonedRAG code 为 MIT；GMTP/SafeRAG code license 未确认，但这不自动阻断未来获批的内部研究流程，其再分发资格
 仍待核验。
 
-当前路线为 `LR1 HUMAN_ACCEPTED -> S6.1-R0 -> S6.1-P1 -> Dataset/Detector/Formal Experiment`。S6.1-R0 是
-`ENGINEERING_VALIDATION / REPRODUCTION_PREFLIGHT`，当前仅 `DEFINED / NOT STARTED / PENDING OWNER EXECUTION
-APPROVAL`。本轮没有执行 R0、联系 RTX5090、安装环境或运行 external baseline；`FORMAL_EXPERIMENT = NOT STARTED`。
+当前路线为 `LR1 HUMAN_ACCEPTED -> S6.1-R0 -> S6.1-P1 -> Dataset/Detector/Formal Experiment`。本段的
+`DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL` 是 R0 获批前历史快照；最新状态见本文顶部。
 
 ## Git-Native Research Context Recovery 状态附注（2026-07-31）
 

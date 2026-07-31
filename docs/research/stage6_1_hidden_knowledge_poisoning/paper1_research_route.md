@@ -204,12 +204,15 @@ adaptive samples，不实现 attack optimizer，也不将其纳入第一版自�
 
 ## 23. Resource Plan
 
-资源数字必须区分 author-reported facts、repository requirements 和 Control Plane planning estimates。RTX 5090
-32 GB + 64 GB RAM 不能自动等价于论文 A6000/H800；完整 data/model/index/disk 需求和 API 成本仍待确认。
+资源数字必须区分 author-reported facts、Worker Bootstrap evidence 和 baseline-specific measurement。已接受的 Worker
+基础事实是 RTX 5090、PyTorch-reported 31.84 GB VRAM、approximately 64 GiB RAM、approximately 2 TB research NVMe、
+PyTorch 2.13.0+cu130 / runtime 13.0、FP16/BF16 basic tensor PASS；这些不能自动等价于论文 A6000/H800 或
+baseline-specific performance。完整 data/model/index/disk、peak runtime/resource 与 API 成本仍待 R0。
 
 ## 24. Dual-machine Execution
 
-LOCAL = CONTROL_PLANE，RTX5090 = COMPUTE_WORKER，Context Sync = Git。Worker 运行前必须核对
+LOCAL = CONTROL_PLANE，RTX5090 = COMPUTE_WORKER，Context Sync = Git。Bootstrap 已人工接受，Worker 的
+`347dc2b...` branch/remote clean sync 与 baseline tag target 已验证。Worker 执行 R0 前仍必须 pull 最新治理 commit 并核对
 branch、RunManifest.git_commit、clean tree、dataset/config/model identity 和 environment fingerprint；不一致 fail
 closed。详见 [Dual-Machine Policy](../../governance/dual_machine_execution_policy.md)。
 
@@ -218,7 +221,7 @@ closed。详见 [Dual-Machine Policy](../../governance/dual_machine_execution_po
 - PoisonedRAG paper-result commit/dependency lock/GPU-RAM-disk 未完整确认；
 - GMTP/SafeRAG `CODE_LICENSE=UNCONFIRMED`，因此 `REDISTRIBUTION_ELIGIBILITY=TO_VERIFY`；这不自动阻断未来获批的内部研究；
 - data/model/API revisions 与 evaluator snapshots 可能不可恢复；
-- Blackwell 与旧 CUDA/PyTorch/FAISS/Pyserini 环境存在兼容风险；
+- Worker base PyTorch/Blackwell compute 已通过；各 baseline 的旧 CUDA/PyTorch/FAISS/Pyserini 仍有兼容风险；
 - 32 GB VRAM 可能无法容纳论文全部模型矩阵；
 - hard negatives、version lineage 和 split leakage 可能削弱结论可信性；
 - benchmark/data 许可和公开 artifact 边界尚未关闭。
@@ -234,14 +237,15 @@ closed。详见 [Dual-Machine Policy](../../governance/dual_machine_execution_po
 - 第一版四类 HKP、五个 Views；Cross-document conflict 暂并入 V2/V4；
 - LOCAL/RTX5090 分别为 Control Plane/Compute Worker；Git 是 context sync；
 - S6.1-LR1、Context Recovery Governance 与 Paper-First Principle 已 HUMAN_ACCEPTED；
-- S6.1-R0 已定义且未开始；S6.1-P1 在 R0 审核前暂缓。
+- RTX5090 Bootstrap 已 `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`；
+- S6.1-R0 已 `APPROVED_TO_START` on Compute Worker；S6.1-P1 在 R0-I 审核前暂缓。
 
-权威 Decision IDs 见 PODR-035–PODR-045。
+权威 Decision IDs 见 PODR-035–PODR-047。
 
 ## 27. Pending Decisions
 
-- S6.1-R0 是否批准执行及其预算/worker window；
-- R0 完成后 S6.1-P1 是否批准及其具体协议范围；
+- R0-A 至 R0-H 的实际 environment、artifact、compatibility、resource 与 feasibility facts；
+- R0-I 完成后 S6.1-P1 是否批准及其具体协议范围；
 - 外部 artifact 许可、paper-result commits 和 dependency/model/data snapshots；
 - 中文 benchmark 数据源、annotation protocol、split 和 publication license；
 - final feature set/fusion、threshold/calibration、statistics 和 adaptive attack；
@@ -251,8 +255,8 @@ closed。详见 [Dual-Machine Policy](../../governance/dual_machine_execution_po
 
 ## 28. Claims Boundary
 
-可以宣称：Paper 1 的问题、外部 baseline 角色、三轨路线、四类 attack、五视角、hard negatives、指标/统计/消融
-计划、资源与治理边界已经形成并可由 Git 恢复。
+可以宣称：Paper 1 路线可由 Git 恢复；RTX5090 Bootstrap 对 WSL GPU、PyTorch cu130、FP16/BF16 basic tensor
+computation 和 Git sync 已人工接受；R0 已批准在 Worker 开始。
 
 不能宣称：dataset、Detector、training、reproduction、5090 measurement、统计结果、SOTA、generalization、security
 effectiveness 或 production readiness 已完成。
@@ -265,7 +269,7 @@ reproducibility 为支撑；仅有工程框架或治理文档不足以构成论�
 
 ## 30. Next Gate
 
-当前下一门是单独批准或拒绝 `S6.1-R0 EXECUTION`；R0 定义见
-[S6.1-R0 Reproduction Preflight](s6_1_r0_reproduction_preflight.md)。取得批准前不得 clone、安装环境、下载
-artifact、运行 smoke/reproduction 或让 RTX5090 计算。R0 完成并审核后才可考虑 S6.1-P1。Dataset、Detector、
-training 与 Formal Experiment 仍需后续独立批准。Auto Continue = NO。
+R0 已批准。RTX5090 pull 最新 Control Plane commit 后按
+[S6.1-R0 Reproduction Preflight](s6_1_r0_reproduction_preflight.md) 从 R0-A 串行执行；不匹配或受限依赖 fail
+closed。R0-I Control Plane Review 后才可考虑 S6.1-P1。Dataset、Detector、training 与 Formal Experiment 仍需后续
+独立批准。Auto Continue = NO，不得从 R0 自动进入 P1。

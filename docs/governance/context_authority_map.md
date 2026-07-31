@@ -160,6 +160,9 @@ git log -15 --oneline
 - Last accepted integration evidence：`b6cedf3`。
 - Stage 1–5：immutable historical experiment assets。
 - `FORMAL_EXPERIMENT = NOT STARTED` for current Stage 6.1 work。
-- `S6.1-LR1` 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`；`S6.1-R0` 仅定义，尚未批准执行。
+- Historical pre-approval snapshot：`S6.1-LR1` 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`；当时
+  `S6.1-R0` 仅定义、尚未批准执行。
+- Superseding current fact：RTX5090 Bootstrap 已 `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`，`S6.1-R0` 已
+  `APPROVED_TO_START` on Compute Worker；Formal Experiment 仍未开始。
 
 这些静态锚点只表达已登记的治理身份；是否存在、当前 branch/HEAD/tag 和远端同步仍须由 L0 动态核验。

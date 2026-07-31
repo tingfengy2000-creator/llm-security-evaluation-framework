@@ -2,22 +2,23 @@
 
 > Machine roles, Git context sync and worker fail-closed preflight are governed by
 > [Dual-Machine Execution Policy](../../governance/dual_machine_execution_policy.md).
+> The authoritative S6.1-R0 order and boundaries are defined in
+> [S6.1-R0 Reproduction Preflight](s6_1_r0_reproduction_preflight.md).
 
 ## 1. 状态
 
-- 协议类型：`PLANNING_ONLY`。
-- 当前状态：`ACCEPTED_REPRODUCTION_PLANNING / EXECUTION_NOT_APPROVED`。
+- 协议类型：`ENGINEERING_PREFLIGHT_CONTROL / FORMAL_REPRODUCTION_PLANNING`。
+- 当前状态：`R0_ENGINEERING_PREFLIGHT_APPROVED / FORMAL_REPRODUCTION_NOT_APPROVED`。
 - 正式实验：`NOT STARTED`。
-- 下列命令均为 `REFERENCE_ONLY_DO_NOT_RUN`。
+- 下列上游命令均为 `REFERENCE_ONLY_DO_NOT_RUN`；Worker 必须先做静态审计，再从中提取最小 smoke 所需命令，不得整段盲跑。
 
-本协议不授权下载数据/模型、安装环境、调用 API、生成攻击样本或运行论文结果。
+R0 只批准 RTX5090 Compute Worker 执行工程验证与复现预检。它允许按最小必要原则使用公开小样本、安装经静态审计确认的必要依赖，并使用小型必要公开模型。它不授权下载完整 NQ、HotpotQA、MS MARCO、完整索引或其他大型语料，不授权付费 API、API key、未经批准的大型 LLM，也不授权生成或声称 Paper Result。若最小 smoke 确实需要更多数据，必须先提交 `MINIMUM_DATA_REQUIREMENT`。
 
-## 1.1 License / Access 分层
+### 1.1 License / Access 分层
 
 每个外部 baseline 必须分别记录 `SOURCE_ACCESS`、`INTERNAL_REPRODUCTION`、
-`STRICT_COMPARISON_ELIGIBILITY`、`REDISTRIBUTION_ELIGIBILITY`、`CODE_LICENSE` 与 `DATASET_LICENSE`。
-公开可访问不等于可无限再分发；未确认代码许可证不自动阻断未来经批准的内部研究 clone/inspect/install/execute/
-evaluate。明确的 upstream 条款始终必须遵守。本协议不提供法律结论。
+`STRICT_COMPARISON_ELIGIBILITY`、`REDISTRIBUTION_ELIGIBILITY`、`CODE_LICENSE` 与
+`DATASET_LICENSE`。公开可访问不等于可无限再分发；未确认代码许可证不自动阻断未来经批准的内部研究 clone/inspect/install/execute/evaluate。明确的 upstream 条款始终必须遵守。本协议不提供法律结论。
 
 ## 2. 结果分栏
 
@@ -27,47 +28,75 @@ evaluate。明确的 upstream 条款始终必须遵守。本协议不提供法�
 Published Result | Reproduced Result | Our Method Result
 ```
 
-每个单元格同时绑定 `source`, `git_commit`, `dataset_hash`, `config_hash`, `environment_fingerprint`,
-`run_id`, `metric_definition`, `status`。失败运行保留为 `FAILED / INVALID RUN`，不得删除后只留下成功数字。
+每个单元格同时绑定 `source`、`git_commit`、`dataset_hash`、`config_hash`、
+`environment_fingerprint`、`run_id`、`metric_definition`、`status`。失败运行保留为
+`FAILED / INVALID RUN`，不得删除后只留下成功数字。
 
 ## 3. 分阶段门
 
-### R0-A：许可、源码与身份冻结
+### R0-A：Environment Fingerprint
 
-- 固定官方 paper URL、repo URL、commit/tag 和 LICENSE。
-- 对 GMTP/SafeRAG 记录 `CODE_LICENSE=UNCONFIRMED`、`REDISTRIBUTION_ELIGIBILITY=TO_VERIFY`；内部研究执行
-  不因缺少根 LICENSE 自动被标记为技术访问阻断。
-- 确认数据与模型条款。
-- 找到 paper-result commit；当前默认分支 HEAD 不能自动代替。
+- RTX5090 拉取最新 Control Plane 提交并确认 branch、HEAD、upstream、remote 与批准锚点一致，working tree clean。
+- 记录 OS、WSL、driver、GPU、driver CUDA capability、PyTorch CUDA runtime、Python patch、CPU、RAM 与 disk。
+- `llmguard-paper1` 缺少 NumPy 时，可最小安装并记录 resolved version；不得借此批量安装 baseline 依赖。
 
-通过条件：计划动作不违反已知 upstream 条款，commit 身份无歧义；再分发资格可继续保持独立待核验。
+### R0-B：PoisonedRAG Static Audit
 
-### R0-B：Original Environment 复原说明
+- 冻结 paper、repository、commit/tag、license、原始依赖、数据、模型、API 与入口命令。
+- 记录 `ORIGINAL_PAPER_ENV`，但不把旧 CUDA/PyTorch 组合直接安装进主环境。
 
-- 原样记录论文/README 环境，不立即安装。
-- 生成 dependency inventory、模型 revision inventory 和已知失效依赖列表。
-- 不修改算法、数据、预算、Retriever、Top-K 或指标。
+### R0-C：PoisonedRAG Minimal Smoke
 
-### R0-C：RTX 5090 Compatibility Environment
+- 仅使用静态审计后确认的最小公开样本与必要小模型。
+- 在独立 `poisonedrag-compat` 环境中执行；每项必要变更写入 `COMPATIBILITY_PATCH RECORD`。
+- 只可形成工程 smoke 与资源测量，不得形成 Paper Result。
 
-- 在 WSL/Linux 优先建立独立环境。
-- 只做为 Blackwell 兼容所必需的 PyTorch/CUDA/FAISS/Pyserini patch。
-- 每个 patch 记录 old/new version、原因、影响分析和验证。
-- 若 patch 改变数值语义或模型，停止并提交 blocker，不继续出结果。
+### R0-D：GMTP Static Audit
 
-### R0-D：Engineering Smoke
+- 冻结 source identity、license、Original Environment、数据转换、索引、模型/API 和运行入口。
+- 先确认 README 与实际脚本名等漂移，再决定 compat 版本。
 
-- 最小公开样本、debug mode、无付费 API。
-- 只证明加载、索引、一次检索/过滤和指标代码可运行。
-- 状态只能是 `ENGINEERING_SMOKE`。
+### R0-E：GMTP Minimal Smoke
+
+- 在独立 `gmtp-compat` 环境中执行经审计的最小公开样本路径。
+- 记录 CPU、RAM、GPU、VRAM、disk、wall time、退出码与原始日志哈希。
+
+### R0-F：SafeRAG Static Audit
+
+- 冻结 source identity、license、Original Environment、selected task、Milvus/检索器、模型和外部 API 依赖。
+- 若路径强制要求外部 API，记录 `EXTERNAL_API_REQUIRED` 并保持 fail-closed，不得使用密钥或付费调用。
+
+### R0-G：SafeRAG Selected-Task Minimal Smoke
+
+- 在独立 `saferag-compat` 环境中执行一个经审计、无需未经批准外部 API 的 selected-task 最小 smoke。
+- 只验证工程可行性；不得扩展为全任务、全数据或正式比较。
+
+### R0-H：Reproduction Feasibility Matrix
+
+对三个 baseline 仅使用下列分类：
+
+- `STRICT_REPRODUCTION_READY`
+- `COMPATIBILITY_REPRODUCTION_READY`
+- `PARTIAL_REPRODUCTION_READY`
+- `BLOCKED_BY_EXTERNAL_DEPENDENCY`
+- `BLOCKED_BY_HARDWARE`
+- `BLOCKED_BY_MISSING_ARTIFACT`
+- `BLOCKED_BY_API_DRIFT`
+- `NOT_REPRODUCIBLE_WITH_AVAILABLE_EVIDENCE`
+
+### R0-I：Control Plane Review
+
+- RTX5090 通过 GitHub 提交最小证据与矩阵；LOCAL 仅审查证据、治理边界和声明。
+- 若新事实可能改变 baseline 角色，必须单独触发 route review，不得在 R0 内自动改写角色。
+- R0-I 不批准 R1，不启动 S6.1-P1，不改变 `FORMAL_EXPERIMENT = NOT STARTED`。
 
 ### R1：Formal Reproduction
 
-需要项目负责人单独批准；必须使用冻结的数据、预算、Retriever、Top-K、模型和指标，多次运行并保存 manifest。
+需要项目负责人单独批准；必须使用冻结的数据、预算、Retriever、Top-K、模型和指标，多次运行并保存 manifest。R0 成功不等于 R1 已获批准。
 
 ### R2：Our Method Comparison
 
-只有 R4 通过且 strict-comparison eligibility review 通过后才能启动。
+只有 R1 通过且 strict-comparison eligibility review 通过后才能启动，并仍需单独批准。
 
 ## 4. 官方参考命令
 
@@ -84,8 +113,7 @@ python prepare_dataset.py
 python run.py
 ```
 
-风险：旧 CUDA/PyTorch 不应直接作为 RTX 5090 可运行环境；`run.py` 使用后台 `nohup`，worker 适配 Windows/WSL
-时必须保留日志、退出码和进程归属。
+风险：旧 CUDA/PyTorch 不应直接作为 RTX 5090 可运行环境；`run.py` 使用后台 `nohup`，Worker 适配 Windows/WSL 时必须保留日志、退出码和进程归属。
 
 ### GMTP
 
@@ -119,7 +147,7 @@ python quick_start_nctd.py \
   --attack_intensity 0.5
 ```
 
-风险：该 quick start 会涉及外部 API；没有单独批准、密钥隔离和成本上限时不得执行。
+风险：该 quick start 会涉及外部 API；没有单独批准、密钥隔离和成本上限时不得执行，并应记录 `EXTERNAL_API_REQUIRED`。
 
 ## 5. Run Manifest 最低字段
 
@@ -135,13 +163,14 @@ os
 wsl_distribution
 nvidia_driver
 gpu
+cuda_driver_capability
 cuda_runtime
 pytorch
 python
 cpu
 ram
 disk_free_before_after
-model_id_and_revision
+model_id_and_revision_size_license
 dataset_id_version_hash_license
 attack_method_and_budget
 retriever_and_revision
@@ -154,6 +183,7 @@ command
 dependency_lock_hash
 config_hash
 status
+resource_measurements
 raw_log_hashes
 claims_supported
 claims_not_supported
@@ -171,13 +201,11 @@ claims_not_supported
 
 ## 7. 5090 Worker Checklist
 
-1. 安装 Git 与 WSL2/Linux；登记版本。
-2. clone `research/stage6-1-hidden-poisoning`，确认 HEAD 与批准的 manifest commit 完全一致。
-3. 确认 working tree clean；不得在 worker 自行改研究协议。
-4. 采集 OS、WSL、driver、GPU、CUDA、PyTorch、Python、CPU、RAM、disk。
-5. 建立 Original Environment 文档和独立 Compatibility Environment，不混用。
-6. 先执行无模型/小样本依赖与 import probe。
-7. 再执行显存、RAM、disk 和模型加载 probe。
-8. 任何 patch 只提交报告给本机 Control Plane 决策。
-9. 大型 dataset/model/index/raw log 不进入 Git。
-10. 未收到 formal run approval 前停止。
+1. 拉取 `research/stage6-1-hidden-poisoning` 最新 Control Plane 提交，确认 HEAD、upstream 与 remote 一致。
+2. 确认 working tree clean；不得在 Worker 自行改研究协议。
+3. 完成 R0-A fingerprint；明确区分 Windows/WSL driver、driver CUDA capability 与 PyTorch CUDA runtime。
+4. 外部仓库仅放在 `~/paper1_external/`，不得 vendor 进 LLMGuard。
+5. 主环境保持 `llmguard-paper1`；三个 baseline 使用独立 compat 环境，且版本只能在各自静态审计后选择。
+6. 严格按 R0-A 至 R0-I 顺序执行，不得在同一 Python 环境并行安装三个 baseline。
+7. 大型 dataset/model/index/raw log 不进入 Git；需要扩展时先提交 `MINIMUM_DATA_REQUIREMENT` 或模型资源记录。
+8. Worker 提交证据后由 LOCAL Control Plane 完成 R0-I；未收到 formal run approval 前停止。

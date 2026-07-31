@@ -292,3 +292,86 @@ Approval Gate、Auto Continue。
 - Next Step: commit/push governance; verify branch/upstream/tag/worktree; then stop。
 - Next Approval Gate: `S6.1-R0_EXECUTION_APPROVAL`
 - Auto Continue: `NO`
+
+## REL-2026-0008 — RTX5090 Compute Worker Bootstrap Validation
+
+- Record ID: `REL-2026-0008`
+- Date: `2026-07-31`
+- Timestamp: `NOT_RECORDED`
+- Machine: `RTX5090`
+- Machine Role: `COMPUTE_WORKER`
+- Stage: `Stage 6.1 / R0`
+- Task ID: `S6.1-R0-B0`
+- Task Name: `RTX5090 Compute Worker Bootstrap Validation`
+- Task Type: `ENGINEERING_ENVIRONMENT_VALIDATION`
+- Initial Status: `WORKER_BOOTSTRAP_VALIDATION_REPORTED`
+- Final Status: `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`
+- Objective: 验证 Worker 基础硬件、WSL GPU、PyTorch 基础计算、Git context sync 与 baseline tag recovery。
+- Why: R0 external baseline preflight 需要受控、可恢复且能够执行 GPU 基础计算的独立 Compute Worker。
+- Previous Gate: `S6.1-R0_DEFINED_NOT_STARTED`
+- Actions: Worker 完成 WSL/nvidia-smi、PyTorch FP16/BF16 tensor smoke、repo/branch/tag/clean-tree verification；Control
+  Plane 仅登记项目负责人验收，不复跑 Worker 命令。
+- Files Changed: Control Plane governance only；Worker bootstrap artifacts are not copied into LLMGuard Git。
+- Commands: worker-reported environment/Git/GPU probes；exact raw command transcript `NOT_RECORDED` in this Control Plane record。
+- Validation: FP16 `RTX5090_GPU_TEST_OK`；BF16 `BF16_TEST_OK`；Git HEAD/remote
+  `347dc2bfff2256a7ad6c0c6ab8c468e9f3f833d9`；tag target `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `347dc2bfff2256a7ad6c0c6ab8c468e9f3f833d9`
+- Run ID: `S6.1-R0-B0 / worker-reported; raw run ID NOT_RECORDED`
+- Dataset Snapshot: `N/A`
+- Model / Revision: `N/A`; PyTorch environment only。
+- Environment Identity: Windows 11 Pro 25H2 Build 26200；Ubuntu 24.04 LTS；RTX 5090 31.84 GB；PyTorch
+  2.13.0+cu130 / CUDA runtime 13.0；full package fingerprint deferred to R0-A。
+- Result Summary: WSL GPU passthrough、basic FP16/BF16 tensor computation and Git collaboration path accepted。
+- Claims Allowed: RTX5090 WSL GPU works；PyTorch cu130 works；FP16/BF16 basic tensor computation works；Git context sync works。
+- Claims Prohibited: baseline/Paper/training/retrieval/detector result、SOTA、formal experiment or paper-level performance。
+- Blockers: none for Bootstrap acceptance；NumPy missing is non-blocking environment completeness observation。
+- Blocker ID: `N/A`
+- Resolution: R0-A may install/fingerprint NumPy resolved version without bulk dependency installation。
+- Owner Decisions: `PODR-046`
+- Design Changes: none；bootstrap validates the planned machine role without changing Paper 1 baseline roles。
+- Next Step: project-owner decision on R0 execution。
+- Next Approval Gate: `S6.1-R0_EXECUTION_APPROVAL`
+- Auto Continue: `NO`
+
+## REL-2026-0009 — S6.1-R0 Approved to Start on Compute Worker
+
+- Record ID: `REL-2026-0009`
+- Date: `2026-07-31`
+- Timestamp: `NOT_RECORDED`
+- Machine: `LOCAL`
+- Machine Role: `CONTROL_PLANE`
+- Stage: `Stage 6.1 / R0`
+- Task ID: `S6.1-R0-APPROVAL`
+- Task Name: `Approve Paper 1 Reproduction Environment and Baseline Feasibility Validation`
+- Task Type: `GOVERNANCE / ENGINEERING_VALIDATION_APPROVAL`
+- Initial Status: `DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`
+- Final Status: `APPROVED_TO_START`
+- Objective: 允许 RTX5090 按冻结顺序验证三个 external baseline 的环境与 minimal-smoke 可行性。
+- Why: 在 S6.1-P1 protocol freeze 前取得真实 compatibility、resource、revision、sample/model 与 smoke evidence。
+- Previous Gate: `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`
+- Actions: 批准 R0-A 至 R0-I；冻结 repo/environment isolation、minimal data/model、API stop、resource measurement、
+  result classification 和 route-review 边界；LOCAL 不执行 R0。
+- Files Changed: Control Plane governance、R0 preflight、route、state、learning and architecture tests。
+- Commands: governance/test/Git commands on LOCAL only；no external repo, dataset, model or GPU command。
+- Validation: red phase `6 failed / 11 passed` before governance synchronization；targeted green `17 passed`；full
+  architecture `93 passed`；namespace + label-isolation `10 passed`；Ruff and scoped MyPy passed；16 changed files
+  include 14 Markdown governance/research files and 2 architecture tests；UTF-8 no-BOM/LF、relative links、secret/path scan、
+  runtime-ignore、protected historical path diff and `git diff --check` all passed。
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `PENDING_THIS_COMMIT; resolve with git log -1 -- docs/governance/research_execution_log.md`
+- Run ID: `N/A`
+- Dataset Snapshot: `N/A`
+- Model / Revision: `N/A`
+- Environment Identity: `LOCAL / CONTROL_PLANE`; R0 execution delegated to accepted RTX5090 worker。
+- Result Summary: R0 approved to start；no R0 subtask executed by LOCAL；Formal Experiment unchanged。
+- Claims Allowed: R0 execution is approved on the Worker under frozen scope/order。
+- Claims Prohibited: baseline reproduced、Paper Result、S6.1-P1 started、Detector/training/SOTA/formal experiment。
+- Blockers: `BLK-S6.1-LR1-001` remains open for strict comparison；R0 is intended to resolve/characterize its technical fields。
+- Blocker ID: `BLK-S6.1-LR1-001`
+- Resolution: Bootstrap accepted；R0 execution approval granted；strict-comparison blocker not resolved yet。
+- Owner Decisions: `PODR-046; PODR-047`
+- Design Changes: supersedes R0 pending-approval current snapshot；does not supersede route, roles or formal-experiment gate。
+- Next Step: push Control Plane commit；RTX5090 pulls it and begins R0-A Environment Fingerprint。
+- Next Approval Gate: `R0-I_CONTROL_PLANE_REVIEW`; S6.1-P1 remains not started。
+- Auto Continue: `NO`

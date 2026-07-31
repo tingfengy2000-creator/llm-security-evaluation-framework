@@ -2,8 +2,9 @@
 
 ## 当前状态
 
-- 当前任务：`S6.1-LR1 Paper 1 Literature, Benchmark, Source Code, Hardware and Reproduction Alignment`。
-- 任务状态：`HUMAN_ACCEPTED`。
+- 当前任务：`S6.1-R0 Paper 1 Reproduction Environment and Baseline Feasibility Validation`。
+- 任务状态：`APPROVED_TO_START` on `RTX5090 / COMPUTE_WORKER`。
+- 历史前置：`S6.1-LR1` 为 `HUMAN_ACCEPTED`。
 - 追加治理：Git-native Context Recovery Governance 与 Paper-First Comparative Evidence Principle 均为 `HUMAN_ACCEPTED`。
 - Paper 1 canonical route：`ACCEPTED AS CURRENT RESEARCH ROUTE`。
 - 正式 RAG 安全实验：`NOT STARTED`。
@@ -12,7 +13,9 @@
 - 起点：accepted S6-T5 baseline `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。
 - baseline tag `s6-t5-rag-baseline-v1`：已恢复为 annotated tag，并在 `2026-07-31` 核验本地/远端均严格指向
   `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`；后续仍以 Git 动态事实为准。
-- 下一任务 `S6.1-R0`：`DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`。
+- RTX5090 Bootstrap：`HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`。
+- Superseded R0 snapshot：`DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`。
+- 当前 R0 action：Worker pull 最新 Control Plane commit 后执行 `R0-A Environment Fingerprint`。
 
 ## 权威入口
 
@@ -31,5 +34,5 @@
 
 ## 下一审批门
 
-项目负责人下一步只能单独批准或拒绝 `S6.1-R0 EXECUTION`。当前不得进行源码 clone、环境安装、数据/模型下载、
-engineering smoke 或正式复现。R0 完成并审核后才可考虑 S6.1-P1；本文档不提供自动进入下一任务的授权。
+R0 已批准，仅 RTX5090 可按 canonical R0 顺序执行；LOCAL 不运行 external baseline。下一研究门是 R0-I Control Plane
+Review。R0 完成并审核后才可考虑 S6.1-P1；本文档不提供自动进入 P1 或正式实验的授权。

@@ -4,6 +4,16 @@
 > [Dual-Machine Research Execution Policy](../../governance/dual_machine_execution_policy.md). 本文件仅补充 Paper 1
 > artifact/environment/hardware 细节，不是竞争性上下文权威。
 
+## Accepted RTX5090 Bootstrap Facts
+
+`S6.1-R0-B0` 已 `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`。接受范围包括 Windows 11 Pro 25H2 Build 26200、
+WSL2 Ubuntu 24.04 LTS GPU passthrough、RTX 5090 PyTorch-reported 31.84 GB、approximately 64 GiB RAM、approximately
+2 TB research NVMe、PyTorch 2.13.0+cu130/runtime 13.0、Compute Capability `(12, 0)`、`sm_120` 与 FP16/BF16
+basic tensor PASS。它不是 paper-level performance benchmark。
+
+Windows KMD 610.88、WSL NVIDIA-SMI 610.57.01/WSL KMD 610.88 与 driver CUDA UMD capability 13.3 已记录；最后一项
+不等于 standalone CUDA Toolkit 13.3 installed。NumPy 缺失为非阻断环境完整性观察，R0-A 记录实际 resolved version。
+
 ## 1. 机器角色
 
 ### 本机：CONTROL_PLANE
