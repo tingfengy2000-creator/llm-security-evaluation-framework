@@ -1,5 +1,29 @@
 # LLMGuard 项目总控文档
 
+## S6.1-LR1 最终人工验收与 R0 下一门（2026-07-31）
+
+项目负责人已将 `S6.1-LR1`、Git-Native Research Context Recovery Governance 和 Paper-First Comparative
+Evidence Principle 登记为 `HUMAN_ACCEPTED`，并将
+[Paper 1 canonical route](docs/research/stage6_1_hidden_knowledge_poisoning/paper1_research_route.md) 接受为当前研究路线。
+接受提交分别为 `1294632ca0501e7b999a29383780bec49eaa6b04` 与
+`85a565535a38196a7d6003e728b5cb6a2b17fa8a`。该接受只覆盖 route、benchmark alignment、governance、context
+persistence 与 reproduction planning，不建立 dataset、Detector、training、reproduction result、5090 performance、
+Paper Result、SOTA 或 Formal Experiment 证据。
+
+预期 baseline tag 缺失已被分类为 `EXPECTED_BASELINE_TAG_NOT_PUBLISHED`。annotated
+`s6-t5-rag-baseline-v1` 已恢复并在本地/远端核验严格 peel 到
+`18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。未来 tag 是否存在、是否推送与实际 target 始终由 Git 动态核验；
+禁止 force move 冲突 tag。
+
+外部 artifact 从现在起分别治理 `SOURCE_ACCESS`、`INTERNAL_REPRODUCTION`、
+`STRICT_COMPARISON_ELIGIBILITY`、`REDISTRIBUTION_ELIGIBILITY`、`CODE_LICENSE` 与 `DATASET_LICENSE`。
+PoisonedRAG code 为 MIT；GMTP/SafeRAG code license 未确认，但这不自动阻断未来获批的内部研究流程，其再分发资格
+仍待核验。
+
+当前路线为 `LR1 HUMAN_ACCEPTED -> S6.1-R0 -> S6.1-P1 -> Dataset/Detector/Formal Experiment`。S6.1-R0 是
+`ENGINEERING_VALIDATION / REPRODUCTION_PREFLIGHT`，当前仅 `DEFINED / NOT STARTED / PENDING OWNER EXECUTION
+APPROVAL`。本轮没有执行 R0、联系 RTX5090、安装环境或运行 external baseline；`FORMAL_EXPERIMENT = NOT STARTED`。
+
 ## Git-Native Research Context Recovery 状态附注（2026-07-31）
 
 项目负责人已将 Git-native Research Context Recovery System 作为 S6.1-LR1 的追加治理验收条件。当前 canonical
@@ -13,15 +37,16 @@ L0 Git/raw evidence 决定动态事实；Owner Decision Register 是用户确认
 `CONTEXT_CONFLICT_BLOCKER` 并停止，不依赖聊天记忆猜测。Paper 1 唯一 canonical route 是
 [paper1_research_route.md](docs/research/stage6_1_hidden_knowledge_poisoning/paper1_research_route.md)。
 
-当前治理扩展不改变 S6-T5 accepted baseline、Stage 1–5 immutable assets 或 LR1 benchmark matrix；
-`FORMAL_EXPERIMENT = NOT STARTED`，S6.1-P1 仍暂缓至 LR1 + Context Recovery Governance 人工审核后。
+此处是治理候选完成时的历史快照；最新接受状态与 R0 门见本文顶部。该治理扩展不改变 S6-T5 accepted baseline 或
+Stage 1–5 immutable assets。
 
 ## S6.1-LR1 Research Alignment 状态附注（2026-07-31）
 
 项目负责人已批准 `S6.1-LR1 Paper 1 Literature, Benchmark, Source Code, Hardware and Reproduction Alignment`。
 本轮只建立论文优先比较证据原则、Paper 1 三轨路线、PoisonedRAG/GMTP/SafeRAG 一手来源与 commit/license
 登记、Benchmark 矩阵、复现协议、RTX 5090 兼容规划和双机政策。当前状态为
-`COMPLETED_PENDING_HUMAN_ACCEPTANCE`，正式 RAG 安全实验仍为 `NOT STARTED`。
+`COMPLETED_PENDING_HUMAN_ACCEPTANCE`，正式 RAG 安全实验仍为 `NOT STARTED`。这是验收前历史快照；当前状态由
+本文顶部、Owner Decision Register 与 Current Work State 解释。
 
 研究分支 `research/stage6-1-hidden-poisoning` 从 accepted baseline
 `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1` 创建。该次 fetch 快照中目标远端分支和预期 tag

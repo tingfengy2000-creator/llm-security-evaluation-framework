@@ -482,3 +482,60 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 本轮提交只能登记为 candidate implementation commit pending human acceptance。未读取或修改 Stage 6 fixture/data，
 未调用 Embedding、Chroma、Groq 或 LLM，未实现 Trust、RetrievalPolicy、reranker、Citation Accuracy 或正式 RAG 实验。
 `S6-T5.7+` 仍为 `NOT APPROVED`，Formal RAG security experiment 仍为 `NOT STARTED`。
+
+## PODR-041: S6.1-LR1 Final Human Acceptance
+
+- Date: `2026-07-31`.
+- Decision: `S6.1-LR1: HUMAN_ACCEPTED`。
+- Accepted commit: `1294632ca0501e7b999a29383780bec49eaa6b04`。
+- Accepted scope: Paper 1 literature/benchmark/source-code/hardware/reproduction alignment、research route、external
+  baseline roles 与 reproduction planning。
+- Non-claims: 不接受或证明 dataset、Detector、training、reproduction result、RTX5090 performance、Paper Result、
+  SOTA 或 Formal Experiment。
+- Formal status: `FORMAL_EXPERIMENT = NOT STARTED`。
+
+## PODR-042: Context Recovery, Paper-First Principle and Canonical Route Final Acceptance
+
+- Date: `2026-07-31`.
+- Decision: `Git-Native Research Context Recovery Governance: HUMAN_ACCEPTED`；`Paper-First Comparative Evidence
+  Principle: HUMAN_ACCEPTED`；Paper 1 canonical route 为 `ACCEPTED AS CURRENT RESEARCH ROUTE`。
+- Accepted governance commit: `85a565535a38196a7d6003e728b5cb6a2b17fa8a`。
+- Boundary: 接受 governance system、context persistence 与当前研究方法/路线，不把 planning 升级为实验事实。
+- Historical preservation: PODR-035–040 的 candidate/pending stop snapshots 继续作为当时事实保留。
+
+## PODR-043: Missing S6-T5 Baseline Tag Recovery Approval
+
+- Date: `2026-07-31`.
+- Decision: 将 tag 缺失分类为 `EXPECTED_BASELINE_TAG_NOT_PUBLISHED`，不是 S6-T5 baseline 内容错误。
+- Authorized tag: annotated `s6-t5-rag-baseline-v1`，必须严格指向
+  `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。
+- Authorized message: `Accepted S6-T5 controlled retrieval and traceable context baseline`。
+- Safety: 创建前必须验证 target 是 commit 且本地/远端同名 tag 都不存在；若同名 tag 指向其他 SHA，登记
+  `BASELINE_TAG_CONFLICT_BLOCKER` 并停止，禁止 force move。
+- Dynamic fact: tag 是否已创建、推送及目标 SHA 必须用 Git 核验，不能由本文静态文字替代。
+
+## PODR-044: External Artifact Access, Internal Reproduction and Redistribution Separation
+
+- Date: `2026-07-31`.
+- Decision: external artifact 必须分别登记 `SOURCE_ACCESS`、`INTERNAL_REPRODUCTION`、
+  `STRICT_COMPARISON_ELIGIBILITY`、`REDISTRIBUTION_ELIGIBILITY`、`CODE_LICENSE` 与 `DATASET_LICENSE`。
+- PoisonedRAG: source available；code MIT；future approved internal reproduction available；code redistribution
+  permitted subject to MIT conditions；NQ/HotpotQA/MS MARCO dataset terms 独立治理。
+- GMTP/SafeRAG: source available；code license unconfirmed；future approved internal research workflow 不因缺少根
+  LICENSE 自动阻断；strict comparison pending reproduction validation；redistribution to verify。
+- Boundary: 这不是法律结论；明确 upstream 条款必须遵守。不得 vendor 大段未知许可源码或宣称未知许可证类型。
+- Public artifact preference: 发布自有 source/config/download/preprocessing scripts/hashes/official links，不默认重托管
+  第三方原始数据。
+
+## PODR-045: S6.1-R0 Precedes S6.1-P1
+
+- Date: `2026-07-31`.
+- Decision: 当前研究顺序为 `S6.1-LR1 HUMAN_ACCEPTED -> S6.1-R0 -> S6.1-P1 -> Dataset/Detector/Formal Experiment`，
+  supersede 先前 `LR1 -> P1 -> environment` 的临时规划。
+- Task: `S6.1-R0 Paper 1 Reproduction Environment and Baseline Feasibility Validation`。
+- Type: `ENGINEERING_VALIDATION / REPRODUCTION_PREFLIGHT`。
+- Status: `DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`。
+- Future worker: `RTX5090 / COMPUTE_WORKER`；external repositories 位于 LLMGuard 主仓库之外。
+- Boundary: 本决策只定义 R0，不批准 clone、install、download、smoke、reproduction 或任何 5090 计算；R0 不产生
+  Paper Result，S6.1-P1 仍未开始。
+- Next gate: project owner separately approves or rejects `S6.1-R0 EXECUTION`。Auto Continue = NO。

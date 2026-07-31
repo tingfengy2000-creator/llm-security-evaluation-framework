@@ -246,3 +246,49 @@ Approval Gate、Auto Continue。
 - Next Step: 提交、推送并等待人工审核。
 - Next Approval Gate: `ACCEPT_OR_REJECT_S6.1_LR1_PLUS_CONTEXT_RECOVERY_GOVERNANCE`
 - Auto Continue: `NO`
+
+## REL-2026-0007 — LR1 / Context Governance Acceptance and R0 Gate Definition
+
+- Record ID: `REL-2026-0007`
+- Date: `2026-07-31`
+- Timestamp: `2026-07-31T18:30:00+08:00`
+- Machine: `LOCAL`
+- Machine Role: `CONTROL_PLANE`
+- Stage: `Stage 6.1`
+- Task ID: `GOV-S6.1-LR1-FINAL-ACCEPTANCE`
+- Task Name: `Accept research alignment, recover baseline tag and define reproduction preflight`
+- Task Type: `GOVERNANCE / BASELINE_TAG_RECOVERY / NEXT_GATE_DEFINITION`
+- Initial Status: `LR1_AND_CONTEXT_GOVERNANCE_PENDING_HUMAN_ACCEPTANCE`
+- Final Status: `HUMAN_ACCEPTED / BASELINE_TAG_RECOVERED / S6.1-R0_DEFINED_NOT_STARTED`
+- Objective: 固化人工验收、恢复缺失 baseline tag、拆分外部 artifact 许可语义并定义 R0 下一门。
+- Why: 消除 pending 状态、补齐 baseline Git 身份、避免把再分发许可与内部研究/严格比较资格混为一谈，并在 P1
+  冻结前先验证外部 baseline 可行性。
+- Previous Gate: `ACCEPT_OR_REJECT_S6.1_LR1_PLUS_CONTEXT_RECOVERY_GOVERNANCE`
+- Actions: 接受 LR1/Context/Paper-First/current route；批准 annotated tag 恢复；冻结六字段 artifact governance；
+  supersede `LR1 -> P1 -> environment` 为 `LR1 -> R0 -> P1`；只定义 R0，不执行。
+- Files Changed: governance、Paper 1 route/matrix/protocol/registry、R0 definition、learning 与 architecture governance test。
+- Commands: Git/tag preflight、documentation tests and static checks only；无 external baseline/model/data/5090 command。
+- Validation: governance TDD 红灯 `6 failed / 5 passed` 后专项 `11 passed`；architecture `92 passed`；namespace +
+  label isolation `10 passed`；Ruff、scoped MyPy、Markdown links、secret/absolute-path、UTF-8/LF、runtime-ignore、
+  protected historical/S6-T5 diff 与 `git diff --check` 通过；annotated tag 本地/远端 target 均为 `18cf2741...`。
+  `BLK-HIST-001` 的历史 manifest 测试仍报告既有 110 个 CRLF/LF 差异且本轮 protected diff 为零；两项历史 report
+  integrity 测试因当前 Control Plane 缺少可选 `openai` 包而在 collection 阶段未运行，本任务按禁令未安装环境。
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `PENDING_THIS_COMMIT; resolve with git log -1 -- docs/governance/research_execution_log.md`
+- Run ID: `N/A`
+- Dataset Snapshot: `N/A`
+- Model / Revision: `N/A`
+- Environment Identity: `LOCAL / CONTROL_PLANE`; RTX5090 not contacted。
+- Result Summary: LR1、Context Recovery Governance、Paper-First Principle 与 current route 已人工接受；R0 仅定义。
+- Claims Allowed: 接受状态、external baseline roles、tag recovery（仅在 Git 验证成功后）和 R0 definition。
+- Claims Prohibited: external reproduction、5090 readiness/performance、dataset、Detector、training、Paper Result、SOTA、
+  statistics、security effectiveness 或 Formal Experiment started。
+- Blockers: `BLK-S6.1-LR1-001` 只继续阻断 future strict comparison；redistribution eligibility 独立待核验。
+- Blocker ID: `BLK-S6.1-LR1-001`
+- Resolution: governance acceptance complete；annotated tag created and pushed, with local/remote peeled target verified as
+  `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`；R0 execution not approved。
+- Owner Decisions: `PODR-041; PODR-042; PODR-043; PODR-044; PODR-045`
+- Design Changes: owner superseded the temporary sequence with R0-before-P1；historical records retained。
+- Next Step: commit/push governance; verify branch/upstream/tag/worktree; then stop。
+- Next Approval Gate: `S6.1-R0_EXECUTION_APPROVAL`
+- Auto Continue: `NO`

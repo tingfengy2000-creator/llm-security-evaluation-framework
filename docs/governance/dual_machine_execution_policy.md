@@ -92,9 +92,10 @@ Control Plane 在接受 worker 结果前核对：
 
 ## Current Gate
 
-当前任务仍为 `S6.1-LR1` governance/documentation。`FORMAL_EXPERIMENT = NOT STARTED`。当前未批准 Worker
-环境安装、数据/模型下载、PoisonedRAG/GMTP/SafeRAG 运行、Detector、training 或 S6.1-P1。取得单独批准前，
-两台机器均必须停止在 planning/control-plane 边界。
+`S6.1-LR1` 与 Context Recovery Governance 已人工接受；下一任务 `S6.1-R0` 仅为
+`DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`。`FORMAL_EXPERIMENT = NOT STARTED`。当前未批准
+Worker 环境安装、external repository clone、数据/模型下载、PoisonedRAG/GMTP/SafeRAG smoke/reproduction、
+Detector、training 或 S6.1-P1。取得 R0 execution 单独批准前，两台机器均停止在 planning/control-plane 边界。
 
 ## Baseline Integrity
 

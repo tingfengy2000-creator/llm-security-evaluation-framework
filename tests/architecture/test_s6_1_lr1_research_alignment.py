@@ -20,6 +20,7 @@ def test_s6_1_lr1_control_plane_artifacts_exist_and_are_utf8() -> None:
         STAGE / "baseline_reproduction_protocol.md",
         STAGE / "hardware_execution_policy.md",
         STAGE / "learning_notes.md",
+        STAGE / "s6_1_r0_reproduction_preflight.md",
     )
 
     for path in required:
@@ -94,7 +95,15 @@ def test_external_matrix_has_required_fields_and_verified_sources() -> None:
         "https://www.usenix.org/conference/usenixsecurity25/presentation/zou-poisonedrag",
         "https://aclanthology.org/2025.findings-acl.1263/",
         "https://aclanthology.org/2025.acl-long.230/",
-        "LICENSE FILE NOT FOUND",
+        "CODE_LICENSE",
+        "SOURCE_ACCESS",
+        "INTERNAL_REPRODUCTION",
+        "STRICT_COMPARISON_ELIGIBILITY",
+        "REDISTRIBUTION_ELIGIBILITY",
+        "DATASET_LICENSE",
+        "PERMITTED_SUBJECT_TO_MIT_CONDITIONS",
+        "NOT_BLOCKED_BY_CURRENT_RESEARCH_PLAN",
+        "LICENSE_NOT_CONFIRMED",
         "NOT_RUN",
     ):
         assert required in registry
@@ -111,13 +120,15 @@ def test_lr1_state_is_planning_only_and_preserves_formal_experiment_gate() -> No
 
     for text in (state, stage_readme):
         assert "S6.1-LR1" in text
-        assert "COMPLETED_PENDING_HUMAN_ACCEPTANCE" in text
+        assert "HUMAN_ACCEPTED" in text
+        assert "S6.1-R0" in text
         assert "NOT STARTED" in text
 
     assert "REFERENCE_ONLY_DO_NOT_RUN" in protocol
     assert "不授权下载数据/模型" in protocol
     assert "S6.1-P1" in state
-    assert "separate approval" in state
+    assert "PENDING OWNER EXECUTION APPROVAL" in state
+    assert "FORMAL_EXPERIMENT = NOT STARTED" in state
 
 
 def test_new_research_docs_are_portable_and_do_not_claim_results() -> None:

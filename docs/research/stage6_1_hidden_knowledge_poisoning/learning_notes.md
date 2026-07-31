@@ -10,6 +10,9 @@
 防御基线、SafeRAG 是中文安全 Benchmark 参考，并把论文、源码、commit、许可、数据、模型、预算、指标、硬件和
 复现门统一登记。
 
+项目负责人随后将 LR1、Context Recovery Governance、Paper-First Principle 和 current Paper 1 route 正式接受。
+下一门改为先定义并单独审批 `S6.1-R0` engineering reproduction preflight，再考虑 S6.1-P1；R0 当前尚未开始。
+
 ## 为什么先做对齐
 
 若先做自建数据或 Detector，最容易出现三种偏差：用不同设置与论文数字比较、只在为方法量身设计的数据上有效、
@@ -52,6 +55,8 @@ cheating tokens 很有针对性。但自然的事实篡改可能没有明显低�
 ## 初学者常见误区
 
 - “GitHub 有代码”不等于“有可再分发许可证”。
+- “未确认再分发许可证”不自动等于“不能进行未来获批的内部研究复现”；必须分别判断 SOURCE_ACCESS、
+  INTERNAL_REPRODUCTION、STRICT_COMPARISON_ELIGIBILITY 与 REDISTRIBUTION_ELIGIBILITY。
 - “当前 main HEAD”不等于“论文出结果时的 commit”。
 - “跑通一个样本”不等于“复现论文结果”。
 - “同名指标”不等于“公式、分母和聚合方式相同”。

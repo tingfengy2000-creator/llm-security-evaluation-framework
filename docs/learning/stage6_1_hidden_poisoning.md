@@ -9,6 +9,9 @@
 Stage 6.1 研究 RAG 知识库中的隐蔽事实污染：恶意文档看起来自然、与查询高度相关、只修改少量关键事实，
 并可能伪装来源、时间和版本。当前 Paper 1 方向是 Benchmark + Multi-View Detection；不是最终 Detector 或已完成实验。
 
+当前治理状态：LR1、Context Recovery Governance、Paper-First Principle 和 current Paper 1 route 已人工接受；
+S6.1-R0 只定义为下一 engineering preflight，尚未批准执行。Formal Experiment 仍未开始。
+
 ## 2. 为什么存在
 
 传统输入/输出 Guard 看到的是 query 和 answer，而知识污染在索引前或检索层改变模型“依据什么回答”。企业知识库
@@ -133,13 +136,15 @@ planning、Paper 1 route 和 Git-native context recovery governance。未下载/
 
 ## 20. Current Status
 
-`S6.1-LR1: COMPLETED_PENDING_HUMAN_ACCEPTANCE`。S6.1-P1、dataset generation、Detector implementation 和 model
-training 均未批准。
+`S6.1-LR1: HUMAN_ACCEPTED`；Context Recovery Governance、Paper-First Principle 与 current route 同样已接受。
+`S6.1-R0: DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`。S6.1-P1、dataset generation、Detector
+implementation 和 model training 均未批准。
 
 ## 21. Blockers
 
-`BLK-S6.1-LR1-001` 汇总 strict reproduction 的 paper-result commit、license、model/data revision、API snapshot 和
-hardware measurement 缺口；它不阻止当前治理文档完成，但阻止严格复现/比较。
+`BLK-S6.1-LR1-001` 汇总 strict reproduction 的 paper-result commit、model/data revision、API snapshot、compatibility
+和 hardware measurement 缺口；它不阻止已接受治理或未来单独获批的内部研究，但继续阻止严格复现/比较。
+再分发许可使用独立 `REDISTRIBUTION_ELIGIBILITY` 治理。
 
 ## 22. Blocker Resolution
 

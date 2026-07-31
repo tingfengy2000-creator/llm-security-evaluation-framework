@@ -6,11 +6,18 @@
 ## 1. 状态
 
 - 协议类型：`PLANNING_ONLY`。
-- 当前状态：`DRAFT_FOR_HUMAN_ACCEPTANCE`。
+- 当前状态：`ACCEPTED_REPRODUCTION_PLANNING / EXECUTION_NOT_APPROVED`。
 - 正式实验：`NOT STARTED`。
 - 下列命令均为 `REFERENCE_ONLY_DO_NOT_RUN`。
 
 本协议不授权下载数据/模型、安装环境、调用 API、生成攻击样本或运行论文结果。
+
+## 1.1 License / Access 分层
+
+每个外部 baseline 必须分别记录 `SOURCE_ACCESS`、`INTERNAL_REPRODUCTION`、
+`STRICT_COMPARISON_ELIGIBILITY`、`REDISTRIBUTION_ELIGIBILITY`、`CODE_LICENSE` 与 `DATASET_LICENSE`。
+公开可访问不等于可无限再分发；未确认代码许可证不自动阻断未来经批准的内部研究 clone/inspect/install/execute/
+evaluate。明确的 upstream 条款始终必须遵守。本协议不提供法律结论。
 
 ## 2. 结果分栏
 
@@ -25,39 +32,40 @@ Published Result | Reproduced Result | Our Method Result
 
 ## 3. 分阶段门
 
-### R0：许可与源码冻结
+### R0-A：许可、源码与身份冻结
 
 - 固定官方 paper URL、repo URL、commit/tag 和 LICENSE。
-- 对缺失 LICENSE 的 GMTP/SafeRAG 发起作者确认或法律审查。
+- 对 GMTP/SafeRAG 记录 `CODE_LICENSE=UNCONFIRMED`、`REDISTRIBUTION_ELIGIBILITY=TO_VERIFY`；内部研究执行
+  不因缺少根 LICENSE 自动被标记为技术访问阻断。
 - 确认数据与模型条款。
 - 找到 paper-result commit；当前默认分支 HEAD 不能自动代替。
 
-通过条件：全部 artifact 可依法用于计划范围，且 commit 身份无歧义。
+通过条件：计划动作不违反已知 upstream 条款，commit 身份无歧义；再分发资格可继续保持独立待核验。
 
-### R1：Original Environment 复原说明
+### R0-B：Original Environment 复原说明
 
 - 原样记录论文/README 环境，不立即安装。
 - 生成 dependency inventory、模型 revision inventory 和已知失效依赖列表。
 - 不修改算法、数据、预算、Retriever、Top-K 或指标。
 
-### R2：RTX 5090 Compatibility Environment
+### R0-C：RTX 5090 Compatibility Environment
 
 - 在 WSL/Linux 优先建立独立环境。
 - 只做为 Blackwell 兼容所必需的 PyTorch/CUDA/FAISS/Pyserini patch。
 - 每个 patch 记录 old/new version、原因、影响分析和验证。
 - 若 patch 改变数值语义或模型，停止并提交 blocker，不继续出结果。
 
-### R3：Engineering Smoke
+### R0-D：Engineering Smoke
 
 - 最小公开样本、debug mode、无付费 API。
 - 只证明加载、索引、一次检索/过滤和指标代码可运行。
 - 状态只能是 `ENGINEERING_SMOKE`。
 
-### R4：Formal Reproduction
+### R1：Formal Reproduction
 
 需要项目负责人单独批准；必须使用冻结的数据、预算、Retriever、Top-K、模型和指标，多次运行并保存 manifest。
 
-### R5：Our Method Comparison
+### R2：Our Method Comparison
 
 只有 R4 通过且 strict-comparison eligibility review 通过后才能启动。
 
@@ -153,8 +161,10 @@ claims_not_supported
 
 ## 6. 失败与比较规则
 
-- 无 LICENSE、无数据权限、无 paper-result commit：`BLOCKED`。
-- 旧二进制不能运行且兼容 patch 改变算法：`BLOCKED`。
+- 无 paper-result commit：`STRICT_COMPARISON_IDENTITY_BLOCKER`。
+- 明确的数据使用条款不允许计划用途：`DATASET_USE_BLOCKER`。
+- 再分发许可未确认：`REDISTRIBUTION_ELIGIBILITY=TO_VERIFY`，不自动等同内部研究阻断。
+- 旧二进制不能运行且兼容 patch 改变算法：`ALGORITHM_EQUIVALENCE_BLOCKER`。
 - API 模型版本不可恢复：可以建立现代近似轨道，但不得称严格复现。
 - 只有 smoke 成功：`ENGINEERING_SMOKE`，不得填入 Reproduced Result。
 - 数字和论文不一致：先检查数据、预算、Retriever、Top-K、指标和模型，不得直接写“实现错误”或“SOTA 提升”。

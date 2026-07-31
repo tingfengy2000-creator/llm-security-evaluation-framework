@@ -9,18 +9,29 @@
 - commit 来自对官方 GitHub 仓库默认分支执行 `git ls-remote` 后的 HEAD。
 - “官方”由论文正文/脚注或论文官方页面的代码链接支持。
 - 当前 HEAD 只是本轮准备快照；它不自动等于作者生成论文结果时使用的 commit。
-- 未发现根目录 `LICENSE` 时记录为许可 blocker，不推定默认开源许可。
+- 未发现根目录 `LICENSE` 时记录 `CODE_LICENSE=UNCONFIRMED` 和 `REDISTRIBUTION_ELIGIBILITY=TO_VERIFY`，不推定
+  默认开源许可，也不自动解释为内部研究工作流的技术访问阻断。
+
+`SOURCE_ACCESS`、`INTERNAL_REPRODUCTION`、`STRICT_COMPARISON_ELIGIBILITY`、
+`REDISTRIBUTION_ELIGIBILITY`、`CODE_LICENSE` 与 `DATASET_LICENSE` 必须独立判断。这不是法律结论；明确的
+upstream 条款必须遵守。
 
 ## Artifact
 
-| ID | 角色 | 正式论文 | 官方仓库 | 核验 HEAD | 代码许可 | 当前状态 |
-| --- | --- | --- | --- | --- | --- | --- |
-| `EXT-P1-POISONEDRAG` | Primary Attack Baseline | [USENIX Security 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/zou-poisonedrag) | [sleeepeer/PoisonedRAG](https://github.com/sleeepeer/PoisonedRAG) | [`f660d72174f06b13fae5163ce656e7b235db858f`](https://github.com/sleeepeer/PoisonedRAG/commit/f660d72174f06b13fae5163ce656e7b235db858f) | MIT | `SOURCE_VERIFIED / NOT_RUN` |
-| `EXT-P1-GMTP` | Primary Detection / Defense Baseline | [ACL Findings 2025](https://aclanthology.org/2025.findings-acl.1263/) | [mountinyy/GMTP](https://github.com/mountinyy/GMTP) | [`15b48d150f93711371eb8da22c211cd84a0cf4df`](https://github.com/mountinyy/GMTP/commit/15b48d150f93711371eb8da22c211cd84a0cf4df) | `LICENSE FILE NOT FOUND / BLOCKED_FOR_REDISTRIBUTION` | `SOURCE_VERIFIED / NOT_RUN` |
-| `EXT-P1-SAFERAG` | Primary Benchmark / Evaluation Reference | [ACL 2025 Long Paper](https://aclanthology.org/2025.acl-long.230/) | [IAAR-Shanghai/SafeRAG](https://github.com/IAAR-Shanghai/SafeRAG) | [`e8f579743b23e0a3937076dcc0792fe29027cba3`](https://github.com/IAAR-Shanghai/SafeRAG/commit/e8f579743b23e0a3937076dcc0792fe29027cba3) | `LICENSE FILE NOT FOUND / BLOCKED_FOR_REDISTRIBUTION` | `SOURCE_VERIFIED / NOT_RUN` |
-| `EXT-P1-ECOSAFERAG` | Deferred reference | `TO_VERIFY` | `OFFICIAL REPOSITORY NOT VERIFIED` | `UNKNOWN` | `UNKNOWN` | `DEFERRED` |
+正式论文入口：
 
-## 数据许可
+- PoisonedRAG: [USENIX Security 2025](https://www.usenix.org/conference/usenixsecurity25/presentation/zou-poisonedrag)
+- GMTP: [Findings of ACL 2025](https://aclanthology.org/2025.findings-acl.1263/)
+- SafeRAG: [ACL 2025 Long Paper](https://aclanthology.org/2025.acl-long.230/)
+
+| ID | SOURCE_ACCESS | CODE_LICENSE | INTERNAL_REPRODUCTION | STRICT_COMPARISON_ELIGIBILITY | REDISTRIBUTION_ELIGIBILITY | 当前运行状态 |
+| --- | --- | --- | --- | --- | --- | --- |
+| `EXT-P1-POISONEDRAG` | `AVAILABLE`：[official repo](https://github.com/sleeepeer/PoisonedRAG)，HEAD `f660d72174f06b13fae5163ce656e7b235db858f` | `MIT` | `AVAILABLE` for a future approved research workflow | `PENDING_REPRODUCTION_VALIDATION` | `PERMITTED_SUBJECT_TO_MIT_CONDITIONS` for code | `NOT_RUN` |
+| `EXT-P1-GMTP` | `AVAILABLE`：[official repo](https://github.com/mountinyy/GMTP)，HEAD `15b48d150f93711371eb8da22c211cd84a0cf4df` | `UNCONFIRMED` | `NOT_BLOCKED_BY_CURRENT_RESEARCH_PLAN` | `PENDING_REPRODUCTION_VALIDATION` | `TO_VERIFY / LICENSE_NOT_CONFIRMED` | `NOT_RUN` |
+| `EXT-P1-SAFERAG` | `AVAILABLE`：[official repo](https://github.com/IAAR-Shanghai/SafeRAG)，HEAD `e8f579743b23e0a3937076dcc0792fe29027cba3` | `UNCONFIRMED` | `NOT_BLOCKED_BY_CURRENT_RESEARCH_PLAN` | `PENDING_REPRODUCTION_VALIDATION` | `TO_VERIFY / LICENSE_NOT_CONFIRMED` | `NOT_RUN` |
+| `EXT-P1-ECOSAFERAG` | `OFFICIAL_REPOSITORY_NOT_VERIFIED` | `UNKNOWN` | `NOT_EVALUATED` | `NOT_EVALUATED` | `UNKNOWN` | `DEFERRED` |
+
+## DATASET_LICENSE 治理
 
 | 数据 | 一手许可记录 | 当前使用结论 |
 | --- | --- | --- |
@@ -29,6 +40,12 @@
 | MS MARCO | [Microsoft 官方条款](https://microsoft.github.io/msmarco/)限定 non-commercial research，并不授予底层文档权利 | 只允许非商业研究；公开 Artifact 前独立 legal/license review |
 | GMTP 提供的 200 poisoned samples | 仓库未发现 LICENSE | 只做来源核验；复制、修改、再分发前必须取得明确许可 |
 | SafeRAG 数据与知识库 | 仓库未发现 LICENSE；README 仍列出未来 Hugging Face release TODO | 只做来源核验；复制、修改、再分发前必须取得明确许可 |
+
+`CODE_LICENSE` 不能外推为 `DATASET_LICENSE`。PoisonedRAG code 的 MIT 不表示 NQ、HotpotQA 或 MS MARCO 是
+MIT；GMTP/SafeRAG 仓库许可状态也不能替代其 corpus、poisoned samples 或底层公开数据条款。
+
+未来 Public Artifact 优先发布 LLMGuard 自有 source、configs、download/preprocessing scripts、dataset hashes 与
+official links，而不是直接重新托管全部第三方原始数据。
 
 ## 源码与论文差异提醒
 

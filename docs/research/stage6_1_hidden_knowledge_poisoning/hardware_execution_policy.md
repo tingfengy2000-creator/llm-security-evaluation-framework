@@ -22,7 +22,8 @@
 - branch 固定为 `research/stage6-1-hidden-poisoning`，working tree 必须 clean。
 - dataset、model、vector index、raw log 不进入 Git。
 - Git 只保存 config、manifest、source、small metric summary、redacted report 和 hashes。
-- baseline tag 不得移动或重建；本轮核验未发现 `s6-t5-rag-baseline-v1`，保持 `TO_VERIFY`。
+- baseline tag 不得移动；annotated `s6-t5-rag-baseline-v1` 已恢复并核验指向
+  `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`，实际存在性和 target 仍由 Git 动态核验。
 
 ## 3. 原环境与兼容环境
 
@@ -90,7 +91,7 @@ disk before/after index
 
 - HEAD/manifest 不一致；
 - working tree 不 clean；
-- 许可未解决；
+- 明确 upstream 条款禁止计划动作，或目标数据使用不被允许；再分发资格未确认只限制再分发，不自动阻断获批内部研究；
 - 数据或模型 revision 不可确认；
 - compatibility patch 改变算法或指标；
 - 资源超过批准预算；

@@ -153,10 +153,13 @@ git log -15 --oneline
 ## 当前基线锚点
 
 - S6-T5 baseline governance acceptance commit：`18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。
+- Recovered baseline tag：annotated `s6-t5-rag-baseline-v1`，`2026-07-31` 本地/远端核验指向上述 commit；
+  实际存在性和 target 每次仍需动态核验。
 - Accepted baseline content commit：`4ecf73a`。
 - Last accepted implementation commit：`b136ee2`。
 - Last accepted integration evidence：`b6cedf3`。
 - Stage 1–5：immutable historical experiment assets。
 - `FORMAL_EXPERIMENT = NOT STARTED` for current Stage 6.1 work。
+- `S6.1-LR1` 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`；`S6.1-R0` 仅定义，尚未批准执行。
 
 这些静态锚点只表达已登记的治理身份；是否存在、当前 branch/HEAD/tag 和远端同步仍须由 L0 动态核验。

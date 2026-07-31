@@ -53,14 +53,15 @@
 | 项目 | 当前事实 |
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
-| 当前最高完成阶段 | S6-T5 Controlled Retrieval and Traceable Context Baseline 已 `HUMAN_ACCEPTED BASELINE`；Stage 6.1 仅完成 LR1 research-control-plane candidate。 |
-| 当前任务 | `S6.1-LR1` + additive Context Recovery Governance，`COMPLETED_PENDING_HUMAN_ACCEPTANCE`。 |
-| 当前审批门 | 接受或退回 LR1 + Context Recovery Governance；`FORMAL_EXPERIMENT = NOT STARTED`。 |
-| 下一批准任务 | S6.1-P1、environment preparation、data/model download、smoke/reproduction 和 formal experiment 均须单独审批。 |
+| 当前最高完成阶段 | S6-T5 Controlled Retrieval and Traceable Context Baseline 已 `HUMAN_ACCEPTED BASELINE`；S6.1-LR1 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`。 |
+| 当前任务 | `S6.1-R0` 已定义，`DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`。 |
+| 当前审批门 | 批准或拒绝 `S6.1-R0 EXECUTION`；`FORMAL_EXPERIMENT = NOT STARTED`。 |
+| 下一批准任务 | R0 environment/repository/smoke execution；S6.1-P1、data/model、Detector、training 与 formal experiment 仍须后续独立审批。 |
+| Baseline tag | annotated `s6-t5-rag-baseline-v1` 已恢复；本地/远端 peeled target 均核验为 `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
 | 最近工程验证 | S6-T5.7 controlled retrieval-context integration evidence 已接受；LR1 只执行 governance/documentation tests，无外部 baseline run。 |
-| 当前主要阻塞项 | `BLK-S6.1-LR1-001`：许可、paper-result commit、revision/API snapshot 和硬件实测缺口阻止 strict reproduction/comparison。 |
-| 当前允许宣称 | LR1 已完成一手 source/artifact alignment、三轨 Paper 1 route、benchmark/reproduction/hardware/context-recovery governance candidate。 |
+| 当前主要阻塞项 | `BLK-S6.1-LR1-001`：paper-result commit、revision/API snapshot、compatibility 和硬件实测缺口阻止 strict reproduction/comparison；redistribution license 独立待核验。 |
+| 当前允许宣称 | LR1、Context Recovery Governance、Paper-First Principle 和 current Paper 1 route 已人工接受；S6.1-R0 已定义但未开始。 |
 | 当前禁止宣称 | 未复现外部 baseline，未构建 dataset/Detector，未训练或产生 Paper 1 results；未建立 RAG 安全效果、SOTA 或生产能力。 |
 
 历史审批快照补充：S6-T5.5/5.6/5.7 已按后续记录完成并通过相应人工验收；早期 pending/NOT APPROVED 文字保留为
@@ -110,7 +111,9 @@
 | S6-T5.8 | Baseline Documentation and Acceptance | 统一证据索引与基线候选整理 | 已人工验收 | `HUMAN_ACCEPTED` | original candidate closure `37cccdc`、accepted baseline content `4ecf73a`、[baseline report](s6_t5_baseline_acceptance_report.md) | 不得创建 tag、分支或 Stage 6.1 |
 | S6-T5.8-H1 | Baseline Commit Taxonomy and Evidence Mapping Hardening | 明确协议、实现、验收与集成证据提交分类 | 已人工验收 | `HUMAN_ACCEPTED` | `4ecf73a`、[baseline report](s6_t5_baseline_acceptance_report.md)、PODR-034、治理测试 | 仅修正文档证据 taxonomy；不得改业务行为 |
 | S6-T5 Baseline | Controlled Retrieval and Traceable Context Baseline | 受控检索至 Context Package 的离线工程基线 | 已人工验收 | `HUMAN_ACCEPTED_BASELINE` | baseline content `4ecf73a`、PODR-034、[baseline report](s6_t5_baseline_acceptance_report.md) | 本轮治理提交不是 implementation 或 integration evidence；Stage 6.1 未批准 |
-| Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | 规划中 | `PLANNED` | [长期需求](long_term_research_requirements.md) | Stage 6 基线 |
+| S6.1-LR1 | Literature / Benchmark / Reproduction Alignment | 外部基准、路线与复现规划 | 已人工验收 | `HUMAN_ACCEPTED` | `1294632`、`85a5655`、PODR-041/042 | S6.1-R0 单独批准 |
+| S6.1-R0 | Reproduction Environment and Baseline Feasibility Validation | 5090 环境、external baseline minimal smoke 与资源/兼容性证据 | 已定义、未开始 | `ENGINEERING_VALIDATION_DEFINED` | [R0 definition](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_reproduction_preflight.md)、PODR-045 | `S6.1-R0 EXECUTION APPROVAL` |
+| Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | LR1 accepted；R0 defined；P1 not started | `PLANNED` | [长期需求](long_term_research_requirements.md) | R0 后再评审 P1 |
 | Stage 6.2 | Multi-Evidence Trustworthy Retrieval | 可信聚合、重排、拒答 | 规划中 | `PLANNED` | [长期需求](long_term_research_requirements.md) | Stage 6.1/设计批准 |
 | Stage 7 | Agent Security Evaluation | Tool/Memory/Planning 安全 | 规划中 | `PLANNED` | [Stage 7 README](../../stages/stage7_agent_security/README.md) | Trusted Context 契约 |
 
@@ -277,7 +280,7 @@ description/final_resolution 中，但不能代替 status。**WORKAROUND is not 
 | BLK-S6-003 | current | Stage 6 | real embedding/Chroma | LOCAL | medium | real infrastructure is opt-in/environment-sensitive | default CI cannot prove portable environment | integration validation | S6-T4/T5.7 records | explicit env gate/temp dir | controlled integration passed | full reproducible env | pending | explicit opt-in fixed revision | NOT_RECORDED | N/A | N/A | NOT_RECORDED | MITIGATED |
 | BLK-API-001 | 2026-06-30 | Stage 3–4 | Groq expansion | LOCAL | medium | external API cost/policy and snapshot risk | uncontrolled expansion is not reproducible or bounded | real-model expansion | Stage 3/4 troubleshooting | safe small sample | historical smoke completed | approve budget/protocol | pending | safe mode and small samples | NOT_RECORDED | N/A | N/A | NOT_RECORDED | OPEN |
 | BLK-DOC-001 | 2026-07-20 | Governance | historical S6-T5 snapshots | LOCAL | low | older text contains stale stage snapshots | new readers may mistake history for current state | context recovery | Git/current-state comparison | preserve dated snapshots | history remains auditable | add authority map and current entry | completed candidate | use current state plus authority hierarchy | pending human acceptance | PENDING_THIS_COMMIT | N/A | NOT_RECORDED | MITIGATED |
-| BLK-S6.1-LR1-001 | 2026-07-31 | Stage 6.1 | S6.1-LR1 reproduction eligibility | LOCAL | high | paper-result commit/license/revision/API/hardware facts incomplete | strict reproduction and comparison cannot start | PoisonedRAG/GMTP/SafeRAG and 5090 worker | external artifact registry and benchmark matrix | first-party source alignment | gaps precisely recorded | run/download/install | not approved and would not close license gaps | planning-only protocol; no execution | NOT_RECORDED | N/A | N/A | NOT_RECORDED | OPEN |
+| BLK-S6.1-LR1-001 | 2026-07-31 | Stage 6.1 | strict comparison eligibility | LOCAL | high | paper-result commit/revision/API/compatibility/hardware facts incomplete | strict reproduction and comparison cannot start | PoisonedRAG/GMTP/SafeRAG strict comparison and future worker | external artifact registry and benchmark matrix | first-party source alignment plus six-field license split | internal research access is distinct from redistribution; no run executed | S6.1-R0 execution | defined but not approved | planning-only protocol; no execution | NOT_RECORDED | N/A | N/A | NOT_RECORDED | OPEN |
 
 ### 12.3 Historical Summary View
 
@@ -292,7 +295,7 @@ description/final_resolution 中，但不能代替 status。**WORKAROUND is not 
 | BLK-S6-003 | 当前 | 环境依赖 | medium | 真实 Embedding/Chroma | `MITIGATED` | S6-T4 真实集成记录 | 环境变量显式开启、临时目录 | 固定可复现环境文档 | 仅按批准运行 |
 | BLK-API-001 | 2026-06-30 | 真实 API 成本/策略 | medium | Groq 扩样 | `OPEN` | [Stage 3/4 文档](../../deliverables/stage3/06_troubleshooting.md) | safe 模式和小样本 | 批准预算和实验设计 | 不无控制扩样 |
 | BLK-DOC-001 | 2026-07-20 | 文档漂移 | low | 早期 S6-T5 架构索引/设计快照 | `OPEN` | Git 已有 `4c12181`，但部分历史文本仍称 Python 未开始 | 当前状态与本记录作为动态事实入口 | 在不改写历史叙述前提下添加历史快照说明 | 后续治理审查 |
-| BLK-S6.1-LR1-001 | 2026-07-31 | 复现准入 | high | Paper 1 strict comparison | `OPEN` | [Artifact Registry](../research/stage6_1_hidden_knowledge_poisoning/external_artifact_registry.md) | 只做 planning；不运行/download/install | 补齐许可、paper-result commit、revision、API snapshot 与硬件证据 | 单独审批后处理 |
+| BLK-S6.1-LR1-001 | 2026-07-31 | strict comparison 准入 | high | Paper 1 strict comparison | `OPEN` | [Artifact Registry](../research/stage6_1_hidden_knowledge_poisoning/external_artifact_registry.md) | 内部研究、严格比较与再分发资格分开；当前不执行 R0 | 通过获批 R0 补齐 paper-result commit、revision、compatibility 与硬件证据；再分发许可独立处理 | 等待 R0 execution approval |
 
 ## 13. Failed Run Register
 
@@ -500,3 +503,4 @@ git log -15 --oneline
 | 2026-07-27 | GOV-S6-T5-BASELINE-ACCEPTANCE | 第 2、4、12、14、20 节 | 项目负责人接受 S6-T5.8-H1、S6-T5.8 与整个 S6-T5 基线；`4ecf73a` 为 accepted baseline content commit；本轮新提交仅是 baseline governance acceptance commit | [baseline report](s6_t5_baseline_acceptance_report.md)、PODR-034、治理测试 | 不改业务源码/测试 fixture/data；不创建 tag/研究分支；不开始正式实验 |
 | 2026-07-31 | S6.1-LR1 research alignment | 第 2、12、14、20 节 | 建立 paper-first 比较证据原则，核验 PoisonedRAG/GMTP/SafeRAG 一手论文、仓库、commit、许可、协议和硬件事实；只形成 Benchmark/复现/双机控制面文档 | [Stage 6.1 research README](../research/stage6_1_hidden_knowledge_poisoning/README.md)、PODR-035、治理测试 | `FORMAL_EXPERIMENT = NOT STARTED`；无数据/模型下载、无 API/模型调用、无实验 Run Record |
 | 2026-07-31 | Git-native context recovery governance | 第 1、2、12、17、19、20 节 | 明确本文只做实验控制面；增强 canonical Blocker schema/status；连接 authority map、execution ledger、dual-machine Git sync 和 learning 非权威边界 | [Context Authority Map](context_authority_map.md)、[Research Execution Log](research_execution_log.md)、PODR-036--040、context-persistence tests | 纯治理/文档；不创建实验 Run Record，不改变 S6-T5 baseline 或 Stage 1--5 evidence |
+| 2026-07-31 | S6.1-LR1 final human acceptance and R0 definition | 第 2、4、12、14、20 节 | 接受 LR1/Context/Paper-First/current route；拆分 artifact access/use/comparison/redistribution；定义 R0-before-P1 | PODR-041--045、REL-2026-0007、R0 definition、governance tests | R0 未开始；无 external run/data/model/5090/Paper Result |

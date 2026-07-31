@@ -1,6 +1,6 @@
 # Paper 1 Canonical Research Route
 
-> Status: CANONICAL_ROUTE / COMPLETED_PENDING_HUMAN_ACCEPTANCE
+> Status: ACCEPTED AS CURRENT RESEARCH ROUTE
 > Formal experiment: FORMAL_EXPERIMENT = NOT STARTED
 > Owner decisions: PODR-035 through PODR-040
 > Execution records: REL-2026-0004 through REL-2026-0006
@@ -58,11 +58,15 @@ poison label、attack ID/goal/category 或 expected answer 作为 inference feat
 | Work | Canonical role | Current status |
 | --- | --- | --- |
 | PoisonedRAG | PRIMARY_ATTACK_BASELINE | source aligned; reproduction not started |
-| GMTP | PRIMARY_DETECTION_BASELINE | source aligned; license/reproduction blocked |
-| SafeRAG | PRIMARY_BENCHMARK_REFERENCE | source aligned; license/reproduction blocked |
+| GMTP | PRIMARY_DETECTION_BASELINE | source available; internal research not blocked by current plan; strict comparison pending; redistribution license to verify |
+| SafeRAG | PRIMARY_BENCHMARK_REFERENCE | source available; internal research not blocked by current plan; strict comparison pending; redistribution license to verify |
 | EcoSafeRAG | DEFERRED | not a core baseline unless owner re-approves |
 
 Published Result、Reproduced Result、Our Method Result 必须分栏，不能互相替代。
+
+每项 baseline 独立记录 `SOURCE_ACCESS`、`INTERNAL_REPRODUCTION`、`STRICT_COMPARISON_ELIGIBILITY`、
+`REDISTRIBUTION_ELIGIBILITY`、`CODE_LICENSE` 与 `DATASET_LICENSE`。公开仓库不等于无限再分发许可；未确认根
+LICENSE 也不自动阻断未来经批准的内部研究工作流。这不是法律结论，明确的 upstream 条款必须遵守。
 
 ## 7. External Benchmark Track
 
@@ -212,7 +216,7 @@ closed。详见 [Dual-Machine Policy](../../governance/dual_machine_execution_po
 ## 25. Known Risks
 
 - PoisonedRAG paper-result commit/dependency lock/GPU-RAM-disk 未完整确认；
-- GMTP/SafeRAG 缺少根 LICENSE；
+- GMTP/SafeRAG `CODE_LICENSE=UNCONFIRMED`，因此 `REDISTRIBUTION_ELIGIBILITY=TO_VERIFY`；这不自动阻断未来获批的内部研究；
 - data/model/API revisions 与 evaluator snapshots 可能不可恢复；
 - Blackwell 与旧 CUDA/PyTorch/FAISS/Pyserini 环境存在兼容风险；
 - 32 GB VRAM 可能无法容纳论文全部模型矩阵；
@@ -229,15 +233,15 @@ closed。详见 [Dual-Machine Policy](../../governance/dual_machine_execution_po
 - Paper 1 当前贡献方向为 Benchmark + Multi-View Detection；
 - 第一版四类 HKP、五个 Views；Cross-document conflict 暂并入 V2/V4；
 - LOCAL/RTX5090 分别为 Control Plane/Compute Worker；Git 是 context sync；
-- S6.1-P1 在 LR1 人工审核前暂缓。
+- S6.1-LR1、Context Recovery Governance 与 Paper-First Principle 已 HUMAN_ACCEPTED；
+- S6.1-R0 已定义且未开始；S6.1-P1 在 R0 审核前暂缓。
 
-权威 Decision IDs 见 PODR-035–PODR-040。
+权威 Decision IDs 见 PODR-035–PODR-045。
 
 ## 27. Pending Decisions
 
-- 接受或退回 LR1 + Context Recovery Governance；
-- baseline tag 缺失是否/如何治理；
-- S6.1-P1 是否批准及其具体协议范围；
+- S6.1-R0 是否批准执行及其预算/worker window；
+- R0 完成后 S6.1-P1 是否批准及其具体协议范围；
 - 外部 artifact 许可、paper-result commits 和 dependency/model/data snapshots；
 - 中文 benchmark 数据源、annotation protocol、split 和 publication license；
 - final feature set/fusion、threshold/calibration、statistics 和 adaptive attack；
@@ -261,6 +265,7 @@ reproducibility 为支撑；仅有工程框架或治理文档不足以构成论�
 
 ## 30. Next Gate
 
-当前先由项目负责人接受或退回 S6.1-LR1 + Context Recovery Governance。只有随后单独批准 S6.1-P1
-或等价 protocol/environment task，才可下载 artifact、安装环境、生成数据、运行 engineering smoke/reproduction、
-实现 Detector 或训练。Auto Continue = NO。
+当前下一门是单独批准或拒绝 `S6.1-R0 EXECUTION`；R0 定义见
+[S6.1-R0 Reproduction Preflight](s6_1_r0_reproduction_preflight.md)。取得批准前不得 clone、安装环境、下载
+artifact、运行 smoke/reproduction 或让 RTX5090 计算。R0 完成并审核后才可考虑 S6.1-P1。Dataset、Detector、
+training 与 Formal Experiment 仍需后续独立批准。Auto Continue = NO。

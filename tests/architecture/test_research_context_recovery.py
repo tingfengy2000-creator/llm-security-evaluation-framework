@@ -17,6 +17,10 @@ DECISION_REGISTER = GOVERNANCE / "project_owner_decision_register.md"
 CURRENT_STATE = GOVERNANCE / "current_work_state.md"
 MASTER_RECORD = GOVERNANCE / "experiment_master_record.md"
 PAPER1_ROUTE = RESEARCH / "paper1_research_route.md"
+R0_PROTOCOL = RESEARCH / "s6_1_r0_reproduction_preflight.md"
+BENCHMARK_MATRIX = RESEARCH / "paper1_benchmark_alignment_matrix.md"
+BASELINE_PROTOCOL = RESEARCH / "baseline_reproduction_protocol.md"
+ARTIFACT_REGISTRY = RESEARCH / "external_artifact_registry.md"
 
 WINDOWS_ABSOLUTE_PATH = re.compile(r"(?<![A-Za-z0-9])[A-Za-z]:[\\/]")
 AUTHORITY_LEVEL = re.compile(r"^## L(?P<level>[0-9]) — ", re.MULTILINE)
@@ -64,6 +68,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             LEARNING / "README.md",
             LEARNING / "STAGE_LEARNING_GUIDE_TEMPLATE.md",
             LEARNING / "stage6_1_hidden_poisoning.md",
+            R0_PROTOCOL,
         )
         for path in required:
             with self.subTest(path=path.relative_to(ROOT)):
@@ -108,6 +113,15 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "Retrieval-Behavior",
             "LOCAL / CONTROL_PLANE",
             "RTX5090 / COMPUTE_WORKER",
+            "PODR-041",
+            "PODR-042",
+            "PODR-043",
+            "PODR-044",
+            "PODR-045",
+            "S6.1-LR1: HUMAN_ACCEPTED",
+            "Git-Native Research Context Recovery Governance: HUMAN_ACCEPTED",
+            "s6-t5-rag-baseline-v1",
+            "S6.1-R0",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, text)
@@ -124,6 +138,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "REL-2026-0004",
             "REL-2026-0005",
             "REL-2026-0006",
+            "REL-2026-0007",
             "Machine Role",
             "Initial Status",
             "Final Status",
@@ -148,8 +163,13 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         master = MASTER_RECORD.read_text(encoding="utf-8")
         self.assertIn("唯一动态任务状态入口", state)
         self.assertIn("S6.1-LR1", state)
+        self.assertIn("Status: **HUMAN_ACCEPTED**", state)
         self.assertIn("FORMAL_EXPERIMENT = NOT STARTED", state)
-        self.assertIn("S6.1-P1: **NOT STARTED / DEFERRED UNTIL LR1 REVIEW**", state)
+        self.assertIn(
+            "S6.1-R0: **DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL**",
+            state,
+        )
+        self.assertIn("S6.1-P1: **NOT STARTED / DEFERRED UNTIL R0 REVIEW**", state)
         self.assertIn("Dataset Generation: **NOT APPROVED**", state)
         self.assertIn("Detector Implementation: **NOT APPROVED**", state)
         self.assertIn("Model Training: **NOT APPROVED**", state)
@@ -177,6 +197,50 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         for status in ("OPEN", "MITIGATED", "RESOLVED", "ACCEPTED_TECHNICAL_DEBT"):
             self.assertIn(status, master)
         self.assertIn("WORKAROUND is not RESOLVED", master)
+
+    def test_license_governance_separates_access_use_comparison_and_redistribution(self) -> None:
+        for path in (
+            BENCHMARK_MATRIX,
+            BASELINE_PROTOCOL,
+            ARTIFACT_REGISTRY,
+            PAPER1_ROUTE,
+        ):
+            text = path.read_text(encoding="utf-8")
+            with self.subTest(path=path.relative_to(ROOT)):
+                for required in (
+                    "SOURCE_ACCESS",
+                    "INTERNAL_REPRODUCTION",
+                    "STRICT_COMPARISON_ELIGIBILITY",
+                    "REDISTRIBUTION_ELIGIBILITY",
+                    "CODE_LICENSE",
+                    "DATASET_LICENSE",
+                ):
+                    self.assertIn(required, text)
+
+        registry = ARTIFACT_REGISTRY.read_text(encoding="utf-8")
+        self.assertIn("PERMITTED_SUBJECT_TO_MIT_CONDITIONS", registry)
+        self.assertIn("NOT_BLOCKED_BY_CURRENT_RESEARCH_PLAN", registry)
+        self.assertIn("LICENSE_NOT_CONFIRMED", registry)
+        self.assertIn("TO_VERIFY", registry)
+
+    def test_r0_is_defined_as_an_unstarted_engineering_preflight(self) -> None:
+        text = R0_PROTOCOL.read_text(encoding="utf-8")
+        for required in (
+            "S6.1-R0",
+            "Paper 1 Reproduction Environment and Baseline Feasibility Validation",
+            "ENGINEERING_VALIDATION / REPRODUCTION_PREFLIGHT",
+            "DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL",
+            "RTX5090 / COMPUTE_WORKER",
+            "Original Paper Environment",
+            "RTX5090 Compatibility Environment",
+            "peak VRAM",
+            "compatibility patches",
+            "does not produce Paper Result",
+            "external research directory",
+            "Auto Continue = NO",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, text)
 
     def test_paper1_route_is_unique_and_complete(self) -> None:
         routes = sorted(ROOT.glob("**/paper1_research_route.md"))
