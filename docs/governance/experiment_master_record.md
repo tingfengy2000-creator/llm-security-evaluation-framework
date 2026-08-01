@@ -54,15 +54,15 @@
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
 | 当前最高完成阶段 | S6-T5 Controlled Retrieval and Traceable Context Baseline 已 `HUMAN_ACCEPTED BASELINE`；S6.1-LR1 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`。 |
-| 当前任务 | `S6.1-R0-FU1-W2 = APPROVED_TO_START / NOT_YET_EXECUTED` on `RTX5090 / COMPUTE_WORKER`；P0/L1 remain `HUMAN_ACCEPTED`。 |
-| 当前审批门 | Worker executes only the frozen W2 detector-core contract and returns evidence；`FORMAL_EXPERIMENT = NOT STARTED`。 |
-| 下一批准任务 | none automatically；W2 evidence requires later Control Plane review；S6.1-P1 remains closed。 |
+| 当前任务 | `S6.1-R0-FU1-W2-ATTEMPT1-REVIEW = W2_ATTEMPT1_EVIDENCE_BLOCKER` on `LOCAL / CONTROL_PLANE`；W2 remains approved but not completed/accepted。 |
+| 当前审批门 | corrected indexed Attempt 1 evidence must bind main-repository HEAD/clean and environment disk bytes before H1 preparation；`FORMAL_EXPERIMENT = NOT STARTED`。 |
+| 下一批准任务 | H1 is owner-approved but blocked/not started；no automatic execution；S6.1-P1 remains closed。 |
 | Baseline tag | annotated `s6-t5-rag-baseline-v1` 已恢复；本地/远端 peeled target 均核验为 `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
-| 最近工程验证 | L1 exact artifact validation；W2 contract approval registered without LOCAL execution。 |
-| 当前主要阻塞项 | `BLK-S6.1-FU1-W2-001` and formal-environment items；historical generation identity and redistribution license remain separate。 |
-| 当前允许宣称 | P0/L1 accepted；PoisonedRAG released NQ artifact identity and official deterministic assembly verified；W2 contract ready for owner approval。 |
-| 当前禁止宣称 | 未复现 attack generation 或外部 baseline，W2 未运行，未构建 dataset/Detector，未训练或产生 Paper 1 results；未建立 RAG 安全效果、SOTA 或生产能力。 |
+| 最近工程验证 | W2 Attempt 1 archive SHA/safe-member/index/source/input/environment review；material repository-integrity evidence gap found。 |
+| 当前主要阻塞项 | `W2_ATTEMPT1_EVIDENCE_BLOCKER` and `BLK-S6.1-FU1-W2-001`；formal-environment, historical generation identity and redistribution items remain separate。 |
+| 当前允许宣称 | P0/L1 accepted；PoisonedRAG released NQ artifact identity and official deterministic assembly verified；W2 remains approved but not completed/accepted；Attempt 1 evidence is incomplete。 |
+| 当前禁止宣称 | 未复现 attack generation 或外部 baseline，W2 smoke 未执行，Attempt 1 不得分类为 valid blocked run/reusable preflight，未构建 dataset/Detector，未训练或产生 Paper 1 results；未建立 RAG 安全效果、SOTA 或生产能力。 |
 
 历史审批快照补充：S6-T5.5/5.6/5.7 已按后续记录完成并通过相应人工验收；早期 pending/NOT APPROVED 文字保留为
 时间点事实。当前 accepted implementation/integration identities 分别是 `b136ee2` 与 `b6cedf3`；LR1 不改变该 taxonomy。
@@ -118,8 +118,9 @@
 | S6.1-R0 | Reproduction Environment and Baseline Feasibility Validation | external baseline static audit/minimal smoke 与资源/兼容性证据 | 已带 blocker 人工验收 | `HUMAN_ACCEPTED_WITH_BLOCKERS` | [R0-I review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_i_control_plane_review.md)、PODR-049/050 | FU1-P0 follows |
 | S6.1-R0-FU1-P0 | Targeted External Baseline Feasibility Resolution | dataset/attack/source/call-path and Worker contract freeze | human accepted | `HUMAN_ACCEPTED_CONTROL_PLANE_CONTRACT` | [FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、PODR-051/052 | W2 approved under exact frozen contract |
 | S6.1-R0-FU1-L1 | PoisonedRAG Released Artifact Identity and Deterministic Assembly Validation | exact artifact/schema/assembly hashes without model/API | human accepted | `HUMAN_ACCEPTED_SOURCE_ARTIFACT_VALIDATION` | [FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、PODR-052、REL-2026-0013 | W1 superseded；W2 approved under separate gate |
-| S6.1-R0-FU1-W2 | GMTP Detection-Only Minimal Smoke | exact detector-core compatibility on fixed GMTP-packaged input | approved to start；not executed | `ENGINEERING_VALIDATION_APPROVED` | [FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、PODR-053、REL-2026-0014 | Worker evidence then Control Plane review |
-| Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | LR1/R0/P0/L1 accepted；W2 approved but not executed；P1 not started | `PLANNED` | [长期需求](long_term_research_requirements.md) | accepted W2 evidence then separate P1 decision |
+| S6.1-R0-FU1-W2 | GMTP Detection-Only Minimal Smoke | exact detector-core compatibility on fixed GMTP-packaged input | approved；not completed/accepted；Attempt 1 evidence-blocked | `ENGINEERING_VALIDATION_APPROVED` | [FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、PODR-053/054、REL-2026-0014/0015 | corrected evidence then H1 preparation |
+| S6.1-R0-FU1-W2-H1 | Offline Model Artifact Provisioning and W2 Resume | exact-revision offline bundle without LOCAL model loading | owner-approved；not started；evidence-gated | `RECOVERY_TASK_APPROVED_BLOCKED` | [Attempt 1 review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_attempt1_control_plane_review.md)、PODR-054 | close Attempt 1 evidence blocker |
+| Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | LR1/R0/P0/L1 accepted；W2 Attempt 1 evidence-blocked；H1 blocked/not started；P1 not started | `PLANNED` | [长期需求](long_term_research_requirements.md) | corrected evidence, H1, resumed W2 and later separate P1 decision |
 | Stage 6.2 | Multi-Evidence Trustworthy Retrieval | 可信聚合、重排、拒答 | 规划中 | `PLANNED` | [长期需求](long_term_research_requirements.md) | Stage 6.1/设计批准 |
 | Stage 7 | Agent Security Evaluation | Tool/Memory/Planning 安全 | 规划中 | `PLANNED` | [Stage 7 README](../../stages/stage7_agent_security/README.md) | Trusted Context 契约 |
 
@@ -292,6 +293,7 @@ description/final_resolution 中，但不能代替 status。**WORKAROUND is not 
 | BLK-S6.1-P1-002 | 2026-07-31 | Stage 6.1 | S6.1-R0-FU1-P0 | LOCAL | high | GMTP modified-BEIR source identity and exact detection-only path were not frozen | detector comparison could not be made reproducible | P1 planning | exact GitHub commit/source and [FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md) | verify BEIR identity and detector call graph | source planning passed | freeze source/models/sample/call path | completed pending owner review | no reimplementation workaround | RESOLVED_BY_P0_CONTRACT_FREEZE | PENDING_THIS_COMMIT | N/A | 2026-07-31 | RESOLVED |
 | BLK-S6.1-FU1-W1-001 | 2026-07-31 | Stage 6.1 | FU1-L1 | LOCAL | high | exact released-artifact assembly identity lacked accepted evidence | P1 would otherwise have unstable attack input identity | L1 source artifact validation | exact commit/blob/schema/assembly contract | all 100 records and fixed sample hashes validated | deterministic identity passed | preserve API-generation distinction | accepted by owner | no regeneration claim | RESOLVED_BY_LOCAL_L1 / SUPERSEDED_BY_LOCAL_L1 | PENDING_THIS_COMMIT | N/A | 2026-07-31 | RESOLVED |
 | BLK-S6.1-FU1-W2-001 | 2026-07-31 | Stage 6.1 | FU1-W2 | RTX5090 | high | exact GMTP detector core/models/scores are unvalidated on modern Worker environment | P1 lacks executable detector baseline evidence | W2 engineering validation | hardened exact source/input/model/config/environment/resource contract | source and input identities frozen locally | owner approved exact W2 execution | `APPROVED_TO_START` | not yet executed | no downgrade/reimplementation/silent patch | NOT_RECORDED | N/A | N/A | NOT_RECORDED | OPEN |
+| W2_ATTEMPT1_EVIDENCE_BLOCKER | 2026-08-01 | Stage 6.1 | FU1-W2 Attempt 1 review | LOCAL + RTX5090 | high | archive omits claimed main-repository HEAD/clean evidence and environment disk byte measurement | Worker summary cannot be accepted or reused as a complete preflight evidence set | Attempt 1 classification and H1 recovery gate | archive `6acdbb...170f`; safe `18/18`; index `16/16`; [review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_attempt1_control_plane_review.md) | verify indexed archive and all redacted payloads | partial facts passed；mandatory repository/disk evidence absent | request additive corrected evidence only | pending；do not rerun GMTP or rebuild env for packaging correction | H1 download/bundle prohibited while open | NOT_RECORDED | PENDING_THIS_COMMIT | N/A | NOT_RECORDED | OPEN |
 | BLK-S6.1-FE-001 | 2026-07-31 | Stage 6.1 | future formal experiment | RTX5090 | high | full corpus/index, threshold calibration and selected generator/model/service environment are unvalidated | a future formal run environment is not frozen | formal experiment only | FU1 dependency classification | core vs indexing dependencies separated | completed at source level | later targeted formal compatibility validation | not approved | do not infer from W2 core smoke | NOT_RECORDED | N/A | N/A | NOT_RECORDED | OPEN |
 
 ### 12.3 Historical Summary View
@@ -313,6 +315,7 @@ description/final_resolution 中，但不能代替 status。**WORKAROUND is not 
 | BLK-S6.1-P1-002 | 2026-07-31 | P1 source planning | high | GMTP detection comparison | `RESOLVED` | official BEIR/source/model/sample/call path frozen | no runtime claim | `RESOLVED_BY_P0_CONTRACT_FREEZE` | preserve W2 gate |
 | BLK-S6.1-FU1-W1-001 | 2026-07-31 | LOCAL artifact validation | high | PoisonedRAG input identity | `RESOLVED_BY_LOCAL_L1 / SUPERSEDED` | exact commit/blob/schema/assembly/hash evidence | no API regeneration claim | PODR-052 + REL-2026-0013 | closed |
 | BLK-S6.1-FU1-W2-001 | 2026-07-31 | Worker validation | high | GMTP executable core | `OPEN` | exact W2 contract `APPROVED_TO_START` | no downgrade/reimplementation/silent patch | accepted W2 evidence | RTX5090 executes frozen contract |
+| W2_ATTEMPT1_EVIDENCE_BLOCKER | 2026-08-01 | evidence completeness | high | Attempt 1 classification / H1 start | `OPEN` | archive SHA/safe/index pass；main HEAD/clean and disk bytes absent | no summary inference；no H1 download | corrected indexed evidence | await evidence-only correction |
 | BLK-S6.1-FE-001 | 2026-07-31 | formal environment | high | future formal experiment | `OPEN` | core/index/generation/evaluation dependencies separated | none | validate selected formal data/index/generator/threshold path | formal experiment remains unapproved |
 
 ## 13. Failed Run Register
@@ -343,15 +346,17 @@ description/final_resolution 中，但不能代替 status。**WORKAROUND is not 
 | GATE-S6.1-R0-I | Control Plane evidence review | historical return preserved；corrected archive `12/12` and matrix verified；three corrections passed | `HUMAN_ACCEPTED_WITH_BLOCKERS` | owner decision on R0-FU1 | automatic R0-FU1、S6.1-P1、formal experiment | 项目负责人 |
 | GATE-S6.1-R0-FU1-P0 | Targeted baseline source/contract freeze | NQ/attack identity、official BEIR、GMTP detector core、SafeRAG artifacts、L1/W2 candidates | `HUMAN_ACCEPTED` | L1 completed locally；owner may separately approve W2 | automatic Worker execution、S6.1-P1、formal experiment | 项目负责人 |
 | GATE-S6.1-R0-FU1-L1 | Released PoisonedRAG artifact/schema/assembly validation | exact commit/blob/SHA；100x5 schema；official assembly；five ordered hashes plus aggregate | `HUMAN_ACCEPTED` | former W1 superseded；owner may decide W2 | attack-generation reproduction claim、automatic W2/P1 | 项目负责人 |
-| GATE-S6.1-R0-FU1-W2 | GMTP detection-core compatibility smoke | exact repo/source/input/model/parameter/environment/resource/output contract | `APPROVED_TO_START / NOT_YET_EXECUTED` | RTX5090 may execute only the frozen W2 contract | P1、formal experiment、metrics、paper/security claims | 项目负责人 |
+| GATE-S6.1-R0-FU1-W2 | GMTP detection-core compatibility smoke | exact repo/source/input/model/parameter/environment/resource/output contract | `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED` | corrected Attempt 1 evidence then H1/resume | P1、formal experiment、metrics、paper/security claims | 项目负责人 |
+| GATE-S6.1-R0-FU1-W2-ATTEMPT1 | Worker evidence completeness review | outer SHA、safe members、index and redacted payload review | `W2_ATTEMPT1_EVIDENCE_BLOCKER` | corrected evidence-only archive may be reviewed | valid-run/reusable-evidence classification、H1 execution | Control Plane |
+| GATE-S6.1-R0-FU1-W2-H1 | Offline Model Artifact Provisioning and W2 Resume | exact model and resource contract owner-approved | `APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS / BLOCKED_NOT_STARTED` | only after Attempt 1 evidence blocker closes | LOCAL model load、GMTP/GPU、bundle while blocker open、P1 | 项目负责人 |
 
 **当前审批顺序**：既有 S6-T5 验收历史保持不变；S6.1-LR1、Context Recovery、Paper-First 和 current route 已接受；
 `S6.1-R0-B0` 已 `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`；historical R0 execution approval remains preserved；
 historical R0-I `RETURNED_FOR_WORKER_CORRECTION` remains preserved；the superseding decision is
 `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。R0-FU1 is `APPROVED / LOCAL-FIRST / WORKER-GATED`；P0/L1 are
-`HUMAN_ACCEPTED`；the former Worker W1 is `SUPERSEDED_BY_LOCAL_L1 / NOT FAILED`；W2 is
-`APPROVED_TO_START / NOT_YET_EXECUTED` on RTX5090。S6.1-P1、Dataset、Detector、training and formal RAG experiment
-remain unapproved/not started。
+`HUMAN_ACCEPTED`；the former Worker W1 is `SUPERSEDED_BY_LOCAL_L1 / NOT FAILED`；W2 remains
+`APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`。Attempt 1 is `W2_ATTEMPT1_EVIDENCE_BLOCKER`; H1 is owner-approved but
+blocked/not started。S6.1-P1、Dataset、Detector、training and formal RAG experiment remain unapproved/not started。
 
 ## 15. 当前结论边界
 
@@ -540,3 +545,4 @@ git log -15 --oneline
 | 2026-07-31 | S6.1-R0-FU1-P0 targeted resolution | 第 2、4、12、14、20 节 | approved LOCAL-first P0 froze NQ/attack artifact boundary、official GMTP BEIR/call path、SafeRAG artifact contract and exact W1/W2 candidates | [FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、PODR-051、REL-2026-0012、governance tests | `COMPLETED_PENDING_OWNER_REVIEW`；W1/W2/P1/formal experiment not approved/not started |
 | 2026-07-31 | FU1-P0/L1 acceptance and W2 contract freeze | 第 2、4、12、14、20 节 | owner accepted P0；LOCAL L1 verified exact PoisonedRAG released artifact, whole schema and deterministic assembly；historical W1 superseded；W2 input/model/parameter/environment/resource contract hardened without execution | [FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、PODR-052、REL-2026-0013、governance tests | `P0/L1 HUMAN_ACCEPTED`；W2 ready for owner decision but not run；P1/formal experiment closed |
 | 2026-08-01 | FU1-W2 execution approval | 第 2、4、12、14、20 节 | owner approved the exact frozen GMTP detection-core smoke on RTX5090；LOCAL registered governance only and did not execute Worker/model/GPU work | [FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、PODR-053、REL-2026-0014、governance tests | `W2 APPROVED_TO_START / NOT_YET_EXECUTED`；P1/formal experiment not started |
+| 2026-08-01 | W2 Attempt 1 evidence blocker and H1 recovery gate | 第 2、4、12、14、20 节 | archive integrity and partial identities passed, but mandatory main-repository HEAD/clean and disk measurement evidence were absent；stopped before offline downloads；registered 10 GiB resource correction and owner-approved H1 as blocked/not started | [Attempt 1 review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_attempt1_control_plane_review.md)、PODR-054、REL-2026-0015、governance tests | `W2_ATTEMPT1_EVIDENCE_BLOCKER`；no bundle/model/GMTP/P1/formal execution |

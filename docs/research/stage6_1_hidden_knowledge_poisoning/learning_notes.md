@@ -89,3 +89,13 @@ F1、AUPRC、ASR、论文复现或跨 baseline 正式比较。
 面试可追问：为什么 source patch 必须停止？因为兼容性补丁可能改变 tokenizer、gradient 或 threshold 行为；未经
 Control Plane 审查就继续运行，会让“原算法 smoke”与“改写算法实验”失去可区分性。常见误区是把
 `APPROVED_TO_START`、`PASS` 和 `HUMAN_ACCEPTED` 当成同一个状态；本项目要求三者严格分离。
+
+## Attempt 1 Evidence Blocker：脚本不是执行证据（2026-08-01）
+
+W2 Attempt 1 的 archive 能证明 GMTP/source/input/environment identity 和模型下载阻断，也能证明 smoke 未执行；但
+打包脚本中“稍后会打印 main repo HEAD/status”的命令不能证明这些输出实际进入 archive。企业审计里，代码表示
+intended procedure，captured output 才表示 observed fact。两者混用会让 clean-tree、revision 或资源事实无法追责。
+
+因此即便外层 SHA、内部 index 全通过，缺少 mandatory fact 仍要 `W2_ATTEMPT1_EVIDENCE_BLOCKER`。初学者常见误区是
+“hash 全绿就表示 summary 全真”；实际上 hash 只保护已提交字节，不能补出未提交的证据。H1 已获批准也不意味着可
+越过前置 evidence gate：先补齐主仓库 HEAD/clean 与环境字节计量，再开始离线模型工件准备。

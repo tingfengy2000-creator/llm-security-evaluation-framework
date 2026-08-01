@@ -696,3 +696,28 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   Worker or enter P1. Auto Continue = NO.
 - Evidence: [FU1 Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、
   [Current Work State](current_work_state.md) and REL-2026-0014.
+
+## PODR-054: W2 Attempt 1 Evidence Gate, Resource Correction and Offline Recovery Approval
+
+- Date: `2026-08-01`.
+- Decision: W2 Attempt 1 may be classified `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER` only if the submitted
+  archive supports every mandatory Worker-summary fact. Any material gap requires `W2_ATTEMPT1_EVIDENCE_BLOCKER` and STOP.
+- Review outcome: archive SHA-256 `6acdbb8038e57b1d3e88028350fc08046d73a826ba9dd167452bfc0dd834170f`, safe members
+  `18/18`, evidence index `16/16`, GMTP/source/input/environment identities and `smoke_executed=false` passed；main LLMGuard
+  repository HEAD/clean evidence and the claimed environment disk measurement are absent. Therefore Attempt 1 is
+  `EVIDENCE_REVIEW_BLOCKED`, not a valid blocked engineering run.
+- Resource decision: future resumed W2 uses `W2_TASK_OWNED_DISK_HARD_CEILING = 10 GiB`, subdivided into `gmtp-compat <=6 GiB`,
+  two exact model snapshots `<=2 GiB`, harness/evidence/archive `<=256 MiB`, with the remainder reserved for filesystem accounting
+  and temporary headroom. RAM `<=16 GB`, VRAM `<=8 GiB`, and post-model runtime `<=10 minutes` remain unchanged. This is a
+  `RESOURCE_CONTRACT_CORRECTION`, not an algorithm/data/parameter/model change.
+- Recovery decision: `S6.1-R0-FU1-W2-H1 / Offline Model Artifact Provisioning and W2 Resume` is owner-approved as
+  `APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS`, with exact Contriever/BERT revisions and no LOCAL model loading/inference.
+- Fail-closed effect: H1 preparation is currently `NOT STARTED / BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER`; no local download,
+  manifest or bundle may begin until corrected Attempt 1 evidence closes the gate.
+- W2 remains `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`. This review does not establish `FAILED_ALGORITHM`,
+  `GMTP_INCOMPATIBLE`, model compatibility, a detector score, Paper Result or security effectiveness.
+- Correction request: capture main-repository HEAD and delimited clean status plus explicit `gmtp-compat` byte measurement in a
+  corrected indexed archive. Do not rerun GMTP, rebuild the environment or download models merely to correct evidence packaging.
+- Stop boundary: `S6.1-P1 = NOT STARTED`; `FORMAL_EXPERIMENT = NOT STARTED`; LOCAL does not contact RTX5090. Auto Continue = NO.
+- Evidence: [Attempt 1 Control Plane Review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_attempt1_control_plane_review.md)、
+  [FU1 Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md) and REL-2026-0015.

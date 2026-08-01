@@ -1,5 +1,23 @@
 # LLMGuard 项目总控文档
 
+## S6.1-R0-FU1-W2 Attempt 1 Evidence Blocker（2026-08-01）
+
+LOCAL 已只读复核 Worker archive：外层 SHA-256
+`6acdbb8038e57b1d3e88028350fc08046d73a826ba9dd167452bfc0dd834170f`、安全成员 `18/18`、内部 index `16/16` 与
+harness SHA-256 均通过；GMTP/source/input/environment identity、encoder `MODEL_DOWNLOAD_BLOCKER` 和
+`smoke_executed=false` 互相一致，未保存完整输入文本。
+
+但 archive 没有主 LLMGuard repository HEAD `457458cbc484c7a187c1b0b812c414280f4b837a` 或 clean status 的捕获结果；
+resource file 还明确记录 disk/resource `NOT_EVALUATED`，不能支持约 5.2 GB 环境占用摘要。故 Attempt 1 登记为
+`EVIDENCE_REVIEW_BLOCKED / W2_ATTEMPT1_EVIDENCE_BLOCKER`，不得写成 `VALID_BLOCKED_ENGINEERING_RUN`、reusable
+preflight、算法失败、GMTP 不兼容、W2 completed 或 accepted。
+
+项目负责人批准的 `W2_TASK_OWNED_DISK_HARD_CEILING = 10 GiB` 修正与
+`S6.1-R0-FU1-W2-H1 / Offline Model Artifact Provisioning and W2 Resume` 决策继续保留；但 H1 实际执行为
+`NOT STARTED / BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER`。LOCAL 未下载模型、未创建 bundle、未运行 GMTP/GPU、
+未联系 RTX5090。下一步只需返回包含主仓库 HEAD/clean 与环境字节计量的 corrected indexed evidence；无需为修正
+evidence packaging 重跑 GMTP 或重建环境。`S6.1-P1 = NOT STARTED`，`FORMAL_EXPERIMENT = NOT STARTED`。
+
 ## S6.1-R0-FU1-W2 GMTP Detection-Core Smoke 执行批准（2026-08-01）
 
 项目负责人已将 `S6.1-R0-FU1-W2 / GMTP Detection-Only Minimal Smoke` 批准为 `APPROVED_TO_START`，执行机器仅为

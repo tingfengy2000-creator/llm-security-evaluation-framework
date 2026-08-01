@@ -52,7 +52,7 @@ P0 supersedes the unresolved *planning facts* above, not the LR1 published-resul
 | baseline | selected candidate / contract | identity result | current comparability | next evidence gate |
 | --- | --- | --- | --- | --- |
 | PoisonedRAG | NQ primary；HotpotQA fallback；official NQ released attack-text artifact | L1 `IDENTITY_VERIFIED`；100x5 schema and official `question + "." + adv_text` assembly deterministically verified；API-free reuse yes；generation identity still partial | `PARTIALLY_COMPARABLE / TRANSFER_EVALUATION_ONLY` | L1 `HUMAN_ACCEPTED`；former W1 superseded |
-| GMTP | Contriever+BERT detection-only core on exact GMTP-packaged NQ HotFlip/Contriever record | BEIR gitlink verified；W2 input/source/model/parameter/environment/resource contract frozen；this input is not L1's LM-targeted artifact | `PARTIALLY_COMPARABLE` only after later protocol；W2 alone does not unify the artifacts | W2 `READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED` |
+| GMTP | Contriever+BERT detection-only core on exact GMTP-packaged NQ HotFlip/Contriever record | BEIR gitlink verified；W2 input/source/model/parameter/environment/resource contract frozen；this input is not L1's LM-targeted artifact | `PARTIALLY_COMPARABLE` only after later protocol；W2 alone does not unify the artifacts | W2 approved but not completed/accepted；Attempt 1 `W2_ATTEMPT1_EVIDENCE_BLOCKER` |
 | SafeRAG | SN 100 + ICC 93 artifact contract | exact repository commit, dataset/KB Git blobs and executed-script hash frozen | `BENCHMARK_REFERENCE_ONLY` | no further Worker task by default |
 
 The exact dataset matrix, attack/API boundary, call graph, model revisions, resource ceilings and W1/W2 contracts are canonical in

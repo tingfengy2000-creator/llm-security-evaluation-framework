@@ -23,6 +23,7 @@ BASELINE_PROTOCOL = RESEARCH / "baseline_reproduction_protocol.md"
 ARTIFACT_REGISTRY = RESEARCH / "external_artifact_registry.md"
 R0_I_REVIEW = RESEARCH / "s6_1_r0_i_control_plane_review.md"
 FU1_RESOLUTION = RESEARCH / "s6_1_r0_fu1_targeted_resolution.md"
+W2_ATTEMPT1_REVIEW = RESEARCH / "s6_1_r0_fu1_w2_attempt1_control_plane_review.md"
 LONG_TERM_REQUIREMENTS = GOVERNANCE / "long_term_research_requirements.md"
 
 WINDOWS_ABSOLUTE_PATH = re.compile(r"(?<![A-Za-z0-9])[A-Za-z]:[\\/]")
@@ -74,6 +75,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             R0_PROTOCOL,
             R0_I_REVIEW,
             FU1_RESOLUTION,
+            W2_ATTEMPT1_REVIEW,
         )
         for path in required:
             with self.subTest(path=path.relative_to(ROOT)):
@@ -131,6 +133,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "PODR-051",
             "PODR-052",
             "PODR-053",
+            "PODR-054",
             "S6.1-LR1: HUMAN_ACCEPTED",
             "Git-Native Research Context Recovery Governance: HUMAN_ACCEPTED",
             "s6-t5-rag-baseline-v1",
@@ -173,6 +176,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "REL-2026-0012",
             "REL-2026-0013",
             "REL-2026-0014",
+            "REL-2026-0015",
             "Machine Role",
             "Initial Status",
             "Final Status",
@@ -211,7 +215,9 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("S6.1-R0-FU1-L1: **HUMAN_ACCEPTED**", state)
         self.assertIn("SUPERSEDED_BY_LOCAL_L1 / NOT FAILED", state)
         self.assertIn("READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED", state)
-        self.assertIn("S6.1-R0-FU1-W2: **APPROVED_TO_START / NOT_YET_EXECUTED**", state)
+        self.assertIn("S6.1-R0-FU1-W2: **APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED**", state)
+        self.assertIn("W2_ATTEMPT1_EVIDENCE_BLOCKER", state)
+        self.assertIn("BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER", state)
         self.assertIn("S6.1-P1: **NOT STARTED", state)
         self.assertIn("Dataset: **NOT FROZEN**", state)
         self.assertIn("Detector: **NOT IMPLEMENTED**", state)
@@ -520,6 +526,42 @@ class ResearchContextRecoveryTests(unittest.TestCase):
 
         self.assertNotIn("S6.1-R0-FU1-W2: **APPROVED_TO_EXECUTE**", state)
         self.assertIn("S6.1-P1 is not automatically authorized", state)
+
+    def test_w2_attempt1_evidence_gap_blocks_h1_without_overclaiming_run(self) -> None:
+        review = W2_ATTEMPT1_REVIEW.read_text(encoding="utf-8")
+        state = CURRENT_STATE.read_text(encoding="utf-8")
+        combined = "\n".join(
+            (
+                review,
+                state,
+                FU1_RESOLUTION.read_text(encoding="utf-8"),
+                DECISION_REGISTER.read_text(encoding="utf-8"),
+                EXECUTION_LOG.read_text(encoding="utf-8"),
+                MASTER_RECORD.read_text(encoding="utf-8"),
+            )
+        )
+        for required in (
+            "6acdbb8038e57b1d3e88028350fc08046d73a826ba9dd167452bfc0dd834170f",
+            "18/18",
+            "16/16",
+            "8411af2042774f1a18eec95e97a14ade088acbc35f09942ae9ffea4e8ea5fc06",
+            "MODEL_DOWNLOAD_BLOCKER",
+            "smoke_executed=false",
+            "main LLMGuard repository HEAD evidence",
+            "Disk/resource smoke limits: NOT_EVALUATED",
+            "W2_ATTEMPT1_EVIDENCE_BLOCKER",
+            "W2_TASK_OWNED_DISK_HARD_CEILING = 10 GiB",
+            "APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS",
+            "BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER",
+            "No model download or offline bundle was performed",
+            "S6.1-P1 = NOT STARTED",
+            "FORMAL_EXPERIMENT = NOT STARTED",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, combined)
+
+        self.assertIn("S6.1-R0-FU1-W2-ATTEMPT1: **EVIDENCE_REVIEW_BLOCKED", state)
+        self.assertIn("H1 model download, manifest/bundle generation", state)
 
     def test_learning_guides_are_non_authoritative(self) -> None:
         for path in (

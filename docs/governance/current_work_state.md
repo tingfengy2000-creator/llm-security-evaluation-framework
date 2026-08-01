@@ -16,13 +16,13 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-R0-FU1-W2`.
-- Task name: `GMTP Detection-Only Minimal Smoke`.
-- Task type: **ENGINEERING_VALIDATION / DETECTION_CORE_COMPATIBILITY_SMOKE**.
-- Status: **APPROVED_TO_START / NOT_YET_EXECUTED**.
-- Execution machine: **RTX5090 / COMPUTE_WORKER**；LOCAL completed approval registration only and did not execute W2.
-- Current ordered step: RTX5090 executes the exact frozen W2 contract and returns evidence under
-  `~/experiments/s6_1_r0_fu1/w2/`；LOCAL does not contact or run the Worker in this governance task.
+- Task ID: `S6.1-R0-FU1-W2-ATTEMPT1-REVIEW`.
+- Task name: `GMTP Detection-Only Minimal Smoke Attempt 1 Control Plane Evidence Review`.
+- Task type: **CONTROL_PLANE_EVIDENCE_REVIEW / FAIL_CLOSED_RECOVERY_GATE**.
+- Status: **W2_ATTEMPT1_EVIDENCE_BLOCKER**.
+- Execution machine: **LOCAL / CONTROL_PLANE**；no model, GMTP, GPU, Worker contact or H1 download occurred.
+- Current ordered step: await a corrected indexed Worker archive that captures main-repository HEAD/clean evidence and explicit
+  `gmtp-compat` byte measurement. Do not rerun GMTP or rebuild the environment merely to correct packaging.
 - Historical superseded snapshot: `DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`.
 - Formal RAG security experiment: **NOT STARTED**.
 - Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.
@@ -40,7 +40,10 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - S6.1-R0-FU1-L1: **HUMAN_ACCEPTED**.
 - Historical S6.1-R0-FU1-W1 candidate: **SUPERSEDED_BY_LOCAL_L1 / NOT FAILED**.
 - Historical S6.1-R0-FU1-W2 snapshot: **READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED**.
-- S6.1-R0-FU1-W2: **APPROVED_TO_START / NOT_YET_EXECUTED**.
+- S6.1-R0-FU1-W2: **APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED**.
+- S6.1-R0-FU1-W2-ATTEMPT1: **EVIDENCE_REVIEW_BLOCKED / W2_ATTEMPT1_EVIDENCE_BLOCKER**.
+- S6.1-R0-FU1-W2-H1: **APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS / NOT STARTED /
+  BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER**.
 - S6.1-P1: **NOT STARTED / REQUIRES ACCEPTED W2 EVIDENCE AND SEPARATE P1 APPROVAL**.
 - Dataset: **NOT FROZEN**.
 - Dataset Generation: **NOT APPROVED**.
@@ -54,8 +57,17 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - `BLK-S6.1-LR1-001` remains **OPEN** for future strict comparison；license/redistribution issues remain separate from internal
   research access。
 - P0 source/planning blockers remain resolved. L1 additionally resolves `BLK-S6.1-FU1-W1-001` through exact artifact/schema/
-  assembly evidence and supersedes the Worker W1 route. Runtime acceptance remains blocked only by
-  `BLK-S6.1-FU1-W2-001` until separately approved Worker evidence is accepted.
+  assembly evidence and supersedes the Worker W1 route. Runtime acceptance remains blocked by
+  `BLK-S6.1-FU1-W2-001`; the Attempt 1 classification and H1 start are additionally blocked by
+  `W2_ATTEMPT1_EVIDENCE_BLOCKER` until corrected indexed evidence is accepted.
+- Attempt 1 archive integrity passed narrowly: outer SHA-256
+  `6acdbb8038e57b1d3e88028350fc08046d73a826ba9dd167452bfc0dd834170f`, safe members `18/18`, evidence index `16/16` and
+  harness SHA-256 `8411af2042774f1a18eec95e97a14ade088acbc35f09942ae9ffea4e8ea5fc06`.
+- Attempt 1 evidence supports GMTP/source/input/environment identity, encoder `MODEL_DOWNLOAD_BLOCKER` and
+  `smoke_executed=false`, but does not contain main-repository HEAD/clean evidence or the claimed 5.2 GB environment measurement.
+- Resource contract is corrected for a future resumed W2 to task-owned disk hard ceiling `10 GiB` (`gmtp-compat <=6 GiB`, two
+  exact models `<=2 GiB`, harness/evidence/archive `<=256 MiB`); RAM/VRAM/runtime ceilings remain unchanged. The archive itself
+  reports disk/resource limits `NOT_EVALUATED`.
 - Environment observation resolved narrowly: R0-A records NumPy 2.4.6 in `llmguard-paper1`；this remains environment evidence,
   not a baseline result。
 - Evidence archive SHA-256:
@@ -139,8 +151,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
 - Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
   evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- Next operational action: RTX5090 executes only the approved frozen W2 contract and returns raw engineering evidence. W1 no
-  longer exists as a Worker task；S6.1-P1 is not automatically authorized。
+- Next operational action: corrected Attempt 1 evidence closes or confirms the evidence gate. H1 preparation and any resumed W2
+  remain stopped until then；S6.1-P1 is not automatically authorized。
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. Its acceptance does not approve S6-T5.6 ContextBuilder behavior; that remains a separate boundary.
@@ -155,6 +167,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 ## Must Not Start
 
 - On LOCAL: any external baseline workload, repo clone/install/smoke, dataset/model download or GPU computation.
+- On LOCAL while `W2_ATTEMPT1_EVIDENCE_BLOCKER` is open: H1 model download, manifest/bundle generation or model loading.
 - On RTX5090: anything beyond the exact approved FU1-W2 contract；Java/Pyserini/FAISS/BEIR/Docker、API、broad environment
   exploration、algorithm reimplementation、silent source patch or formal workload。
 - Everywhere: any unapproved FU1 Worker execution、S6.1-P1、Detector implementation、dataset freeze/construction、training、Paper Result、
@@ -168,11 +181,13 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 Can additionally claim: P0 and L1 are `HUMAN_ACCEPTED`；the exact released NQ attack-text artifact identity, all 100 records and
 official deterministic LM-targeted assembly are verified；API-free reuse is verified feasible while API-free generation and exact
 paper-generation identity remain unresolved/partial。The GMTP W2 input, models, parameters, isolated environment and resource
-ceiling are frozen and W2 is `APPROVED_TO_START` on RTX5090；W2 has not run。The original baseline roles remain unchanged。
+ceiling are frozen and W2 remains approved but not completed/accepted。Attempt 1 is not accepted as a valid blocked engineering
+run because its archive omits mandatory main-repository integrity evidence。The original baseline roles remain unchanged。
 
 Can claim: within the offline engineering-test scope, the `S6-T5 Controlled Retrieval and Traceable Context Baseline` is HUMAN_ACCEPTED. It comprises deterministic and label-isolated retrieval runtime contracts, provider-neutral DenseRetriever, the synthetic ContentResolver, EvidenceEnvelope/Citation boundaries, deterministic Context Package behavior, and S6-T5.7 controlled integration evidence including an opt-in fixed MiniLM plus temporary Chroma close/reopen check. `4ecf73a` is the accepted baseline content commit; the current governance acceptance commit is not an implementation or integration-evidence commit. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
-Cannot claim: W2 ran；any external baseline was reproduced；strict comparison is ready；SafeRAG pipeline is ready；dataset/
+Cannot claim: Attempt 1 is `VALID_BLOCKED_ENGINEERING_RUN` or reusable preflight evidence；W2 ran/completed/was accepted；any
+external baseline was reproduced；strict comparison is ready；SafeRAG pipeline is ready；dataset/
 Detector/Our Method/training/result exists；or retrieval quality/security, SOTA, production readiness or formal-experiment outcomes
 are established.
 
@@ -186,5 +201,5 @@ are established.
 ## Last Update
 
 - Date: `2026-08-01`.
-- Updated by: Codex registering owner approval for the exact frozen W2 Worker contract. W2 remains not executed；P1 and Formal
-  Experiment remain not started.
+- Updated by: Codex recording `W2_ATTEMPT1_EVIDENCE_BLOCKER`, the owner-approved resource correction and H1 approval with H1
+  execution stopped pending corrected evidence. P1 and Formal Experiment remain not started.

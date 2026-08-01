@@ -620,3 +620,53 @@ Approval Gate、Auto Continue。
 - Next Step: RTX5090 executes the exact W2 contract and stores evidence under `~/experiments/s6_1_r0_fu1/w2/`.
 - Next Approval Gate: later Control Plane evidence review；`S6.1-P1 = NOT STARTED`.
 - Auto Continue: `NO`
+
+## REL-2026-0015 — W2 Attempt 1 Evidence Review Blocker and H1 Recovery Gate
+
+- Record ID: `REL-2026-0015`
+- Date: `2026-08-01`
+- Timestamp: `NOT_RECORDED`
+- Machine: `LOCAL`
+- Machine Role: `CONTROL_PLANE`
+- Stage: `Stage 6.1 / R0-FU1`
+- Task ID: `S6.1-R0-FU1-W2-ATTEMPT1-REVIEW`
+- Task Name: `GMTP Detection-Only Minimal Smoke Attempt 1 Control Plane Evidence Review`
+- Task Type: `CONTROL_PLANE_EVIDENCE_REVIEW / FAIL_CLOSED_RECOVERY_GATE`
+- Initial Status: `W2 APPROVED_TO_START / Worker summary MODEL_DOWNLOAD_BLOCKER`
+- Final Status: `W2_ATTEMPT1_EVIDENCE_BLOCKER / H1 BLOCKED_NOT_STARTED`
+- Objective: validate the submitted Worker archive before accepting Attempt 1 or preparing an offline model bundle.
+- Why: Worker summary facts must be carried by indexed archive evidence；chat summary and unexecuted script lines are not proof.
+- Previous Gate: `S6.1-R0-FU1-W2 APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`
+- Actions: recomputed outer SHA；validated archive member paths/types；extracted to a controlled temporary review directory；
+  verified all indexed payload hashes and harness hash；reviewed redacted source/input/environment/model/result/resource evidence；
+  scanned for secret shapes and raw input artifacts. No model/GMTP/GPU workload or Worker contact occurred.
+- Files Changed: additive redacted Attempt 1 review；owner/current/execution/experiment/master/FU1 governance and semantic tests.
+  Raw archive, model files, local caches and complete Worker logs remain outside Git.
+- Commands: mandatory Git preflight；PowerShell SHA/tar/index/safe-path checks；read-only evidence review；LOCAL governance/static
+  checks only.
+- Validation: outer archive SHA matched sidecar；safe members `18/18`；evidence index `16/16`；harness hash passed；targeted
+  context recovery `17 passed`；full architecture `99 passed`；namespace + label isolation `10 passed`；Ruff passed；Markdown
+  relative links `230` checked；11 changed files passed secret/private-path and UTF-8 no-BOM/LF checks；raw-artifact/protected-
+  history changes `0`；runtime ignore and `git diff --check` passed。Pytest cache write warning is non-blocking.
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `PENDING_THIS_COMMIT; resolve with git log -1 -- docs/governance/research_execution_log.md`
+- Run ID: `N/A / CONTROL_PLANE_EVIDENCE_REVIEW`
+- Dataset Snapshot: no dataset frozen/downloaded；only accepted hashes/lengths for fixed GMTP-packaged NQ record were reviewed.
+- Model / Revision: Contriever exact revision reported download-blocked；BERT exact revision not attempted；no LOCAL download/load.
+- Environment Identity: Worker Python/Torch/CUDA/Transformers/NumPy/GPU evidence matches frozen values；archive does not evidence
+  main-repository integrity or environment disk size.
+- Result Summary: archive SHA `6acdbb8038e57b1d3e88028350fc08046d73a826ba9dd167452bfc0dd834170f`；safe members
+  `18/18`；index `16/16`；harness SHA `8411af2042774f1a18eec95e97a14ade088acbc35f09942ae9ffea4e8ea5fc06`；
+  main HEAD/clean and disk measurement absent；Attempt 1 cannot be accepted as a valid blocked run.
+- Claims Allowed: named archive/partial evidence fields passed；owner approved future 10 GiB resource correction and exact H1
+  recovery contract.
+- Claims Prohibited: `VALID_BLOCKED_ENGINEERING_RUN`；`REUSABLE_W2_PREFLIGHT_EVIDENCE`；W2 completed/accepted；algorithm failed；
+  GMTP incompatible；offline bundle created；P1/formal experiment started.
+- Blockers: corrected indexed evidence must capture main HEAD, delimited clean status and explicit `gmtp-compat` byte count.
+- Blocker ID: `W2_ATTEMPT1_EVIDENCE_BLOCKER`
+- Resolution: STOP before H1 download/bundle；request evidence-only correction without GMTP rerun or environment rebuild.
+- Owner Decisions: `PODR-053; PODR-054`
+- Design Changes: future W2 disk ceiling corrected to 10 GiB only；algorithm/data/parameters/models unchanged.
+- Next Step: review corrected Attempt 1 archive；H1 remains approved but blocked/not started.
+- Next Approval Gate: close `W2_ATTEMPT1_EVIDENCE_BLOCKER`; `S6.1-P1 = NOT STARTED`.
+- Auto Continue: `NO`

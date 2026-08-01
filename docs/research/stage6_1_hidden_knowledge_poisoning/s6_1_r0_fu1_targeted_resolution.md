@@ -1,8 +1,8 @@
 # S6.1-R0-FU1 Targeted External Baseline Feasibility Resolution
 
 > Accepted task: `S6.1-R0-FU1-P0 / LOCAL Control-Plane Planning and Execution Contract Freeze`
-> Current task: `S6.1-R0-FU1-W2 / GMTP Detection-Only Minimal Smoke`
-> Status: `P0 HUMAN_ACCEPTED / L1 HUMAN_ACCEPTED / W2 APPROVED_TO_START / NOT_YET_EXECUTED`
+> Current task: `S6.1-R0-FU1-W2-ATTEMPT1-REVIEW / Control Plane Evidence Review`
+> Status: `W2 APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED / ATTEMPT1 EVIDENCE_REVIEW_BLOCKED`
 > Execution mode: `LOCAL-FIRST / WORKER-GATED`
 > Evidence class: `CONTROL_PLANE_SOURCE_ANALYSIS / SOURCE_ARTIFACT_VALIDATION / DETERMINISTIC_TRANSFORMATION_VALIDATION /
 > ENGINEERING_VALIDATION_APPROVED_NOT_EXECUTED`
@@ -14,8 +14,9 @@ The project owner accepted P0 and reassigned the former Worker W1 candidate to L
 source-artifact identity, whole-file schema and deterministic transformation validation against exact GitHub commit content and
 accepted evidence. It did not run a model, retrieval, external baseline or API service; it did not acquire the NQ corpus or contact
 RTX5090. The former `FU1-W1` is `SUPERSEDED_BY_LOCAL_L1`, not failed. The project owner subsequently approved the exact frozen
-`FU1-W2` contract for `RTX5090 / COMPUTE_WORKER`; W2 remains `NOT_YET_EXECUTED`. This document is not a P1 protocol or
-experiment result.
+`FU1-W2` contract for `RTX5090 / COMPUTE_WORKER`. The first Worker attempt stopped before model load/smoke, but its archive omits
+mandatory main-repository integrity evidence；Attempt 1 is therefore `W2_ATTEMPT1_EVIDENCE_BLOCKER`, not an accepted blocked run.
+This document is not a P1 protocol or experiment result.
 
 Current baseline roles remain unchanged:
 
@@ -283,7 +284,7 @@ installation, model, corpus, retrieval or API execution.
 
 ### FU1-W2: GMTP Detection-Only Minimal Smoke
 
-Status: `APPROVED_TO_START / NOT_YET_EXECUTED` on `RTX5090 / COMPUTE_WORKER`.
+Status: `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED` on `RTX5090 / COMPUTE_WORKER`.
 
 The W2 input is a GMTP-packaged `poisonedrag/hotflip/contriever` artifact. It is not the PoisonedRAG official LM-targeted
 artifact verified by L1. W2 proves only GMTP detector-core executability; it does not create a unified PoisonedRAG LM-targeted ->
@@ -304,7 +305,7 @@ GMTP formal comparison chain.
 | `W2_PARAMETER_CONTRACT` | `ret_type=contriever`, `N=5`, `M=5`, `remove_threshold=0.2`, `remove_lambda=1.0`, `topk=10`, `do_sort=false` |
 | Exact call | load exact file through `importlib.util.spec_from_file_location`, instantiate unmodified `GMTP`, call `filter_documents` once with `[gt_text[0], poisoned_docs[0]]`; a read-only trace wrapper may capture local `doc_infos` without source mutation；Worker may not select another sample |
 | Required output | source/input/model identities；per-document `sim`, `avg_masked_prob`, threshold `0.2`, retained/filtered flag；exit code；wall time；peak RSS/VRAM；environment/GPU fingerprint |
-| Resource ceiling | model download `<2 GB` expected；disk 5 GB；RAM <=16 GB；VRAM <=8 GiB；runtime <=10 minutes after model availability |
+| Resource ceiling | model download `<2 GB` expected；corrected task-owned disk hard ceiling 10 GiB (`gmtp-compat <=6 GiB`, exact models <=2 GiB, harness/evidence/archive <=256 MiB)；RAM <=16 GB；VRAM <=8 GiB；runtime <=10 minutes after model availability |
 | Evidence directory | `~/experiments/s6_1_r0_fu1/w2/`；main LLMGuard repository remains read-only |
 | Stop conditions | identity/hash mismatch；CPU fallback；NaN/Inf；OOM/resource ceiling；unexpected Java/Pyserini/FAISS/BEIR/datasets/Docker/API/generator requirement；any ceiling exceedance returns `WORKER_RESOURCE_APPROVAL_REQUIRED` and stops；any required source patch returns `COMPATIBILITY_PATCH_REVIEW_REQUIRED` and stops |
 | Claims boundary | engineering detector-core smoke only；no accuracy/F1/AUPRC/AUROC/Filtering Rate/ASR/statistics/strict comparison/formal reproduction claim |
@@ -322,33 +323,58 @@ not change the algorithm may be installed. Java, Pyserini, FAISS, BEIR, Docker, 
 prohibited and cause STOP/return to Control Plane. Any required source patch returns `COMPATIBILITY_PATCH_REVIEW_REQUIRED` and
 stops；no silent patch is allowed.
 
+### W2 Attempt 1 evidence review and H1 recovery gate
+
+The exact review is [W2 Attempt 1 Control Plane Review](s6_1_r0_fu1_w2_attempt1_control_plane_review.md). Verified archive facts:
+
+- archive SHA-256 `6acdbb8038e57b1d3e88028350fc08046d73a826ba9dd167452bfc0dd834170f`;
+- safe members `18/18`, evidence index `16/16`, harness SHA-256
+  `8411af2042774f1a18eec95e97a14ade088acbc35f09942ae9ffea4e8ea5fc06`;
+- GMTP/source/input/environment identity passed；encoder acquisition reports `MODEL_DOWNLOAD_BLOCKER`；MLM was not attempted;
+- no model load, detector-core score, runtime/RAM/VRAM result or full sensitive input text is present.
+
+The archive does not contain the claimed main LLMGuard repository HEAD/clean output. Its resource file also says disk/resource
+limits were not evaluated, so it cannot substantiate the reported approximately 5.2 GB environment footprint. A script that would
+print those facts after archive creation is not captured execution evidence. Therefore:
+
+- `S6.1-R0-FU1-W2-ATTEMPT1 = EVIDENCE_REVIEW_BLOCKED`;
+- blocker `W2_ATTEMPT1_EVIDENCE_BLOCKER` is open;
+- do not classify Attempt 1 as `VALID_BLOCKED_ENGINEERING_RUN` or `REUSABLE_W2_PREFLIGHT_EVIDENCE`;
+- do not classify the result as `FAILED_ALGORITHM`, `GMTP_INCOMPATIBLE`, `W2_COMPLETED` or `W2_ACCEPTED`.
+
+The owner-approved `RESOURCE_CONTRACT_CORRECTION` raises future resumed W2 task-owned disk ceiling from the historical 5 GB plan
+to 10 GiB without changing algorithm, data, parameters or models. `S6.1-R0-FU1-W2-H1 / Offline Model Artifact Provisioning and
+W2 Resume` is owner-approved as `APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS`, but execution is
+`NOT STARTED / BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER`. LOCAL did not download models or create a bundle.
+
 ## 9. Artifact approval budget
 
 | Artifact | Source / revision | Transfer / disk reserve | RAM / VRAM ceiling | License or usage note | Need |
 | --- | --- | --- | --- | --- | --- |
 | PoisonedRAG NQ attack JSON | exact repo commit/blob above | 123 KB / in-memory LOCAL validation | 2 GB / none | repo code MIT；NQ-derived content remains under dataset terms | L1 completed |
 | GMTP NQ 200 artifact | exact repo commit/blob above | 0.98 MB / included with repo | 2 GB / none before scoring | repository artifact license unconfirmed；internal use only pending terms | required only for W2 |
-| Contriever + BERT | exact Hugging Face revisions above | ~0.9-1.2 GB / 5 GB | 16 GB / 8 GiB | model-card terms must be retained and rechecked on approval | required only for W2 |
+| Contriever + BERT | exact Hugging Face revisions above | ~0.9-1.2 GB / <=2 GiB model sub-budget within 10 GiB task-owned ceiling | 16 GB / 8 GiB | model-card terms must be retained and rechecked on approval | H1 approved but blocked/not started |
 | RoBERTa or DPR alternatives | exact revisions above | ~0.5-0.9 GB extra / 5 GB extra | 16 GB / 8 GiB | model-card terms apply | optional; excluded from W2 |
 | BEIR NQ corpus/index | official BEIR snapshot, final hash not frozen | 0.5 GB zip / 15-30 GB planned | 32 GB / estimated <16 GiB | NQ CC BY-SA obligations | not L1/W2；`OWNER_LARGE_ARTIFACT_APPROVAL_REQUIRED` |
 | HotpotQA corpus/index | official BEIR snapshot | 0.65 GB zip / 25-50 GB planned | 32-64 GB / estimated <16 GiB | CC BY-SA 4.0 | optional fallback；`OWNER_LARGE_ARTIFACT_APPROVAL_REQUIRED` |
 | MS MARCO corpus/index | official BEIR snapshot | 1.08 GB zip / 40-80 GB planned | 64 GB / estimated <16 GiB | non-commercial research; underlying rights not granted | optional later track；`OWNER_LARGE_ARTIFACT_APPROVAL_REQUIRED` |
 
-No large-artifact approval is required for the completed L1 or proposed W2 under its frozen ceiling. Formal corpus/index work
-remains closed.
+The historical 5 GB W2 disk plan is superseded only by the owner-approved 10 GiB task-owned correction above. No model bundle was
+created in this review. Formal corpus/index work remains closed.
 
 ## 10. Remaining blockers and P1 entry criteria
 
 ### Remaining blockers
 
 1. `BLK-S6.1-FU1-W1-001` is `RESOLVED_BY_LOCAL_L1 / SUPERSEDED_BY_LOCAL_L1`; no Worker W1 remains.
-2. `BLK-S6.1-FU1-W2-001`: W2 has not verified exact GMTP source compatibility, pinned models, scores and measured resources on
-   RTX5090; execution is approved but has not started or returned evidence.
-3. PoisonedRAG exact historical generator/API/paper-result identity remains `PARTIAL`; P1 must decide whether author-released
+2. `BLK-S6.1-FU1-W2-001`: W2 has not verified exact GMTP model loading, detector scores or measured runtime resources.
+3. `W2_ATTEMPT1_EVIDENCE_BLOCKER`: submitted evidence omits main-repository HEAD/clean capture and the claimed environment disk
+   measurement；H1 preparation is stopped pending corrected evidence.
+4. PoisonedRAG exact historical generator/API/paper-result identity remains `PARTIAL`; P1 must decide whether author-released
    attack-text reuse is scientifically sufficient instead of pretending full regeneration equivalence.
-4. GMTP/SafeRAG code/data redistribution permission remains unconfirmed; this is a `REDISTRIBUTION_ONLY_ISSUE`, not an internal
+5. GMTP/SafeRAG code/data redistribution permission remains unconfirmed; this is a `REDISTRIBUTION_ONLY_ISSUE`, not an internal
    detection-core blocker.
-5. Full corpus/index, generator, threshold calibration, metrics and formal comparison environment remain formal-experiment
+6. Full corpus/index, generator, threshold calibration, metrics and formal comparison environment remain formal-experiment
    blockers and are outside FU1-P0.
 
 ### `S6.1-P1_ENTRY_CRITERIA`
@@ -370,7 +396,9 @@ P0/L1 do not satisfy runtime or formal-protocol criteria and do not open P1. End
 - `S6.1-R0-FU1-L1 = HUMAN_ACCEPTED`;
 - former `FU1-W1 RTX5090 = SUPERSEDED_BY_LOCAL_L1`;
 - historical `S6.1-R0-FU1-W2 = READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED` is preserved;
-- `S6.1-R0-FU1-W2 = APPROVED_TO_START / NOT_YET_EXECUTED`;
+- `S6.1-R0-FU1-W2 = APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`;
+- `S6.1-R0-FU1-W2-ATTEMPT1 = EVIDENCE_REVIEW_BLOCKED / W2_ATTEMPT1_EVIDENCE_BLOCKER`;
+- `S6.1-R0-FU1-W2-H1 = APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS / NOT STARTED / BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER`;
 - `S6.1-P1 = NOT STARTED`;
 - `Dataset = NOT FROZEN`; `Detector = NOT IMPLEMENTED`; `Training = NOT STARTED`;
 - `FORMAL_EXPERIMENT = NOT STARTED`; `Our Method Result = NONE`.

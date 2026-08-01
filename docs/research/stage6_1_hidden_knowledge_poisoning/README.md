@@ -2,9 +2,9 @@
 
 ## 当前状态
 
-- 当前任务：`S6.1-R0-FU1-W2 GMTP Detection-Only Minimal Smoke`。
-- 任务状态：`P0 HUMAN_ACCEPTED / L1 HUMAN_ACCEPTED / W2 APPROVED_TO_START / NOT_YET_EXECUTED`；parent FU1 为
-  `APPROVED / LOCAL-FIRST / WORKER-GATED`。
+- 当前任务：`S6.1-R0-FU1-W2-ATTEMPT1-REVIEW`。
+- 任务状态：`W2_ATTEMPT1_EVIDENCE_BLOCKER`；W2 仍 `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`；H1
+  `APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS / BLOCKED_NOT_STARTED`。
 - 历史前置：`S6.1-LR1` 为 `HUMAN_ACCEPTED`。
 - 追加治理：Git-native Context Recovery Governance 与 Paper-First Comparative Evidence Principle 均为 `HUMAN_ACCEPTED`。
 - Paper 1 canonical route：`ACCEPTED AS CURRENT RESEARCH ROUTE`。
@@ -20,9 +20,12 @@
 - R0：`HUMAN_ACCEPTED_WITH_BLOCKERS`；historical first-review return 与 corrected-evidence acceptance 均保留。
 - FU1 outcome：P0 合同已验收；L1 已验证 PoisonedRAG released NQ artifact、100-record schema、官方 LM-targeted
   `question + "." + adv_text` 拼装与固定样本哈希。工件可 API-free 复用，但不等于复现 API generation。
-- 当前 action：RTX5090 只按 [FU1 targeted resolution](s6_1_r0_fu1_targeted_resolution.md) 中冻结的 W2 合同执行并返回证据。
+- Attempt 1 review：archive SHA/safe/index 和部分身份通过，但缺少主仓库 HEAD/clean 捕获与环境 disk byte measurement；
+  见 [redacted review](s6_1_r0_fu1_w2_attempt1_control_plane_review.md)。
+- 当前 action：只返回 corrected indexed evidence；H1 下载/bundle 与 W2 resume 均暂停。无需为 evidence packaging 修正
+  重跑 GMTP 或重建环境。
 - Worker 状态：原 `FU1-W1 = SUPERSEDED_BY_LOCAL_L1 / NOT FAILED`；`FU1-W2 = READY_FOR_OWNER_EXECUTION_APPROVAL /
-  NOT_YET_EXECUTED` 为历史快照，当前为 `APPROVED_TO_START / NOT_YET_EXECUTED`。本轮 LOCAL 不联系或执行 Worker。
+  NOT_YET_EXECUTED` 为历史快照；当前 W2 未完成/未验收，Attempt 1 evidence-blocked。本轮 LOCAL 不联系或执行 Worker。
 - Token economy：高推理/设计/审查任务优先 LOCAL；该资源原则不覆盖科学证据与安全治理。
 
 ## 权威入口
@@ -41,10 +44,11 @@
 12. [S6.1-R0 Reproduction Preflight Definition](s6_1_r0_reproduction_preflight.md)
 13. [S6.1-R0-I Control Plane Review](s6_1_r0_i_control_plane_review.md)
 14. [S6.1-R0-FU1 Targeted Resolution](s6_1_r0_fu1_targeted_resolution.md)
+15. [W2 Attempt 1 Control Plane Review](s6_1_r0_fu1_w2_attempt1_control_plane_review.md)
 
 ## 下一审批门
 
-`S6.1-R0-FU1-P0 = HUMAN_ACCEPTED` 且 `S6.1-R0-FU1-L1 = HUMAN_ACCEPTED`。`FU1-W2 = APPROVED_TO_START /
-NOT_YET_EXECUTED`，下一步是 Worker 按冻结合同执行后返回证据；不得把批准写成通过或验收。S6.1-P1、Dataset
+`S6.1-R0-FU1-P0 = HUMAN_ACCEPTED` 且 `S6.1-R0-FU1-L1 = HUMAN_ACCEPTED`。W2 Attempt 1 目前为
+`W2_ATTEMPT1_EVIDENCE_BLOCKER`；H1 虽已获 owner approval，但不得在 blocker 关闭前准备模型 bundle。S6.1-P1、Dataset
 freeze、Detector、training 和正式实验均未获批准。
 Auto Continue = NO。
