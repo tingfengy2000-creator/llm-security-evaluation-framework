@@ -123,3 +123,18 @@ PO-MHEP 把两个容易混淆的权力拆开：L0 Git/raw evidence 回答“实�
 `FORWARD_RISK_REVIEW` 是事前检查后续推翻、label leakage、技术债和论文 reviewer attack surface；
 `CONTEXT_PERSISTENCE_CHECK` 是事后保证聊天丢失仍能从 Git + private evidence + hash/index 恢复。初学者常见误区是
 把治理等同于“多写文档”；真正目标是让授权、执行、证据、结论和下一门禁形成可物理恢复的闭环。
+
+## Correction 02：实质性关闭规则避免证据包装无限循环（2026-08-01）
+
+Correction 02 已获批准，但仍然只修复 GNU `du` 的测量来源链。`du -sb` 统计 apparent bytes，即文件逻辑长度；
+`du -sB1` 按文件系统已分配块折算 bytes。两者都可以低于资源上限，却回答不同问题，因此合同必须同时保存准确
+命令、flags、raw stdout/stderr、exit code、工具版本、时间和环境身份，而不能只保存两个摘要数字。
+
+`MATERIALITY_AND_FINAL_CLOSURE_RULE` 的企业价值是把“科学上实质的缺口”和“包装格式偏好”分开。SHA/index、命令
+执行、原始输出、GNU 工具身份、环境身份、资源、mutation 和可追溯性属于实质问题；字段顺序、Markdown、空白或
+可从原始证据推导的重复字段不是。通过后必须关闭当前包装 blocker，避免治理流程因审美差异无限循环。
+
+面试可追问：为什么 Worker 的成功状态仍叫 `READY_FOR_CONTROL_PLANE_REVIEW`？因为 Worker 只能声明证据已准备，
+不能自我接受。LOCAL 仍需核验 archive/sidecar、index、raw/manifest 一致性和无 mutation，之后才能重分类 Attempt 1。
+初学者常见误区是把 Owner 批准、Worker 执行成功、Control Plane 验收和 W2 完成混为一谈；Correction 02 只跨过第一
+个门，后续三个状态仍各自独立。

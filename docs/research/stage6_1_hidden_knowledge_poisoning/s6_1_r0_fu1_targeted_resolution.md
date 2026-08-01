@@ -1,7 +1,7 @@
 # S6.1-R0-FU1 Targeted External Baseline Feasibility Resolution
 
 > Accepted task: `S6.1-R0-FU1-P0 / LOCAL Control-Plane Planning and Execution Contract Freeze`
-> Current project task: `GOV-PO-MHEP / Highest Internal Project Execution Authority`
+> Current project task: `S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02 / W2 Attempt 1 GNU du Provenance Final Evidence Correction`
 > Status: `W2 APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED / ATTEMPT1 EVIDENCE_REVIEW_BLOCKED`
 > Execution mode: `LOCAL-FIRST / WORKER-GATED`
 > Evidence class: `CONTROL_PLANE_SOURCE_ANALYSIS / SOURCE_ARTIFACT_VALIDATION / DETERMINISTIC_TRANSFORMATION_VALIDATION /
@@ -354,7 +354,7 @@ allocated bytes `5492817920` and ceiling `6442450944`. However, it records only 
 concrete apparent-size/allocated-size commands, flags or raw outputs. The Control Plane therefore cannot prove that the two
 measurement semantics were not confused. `W2_ATTEMPT1_EVIDENCE_BLOCKER` remains open and H1 remains blocked/not started.
 
-### Correction 02 Worker Contract Candidate
+### Correction 02 Approved Worker Contract
 
 Governance status:
 
@@ -362,21 +362,23 @@ Governance status:
 Task ID = S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02
 Task Type = EVIDENCE_PACKAGING_CORRECTION_ONLY
 Machine = RTX5090 / COMPUTE_WORKER
-Status = CONTRACT_CANDIDATE / NOT APPROVED / NOT SENT / NOT EXECUTED
-Approval blocker = CORRECTION02_OWNER_APPROVAL_REQUIRED
+Status = APPROVED_TO_START / NOT SENT / NOT EXECUTED
+Owner Decision = PODR-057
 Auto Continue = NO
 ```
 
-This candidate is prepared under [PO-MHEP](../../governance/project_owner_sovereignty_and_mandatory_escalation_principle.md).
-It is not authority to contact or execute the Worker. Owner approval is required before transmission.
+This contract is approved under [PO-MHEP](../../governance/project_owner_sovereignty_and_mandatory_escalation_principle.md) for
+execution only on `RTX5090 / COMPUTE_WORKER` after that machine pulls the exact governance approval commit. This LOCAL task only
+registers the approval and freezes acceptance criteria；it does not contact or substitute for the Worker and does not execute the
+contract.
 
-#### Candidate objective and immutable scope
+#### Approved objective and immutable scope
 
 Capture only command-derived provenance for the existing `gmtp-compat` environment measurement. Do not run/import GMTP；do not
 install, update, repair or activate a different environment；do not download/load models；do not use GPU；do not mutate the LLMGuard
 or GMTP repositories；do not enter H1/P1/Formal Experiment.
 
-Bind the candidate to:
+Bind the approved contract to:
 
 - original Attempt 1 archive SHA-256 `6acdbb8038e57b1d3e88028350fc08046d73a826ba9dd167452bfc0dd834170f`;
 - Correction 01 archive SHA-256 `d911063e3a00daba3f8dcfea6f3e6e3b484e79f4f0fe8853a53ff9d8c415279e`;
@@ -384,34 +386,58 @@ Bind the candidate to:
 - original main-repository Attempt 1 HEAD `457458cbc484c7a187c1b0b812c414280f4b837a` as historical binding only；no new repository
   state claim is required.
 
-#### Candidate exact commands
+#### Pre-execution risk review
 
-The approved Worker, if later authorized, must execute on GNU/Linux with the existing `gmtp-compat` environment already active:
+`FORWARD_RISK_REVIEW = PASS_WITH_GUARDRAILS`: this evidence-only correction introduces no runtime architecture, dependency,
+model, API, dataset, algorithm or environment change. Preserving exact commands, raw streams, index and private-path isolation
+reduces later reproducibility and audit redesign risk. Any environment/repository mutation or identity deviation stops execution.
+
+`PAPER_RISK_REVIEW = PASS_WITH_CLAIMS_BOUNDARY`: the result is resource-provenance engineering evidence only. It cannot be used
+as detector compatibility, baseline reproduction, comparative metric, security-effectiveness or paper-result evidence. The
+materiality rule prevents formatting churn without weakening authenticity, traceability or later reviewer-visible evidence quality.
+
+#### Exact commands and measurement semantics
+
+The Worker must execute on GNU/Linux with the existing `gmtp-compat` environment already active. Every literal command and its
+arguments must be preserved in private evidence exactly as executed:
 
 ```bash
 set -o nounset
 set -o pipefail
 test "${CONDA_DEFAULT_ENV:-}" = "gmtp-compat"
 test "$(basename -- "${CONDA_PREFIX:?}")" = "gmtp-compat"
-date -u +%Y-%m-%dT%H:%M:%SZ
-LC_ALL=C du --version
-LC_ALL=C du --apparent-size --block-size=1 --summarize -- "$CONDA_PREFIX"
-LC_ALL=C du --block-size=1 --summarize -- "$CONDA_PREFIX"
+command -V du
+type -a du
+du --version
+uname -a
+date -u
+conda env list --json
+LC_ALL=C du -sb -- "$CONDA_PREFIX"
+LC_ALL=C du -sB1 -- "$CONDA_PREFIX"
+LC_ALL=C find "$CONDA_PREFIX" -type f -printf '1\n' | LC_ALL=C wc -l
+LC_ALL=C find "$CONDA_PREFIX" -type d -printf '1\n' | LC_ALL=C wc -l
+date -u
 ```
 
-The apparent command explicitly sets `--apparent-size --block-size=1 --summarize`. The allocated command deliberately omits
-`--apparent-size` and uses GNU `du` default allocated-block semantics with `--block-size=1 --summarize`. `LC_ALL=C` freezes parseable
-output. `$CONDA_PREFIX` is permitted only inside private Worker evidence；public Git records environment basename, not its absolute
-path.
+`du -sb -- <path>` is GNU `du --summarize --bytes -- <path>` and is semantically equivalent to
+`--apparent-size --block-size=1 --summarize`. It is the exact apparent-size measurement. `du -sB1 -- <path>` is GNU
+`du --summarize --block-size=1 -- <path>` without `--apparent-size`; it reports filesystem allocated blocks expressed in bytes.
+The two values must never be exchanged or treated as the same metric. The equivalent long forms are permitted only if the actual
+literal command used is captured unchanged in the evidence. `LC_ALL=C` freezes parseable output.
+
+`command -V du`, `type -a du`, `du --version`, `uname -a`, both `date -u` captures and the Conda registration output establish
+tool/platform/time/environment provenance. The active `CONDA_PREFIX` must be registered by Conda and have basename
+`gmtp-compat`. Its absolute path may exist only in private evidence；public Git records only safe abstractions and the basename.
 
 Each of the three evidence-producing commands (`du --version`, apparent, allocated) must be invoked separately with raw stdout,
 raw stderr and exit code captured without piping or rewriting the streams. The private evidence must also preserve the literal
-command template above and measurement timestamp. A summary field may be parsed only after exit code `0` and exactly one
+command template above, exact arguments and UTC timestamps. The two count commands must also preserve their exact command,
+stdout, stderr and exit code. A measurement summary field may be parsed only after exit code `0` and exactly one
 `<non-negative integer><whitespace><path>` stdout record.
 
-#### Candidate evidence set and index
+#### Required evidence set and index
 
-Private directory candidate: `correction_02/`. Required indexed payloads are:
+Private directory: `correction_02/`. Required indexed payloads are:
 
 1. `original_attempt_reference.txt`;
 2. `correction_01_reference.txt`;
@@ -427,11 +453,13 @@ Private directory candidate: `correction_02/`. Required indexed payloads are:
 12. `allocated_size.stdout`;
 13. `allocated_size.stderr`;
 14. `allocated_size.exit_code`;
-15. `correction_manifest.json`.
+15. `file_directory_counts.txt`;
+16. `tool_platform_conda_provenance.txt`;
+17. `correction_manifest.json`.
 
-`correction_index.sha256` must contain a normalized, lexicographically sorted SHA-256 entry for all `15/15` payloads and must be
+`correction_index.sha256` must contain a normalized, lexicographically sorted SHA-256 entry for all `17/17` payloads and must be
 reverified before packaging. The index does not self-index. Proposed private archive name is
-`s6_1_r0_fu1_w2_attempt1_correction_02_20260801.tar.gz` plus `.sha256` sidecar. Candidate evidence/archive ceiling is `1 MiB`；
+`s6_1_r0_fu1_w2_attempt1_correction_02_20260801.tar.gz` plus `.sha256` sidecar. Evidence/archive ceiling is `1 MiB`；
 no repository, environment, cache, model, input text, credential or unrelated evidence may be included.
 
 The manifest must bind schema/task/correction IDs, both earlier archive hashes, UTC timestamp, environment basename, literal
@@ -439,7 +467,12 @@ commands/flags, GNU `du` version evidence hashes, each raw-stream/exit-code hash
 status, `no_environment_mutation=true`, `no_model_download=true`, `no_smoke_execution=true` and
 `claims_boundary=EVIDENCE_PACKAGING_CORRECTION_ONLY`. Public governance must not persist the Worker absolute path or username.
 
-#### Candidate stop codes and claims
+Correction 01 reported apparent bytes `5399301224`, allocated bytes `5492817920`, file count `33556`, directory count `3194` and
+environment ceiling `6442450944`. Correction 02 must record the newly observed raw values without modification, truncation or
+conversion merely to match those historical values. Reasonable filesystem-metadata change is allowed, but an obvious/material
+difference must return `DISK_MEASUREMENT_MATERIAL_MISMATCH` for Control Plane review；the Worker may not self-approve it.
+
+#### Stop codes, output and claims
 
 Return immediately to Control Plane with one of:
 
@@ -448,10 +481,51 @@ Return immediately to Control Plane with one of:
 - `CORRECTION02_MEASUREMENT_COMMAND_FAILED` for non-zero exit;
 - `CORRECTION02_OUTPUT_SCHEMA_MISMATCH` for ambiguous/multiple/non-integer output;
 - `CORRECTION02_EVIDENCE_INTEGRITY_BLOCKER` for manifest/index/archive mismatch or unsafe member.
+- `DISK_MEASUREMENT_MATERIAL_MISMATCH` for a material conflict with the Correction 01 numeric evidence.
 
 Do not substitute another command/tool, estimate a value, suppress stderr, normalize raw streams, repair the environment or rerun
-GMTP. A later passing Control Plane review could establish command provenance only；it would not by itself establish model load,
-detector score, runtime, peak VRAM, GMTP compatibility, W2 completion/acceptance, P1 or a formal result.
+GMTP. Do not install/update the environment, download/load a model, use CUDA, rerun the harness/smoke or mutate either repository.
+
+The Worker output is limited to the exact apparent/allocated commands, GNU `du` identity/version, raw streams/exit codes, UTC
+timestamps, safe environment identity, measured bytes, file/directory counts, manifest, verified index, private archive path and
+SHA-256, mutation confirmation and final status. The only success status is:
+
+```text
+W2_ATTEMPT1_CORRECTION02_EVIDENCE_READY_FOR_CONTROL_PLANE_REVIEW
+```
+
+It must not report W2 completed/accepted, H1 started, GMTP compatible or Formal Experiment started.
+
+#### MATERIALITY_AND_FINAL_CLOSURE_RULE
+
+After the Worker returns, LOCAL performs a separate raw-evidence review. If and only if all of the following pass, LOCAL must close
+`W2_ATTEMPT1_EVIDENCE_BLOCKER`, reclassify Attempt 1 as
+`VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER` and accept the corresponding `REUSABLE_W2_PREFLIGHT_EVIDENCE`:
+
+1. archive, sidecar and recomputed SHA-256 agree;
+2. archive members and metadata are safe;
+3. the complete evidence index verifies;
+4. the environment is the existing registered `gmtp-compat` environment;
+5. both exact GNU `du` commands are recorded;
+6. flags and apparent-versus-allocated semantics are explicit;
+7. raw stdout, stderr and exit code are complete;
+8. both measurement exit codes are `0`;
+9. both byte values are below the approved `6 GiB` environment sub-budget;
+10. manifest, raw output and summary agree;
+11. no environment/repository mutation, model download/load, smoke rerun or CUDA workload occurred.
+
+Field ordering, filename style, Markdown wording, whitespace/newline style, redundant derivable fields or other formatting
+preferences that do not affect authenticity, identity, reproducibility or safety may not create another packaging blocker. Only
+SHA/index mismatch, unsafe archive, unexecuted command, missing raw output, non-zero exit, non-GNU `du`, wrong environment,
+material data conflict, environment mutation, actual resource exceedance, fabrication or non-traceability may keep the gate blocked.
+This final-closure rule applies only to Correction 02 and does not waive PO-MHEP for any newly discovered material risk.
+
+After a passing LOCAL review closes the blocker, H1 may proceed under its existing `PODR-054`
+`APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS` authority；no new H1 owner approval is required unless a new API, model-identity,
+license, resource or architecture risk triggers PO-MHEP. Correction 02 approval alone does not start H1.
+
+A later passing Control Plane review establishes command provenance and reusable preflight evidence only；it does not by itself
+establish model load, detector score, runtime, peak VRAM, GMTP compatibility, W2 completion/acceptance, P1 or a formal result.
 
 ## 9. Artifact approval budget
 

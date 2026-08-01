@@ -139,6 +139,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "PODR-054",
             "PODR-055",
             "PODR-056",
+            "PODR-057",
             "S6.1-LR1: HUMAN_ACCEPTED",
             "Git-Native Research Context Recovery Governance: HUMAN_ACCEPTED",
             "s6-t5-rag-baseline-v1",
@@ -184,6 +185,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "REL-2026-0015",
             "REL-2026-0016",
             "REL-2026-0017",
+            "REL-2026-0018",
             "Machine Role",
             "Initial Status",
             "Final Status",
@@ -209,6 +211,10 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertLess(
             text.index("## REL-2026-0016"),
             text.index("## REL-2026-0017"),
+        )
+        self.assertLess(
+            text.index("## REL-2026-0017"),
+            text.index("## REL-2026-0018"),
         )
 
     def test_current_state_and_experiment_control_plane_keep_distinct_roles(self) -> None:
@@ -242,10 +248,11 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("Dataset Generation: **NOT APPROVED**", state)
         self.assertIn("Detector Implementation: **NOT APPROVED**", state)
         self.assertIn("Model Training: **NOT APPROVED**", state)
-        self.assertIn("GOV-PO-MHEP", state)
+        self.assertIn("PO-MHEP", state)
         self.assertIn("HIGHEST_INTERNAL_PROJECT_EXECUTION_AUTHORITY", state)
         self.assertIn("NO_SELF_APPROVAL_AUTHORITY", state)
-        self.assertIn("CONTRACT_CANDIDATE / NOT APPROVED / NOT SENT / NOT EXECUTED", state)
+        self.assertIn("APPROVED_TO_START / NOT SENT / NOT EXECUTED", state)
+        self.assertIn("W2_ATTEMPT1_CORRECTION02_EVIDENCE_READY_FOR_CONTROL_PLANE_REVIEW", state)
         self.assertIn("唯一的实验控制面", master)
         for field in (
             "blocker_id",
@@ -638,7 +645,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("project_owner_sovereignty_and_mandatory_escalation_principle.md", agents)
         self.assertIn("唯一动态任务状态入口", state)
 
-    def test_po_mhep_preserves_w2_and_correction02_is_candidate_only(self) -> None:
+    def test_correction02_approval_freezes_exact_du_contract_without_advancing_w2(self) -> None:
         state = CURRENT_STATE.read_text(encoding="utf-8")
         fu1 = FU1_RESOLUTION.read_text(encoding="utf-8")
         master = MASTER_RECORD.read_text(encoding="utf-8")
@@ -652,18 +659,38 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "S6.1-P1: **NOT STARTED",
             "FORMAL_EXPERIMENT = NOT STARTED",
             "S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02",
-            "CONTRACT_CANDIDATE / NOT APPROVED / NOT SENT / NOT EXECUTED",
-            "LC_ALL=C du --apparent-size --block-size=1 --summarize",
-            "LC_ALL=C du --block-size=1 --summarize",
+            "APPROVED_TO_START / NOT SENT / NOT EXECUTED",
+            "PODR-057",
+            "REL-2026-0018",
+            'LC_ALL=C du -sb -- "$CONDA_PREFIX"',
+            'LC_ALL=C du -sB1 -- "$CONDA_PREFIX"',
+            "command -V du",
+            "type -a du",
+            "du --version",
+            "uname -a",
+            "date -u",
+            "conda env list --json",
+            "5399301224",
+            "5492817920",
+            "33556",
+            "3194",
+            "6442450944",
             "correction_index.sha256",
-            "15/15",
-            "CORRECTION02_OWNER_APPROVAL_REQUIRED",
+            "17/17",
+            "MATERIALITY_AND_FINAL_CLOSURE_RULE",
+            "DISK_MEASUREMENT_MATERIAL_MISMATCH",
+            "W2_ATTEMPT1_CORRECTION02_EVIDENCE_READY_FOR_CONTROL_PLANE_REVIEW",
+            "VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER",
+            "REUSABLE_W2_PREFLIGHT_EVIDENCE",
+            "no new H1 owner approval is required",
+            "FORWARD_RISK_REVIEW = PASS_WITH_GUARDRAILS",
+            "PAPER_RISK_REVIEW = PASS_WITH_CLAIMS_BOUNDARY",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, combined)
 
-        self.assertNotIn("Correction 02 = APPROVED", combined)
         self.assertNotIn("H1 = APPROVED_AND_IN_PROGRESS", combined)
+        self.assertNotIn("W2 completed\nW2 accepted", combined)
 
     def test_learning_guides_are_non_authoritative(self) -> None:
         for path in (

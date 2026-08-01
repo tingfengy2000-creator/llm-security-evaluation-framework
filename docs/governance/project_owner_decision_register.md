@@ -774,3 +774,34 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Canonical evidence: [PO-MHEP](project_owner_sovereignty_and_mandatory_escalation_principle.md)、
   [Context Authority Map](context_authority_map.md)、[Current Work State](current_work_state.md) and REL-2026-0017.
 - Auto Continue: `NO`.
+
+## PODR-057: W2 Attempt 1 GNU du Provenance Final Evidence Correction Approval
+
+- Date: `2026-08-01`.
+- Decision: `S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02 = APPROVED_TO_START / NOT EXECUTED` as
+  `EVIDENCE_PACKAGING_CORRECTION_ONLY` on `RTX5090 / COMPUTE_WORKER`. Auto Continue = NO.
+- LOCAL boundary: LOCAL only registers this approval, freezes the final acceptance rule and creates/pushes the governance commit.
+  It does not contact or substitute for RTX5090, collect Worker evidence, run Correction 02, download/load models, run GMTP/H1,
+  enter S6.1-P1 or start Formal Experiment.
+- Measurement contract: capture literal GNU `du -sb -- <gmtp-compat-path>` apparent-size and
+  `du -sB1 -- <gmtp-compat-path>` allocated-size commands, arguments, raw stdout/stderr, exit codes and UTC timestamps. Equivalent
+  long forms are allowed only when the command actually used is preserved verbatim.
+- Provenance contract: capture `command -V du`, `type -a du`, `du --version`, `uname -a`, `date -u`, Conda registration and the
+  active existing `gmtp-compat` path. Absolute paths remain private；public governance retains only safe abstractions/basename.
+- Historical comparison: Correction 01 reported apparent `5399301224`, allocated `5492817920`, files `33556`, directories `3194`
+  and ceiling `6442450944` bytes. Correction 02 records new raw results without forced matching；a material difference returns
+  `DISK_MEASUREMENT_MATERIAL_MISMATCH` for Control Plane review.
+- Final closure: `MATERIALITY_AND_FINAL_CLOSURE_RULE` requires matching archive/sidecar/recomputed SHA, safe archive, complete
+  index, correct existing environment identity, both exact GNU commands, explicit semantics, complete raw streams/exit codes,
+  zero measurement exits, both sizes below 6 GiB, raw/manifest/summary consistency and no mutation/download/smoke rerun.
+- Mandatory effect after a passing LOCAL raw-evidence review: close `W2_ATTEMPT1_EVIDENCE_BLOCKER`, reclassify Attempt 1 as
+  `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER` and accept `REUSABLE_W2_PREFLIGHT_EVIDENCE`. Non-material formatting
+  preferences may not create another packaging blocker.
+- Current-state preservation: W2 remains `APPROVED / NOT COMPLETED / NOT ACCEPTED`; Attempt 1 remains
+  `EVIDENCE_REVIEW_BLOCKED` and the blocker remains open until evidence is returned and accepted. H1 remains approved but
+  blocked/not started；after a passing review it may use the existing `PODR-054` approval without a new H1 owner decision unless
+  a new API/model-identity/license/resource/architecture risk appears. S6.1-P1 and Formal Experiment remain not started.
+- Worker success wording is only `W2_ATTEMPT1_CORRECTION02_EVIDENCE_READY_FOR_CONTROL_PLANE_REVIEW`; it may not claim W2
+  completion/acceptance, H1 start, GMTP compatibility or formal execution.
+- Canonical evidence: [FU1 Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、
+  [Current Work State](current_work_state.md) and REL-2026-0018.

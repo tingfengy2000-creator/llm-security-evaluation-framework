@@ -289,7 +289,7 @@ Prior effort, smoke scope, “run first”, probability, Worker cost, time press
 evidence gap, model executability or agent confidence never override escalation, evidence, persistence, paper rigor, approval gates
 or reproducibility. Token Economy may reduce waste only after these requirements remain satisfied.
 
-## 13. Preserved Stage 6.1 snapshot
+## 13. Preserved Stage 6.1 registration-time snapshot
 
 Registration of PO-MHEP does not change execution state:
 
@@ -301,6 +301,8 @@ Registration of PO-MHEP does not change execution state:
 - H1: `APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS / NOT STARTED / BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER`;
 - S6.1-P1 and `FORMAL_EXPERIMENT`: `NOT STARTED`.
 
-The only next candidate is an unapproved, unsent, unexecuted Correction 02 evidence-only Worker contract recorded in the canonical
-[FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md). Owner approval is required
-before it may be sent to RTX5090.
+At PO-MHEP registration time, the only next candidate was an unapproved, unsent, unexecuted Correction 02 evidence-only Worker
+contract. That approval-state snapshot is preserved as history. `PODR-057` subsequently supersedes only the approval field to
+`APPROVED_TO_START / NOT SENT / NOT EXECUTED`; the canonical approved contract is recorded in the
+[FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md). PO-MHEP itself and all
+W2/H1/P1/Formal Experiment execution boundaries remain unchanged.

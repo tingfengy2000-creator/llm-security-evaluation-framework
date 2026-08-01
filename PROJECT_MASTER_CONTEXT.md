@@ -1,5 +1,29 @@
 # LLMGuard 项目总控文档
 
+## Correction 02 GNU du 来源链最终证据修正已批准（2026-08-01）
+
+项目负责人通过 `PODR-057` 将 `S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02` 正式批准为
+`APPROVED_TO_START / NOT EXECUTED`，任务类型仅为 `EVIDENCE_PACKAGING_CORRECTION_ONLY`，执行机器仅为
+`RTX5090 / COMPUTE_WORKER`。本轮 LOCAL 只登记批准、冻结验收标准和创建治理提交；没有联系或代替 Worker，也没有
+执行 Correction 02、模型下载/加载、GMTP、harness、CUDA、环境修改、H1、P1 或 Formal Experiment。
+
+正式合同冻结 GNU apparent-size `du -sb -- <gmtp-compat-path>` 与 allocated-size
+`du -sB1 -- <gmtp-compat-path>` 的不同语义，并要求原样保存命令/参数、raw stdout/stderr、exit code、UTC 时间、
+`command -V du`、`type -a du`、`du --version`、`uname -a`、Conda 注册身份、环境 basename、文件/目录计数、manifest、
+完整 index 与 archive SHA-256。Correction 01 的历史数值只用于对照，不得为了匹配而修改新输出；明显差异返回
+`DISK_MEASUREMENT_MATERIAL_MISMATCH`。
+
+`MATERIALITY_AND_FINAL_CLOSURE_RULE` 只适用于本次 Correction 02。只有 LOCAL 后续验证 archive/sidecar/SHA、archive
+安全、完整 index、既有 `gmtp-compat` 身份、两条准确 GNU 命令与语义、完整 raw streams/exit codes、两个零退出码、
+两个值均低于 6 GiB、manifest/raw/summary 一致且无任何 mutation/download/smoke rerun 后，才必须关闭
+`W2_ATTEMPT1_EVIDENCE_BLOCKER`，把 Attempt 1 重分类为
+`VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER` 并接受 `REUSABLE_W2_PREFLIGHT_EVIDENCE`。非实质格式偏好不得
+制造新的包装 blocker；实质真实性、身份、可复现性、安全或资源问题继续 fail closed。
+
+当前事实尚未改变：W2 仍 `APPROVED / NOT COMPLETED / NOT ACCEPTED`；Attempt 1 仍 `EVIDENCE_REVIEW_BLOCKED`；blocker
+仍 open；H1 仍 approved but blocked/not started；S6.1-P1 与 Formal Experiment 仍 not started。Worker 成功状态只能是
+`W2_ATTEMPT1_CORRECTION02_EVIDENCE_READY_FOR_CONTROL_PLANE_REVIEW`，不是 W2/H1/GMTP/Formal acceptance。
+
 ## PO-MHEP 最高内部执行治理原则（2026-08-01）
 
 项目负责人正式确立 [PO-MHEP](docs/governance/project_owner_sovereignty_and_mandatory_escalation_principle.md)：
@@ -17,9 +41,9 @@ LOCAL 现在明确承担 `PRIMARY_CONTROL_PLANE / PROJECT_EXECUTION_LEAD / RESEA
 `COMPUTE_WORKER / NO_SELF_APPROVAL_AUTHORITY`。所有阶段前执行 `FORWARD_RISK_REVIEW`，论文关键节点执行
 `PAPER_RISK_REVIEW`，任务结束执行 `CONTEXT_PERSISTENCE_CHECK`。
 
-该治理升级没有改变 W2 事实：P0/L1 accepted；W2 approved but not completed/accepted；Attempt 1 evidence-blocked；
-`W2_ATTEMPT1_EVIDENCE_BLOCKER = OPEN`；H1 blocked/not started；P1/Formal Experiment not started。Correction 02 仅形成
-`CONTRACT_CANDIDATE / NOT APPROVED / NOT SENT / NOT EXECUTED`，等待项目负责人决定，未联系 RTX5090。
+该治理升级登记当时没有改变 W2 事实：P0/L1 accepted；W2 approved but not completed/accepted；Attempt 1
+evidence-blocked；`W2_ATTEMPT1_EVIDENCE_BLOCKER = OPEN`；H1 blocked/not started；P1/Formal Experiment not started。当时
+Correction 02 仅为候选；该历史快照现由上方 `PODR-057` 批准记录 supersede，但未发送/未执行事实继续成立。
 
 ## S6.1-R0-FU1-W2 Attempt 1 Correction 01 仍未关闭证据门（2026-08-01）
 

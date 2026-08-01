@@ -2,7 +2,8 @@
 
 ## 当前状态
 
-- 当前项目任务：`GOV-PO-MHEP = HUMAN_ACCEPTED / HIGHEST_INTERNAL_PROJECT_EXECUTION_AUTHORITY / PERMANENT`。
+- 当前项目任务：`S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02 = APPROVED_TO_START / NOT SENT / NOT EXECUTED`，仅允许
+  `RTX5090 / COMPUTE_WORKER` 执行 evidence-packaging correction。
 - Stage 6.1 子状态：`W2_ATTEMPT1_EVIDENCE_BLOCKER / CORRECTION_DU_COMMAND_EVIDENCE_MISSING`；W2 仍
   `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`；H1
   `APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS / BLOCKED_NOT_STARTED`。
@@ -25,12 +26,14 @@
   见 [redacted review](s6_1_r0_fu1_w2_attempt1_control_plane_review.md)。
 - Correction 01：外层 SHA、安全成员 `6/6`、index `4/4`、原 Attempt 绑定和主仓库现场证据通过；disk 数值与 manifest
   一致且低于 6 GiB，但没有捕获区分 apparent/allocated 的具体 `du` 命令、flags 与 raw output。
-- 当前 action：只返回上述最小 command-derived indexed evidence；H1 下载/bundle 与 W2 resume 均暂停。无需为 evidence
-  packaging 修正重跑 GMTP 或重建环境。
+- 当前 action：RTX5090 拉取准确批准提交后，只返回已冻结 GNU `du -sb`/`du -sB1`、工具/Conda/时间来源链及
+  command-derived indexed evidence；H1 下载/bundle 与 W2 resume 均暂停。无需重跑 GMTP 或重建环境。
 - Worker 状态：原 `FU1-W1 = SUPERSEDED_BY_LOCAL_L1 / NOT FAILED`；`FU1-W2 = READY_FOR_OWNER_EXECUTION_APPROVAL /
   NOT_YET_EXECUTED` 为历史快照；当前 W2 未完成/未验收，Attempt 1 evidence-blocked。本轮 LOCAL 不联系或执行 Worker。
 - Token economy：高推理/设计/审查任务优先 LOCAL；该资源原则不覆盖科学证据与安全治理。
-- Correction 02：仅存在 `CONTRACT_CANDIDATE / NOT APPROVED / NOT SENT / NOT EXECUTED`；等待项目负责人决定。
+- Correction 02：`APPROVED_TO_START / NOT SENT / NOT EXECUTED` under `PODR-057`。Worker 成功状态只能是
+  `W2_ATTEMPT1_CORRECTION02_EVIDENCE_READY_FOR_CONTROL_PLANE_REVIEW`；必须经过 LOCAL raw-evidence review 才能按
+  `MATERIALITY_AND_FINAL_CLOSURE_RULE` 关闭 blocker。
 
 ## 权威入口
 
@@ -48,7 +51,7 @@
 12. [Stage 6.1 Learning Guide](../../learning/stage6_1_hidden_poisoning.md)
 13. [S6.1-R0 Reproduction Preflight Definition](s6_1_r0_reproduction_preflight.md)
 14. [S6.1-R0-I Control Plane Review](s6_1_r0_i_control_plane_review.md)
-15. [S6.1-R0-FU1 Targeted Resolution and Correction 02 Candidate](s6_1_r0_fu1_targeted_resolution.md)
+15. [S6.1-R0-FU1 Targeted Resolution and Approved Correction 02 Contract](s6_1_r0_fu1_targeted_resolution.md)
 16. [W2 Attempt 1 Control Plane Review](s6_1_r0_fu1_w2_attempt1_control_plane_review.md)
 
 ## 下一审批门
@@ -56,5 +59,6 @@
 `S6.1-R0-FU1-P0 = HUMAN_ACCEPTED` 且 `S6.1-R0-FU1-L1 = HUMAN_ACCEPTED`。W2 Attempt 1 目前为
 `W2_ATTEMPT1_EVIDENCE_BLOCKER`；H1 虽已获 owner approval，但不得在 blocker 关闭前准备模型 bundle。S6.1-P1、Dataset
 freeze、Detector、training 和正式实验均未获批准。
-Correction 02 Worker Contract Candidate 必须由项目负责人明确批准后才能发送。
+Correction 02 已获批准，但本轮 LOCAL 不发送或执行；下一动作是 RTX5090 通过 owner-controlled handoff 拉取准确批准
+commit 并执行合同。返回后仍须 LOCAL 复核；当前 blocker、H1 stop、P1/Formal Experiment 关闭状态均不变。
 Auto Continue = NO。

@@ -774,3 +774,57 @@ Approval Gate、Auto Continue。
 - Next Step: project owner approves, rejects or modifies the Correction 02 Worker Contract Candidate.
 - Next Approval Gate: explicit Correction 02 owner decision；H1/P1/Formal Experiment remain closed by existing gates.
 - Auto Continue: `NO`
+
+## REL-2026-0018 — Correction 02 GNU du Provenance Final Evidence Correction Approval
+
+- Record ID: `REL-2026-0018`
+- Date: `2026-08-01`
+- Timestamp: `NOT_RECORDED`
+- Machine: `LOCAL`
+- Machine Role: `PRIMARY_CONTROL_PLANE / 5090_APPROVAL_AUTHORITY / CONTEXT_PRESERVATION_OWNER`
+- Stage: `Stage 6.1 / R0-FU1`
+- Task ID: `S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02`
+- Task Name: `W2 Attempt 1 GNU du Provenance Final Evidence Correction`
+- Task Type: `EVIDENCE_PACKAGING_CORRECTION_ONLY / GOVERNANCE_EXECUTION_APPROVAL_RECORD`
+- Initial Status: `CONTRACT_CANDIDATE / NOT APPROVED / NOT SENT / NOT EXECUTED`
+- Final Status: `APPROVED_TO_START / NOT SENT / NOT EXECUTED`
+- Objective: approve a final evidence-only correction that captures exact GNU apparent/allocated disk-measurement provenance for
+  the existing `gmtp-compat` environment without rerunning GMTP or changing the environment.
+- Why: Correction 01 is integrity-valid but cannot prove that its apparent and allocated byte fields came from distinct correct
+  GNU `du` semantics；a final materiality rule is needed to close substantive evidence gaps without infinite formatting churn.
+- Previous Gate: `PODR-056 / CORRECTION02_OWNER_APPROVAL_REQUIRED / W2_ATTEMPT1_EVIDENCE_BLOCKER OPEN`
+- Actions: registered `PODR-057`；promoted the existing candidate to an approved RTX5090 contract；froze `du -sb` versus
+  `du -sB1`, tool/platform/Conda/time provenance, raw-stream/exit capture, counts, manifest/index/archive requirements,
+  `DISK_MEASUREMENT_MATERIAL_MISMATCH`, Worker success wording and `MATERIALITY_AND_FINAL_CLOSURE_RULE`；completed
+  `FORWARD_RISK_REVIEW = PASS_WITH_GUARDRAILS` and `PAPER_RISK_REVIEW = PASS_WITH_CLAIMS_BOUNDARY`. LOCAL did not contact or
+  execute the Worker.
+- Files Changed: owner/current/execution/experiment/master/PO-MHEP snapshot, Stage README/learning notes, canonical FU1 contract
+  and semantic governance tests only. No business source, dataset, model, environment, Worker archive or protected history changed.
+- Commands: mandatory Git fetch/status/branch/HEAD/log/pull preflight；LOCAL documentation and governance validation only.
+- Validation: targeted context/governance `19 passed`；full architecture `101 passed`；namespace + label isolation `10 passed`；
+  Ruff passed；Markdown relative links `234` checked with `0` broken；10 changed files passed added-secret/private-path and UTF-8
+  no-BOM/LF checks；protected history/business paths and H1/model/Worker-archive changes `0`；runtime artifact ignore and
+  `git diff --check` passed. Pytest cache write warning is non-blocking. The first full-test invocation omitted `src` from
+  `PYTHONPATH` and referenced one stale test filename；the corrected repository invocation passed and no environment was modified.
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `PENDING_THIS_COMMIT; resolve with git log -1 -- docs/governance/research_execution_log.md`
+- Run ID: `N/A / GOVERNANCE_APPROVAL_ONLY`
+- Dataset Snapshot: unchanged；no dataset access/download/freeze.
+- Model / Revision: unchanged frozen W2 identities；no download/load.
+- Environment Identity: future Worker uses the existing registered `gmtp-compat`; LOCAL did not activate, inspect, install, mutate
+  or measure that environment.
+- Result Summary: Correction 02 is approved to start on RTX5090 but is not sent/executed；the evidence blocker is not closed.
+- Claims Allowed: exact Correction 02 approval, contract, materiality rule and preserved Worker/Control Plane boundary.
+- Claims Prohibited: Correction 02 sent/executed/accepted；Attempt 1 valid blocked/reusable evidence；W2 completed/accepted；H1
+  started；GMTP compatible；model/CUDA workload；P1/formal experiment/security/paper result.
+- Blockers: `W2_ATTEMPT1_EVIDENCE_BLOCKER` remains open until returned Correction 02 evidence passes separate LOCAL review.
+- Blocker ID: `W2_ATTEMPT1_EVIDENCE_BLOCKER OPEN`
+- Resolution: owner approval resolves `CORRECTION02_OWNER_APPROVAL_REQUIRED` only；it does not resolve the evidence blocker.
+- Owner Decisions: `PODR-056; PODR-057`
+- Design Changes: evidence provenance and final closure governance only；no algorithm/data/model/parameter/metric change.
+- Paper Impact: none as result evidence；prevents resource-provenance ambiguity from contaminating later reproducibility claims.
+- Architecture Impact: none to runtime；strengthens Worker/Control Plane and physical evidence boundaries.
+- Next Step: RTX5090 pulls the exact approval commit and executes only the approved Correction 02 contract, then returns the
+  indexed private archive for Control Plane review.
+- Next Approval Gate: LOCAL raw-evidence review under `MATERIALITY_AND_FINAL_CLOSURE_RULE`; H1/P1/Formal Experiment remain closed.
+- Auto Continue: `NO`
