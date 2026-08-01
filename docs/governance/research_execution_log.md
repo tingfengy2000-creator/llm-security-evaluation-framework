@@ -976,3 +976,42 @@ Approval Gate、Auto Continue。
 - Next Step: project owner transfers the approval commit and exact Git-external bundle to 5090；5090 runs H2-A, conditionally one H2-B, then stops and returns evidence to 本机.
 - Next Approval Gate: 本机 independent H2 evidence review and project-owner decision；S6.1-P1 remains closed.
 - Auto Continue: `CONDITIONAL_WITHIN_H2_ONLY`
+
+## REL-2026-0022 — H2 Resume 01 Blocker Reviewed and Resume 02 Namespace Approved
+
+- Record ID: `REL-2026-0022`
+- Date: `2026-08-01`
+- Timestamp: `2026-08-01T22:41:56+08:00`
+- Machine: `本机`
+- Machine Role: `GOVERNANCE_CONTROL_PLANE / EVIDENCE_REVIEW`
+- Stage: `Stage 6.1 / Paper 1 / FU1-W2-H2`
+- Task ID: `S6.1-R0-FU1-W2-H2-RESUME-02`
+- Task Name: `Additive Evidence Namespace Rollover and Conditional H2 Resume`
+- Task Type: `EVIDENCE_REVIEW / OWNER_APPROVAL / NO_LOCAL_MODEL_EXECUTION`
+- Initial Status: resume_01 `OFFLINE_BUNDLE_SHA_BLOCKER`; bundle later synced；nonempty resume_01 causes `EVIDENCE_CAPTURE_BLOCKER` for reuse.
+- Final Status: `RESUME_02 APPROVED_TO_START / NOT EXECUTED`
+- Objective: 保留 resume_01 不可变证据，在全新 resume_02 从完整 H2-A 重新开始，不改变任何科学或运行合同。
+- Why: 覆盖或删除 resume_01 会改写历史；新 evidence namespace 是最小 additive correction，且 H2-B 从未执行、call_count 为零。
+- Previous Gate: `PODR-059 / H2 conditional approval`.
+- Actions: 核验 returned archive/sidecar SHA；流式检查 archive safety；独立复算 19/19 index；核对 Git/environment/blocker/call_count；定位本机冻结 bundle；确认 owner 已同步 bundle/sidecar；批准 resume_02 path/archive；同步治理文档与测试。
+- Validation: resume_01 archive `4570` bytes、SHA256 `941557aa00be58210015165078bbb3c1cbdd2250cab0755c37198e7b7e26e89d`；20 regular files/1 directory；no unsafe members；top-level only resume_01；evidence index `19/19 PASS`；environment pre/post SHA equal；H2-B false；call_count 0；parent W2 unchanged.
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `PENDING_THIS_COMMIT; resolve with git log -1 -- docs/governance/research_execution_log.md`
+- Approval Base Commit: `2f492dc763e865105510cc8cb141ebde5e109b3e`
+- Run ID: `RUN-H2-R01 review / RUN-H2-R02 approval`
+- Dataset Snapshot: `UNCHANGED / NOT FROZEN`
+- Model / Revision: unchanged frozen Contriever/BERT revisions；bundle/sidecar owner-confirmed synchronized；no model extraction/load on 本机.
+- Environment Identity: resume_01 explicit spec SHA `62981f4747156189f7870958da8ea7bc2fc0ead49c78bb6463e9fd284bb65961` unchanged pre/post.
+- Result Summary: resume_01 is accepted valid blocker evidence；resume_02 is approved only as a new evidence namespace.
+- Claims Allowed: fail-closed blocker/evidence integrity；bundle presence and outer size/SHA owner confirmation；resume_02 governance approval.
+- Claims Prohibited: full H2-A pass, model index/load, GMTP result/effectiveness/reproduction, W2 completion/acceptance, P1, Dataset, Detector, Training, Our Method Result or Formal Experiment.
+- Blockers: complete H2-A and H2-B evidence remain pending.
+- Blocker ID: resume_01 `OFFLINE_BUNDLE_SHA_BLOCKER` closed as historical run outcome；reuse conflict `EVIDENCE_CAPTURE_BLOCKER` resolved only by owner-approved additive resume_02 namespace.
+- Resolution: preserve resume_01; use `~/experiments/s6_1_r0_fu1/w2/resume_02`; output `s6_1_r0_fu1_w2_resume02_evidence_20260801.tar.gz` and sidecar.
+- Owner Decisions: `PODR-060`; owner requirement `OR-018`.
+- Design Changes: evidence paths/names only；no source/input/model/parameter/environment/resource/metric change.
+- Paper Impact: provenance improvement only；no experimental or paper result.
+- Architecture Impact: preserves immutable evidence and fail-closed execution semantics.
+- Next Step: 5090 syncs this governance commit, verifies resume_02 absent/empty, runs complete H2-A, conditionally one H2-B, packages resume02 evidence, and stops.
+- Next Approval Gate: 本机 independent resume02 evidence review；S6.1-P1 remains closed.
+- Auto Continue: `CONDITIONAL_WITHIN_H2_ONLY`

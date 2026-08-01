@@ -1,5 +1,23 @@
 # LLMGuard 项目总控文档
 
+## H2 resume_01 受阻证据已复核，resume_02 命名空间已批准（2026-08-01）
+
+5090 的 H2 `resume_01` 因 bundle/sidecar 当时缺失而在 H2-A gate 1--4 fail closed；gate 5--18 未执行，H2-B 未执行，
+`call_count=0`。Returned evidence archive 大小 `4570` bytes、SHA256
+`941557aa00be58210015165078bbb3c1cbdd2250cab0755c37198e7b7e26e89d`。本机流式复核确认 archive 只有 resume_01、20 个
+regular files、1 个 directory、无危险成员，内部 evidence index `19/19 PASS`；环境 explicit-spec pre/post SHA 一致。
+
+项目需求提出人随后确认冻结 bundle 与 sidecar 已同步到 5090，archive size `1222137698` 与 SHA256
+`aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45` 匹配。但原合同禁止覆盖或删除非空 resume_01，
+因此重用该路径会触发 `EVIDENCE_CAPTURE_BLOCKER`。项目需求提出人通过 `PODR-060` 批准只把证据命名空间滚动到
+`~/experiments/s6_1_r0_fu1/w2/resume_02`，并冻结新 archive
+`s6_1_r0_fu1_w2_resume02_evidence_20260801.tar.gz` 及 sidecar。
+
+Resume_01 永久保留；resume_02 必须不存在或为空，否则停止且不得自动创建 resume_03。5090 必须从完整 H2-A 开始，
+bundle/model/source/input/environment/parameters/resources/offline/claims 合同全部不变。H2-B 的唯一一次调用授权尚未使用；
+只有 resume_02 H2-A 全部通过才可调用。父 W2、P1、Dataset、Detector、Training、Our Method Result 与 Formal Experiment
+状态不变。
+
 ## H2 离线模型包验证与条件式 detection-core 恢复已批准（2026-08-01）
 
 项目需求提出人已批准 `S6.1-R0-FU1-W2-H2 / Offline Model Bundle Verification and Conditional GMTP Detection-Core

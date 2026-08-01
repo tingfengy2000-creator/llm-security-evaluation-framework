@@ -166,3 +166,13 @@ H2 把一个工程门拆成先后两个不可颠倒的部分：H2-A 先证明 50
 
 初学者常见误区是把 `Auto Continue = CONDITIONAL_WITHIN_H2_ONLY` 理解为自动进入下一阶段。它只允许 H2-A PASS 后
 进入同一 H2 的一次 H2-B；完成或任一 blocker 都必须返回本机，父 W2 仍需独立复核，P1 与正式实验没有获批。
+
+## H2 resume_02：不可变证据需要追加命名空间（2026-08-01）
+
+Resume_01 在 bundle 缺失时正确停止，并生成了可验证的 blocker evidence。Bundle 后续到位后，覆盖 resume_01 虽然
+看似省事，却会让审计者无法区分“第一次确实缺包”和“第二次包已到位”两个时间点。正确做法是保留原目录与 archive，
+由项目需求提出人明确批准全新 resume_02；这叫 additive evidence namespace rollover，不是删除失败记录后重跑。
+
+企业价值是让失败证据、补救决定和后续执行同时可追溯。面试可追问：为什么 H2-B 仍可执行一次？因为 resume_01 在
+H2-A 就停止，`call_count=0`，原单次调用授权尚未消费。初学者常见误区是把新目录理解为新实验；本次只改变证据路径，
+源码、输入、模型、参数、资源和 claims boundary 全部不变。

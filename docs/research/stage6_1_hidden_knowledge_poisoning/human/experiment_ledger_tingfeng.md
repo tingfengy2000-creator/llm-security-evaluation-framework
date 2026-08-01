@@ -4,7 +4,7 @@
 
 ## 一分钟项目状态
 
-Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍是 Benchmark、Detection、Risk Score、Signals 与 Explanation。LR1、P0、L1 已人工验收；R0 带 blocker 验收。H1 离线模型包已由本机准备并验证。H2 已批准，但尚未发送或执行：5090 必须先通过 H2-A 包完整性门，才可条件执行一次 H2-B 双文档 GMTP 工程 smoke；完成或遇到 blocker 后立即停止并返回本机复核。父 W2 仍未完成、未验收，P1 与正式实验未开始，也没有正式论文结果。最大工程风险是离线加载与 detection-core 尚未实证；最大论文风险仍是把单次工程 smoke 误写为检测效果或复现结果。
+Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍是 Benchmark、Detection、Risk Score、Signals 与 Explanation。LR1、P0、L1 已人工验收；R0 带 blocker 验收。H2 `resume_01` 因 bundle/sidecar 尚未同步而 fail closed，证据已由本机复核，H2-B 未执行、`call_count=0`。项目需求提出人随后确认 bundle 与 sidecar 已同步到 5090；为保留非空历史证据，现批准使用全新 `resume_02` 从 H2-A 重新开始。父 W2 仍未完成、未验收，P1 与正式实验未开始，也没有正式论文结果。
 
 ## 1. 论文与项目基本信息
 
@@ -17,7 +17,7 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍
 | 当前分支 | `research/stage6-1-hidden-poisoning` |
 | 当前提交 | 文档来源提交 `b922fb9091159a01bd5baad8ee1224d36a665e0d` |
 | 当前阶段 | S6.1-R0-FU1 |
-| 当前任务 | `S6.1-R0-FU1-W2-H2` 已批准；等待项目需求提出人将批准提交与 Git-external bundle 交给 5090 |
+| 当前任务 | `S6.1-R0-FU1-W2-H2-RESUME-02` 已批准；bundle/sidecar 已到 5090，等待在全新证据目录重新执行 H2-A |
 | 上下文恢复治理 | `HUMAN_ACCEPTED（人工验收通过）` |
 | 正式实验状态 | `NOT STARTED（尚未开始）` |
 | 我们的方法结果 | `NONE（尚无正式方法结果）` |
@@ -30,7 +30,7 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍
 | --- | --- | --- | --- | --- | --- |
 | S6.1-LR1 | 论文路线与外部基线对齐 | `HUMAN_ACCEPTED` | 路线、对齐矩阵、协议、工件登记 | 外部项目角色已区分，尚非统一严格比较 | 作为方案与后续协议输入 |
 | S6.1-R0 | 复现环境与可行性预检 | `HUMAN_ACCEPTED_WITH_BLOCKERS` | 环境、源码、数据工件与证据合同 | 工程可行性已识别，目标阻塞仍存在 | 由 FU1 定向处理 |
-| S6.1-R0-FU1 | 定向解除基线阻塞 | `H2 APPROVED / NOT SENT / NOT EXECUTED` | P0、L1、W2 证据、H1 模型包与 H2 冻结合同 | P0/L1 已验收；W2 未完成 | 5090 先 H2-A，通过后仅执行一次 H2-B |
+| S6.1-R0-FU1 | 定向解除基线阻塞 | `H2 RESUME_02 APPROVED / NOT EXECUTED` | P0、L1、W2 证据、H1 模型包、resume_01 blocker evidence 与 H2 冻结合同 | resume_01 合规受阻；W2 未完成 | 5090 在 resume_02 重新执行 H2-A，通过后仅执行一次 H2-B |
 | S6.1-P1 | 正式实验协议冻结 | `NOT STARTED` | 预期为冻结协议 | 尚无准入授权 | 等待前置门关闭与人工批准 |
 | 中文 Benchmark 构建 | 版本链与隐蔽污染数据 | `NOT STARTED / DATASET NOT FROZEN` | 预期为冻结数据快照 | 尚未构建 | 先完成协议审批 |
 | 多视角 Detector 实现 | 五视角检测与风险评分 | `PLANNED / NOT IMPLEMENTED` | 预期为检测器实现 | 无实现结果 | 等待数据与协议 |
@@ -87,12 +87,12 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍
 - 当前状态：P0/L1 `HUMAN_ACCEPTED`；W2 `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`。
 - 证据状态：`W2_ATTEMPT1_EVIDENCE_BLOCKER = RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW`；这只关闭证据缺口。
 - H1 状态：`OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION`。
-- H2 状态：`APPROVED_TO_START / NOT SENT / NOT EXECUTED`；`Auto Continue = CONDITIONAL_WITHIN_H2_ONLY`。
+- H2 状态：`resume_01 = VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER`；`resume_02 = APPROVED_TO_START / NOT EXECUTED`；`Auto Continue = CONDITIONAL_WITHIN_H2_ONLY`。
 - 进入条件：R0 带阻塞项验收并批准 FU1。
 - 执行机器：本机负责规划、证据闭环和离线资产准备；5090负责受控运行与独立验证。
 - 关键输入：PoisonedRAG 发布攻击文本、GMTP 检测输入、固定模型 revision。
 - 数据、模型与源码身份：完整身份见阶段过程；模型 revision 为 `abe8c149…` 与 `86b5e093…`。
-- 核心执行步骤：P0 工件验证、L1 静态调用链、W2 Attempt 1、Correction 01/02、H1 离线模型包；H2 已冻结但尚未执行。
+- 核心执行步骤：P0 工件验证、L1 静态调用链、W2 Attempt 1、Correction 01/02、H1 离线模型包、H2 resume_01 fail-closed 证据；resume_02 尚未执行。
 - 关键运行命令：环境启动；GMTP detection-core 入口；证据索引验证；结果生成入口。
 - 输出文件：Correction 02 archive 与 H1 model bundle；均未进入 Git。
 - 实验或工程结果：W2 Attempt 1 为 `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER`；H1 仅为本机已准备资产。
@@ -101,7 +101,7 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍
 - 不能得出的结论：不能声称模型已在 5090 加载、GMTP 已跑通、W2 已验收或产生论文结果。
 - 失败和 blocker：Attempt 1 模型下载阻塞；当前仍需 5090 验证 H1。
 - 解决情况：Correction 02 已关闭证据缺口；计算执行仍待审批。
-- 当前下一步：项目需求提出人把批准提交和 Git-external bundle 交给 5090；5090 先执行 H2-A，只有全部实质条件通过才可执行一次 H2-B，随后停止并返回本机复核。
+- 当前下一步：5090 同步 resume_02 批准提交，在全新证据目录执行完整 H2-A；只有全部实质条件通过才可执行一次尚未使用的 H2-B，随后停止并返回本机复核。
 - 详细过程链接：[S6.1-R0-FU1_work_process.md](../stage_process/S6.1-R0-FU1_work_process.md)。
 
 ## 4. 结果分类
@@ -133,6 +133,8 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍
 | E-H1-ENC | FU1/H1 | Encoder 固定身份，8 files / 438708922 bytes | `facebook/contriever-msmarco` | `abe8c1493371369031bcb1e02acb754cf4e162fa` | 本机已准备 |
 | E-H1-MLM | FU1/H1 | MLM 固定身份，9 files / 881643453 bytes | `google-bert/bert-base-uncased` | `86b5e0934494bd15c9632b12f734a8a67f723594` | 本机已准备 |
 | E-H2-APPROVAL | FU1/H2 | 项目需求提出人批准条件式 H2；尚未发送或执行 | 审批基础 `212911a21dc35bef05b15fb840542403c415dd13` | H2 合同见 FU1 工作过程 | `APPROVED_TO_START / NOT SENT / NOT EXECUTED` |
+| E-H2-R01 | FU1/H2 | resume_01 因 bundle/sidecar 缺失合规停止；H2-B 未执行 | 4,570-byte archive | `941557aa00be58210015165078bbb3c1cbdd2250cab0755c37198e7b7e26e89d`；19/19 PASS | `OFFLINE_BUNDLE_SHA_BLOCKER`；本机复核通过 |
+| E-H2-R02-APPROVAL | FU1/H2 | bundle/sidecar 已到 5090；项目需求提出人批准新证据命名空间 | `resume_02`；不可覆盖 resume_01 | 新 resume02 archive 待生成 | `APPROVED_TO_START / NOT EXECUTED` |
 
 模型总字节数为 `1320352375`。完整细节见对应阶段过程、证据复核、项目实验主记录与 Git 外部私有归档；私有绝对路径不写入 Git。
 
@@ -148,7 +150,7 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍
 
 ## 7. 当前风险
 
-- 工程风险：H2 尚未发送或执行；H1 尚未由 5090 独立核验、离线加载，GMTP detection-core 未完成。
+- 工程风险：bundle presence/outer identity 已报告匹配，但完整 H2-A、离线加载与 GMTP detection-core 仍未完成；resume_02 必须避免再次与非空证据目录冲突。
 - 架构风险：外部代码的隐藏依赖可能在受控 smoke 中再次暴露。
 - 实验风险：数据、参数、种子、正式指标和统计协议尚未冻结。
 - 论文风险：工程可行性、公开论文结论、复现结果和本项目结果若混写会导致不可支持的主张。
@@ -156,7 +158,7 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍
 
 ## 8. 下一步
 
-- P0：执行已批准的 H2：5090 先完成 H2-A；只有 18 项 bundle 条件、冻结环境与离线条件全部通过，才执行一次 H2-B 双文档 smoke；随后返回本机复核。
+- P0：执行已批准的 resume_02：保留 resume_01，在全新目录完成 H2-A；只有 18 项 bundle 条件、冻结环境与离线条件全部通过，才执行一次 H2-B 双文档 smoke；随后返回本机复核。
 - P1：仅在 W2 与前置门正式关闭后，提交 S6.1-P1 协议冻结申请；当前不得启动。
 - P2：协议获批后才讨论中文 Benchmark 构建、多视角 Detector、Formal Evaluation、消融和泛化。
 

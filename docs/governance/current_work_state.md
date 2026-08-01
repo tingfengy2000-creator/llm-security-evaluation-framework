@@ -16,15 +16,15 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-R0-FU1-W2-H2` following H1 artifact preparation.
-- Task name: `Offline Model Bundle Verification and Conditional GMTP Detection-Core Resume`.
-- Task type: **CONDITIONAL_ENGINEERING_VALIDATION_ONLY**.
-- Status: **APPROVED_TO_START / NOT SENT / NOT EXECUTED**.
+- Task ID: `S6.1-R0-FU1-W2-H2-RESUME-02` following valid blocked resume_01 evidence.
+- Task name: `Additive Evidence Namespace Rollover and Conditional H2 Resume`.
+- Task type: **EVIDENCE_NAMESPACE_ROLLOVER / CONDITIONAL_ENGINEERING_VALIDATION_ONLY**.
+- Status: **APPROVED_TO_START / NOT EXECUTED**.
 - Execution machine: **5090**. 本机 performed only approval registration, contract freeze, documentation synchronization and Git;
   it did not extract/load a model, run GMTP/harness, use a GPU or contact 5090.
-- Current ordered step: after this approval commit is synchronized, the project owner may transfer the exact Git-external bundle
-  and approval commit to 5090. H2-A must pass in full before exactly one H2-B two-document call. Completion or any blocker returns
-  evidence to 本机 and stops. `Auto Continue = CONDITIONAL_WITHIN_H2_ONLY`.
+- Current ordered step: bundle/sidecar are owner-confirmed synchronized to 5090 with matching size/SHA. After this rollover commit
+  is synchronized, 5090 preserves nonempty resume_01 and starts complete H2-A in new resume_02. H2-A must pass in full before the
+  still-unused single H2-B call. Completion or any blocker returns evidence to 本机 and stops. `Auto Continue = CONDITIONAL_WITHIN_H2_ONLY`.
 - Historical superseded H2 snapshot: `PROPOSED / NOT CANONICAL / NOT APPROVED`; preserve as history.
 - Formal RAG security experiment: **NOT STARTED**.
 - Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.
@@ -51,7 +51,9 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `algorithm_failure=false`；`GMTP_incompatibility=not established`.
 - S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-01 gap: **RESOLVED_BY_CORRECTION_02**.
 - S6.1-R0-FU1-W2-H1: **OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION**.
-- S6.1-R0-FU1-W2-H2: **APPROVED_TO_START / NOT SENT / NOT EXECUTED**.
+- S6.1-R0-FU1-W2-H2: **IN_PROGRESS / RESUME_02 APPROVED / H2-B NOT EXECUTED**.
+- S6.1-R0-FU1-W2-H2-RESUME-01: **VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER / H2-B NOT EXECUTED / call_count=0**.
+- S6.1-R0-FU1-W2-H2-RESUME-02: **APPROVED_TO_START / NOT EXECUTED**.
 - S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02: **CONTROL_PLANE_REVIEW_PASS / FINAL_CLOSURE_APPLIED** under
   `PODR-057` and `PODR-058`.
 - S6.1-P1: **NOT STARTED / REQUIRES ACCEPTED W2 EVIDENCE AND SEPARATE P1 APPROVAL**.
@@ -179,9 +181,9 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
 - Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
   evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- Next operational action: owner-controlled transfer of the approval commit and exact Git-external H1 bundle to 5090. H2-A must
-  verify the frozen bundle/environment/offline contract in full; only then may H2-B make exactly one frozen two-document call.
-  H2 completion or any blocker returns to 本机 review；S6.1-P1 is not automatically authorized。
+- Next operational action: synchronize the resume_02 rollover commit to 5090, preserve resume_01, and execute H2-A from the
+  beginning in a new evidence directory. Only a full pass permits the still-unused single H2-B call. No automatic resume_03 is
+  authorized；S6.1-P1 is not automatically authorized。
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. Its acceptance does not approve S6-T5.6 ContextBuilder behavior; that remains a separate boundary.
@@ -198,7 +200,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Automatic 5090 contact/transmission by Codex or any replay of Correction 02. Its evidence-only run and 本机 review are complete.
 - On 本机: any external baseline workload, archive extraction, model loading, GMTP/harness smoke, dataset acquisition, GPU computation or formal
   experiment. The narrowly approved H1 public-artifact download is complete and grants no continuing download authority.
-- On 5090: H2-B before complete H2-A pass；more than one call；anything beyond the exact frozen H2 contract；network fallback、
+- On 5090: overwrite/delete/rename resume_01；use nonempty resume_02；automatic resume_03；H2-B before complete H2-A pass；more than one call；anything beyond the exact frozen H2 contract；network fallback、
   environment mutation、algorithm reimplementation、silent source patch、parameter/input/model substitution or formal workload。
 - Everywhere: any unapproved FU1 Worker execution、S6.1-P1、Detector implementation、dataset freeze/construction、training、Paper Result、
   formal experiment or SOTA comparison。
@@ -208,8 +210,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Claims Boundary
 
-Can additionally claim: H2 is owner-approved but not sent or executed；its H2-A/H2-B conditional contract is frozen and permits
-one H2-B call only after a complete H2-A pass。Correction 02 passed 本机 raw-evidence review and the final materiality rule closed the historical
+Can additionally claim: H2 resume_01 produced valid fail-closed evidence for a missing bundle/sidecar；its 4,570-byte archive SHA
+`941557aa00be58210015165078bbb3c1cbdd2250cab0755c37198e7b7e26e89d`, safe 20-file/1-directory layout and 19/19 index passed 本机 review；H2-B did not execute and call_count is zero。Bundle/sidecar are now owner-confirmed synchronized with matching outer size/SHA；resume_02 is approved solely as an additive evidence namespace。Correction 02 passed 本机 raw-evidence review and the final materiality rule closed the historical
 `W2_ATTEMPT1_EVIDENCE_BLOCKER`。Attempt 1 is `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER`, with the narrow reusable
 preflight boundary recorded above。H1 prepared two exact-revision offline model snapshots and an integrity-checked transfer bundle
 that is still pending 5090 verification。P0 and L1 are `HUMAN_ACCEPTED`；the exact released NQ attack-text artifact identity, all 100 records and
@@ -220,7 +222,7 @@ baseline roles remain unchanged。PO-MHEP is permanently accepted as the highest
 
 Can claim: within the offline engineering-test scope, the `S6-T5 Controlled Retrieval and Traceable Context Baseline` is HUMAN_ACCEPTED. It comprises deterministic and label-isolated retrieval runtime contracts, provider-neutral DenseRetriever, the synthetic ContentResolver, EvidenceEnvelope/Citation boundaries, deterministic Context Package behavior, and S6-T5.7 controlled integration evidence including an opt-in fixed MiniLM plus temporary Chroma close/reopen check. `4ecf73a` is the accepted baseline content commit; the current governance acceptance commit is not an implementation or integration-evidence commit. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
-Cannot claim: H2 was sent or executed；models were loaded；the H1 bundle was verified by 5090；GMTP was rerun or found compatible/incompatible；detector
+Cannot claim: complete H2-A passed；models were loaded；the full H1 bundle/model index was verified by 5090；GMTP was rerun or found compatible/incompatible；detector
 scores, runtime/RSS/VRAM or security effectiveness exist；W2 completed/was accepted；any
 external baseline was reproduced；strict comparison is ready；SafeRAG pipeline is ready；dataset/
 Detector/Our Method/training/result exists；or retrieval quality/security, SOTA, production readiness or formal-experiment outcomes
@@ -236,6 +238,6 @@ are established.
 ## Last Update
 
 - Date: `2026-08-01`.
-- Updated by: Codex registering the project owner's conditional H2 approval and freezing H2-A bundle verification plus one H2-B
-  two-document detection-core call under `PODR-059`. No archive extraction, model load, GMTP/harness/GPU or 5090 contact occurred；
-  H2 remains not sent/not executed；parent W2 remains not completed/not accepted；P1 and Formal Experiment remain not started.
+- Updated by: Codex independently reviewing resume_01 valid blocker evidence and registering the project owner's bundle-sync
+  confirmation plus additive resume_02 namespace approval under `PODR-060`. No model load, GMTP/harness/GPU or H2-B occurred on
+  本机；parent W2 remains not completed/not accepted；P1 and Formal Experiment remain not started.

@@ -8,7 +8,7 @@ paper_identity:
   chinese_title: 面向中文检索增强生成系统的版本感知隐蔽知识污染基准与多视角解毒方法
   english_working_title: Stealthy Factual Poisoning in Versioned RAG Knowledge Bases - A Benchmark and Multi-View Detection Framework
 current_branch: research/stage6-1-hidden-poisoning
-current_commit: 212911a21dc35bef05b15fb840542403c415dd13
+current_commit: 2f492dc763e865105510cc8cb141ebde5e109b3e
 research_objective: Chinese version-aware stealthy knowledge poisoning benchmark and multi-view detection
 research_boundary: [Benchmark, Detection, Risk Score, Signals, Explanation]
 accepted_stages:
@@ -18,14 +18,14 @@ accepted_stages:
   S6.1-R0-FU1-P0: HUMAN_ACCEPTED
   S6.1-R0-FU1-L1: HUMAN_ACCEPTED
 current_stage: S6.1-R0-FU1
-current_task: H2 approved, not sent, not executed; 5090 H2-A then conditional single H2-B
+current_task: H2 resume_01 valid blocked evidence preserved; resume_02 approved for fresh H2-A; conditional single H2-B still unused
 current_blockers:
-  - H2 execution evidence absent because task is not sent or executed
-  - H1 not verified or loaded on 5090
+  - full H2-A and model identity/load verification pending in resume_02
   - GMTP detection-core incomplete
   - parent W2 not completed or accepted
 resolved_blockers:
   - W2_ATTEMPT1_EVIDENCE_BLOCKER resolved by Correction 02 control-plane review
+  - resume_01 OFFLINE_BUNDLE_SHA_BLOCKER accurately captured and reviewed; bundle/sidecar later synced
 machine_responsibilities:
   本机: planning, static analysis, evidence review, light artifact preparation, governance
   5090: explicitly approved compute execution and independent artifact verification
@@ -42,19 +42,24 @@ evidence_identities:
   h1_bundle_sha256: aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45
   h1_model_index: 19/19 PASS
   h1_bundle_source_bytes: 1320359518
+  h2_resume01_sha256: 941557aa00be58210015165078bbb3c1cbdd2250cab0755c37198e7b7e26e89d
+  h2_resume01_index: 19/19 PASS
+  h2_resume01_call_count: 0
 approval_identity:
   h2_approval_base_commit: 212911a21dc35bef05b15fb840542403c415dd13
-  H2: APPROVED_TO_START / NOT SENT / NOT EXECUTED
+  h2_resume02_approval_base_commit: 2f492dc763e865105510cc8cb141ebde5e109b3e
+  H2_resume01: VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER
+  H2_resume02: APPROVED_TO_START / NOT EXECUTED
   auto_continue: CONDITIONAL_WITHIN_H2_ONLY
 current_claims:
   - engineering identities and evidence closure only
-  - H1 bundle prepared and verified on 本机 only
+  - H1 bundle prepared on 本机; presence and outer size/SHA reported matched on 5090
 prohibited_claims:
   - model verified or loaded on 5090
   - GMTP or W2 completed or accepted
   - complete strict baseline reproduction
   - any formal Paper 1 result
-next_decision_gate: project owner transfers approval commit and bundle; 5090 executes H2-A, conditionally one H2-B, then stops for 本机 review
+next_decision_gate: 5090 syncs resume_02 approval commit, preserves resume_01, executes fresh H2-A and conditionally one H2-B, then stops for 本机 review
 canonical_files:
   owner_requirements: ../human/owner_requirement_register.md
   research_plan: ../human/research_plan_authority.md
@@ -125,3 +130,13 @@ Live Git and raw evidence override stale snapshot fields. Owner-confirmed requir
 - 当时证据：项目需求提出人本轮明确批准；bundle、模型、源码、输入、参数、离线、资源和证据合同已物理冻结。
 - 当时下一步：项目需求提出人将批准提交与 Git-external bundle 交给 5090；H2-A 全通过后才允许一次 H2-B；完成或任一 blocker 后返回本机复核。
 - 后续替代决定：supersede 旧 `H2 = PROPOSED / NOT CANONICAL / NOT APPROVED` 历史快照；不批准 P1、数据集、Detector、训练或正式实验。
+
+### Context Checkpoint — 2026-08-01 — H2-resume-02-rollover
+
+- 当时阶段：S6.1-R0-FU1 / W2-H2。
+- 当时任务：保护 resume_01 历史并批准全新 resume_02 证据命名空间。
+- 当时状态：resume_01 为 `VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER`；H2-B 未执行、`call_count=0`；resume_02 为 `APPROVED_TO_START / NOT EXECUTED`。
+- 当时 blocker：bundle 后续到位后，非空 resume_01 按合同触发 `EVIDENCE_CAPTURE_BLOCKER`，不得覆盖或删除。
+- 当时证据：resume_01 archive 4,570 bytes、SHA256 `941557aa00be58210015165078bbb3c1cbdd2250cab0755c37198e7b7e26e89d`；本机安全复核 20 files/1 directory、index 19/19；项目需求提出人确认 bundle/sidecar 已同步到 5090 且 size/SHA 匹配。
+- 当时下一步：5090 同步新的治理提交，在全新 resume_02 从完整 H2-A 开始；只有全部通过才可使用尚未消费的一次 H2-B 授权。
+- 后续替代决定：无；不授权覆盖 resume_01、自动 resume_03、P1 或 Formal Experiment。

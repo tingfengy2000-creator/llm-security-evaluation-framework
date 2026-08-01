@@ -878,3 +878,32 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   detox-method scope (`SCOPE_CONFIRMATION_REQUIRED`).
 - Canonical contract: [FU1 work process](../research/stage6_1_hidden_knowledge_poisoning/stage_process/S6.1-R0-FU1_work_process.md),
   [Current Work State](current_work_state.md), and `REL-2026-0021`.
+
+## PODR-060: H2 Resume 02 Additive Evidence Namespace Rollover Approval
+
+- Date: `2026-08-01`.
+- Decision: 项目需求提出人确认 bundle 与 sidecar 已同步到 5090，size `1222137698` 与 SHA256
+  `aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45` 匹配；批准保留非空 resume_01，并在全新
+  `~/experiments/s6_1_r0_fu1/w2/resume_02` 从 H2-A 重新开始。
+- Approval base commit: `2f492dc763e865105510cc8cb141ebde5e109b3e`.
+- Resume 01 evidence: archive size `4570` bytes；SHA256
+  `941557aa00be58210015165078bbb3c1cbdd2250cab0755c37198e7b7e26e89d`；本机流式复核确认 20 regular files、1 directory、
+  no unsafe members、top-level only resume_01 and evidence index `19/19 PASS`.
+- Resume 01 result: `OFFLINE_BUNDLE_SHA_BLOCKER`；H2-B not executed；`call_count=0`；environment explicit pre/post SHA
+  `62981f4747156189f7870958da8ea7bc2fc0ead49c78bb6463e9fd284bb65961` unchanged.
+- Rollover reason: bundle 后续到位时，原合同禁止覆盖或删除非空 resume_01；继续写入会触发
+  `EVIDENCE_CAPTURE_BLOCKER`。新目录是不可变证据保全所需的 additive namespace，不是算法、输入或实验重试。
+- Resume 02 status: `APPROVED_TO_START / NOT EXECUTED`.
+- New archive: `/mnt/e/LLMGuard-Handoff/s6_1_r0_fu1_w2_resume02_evidence_20260801.tar.gz` plus `.sha256`；archive 只能包含
+  `resume_02`.
+- Unchanged contract: bundle/model/source/input/environment/parameters/resources/offline variables/18 H2-A gates/claims boundary
+  全部保持 PODR-059；H2-B 的唯一一次调用授权尚未使用。
+- Stop: resume_02 开始前必须不存在或为空；若非空，登记 `EVIDENCE_CAPTURE_BLOCKER` 并停止。不得自动创建 resume_03，
+  不得覆盖、删除、改名或合并 resume_01。
+- Forward risk review: `PASS_FOR_ADDITIVE_RESUME_02`; preserving immutable evidence prevents history rewriting while avoiding any
+  scientific or runtime contract drift.
+- Paper risk review: `PASS_WITH_ENGINEERING_ONLY_CLAIMS`; no metric, effectiveness, reproduction, safety or paper result exists.
+- Preserved gates: parent W2 remains `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`; S6.1-P1, Dataset, Detector, Training,
+  Our Method Result and Formal Experiment remain unchanged/not started.
+- Canonical contract: [FU1 work process](../research/stage6_1_hidden_knowledge_poisoning/stage_process/S6.1-R0-FU1_work_process.md),
+  [Current Work State](current_work_state.md), and `REL-2026-0022`.

@@ -840,6 +840,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("它不是 Paper 1 人类实验总账", audit)
         self.assertEqual(1, audit.count("## REL-2026-0020"))
         self.assertEqual(1, audit.count("## REL-2026-0021"))
+        self.assertEqual(1, audit.count("## REL-2026-0022"))
 
     def test_human_docs_are_chinese_first_without_long_english_blocks(self) -> None:
         for path in HUMAN_DIR.glob("*.md"):
@@ -909,9 +910,18 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             with self.subTest(state=state):
                 self.assertIn(state, human)
                 self.assertIn(state, agent)
-        self.assertIn("S6.1-R0-FU1-W2-H2: APPROVED_TO_START / NOT SENT / NOT EXECUTED", agent)
+        self.assertIn(
+            "S6.1-R0-FU1-W2-H2-RESUME-01: VALID_BLOCKED_EVIDENCE / "
+            "OFFLINE_BUNDLE_SHA_BLOCKER / H2-B NOT EXECUTED / call_count=0",
+            agent,
+        )
+        self.assertIn(
+            "S6.1-R0-FU1-W2-H2-RESUME-02: APPROVED_TO_START / NOT EXECUTED",
+            agent,
+        )
         self.assertIn("H2_historical_preapproval: PROPOSED / NOT CANONICAL / NOT APPROVED", agent)
-        self.assertIn("APPROVED_TO_START / NOT SENT / NOT EXECUTED", human)
+        self.assertIn("VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER", human)
+        self.assertIn("APPROVED_TO_START / NOT EXECUTED", human)
 
     def test_h2_conditional_approval_contract_is_frozen_and_non_experimental(self) -> None:
         human = TINGFENG_LEDGER.read_text(encoding="utf-8")
@@ -935,7 +945,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "TOKENIZERS_PARALLELISM=false",
             "importlib.util.spec_from_file_location",
             'doc_ids=["benign", "poisoned"]',
-            "W2_RESUME01_ENGINEERING_SMOKE_COMPLETED_PENDING_REVIEW",
+            "W2_RESUME02_ENGINEERING_SMOKE_COMPLETED_PENDING_REVIEW",
             "OFFLINE_BUNDLE_SHA_BLOCKER",
             "COMPATIBILITY_PATCH_REVIEW_REQUIRED",
             "WORKER_RESOURCE_APPROVAL_REQUIRED",
@@ -952,6 +962,38 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("不得修改 `method.py`", process)
         self.assertIn("network fallback", combined)
         self.assertNotIn("W2: HUMAN_ACCEPTED", combined)
+
+    def test_h2_resume02_rollover_preserves_resume01_and_single_call_gate(self) -> None:
+        process = (STAGE_PROCESS_DIR / "S6.1-R0-FU1_work_process.md").read_text(
+            encoding="utf-8"
+        )
+        requirements = OWNER_REQUIREMENTS.read_text(encoding="utf-8")
+        decisions = DECISION_REGISTER.read_text(encoding="utf-8")
+        current = CURRENT_STATE.read_text(encoding="utf-8")
+        audit = EXECUTION_LOG.read_text(encoding="utf-8")
+        combined = "\n".join((process, requirements, decisions, current, audit))
+
+        for required in (
+            "OR-018",
+            "PODR-060",
+            "REL-2026-0022",
+            "941557aa00be58210015165078bbb3c1cbdd2250cab0755c37198e7b7e26e89d",
+            "4570",
+            "OFFLINE_BUNDLE_SHA_BLOCKER",
+            "EVIDENCE_CAPTURE_BLOCKER",
+            "~/experiments/s6_1_r0_fu1/w2/resume_02",
+            "s6_1_r0_fu1_w2_resume02_evidence_20260801.tar.gz",
+            "APPROVED_TO_START / NOT EXECUTED",
+            "call_count=0",
+            "不得自动创建 `resume_03`",
+            "APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, combined)
+
+        self.assertIn("不得覆盖、删除、改名或合并 resume_01", decisions)
+        self.assertIn("H2-B 的唯一一次调用授权尚未使用", decisions)
+        self.assertEqual(1, process.count("filter_documents("))
 
     def test_key_evidence_is_consistent_across_ledgers_and_fu1_process(self) -> None:
         texts = [
