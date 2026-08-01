@@ -839,6 +839,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("项目级追加式审计日志", audit)
         self.assertIn("它不是 Paper 1 人类实验总账", audit)
         self.assertEqual(1, audit.count("## REL-2026-0020"))
+        self.assertEqual(1, audit.count("## REL-2026-0021"))
 
     def test_human_docs_are_chinese_first_without_long_english_blocks(self) -> None:
         for path in HUMAN_DIR.glob("*.md"):
@@ -908,8 +909,49 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             with self.subTest(state=state):
                 self.assertIn(state, human)
                 self.assertIn(state, agent)
-        self.assertIn("H2: PROPOSED / NOT CANONICAL / NOT APPROVED", agent)
-        self.assertNotIn("H2: APPROVED", human + agent)
+        self.assertIn("S6.1-R0-FU1-W2-H2: APPROVED_TO_START / NOT SENT / NOT EXECUTED", agent)
+        self.assertIn("H2_historical_preapproval: PROPOSED / NOT CANONICAL / NOT APPROVED", agent)
+        self.assertIn("APPROVED_TO_START / NOT SENT / NOT EXECUTED", human)
+
+    def test_h2_conditional_approval_contract_is_frozen_and_non_experimental(self) -> None:
+        human = TINGFENG_LEDGER.read_text(encoding="utf-8")
+        agent = AGENT_LEDGER.read_text(encoding="utf-8")
+        process = (STAGE_PROCESS_DIR / "S6.1-R0-FU1_work_process.md").read_text(
+            encoding="utf-8"
+        )
+        current = CURRENT_STATE.read_text(encoding="utf-8")
+        decisions = DECISION_REGISTER.read_text(encoding="utf-8")
+        master = MASTER_RECORD.read_text(encoding="utf-8")
+        combined = "\n".join((human, agent, process, current, decisions, master))
+
+        for required in (
+            "PODR-059",
+            "APPROVED_TO_START / NOT SENT / NOT EXECUTED",
+            "CONDITIONAL_WITHIN_H2_ONLY",
+            "H2-A 失败不得进入 H2-B",
+            "HF_HUB_OFFLINE=1",
+            "TRANSFORMERS_OFFLINE=1",
+            "HF_HUB_DISABLE_TELEMETRY=1",
+            "TOKENIZERS_PARALLELISM=false",
+            "importlib.util.spec_from_file_location",
+            'doc_ids=["benign", "poisoned"]',
+            "W2_RESUME01_ENGINEERING_SMOKE_COMPLETED_PENDING_REVIEW",
+            "OFFLINE_BUNDLE_SHA_BLOCKER",
+            "COMPATIBILITY_PATCH_REVIEW_REQUIRED",
+            "WORKER_RESOURCE_APPROVAL_REQUIRED",
+            "APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED",
+            "S6.1-P1 = NOT STARTED",
+            "Our Method Result = NONE",
+            "Formal Experiment = NOT STARTED",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, combined)
+
+        self.assertEqual(1, process.count("filter_documents("))
+        self.assertEqual(21, len(re.findall(r"^## \d+\.", process, re.MULTILINE)))
+        self.assertIn("不得修改 `method.py`", process)
+        self.assertIn("network fallback", combined)
+        self.assertNotIn("W2: HUMAN_ACCEPTED", combined)
 
     def test_key_evidence_is_consistent_across_ledgers_and_fu1_process(self) -> None:
         texts = [

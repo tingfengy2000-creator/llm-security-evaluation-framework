@@ -8,7 +8,7 @@ paper_identity:
   chinese_title: 面向中文检索增强生成系统的版本感知隐蔽知识污染基准与多视角解毒方法
   english_working_title: Stealthy Factual Poisoning in Versioned RAG Knowledge Bases - A Benchmark and Multi-View Detection Framework
 current_branch: research/stage6-1-hidden-poisoning
-current_commit: b922fb9091159a01bd5baad8ee1224d36a665e0d
+current_commit: 212911a21dc35bef05b15fb840542403c415dd13
 research_objective: Chinese version-aware stealthy knowledge poisoning benchmark and multi-view detection
 research_boundary: [Benchmark, Detection, Risk Score, Signals, Explanation]
 accepted_stages:
@@ -18,8 +18,9 @@ accepted_stages:
   S6.1-R0-FU1-P0: HUMAN_ACCEPTED
   S6.1-R0-FU1-L1: HUMAN_ACCEPTED
 current_stage: S6.1-R0-FU1
-current_task: H1 artifacts prepared; waiting at 5090 verification decision gate
+current_task: H2 approved, not sent, not executed; 5090 H2-A then conditional single H2-B
 current_blockers:
+  - H2 execution evidence absent because task is not sent or executed
   - H1 not verified or loaded on 5090
   - GMTP detection-core incomplete
   - parent W2 not completed or accepted
@@ -40,6 +41,11 @@ evidence_identities:
   correction02_index: 17/17 PASS
   h1_bundle_sha256: aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45
   h1_model_index: 19/19 PASS
+  h1_bundle_source_bytes: 1320359518
+approval_identity:
+  h2_approval_base_commit: 212911a21dc35bef05b15fb840542403c415dd13
+  H2: APPROVED_TO_START / NOT SENT / NOT EXECUTED
+  auto_continue: CONDITIONAL_WITHIN_H2_ONLY
 current_claims:
   - engineering identities and evidence closure only
   - H1 bundle prepared and verified on 本机 only
@@ -48,7 +54,7 @@ prohibited_claims:
   - GMTP or W2 completed or accepted
   - complete strict baseline reproduction
   - any formal Paper 1 result
-next_decision_gate: owner approval for 5090 H1 verification; no automatic continuation
+next_decision_gate: project owner transfers approval commit and bundle; 5090 executes H2-A, conditionally one H2-B, then stops for 本机 review
 canonical_files:
   owner_requirements: ../human/owner_requirement_register.md
   research_plan: ../human/research_plan_authority.md
@@ -109,3 +115,13 @@ Live Git and raw evidence override stale snapshot fields. Owner-confirmed requir
 - 当时证据：本次文档、架构测试、提交与远端同步记录。
 - 当时下一步：停止文档任务；实验继续停在既有人工审批门。
 - 后续替代决定：尚无。
+
+### Context Checkpoint — 2026-08-01 — H2-approval
+
+- 当时阶段：S6.1-R0-FU1 / W2。
+- 当时任务：`S6.1-R0-FU1-W2-H2` 离线模型包验证与条件式 GMTP 检测核心恢复。
+- 当时状态：`APPROVED_TO_START / NOT SENT / NOT EXECUTED`；批准基础提交 `212911a21dc35bef05b15fb840542403c415dd13`。
+- 当时 blocker：H1 尚未由 5090 验证或加载；H2 尚无执行证据；父 W2 未完成、未验收。
+- 当时证据：项目需求提出人本轮明确批准；bundle、模型、源码、输入、参数、离线、资源和证据合同已物理冻结。
+- 当时下一步：项目需求提出人将批准提交与 Git-external bundle 交给 5090；H2-A 全通过后才允许一次 H2-B；完成或任一 blocker 后返回本机复核。
+- 后续替代决定：supersede 旧 `H2 = PROPOSED / NOT CANONICAL / NOT APPROVED` 历史快照；不批准 P1、数据集、Detector、训练或正式实验。

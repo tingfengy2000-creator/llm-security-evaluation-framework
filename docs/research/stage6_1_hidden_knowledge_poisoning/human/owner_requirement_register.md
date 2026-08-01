@@ -20,6 +20,7 @@
 | OR-014 | 2026-08-01 | 原始证据、失败、hash 与 revision 必须保存，整改采用追加式记录 | 结论边界 | 证据体系 | 已确认 | 全局 | 本任务批准文本 | 无 |
 | OR-015 | 2026-08-01 | README 只作快速状态、职责说明与导航 | 文档体系 | Start Here | 已确认 | DOC-RESTRUCTURE-02 | 本任务批准文本 | 降级原 README 历史堆叠 |
 | OR-016 | 2026-08-01 | 项目执行日志只保留追加式审计时间线，不承担 Paper 1 人类总账职责 | 文档体系 | 项目审计 | 已确认 | DOC-RESTRUCTURE-02 | 本任务批准文本 | 明确职责，不改写历史 |
+| OR-017 | 2026-08-01 | 继续实验并批准 `S6.1-R0-FU1-W2-H2`：5090 先完成 H2-A 离线模型包验证，全部通过后才可在同一合同内执行一次 H2-B 双文档 GMTP detection-core 工程 smoke；完成或遇到 blocker 后停止，不批准 P1、数据集、Detector、训练或正式实验 | 实验批准 | FU1/W2/H2 | `APPROVED_TO_START / NOT SENT / NOT EXECUTED` | S6.1-R0-FU1-W2-H2 | 当前任务批准文本；H2 审批基础 `212911a21dc35bef05b15fb840542403c415dd13` | supersede OS-006 的批准前历史状态 |
 
 题目范围登记：
 
@@ -37,4 +38,4 @@
 | OS-003 | trusted context package 进入 Paper 1 | `SCOPE_CONFIRMATION_REQUIRED` | 项目需求提出人明确确认 |
 | OS-004 | 运行时可信检索进入 Paper 1 | `SCOPE_CONFIRMATION_REQUIRED` | 项目需求提出人明确确认 |
 | OS-005 | 完整解毒系统进入 Paper 1 | `SCOPE_CONFIRMATION_REQUIRED` | 项目需求提出人明确确认 |
-| OS-006 | H2 设计 | `PROPOSED / NOT CANONICAL / NOT APPROVED` | Git 中出现正式用户批准记录 |
+| OS-006 | H2 设计 | 历史状态 `PROPOSED / NOT CANONICAL / NOT APPROVED`；现已由 OR-017 supersede | 已由项目需求提出人明确批准，历史记录保留 |

@@ -839,3 +839,42 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Canonical evidence: [Attempt 1 Control Plane Review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_attempt1_control_plane_review.md)、
   [FU1 Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、
   [Current Work State](current_work_state.md) and REL-2026-0019.
+
+## PODR-059: H2 Offline Bundle Verification and Conditional Detection-Core Resume Approval
+
+- Date: `2026-08-01`.
+- Decision: 项目需求提出人以“继续实验”为明确授权，批准
+  `S6.1-R0-FU1-W2-H2 / Offline Model Bundle Verification and Conditional GMTP Detection-Core Resume`。
+- Approval base commit: `212911a21dc35bef05b15fb840542403c415dd13`.
+- Execution machine: `5090`.
+- Status: `APPROVED_TO_START / NOT SENT / NOT EXECUTED`.
+- Auto Continue: `CONDITIONAL_WITHIN_H2_ONLY`.
+- Supersedes: 批准前 `H2 = PROPOSED / NOT CANONICAL / NOT APPROVED` 历史快照；历史记录保留。
+- Conditional gate: 5090 必须先完成 H2-A 的 18 项 bundle 安全、SHA/index/manifest/model identity 核验、冻结环境与
+  强制离线核验；任何实质不一致立即停止且不得进入 H2-B。只有全部通过，才允许在同一 H2 合同内执行一次冻结的
+  双文档 GMTP detection-core 调用。
+- Frozen bundle: `s6_1_r0_fu1_w2_models_20260801.tar.gz`；size `1222137698`；SHA256
+  `aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45`；bundle source bytes `1320359518`；
+  model index `19/19`.
+- Frozen models: `facebook/contriever-msmarco@abe8c1493371369031bcb1e02acb754cf4e162fa` and
+  `google-bert/bert-base-uncased@86b5e0934494bd15c9632b12f734a8a67f723594`.
+- Frozen GMTP/input: commit `15b48d150f93711371eb8da22c211cd84a0cf4df`；method blob
+  `84e69b3eadeb8adc0ce521501f8b560d6377b489`；method SHA256
+  `83531fe0e4933074c0a710f3dc07bb260b5d638d3cd4c8c317a353de135e00f6`；input SHA256
+  `0233a26ecc56d7baf1448b86a114e328beece60624aa88304fa3553e90421e44`；serialized index `0` / `test0` and
+  frozen question/benign/poisoned hashes in the FU1 work process.
+- Frozen parameters: `ret_type=contriever`、`N=5`、`M=5`、`remove_threshold=0.2`、`remove_lambda=1.0`、
+  `topk=10`、`do_sort=false`；only one `[benign, poisoned]` call.
+- Stop: completion or any blocker stops and returns indexed, redacted evidence to 本机. No autonomous repair, retry, source/input/
+  parameter/model change, environment mutation, network fallback or CPU fallback.
+- Forward risk review: `PASS_FOR_CONDITIONAL_H2` because conditional execution preserves the independent model provenance gate
+  without creating a second approval cycle for the same engineering smoke.
+- Paper risk review: `PASS_WITH_ENGINEERING_ONLY_CLAIMS`; a single two-document smoke cannot establish metrics, effectiveness,
+  reproduction, safety, baseline superiority, SOTA or a paper result.
+- Preserved states: H1 remains `OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION`；parent W2 remains
+  `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`；`S6.1-P1 = NOT STARTED`；Dataset `NOT FROZEN`；Detector
+  `NOT IMPLEMENTED`；Training `NOT STARTED`；Our Method Result `NONE`；Formal Experiment `NOT STARTED`.
+- Explicit non-approval: no P1, dataset construction/freeze, Detector implementation, training, Formal Experiment or change to the
+  detox-method scope (`SCOPE_CONFIRMATION_REQUIRED`).
+- Canonical contract: [FU1 work process](../research/stage6_1_hidden_knowledge_poisoning/stage_process/S6.1-R0-FU1_work_process.md),
+  [Current Work State](current_work_state.md), and `REL-2026-0021`.

@@ -1,5 +1,28 @@
 # LLMGuard 项目总控文档
 
+## H2 离线模型包验证与条件式 detection-core 恢复已批准（2026-08-01）
+
+项目需求提出人已批准 `S6.1-R0-FU1-W2-H2 / Offline Model Bundle Verification and Conditional GMTP Detection-Core
+Resume`，执行机器为 5090，状态为 `APPROVED_TO_START / NOT SENT / NOT EXECUTED`，审批基础提交为
+`212911a21dc35bef05b15fb840542403c415dd13`。批准前 `H2 = PROPOSED / NOT CANONICAL / NOT APPROVED` 作为历史快照保留，
+由 `PODR-059` supersede。`Auto Continue = CONDITIONAL_WITHIN_H2_ONLY`。
+
+5090 必须先完成 H2-A：对 Git-external bundle
+`s6_1_r0_fu1_w2_models_20260801.tar.gz`（size `1222137698`，SHA256
+`aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45`，bundle source bytes `1320359518`，index
+`19/19`）执行完整 SHA、安全、manifest、模型 revision/files/bytes、credential/cache 排除与解压后复算。任一实质不一致
+立即停止，不得进入 H2-B。
+
+只有 H2-A 全部通过，才允许在冻结的 `gmtp-compat`、强制离线模式下，从未修改 GMTP commit
+`15b48d150f93711371eb8da22c211cd84a0cf4df` 的 `method.py`，使用固定 input index 0 / `test0`、固定
+Contriever/BERT revision 和参数，执行一次 `[benign, poisoned]` 的 `filter_documents` 调用。禁止网络回退、环境或源码/
+输入/模型/参数修改、CPU fallback、重试和批量扩展。完成或任一 blocker 后停止，将 redacted indexed evidence 返回本机。
+
+本轮本机只执行审批登记、合同冻结、文档同步、测试和 Git；没有解压/加载模型、运行 GMTP/harness、使用 GPU 或联系
+5090。H1 仍为 `OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION`；父 W2 仍未完成/未验收；S6.1-P1、Dataset、
+Detector、Training、Our Method Result 与 Formal Experiment 均未改变。H2 最多产生工程 smoke 待复核状态，不支持指标、
+有效性、复现、安全性、SOTA 或正式论文结论。
+
 ## Correction 02 最终关闭与 H1 离线模型工件已准备（2026-08-01）
 
 LOCAL 已对 RTX5090 返回的 Correction 02 原始证据执行独立复核：4367-byte archive 的 sidecar、实际 SHA-256 与

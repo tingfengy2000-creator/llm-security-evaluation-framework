@@ -936,3 +936,43 @@ Approval Gate、Auto Continue。
 - Next Step: STOP after validation, commit and remote synchronization; experimental work remains at the existing owner gate.
 - Next Approval Gate: owner-controlled 5090 H1 verification/W2 resume decision; S6.1-P1 remains closed.
 - Auto Continue: `NO`
+
+## REL-2026-0021 — H2 Conditional Offline Bundle Verification and Detection-Core Resume Approved
+
+- Record ID: `REL-2026-0021`
+- Date: `2026-08-01`
+- Timestamp: `2026-08-01T20:43:35+08:00`
+- Machine: `本机`
+- Machine Role: `GOVERNANCE_CONTROL_PLANE`
+- Stage: `Stage 6.1 / Paper 1 / FU1-W2-H2`
+- Task ID: `S6.1-R0-FU1-W2-H2`
+- Task Name: `Offline Model Bundle Verification and Conditional GMTP Detection-Core Resume`
+- Task Type: `APPROVAL_REGISTRATION / CONTRACT_FREEZE / NO_LOCAL_MODEL_EXECUTION`
+- Initial Status: `PROPOSED / NOT CANONICAL / NOT APPROVED` (historical pre-approval snapshot)
+- Final Status: `APPROVED_TO_START / NOT SENT / NOT EXECUTED`
+- Objective: 批准 5090 先独立验证 H1 offline bundle，并仅在 H2-A 全部通过后条件执行一次冻结双文档 GMTP detection-core smoke。
+- Why: 当前最小必要步骤是关闭 W2 工程运行门；同一 H2 内的条件式执行既保护模型来源链，也避免 bundle 通过后再制造一次无研究价值审批循环。
+- Previous Gate: `S6.1-R0-FU1-W2-H1 = OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION`.
+- Actions: 动态 Git preflight；恢复 Paper 1 权威上下文；登记 PODR-059；冻结 H2-A 18 项 bundle gate、环境/离线/资源边界、一次 H2-B 调用、证据与 stop conditions；同步 Human/Agent/FU1/context/governance 文档；运行治理测试；commit/push。
+- Files Changed: Paper 1 Human/Agent/Stage Process records, current governance state/decision/master/audit records, project context and governance tests only.
+- Commands: Git/context read-only checks, governance/architecture/namespace/link/secret/private-path/raw-artifact/protected-history/encoding/runtime-ignore/diff validation；no model or GMTP commands.
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `PENDING_THIS_COMMIT; resolve with git log -1 -- docs/governance/research_execution_log.md`
+- Approval Base Commit: `212911a21dc35bef05b15fb840542403c415dd13`
+- Run ID: `N/A / APPROVAL_ONLY`
+- Dataset Snapshot: `UNCHANGED / NOT FROZEN`
+- Model / Revision: Contriever `abe8c1493371369031bcb1e02acb754cf4e162fa`; BERT `86b5e0934494bd15c9632b12f734a8a67f723594`; no model extraction/load on 本机.
+- Environment Identity: `本机 governance only`; future H2 uses frozen 5090 `gmtp-compat`.
+- Result Summary: H2 approval and conditional contract are canonical；H2 has not been sent or executed.
+- Claims Allowed: H2 approval status and frozen bundle/source/input/model/environment/parameter/evidence contract.
+- Claims Prohibited: H2 execution, 5090 bundle verification, model load, GMTP result/effectiveness/reproduction, W2 completion/acceptance, metrics, P1, Dataset, Detector, Training, Our Method Result or Formal Experiment.
+- Blockers: H2 execution evidence absent by design；parent W2 runtime gate remains open.
+- Blocker ID: `BLK-S6.1-FU1-W2-001` remains open.
+- Resolution: old H2 proposed status superseded by owner approval；no engineering result was created.
+- Owner Decisions: `PODR-059`.
+- Design Changes: none to research plan, algorithm, dataset, model selection, parameter, metric or paper scope.
+- Paper Impact: `PASS_WITH_ENGINEERING_ONLY_CLAIMS`; improves provenance and engineering feasibility evidence only.
+- Architecture Impact: no runtime code change；preserves 本机/5090, Git/private-artifact and fail-closed boundaries.
+- Next Step: project owner transfers the approval commit and exact Git-external bundle to 5090；5090 runs H2-A, conditionally one H2-B, then stops and returns evidence to 本机.
+- Next Approval Gate: 本机 independent H2 evidence review and project-owner decision；S6.1-P1 remains closed.
+- Auto Continue: `CONDITIONAL_WITHIN_H2_ONLY`

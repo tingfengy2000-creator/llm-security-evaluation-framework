@@ -1,6 +1,6 @@
 # Paper 1 Start Here
 
-> 快速状态：S6.1-LR1 已人工验收；R0 带阻塞项验收；FU1 的 P0/L1 已验收，父 W2 未完成、未验收，H1 等待 5090 验证。`S6.1-P1 = NOT STARTED`，`FORMAL_EXPERIMENT = NOT STARTED`。本页只提供入口导航与文档职责，不保存完整运行历史。
+> 快速状态：S6.1-LR1 已人工验收；R0 带阻塞项验收；FU1 的 P0/L1 已验收，父 W2 未完成、未验收。H1 离线模型包已由本机准备；H2 已批准但尚未发送或执行，5090 只有在 H2-A 完整通过后才可条件执行一次 H2-B 双文档 smoke。`S6.1-P1 = NOT STARTED`，`FORMAL_EXPERIMENT = NOT STARTED`。本页只提供入口导航与文档职责，不保存完整运行历史。
 
 ## 一、项目需求提出人入口
 
@@ -15,7 +15,7 @@
 
 - [S6.1-LR1 工作过程](stage_process/S6.1-LR1_work_process.md) — 路线与基线对齐，`HUMAN_ACCEPTED`。
 - [S6.1-R0 工作过程](stage_process/S6.1-R0_work_process.md) — 工程预检，`HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- [S6.1-R0-FU1 工作过程](stage_process/S6.1-R0-FU1_work_process.md) — P0/L1 已验收，W2 未完成，H1 待 5090 验证。
+- [S6.1-R0-FU1 工作过程](stage_process/S6.1-R0-FU1_work_process.md) — P0/L1 已验收；H2 已批准、未发送、未执行；父 W2 仍未完成或验收。
 
 ## 三、支撑研究材料
 

@@ -54,15 +54,15 @@
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
 | 当前最高完成阶段 | S6-T5 Controlled Retrieval and Traceable Context Baseline 已 `HUMAN_ACCEPTED BASELINE`；S6.1-LR1 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`。 |
-| 当前任务 | `S6.1-R0-FU1-W2-H1 = OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION` after Correction 02 final closure。 |
-| 当前审批门 | owner-controlled transfer for RTX5090 outer-SHA/safe-extraction/file-index verification；no automatic W2 resume；`FORMAL_EXPERIMENT = NOT STARTED`。 |
-| 下一批准任务 | none automatically；owner separately decides 5090 verification/resume after exact bundle transfer；S6.1-P1 remains closed。 |
+| 当前任务 | `S6.1-R0-FU1-W2-H2 = APPROVED_TO_START / NOT SENT / NOT EXECUTED`；H1 remains pending 5090 verification。 |
+| 当前审批门 | 5090 H2-A complete pass -> exactly one H2-B two-document call；completion/blocker -> 本机 review；`Auto Continue = CONDITIONAL_WITHIN_H2_ONLY`。 |
+| 下一批准任务 | none automatically outside H2；S6.1-P1, Dataset, Detector, Training and Formal Experiment remain closed。 |
 | Baseline tag | annotated `s6-t5-rag-baseline-v1` 已恢复；本地/远端 peeled target 均核验为 `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
 | 最近工程验证 | Correction 02 SHA/safe/index/GNU `du` provenance/materiality `11/11` passed；H1 exact-revision bundle/index/resource verification passed locally。 |
 | 当前主要阻塞项 | parent `BLK-S6.1-FU1-W2-001` remains open；historical `W2_ATTEMPT1_EVIDENCE_BLOCKER` is resolved；formal-environment, historical generation identity and redistribution items remain separate。 |
-| 当前允许宣称 | Correction 02 final closure；Attempt 1 valid blocked/model-download classification；narrow reusable preflight facts；two exact H1 snapshots and local bundle integrity pending 5090 verification。 |
-| 当前禁止宣称 | models loaded、5090 bundle verified、GMTP compatibility/scores/runtime、W2 completed/accepted、P1/formal experiment or security effectiveness。 |
+| 当前允许宣称 | H2 approved but not sent/executed；conditional H2-A/H2-B contract frozen；Correction 02 final closure；Attempt 1 valid blocked/model-download classification；two exact H1 snapshots pending 5090 verification。 |
+| 当前禁止宣称 | H2 sent/executed、models loaded、5090 bundle verified、GMTP compatibility/scores/runtime、W2 completed/accepted、P1/formal experiment or security effectiveness。 |
 
 历史审批快照补充：S6-T5.5/5.6/5.7 已按后续记录完成并通过相应人工验收；早期 pending/NOT APPROVED 文字保留为
 时间点事实。当前 accepted implementation/integration identities 分别是 `b136ee2` 与 `b6cedf3`；LR1 不改变该 taxonomy。
@@ -123,6 +123,7 @@
 | S6.1-R0-FU1-L1 | PoisonedRAG Released Artifact Identity and Deterministic Assembly Validation | exact artifact/schema/assembly hashes without model/API | human accepted | `HUMAN_ACCEPTED_SOURCE_ARTIFACT_VALIDATION` | [FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、PODR-052、REL-2026-0013 | W1 superseded；W2 approved under separate gate |
 | S6.1-R0-FU1-W2 | GMTP Detection-Only Minimal Smoke | exact detector-core compatibility on fixed GMTP-packaged input | approved；not completed/accepted；Attempt 1 valid blocked by model download | `ENGINEERING_VALIDATION_APPROVED` | [FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、PODR-053/054/058 | owner-controlled bundle verification then separate resume decision |
 | S6.1-R0-FU1-W2-H1 | Offline Model Artifact Provisioning and W2 Resume | exact-revision offline bundle without LOCAL model loading | artifacts prepared；pending independent 5090 verification | `OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION` | [Attempt 1 review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_attempt1_control_plane_review.md)、PODR-058、REL-2026-0019 | owner-controlled transfer and Worker integrity verification |
+| S6.1-R0-FU1-W2-H2 | Offline Model Bundle Verification and Conditional GMTP Detection-Core Resume | 5090 verifies exact offline bundle, then conditionally makes one frozen two-document call | approved；not sent；not executed | `APPROVED_TO_START / NOT SENT / NOT EXECUTED` | [FU1 work process](../research/stage6_1_hidden_knowledge_poisoning/stage_process/S6.1-R0-FU1_work_process.md)、PODR-059、REL-2026-0021 | H2-A complete pass before H2-B；stop and return to 本机 |
 | S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02 | W2 Attempt 1 GNU du Provenance Final Evidence Correction | exact apparent/allocated `du` commands, tool/Conda/time provenance, raw streams/exits, counts and indexed manifest | Control Plane review passed；final closure applied | `EVIDENCE_PACKAGING_CORRECTION_ACCEPTED` | [FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、PODR-057/058、REL-2026-0018/0019 | complete；do not rerun |
 | Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | LR1/R0/P0/L1 accepted；W2 not completed；H1 artifacts pending Worker verification；P1 not started | `PLANNED` | [长期需求](long_term_research_requirements.md) | Worker bundle verification, separately approved W2 resume and later P1 decision |
 | Stage 6.2 | Multi-Evidence Trustworthy Retrieval | 可信聚合、重排、拒答 | 规划中 | `PLANNED` | [长期需求](long_term_research_requirements.md) | Stage 6.1/设计批准 |
@@ -354,6 +355,7 @@ description/final_resolution 中，但不能代替 status。**WORKAROUND is not 
 | GATE-S6.1-R0-FU1-W2 | GMTP detection-core compatibility smoke | exact repo/source/input/model/parameter/environment/resource/output contract | `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED` | corrected Attempt 1 evidence then H1/resume | P1、formal experiment、metrics、paper/security claims | 项目负责人 |
 | GATE-S6.1-R0-FU1-W2-ATTEMPT1 | Worker evidence completeness review | original + Correction 01 + Correction 02 SHA/safety/index/binding/repository/GNU-disk/no-mutation evidence | `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER` | narrow preflight evidence reusable；H1 artifact-only authority applied | model-load/scores/runtime/compatibility/security inference、W2 acceptance | Control Plane |
 | GATE-S6.1-R0-FU1-W2-H1 | Offline Model Artifact Provisioning and W2 Resume | exact snapshots, 17 model files, 19-entry index, 2 GiB gate, safe bundle and sidecar | `OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION` | owner-controlled transfer and independent Worker integrity verification | automatic transfer/load、GMTP/GPU、W2 acceptance、P1 | 项目负责人 |
+| GATE-S6.1-R0-FU1-W2-H2 | Offline bundle verification and conditional detection-core resume | H2-A 18-item bundle gate, frozen environment/offline mode, then exactly one fixed two-document call and redacted indexed evidence | `APPROVED_TO_START / NOT SENT / NOT EXECUTED` | owner transfers approval commit and bundle；5090 H2-A pass permits H2-B once | H2-B before H2-A、retry/repair/mutation/network、W2 acceptance、P1/formal claims | 项目负责人 |
 | GATE-S6.1-R0-FU1-W2-CORRECTION-02 | Command-derived disk measurement evidence | archive SHA `fcfa3f...3622`, safe `17/17`, GNU `du 9.4`, raw streams/exits/counts/no-mutation, materiality `11/11` | `CONTROL_PLANE_REVIEW_PASS / FINAL_CLOSURE_APPLIED` | historical evidence blocker closed | rerun/repackaging churn、GMTP/model load、P1/formal experiment | RTX5090 evidence；Control Plane accepted |
 
 **当前审批顺序**：既有 S6-T5 验收历史保持不变；S6.1-LR1、Context Recovery、Paper-First 和 current route 已接受；
@@ -363,7 +365,8 @@ historical R0-I `RETURNED_FOR_WORKER_CORRECTION` remains preserved；the superse
 `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。R0-FU1 is `APPROVED / LOCAL-FIRST / WORKER-GATED`；P0/L1 are
 `HUMAN_ACCEPTED`；the former Worker W1 is `SUPERSEDED_BY_LOCAL_L1 / NOT FAILED`；W2 remains
 `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`。Attempt 1 is `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER`;
-the historical evidence blocker is resolved；H1 artifacts are prepared pending 5090 verification。S6.1-P1、Dataset、Detector、
+the historical evidence blocker is resolved；H1 artifacts are prepared pending 5090 verification；H2 is
+`APPROVED_TO_START / NOT SENT / NOT EXECUTED` with conditional continuation only inside H2。S6.1-P1、Dataset、Detector、
 training and formal RAG experiment remain unapproved/not started。
 
 ## 15. 当前结论边界
@@ -558,3 +561,4 @@ git log -15 --oneline
 | 2026-08-01 | GOV-PO-MHEP highest internal execution authority | 第 1、2、4、12、14、15、20 节 | owner established permanent mandatory escalation, LOCAL/Worker sovereignty, forward/paper risk review, physical context persistence and canonical Git sync；prepared Correction 02 candidate only | [PO-MHEP](project_owner_sovereignty_and_mandatory_escalation_principle.md)、PODR-056、REL-2026-0017、governance tests | no Worker contact/execution、H1/model/GMTP/P1/formal experiment；W2 blocker unchanged |
 | 2026-08-01 | Correction 02 final evidence correction approval | 第 2、4、12、14、20 节 | owner approved exact GNU apparent/allocated `du` provenance capture on RTX5090 and froze `MATERIALITY_AND_FINAL_CLOSURE_RULE`；LOCAL registered governance only | [FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、PODR-057、REL-2026-0018、governance tests | not sent/executed；blocker/H1/P1/formal status unchanged |
 | 2026-08-01 | Correction 02 final closure and H1 offline artifacts | 第 2、4、12、14、20 节 | Correction 02 safe/index/GNU provenance/materiality passed；Attempt 1 reclassified valid blocked；exact Contriever/BERT snapshots and safe indexed bundle prepared locally | [Attempt 1 review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_attempt1_control_plane_review.md)、PODR-058、REL-2026-0019、governance tests | H1 pending 5090 verification；no model load/GMTP/GPU；W2/P1/formal not completed or started |
+| 2026-08-01 | H2 conditional engineering resume approval | 第 2、4、12、14、20 节 | owner approved 5090 H2-A bundle verification and, only after full pass, exactly one frozen H2-B two-document detection-core call；本机 registered governance only | [FU1 work process](../research/stage6_1_hidden_knowledge_poisoning/stage_process/S6.1-R0-FU1_work_process.md)、PODR-059、REL-2026-0021、governance tests | `NOT SENT / NOT EXECUTED`；no model load/GMTP/GPU on 本机；W2/P1/formal unchanged |

@@ -13,7 +13,7 @@ Primary Human Mirror = `../human/experiment_ledger_tingfeng.md`
 project: LLMGuard Research Framework
 paper: Paper 1 - Chinese version-aware stealthy knowledge poisoning
 branch: research/stage6-1-hidden-poisoning
-document_source_commit: b922fb9091159a01bd5baad8ee1224d36a665e0d
+document_source_commit: 212911a21dc35bef05b15fb840542403c415dd13
 snapshot_date: 2026-08-01
 authority_order:
   - raw Git and external evidence
@@ -35,6 +35,7 @@ S6.1-R0-FU1-L1: HUMAN_ACCEPTED
 S6.1-R0-FU1-W2-ATTEMPT1: VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER
 W2_ATTEMPT1_EVIDENCE_BLOCKER: RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW
 S6.1-R0-FU1-W2-H1: OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION
+S6.1-R0-FU1-W2-H2: APPROVED_TO_START / NOT SENT / NOT EXECUTED
 S6.1-R0-FU1-W2: APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED
 S6.1-P1: NOT STARTED
 Dataset: NOT FROZEN
@@ -42,12 +43,13 @@ Detector: NOT IMPLEMENTED
 Training: NOT STARTED
 Our_Method_Result: NONE
 Formal_Experiment: NOT STARTED
-H2: PROPOSED / NOT CANONICAL / NOT APPROVED
+H2_historical_preapproval: PROPOSED / NOT CANONICAL / NOT APPROVED
+H2_auto_continue: CONDITIONAL_WITHIN_H2_ONLY
 ```
 
 ## State Machine
 
-`LR1 HUMAN_ACCEPTED -> R0 HUMAN_ACCEPTED_WITH_BLOCKERS -> FU1 {P0 HUMAN_ACCEPTED, L1 HUMAN_ACCEPTED, W2 INCOMPLETE} -> H1 pending 5090 verification -> HUMAN_DECISION_REQUIRED -> W2 continuation or stop`
+`LR1 HUMAN_ACCEPTED -> R0 HUMAN_ACCEPTED_WITH_BLOCKERS -> FU1 {P0 HUMAN_ACCEPTED, L1 HUMAN_ACCEPTED, W2 INCOMPLETE} -> H1 prepared -> H2 APPROVED_NOT_SENT_NOT_EXECUTED -> H2-A PASS ? exactly one H2-B call : STOP -> 本机 review`
 
 No transition authorizes S6.1-P1, Dataset Construction, Detector Implementation, Training, or Formal Experiment.
 
@@ -57,7 +59,7 @@ No transition authorizes S6.1-P1, Dataset Construction, Detector Implementation,
 | --- | --- | --- | --- |
 | S6.1-LR1 | research route and external baseline alignment | `HUMAN_ACCEPTED` | `../stage_process/S6.1-LR1_work_process.md` |
 | S6.1-R0 | engineering reproduction preflight | `HUMAN_ACCEPTED_WITH_BLOCKERS` | `../stage_process/S6.1-R0_work_process.md` |
-| S6.1-R0-FU1 | targeted baseline feasibility resolution | `IN_PROGRESS / 5090-GATED` | `../stage_process/S6.1-R0-FU1_work_process.md` |
+| S6.1-R0-FU1 | targeted baseline feasibility resolution | `H2 APPROVED / NOT SENT / NOT EXECUTED` | `../stage_process/S6.1-R0-FU1_work_process.md` |
 | S6.1-P1 | formal protocol freeze | `NOT STARTED` | none; not approved |
 
 ## Run Registry
@@ -98,6 +100,7 @@ next_gate: string
 | RUN-W2-A1 | S6.1-R0-FU1 / W2-ATTEMPT1 | engineering_validation / 5090 | `VALID_BLOCKED_ENGINEERING_RUN` | source_commit GMTP `15b48d150f93711371eb8da22c211cd84a0cf4df`; source_blob `72fb52cda9ea794bafb5c114ee937a00f4d1728a`; data `GMTP packaged input, 200 records`; input_hash `0233a26ecc56d7baf1448b86a114e328beece60624aa88304fa3553e90421e44`; models/revisions as H1; environment `gmtp-compat`; parameters `ret_type=contriever, remove_threshold=0.2, remove_lambda=1.0` | `APPROVED_TO_START` -> `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER` | artifact original archive; artifact_sha256 `6acdbb8038e57b1d3e88028350fc08046d73a826ba9dd167452bfc0dd834170f`; evidence_index `16/16` | allowed: blocker and preflight evidence; prohibited: W2 completion/detection result/formal result | blocker `MODEL_DOWNLOAD_BLOCKER`; next_gate evidence correction and H1 |
 | RUN-W2-C02 | S6.1-R0-FU1 / W2-ATTEMPT1-CORRECTION-02 | evidence_correction / 5090 | `CONTROL_PLANE_REVIEW_PASS / FINAL_CLOSURE_APPLIED` | source_commit `b185b8fca74c68ef75a6150b62551f84759c0304`; source_blob/data/input/model `NA`; environment `same W2 environment evidence`; parameters `disk command provenance` | `EVIDENCE_BLOCKED` -> `RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW` | artifact correction02 archive; artifact_sha256 `fcfa3f14c98e0103cb5a1de2f0449fa000d179e2e01d74baa6fec4b013503622`; evidence_index `17/17 PASS` | allowed: evidence closure; prohibited: W2 completion/model load/formal result | blocker `NONE for evidence`; next_gate H1 5090 verification |
 | RUN-H1-01 | S6.1-R0-FU1 / W2-H1 | artifact_preparation / 本机 | `PREPARED / NOT 5090 VERIFIED` | source_commit `b922fb9091159a01bd5baad8ee1224d36a665e0d`; source_blob/data/input `NA`; models `facebook/contriever-msmarco`, `google-bert/bert-base-uncased`; revisions `abe8c1493371369031bcb1e02acb754cf4e162fa`, `86b5e0934494bd15c9632b12f734a8a67f723594`; environment `本机 offline bundle preparation`; parameters `immutable revisions` | `APPROVED_TO_PREPARE` -> `OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION` | artifact `s6_1_r0_fu1_w2_models_20260801.tar.gz`; artifact_sha256 `aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45`; evidence_index `19/19 PASS` | allowed: 本机 preparation/integrity; prohibited: 5090 verification/load/GMTP completion/formal result | blocker `5090 verification pending`; next_gate owner-approved 5090 verification |
+| RUN-H2-APPROVAL | S6.1-R0-FU1 / W2-H2 | approval_and_contract_freeze / 本机 | `APPROVED_TO_START / NOT SENT / NOT EXECUTED` | source_commit `212911a21dc35bef05b15fb840542403c415dd13`; source_blob `84e69b3eadeb8adc0ce521501f8b560d6377b489`; data/input_hash `GMTP NQ index 0 test0 / 0233a26ecc56d7baf1448b86a114e328beece60624aa88304fa3553e90421e44`; models/revisions fixed as H1; environment `gmtp-compat frozen`; parameters `ret_type=contriever,N=5,M=5,remove_threshold=0.2,remove_lambda=1.0,topk=10,do_sort=false` | `PROPOSED / NOT APPROVED` -> `APPROVED_TO_START / NOT SENT / NOT EXECUTED` | result `governance approval only`; artifact/artifact_sha256/evidence_index `NA` | allowed: H2 contract and conditional gate; prohibited: claim of send/execution/model load/GMTP result/W2 acceptance/P1/formal result | blocker `H2 execution evidence absent by design`; next_gate 5090 H2-A, conditional H2-B, then 本机 review |
 
 ## Artifact Registry
 
@@ -110,6 +113,8 @@ next_gate: string
 
 Total model bytes: `1320352375`. Archives and models remain Git-external.
 
+H2 bundle contract additionally freezes bundle source bytes `1320359518`, archive size `1222137698`, archive SHA256 `aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45`, and model index `19/19`. H2-A failure MUST terminate H2 and MUST NOT transition to H2-B.
+
 ## Evidence Map
 
 | claim | authoritative evidence |
@@ -119,6 +124,7 @@ Total model bytes: `1320352375`. Archives and models remain Git-external.
 | W2 blocked run | W2 control-plane review + original/correction evidence |
 | Correction 02 closure | SHA256 and 17/17 index in FU1 process and experiment master record |
 | H1 prepared only | H1 manifest/index, SHA256, immutable model revisions |
+| H2 approval and conditional execution | owner requirement OR-017 + PODR-059 + `S6.1-R0-FU1_work_process.md`; no execution evidence yet |
 
 ## Claims Matrix
 
@@ -132,6 +138,7 @@ Total model bytes: `1320352375`. Archives and models remain Git-external.
 ## Open Blockers
 
 - H1 bundle has not been independently verified or loaded by 5090.
+- H2 is approved but not sent or executed; H2-A/H2-B evidence does not exist yet.
 - GMTP detection-core has not completed; parent W2 remains incomplete and unaccepted.
 - S6.1-P1 protocol, Dataset, Detector, Training and Formal Experiment are not approved or started.
 - Detoxification technical scope remains `SCOPE_CONFIRMATION_REQUIRED`.
@@ -143,10 +150,12 @@ Total model bytes: `1320352375`. Archives and models remain Git-external.
 
 ## Decision Gates
 
-1. Human approval before any 5090 verification or W2 continuation.
-2. Human acceptance of W2 before any S6.1-P1 proposal can advance.
-3. Separate owner confirmation for detoxification scope and for every formal experiment gate.
-4. `Auto Continue = NO`.
+1. H2 approval exists only for 5090: verify H2-A first; any mismatch stops without H2-B.
+2. H2-B is conditionally authorized only after complete H2-A pass and is limited to one frozen two-document call.
+3. H2-B completion or any blocker stops and returns evidence to 本机; no autonomous repair or repetition.
+4. Human acceptance of W2 is still required before any S6.1-P1 proposal can advance.
+5. Separate owner confirmation remains required for detoxification scope and every formal experiment gate.
+6. `Auto Continue = CONDITIONAL_WITHIN_H2_ONLY`; outside H2 it is `NO`.
 
 ## Human-Confirmed Requirements Reference
 

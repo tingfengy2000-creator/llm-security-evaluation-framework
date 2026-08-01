@@ -153,3 +153,16 @@ H1 随后只做离线工件供应：固定 repo + commit、`token=False`、单�
 本轮 H1 的 17 个模型文件合计 `1320352375` bytes，bundle SHA 为
 `aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45`。初学者另一个常见误区是把 bundle 的本机
 自校验当成 Worker 验收；正确状态仍是 `OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION`。
+
+## H2：条件式批准不是自动继续权（2026-08-01）
+
+H2 把一个工程门拆成先后两个不可颠倒的部分：H2-A 先证明 5090 收到的是本机冻结的同一 bundle、同一模型 revision
+和同一文件集合；只有 18 项安全与完整性条件全部通过，H2-B 才能加载本地模型并调用一次固定双文档 detection core。
+这不是把 Worker 变成审批者，而是项目需求提出人预先批准了一个明确的条件分支；条件失败时，授权自动失效并停止。
+
+企业价值在于同时减少无价值审批往返和防止执行漂移。审批合同已经精确限制源码、输入、模型、参数、环境、离线变量、
+调用次数、资源与证据，因此 H2-A 通过后的 H2-B 不产生新的自由裁量权。面试可追问：为什么仍不能写“GMTP reproduced”？
+因为一次双文档工程调用只回答兼容性与可执行性，不能估计 Accuracy、Recall、ASR、泛化或统计不确定性。
+
+初学者常见误区是把 `Auto Continue = CONDITIONAL_WITHIN_H2_ONLY` 理解为自动进入下一阶段。它只允许 H2-A PASS 后
+进入同一 H2 的一次 H2-B；完成或任一 blocker 都必须返回本机，父 W2 仍需独立复核，P1 与正式实验没有获批。
