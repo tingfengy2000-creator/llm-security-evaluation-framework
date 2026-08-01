@@ -16,15 +16,14 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-R0-FU1-W2-H2-RESUME-02` following valid blocked resume_01 evidence.
-- Task name: `Additive Evidence Namespace Rollover and Conditional H2 Resume`.
-- Task type: **EVIDENCE_NAMESPACE_ROLLOVER / CONDITIONAL_ENGINEERING_VALIDATION_ONLY**.
-- Status: **APPROVED_TO_START / NOT EXECUTED**.
-- Execution machine: **5090**. 本机 performed only approval registration, contract freeze, documentation synchronization and Git;
-  it did not extract/load a model, run GMTP/harness, use a GPU or contact 5090.
-- Current ordered step: bundle/sidecar are owner-confirmed synchronized to 5090 with matching size/SHA. After this rollover commit
-  is synchronized, 5090 preserves nonempty resume_01 and starts complete H2-A in new resume_02. H2-A must pass in full before the
-  still-unused single H2-B call. Completion or any blocker returns evidence to 本机 and stops. `Auto Continue = CONDITIONAL_WITHIN_H2_ONLY`.
+- Task ID: `S6.1-R0-FU1-W2-H2-RESUME-02-CONTROL-PLANE-REVIEW`.
+- Task name: `H2 Resume 02 Engineering Smoke Evidence Review`.
+- Task type: **RAW_EVIDENCE_REVIEW / ENGINEERING_SMOKE_CLASSIFICATION / NO_LOCAL_MODEL_EXECUTION**.
+- Status: **CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED**.
+- Review machine: **本机 / CONTROL_PLANE**. The Worker executed the frozen H2 contract on 5090；本机 reviewed only the returned
+  archive/sidecar/indexed redacted evidence and did not extract/load a model, run GMTP/harness or use a GPU.
+- Current ordered step: H2 evidence review is complete and no corrective Worker prompt is required. The next gate is an explicit
+  project-owner decision on parent W2 disposition. No automatic P1 approval or execution is authorized.
 - Historical superseded H2 snapshot: `PROPOSED / NOT CANONICAL / NOT APPROVED`; preserve as history.
 - Formal RAG security experiment: **NOT STARTED**.
 - Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.
@@ -50,10 +49,10 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - S6.1-R0-FU1-W2-ATTEMPT1: **VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER**；`smoke_executed=false`；
   `algorithm_failure=false`；`GMTP_incompatibility=not established`.
 - S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-01 gap: **RESOLVED_BY_CORRECTION_02**.
-- S6.1-R0-FU1-W2-H1: **OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION**.
-- S6.1-R0-FU1-W2-H2: **IN_PROGRESS / RESUME_02 APPROVED / H2-B NOT EXECUTED**.
+- S6.1-R0-FU1-W2-H1: **OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090**.
+- S6.1-R0-FU1-W2-H2: **ENGINEERING_SMOKE_COMPLETED / CONTROL_PLANE_REVIEW_PASS**.
 - S6.1-R0-FU1-W2-H2-RESUME-01: **VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER / H2-B NOT EXECUTED / call_count=0**.
-- S6.1-R0-FU1-W2-H2-RESUME-02: **APPROVED_TO_START / NOT EXECUTED**.
+- S6.1-R0-FU1-W2-H2-RESUME-02: **CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED / call_count=1**.
 - S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02: **CONTROL_PLANE_REVIEW_PASS / FINAL_CLOSURE_APPLIED** under
   `PODR-057` and `PODR-058`.
 - S6.1-P1: **NOT STARTED / REQUIRES ACCEPTED W2 EVIDENCE AND SEPARATE P1 APPROVAL**.
@@ -69,9 +68,11 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - `BLK-S6.1-LR1-001` remains **OPEN** for future strict comparison；license/redistribution issues remain separate from internal
   research access。
 - P0 source/planning blockers remain resolved. L1 additionally resolves `BLK-S6.1-FU1-W1-001` through exact artifact/schema/
-  assembly evidence and supersedes the Worker W1 route. Runtime acceptance remains blocked by
-  `BLK-S6.1-FU1-W2-001`. The historical `W2_ATTEMPT1_EVIDENCE_BLOCKER` is
-  **RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW**；this resolution does not close the parent W2 runtime gate.
+  assembly evidence and supersedes the Worker W1 route. Parent W2 acceptance remains owner-gated. The historical
+  `W2_ATTEMPT1_EVIDENCE_BLOCKER` is
+  **RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW**。`BLK-S6.1-FU1-W2-001` is
+  **RESOLVED_BY_H2_RESUME02_CONTROL_PLANE_REVIEW** only for the exact frozen minimal detector-core feasibility gate；parent W2
+  acceptance still requires an explicit owner decision.
 - Attempt 1 archive integrity passed narrowly: outer SHA-256
   `6acdbb8038e57b1d3e88028350fc08046d73a826ba9dd167452bfc0dd834170f`, safe members `18/18`, evidence index `16/16` and
   harness SHA-256 `8411af2042774f1a18eec95e97a14ade088acbc35f09942ae9ffea4e8ea5fc06`.
@@ -93,7 +94,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - H1 prepared exact public snapshots `facebook/contriever-msmarco@abe8c1493371369031bcb1e02acb754cf4e162fa` (8 files,
   438708922 bytes) and `google-bert/bert-base-uncased@86b5e0934494bd15c9632b12f734a8a67f723594` (9 files,
   881643453 bytes). Total model bytes are `1320352375`, below 2 GiB. The Git-external transfer archive SHA-256 is
-  `aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45`; its status is pending independent 5090 verification.
+  `aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45`; H2 resume02 evidence verifies its identity/index and
+  local CUDA load on 5090 within the frozen smoke.
 - Resource contract is corrected for a future resumed W2 to task-owned disk hard ceiling `10 GiB` (`gmtp-compat <=6 GiB`, two
   exact models `<=2 GiB`, harness/evidence/archive `<=256 MiB`); RAM/VRAM/runtime ceilings remain unchanged. The archive itself
   reports disk/resource limits `NOT_EVALUATED`.
@@ -108,6 +110,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Canonical entry: [Stage 6.1 research README](../research/stage6_1_hidden_knowledge_poisoning/README.md).
 - Canonical Paper 1 route: [Paper 1 Research Route](../research/stage6_1_hidden_knowledge_poisoning/paper1_research_route.md).
 - Canonical FU1-P0 resolution: [Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md).
+- Canonical H2 resume02 review: [Control Plane Evidence Review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_h2_resume02_control_plane_review.md).
 - Context recovery entry: [Context Authority Map](context_authority_map.md).
 - Highest internal execution authority: [PO-MHEP](project_owner_sovereignty_and_mandatory_escalation_principle.md).
 
@@ -181,9 +184,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
 - Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
   evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- Next operational action: synchronize the resume_02 rollover commit to 5090, preserve resume_01, and execute H2-A from the
-  beginning in a new evidence directory. Only a full pass permits the still-unused single H2-B call. No automatic resume_03 is
-  authorized；S6.1-P1 is not automatically authorized。
+- Next operational action: project owner reviews the accepted H2 engineering-smoke evidence and decides parent W2 disposition.
+  No second H2-B call, automatic resume_03 or automatic S6.1-P1 approval is authorized.
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. Its acceptance does not approve S6-T5.6 ContextBuilder behavior; that remains a separate boundary.
@@ -200,7 +202,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Automatic 5090 contact/transmission by Codex or any replay of Correction 02. Its evidence-only run and 本机 review are complete.
 - On 本机: any external baseline workload, archive extraction, model loading, GMTP/harness smoke, dataset acquisition, GPU computation or formal
   experiment. The narrowly approved H1 public-artifact download is complete and grants no continuing download authority.
-- On 5090: overwrite/delete/rename resume_01；use nonempty resume_02；automatic resume_03；H2-B before complete H2-A pass；more than one call；anything beyond the exact frozen H2 contract；network fallback、
+- On 5090: overwrite/delete/rename resume_01；reuse or rerun resume_02；automatic resume_03；a second H2-B call；anything beyond the exact frozen H2 contract；network fallback、
   environment mutation、algorithm reimplementation、silent source patch、parameter/input/model substitution or formal workload。
 - Everywhere: any unapproved FU1 Worker execution、S6.1-P1、Detector implementation、dataset freeze/construction、training、Paper Result、
   formal experiment or SOTA comparison。
@@ -211,10 +213,14 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 ## Current Claims Boundary
 
 Can additionally claim: H2 resume_01 produced valid fail-closed evidence for a missing bundle/sidecar；its 4,570-byte archive SHA
-`941557aa00be58210015165078bbb3c1cbdd2250cab0755c37198e7b7e26e89d`, safe 20-file/1-directory layout and 19/19 index passed 本机 review；H2-B did not execute and call_count is zero。Bundle/sidecar are now owner-confirmed synchronized with matching outer size/SHA；resume_02 is approved solely as an additive evidence namespace。Correction 02 passed 本机 raw-evidence review and the final materiality rule closed the historical
+`941557aa00be58210015165078bbb3c1cbdd2250cab0755c37198e7b7e26e89d`, safe 20-file/1-directory layout and 19/19 index passed 本机 review；H2-B did not execute and call_count is zero。Resume_02 archive SHA
+`58da856a81ad89b858af2c041ff617e16156ec254410b07e6511c2888203f563`, safe 27-file/1-directory layout and independently
+recomputed `25/25` index passed；H2-A is `18/18 PASS`, exact local models loaded on RTX5090 without CPU fallback, the authorized
+H2-B call executed exactly once, and the redacted two-document outputs/resource values are accepted as engineering-smoke evidence
+only。Correction 02 passed 本机 raw-evidence review and the final materiality rule closed the historical
 `W2_ATTEMPT1_EVIDENCE_BLOCKER`。Attempt 1 is `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER`, with the narrow reusable
 preflight boundary recorded above。H1 prepared two exact-revision offline model snapshots and an integrity-checked transfer bundle
-that is still pending 5090 verification。P0 and L1 are `HUMAN_ACCEPTED`；the exact released NQ attack-text artifact identity, all 100 records and
+  that is now verified on 5090 for the frozen H2 smoke。P0 and L1 are `HUMAN_ACCEPTED`；the exact released NQ attack-text artifact identity, all 100 records and
 official deterministic LM-targeted assembly are verified；API-free reuse is verified feasible while API-free generation and exact
 paper-generation identity remain unresolved/partial。The GMTP W2 input, models, parameters, isolated environment and resource
 ceiling are frozen and W2 remains approved but not completed/accepted。The original
@@ -222,8 +228,8 @@ baseline roles remain unchanged。PO-MHEP is permanently accepted as the highest
 
 Can claim: within the offline engineering-test scope, the `S6-T5 Controlled Retrieval and Traceable Context Baseline` is HUMAN_ACCEPTED. It comprises deterministic and label-isolated retrieval runtime contracts, provider-neutral DenseRetriever, the synthetic ContentResolver, EvidenceEnvelope/Citation boundaries, deterministic Context Package behavior, and S6-T5.7 controlled integration evidence including an opt-in fixed MiniLM plus temporary Chroma close/reopen check. `4ecf73a` is the accepted baseline content commit; the current governance acceptance commit is not an implementation or integration-evidence commit. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
-Cannot claim: complete H2-A passed；models were loaded；the full H1 bundle/model index was verified by 5090；GMTP was rerun or found compatible/incompatible；detector
-scores, runtime/RSS/VRAM or security effectiveness exist；W2 completed/was accepted；any
+Cannot claim: the two-document smoke reproduces GMTP；its two scores establish detector effectiveness, calibration, safety,
+generalization or a paper metric；W2 completed/was accepted；any
 external baseline was reproduced；strict comparison is ready；SafeRAG pipeline is ready；dataset/
 Detector/Our Method/training/result exists；or retrieval quality/security, SOTA, production readiness or formal-experiment outcomes
 are established.
@@ -238,6 +244,6 @@ are established.
 ## Last Update
 
 - Date: `2026-08-01`.
-- Updated by: Codex independently reviewing resume_01 valid blocker evidence and registering the project owner's bundle-sync
-  confirmation plus additive resume_02 namespace approval under `PODR-060`. No model load, GMTP/harness/GPU or H2-B occurred on
-  本机；parent W2 remains not completed/not accepted；P1 and Formal Experiment remain not started.
+- Updated by: Codex independently reviewing resume_02 archive safety, `25/25` indexed evidence, H2-A `18/18`, frozen identities,
+  single H2-B call and redacted resource/result evidence. No model load, GMTP/harness/GPU occurred on 本机；parent W2 remains not
+  completed/not accepted；P1 and Formal Experiment remain not started.

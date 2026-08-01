@@ -8,7 +8,7 @@ paper_identity:
   chinese_title: 面向中文检索增强生成系统的版本感知隐蔽知识污染基准与多视角解毒方法
   english_working_title: Stealthy Factual Poisoning in Versioned RAG Knowledge Bases - A Benchmark and Multi-View Detection Framework
 current_branch: research/stage6-1-hidden-poisoning
-current_commit: 2f492dc763e865105510cc8cb141ebde5e109b3e
+current_commit: 38931d50bc3751eefc1dff100b2e901fc905ea3f
 research_objective: Chinese version-aware stealthy knowledge poisoning benchmark and multi-view detection
 research_boundary: [Benchmark, Detection, Risk Score, Signals, Explanation]
 accepted_stages:
@@ -18,14 +18,13 @@ accepted_stages:
   S6.1-R0-FU1-P0: HUMAN_ACCEPTED
   S6.1-R0-FU1-L1: HUMAN_ACCEPTED
 current_stage: S6.1-R0-FU1
-current_task: H2 resume_01 valid blocked evidence preserved; resume_02 approved for fresh H2-A; conditional single H2-B still unused
+current_task: H2 resume_01 history preserved; resume_02 engineering-smoke evidence passed Control Plane review; parent W2 owner decision pending
 current_blockers:
-  - full H2-A and model identity/load verification pending in resume_02
-  - GMTP detection-core incomplete
   - parent W2 not completed or accepted
 resolved_blockers:
   - W2_ATTEMPT1_EVIDENCE_BLOCKER resolved by Correction 02 control-plane review
   - resume_01 OFFLINE_BUNDLE_SHA_BLOCKER accurately captured and reviewed; bundle/sidecar later synced
+  - BLK-S6.1-FU1-W2-001 resolved by H2 resume02 Control Plane review for the exact minimal feasibility gate
 machine_responsibilities:
   本机: planning, static analysis, evidence review, light artifact preparation, governance
   5090: explicitly approved compute execution and independent artifact verification
@@ -45,21 +44,24 @@ evidence_identities:
   h2_resume01_sha256: 941557aa00be58210015165078bbb3c1cbdd2250cab0755c37198e7b7e26e89d
   h2_resume01_index: 19/19 PASS
   h2_resume01_call_count: 0
+  h2_resume02_sha256: 58da856a81ad89b858af2c041ff617e16156ec254410b07e6511c2888203f563
+  h2_resume02_index: 25/25 PASS
+  h2_resume02_call_count: 1
 approval_identity:
   h2_approval_base_commit: 212911a21dc35bef05b15fb840542403c415dd13
   h2_resume02_approval_base_commit: 2f492dc763e865105510cc8cb141ebde5e109b3e
   H2_resume01: VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER
-  H2_resume02: APPROVED_TO_START / NOT EXECUTED
-  auto_continue: CONDITIONAL_WITHIN_H2_ONLY
+  H2_resume02: CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED
+  auto_continue: CONSUMED_AND_STOPPED
 current_claims:
-  - engineering identities and evidence closure only
-  - H1 bundle prepared on 本机; presence and outer size/SHA reported matched on 5090
+  - exact two-document engineering-smoke identities, one call and redacted result/resource evidence only
+  - H1 bundle and exact local model load verified on 5090 within frozen H2
 prohibited_claims:
-  - model verified or loaded on 5090
-  - GMTP or W2 completed or accepted
+  - GMTP reproduction, effectiveness, safety, generalization or paper metrics
+  - W2 completed or accepted
   - complete strict baseline reproduction
   - any formal Paper 1 result
-next_decision_gate: 5090 syncs resume_02 approval commit, preserves resume_01, executes fresh H2-A and conditionally one H2-B, then stops for 本机 review
+next_decision_gate: project owner decides parent W2 disposition; no second H2-B call and no automatic P1
 canonical_files:
   owner_requirements: ../human/owner_requirement_register.md
   research_plan: ../human/research_plan_authority.md

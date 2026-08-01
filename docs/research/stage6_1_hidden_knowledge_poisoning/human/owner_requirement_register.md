@@ -22,6 +22,7 @@
 | OR-016 | 2026-08-01 | 项目执行日志只保留追加式审计时间线，不承担 Paper 1 人类总账职责 | 文档体系 | 项目审计 | 已确认 | DOC-RESTRUCTURE-02 | 本任务批准文本 | 明确职责，不改写历史 |
 | OR-017 | 2026-08-01 | 继续实验并批准 `S6.1-R0-FU1-W2-H2`：5090 先完成 H2-A 离线模型包验证，全部通过后才可在同一合同内执行一次 H2-B 双文档 GMTP detection-core 工程 smoke；完成或遇到 blocker 后停止，不批准 P1、数据集、Detector、训练或正式实验 | 实验批准 | FU1/W2/H2 | `APPROVED_TO_START / NOT SENT / NOT EXECUTED` | S6.1-R0-FU1-W2-H2 | 当前任务批准文本；H2 审批基础 `212911a21dc35bef05b15fb840542403c415dd13` | supersede OS-006 的批准前历史状态 |
 | OR-018 | 2026-08-01 | 确认 bundle 与 sidecar 已同步到 5090；保留非空 `resume_01` blocker evidence，不覆盖、不删除；批准改用全新 `resume_02` 从 H2-A 重新开始，并使用新的 resume02 archive；除证据命名空间外合同不变 | 实验继续批准 | FU1/W2/H2 | `RESUME_02 APPROVED_TO_START / NOT EXECUTED` | S6.1-R0-FU1-W2-H2-RESUME-02 | 当前任务明确确认；resume_01 evidence 与本机复核 | 不授权 resume_03、重复 H2-B、P1 或正式实验 |
+| OR-019 | 2026-08-01 | 后续 5090 输出仍同步到 E 盘 `LLMGuard-Handoff` 文件夹；本次误同步到 D 盘 `llmProject/handoff` 仅为单次例外，不改变冻结计算端输出路径 | 工件交接规则 | 本机/5090 证据传递 | 已确认 | FU1 及后续获批计算任务 | 项目需求提出人当前明确说明 | 不移动或改写既有证据；不把 D 盘例外变成新规范 |
 
 题目范围登记：
 

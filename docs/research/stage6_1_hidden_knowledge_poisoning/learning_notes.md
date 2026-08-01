@@ -176,3 +176,17 @@ Resume_01 在 bundle 缺失时正确停止，并生成了可验证的 blocker ev
 企业价值是让失败证据、补救决定和后续执行同时可追溯。面试可追问：为什么 H2-B 仍可执行一次？因为 resume_01 在
 H2-A 就停止，`call_count=0`，原单次调用授权尚未消费。初学者常见误区是把新目录理解为新实验；本次只改变证据路径，
 源码、输入、模型、参数、资源和 claims boundary 全部不变。
+
+## H2 resume_02 复核：单样本对可证明可执行，不能证明有效（2026-08-01）
+
+Resume_02 把供应链、环境和执行三类证据闭合到同一条链：bundle sidecar/实际 SHA、archive safety、19 项模型 index、
+两个固定 revision、环境 pre/post SHA、四个 offline 变量、未修改 source/input、RTX5090 CUDA placement、唯一一次函数调用，
+再到脱敏结果和资源测量。Control Plane 还要独立复算 returned archive 的 `25/25` index；Worker 自报 PASS 不能替代复核。
+
+企业价值在于把“能否在冻结环境中运行”与“检测是否有效”分开。一个 benign retained、一个 poisoned filtered，只证明
+这两个固定输入在这次调用中的工程行为；它没有样本量、负载分布、阈值校准、误报/漏报统计、置信区间或跨攻击验证。
+面试可追问：为什么数值看起来区分明显仍不能写 Accuracy 或 effectiveness？因为两个挑定文档不是抽样评估，不能支持
+总体性能推断。
+
+初学者常见误区是把 `CONTROL_PLANE_REVIEW_PASS` 等同于父 W2 或论文结论验收。正确状态机是：Worker 完成待复核 ->
+Control Plane 接受工程证据 -> 项目负责人单独决定父 W2；即使 W2 后续获验收，P1 与正式实验仍需要新的明确批准。

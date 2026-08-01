@@ -1015,3 +1015,41 @@ Approval Gate、Auto Continue。
 - Next Step: 5090 syncs this governance commit, verifies resume_02 absent/empty, runs complete H2-A, conditionally one H2-B, packages resume02 evidence, and stops.
 - Next Approval Gate: 本机 independent resume02 evidence review；S6.1-P1 remains closed.
 - Auto Continue: `CONDITIONAL_WITHIN_H2_ONLY`
+
+## REL-2026-0023 — H2 Resume 02 Engineering Smoke Evidence Accepted by Control Plane
+
+- Record ID: `REL-2026-0023`
+- Date: `2026-08-01`
+- Timestamp: `2026-08-01T23:31:00+08:00`
+- Machine: `本机`
+- Machine Role: `PRIMARY_CONTROL_PLANE / RAW_EVIDENCE_REVIEW`
+- Stage: `Stage 6.1 / Paper 1 / FU1-W2-H2`
+- Task ID: `S6.1-R0-FU1-W2-H2-RESUME-02-CONTROL-PLANE-REVIEW`
+- Task Name: `H2 Resume 02 Engineering Smoke Evidence Review`
+- Task Type: `RAW_EVIDENCE_REVIEW / ENGINEERING_SMOKE_CLASSIFICATION / NO_LOCAL_MODEL_EXECUTION`
+- Initial Status: Worker `W2_RESUME02_ENGINEERING_SMOKE_COMPLETED_PENDING_REVIEW`；parent W2 not completed/not accepted.
+- Final Status: `CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED`；parent W2 unchanged pending owner decision.
+- Objective: independently verify the returned resume02 archive and classify only the evidence-supported minimal detector-core feasibility result.
+- Previous Gate: `PODR-060 / REL-2026-0022 / RESUME_02 APPROVED_TO_START`.
+- Actions: located the one-time mis-synchronized archive under the local D-drive handoff folder；verified sidecar/recomputed SHA；audited tar paths/types/top-level namespace；independently recomputed all indexed hashes；reviewed contract, Git, bundle/model/source/input/environment/offline, harness single-call, redacted result, resource, log and resume_01 integrity evidence；updated governance mirrors and tests.
+- Validation: archive `15625` bytes；SHA256 `58da856a81ad89b858af2c041ff617e16156ec254410b07e6511c2888203f563`；27 regular files/1 directory；only top-level `resume_02`；no unsafe member；evidence index independently `25/25 PASS`；H2-A `18/18 PASS`；environment pre/post SHA equal；RTX5090 local CUDA model load；H2-B true；`call_count=1`；exit 0；all redacted outputs finite；resource gates pass；resume_01 unchanged.
+- Repository Validation: targeted context/governance `29 passed`；full architecture `111 passed`；namespace/label isolation `10 passed`；Ruff passed；12 changed Markdown files / 246 relative links passed；13 changed files UTF-8 no-BOM/LF passed；evidence credential-shape scan and Git diff checks passed. Pytest cache write-permission warning is non-blocking.
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `PENDING_THIS_COMMIT; resolve with git log -1 -- docs/governance/research_execution_log.md`
+- Worker Approval Commit: `38931d50bc3751eefc1dff100b2e901fc905ea3f`
+- Run ID: `RUN-H2-R02`
+- Dataset Snapshot: fixed existing GMTP packaged input only；Dataset remains `NOT FROZEN`.
+- Model / Revision: Contriever `abe8c1493371369031bcb1e02acb754cf4e162fa`；BERT `86b5e0934494bd15c9632b12f734a8a67f723594`；verified local paths on 5090.
+- Environment Identity: explicit-spec pre/post SHA256 `62981f4747156189f7870958da8ea7bc2fc0ead49c78bb6463e9fd284bb65961`; frozen Python/Torch/CUDA/Transformers/NumPy identities.
+- Result Summary: exact two-document engineering smoke completed once；benign retained and poisoned filtered under threshold `0.2`; evidence accepted only for exact minimal feasibility.
+- Claims Allowed: exact archive/index integrity；H2-A pass；local CUDA model load；one frozen call；redacted two-document outputs and resources；minimal Worker feasibility blocker closure.
+- Claims Prohibited: GMTP reproduction/effectiveness/safety/generalization；paper metrics/result；W2 completion/acceptance；P1, Dataset, Detector, Training or Formal Experiment advancement.
+- Blocker ID: `BLK-S6.1-FU1-W2-001 = RESOLVED_BY_H2_RESUME02_CONTROL_PLANE_REVIEW` only for the frozen minimal feasibility gate.
+- Resolution: no corrective 5090 prompt required；single H2-B authorization is consumed；resume_01 and resume_02 remain immutable.
+- Owner Decisions: none added for parent W2；existing OR-017/018 and PODR-059/060 govern the completed H2. OR-019 preserves the E-drive `LLMGuard-Handoff` folder as the future compute-output handoff directory.
+- Design Changes: none to algorithm, source, input, model, parameter, environment, metric or paper scope.
+- Paper Impact: `PASS_WITH_ENGINEERING_ONLY_CLAIMS`; no formal or comparative result.
+- Architecture Impact: validates the frozen external detection-core path only；no repository runtime-code change.
+- Next Step: project owner decides parent W2 disposition. S6.1-P1 remains closed and requires separate approval.
+- Next Approval Gate: explicit project-owner W2 decision；no automatic Worker rerun or P1.
+- Auto Continue: `NO / H2 SINGLE CALL CONSUMED`

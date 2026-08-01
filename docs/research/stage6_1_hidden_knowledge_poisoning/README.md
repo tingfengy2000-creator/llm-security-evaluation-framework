@@ -1,6 +1,6 @@
 # Paper 1 Start Here
 
-> 快速状态：S6.1-LR1 已人工验收；R0 带阻塞项验收；FU1 的 P0/L1 已验收，父 W2 未完成、未验收。H2 `resume_01` 因 bundle 尚未同步而合规阻断，H2-B 未执行；bundle/sidecar 现已到达 5090。为保留不可变历史，项目需求提出人已批准全新 `resume_02` 从 H2-A 重新开始，完整通过后才可条件执行一次 H2-B 双文档 smoke。`S6.1-P1 = NOT STARTED`，`FORMAL_EXPERIMENT = NOT STARTED`。
+> 快速状态：S6.1-LR1 已人工验收；R0 带阻塞项验收；FU1 的 P0/L1 已验收，父 W2 未完成、未验收。H2 `resume_01` 的 fail-closed 历史保持不可变；`resume_02` 已在 RTX5090 完成 H2-A `18/18` 与唯一一次 H2-B，返回 archive/index/result/resource 证据已由本机独立复核，状态为 `CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED`。这只是双文档工程 smoke，不是复现、有效性或论文结果。`S6.1-P1 = NOT STARTED`，`FORMAL_EXPERIMENT = NOT STARTED`。
 
 ## 一、项目需求提出人入口
 
@@ -15,7 +15,7 @@
 
 - [S6.1-LR1 工作过程](stage_process/S6.1-LR1_work_process.md) — 路线与基线对齐，`HUMAN_ACCEPTED`。
 - [S6.1-R0 工作过程](stage_process/S6.1-R0_work_process.md) — 工程预检，`HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- [S6.1-R0-FU1 工作过程](stage_process/S6.1-R0-FU1_work_process.md) — P0/L1 已验收；H2 resume_01 受阻证据已保留，resume_02 已批准、未执行；父 W2 仍未完成或验收。
+- [S6.1-R0-FU1 工作过程](stage_process/S6.1-R0-FU1_work_process.md) — P0/L1 已验收；H2 resume_01 受阻历史已保留，resume_02 工程 smoke 证据已通过本机复核；父 W2 仍待项目负责人决定。
 
 ## 三、支撑研究材料
 
@@ -33,6 +33,7 @@
 - [R0 复现预检](s6_1_r0_reproduction_preflight.md)
 - [R0-I Control Plane Review](s6_1_r0_i_control_plane_review.md)
 - [R0-FU1 Targeted Resolution](s6_1_r0_fu1_targeted_resolution.md)
+- [W2 H2 Resume 02 Control Plane Review](s6_1_r0_fu1_w2_h2_resume02_control_plane_review.md)
 - [W2 Attempt 1 Control Plane Review](s6_1_r0_fu1_w2_attempt1_control_plane_review.md)
 
 Raw evidence、模型 bundle 和私有 archive 保持 Git-external；这里只保存可审计身份、结论边界和复核索引。

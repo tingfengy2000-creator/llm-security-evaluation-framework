@@ -25,6 +25,7 @@ ARTIFACT_REGISTRY = RESEARCH / "external_artifact_registry.md"
 R0_I_REVIEW = RESEARCH / "s6_1_r0_i_control_plane_review.md"
 FU1_RESOLUTION = RESEARCH / "s6_1_r0_fu1_targeted_resolution.md"
 W2_ATTEMPT1_REVIEW = RESEARCH / "s6_1_r0_fu1_w2_attempt1_control_plane_review.md"
+W2_H2_RESUME02_REVIEW = RESEARCH / "s6_1_r0_fu1_w2_h2_resume02_control_plane_review.md"
 LONG_TERM_REQUIREMENTS = GOVERNANCE / "long_term_research_requirements.md"
 AGENTS = ROOT / "AGENTS.md"
 PAPER1_README = RESEARCH / "README.md"
@@ -88,6 +89,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             R0_I_REVIEW,
             FU1_RESOLUTION,
             W2_ATTEMPT1_REVIEW,
+            W2_H2_RESUME02_REVIEW,
         )
         for path in required:
             with self.subTest(path=path.relative_to(ROOT)):
@@ -255,7 +257,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("W2_ATTEMPT1_EVIDENCE_BLOCKER", state)
         self.assertIn("RESOLVED_BY_CORRECTION_02", state)
         self.assertIn("VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER", state)
-        self.assertIn("OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION", state)
+        self.assertIn("OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090", state)
         self.assertIn("S6.1-P1: **NOT STARTED", state)
         self.assertIn("Dataset: **NOT FROZEN**", state)
         self.assertIn("Detector: **NOT IMPLEMENTED**", state)
@@ -568,7 +570,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
                 self.assertIn(required, combined)
 
         self.assertNotIn("S6.1-R0-FU1-W2: **APPROVED_TO_EXECUTE**", state)
-        self.assertIn("S6.1-P1 is not automatically authorized", state)
+        self.assertIn("No automatic P1 approval or execution is authorized", state)
 
     def test_w2_attempt1_gap_history_and_correction02_closure_are_both_preserved(self) -> None:
         review = W2_ATTEMPT1_REVIEW.read_text(encoding="utf-8")
@@ -614,7 +616,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
 
         self.assertIn("S6.1-R0-FU1-W2-ATTEMPT1: **VALID_BLOCKED_ENGINEERING_RUN", state)
         self.assertIn("RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW", state)
-        self.assertIn("OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION", state)
+        self.assertIn("OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090", state)
         self.assertIn("No model download or offline bundle was performed", review)
 
     def test_po_mhep_is_highest_execution_authority_and_fail_closed(self) -> None:
@@ -841,6 +843,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertEqual(1, audit.count("## REL-2026-0020"))
         self.assertEqual(1, audit.count("## REL-2026-0021"))
         self.assertEqual(1, audit.count("## REL-2026-0022"))
+        self.assertEqual(1, audit.count("## REL-2026-0023"))
 
     def test_human_docs_are_chinese_first_without_long_english_blocks(self) -> None:
         for path in HUMAN_DIR.glob("*.md"):
@@ -899,7 +902,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "HUMAN_ACCEPTED_WITH_BLOCKERS",
             "VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER",
             "RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW",
-            "OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION",
+            "OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090",
             "APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED",
             "NOT FROZEN",
             "NOT IMPLEMENTED",
@@ -916,12 +919,41 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             agent,
         )
         self.assertIn(
-            "S6.1-R0-FU1-W2-H2-RESUME-02: APPROVED_TO_START / NOT EXECUTED",
+            "S6.1-R0-FU1-W2-H2-RESUME-02: CONTROL_PLANE_REVIEW_PASS / "
+            "ENGINEERING_SMOKE_EVIDENCE_ACCEPTED / call_count=1",
             agent,
         )
         self.assertIn("H2_historical_preapproval: PROPOSED / NOT CANONICAL / NOT APPROVED", agent)
         self.assertIn("VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER", human)
-        self.assertIn("APPROVED_TO_START / NOT EXECUTED", human)
+        self.assertIn("CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED", human)
+
+    def test_h2_resume02_control_plane_review_closes_only_minimal_feasibility(self) -> None:
+        review = W2_H2_RESUME02_REVIEW.read_text(encoding="utf-8")
+        current = CURRENT_STATE.read_text(encoding="utf-8")
+        master = MASTER_RECORD.read_text(encoding="utf-8")
+        audit = EXECUTION_LOG.read_text(encoding="utf-8")
+        combined = "\n".join((review, current, master, audit))
+
+        for required in (
+            "58da856a81ad89b858af2c041ff617e16156ec254410b07e6511c2888203f563",
+            "15625",
+            "25/25 PASS",
+            "18/18 PASS",
+            "call_count=1",
+            "OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090",
+            "CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED",
+            "RESOLVED_BY_H2_RESUME02_CONTROL_PLANE_REVIEW",
+            "APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED",
+            "S6.1-P1 = NOT STARTED",
+            "Formal Experiment `NOT STARTED`",
+            "REL-2026-0023",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, combined)
+
+        self.assertIn("The single-call authorization is consumed", review)
+        self.assertIn("not establish benchmark reproduction", review)
+        self.assertNotIn("W2: HUMAN_ACCEPTED", combined)
 
     def test_h2_conditional_approval_contract_is_frozen_and_non_experimental(self) -> None:
         human = TINGFENG_LEDGER.read_text(encoding="utf-8")
@@ -975,6 +1007,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
 
         for required in (
             "OR-018",
+            "OR-019",
             "PODR-060",
             "REL-2026-0022",
             "941557aa00be58210015165078bbb3c1cbdd2250cab0755c37198e7b7e26e89d",
@@ -983,6 +1016,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "EVIDENCE_CAPTURE_BLOCKER",
             "~/experiments/s6_1_r0_fu1/w2/resume_02",
             "s6_1_r0_fu1_w2_resume02_evidence_20260801.tar.gz",
+            "E 盘 `LLMGuard-Handoff`",
             "APPROVED_TO_START / NOT EXECUTED",
             "call_count=0",
             "不得自动创建 `resume_03`",

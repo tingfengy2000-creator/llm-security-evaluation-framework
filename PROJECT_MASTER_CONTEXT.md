@@ -1,5 +1,23 @@
 # LLMGuard 项目总控文档
 
+## H2 resume_02 工程 smoke 证据已通过本机复核（2026-08-01）
+
+LOCAL 已对返回的 `s6_1_r0_fu1_w2_resume02_evidence_20260801.tar.gz` 执行独立只读复核。Archive 为 `15625`
+bytes，sidecar、实际 SHA256 与 Worker 报告均为
+`58da856a81ad89b858af2c041ff617e16156ec254410b07e6511c2888203f563`；唯一顶层目录为 `resume_02`，27 个 regular
+files 与 1 个 directory 均为安全成员，内部 evidence index 独立复算 `25/25 PASS`。Resume_01 的 directory aggregate
+与 4570-byte archive SHA 保持不变。
+
+H2-A `18/18 PASS`；冻结 bundle/model/source/input/environment/offline 身份全部匹配。RTX5090 本地模型加载通过，无 CPU
+fallback；H2-B 只执行一次，`call_count=1`，benign retained、poisoned filtered，全部数值 finite，环境 pre/post SHA
+一致，资源门全部通过。因此 resume_02 状态为
+`CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED`，父 runtime blocker
+`BLK-S6.1-FU1-W2-001` 仅在冻结的最小 detector-core feasibility 范围内关闭。
+
+本轮仍不是 baseline reproduction、有效性评估、论文结果或正式实验。本机没有加载模型或执行 GMTP。父 W2 保持
+`APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`，等待项目负责人明确决定；P1、Dataset、Detector、Training、Our
+Method Result 与 Formal Experiment 均未推进。没有证据缺口需要向 5090 发送 corrective prompt。
+
 ## H2 resume_01 受阻证据已复核，resume_02 命名空间已批准（2026-08-01）
 
 5090 的 H2 `resume_01` 因 bundle/sidecar 当时缺失而在 H2-A gate 1--4 fail closed；gate 5--18 未执行，H2-B 未执行，

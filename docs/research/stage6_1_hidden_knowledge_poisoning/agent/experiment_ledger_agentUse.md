@@ -13,7 +13,7 @@ Primary Human Mirror = `../human/experiment_ledger_tingfeng.md`
 project: LLMGuard Research Framework
 paper: Paper 1 - Chinese version-aware stealthy knowledge poisoning
 branch: research/stage6-1-hidden-poisoning
-document_source_commit: 2f492dc763e865105510cc8cb141ebde5e109b3e
+document_source_commit: 38931d50bc3751eefc1dff100b2e901fc905ea3f
 snapshot_date: 2026-08-01
 authority_order:
   - raw Git and external evidence
@@ -34,9 +34,9 @@ S6.1-R0-FU1-P0: HUMAN_ACCEPTED
 S6.1-R0-FU1-L1: HUMAN_ACCEPTED
 S6.1-R0-FU1-W2-ATTEMPT1: VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER
 W2_ATTEMPT1_EVIDENCE_BLOCKER: RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW
-S6.1-R0-FU1-W2-H1: OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION
+S6.1-R0-FU1-W2-H1: OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090
 S6.1-R0-FU1-W2-H2-RESUME-01: VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER / H2-B NOT EXECUTED / call_count=0
-S6.1-R0-FU1-W2-H2-RESUME-02: APPROVED_TO_START / NOT EXECUTED
+S6.1-R0-FU1-W2-H2-RESUME-02: CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED / call_count=1
 S6.1-R0-FU1-W2: APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED
 S6.1-P1: NOT STARTED
 Dataset: NOT FROZEN
@@ -45,12 +45,12 @@ Training: NOT STARTED
 Our_Method_Result: NONE
 Formal_Experiment: NOT STARTED
 H2_historical_preapproval: PROPOSED / NOT CANONICAL / NOT APPROVED
-H2_auto_continue: CONDITIONAL_WITHIN_H2_ONLY
+H2_auto_continue: CONSUMED_AND_STOPPED
 ```
 
 ## State Machine
 
-`LR1 HUMAN_ACCEPTED -> R0 HUMAN_ACCEPTED_WITH_BLOCKERS -> FU1 {P0 HUMAN_ACCEPTED, L1 HUMAN_ACCEPTED, W2 INCOMPLETE} -> H1 prepared -> H2 resume_01 OFFLINE_BUNDLE_SHA_BLOCKER/call_count=0 -> bundle synced + immutable evidence conflict -> resume_02 owner-approved -> H2-A PASS ? exactly one H2-B call : STOP -> 本机 review`
+`LR1 HUMAN_ACCEPTED -> R0 HUMAN_ACCEPTED_WITH_BLOCKERS -> FU1 {P0 HUMAN_ACCEPTED, L1 HUMAN_ACCEPTED, W2 INCOMPLETE} -> H1 prepared -> H2 resume_01 OFFLINE_BUNDLE_SHA_BLOCKER/call_count=0 -> resume_02 owner-approved -> H2-A 18/18 PASS -> one H2-B call -> Control Plane evidence accepted -> owner W2 decision`
 
 No transition authorizes S6.1-P1, Dataset Construction, Detector Implementation, Training, or Formal Experiment.
 
@@ -60,7 +60,7 @@ No transition authorizes S6.1-P1, Dataset Construction, Detector Implementation,
 | --- | --- | --- | --- |
 | S6.1-LR1 | research route and external baseline alignment | `HUMAN_ACCEPTED` | `../stage_process/S6.1-LR1_work_process.md` |
 | S6.1-R0 | engineering reproduction preflight | `HUMAN_ACCEPTED_WITH_BLOCKERS` | `../stage_process/S6.1-R0_work_process.md` |
-| S6.1-R0-FU1 | targeted baseline feasibility resolution | `H2 RESUME_02 APPROVED / NOT EXECUTED` | `../stage_process/S6.1-R0-FU1_work_process.md` |
+| S6.1-R0-FU1 | targeted baseline feasibility resolution | `H2 RESUME_02 CONTROL_PLANE_REVIEW_PASS / W2 OWNER DECISION PENDING` | `../stage_process/S6.1-R0-FU1_work_process.md` |
 | S6.1-P1 | formal protocol freeze | `NOT STARTED` | none; not approved |
 
 ## Run Registry
@@ -104,16 +104,18 @@ next_gate: string
 | RUN-H2-APPROVAL | S6.1-R0-FU1 / W2-H2 | approval_and_contract_freeze / 本机 | `APPROVED_TO_START / NOT SENT / NOT EXECUTED` | source_commit `212911a21dc35bef05b15fb840542403c415dd13`; source_blob `84e69b3eadeb8adc0ce521501f8b560d6377b489`; data/input_hash `GMTP NQ index 0 test0 / 0233a26ecc56d7baf1448b86a114e328beece60624aa88304fa3553e90421e44`; models/revisions fixed as H1; environment `gmtp-compat frozen`; parameters `ret_type=contriever,N=5,M=5,remove_threshold=0.2,remove_lambda=1.0,topk=10,do_sort=false` | `PROPOSED / NOT APPROVED` -> `APPROVED_TO_START / NOT SENT / NOT EXECUTED` | result `governance approval only`; artifact/artifact_sha256/evidence_index `NA` | allowed: H2 contract and conditional gate; prohibited: claim of send/execution/model load/GMTP result/W2 acceptance/P1/formal result | blocker `H2 execution evidence absent by design`; next_gate 5090 H2-A, conditional H2-B, then 本机 review |
 | RUN-H2-R01 | S6.1-R0-FU1 / W2-H2-RESUME-01 | engineering_validation / 5090 | `APPROVED` | approval commit `2f492dc763e865105510cc8cb141ebde5e109b3e`; bundle expected SHA `aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45`; environment spec pre/post `62981f4747156189f7870958da8ea7bc2fc0ead49c78bb6463e9fd284bb65961`; parameters frozen, not invoked | `APPROVED_TO_START` -> `VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER` | artifact `s6_1_r0_fu1_w2_resume01_evidence_20260801.tar.gz`; artifact_sha256 `941557aa00be58210015165078bbb3c1cbdd2250cab0755c37198e7b7e26e89d`; evidence_index `19/19 PASS`; call_count `0` | allowed: missing-transfer blocker and fail-closed behavior; prohibited: H2-A pass/model load/GMTP result/W2 acceptance | blocker `OFFLINE_BUNDLE_SHA_BLOCKER`; next_gate owner decision on additive evidence namespace |
 | RUN-H2-R02-APPROVAL | S6.1-R0-FU1 / W2-H2-RESUME-02 | approval_and_contract_freeze / 本机 | `APPROVED_TO_START / NOT EXECUTED` | approval base `2f492dc763e865105510cc8cb141ebde5e109b3e`; bundle/sidecar reported synced and outer size/SHA matched; all source/input/model/environment/parameter identities unchanged | `EVIDENCE_CAPTURE_BLOCKER on nonempty resume_01` -> `RESUME_02 APPROVED_TO_START / NOT EXECUTED` | result `additive namespace rollover only`; artifact `resume02 pending`; evidence_index `NA`; H2-B call_count remains `0` | allowed: new evidence namespace and fresh H2-A; prohibited: overwrite resume_01/automatic resume_03/repeated H2-B/P1/formal result | blocker `NONE for approved rollover`; next_gate 5090 fresh H2-A in resume_02 |
+| RUN-H2-R02 | S6.1-R0-FU1 / W2-H2-RESUME-02 | engineering_smoke / 5090 + review / 本机 | `CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED` | main approval HEAD `38931d50bc3751eefc1dff100b2e901fc905ea3f`; GMTP commit/blob/source, input index/hash, two model revisions, environment SHA and official parameters all frozen | `APPROVED_TO_START` -> `W2_RESUME02_ENGINEERING_SMOKE_COMPLETED_PENDING_REVIEW` -> `CONTROL_PLANE_REVIEW_PASS` | artifact `s6_1_r0_fu1_w2_resume02_evidence_20260801.tar.gz`; artifact_sha256 `58da856a81ad89b858af2c041ff617e16156ec254410b07e6511c2888203f563`; evidence_index `25/25 PASS`; H2-A `18/18`; call_count `1` | allowed: exact minimal feasibility and redacted two-document observation; prohibited: reproduction/effectiveness/safety/paper result/W2 acceptance | blocker `BLK-S6.1-FU1-W2-001 resolved for minimal gate`; next_gate parent W2 owner decision |
 
 ## Artifact Registry
 
 | artifact_id | identity | size / index | status |
 | --- | --- | --- | --- |
 | ART-C02 | Correction 02 archive SHA256 `fcfa3f14c98e0103cb5a1de2f0449fa000d179e2e01d74baa6fec4b013503622` | 17/17 PASS | evidence closure accepted |
-| ART-H1 | `s6_1_r0_fu1_w2_models_20260801.tar.gz`, SHA256 `aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45` | 1222137698 bytes; 19/19 PASS | 本机 prepared; 5090 verification pending |
+| ART-H1 | `s6_1_r0_fu1_w2_models_20260801.tar.gz`, SHA256 `aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45` | 1222137698 bytes; 19/19 PASS | 本机 prepared; 5090 H2-A verified |
 | ART-H2-R01 | `s6_1_r0_fu1_w2_resume01_evidence_20260801.tar.gz`, SHA256 `941557aa00be58210015165078bbb3c1cbdd2250cab0755c37198e7b7e26e89d` | 4570 bytes; evidence 19/19 PASS | 本机 accepted valid blocker evidence; immutable |
-| MODEL-ENC | `facebook/contriever-msmarco@abe8c1493371369031bcb1e02acb754cf4e162fa` | 8 files; 438708922 bytes | bundled, not loaded on 5090 |
-| MODEL-MLM | `google-bert/bert-base-uncased@86b5e0934494bd15c9632b12f734a8a67f723594` | 9 files; 881643453 bytes | bundled, not loaded on 5090 |
+| ART-H2-R02 | `s6_1_r0_fu1_w2_resume02_evidence_20260801.tar.gz`, SHA256 `58da856a81ad89b858af2c041ff617e16156ec254410b07e6511c2888203f563` | 15625 bytes; evidence 25/25 PASS | Control Plane accepted engineering-smoke evidence |
+| MODEL-ENC | `facebook/contriever-msmarco@abe8c1493371369031bcb1e02acb754cf4e162fa` | 8 files; 438708922 bytes | 5090 local CUDA load passed in frozen H2 |
+| MODEL-MLM | `google-bert/bert-base-uncased@86b5e0934494bd15c9632b12f734a8a67f723594` | 9 files; 881643453 bytes | 5090 local CUDA load passed in frozen H2 |
 
 Total model bytes: `1320352375`. Archives and models remain Git-external.
 
@@ -127,10 +129,10 @@ H2 bundle contract additionally freezes bundle source bytes `1320359518`, archiv
 | R0 corrected acceptance | R0 review + corrected archive + `S6.1-R0_work_process.md` |
 | W2 blocked run | W2 control-plane review + original/correction evidence |
 | Correction 02 closure | SHA256 and 17/17 index in FU1 process and experiment master record |
-| H1 prepared only | H1 manifest/index, SHA256, immutable model revisions |
+| H1 prepared and 5090 verified | H1 manifest/index, SHA256, immutable model revisions and H2-A evidence |
 | H2 approval and conditional execution | owner requirements OR-017/OR-018 + PODR-059/PODR-060 + `S6.1-R0-FU1_work_process.md` |
 | H2 resume_01 blocker | returned archive SHA256 `941557aa...26e89d`, safe 20 files/1 directory, evidence index 19/19, `call_count=0` |
-| H2 resume_02 rollover | owner-confirmed bundle sync and additive namespace approval; execution evidence pending |
+| H2 resume_02 review | returned archive SHA256 `58da856a...f563`, safe 27 files/1 directory, evidence index 25/25, H2-A 18/18, `call_count=1` |
 
 ## Claims Matrix
 
@@ -138,14 +140,12 @@ H2 bundle contract additionally freezes bundle source bytes `1320359518`, archiv
 | --- | --- |
 | Published Result | external paper statements only; not verified on 本机 as reproduction |
 | Reproduced Result | none for complete strict external baseline reproduction |
-| Engineering Validation | identities, schema, environment contracts, evidence closure, 本机 bundle, blocked smoke |
+| Engineering Validation | identities, schema, environment contracts, evidence closure and accepted exact two-document H2 smoke |
 | Our Formal Result | `NONE`; `FORMAL_EXPERIMENT = NOT STARTED` |
 
 ## Open Blockers
 
-- Bundle/sidecar presence and outer size/SHA are reported on 5090, but full H2-A and model identity verification are still pending.
-- H2 resume_02 is approved but not executed; H2-B has never executed and call_count remains zero.
-- GMTP detection-core has not completed; parent W2 remains incomplete and unaccepted.
+- Parent W2 remains incomplete and unaccepted pending explicit project-owner disposition.
 - S6.1-P1 protocol, Dataset, Detector, Training and Formal Experiment are not approved or started.
 - Detoxification technical scope remains `SCOPE_CONFIRMATION_REQUIRED`.
 
@@ -153,16 +153,15 @@ H2 bundle contract additionally freezes bundle source bytes `1320359518`, archiv
 
 - R0 initial evidence mismatch: resolved by corrected R0 evidence, with history preserved.
 - W2 Attempt 1 evidence gap: `RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW`; this did not resolve the model download blocker or complete W2.
+- Minimal modern-Worker detector-core feasibility blocker: `RESOLVED_BY_H2_RESUME02_CONTROL_PLANE_REVIEW`; this does not establish reproduction/effectiveness or owner-accept W2.
 
 ## Decision Gates
 
-1. Preserve resume_01 as immutable blocker evidence; resume_02 must be absent or empty before execution, otherwise stop without automatic resume_03.
-2. H2 resume_02 approval exists only for 5090: verify H2-A from the beginning; any mismatch stops without H2-B.
-3. H2-B is conditionally authorized only after complete H2-A pass and is limited to one frozen two-document call.
-4. H2-B completion or any blocker stops and returns evidence to 本机; no autonomous repair or repetition.
-5. Human acceptance of W2 is still required before any S6.1-P1 proposal can advance.
-6. Separate owner confirmation remains required for detoxification scope and every formal experiment gate.
-7. `Auto Continue = CONDITIONAL_WITHIN_H2_ONLY`; outside H2 it is `NO`.
+1. Preserve resume_01 and resume_02 as immutable evidence; do not overwrite, rerun, merge or create automatic resume_03.
+2. The only authorized H2-B call is consumed (`call_count=1`); no retry or second call is authorized.
+3. Human acceptance of W2 is still required before any S6.1-P1 proposal can advance.
+4. Separate owner confirmation remains required for detoxification scope and every formal experiment gate.
+5. `Auto Continue = CONSUMED_AND_STOPPED`; outside H2 it remains `NO`.
 
 ## Human-Confirmed Requirements Reference
 
