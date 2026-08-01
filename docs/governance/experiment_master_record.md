@@ -54,22 +54,24 @@
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
 | 当前最高完成阶段 | S6-T5 Controlled Retrieval and Traceable Context Baseline 已 `HUMAN_ACCEPTED BASELINE`；S6.1-LR1 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`。 |
-| 当前任务 | `S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-01-REVIEW = W2_ATTEMPT1_EVIDENCE_BLOCKER / CORRECTION_DU_COMMAND_EVIDENCE_MISSING` on `LOCAL / CONTROL_PLANE`。 |
-| 当前审批门 | exact apparent-size/allocated-size `du` commands, flags and raw outputs must be indexed before H1 preparation；`FORMAL_EXPERIMENT = NOT STARTED`。 |
-| 下一批准任务 | H1 is owner-approved but blocked/not started；no automatic execution；S6.1-P1 remains closed。 |
+| 当前任务 | `GOV-PO-MHEP = HUMAN_ACCEPTED / HIGHEST_INTERNAL_PROJECT_EXECUTION_AUTHORITY / PERMANENT` on `LOCAL / PRIMARY_CONTROL_PLANE`。 |
+| 当前审批门 | owner review of Correction 02 Worker Contract Candidate；candidate is not approved/sent/executed；`FORMAL_EXPERIMENT = NOT STARTED`。 |
+| 下一批准任务 | none automatically；owner may approve/reject/modify Correction 02；H1 remains approved but blocker-gated；S6.1-P1 remains closed。 |
 | Baseline tag | annotated `s6-t5-rag-baseline-v1` 已恢复；本地/远端 peeled target 均核验为 `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
 | 最近工程验证 | Correction 01 SHA/safe/index/original binding/main-repository integrity passed；command-derived disk semantics remain absent。 |
 | 当前主要阻塞项 | `W2_ATTEMPT1_EVIDENCE_BLOCKER` and `BLK-S6.1-FU1-W2-001`；formal-environment, historical generation identity and redistribution items remain separate。 |
-| 当前允许宣称 | Correction 01 integrity/index/original binding/main-repository fields passed；reported disk values match its manifest and are below 6 GiB；W2 remains approved but not completed/accepted。 |
-| 当前禁止宣称 | `ENV_DISK_CONTRACT` accepted、Attempt 1 valid blocked run/reusable preflight、H1 started/models prepared、W2 smoke/compatibility/result、P1/formal experiment or security effectiveness。 |
+| 当前允许宣称 | PO-MHEP is permanently human-accepted as highest internal execution authority；Correction 02 exists only as a contract candidate；existing Correction 01/W2 evidence facts remain unchanged。 |
+| 当前禁止宣称 | Correction 02 approved/sent/executed、`ENV_DISK_CONTRACT` accepted、Attempt 1 valid blocked run/reusable preflight、H1 started/models prepared、W2 result、P1/formal experiment or security effectiveness。 |
 
 历史审批快照补充：S6-T5.5/5.6/5.7 已按后续记录完成并通过相应人工验收；早期 pending/NOT APPROVED 文字保留为
 时间点事实。当前 accepted implementation/integration identities 分别是 `b136ee2` 与 `b6cedf3`；LR1 不改变该 taxonomy。
 
 正式 RAG 安全实验：**Not started**。Historical R0 execution/return snapshots and current R0 acceptance do not change this status。
 
-**阅读入口**：先读 [AGENTS.md](../../AGENTS.md)、[长期研究需求](long_term_research_requirements.md)、[项目总控](../../PROJECT_MASTER_CONTEXT.md)、[当前任务状态](current_work_state.md)，再读本文、当前 Stage 设计与原始工件。
+**阅读入口**：先读 [AGENTS.md](../../AGENTS.md)、[Context Authority Map](context_authority_map.md)、
+[PO-MHEP](project_owner_sovereignty_and_mandatory_escalation_principle.md)、[长期研究需求](long_term_research_requirements.md)、
+[项目总控](../../PROJECT_MASTER_CONTEXT.md)、[当前任务状态](current_work_state.md)，再读本文、当前 Stage 设计与原始工件。
 
 ## 3. 总研究目标与研究问题
 
@@ -86,6 +88,7 @@
 
 | Stage/Task | 正式名称 | 核心目标 | 当前状态 | 状态类型 | 关键提交/证据 | 下一门禁 |
 | --- | --- | --- | --- | --- | --- | --- |
+| GOV-PO-MHEP | Project Owner Sovereignty, Mandatory Human Escalation, and Physical Context Preservation Principle | highest internal execution authority、mandatory escalation、forward/paper risk and physical context preservation | human accepted；permanent；no auto expiry | `HIGHEST_INTERNAL_PROJECT_EXECUTION_AUTHORITY` | [PO-MHEP](project_owner_sovereignty_and_mandatory_escalation_principle.md)、PODR-056、REL-2026-0017 | applies to every future task；does not auto-approve execution |
 | Stage 1 | Garak Security Scan Baseline | 跑通 Probe → Generator → Detector → Report | 完成 | `ENGINEERING_VALIDATED` | [Stage 1 结果](../../deliverables/stage1/) | 无 |
 | Stage 2 | OpenAI-Compatible Mock API | vulnerable/guarded Mock 对照 | 完成 | `FORMAL_EXPERIMENT_COMPLETED` | [Stage 2 结果](../../deliverables/stage2/) | 无 |
 | Stage 3 | Real Model Security Scan | Groq 真实模型小样本扫描 | 完成 | `FORMAL_EXPERIMENT_COMPLETED` | [Stage 3 结果](../../deliverables/stage3/) | 扩样需单独设计 |
@@ -120,6 +123,7 @@
 | S6.1-R0-FU1-L1 | PoisonedRAG Released Artifact Identity and Deterministic Assembly Validation | exact artifact/schema/assembly hashes without model/API | human accepted | `HUMAN_ACCEPTED_SOURCE_ARTIFACT_VALIDATION` | [FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、PODR-052、REL-2026-0013 | W1 superseded；W2 approved under separate gate |
 | S6.1-R0-FU1-W2 | GMTP Detection-Only Minimal Smoke | exact detector-core compatibility on fixed GMTP-packaged input | approved；not completed/accepted；Attempt 1 evidence-blocked | `ENGINEERING_VALIDATION_APPROVED` | [FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、PODR-053/054、REL-2026-0014/0015 | corrected evidence then H1 preparation |
 | S6.1-R0-FU1-W2-H1 | Offline Model Artifact Provisioning and W2 Resume | exact-revision offline bundle without LOCAL model loading | owner-approved；not started；evidence-gated | `RECOVERY_TASK_APPROVED_BLOCKED` | [Attempt 1 review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_attempt1_control_plane_review.md)、PODR-054 | close Attempt 1 evidence blocker |
+| S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02 | Minimal command-derived disk measurement correction | exact apparent/allocated `du` commands, flags, raw streams/exits, time, environment and indexed manifest | contract candidate only；not approved/sent/executed | `WORKER_CONTRACT_CANDIDATE` | [FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、PODR-056 | explicit owner approval |
 | Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | LR1/R0/P0/L1 accepted；W2 Attempt 1 evidence-blocked；H1 blocked/not started；P1 not started | `PLANNED` | [长期需求](long_term_research_requirements.md) | corrected evidence, H1, resumed W2 and later separate P1 decision |
 | Stage 6.2 | Multi-Evidence Trustworthy Retrieval | 可信聚合、重排、拒答 | 规划中 | `PLANNED` | [长期需求](long_term_research_requirements.md) | Stage 6.1/设计批准 |
 | Stage 7 | Agent Security Evaluation | Tool/Memory/Planning 安全 | 规划中 | `PLANNED` | [Stage 7 README](../../stages/stage7_agent_security/README.md) | Trusted Context 契约 |
@@ -333,6 +337,7 @@ description/final_resolution 中，但不能代替 status。**WORKAROUND is not 
 
 | Gate ID | 当前任务 | 已完成证据 | 人工验收状态 | 获批后可开始 | 仍禁止 | 负责人 |
 | --- | --- | --- | --- | --- | --- | --- |
+| GATE-GOV-PO-MHEP | Highest internal execution authority | canonical principle、authority/startup/context persistence contracts、owner decision and governance tests | `HUMAN_ACCEPTED / PERMANENT` | applies as mandatory governance to all tasks | cannot alter L0 facts or auto-approve any execution | 项目负责人 |
 | GATE-GOV-ER1 | Experiment Master Record | 本文、入口同步、治理测试、GOV-ER1-H1 十列账本加固 | `HUMAN_ACCEPTED` | 已完成 | 不自动批准 S6-T5.4 | 项目负责人 |
 | GATE-S6-T5.2 | Retrieval Runtime Contracts and IDs | `4c12181`、完成记录、回归测试 | `HUMAN_ACCEPTED` | 已批准 S6-T5.3 | S6-T5.4 及以后 | 项目负责人 |
 | GATE-S6-T5.3 | Provider-Neutral DenseRetriever | P1 metadata contract、H1 hardening、完成记录、离线 TDD 证据 | `HUMAN_ACCEPTED` | 不自动批准任何后续任务 | ContentResolver 及以后 | 项目负责人 |
@@ -349,8 +354,10 @@ description/final_resolution 中，但不能代替 status。**WORKAROUND is not 
 | GATE-S6.1-R0-FU1-W2 | GMTP detection-core compatibility smoke | exact repo/source/input/model/parameter/environment/resource/output contract | `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED` | corrected Attempt 1 evidence then H1/resume | P1、formal experiment、metrics、paper/security claims | 项目负责人 |
 | GATE-S6.1-R0-FU1-W2-ATTEMPT1 | Worker evidence completeness review | original archive plus Correction 01 SHA/safe/index/binding/repository/disk cross-check | `W2_ATTEMPT1_EVIDENCE_BLOCKER / CORRECTION_DU_COMMAND_EVIDENCE_MISSING` | command-derived correction may be reviewed | valid-run/reusable-evidence classification、H1 execution | Control Plane |
 | GATE-S6.1-R0-FU1-W2-H1 | Offline Model Artifact Provisioning and W2 Resume | exact model and resource contract owner-approved | `APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS / BLOCKED_NOT_STARTED` | only after Attempt 1 evidence blocker closes | LOCAL model load、GMTP/GPU、bundle while blocker open、P1 | 项目负责人 |
+| GATE-S6.1-R0-FU1-W2-CORRECTION-02 | Command-derived disk measurement evidence | documentation-only exact Worker contract candidate | `NOT APPROVED / NOT SENT / NOT EXECUTED` | nothing until explicit owner approval | Worker contact/execution、H1、GMTP、environment mutation、P1/formal experiment | 项目负责人 |
 
 **当前审批顺序**：既有 S6-T5 验收历史保持不变；S6.1-LR1、Context Recovery、Paper-First 和 current route 已接受；
+PO-MHEP is `HUMAN_ACCEPTED / HIGHEST_INTERNAL_PROJECT_EXECUTION_AUTHORITY / PERMANENT` and applies without changing L0 facts；
 `S6.1-R0-B0` 已 `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`；historical R0 execution approval remains preserved；
 historical R0-I `RETURNED_FOR_WORKER_CORRECTION` remains preserved；the superseding decision is
 `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。R0-FU1 is `APPROVED / LOCAL-FIRST / WORKER-GATED`；P0/L1 are
@@ -547,3 +554,4 @@ git log -15 --oneline
 | 2026-08-01 | FU1-W2 execution approval | 第 2、4、12、14、20 节 | owner approved the exact frozen GMTP detection-core smoke on RTX5090；LOCAL registered governance only and did not execute Worker/model/GPU work | [FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、PODR-053、REL-2026-0014、governance tests | `W2 APPROVED_TO_START / NOT_YET_EXECUTED`；P1/formal experiment not started |
 | 2026-08-01 | W2 Attempt 1 evidence blocker and H1 recovery gate | 第 2、4、12、14、20 节 | archive integrity and partial identities passed, but mandatory main-repository HEAD/clean and disk measurement evidence were absent；stopped before offline downloads；registered 10 GiB resource correction and owner-approved H1 as blocked/not started | [Attempt 1 review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_attempt1_control_plane_review.md)、PODR-054、REL-2026-0015、governance tests | `W2_ATTEMPT1_EVIDENCE_BLOCKER`；no bundle/model/GMTP/P1/formal execution |
 | 2026-08-01 | W2 Attempt 1 Correction 01 remains evidence-blocked | 第 2、12、14、20 节 | correction SHA/safe/index/original binding/main repository passed；reported disk values are consistent and under ceiling, but exact `du` commands/flags/raw outputs are absent；H1 did not start | [Attempt 1 review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_attempt1_control_plane_review.md)、PODR-055、REL-2026-0016、governance tests | parent blocker remains open；no model/bundle/GMTP/P1/formal execution |
+| 2026-08-01 | GOV-PO-MHEP highest internal execution authority | 第 1、2、4、12、14、15、20 节 | owner established permanent mandatory escalation, LOCAL/Worker sovereignty, forward/paper risk review, physical context persistence and canonical Git sync；prepared Correction 02 candidate only | [PO-MHEP](project_owner_sovereignty_and_mandatory_escalation_principle.md)、PODR-056、REL-2026-0017、governance tests | no Worker contact/execution、H1/model/GMTP/P1/formal experiment；W2 blocker unchanged |

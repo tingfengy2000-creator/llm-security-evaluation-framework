@@ -16,6 +16,16 @@ hash、model revision、config hash、raw metric/result artifact 和 immutable h
 L0 回答“实际上运行了什么、哪个 SHA 执行、tag 指向哪里、数据/模型是什么版本、结果是否真实存在”。
 branch、HEAD、tag、working tree、artifact existence 与 upstream sync 必须动态核验。**Git dynamic facts override stale branch/SHA text**；文档不能让不存在的 commit、tag、run 或结果变成事实。
 
+## L0.5 — Project Owner Sovereignty and Mandatory Escalation
+
+[PO-MHEP](project_owner_sovereignty_and_mandatory_escalation_principle.md) is
+`HIGHEST_INTERNAL_PROJECT_EXECUTION_AUTHORITY / HUMAN_ACCEPTED / PERMANENT`. L0.5 cannot change L0 objective facts, immutable
+evidence or history. It decides whether execution is allowed to continue after those facts are known.
+
+PO-MHEP supersedes conflicting task prompts, specs, plans, Worker contracts, Token Economy rules, auto-continue defaults and
+progress/performance goals inside project governance. A trigger produces `HUMAN_DECISION_REQUIRED / Auto Continue = NO`; only
+read-only verification, risk analysis, context/evidence preservation and governance persistence may continue before owner decision.
+
 ## L1 — AGENTS.md
 
 [AGENTS.md](../../AGENTS.md) 负责 Codex 工作规则、Mandatory Startup Protocol、禁止事项、审批边界、namespace、
@@ -73,20 +83,23 @@ Protocol，也不得作为实验结果的唯一证据。
 ## Context Conflict Resolution
 
 1. Git 动态事实决定 branch、SHA、tag、diff、artifact existence 和 remote sync。
-2. 较新的、合法的 Owner-confirmed decision 可以 supersede 较旧研究方案；必须记录 Decision ID、日期、证据和
+2. PO-MHEP decides whether execution may continue after L0 facts are known；it cannot rewrite those facts or bypass safety,
+   law, privacy, license, label isolation or immutable history。
+3. 较新的、合法的 Owner-confirmed decision 可以 supersede 较旧研究方案；必须记录 Decision ID、日期、证据和
    被替代对象。
-3. Superseded 历史记录不得删除；用 `SUPERSEDING_RECORD` 或明确的历史快照说明保留。
-4. 具体实验事实先看 raw artifact/RunManifest，再看对应 commit 和 Stage-specific acceptance，最后才看汇总。
-5. 低层教学材料永远不能覆盖高层治理或原始证据。
-6. 若无法确认哪项决定更新、冲突会改变数据/历史资产/审批门或来源不能验证，登记
-   `CONTEXT_CONFLICT_BLOCKER`，停止关键研究工作并请求项目负责人决定。
-7. 禁止用“根据之前应该是”“我记得”等聊天记忆推断研究事实；未知即写 `UNKNOWN`。
+4. Superseded 历史记录不得删除；用 `SUPERSEDING_RECORD` 或明确的历史快照说明保留。
+5. 具体实验事实先看 raw artifact/RunManifest，再看对应 commit 和 Stage-specific acceptance，最后才看汇总。
+6. 低层教学材料永远不能覆盖高层治理或原始证据。
+7. 若无法确认哪项决定更新、冲突会改变数据/历史资产/审批门或来源不能验证，登记
+   `CONTEXT_CONFLICT_BLOCKER / HUMAN_DECISION_REQUIRED`，停止受影响工作并请求项目负责人决定。
+8. 禁止用“根据之前应该是”“我记得”等聊天记忆推断研究事实；未知即写 `UNKNOWN`。
 
 ## Canonical File Responsibility Map
 
 | 问题 | 唯一首要入口 | 不能替代它的材料 |
 | --- | --- | --- |
 | Git/运行事实是什么 | L0 Git + Raw Evidence | 静态状态文字、聊天 |
+| 发现事实后是否允许继续 | L0.5 PO-MHEP + explicit owner decision | agent default、进度/性能目标、Token Economy |
 | Codex 可以做什么 | L1 `AGENTS.md` | learning notes |
 | 长期目标是什么 | L2 长期需求 | 当前任务页 |
 | 用户确认了什么 | L3 Owner Decision Register | 模型记忆 |
@@ -119,12 +132,13 @@ git log -15 --oneline
 1. 执行 Mandatory Git Preflight，并检查 worktree、tag、upstream、ahead/behind 和 working tree。
 2. 读取 `AGENTS.md`。
 3. 读取本 Authority Map。
-4. 读取长期需求、Owner Decision Register、Project Master Context、Current Work State。
-5. 读取当前 Stage 的 canonical research route 与 task protocol/spec。
-6. 读取相关 Experiment Master Record、Research Execution Log 和原始证据入口。
-7. 检查更深层 `AGENTS.md`/override、protected paths、runtime ignore 和秘密边界。
-8. 输出中文 `Context Recovery Report`；任何不能确认的字段写 `UNKNOWN`。
-9. 未获得当前任务批准时停止，不自动进入下一 Task/Stage。
+4. 读取 [PO-MHEP](project_owner_sovereignty_and_mandatory_escalation_principle.md)。
+5. 读取长期需求、Owner Decision Register、Project Master Context、Current Work State。
+6. 读取当前 Stage 的 canonical research route 与 task protocol/spec。
+7. 读取相关 Experiment Master Record、Research Execution Log 和原始证据入口。
+8. 检查更深层 `AGENTS.md`/override、protected paths、runtime ignore 和秘密边界。
+9. 检查 `HUMAN_DECISION_REQUIRED` triggers，输出中文 `Context Recovery Report`；不能确认的字段写 `UNKNOWN`。
+10. 未获得当前任务批准时停止，不自动进入下一 Task/Stage。
 
 ## Context Recovery Report 必填字段
 
@@ -165,8 +179,11 @@ git log -15 --oneline
 - Historical superseded fact：RTX5090 Bootstrap 已 `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`，`S6.1-R0` 曾
   `APPROVED_TO_START` on Compute Worker；首次 R0-I return 保留为历史快照。
 - Superseding current fact：R0 is `HUMAN_ACCEPTED_WITH_BLOCKERS`；FU1 is `APPROVED / LOCAL-FIRST / WORKER-GATED`；
-  P0 is `COMPLETED_PENDING_OWNER_REVIEW`；W1/W2 and P1 are not approved；Formal Experiment 仍未开始。
+  P0/L1 are `HUMAN_ACCEPTED`；W1 is `SUPERSEDED_BY_LOCAL_L1`；W2 is approved but not completed/accepted；Attempt 1 evidence
+  blocker is open；H1 is owner-approved but blocked/not started；P1 and Formal Experiment remain not started。
 - Owner principle：Control-Plane-First Token Economy is accepted as execution-resource governance and cannot override
   Paper-First、safety、evidence quality、label isolation、immutable history or reproducibility。
+- Highest internal execution principle：PO-MHEP is `HUMAN_ACCEPTED / PERMANENT / NO_AUTO_EXPIRY` and supersedes Token Economy
+  whenever mandatory escalation, evidence quality, context preservation or owner decision is implicated。
 
 这些静态锚点只表达已登记的治理身份；是否存在、当前 branch/HEAD/tag 和远端同步仍须由 L0 动态核验。

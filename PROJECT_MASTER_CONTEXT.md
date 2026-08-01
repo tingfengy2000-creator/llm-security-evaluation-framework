@@ -1,5 +1,26 @@
 # LLMGuard 项目总控文档
 
+## PO-MHEP 最高内部执行治理原则（2026-08-01）
+
+项目负责人正式确立 [PO-MHEP](docs/governance/project_owner_sovereignty_and_mandatory_escalation_principle.md)：
+`Project Owner Sovereignty, Mandatory Human Escalation, and Physical Context Preservation Principle`，状态为
+`HUMAN_ACCEPTED / HIGHEST_INTERNAL_PROJECT_EXECUTION_AUTHORITY / PERMANENT / NO_AUTO_EXPIRY`，适用于整个 LLMGuard Research
+Framework、所有 Stage/分支/LOCAL/RTX5090/Agent/自动化执行者。
+
+L0 动态 Git/raw evidence 仍决定客观事实；L0.5 PO-MHEP 决定发现事实后是否允许继续。accepted boundary、API/凭据、
+重大资源或不可逆操作、架构/算法/label leakage、论文创新/公平/统计/许可、证据来源链、context conflict 或重大方案
+不确定性均触发 `HUMAN_DECISION_REQUIRED / Auto Continue = NO`。只能继续只读核验、决策风险分析、物理上下文/证据
+保全与治理更新；不得默认方案、静默 workaround、Worker 自决或自动进入下一任务。
+
+LOCAL 现在明确承担 `PRIMARY_CONTROL_PLANE / PROJECT_EXECUTION_LEAD / RESEARCH_GOVERNANCE_LEAD /
+5090_APPROVAL_AUTHORITY / PAPER_RISK_REVIEWER / CONTEXT_PRESERVATION_OWNER`；RTX5090 永远只是
+`COMPUTE_WORKER / NO_SELF_APPROVAL_AUTHORITY`。所有阶段前执行 `FORWARD_RISK_REVIEW`，论文关键节点执行
+`PAPER_RISK_REVIEW`，任务结束执行 `CONTEXT_PERSISTENCE_CHECK`。
+
+该治理升级没有改变 W2 事实：P0/L1 accepted；W2 approved but not completed/accepted；Attempt 1 evidence-blocked；
+`W2_ATTEMPT1_EVIDENCE_BLOCKER = OPEN`；H1 blocked/not started；P1/Formal Experiment not started。Correction 02 仅形成
+`CONTRACT_CANDIDATE / NOT APPROVED / NOT SENT / NOT EXECUTED`，等待项目负责人决定，未联系 RTX5090。
+
 ## S6.1-R0-FU1-W2 Attempt 1 Correction 01 仍未关闭证据门（2026-08-01）
 
 LOCAL 已复核 correction archive SHA-256

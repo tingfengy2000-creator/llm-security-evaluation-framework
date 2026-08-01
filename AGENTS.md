@@ -27,16 +27,16 @@
 
 1. `AGENTS.md`
 2. `docs/governance/context_authority_map.md`
-3. `docs/governance/long_term_research_requirements.md`
-4. `docs/governance/project_owner_decision_register.md`
+3. `docs/governance/project_owner_sovereignty_and_mandatory_escalation_principle.md`
+4. `docs/governance/current_work_state.md`
 5. `PROJECT_MASTER_CONTEXT.md`
-6. `docs/governance/current_work_state.md`
-7. 当前 Stage 的 canonical research route / `README.md`
-8. 当前任务的 protocol/design specification 与 implementation plan
-9. `docs/governance/experiment_master_record.md` 中的相关实验、证据和 blocker
-10. `docs/governance/research_execution_log.md` 的相关时间线记录
-11. 最近 15 条 Git commit
-12. 当前 branch、HEAD、worktree、status、tag 和 upstream sync
+6. `docs/governance/project_owner_decision_register.md` 的最新相关决定
+7. `docs/governance/long_term_research_requirements.md`
+8. `docs/governance/experiment_master_record.md` 中的相关实验、证据和 blocker
+9. 当前 Stage 的 canonical research route / `README.md`
+10. 当前任务的 protocol/design specification 与 implementation plan
+11. `docs/governance/research_execution_log.md` 的相关时间线记录
+12. 最近 15 条 Git commit 与当前 branch、HEAD、worktree、status、tag、upstream sync
 
 文件职责：长期需求记录用户目标、论文/立项方向和后续强制能力；项目负责人决策登记册记录已确认的解释
 与决策；项目总控记录总体架构、阶段进度、
@@ -71,7 +71,16 @@ Git preflight 至少执行 `git fetch --prune --tags origin`、`git status --sho
 
 ## Instruction Priority
 
-冲突优先级：
+项目内部执行权威层级：
+
+1. `L0`：动态 Git 事实与不可变 raw evidence，决定客观上存在或执行了什么；
+2. `L0.5`：[PO-MHEP](docs/governance/project_owner_sovereignty_and_mandatory_escalation_principle.md)，决定发现事实后是否
+   允许继续，是 `HIGHEST_INTERNAL_PROJECT_EXECUTION_AUTHORITY`；
+3. `L1` 及以下：本文件、长期需求、Owner Decision、项目总控、动态状态、账本、accepted spec/plan 和学习材料。
+
+L0.5 不能篡改 L0，也不能绕过更高层安全、法律、隐私、许可或平台约束。以下项目文档/任务解释顺序只在 L1 及
+以下适用，不能覆盖 L0/L0.5。最新 prompt 只有在它本身是项目负责人的明确决定时才能 supersede 较旧项目决定，且
+不得静默豁免 PO-MHEP 的升级和停止义务：
 
 1. 用户在当前会话中的最新明确要求；
 2. `docs/governance/long_term_research_requirements.md`；
@@ -85,6 +94,27 @@ Git preflight 至少执行 `git fetch --prune --tags origin`、`git status --sho
 branch、HEAD、working tree、文件和 commit 是否存在、本地与远端是否同步，始终以 Git 为准。发现无法
 由上述优先级安全解释的冲突时必须停止并报告，不得自行选择版本继续。长期需求与项目负责人决策登记册
 冲突时同样必须停止并报告，不得自行覆盖长期基线。
+
+## Mandatory Human Escalation
+
+完整规则见 [PO-MHEP](docs/governance/project_owner_sovereignty_and_mandatory_escalation_principle.md)。发现以下任一类
+情况时，受影响工作立即进入 `HUMAN_DECISION_REQUIRED` 且 `Auto Continue = NO`：
+
+- accepted boundary、Worker contract、claims boundary 或 canonical current-state 冲突；
+- 真实 API/token/login/付费服务、未批准外部源或身份不确定的网络替代；
+- 系统级安装、管理员权限、大型下载、资源超限、不可逆/污染/数据丢失风险；
+- 算法语义 patch、label/Ground Truth 泄漏、架构强耦合、重大技术债或不可恢复运行；
+- novelty、baseline fairness、protocol alignment、统计、confounder、许可或论文结论风险；
+- 缺 command/flags/stdout/stderr/exit code、只有摘要/估算、身份未绑定、index/archive/manifest 不完整；
+- 两个以上会显著影响论文、架构、资源、复现或后续 Stage 的方案，或本机不能高置信判断。
+
+触发后不得默认继续、静默 workaround、下载/安装、调用外部服务、让 Worker 继续、关闭 blocker 或进入下一任务。
+只允许只读核验、决策风险分析、证据/上下文保存和 Git/治理记录更新。反馈必须使用 PO-MHEP 的十二字段
+decision-ready 格式，不能只说“请人工处理”。
+
+所有 Stage/spec/Worker contract/experiment 前必须执行 `FORWARD_RISK_REVIEW`；论文路线、baseline、dataset、attack、
+detector、metric、formal protocol、首次正式运行、ablation、generalization、结论、SOTA 和投稿前必须执行
+`PAPER_RISK_REVIEW`。
 
 ## Permanent Project Constraints
 
@@ -140,6 +170,9 @@ Stage 7 必须研究 Tool Injection、Memory Poisoning、Planning Manipulation�
 当前任务、允许范围和未批准项以 `docs/governance/current_work_state.md` 为准。未获批准的任务不得启动；
 不得从设计自动跳到实现，不得从一个 Stage 自动进入下一 Stage。每个 Task 和子任务都需要明确审批门。
 
+RTX5090 永远仅为 `COMPUTE_WORKER / NO_SELF_APPROVAL_AUTHORITY`。任何新依赖、patch、输入/模型/网络变化、资源超限、
+算法异常、环境偏差、证据缺口、未冻结参数或人工安装需求都必须 `STOP / RETURN_TO_CONTROL_PLANE`。
+
 ## Completion Protocol
 
 每个任务结束前必须：
@@ -150,7 +183,9 @@ Stage 7 必须研究 Tool Injection、Memory Poisoning、Planning Manipulation�
 4. 运行任务测试、Ruff、MyPy、标签泄漏检查、secret scan 和 runtime Git-ignore 检查；
 5. 创建清晰 commit 并 push；
 6. 确认本地与远端同步、工作树干净；
-7. 完成后暂停，不自动开始下一任务。
+7. 执行 `CONTEXT_PERSISTENCE_CHECK`，确认 task/status、批准/禁止项、blocker、next gate、claims、Formal Experiment、
+   Git sync、private evidence hash/index 均可从物理文件恢复；
+8. 完成后暂停，不自动开始下一任务。
 
 研究路线、Owner Decision、Blocker、实验/工程验证或审批门发生变化时，还必须追加
 `docs/governance/research_execution_log.md`；历史记录错误用 `CORRECTION`/`SUPERSEDING_RECORD`，不得静默覆盖。

@@ -16,17 +16,22 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-01-REVIEW`.
-- Task name: `GMTP Detection-Only Minimal Smoke Attempt 1 Minimal Corrected Indexed Evidence Review`.
-- Task type: **CONTROL_PLANE_EVIDENCE_REVIEW / FAIL_CLOSED_RECOVERY_GATE**.
-- Status: **W2_ATTEMPT1_EVIDENCE_BLOCKER / CORRECTION_DU_COMMAND_EVIDENCE_MISSING**.
-- Execution machine: **LOCAL / CONTROL_PLANE**；no model, GMTP, GPU, Worker contact or H1 download occurred.
-- Current ordered step: await an additive indexed correction containing the exact apparent-size and allocated-size `du` commands,
-  their flags and captured raw outputs. Do not rerun GMTP or rebuild the environment merely to correct packaging.
+- Task ID: `GOV-PO-MHEP`.
+- Task name: `Project Owner Sovereignty, Mandatory Human Escalation, and Physical Context Preservation Principle`.
+- Task type: **PROJECT_WIDE_GOVERNANCE_AUTHORITY_FREEZE / CONTEXT_PERSISTENCE**.
+- Status: **HUMAN_ACCEPTED / HIGHEST_INTERNAL_PROJECT_EXECUTION_AUTHORITY / PERMANENT**.
+- Execution machine: **LOCAL / PRIMARY_CONTROL_PLANE**；governance and contract-candidate preparation only.
+- Current ordered step: project owner reviews the
+  `S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02` Worker Contract Candidate. It is `NOT APPROVED / NOT SENT / NOT EXECUTED`；do not
+  contact RTX5090 or start H1.
 - Historical superseded snapshot: `DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`.
 - Formal RAG security experiment: **NOT STARTED**.
 - Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.
 - Git-Native Research Context Recovery Governance: **HUMAN_ACCEPTED**.
+- PO-MHEP: **HUMAN_ACCEPTED / HIGHEST_INTERNAL_PROJECT_EXECUTION_AUTHORITY / PERMANENT / NO_AUTO_EXPIRY**.
+- LOCAL role: **PRIMARY_CONTROL_PLANE / PROJECT_EXECUTION_LEAD / RESEARCH_GOVERNANCE_LEAD / 5090_APPROVAL_AUTHORITY /
+  PAPER_RISK_REVIEWER / CONTEXT_PRESERVATION_OWNER**.
+- RTX5090 role: **COMPUTE_WORKER / NO_SELF_APPROVAL_AUTHORITY**.
 - Paper-First Comparative Evidence Principle: **HUMAN_ACCEPTED**.
 - Paper 1 canonical research route: **ACCEPTED AS CURRENT RESEARCH ROUTE**.
 - RTX5090 Compute Worker Bootstrap: **HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY**.
@@ -42,8 +47,10 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Historical S6.1-R0-FU1-W2 snapshot: **READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED**.
 - S6.1-R0-FU1-W2: **APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED**.
 - S6.1-R0-FU1-W2-ATTEMPT1: **EVIDENCE_REVIEW_BLOCKED / W2_ATTEMPT1_EVIDENCE_BLOCKER**.
+- S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-01 gap: **CORRECTION_DU_COMMAND_EVIDENCE_MISSING**.
 - S6.1-R0-FU1-W2-H1: **APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS / NOT STARTED /
   BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER**.
+- S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02: **CONTRACT_CANDIDATE / NOT APPROVED / NOT SENT / NOT EXECUTED**.
 - S6.1-P1: **NOT STARTED / REQUIRES ACCEPTED W2 EVIDENCE AND SEPARATE P1 APPROVAL**.
 - Dataset: **NOT FROZEN**.
 - Dataset Generation: **NOT APPROVED**.
@@ -86,6 +93,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Canonical Paper 1 route: [Paper 1 Research Route](../research/stage6_1_hidden_knowledge_poisoning/paper1_research_route.md).
 - Canonical FU1-P0 resolution: [Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md).
 - Context recovery entry: [Context Authority Map](context_authority_map.md).
+- Highest internal execution authority: [PO-MHEP](project_owner_sovereignty_and_mandatory_escalation_principle.md).
 
 ## Accepted Baseline
 
@@ -172,6 +180,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Must Not Start
 
+- Correction 02 Worker execution or prompt transmission before explicit owner approval；the candidate is documentation only.
 - On LOCAL: any external baseline workload, repo clone/install/smoke, dataset/model download or GPU computation.
 - On LOCAL while `W2_ATTEMPT1_EVIDENCE_BLOCKER` is open: H1 model download, manifest/bundle generation or model loading.
 - On RTX5090: anything beyond the exact approved FU1-W2 contract；Java/Pyserini/FAISS/BEIR/Docker、API、broad environment
@@ -189,11 +198,13 @@ official deterministic LM-targeted assembly are verified；API-free reuse is ver
 paper-generation identity remain unresolved/partial。The GMTP W2 input, models, parameters, isolated environment and resource
 ceiling are frozen and W2 remains approved but not completed/accepted。Attempt 1 is not accepted as a valid blocked engineering
 run because Correction 01 still lacks command-derived provenance distinguishing apparent from allocated disk bytes。The original
-baseline roles remain unchanged。
+baseline roles remain unchanged。PO-MHEP is permanently accepted as the highest internal execution authority；Correction 02 exists
+only as an unapproved/unsent/unexecuted contract candidate。
 
 Can claim: within the offline engineering-test scope, the `S6-T5 Controlled Retrieval and Traceable Context Baseline` is HUMAN_ACCEPTED. It comprises deterministic and label-isolated retrieval runtime contracts, provider-neutral DenseRetriever, the synthetic ContentResolver, EvidenceEnvelope/Citation boundaries, deterministic Context Package behavior, and S6-T5.7 controlled integration evidence including an opt-in fixed MiniLM plus temporary Chroma close/reopen check. `4ecf73a` is the accepted baseline content commit; the current governance acceptance commit is not an implementation or integration-evidence commit. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
-Cannot claim: Attempt 1 is `VALID_BLOCKED_ENGINEERING_RUN` or reusable preflight evidence；W2 ran/completed/was accepted；any
+Cannot claim: Correction 02 was approved/sent/executed；H1 started；Attempt 1 is `VALID_BLOCKED_ENGINEERING_RUN` or reusable
+preflight evidence；W2 ran/completed/was accepted；any
 external baseline was reproduced；strict comparison is ready；SafeRAG pipeline is ready；dataset/
 Detector/Our Method/training/result exists；or retrieval quality/security, SOTA, production readiness or formal-experiment outcomes
 are established.
@@ -208,5 +219,5 @@ are established.
 ## Last Update
 
 - Date: `2026-08-01`.
-- Updated by: Codex recording Correction 01 as integrity-valid but command-provenance incomplete；the parent evidence blocker and
-  H1 stop remain in force. P1 and Formal Experiment remain not started.
+- Updated by: Codex registering PO-MHEP as permanent highest internal project execution authority and preparing an unapproved
+  Correction 02 Worker Contract Candidate. W2 blocker and H1 stop remain in force；P1 and Formal Experiment remain not started.

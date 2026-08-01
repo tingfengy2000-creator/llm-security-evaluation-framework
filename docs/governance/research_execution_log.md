@@ -721,3 +721,56 @@ Approval Gate、Auto Continue。
 - Next Step: review command-derived measurement correction only.
 - Next Approval Gate: close `W2_ATTEMPT1_EVIDENCE_BLOCKER`; H1 remains pre-approved but gated；`S6.1-P1 = NOT STARTED`.
 - Auto Continue: `NO`
+
+## REL-2026-0017 — PO-MHEP Highest Internal Execution Authority and Correction 02 Candidate
+
+- Record ID: `REL-2026-0017`
+- Date: `2026-08-01`
+- Timestamp: `NOT_RECORDED`
+- Machine: `LOCAL`
+- Machine Role: `PRIMARY_CONTROL_PLANE / PROJECT_EXECUTION_LEAD / RESEARCH_GOVERNANCE_LEAD`
+- Stage: `Project-wide / Stage 1–7 and future stages`
+- Task ID: `GOV-PO-MHEP`
+- Task Name: `Project Owner Sovereignty, Mandatory Human Escalation, and Physical Context Preservation Principle`
+- Task Type: `PROJECT_WIDE_GOVERNANCE_AUTHORITY_FREEZE / CONTEXT_PERSISTENCE`
+- Initial Status: `OWNER_DECISION_RECEIVED / GOVERNANCE_NOT_YET_PERSISTED`
+- Final Status: `HUMAN_ACCEPTED / HIGHEST_INTERNAL_PROJECT_EXECUTION_AUTHORITY / PERMANENT`
+- Objective: establish a permanent project-wide execution authority, mandatory escalation contract, proactive risk review and
+  physical context recovery/persistence system.
+- Why: project correctness cannot depend on agent defaults, Worker autonomy, progress pressure, chat memory or post-hoc governance.
+- Previous Gate: `PODR-055 / W2_ATTEMPT1_EVIDENCE_BLOCKER / H1 BLOCKED_NOT_STARTED`
+- Actions: created one canonical PO-MHEP document；inserted L0.5 authority；updated AGENTS startup/escalation/completion rules；
+  synchronized long-term requirements, owner/current/master/experiment governance and Stage 6.1 canonical entries；prepared the
+  documentation-only Correction 02 Worker Contract Candidate. No Worker contact or execution occurred.
+- Files Changed: governance/context/research documentation and context-recovery tests only；no business code, dataset, model,
+  environment, raw evidence or protected history changed.
+- Commands: mandatory Git/context preflight；read-only canonical context review；local documentation/static/test validation only.
+- Validation: PO-MHEP/context targeted `19 passed`；full architecture `101 passed`；namespace + label isolation `10 passed`；
+  Ruff passed；Markdown relative links `255` checked with `0` broken；13 changed files including the new canonical principle passed
+  added-secret/private-path and UTF-8 no-BOM/LF checks；protected/raw-history changes `0`；runtime artifact ignore and
+  `git diff --check` passed. Pytest cache write warning is non-blocking.
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `PENDING_THIS_COMMIT; resolve with git log -1 -- docs/governance/research_execution_log.md`
+- Run ID: `N/A / GOVERNANCE_AUTHORITY_FREEZE`
+- Dataset Snapshot: unchanged；no dataset access/download/freeze.
+- Model / Revision: unchanged frozen W2 identities；no download/load.
+- Environment Identity: no environment creation, installation, activation, mutation or measurement.
+- Result Summary: PO-MHEP is permanent highest internal execution authority；Correction 02 is candidate-only；all W2/H1/P1/
+  Formal Experiment execution facts remain unchanged.
+- Claims Allowed: PO-MHEP governance status, authority/role/escalation/context contracts and existence of an unapproved Worker
+  contract candidate.
+- Claims Prohibited: Correction 02 approved/sent/executed；Worker contacted；W2 blocker closed；H1 started；model/GMTP/P1/formal
+  execution；any new engineering/security/paper result.
+- Blockers: `W2_ATTEMPT1_EVIDENCE_BLOCKER` remains open；Correction 02 still requires explicit owner approval.
+- Blocker ID: `W2_ATTEMPT1_EVIDENCE_BLOCKER / CORRECTION02_OWNER_APPROVAL_REQUIRED`
+- Resolution: governance task completed without altering the execution blocker；candidate returned to owner for decision.
+- Owner Decisions: `PODR-056`
+- Design Changes: project-wide governance authority and mandatory review/persistence contracts only；no algorithm/data/model/
+  parameter/metric change.
+- Paper Impact: requires proactive novelty/fairness/confounder/statistical/license/claims review at specified paper gates；does not
+  create paper evidence.
+- Architecture Impact: requires forward extensibility/technical-debt/label-isolation/reproducibility review before stage/spec/
+  Worker execution；does not change runtime architecture.
+- Next Step: project owner approves, rejects or modifies the Correction 02 Worker Contract Candidate.
+- Next Approval Gate: explicit Correction 02 owner decision；H1/P1/Formal Experiment remain closed by existing gates.
+- Auto Continue: `NO`

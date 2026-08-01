@@ -743,3 +743,34 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Stop boundary: no Worker contact, GPU, S6.1-P1 or Formal Experiment. Auto Continue = NO.
 - Evidence: [Attempt 1 Control Plane Review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_attempt1_control_plane_review.md)、
   [FU1 Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md) and REL-2026-0016.
+
+## PODR-056: PO-MHEP Highest Internal Project Execution Authority
+
+- Date: `2026-08-01`.
+- Decision: establish `PROJECT_OWNER_SOVEREIGNTY_AND_MANDATORY_ESCALATION_PRINCIPLE` (`PO-MHEP`) as
+  `HUMAN_ACCEPTED / HIGHEST_INTERNAL_PROJECT_EXECUTION_AUTHORITY / PERMANENT / NO_AUTO_EXPIRY` for the entire LLMGuard Research
+  Framework, all stages/branches, LOCAL, RTX5090, agents and automation.
+- Formal name: `Project Owner Sovereignty, Mandatory Human Escalation, and Physical Context Preservation Principle`；中文为
+  “项目负责人主权、强制人工升级与物理上下文保全原则”。
+- Authority decision: L0 dynamic Git/raw evidence remains objective fact authority；L0.5 PO-MHEP decides whether execution may
+  continue after facts are known；AGENTS and all other project documents are L1 or below.
+- Non-override: PO-MHEP cannot alter L0 facts, immutable evidence/history, safety/law/privacy/license, label isolation or the
+  project owner's latest explicit decision. It cannot fabricate or lower evidence quality.
+- Escalation decision: accepted-boundary conflicts；API/credential/service needs；major resources/system/irreversible operations；
+  architecture/algorithm/label-leakage risks；paper novelty/fairness/statistics/confounder/license risks；evidence/provenance gaps；
+  context conflicts；and material uncertainty require `HUMAN_DECISION_REQUIRED / Auto Continue = NO`.
+- Stop effect: no default choice, silent workaround, Worker continuation, download/install/external call, blocker auto-resolution
+  or next-task entry. Only read-only fact collection, risk analysis, context/evidence preservation and governance persistence remain
+  allowed before owner decision.
+- Machine sovereignty: LOCAL is `PRIMARY_CONTROL_PLANE / PROJECT_EXECUTION_LEAD / RESEARCH_GOVERNANCE_LEAD /
+  5090_APPROVAL_AUTHORITY / PAPER_RISK_REVIEWER / CONTEXT_PRESERVATION_OWNER`. RTX5090 is
+  `COMPUTE_WORKER / NO_SELF_APPROVAL_AUTHORITY` and must `STOP / RETURN_TO_CONTROL_PLANE` on any contract deviation.
+- Proactive obligations: `FORWARD_RISK_REVIEW`, `PAPER_RISK_REVIEW`, mandatory twelve-field human feedback,
+  `CONTEXT_PERSISTENCE_CHECK`, canonical documentation, private-evidence abstraction and Git/remote synchronization.
+- Current-state preservation: this governance acceptance does not close `W2_ATTEMPT1_EVIDENCE_BLOCKER`, start H1, send/execute
+  Correction 02, contact RTX5090, enter P1 or start Formal Experiment.
+- Next decision: owner reviews the Correction 02 Worker Contract Candidate recorded in the canonical FU1 resolution. Candidate is
+  `NOT APPROVED / NOT SENT / NOT EXECUTED`.
+- Canonical evidence: [PO-MHEP](project_owner_sovereignty_and_mandatory_escalation_principle.md)、
+  [Context Authority Map](context_authority_map.md)、[Current Work State](current_work_state.md) and REL-2026-0017.
+- Auto Continue: `NO`.

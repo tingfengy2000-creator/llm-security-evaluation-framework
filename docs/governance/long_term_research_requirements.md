@@ -8,6 +8,22 @@ Stage 6.2 与 Stage 7 的治理基线。若它与较早的实施草案发生冲�
 
 本文不授权提前实现 S6-T5 或更晚阶段的代码。它规定未来实现的方向、稳定对象和验收边界。
 
+## Project Owner Sovereignty, Mandatory Human Escalation, and Physical Context Preservation Principle
+
+**状态：`HUMAN_ACCEPTED / HIGHEST_INTERNAL_PROJECT_EXECUTION_AUTHORITY / PERMANENT`，2026-08-01。**
+[PO-MHEP](project_owner_sovereignty_and_mandatory_escalation_principle.md) 覆盖整个 LLMGuard Research Framework、所有
+Stage/分支/LOCAL/RTX5090/Agent/自动化执行者。L0 动态 Git 与 raw evidence 仍决定客观事实；L0.5 PO-MHEP 决定发现
+事实后是否允许继续执行。
+
+只要出现 accepted boundary 冲突、真实 API/凭据/外部服务、重大资源或不可逆操作、算法 patch/架构技术债、论文
+公平性/创新/统计/许可风险、命令/原始证据/身份/index 缺口、context conflict 或重大方案不确定性，受影响工作必须
+进入 `HUMAN_DECISION_REQUIRED / Auto Continue = NO`。只允许只读核验、风险分析、上下文/证据保全与治理更新，直到
+项目负责人明确决定。Token Economy、进度、成本或“先跑起来”不能覆盖该原则。
+
+所有任务必须执行 `FORWARD_RISK_REVIEW` 与物理 `CONTEXT_PERSISTENCE_CHECK`；论文关键节点执行
+`PAPER_RISK_REVIEW`。RTX5090 永远只有 `COMPUTE_WORKER / NO_SELF_APPROVAL_AUTHORITY`，任何偏离均须
+`STOP / RETURN_TO_CONTROL_PLANE`。
+
 ## Paper-First Comparative Evidence Principle
 
 **状态：已接受，2026-07-31。** 所有以 Paper 1 / Paper 2 论文结论为目标的任务必须先核验权威论文、

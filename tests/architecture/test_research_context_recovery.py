@@ -11,6 +11,7 @@ RESEARCH = ROOT / "docs" / "research" / "stage6_1_hidden_knowledge_poisoning"
 LEARNING = ROOT / "docs" / "learning"
 
 AUTHORITY_MAP = GOVERNANCE / "context_authority_map.md"
+PO_MHEP = GOVERNANCE / "project_owner_sovereignty_and_mandatory_escalation_principle.md"
 EXECUTION_LOG = GOVERNANCE / "research_execution_log.md"
 DUAL_MACHINE_POLICY = GOVERNANCE / "dual_machine_execution_policy.md"
 DECISION_REGISTER = GOVERNANCE / "project_owner_decision_register.md"
@@ -25,6 +26,7 @@ R0_I_REVIEW = RESEARCH / "s6_1_r0_i_control_plane_review.md"
 FU1_RESOLUTION = RESEARCH / "s6_1_r0_fu1_targeted_resolution.md"
 W2_ATTEMPT1_REVIEW = RESEARCH / "s6_1_r0_fu1_w2_attempt1_control_plane_review.md"
 LONG_TERM_REQUIREMENTS = GOVERNANCE / "long_term_research_requirements.md"
+AGENTS = ROOT / "AGENTS.md"
 
 WINDOWS_ABSOLUTE_PATH = re.compile(r"(?<![A-Za-z0-9])[A-Za-z]:[\\/]")
 AUTHORITY_LEVEL = re.compile(r"^## L(?P<level>[0-9]) — ", re.MULTILINE)
@@ -67,6 +69,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
     def test_canonical_recovery_files_exist(self) -> None:
         required = (
             AUTHORITY_MAP,
+            PO_MHEP,
             EXECUTION_LOG,
             DUAL_MACHINE_POLICY,
             LEARNING / "README.md",
@@ -135,6 +138,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "PODR-053",
             "PODR-054",
             "PODR-055",
+            "PODR-056",
             "S6.1-LR1: HUMAN_ACCEPTED",
             "Git-Native Research Context Recovery Governance: HUMAN_ACCEPTED",
             "s6-t5-rag-baseline-v1",
@@ -179,6 +183,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "REL-2026-0014",
             "REL-2026-0015",
             "REL-2026-0016",
+            "REL-2026-0017",
             "Machine Role",
             "Initial Status",
             "Final Status",
@@ -200,6 +205,10 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertLess(
             text.index("## REL-2026-0015"),
             text.index("## REL-2026-0016"),
+        )
+        self.assertLess(
+            text.index("## REL-2026-0016"),
+            text.index("## REL-2026-0017"),
         )
 
     def test_current_state_and_experiment_control_plane_keep_distinct_roles(self) -> None:
@@ -233,6 +242,10 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("Dataset Generation: **NOT APPROVED**", state)
         self.assertIn("Detector Implementation: **NOT APPROVED**", state)
         self.assertIn("Model Training: **NOT APPROVED**", state)
+        self.assertIn("GOV-PO-MHEP", state)
+        self.assertIn("HIGHEST_INTERNAL_PROJECT_EXECUTION_AUTHORITY", state)
+        self.assertIn("NO_SELF_APPROVAL_AUTHORITY", state)
+        self.assertIn("CONTRACT_CANDIDATE / NOT APPROVED / NOT SENT / NOT EXECUTED", state)
         self.assertIn("唯一的实验控制面", master)
         for field in (
             "blocker_id",
@@ -580,6 +593,78 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("H1 model download, manifest/bundle generation", state)
         self.assertNotIn("APPROVED_AND_IN_PROGRESS / OFFLINE_ARTIFACT_PREPARATION", state)
 
+    def test_po_mhep_is_highest_execution_authority_and_fail_closed(self) -> None:
+        principle = PO_MHEP.read_text(encoding="utf-8")
+        authority = AUTHORITY_MAP.read_text(encoding="utf-8")
+        agents = AGENTS.read_text(encoding="utf-8")
+        long_term = LONG_TERM_REQUIREMENTS.read_text(encoding="utf-8")
+        state = CURRENT_STATE.read_text(encoding="utf-8")
+        combined = "\n".join((principle, authority, agents, long_term, state))
+
+        for required in (
+            "PO-MHEP",
+            "HUMAN_ACCEPTED",
+            "HIGHEST_INTERNAL_PROJECT_EXECUTION_AUTHORITY",
+            "Permanent",
+            "NO",
+            "L0 — Dynamic Git Facts and Immutable Raw Evidence",
+            "L0.5 — PO-MHEP",
+            "HUMAN_DECISION_REQUIRED",
+            "Auto Continue = NO",
+            "real API",
+            "system-level installation",
+            "large model/data/index download",
+            "algorithm-semantic patch",
+            "Paper and research risk",
+            "Evidence and governance risk",
+            "context conflicts",
+            "OBSERVED_FACT",
+            "SOURCE_DERIVED_FACT",
+            "INFERENCE",
+            "UNKNOWN",
+            "FORWARD_RISK_REVIEW",
+            "PAPER_RISK_REVIEW",
+            "CONTEXT_PERSISTENCE_CHECK",
+            "NO_SELF_APPROVAL_AUTHORITY",
+            "STOP",
+            "RETURN_TO_CONTROL_PLANE",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, combined)
+
+        self.assertIn("## L0.5 — Project Owner Sovereignty and Mandatory Escalation", authority)
+        self.assertLess(agents.index("context_authority_map.md"), agents.index("project_owner_sovereignty"))
+        self.assertIn("Mandatory Startup Protocol", agents)
+        self.assertIn("project_owner_sovereignty_and_mandatory_escalation_principle.md", agents)
+        self.assertIn("唯一动态任务状态入口", state)
+
+    def test_po_mhep_preserves_w2_and_correction02_is_candidate_only(self) -> None:
+        state = CURRENT_STATE.read_text(encoding="utf-8")
+        fu1 = FU1_RESOLUTION.read_text(encoding="utf-8")
+        master = MASTER_RECORD.read_text(encoding="utf-8")
+        combined = "\n".join((state, fu1, master, PO_MHEP.read_text(encoding="utf-8")))
+
+        for required in (
+            "S6.1-R0-FU1-W2: **APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED**",
+            "EVIDENCE_REVIEW_BLOCKED",
+            "W2_ATTEMPT1_EVIDENCE_BLOCKER = OPEN",
+            "BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER",
+            "S6.1-P1: **NOT STARTED",
+            "FORMAL_EXPERIMENT = NOT STARTED",
+            "S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02",
+            "CONTRACT_CANDIDATE / NOT APPROVED / NOT SENT / NOT EXECUTED",
+            "LC_ALL=C du --apparent-size --block-size=1 --summarize",
+            "LC_ALL=C du --block-size=1 --summarize",
+            "correction_index.sha256",
+            "15/15",
+            "CORRECTION02_OWNER_APPROVAL_REQUIRED",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, combined)
+
+        self.assertNotIn("Correction 02 = APPROVED", combined)
+        self.assertNotIn("H1 = APPROVED_AND_IN_PROGRESS", combined)
+
     def test_learning_guides_are_non_authoritative(self) -> None:
         for path in (
             LEARNING / "README.md",
@@ -594,6 +679,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
     def test_new_context_files_are_portable_and_preserve_baselines(self) -> None:
         paths = (
             AUTHORITY_MAP,
+            PO_MHEP,
             EXECUTION_LOG,
             DUAL_MACHINE_POLICY,
             PAPER1_ROUTE,

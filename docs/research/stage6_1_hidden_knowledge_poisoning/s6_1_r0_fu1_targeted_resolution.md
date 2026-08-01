@@ -1,7 +1,7 @@
 # S6.1-R0-FU1 Targeted External Baseline Feasibility Resolution
 
 > Accepted task: `S6.1-R0-FU1-P0 / LOCAL Control-Plane Planning and Execution Contract Freeze`
-> Current task: `S6.1-R0-FU1-W2-ATTEMPT1-REVIEW / Control Plane Evidence Review`
+> Current project task: `GOV-PO-MHEP / Highest Internal Project Execution Authority`
 > Status: `W2 APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED / ATTEMPT1 EVIDENCE_REVIEW_BLOCKED`
 > Execution mode: `LOCAL-FIRST / WORKER-GATED`
 > Evidence class: `CONTROL_PLANE_SOURCE_ANALYSIS / SOURCE_ARTIFACT_VALIDATION / DETERMINISTIC_TRANSFORMATION_VALIDATION /
@@ -353,6 +353,105 @@ binding and complete main-repository integrity fields. Its manifest and measurem
 allocated bytes `5492817920` and ceiling `6442450944`. However, it records only `MEASUREMENT_TOOL=du`; it does not capture the
 concrete apparent-size/allocated-size commands, flags or raw outputs. The Control Plane therefore cannot prove that the two
 measurement semantics were not confused. `W2_ATTEMPT1_EVIDENCE_BLOCKER` remains open and H1 remains blocked/not started.
+
+### Correction 02 Worker Contract Candidate
+
+Governance status:
+
+```text
+Task ID = S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02
+Task Type = EVIDENCE_PACKAGING_CORRECTION_ONLY
+Machine = RTX5090 / COMPUTE_WORKER
+Status = CONTRACT_CANDIDATE / NOT APPROVED / NOT SENT / NOT EXECUTED
+Approval blocker = CORRECTION02_OWNER_APPROVAL_REQUIRED
+Auto Continue = NO
+```
+
+This candidate is prepared under [PO-MHEP](../../governance/project_owner_sovereignty_and_mandatory_escalation_principle.md).
+It is not authority to contact or execute the Worker. Owner approval is required before transmission.
+
+#### Candidate objective and immutable scope
+
+Capture only command-derived provenance for the existing `gmtp-compat` environment measurement. Do not run/import GMTP；do not
+install, update, repair or activate a different environment；do not download/load models；do not use GPU；do not mutate the LLMGuard
+or GMTP repositories；do not enter H1/P1/Formal Experiment.
+
+Bind the candidate to:
+
+- original Attempt 1 archive SHA-256 `6acdbb8038e57b1d3e88028350fc08046d73a826ba9dd167452bfc0dd834170f`;
+- Correction 01 archive SHA-256 `d911063e3a00daba3f8dcfea6f3e6e3b484e79f4f0fe8853a53ff9d8c415279e`;
+- environment name/basename `gmtp-compat`;
+- original main-repository Attempt 1 HEAD `457458cbc484c7a187c1b0b812c414280f4b837a` as historical binding only；no new repository
+  state claim is required.
+
+#### Candidate exact commands
+
+The approved Worker, if later authorized, must execute on GNU/Linux with the existing `gmtp-compat` environment already active:
+
+```bash
+set -o nounset
+set -o pipefail
+test "${CONDA_DEFAULT_ENV:-}" = "gmtp-compat"
+test "$(basename -- "${CONDA_PREFIX:?}")" = "gmtp-compat"
+date -u +%Y-%m-%dT%H:%M:%SZ
+LC_ALL=C du --version
+LC_ALL=C du --apparent-size --block-size=1 --summarize -- "$CONDA_PREFIX"
+LC_ALL=C du --block-size=1 --summarize -- "$CONDA_PREFIX"
+```
+
+The apparent command explicitly sets `--apparent-size --block-size=1 --summarize`. The allocated command deliberately omits
+`--apparent-size` and uses GNU `du` default allocated-block semantics with `--block-size=1 --summarize`. `LC_ALL=C` freezes parseable
+output. `$CONDA_PREFIX` is permitted only inside private Worker evidence；public Git records environment basename, not its absolute
+path.
+
+Each of the three evidence-producing commands (`du --version`, apparent, allocated) must be invoked separately with raw stdout,
+raw stderr and exit code captured without piping or rewriting the streams. The private evidence must also preserve the literal
+command template above and measurement timestamp. A summary field may be parsed only after exit code `0` and exactly one
+`<non-negative integer><whitespace><path>` stdout record.
+
+#### Candidate evidence set and index
+
+Private directory candidate: `correction_02/`. Required indexed payloads are:
+
+1. `original_attempt_reference.txt`;
+2. `correction_01_reference.txt`;
+3. `measurement_commands.txt`;
+4. `environment_identity.txt`;
+5. `measurement_timestamp.txt`;
+6. `du_version.stdout`;
+7. `du_version.stderr`;
+8. `du_version.exit_code`;
+9. `apparent_size.stdout`;
+10. `apparent_size.stderr`;
+11. `apparent_size.exit_code`;
+12. `allocated_size.stdout`;
+13. `allocated_size.stderr`;
+14. `allocated_size.exit_code`;
+15. `correction_manifest.json`.
+
+`correction_index.sha256` must contain a normalized, lexicographically sorted SHA-256 entry for all `15/15` payloads and must be
+reverified before packaging. The index does not self-index. Proposed private archive name is
+`s6_1_r0_fu1_w2_attempt1_correction_02_20260801.tar.gz` plus `.sha256` sidecar. Candidate evidence/archive ceiling is `1 MiB`；
+no repository, environment, cache, model, input text, credential or unrelated evidence may be included.
+
+The manifest must bind schema/task/correction IDs, both earlier archive hashes, UTC timestamp, environment basename, literal
+commands/flags, GNU `du` version evidence hashes, each raw-stream/exit-code hash, parsed apparent/allocated bytes, file count/index
+status, `no_environment_mutation=true`, `no_model_download=true`, `no_smoke_execution=true` and
+`claims_boundary=EVIDENCE_PACKAGING_CORRECTION_ONLY`. Public governance must not persist the Worker absolute path or username.
+
+#### Candidate stop codes and claims
+
+Return immediately to Control Plane with one of:
+
+- `CORRECTION02_CONTEXT_MISMATCH` for missing/wrong environment identity;
+- `CORRECTION02_DU_UNAVAILABLE` for absent/non-GNU or unsupported `du` flags;
+- `CORRECTION02_MEASUREMENT_COMMAND_FAILED` for non-zero exit;
+- `CORRECTION02_OUTPUT_SCHEMA_MISMATCH` for ambiguous/multiple/non-integer output;
+- `CORRECTION02_EVIDENCE_INTEGRITY_BLOCKER` for manifest/index/archive mismatch or unsafe member.
+
+Do not substitute another command/tool, estimate a value, suppress stderr, normalize raw streams, repair the environment or rerun
+GMTP. A later passing Control Plane review could establish command provenance only；it would not by itself establish model load,
+detector score, runtime, peak VRAM, GMTP compatibility, W2 completion/acceptance, P1 or a formal result.
 
 ## 9. Artifact approval budget
 
