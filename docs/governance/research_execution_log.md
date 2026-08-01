@@ -670,3 +670,54 @@ Approval Gate、Auto Continue。
 - Next Step: review corrected Attempt 1 archive；H1 remains approved but blocked/not started.
 - Next Approval Gate: close `W2_ATTEMPT1_EVIDENCE_BLOCKER`; `S6.1-P1 = NOT STARTED`.
 - Auto Continue: `NO`
+
+## REL-2026-0016 — W2 Attempt 1 Correction 01 Review Remains Evidence-Blocked
+
+- Record ID: `REL-2026-0016`
+- Date: `2026-08-01`
+- Timestamp: `NOT_RECORDED`
+- Machine: `LOCAL`
+- Machine Role: `CONTROL_PLANE`
+- Stage: `Stage 6.1 / R0-FU1`
+- Task ID: `S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-01-REVIEW`
+- Task Name: `Minimal Corrected Indexed Evidence Review with Conditional H1 Gate`
+- Task Type: `CONTROL_PLANE_EVIDENCE_REVIEW / FAIL_CLOSED_RECOVERY_GATE`
+- Initial Status: `W2_ATTEMPT1_EVIDENCE_BLOCKER / H1 BLOCKED_NOT_STARTED`
+- Final Status: `W2_ATTEMPT1_EVIDENCE_BLOCKER / CORRECTION_DU_COMMAND_EVIDENCE_MISSING / H1 BLOCKED_NOT_STARTED`
+- Objective: determine whether Correction 01 closes the Attempt 1 evidence gate and, only if it does, start approved H1.
+- Why: the resource gate requires command-derived distinction between apparent and allocated environment bytes.
+- Previous Gate: `PODR-054 / W2_ATTEMPT1_EVIDENCE_BLOCKER`
+- Actions: completed Git preflight；verified outer sidecar/recomputed/reported SHA；validated safe archive metadata；extracted to a
+  Git-external temporary directory；verified correction index and all four payloads；cross-checked original binding, main repository,
+  disk text and manifest；deleted the temporary extraction. H1 was not started.
+- Files Changed: additive governance and context records only. Raw correction/original archives, model artifacts, caches and logs
+  remain outside Git.
+- Commands: Git preflight；PowerShell SHA/index/content checks；Python read-only tar metadata inspection；LOCAL governance/static
+  tests only.
+- Validation: correction SHA `d911063e3a00daba3f8dcfea6f3e6e3b484e79f4f0fe8853a53ff9d8c415279e` matched three ways；
+  safe members `6/6`；index `4/4`；original binding and main-repository integrity passed；manifest/disk values matched；apparent
+  `5399301224` and allocated `5492817920` are below `6442450944`；no concrete `du` command/flags/raw output was present；targeted
+  context recovery `17 passed`；full architecture `99 passed`；namespace + label isolation `10 passed`；Ruff and `git diff --check`
+  passed；Markdown relative links `225` checked；10 changed files passed added-secret/private-path and UTF-8 no-BOM/LF checks；
+  raw-artifact/protected-history changes `0`；runtime artifact ignore rule verified. Pytest cache write warning is non-blocking.
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `PENDING_THIS_COMMIT; resolve with git log -1 -- docs/governance/research_execution_log.md`
+- Run ID: `N/A / CONTROL_PLANE_EVIDENCE_REVIEW`
+- Dataset Snapshot: unchanged；no dataset downloaded or frozen.
+- Model / Revision: frozen Contriever/BERT identities unchanged；no download or load occurred.
+- Environment Identity: Correction 01 supports Attempt 1 main-repository integrity and reports internally consistent
+  `gmtp-compat` counts, but command-derived measurement semantics remain unverified.
+- Result Summary: Correction 01 is integrity-valid but evidence-incomplete；the original blocker remains open and H1 remains
+  blocked/not started.
+- Claims Allowed: correction archive/index integrity, original binding, main-repository integrity, reported byte values and their
+  arithmetic against the 6 GiB ceiling.
+- Claims Prohibited: `ENV_DISK_CONTRACT = ACCEPTED`；`VALID_BLOCKED_ENGINEERING_RUN`；reusable preflight；model download/bundle；
+  W2 completed/accepted；GMTP compatibility；P1/formal experiment.
+- Blockers: exact apparent-size and allocated-size `du` commands, flags and captured raw outputs are absent.
+- Blocker ID: `W2_ATTEMPT1_EVIDENCE_BLOCKER`
+- Resolution: retain blocker；request minimal additive command-derived indexed evidence；do not start H1.
+- Owner Decisions: `PODR-053; PODR-054; PODR-055`
+- Design Changes: none；10 GiB task ceiling and 6 GiB environment sub-budget remain unchanged.
+- Next Step: review command-derived measurement correction only.
+- Next Approval Gate: close `W2_ATTEMPT1_EVIDENCE_BLOCKER`; H1 remains pre-approved but gated；`S6.1-P1 = NOT STARTED`.
+- Auto Continue: `NO`

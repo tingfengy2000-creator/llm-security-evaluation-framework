@@ -134,6 +134,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "PODR-052",
             "PODR-053",
             "PODR-054",
+            "PODR-055",
             "S6.1-LR1: HUMAN_ACCEPTED",
             "Git-Native Research Context Recovery Governance: HUMAN_ACCEPTED",
             "s6-t5-rag-baseline-v1",
@@ -177,6 +178,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "REL-2026-0013",
             "REL-2026-0014",
             "REL-2026-0015",
+            "REL-2026-0016",
             "Machine Role",
             "Initial Status",
             "Final Status",
@@ -195,6 +197,10 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             with self.subTest(required=required):
                 self.assertIn(required, text)
         self.assertIn("Auto Continue: `NO`", text)
+        self.assertLess(
+            text.index("## REL-2026-0015"),
+            text.index("## REL-2026-0016"),
+        )
 
     def test_current_state_and_experiment_control_plane_keep_distinct_roles(self) -> None:
         state = CURRENT_STATE.read_text(encoding="utf-8")
@@ -217,6 +223,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED", state)
         self.assertIn("S6.1-R0-FU1-W2: **APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED**", state)
         self.assertIn("W2_ATTEMPT1_EVIDENCE_BLOCKER", state)
+        self.assertIn("CORRECTION_DU_COMMAND_EVIDENCE_MISSING", state)
         self.assertIn("BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER", state)
         self.assertIn("S6.1-P1: **NOT STARTED", state)
         self.assertIn("Dataset: **NOT FROZEN**", state)
@@ -556,12 +563,22 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "No model download or offline bundle was performed",
             "S6.1-P1 = NOT STARTED",
             "FORMAL_EXPERIMENT = NOT STARTED",
+            "d911063e3a00daba3f8dcfea6f3e6e3b484e79f4f0fe8853a53ff9d8c415279e",
+            "safe members `6/6`",
+            "correction index `4/4`",
+            "5399301224",
+            "5492817920",
+            "6442450944",
+            "MEASUREMENT_TOOL=du",
+            "no concrete `du` commands",
+            "CORRECTION_DU_COMMAND_EVIDENCE_MISSING",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, combined)
 
         self.assertIn("S6.1-R0-FU1-W2-ATTEMPT1: **EVIDENCE_REVIEW_BLOCKED", state)
         self.assertIn("H1 model download, manifest/bundle generation", state)
+        self.assertNotIn("APPROVED_AND_IN_PROGRESS / OFFLINE_ARTIFACT_PREPARATION", state)
 
     def test_learning_guides_are_non_authoritative(self) -> None:
         for path in (

@@ -1,5 +1,19 @@
 # LLMGuard 项目总控文档
 
+## S6.1-R0-FU1-W2 Attempt 1 Correction 01 仍未关闭证据门（2026-08-01）
+
+LOCAL 已复核 correction archive SHA-256
+`d911063e3a00daba3f8dcfea6f3e6e3b484e79f4f0fe8853a53ff9d8c415279e`：外部 sidecar、实际 archive 和 Worker
+报告值一致；安全成员 `6/6`，correction index `4/4`，原 Attempt 1 绑定、主仓库 branch/HEAD/0-0/clean/diff/tag
+现场证据均通过。记录的 `gmtp-compat` apparent bytes `5399301224`、allocated bytes `5492817920` 与 manifest 一致，
+并均小于 `6442450944`。
+
+但 correction 只记录 `MEASUREMENT_TOOL=du`，没有捕获实际 `du` 命令与区分 apparent/allocated 的参数，不能独立验证
+两个计量字段没有混淆。因此 `W2_ATTEMPT1_EVIDENCE_BLOCKER` 继续保持 **OPEN**，Attempt 1 仍不得重分类为
+`VALID_BLOCKED_ENGINEERING_RUN` 或 reusable preflight。H1 保持
+`APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS / NOT STARTED / BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER`；LOCAL 未下载或加载模型、
+未创建 bundle、未运行 GMTP/GPU、未联系 RTX5090。只需补充两条实际 `du` 命令及原始输出，无需重跑 smoke 或重建环境。
+
 ## S6.1-R0-FU1-W2 Attempt 1 Evidence Blocker（2026-08-01）
 
 LOCAL 已只读复核 Worker archive：外层 SHA-256

@@ -347,6 +347,13 @@ to 10 GiB without changing algorithm, data, parameters or models. `S6.1-R0-FU1-W
 W2 Resume` is owner-approved as `APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS`, but execution is
 `NOT STARTED / BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER`. LOCAL did not download models or create a bundle.
 
+Correction 01 later supplied archive SHA-256
+`d911063e3a00daba3f8dcfea6f3e6e3b484e79f4f0fe8853a53ff9d8c415279e`, safe members `6/6`, index `4/4`, exact original-attempt
+binding and complete main-repository integrity fields. Its manifest and measurement text agree on apparent bytes `5399301224`,
+allocated bytes `5492817920` and ceiling `6442450944`. However, it records only `MEASUREMENT_TOOL=du`; it does not capture the
+concrete apparent-size/allocated-size commands, flags or raw outputs. The Control Plane therefore cannot prove that the two
+measurement semantics were not confused. `W2_ATTEMPT1_EVIDENCE_BLOCKER` remains open and H1 remains blocked/not started.
+
 ## 9. Artifact approval budget
 
 | Artifact | Source / revision | Transfer / disk reserve | RAM / VRAM ceiling | License or usage note | Need |
@@ -368,8 +375,9 @@ created in this review. Formal corpus/index work remains closed.
 
 1. `BLK-S6.1-FU1-W1-001` is `RESOLVED_BY_LOCAL_L1 / SUPERSEDED_BY_LOCAL_L1`; no Worker W1 remains.
 2. `BLK-S6.1-FU1-W2-001`: W2 has not verified exact GMTP model loading, detector scores or measured runtime resources.
-3. `W2_ATTEMPT1_EVIDENCE_BLOCKER`: submitted evidence omits main-repository HEAD/clean capture and the claimed environment disk
-   measurement；H1 preparation is stopped pending corrected evidence.
+3. `W2_ATTEMPT1_EVIDENCE_BLOCKER`: Correction 01 resolves the main-repository capture gap and supplies internally consistent disk
+   values, but omits the exact `du` commands/flags/raw outputs required to distinguish apparent from allocated bytes；H1 preparation
+   remains stopped pending a minimal additive correction.
 4. PoisonedRAG exact historical generator/API/paper-result identity remains `PARTIAL`; P1 must decide whether author-released
    attack-text reuse is scientifically sufficient instead of pretending full regeneration equivalence.
 5. GMTP/SafeRAG code/data redistribution permission remains unconfirmed; this is a `REDISTRIBUTION_ONLY_ISSUE`, not an internal

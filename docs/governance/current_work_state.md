@@ -16,13 +16,13 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-R0-FU1-W2-ATTEMPT1-REVIEW`.
-- Task name: `GMTP Detection-Only Minimal Smoke Attempt 1 Control Plane Evidence Review`.
+- Task ID: `S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-01-REVIEW`.
+- Task name: `GMTP Detection-Only Minimal Smoke Attempt 1 Minimal Corrected Indexed Evidence Review`.
 - Task type: **CONTROL_PLANE_EVIDENCE_REVIEW / FAIL_CLOSED_RECOVERY_GATE**.
-- Status: **W2_ATTEMPT1_EVIDENCE_BLOCKER**.
+- Status: **W2_ATTEMPT1_EVIDENCE_BLOCKER / CORRECTION_DU_COMMAND_EVIDENCE_MISSING**.
 - Execution machine: **LOCAL / CONTROL_PLANE**；no model, GMTP, GPU, Worker contact or H1 download occurred.
-- Current ordered step: await a corrected indexed Worker archive that captures main-repository HEAD/clean evidence and explicit
-  `gmtp-compat` byte measurement. Do not rerun GMTP or rebuild the environment merely to correct packaging.
+- Current ordered step: await an additive indexed correction containing the exact apparent-size and allocated-size `du` commands,
+  their flags and captured raw outputs. Do not rerun GMTP or rebuild the environment merely to correct packaging.
 - Historical superseded snapshot: `DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`.
 - Formal RAG security experiment: **NOT STARTED**.
 - Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.
@@ -65,6 +65,12 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   harness SHA-256 `8411af2042774f1a18eec95e97a14ade088acbc35f09942ae9ffea4e8ea5fc06`.
 - Attempt 1 evidence supports GMTP/source/input/environment identity, encoder `MODEL_DOWNLOAD_BLOCKER` and
   `smoke_executed=false`, but does not contain main-repository HEAD/clean evidence or the claimed 5.2 GB environment measurement.
+- Correction 01 archive SHA-256
+  `d911063e3a00daba3f8dcfea6f3e6e3b484e79f4f0fe8853a53ff9d8c415279e` passed sidecar/recompute/Worker comparison, safe members
+  `6/6` and correction index `4/4`. It binds the original Attempt 1 and supplies passing main-repository integrity evidence.
+- Correction 01 reports apparent bytes `5399301224` and allocated bytes `5492817920`, both below `6442450944` and internally
+  consistent with its manifest. It does not capture the actual `du` commands or flags, so field provenance and non-confusion are
+  not independently verifiable. The parent evidence blocker remains open and H1 remains blocked/not started.
 - Resource contract is corrected for a future resumed W2 to task-owned disk hard ceiling `10 GiB` (`gmtp-compat <=6 GiB`, two
   exact models `<=2 GiB`, harness/evidence/archive `<=256 MiB`); RAM/VRAM/runtime ceilings remain unchanged. The archive itself
   reports disk/resource limits `NOT_EVALUATED`.
@@ -182,7 +188,8 @@ Can additionally claim: P0 and L1 are `HUMAN_ACCEPTED`；the exact released NQ a
 official deterministic LM-targeted assembly are verified；API-free reuse is verified feasible while API-free generation and exact
 paper-generation identity remain unresolved/partial。The GMTP W2 input, models, parameters, isolated environment and resource
 ceiling are frozen and W2 remains approved but not completed/accepted。Attempt 1 is not accepted as a valid blocked engineering
-run because its archive omits mandatory main-repository integrity evidence。The original baseline roles remain unchanged。
+run because Correction 01 still lacks command-derived provenance distinguishing apparent from allocated disk bytes。The original
+baseline roles remain unchanged。
 
 Can claim: within the offline engineering-test scope, the `S6-T5 Controlled Retrieval and Traceable Context Baseline` is HUMAN_ACCEPTED. It comprises deterministic and label-isolated retrieval runtime contracts, provider-neutral DenseRetriever, the synthetic ContentResolver, EvidenceEnvelope/Citation boundaries, deterministic Context Package behavior, and S6-T5.7 controlled integration evidence including an opt-in fixed MiniLM plus temporary Chroma close/reopen check. `4ecf73a` is the accepted baseline content commit; the current governance acceptance commit is not an implementation or integration-evidence commit. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
@@ -201,5 +208,5 @@ are established.
 ## Last Update
 
 - Date: `2026-08-01`.
-- Updated by: Codex recording `W2_ATTEMPT1_EVIDENCE_BLOCKER`, the owner-approved resource correction and H1 approval with H1
-  execution stopped pending corrected evidence. P1 and Formal Experiment remain not started.
+- Updated by: Codex recording Correction 01 as integrity-valid but command-provenance incomplete；the parent evidence blocker and
+  H1 stop remain in force. P1 and Formal Experiment remain not started.

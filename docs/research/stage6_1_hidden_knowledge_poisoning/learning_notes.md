@@ -99,3 +99,13 @@ intended procedure，captured output 才表示 observed fact。两者混用会�
 因此即便外层 SHA、内部 index 全通过，缺少 mandatory fact 仍要 `W2_ATTEMPT1_EVIDENCE_BLOCKER`。初学者常见误区是
 “hash 全绿就表示 summary 全真”；实际上 hash 只保护已提交字节，不能补出未提交的证据。H1 已获批准也不意味着可
 越过前置 evidence gate：先补齐主仓库 HEAD/clean 与环境字节计量，再开始离线模型工件准备。
+
+## Correction 01：工具名称不等于命令派生证据（2026-08-01）
+
+Correction 01 证明了一个更细的审计边界：`MEASUREMENT_TOOL=du` 只能说明声称使用了哪个工具，不能说明运行了
+`du --apparent-size --bytes`、allocated-size 对应命令或其他具有相同语义的明确参数组合。没有命令行与原始输出，
+审查者无法排除两个数值被交换、单位被换算或 flags 语义不同。
+
+企业场景中，资源合规不仅要保存最终数字，还要保存“命令、参数、原始输出、规范化字段、manifest”这条派生链。
+面试可追问：为什么两个数字都小于 ceiling 仍不能 PASS？因为算术正确只验证阈值比较，不验证数字的测量语义和
+来源。初学者常见误区是把内部一致性当成外部可验证性；前者说明文件彼此不矛盾，后者才支持治理门禁关闭。

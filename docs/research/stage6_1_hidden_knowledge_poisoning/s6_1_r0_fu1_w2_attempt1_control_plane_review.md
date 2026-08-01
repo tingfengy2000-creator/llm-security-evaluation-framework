@@ -67,3 +67,32 @@ the summary is not fully supported. Chat text or the presence of a command in a 
 Required correction is additive: return a small corrected evidence archive/index containing captured main-repository HEAD and
 delimited clean status plus an explicit byte-count measurement for `gmtp-compat`. Do not rerun GMTP, download models or rebuild the
 environment merely to correct this evidence gap.
+
+## 6. Correction 01 review
+
+The submitted correction archive was reviewed on LOCAL without contacting the Worker or starting H1:
+
+| Evidence | Result |
+| --- | --- |
+| Archive SHA-256 | sidecar, recomputation and Worker-reported value all equal `d911063e3a00daba3f8dcfea6f3e6e3b484e79f4f0fe8853a53ff9d8c415279e` |
+| Safe members | `6/6`；one directory and five regular files；no absolute/traversal path, symlink, hardlink, unsafe type or large member |
+| Correction index | `4/4` for `original_attempt_reference.txt`, `main_repo_integrity.txt`, `gmtp_compat_disk_measurement.txt` and `correction_manifest.json` |
+| Original binding | exact task ID, original archive SHA, `MODEL_DOWNLOAD_BLOCKER` and `smoke_executed=false` passed |
+| Main repository | branch, Attempt 1 HEAD `457458cbc484c7a187c1b0b812c414280f4b837a`, upstream `0/0`, delimited empty porcelain status, staged/unstaged diff exits and baseline peeled tag passed |
+| Disk fields | apparent `5399301224`, allocated `5492817920`, file count `33556`, directory count `3194` and ceiling `6442450944` match the manifest；both byte totals are below the ceiling |
+
+Correction 01 does **not** capture either concrete `du` command or the flags/raw outputs that distinguish apparent bytes from
+allocated bytes. `MEASUREMENT_TOOL=du` is a tool label, not command-derived provenance. The review therefore cannot verify that
+the two fields were not confused, even though the values are internally consistent and under the ceiling.
+
+Fail-closed result:
+
+- `W2_ATTEMPT1_EVIDENCE_BLOCKER` remains open;
+- Attempt 1 remains `EVIDENCE_REVIEW_BLOCKED`, not `VALID_BLOCKED_ENGINEERING_RUN`;
+- no evidence is promoted to `REUSABLE_W2_PREFLIGHT_EVIDENCE`;
+- H1 remains `APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS / NOT STARTED / BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER`;
+- no model download, model load, bundle, GMTP, GPU, Worker contact, P1 or formal experiment occurred.
+
+The next correction needs only the exact apparent-size and allocated-size `du` command lines with their captured outputs and an
+updated index/manifest binding. It does not require a GMTP rerun, environment rebuild or model download. The temporary extracted
+review copy was deleted after review；the original private correction archive remains outside Git.

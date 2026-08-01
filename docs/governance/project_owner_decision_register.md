@@ -721,3 +721,25 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Stop boundary: `S6.1-P1 = NOT STARTED`; `FORMAL_EXPERIMENT = NOT STARTED`; LOCAL does not contact RTX5090. Auto Continue = NO.
 - Evidence: [Attempt 1 Control Plane Review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_attempt1_control_plane_review.md)、
   [FU1 Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md) and REL-2026-0015.
+
+## PODR-055: Correction 01 Conditional Review and H1 Fail-Closed Continuation
+
+- Date: `2026-08-01`.
+- Owner authorization: review the minimal corrected indexed evidence first；start the already approved H1 only if every correction
+  requirement passes. No new owner approval would be needed after a passing correction.
+- Integrity result: correction archive SHA-256
+  `d911063e3a00daba3f8dcfea6f3e6e3b484e79f4f0fe8853a53ff9d8c415279e` matches sidecar, recomputation and Worker report；safe
+  members `6/6` and correction index `4/4` pass.
+- Evidence result: original Attempt 1 binding and main-repository branch/HEAD/upstream/clean/diff/tag evidence pass. Apparent bytes
+  `5399301224` and allocated bytes `5492817920` match the manifest and are below ceiling `6442450944`.
+- Material gap: the correction records `MEASUREMENT_TOOL=du` but no concrete `du` commands, flags or raw outputs. It therefore
+  cannot independently establish that apparent and allocated byte semantics were not confused.
+- Decision: keep `W2_ATTEMPT1_EVIDENCE_BLOCKER = OPEN` and Attempt 1 `EVIDENCE_REVIEW_BLOCKED`. Do not reclassify it as
+  `VALID_BLOCKED_ENGINEERING_RUN` or accept reusable preflight evidence.
+- H1 effect: `APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS / NOT STARTED / BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER`. No model download,
+  model load, manifest, index or bundle creation occurred.
+- Next correction: additive command-derived evidence only—exact apparent-size and allocated-size `du` command lines, flags and
+  captured outputs, bound by an updated index/manifest. No GMTP rerun, environment rebuild or model download is required.
+- Stop boundary: no Worker contact, GPU, S6.1-P1 or Formal Experiment. Auto Continue = NO.
+- Evidence: [Attempt 1 Control Plane Review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_attempt1_control_plane_review.md)、
+  [FU1 Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md) and REL-2026-0016.

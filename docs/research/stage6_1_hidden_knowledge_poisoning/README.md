@@ -2,8 +2,9 @@
 
 ## 当前状态
 
-- 当前任务：`S6.1-R0-FU1-W2-ATTEMPT1-REVIEW`。
-- 任务状态：`W2_ATTEMPT1_EVIDENCE_BLOCKER`；W2 仍 `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`；H1
+- 当前任务：`S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-01-REVIEW`。
+- 任务状态：`W2_ATTEMPT1_EVIDENCE_BLOCKER / CORRECTION_DU_COMMAND_EVIDENCE_MISSING`；W2 仍
+  `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`；H1
   `APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS / BLOCKED_NOT_STARTED`。
 - 历史前置：`S6.1-LR1` 为 `HUMAN_ACCEPTED`。
 - 追加治理：Git-native Context Recovery Governance 与 Paper-First Comparative Evidence Principle 均为 `HUMAN_ACCEPTED`。
@@ -22,8 +23,10 @@
   `question + "." + adv_text` 拼装与固定样本哈希。工件可 API-free 复用，但不等于复现 API generation。
 - Attempt 1 review：archive SHA/safe/index 和部分身份通过，但缺少主仓库 HEAD/clean 捕获与环境 disk byte measurement；
   见 [redacted review](s6_1_r0_fu1_w2_attempt1_control_plane_review.md)。
-- 当前 action：只返回 corrected indexed evidence；H1 下载/bundle 与 W2 resume 均暂停。无需为 evidence packaging 修正
-  重跑 GMTP 或重建环境。
+- Correction 01：外层 SHA、安全成员 `6/6`、index `4/4`、原 Attempt 绑定和主仓库现场证据通过；disk 数值与 manifest
+  一致且低于 6 GiB，但没有捕获区分 apparent/allocated 的具体 `du` 命令、flags 与 raw output。
+- 当前 action：只返回上述最小 command-derived indexed evidence；H1 下载/bundle 与 W2 resume 均暂停。无需为 evidence
+  packaging 修正重跑 GMTP 或重建环境。
 - Worker 状态：原 `FU1-W1 = SUPERSEDED_BY_LOCAL_L1 / NOT FAILED`；`FU1-W2 = READY_FOR_OWNER_EXECUTION_APPROVAL /
   NOT_YET_EXECUTED` 为历史快照；当前 W2 未完成/未验收，Attempt 1 evidence-blocked。本轮 LOCAL 不联系或执行 Worker。
 - Token economy：高推理/设计/审查任务优先 LOCAL；该资源原则不覆盖科学证据与安全治理。
