@@ -828,3 +828,68 @@ Approval Gate、Auto Continue。
   indexed private archive for Control Plane review.
 - Next Approval Gate: LOCAL raw-evidence review under `MATERIALITY_AND_FINAL_CLOSURE_RULE`; H1/P1/Formal Experiment remain closed.
 - Auto Continue: `NO`
+
+## REL-2026-0019 — Correction 02 Final Closure and H1 Offline Model Artifact Preparation
+
+- Record ID: `REL-2026-0019`
+- Date: `2026-08-01`
+- Timestamp: `2026-08-01T08:58:14.214020Z`
+- Machine: `LOCAL`
+- Machine Role: `PRIMARY_CONTROL_PLANE / PROJECT_EXECUTION_LEAD / CONTEXT_PRESERVATION_OWNER`
+- Stage: `Stage 6.1 / R0-FU1`
+- Task ID: `S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02; S6.1-R0-FU1-W2-H1`
+- Task Name: `Correction 02 Control Plane Evidence Review and Offline Model Artifact Provisioning`
+- Task Type: `RAW_EVIDENCE_REVIEW / FINAL_CLOSURE / OFFLINE_MODEL_ARTIFACT_PROVISIONING_ONLY`
+- Initial Status: `CORRECTION02_EVIDENCE_READY_FOR_CONTROL_PLANE_REVIEW / H1 APPROVED_BLOCKED_NOT_STARTED`
+- Final Status: `CORRECTION02_CONTROL_PLANE_REVIEW_PASS / W2_ATTEMPT1_EVIDENCE_BLOCKER_RESOLVED /
+  OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION`
+- Objective: independently review the indexed Correction 02 archive, apply the frozen materiality rule, close the Attempt 1
+  evidence gate if warranted, then prepare only the two exact public model snapshots for later Worker transfer.
+- Why: the original W2 run stopped before smoke because the frozen encoder was unavailable；valid command-derived disk evidence
+  was the remaining classification gate, and owner-approved H1 supplies transfer artifacts without changing algorithm semantics.
+- Previous Gate: `PODR-057 / W2_ATTEMPT1_EVIDENCE_BLOCKER OPEN / H1 BLOCKED_NOT_STARTED`
+- Actions: verified archive/sidecar/reported SHA, safe members, sorted `17/17` index, original/Correction01/approval/task binding,
+  exact GNU `du` commands/tool/raw streams/exits/semantics, byte/count/spec/repository identities and no-mutation flags；applied
+  `MATERIALITY_AND_FINAL_CLOSURE_RULE`；created isolated `w2-h1-download` environment by offline clone；used anonymous pinned
+  `snapshot_download` with one worker；removed download cache and Core ML cross-framework artifacts；generated manifest, sorted
+  index, README, deterministic archive and sidecar；independently reverified bundle members and indexed hashes.
+- Files Changed: canonical governance/research/learning documents and semantic governance tests only. Private Correction archives,
+  model files, download scripts/logs/environment records, manifest/index, bundle and sidecar remain outside Git.
+- Commands: read-only Correction archive inspection and hash/index parsing；isolated Conda clone；approved Hugging Face public
+  snapshot downloads；file hash/index/archive verification；repository documentation/static/test checks. No model-loading API,
+  GMTP/harness command or GPU workload was invoked.
+- Validation: Correction 02 archive `4367` bytes, SHA
+  `fcfa3f14c98e0103cb5a1de2f0449fa000d179e2e01d74baa6fec4b013503622`, safe members and `17/17` index pass；GNU apparent
+  `5399301224`, allocated `5492817920`, files `33556`, directories `3194`, ceiling `6442450944` and materiality `11/11` pass；
+  model index `19/19`, bundle 20 files/3 directories, resource gate, sidecar and archive safety pass；targeted governance
+  `19 passed`, full architecture `101 passed`, namespace/label isolation `10 passed`, Ruff passed, Markdown relative links `239`
+  checked with zero broken, added secret/private path/raw artifact/protected path/runtime-untracked checks all zero, UTF-8
+  no-BOM/LF and `git diff --check` passed. Pytest cache write warnings are non-blocking.
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `PENDING_THIS_COMMIT; resolve with git log -1 -- docs/governance/research_execution_log.md`
+- Run ID: `N/A / EVIDENCE_REVIEW_AND_ARTIFACT_PREPARATION_ONLY`
+- Dataset Snapshot: unchanged；no dataset read/download/freeze and no raw NQ content entered the bundle.
+- Model / Revision: `facebook/contriever-msmarco@abe8c1493371369031bcb1e02acb754cf4e162fa` and
+  `google-bert/bert-base-uncased@86b5e0934494bd15c9632b12f734a8a67f723594`; resolved revisions equal requested revisions.
+- Environment Identity: isolated `w2-h1-download`, Python `3.9.25`, huggingface-hub `0.34.4`; download/manifest only；no change to
+  `llmguard-paper1`, `gmtp-compat` or the project's formal execution environments.
+- Result Summary: Attempt 1 is `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER`; H1 is
+  `OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION`; parent W2 is still not completed/accepted.
+- Claims Allowed: exact Correction 02 integrity/provenance/closure；narrow reusable preflight facts；exact model identities,
+  file counts/bytes, bundle SHA and H1 pending-verification state.
+- Claims Prohibited: models loaded；Worker bundle verification；GMTP run/compatibility；detector scores；runtime/RSS/VRAM；W2
+  completion/acceptance；P1/formal experiment/security effectiveness or paper result.
+- Blockers: `W2_ATTEMPT1_EVIDENCE_BLOCKER` resolved；parent `BLK-S6.1-FU1-W2-001` remains open until separately approved resumed
+  Worker validation succeeds；formal-environment and strict-comparison blockers remain separate.
+- Blocker ID: `W2_ATTEMPT1_EVIDENCE_BLOCKER = RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW`
+- Resolution: command-derived Correction 02 evidence satisfied every material final-closure criterion；H1 artifact creation
+  succeeded under the existing owner approval and 2 GiB cap.
+- Owner Decisions: `PODR-054; PODR-057; PODR-058`
+- Design Changes: none to algorithm, data, model selection, parameter, metric or runtime architecture；evidence classification and
+  transfer packaging only.
+- Paper Impact: improves reproducibility and provenance only；does not add baseline scores, comparison evidence or conclusions.
+- Architecture Impact: no runtime change；preserves Control Plane/Worker and Git/private-artifact boundaries.
+- Next Step: project owner transfers the exact Git-external bundle to RTX5090；Worker verifies outer SHA, safe extraction and all
+  indexed hashes before any separately controlled W2 resume.
+- Next Approval Gate: owner-controlled 5090 bundle verification/resume decision；S6.1-P1 and Formal Experiment remain closed.
+- Auto Continue: `NO`

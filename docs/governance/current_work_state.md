@@ -16,15 +16,17 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02`.
-- Task name: `W2 Attempt 1 GNU du Provenance Final Evidence Correction`.
-- Task type: **EVIDENCE_PACKAGING_CORRECTION_ONLY**.
-- Status: **APPROVED_TO_START / NOT SENT / NOT EXECUTED**.
-- Execution machine: **RTX5090 / COMPUTE_WORKER**. This LOCAL task only registers approval, freezes acceptance criteria and
-  creates/pushes governance；it does not contact or substitute for the Worker.
-- Current ordered step: RTX5090 pulls the exact approval commit and independently executes the approved Correction 02 contract.
-  The returned success state may only be `W2_ATTEMPT1_CORRECTION02_EVIDENCE_READY_FOR_CONTROL_PLANE_REVIEW`; LOCAL then performs
-  a separate raw-evidence review. Auto Continue = NO.
+- Task ID: `S6.1-R0-FU1-W2-H1` following completed
+  `S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02` review.
+- Task name: `Offline Model Artifact Provisioning`.
+- Task type: **OFFLINE_MODEL_ARTIFACT_PROVISIONING_ONLY**.
+- Status: **OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION**.
+- Execution machine: **LOCAL / PRIMARY_CONTROL_PLANE**. LOCAL reviewed the returned Correction 02 evidence, applied the frozen
+  materiality rule and prepared transfer-only public model artifacts. It did not load a model, run GMTP, use a GPU or contact
+  RTX5090.
+- Current ordered step: after this governance commit is synchronized, the project owner may transfer the exact private bundle to
+  RTX5090 for independent outer-SHA, safe-extraction and file-index verification. No Worker contact or resumed W2 execution is
+  automatic. Auto Continue = NO.
 - Historical superseded snapshot: `DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`.
 - Formal RAG security experiment: **NOT STARTED**.
 - Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.
@@ -47,11 +49,12 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Historical S6.1-R0-FU1-W1 candidate: **SUPERSEDED_BY_LOCAL_L1 / NOT FAILED**.
 - Historical S6.1-R0-FU1-W2 snapshot: **READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED**.
 - S6.1-R0-FU1-W2: **APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED**.
-- S6.1-R0-FU1-W2-ATTEMPT1: **EVIDENCE_REVIEW_BLOCKED / W2_ATTEMPT1_EVIDENCE_BLOCKER**.
-- S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-01 gap: **CORRECTION_DU_COMMAND_EVIDENCE_MISSING**.
-- S6.1-R0-FU1-W2-H1: **APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS / NOT STARTED /
-  BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER**.
-- S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02: **APPROVED_TO_START / NOT SENT / NOT EXECUTED** under `PODR-057`.
+- S6.1-R0-FU1-W2-ATTEMPT1: **VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER**；`smoke_executed=false`；
+  `algorithm_failure=false`；`GMTP_incompatibility=not established`.
+- S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-01 gap: **RESOLVED_BY_CORRECTION_02**.
+- S6.1-R0-FU1-W2-H1: **OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION**.
+- S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02: **CONTROL_PLANE_REVIEW_PASS / FINAL_CLOSURE_APPLIED** under
+  `PODR-057` and `PODR-058`.
 - S6.1-P1: **NOT STARTED / REQUIRES ACCEPTED W2 EVIDENCE AND SEPARATE P1 APPROVAL**.
 - Dataset: **NOT FROZEN**.
 - Dataset Generation: **NOT APPROVED**.
@@ -66,8 +69,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   research access。
 - P0 source/planning blockers remain resolved. L1 additionally resolves `BLK-S6.1-FU1-W1-001` through exact artifact/schema/
   assembly evidence and supersedes the Worker W1 route. Runtime acceptance remains blocked by
-  `BLK-S6.1-FU1-W2-001`; the Attempt 1 classification and H1 start are additionally blocked by
-  `W2_ATTEMPT1_EVIDENCE_BLOCKER` until corrected indexed evidence is accepted.
+  `BLK-S6.1-FU1-W2-001`. The historical `W2_ATTEMPT1_EVIDENCE_BLOCKER` is
+  **RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW**；this resolution does not close the parent W2 runtime gate.
 - Attempt 1 archive integrity passed narrowly: outer SHA-256
   `6acdbb8038e57b1d3e88028350fc08046d73a826ba9dd167452bfc0dd834170f`, safe members `18/18`, evidence index `16/16` and
   harness SHA-256 `8411af2042774f1a18eec95e97a14ade088acbc35f09942ae9ffea4e8ea5fc06`.
@@ -77,11 +80,19 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `d911063e3a00daba3f8dcfea6f3e6e3b484e79f4f0fe8853a53ff9d8c415279e` passed sidecar/recompute/Worker comparison, safe members
   `6/6` and correction index `4/4`. It binds the original Attempt 1 and supplies passing main-repository integrity evidence.
 - Correction 01 reports apparent bytes `5399301224` and allocated bytes `5492817920`, both below `6442450944` and internally
-  consistent with its manifest. It does not capture the actual `du` commands or flags, so field provenance and non-confusion are
-  not independently verifiable. The parent evidence blocker remains open and H1 remains blocked/not started.
-- Correction 02 freezes GNU apparent `du -sb -- <path>` and allocated `du -sB1 -- <path>` semantics, complete tool/Conda/time/raw
-  provenance, a verified indexed archive and `MATERIALITY_AND_FINAL_CLOSURE_RULE`. Approval does not itself supply evidence or
-  close the blocker.
+  consistent with its manifest. It does not capture the actual `du` commands or flags, so field provenance and non-confusion were
+  not independently verifiable at that review；the later Correction 02 facts below supersede that historical gate state.
+- Correction 02 archive `s6_1_r0_fu1_w2_attempt1_correction02_20260801.tar.gz` is 4367 bytes with SHA-256
+  `fcfa3f14c98e0103cb5a1de2f0449fa000d179e2e01d74baa6fec4b013503622`. Sidecar/recomputation/report, archive safety and
+  sorted evidence index `17/17` passed. GNU coreutils `du 9.4` raw evidence supports apparent `5399301224` from `du -sb` and
+  allocated `5492817920` from `du -sB1`, zero exits, unchanged counts/spec identity and both values below `6442450944`.
+- The frozen `MATERIALITY_AND_FINAL_CLOSURE_RULE` therefore closes `W2_ATTEMPT1_EVIDENCE_BLOCKER`. Accepted reusable evidence is
+  limited to main/GMTP/input/environment/CUDA/disk identities, the encoder download blocker and smoke-not-executed fact；model
+  loading, detector outputs/scores, runtime/RSS/VRAM, compatibility and security effectiveness are not reusable evidence.
+- H1 prepared exact public snapshots `facebook/contriever-msmarco@abe8c1493371369031bcb1e02acb754cf4e162fa` (8 files,
+  438708922 bytes) and `google-bert/bert-base-uncased@86b5e0934494bd15c9632b12f734a8a67f723594` (9 files,
+  881643453 bytes). Total model bytes are `1320352375`, below 2 GiB. The Git-external transfer archive SHA-256 is
+  `aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45`; its status is pending independent 5090 verification.
 - Resource contract is corrected for a future resumed W2 to task-owned disk hard ceiling `10 GiB` (`gmtp-compat <=6 GiB`, two
   exact models `<=2 GiB`, harness/evidence/archive `<=256 MiB`); RAM/VRAM/runtime ceilings remain unchanged. The archive itself
   reports disk/resource limits `NOT_EVALUATED`.
@@ -184,10 +195,9 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Must Not Start
 
-- LOCAL execution of Correction 02 or automatic Worker contact/transmission. The approved task runs only on RTX5090 after that
-  machine pulls the exact approval commit through the owner-controlled handoff.
-- On LOCAL: any external baseline workload, repo clone/install/smoke, dataset/model download or GPU computation.
-- On LOCAL while `W2_ATTEMPT1_EVIDENCE_BLOCKER` is open: H1 model download, manifest/bundle generation or model loading.
+- Automatic Worker contact/transmission or any replay of Correction 02. Its evidence-only run and LOCAL review are complete.
+- On LOCAL: any external baseline workload, model loading, GMTP/harness smoke, dataset acquisition, GPU computation or formal
+  experiment. The narrowly approved H1 public-artifact download is complete and grants no continuing download authority.
 - On RTX5090: anything beyond the exact approved FU1-W2 contract；Java/Pyserini/FAISS/BEIR/Docker、API、broad environment
   exploration、algorithm reimplementation、silent source patch or formal workload。
 - Everywhere: any unapproved FU1 Worker execution、S6.1-P1、Detector implementation、dataset freeze/construction、training、Paper Result、
@@ -198,18 +208,19 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Claims Boundary
 
-Can additionally claim: Correction 02 is `APPROVED_TO_START / NOT EXECUTED` on RTX5090 under its exact GNU `du` evidence-only
-contract and final materiality rule。P0 and L1 are `HUMAN_ACCEPTED`；the exact released NQ attack-text artifact identity, all 100 records and
+Can additionally claim: Correction 02 passed LOCAL raw-evidence review and the final materiality rule closed the historical
+`W2_ATTEMPT1_EVIDENCE_BLOCKER`。Attempt 1 is `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER`, with the narrow reusable
+preflight boundary recorded above。H1 prepared two exact-revision offline model snapshots and an integrity-checked transfer bundle
+that is still pending 5090 verification。P0 and L1 are `HUMAN_ACCEPTED`；the exact released NQ attack-text artifact identity, all 100 records and
 official deterministic LM-targeted assembly are verified；API-free reuse is verified feasible while API-free generation and exact
 paper-generation identity remain unresolved/partial。The GMTP W2 input, models, parameters, isolated environment and resource
-ceiling are frozen and W2 remains approved but not completed/accepted。Attempt 1 is not accepted as a valid blocked engineering
-run because Correction 01 still lacks command-derived provenance distinguishing apparent from allocated disk bytes。The original
+ceiling are frozen and W2 remains approved but not completed/accepted。The original
 baseline roles remain unchanged。PO-MHEP is permanently accepted as the highest internal execution authority。
 
 Can claim: within the offline engineering-test scope, the `S6-T5 Controlled Retrieval and Traceable Context Baseline` is HUMAN_ACCEPTED. It comprises deterministic and label-isolated retrieval runtime contracts, provider-neutral DenseRetriever, the synthetic ContentResolver, EvidenceEnvelope/Citation boundaries, deterministic Context Package behavior, and S6-T5.7 controlled integration evidence including an opt-in fixed MiniLM plus temporary Chroma close/reopen check. `4ecf73a` is the accepted baseline content commit; the current governance acceptance commit is not an implementation or integration-evidence commit. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
-Cannot claim: Correction 02 was sent/executed or its evidence accepted；H1 started；Attempt 1 is `VALID_BLOCKED_ENGINEERING_RUN` or reusable
-preflight evidence；W2 ran/completed/was accepted；any
+Cannot claim: models were loaded；the H1 bundle was verified by 5090；GMTP was rerun or found compatible/incompatible；detector
+scores, runtime/RSS/VRAM or security effectiveness exist；W2 completed/was accepted；any
 external baseline was reproduced；strict comparison is ready；SafeRAG pipeline is ready；dataset/
 Detector/Our Method/training/result exists；or retrieval quality/security, SOTA, production readiness or formal-experiment outcomes
 are established.
@@ -224,6 +235,6 @@ are established.
 ## Last Update
 
 - Date: `2026-08-01`.
-- Updated by: Codex registering `PODR-057`, promoting Correction 02 to an approved RTX5090 evidence-only contract and freezing
-  `MATERIALITY_AND_FINAL_CLOSURE_RULE`. No Worker contact/execution occurred；W2 blocker and H1 stop remain in force；P1 and Formal
-  Experiment remain not started.
+- Updated by: Codex completing the Correction 02 raw-evidence review, applying `MATERIALITY_AND_FINAL_CLOSURE_RULE`, closing the
+  historical Attempt 1 evidence blocker and preparing the exact H1 offline bundle under `PODR-058`. No model load, GMTP/GPU or
+  Worker contact occurred；parent W2 remains not completed/not accepted；P1 and Formal Experiment remain not started.

@@ -2,11 +2,10 @@
 
 ## 当前状态
 
-- 当前项目任务：`S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02 = APPROVED_TO_START / NOT SENT / NOT EXECUTED`，仅允许
-  `RTX5090 / COMPUTE_WORKER` 执行 evidence-packaging correction。
-- Stage 6.1 子状态：`W2_ATTEMPT1_EVIDENCE_BLOCKER / CORRECTION_DU_COMMAND_EVIDENCE_MISSING`；W2 仍
-  `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`；H1
-  `APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS / BLOCKED_NOT_STARTED`。
+- 当前项目任务：`S6.1-R0-FU1-W2-H1 = OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION`，前置 Correction 02
+  Control Plane review 已通过并应用 final closure。
+- Stage 6.1 子状态：历史 `W2_ATTEMPT1_EVIDENCE_BLOCKER` 已解决；Attempt 1 为
+  `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER`；W2 仍 `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`。
 - 历史前置：`S6.1-LR1` 为 `HUMAN_ACCEPTED`。
 - 追加治理：Git-native Context Recovery Governance 与 Paper-First Comparative Evidence Principle 均为 `HUMAN_ACCEPTED`。
 - Paper 1 canonical route：`ACCEPTED AS CURRENT RESEARCH ROUTE`。
@@ -26,14 +25,16 @@
   见 [redacted review](s6_1_r0_fu1_w2_attempt1_control_plane_review.md)。
 - Correction 01：外层 SHA、安全成员 `6/6`、index `4/4`、原 Attempt 绑定和主仓库现场证据通过；disk 数值与 manifest
   一致且低于 6 GiB，但没有捕获区分 apparent/allocated 的具体 `du` 命令、flags 与 raw output。
-- 当前 action：RTX5090 拉取准确批准提交后，只返回已冻结 GNU `du -sb`/`du -sB1`、工具/Conda/时间来源链及
-  command-derived indexed evidence；H1 下载/bundle 与 W2 resume 均暂停。无需重跑 GMTP 或重建环境。
+- Correction 02 final review：archive SHA
+  `fcfa3f14c98e0103cb5a1de2f0449fa000d179e2e01d74baa6fec4b013503622`、安全检查、index `17/17`、GNU `du 9.4`
+  command-derived apparent/allocated 证据和 materiality `11/11` 均通过。
+- H1 artifact：Contriever 8 文件 / 438708922 bytes；BERT MLM 9 文件 / 881643453 bytes；总模型 `1320352375` bytes；
+  bundle SHA `aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45`，仍待 5090 独立验证。
 - Worker 状态：原 `FU1-W1 = SUPERSEDED_BY_LOCAL_L1 / NOT FAILED`；`FU1-W2 = READY_FOR_OWNER_EXECUTION_APPROVAL /
-  NOT_YET_EXECUTED` 为历史快照；当前 W2 未完成/未验收，Attempt 1 evidence-blocked。本轮 LOCAL 不联系或执行 Worker。
+  NOT_YET_EXECUTED` 为历史快照；当前 W2 未完成/未验收，Attempt 1 valid blocked by model download。本轮 LOCAL 不联系或执行 Worker。
 - Token economy：高推理/设计/审查任务优先 LOCAL；该资源原则不覆盖科学证据与安全治理。
-- Correction 02：`APPROVED_TO_START / NOT SENT / NOT EXECUTED` under `PODR-057`。Worker 成功状态只能是
-  `W2_ATTEMPT1_CORRECTION02_EVIDENCE_READY_FOR_CONTROL_PLANE_REVIEW`；必须经过 LOCAL raw-evidence review 才能按
-  `MATERIALITY_AND_FINAL_CLOSURE_RULE` 关闭 blocker。
+- 当前 action：项目负责人可通过 owner-controlled handoff 将精确 bundle 传给 RTX5090，先验证外层 SHA、安全解压和
+  `model_files.sha256`，再单独决定是否恢复 W2。本轮不自动联系 Worker，不加载模型或运行 GMTP。
 
 ## 权威入口
 
@@ -56,9 +57,7 @@
 
 ## 下一审批门
 
-`S6.1-R0-FU1-P0 = HUMAN_ACCEPTED` 且 `S6.1-R0-FU1-L1 = HUMAN_ACCEPTED`。W2 Attempt 1 目前为
-`W2_ATTEMPT1_EVIDENCE_BLOCKER`；H1 虽已获 owner approval，但不得在 blocker 关闭前准备模型 bundle。S6.1-P1、Dataset
-freeze、Detector、training 和正式实验均未获批准。
-Correction 02 已获批准，但本轮 LOCAL 不发送或执行；下一动作是 RTX5090 通过 owner-controlled handoff 拉取准确批准
-commit 并执行合同。返回后仍须 LOCAL 复核；当前 blocker、H1 stop、P1/Formal Experiment 关闭状态均不变。
+`S6.1-R0-FU1-P0 = HUMAN_ACCEPTED` 且 `S6.1-R0-FU1-L1 = HUMAN_ACCEPTED`。Correction 02 已通过并关闭 Attempt 1
+evidence blocker；H1 bundle 已准备但未获 5090 验证。下一门是 owner-controlled 5090 transfer/integrity verification
+及独立 W2 resume 决策。S6.1-P1、Dataset freeze、Detector、training 和正式实验均未获批准。
 Auto Continue = NO。

@@ -138,3 +138,18 @@ Correction 02 已获批准，但仍然只修复 GNU `du` 的测量来源链。`d
 不能自我接受。LOCAL 仍需核验 archive/sidecar、index、raw/manifest 一致性和无 mutation，之后才能重分类 Attempt 1。
 初学者常见误区是把 Owner 批准、Worker 执行成功、Control Plane 验收和 W2 完成混为一谈；Correction 02 只跨过第一
 个门，后续三个状态仍各自独立。
+
+## H1：模型工件准备不等于模型验证（2026-08-01）
+
+Correction 02 的 17/17 索引、GNU `du` 原始命令和 11/11 materiality 检查通过后，证据包装门必须关闭；否则治理会
+把审计质量变成无限追求格式一致。关闭这个门只说明 Attempt 1 可以被准确分类为“有效但被模型下载阻断的工程 run”，
+不说明 detector 成功，也不说明 GMTP 与现代环境兼容。
+
+H1 随后只做离线工件供应：固定 repo + commit、`token=False`、单线程下载、文件级 SHA、2 GiB 资源门和安全 tar。
+企业场景里，这相当于把网络获取与生产/算力执行拆成两个可审计控制点：Control Plane 准备确定字节，Worker 再验证
+相同字节，之后才可能获准加载。面试可追问：为什么有 `pytorch_model.bin` 仍不能写“models loaded”？因为文件存在
+证明的是供应链身份与完整性，运行时反序列化、设备放置、依赖兼容和推理行为均尚未发生。
+
+本轮 H1 的 17 个模型文件合计 `1320352375` bytes，bundle SHA 为
+`aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45`。初学者另一个常见误区是把 bundle 的本机
+自校验当成 Worker 验收；正确状态仍是 `OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION`。

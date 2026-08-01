@@ -140,6 +140,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "PODR-055",
             "PODR-056",
             "PODR-057",
+            "PODR-058",
             "S6.1-LR1: HUMAN_ACCEPTED",
             "Git-Native Research Context Recovery Governance: HUMAN_ACCEPTED",
             "s6-t5-rag-baseline-v1",
@@ -186,6 +187,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "REL-2026-0016",
             "REL-2026-0017",
             "REL-2026-0018",
+            "REL-2026-0019",
             "Machine Role",
             "Initial Status",
             "Final Status",
@@ -216,6 +218,10 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             text.index("## REL-2026-0017"),
             text.index("## REL-2026-0018"),
         )
+        self.assertLess(
+            text.index("## REL-2026-0018"),
+            text.index("## REL-2026-0019"),
+        )
 
     def test_current_state_and_experiment_control_plane_keep_distinct_roles(self) -> None:
         state = CURRENT_STATE.read_text(encoding="utf-8")
@@ -238,8 +244,9 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED", state)
         self.assertIn("S6.1-R0-FU1-W2: **APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED**", state)
         self.assertIn("W2_ATTEMPT1_EVIDENCE_BLOCKER", state)
-        self.assertIn("CORRECTION_DU_COMMAND_EVIDENCE_MISSING", state)
-        self.assertIn("BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER", state)
+        self.assertIn("RESOLVED_BY_CORRECTION_02", state)
+        self.assertIn("VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER", state)
+        self.assertIn("OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION", state)
         self.assertIn("S6.1-P1: **NOT STARTED", state)
         self.assertIn("Dataset: **NOT FROZEN**", state)
         self.assertIn("Detector: **NOT IMPLEMENTED**", state)
@@ -251,8 +258,8 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("PO-MHEP", state)
         self.assertIn("HIGHEST_INTERNAL_PROJECT_EXECUTION_AUTHORITY", state)
         self.assertIn("NO_SELF_APPROVAL_AUTHORITY", state)
-        self.assertIn("APPROVED_TO_START / NOT SENT / NOT EXECUTED", state)
-        self.assertIn("W2_ATTEMPT1_CORRECTION02_EVIDENCE_READY_FOR_CONTROL_PLANE_REVIEW", state)
+        self.assertIn("CONTROL_PLANE_REVIEW_PASS / FINAL_CLOSURE_APPLIED", state)
+        self.assertIn("aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45", state)
         self.assertIn("唯一的实验控制面", master)
         for field in (
             "blocker_id",
@@ -554,7 +561,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertNotIn("S6.1-R0-FU1-W2: **APPROVED_TO_EXECUTE**", state)
         self.assertIn("S6.1-P1 is not automatically authorized", state)
 
-    def test_w2_attempt1_evidence_gap_blocks_h1_without_overclaiming_run(self) -> None:
+    def test_w2_attempt1_gap_history_and_correction02_closure_are_both_preserved(self) -> None:
         review = W2_ATTEMPT1_REVIEW.read_text(encoding="utf-8")
         state = CURRENT_STATE.read_text(encoding="utf-8")
         combined = "\n".join(
@@ -596,9 +603,10 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             with self.subTest(required=required):
                 self.assertIn(required, combined)
 
-        self.assertIn("S6.1-R0-FU1-W2-ATTEMPT1: **EVIDENCE_REVIEW_BLOCKED", state)
-        self.assertIn("H1 model download, manifest/bundle generation", state)
-        self.assertNotIn("APPROVED_AND_IN_PROGRESS / OFFLINE_ARTIFACT_PREPARATION", state)
+        self.assertIn("S6.1-R0-FU1-W2-ATTEMPT1: **VALID_BLOCKED_ENGINEERING_RUN", state)
+        self.assertIn("RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW", state)
+        self.assertIn("OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION", state)
+        self.assertIn("No model download or offline bundle was performed", review)
 
     def test_po_mhep_is_highest_execution_authority_and_fail_closed(self) -> None:
         principle = PO_MHEP.read_text(encoding="utf-8")
@@ -645,7 +653,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("project_owner_sovereignty_and_mandatory_escalation_principle.md", agents)
         self.assertIn("唯一动态任务状态入口", state)
 
-    def test_correction02_approval_freezes_exact_du_contract_without_advancing_w2(self) -> None:
+    def test_correction02_final_closure_and_h1_artifacts_do_not_advance_w2(self) -> None:
         state = CURRENT_STATE.read_text(encoding="utf-8")
         fu1 = FU1_RESOLUTION.read_text(encoding="utf-8")
         master = MASTER_RECORD.read_text(encoding="utf-8")
@@ -653,15 +661,17 @@ class ResearchContextRecoveryTests(unittest.TestCase):
 
         for required in (
             "S6.1-R0-FU1-W2: **APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED**",
-            "EVIDENCE_REVIEW_BLOCKED",
-            "W2_ATTEMPT1_EVIDENCE_BLOCKER = OPEN",
-            "BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER",
+            "VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER",
+            "RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW",
+            "OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION",
             "S6.1-P1: **NOT STARTED",
             "FORMAL_EXPERIMENT = NOT STARTED",
             "S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02",
             "APPROVED_TO_START / NOT SENT / NOT EXECUTED",
             "PODR-057",
             "REL-2026-0018",
+            "PODR-058",
+            "REL-2026-0019",
             'LC_ALL=C du -sb -- "$CONDA_PREFIX"',
             'LC_ALL=C du -sB1 -- "$CONDA_PREFIX"',
             "command -V du",
@@ -685,11 +695,16 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "no new H1 owner approval is required",
             "FORWARD_RISK_REVIEW = PASS_WITH_GUARDRAILS",
             "PAPER_RISK_REVIEW = PASS_WITH_CLAIMS_BOUNDARY",
+            "fcfa3f14c98e0103cb5a1de2f0449fa000d179e2e01d74baa6fec4b013503622",
+            "aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45",
+            "1320352375",
+            "438708922",
+            "881643453",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, combined)
 
-        self.assertNotIn("H1 = APPROVED_AND_IN_PROGRESS", combined)
+        self.assertNotIn("models loaded = true", combined.lower())
         self.assertNotIn("W2 completed\nW2 accepted", combined)
 
     def test_learning_guides_are_non_authoritative(self) -> None:

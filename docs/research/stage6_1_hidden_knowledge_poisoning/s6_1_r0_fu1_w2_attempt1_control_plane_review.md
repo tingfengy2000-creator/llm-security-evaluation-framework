@@ -2,7 +2,8 @@
 
 > Review machine: `LOCAL / CONTROL_PLANE`
 > Worker task: `S6.1-R0-FU1-W2 / GMTP Detection-Only Minimal Smoke`
-> Review status: `W2_ATTEMPT1_EVIDENCE_BLOCKER`
+> Historical initial review status: `W2_ATTEMPT1_EVIDENCE_BLOCKER`
+> Current superseding status: `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER` after Correction 02 final closure
 > Parent W2 status: `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`
 > Formal experiment: `FORMAL_EXPERIMENT = NOT STARTED`
 
@@ -96,3 +97,60 @@ Fail-closed result:
 The next correction needs only the exact apparent-size and allocated-size `du` command lines with their captured outputs and an
 updated index/manifest binding. It does not require a GMTP rerun, environment rebuild or model download. The temporary extracted
 review copy was deleted after review；the original private correction archive remains outside Git.
+
+## 7. Correction 02 final review and superseding closure
+
+This section is the additive superseding result for the historical fail-closed sections above. LOCAL reviewed the private
+Correction 02 archive without executing GMTP, loading models, using a GPU or contacting RTX5090.
+
+| Evidence | Verified result |
+| --- | --- |
+| Archive | `s6_1_r0_fu1_w2_attempt1_correction02_20260801.tar.gz`；4367 bytes |
+| Archive identity | sidecar, recomputation and Worker report all equal `fcfa3f14c98e0103cb5a1de2f0449fa000d179e2e01d74baa6fec4b013503622` |
+| Archive safety | one root directory, 17 indexed payload files and one index；no absolute/traversal path, symlink, hardlink, device, unexpected member or unexpected large file |
+| Evidence index | sorted `17/17` payload hashes passed；no missing or unindexed payload；the index does not self-index |
+| Attempt binding | original SHA `6acdbb8038e57b1d3e88028350fc08046d73a826ba9dd167452bfc0dd834170f`；Correction 01 SHA `d911063e3a00daba3f8dcfea6f3e6e3b484e79f4f0fe8853a53ff9d8c415279e`；approval commit `b185b8fca74c68ef75a6150b62551f84759c0304`；exact task ID and `EVIDENCE_PACKAGING_CORRECTION_ONLY` |
+| GNU provenance | GNU coreutils `du 9.4`；`command -V du` = `/usr/bin/du`；`type -a du` = `/usr/bin/du`, `/bin/du` |
+| Apparent measurement | exact command `LC_ALL=C du -sb -- "$CONDA_PREFIX"`；raw value `5399301224`；exit `0`；explicit apparent-size semantics and complete UTC/raw-stream capture |
+| Allocated measurement | exact command `LC_ALL=C du -sB1 -- "$CONDA_PREFIX"`；raw value `5492817920`；exit `0`；explicit allocated-block semantics and complete UTC/raw-stream capture |
+| Resource and counts | both byte values below `6442450944`；Correction 01 deltas are zero；files `33556`；directories `3194` |
+| Mutation boundary | pre/post explicit-spec SHA both `62981f4747156189f7870958da8ea7bc2fc0ead49c78bb6463e9fd284bb65961`；main HEAD `b185b8fca74c68ef75a6150b62551f84759c0304` and GMTP HEAD `15b48d150f93711371eb8da22c211cd84a0cf4df` clean；no install/uninstall/download/load/smoke/GPU/repository mutation |
+| Materiality | `11/11 PASS`；formatting/repeated-field preferences are non-material and all identity, truth, reproducibility, safety and resource facts pass |
+
+The manifest's non-repeated `final_status`, formatting of a summarized command string and inactive flag in `conda env list --json`
+do not contradict the indexed raw command, registered path, environment variables, exact disk measurements or no-execution
+boundary. Under the frozen `MATERIALITY_AND_FINAL_CLOSURE_RULE`, these are derivable or non-material packaging details and cannot
+create another evidence blocker.
+
+Final closure:
+
+- `W2_ATTEMPT1_EVIDENCE_BLOCKER = RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW`;
+- `S6.1-R0-FU1-W2-ATTEMPT1 = VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER`;
+- `smoke_executed=false`, `algorithm_failure=false`, `GMTP_incompatibility=not established`;
+- `REUSABLE_W2_PREFLIGHT_EVIDENCE` is accepted only for main-repository identity, GMTP source/commit, fixed input identity,
+  Python/Torch/CUDA/Transformers/NumPy environment, RTX5090 CUDA availability, `gmtp-compat` identity/disk measurement, encoder
+  download blocker and the fact that smoke was not executed;
+- model loading, detector output/scores, runtime/RSS/VRAM, compatibility and security effectiveness remain unobserved and are not
+  reusable evidence;
+- parent W2 remains `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`；S6.1-P1 and Formal Experiment remain not started.
+
+## 8. H1 offline artifact result
+
+After the passing closure, LOCAL used the existing owner approval to run only `huggingface_hub.snapshot_download` in the isolated
+`w2-h1-download` environment with `token=False`, `max_workers=1` and frozen revisions. Cross-framework download artifacts and
+local cache metadata were excluded. No model class or weight loader was invoked.
+
+| Role | Exact identity | Files | Bytes |
+| --- | --- | ---: | ---: |
+| Encoder | `facebook/contriever-msmarco@abe8c1493371369031bcb1e02acb754cf4e162fa` | 8 | 438708922 |
+| MLM | `google-bert/bert-base-uncased@86b5e0934494bd15c9632b12f734a8a67f723594` | 9 | 881643453 |
+| Total model artifacts | exact snapshots above | 17 | 1320352375 |
+
+The sorted index covers all 17 model files plus `model_manifest.json` and `README.txt` (`19/19`) and excludes itself, download
+script/log/environment, caches and credentials. The bundle contains 20 regular files plus three directories, has source bytes
+`1320359518`, compressed size `1222137698`, and SHA-256
+`aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45`. Sidecar, member safety and archived-file hash
+reverification pass. Raw models, logs, manifest, archive and sidecar remain Git-external.
+
+H1 status is `OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION`. This is transfer preparation, not Worker verification,
+model loading, GMTP compatibility, W2 completion/acceptance, a security result or a formal experiment.

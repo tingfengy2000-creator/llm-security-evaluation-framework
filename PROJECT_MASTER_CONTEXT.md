@@ -1,5 +1,28 @@
 # LLMGuard 项目总控文档
 
+## Correction 02 最终关闭与 H1 离线模型工件已准备（2026-08-01）
+
+LOCAL 已对 RTX5090 返回的 Correction 02 原始证据执行独立复核：4367-byte archive 的 sidecar、实际 SHA-256 与
+Worker 报告均为 `fcfa3f14c98e0103cb5a1de2f0449fa000d179e2e01d74baa6fec4b013503622`；archive safety 与排序 index
+`17/17` 通过。GNU coreutils `du 9.4` 的准确命令、raw streams 与零退出码支持 apparent `5399301224` 和 allocated
+`5492817920`，两者均低于 `6442450944`；文件 `33556`、目录 `3194`、Correction 01 delta 为零、pre/post spec SHA
+一致，且没有环境/repository/model/smoke/GPU mutation。
+
+因此 `MATERIALITY_AND_FINAL_CLOSURE_RULE = PASS (11/11)`；`W2_ATTEMPT1_EVIDENCE_BLOCKER` 已按冻结规则关闭，Attempt 1
+重分类为 `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER`，并登记 `smoke_executed=false`、
+`algorithm_failure=false`、`GMTP_incompatibility=not established`。可复用证据仅限 main/GMTP/input/environment/CUDA/disk
+身份、encoder 下载 blocker 与 smoke 未执行；模型加载、detector 分数、runtime/RSS/VRAM、兼容性和安全有效性均未建立。
+
+随后 LOCAL 在隔离 `w2-h1-download` 环境中匿名下载并校验两项固定 revision：Contriever 8 文件 / 438708922 bytes，
+BERT MLM 9 文件 / 881643453 bytes；总模型字节 `1320352375`，低于 2 GiB。最终 Git-external bundle 为
+`s6_1_r0_fu1_w2_models_20260801.tar.gz`，大小 `1222137698`，SHA-256
+`aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45`；排序 index `19/19`、archive safety、包内
+逐文件复算和 sidecar 均通过。H1 状态为 `OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION`。
+
+这些事实由 `PODR-058` 与 `REL-2026-0019` 持久化。本机没有加载模型、运行 GMTP/harness、使用 GPU 或联系 RTX5090。
+W2 仍未完成/未验收；S6.1-P1 与 Formal Experiment 仍未开始。下方关于 blocker open、H1 blocked/not started 或
+Correction 02 未执行的段落均是其标题日期下的历史快照，由本节 supersede，不得删除或改写为当时已完成。
+
 ## Correction 02 GNU du 来源链最终证据修正已批准（2026-08-01）
 
 项目负责人通过 `PODR-057` 将 `S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02` 正式批准为
@@ -20,7 +43,7 @@
 `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER` 并接受 `REUSABLE_W2_PREFLIGHT_EVIDENCE`。非实质格式偏好不得
 制造新的包装 blocker；实质真实性、身份、可复现性、安全或资源问题继续 fail closed。
 
-当前事实尚未改变：W2 仍 `APPROVED / NOT COMPLETED / NOT ACCEPTED`；Attempt 1 仍 `EVIDENCE_REVIEW_BLOCKED`；blocker
+该批准提交时的事实尚未改变：W2 仍 `APPROVED / NOT COMPLETED / NOT ACCEPTED`；Attempt 1 仍 `EVIDENCE_REVIEW_BLOCKED`；blocker
 仍 open；H1 仍 approved but blocked/not started；S6.1-P1 与 Formal Experiment 仍 not started。Worker 成功状态只能是
 `W2_ATTEMPT1_CORRECTION02_EVIDENCE_READY_FOR_CONTROL_PLANE_REVIEW`，不是 W2/H1/GMTP/Formal acceptance。
 

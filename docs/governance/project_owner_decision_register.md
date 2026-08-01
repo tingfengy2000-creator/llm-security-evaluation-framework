@@ -805,3 +805,37 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   completion/acceptance, H1 start, GMTP compatibility or formal execution.
 - Canonical evidence: [FU1 Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、
   [Current Work State](current_work_state.md) and REL-2026-0018.
+
+## PODR-058: Correction 02 Final Closure and H1 Offline Artifact Result
+
+- Date: `2026-08-01`.
+- Authority: the project owner's ordered task requires LOCAL to apply the previously frozen
+  `MATERIALITY_AND_FINAL_CLOSURE_RULE` after a passing raw-evidence review and then execute the already approved H1 artifact-only
+  contract without requesting a second approval.
+- Correction 02 integrity: archive size `4367` bytes；sidecar/recomputed/reported SHA-256 all
+  `fcfa3f14c98e0103cb5a1de2f0449fa000d179e2e01d74baa6fec4b013503622`；safe archive and sorted index `17/17` pass.
+- Correction 02 provenance: GNU coreutils `du 9.4` exact commands and raw streams establish apparent `5399301224` and allocated
+  `5492817920`, both zero-exit and below `6442450944`；files `33556`, directories `3194`, Correction 01 deltas zero, pre/post
+  explicit-spec SHA identical and no environment/repository/model/smoke/GPU mutation.
+- Materiality decision: `11/11 PASS`. Derivable repeated fields, naming/formatting and non-conflicting Conda activation display are
+  non-material；no identity, truth, reproducibility, safety or resource gap remains.
+- Mandatory closure: `W2_ATTEMPT1_EVIDENCE_BLOCKER = RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW`; Attempt 1 becomes
+  `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER` with `smoke_executed=false`, `algorithm_failure=false` and
+  `GMTP_incompatibility=not established`.
+- Reusable boundary: accept only main/GMTP/input/environment/CUDA/disk identities, encoder download blocker and smoke-not-executed.
+  Do not reuse or infer model load, detector scores, runtime/RSS/VRAM, compatibility or security effectiveness.
+- H1 result: exact public snapshots
+  `facebook/contriever-msmarco@abe8c1493371369031bcb1e02acb754cf4e162fa` (8 files, 438708922 bytes) and
+  `google-bert/bert-base-uncased@86b5e0934494bd15c9632b12f734a8a67f723594` (9 files, 881643453 bytes) were prepared with
+  anonymous `snapshot_download`, `max_workers=1`, no model load and no GPU/GMTP execution.
+- Resource/index result: 17 model files total `1320352375` bytes；sorted final index `19/19` covers model files plus manifest and
+  README；bundle source `1320359518` bytes remains below 2 GiB.
+- Bundle identity: Git-external archive size `1222137698` bytes and SHA-256
+  `aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45`; sidecar, archive safety and archived-file hashes pass.
+- H1 status: `OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION`. This is not human acceptance, Worker verification,
+  models-loaded evidence, W2 completion, GMTP compatibility or a paper/security result.
+- Preserved gates: parent W2 remains `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`; S6.1-P1 and Formal Experiment remain not
+  started. Next action is owner-controlled bundle transfer and independent 5090 integrity verification；Auto Continue = NO.
+- Canonical evidence: [Attempt 1 Control Plane Review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_attempt1_control_plane_review.md)、
+  [FU1 Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、
+  [Current Work State](current_work_state.md) and REL-2026-0019.

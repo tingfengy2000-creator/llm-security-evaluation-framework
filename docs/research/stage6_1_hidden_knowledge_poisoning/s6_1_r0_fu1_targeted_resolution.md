@@ -1,8 +1,8 @@
 # S6.1-R0-FU1 Targeted External Baseline Feasibility Resolution
 
 > Accepted task: `S6.1-R0-FU1-P0 / LOCAL Control-Plane Planning and Execution Contract Freeze`
-> Current project task: `S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02 / W2 Attempt 1 GNU du Provenance Final Evidence Correction`
-> Status: `W2 APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED / ATTEMPT1 EVIDENCE_REVIEW_BLOCKED`
+> Current project task: `S6.1-R0-FU1-W2-H1 / Offline Model Artifact Provisioning`
+> Status: `H1 OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION / W2 NOT COMPLETED OR ACCEPTED`
 > Execution mode: `LOCAL-FIRST / WORKER-GATED`
 > Evidence class: `CONTROL_PLANE_SOURCE_ANALYSIS / SOURCE_ARTIFACT_VALIDATION / DETERMINISTIC_TRANSFORMATION_VALIDATION /
 > ENGINEERING_VALIDATION_APPROVED_NOT_EXECUTED`
@@ -14,8 +14,9 @@ The project owner accepted P0 and reassigned the former Worker W1 candidate to L
 source-artifact identity, whole-file schema and deterministic transformation validation against exact GitHub commit content and
 accepted evidence. It did not run a model, retrieval, external baseline or API service; it did not acquire the NQ corpus or contact
 RTX5090. The former `FU1-W1` is `SUPERSEDED_BY_LOCAL_L1`, not failed. The project owner subsequently approved the exact frozen
-`FU1-W2` contract for `RTX5090 / COMPUTE_WORKER`. The first Worker attempt stopped before model load/smoke, but its archive omits
-mandatory main-repository integrity evidence；Attempt 1 is therefore `W2_ATTEMPT1_EVIDENCE_BLOCKER`, not an accepted blocked run.
+`FU1-W2` contract for `RTX5090 / COMPUTE_WORKER`. The first Worker attempt stopped before model load/smoke. Correction 02 later
+closed its evidence-packaging blocker, so Attempt 1 is now `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER`；H1 artifacts
+are prepared but pending independent 5090 verification.
 This document is not a P1 protocol or experiment result.
 
 Current baseline roles remain unchanged:
@@ -323,7 +324,7 @@ not change the algorithm may be installed. Java, Pyserini, FAISS, BEIR, Docker, 
 prohibited and cause STOP/return to Control Plane. Any required source patch returns `COMPATIBILITY_PATCH_REVIEW_REQUIRED` and
 stops；no silent patch is allowed.
 
-### W2 Attempt 1 evidence review and H1 recovery gate
+### Historical W2 Attempt 1 evidence review and H1 recovery gate
 
 The exact review is [W2 Attempt 1 Control Plane Review](s6_1_r0_fu1_w2_attempt1_control_plane_review.md). Verified archive facts:
 
@@ -352,7 +353,8 @@ Correction 01 later supplied archive SHA-256
 binding and complete main-repository integrity fields. Its manifest and measurement text agree on apparent bytes `5399301224`,
 allocated bytes `5492817920` and ceiling `6442450944`. However, it records only `MEASUREMENT_TOOL=du`; it does not capture the
 concrete apparent-size/allocated-size commands, flags or raw outputs. The Control Plane therefore cannot prove that the two
-measurement semantics were not confused. `W2_ATTEMPT1_EVIDENCE_BLOCKER` remains open and H1 remains blocked/not started.
+measurement semantics were not confused. At the Correction 01 review snapshot, `W2_ATTEMPT1_EVIDENCE_BLOCKER` remained open and
+H1 remained blocked/not started；the later Correction 02 closure is the current superseding state.
 
 ### Correction 02 Approved Worker Contract
 
@@ -533,14 +535,15 @@ establish model load, detector score, runtime, peak VRAM, GMTP compatibility, W2
 | --- | --- | --- | --- | --- | --- |
 | PoisonedRAG NQ attack JSON | exact repo commit/blob above | 123 KB / in-memory LOCAL validation | 2 GB / none | repo code MIT；NQ-derived content remains under dataset terms | L1 completed |
 | GMTP NQ 200 artifact | exact repo commit/blob above | 0.98 MB / included with repo | 2 GB / none before scoring | repository artifact license unconfirmed；internal use only pending terms | required only for W2 |
-| Contriever + BERT | exact Hugging Face revisions above | ~0.9-1.2 GB / <=2 GiB model sub-budget within 10 GiB task-owned ceiling | 16 GB / 8 GiB | model-card terms must be retained and rechecked on approval | H1 approved but blocked/not started |
+| Contriever + BERT | exact Hugging Face revisions above | actual `1320352375` bytes / <=2 GiB model sub-budget within 10 GiB task-owned ceiling | 16 GB / 8 GiB | model-card/license files retained；bundle pending Worker verification | H1 artifacts prepared, not loaded |
 | RoBERTa or DPR alternatives | exact revisions above | ~0.5-0.9 GB extra / 5 GB extra | 16 GB / 8 GiB | model-card terms apply | optional; excluded from W2 |
 | BEIR NQ corpus/index | official BEIR snapshot, final hash not frozen | 0.5 GB zip / 15-30 GB planned | 32 GB / estimated <16 GiB | NQ CC BY-SA obligations | not L1/W2；`OWNER_LARGE_ARTIFACT_APPROVAL_REQUIRED` |
 | HotpotQA corpus/index | official BEIR snapshot | 0.65 GB zip / 25-50 GB planned | 32-64 GB / estimated <16 GiB | CC BY-SA 4.0 | optional fallback；`OWNER_LARGE_ARTIFACT_APPROVAL_REQUIRED` |
 | MS MARCO corpus/index | official BEIR snapshot | 1.08 GB zip / 40-80 GB planned | 64 GB / estimated <16 GiB | non-commercial research; underlying rights not granted | optional later track；`OWNER_LARGE_ARTIFACT_APPROVAL_REQUIRED` |
 
-The historical 5 GB W2 disk plan is superseded only by the owner-approved 10 GiB task-owned correction above. No model bundle was
-created in this review. Formal corpus/index work remains closed.
+The historical 5 GB W2 disk plan is superseded only by the owner-approved 10 GiB task-owned correction above. The later H1
+artifact-only execution created a Git-external model bundle after Correction 02 closed the evidence gate；no model was loaded.
+Formal corpus/index work remains closed.
 
 ## 10. Remaining blockers and P1 entry criteria
 
@@ -548,9 +551,9 @@ created in this review. Formal corpus/index work remains closed.
 
 1. `BLK-S6.1-FU1-W1-001` is `RESOLVED_BY_LOCAL_L1 / SUPERSEDED_BY_LOCAL_L1`; no Worker W1 remains.
 2. `BLK-S6.1-FU1-W2-001`: W2 has not verified exact GMTP model loading, detector scores or measured runtime resources.
-3. `W2_ATTEMPT1_EVIDENCE_BLOCKER`: Correction 01 resolves the main-repository capture gap and supplies internally consistent disk
-   values, but omits the exact `du` commands/flags/raw outputs required to distinguish apparent from allocated bytes；H1 preparation
-   remains stopped pending a minimal additive correction.
+3. Historical `W2_ATTEMPT1_EVIDENCE_BLOCKER` is `RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW`. Correction 02 supplied exact
+   GNU `du` commands/flags/raw streams and passed the frozen final materiality rule. This closes only the evidence-classification
+   gate；parent `BLK-S6.1-FU1-W2-001` remains open.
 4. PoisonedRAG exact historical generator/API/paper-result identity remains `PARTIAL`; P1 must decide whether author-released
    attack-text reuse is scientifically sufficient instead of pretending full regeneration equivalence.
 5. GMTP/SafeRAG code/data redistribution permission remains unconfirmed; this is a `REDISTRIBUTION_ONLY_ISSUE`, not an internal
@@ -578,8 +581,8 @@ P0/L1 do not satisfy runtime or formal-protocol criteria and do not open P1. End
 - former `FU1-W1 RTX5090 = SUPERSEDED_BY_LOCAL_L1`;
 - historical `S6.1-R0-FU1-W2 = READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED` is preserved;
 - `S6.1-R0-FU1-W2 = APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`;
-- `S6.1-R0-FU1-W2-ATTEMPT1 = EVIDENCE_REVIEW_BLOCKED / W2_ATTEMPT1_EVIDENCE_BLOCKER`;
-- `S6.1-R0-FU1-W2-H1 = APPROVED_TO_PREPARE_OFFLINE_ARTIFACTS / NOT STARTED / BLOCKED_BY_W2_ATTEMPT1_EVIDENCE_BLOCKER`;
+- `S6.1-R0-FU1-W2-ATTEMPT1 = VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER`;
+- `S6.1-R0-FU1-W2-H1 = OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION`;
 - `S6.1-P1 = NOT STARTED`;
 - `Dataset = NOT FROZEN`; `Detector = NOT IMPLEMENTED`; `Training = NOT STARTED`;
 - `FORMAL_EXPERIMENT = NOT STARTED`; `Our Method Result = NONE`.
