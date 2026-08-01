@@ -27,6 +27,15 @@ FU1_RESOLUTION = RESEARCH / "s6_1_r0_fu1_targeted_resolution.md"
 W2_ATTEMPT1_REVIEW = RESEARCH / "s6_1_r0_fu1_w2_attempt1_control_plane_review.md"
 LONG_TERM_REQUIREMENTS = GOVERNANCE / "long_term_research_requirements.md"
 AGENTS = ROOT / "AGENTS.md"
+PAPER1_README = RESEARCH / "README.md"
+HUMAN_DIR = RESEARCH / "human"
+AGENT_DIR = RESEARCH / "agent"
+STAGE_PROCESS_DIR = RESEARCH / "stage_process"
+TINGFENG_LEDGER = HUMAN_DIR / "experiment_ledger_tingfeng.md"
+OWNER_REQUIREMENTS = HUMAN_DIR / "owner_requirement_register.md"
+RESEARCH_PLAN = HUMAN_DIR / "research_plan_authority.md"
+AGENT_LEDGER = AGENT_DIR / "experiment_ledger_agentUse.md"
+CONTEXT_ARCHIVE = AGENT_DIR / "llm_context_archive.md"
 
 WINDOWS_ABSOLUTE_PATH = re.compile(r"(?<![A-Za-z0-9])[A-Za-z]:[\\/]")
 AUTHORITY_LEVEL = re.compile(r"^## L(?P<level>[0-9]) — ", re.MULTILINE)
@@ -745,6 +754,222 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "FORMAL_EXPERIMENT = NOT STARTED",
         ):
             self.assertIn(required, combined)
+
+    def test_paper1_restructured_directories_and_canonical_files_exist(self) -> None:
+        for directory in (HUMAN_DIR, AGENT_DIR, STAGE_PROCESS_DIR):
+            with self.subTest(directory=directory.relative_to(ROOT)):
+                self.assertTrue(directory.is_dir())
+
+        required = (
+            TINGFENG_LEDGER,
+            OWNER_REQUIREMENTS,
+            RESEARCH_PLAN,
+            AGENT_LEDGER,
+            CONTEXT_ARCHIVE,
+            STAGE_PROCESS_DIR / "S6.1-LR1_work_process.md",
+            STAGE_PROCESS_DIR / "S6.1-R0_work_process.md",
+            STAGE_PROCESS_DIR / "S6.1-R0-FU1_work_process.md",
+        )
+        for path in required:
+            with self.subTest(path=path.relative_to(ROOT)):
+                self.assertTrue(path.is_file())
+
+        processes = sorted(STAGE_PROCESS_DIR.glob("*_work_process.md"))
+        self.assertEqual(3, len(processes))
+        self.assertEqual(3, len({path.name.split("_work_process.md")[0] for path in processes}))
+        expected_sections = (
+            "阶段目标",
+            "进入条件",
+            "已批准范围",
+            "执行环境",
+            "源码、数据与模型身份",
+            "工作拆解",
+            "实际执行过程",
+            "关键命令",
+            "输入",
+            "输出",
+            "结果",
+            "证据与哈希",
+            "失败与 blocker",
+            "失败分析",
+            "解决方式",
+            "人工决定",
+            "允许宣称",
+            "禁止宣称",
+            "阶段退出条件",
+            "当前状态",
+            "下一审批门",
+        )
+        for path in processes:
+            text = path.read_text(encoding="utf-8")
+            headings = re.findall(r"^## (\d+)\. (.+)$", text, re.MULTILINE)
+            with self.subTest(process=path.name):
+                self.assertEqual(
+                    [(str(index), title) for index, title in enumerate(expected_sections, 1)],
+                    headings,
+                )
+                self.assertIsNone(re.search(r"\b(?:LOCAL|RTX5090|Worker)\b", text, re.I))
+
+    def test_paper1_start_here_order_and_document_roles(self) -> None:
+        readme = PAPER1_README.read_text(encoding="utf-8")
+        self.assertTrue(readme.startswith("# Paper 1 Start Here\n"))
+        ordered_links = (
+            "human/experiment_ledger_tingfeng.md",
+            "human/owner_requirement_register.md",
+            "human/research_plan_authority.md",
+            "stage_process/",
+            "agent/experiment_ledger_agentUse.md",
+            "agent/llm_context_archive.md",
+        )
+        positions = [readme.index(link) for link in ordered_links]
+        self.assertEqual(sorted(positions), positions)
+
+        requirements = OWNER_REQUIREMENTS.read_text(encoding="utf-8")
+        plan = RESEARCH_PLAN.read_text(encoding="utf-8")
+        route = PAPER1_ROUTE.read_text(encoding="utf-8")
+        audit = EXECUTION_LOG.read_text(encoding="utf-8")
+        self.assertIn("PAPER1_OWNER_REQUIREMENT_AUTHORITY", requirements)
+        self.assertIn("唯一登记项目需求提出人已明确确认需求", requirements)
+        self.assertIn("Document Authority = `PAPER1_RESEARCH_PLAN_AUTHORITY`", plan)
+        self.assertIn("Change Permission = `OWNER_CONFIRMATION_REQUIRED`", plan)
+        self.assertIn("Current Plan Status = `ACCEPTED_CURRENT_RESEARCH_PLAN`", plan)
+        self.assertIn("Primary Authority = `human/research_plan_authority.md`", route)
+        self.assertIn("Document Role = `HISTORICAL_AND_SUPPORTING_RESEARCH_ROUTE`", route)
+        self.assertIn("ACCEPTED_CURRENT_RESEARCH_PLAN", CURRENT_STATE.read_text(encoding="utf-8"))
+        self.assertIn("项目级追加式审计日志", audit)
+        self.assertIn("它不是 Paper 1 人类实验总账", audit)
+        self.assertEqual(1, audit.count("## REL-2026-0020"))
+
+    def test_human_docs_are_chinese_first_without_long_english_blocks(self) -> None:
+        for path in HUMAN_DIR.glob("*.md"):
+            text = path.read_text(encoding="utf-8")
+            prose = re.sub(r"`[^`]*`", "", text)
+            chinese = len(re.findall(r"[\u4e00-\u9fff]", prose))
+            english = len(re.findall(r"[A-Za-z]", prose))
+            with self.subTest(path=path.relative_to(ROOT)):
+                self.assertGreater(chinese, english)
+                non_code_paragraphs = re.split(r"\n\s*\n", re.sub(r"```.*?```", "", text, flags=re.S))
+                for paragraph in non_code_paragraphs:
+                    if len(paragraph) < 240:
+                        continue
+                    self.assertTrue(
+                        re.search(r"[\u4e00-\u9fff]", paragraph),
+                        f"unnecessary long English block in {path.name}",
+                    )
+
+        summary = TINGFENG_LEDGER.read_text(encoding="utf-8").split(
+            "## 一分钟项目状态", 1
+        )[1].split("## 1.", 1)[0]
+        self.assertLessEqual(len(re.findall(r"[\u4e00-\u9fff]", summary)), 500)
+
+    def test_agent_views_are_derived_and_context_archive_has_no_authority(self) -> None:
+        ledger = AGENT_LEDGER.read_text(encoding="utf-8")
+        archive = CONTEXT_ARCHIVE.read_text(encoding="utf-8")
+        for required in (
+            "Document Role = `LLM_STRUCTURED_EXPERIMENT_LEDGER`",
+            "Authority = `DERIVED_INFORMATION_VIEW`",
+            "Can Override Owner Requirement = `NO`",
+            "Can Override Research Plan = `NO`",
+            "Can Override Raw Evidence = `NO`",
+            "Primary Human Mirror = `../human/experiment_ledger_tingfeng.md`",
+            "run_id",
+            "source_blob",
+            "artifact_sha256",
+            "claims_prohibited",
+            "next_gate",
+        ):
+            self.assertIn(required, ledger)
+        for required in (
+            "This document is a context recovery artifact.",
+            "owner requirement authority",
+            "research plan authority",
+            "raw evidence",
+            "formal result",
+            "## Historical Context Checkpoints",
+        ):
+            self.assertIn(required, archive)
+
+    def test_human_and_agent_ledgers_share_current_experiment_state(self) -> None:
+        human = TINGFENG_LEDGER.read_text(encoding="utf-8")
+        agent = AGENT_LEDGER.read_text(encoding="utf-8")
+        shared_states = (
+            "S6.1-LR1",
+            "HUMAN_ACCEPTED_WITH_BLOCKERS",
+            "VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER",
+            "RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW",
+            "OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION",
+            "APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED",
+            "NOT FROZEN",
+            "NOT IMPLEMENTED",
+            "NOT STARTED",
+            "NONE",
+        )
+        for state in shared_states:
+            with self.subTest(state=state):
+                self.assertIn(state, human)
+                self.assertIn(state, agent)
+        self.assertIn("H2: PROPOSED / NOT CANONICAL / NOT APPROVED", agent)
+        self.assertNotIn("H2: APPROVED", human + agent)
+
+    def test_key_evidence_is_consistent_across_ledgers_and_fu1_process(self) -> None:
+        texts = [
+            TINGFENG_LEDGER.read_text(encoding="utf-8"),
+            AGENT_LEDGER.read_text(encoding="utf-8"),
+            (STAGE_PROCESS_DIR / "S6.1-R0-FU1_work_process.md").read_text(encoding="utf-8"),
+        ]
+        identities = (
+            "fcfa3f14c98e0103cb5a1de2f0449fa000d179e2e01d74baa6fec4b013503622",
+            "17/17 PASS",
+            "s6_1_r0_fu1_w2_models_20260801.tar.gz",
+            "1222137698",
+            "aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45",
+            "abe8c1493371369031bcb1e02acb754cf4e162fa",
+            "86b5e0934494bd15c9632b12f734a8a67f723594",
+            "438708922",
+            "881643453",
+            "1320352375",
+            "19/19 PASS",
+        )
+        for identity in identities:
+            for index, text in enumerate(texts):
+                with self.subTest(identity=identity, document=index):
+                    self.assertIn(identity, text)
+
+    def test_new_paper1_docs_are_portable_utf8_lf_and_link_complete(self) -> None:
+        new_docs = (
+            PAPER1_README,
+            TINGFENG_LEDGER,
+            OWNER_REQUIREMENTS,
+            RESEARCH_PLAN,
+            AGENT_LEDGER,
+            CONTEXT_ARCHIVE,
+            *(STAGE_PROCESS_DIR.glob("*_work_process.md")),
+        )
+        link_pattern = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
+        secret_pattern = re.compile(
+            r"(?i)(?:api[_-]?key|access[_-]?token|secret|password)\s*[:=]\s*[A-Za-z0-9_\-]{12,}"
+        )
+        for path in new_docs:
+            raw = path.read_bytes()
+            text = raw.decode("utf-8")
+            with self.subTest(path=path.relative_to(ROOT)):
+                self.assertFalse(raw.startswith(b"\xef\xbb\xbf"))
+                self.assertNotIn(b"\r\n", raw)
+                self.assertIsNone(WINDOWS_ABSOLUTE_PATH.search(text))
+                self.assertIsNone(secret_pattern.search(text))
+                for target in link_pattern.findall(text):
+                    if "://" in target or target.startswith("#"):
+                        continue
+                    resolved = (path.parent / target.split("#", 1)[0]).resolve()
+                    self.assertTrue(resolved.exists(), f"broken link {target} in {path}")
+
+        forbidden_suffixes = {".tar", ".gz", ".zip", ".7z", ".bin", ".safetensors"}
+        tracked_candidates = [path for path in RESEARCH.rglob("*") if path.is_file()]
+        for path in tracked_candidates:
+            self.assertFalse(
+                any(path.name.lower().endswith(suffix) for suffix in forbidden_suffixes),
+                f"raw artifact or model bundle under documentation tree: {path}",
+            )
 
 
 if __name__ == "__main__":

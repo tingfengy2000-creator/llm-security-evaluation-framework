@@ -36,7 +36,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   PAPER_RISK_REVIEWER / CONTEXT_PRESERVATION_OWNER**.
 - RTX5090 role: **COMPUTE_WORKER / NO_SELF_APPROVAL_AUTHORITY**.
 - Paper-First Comparative Evidence Principle: **HUMAN_ACCEPTED**.
-- Paper 1 canonical research route: **ACCEPTED AS CURRENT RESEARCH ROUTE**.
+- Paper 1 current research plan authority: [research_plan_authority.md](../research/stage6_1_hidden_knowledge_poisoning/human/research_plan_authority.md), **ACCEPTED_CURRENT_RESEARCH_PLAN**. The formerly canonical `paper1_research_route.md` remains historical/supporting and does not override it.
 - RTX5090 Compute Worker Bootstrap: **HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY**.
 - Historical superseded execution snapshot — S6.1-R0: **APPROVED_TO_START**.
 - Historical first-review snapshot — S6.1-R0-I: **RETURNED_FOR_WORKER_CORRECTION**.

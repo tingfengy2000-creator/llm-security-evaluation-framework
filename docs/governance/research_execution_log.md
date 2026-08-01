@@ -2,6 +2,11 @@
 
 ## Ledger Contract
 
+> 本文件是项目级追加式审计日志，用于保存治理和执行时间线。<br>
+> 它不是 Paper 1 人类实验总账。<br>
+> Paper 1 人类入口见：`docs/research/stage6_1_hidden_knowledge_poisoning/human/experiment_ledger_tingfeng.md`<br>
+> Paper 1 智能体入口见：`docs/research/stage6_1_hidden_knowledge_poisoning/agent/experiment_ledger_agentUse.md`
+
 本文是 **APPEND-ONLY CHRONOLOGICAL RESEARCH LEDGER**。它回答“项目实际上如何一步一步推进”，不替代 Git、
 原始实验 artifact、Experiment Master Record、Current Work State 或 Owner Decision Register。
 
@@ -892,4 +897,42 @@ Approval Gate、Auto Continue。
 - Next Step: project owner transfers the exact Git-external bundle to RTX5090；Worker verifies outer SHA, safe extraction and all
   indexed hashes before any separately controlled W2 resume.
 - Next Approval Gate: owner-controlled 5090 bundle verification/resume decision；S6.1-P1 and Formal Experiment remain closed.
+- Auto Continue: `NO`
+
+## REL-2026-0020 — Paper 1 Documentation Architecture Reconstructed
+
+- Record ID: `REL-2026-0020`
+- Date: `2026-08-01`
+- Timestamp: `2026-08-01T18:41:48+08:00`
+- Machine: `本机`
+- Machine Role: `DOCUMENTATION_CONTROL_PLANE`
+- Stage: `Stage 6.1 / Paper 1 Documentation Governance`
+- Task ID: `S6.1-DOC-RESTRUCTURE-02`
+- Task Name: `Paper 1 Human/LLM Documentation Separation and Ledger Reconstruction`
+- Task Type: `DOCUMENTATION_ARCHITECTURE / CONTEXT_PRESERVATION / NO_EXPERIMENT`
+- Initial Status: `APPROVED_TO_START / PREVIOUS_SYNC_DOCUMENT_NOT_FOUND_NON_BLOCKING`
+- Final Status: `COMPLETED_PENDING_COMMIT`
+- Objective: 建立 Human、Agent 与 Stage Process 单一职责文档体系，同时保持既有实验状态、失败和证据不可变。
+- Why: 原 README、研究路线与项目审计日志承载过多不同受众信息，需要人类权威、派生镜像、上下文存档与阶段事实明确分离。
+- Previous Gate: `OWNER_APPROVED S6.1-DOC-RESTRUCTURE-02`
+- Actions: 创建 tingfeng 与 agentUse 总账、需求登记册、研究方案权威文件、LLM 上下文存档和三个唯一阶段过程；README 改为 Start Here；历史路线降级为支撑材料；本日志只增加定位提示和本条索引。
+- Files Changed: Paper 1 Markdown documentation, current-state authority navigation, this audit index, and architecture tests only.
+- Commands: Git preflight; targeted/full architecture tests; namespace/label isolation; Markdown link, secret/private-path, raw artifact, protected-history, runtime-ignore, UTF-8/LF and diff checks.
+- Validation: targeted context recovery `26 passed`; full architecture `108 passed`; namespace + label isolation `10 passed`; Ruff passed; changed-file Markdown relative links `52/52`; 13 changed files passed secret/private-path and UTF-8 no-BOM/LF checks; raw-artifact/protected-path changes `0`; runtime ignore and `git diff --check` passed. The pytest cache write-permission warning is non-blocking. An initial full-test invocation omitted `PYTHONPATH=src` and exposed import-environment failures plus one exact README-state assertion; both invocation/state text were corrected before the green reruns.
+- Git Branch: `research/stage6-1-hidden-poisoning`
+- Git SHA: `PENDING_THIS_COMMIT; resolve with git log -1 -- docs/governance/research_execution_log.md`
+- Run ID: `N/A / DOCUMENTATION_ONLY`
+- Dataset Snapshot: `UNCHANGED / NOT FROZEN`
+- Model / Revision: `UNCHANGED / NO MODEL LOAD OR VERIFICATION`
+- Environment Identity: `本机 documentation control plane`
+- Result Summary: Paper 1 文档责任架构已重构；所有实验状态与结论边界保持不变。
+- Claims Allowed: 文档体系、导航、责任边界、状态镜像、历史与证据索引已重构。
+- Claims Prohibited: 任何 5090 验证、W2 完成、H2 批准、P1、Dataset、Detector、Training、Formal Experiment 或论文结果。
+- Blockers: `NONE for documentation`; existing experimental blockers unchanged.
+- Blocker ID: `N/A`
+- Resolution: `PREVIOUS_SYNC_DOCUMENT_NOT_FOUND` 按项目需求提出人决定不再构成 blocker；直接从 Git 权威记录建立新总账。
+- Owner Decisions: `S6.1-DOC-RESTRUCTURE-02 approval and documentation rules`.
+- Design Changes: Documentation architecture only; no algorithm, dataset, model, parameter, metric or experiment change.
+- Next Step: STOP after validation, commit and remote synchronization; experimental work remains at the existing owner gate.
+- Next Approval Gate: owner-controlled 5090 H1 verification/W2 resume decision; S6.1-P1 remains closed.
 - Auto Continue: `NO`

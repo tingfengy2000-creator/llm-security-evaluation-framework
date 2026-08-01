@@ -1,63 +1,47 @@
-# Stage 6.1 Hidden Knowledge Poisoning Detection
+# Paper 1 Start Here
 
-## 当前状态
+> 快速状态：S6.1-LR1 已人工验收；R0 带阻塞项验收；FU1 的 P0/L1 已验收，父 W2 未完成、未验收，H1 等待 5090 验证。`S6.1-P1 = NOT STARTED`，`FORMAL_EXPERIMENT = NOT STARTED`。本页只提供入口导航与文档职责，不保存完整运行历史。
 
-- 当前项目任务：`S6.1-R0-FU1-W2-H1 = OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION`，前置 Correction 02
-  Control Plane review 已通过并应用 final closure。
-- Stage 6.1 子状态：历史 `W2_ATTEMPT1_EVIDENCE_BLOCKER` 已解决；Attempt 1 为
-  `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER`；W2 仍 `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`。
-- 历史前置：`S6.1-LR1` 为 `HUMAN_ACCEPTED`。
-- 追加治理：Git-native Context Recovery Governance 与 Paper-First Comparative Evidence Principle 均为 `HUMAN_ACCEPTED`。
-- Paper 1 canonical route：`ACCEPTED AS CURRENT RESEARCH ROUTE`。
-- 正式 RAG 安全实验：`NOT STARTED`。
-- 数据集构建、Detector 实现、模型训练和论文结果：`NOT STARTED`。
-- 研究分支：`research/stage6-1-hidden-poisoning`。
-- 起点：accepted S6-T5 baseline `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。
-- baseline tag `s6-t5-rag-baseline-v1`：已恢复为 annotated tag，并在 `2026-07-31` 核验本地/远端均严格指向
-  `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`；后续仍以 Git 动态事实为准。
-- RTX5090 Bootstrap：`HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`。
-- Superseded R0 snapshot：`DEFINED / NOT STARTED / PENDING OWNER EXECUTION APPROVAL`。
-- Historical R0 execution snapshot：`APPROVED_TO_START`。
-- R0：`HUMAN_ACCEPTED_WITH_BLOCKERS`；historical first-review return 与 corrected-evidence acceptance 均保留。
-- FU1 outcome：P0 合同已验收；L1 已验证 PoisonedRAG released NQ artifact、100-record schema、官方 LM-targeted
-  `question + "." + adv_text` 拼装与固定样本哈希。工件可 API-free 复用，但不等于复现 API generation。
-- Attempt 1 review：archive SHA/safe/index 和部分身份通过，但缺少主仓库 HEAD/clean 捕获与环境 disk byte measurement；
-  见 [redacted review](s6_1_r0_fu1_w2_attempt1_control_plane_review.md)。
-- Correction 01：外层 SHA、安全成员 `6/6`、index `4/4`、原 Attempt 绑定和主仓库现场证据通过；disk 数值与 manifest
-  一致且低于 6 GiB，但没有捕获区分 apparent/allocated 的具体 `du` 命令、flags 与 raw output。
-- Correction 02 final review：archive SHA
-  `fcfa3f14c98e0103cb5a1de2f0449fa000d179e2e01d74baa6fec4b013503622`、安全检查、index `17/17`、GNU `du 9.4`
-  command-derived apparent/allocated 证据和 materiality `11/11` 均通过。
-- H1 artifact：Contriever 8 文件 / 438708922 bytes；BERT MLM 9 文件 / 881643453 bytes；总模型 `1320352375` bytes；
-  bundle SHA `aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45`，仍待 5090 独立验证。
-- Worker 状态：原 `FU1-W1 = SUPERSEDED_BY_LOCAL_L1 / NOT FAILED`；`FU1-W2 = READY_FOR_OWNER_EXECUTION_APPROVAL /
-  NOT_YET_EXECUTED` 为历史快照；当前 W2 未完成/未验收，Attempt 1 valid blocked by model download。本轮 LOCAL 不联系或执行 Worker。
-- Token economy：高推理/设计/审查任务优先 LOCAL；该资源原则不覆盖科学证据与安全治理。
-- 当前 action：项目负责人可通过 owner-controlled handoff 将精确 bundle 传给 RTX5090，先验证外层 SHA、安全解压和
-  `model_files.sha256`，再单独决定是否恢复 W2。本轮不自动联系 Worker，不加载模型或运行 GMTP。
+## 一、项目需求提出人入口
 
-## 权威入口
+1. [实验总账 — tingfeng](human/experiment_ledger_tingfeng.md) — 5–10 分钟恢复论文、阶段、结果、失败、风险和下一步。
+2. [用户确认需求登记册](human/owner_requirement_register.md) — 唯一保存项目需求提出人明确确认需求的权威入口。
+3. [研究方案权威文件](human/research_plan_authority.md) — 唯一保存当前已接受 Paper 1 研究方案的权威入口。
+4. [阶段工作过程](stage_process/) — 每阶段一个 canonical 文件，保存时间顺序过程、失败、证据和审批门。
+5. [实验总账 — agentUse](agent/experiment_ledger_agentUse.md) — 面向智能体的派生结构化镜像，不覆盖人类权威或原始证据。
+6. [LLM 上下文物理存档](agent/llm_context_archive.md) — 精炼的上下文 capsule 与追加式 checkpoint。
 
-1. [论文优先比较证据原则](../paper_comparative_evidence_principle.md)
-2. [Paper 1 研究路线](paper1_research_route.md)
-3. [Benchmark 对齐矩阵](paper1_benchmark_alignment_matrix.md)
-4. [外部 Artifact 登记册](external_artifact_registry.md)
-5. [Baseline 复现协议](baseline_reproduction_protocol.md)
-6. [硬件与双机执行政策](hardware_execution_policy.md)
-7. [学习与面试笔记](learning_notes.md)
-8. [Context Authority Map](../../governance/context_authority_map.md)
-9. [PO-MHEP Highest Internal Execution Authority](../../governance/project_owner_sovereignty_and_mandatory_escalation_principle.md)
-10. [Research Execution Log](../../governance/research_execution_log.md)
-11. [Dual-Machine Context Sync Policy](../../governance/dual_machine_execution_policy.md)
-12. [Stage 6.1 Learning Guide](../../learning/stage6_1_hidden_poisoning.md)
-13. [S6.1-R0 Reproduction Preflight Definition](s6_1_r0_reproduction_preflight.md)
-14. [S6.1-R0-I Control Plane Review](s6_1_r0_i_control_plane_review.md)
-15. [S6.1-R0-FU1 Targeted Resolution and Approved Correction 02 Contract](s6_1_r0_fu1_targeted_resolution.md)
-16. [W2 Attempt 1 Control Plane Review](s6_1_r0_fu1_w2_attempt1_control_plane_review.md)
+## 二、当前阶段过程
 
-## 下一审批门
+- [S6.1-LR1 工作过程](stage_process/S6.1-LR1_work_process.md) — 路线与基线对齐，`HUMAN_ACCEPTED`。
+- [S6.1-R0 工作过程](stage_process/S6.1-R0_work_process.md) — 工程预检，`HUMAN_ACCEPTED_WITH_BLOCKERS`。
+- [S6.1-R0-FU1 工作过程](stage_process/S6.1-R0-FU1_work_process.md) — P0/L1 已验收，W2 未完成，H1 待 5090 验证。
 
-`S6.1-R0-FU1-P0 = HUMAN_ACCEPTED` 且 `S6.1-R0-FU1-L1 = HUMAN_ACCEPTED`。Correction 02 已通过并关闭 Attempt 1
-evidence blocker；H1 bundle 已准备但未获 5090 验证。下一门是 owner-controlled 5090 transfer/integrity verification
-及独立 W2 resume 决策。S6.1-P1、Dataset freeze、Detector、training 和正式实验均未获批准。
-Auto Continue = NO。
+## 三、支撑研究材料
+
+- [历史与支撑研究路线](paper1_research_route.md)
+- [Paper 1 Benchmark 对齐矩阵](paper1_benchmark_alignment_matrix.md)
+- [Baseline 复现协议](baseline_reproduction_protocol.md)
+- [外部工件登记](external_artifact_registry.md)
+- [硬件执行策略](hardware_execution_policy.md)
+- [学习笔记](learning_notes.md)
+
+这些文件提供研究依据、可比性、许可、环境和教学说明；不能覆盖当前研究方案权威文件。
+
+## 四、证据复核材料
+
+- [R0 复现预检](s6_1_r0_reproduction_preflight.md)
+- [R0-I Control Plane Review](s6_1_r0_i_control_plane_review.md)
+- [R0-FU1 Targeted Resolution](s6_1_r0_fu1_targeted_resolution.md)
+- [W2 Attempt 1 Control Plane Review](s6_1_r0_fu1_w2_attempt1_control_plane_review.md)
+
+Raw evidence、模型 bundle 和私有 archive 保持 Git-external；这里只保存可审计身份、结论边界和复核索引。
+
+## 五、高级治理与审计
+
+- [Current Work State](../../governance/current_work_state.md) — 项目动态状态控制面。
+- [Experiment Master Record](../../governance/experiment_master_record.md) — 跨阶段实验/工程事实与 blocker 主记录。
+- [Research Execution Log](../../governance/research_execution_log.md) — 项目级追加式审计时间线，不是 Paper 1 人类总账。
+- [Project Owner Decision Register](../../governance/project_owner_decision_register.md) — 项目需求提出人确认决定记录。
+
+职责规则：用户需求只进入需求登记册；当前方案只进入研究方案权威文件；阶段事实只追加到该阶段 work process；人类总览和 agentUse 保持同一状态；上下文恢复不产生新授权；审计日志不复制完整实验总账。

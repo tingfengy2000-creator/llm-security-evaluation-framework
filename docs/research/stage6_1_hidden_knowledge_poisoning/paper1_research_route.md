@@ -1,12 +1,17 @@
-# Paper 1 Canonical Research Route
+# Paper 1 Historical and Supporting Research Route
 
-> Status: ACCEPTED AS CURRENT RESEARCH ROUTE
+> Primary Authority = `human/research_plan_authority.md`
+> Document Role = `HISTORICAL_AND_SUPPORTING_RESEARCH_ROUTE`
+> This file preserves the accepted route history and supporting detail. It is no longer a parallel authority for the current Paper 1 plan.
+
+> Historical Status: `ACCEPTED AS CURRENT RESEARCH ROUTE` before `S6.1-DOC-RESTRUCTURE-02`; now `SUPPORTING_ONLY`
 > Formal experiment: FORMAL_EXPERIMENT = NOT STARTED
 > Owner decisions: PODR-035 through PODR-040
 > Execution records: REL-2026-0004 through REL-2026-0006
 
-本文是 Paper 1 当前唯一 canonical research route。重大方案变化不得静默覆盖：必须追加/引用 PODR Decision ID、
-Research Execution Log ID、related Git commit，并说明 Why changed、Who approved、When 和 Evidence。
+本文曾是 Paper 1 唯一 canonical research route；`S6.1-DOC-RESTRUCTURE-02` 后，当前方案唯一权威迁移到
+`human/research_plan_authority.md`。本文件保留历史路线和支撑细节。重大方案变化不得静默覆盖：必须追加/引用
+PODR Decision ID、Research Execution Log ID、related Git commit，并说明 Why changed、Who approved、When 和 Evidence。
 
 ## 1. Working Title
 
