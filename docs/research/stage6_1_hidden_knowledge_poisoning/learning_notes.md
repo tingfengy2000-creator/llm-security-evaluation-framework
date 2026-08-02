@@ -204,3 +204,18 @@ smoke 当作安全承诺。面试可追问：为什么 benign retained、poisone
 
 下一步只是 P1 正式协议候选审查。候选把 Dataset、五视角方法、指标、统计和证据合同写清，并把“解毒”拆成互斥的
 A/B/C 范围供人工决定；在批准前仍不得构建数据、实现 Detector、训练或运行正式实验。
+
+## P1-R1：Option B 把“解毒”变成可检验的轻量干预（2026-08-02）
+
+项目需求提出人选择 Option B 后，Paper 1 的“解毒”不再是模糊口号，而是两个可复现操作：hard filtering 在风险达到
+冻结阈值时移除候选；soft downweighting 从标准化检索分数中减去风险惩罚。两者都依赖同一个可校准 Detector，但必须
+分别报告安全结果和检索效用，不能用单一综合分数掩盖“安全提高、正常检索受损”的代价。
+
+企业价值在于建立最小可部署决策边界：安全团队可以审计某文档为何被移除或降权，搜索团队也能量化 Recall、MRR、
+nDCG 和 hard-negative 误伤。它仍不是完整可信检索链，因为没有 trusted context package、上下文构造、Agent 策略或
+生产运行平台；这些能力一旦混入 Paper 1，会同时扩大变量、资源、reviewer attack surface 和因果归因难度。
+
+面试可追问：为什么安全与效用必须是共同主结果？因为只优化 AUPRC 或攻击成功率可能把所有疑似文档都删除，从而得到
+看似安全但不可用的系统。初学者常见误区是把“协议候选给出了阈值、样本量和种子”理解为这些值已经冻结；实际上
+P1-R1 仍是 `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`，Pilot 才能验证样本量、方差和资源估计，且 Pilot 也需要
+单独批准。

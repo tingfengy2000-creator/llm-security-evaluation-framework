@@ -8,20 +8,20 @@ paper_identity:
   chinese_title: 面向中文检索增强生成系统的版本感知隐蔽知识污染基准与多视角解毒方法
   english_working_title: Stealthy Factual Poisoning in Versioned RAG Knowledge Bases - A Benchmark and Multi-View Detection Framework
 current_branch: research/stage6-1-hidden-poisoning
-current_commit: b19fc59cc5ba771fd547430f6096403720ef1a7d
-research_objective: Chinese version-aware stealthy knowledge poisoning benchmark and multi-view detection
-research_boundary: [Benchmark, Detection, Risk Score, Signals, Explanation]
+current_commit: aabe504d55626fb31008822b7bbabd3b32e2afd4
+research_objective: Chinese version-aware stealthy knowledge poisoning benchmark, multi-view detection and lightweight retrieval intervention
+research_boundary: [Benchmark, Detection, Risk Score, Signals, Explanation, Hard Filtering, Soft Downweighting]
 accepted_stages:
   S6.1-LR1: HUMAN_ACCEPTED
   Context_Recovery: HUMAN_ACCEPTED
   S6.1-R0: HUMAN_ACCEPTED_WITH_BLOCKERS
   S6.1-R0-FU1-P0: HUMAN_ACCEPTED
   S6.1-R0-FU1-L1: HUMAN_ACCEPTED
-current_stage: S6.1-P1 protocol candidate review gate
-current_task: W2/FU1 accepted and closed for engineering feasibility only; P1 candidate awaits owner review and detox scope selection
+current_stage: S6.1-P1-R1 protocol review gate
+current_task: Option B selected; approval-grade P1-R1 candidate awaits owner review
 current_blockers:
-  - P1 is not approved or started
-  - detoxification technical scope requires owner selection among A/B/C
+  - P1-R1 is review candidate only; P1 and Pilot are not approved or started
+  - Dataset is not frozen; Detector and Retrieval Intervention are not implemented
 resolved_blockers:
   - W2_ATTEMPT1_EVIDENCE_BLOCKER resolved by Correction 02 control-plane review
   - resume_01 OFFLINE_BUNDLE_SHA_BLOCKER accurately captured and reviewed; bundle/sidecar later synced
@@ -57,6 +57,7 @@ approval_identity:
   FU1: HUMAN_ACCEPTED / CLOSED
   acceptance_base_commit: b19fc59cc5ba771fd547430f6096403720ef1a7d
   owner_decision: PODR-061
+  option_b_decision: PODR-062 / OR-021
   auto_continue: CONSUMED_AND_STOPPED
 current_claims:
   - exact two-document engineering-smoke identities, one call and redacted result/resource evidence only
@@ -65,14 +66,18 @@ prohibited_claims:
   - GMTP reproduction, effectiveness, safety, generalization or paper metrics
   - complete strict baseline reproduction
   - any formal Paper 1 result
-next_decision_gate: project owner reviews P1 candidate and selects detoxification A/B/C; no second H2-B call and no automatic P1
+detoxification_option: OPTION_B
+detoxification_scope: OPTION_B_CONFIRMED / OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION
+excluded_scope: trusted context package, complete context construction, multi-evidence trusted context generation, complex end-to-end Agent defense, production RAG platform, complete trusted retrieval chain
+next_decision_gate: project owner reviews P1-R1 candidate and four high-level decisions; no second H2-B call and no automatic P1/Pilot
 canonical_files:
   owner_requirements: ../human/owner_requirement_register.md
   research_plan: ../human/research_plan_authority.md
   human_ledger: ../human/experiment_ledger_tingfeng.md
   agent_ledger: experiment_ledger_agentUse.md
   current_stage_process: ../stage_process/S6.1-R0-FU1_work_process.md
-  p1_protocol_candidate: ../s6_1_p1_protocol_candidate.md
+  p1_r1_protocol_candidate: ../s6_1_p1_r1_protocol_review_candidate.md
+  historical_p1_protocol_candidate: ../s6_1_p1_protocol_candidate.md
 ```
 
 This document is a context recovery artifact.
@@ -157,3 +162,15 @@ Live Git and raw evidence override stale snapshot fields. Owner-confirmed requir
 - 历史保留：resume_01 `VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER / H2-B NOT EXECUTED / call_count=0`；Attempt 1 不重分类为成功运行。
 - 声明边界：单样本 benign retained / poisoned filtered 只是工程观察，不是检测性能结论；GMTP reproduction、effectiveness、strict comparison 和 formal paper result 均未建立。
 - 当时下一步：项目需求提出人审查 P1 协议候选并选择 Detoxification Option A/B/C；不联系 5090，不自动进入 P1。
+
+### Context Checkpoint — 2026-08-02 — S6.1-P1-R1-option-b-scope-freeze
+
+- 当时阶段：S6.1-P1 审批前协议门。
+- 当时任务：`S6.1-P1-R1 / P1 Protocol Hardening and Option B Scope Freeze`。
+- 基础提交：`aabe504d55626fb31008822b7bbabd3b32e2afd4`。
+- 项目需求：`TITLE_INTENT = CONFIRMED`；`DETOXIFICATION_OPTION = OPTION_B`；`DETOXIFICATION_TECHNICAL_SCOPE = OPTION_B_CONFIRMED`。
+- 技术边界：Paper 1 包括 Benchmark、五视角 Detection、Risk Score、Signals、Explanation，以及 hard filtering / soft downweighting；安全与效用分别作为共同主结果。
+- 明确排除：trusted context package、完整上下文构造、多证据可信上下文生成、复杂端到端 Agent 防御、生产级 RAG 平台和完整可信检索链；留给 Paper 2 或后续研究。
+- 候选证据：[P1-R1 approval-grade review candidate](../s6_1_p1_r1_protocol_review_candidate.md)，覆盖 RQ1-6、Benchmark/schema/split/label isolation、baseline fairness、指标统计、Pilot、资源、evidence、license 和 entry gate。
+- 当前状态：P1-R1 `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`；P1/Pilot 未批准未开始；Dataset 未冻结；Detector/Retrieval Intervention 未实现；Training/Formal Experiment 未开始；Our Method Result `NONE`。
+- 当时下一步：项目负责人只审查或修订候选及四项高层决定；不得联系 5090 或自动推进任何实验。

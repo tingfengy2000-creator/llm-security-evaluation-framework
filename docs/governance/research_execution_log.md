@@ -1089,3 +1089,41 @@ Approval Gate、Auto Continue。
 - Next Approval Gate: owner reviews the P1 candidate and selects Detoxification Option A/B/C；
   `HUMAN_DECISION_REQUIRED_BEFORE_P1_APPROVAL`.
 - Auto Continue: `NO / H2 SINGLE CALL CONSUMED`
+
+## REL-2026-0025 — P1 Protocol Hardened and Option B Scope Frozen as Review Candidate
+
+- Record ID: `REL-2026-0025`.
+- Date: `2026-08-02`.
+- Stage: `Stage 6.1 / Paper 1 / approval-preparation gate`.
+- Task ID: `S6.1-P1-R1`.
+- Machine: `本机 / CONTROL_PLANE`.
+- Initial Status: Option A/B/C selection pending；old P1 candidate `CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED`.
+- Final Status: `S6.1-P1-R1 = REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`；Option B scope confirmed；P1/Pilot not approved or started.
+- Base Commit: `P1_R1_BASE_COMMIT = aabe504d55626fb31008822b7bbabd3b32e2afd4`.
+- Objective: convert the owner-selected Option B into an approval-grade, falsifiable and resource-bounded protocol candidate without
+  constructing data, implementing a method or executing any workload.
+- Previous Gate: `PODR-061 / OR-020 / REL-2026-0024` plus explicit owner selection of Option B.
+- Actions: registered OR-021 and PODR-062；created the P1-R1 candidate；synchronized Human/Agent/current/master/context/README/
+  learning records；preserved the old candidate and all W2/FU1 history；updated governance regression tests.
+- Protocol Coverage: RQ1-6 with null/alternative/direction/falsification/slices/baselines；evaluation units and group independence；
+  public traceable Chinese source strategy；Benchmark schema/split/field visibility/label isolation；HKP/S/hard negatives；baseline
+  tiers and fairness labels；five-view interface；hard filtering/soft downweighting；safety/utility metrics；statistics；Pilot；run/resource/
+  evidence/license contracts；20 P1 entry conditions；forward and paper risk reviews.
+- Option B Boundary: `OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION`; includes only hard filtering or soft
+  downweighting. Trusted context package、complete context construction、multi-evidence trusted context generation、complex
+  end-to-end Agent defense、production RAG platform and complete trusted retrieval chain are excluded from Paper 1.
+- Validation: targeted governance/context `31 passed`；full architecture `113 passed`；namespace/label isolation `15 passed`；
+  Ruff and `git diff --check` passed；13 changed Markdown files passed UTF-8 no-BOM/LF, secret/private-path and 293 relative-link
+  checks；state/authority/stage-process/candidate-history/raw-artifact/protected-history/runtime-ignore checks passed. One separately
+  attempted optional Chroma metadata-isolation test stopped at unavailable `chromadb` before its assertion (`16 passed, 1 dependency
+  failure` in that broader optional set); it is not changed or required by this documentation-only task. Pytest cache warning is non-blocking.
+- Claims Allowed: owner-confirmed Option B research scope and existence/completeness of a non-authoritative approval-grade candidate.
+- Claims Prohibited: P1/Pilot approval or start；Dataset freeze/construction；Detector/Retrieval Intervention implementation；training；
+  baseline/Pilot/formal run；model load；Paper result/effectiveness/SOTA.
+- Preserved States: W2 `HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED`；FU1 `HUMAN_ACCEPTED / CLOSED`；Dataset
+  `NOT FROZEN`；Detector/Retrieval Intervention `NOT IMPLEMENTED`；Training/Formal Experiment `NOT STARTED`；Our Method Result `NONE`.
+- Owner Decisions: `PODR-062`; owner requirement `OR-021`.
+- Forward Risk Review: `PASS_FOR_REVIEW_CANDIDATE`; leakage, independence, comparison, statistics, evidence, resource and scope risks
+  are explicit, while Pilot-dependent quantities remain unvalidated.
+- Paper Risk Review: `PASS_WITH_SCOPE_GUARD`; the title's detoxification claim is testable but cannot imply a complete trusted RAG/Agent system.
+- Next Approval Gate: owner accepts, revises or rejects the P1-R1 candidate and resolves its four high-level decisions. Auto Continue = `NO`.

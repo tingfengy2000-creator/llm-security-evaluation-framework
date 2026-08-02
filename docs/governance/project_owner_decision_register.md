@@ -938,3 +938,34 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   `DETOXIFICATION_TECHNICAL_SCOPE = SCOPE_CONFIRMATION_REQUIRED` and
   `HUMAN_DECISION_REQUIRED_BEFORE_P1_APPROVAL`.
 - Canonical records: [Current Work State](current_work_state.md), [FU1 work process](../research/stage6_1_hidden_knowledge_poisoning/stage_process/S6.1-R0-FU1_work_process.md), [P1 candidate](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_protocol_candidate.md), `OR-020`, and `REL-2026-0024`.
+
+## PODR-062: P1 Option B Scope Freeze and Protocol Hardening Candidate
+
+- Date: `2026-08-02`.
+- Decision: 项目需求提出人明确选择 `DETOXIFICATION_OPTION = OPTION_B`，确认
+  `DETOXIFICATION_TECHNICAL_SCOPE = OPTION_B_CONFIRMED`，完整表达为
+  `OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION`。
+- P1 included scope: 中文版本感知隐蔽知识污染 Benchmark、五视角 Detection、Risk Score、Signals、Explanation，以及
+  基于校准风险的 hard filtering 或 soft downweighting；安全结果与检索效用分别作为共同主结果，不合并为单一分数。
+- P1 excluded scope: trusted context package、完整上下文构造、多证据可信上下文生成、复杂端到端 Agent 防御、
+  生产级 RAG 平台和完整可信检索链；这些能力保留给 Paper 2 或后续独立批准的研究。
+- Protocol action: 允许本机以 `P1_R1_BASE_COMMIT = aabe504d55626fb31008822b7bbabd3b32e2afd4` 起草、同步并测试
+  [P1-R1 approval-grade review candidate](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_r1_protocol_review_candidate.md)。
+  新候选只在候选层替代旧 [P1 protocol candidate](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_protocol_candidate.md)；旧文件保留为历史。
+- Candidate status: `S6.1-P1-R1 = REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`；
+  `S6.1-P1 = NOT APPROVED / NOT STARTED`；`Pilot = NOT APPROVED / NOT STARTED`。
+- Preserved execution states: Dataset `NOT FROZEN`；Detector `NOT IMPLEMENTED`；Retrieval Intervention `NOT IMPLEMENTED`；
+  Training `NOT STARTED`；Our Method Result `NONE`；Formal Experiment `NOT STARTED`。
+- W2/FU1 preservation: W2 remains `HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED`；FU1 remains
+  `HUMAN_ACCEPTED / CLOSED`；no existing engineering evidence or historical blocker record is rewritten.
+- Allowed actions: 本机 research design、文档同步、架构测试、Git commit/push only.
+- Prohibited actions: contact 5090；build/download a dataset；external API；poison generation；Detector/retrieval intervention
+  implementation；model load/training；baseline/Pilot/formal run；Paper result claim.
+- Forward risk review: `PASS_FOR_REVIEW_CANDIDATE` because group-aware splitting, label isolation, baseline fairness, statistical
+  correction, evidence and resource gates are explicit, while unresolved values remain owner-visible decisions or Pilot-dependent.
+- Paper risk review: `PASS_WITH_SCOPE_GUARD` because “解毒” is now testable as narrow retrieval intervention and cannot be silently
+  expanded into a complete trusted retrieval or Agent system.
+- Next gate: project owner accepts, revises or rejects the P1-R1 candidate and resolves its four high-level decisions. No automatic
+  P1/Pilot entry. Auto Continue = `NO`.
+- Canonical records: `OR-021`、[Research Plan Authority](../research/stage6_1_hidden_knowledge_poisoning/human/research_plan_authority.md)、
+  [Current Work State](current_work_state.md) and `REL-2026-0025`.

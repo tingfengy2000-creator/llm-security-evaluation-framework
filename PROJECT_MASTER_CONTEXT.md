@@ -1,5 +1,27 @@
 # LLMGuard 项目总控文档
 
+## S6.1-P1-R1 Option B 范围冻结与协议强化候选（2026-08-02）
+
+项目需求提出人已明确确认 `TITLE_INTENT = CONFIRMED`、`DETOXIFICATION_OPTION = OPTION_B` 和
+`DETOXIFICATION_TECHNICAL_SCOPE = OPTION_B_CONFIRMED`；完整技术表达为
+`OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION`。P1_R1 基础提交为
+`aabe504d55626fb31008822b7bbabd3b32e2afd4`。
+
+Paper 1 当前范围包括中文版本感知隐蔽知识污染 Benchmark、五视角 Detection、Risk Score、Signals、Explanation，
+以及基于校准风险的 hard filtering 或 soft downweighting。安全结果与检索效用分别作为共同主结果，不使用掩盖权衡的
+单一综合分数。trusted context package、完整上下文构造、多证据可信上下文生成、复杂端到端 Agent 防御、生产级 RAG
+平台和完整可信检索链明确排除，保留给 Paper 2 或后续研究。
+
+[P1-R1 审批级协议强化候选](docs/research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_r1_protocol_review_candidate.md)
+覆盖 RQ1--RQ6、Benchmark/schema/group-aware split/label isolation、HKP/S/hard negatives、外部基线公平性、五视角接口、
+Option B 干预公式、安全—效用指标、统计/Pilot/资源/evidence/license 及 20 项进入条件。它只在候选层替代
+[旧 P1 候选](docs/research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_protocol_candidate.md)，不删除历史，也不是 canonical
+stage process。
+
+当前状态严格为：P1-R1 `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`；P1 与 Pilot `NOT APPROVED / NOT STARTED`；
+Dataset `NOT FROZEN`；Detector 与 Retrieval Intervention `NOT IMPLEMENTED`；Training `NOT STARTED`；Our Method Result
+`NONE`；Formal Experiment `NOT STARTED`。本轮没有联系 5090、构建数据、实现方法、加载模型或执行实验。
+
 ## S6.1-R0-FU1-W2 工程可行性最终验收与 P1 候选门（2026-08-02）
 
 项目需求提出人以提交 `b19fc59cc5ba771fd547430f6096403720ef1a7d` 为验收基础，将父 W2 登记为
@@ -18,10 +40,9 @@ resume_01 的 `VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER / H2-B NOT EX
 `W2_ACCEPTANCE_SCOPE = FROZEN_SINGLE_SAMPLE_DETECTION_CORE_ENGINEERING_FEASIBILITY_ONLY`。这不建立 GMTP reproduction、
 detection effectiveness、strict baseline comparison 或 formal paper result。
 
-下一阶段只有 [S6.1-P1 协议候选](docs/research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_protocol_candidate.md)，状态为
-`CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED`。项目负责人须审查协议并在 Detoxification Option A/B/C 中选择；
-`HUMAN_DECISION_REQUIRED_BEFORE_P1_APPROVAL`。Dataset、Detector、Training、Our Method Result 与 Formal Experiment
-分别保持 `NOT FROZEN`、`NOT IMPLEMENTED`、`NOT STARTED`、`NONE`、`NOT STARTED`。
+该时点下一阶段只有 [S6.1-P1 协议候选](docs/research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_protocol_candidate.md)，状态为
+`CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED`，且 Option A/B/C 尚待选择。该历史候选门已由上方 PODR-062 的
+Option B 范围决定与 P1-R1 新候选在候选层替代；P1 本身仍未获批准或启动。
 
 ## H2 resume_02 工程 smoke 证据已通过本机复核（2026-08-01）
 
@@ -37,9 +58,9 @@ fallback；H2-B 只执行一次，`call_count=1`，benign retained、poisoned fi
 `CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED`，父 runtime blocker
 `BLK-S6.1-FU1-W2-001` 仅在冻结的最小 detector-core feasibility 范围内关闭。
 
-本轮仍不是 baseline reproduction、有效性评估、论文结果或正式实验。本机没有加载模型或执行 GMTP。父 W2 保持
+在该 `2026-08-01` 复核时点，本轮仍不是 baseline reproduction、有效性评估、论文结果或正式实验。本机没有加载模型或执行 GMTP。父 W2 当时保持
 `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`，等待项目负责人明确决定；P1、Dataset、Detector、Training、Our
-Method Result 与 Formal Experiment 均未推进。没有证据缺口需要向 5090 发送 corrective prompt。
+Method Result 与 Formal Experiment 均未推进。该历史等待状态已由后续 PODR-061 验收关闭；没有证据缺口需要向 5090 发送 corrective prompt。
 
 ## H2 resume_01 受阻证据已复核，resume_02 命名空间已批准（2026-08-01）
 

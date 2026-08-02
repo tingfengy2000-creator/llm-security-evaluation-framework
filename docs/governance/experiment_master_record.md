@@ -54,13 +54,13 @@
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
 | 当前最高完成阶段 | S6-T5 Controlled Retrieval and Traceable Context Baseline 已 `HUMAN_ACCEPTED BASELINE`；S6.1-LR1 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`。 |
-| 当前任务 | `S6.1-P1-CONTRACT-CANDIDATE = CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED`；W2/FU1 engineering-only closure complete。 |
-| 当前审批门 | owner reviews P1 protocol candidate and selects mutually exclusive Detoxification Option A/B/C。 |
-| 下一批准任务 | none automatically；S6.1-P1, Dataset, Detector, Training and Formal Experiment remain closed。 |
+| 当前任务 | `S6.1-P1-R1 = REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`；`P1_R1_BASE_COMMIT = aabe504d55626fb31008822b7bbabd3b32e2afd4`。 |
+| 当前审批门 | owner reviews Option B approval-grade P1-R1 protocol candidate and four high-level decisions。 |
+| 下一批准任务 | none automatically；P1, Pilot, Dataset, Detector, Retrieval Intervention, Training and Formal Experiment remain closed。 |
 | Baseline tag | annotated `s6-t5-rag-baseline-v1` 已恢复；本地/远端 peeled target 均核验为 `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
 | 最近工程验证 | H2 resume_02 archive SHA/safety/index `25/25`, H2-A `18/18`, exact local-model CUDA load, single-call and resource evidence passed Control Plane review。 |
-| 当前主要阻塞项 | W2 blocker resolved by H2 resume02 plus owner acceptance；P1 protocol/detox scope and formal-environment gates remain separate。 |
+| 当前主要阻塞项 | W2 blocker resolved；Option B scope confirmed；P1-R1 candidate still requires owner review and Pilot-dependent sample/resource values remain unvalidated。 |
 | 当前允许宣称 | W2/FU1 accepted and closed for frozen single-sample detection-core engineering feasibility only；resume histories and exact one-call evidence preserved。 |
 | 当前禁止宣称 | GMTP reproduction/effectiveness/safety/generalization、strict baseline comparison、P1/formal experiment or paper result。 |
 
@@ -127,7 +127,8 @@
 | S6.1-R0-FU1-W2-H2-RESUME-01 | H2 first frozen evidence namespace | fail closed when bundle/sidecar absent | valid blocker evidence；H2-B not executed；call_count 0 | `OFFLINE_BUNDLE_SHA_BLOCKER` | resume01 archive SHA `941557aa...26e89d`、19/19、PODR-060 | immutable history；superseded only as next execution namespace |
 | S6.1-R0-FU1-W2-H2-RESUME-02 | Additive Evidence Namespace Rollover | preserve resume_01 and run full H2-A plus one conditional H2-B in new namespace | archive/safety/index/identities/results reviewed | `CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED` | [H2 resume02 review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_h2_resume02_control_plane_review.md)、REL-2026-0023 | complete；single-call authorization consumed；owner decides parent W2 |
 | S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02 | W2 Attempt 1 GNU du Provenance Final Evidence Correction | exact apparent/allocated `du` commands, tool/Conda/time provenance, raw streams/exits, counts and indexed manifest | Control Plane review passed；final closure applied | `EVIDENCE_PACKAGING_CORRECTION_ACCEPTED` | [FU1 resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md)、PODR-057/058、REL-2026-0018/0019 | complete；do not rerun |
-| S6.1-P1 candidate | Paper 1 Formal Experimental Protocol and Benchmark Specification | RQ/Benchmark/method/metrics/statistics/evidence/license and detox scope design | candidate only；not approved/not started | `CONTRACT_CANDIDATE` | [P1 candidate](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_protocol_candidate.md)、PODR-061 | owner review and detox A/B/C selection |
+| S6.1-P1 candidate (historical) | Paper 1 Formal Experimental Protocol and Benchmark Specification | RQ/Benchmark/method/metrics/statistics/evidence/license and detox A/B/C design | historical candidate only；not approved/not started | `CONTRACT_CANDIDATE / SUPERSEDED_AT_CANDIDATE_LEVEL_BY_P1-R1` | [P1 candidate](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_protocol_candidate.md)、PODR-061 | preserved history；current gate is P1-R1 |
+| S6.1-P1-R1 | P1 Protocol Hardening and Option B Scope Freeze | approval-grade RQ1-6、Benchmark/schema/split/label isolation、five-view detection、hard filter/soft downweight、metrics/statistics/Pilot/resource/evidence/license | review candidate only；not approved/not started | `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED` | [P1-R1 candidate](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_r1_protocol_review_candidate.md)、OR-021、PODR-062 | owner accepts/revises/rejects candidate；no automatic P1/Pilot |
 | Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | LR1/R0/FU1 accepted；P1 candidate pending；formal work not started | `PLANNED` | [长期需求](long_term_research_requirements.md) | separate P1 approval |
 | Stage 6.2 | Multi-Evidence Trustworthy Retrieval | 可信聚合、重排、拒答 | 规划中 | `PLANNED` | [长期需求](long_term_research_requirements.md) | Stage 6.1/设计批准 |
 | Stage 7 | Agent Security Evaluation | Tool/Memory/Planning 安全 | 规划中 | `PLANNED` | [Stage 7 README](../../stages/stage7_agent_security/README.md) | Trusted Context 契约 |
@@ -360,20 +361,21 @@ description/final_resolution 中，但不能代替 status。**WORKAROUND is not 
 | GATE-S6.1-R0-FU1-W2-H1 | Offline Model Artifact Provisioning and W2 Resume | exact snapshots, 17 model files, 19-entry index, 2 GiB gate, safe bundle and sidecar | `OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090 / COMPLETED` | completed as dependency of accepted H2 smoke evidence | automatic new model use、P1 | 项目负责人 |
 | GATE-S6.1-R0-FU1-W2-H2 | Offline bundle verification and conditional detection-core resume | H2-A `18/18`; frozen environment/offline local model load; exactly one fixed call; archive/index `25/25` | `ENGINEERING_SMOKE_COMPLETED / CONTROL_PLANE_REVIEW_PASS / HUMAN_ACCEPTED_AS_W2_EVIDENCE` | complete | retry/rerun/mutation/network、P1/formal claims | Control Plane reviewed；项目负责人 accepted as W2 evidence |
 | GATE-S6.1-R0-FU1-W2-H2-RESUME-02 | Additive evidence namespace rollover | resume_01 unchanged；resume02 archive SHA `58da856a...f563`; safe members；index `25/25`; H2-A/H2-B/resource evidence | `CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED` | accepted as W2 engineering evidence | second call、resume_03、reproduction/effectiveness/P1 claims | Control Plane / PODR-061 |
-| GATE-S6.1-P1-CANDIDATE | Paper 1 formal protocol and Benchmark specification candidate | RQ1-5, schema, HKP/S, hard negatives, five views, Tracks, metrics, statistics, evidence/resource/license and detox A/B/C | `CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED` | owner may review and separately approve/revise | Dataset、Detector、Training、Formal Experiment、Paper Result | 项目负责人 |
+| GATE-S6.1-P1-CANDIDATE | Historical Paper 1 formal protocol and Benchmark specification candidate | RQ1-5, schema, HKP/S, hard negatives, five views, Tracks, metrics, statistics, evidence/resource/license and detox A/B/C | `CONTRACT_CANDIDATE / SUPERSEDED_AT_CANDIDATE_LEVEL_BY_P1-R1` | preserved as historical design input | Dataset、Detector、Training、Formal Experiment、Paper Result | PODR-061 historical gate |
+| GATE-S6.1-P1-R1 | P1 protocol hardening and Option B scope freeze | owner-confirmed Option B；RQ1-6；group-aware Benchmark/splits；field visibility；baseline fairness；safety/utility co-primary outcomes；statistics、Pilot、resource、evidence、license and 20 entry conditions | `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED` | owner may accept/revise/reject and separately approve later P1/Pilot | Dataset freeze、Detector/Retrieval Intervention implementation、Training、Formal Experiment、Paper Result | 项目负责人 / PODR-062 |
 | GATE-S6.1-R0-FU1-W2-CORRECTION-02 | Command-derived disk measurement evidence | archive SHA `fcfa3f...3622`, safe `17/17`, GNU `du 9.4`, raw streams/exits/counts/no-mutation, materiality `11/11` | `CONTROL_PLANE_REVIEW_PASS / FINAL_CLOSURE_APPLIED` | historical evidence blocker closed | rerun/repackaging churn、GMTP/model load、P1/formal experiment | RTX5090 evidence；Control Plane accepted |
 
 **当前审批顺序**：既有 S6-T5 验收历史保持不变；S6.1-LR1、Context Recovery、Paper-First 和 current route 已接受；
 PO-MHEP is `HUMAN_ACCEPTED / HIGHEST_INTERNAL_PROJECT_EXECUTION_AUTHORITY / PERMANENT` and applies without changing L0 facts；
 `S6.1-R0-B0` 已 `HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY`；historical R0 execution approval remains preserved；
 historical R0-I `RETURNED_FOR_WORKER_CORRECTION` remains preserved；the superseding decision is
-`S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。R0-FU1 is `APPROVED / LOCAL-FIRST / WORKER-GATED`；P0/L1 are
-`HUMAN_ACCEPTED`；the former Worker W1 is `SUPERSEDED_BY_LOCAL_L1 / NOT FAILED`；W2 remains
-`APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`。Attempt 1 is `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER`;
+`S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。R0-FU1 is `HUMAN_ACCEPTED / CLOSED`；P0/L1 are
+`HUMAN_ACCEPTED`；the former Worker W1 is `SUPERSEDED_BY_LOCAL_L1 / NOT FAILED`；W2 is
+`HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED`。Attempt 1 is `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER`;
 the historical evidence blocker is resolved；H1 artifacts are verified on 5090；H2 resume_01 remains valid blocked evidence with
 H2-B not executed/call_count zero；resume_02 is `CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED` with the
-single H2-B authorization consumed。S6.1-P1、Dataset、Detector、
-training and formal RAG experiment remain unapproved/not started。
+single H2-B authorization consumed。Option B is confirmed at scope level；P1-R1 is only a review candidate。P1、Pilot、Dataset、
+Detector、Retrieval Intervention、training and formal RAG experiment remain unapproved/not started。
 
 ## 15. 当前结论边界
 
@@ -571,3 +573,4 @@ git log -15 --oneline
 | 2026-08-01 | H2 resume_01 blocker review and resume_02 rollover | 第 2、4、12、14、20 节 | resume_01 missing-bundle blocker evidence passed 本机 safety/index review；owner confirmed bundle sync and approved new immutable evidence namespace only | [FU1 work process](../research/stage6_1_hidden_knowledge_poisoning/stage_process/S6.1-R0-FU1_work_process.md)、PODR-060、REL-2026-0022、governance tests | resume_01 preserved；resume_02 not executed；H2-B/P1/formal unchanged |
 | 2026-08-01 | H2 resume_02 Control Plane evidence acceptance | 第 2、4、12、14、20 节 | resume02 SHA/safe/index `25/25`, H2-A `18/18`, exact local CUDA model load, one H2-B call, redacted results/resources and resume_01 no-mutation independently reviewed | [H2 resume02 review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_h2_resume02_control_plane_review.md)、REL-2026-0023、governance tests | minimal feasibility blocker resolved；parent W2 not completed/accepted；P1/formal unchanged |
 | 2026-08-02 | Parent W2 engineering-feasibility acceptance and P1 candidate | 第 2、4、12、14、15、20 节 | owner accepted/closed W2 and FU1 only for frozen single-sample engineering feasibility；preserved resume histories；prepared non-authoritative RQ/Benchmark/method/metrics/statistics/detox candidate | [P1 candidate](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_protocol_candidate.md)、PODR-061、REL-2026-0024、governance tests | P1/Dataset/Detector/Training/Formal Experiment not approved/not started；no paper result |
+| 2026-08-02 | S6.1-P1-R1 Option B protocol hardening | 第 2、4、12、14、15、20 节 | owner selected Option B；froze Paper 1 to detection plus lightweight hard filtering/soft downweighting；prepared approval-grade RQ1-6, Benchmark, baseline fairness, safety/utility, statistics, Pilot/resource/evidence/license candidate | [P1-R1 candidate](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_r1_protocol_review_candidate.md)、OR-021、PODR-062、REL-2026-0025、governance tests | review candidate only；P1/Pilot/Dataset/Detector/Retrieval Intervention/Training/Formal Experiment not approved or started；no paper result |

@@ -1,6 +1,6 @@
 # Paper 1 Start Here
 
-> 快速状态：S6.1-LR1 已人工验收；R0 带阻塞项验收；FU1 的 P0/L1 与父 W2 已验收，FU1 已关闭。父 W2 状态为 `HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED`。H2 `resume_01` 的 fail-closed 历史保持不可变；`resume_02` 的 H2-A `18/18`、唯一一次 H2-B 与 `25/25` evidence 已由本机复核并作为 W2 工程证据接受。这只是单次冻结样本对的 detection-core 工程可行性，不是 GMTP 复现、检测有效性或论文结果。P1 仅有协议候选，仍为 `NOT APPROVED / NOT STARTED`；`FORMAL_EXPERIMENT = NOT STARTED`。
+> 快速状态：S6.1-LR1 已人工验收；R0 带阻塞项验收；父 W2 为 `HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED`，FU1 已关闭。项目需求提出人已选择 `OPTION_B`，Paper 1 范围冻结为 Benchmark、多视角检测、风险/信号/解释与轻量 hard filtering 或 soft downweighting；不包含完整可信检索链。P1-R1 仅为 `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`，P1、Pilot、Dataset、Detector、Retrieval Intervention、Training 与 Formal Experiment 均未获准或未开始；没有论文结果。
 
 ## 一、项目需求提出人入口
 
@@ -16,7 +16,8 @@
 - [S6.1-LR1 工作过程](stage_process/S6.1-LR1_work_process.md) — 路线与基线对齐，`HUMAN_ACCEPTED`。
 - [S6.1-R0 工作过程](stage_process/S6.1-R0_work_process.md) — 工程预检，`HUMAN_ACCEPTED_WITH_BLOCKERS`。
 - [S6.1-R0-FU1 工作过程](stage_process/S6.1-R0-FU1_work_process.md) — P0/L1/W2 已验收；FU1 仅以最小工程可行性范围关闭。
-- [S6.1-P1 协议候选](s6_1_p1_protocol_candidate.md) — `CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED`，不与研究方案权威竞争。
+- [S6.1-P1-R1 协议强化候选](s6_1_p1_r1_protocol_review_candidate.md) — `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`，当前候选入口，不与研究方案权威竞争。
+- [旧 S6.1-P1 协议候选](s6_1_p1_protocol_candidate.md) — 历史候选，已在候选层被 P1-R1 替代但不可删除或改写。
 
 ## 三、支撑研究材料
 

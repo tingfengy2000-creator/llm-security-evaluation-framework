@@ -4,25 +4,25 @@
 
 ## 一分钟项目状态
 
-Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍是 Benchmark、Detection、Risk Score、Signals 与 Explanation。LR1、P0、L1 已人工验收；R0 带 blocker 验收。H2 `resume_01` fail-closed 历史保持不可变。`resume_02` 的 H2-A `18/18`、唯一一次 H2-B 与 `25/25` evidence 已由本机复核。项目需求提出人现已将父 W2 验收为 `HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED` 并关闭 FU1。P1 只有待审协议候选，仍未批准、未开始；没有正式论文结果。
+Paper 1 研究中文版本化知识库中的隐蔽事实污染。项目需求提出人已选择 Option B：范围包括 Benchmark、多视角 Detection、Risk Score、Signals、Explanation，以及轻量 hard filtering 或 soft downweighting；不包括完整可信检索链。W2 已按单样本 detection-core 工程可行性验收并关闭，FU1 已关闭。当前 P1-R1 只是审批级强化候选，P1、Pilot、Dataset、Detector、Retrieval Intervention、Training 与 Formal Experiment 均未获准或未开始；没有正式论文结果。
 
 ## 1. 论文与项目基本信息
 
 | 项目 | 当前内容 |
 | --- | --- |
-| 中文题目 | 《面向中文检索增强生成系统的版本感知隐蔽知识污染基准与多视角解毒方法》；题目意图已确认，解毒技术范围待确认 |
+| 中文题目 | 《面向中文检索增强生成系统的版本感知隐蔽知识污染基准与多视角解毒方法》；`TITLE_INTENT = CONFIRMED` |
 | 英文题目 | *Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework* |
-| 研究目标 | 建立中文版本感知隐蔽知识污染 Benchmark，并研究多视角检测、风险评分、信号与解释 |
-| 当前研究边界 | Benchmark、Detection、Risk Score、Signals、Explanation |
+| 研究目标 | 建立中文版本感知隐蔽知识污染 Benchmark，并研究多视角检测与轻量检索干预的安全—效用权衡 |
+| 当前研究边界 | `OPTION_B_CONFIRMED`：Benchmark、Detection、Risk Score、Signals、Explanation、hard filtering / soft downweighting |
 | 当前分支 | `research/stage6-1-hidden-poisoning` |
 | 当前提交 | 本轮验收基础 `b19fc59cc5ba771fd547430f6096403720ef1a7d`；本页提交由 Git 动态解析 |
-| 当前阶段 | S6.1-R0-FU1 |
-| 当前任务 | `S6.1-P1-CONTRACT-CANDIDATE = CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED`；等待项目负责人审查并选择解毒 A/B/C |
+| 当前阶段 | S6.1-P1 审批前协议门 |
+| 当前任务 | `S6.1-P1-R1 = REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`；Option B 已选，等待项目负责人审查候选 |
 | 上下文恢复治理 | `HUMAN_ACCEPTED（人工验收通过）` |
 | 正式实验状态 | `NOT STARTED（尚未开始）` |
 | 我们的方法结果 | `NONE（尚无正式方法结果）` |
 
-范围警戒：自动过滤、自动重排、可信上下文包、运行时可信检索和完整解毒系统均为 `SCOPE_CONFIRMATION_REQUIRED（需要进一步确认范围）`，不得由题目措辞自动扩展。
+范围警戒：Option B 只允许 hard filtering 或 soft downweighting。trusted context package、完整上下文构造、多证据可信上下文生成、复杂端到端 Agent 防御、生产级 RAG 平台和完整可信检索链均排除并保留给 Paper 2 或后续研究。
 
 ## 2. 整体实验路线
 
@@ -31,9 +31,12 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍
 | S6.1-LR1 | 论文路线与外部基线对齐 | `HUMAN_ACCEPTED` | 路线、对齐矩阵、协议、工件登记 | 外部项目角色已区分，尚非统一严格比较 | 作为方案与后续协议输入 |
 | S6.1-R0 | 复现环境与可行性预检 | `HUMAN_ACCEPTED_WITH_BLOCKERS` | 环境、源码、数据工件与证据合同 | 工程可行性已识别，目标阻塞仍存在 | 由 FU1 定向处理 |
 | S6.1-R0-FU1 | 定向解除基线阻塞 | `HUMAN_ACCEPTED / CLOSED` | P0、L1、W2 证据、H1 模型包、resume_01 历史与 resume_02 `25/25` evidence | 仅关闭单样本 detection-core 工程可行性 | 历史冻结；不自动进入 P1 |
-| S6.1-P1 | 正式实验协议冻结 | `CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED` | 非权威协议候选 | 尚无准入授权 | owner 审查候选与解毒范围 |
+| S6.1-P1-R1 | 协议强化与 Option B 范围冻结 | `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED` | [审批级强化候选](../s6_1_p1_r1_protocol_review_candidate.md) | 范围已确认但无 P1/Pilot 准入授权 | owner 审查候选与四项高层决定 |
+| S6.1-P1 | 正式实验协议批准 | `NOT APPROVED / NOT STARTED` | 尚无 canonical stage process | 尚无准入授权 | 先验收或修订 P1-R1 候选 |
+| Pilot | 样本规模、标注与资源可行性验证 | `NOT APPROVED / NOT STARTED` | 无 | 尚未执行 | 需独立批准 |
 | 中文 Benchmark 构建 | 版本链与隐蔽污染数据 | `NOT STARTED / DATASET NOT FROZEN` | 预期为冻结数据快照 | 尚未构建 | 先完成协议审批 |
 | 多视角 Detector 实现 | 五视角检测与风险评分 | `PLANNED / NOT IMPLEMENTED` | 预期为检测器实现 | 无实现结果 | 等待数据与协议 |
+| Retrieval Intervention | hard filtering / soft downweighting | `PLANNED / NOT IMPLEMENTED` | 预期为轻量干预实现 | 无实现结果 | 等待协议、数据与 Detector |
 | Formal Evaluation | 正式主实验 | `NOT STARTED` | 预期为可复现实验结果 | 无正式结果 | 等待全部准入条件 |
 | Ablation | 视角与组件消融 | `PLANNED / NOT STARTED` | 预期为消融结果 | 无结果 | 正式方法实现后执行 |
 | Generalization | 跨攻击、跨领域评估 | `PLANNED / NOT STARTED` | 预期为泛化结果 | 无结果 | 主实验后执行 |
@@ -101,7 +104,7 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍
 - 不能得出的结论：不能把一次双文档调用写成 GMTP 复现、有效性、安全性、泛化、正式指标或论文结果。
 - 失败和 blocker：Attempt 1 模型下载阻塞作为历史保留；W2 blocker 已由 resume_02 与 owner acceptance 关闭，后续 P1 协议、解毒范围与 formal-environment 仍是独立门。
 - 解决情况：Correction 02 关闭 evidence blocker；resume02 本机复核关闭冻结的最小 Worker feasibility blocker。
-- 当前下一步：审查 [P1 协议候选](../s6_1_p1_protocol_candidate.md)并选择解毒 Option A/B/C；不得再次调用 H2-B，不得自动批准或进入 P1。
+- 当前下一步：审查 [P1-R1 协议强化候选](../s6_1_p1_r1_protocol_review_candidate.md)及其四项高层决定；Option B 已选。不得再次调用 H2-B，不得自动批准或进入 P1/Pilot。
 - 详细过程链接：[S6.1-R0-FU1_work_process.md](../stage_process/S6.1-R0-FU1_work_process.md)。
 
 ## 4. 结果分类
@@ -154,14 +157,16 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍
 
 - 工程风险：一次双文档 smoke 不能覆盖 full-corpus/indexing、阈值校准、批量稳定性或更广依赖；禁止把已关闭的最小 feasibility gate 外推。
 - 架构风险：外部代码的隐藏依赖可能在受控 smoke 中再次暴露。
-- 实验风险：数据、参数、种子、正式指标和统计协议尚未冻结。
+- 实验风险：P1-R1 虽提出数据、参数、种子、指标和统计候选值，但尚未获批准或冻结，且样本量与资源预算仍须 Pilot 校准。
 - 论文风险：工程可行性、公开论文结论、复现结果和本项目结果若混写会导致不可支持的主张。
 - 许可证与可发布风险：代码访问和内部复现不等于数据再分发许可，发布前仍须逐项复核。
 
 ## 8. 下一步
 
 - P0：W2/FU1 已按工程 feasibility 范围接受并关闭；无需向 5090 发送 prompt，也不得重复 H2-B。
-- P1：项目负责人审查协议候选并选择解毒 A/B/C；当前 `NOT APPROVED / NOT STARTED`。
+- P1-R1：项目负责人审查审批级候选及其四项高层决定；当前 `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`。
+- P1：`NOT APPROVED / NOT STARTED`；Pilot：`NOT APPROVED / NOT STARTED`。
+- Dataset `NOT FROZEN`；Detector 与 Retrieval Intervention 均 `NOT IMPLEMENTED`；Training、Formal Experiment 均 `NOT STARTED`。
 - P2：协议获批后才讨论中文 Benchmark 构建、多视角 Detector、Formal Evaluation、消融和泛化。
 
 ## 9. 需要项目需求提出人确认

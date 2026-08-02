@@ -16,14 +16,15 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-P1-CONTRACT-CANDIDATE`.
-- Task name: `Paper 1 Formal Experimental Protocol and Benchmark Specification`.
-- Task type: **DESIGN_CANDIDATE / NO_EXPERIMENT_EXECUTION**.
-- Status: **CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED**.
-- Execution machine: **本机 / CONTROL_PLANE**. This task records owner acceptance and prepares documentation only；it does not
+- Task ID: `S6.1-P1-R1`.
+- Task name: `P1 Protocol Hardening and Option B Scope Freeze`.
+- Task type: **PROTOCOL_HARDENING / SCOPE_FREEZE / NO_EXPERIMENT_EXECUTION**.
+- Status: **REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED**.
+- Base commit: `P1_R1_BASE_COMMIT = aabe504d55626fb31008822b7bbabd3b32e2afd4`.
+- Execution machine: **本机 / CONTROL_PLANE**. This task records owner-confirmed scope and prepares documentation/tests only；it does not
   contact 5090, extract/load a model, run GMTP/H2/harness or use a GPU.
-- Current ordered step: project owner reviews the non-authoritative P1 protocol candidate and selects Detoxification Option A/B/C.
-  No automatic P1 approval or execution is authorized.
+- Current ordered step: project owner reviews the non-authoritative P1-R1 protocol hardening candidate. Option B is selected, but
+  no automatic P1, Pilot, Dataset, implementation or experiment approval is authorized.
 - Historical superseded H2 snapshot: `PROPOSED / NOT CANONICAL / NOT APPROVED`; preserve as history.
 - Formal RAG security experiment: **NOT STARTED**.
 - Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.
@@ -58,11 +59,15 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - S6.1-R0-FU1-W2-H2-RESUME-02: **CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED / call_count=1**.
 - S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02: **CONTROL_PLANE_REVIEW_PASS / FINAL_CLOSURE_APPLIED** under
   `PODR-057` and `PODR-058`.
-- S6.1-P1: **NOT STARTED / NOT APPROVED**. Its protocol is only a linked non-authoritative candidate.
+- S6.1-P1-R1: **REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED**.
+- S6.1-P1: **NOT APPROVED / NOT STARTED**. Its protocol remains a linked non-authoritative candidate.
+- Pilot: **NOT APPROVED / NOT STARTED**.
 - Dataset: **NOT FROZEN**.
 - Dataset Generation: **NOT APPROVED**.
 - Detector: **NOT IMPLEMENTED**.
 - Detector Implementation: **NOT APPROVED**.
+- Retrieval Intervention: **NOT IMPLEMENTED**.
+- Retrieval Intervention Implementation: **NOT APPROVED**.
 - Training: **NOT STARTED**.
 - Model Training: **NOT APPROVED**.
 - Our Method Result: **NONE**.
@@ -71,15 +76,18 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - `BLK-S6.1-LR1-001` remains **OPEN** for future strict comparison；license/redistribution issues remain separate from internal
   research access。
 - P0 source/planning blockers remain resolved. L1 additionally resolves `BLK-S6.1-FU1-W1-001` through exact artifact/schema/
-  assembly evidence and supersedes the Worker W1 route. Parent W2 acceptance remains owner-gated. The historical
+  assembly evidence and supersedes the Worker W1 route. Parent W2 acceptance gate is closed under PODR-061. The historical
   `W2_ATTEMPT1_EVIDENCE_BLOCKER` is
   **RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW**。`BLK-S6.1-FU1-W2-001` is
   **RESOLVED_BY_H2_RESUME02_AND_OWNER_ACCEPTANCE** only for the exact frozen minimal detector-core feasibility gate.
 - `GMTP_REPRODUCTION = NOT ESTABLISHED`；`DETECTION_EFFECTIVENESS = NOT ESTABLISHED`；
   `STRICT_BASELINE_COMPARISON = NOT ESTABLISHED`；`FORMAL_PAPER_RESULT = NONE`.
 - In the single frozen sample pair, benign was retained and poisoned was filtered. 这是单次冻结样本的工程观察，不是检测性能结论。
-- `DETOXIFICATION_TECHNICAL_SCOPE = SCOPE_CONFIRMATION_REQUIRED`；
-  `HUMAN_DECISION_REQUIRED_BEFORE_P1_APPROVAL`.
+- `DETOXIFICATION_OPTION = OPTION_B`；`DETOXIFICATION_TECHNICAL_SCOPE = OPTION_B_CONFIRMED`；
+  `DETOXIFICATION_TECHNICAL_SCOPE_FULL = OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION`.
+- Paper 1 intervention is limited to hard filtering or soft downweighting. Trusted context packages, complete context construction,
+  multi-evidence trusted context generation, complex end-to-end Agent defense, production RAG platforms and a complete trusted
+  retrieval chain are excluded and reserved for Paper 2 or later work.
 - Attempt 1 archive integrity passed narrowly: outer SHA-256
   `6acdbb8038e57b1d3e88028350fc08046d73a826ba9dd167452bfc0dd834170f`, safe members `18/18`, evidence index `16/16` and
   harness SHA-256 `8411af2042774f1a18eec95e97a14ade088acbc35f09942ae9ffea4e8ea5fc06`.
@@ -118,7 +126,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Canonical Paper 1 route: [Paper 1 Research Route](../research/stage6_1_hidden_knowledge_poisoning/paper1_research_route.md).
 - Canonical FU1-P0 resolution: [Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md).
 - Canonical H2 resume02 review: [Control Plane Evidence Review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_h2_resume02_control_plane_review.md).
-- Non-authoritative P1 candidate: [Formal Protocol and Benchmark Specification](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_protocol_candidate.md).
+- Current non-authoritative P1-R1 candidate: [Protocol Hardening and Option B Scope Freeze](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_r1_protocol_review_candidate.md).
+- Historical non-authoritative P1 candidate: [Formal Protocol and Benchmark Specification](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_protocol_candidate.md).
 - Context recovery entry: [Context Authority Map](context_authority_map.md).
 - Highest internal execution authority: [PO-MHEP](project_owner_sovereignty_and_mandatory_escalation_principle.md).
 
@@ -192,8 +201,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
 - Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
   evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- Next operational action: project owner reviews the accepted H2 engineering-smoke evidence and decides parent W2 disposition.
-  No second H2-B call, automatic resume_03 or automatic S6.1-P1 approval is authorized.
+- Next operational action: project owner reviews the P1-R1 approval-grade candidate and its four remaining high-level decisions.
+  No second H2-B call, automatic resume_03, P1 approval, Pilot or implementation is authorized.
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. Its acceptance does not approve S6-T5.6 ContextBuilder behavior; that remains a separate boundary.
@@ -212,7 +221,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   experiment. The narrowly approved H1 public-artifact download is complete and grants no continuing download authority.
 - On 5090: overwrite/delete/rename resume_01；reuse or rerun resume_02；automatic resume_03；a second H2-B call；anything beyond the exact frozen H2 contract；network fallback、
   environment mutation、algorithm reimplementation、silent source patch、parameter/input/model substitution or formal workload。
-- Everywhere: any unapproved FU1 Worker execution、S6.1-P1、Detector implementation、dataset freeze/construction、training、Paper Result、
+- Everywhere: any unapproved FU1 Worker execution、S6.1-P1、Pilot、Detector/Retrieval Intervention implementation、dataset freeze/construction、training、Paper Result、
   formal experiment or SOTA comparison。
 - Additional ContentResolver changes, document-content access beyond synthetic test inputs, Trust policy, retrieval guard, or any S6-T5.8 behavior beyond the completed documentation closure.
 - Groq, mock/real LLM invocation, evaluator, metrics, T10-T15, formal RAG attack matrix or report generation.
@@ -231,13 +240,13 @@ preflight boundary recorded above。H1 prepared two exact-revision offline model
   that is now verified on 5090 for the frozen H2 smoke。P0 and L1 are `HUMAN_ACCEPTED`；the exact released NQ attack-text artifact identity, all 100 records and
 official deterministic LM-targeted assembly are verified；API-free reuse is verified feasible while API-free generation and exact
 paper-generation identity remain unresolved/partial。The GMTP W2 input, models, parameters, isolated environment and resource
-ceiling are frozen and W2 remains approved but not completed/accepted。The original
+ceiling are frozen and W2/FU1 are accepted and closed only for engineering feasibility。The original
 baseline roles remain unchanged。PO-MHEP is permanently accepted as the highest internal execution authority。
 
 Can claim: within the offline engineering-test scope, the `S6-T5 Controlled Retrieval and Traceable Context Baseline` is HUMAN_ACCEPTED. It comprises deterministic and label-isolated retrieval runtime contracts, provider-neutral DenseRetriever, the synthetic ContentResolver, EvidenceEnvelope/Citation boundaries, deterministic Context Package behavior, and S6-T5.7 controlled integration evidence including an opt-in fixed MiniLM plus temporary Chroma close/reopen check. `4ecf73a` is the accepted baseline content commit; the current governance acceptance commit is not an implementation or integration-evidence commit. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
 Cannot claim: the two-document smoke reproduces GMTP；its two scores establish detector effectiveness, calibration, safety,
-generalization or a paper metric；W2 completed/was accepted；any
+generalization or a paper metric；any
 external baseline was reproduced；strict comparison is ready；SafeRAG pipeline is ready；dataset/
 Detector/Our Method/training/result exists；or retrieval quality/security, SOTA, production readiness or formal-experiment outcomes
 are established.
@@ -251,7 +260,7 @@ are established.
 
 ## Last Update
 
-- Date: `2026-08-01`.
-- Updated by: Codex independently reviewing resume_02 archive safety, `25/25` indexed evidence, H2-A `18/18`, frozen identities,
-  single H2-B call and redacted resource/result evidence. No model load, GMTP/harness/GPU occurred on 本机；parent W2 remains not
-  completed/not accepted；P1 and Formal Experiment remain not started.
+- Date: `2026-08-02`.
+- Updated by: LOCAL Control Plane registering OR-021/PODR-062, freezing Option B at the research-scope level, and preparing the
+  P1-R1 approval-grade review candidate. No 5090 contact, data construction, implementation, model load or experiment occurred；
+  P1/Pilot remain not approved/not started and Formal Experiment remains not started.

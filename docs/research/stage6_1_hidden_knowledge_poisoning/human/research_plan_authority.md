@@ -11,11 +11,13 @@ Current Plan Status = `ACCEPTED_CURRENT_RESEARCH_PLAN`
 - 已接受英文工作题目：*Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework*。
 - 用户最新中文题目：《面向中文检索增强生成系统的版本感知隐蔽知识污染基准与多视角解毒方法》。
 - `TITLE_INTENT = CONFIRMED`。
-- 已接受技术范围：Benchmark、Detection、Risk Score、Signals、Explanation。
-- 待确认范围：自动过滤、自动重排、trusted context package、运行时可信检索、完整解毒系统。
-- `DETOXIFICATION_TECHNICAL_SCOPE = SCOPE_CONFIRMATION_REQUIRED`。
+- 已接受技术范围：Benchmark、Detection、Risk Score、Signals、Explanation，以及 Option B 的轻量检索干预。
+- `DETOXIFICATION_OPTION = OPTION_B`。
+- `DETOXIFICATION_TECHNICAL_SCOPE = OPTION_B_CONFIRMED`。
+- `DETOXIFICATION_TECHNICAL_SCOPE_FULL = OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION`。
+- Option B 只允许基于校准风险的 hard filtering 或 soft downweighting，并同时报告安全与效用；不包含 trusted context package、完整上下文构造、多证据可信上下文生成、复杂端到端 Agent 防御、生产级 RAG 平台或完整可信检索链。
 - W2 工程门已以 `ENGINEERING_FEASIBILITY_ONLY` 人工验收并关闭；这不改变研究范围或建立检测有效性。
-- [P1 正式实验协议与 Benchmark 规格候选](../s6_1_p1_protocol_candidate.md)仅为 `CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED`；解毒 Option A/B/C 仍待项目需求提出人选择。
+- [P1-R1 正式实验协议强化候选](../s6_1_p1_r1_protocol_review_candidate.md)为 `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`，在候选层替代但不删除[旧 P1 候选](../s6_1_p1_protocol_candidate.md)。
 
 ## 2. 研究问题
 
@@ -56,11 +58,11 @@ Current Plan Status = `ACCEPTED_CURRENT_RESEARCH_PLAN`
 | Temporal-Version View | 版本、时效与修订关系 | `PLANNED / NOT IMPLEMENTED` |
 | Retrieval-Behavior View | 排名、邻域与检索扰动 | `PLANNED / NOT IMPLEMENTED` |
 
-这些视角计划输出风险分数、信号和解释；尚无 detector 实现或结果。
+这些视角计划输出风险分数、信号和解释；Option B 计划在冻结阈值下对检索候选执行 hard filtering 或 soft downweighting，并将安全与效用作为分开的共同主结果。尚无 detector 或 retrieval intervention 实现与结果。
 
 ## 7. Paper 1 与后续研究边界
 
-Paper 1 当前仅包括 Benchmark、Detection、Risk Score、Signals、Explanation。自动过滤、自动重排、trusted context package、运行时可信检索和完整解毒系统是否纳入均待项目需求提出人确认；在确认前视为后续研究候选，不得据题目自动扩展。
+Paper 1 包括 Benchmark、Detection、Risk Score、Signals、Explanation，以及严格限于 hard filtering 或 soft downweighting 的轻量检索干预。trusted context package、完整上下文构造、多证据可信上下文生成、复杂端到端 Agent 防御、生产级 RAG 平台和完整可信检索链明确排除并保留给 Paper 2 或后续研究；不得把 Option B 扩张为这些能力。
 
 ## 8. 数据设计
 
@@ -96,7 +98,7 @@ Paper 1 当前仅包括 Benchmark、Detection、Risk Score、Signals、Explanati
 1. S6.1-LR1：路线与基线对齐，已人工验收。
 2. S6.1-R0：工程预检，带阻塞项验收。
 3. S6.1-R0-FU1：P0/L1/W2 已验收；仅以工程可行性范围关闭。
-4. S6.1-P1：协议候选待审，`NOT APPROVED / NOT STARTED`；不得冻结或执行数据、方法或实验。
+4. S6.1-P1-R1：审批级强化候选待审，`REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`；不得冻结或执行数据、Pilot、方法或实验。
 5. Benchmark、Detector、Formal Evaluation、Ablation、Generalization、Paper Writing：均需各自审批与证据门。
 
 ## 14. 正式实验进入条件
@@ -107,7 +109,7 @@ Paper 1 当前仅包括 Benchmark、Detection、Risk Score、Signals、Explanati
 - 模型 revision、环境、随机种子、指标、统计和资源预算冻结。
 - 项目需求提出人明确批准 S6.1-P1 及后续相应阶段。
 
-当前 `S6.1-P1 = NOT STARTED`，不得自动进入 Dataset Construction、Detector Implementation、Training 或 Formal Experiment。
+当前 `S6.1-P1-R1 = REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`、`S6.1-P1 = NOT APPROVED / NOT STARTED`，不得自动进入 Pilot、Dataset Construction、Detector Implementation、Retrieval Intervention Implementation、Training 或 Formal Experiment。
 
 ## 15. 结论边界
 
@@ -126,7 +128,7 @@ Paper 1 当前仅包括 Benchmark、Detection、Risk Score、Signals、Explanati
 | 标签或 Ground Truth 泄漏 | 对全部 retriever 可见字符串递归扫描并设置失败关闭测试 |
 | 工程 smoke 被误写为论文结果 | 使用四类结果与 claims matrix |
 | 中文版本数据真实性与许可风险 | 建立来源、版本、权威和再分发登记 |
-| 范围由题目措辞扩张 | 所有解毒相关新增能力需项目需求提出人确认 |
+| Option B 被扩张成完整可信检索或 Agent 防御 | 只允许 hard filtering / soft downweighting；超出能力保留给 Paper 2 或后续研究 |
 
 ## 17. 方案变更记录
 
@@ -136,5 +138,6 @@ Paper 1 当前仅包括 Benchmark、Detection、Risk Score、Signals、Explanati
 | RPC-002 | 2026-08-01 | `paper1_research_route.md` 同时承担当前方案入口 | 本文件成为唯一当前方案权威；原路线降级为历史与支撑材料 | 建立单一职责和 Human/LLM 分离 | 是 | Paper 1 全局 | 本次文档重构提交 |
 | RPC-003 | 2026-08-01 | 英文工作题目 | 登记最新中文题目，同时保持当前已接受技术范围 | 反映项目需求提出人题目意图 | 是；技术范围待确认 | Paper 1 全局 | 本次文档重构提交 |
 | RPC-004 | 2026-08-02 | W2 等待人工决定 | W2/FU1 以单样本 detection-core 工程可行性范围验收关闭；P1 仅形成非权威协议候选 | 前置工程门已满足，但科学结论与正式实验仍需独立协议和审批 | 是；解毒 A/B/C 待确认 | FU1 closure / P1 candidate | PODR-061；本次提交 |
+| RPC-005 | 2026-08-02 | 解毒 A/B/C 待确认、旧 P1 合同候选 | 选择 Option B；Paper 1 冻结为检测与轻量 hard filtering/soft downweighting，并形成审批级 P1-R1 强化候选 | 使题目中的“解毒”具有可证伪、可预算和不扩张的技术边界 | 是；OR-021 / PODR-062 | S6.1-P1-R1 review gate | 本次提交 |
 
 历史与支撑路线：[paper1_research_route.md](../paper1_research_route.md)，其 `Document Role = HISTORICAL_AND_SUPPORTING_RESEARCH_ROUTE`，不能覆盖本文件。

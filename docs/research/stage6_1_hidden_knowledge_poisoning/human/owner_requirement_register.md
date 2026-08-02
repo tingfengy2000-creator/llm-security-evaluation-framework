@@ -24,11 +24,14 @@
 | OR-018 | 2026-08-01 | 确认 bundle 与 sidecar 已同步到 5090；保留非空 `resume_01` blocker evidence，不覆盖、不删除；批准改用全新 `resume_02` 从 H2-A 重新开始，并使用新的 resume02 archive；除证据命名空间外合同不变 | 实验继续批准 | FU1/W2/H2 | `RESUME_02 APPROVED_TO_START / NOT EXECUTED` | S6.1-R0-FU1-W2-H2-RESUME-02 | 当前任务明确确认；resume_01 evidence 与本机复核 | 不授权 resume_03、重复 H2-B、P1 或正式实验 |
 | OR-019 | 2026-08-01 | 后续 5090 输出仍同步到 E 盘 `LLMGuard-Handoff` 文件夹；本次误同步到 D 盘 `llmProject/handoff` 仅为单次例外，不改变冻结计算端输出路径 | 工件交接规则 | 本机/5090 证据传递 | 已确认 | FU1 及后续获批计算任务 | 项目需求提出人当前明确说明 | 不移动或改写既有证据；不把 D 盘例外变成新规范 |
 | OR-020 | 2026-08-02 | 正式验收父 W2 为 `HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED` 并关闭 FU1；只接受冻结单样本 detection-core 工程可行性；准备 P1 协议候选但不批准、不启动 P1，不扩大论文结论；解毒 A/B/C 范围须后续人工选择 | 最终验收与下一阶段范围门 | FU1/W2/P1 candidate | W2/FU1 accepted and closed；P1 candidate pending | S6.1-R0-FU1-W2；S6.1-P1 | owner 明确指令；验收基础 `b19fc59cc5ba771fd547430f6096403720ef1a7d`；PODR-061 | 禁止 5090/H2/GMTP/model、Dataset、Detector、Training、Formal Experiment 或 Paper Result 自动推进 |
+| OR-021 | 2026-08-02 | 明确选择 `DETOXIFICATION_OPTION = OPTION_B`，确认 Paper 1 技术范围为 Benchmark、多视角检测、风险/信号/解释，以及轻量 hard filtering 或 soft downweighting，并以安全—效用双主结果评估；trusted context package、完整上下文构造、多证据可信上下文生成、复杂端到端 Agent 防御、生产级 RAG 平台和完整可信检索链留给 Paper 2 或后续研究 | Paper 1 技术范围冻结 | Paper 1 / P1-R1 | `OPTION_B_CONFIRMED`；协议强化候选待审 | S6.1-P1-R1 | 项目需求提出人本轮明确选择；PODR-062 | 只冻结范围与审批级候选；不批准 P1、Pilot、Dataset、Detector、Retrieval Intervention、Training 或 Formal Experiment |
 
 题目范围登记：
 
 - `TITLE_INTENT = CONFIRMED`
-- `DETOXIFICATION_TECHNICAL_SCOPE = SCOPE_CONFIRMATION_REQUIRED`
+- `DETOXIFICATION_OPTION = OPTION_B`
+- `DETOXIFICATION_TECHNICAL_SCOPE = OPTION_B_CONFIRMED`
+- `DETOXIFICATION_TECHNICAL_SCOPE_FULL = OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION`
 
 ## 尚未由用户确认的建议
 
@@ -36,9 +39,9 @@
 
 | 建议 ID | 内容 | 当前状态 | 进入已确认区的条件 |
 | --- | --- | --- | --- |
-| OS-001 | 自动过滤进入 Paper 1 | `SCOPE_CONFIRMATION_REQUIRED` | 项目需求提出人明确确认 |
-| OS-002 | 自动重排进入 Paper 1 | `SCOPE_CONFIRMATION_REQUIRED` | 项目需求提出人明确确认 |
-| OS-003 | trusted context package 进入 Paper 1 | `SCOPE_CONFIRMATION_REQUIRED` | 项目需求提出人明确确认 |
-| OS-004 | 运行时可信检索进入 Paper 1 | `SCOPE_CONFIRMATION_REQUIRED` | 项目需求提出人明确确认 |
-| OS-005 | 完整解毒系统进入 Paper 1 | `SCOPE_CONFIRMATION_REQUIRED` | 项目需求提出人明确确认 |
+| OS-001 | 自动过滤进入 Paper 1 | `ACCEPTED_NARROWLY_BY_OR-021` | 仅指基于冻结风险阈值的轻量 hard filtering |
+| OS-002 | 自动重排进入 Paper 1 | `ACCEPTED_NARROWLY_BY_OR-021_AS_SOFT_DOWNWEIGHTING` | 仅指检索分数减去风险惩罚；不含完整 reranker 或可信检索链 |
+| OS-003 | trusted context package 进入 Paper 1 | `EXCLUDED_FROM_PAPER1_BY_OR-021 / RESERVED_FOR_PAPER2` | 需后续独立需求与批准 |
+| OS-004 | 运行时可信检索进入 Paper 1 | `EXCLUDED_EXCEPT_NARROW_OPTION_B_INTERVENTION / RESERVED_FOR_LATER` | Paper 1 只含 hard filtering / soft downweighting，不含完整可信检索链 |
+| OS-005 | 完整解毒系统进入 Paper 1 | `EXCLUDED_FROM_PAPER1_BY_OR-021 / RESERVED_FOR_LATER` | 需后续独立需求与批准 |
 | OS-006 | H2 设计 | 历史状态 `PROPOSED / NOT CANONICAL / NOT APPROVED`；现已由 OR-017 supersede | 已由项目需求提出人明确批准，历史记录保留 |

@@ -27,6 +27,7 @@ FU1_RESOLUTION = RESEARCH / "s6_1_r0_fu1_targeted_resolution.md"
 W2_ATTEMPT1_REVIEW = RESEARCH / "s6_1_r0_fu1_w2_attempt1_control_plane_review.md"
 W2_H2_RESUME02_REVIEW = RESEARCH / "s6_1_r0_fu1_w2_h2_resume02_control_plane_review.md"
 P1_PROTOCOL_CANDIDATE = RESEARCH / "s6_1_p1_protocol_candidate.md"
+P1_R1_PROTOCOL_CANDIDATE = RESEARCH / "s6_1_p1_r1_protocol_review_candidate.md"
 LONG_TERM_REQUIREMENTS = GOVERNANCE / "long_term_research_requirements.md"
 AGENTS = ROOT / "AGENTS.md"
 PAPER1_README = RESEARCH / "README.md"
@@ -92,6 +93,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             W2_ATTEMPT1_REVIEW,
             W2_H2_RESUME02_REVIEW,
             P1_PROTOCOL_CANDIDATE,
+            P1_R1_PROTOCOL_CANDIDATE,
         )
         for path in required:
             with self.subTest(path=path.relative_to(ROOT)):
@@ -263,7 +265,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("RESOLVED_BY_CORRECTION_02", state)
         self.assertIn("VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER", state)
         self.assertIn("OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090", state)
-        self.assertIn("S6.1-P1: **NOT STARTED", state)
+        self.assertIn("S6.1-P1: **NOT APPROVED / NOT STARTED", state)
         self.assertIn("Dataset: **NOT FROZEN**", state)
         self.assertIn("Detector: **NOT IMPLEMENTED**", state)
         self.assertIn("Training: **NOT STARTED**", state)
@@ -575,7 +577,10 @@ class ResearchContextRecoveryTests(unittest.TestCase):
                 self.assertIn(required, combined)
 
         self.assertNotIn("S6.1-R0-FU1-W2: **APPROVED_TO_EXECUTE**", state)
-        self.assertIn("No automatic P1 approval or execution is authorized", state)
+        self.assertIn(
+            "no automatic P1, Pilot, Dataset, implementation or experiment approval is authorized",
+            state,
+        )
 
     def test_w2_attempt1_gap_history_and_correction02_closure_are_both_preserved(self) -> None:
         review = W2_ATTEMPT1_REVIEW.read_text(encoding="utf-8")
@@ -680,7 +685,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER",
             "RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW",
             "OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION",
-            "S6.1-P1: **NOT STARTED",
+            "S6.1-P1: **NOT APPROVED / NOT STARTED",
             "FORMAL_EXPERIMENT = NOT STARTED",
             "S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02",
             "APPROVED_TO_START / NOT SENT / NOT EXECUTED",
@@ -1065,6 +1070,118 @@ class ResearchContextRecoveryTests(unittest.TestCase):
 
         self.assertEqual(1, len(list(STAGE_PROCESS_DIR.glob("S6.1-R0-FU1_work_process.md"))))
 
+    def test_p1_r1_option_b_candidate_is_approval_grade_but_non_executing(self) -> None:
+        candidate = P1_R1_PROTOCOL_CANDIDATE.read_text(encoding="utf-8")
+        old_candidate = P1_PROTOCOL_CANDIDATE.read_text(encoding="utf-8")
+        requirements = OWNER_REQUIREMENTS.read_text(encoding="utf-8")
+        plan = RESEARCH_PLAN.read_text(encoding="utf-8")
+        current = CURRENT_STATE.read_text(encoding="utf-8")
+        decisions = DECISION_REGISTER.read_text(encoding="utf-8")
+        master = MASTER_RECORD.read_text(encoding="utf-8")
+        audit = EXECUTION_LOG.read_text(encoding="utf-8")
+        human = TINGFENG_LEDGER.read_text(encoding="utf-8")
+        agent = AGENT_LEDGER.read_text(encoding="utf-8")
+        context = CONTEXT_ARCHIVE.read_text(encoding="utf-8")
+        combined = "\n".join(
+            (
+                requirements,
+                plan,
+                current,
+                decisions,
+                master,
+                audit,
+                human,
+                agent,
+                context,
+                candidate,
+            )
+        )
+
+        for required in (
+            "OR-021",
+            "PODR-062",
+            "REL-2026-0025",
+            "P1_R1_BASE_COMMIT = aabe504d55626fb31008822b7bbabd3b32e2afd4",
+            "DETOXIFICATION_OPTION = OPTION_B",
+            "DETOXIFICATION_TECHNICAL_SCOPE = OPTION_B_CONFIRMED",
+            "OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION",
+            "S6.1-P1-R1 = REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED",
+            "S6.1-P1 = NOT APPROVED / NOT STARTED",
+            "Pilot = NOT APPROVED / NOT STARTED",
+            "Dataset = NOT FROZEN",
+            "Detector = NOT IMPLEMENTED",
+            "Retrieval Intervention = NOT IMPLEMENTED",
+            "Training = NOT STARTED",
+            "Our Method Result = NONE",
+            "Formal Experiment = NOT STARTED",
+            "HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED",
+            "S6.1-R0-FU1 = HUMAN_ACCEPTED / CLOSED",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, combined)
+
+        for required in (
+            "Document Role = `P1_APPROVAL_GRADE_REVIEW_CANDIDATE`",
+            "Authority = `NON_CANONICAL_CANDIDATE`",
+            "Status = `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`",
+            "Supersedes Candidate Draft",
+            "RQ1：",
+            "RQ6：",
+            "Query-Document Unit",
+            "Retrieval-Set Unit",
+            "independence_group_id",
+            "PUBLIC_TRACEABLE_CHINESE_DOCUMENTS + CONTROLLED_MUTATION + HUMAN_REVIEW",
+            "Retriever visible",
+            "Detector visible",
+            "Evaluator only",
+            "DATA_SPLIT_LEAKAGE_BLOCKER",
+            "Hard Filtering",
+            "Soft Downweighting",
+            "co-primary endpoints",
+            "10,000",
+            "2,000",
+            "Holm correction",
+            "Stage A — Pilot",
+            "MINIMAL_PUBLISHABLE_MATRIX",
+            "FULL_MATRIX",
+            "RESOURCE_BUDGET_REVIEW_REQUIRED",
+            "P1 获批前以下二十项必须全部满足",
+            "FORWARD_RISK_REVIEW = PASS_FOR_REVIEW_CANDIDATE_ONLY",
+            "PAPER_RISK_REVIEW = PASS_FOR_OWNER_REVIEW_WITH_OPEN_FREEZES",
+            "P1-R1 完成后只保留四项高层决定",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, candidate)
+
+        for excluded in (
+            "trusted context package",
+            "完整上下文构造",
+            "多证据可信上下文生成",
+            "复杂端到端 Agent 防御",
+            "生产级 RAG 平台",
+            "完整可信检索链",
+        ):
+            with self.subTest(excluded=excluded):
+                self.assertIn(excluded, candidate)
+
+        self.assertTrue(old_candidate)
+        self.assertNotIn("DETOXIFICATION_OPTION = OPTION_A", combined)
+        self.assertNotIn("DETOXIFICATION_OPTION = OPTION_C", combined)
+        self.assertIn("它明确不包括 trusted context package", candidate)
+        self.assertIn("EXCLUDED_FROM_PAPER1_BY_OR-021", requirements)
+        for mirror in (human, agent):
+            for marker in (
+                "OPTION_B_CONFIRMED",
+                "REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED",
+                "HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED",
+                "NOT FROZEN",
+                "NOT IMPLEMENTED",
+                "Formal Experiment",
+            ):
+                with self.subTest(mirror=mirror[:32], marker=marker):
+                    self.assertIn(marker, mirror)
+        self.assertFalse((STAGE_PROCESS_DIR / "S6.1-P1_work_process.md").exists())
+
     def test_h2_resume02_rollover_preserves_resume01_and_single_call_gate(self) -> None:
         process = (STAGE_PROCESS_DIR / "S6.1-R0-FU1_work_process.md").read_text(
             encoding="utf-8"
@@ -1131,6 +1248,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             RESEARCH_PLAN,
             AGENT_LEDGER,
             CONTEXT_ARCHIVE,
+            P1_R1_PROTOCOL_CANDIDATE,
             *(STAGE_PROCESS_DIR.glob("*_work_process.md")),
         )
         link_pattern = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
