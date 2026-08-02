@@ -1,5 +1,16 @@
-"""Paper 1 Pilot0 hidden-poisoning infrastructure (synthetic/offline only)."""
+"""Paper 1 hidden-poisoning engineering and public-source pilot contracts."""
 
+from .annotation import (
+    AdjudicationStatus,
+    AnnotationCandidate,
+    AnnotationPacket,
+    BenchmarkStatus,
+    CandidateKind,
+    CandidateStatus,
+    PacketKind,
+    build_annotation_packet,
+    hkp_stealth_coverage,
+)
 from .attacks import ALLOWED_CHANGED_FIELDS, MutationSpec, validate_mutation_fields
 from .groups import GroupIdentityRecord, build_independence_groups
 from .hard_negatives import hard_negative_coverage, validate_hard_negative_coverage
@@ -58,6 +69,16 @@ from .splits import (
     split_assignment_hash,
     validate_group_split,
 )
+from .source_registry import (
+    PILOT1_A_GATE_NAMES,
+    RedistributionStatus,
+    ReleaseClassification,
+    SourceArtifact,
+    SourceChain,
+    SourceDomain,
+    TermsOrLicenseStatus,
+    evaluate_pilot1_a,
+)
 from .visibility import (
     EVALUATOR_ONLY_FIELDS,
     FIELD_POLICY,
@@ -73,6 +94,12 @@ from .visibility import (
 
 __all__ = [
     "ALLOWED_CHANGED_FIELDS",
+    "AdjudicationStatus",
+    "AnnotationCandidate",
+    "AnnotationPacket",
+    "BenchmarkStatus",
+    "CandidateKind",
+    "CandidateStatus",
     "EVALUATOR_ONLY_FIELDS",
     "FIELD_POLICY",
     "FORBIDDEN_RUNTIME_KEYS",
@@ -102,10 +129,14 @@ __all__ = [
     "LeakageDocument",
     "LeakageFinding",
     "MutationSpec",
+    "PILOT1_A_GATE_NAMES",
+    "PacketKind",
     "ProvenanceRecord",
     "RetrievalCandidate",
     "RunManifest",
     "RuntimeAudience",
+    "RedistributionStatus",
+    "ReleaseClassification",
     "SchemaValidationError",
     "ScoreNormalization",
     "SemanticNearDuplicateScanner",
@@ -113,7 +144,11 @@ __all__ = [
     "SplitAssignment",
     "SplitConfig",
     "SplitName",
+    "SourceArtifact",
+    "SourceChain",
+    "SourceDomain",
     "StealthLevel",
+    "TermsOrLicenseStatus",
     "UnimplementedSemanticNearDuplicateScanner",
     "VersionRelation",
     "ViewEvidence",
@@ -122,14 +157,17 @@ __all__ = [
     "assert_no_label_leakage",
     "assert_no_structural_leakage",
     "build_independence_groups",
+    "build_annotation_packet",
     "canonical_json",
     "canonical_sha256",
     "deterministic_group_split",
     "evaluator_values",
+    "evaluate_pilot1_a",
     "field_visibility",
     "field_visibility_decision",
     "hard_filter",
     "hard_negative_coverage",
+    "hkp_stealth_coverage",
     "missing_evidence_abstention",
     "project_runtime_payload",
     "soft_downweight",

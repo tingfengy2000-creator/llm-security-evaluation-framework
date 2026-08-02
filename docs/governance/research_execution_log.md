@@ -1148,3 +1148,26 @@ Approval Gate、Auto Continue。
 - Preserved States: `P1_NUMERIC_PARAMETERS = PENDING_PILOT_EVIDENCE`；formal protocol `NOT YET FROZEN`；Dataset `NOT FROZEN`；Detector `NOT IMPLEMENTED`；Training/Formal Experiment `NOT STARTED`；Our Method Result `NONE`.
 - Owner Requirement: `OR-022`.
 - Next Approval Gate: project owner reviews PILOT0 engineering evidence, then decides whether to approve real-data and annotation Pilot. Auto Continue = `NO`.
+
+## REL-2026-0027 — P1 PILOT1 Public Source and Annotation Packet Feasibility Completed
+
+- Record ID: `REL-2026-0027`.
+- Date: `2026-08-02`.
+- Stage: `Stage 6.1 / Paper 1 / PILOT1`.
+- Task ID: `S6.1-P1-PILOT1`.
+- Machine: `本机`.
+- Initial Status: PILOT0 `HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED`；PILOT1 `APPROVED_TO_START / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY`.
+- Final Status: PILOT1 `COMPLETED_PENDING_REVIEW / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY`.
+- Resource Policy: `CODEX_RESOURCE_PRIORITY = 本机优先`；`NO_LOW_VALUE_CHURN = ENFORCED`；no 5090, model, GMTP, GPU, Detector, training or formal experiment.
+- Base Commit: `c555e7da4e5593f72cbf062823feda6bc7798e58`.
+- Source Audit: corrected authoritative Git-external run passed `15/15` gates；12 independent version chains across 3 domains (4 each)；24 official public artifacts；raw/normalized `24/24`；all `HASH_ONLY` because republication permission was not explicitly verified.
+- Candidate Evidence: 36 `ANNOTATION_CANDIDATE / NOT_ADJUDICATED / NOT_BENCHMARK` records；12 clean/current, 12 poison mutation, 12 matched hard negative；all 12 HKP × stealth combinations covered exactly once.
+- Packet Evidence: two independent 36-row blinded packets with anonymous deterministic IDs；attack type, candidate label, mutation operation and expected conclusion excluded；packet hashes indexed.
+- Evidence Integrity: `17/17 PASS`；schema/group/split readiness/exact-normalized-identity leakage/raw-artifact exclusion passed. Semantic near-duplicate status remains `NOT_IMPLEMENTED / FAIL_IF_REQUIRED`.
+- Validation: Pilot1 targeted `4 passed`；hidden_poisoning full `45 passed`；architecture `113 passed / 1614 subtests` after replacing only stale current-state assertions with additive historical compatibility text；namespace/label isolation `10 passed / 1199 subtests`；scoped Ruff and MyPy passed；8 changed Markdown files / 63 relative links passed；secret/private-path, raw-artifact exclusion, protected history, runtime-ignore, UTF-8 and `git diff --check` passed. Pytest cache write-permission warning is non-blocking.
+- Preserved Attempts: the first zero-length-normalized-source attempt and one transiently incomplete corrected acquisition remain untouched as non-authoritative history；corrected_02 is authoritative for review.
+- Claims Allowed: real public-source mapping, version-chain, controlled-candidate and executable blinded-packet engineering feasibility only.
+- Claims Prohibited: completed Benchmark, Ground Truth, human annotation, annotation agreement, Detector/effectiveness/Option B performance, statistics, 240-group Pilot, Our Method Result, Formal Experiment, Paper Result or SOTA.
+- Preserved States: HUMAN_ANNOTATION `NOT STARTED`；ANNOTATION_AGREEMENT `NOT ESTABLISHED`；240_GROUP_PILOT `NOT APPROVED / NOT STARTED`；Dataset `NOT FROZEN`；Detector `NOT IMPLEMENTED`；Retrieval Intervention Effectiveness `NOT ESTABLISHED`；Training/Formal Experiment `NOT STARTED`；Our Method Result `NONE`.
+- Owner Requirement: `OR-023`.
+- Next Approval Gate: project owner reviews the real public sources and annotation packets, then decides whether to authorize real double annotation and a small agreement Pilot. Auto Continue = `NO`.

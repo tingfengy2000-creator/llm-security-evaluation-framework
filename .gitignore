@@ -32,6 +32,10 @@ Thumbs.db
 
 # Stage 6 RAG Security runtime artifacts
 runtime/stage6_rag_security/
+
+# Git-external research runs and evidence
+/experiments/
+
 # Generated local planning exports
 /docs/superpowers/plans/*.pdf
 /docs/superpowers/specs/*.pdf

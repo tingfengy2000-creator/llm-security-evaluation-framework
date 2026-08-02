@@ -16,13 +16,13 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-P1-PILOT0`.
-- Task name: `Benchmark and Lightweight Detoxification Infrastructure Pilot`.
-- Task type: **LOCAL_ENGINEERING_INFRASTRUCTURE / SYNTHETIC_FIXTURE_VALIDATION / NO_FORMAL_EXPERIMENT**.
+- Task ID: `S6.1-P1-PILOT1`.
+- Task name: `Public Chinese Version-Chain Source and Annotation-Packet Pilot`.
+- Task type: **LOCAL_REAL_PUBLIC_SOURCE_FEASIBILITY / ANNOTATION_PACKET_PREPARATION / NO_FORMAL_EXPERIMENT**.
 - Status: **COMPLETED_PENDING_REVIEW**.
-- Base commit: `PILOT0_BASE_COMMIT = 4b0395584627636f5f13658a990614d8f39561eb`.
-- Execution machine: **本机**. No 5090 contact, model/API/GMTP/GPU use, real-data collection, Detector training or formal experiment occurred.
-- Current ordered step: project owner reviews PILOT0 engineering evidence, then decides whether to approve a separate real-data and annotation Pilot.
+- Base commit: `PILOT1_BASE_COMMIT = c555e7da4e5593f72cbf062823feda6bc7798e58`.
+- Execution machine: **本机**. No 5090 contact, model/GMTP/GPU use, human annotation, Detector training or formal experiment occurred. Network access was limited to approved public official sources.
+- Current ordered step: project owner reviews PILOT1 public sources and blinded annotation packets, then decides whether to approve real double annotation and a small agreement Pilot.
 - Historical superseded H2 snapshot: `PROPOSED / NOT CANONICAL / NOT APPROVED`; preserve as history.
 - Formal RAG security experiment: **NOT STARTED**.
 - Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.
@@ -59,9 +59,14 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PODR-057` and `PODR-058`.
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
-- S6.1-P1: **APPROVED_FOR_PILOT0_INFRASTRUCTURE_ONLY / NOT FORMAL_EXPERIMENT**.
-- S6.1-P1-PILOT0: **COMPLETED_PENDING_REVIEW**.
-- REAL_DATA_PILOT / 240_GROUP_PILOT: **NOT APPROVED / NOT STARTED**.
+- S6.1-P1: **REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY / NOT FORMAL_EXPERIMENT**.
+- S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
+- S6.1-P1-PILOT1: **COMPLETED_PENDING_REVIEW / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY**.
+- Historical S6.1-P1: **APPROVED_FOR_PILOT0_INFRASTRUCTURE_ONLY / NOT FORMAL_EXPERIMENT**；superseded by OR-023.
+- Historical S6.1-P1-PILOT0: **COMPLETED_PENDING_REVIEW**；superseded by final owner acceptance under OR-023.
+- HUMAN_ANNOTATION: **NOT STARTED**；ANNOTATION_AGREEMENT: **NOT ESTABLISHED**.
+- REAL_DOUBLE_ANNOTATION / 240_GROUP_PILOT: **NOT APPROVED / NOT STARTED**.
+- Historical REAL_DATA_PILOT / 240_GROUP_PILOT: **NOT APPROVED / NOT STARTED**；PILOT1 did not authorize human annotation or the 240-group Pilot.
 - MINIMAL_MATRIX / FULL_MATRIX: **NOT APPROVED**.
 - Dataset: **NOT FROZEN**.
 - Dataset Generation: **NOT APPROVED**.
@@ -202,7 +207,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
 - Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
   evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- Next operational action: project owner reviews the PILOT0 engineering evidence, then decides whether to approve real-data and annotation Pilot.
+- Next operational action: project owner reviews the PILOT1 public sources and blinded annotation packets, then decides whether to approve real double annotation and a small agreement Pilot.
   No second H2-B call, automatic resume_03, real-data Pilot, matrix, Dataset, Detector, training or formal experiment is authorized.
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
@@ -262,6 +267,7 @@ are established.
 ## Last Update
 
 - Date: `2026-08-02`.
-- Updated by: 本机 implementing S6.1-P1-PILOT0 under OR-022. P1-R1 is accepted as a protocol framework；PILOT0 infrastructure
-  and a 24-record synthetic fixture passed engineering validation pending owner review. No 5090 contact, real data, model, GMTP,
-  Detector training or formal experiment occurred；numeric parameters and the formal protocol remain unfrozen.
+- Updated by: 本机 implementing S6.1-P1-PILOT1 under OR-023. PILOT0 is accepted and closed；PILOT1 corrected authoritative run passed
+  15/15 source gates with 12 chains, 24 HASH_ONLY public sources, 36 non-adjudicated candidates, two blinded packets and a 17/17
+  evidence index. No 5090, model, GMTP, human annotation, Detector training or formal experiment occurred；numeric parameters and
+  the formal protocol remain unfrozen.

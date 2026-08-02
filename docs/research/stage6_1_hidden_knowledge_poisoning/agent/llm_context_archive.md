@@ -10,6 +10,7 @@ paper_identity:
 current_branch: research/stage6-1-hidden-poisoning
 current_commit: DYNAMIC_GIT_FACT_VERIFY_LIVE
 pilot0_base_commit: 4b0395584627636f5f13658a990614d8f39561eb
+pilot1_base_commit: c555e7da4e5593f72cbf062823feda6bc7798e58
 research_objective: Chinese version-aware stealthy knowledge poisoning benchmark, multi-view detection and lightweight retrieval intervention
 research_boundary: [Benchmark, Detection, Risk Score, Signals, Explanation, Hard Filtering, Soft Downweighting]
 accepted_stages:
@@ -18,10 +19,10 @@ accepted_stages:
   S6.1-R0: HUMAN_ACCEPTED_WITH_BLOCKERS
   S6.1-R0-FU1-P0: HUMAN_ACCEPTED
   S6.1-R0-FU1-L1: HUMAN_ACCEPTED
-current_stage: S6.1-P1 PILOT0 engineering evidence review gate
-current_task: PILOT0 infrastructure completed pending owner review
+current_stage: S6.1-P1 PILOT1 public-source and annotation-packet review gate
+current_task: PILOT1 completed pending owner review
 current_blockers:
-  - real-data annotation Pilot and 240-group Pilot are not approved or started
+  - real double annotation, agreement Pilot and 240-group Pilot are not approved or started
   - Dataset is not frozen; Detector is not implemented; formal protocol is not frozen
 resolved_blockers:
   - W2_ATTEMPT1_EVIDENCE_BLOCKER resolved by Correction 02 control-plane review
@@ -70,7 +71,7 @@ prohibited_claims:
 detoxification_option: OPTION_B
 detoxification_scope: OPTION_B_CONFIRMED / OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION
 excluded_scope: trusted context package, complete context construction, multi-evidence trusted context generation, complex end-to-end Agent defense, production RAG platform, complete trusted retrieval chain
-next_decision_gate: project owner reviews PILOT0 engineering evidence, then decides whether to approve real-data and annotation Pilot
+next_decision_gate: project owner reviews PILOT1 public sources and annotation packets, then decides whether to approve real double annotation and a small agreement Pilot
 canonical_files:
   owner_requirements: ../human/owner_requirement_register.md
   research_plan: ../human/research_plan_authority.md
@@ -184,3 +185,12 @@ Live Git and raw evidence override stale snapshot fields. Owner-confirmed requir
 - 实现状态：PILOT0 `COMPLETED_PENDING_REVIEW`；schema `paper1-pilot0-v1`；24 条纯合成 fixture SHA256 `4f381451688150016b1a518895ad75149cfdfdac4cd512dd6062becba04b2ed0`；targeted tests `41 passed`。
 - 声明边界：只证明 schema、标签隔离、group/split、leakage、attack contract、轻量 intervention 和 manifest 的工程可行性；Dataset 未冻结、Detector 未实现、Training/Formal Experiment 未开始、Our Method Result `NONE`。
 - 下一门：项目需求提出人审查 PILOT0 工程证据，再决定是否批准真实数据与标注 Pilot；不得自动推进。
+
+### Context Checkpoint — 2026-08-02 — S6.1-P1-PILOT1
+
+- 项目需求提出人最终验收 PILOT0 为 `HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED`，并只批准本机执行 `REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY` 的 PILOT1。
+- 权威 corrected run：Pilot1-A `15/15 PASS`；12 条独立版本链，3 个领域各 4 条；24 份公开官方来源全部 `HASH_ONLY`，原始和完整正文保持 Git-external。
+- Pilot1-B：36 条 `ANNOTATION_CANDIDATE / NOT_ADJUDICATED / NOT_BENCHMARK`，包括 12 clean/current、12 poison mutation、12 matched hard negative；HKP × stealth 12 组合各一条。
+- 两类独立盲化包各 36 行，匿名、确定性排序且标签隔离通过；evidence index `17/17 PASS`。首次零长度内容尝试与一次瞬时采集中断作为非权威历史原样保留。
+- 当前状态：`S6.1-P1-PILOT1 = COMPLETED_PENDING_REVIEW`；HUMAN_ANNOTATION `NOT STARTED`；ANNOTATION_AGREEMENT `NOT ESTABLISHED`；Dataset `NOT FROZEN`；Detector `NOT IMPLEMENTED`；Formal Experiment `NOT STARTED`。
+- 下一门：项目需求提出人审查真实来源与标注包，然后决定是否启动真实双人标注和小规模一致性 Pilot；不得自动推进。

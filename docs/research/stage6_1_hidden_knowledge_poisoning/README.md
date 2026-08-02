@@ -1,6 +1,6 @@
 # Paper 1 Start Here
 
-> 快速状态：父 W2/FU1 已按工程可行性关闭；`OPTION_B` 已冻结，P1-R1 已作为协议框架验收。P1 仅获准 PILOT0 基础设施，PILOT0 为 `COMPLETED_PENDING_REVIEW`；24 条纯合成 fixture 的工程测试不是 Benchmark 或论文结果。真实数据/标注 Pilot、240-group Pilot、Dataset、Detector 与 Training 均未获准或未开始；`FORMAL_EXPERIMENT = NOT STARTED`。
+> 快速状态：父 W2/FU1 已按工程可行性关闭；`OPTION_B` 已冻结，P1-R1 已作为协议框架验收。PILOT0 已按纯工程基础设施最终验收并关闭；PILOT1 已完成 12 条真实公开中文版本链、36 条待裁决候选与两类 Git-external 盲化包，状态为 `COMPLETED_PENDING_REVIEW / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY`。这不是正式 Benchmark、标注一致性或论文结果；真实双人标注、240-group Pilot、Dataset freeze、Detector 与 Training 均未开始；`FORMAL_EXPERIMENT = NOT STARTED`。
 
 ## 一、项目需求提出人入口
 
@@ -16,7 +16,7 @@
 - [S6.1-LR1 工作过程](stage_process/S6.1-LR1_work_process.md) — 路线与基线对齐，`HUMAN_ACCEPTED`。
 - [S6.1-R0 工作过程](stage_process/S6.1-R0_work_process.md) — 工程预检，`HUMAN_ACCEPTED_WITH_BLOCKERS`。
 - [S6.1-R0-FU1 工作过程](stage_process/S6.1-R0-FU1_work_process.md) — P0/L1/W2 已验收；FU1 仅以最小工程可行性范围关闭。
-- [S6.1-P1 工作过程](stage_process/S6.1-P1_work_process.md) — P1-R1 框架验收与 PILOT0 工程基础设施的唯一追加式过程；当前等待 owner review。
+- [S6.1-P1 工作过程](stage_process/S6.1-P1_work_process.md) — P1-R1、PILOT0 和 PILOT1 的唯一追加式过程；当前等待 owner 审查真实来源与标注包。
 - [S6.1-P1-R1 协议强化候选](s6_1_p1_r1_protocol_review_candidate.md) — 已验收框架的来源候选；其中数值参数仍为 `PENDING_PILOT_EVIDENCE`，不取代研究方案权威。
 - [旧 S6.1-P1 协议候选](s6_1_p1_protocol_candidate.md) — 历史候选，已在候选层被 P1-R1 替代但不可删除或改写。
 
