@@ -1,9 +1,9 @@
 # S6.1-P1 正式实验协议与 Benchmark 规格候选
 
-Document Role = `P1_PROTOCOL_DESIGN_CANDIDATE`  
-Authority = `NON_CANONICAL_CANDIDATE`  
-Status = `CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED`  
-Primary Authority = [human/research_plan_authority.md](human/research_plan_authority.md)  
+Document Role = `P1_PROTOCOL_DESIGN_CANDIDATE`<br>
+Authority = `NON_CANONICAL_CANDIDATE`<br>
+Status = `CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED`<br>
+Primary Authority = [human/research_plan_authority.md](human/research_plan_authority.md)<br>
 Owner Gate = `HUMAN_DECISION_REQUIRED_BEFORE_P1_APPROVAL`
 
 > 本文只供项目需求提出人审查。它不批准 P1，不冻结 Dataset，不实现 Detector，不启动训练或正式实验，也不能覆盖研究方案权威文件。
@@ -103,4 +103,3 @@ P1 批准前须冻结数据规模、运行矩阵、GPU/RAM/VRAM/disk/time ceilin
 ## 11. 论文结论边界
 
 W2 的唯一可接受结论是 `FROZEN_SINGLE_SAMPLE_DETECTION_CORE_ENGINEERING_FEASIBILITY_ONLY`。`GMTP_REPRODUCTION = NOT ESTABLISHED`；`DETECTION_EFFECTIVENESS = NOT ESTABLISHED`；`STRICT_BASELINE_COMPARISON = NOT ESTABLISHED`；`FORMAL_PAPER_RESULT = NONE`。任何 P1 正式结论只能来自未来获批、冻结、执行并验收的正式实验。
-
