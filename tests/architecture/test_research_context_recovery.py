@@ -26,6 +26,7 @@ R0_I_REVIEW = RESEARCH / "s6_1_r0_i_control_plane_review.md"
 FU1_RESOLUTION = RESEARCH / "s6_1_r0_fu1_targeted_resolution.md"
 W2_ATTEMPT1_REVIEW = RESEARCH / "s6_1_r0_fu1_w2_attempt1_control_plane_review.md"
 W2_H2_RESUME02_REVIEW = RESEARCH / "s6_1_r0_fu1_w2_h2_resume02_control_plane_review.md"
+P1_PROTOCOL_CANDIDATE = RESEARCH / "s6_1_p1_protocol_candidate.md"
 LONG_TERM_REQUIREMENTS = GOVERNANCE / "long_term_research_requirements.md"
 AGENTS = ROOT / "AGENTS.md"
 PAPER1_README = RESEARCH / "README.md"
@@ -90,6 +91,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             FU1_RESOLUTION,
             W2_ATTEMPT1_REVIEW,
             W2_H2_RESUME02_REVIEW,
+            P1_PROTOCOL_CANDIDATE,
         )
         for path in required:
             with self.subTest(path=path.relative_to(ROOT)):
@@ -248,12 +250,15 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "RTX5090 Compute Worker Bootstrap: **HUMAN_ACCEPTED / RTX5090_BOOTSTRAP_READY**",
             state,
         )
-        self.assertIn("S6.1-R0-FU1: **APPROVED / LOCAL-FIRST / WORKER-GATED**", state)
+        self.assertIn("S6.1-R0-FU1: **HUMAN_ACCEPTED / CLOSED**", state)
         self.assertIn("S6.1-R0-FU1-P0: **HUMAN_ACCEPTED**", state)
         self.assertIn("S6.1-R0-FU1-L1: **HUMAN_ACCEPTED**", state)
         self.assertIn("SUPERSEDED_BY_LOCAL_L1 / NOT FAILED", state)
         self.assertIn("READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED", state)
-        self.assertIn("S6.1-R0-FU1-W2: **APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED**", state)
+        self.assertIn(
+            "S6.1-R0-FU1-W2: **HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED**",
+            state,
+        )
         self.assertIn("W2_ATTEMPT1_EVIDENCE_BLOCKER", state)
         self.assertIn("RESOLVED_BY_CORRECTION_02", state)
         self.assertIn("VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER", state)
@@ -671,7 +676,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         combined = "\n".join((state, fu1, master, PO_MHEP.read_text(encoding="utf-8")))
 
         for required in (
-            "S6.1-R0-FU1-W2: **APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED**",
+            "S6.1-R0-FU1-W2: **HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED**",
             "VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER",
             "RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW",
             "OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION",
@@ -844,6 +849,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertEqual(1, audit.count("## REL-2026-0021"))
         self.assertEqual(1, audit.count("## REL-2026-0022"))
         self.assertEqual(1, audit.count("## REL-2026-0023"))
+        self.assertEqual(1, audit.count("## REL-2026-0024"))
 
     def test_human_docs_are_chinese_first_without_long_english_blocks(self) -> None:
         for path in HUMAN_DIR.glob("*.md"):
@@ -903,7 +909,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER",
             "RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW",
             "OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090",
-            "APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED",
+            "HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED",
             "NOT FROZEN",
             "NOT IMPLEMENTED",
             "NOT STARTED",
@@ -953,7 +959,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
 
         self.assertIn("The single-call authorization is consumed", review)
         self.assertIn("not establish benchmark reproduction", review)
-        self.assertNotIn("W2: HUMAN_ACCEPTED", combined)
+        self.assertIn("W2_ACCEPTANCE_SCOPE", current)
 
     def test_h2_conditional_approval_contract_is_frozen_and_non_experimental(self) -> None:
         human = TINGFENG_LEDGER.read_text(encoding="utf-8")
@@ -993,7 +999,71 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertEqual(21, len(re.findall(r"^## \d+\.", process, re.MULTILINE)))
         self.assertIn("不得修改 `method.py`", process)
         self.assertIn("network fallback", combined)
-        self.assertNotIn("W2: HUMAN_ACCEPTED", combined)
+        self.assertIn("HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED", combined)
+
+    def test_w2_owner_acceptance_and_p1_candidate_are_narrow_and_consistent(self) -> None:
+        current = CURRENT_STATE.read_text(encoding="utf-8")
+        decisions = DECISION_REGISTER.read_text(encoding="utf-8")
+        master = MASTER_RECORD.read_text(encoding="utf-8")
+        human = TINGFENG_LEDGER.read_text(encoding="utf-8")
+        agent = AGENT_LEDGER.read_text(encoding="utf-8")
+        process = (STAGE_PROCESS_DIR / "S6.1-R0-FU1_work_process.md").read_text(
+            encoding="utf-8"
+        )
+        candidate = P1_PROTOCOL_CANDIDATE.read_text(encoding="utf-8")
+        combined = "\n".join((current, decisions, master, human, agent, process))
+
+        for required in (
+            "PODR-061",
+            "OR-020",
+            "HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED",
+            "S6.1-R0-FU1 = HUMAN_ACCEPTED / CLOSED",
+            "W2_ENGINEERING_OBJECTIVE = SATISFIED",
+            "W2_RUNTIME_GATE = CLOSED",
+            "FROZEN_SINGLE_SAMPLE_DETECTION_CORE_ENGINEERING_FEASIBILITY_ONLY",
+            "RESOLVED_BY_H2_RESUME02_AND_OWNER_ACCEPTANCE",
+            "GMTP_REPRODUCTION = NOT ESTABLISHED",
+            "DETECTION_EFFECTIVENESS = NOT ESTABLISHED",
+            "STRICT_BASELINE_COMPARISON = NOT ESTABLISHED",
+            "58da856a81ad89b858af2c041ff617e16156ec254410b07e6511c2888203f563",
+            "25/25 PASS",
+            "18/18 PASS",
+            "call_count=1",
+            "H2-B NOT EXECUTED / call_count=0",
+            "这是单次冻结样本的工程观察，不是检测性能结论",
+            "Dataset = NOT FROZEN",
+            "Detector = NOT IMPLEMENTED",
+            "Training = NOT STARTED",
+            "Our Method Result = NONE",
+            "Formal Experiment = NOT STARTED",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, combined)
+
+        for required in (
+            "Authority = `NON_CANONICAL_CANDIDATE`",
+            "Status = `CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED`",
+            "RQ1：",
+            "RQ5：",
+            "HKP-1",
+            "HKP-4",
+            "S1、S2、S3",
+            "Semantic View",
+            "Retrieval-Behavior View",
+            "AUPRC",
+            "F1 at frozen threshold",
+            "Recall at controlled FPR",
+            "Holm correction",
+            "不少于 5 个随机种子",
+            "Option A",
+            "Option B",
+            "Option C",
+            "HUMAN_DECISION_REQUIRED_BEFORE_P1_APPROVAL",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, candidate)
+
+        self.assertEqual(1, len(list(STAGE_PROCESS_DIR.glob("S6.1-R0-FU1_work_process.md"))))
 
     def test_h2_resume02_rollover_preserves_resume01_and_single_call_gate(self) -> None:
         process = (STAGE_PROCESS_DIR / "S6.1-R0-FU1_work_process.md").read_text(

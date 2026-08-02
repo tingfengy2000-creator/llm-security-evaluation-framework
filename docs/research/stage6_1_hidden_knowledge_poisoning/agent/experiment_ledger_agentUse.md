@@ -13,8 +13,8 @@ Primary Human Mirror = `../human/experiment_ledger_tingfeng.md`
 project: LLMGuard Research Framework
 paper: Paper 1 - Chinese version-aware stealthy knowledge poisoning
 branch: research/stage6-1-hidden-poisoning
-document_source_commit: 38931d50bc3751eefc1dff100b2e901fc905ea3f
-snapshot_date: 2026-08-01
+document_source_commit: b19fc59cc5ba771fd547430f6096403720ef1a7d
+snapshot_date: 2026-08-02
 authority_order:
   - raw Git and external evidence
   - owner_requirement_register
@@ -34,11 +34,20 @@ S6.1-R0-FU1-P0: HUMAN_ACCEPTED
 S6.1-R0-FU1-L1: HUMAN_ACCEPTED
 S6.1-R0-FU1-W2-ATTEMPT1: VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER
 W2_ATTEMPT1_EVIDENCE_BLOCKER: RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW
-S6.1-R0-FU1-W2-H1: OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090
+S6.1-R0-FU1-W2-H1: OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090 / COMPLETED
+S6.1-R0-FU1-W2-H2: ENGINEERING_SMOKE_COMPLETED / CONTROL_PLANE_REVIEW_PASS / HUMAN_ACCEPTED_AS_W2_EVIDENCE
 S6.1-R0-FU1-W2-H2-RESUME-01: VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER / H2-B NOT EXECUTED / call_count=0
 S6.1-R0-FU1-W2-H2-RESUME-02: CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED / call_count=1
-S6.1-R0-FU1-W2: APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED
-S6.1-P1: NOT STARTED
+S6.1-R0-FU1-W2: HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED
+S6.1-R0-FU1: HUMAN_ACCEPTED / CLOSED
+W2_ENGINEERING_OBJECTIVE: SATISFIED
+W2_RUNTIME_GATE: CLOSED
+W2_ACCEPTANCE_SCOPE: FROZEN_SINGLE_SAMPLE_DETECTION_CORE_ENGINEERING_FEASIBILITY_ONLY
+BLK-S6.1-FU1-W2-001: RESOLVED_BY_H2_RESUME02_AND_OWNER_ACCEPTANCE
+GMTP_REPRODUCTION: NOT ESTABLISHED
+DETECTION_EFFECTIVENESS: NOT ESTABLISHED
+STRICT_BASELINE_COMPARISON: NOT ESTABLISHED
+S6.1-P1: NOT APPROVED / NOT STARTED
 Dataset: NOT FROZEN
 Detector: NOT IMPLEMENTED
 Training: NOT STARTED
@@ -46,11 +55,13 @@ Our_Method_Result: NONE
 Formal_Experiment: NOT STARTED
 H2_historical_preapproval: PROPOSED / NOT CANONICAL / NOT APPROVED
 H2_auto_continue: CONSUMED_AND_STOPPED
+DETOXIFICATION_TECHNICAL_SCOPE: SCOPE_CONFIRMATION_REQUIRED
+P1_next_gate: HUMAN_DECISION_REQUIRED_BEFORE_P1_APPROVAL
 ```
 
 ## State Machine
 
-`LR1 HUMAN_ACCEPTED -> R0 HUMAN_ACCEPTED_WITH_BLOCKERS -> FU1 {P0 HUMAN_ACCEPTED, L1 HUMAN_ACCEPTED, W2 INCOMPLETE} -> H1 prepared -> H2 resume_01 OFFLINE_BUNDLE_SHA_BLOCKER/call_count=0 -> resume_02 owner-approved -> H2-A 18/18 PASS -> one H2-B call -> Control Plane evidence accepted -> owner W2 decision`
+`LR1 HUMAN_ACCEPTED -> R0 HUMAN_ACCEPTED_WITH_BLOCKERS -> FU1 {P0 HUMAN_ACCEPTED, L1 HUMAN_ACCEPTED} -> H1 verified -> H2 resume_01 OFFLINE_BUNDLE_SHA_BLOCKER/call_count=0 -> resume_02 H2-A 18/18 PASS -> one H2-B call -> Control Plane evidence accepted -> W2 HUMAN_ACCEPTED/ENGINEERING_FEASIBILITY_ONLY/CLOSED -> FU1 HUMAN_ACCEPTED/CLOSED -> P1 candidate owner review`
 
 No transition authorizes S6.1-P1, Dataset Construction, Detector Implementation, Training, or Formal Experiment.
 
@@ -60,8 +71,8 @@ No transition authorizes S6.1-P1, Dataset Construction, Detector Implementation,
 | --- | --- | --- | --- |
 | S6.1-LR1 | research route and external baseline alignment | `HUMAN_ACCEPTED` | `../stage_process/S6.1-LR1_work_process.md` |
 | S6.1-R0 | engineering reproduction preflight | `HUMAN_ACCEPTED_WITH_BLOCKERS` | `../stage_process/S6.1-R0_work_process.md` |
-| S6.1-R0-FU1 | targeted baseline feasibility resolution | `H2 RESUME_02 CONTROL_PLANE_REVIEW_PASS / W2 OWNER DECISION PENDING` | `../stage_process/S6.1-R0-FU1_work_process.md` |
-| S6.1-P1 | formal protocol freeze | `NOT STARTED` | none; not approved |
+| S6.1-R0-FU1 | targeted baseline feasibility resolution | `HUMAN_ACCEPTED / CLOSED` | `../stage_process/S6.1-R0-FU1_work_process.md` |
+| S6.1-P1 | formal protocol freeze | `CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED` | candidate `../s6_1_p1_protocol_candidate.md`; no canonical process |
 
 ## Run Registry
 
@@ -105,6 +116,7 @@ next_gate: string
 | RUN-H2-R01 | S6.1-R0-FU1 / W2-H2-RESUME-01 | engineering_validation / 5090 | `APPROVED` | approval commit `2f492dc763e865105510cc8cb141ebde5e109b3e`; bundle expected SHA `aa06e4cd03cb4d1eeb008514d81bc4d41e98f88614df046e008ac1f1544def45`; environment spec pre/post `62981f4747156189f7870958da8ea7bc2fc0ead49c78bb6463e9fd284bb65961`; parameters frozen, not invoked | `APPROVED_TO_START` -> `VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER` | artifact `s6_1_r0_fu1_w2_resume01_evidence_20260801.tar.gz`; artifact_sha256 `941557aa00be58210015165078bbb3c1cbdd2250cab0755c37198e7b7e26e89d`; evidence_index `19/19 PASS`; call_count `0` | allowed: missing-transfer blocker and fail-closed behavior; prohibited: H2-A pass/model load/GMTP result/W2 acceptance | blocker `OFFLINE_BUNDLE_SHA_BLOCKER`; next_gate owner decision on additive evidence namespace |
 | RUN-H2-R02-APPROVAL | S6.1-R0-FU1 / W2-H2-RESUME-02 | approval_and_contract_freeze / 本机 | `APPROVED_TO_START / NOT EXECUTED` | approval base `2f492dc763e865105510cc8cb141ebde5e109b3e`; bundle/sidecar reported synced and outer size/SHA matched; all source/input/model/environment/parameter identities unchanged | `EVIDENCE_CAPTURE_BLOCKER on nonempty resume_01` -> `RESUME_02 APPROVED_TO_START / NOT EXECUTED` | result `additive namespace rollover only`; artifact `resume02 pending`; evidence_index `NA`; H2-B call_count remains `0` | allowed: new evidence namespace and fresh H2-A; prohibited: overwrite resume_01/automatic resume_03/repeated H2-B/P1/formal result | blocker `NONE for approved rollover`; next_gate 5090 fresh H2-A in resume_02 |
 | RUN-H2-R02 | S6.1-R0-FU1 / W2-H2-RESUME-02 | engineering_smoke / 5090 + review / 本机 | `CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED` | main approval HEAD `38931d50bc3751eefc1dff100b2e901fc905ea3f`; GMTP commit/blob/source, input index/hash, two model revisions, environment SHA and official parameters all frozen | `APPROVED_TO_START` -> `W2_RESUME02_ENGINEERING_SMOKE_COMPLETED_PENDING_REVIEW` -> `CONTROL_PLANE_REVIEW_PASS` | artifact `s6_1_r0_fu1_w2_resume02_evidence_20260801.tar.gz`; artifact_sha256 `58da856a81ad89b858af2c041ff617e16156ec254410b07e6511c2888203f563`; evidence_index `25/25 PASS`; H2-A `18/18`; call_count `1` | allowed: exact minimal feasibility and redacted two-document observation; prohibited: reproduction/effectiveness/safety/paper result/W2 acceptance | blocker `BLK-S6.1-FU1-W2-001 resolved for minimal gate`; next_gate parent W2 owner decision |
+| GOV-W2-ACCEPTANCE | S6.1-R0-FU1 / W2 owner acceptance | governance_acceptance / 本机 | `HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED` | acceptance base `b19fc59cc5ba771fd547430f6096403720ef1a7d`; evidence RUN-H2-R02; algorithm/data/model/parameter identities unchanged | `CONTROL_PLANE_REVIEW_PASS` -> `HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED` | result `W2_ENGINEERING_OBJECTIVE=SATISFIED`; artifact/evidence index `NA / references immutable RUN-H2-R02 25/25` | allowed: frozen single-sample engineering feasibility and FU1 closure; prohibited: reproduction/effectiveness/strict comparison/metrics/formal result | blocker `BLK-S6.1-FU1-W2-001 RESOLVED_BY_H2_RESUME02_AND_OWNER_ACCEPTANCE`; next_gate owner review of P1 candidate and detox A/B/C |
 
 ## Artifact Registry
 
@@ -133,6 +145,8 @@ H2 bundle contract additionally freezes bundle source bytes `1320359518`, archiv
 | H2 approval and conditional execution | owner requirements OR-017/OR-018 + PODR-059/PODR-060 + `S6.1-R0-FU1_work_process.md` |
 | H2 resume_01 blocker | returned archive SHA256 `941557aa...26e89d`, safe 20 files/1 directory, evidence index 19/19, `call_count=0` |
 | H2 resume_02 review | returned archive SHA256 `58da856a...f563`, safe 27 files/1 directory, evidence index 25/25, H2-A 18/18, `call_count=1` |
+| W2/FU1 final acceptance | PODR-061 + OR-020 + acceptance base `b19fc59...a7d` + immutable H2 resume_02 evidence |
+| P1 protocol candidate | `../s6_1_p1_protocol_candidate.md`; non-authoritative, not approved, not started |
 
 ## Claims Matrix
 
@@ -140,27 +154,26 @@ H2 bundle contract additionally freezes bundle source bytes `1320359518`, archiv
 | --- | --- |
 | Published Result | external paper statements only; not verified on 本机 as reproduction |
 | Reproduced Result | none for complete strict external baseline reproduction |
-| Engineering Validation | identities, schema, environment contracts, evidence closure and accepted exact two-document H2 smoke |
+| Engineering Validation | identities, schema, environment contracts, evidence closure and accepted exact two-document H2 smoke；W2/FU1 closed for engineering feasibility only |
 | Our Formal Result | `NONE`; `FORMAL_EXPERIMENT = NOT STARTED` |
 
 ## Open Blockers
 
-- Parent W2 remains incomplete and unaccepted pending explicit project-owner disposition.
-- S6.1-P1 protocol, Dataset, Detector, Training and Formal Experiment are not approved or started.
+- S6.1-P1 remains `NOT APPROVED / NOT STARTED`; Dataset, Detector, Training and Formal Experiment are not approved or started.
 - Detoxification technical scope remains `SCOPE_CONFIRMATION_REQUIRED`.
 
 ## Resolved Blockers
 
 - R0 initial evidence mismatch: resolved by corrected R0 evidence, with history preserved.
 - W2 Attempt 1 evidence gap: `RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW`; this did not resolve the model download blocker or complete W2.
-- Minimal modern-Worker detector-core feasibility blocker: `RESOLVED_BY_H2_RESUME02_CONTROL_PLANE_REVIEW`; this does not establish reproduction/effectiveness or owner-accept W2.
+- Minimal detector-core feasibility blocker: `RESOLVED_BY_H2_RESUME02_AND_OWNER_ACCEPTANCE`; this does not establish reproduction, effectiveness or strict comparison.
 
 ## Decision Gates
 
 1. Preserve resume_01 and resume_02 as immutable evidence; do not overwrite, rerun, merge or create automatic resume_03.
 2. The only authorized H2-B call is consumed (`call_count=1`); no retry or second call is authorized.
-3. Human acceptance of W2 is still required before any S6.1-P1 proposal can advance.
-4. Separate owner confirmation remains required for detoxification scope and every formal experiment gate.
+3. W2/FU1 are closed only for engineering feasibility; project owner must review the non-authoritative P1 candidate before any P1 approval.
+4. Separate owner selection among mutually exclusive Detoxification Option A/B/C remains required before P1 approval and every formal experiment gate remains separate.
 5. `Auto Continue = CONSUMED_AND_STOPPED`; outside H2 it remains `NO`.
 
 ## Human-Confirmed Requirements Reference

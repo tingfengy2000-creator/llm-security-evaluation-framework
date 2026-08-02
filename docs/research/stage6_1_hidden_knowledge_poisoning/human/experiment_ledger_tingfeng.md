@@ -4,7 +4,7 @@
 
 ## 一分钟项目状态
 
-Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍是 Benchmark、Detection、Risk Score、Signals 与 Explanation。LR1、P0、L1 已人工验收；R0 带 blocker 验收。H2 `resume_01` fail-closed 历史保持不可变。`resume_02` 已在 RTX5090 完成 H2-A `18/18`、本地 CUDA 模型加载与唯一一次 H2-B；15,625-byte archive、SHA、安全成员与内部 `25/25` index 已由本机独立复核。当前只接受双文档工程 smoke 证据，父 W2 仍未完成、未验收，P1 与正式实验未开始，也没有正式论文结果。
+Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍是 Benchmark、Detection、Risk Score、Signals 与 Explanation。LR1、P0、L1 已人工验收；R0 带 blocker 验收。H2 `resume_01` fail-closed 历史保持不可变。`resume_02` 的 H2-A `18/18`、唯一一次 H2-B 与 `25/25` evidence 已由本机复核。项目需求提出人现已将父 W2 验收为 `HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED` 并关闭 FU1。P1 只有待审协议候选，仍未批准、未开始；没有正式论文结果。
 
 ## 1. 论文与项目基本信息
 
@@ -15,9 +15,9 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍
 | 研究目标 | 建立中文版本感知隐蔽知识污染 Benchmark，并研究多视角检测、风险评分、信号与解释 |
 | 当前研究边界 | Benchmark、Detection、Risk Score、Signals、Explanation |
 | 当前分支 | `research/stage6-1-hidden-poisoning` |
-| 当前提交 | 文档来源提交 `b922fb9091159a01bd5baad8ee1224d36a665e0d` |
+| 当前提交 | 本轮验收基础 `b19fc59cc5ba771fd547430f6096403720ef1a7d`；本页提交由 Git 动态解析 |
 | 当前阶段 | S6.1-R0-FU1 |
-| 当前任务 | `S6.1-R0-FU1-W2-H2-RESUME-02 = CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED`；等待项目负责人决定父 W2 |
+| 当前任务 | `S6.1-P1-CONTRACT-CANDIDATE = CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED`；等待项目负责人审查并选择解毒 A/B/C |
 | 上下文恢复治理 | `HUMAN_ACCEPTED（人工验收通过）` |
 | 正式实验状态 | `NOT STARTED（尚未开始）` |
 | 我们的方法结果 | `NONE（尚无正式方法结果）` |
@@ -30,8 +30,8 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍
 | --- | --- | --- | --- | --- | --- |
 | S6.1-LR1 | 论文路线与外部基线对齐 | `HUMAN_ACCEPTED` | 路线、对齐矩阵、协议、工件登记 | 外部项目角色已区分，尚非统一严格比较 | 作为方案与后续协议输入 |
 | S6.1-R0 | 复现环境与可行性预检 | `HUMAN_ACCEPTED_WITH_BLOCKERS` | 环境、源码、数据工件与证据合同 | 工程可行性已识别，目标阻塞仍存在 | 由 FU1 定向处理 |
-| S6.1-R0-FU1 | 定向解除基线阻塞 | `H2 RESUME_02 CONTROL_PLANE_REVIEW_PASS` | P0、L1、W2 证据、H1 模型包、resume_01 历史与 resume_02 `25/25` evidence | minimal detector-core feasibility 已闭合；W2 未验收 | 项目负责人决定父 W2；不自动进入 P1 |
-| S6.1-P1 | 正式实验协议冻结 | `NOT STARTED` | 预期为冻结协议 | 尚无准入授权 | 等待前置门关闭与人工批准 |
+| S6.1-R0-FU1 | 定向解除基线阻塞 | `HUMAN_ACCEPTED / CLOSED` | P0、L1、W2 证据、H1 模型包、resume_01 历史与 resume_02 `25/25` evidence | 仅关闭单样本 detection-core 工程可行性 | 历史冻结；不自动进入 P1 |
+| S6.1-P1 | 正式实验协议冻结 | `CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED` | 非权威协议候选 | 尚无准入授权 | owner 审查候选与解毒范围 |
 | 中文 Benchmark 构建 | 版本链与隐蔽污染数据 | `NOT STARTED / DATASET NOT FROZEN` | 预期为冻结数据快照 | 尚未构建 | 先完成协议审批 |
 | 多视角 Detector 实现 | 五视角检测与风险评分 | `PLANNED / NOT IMPLEMENTED` | 预期为检测器实现 | 无实现结果 | 等待数据与协议 |
 | Formal Evaluation | 正式主实验 | `NOT STARTED` | 预期为可复现实验结果 | 无正式结果 | 等待全部准入条件 |
@@ -84,10 +84,10 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍
 ### S6.1-R0-FU1 — 定向外部基线可行性处理
 
 - 阶段目标：以本机优先、5090 门控方式处理 P0、L1 和 W2。
-- 当前状态：P0/L1 `HUMAN_ACCEPTED`；W2 `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`。
-- 证据状态：`W2_ATTEMPT1_EVIDENCE_BLOCKER = RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW`；`BLK-S6.1-FU1-W2-001 = RESOLVED_BY_H2_RESUME02_CONTROL_PLANE_REVIEW` 仅覆盖冻结的最小可执行性门。
-- H1 状态：`OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090`。
-- H2 状态：`resume_01 = VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER`；`resume_02 = CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED / call_count=1`；`Auto Continue = CONSUMED_AND_STOPPED`。
+- 当前状态：P0/L1/W2 `HUMAN_ACCEPTED`；W2 为 `ENGINEERING_FEASIBILITY_ONLY / CLOSED`；FU1 为 `HUMAN_ACCEPTED / CLOSED`。
+- 证据状态：`W2_ATTEMPT1_EVIDENCE_BLOCKER = RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW`；`BLK-S6.1-FU1-W2-001 = RESOLVED_BY_H2_RESUME02_AND_OWNER_ACCEPTANCE`。
+- H1 状态：`OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090 / COMPLETED`。
+- H2 状态：`ENGINEERING_SMOKE_COMPLETED / CONTROL_PLANE_REVIEW_PASS / HUMAN_ACCEPTED_AS_W2_EVIDENCE`；`resume_01 = VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER / H2-B NOT EXECUTED / call_count=0`；`resume_02 = CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED / call_count=1`。
 - 进入条件：R0 带阻塞项验收并批准 FU1。
 - 执行机器：本机负责规划、证据闭环和离线资产准备；5090负责受控运行与独立验证。
 - 关键输入：PoisonedRAG 发布攻击文本、GMTP 检测输入、固定模型 revision。
@@ -97,11 +97,11 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍
 - 输出文件：Correction 02 archive、H1 model bundle 与 resume02 15,625-byte evidence archive；均未进入 Git。
 - 实验或工程结果：W2 Attempt 1 为 `VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER`；resume_02 为本机已接受的双文档工程 smoke 证据。
 - 证据位置：[FU1 工作过程](../stage_process/S6.1-R0-FU1_work_process.md)、[Attempt 1 证据复核](../s6_1_r0_fu1_w2_attempt1_control_plane_review.md)与[H2 resume02 证据复核](../s6_1_r0_fu1_w2_h2_resume02_control_plane_review.md)。
-- 关键结论：最小 detector-core feasibility gate 已闭合，但父 W2 尚未获得项目负责人验收。
+- 关键结论：最小 detector-core feasibility gate 已闭合并获项目需求提出人验收；`W2_ENGINEERING_OBJECTIVE = SATISFIED`，`W2_RUNTIME_GATE = CLOSED`。
 - 不能得出的结论：不能把一次双文档调用写成 GMTP 复现、有效性、安全性、泛化、正式指标或论文结果。
-- 失败和 blocker：Attempt 1 模型下载阻塞作为历史保留；当前只剩父 W2 项目负责人决策门及更后续独立门。
+- 失败和 blocker：Attempt 1 模型下载阻塞作为历史保留；W2 blocker 已由 resume_02 与 owner acceptance 关闭，后续 P1 协议、解毒范围与 formal-environment 仍是独立门。
 - 解决情况：Correction 02 关闭 evidence blocker；resume02 本机复核关闭冻结的最小 Worker feasibility blocker。
-- 当前下一步：项目负责人决定父 W2 是否接受/关闭；不得再次调用 H2-B，不得自动进入 P1。
+- 当前下一步：审查 [P1 协议候选](../s6_1_p1_protocol_candidate.md)并选择解毒 Option A/B/C；不得再次调用 H2-B，不得自动批准或进入 P1。
 - 详细过程链接：[S6.1-R0-FU1_work_process.md](../stage_process/S6.1-R0-FU1_work_process.md)。
 
 ## 4. 结果分类
@@ -136,6 +136,7 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍
 | E-H2-R01 | FU1/H2 | resume_01 因 bundle/sidecar 缺失合规停止；H2-B 未执行 | 4,570-byte archive | `941557aa00be58210015165078bbb3c1cbdd2250cab0755c37198e7b7e26e89d`；19/19 PASS | `OFFLINE_BUNDLE_SHA_BLOCKER`；本机复核通过 |
 | E-H2-R02-APPROVAL | FU1/H2 | bundle/sidecar 已到 5090；项目需求提出人批准新证据命名空间 | `resume_02`；不可覆盖 resume_01 | 新 resume02 archive 待生成 | `APPROVED_TO_START / NOT EXECUTED` |
 | E-H2-R02-REVIEW | FU1/H2 | H2-A `18/18`、唯一一次 H2-B、模型/环境/资源与 resume_01 不变证据 | 15,625-byte resume02 archive | `58da856a81ad89b858af2c041ff617e16156ec254410b07e6511c2888203f563`；25/25 PASS | `CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED` |
+| E-W2-OWNER-ACCEPTANCE | FU1/W2 | 接受冻结单样本 detection-core 工程目标并关闭 W2/FU1 | acceptance base `b19fc59cc5ba771fd547430f6096403720ef1a7d` | PODR-061 / OR-020 | `HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED` |
 
 模型总字节数为 `1320352375`。完整细节见对应阶段过程、证据复核、项目实验主记录与 Git 外部私有归档；私有绝对路径不写入 Git。
 
@@ -159,14 +160,13 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍
 
 ## 8. 下一步
 
-- P0：项目负责人决定父 W2 是否按工程 feasibility 证据接受/关闭；无需向 5090 发送纠错 prompt，也不得重复 H2-B。
-- P1：仅在 W2 与前置门正式关闭后，提交 S6.1-P1 协议冻结申请；当前不得启动。
+- P0：W2/FU1 已按工程 feasibility 范围接受并关闭；无需向 5090 发送 prompt，也不得重复 H2-B。
+- P1：项目负责人审查协议候选并选择解毒 A/B/C；当前 `NOT APPROVED / NOT STARTED`。
 - P2：协议获批后才讨论中文 Benchmark 构建、多视角 Detector、Formal Evaluation、消融和泛化。
 
 ## 9. 需要项目需求提出人确认
 
-- “多视角解毒方法”的技术定义是否只覆盖 Detection、Risk Score、Signals、Explanation。
-- 自动过滤、自动重排、可信上下文包、运行时可信检索、完整解毒系统中哪些（如有）进入 Paper 1。
+- 在互斥 Option A（检测/解释/人工建议）、B（再含自动过滤或降权）、C（再含重排与可信上下文构建）中选择 Paper 1 的“解毒”技术范围。
 - 正式指标、统计协议、数据冻结与统一比较方案须在 S6.1-P1 单独确认。
 
 ## 10. 关键 Git 提交
@@ -179,3 +179,4 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染，当前范围仍
 | `2762ae90ccb739892a58f1684248cf777d2b24ed` | 修正 R0 证据验收 |
 | `0e66047021a6e950c93419e0daa9178e72e04551` | P0/L1 验收与 W2 合同冻结 |
 | `b922fb9091159a01bd5baad8ee1224d36a665e0d` | Correction 02 关闭与 H1 上下文 |
+| `b19fc59cc5ba771fd547430f6096403720ef1a7d` | H2 resume_02 evidence accepted；父 W2 最终验收基础 |

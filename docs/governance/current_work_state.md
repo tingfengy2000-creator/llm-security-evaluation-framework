@@ -16,14 +16,14 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-R0-FU1-W2-H2-RESUME-02-CONTROL-PLANE-REVIEW`.
-- Task name: `H2 Resume 02 Engineering Smoke Evidence Review`.
-- Task type: **RAW_EVIDENCE_REVIEW / ENGINEERING_SMOKE_CLASSIFICATION / NO_LOCAL_MODEL_EXECUTION**.
-- Status: **CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED**.
-- Review machine: **本机 / CONTROL_PLANE**. The Worker executed the frozen H2 contract on 5090；本机 reviewed only the returned
-  archive/sidecar/indexed redacted evidence and did not extract/load a model, run GMTP/harness or use a GPU.
-- Current ordered step: H2 evidence review is complete and no corrective Worker prompt is required. The next gate is an explicit
-  project-owner decision on parent W2 disposition. No automatic P1 approval or execution is authorized.
+- Task ID: `S6.1-P1-CONTRACT-CANDIDATE`.
+- Task name: `Paper 1 Formal Experimental Protocol and Benchmark Specification`.
+- Task type: **DESIGN_CANDIDATE / NO_EXPERIMENT_EXECUTION**.
+- Status: **CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED**.
+- Execution machine: **本机 / CONTROL_PLANE**. This task records owner acceptance and prepares documentation only；it does not
+  contact 5090, extract/load a model, run GMTP/H2/harness or use a GPU.
+- Current ordered step: project owner reviews the non-authoritative P1 protocol candidate and selects Detoxification Option A/B/C.
+  No automatic P1 approval or execution is authorized.
 - Historical superseded H2 snapshot: `PROPOSED / NOT CANONICAL / NOT APPROVED`; preserve as history.
 - Formal RAG security experiment: **NOT STARTED**.
 - Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.
@@ -39,23 +39,26 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Historical first-review snapshot — S6.1-R0-I: **RETURNED_FOR_WORKER_CORRECTION**.
 - Historical first-review parent snapshot — S6.1-R0: **REVIEW_PENDING_CORRECTED_WORKER_EVIDENCE**.
 - Parent S6.1-R0: **HUMAN_ACCEPTED_WITH_BLOCKERS**.
-- S6.1-R0-FU1: **APPROVED / LOCAL-FIRST / WORKER-GATED**.
+- S6.1-R0-FU1: **HUMAN_ACCEPTED / CLOSED**.
 - Historical P0 snapshot: **COMPLETED_PENDING_OWNER_REVIEW**.
 - S6.1-R0-FU1-P0: **HUMAN_ACCEPTED**.
 - S6.1-R0-FU1-L1: **HUMAN_ACCEPTED**.
 - Historical S6.1-R0-FU1-W1 candidate: **SUPERSEDED_BY_LOCAL_L1 / NOT FAILED**.
 - Historical S6.1-R0-FU1-W2 snapshot: **READY_FOR_OWNER_EXECUTION_APPROVAL / NOT_YET_EXECUTED**.
-- S6.1-R0-FU1-W2: **APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED**.
+- S6.1-R0-FU1-W2: **HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED**.
+- W2_ENGINEERING_OBJECTIVE: **SATISFIED**.
+- W2_RUNTIME_GATE: **CLOSED**.
+- W2_ACCEPTANCE_SCOPE: **FROZEN_SINGLE_SAMPLE_DETECTION_CORE_ENGINEERING_FEASIBILITY_ONLY**.
 - S6.1-R0-FU1-W2-ATTEMPT1: **VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER**；`smoke_executed=false`；
   `algorithm_failure=false`；`GMTP_incompatibility=not established`.
 - S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-01 gap: **RESOLVED_BY_CORRECTION_02**.
-- S6.1-R0-FU1-W2-H1: **OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090**.
-- S6.1-R0-FU1-W2-H2: **ENGINEERING_SMOKE_COMPLETED / CONTROL_PLANE_REVIEW_PASS**.
+- S6.1-R0-FU1-W2-H1: **OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090 / COMPLETED**.
+- S6.1-R0-FU1-W2-H2: **ENGINEERING_SMOKE_COMPLETED / CONTROL_PLANE_REVIEW_PASS / HUMAN_ACCEPTED_AS_W2_EVIDENCE**.
 - S6.1-R0-FU1-W2-H2-RESUME-01: **VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER / H2-B NOT EXECUTED / call_count=0**.
 - S6.1-R0-FU1-W2-H2-RESUME-02: **CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED / call_count=1**.
 - S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02: **CONTROL_PLANE_REVIEW_PASS / FINAL_CLOSURE_APPLIED** under
   `PODR-057` and `PODR-058`.
-- S6.1-P1: **NOT STARTED / REQUIRES ACCEPTED W2 EVIDENCE AND SEPARATE P1 APPROVAL**.
+- S6.1-P1: **NOT STARTED / NOT APPROVED**. Its protocol is only a linked non-authoritative candidate.
 - Dataset: **NOT FROZEN**.
 - Dataset Generation: **NOT APPROVED**.
 - Detector: **NOT IMPLEMENTED**.
@@ -71,8 +74,12 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   assembly evidence and supersedes the Worker W1 route. Parent W2 acceptance remains owner-gated. The historical
   `W2_ATTEMPT1_EVIDENCE_BLOCKER` is
   **RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW**。`BLK-S6.1-FU1-W2-001` is
-  **RESOLVED_BY_H2_RESUME02_CONTROL_PLANE_REVIEW** only for the exact frozen minimal detector-core feasibility gate；parent W2
-  acceptance still requires an explicit owner decision.
+  **RESOLVED_BY_H2_RESUME02_AND_OWNER_ACCEPTANCE** only for the exact frozen minimal detector-core feasibility gate.
+- `GMTP_REPRODUCTION = NOT ESTABLISHED`；`DETECTION_EFFECTIVENESS = NOT ESTABLISHED`；
+  `STRICT_BASELINE_COMPARISON = NOT ESTABLISHED`；`FORMAL_PAPER_RESULT = NONE`.
+- In the single frozen sample pair, benign was retained and poisoned was filtered. 这是单次冻结样本的工程观察，不是检测性能结论。
+- `DETOXIFICATION_TECHNICAL_SCOPE = SCOPE_CONFIRMATION_REQUIRED`；
+  `HUMAN_DECISION_REQUIRED_BEFORE_P1_APPROVAL`.
 - Attempt 1 archive integrity passed narrowly: outer SHA-256
   `6acdbb8038e57b1d3e88028350fc08046d73a826ba9dd167452bfc0dd834170f`, safe members `18/18`, evidence index `16/16` and
   harness SHA-256 `8411af2042774f1a18eec95e97a14ade088acbc35f09942ae9ffea4e8ea5fc06`.
@@ -111,6 +118,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Canonical Paper 1 route: [Paper 1 Research Route](../research/stage6_1_hidden_knowledge_poisoning/paper1_research_route.md).
 - Canonical FU1-P0 resolution: [Targeted Resolution](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_targeted_resolution.md).
 - Canonical H2 resume02 review: [Control Plane Evidence Review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_r0_fu1_w2_h2_resume02_control_plane_review.md).
+- Non-authoritative P1 candidate: [Formal Protocol and Benchmark Specification](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_protocol_candidate.md).
 - Context recovery entry: [Context Authority Map](context_authority_map.md).
 - Highest internal execution authority: [PO-MHEP](project_owner_sovereignty_and_mandatory_escalation_principle.md).
 

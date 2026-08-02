@@ -14,6 +14,8 @@ Current Plan Status = `ACCEPTED_CURRENT_RESEARCH_PLAN`
 - 已接受技术范围：Benchmark、Detection、Risk Score、Signals、Explanation。
 - 待确认范围：自动过滤、自动重排、trusted context package、运行时可信检索、完整解毒系统。
 - `DETOXIFICATION_TECHNICAL_SCOPE = SCOPE_CONFIRMATION_REQUIRED`。
+- W2 工程门已以 `ENGINEERING_FEASIBILITY_ONLY` 人工验收并关闭；这不改变研究范围或建立检测有效性。
+- [P1 正式实验协议与 Benchmark 规格候选](../s6_1_p1_protocol_candidate.md)仅为 `CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED`；解毒 Option A/B/C 仍待项目需求提出人选择。
 
 ## 2. 研究问题
 
@@ -39,7 +41,7 @@ Current Plan Status = `ACCEPTED_CURRENT_RESEARCH_PLAN`
 | 外部工作 | 当前角色 | 当前可用证据 | 不得宣称 |
 | --- | --- | --- | --- |
 | PoisonedRAG | 攻击基线 | 源码身份、发布攻击文本及确定性组装关系 | artifact reuse 不是 attack generation reproduction |
-| GMTP | 检测基线 | 源码、输入 schema、检测调用链与固定模型身份 | W2 尚未完成，不能声称检测结果已复现 |
+| GMTP | 检测基线 | 源码、输入 schema、检测调用链、固定模型身份及单次 detection-core 工程可行性 | W2 工程门关闭不等于论文复现或检测有效性 |
 | SafeRAG | Benchmark 参考 | 部分公开 Benchmark 工件 schema smoke | 不能视为已执行完整 pipeline |
 
 当前未形成统一严格比较；必要时只能标注 `NON_STRICT_COMPARISON`、部分可比或迁移评估。
@@ -93,8 +95,8 @@ Paper 1 当前仅包括 Benchmark、Detection、Risk Score、Signals、Explanati
 
 1. S6.1-LR1：路线与基线对齐，已人工验收。
 2. S6.1-R0：工程预检，带阻塞项验收。
-3. S6.1-R0-FU1：P0/L1 已验收，W2 未完成，H1 待 5090 验证。
-4. S6.1-P1：冻结数据、基线、指标、统计和声明协议；未开始。
+3. S6.1-R0-FU1：P0/L1/W2 已验收；仅以工程可行性范围关闭。
+4. S6.1-P1：协议候选待审，`NOT APPROVED / NOT STARTED`；不得冻结或执行数据、方法或实验。
 5. Benchmark、Detector、Formal Evaluation、Ablation、Generalization、Paper Writing：均需各自审批与证据门。
 
 ## 14. 正式实验进入条件
@@ -133,5 +135,6 @@ Paper 1 当前仅包括 Benchmark、Detection、Risk Score、Signals、Explanati
 | RPC-001 | 2026-07 | 广义 Stage 6 RAG 方向 | Paper-first 中文版本化隐蔽知识污染 | 聚焦可发表问题与可比较证据 | 是 | S6.1-LR1+ | `1294632ca0501e7b999a29383780bec49eaa6b04` |
 | RPC-002 | 2026-08-01 | `paper1_research_route.md` 同时承担当前方案入口 | 本文件成为唯一当前方案权威；原路线降级为历史与支撑材料 | 建立单一职责和 Human/LLM 分离 | 是 | Paper 1 全局 | 本次文档重构提交 |
 | RPC-003 | 2026-08-01 | 英文工作题目 | 登记最新中文题目，同时保持当前已接受技术范围 | 反映项目需求提出人题目意图 | 是；技术范围待确认 | Paper 1 全局 | 本次文档重构提交 |
+| RPC-004 | 2026-08-02 | W2 等待人工决定 | W2/FU1 以单样本 detection-core 工程可行性范围验收关闭；P1 仅形成非权威协议候选 | 前置工程门已满足，但科学结论与正式实验仍需独立协议和审批 | 是；解毒 A/B/C 待确认 | FU1 closure / P1 candidate | PODR-061；本次提交 |
 
 历史与支撑路线：[paper1_research_route.md](../paper1_research_route.md)，其 `Document Role = HISTORICAL_AND_SUPPORTING_RESEARCH_ROUTE`，不能覆盖本文件。

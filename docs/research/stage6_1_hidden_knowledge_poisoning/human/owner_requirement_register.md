@@ -23,6 +23,7 @@
 | OR-017 | 2026-08-01 | 继续实验并批准 `S6.1-R0-FU1-W2-H2`：5090 先完成 H2-A 离线模型包验证，全部通过后才可在同一合同内执行一次 H2-B 双文档 GMTP detection-core 工程 smoke；完成或遇到 blocker 后停止，不批准 P1、数据集、Detector、训练或正式实验 | 实验批准 | FU1/W2/H2 | `APPROVED_TO_START / NOT SENT / NOT EXECUTED` | S6.1-R0-FU1-W2-H2 | 当前任务批准文本；H2 审批基础 `212911a21dc35bef05b15fb840542403c415dd13` | supersede OS-006 的批准前历史状态 |
 | OR-018 | 2026-08-01 | 确认 bundle 与 sidecar 已同步到 5090；保留非空 `resume_01` blocker evidence，不覆盖、不删除；批准改用全新 `resume_02` 从 H2-A 重新开始，并使用新的 resume02 archive；除证据命名空间外合同不变 | 实验继续批准 | FU1/W2/H2 | `RESUME_02 APPROVED_TO_START / NOT EXECUTED` | S6.1-R0-FU1-W2-H2-RESUME-02 | 当前任务明确确认；resume_01 evidence 与本机复核 | 不授权 resume_03、重复 H2-B、P1 或正式实验 |
 | OR-019 | 2026-08-01 | 后续 5090 输出仍同步到 E 盘 `LLMGuard-Handoff` 文件夹；本次误同步到 D 盘 `llmProject/handoff` 仅为单次例外，不改变冻结计算端输出路径 | 工件交接规则 | 本机/5090 证据传递 | 已确认 | FU1 及后续获批计算任务 | 项目需求提出人当前明确说明 | 不移动或改写既有证据；不把 D 盘例外变成新规范 |
+| OR-020 | 2026-08-02 | 正式验收父 W2 为 `HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED` 并关闭 FU1；只接受冻结单样本 detection-core 工程可行性；准备 P1 协议候选但不批准、不启动 P1，不扩大论文结论；解毒 A/B/C 范围须后续人工选择 | 最终验收与下一阶段范围门 | FU1/W2/P1 candidate | W2/FU1 accepted and closed；P1 candidate pending | S6.1-R0-FU1-W2；S6.1-P1 | owner 明确指令；验收基础 `b19fc59cc5ba771fd547430f6096403720ef1a7d`；PODR-061 | 禁止 5090/H2/GMTP/model、Dataset、Detector、Training、Formal Experiment 或 Paper Result 自动推进 |
 
 题目范围登记：
 

@@ -1052,4 +1052,40 @@ Approval Gate、Auto Continue。
 - Architecture Impact: validates the frozen external detection-core path only；no repository runtime-code change.
 - Next Step: project owner decides parent W2 disposition. S6.1-P1 remains closed and requires separate approval.
 - Next Approval Gate: explicit project-owner W2 decision；no automatic Worker rerun or P1.
+
+## REL-2026-0024 — Parent W2 Engineering Feasibility Accepted; FU1 Closed; P1 Candidate Prepared
+
+- Record ID: `REL-2026-0024`.
+- Date: `2026-08-02`.
+- Stage: `Stage 6.1 / Paper 1 / FU1 closure and P1 candidate`.
+- Task ID: `S6.1-R0-FU1-W2-OWNER-ACCEPTANCE; S6.1-P1-CONTRACT-CANDIDATE`.
+- Machine: `本机 / CONTROL_PLANE`.
+- Initial Status: parent W2 `APPROVED_TO_START / NOT COMPLETED / NOT ACCEPTED`；H2 evidence accepted；P1 not started.
+- Final Status: W2 `HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED`；FU1 `HUMAN_ACCEPTED / CLOSED`；P1
+  `CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED`.
+- Objective: register the owner decision, freeze the single-sample engineering-only claim boundary, close FU1, and prepare a
+  non-authoritative formal protocol/Benchmark candidate without starting research execution.
+- Previous Gate: `PODR-060 / REL-2026-0023 / explicit parent W2 owner decision required`.
+- Actions: registered PODR-061 and OR-020；updated Human/Agent/current/master/context/process mirrors；preserved resume_01 and
+  Attempt 1 history；created one P1 protocol candidate covering RQ1-5, Benchmark/schema, five views, Tracks, metrics, statistics,
+  run/evidence/resource/license boundaries and mutually exclusive detoxification A/B/C options；updated governance tests；commit/push.
+- Evidence: acceptance base `b19fc59cc5ba771fd547430f6096403720ef1a7d`；resume02 SHA256
+  `58da856a81ad89b858af2c041ff617e16156ec254410b07e6511c2888203f563`；index `25/25 PASS`；H2-A `18/18 PASS`；
+  H2-B `call_count=1`.
+- Validation: targeted governance/context `30 passed`；full architecture `112 passed`；namespace/label isolation `10 passed`；
+  Ruff and `git diff --check` passed；281 changed-document relative links passed；15 changed files passed UTF-8 no-BOM/LF；
+  secret/private-path/raw-artifact/protected-history and runtime-ignore checks passed. Pytest cache permission warning is non-blocking.
+- Observation: benign retained；poisoned filtered。**这是单次冻结样本的工程观察，不是检测性能结论。**
+- Claims Allowed: exact offline bundle/models/source/input/parameter/environment/CUDA/resource identities and one frozen two-doc
+  engineering call；W2/FU1 engineering-feasibility closure.
+- Claims Prohibited: GMTP reproduction/effectiveness/generalization；strict baseline comparison；detector metrics；Paper result；
+  P1 approval/start；Dataset/Detector/Training/Formal Experiment advancement.
+- Blocker ID: `BLK-S6.1-FU1-W2-001 = RESOLVED_BY_H2_RESUME02_AND_OWNER_ACCEPTANCE`.
+- Preserved Failure: resume_01 `VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER / H2-B NOT EXECUTED / call_count=0`；
+  resume_02 `CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED / call_count=1`.
+- Owner Decisions: `PODR-061`; owner requirement `OR-020`.
+- Execution Exclusions: no 5090 contact, H2/GMTP/model execution, source/data/model/parameter change, Dataset construction,
+  Detector implementation, training or Formal Experiment.
+- Next Approval Gate: owner reviews the P1 candidate and selects Detoxification Option A/B/C；
+  `HUMAN_DECISION_REQUIRED_BEFORE_P1_APPROVAL`.
 - Auto Continue: `NO / H2 SINGLE CALL CONSUMED`

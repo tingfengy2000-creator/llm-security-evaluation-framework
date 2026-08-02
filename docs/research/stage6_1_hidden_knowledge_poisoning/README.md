@@ -1,6 +1,6 @@
 # Paper 1 Start Here
 
-> 快速状态：S6.1-LR1 已人工验收；R0 带阻塞项验收；FU1 的 P0/L1 已验收，父 W2 未完成、未验收。H2 `resume_01` 的 fail-closed 历史保持不可变；`resume_02` 已在 RTX5090 完成 H2-A `18/18` 与唯一一次 H2-B，返回 archive/index/result/resource 证据已由本机独立复核，状态为 `CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED`。这只是双文档工程 smoke，不是复现、有效性或论文结果。`S6.1-P1 = NOT STARTED`，`FORMAL_EXPERIMENT = NOT STARTED`。
+> 快速状态：S6.1-LR1 已人工验收；R0 带阻塞项验收；FU1 的 P0/L1 与父 W2 已验收，FU1 已关闭。父 W2 状态为 `HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED`。H2 `resume_01` 的 fail-closed 历史保持不可变；`resume_02` 的 H2-A `18/18`、唯一一次 H2-B 与 `25/25` evidence 已由本机复核并作为 W2 工程证据接受。这只是单次冻结样本对的 detection-core 工程可行性，不是 GMTP 复现、检测有效性或论文结果。P1 仅有协议候选，仍为 `NOT APPROVED / NOT STARTED`；`FORMAL_EXPERIMENT = NOT STARTED`。
 
 ## 一、项目需求提出人入口
 
@@ -15,7 +15,8 @@
 
 - [S6.1-LR1 工作过程](stage_process/S6.1-LR1_work_process.md) — 路线与基线对齐，`HUMAN_ACCEPTED`。
 - [S6.1-R0 工作过程](stage_process/S6.1-R0_work_process.md) — 工程预检，`HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- [S6.1-R0-FU1 工作过程](stage_process/S6.1-R0-FU1_work_process.md) — P0/L1 已验收；H2 resume_01 受阻历史已保留，resume_02 工程 smoke 证据已通过本机复核；父 W2 仍待项目负责人决定。
+- [S6.1-R0-FU1 工作过程](stage_process/S6.1-R0-FU1_work_process.md) — P0/L1/W2 已验收；FU1 仅以最小工程可行性范围关闭。
+- [S6.1-P1 协议候选](s6_1_p1_protocol_candidate.md) — `CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED`，不与研究方案权威竞争。
 
 ## 三、支撑研究材料
 

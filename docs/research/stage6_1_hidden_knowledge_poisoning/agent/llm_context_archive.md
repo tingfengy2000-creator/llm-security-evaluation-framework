@@ -8,7 +8,7 @@ paper_identity:
   chinese_title: 面向中文检索增强生成系统的版本感知隐蔽知识污染基准与多视角解毒方法
   english_working_title: Stealthy Factual Poisoning in Versioned RAG Knowledge Bases - A Benchmark and Multi-View Detection Framework
 current_branch: research/stage6-1-hidden-poisoning
-current_commit: 38931d50bc3751eefc1dff100b2e901fc905ea3f
+current_commit: b19fc59cc5ba771fd547430f6096403720ef1a7d
 research_objective: Chinese version-aware stealthy knowledge poisoning benchmark and multi-view detection
 research_boundary: [Benchmark, Detection, Risk Score, Signals, Explanation]
 accepted_stages:
@@ -17,14 +17,15 @@ accepted_stages:
   S6.1-R0: HUMAN_ACCEPTED_WITH_BLOCKERS
   S6.1-R0-FU1-P0: HUMAN_ACCEPTED
   S6.1-R0-FU1-L1: HUMAN_ACCEPTED
-current_stage: S6.1-R0-FU1
-current_task: H2 resume_01 history preserved; resume_02 engineering-smoke evidence passed Control Plane review; parent W2 owner decision pending
+current_stage: S6.1-P1 protocol candidate review gate
+current_task: W2/FU1 accepted and closed for engineering feasibility only; P1 candidate awaits owner review and detox scope selection
 current_blockers:
-  - parent W2 not completed or accepted
+  - P1 is not approved or started
+  - detoxification technical scope requires owner selection among A/B/C
 resolved_blockers:
   - W2_ATTEMPT1_EVIDENCE_BLOCKER resolved by Correction 02 control-plane review
   - resume_01 OFFLINE_BUNDLE_SHA_BLOCKER accurately captured and reviewed; bundle/sidecar later synced
-  - BLK-S6.1-FU1-W2-001 resolved by H2 resume02 Control Plane review for the exact minimal feasibility gate
+  - BLK-S6.1-FU1-W2-001 resolved by H2 resume02 and owner acceptance
 machine_responsibilities:
   本机: planning, static analysis, evidence review, light artifact preparation, governance
   5090: explicitly approved compute execution and independent artifact verification
@@ -52,22 +53,26 @@ approval_identity:
   h2_resume02_approval_base_commit: 2f492dc763e865105510cc8cb141ebde5e109b3e
   H2_resume01: VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER
   H2_resume02: CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED
+  parent_W2: HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED
+  FU1: HUMAN_ACCEPTED / CLOSED
+  acceptance_base_commit: b19fc59cc5ba771fd547430f6096403720ef1a7d
+  owner_decision: PODR-061
   auto_continue: CONSUMED_AND_STOPPED
 current_claims:
   - exact two-document engineering-smoke identities, one call and redacted result/resource evidence only
   - H1 bundle and exact local model load verified on 5090 within frozen H2
 prohibited_claims:
   - GMTP reproduction, effectiveness, safety, generalization or paper metrics
-  - W2 completed or accepted
   - complete strict baseline reproduction
   - any formal Paper 1 result
-next_decision_gate: project owner decides parent W2 disposition; no second H2-B call and no automatic P1
+next_decision_gate: project owner reviews P1 candidate and selects detoxification A/B/C; no second H2-B call and no automatic P1
 canonical_files:
   owner_requirements: ../human/owner_requirement_register.md
   research_plan: ../human/research_plan_authority.md
   human_ledger: ../human/experiment_ledger_tingfeng.md
   agent_ledger: experiment_ledger_agentUse.md
   current_stage_process: ../stage_process/S6.1-R0-FU1_work_process.md
+  p1_protocol_candidate: ../s6_1_p1_protocol_candidate.md
 ```
 
 This document is a context recovery artifact.
@@ -142,3 +147,13 @@ Live Git and raw evidence override stale snapshot fields. Owner-confirmed requir
 - 当时证据：resume_01 archive 4,570 bytes、SHA256 `941557aa00be58210015165078bbb3c1cbdd2250cab0755c37198e7b7e26e89d`；本机安全复核 20 files/1 directory、index 19/19；项目需求提出人确认 bundle/sidecar 已同步到 5090 且 size/SHA 匹配。
 - 当时下一步：5090 同步新的治理提交，在全新 resume_02 从完整 H2-A 开始；只有全部通过才可使用尚未消费的一次 H2-B 授权。
 - 后续替代决定：无；不授权覆盖 resume_01、自动 resume_03、P1 或 Formal Experiment。
+
+### Context Checkpoint — 2026-08-02 — W2-owner-acceptance
+
+- 当时阶段：S6.1-R0-FU1 closure / S6.1-P1 candidate gate。
+- 当时任务：登记父 W2 最终人工验收、关闭 FU1，并准备非权威 P1 协议候选。
+- 当时状态：W2 `HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED`；FU1 `HUMAN_ACCEPTED / CLOSED`；P1 `CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED`。
+- 当时证据：验收基础 `b19fc59cc5ba771fd547430f6096403720ef1a7d`；resume_02 SHA256 `58da856a81ad89b858af2c041ff617e16156ec254410b07e6511c2888203f563`；index `25/25 PASS`；H2-A `18/18 PASS`；H2-B `call_count=1`。
+- 历史保留：resume_01 `VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER / H2-B NOT EXECUTED / call_count=0`；Attempt 1 不重分类为成功运行。
+- 声明边界：单样本 benign retained / poisoned filtered 只是工程观察，不是检测性能结论；GMTP reproduction、effectiveness、strict comparison 和 formal paper result 均未建立。
+- 当时下一步：项目需求提出人审查 P1 协议候选并选择 Detoxification Option A/B/C；不联系 5090，不自动进入 P1。

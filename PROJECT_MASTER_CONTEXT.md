@@ -1,5 +1,28 @@
 # LLMGuard 项目总控文档
 
+## S6.1-R0-FU1-W2 工程可行性最终验收与 P1 候选门（2026-08-02）
+
+项目需求提出人以提交 `b19fc59cc5ba771fd547430f6096403720ef1a7d` 为验收基础，将父 W2 登记为
+`HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED`，并将 FU1 登记为 `HUMAN_ACCEPTED / CLOSED`。H1 为
+`OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090 / COMPLETED`；H2 为
+`ENGINEERING_SMOKE_COMPLETED / CONTROL_PLANE_REVIEW_PASS / HUMAN_ACCEPTED_AS_W2_EVIDENCE`。
+
+验收依据仍是不可变的 H2 resume_02 evidence：archive SHA256
+`58da856a81ad89b858af2c041ff617e16156ec254410b07e6511c2888203f563`、index `25/25 PASS`、H2-A `18/18 PASS`、
+唯一 H2-B `call_count=1`。固定样本中 benign retained、poisoned filtered；**这是单次冻结样本的工程观察，不是检测性能结论。**
+resume_01 的 `VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER / H2-B NOT EXECUTED / call_count=0` 及 Attempt 1 历史
+保持不变。
+
+冻结结论为 `W2_ENGINEERING_OBJECTIVE = SATISFIED`、`W2_RUNTIME_GATE = CLOSED`、
+`BLK-S6.1-FU1-W2-001 = RESOLVED_BY_H2_RESUME02_AND_OWNER_ACCEPTANCE` 和
+`W2_ACCEPTANCE_SCOPE = FROZEN_SINGLE_SAMPLE_DETECTION_CORE_ENGINEERING_FEASIBILITY_ONLY`。这不建立 GMTP reproduction、
+detection effectiveness、strict baseline comparison 或 formal paper result。
+
+下一阶段只有 [S6.1-P1 协议候选](docs/research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_protocol_candidate.md)，状态为
+`CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED`。项目负责人须审查协议并在 Detoxification Option A/B/C 中选择；
+`HUMAN_DECISION_REQUIRED_BEFORE_P1_APPROVAL`。Dataset、Detector、Training、Our Method Result 与 Formal Experiment
+分别保持 `NOT FROZEN`、`NOT IMPLEMENTED`、`NOT STARTED`、`NONE`、`NOT STARTED`。
+
 ## H2 resume_02 工程 smoke 证据已通过本机复核（2026-08-01）
 
 LOCAL 已对返回的 `s6_1_r0_fu1_w2_resume02_evidence_20260801.tar.gz` 执行独立只读复核。Archive 为 `15625`

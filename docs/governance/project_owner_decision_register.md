@@ -907,3 +907,34 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   Our Method Result and Formal Experiment remain unchanged/not started.
 - Canonical contract: [FU1 work process](../research/stage6_1_hidden_knowledge_poisoning/stage_process/S6.1-R0-FU1_work_process.md),
   [Current Work State](current_work_state.md), and `REL-2026-0022`.
+
+## PODR-061: Parent W2 Engineering Feasibility Final Acceptance and FU1 Closure
+
+- Date: `2026-08-02`.
+- Decision: 项目需求提出人将 `S6.1-R0-FU1-W2` 正式验收为
+  `HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED`，并将 `S6.1-R0-FU1` 关闭为 `HUMAN_ACCEPTED / CLOSED`。
+- Acceptance base commit: `b19fc59cc5ba771fd547430f6096403720ef1a7d`.
+- Evidence basis: H2 resume_02 archive SHA256
+  `58da856a81ad89b858af2c041ff617e16156ec254410b07e6511c2888203f563`；evidence index `25/25 PASS`；H2-A
+  `18/18 PASS`；唯一 H2-B `call_count=1`；冻结模型 revision、GMTP source/input/parameters/environment/offline/CUDA/resource
+  identities passed independent Control Plane review.
+- Accepted objective: 在全部固定条件下，两个本地模型成功离线 CUDA 加载；未修改 detection core 完成一次双文档调用；
+  产生 finite 工程输出与 retained/filtered 决策；资源和证据合同通过。本次固定样本中 benign retained、poisoned filtered。
+  这是单次冻结样本的工程观察，不是检测性能结论。
+- Frozen state: `W2_ENGINEERING_OBJECTIVE = SATISFIED`；`W2_RUNTIME_GATE = CLOSED`；
+  `BLK-S6.1-FU1-W2-001 = RESOLVED_BY_H2_RESUME02_AND_OWNER_ACCEPTANCE`；
+  `W2_ACCEPTANCE_SCOPE = FROZEN_SINGLE_SAMPLE_DETECTION_CORE_ENGINEERING_FEASIBILITY_ONLY`.
+- H1/H2: H1 `OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090 / COMPLETED`；H2
+  `ENGINEERING_SMOKE_COMPLETED / CONTROL_PLANE_REVIEW_PASS / HUMAN_ACCEPTED_AS_W2_EVIDENCE`.
+- Historical preservation: resume_01 remains
+  `VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER / H2-B NOT EXECUTED / call_count=0`；resume_02 remains
+  `CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED / call_count=1`；Attempt 1 is not rewritten as a successful run.
+- Claims prohibited: `GMTP_REPRODUCTION = NOT ESTABLISHED`；`DETECTION_EFFECTIVENESS = NOT ESTABLISHED`；
+  `STRICT_BASELINE_COMPARISON = NOT ESTABLISHED`；no Accuracy/Precision/Recall/F1/AUPRC/AUROC/Filtering Rate/ASR、
+  significance、generalization、baseline superiority、SOTA、Our Method Result or Paper Result；`FORMAL_PAPER_RESULT = NONE`.
+- P1 gate: only a non-authoritative `CONTRACT_CANDIDATE / NOT APPROVED / NOT STARTED` may be prepared. Dataset remains
+  `NOT FROZEN`；Detector `NOT IMPLEMENTED`；Training `NOT STARTED`；Our Method Result `NONE`；Formal Experiment `NOT STARTED`.
+- Detoxification gate: mutually exclusive Option A/B/C must be presented；
+  `DETOXIFICATION_TECHNICAL_SCOPE = SCOPE_CONFIRMATION_REQUIRED` and
+  `HUMAN_DECISION_REQUIRED_BEFORE_P1_APPROVAL`.
+- Canonical records: [Current Work State](current_work_state.md), [FU1 work process](../research/stage6_1_hidden_knowledge_poisoning/stage_process/S6.1-R0-FU1_work_process.md), [P1 candidate](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_protocol_candidate.md), `OR-020`, and `REL-2026-0024`.
