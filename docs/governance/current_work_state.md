@@ -16,15 +16,13 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-P1-R1`.
-- Task name: `P1 Protocol Hardening and Option B Scope Freeze`.
-- Task type: **PROTOCOL_HARDENING / SCOPE_FREEZE / NO_EXPERIMENT_EXECUTION**.
-- Status: **REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED**.
-- Base commit: `P1_R1_BASE_COMMIT = aabe504d55626fb31008822b7bbabd3b32e2afd4`.
-- Execution machine: **本机 / CONTROL_PLANE**. This task records owner-confirmed scope and prepares documentation/tests only；it does not
-  contact 5090, extract/load a model, run GMTP/H2/harness or use a GPU.
-- Current ordered step: project owner reviews the non-authoritative P1-R1 protocol hardening candidate. Option B is selected, but
-  no automatic P1, Pilot, Dataset, implementation or experiment approval is authorized.
+- Task ID: `S6.1-P1-PILOT0`.
+- Task name: `Benchmark and Lightweight Detoxification Infrastructure Pilot`.
+- Task type: **LOCAL_ENGINEERING_INFRASTRUCTURE / SYNTHETIC_FIXTURE_VALIDATION / NO_FORMAL_EXPERIMENT**.
+- Status: **COMPLETED_PENDING_REVIEW**.
+- Base commit: `PILOT0_BASE_COMMIT = 4b0395584627636f5f13658a990614d8f39561eb`.
+- Execution machine: **本机**. No 5090 contact, model/API/GMTP/GPU use, real-data collection, Detector training or formal experiment occurred.
+- Current ordered step: project owner reviews PILOT0 engineering evidence, then decides whether to approve a separate real-data and annotation Pilot.
 - Historical superseded H2 snapshot: `PROPOSED / NOT CANONICAL / NOT APPROVED`; preserve as history.
 - Formal RAG security experiment: **NOT STARTED**.
 - Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.
@@ -59,9 +57,12 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - S6.1-R0-FU1-W2-H2-RESUME-02: **CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED / call_count=1**.
 - S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02: **CONTROL_PLANE_REVIEW_PASS / FINAL_CLOSURE_APPLIED** under
   `PODR-057` and `PODR-058`.
-- S6.1-P1-R1: **REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED**.
-- S6.1-P1: **NOT APPROVED / NOT STARTED**. Its protocol remains a linked non-authoritative candidate.
-- Pilot: **NOT APPROVED / NOT STARTED**.
+- S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
+- P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
+- S6.1-P1: **APPROVED_FOR_PILOT0_INFRASTRUCTURE_ONLY / NOT FORMAL_EXPERIMENT**.
+- S6.1-P1-PILOT0: **COMPLETED_PENDING_REVIEW**.
+- REAL_DATA_PILOT / 240_GROUP_PILOT: **NOT APPROVED / NOT STARTED**.
+- MINIMAL_MATRIX / FULL_MATRIX: **NOT APPROVED**.
 - Dataset: **NOT FROZEN**.
 - Dataset Generation: **NOT APPROVED**.
 - Detector: **NOT IMPLEMENTED**.
@@ -201,8 +202,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
 - Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
   evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- Next operational action: project owner reviews the P1-R1 approval-grade candidate and its four remaining high-level decisions.
-  No second H2-B call, automatic resume_03, P1 approval, Pilot or implementation is authorized.
+- Next operational action: project owner reviews the PILOT0 engineering evidence, then decides whether to approve real-data and annotation Pilot.
+  No second H2-B call, automatic resume_03, real-data Pilot, matrix, Dataset, Detector, training or formal experiment is authorized.
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. Its acceptance does not approve S6-T5.6 ContextBuilder behavior; that remains a separate boundary.
@@ -261,6 +262,6 @@ are established.
 ## Last Update
 
 - Date: `2026-08-02`.
-- Updated by: LOCAL Control Plane registering OR-021/PODR-062, freezing Option B at the research-scope level, and preparing the
-  P1-R1 approval-grade review candidate. No 5090 contact, data construction, implementation, model load or experiment occurred；
-  P1/Pilot remain not approved/not started and Formal Experiment remains not started.
+- Updated by: 本机 implementing S6.1-P1-PILOT0 under OR-022. P1-R1 is accepted as a protocol framework；PILOT0 infrastructure
+  and a 24-record synthetic fixture passed engineering validation pending owner review. No 5090 contact, real data, model, GMTP,
+  Detector training or formal experiment occurred；numeric parameters and the formal protocol remain unfrozen.

@@ -13,7 +13,7 @@ Primary Human Mirror = `../human/experiment_ledger_tingfeng.md`
 project: LLMGuard Research Framework
 paper: Paper 1 - Chinese version-aware stealthy knowledge poisoning
 branch: research/stage6-1-hidden-poisoning
-document_source_commit: aabe504d55626fb31008822b7bbabd3b32e2afd4
+document_source_commit: 4b0395584627636f5f13658a990614d8f39561eb
 snapshot_date: 2026-08-02
 authority_order:
   - raw Git and external evidence
@@ -47,9 +47,12 @@ BLK-S6.1-FU1-W2-001: RESOLVED_BY_H2_RESUME02_AND_OWNER_ACCEPTANCE
 GMTP_REPRODUCTION: NOT ESTABLISHED
 DETECTION_EFFECTIVENESS: NOT ESTABLISHED
 STRICT_BASELINE_COMPARISON: NOT ESTABLISHED
-S6.1-P1-R1: REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED
-S6.1-P1: NOT APPROVED / NOT STARTED
-Pilot: NOT APPROVED / NOT STARTED
+S6.1-P1-R1: HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK
+S6.1-P1: APPROVED_FOR_PILOT0_INFRASTRUCTURE_ONLY / NOT FORMAL_EXPERIMENT
+S6.1-P1-PILOT0: COMPLETED_PENDING_REVIEW
+P1_NUMERIC_PARAMETERS: PENDING_PILOT_EVIDENCE
+REAL_DATA_PILOT: NOT APPROVED / NOT STARTED
+240_GROUP_PILOT: NOT APPROVED / NOT STARTED
 Dataset: NOT FROZEN
 Detector: NOT IMPLEMENTED
 Retrieval_Intervention: NOT IMPLEMENTED
@@ -61,14 +64,14 @@ H2_auto_continue: CONSUMED_AND_STOPPED
 DETOXIFICATION_OPTION: OPTION_B
 DETOXIFICATION_TECHNICAL_SCOPE: OPTION_B_CONFIRMED
 DETOXIFICATION_TECHNICAL_SCOPE_FULL: OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION
-P1_next_gate: OWNER_REVIEW_OF_P1_R1_CANDIDATE
+P1_next_gate: OWNER_REVIEW_OF_PILOT0_ENGINEERING_EVIDENCE
 ```
 
 ## State Machine
 
-`LR1 HUMAN_ACCEPTED -> R0 HUMAN_ACCEPTED_WITH_BLOCKERS -> FU1 {P0 HUMAN_ACCEPTED, L1 HUMAN_ACCEPTED} -> H1 verified -> H2 resume_01 OFFLINE_BUNDLE_SHA_BLOCKER/call_count=0 -> resume_02 H2-A 18/18 PASS -> one H2-B call -> Control Plane evidence accepted -> W2 HUMAN_ACCEPTED/ENGINEERING_FEASIBILITY_ONLY/CLOSED -> FU1 HUMAN_ACCEPTED/CLOSED -> Option B selected -> P1-R1 review candidate owner review`
+`LR1 HUMAN_ACCEPTED -> R0 HUMAN_ACCEPTED_WITH_BLOCKERS -> FU1/W2 closed for engineering feasibility -> Option B selected -> P1-R1 HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK -> PILOT0 infrastructure COMPLETED_PENDING_REVIEW -> owner engineering-evidence review`
 
-No transition authorizes S6.1-P1, Dataset Construction, Detector Implementation, Training, or Formal Experiment.
+The transition authorizes only S6.1-P1 PILOT0 infrastructure. It does not authorize real-data Pilot, Dataset Construction, Detector Implementation, Training, or Formal Experiment.
 
 ## Stage Registry
 
@@ -77,8 +80,8 @@ No transition authorizes S6.1-P1, Dataset Construction, Detector Implementation,
 | S6.1-LR1 | research route and external baseline alignment | `HUMAN_ACCEPTED` | `../stage_process/S6.1-LR1_work_process.md` |
 | S6.1-R0 | engineering reproduction preflight | `HUMAN_ACCEPTED_WITH_BLOCKERS` | `../stage_process/S6.1-R0_work_process.md` |
 | S6.1-R0-FU1 | targeted baseline feasibility resolution | `HUMAN_ACCEPTED / CLOSED` | `../stage_process/S6.1-R0-FU1_work_process.md` |
-| S6.1-P1-R1 | protocol hardening and Option B scope freeze | `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED` | candidate `../s6_1_p1_r1_protocol_review_candidate.md`; no canonical process |
-| S6.1-P1 | formal protocol approval | `NOT APPROVED / NOT STARTED` | historical candidate `../s6_1_p1_protocol_candidate.md`; no canonical process |
+| S6.1-P1-R1 | protocol hardening and Option B scope freeze | `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK` | source candidate `../s6_1_p1_r1_protocol_review_candidate.md`; numeric parameters pending |
+| S6.1-P1 | PILOT0 infrastructure only; formal protocol not frozen | `APPROVED_FOR_PILOT0_INFRASTRUCTURE_ONLY / NOT FORMAL_EXPERIMENT` | `../stage_process/S6.1-P1_work_process.md` |
 
 ## Run Registry
 
@@ -124,6 +127,7 @@ next_gate: string
 | RUN-H2-R02 | S6.1-R0-FU1 / W2-H2-RESUME-02 | engineering_smoke / 5090 + review / 本机 | `CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED` | main approval HEAD `38931d50bc3751eefc1dff100b2e901fc905ea3f`; GMTP commit/blob/source, input index/hash, two model revisions, environment SHA and official parameters all frozen | `APPROVED_TO_START` -> `W2_RESUME02_ENGINEERING_SMOKE_COMPLETED_PENDING_REVIEW` -> `CONTROL_PLANE_REVIEW_PASS` | artifact `s6_1_r0_fu1_w2_resume02_evidence_20260801.tar.gz`; artifact_sha256 `58da856a81ad89b858af2c041ff617e16156ec254410b07e6511c2888203f563`; evidence_index `25/25 PASS`; H2-A `18/18`; call_count `1` | allowed: exact minimal feasibility and redacted two-document observation; prohibited: reproduction/effectiveness/safety/paper result/W2 acceptance | blocker `BLK-S6.1-FU1-W2-001 resolved for minimal gate`; next_gate parent W2 owner decision |
 | GOV-W2-ACCEPTANCE | S6.1-R0-FU1 / W2 owner acceptance | governance_acceptance / 本机 | `HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED` | acceptance base `b19fc59cc5ba771fd547430f6096403720ef1a7d`; evidence RUN-H2-R02; algorithm/data/model/parameter identities unchanged | `CONTROL_PLANE_REVIEW_PASS` -> `HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED` | result `W2_ENGINEERING_OBJECTIVE=SATISFIED`; artifact/evidence index `NA / references immutable RUN-H2-R02 25/25` | allowed: frozen single-sample engineering feasibility and FU1 closure; prohibited: reproduction/effectiveness/strict comparison/metrics/formal result | blocker `BLK-S6.1-FU1-W2-001 RESOLVED_BY_H2_RESUME02_AND_OWNER_ACCEPTANCE`; next_gate P1-R1 candidate review |
 | DESIGN-P1-R1 | S6.1-P1 / P1-R1 | planning / 本机 | `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED` | base commit `aabe504d55626fb31008822b7bbabd3b32e2afd4`; no data/model/environment/run identity | `OPTION_B_SELECTED` -> `APPROVAL_GRADE_REVIEW_CANDIDATE` | Option B scope, RQ1-6, Benchmark/schema/split, baseline fairness, metrics/statistics, Pilot/resource/evidence/license candidates；artifact `../s6_1_p1_r1_protocol_review_candidate.md` | allowed: design and scope freeze；prohibited: P1/Pilot/Dataset/implementation/training/result | blocker `OWNER_REVIEW`; next_gate owner accepts/revises/rejects candidate |
+| RUN-P1-PILOT0-SYNTHETIC | S6.1-P1 / PILOT0 | engineering_validation / 本机 | `COMPLETED_PENDING_REVIEW` | base commit `4b0395584627636f5f13658a990614d8f39561eb`; schema `paper1-pilot0-v1`; fixture SHA256 `4f381451688150016b1a518895ad75149cfdfdac4cd512dd6062becba04b2ed0`; seed/config explicit in tests; no data/model/environment identity | `APPROVED_TO_IMPLEMENT` -> `41 TARGETED TESTS PASSED` | schema/visibility/group/split/leakage/attack/hard-negative/intervention/manifest infrastructure and 24-record synthetic fixture | allowed: engineering feasibility only；prohibited: Benchmark/Detector/performance/Paper result | blocker none in approved scope；next_gate owner reviews PILOT0 evidence |
 
 ## Artifact Registry
 
@@ -168,8 +172,8 @@ H2 bundle contract additionally freezes bundle source bytes `1320359518`, archiv
 
 ## Open Blockers
 
-- S6.1-P1-R1 remains `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`; P1 and Pilot are not approved or started.
-- Dataset is not frozen；Detector and Retrieval Intervention are not implemented；Training and Formal Experiment are not started.
+- S6.1-P1-R1 is `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`; numeric parameters and the formal protocol remain unfrozen.
+- PILOT0 infrastructure is `COMPLETED_PENDING_REVIEW`; real-data and 240-group Pilot are not approved or started. Dataset is not frozen；Detector is not implemented；Training and Formal Experiment are not started.
 - Option B is confirmed only for detection plus lightweight hard filtering / soft downweighting. Complete trusted retrieval/context construction remains excluded.
 
 ## Resolved Blockers
@@ -182,8 +186,8 @@ H2 bundle contract additionally freezes bundle source bytes `1320359518`, archiv
 
 1. Preserve resume_01 and resume_02 as immutable evidence; do not overwrite, rerun, merge or create automatic resume_03.
 2. The only authorized H2-B call is consumed (`call_count=1`); no retry or second call is authorized.
-3. W2/FU1 are closed only for engineering feasibility; project owner must review the non-authoritative P1-R1 candidate before any P1 approval.
-4. `DETOXIFICATION_OPTION = OPTION_B` is fixed. This does not authorize a Pilot, dataset freeze, implementation, training or run；every later gate remains separate.
+3. P1-R1 is accepted as a protocol framework and only PILOT0 infrastructure is approved; the project owner reviews its engineering evidence next.
+4. `DETOXIFICATION_OPTION = OPTION_B` is fixed. This does not authorize real data, annotation Pilot, dataset freeze, Detector, training or a formal run；every later gate remains separate.
 5. `Auto Continue = CONSUMED_AND_STOPPED`; outside H2 it remains `NO`.
 
 ## Human-Confirmed Requirements Reference
@@ -199,6 +203,7 @@ Canonical authority: [`../human/research_plan_authority.md`](../human/research_p
 - [`S6.1-LR1`](../stage_process/S6.1-LR1_work_process.md)
 - [`S6.1-R0`](../stage_process/S6.1-R0_work_process.md)
 - [`S6.1-R0-FU1`](../stage_process/S6.1-R0-FU1_work_process.md)
+- [`S6.1-P1`](../stage_process/S6.1-P1_work_process.md)
 
 ## Canonical File Map
 

@@ -1127,3 +1127,24 @@ Approval Gate、Auto Continue。
   are explicit, while Pilot-dependent quantities remain unvalidated.
 - Paper Risk Review: `PASS_WITH_SCOPE_GUARD`; the title's detoxification claim is testable but cannot imply a complete trusted RAG/Agent system.
 - Next Approval Gate: owner accepts, revises or rejects the P1-R1 candidate and resolves its four high-level decisions. Auto Continue = `NO`.
+
+## REL-2026-0026 — P1 PILOT0 Infrastructure Completed with Synthetic Engineering Validation
+
+- Record ID: `REL-2026-0026`.
+- Date: `2026-08-02`.
+- Stage: `Stage 6.1 / Paper 1 / PILOT0`.
+- Task ID: `S6.1-P1-PILOT0`.
+- Machine: `本机`.
+- Initial Status: P1-R1 review candidate；P1/Pilot not approved or started.
+- Final Status: P1-R1 `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；P1 `APPROVED_FOR_PILOT0_INFRASTRUCTURE_ONLY / NOT FORMAL_EXPERIMENT`；PILOT0 `COMPLETED_PENDING_REVIEW`.
+- Resource Policy: `CODEX_RESOURCE_PRIORITY = 本机优先`；`NO_LOW_VALUE_CHURN = ENFORCED`；no 5090 contact, external API, model, GMTP or GPU use.
+- Objective: implement the minimum version-aware poisoning Benchmark contracts and lightweight Option B intervention infrastructure, then validate them only with deterministic synthetic Chinese fixtures.
+- Base Commit: `4b0395584627636f5f13658a990614d8f39561eb`.
+- Implementation: canonical schema/visibility/group/split/leakage/MutationSpec/hard-negative/intervention/abstention/RunManifest modules under `llmguard`; no new dependency, legacy namespace, database, vector store or model integration.
+- Fixture Evidence: 24 explicitly synthetic records；12 HKP × stealth pairs plus 12 hard-negative types；snapshot SHA256 `4f381451688150016b1a518895ad75149cfdfdac4cd512dd6062becba04b2ed0`.
+- Validation: targeted final `41 passed`；full architecture initially `107 passed / 6 stale-governance failures`, then `113 passed` after narrow approval-state assertion updates；namespace/label isolation `10 passed`；scoped Ruff passed；repository `.venv` MyPy passed on 10 new source files；8 changed Markdown files / 63 relative links and changed-file secret/private-path/raw-exclusion/protected-history/runtime-ignore/diff checks passed. Full-repository Ruff also exposed 25 immutable historical/script findings plus one new unused import；the new import was fixed and historical files were not changed.
+- Claims Allowed: protocol-framework acceptance；Option B scope；existence and deterministic engineering behavior of PILOT0 schema, label isolation, group/split, leakage, attack contract, lightweight intervention, manifest and synthetic fixture.
+- Claims Prohibited: completed Benchmark, real data, annotation agreement, Detector implementation, GMTP reproduction, Option B effectiveness, performance/Paper metrics, 240-group Pilot, Our Method Result, Formal Experiment, Paper Result or SOTA.
+- Preserved States: `P1_NUMERIC_PARAMETERS = PENDING_PILOT_EVIDENCE`；formal protocol `NOT YET FROZEN`；Dataset `NOT FROZEN`；Detector `NOT IMPLEMENTED`；Training/Formal Experiment `NOT STARTED`；Our Method Result `NONE`.
+- Owner Requirement: `OR-022`.
+- Next Approval Gate: project owner reviews PILOT0 engineering evidence, then decides whether to approve real-data and annotation Pilot. Auto Continue = `NO`.

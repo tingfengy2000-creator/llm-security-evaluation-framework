@@ -25,6 +25,7 @@
 | OR-019 | 2026-08-01 | 后续 5090 输出仍同步到 E 盘 `LLMGuard-Handoff` 文件夹；本次误同步到 D 盘 `llmProject/handoff` 仅为单次例外，不改变冻结计算端输出路径 | 工件交接规则 | 本机/5090 证据传递 | 已确认 | FU1 及后续获批计算任务 | 项目需求提出人当前明确说明 | 不移动或改写既有证据；不把 D 盘例外变成新规范 |
 | OR-020 | 2026-08-02 | 正式验收父 W2 为 `HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED` 并关闭 FU1；只接受冻结单样本 detection-core 工程可行性；准备 P1 协议候选但不批准、不启动 P1，不扩大论文结论；解毒 A/B/C 范围须后续人工选择 | 最终验收与下一阶段范围门 | FU1/W2/P1 candidate | W2/FU1 accepted and closed；P1 candidate pending | S6.1-R0-FU1-W2；S6.1-P1 | owner 明确指令；验收基础 `b19fc59cc5ba771fd547430f6096403720ef1a7d`；PODR-061 | 禁止 5090/H2/GMTP/model、Dataset、Detector、Training、Formal Experiment 或 Paper Result 自动推进 |
 | OR-021 | 2026-08-02 | 明确选择 `DETOXIFICATION_OPTION = OPTION_B`，确认 Paper 1 技术范围为 Benchmark、多视角检测、风险/信号/解释，以及轻量 hard filtering 或 soft downweighting，并以安全—效用双主结果评估；trusted context package、完整上下文构造、多证据可信上下文生成、复杂端到端 Agent 防御、生产级 RAG 平台和完整可信检索链留给 Paper 2 或后续研究 | Paper 1 技术范围冻结 | Paper 1 / P1-R1 | `OPTION_B_CONFIRMED`；协议强化候选待审 | S6.1-P1-R1 | 项目需求提出人本轮明确选择；PODR-062 | 只冻结范围与审批级候选；不批准 P1、Pilot、Dataset、Detector、Retrieval Intervention、Training 或 Formal Experiment |
+| OR-022 | 2026-08-02 | 验收 P1-R1 为协议框架，数值参数仍待 Pilot 证据；批准本机优先实施 PILOT0 的 schema、标签隔离、group/split、leakage、attack contract、轻量 intervention、manifest 与纯合成 fixture；强制禁止低价值 churn、真实数据、模型、5090、GMTP、训练和正式实验 | 协议框架验收与基础设施批准 | Paper 1 / P1-PILOT0 | `P1-R1 HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；`PILOT0 APPROVED_TO_IMPLEMENT` | S6.1-P1-PILOT0 | 项目需求提出人当前任务批准文本 | 仅授权工程基础设施；真实数据/标注 Pilot、240 groups、矩阵与 formal protocol 仍需独立批准 |
 
 题目范围登记：
 

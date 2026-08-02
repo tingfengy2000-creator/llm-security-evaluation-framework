@@ -265,7 +265,11 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("RESOLVED_BY_CORRECTION_02", state)
         self.assertIn("VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER", state)
         self.assertIn("OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090", state)
-        self.assertIn("S6.1-P1: **NOT APPROVED / NOT STARTED", state)
+        self.assertIn(
+            "S6.1-P1: **APPROVED_FOR_PILOT0_INFRASTRUCTURE_ONLY / NOT FORMAL_EXPERIMENT**",
+            state,
+        )
+        self.assertIn("REAL_DATA_PILOT / 240_GROUP_PILOT: **NOT APPROVED / NOT STARTED**", state)
         self.assertIn("Dataset: **NOT FROZEN**", state)
         self.assertIn("Detector: **NOT IMPLEMENTED**", state)
         self.assertIn("Training: **NOT STARTED**", state)
@@ -577,10 +581,8 @@ class ResearchContextRecoveryTests(unittest.TestCase):
                 self.assertIn(required, combined)
 
         self.assertNotIn("S6.1-R0-FU1-W2: **APPROVED_TO_EXECUTE**", state)
-        self.assertIn(
-            "no automatic P1, Pilot, Dataset, implementation or experiment approval is authorized",
-            state,
-        )
+        self.assertIn("S6.1-P1-PILOT0: **COMPLETED_PENDING_REVIEW**", state)
+        self.assertIn("REAL_DATA_PILOT / 240_GROUP_PILOT: **NOT APPROVED / NOT STARTED**", state)
 
     def test_w2_attempt1_gap_history_and_correction02_closure_are_both_preserved(self) -> None:
         review = W2_ATTEMPT1_REVIEW.read_text(encoding="utf-8")
@@ -685,7 +687,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER",
             "RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW",
             "OFFLINE_MODEL_ARTIFACTS_PREPARED_PENDING_5090_VERIFICATION",
-            "S6.1-P1: **NOT APPROVED / NOT STARTED",
+            "S6.1-P1: **APPROVED_FOR_PILOT0_INFRASTRUCTURE_ONLY / NOT FORMAL_EXPERIMENT**",
             "FORMAL_EXPERIMENT = NOT STARTED",
             "S6.1-R0-FU1-W2-ATTEMPT1-CORRECTION-02",
             "APPROVED_TO_START / NOT SENT / NOT EXECUTED",
@@ -781,14 +783,15 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             STAGE_PROCESS_DIR / "S6.1-LR1_work_process.md",
             STAGE_PROCESS_DIR / "S6.1-R0_work_process.md",
             STAGE_PROCESS_DIR / "S6.1-R0-FU1_work_process.md",
+            STAGE_PROCESS_DIR / "S6.1-P1_work_process.md",
         )
         for path in required:
             with self.subTest(path=path.relative_to(ROOT)):
                 self.assertTrue(path.is_file())
 
         processes = sorted(STAGE_PROCESS_DIR.glob("*_work_process.md"))
-        self.assertEqual(3, len(processes))
-        self.assertEqual(3, len({path.name.split("_work_process.md")[0] for path in processes}))
+        self.assertEqual(4, len(processes))
+        self.assertEqual(4, len({path.name.split("_work_process.md")[0] for path in processes}))
         expected_sections = (
             "阶段目标",
             "进入条件",
@@ -1070,7 +1073,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
 
         self.assertEqual(1, len(list(STAGE_PROCESS_DIR.glob("S6.1-R0-FU1_work_process.md"))))
 
-    def test_p1_r1_option_b_candidate_is_approval_grade_but_non_executing(self) -> None:
+    def test_p1_r1_framework_acceptance_opens_only_pilot0_infrastructure(self) -> None:
         candidate = P1_R1_PROTOCOL_CANDIDATE.read_text(encoding="utf-8")
         old_candidate = P1_PROTOCOL_CANDIDATE.read_text(encoding="utf-8")
         requirements = OWNER_REQUIREMENTS.read_text(encoding="utf-8")
@@ -1105,9 +1108,12 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "DETOXIFICATION_OPTION = OPTION_B",
             "DETOXIFICATION_TECHNICAL_SCOPE = OPTION_B_CONFIRMED",
             "OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION",
-            "S6.1-P1-R1 = REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED",
-            "S6.1-P1 = NOT APPROVED / NOT STARTED",
-            "Pilot = NOT APPROVED / NOT STARTED",
+            "OR-022",
+            "S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**",
+            "S6.1-P1: **APPROVED_FOR_PILOT0_INFRASTRUCTURE_ONLY / NOT FORMAL_EXPERIMENT**",
+            "REAL_DATA_PILOT / 240_GROUP_PILOT: **NOT APPROVED / NOT STARTED**",
+            "P1 numeric parameters: **PENDING_PILOT_EVIDENCE**",
+            "4f381451688150016b1a518895ad75149cfdfdac4cd512dd6062becba04b2ed0",
             "Dataset = NOT FROZEN",
             "Detector = NOT IMPLEMENTED",
             "Retrieval Intervention = NOT IMPLEMENTED",
@@ -1172,7 +1178,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         for mirror in (human, agent):
             for marker in (
                 "OPTION_B_CONFIRMED",
-                "REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED",
+                "HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK",
                 "HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED",
                 "NOT FROZEN",
                 "NOT IMPLEMENTED",
@@ -1180,7 +1186,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             ):
                 with self.subTest(mirror=mirror[:32], marker=marker):
                     self.assertIn(marker, mirror)
-        self.assertFalse((STAGE_PROCESS_DIR / "S6.1-P1_work_process.md").exists())
+        self.assertTrue((STAGE_PROCESS_DIR / "S6.1-P1_work_process.md").is_file())
 
     def test_h2_resume02_rollover_preserves_resume01_and_single_call_gate(self) -> None:
         process = (STAGE_PROCESS_DIR / "S6.1-R0-FU1_work_process.md").read_text(

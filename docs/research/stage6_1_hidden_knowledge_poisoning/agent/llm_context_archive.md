@@ -8,7 +8,8 @@ paper_identity:
   chinese_title: 面向中文检索增强生成系统的版本感知隐蔽知识污染基准与多视角解毒方法
   english_working_title: Stealthy Factual Poisoning in Versioned RAG Knowledge Bases - A Benchmark and Multi-View Detection Framework
 current_branch: research/stage6-1-hidden-poisoning
-current_commit: aabe504d55626fb31008822b7bbabd3b32e2afd4
+current_commit: DYNAMIC_GIT_FACT_VERIFY_LIVE
+pilot0_base_commit: 4b0395584627636f5f13658a990614d8f39561eb
 research_objective: Chinese version-aware stealthy knowledge poisoning benchmark, multi-view detection and lightweight retrieval intervention
 research_boundary: [Benchmark, Detection, Risk Score, Signals, Explanation, Hard Filtering, Soft Downweighting]
 accepted_stages:
@@ -17,11 +18,11 @@ accepted_stages:
   S6.1-R0: HUMAN_ACCEPTED_WITH_BLOCKERS
   S6.1-R0-FU1-P0: HUMAN_ACCEPTED
   S6.1-R0-FU1-L1: HUMAN_ACCEPTED
-current_stage: S6.1-P1-R1 protocol review gate
-current_task: Option B selected; approval-grade P1-R1 candidate awaits owner review
+current_stage: S6.1-P1 PILOT0 engineering evidence review gate
+current_task: PILOT0 infrastructure completed pending owner review
 current_blockers:
-  - P1-R1 is review candidate only; P1 and Pilot are not approved or started
-  - Dataset is not frozen; Detector and Retrieval Intervention are not implemented
+  - real-data annotation Pilot and 240-group Pilot are not approved or started
+  - Dataset is not frozen; Detector is not implemented; formal protocol is not frozen
 resolved_blockers:
   - W2_ATTEMPT1_EVIDENCE_BLOCKER resolved by Correction 02 control-plane review
   - resume_01 OFFLINE_BUNDLE_SHA_BLOCKER accurately captured and reviewed; bundle/sidecar later synced
@@ -69,13 +70,13 @@ prohibited_claims:
 detoxification_option: OPTION_B
 detoxification_scope: OPTION_B_CONFIRMED / OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION
 excluded_scope: trusted context package, complete context construction, multi-evidence trusted context generation, complex end-to-end Agent defense, production RAG platform, complete trusted retrieval chain
-next_decision_gate: project owner reviews P1-R1 candidate and four high-level decisions; no second H2-B call and no automatic P1/Pilot
+next_decision_gate: project owner reviews PILOT0 engineering evidence, then decides whether to approve real-data and annotation Pilot
 canonical_files:
   owner_requirements: ../human/owner_requirement_register.md
   research_plan: ../human/research_plan_authority.md
   human_ledger: ../human/experiment_ledger_tingfeng.md
   agent_ledger: experiment_ledger_agentUse.md
-  current_stage_process: ../stage_process/S6.1-R0-FU1_work_process.md
+  current_stage_process: ../stage_process/S6.1-P1_work_process.md
   p1_r1_protocol_candidate: ../s6_1_p1_r1_protocol_review_candidate.md
   historical_p1_protocol_candidate: ../s6_1_p1_protocol_candidate.md
 ```
@@ -174,3 +175,12 @@ Live Git and raw evidence override stale snapshot fields. Owner-confirmed requir
 - 候选证据：[P1-R1 approval-grade review candidate](../s6_1_p1_r1_protocol_review_candidate.md)，覆盖 RQ1-6、Benchmark/schema/split/label isolation、baseline fairness、指标统计、Pilot、资源、evidence、license 和 entry gate。
 - 当前状态：P1-R1 `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`；P1/Pilot 未批准未开始；Dataset 未冻结；Detector/Retrieval Intervention 未实现；Training/Formal Experiment 未开始；Our Method Result `NONE`。
 - 当时下一步：项目负责人只审查或修订候选及四项高层决定；不得联系 5090 或自动推进任何实验。
+
+### Context Checkpoint — 2026-08-02 — S6.1-P1-PILOT0
+
+- 当时任务：在本机实现 Paper 1 Benchmark 与轻量解毒最小基础设施，并仅用纯合成中文 fixture 做确定性工程验证。
+- 资源决定：`CODEX_RESOURCE_PRIORITY = 本机优先`；`NO_LOW_VALUE_CHURN = ENFORCED`；没有联系 5090、调用 API、加载模型或使用真实数据。
+- 框架状态：P1-R1 `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；`P1_NUMERIC_PARAMETERS = PENDING_PILOT_EVIDENCE`；formal protocol 未冻结。
+- 实现状态：PILOT0 `COMPLETED_PENDING_REVIEW`；schema `paper1-pilot0-v1`；24 条纯合成 fixture SHA256 `4f381451688150016b1a518895ad75149cfdfdac4cd512dd6062becba04b2ed0`；targeted tests `41 passed`。
+- 声明边界：只证明 schema、标签隔离、group/split、leakage、attack contract、轻量 intervention 和 manifest 的工程可行性；Dataset 未冻结、Detector 未实现、Training/Formal Experiment 未开始、Our Method Result `NONE`。
+- 下一门：项目需求提出人审查 PILOT0 工程证据，再决定是否批准真实数据与标注 Pilot；不得自动推进。

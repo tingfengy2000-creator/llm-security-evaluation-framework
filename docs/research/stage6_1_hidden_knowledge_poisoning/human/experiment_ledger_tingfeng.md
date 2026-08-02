@@ -4,7 +4,7 @@
 
 ## 一分钟项目状态
 
-Paper 1 研究中文版本化知识库中的隐蔽事实污染。项目需求提出人已选择 Option B：范围包括 Benchmark、多视角 Detection、Risk Score、Signals、Explanation，以及轻量 hard filtering 或 soft downweighting；不包括完整可信检索链。W2 已按单样本 detection-core 工程可行性验收并关闭，FU1 已关闭。当前 P1-R1 只是审批级强化候选，P1、Pilot、Dataset、Detector、Retrieval Intervention、Training 与 Formal Experiment 均未获准或未开始；没有正式论文结果。
+Paper 1 研究中文版本化知识库中的隐蔽事实污染。Option B 已冻结，P1-R1 已作为协议框架验收；P1 只批准 PILOT0 基础设施。PILOT0 已实现 schema、标签隔离、group/split、leakage、attack contract、轻量 intervention、manifest 与 24 条纯合成 fixture，当前 `COMPLETED_PENDING_REVIEW`。这不是 Benchmark、Detector、真实 Pilot 或论文结果；真实数据、训练与 Formal Experiment 均未开始。
 
 ## 1. 论文与项目基本信息
 
@@ -16,8 +16,8 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染。项目需求提
 | 当前研究边界 | `OPTION_B_CONFIRMED`：Benchmark、Detection、Risk Score、Signals、Explanation、hard filtering / soft downweighting |
 | 当前分支 | `research/stage6-1-hidden-poisoning` |
 | 当前提交 | 本轮验收基础 `b19fc59cc5ba771fd547430f6096403720ef1a7d`；本页提交由 Git 动态解析 |
-| 当前阶段 | S6.1-P1 审批前协议门 |
-| 当前任务 | `S6.1-P1-R1 = REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`；Option B 已选，等待项目负责人审查候选 |
+| 当前阶段 | S6.1-P1 PILOT0 工程证据审查门 |
+| 当前任务 | `S6.1-P1-PILOT0 = COMPLETED_PENDING_REVIEW`；等待项目负责人审查工程证据 |
 | 上下文恢复治理 | `HUMAN_ACCEPTED（人工验收通过）` |
 | 正式实验状态 | `NOT STARTED（尚未开始）` |
 | 我们的方法结果 | `NONE（尚无正式方法结果）` |
@@ -31,8 +31,9 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染。项目需求提
 | S6.1-LR1 | 论文路线与外部基线对齐 | `HUMAN_ACCEPTED` | 路线、对齐矩阵、协议、工件登记 | 外部项目角色已区分，尚非统一严格比较 | 作为方案与后续协议输入 |
 | S6.1-R0 | 复现环境与可行性预检 | `HUMAN_ACCEPTED_WITH_BLOCKERS` | 环境、源码、数据工件与证据合同 | 工程可行性已识别，目标阻塞仍存在 | 由 FU1 定向处理 |
 | S6.1-R0-FU1 | 定向解除基线阻塞 | `HUMAN_ACCEPTED / CLOSED` | P0、L1、W2 证据、H1 模型包、resume_01 历史与 resume_02 `25/25` evidence | 仅关闭单样本 detection-core 工程可行性 | 历史冻结；不自动进入 P1 |
-| S6.1-P1-R1 | 协议强化与 Option B 范围冻结 | `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED` | [审批级强化候选](../s6_1_p1_r1_protocol_review_candidate.md) | 范围已确认但无 P1/Pilot 准入授权 | owner 审查候选与四项高层决定 |
-| S6.1-P1 | 正式实验协议批准 | `NOT APPROVED / NOT STARTED` | 尚无 canonical stage process | 尚无准入授权 | 先验收或修订 P1-R1 候选 |
+| S6.1-P1-R1 | 协议强化与 Option B 范围冻结 | `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK` | [审批级强化候选](../s6_1_p1_r1_protocol_review_candidate.md) | 框架已接受；数值参数待 Pilot 证据 | 保持 formal protocol 未冻结 |
+| S6.1-P1-PILOT0 | Benchmark 与轻量解毒基础设施 | `COMPLETED_PENDING_REVIEW` | [P1 工作过程](../stage_process/S6.1-P1_work_process.md)与纯合成工程测试 | 工程合同可行；不是 Benchmark 或方法结果 | owner 审查后决定是否批准真实数据与标注 Pilot |
+| S6.1-P1 | 正式实验协议批准 | `APPROVED_FOR_PILOT0_INFRASTRUCTURE_ONLY / NOT FORMAL_EXPERIMENT` | 唯一 [canonical stage process](../stage_process/S6.1-P1_work_process.md) | 只批准基础设施 | 不自动进入真实 Pilot |
 | Pilot | 样本规模、标注与资源可行性验证 | `NOT APPROVED / NOT STARTED` | 无 | 尚未执行 | 需独立批准 |
 | 中文 Benchmark 构建 | 版本链与隐蔽污染数据 | `NOT STARTED / DATASET NOT FROZEN` | 预期为冻结数据快照 | 尚未构建 | 先完成协议审批 |
 | 多视角 Detector 实现 | 五视角检测与风险评分 | `PLANNED / NOT IMPLEMENTED` | 预期为检测器实现 | 无实现结果 | 等待数据与协议 |
@@ -104,7 +105,7 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染。项目需求提
 - 不能得出的结论：不能把一次双文档调用写成 GMTP 复现、有效性、安全性、泛化、正式指标或论文结果。
 - 失败和 blocker：Attempt 1 模型下载阻塞作为历史保留；W2 blocker 已由 resume_02 与 owner acceptance 关闭，后续 P1 协议、解毒范围与 formal-environment 仍是独立门。
 - 解决情况：Correction 02 关闭 evidence blocker；resume02 本机复核关闭冻结的最小 Worker feasibility blocker。
-- 当前下一步：审查 [P1-R1 协议强化候选](../s6_1_p1_r1_protocol_review_candidate.md)及其四项高层决定；Option B 已选。不得再次调用 H2-B，不得自动批准或进入 P1/Pilot。
+- 当时下一步：审查 [P1-R1 协议强化候选](../s6_1_p1_r1_protocol_review_candidate.md)及其四项高层决定；该门现已由 OR-022 的框架验收与 PILOT0 批准替代。
 - 详细过程链接：[S6.1-R0-FU1_work_process.md](../stage_process/S6.1-R0-FU1_work_process.md)。
 
 ## 4. 结果分类
@@ -157,22 +158,23 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染。项目需求提
 
 - 工程风险：一次双文档 smoke 不能覆盖 full-corpus/indexing、阈值校准、批量稳定性或更广依赖；禁止把已关闭的最小 feasibility gate 外推。
 - 架构风险：外部代码的隐藏依赖可能在受控 smoke 中再次暴露。
-- 实验风险：P1-R1 虽提出数据、参数、种子、指标和统计候选值，但尚未获批准或冻结，且样本量与资源预算仍须 Pilot 校准。
+- 实验风险：P1-R1 框架已接受，但数据、参数、种子、指标和统计候选值尚未冻结；样本量与资源预算仍须后续获批 Pilot 校准。
 - 论文风险：工程可行性、公开论文结论、复现结果和本项目结果若混写会导致不可支持的主张。
 - 许可证与可发布风险：代码访问和内部复现不等于数据再分发许可，发布前仍须逐项复核。
 
 ## 8. 下一步
 
 - P0：W2/FU1 已按工程 feasibility 范围接受并关闭；无需向 5090 发送 prompt，也不得重复 H2-B。
-- P1-R1：项目负责人审查审批级候选及其四项高层决定；当前 `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`。
-- P1：`NOT APPROVED / NOT STARTED`；Pilot：`NOT APPROVED / NOT STARTED`。
+- P1-R1：`HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；数值参数仍为 `PENDING_PILOT_EVIDENCE`。
+- PILOT0：`COMPLETED_PENDING_REVIEW`；项目负责人审查工程证据后，决定是否批准真实数据与标注 Pilot。
+- P1：`APPROVED_FOR_PILOT0_INFRASTRUCTURE_ONLY / NOT FORMAL_EXPERIMENT`；真实数据 Pilot 与 240-group Pilot 均 `NOT APPROVED / NOT STARTED`。
 - Dataset `NOT FROZEN`；Detector 与 Retrieval Intervention 均 `NOT IMPLEMENTED`；Training、Formal Experiment 均 `NOT STARTED`。
 - P2：协议获批后才讨论中文 Benchmark 构建、多视角 Detector、Formal Evaluation、消融和泛化。
 
 ## 9. 需要项目需求提出人确认
 
-- 在互斥 Option A（检测/解释/人工建议）、B（再含自动过滤或降权）、C（再含重排与可信上下文构建）中选择 Paper 1 的“解毒”技术范围。
-- 正式指标、统计协议、数据冻结与统一比较方案须在 S6.1-P1 单独确认。
+- 审查 PILOT0 工程证据，并决定是否批准真实数据与标注 Pilot。
+- 正式指标、统计协议、样本量、数据冻结与统一比较方案仍须后续独立确认。
 
 ## 10. 关键 Git 提交
 
