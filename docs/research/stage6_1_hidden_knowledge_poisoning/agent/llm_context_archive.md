@@ -19,8 +19,8 @@ accepted_stages:
   S6.1-R0: HUMAN_ACCEPTED_WITH_BLOCKERS
   S6.1-R0-FU1-P0: HUMAN_ACCEPTED
   S6.1-R0-FU1-L1: HUMAN_ACCEPTED
-current_stage: S6.1-P1 PILOT1 public-source and annotation-packet review gate
-current_task: PILOT1 completed pending owner review
+current_stage: S6.1-P1 PILOT2 human execution pre-distribution gate
+current_task: independent double-annotation kit prepared; annotation not started
 current_blockers:
   - real double annotation, agreement Pilot and 240-group Pilot are not approved or started
   - Dataset is not frozen; Detector is not implemented; formal protocol is not frozen
@@ -71,7 +71,7 @@ prohibited_claims:
 detoxification_option: OPTION_B
 detoxification_scope: OPTION_B_CONFIRMED / OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION
 excluded_scope: trusted context package, complete context construction, multi-evidence trusted context generation, complex end-to-end Agent defense, production RAG platform, complete trusted retrieval chain
-next_decision_gate: project owner reviews PILOT1 public sources and annotation packets, then decides whether to approve real double annotation and a small agreement Pilot
+next_decision_gate: distribute training plus A/B Phase 1 only; lock both Phase 1 return hashes before Phase 2
 canonical_files:
   owner_requirements: ../human/owner_requirement_register.md
   research_plan: ../human/research_plan_authority.md
@@ -194,3 +194,11 @@ Live Git and raw evidence override stale snapshot fields. Owner-confirmed requir
 - 两类独立盲化包各 36 行，匿名、确定性排序且标签隔离通过；evidence index `17/17 PASS`。首次零长度内容尝试与一次瞬时采集中断作为非权威历史原样保留。
 - 当前状态：`S6.1-P1-PILOT1 = COMPLETED_PENDING_REVIEW`；HUMAN_ANNOTATION `NOT STARTED`；ANNOTATION_AGREEMENT `NOT ESTABLISHED`；Dataset `NOT FROZEN`；Detector `NOT IMPLEMENTED`；Formal Experiment `NOT STARTED`。
 - 下一门：项目需求提出人审查真实来源与标注包，然后决定是否启动真实双人标注和小规模一致性 Pilot；不得自动推进。
+
+### Context Checkpoint — 2026-08-02 — S6.1-P1-PILOT2-KIT
+
+- 项目需求提出人验收 PILOT1 为 `HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED`，并确认 `TWO_INDEPENDENT_ANNOTATORS_WITH_OWNER_ADJUDICATION`。
+- 本机从 immutable corrected_02 manifest 自动解析两个 packet 文件；summary SHA `4952f166...ea6`、evidence `17/17`、36/12/12/12、packet rows `36/36` 与 HKP×stealth `12/12` 全部复核通过，没有重新采集来源或构造候选。
+- Git-external kit 包含 coordinator、6 条纯合成 training、A/B 各自 Phase 1/2 ZIP 和 owner-only 空白仲裁控制；kit index `17/17 PASS`，outer ZIP SHA256 `a3c884ba313670aaeb78c3674e6c214434ae59576f99cc313fe4c4085eac6463`。
+- 当前状态：PILOT2 `ANNOTATION_KIT_PREPARED_PENDING_HUMAN_EXECUTION`；HUMAN_ANNOTATION `AUTHORIZED / NOT STARTED`；ANNOTATION_AGREEMENT `NOT ESTABLISHED`；没有 disagreement 或 adjudication result。
+- 下一门：只发 training 与 A/B Phase 1；双方分别提交并锁定 SHA256 后，才可发各自 Phase 2。240-group Pilot、Dataset freeze、Detector、Training 与 Formal Experiment 不得推进。

@@ -4,7 +4,7 @@
 
 ## 一分钟项目状态
 
-Paper 1 研究中文版本化知识库中的隐蔽事实污染。Option B 已冻结，P1-R1 已作为协议框架验收；PILOT0 已按纯工程基础设施最终验收并关闭。PILOT1 已在本机完成 12 条真实公开中文版本链、36 条待裁决候选和两类 Git-external 盲化包，当前 `COMPLETED_PENDING_REVIEW / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY`。这不是正式 Benchmark、标注一致性、Detector 或论文结果；真实双人标注、训练与 Formal Experiment 均未开始。
+Paper 1 研究中文版本化知识库中的隐蔽事实污染。Option B 与 P1-R1 框架已冻结；PILOT0 已按工程基础设施验收关闭，PILOT1 已按真实公开来源与 packet 可行性人工验收关闭。PILOT2 的 A/B 两阶段独立标注材料包已准备，`HUMAN_ANNOTATION = AUTHORIZED / NOT STARTED`，agreement 与 adjudication 尚未执行。这不是正式 Benchmark、Dataset freeze、Detector 或论文结果。
 
 ## 1. 论文与项目基本信息
 
@@ -16,8 +16,8 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染。Option B 已冻
 | 当前研究边界 | `OPTION_B_CONFIRMED`：Benchmark、Detection、Risk Score、Signals、Explanation、hard filtering / soft downweighting |
 | 当前分支 | `research/stage6-1-hidden-poisoning` |
 | 当前提交 | 本轮验收基础 `b19fc59cc5ba771fd547430f6096403720ef1a7d`；本页提交由 Git 动态解析 |
-| 当前阶段 | S6.1-P1 PILOT1 真实公开来源与标注包审查门 |
-| 当前任务 | `S6.1-P1-PILOT1 = COMPLETED_PENDING_REVIEW`；等待项目负责人审查来源和盲化包 |
+| 当前阶段 | S6.1-P1 PILOT2 独立双人标注执行前材料门 |
+| 当前任务 | `S6.1-P1-PILOT2 = ANNOTATION_KIT_PREPARED_PENDING_HUMAN_EXECUTION`；尚未发放或标注 |
 | 上下文恢复治理 | `HUMAN_ACCEPTED（人工验收通过）` |
 | 正式实验状态 | `NOT STARTED（尚未开始）` |
 | 我们的方法结果 | `NONE（尚无正式方法结果）` |
@@ -33,7 +33,8 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染。Option B 已冻
 | S6.1-R0-FU1 | 定向解除基线阻塞 | `HUMAN_ACCEPTED / CLOSED` | P0、L1、W2 证据、H1 模型包、resume_01 历史与 resume_02 `25/25` evidence | 仅关闭单样本 detection-core 工程可行性 | 历史冻结；不自动进入 P1 |
 | S6.1-P1-R1 | 协议强化与 Option B 范围冻结 | `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK` | [审批级强化候选](../s6_1_p1_r1_protocol_review_candidate.md) | 框架已接受；数值参数待 Pilot 证据 | 保持 formal protocol 未冻结 |
 | S6.1-P1-PILOT0 | Benchmark 与轻量解毒基础设施 | `HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED` | [P1 工作过程](../stage_process/S6.1-P1_work_process.md)与纯合成工程测试 | 工程合同可行；不是 Benchmark 或方法结果 | 历史关闭 |
-| S6.1-P1-PILOT1 | 公开中文版本链与标注包可行性 | `COMPLETED_PENDING_REVIEW` | 12 条版本链、24 份 HASH_ONLY 来源、36 条候选、两类 Git-external 盲化包 | 公开来源映射与包生成可行；未执行人工标注 | owner 审查后决定是否批准真实双人标注与小规模一致性 Pilot |
+| S6.1-P1-PILOT1 | 公开中文版本链与标注包可行性 | `HUMAN_ACCEPTED / CLOSED` | 12 条版本链、24 份 HASH_ONLY 来源、36 条候选、两类 Git-external 盲化包 | 只验收来源与 packet 可行性 | 作为 PILOT2 输入冻结 |
+| S6.1-P1-PILOT2 | 独立双人标注一致性 Pilot | `ANNOTATION_KIT_PREPARED_PENDING_HUMAN_EXECUTION` | A/B 两阶段 ZIP、训练、协调人和 owner-only 模板 | 材料身份与隔离通过；没有人工答案 | 先发 training + Phase 1；双方锁定后才发 Phase 2 |
 | S6.1-P1 | 正式实验协议批准 | `REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY / NOT FORMAL_EXPERIMENT` | 唯一 [canonical stage process](../stage_process/S6.1-P1_work_process.md) | 只推进到 PILOT1 可行性 | 不自动进入真实标注 |
 | 真实标注 Pilot | 样本规模、标注与资源可行性验证 | `NOT APPROVED / NOT STARTED` | 无 | 尚未执行 | 需独立批准 |
 | 中文 Benchmark 构建 | 版本链与隐蔽污染数据 | `NOT STARTED / DATASET NOT FROZEN` | 预期为冻结数据快照 | 尚未构建 | 先完成协议审批 |
@@ -168,14 +169,15 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染。Option B 已冻
 - P0：W2/FU1 已按工程 feasibility 范围接受并关闭；无需向 5090 发送 prompt，也不得重复 H2-B。
 - P1-R1：`HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；数值参数仍为 `PENDING_PILOT_EVIDENCE`。
 - PILOT0：`HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED`。
-- PILOT1：`COMPLETED_PENDING_REVIEW / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY`；source audit `15/15 PASS`，12 条链、24 份 HASH_ONLY 来源、36 条待裁决候选、12 个 matched hard negatives、两个 36 行盲化包，evidence index `17/17 PASS`。
-- P1：只推进到公开来源与标注包工程可行性；真实双人标注与 240-group Pilot 均 `NOT APPROVED / NOT STARTED`。
+- PILOT1：`HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED`；冻结 36 条候选和两类 36 行 packet。
+- PILOT2：kit `PREPARED_PENDING_HUMAN_EXECUTION`；annotation mode 为两名独立标注人、owner 只做后续盲化分歧仲裁；人工标注获授权但尚未开始。
+- P1：240-group Pilot 仍 `NOT APPROVED / NOT STARTED`；Dataset 未冻结，Detector 未实现，agreement 未建立。
 - Dataset `NOT FROZEN`；Detector 与 Retrieval Intervention 均 `NOT IMPLEMENTED`；Training、Formal Experiment 均 `NOT STARTED`。
 - P2：协议获批后才讨论中文 Benchmark 构建、多视角 Detector、Formal Evaluation、消融和泛化。
 
 ## 9. 需要项目需求提出人确认
 
-- 审查 PILOT1 的真实公开来源和 Git-external 标注包，并决定是否批准真实双人标注与小规模一致性 Pilot。
+- 按严格顺序发放 training 与 A/B Phase 1；分别回收、计算 SHA256 并锁定双方 Phase 1 后，才发放各自 Phase 2。
 - 正式指标、统计协议、样本量、数据冻结与统一比较方案仍须后续独立确认。
 
 ## 10. 关键 Git 提交

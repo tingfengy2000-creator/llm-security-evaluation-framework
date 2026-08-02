@@ -1171,3 +1171,19 @@ Approval Gate、Auto Continue。
 - Preserved States: HUMAN_ANNOTATION `NOT STARTED`；ANNOTATION_AGREEMENT `NOT ESTABLISHED`；240_GROUP_PILOT `NOT APPROVED / NOT STARTED`；Dataset `NOT FROZEN`；Detector `NOT IMPLEMENTED`；Retrieval Intervention Effectiveness `NOT ESTABLISHED`；Training/Formal Experiment `NOT STARTED`；Our Method Result `NONE`.
 - Owner Requirement: `OR-023`.
 - Next Approval Gate: project owner reviews the real public sources and annotation packets, then decides whether to authorize real double annotation and a small agreement Pilot. Auto Continue = `NO`.
+
+## REL-2026-0028 — P1 PILOT2 Independent Annotation Kit Prepared
+
+- Record ID: `REL-2026-0028`.
+- Date: `2026-08-02`.
+- Stage / Task: `Stage 6.1 / Paper 1 / S6.1-P1-PILOT2-KIT`.
+- Machine: `本机`；no 5090, source reacquisition, model, GMTP, Detector, training or formal experiment.
+- Owner Decision: PILOT1 `HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED`；PILOT2 approved for the exact 36-candidate independent double-annotation agreement Pilot；mode `TWO_INDEPENDENT_ANNOTATORS_WITH_OWNER_ADJUDICATION`.
+- Source Identity: Pilot1 summary SHA256 `4952f166a0d307210c178a12296a370d86f14111771999cb0cd730629cddeea6`；evidence `17/17`；36 candidates = 12 clean/current + 12 poison + 12 matched hard negatives；two packets `36/36`；HKP×stealth `12/12`.
+- Artifact: coordinator/training/A-B Phase 1+2/owner-only structure；6 non-overlapping synthetic practices；UTF-8 BOM CSV；all response columns blank；no evaluator-only fields, raw HTML/PDF, credential payload or cross-annotator/owner-only leakage.
+- Validation: spreadsheet inspect/render QA passed；package contract `15/15 PASS`；kit index `17/17 PASS`；outer members `24`；outer ZIP `34430` bytes, SHA256 `a3c884ba313670aaeb78c3674e6c214434ae59576f99cc313fe4c4085eac6463` and sidecar matched；final handoff copy byte identity passed.
+- Repository Validation: architecture `113 passed / 1614 subtests`；namespace/label isolation `10 passed / 1199 subtests`；scoped Ruff and MyPy passed；8/8 approved Markdown files and 63 relative links passed；secret/private-path, raw artifact exclusion, protected history, runtime-ignore and `git diff --check` passed. Pytest cache write-permission warning is non-blocking.
+- Inner ZIP Identities: A Phase1 `79c5d297...6f19`；A Phase2 `551cc368...de99`；B Phase1 `81d2ccbb...8061`；B Phase2 `f491a1d4...332e`.
+- Status: `ANNOTATION_KIT_PREPARED_PENDING_HUMAN_EXECUTION`；HUMAN_ANNOTATION `AUTHORIZED / NOT STARTED`；ANNOTATION_AGREEMENT `NOT ESTABLISHED`；no disagreement or adjudication result.
+- Claims Boundary: kit identity and distribution readiness only；not annotation completion, agreement, Dataset freeze, Detector/effectiveness, 240-group Pilot, Training, Formal Experiment or Paper Result.
+- Next Gate: distribute training plus A/B Phase 1 only；lock both returned Phase 1 files and SHA256 before distributing either Phase 2. Auto Continue = `NO`.
