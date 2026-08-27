@@ -28,6 +28,8 @@ W2_ATTEMPT1_REVIEW = RESEARCH / "s6_1_r0_fu1_w2_attempt1_control_plane_review.md
 W2_H2_RESUME02_REVIEW = RESEARCH / "s6_1_r0_fu1_w2_h2_resume02_control_plane_review.md"
 P1_PROTOCOL_CANDIDATE = RESEARCH / "s6_1_p1_protocol_candidate.md"
 P1_R1_PROTOCOL_CANDIDATE = RESEARCH / "s6_1_p1_r1_protocol_review_candidate.md"
+PILOT2_RETURN_OWNER_CORRECTION = RESEARCH / "s6_1_p1_pilot2_return_owner_correction.md"
+PILOT2_ANNOTATION_V2 = RESEARCH / "s6_1_p1_pilot2_annotation_v2.md"
 LONG_TERM_REQUIREMENTS = GOVERNANCE / "long_term_research_requirements.md"
 AGENTS = ROOT / "AGENTS.md"
 PAPER1_README = RESEARCH / "README.md"
@@ -1255,6 +1257,8 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             AGENT_LEDGER,
             CONTEXT_ARCHIVE,
             P1_R1_PROTOCOL_CANDIDATE,
+            PILOT2_RETURN_OWNER_CORRECTION,
+            PILOT2_ANNOTATION_V2,
             *(STAGE_PROCESS_DIR.glob("*_work_process.md")),
         )
         link_pattern = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
@@ -1282,6 +1286,79 @@ class ResearchContextRecoveryTests(unittest.TestCase):
                 any(path.name.lower().endswith(suffix) for suffix in forbidden_suffixes),
                 f"raw artifact or model bundle under documentation tree: {path}",
             )
+
+    def test_pilot2_owner_correction_preserves_history_and_blocks_auto_agreement(self) -> None:
+        correction = PILOT2_RETURN_OWNER_CORRECTION.read_text(encoding="utf-8")
+        combined = "\n".join(
+            path.read_text(encoding="utf-8")
+            for path in (
+                CURRENT_STATE,
+                DECISION_REGISTER,
+                MASTER_RECORD,
+                EXECUTION_LOG,
+                OWNER_REQUIREMENTS,
+                TINGFENG_LEDGER,
+                AGENT_LEDGER,
+                CONTEXT_ARCHIVE,
+                PILOT2_RETURN_OWNER_CORRECTION,
+            )
+        )
+        for required in (
+            "PODR-063",
+            "OR-025",
+            "REL-2026-0029",
+            "PROTOCOL_AND_ANNOTATION_SCHEMA_BLOCKER",
+            "RESOLVED_BY_OWNER_CONFIRMED_ACTUAL_DISTRIBUTION_ORDER",
+            "OPEN_FOR_CORRECTION_AND_EVIDENCE_BINDING",
+            "PENDING_SCHEMA_V2_REREVIEW_AND_RETURN_VALIDATION",
+            "ANNOTATION_SCHEMA_V2 + A/B INDEPENDENT RE-REVIEW",
+            "Auto Continue = `NO`",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, combined)
+
+        self.assertIn("original coordinator registration CSV", correction)
+        self.assertIn("original preflight inference", correction)
+        self.assertIn("raw return remains immutable", correction)
+        self.assertIn(
+            "The original blind-contamination inference was based on incorrect registration metadata",
+            correction,
+        )
+        self.assertNotIn("FORMAL_AGREEMENT = ESTABLISHED", combined)
+
+    def test_pilot2_annotation_v2_is_ready_without_agreement_or_adjudication(self) -> None:
+        combined = "\n".join(
+            path.read_text(encoding="utf-8")
+            for path in (
+                CURRENT_STATE,
+                DECISION_REGISTER,
+                MASTER_RECORD,
+                EXECUTION_LOG,
+                OWNER_REQUIREMENTS,
+                TINGFENG_LEDGER,
+                AGENT_LEDGER,
+                CONTEXT_ARCHIVE,
+                PILOT2_ANNOTATION_V2,
+            )
+        )
+        for required in (
+            "PODR-064",
+            "OR-026",
+            "REL-2026-0030",
+            "PILOT2_ROUND1_RAW = PRESERVED_IMMUTABLE",
+            "A_PHASE1_STRICT_BLINDNESS = OWNER_CONFIRMED_PRESERVED",
+            "ANNOTATION_SCHEMA_V2 = IMPLEMENTED",
+            "A_B_REREVIEW = READY_FOR_HUMAN_EXECUTION",
+            "FORMAL_AGREEMENT_V2 = NOT_YET_ESTABLISHED",
+            "ROUND1_RAW_MANIFEST",
+            "Auto Continue = `NO`",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, combined)
+
+        self.assertIn("version_relation_present = NO -> version_relation_correct = NOT_APPLICABLE", combined)
+        self.assertIn("authority proposition expressed by the candidate", combined)
+        self.assertNotIn("FORMAL_AGREEMENT_RECOVERED", combined)
 
 
 if __name__ == "__main__":

@@ -219,3 +219,14 @@ nDCG 和 hard-negative 误伤。它仍不是完整可信检索链，因为没有
 看似安全但不可用的系统。初学者常见误区是把“协议候选给出了阈值、样本量和种子”理解为这些值已经冻结；实际上
 P1-R1 仍是 `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`，Pilot 才能验证样本量、方差和资源估计，且 Pilot 也需要
 单独批准。
+
+## Pilot2 Schema V2：低一致率可能先是适用性问题（2026-08-27）
+
+条件型标注字段如果没有“命题是否存在”的入口，标注人会把“没有提到”分别解释成 YES、UNCERTAIN 或空值；此时很低的
+kappa 可能主要测量字段问题，而不是事实判断能力。V2 先问 version/history/authority `*_present`，再只在 present=YES
+时判断 correctness；present=NO 自动得到 NOT_APPLICABLE。这样可把 applicability disagreement 与 correctness
+disagreement 分开，未来只在双方都认为适用的子集计算 correctness agreement。
+
+同样重要的是证据不可变：修复 schema 不能回写 GB18030 raw return、补造 B 的历史 time/lookup 值或伪装原声明已签。
+正确做法是提供本人 V1 只读参考、新 V2 表、逐字段 KEEP/REVISE 记录和 retrospective declaration。测量工具被修复只
+能宣称“复核准备就绪”，不能宣称 agreement 已恢复或论文结果成立。

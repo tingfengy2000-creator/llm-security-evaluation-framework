@@ -1187,3 +1187,57 @@ Approval Gate、Auto Continue。
 - Status: `ANNOTATION_KIT_PREPARED_PENDING_HUMAN_EXECUTION`；HUMAN_ANNOTATION `AUTHORIZED / NOT STARTED`；ANNOTATION_AGREEMENT `NOT ESTABLISHED`；no disagreement or adjudication result.
 - Claims Boundary: kit identity and distribution readiness only；not annotation completion, agreement, Dataset freeze, Detector/effectiveness, 240-group Pilot, Training, Formal Experiment or Paper Result.
 - Next Gate: distribute training plus A/B Phase 1 only；lock both returned Phase 1 files and SHA256 before distributing either Phase 2. Auto Continue = `NO`.
+
+## REL-2026-0029 — PILOT2 Return Metadata Owner Correction and Schema Blocker Reinterpretation
+
+- Record ID: `REL-2026-0029`.
+- Date: `2026-08-27`.
+- Stage / Task: `Stage 6.1 / Paper 1 / S6.1-P1-PILOT2-RETURN-CORRECTION-01`.
+- Machine: `本机`；governance registration only；no 5090 contact.
+- Initial Status: Return Preflight had inferred irreversible A Phase 1 blind contamination from coordinator timestamps.
+- Owner-Corrected Fact: A completed/submitted Phase 1；coordinator received and locked it；only then distributed Phase 2；A did
+  not see Phase 2 during Phase 1. `A_PHASE1_STRICT_BLINDNESS = PRESERVED_BY_OWNER_CONFIRMED_OPERATIONAL_FACT`.
+- Historical Preservation: original coordinator CSV, wrong timestamps, `NOT_DISTRIBUTED` values, original preflight inference,
+  preflight workbook SHA `adeb4586...bae0`, and all four raw return ZIP identities remain unchanged.
+- Superseding Interpretation: the original blind-contamination inference was based on incorrect registration metadata and is
+  superseded by owner-confirmed actual distribution order.
+- Final Status: `PILOT2-RETURN-PROTOCOL-BLOCKER-01 = PROTOCOL_AND_ANNOTATION_SCHEMA_BLOCKER`；blindness subissue resolved；
+  registration metadata correction/evidence binding and Annotation Schema V2 remain open.
+- Remaining Issues: applicability semantics and missing NOT_APPLICABLE；authority/version/legitimate-history applicability；four
+  declarations；GB18030/UTF-8 BOM；B headers/time/professional lookup；lookup source-type classification.
+- Agreement State: `FORMAL_AGREEMENT = PENDING_SCHEMA_V2_REREVIEW_AND_RETURN_VALIDATION`；no agreement calculation,
+  disagreement packet or adjudication performed in this task.
+- Preferred Next Route: `ANNOTATION_SCHEMA_V2 + A/B INDEPENDENT RE-REVIEW`；not approved to start automatically.
+- Claims Allowed: owner-corrected operational order, preserved A Phase 1 blindness, documentation-defect classification and current
+  schema blocker identity.
+- Claims Prohibited: accepted agreement, adjudicated labels, Dataset freeze, Detector/effectiveness, Training, Formal Experiment or
+  Paper Result.
+- Owner Decisions: `PODR-063`; owner requirement `OR-025`.
+- Auto Continue: `NO`.
+
+## REL-2026-0030 — PILOT2 Annotation Schema V2 and Independent Re-review Packages Prepared
+
+- Record ID: `REL-2026-0030`.
+- Date: `2026-08-27`.
+- Stage / Task: `Stage 6.1 / Paper 1 / S6.1-P1-PILOT2-ANNOTATION-V2`.
+- Machine: `本机`；no 5090, model, GMTP, GPU, Dataset, Detector, Training or Formal Experiment.
+- Approval: owner approved `ANNOTATION_SCHEMA_V2` implementation and A/B independent Round1 re-review under `PODR-064 / OR-026`.
+- Preserved Evidence: four raw return ZIP SHA256 values, original GB18030 bytes/headers/missing/declarations/lookup logs,
+  registration defect, preflight workbook SHA `adeb4586...bae0`, original inference and PODR-063 correction are immutable and
+  bound by Git-external `ROUND1_RAW_MANIFEST`.
+- Implementation: executable V2 column/enumeration/applicability/revision validators under canonical `llmguard`; complete field
+  dictionary and schema-quality review；no agreement implementation or result.
+- Artifacts: four annotator-isolated ZIPs under
+  `LLMGuard-Handoff/paper1_pilot2_round1_rereview_v2_20260827`; A Phase1 `0a896226...08a0`, A Phase2
+  `e3f7127b...f46e`, B Phase1 `3391ffc7...ddf5`, B Phase2 `74390b5c...f626`; 19 copied files matched staging SHA.
+- Validation: executable artifact/schema tests `15 passed`；raw `4/4` and preflight unchanged；A/B Phase sample/claim identity
+  `36/36`；BOM/frozen columns/no-peer/no-owner-only leakage/applicability/enumerations passed.
+- Final Status: `PILOT2_ROUND1_RAW = PRESERVED_IMMUTABLE`；`A_PHASE1_STRICT_BLINDNESS = OWNER_CONFIRMED_PRESERVED`；
+  `REGISTRATION_METADATA_ERROR = DOCUMENTED`；`ANNOTATION_SCHEMA_V2 = IMPLEMENTED`；
+  `A_B_REREVIEW = READY_FOR_HUMAN_EXECUTION`；`FORMAL_AGREEMENT_V2 = NOT_YET_ESTABLISHED`.
+- Claims Allowed: schema/tooling readiness, evidence identity and human re-review readiness only.
+- Claims Prohibited: agreement recovery, adjudicated labels, Benchmark/Dataset freeze, Detector/effectiveness, Training, Formal
+  Experiment, Paper Result or SOTA.
+- Next Gate: A/B independently complete their matching Phase1/Phase2 V2 forms, per-field logs and retrospective declarations；
+  coordinator hash-locks all four returns；owner separately approves return validation and any agreement calculation.
+- Auto Continue: `NO`.

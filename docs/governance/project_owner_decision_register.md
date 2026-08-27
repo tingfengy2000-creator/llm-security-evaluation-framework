@@ -969,3 +969,60 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   P1/Pilot entry. Auto Continue = `NO`.
 - Canonical records: `OR-021`、[Research Plan Authority](../research/stage6_1_hidden_knowledge_poisoning/human/research_plan_authority.md)、
   [Current Work State](current_work_state.md) and `REL-2026-0025`.
+
+## PODR-063: PILOT2 Return Metadata Owner Correction and Annotation Schema Blocker Reinterpretation
+
+- Date: `2026-08-27`.
+- Decision: 项目需求提出人确认 Annotator A 的实际顺序为 Phase 1 完成提交、coordinator 回收并锁定、之后才发放
+  Phase 2；A 在 Phase 1 期间没有提前看到 Phase 2。因此
+  `A_PHASE1_DISTRIBUTION_ORDER = OWNER_CONFIRMED_CORRECT`，
+  `A_PHASE1_STRICT_BLINDNESS = PRESERVED_BY_OWNER_CONFIRMED_OPERATIONAL_FACT`。
+- Metadata correction: registration CSV 中原时间和 `NOT_DISTRIBUTED` 状态是
+  `INCORRECT_RECORDING / DOCUMENTATION_DEFECT_ONLY`。原登记表、原错误时间、原 preflight 推断和原 preflight workbook
+  必须保留；不得修改历史制造从未出错的假象。
+- Superseding interpretation: the original blind-contamination inference was based on incorrect registration metadata and is
+  superseded by owner-confirmed actual distribution order. It must no longer be described as irreversible blind contamination.
+- Blocker status: `PILOT2-RETURN-PROTOCOL-BLOCKER-01 = PROTOCOL_AND_ANNOTATION_SCHEMA_BLOCKER`；
+  `BLINDNESS_SUBISSUE = RESOLVED_BY_OWNER_CONFIRMED_ACTUAL_DISTRIBUTION_ORDER`；
+  `REGISTRATION_METADATA_SUBISSUE = OPEN_FOR_CORRECTION_AND_EVIDENCE_BINDING`；
+  `ANNOTATION_SCHEMA_SUBISSUE = OPEN`；`RETURN_FILE_CONTRACT_SUBISSUE = OPEN`。
+- Agreement state: Round 1 remains a formal-agreement candidate, but
+  `FORMAL_AGREEMENT = PENDING_SCHEMA_V2_REREVIEW_AND_RETURN_VALIDATION`；no agreement or adjudication is established.
+- Remaining issues: YES/NO/UNCERTAIN applicability and missing NOT_APPLICABLE；authority/version/legitimate-history applicability；
+  incomplete declarations；incorrect registration metadata；GB18030 versus UTF-8 BOM；B header changes and missing timing/lookup
+  fields；lookup source-type classification error.
+- Preferred next route: `ANNOTATION_SCHEMA_V2 + A/B INDEPENDENT RE-REVIEW`, not strict rerun with new annotators. This priority does
+  not approve execution；a separate task must freeze Schema V2 and return-correction/evidence-binding contracts.
+- Prohibited actions: automatic agreement, disagreement packet, adjudication, raw-return mutation, 5090 contact, Dataset freeze,
+  Detector, Training or Formal Experiment. Auto Continue = `NO`.
+- Canonical record: [PILOT2 Return Preflight Owner Correction](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_pilot2_return_owner_correction.md)、`OR-025`、`REL-2026-0029`。
+
+## PODR-064: PILOT2 Annotation Schema V2 and A/B Round1 Independent Re-review Approval
+
+- Date: `2026-08-27`.
+- Decision: 项目需求提出人保留 A/B Round1 和四份 raw return，批准
+  `ANNOTATION_SCHEMA_V2 = APPROVED_TO_IMPLEMENT` 与 `A_B_INDEPENDENT_ROUND1_REREVIEW = APPROVED`；不使用 C/D，不执行
+  新 240-group Pilot，不通过人工统一答案提高一致率。
+- Raw evidence: `PILOT2_ROUND1_RAW = PRESERVED_IMMUTABLE`；四份 raw ZIP、GB18030 字节、原列名、缺失值、声明、lookup
+  log、registration metadata、preflight workbook、错误盲法推断和 PODR-063 correction 均保持不可变并由
+  `ROUND1_RAW_MANIFEST` 绑定。
+- Round1 disposition: `PILOT2_ROUND1 = PRESERVED_FOR_SCHEMA_V2_INDEPENDENT_REREVIEW`.
+- Owner fact: `A_PHASE1_STRICT_BLINDNESS = OWNER_CONFIRMED_PRESERVED`；原 metadata 只作为
+  `INCORRECT_RECORDING / DOCUMENTATION_DEFECT_ONLY` 历史保留。
+- Schema: 条件字段采用 `YES / NO / UNCERTAIN / NOT_APPLICABLE`；version/history/authority 均使用先 present、后
+  correctness 的适用性合同；`claim_matches_source` 与 `fact_changed` 始终适用；authority 判断候选提出的机构命题，
+  不判断页面发布者。
+- Schema quality gate: every field passed `ANNOTATION_FIELD_APPLICABILITY_REVIEW`; any future field that cannot answer the ten
+  applicability/semantics/example/subset/value questions must stop at `FIELD_SCHEMA_REVIEW_BLOCKER`.
+- Independent re-review: A 只能看到 A 本人的 V1 只读参考，B 同理；每字段 `KEEP/REVISE`，修改必须使用冻结 reason
+  code；新增 retrospective declaration 和 lookup source-type review；所有 V2 CSV 为 UTF-8 BOM。
+- Completion: `ANNOTATION_SCHEMA_V2 = IMPLEMENTED`；`A_B_REREVIEW = READY_FOR_HUMAN_EXECUTION`；
+  `ANNOTATION_SCHEMA_SUBISSUE = REMEDIATION_IN_PROGRESS` until four human V2 returns pass validation.
+- Agreement: only future calculation/subset logic is prepared. `FORMAL_AGREEMENT_V2 = NOT_YET_ESTABLISHED`；no agreement,
+  disagreement packet or adjudication is executed.
+- Prohibited: raw mutation, peer-result sharing, candidate/private mapping leakage, 5090 contact, Dataset freeze, Detector,
+  Training, Formal Experiment or Paper Result. Auto Continue = `NO`.
+- Next gate: coordinator distributes only the matching A/B packages；after all four independent V2 returns and declarations are
+  hash-locked, owner separately approves return validation and any agreement calculation.
+- Canonical record: [PILOT2 Annotation Schema V2](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_pilot2_annotation_v2.md)、
+  `OR-026`、`REL-2026-0030`.

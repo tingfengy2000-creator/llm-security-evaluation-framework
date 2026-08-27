@@ -19,10 +19,12 @@ accepted_stages:
   S6.1-R0: HUMAN_ACCEPTED_WITH_BLOCKERS
   S6.1-R0-FU1-P0: HUMAN_ACCEPTED
   S6.1-R0-FU1-L1: HUMAN_ACCEPTED
-current_stage: S6.1-P1 PILOT2 human execution pre-distribution gate
-current_task: independent double-annotation kit prepared; annotation not started
+current_stage: S6.1-P1 PILOT2 Return Correction and Annotation Schema V2 approval gate
+current_task: owner correction registered; no agreement or adjudication
 current_blockers:
-  - real double annotation, agreement Pilot and 240-group Pilot are not approved or started
+  - PILOT2-RETURN-PROTOCOL-BLOCKER-01 = PROTOCOL_AND_ANNOTATION_SCHEMA_BLOCKER
+  - registration metadata correction/evidence binding and Annotation Schema V2 remain open
+  - formal agreement is pending Schema V2 A/B independent re-review and return validation
   - Dataset is not frozen; Detector is not implemented; formal protocol is not frozen
 resolved_blockers:
   - W2_ATTEMPT1_EVIDENCE_BLOCKER resolved by Correction 02 control-plane review
@@ -71,7 +73,7 @@ prohibited_claims:
 detoxification_option: OPTION_B
 detoxification_scope: OPTION_B_CONFIRMED / OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION
 excluded_scope: trusted context package, complete context construction, multi-evidence trusted context generation, complex end-to-end Agent defense, production RAG platform, complete trusted retrieval chain
-next_decision_gate: distribute training plus A/B Phase 1 only; lock both Phase 1 return hashes before Phase 2
+next_decision_gate: A/B independently complete matching V2 packages; lock four returns; owner separately approves validation/agreement
 canonical_files:
   owner_requirements: ../human/owner_requirement_register.md
   research_plan: ../human/research_plan_authority.md
@@ -202,3 +204,32 @@ Live Git and raw evidence override stale snapshot fields. Owner-confirmed requir
 - Git-external kit 包含 coordinator、6 条纯合成 training、A/B 各自 Phase 1/2 ZIP 和 owner-only 空白仲裁控制；kit index `17/17 PASS`，outer ZIP SHA256 `a3c884ba313670aaeb78c3674e6c214434ae59576f99cc313fe4c4085eac6463`。
 - 当前状态：PILOT2 `ANNOTATION_KIT_PREPARED_PENDING_HUMAN_EXECUTION`；HUMAN_ANNOTATION `AUTHORIZED / NOT STARTED`；ANNOTATION_AGREEMENT `NOT ESTABLISHED`；没有 disagreement 或 adjudication result。
 - 下一门：只发 training 与 A/B Phase 1；双方分别提交并锁定 SHA256 后，才可发各自 Phase 2。240-group Pilot、Dataset freeze、Detector、Training 与 Formal Experiment 不得推进。
+
+### Context Checkpoint — 2026-08-27 — S6.1-P1-PILOT2 Return Owner Correction
+
+- A/B Round 1 Phase 1/2 returns 已收到。原登记时间与 `NOT_DISTRIBUTED` 字段被保留为错误 metadata 历史。
+- 项目需求提出人确认 A 的实际顺序为 Phase 1 提交、coordinator 回收锁定、之后才发 Phase 2；A Phase 1 未提前看到
+  Phase 2。原 blind-contamination inference 被 owner-confirmed actual order supersede，但不删除。
+- `BLINDNESS_SUBISSUE = RESOLVED_BY_OWNER_CONFIRMED_ACTUAL_DISTRIBUTION_ORDER`；当前 blocker 为
+  `PROTOCOL_AND_ANNOTATION_SCHEMA_BLOCKER`。
+- Open：registration metadata evidence binding、Schema V2 applicability/enums、declarations、encoding/header/missing fields 和
+  lookup source classification。
+- `FORMAL_AGREEMENT = PENDING_SCHEMA_V2_REREVIEW_AND_RETURN_VALIDATION`；本轮没有计算 agreement、生成 disagreement、
+  执行 adjudication、修改 raw returns 或联系 5090。
+- 下一门：独立批准并冻结 `ANNOTATION_SCHEMA_V2 + A/B INDEPENDENT RE-REVIEW`；Auto Continue = `NO`。
+
+### Context Checkpoint — 2026-08-27 — S6.1-P1-PILOT2 Annotation V2
+
+- 项目需求提出人以 PODR-064/OR-026 批准保留 A/B Round1 raw 并实现 Schema V2 与本人 V1 独立复核包；PODR-063 和原
+  metadata/preflight 历史不被覆盖。
+- 可执行合同位于 `src/llmguard/domains/retrieval/hidden_poisoning/annotation_v2.py`：Phase1/2 冻结列、四值语义、三组
+  present/correctness、authority proposition、overall fact enum、lookup source enum、revision/declaration 和 validators。
+- Git-external 输出键 `LLMGuard-Handoff/paper1_pilot2_round1_rereview_v2_20260827` 含 19 files；A/B 各 Phase1/2
+  ZIP SHA 为 `0a896226...08a0`、`e3f7127b...f46e`、`3391ffc7...ddf5`、`74390b5c...f626`。
+- 验证：raw `4/4`、preflight、sample/claim `36/36`、BOM、frozen columns、no-peer/no-owner-only leakage、applicability 和
+  enums 均 PASS；可执行 artifact/schema tests `15 passed`。
+- 状态：`PILOT2_ROUND1_RAW = PRESERVED_IMMUTABLE`；`ANNOTATION_SCHEMA_V2 = IMPLEMENTED`；
+  `A_B_REREVIEW = READY_FOR_HUMAN_EXECUTION`；`FORMAL_AGREEMENT_V2 = NOT_YET_ESTABLISHED`；Dataset/Detector/Training/
+  Formal Experiment 未推进。
+- 下一门：A/B 独立完成四份 V2 return 和 retrospective declaration，coordinator 锁定 SHA；owner 另行批准 return
+  validation/agreement。Auto Continue = `NO`。

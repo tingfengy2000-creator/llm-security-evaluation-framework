@@ -1,5 +1,29 @@
 # LLMGuard 项目总控文档
 
+## PILOT2 Annotation Schema V2 与 A/B 独立复核包（2026-08-27）
+
+项目需求提出人通过 `PODR-063 / OR-025` 确认 Annotator A 的实际执行顺序为：Phase 1 完成提交、coordinator 回收并
+锁定、之后才发放 Phase 2；A 在 Phase 1 期间未看到 Phase 2。此前依据错误登记时间形成的 blind-contamination inference
+作为历史保留，但由 owner-confirmed actual distribution order supersede。原登记表、原错误时间、原推断、原 preflight
+workbook 和四份 raw returns 均不得覆盖或修改。
+
+前置 owner correction 继续保持：`PILOT2-RETURN-PROTOCOL-BLOCKER-01 = PROTOCOL_AND_ANNOTATION_SCHEMA_BLOCKER`；
+`BLINDNESS_SUBISSUE = RESOLVED_BY_OWNER_CONFIRMED_ACTUAL_DISTRIBUTION_ORDER`；
+`REGISTRATION_METADATA_ERROR = DOCUMENTED`，原错误 metadata 与原推断已由独立 manifest 绑定；
+`ANNOTATION_SCHEMA_SUBISSUE = REMEDIATION_IN_PROGRESS`。Round 1 可继续作为正式 agreement 候选，但
+`FORMAL_AGREEMENT = PENDING_SCHEMA_V2_REREVIEW_AND_RETURN_VALIDATION`，尚未生成 disagreement 或执行 adjudication。
+
+项目需求提出人通过 `PODR-064 / OR-026` 已批准并完成 Schema V2 工具和四个独立复核包准备：四值语义、三组
+present/correctness 适用性、authority 命题边界、overall fact 决策树、Phase1 定义、lookup source 枚举、逐字段
+`KEEP/REVISE`、retrospective declaration 和 UTF-8 BOM 合同均已冻结。A 只接收 A 本人的 V1 只读参考与 V2 表，B 同理；
+原始 return 不覆盖，agreement 不执行。
+
+Git-external 交付键为 `LLMGuard-Handoff/paper1_pilot2_round1_rereview_v2_20260827`；四包 SHA256 为
+`0a896226...08a0`、`e3f7127b...f46e`、`3391ffc7...ddf5`、`74390b5c...f626`。当前
+`ANNOTATION_SCHEMA_V2 = IMPLEMENTED`、`A_B_REREVIEW = READY_FOR_HUMAN_EXECUTION`、Auto Continue = `NO`；下一门是
+A/B 独立完成人工复核并锁定四份 return 后，由 owner 单独批准 return validation/agreement。Dataset、Detector、Training、
+Formal Experiment 和 Paper Result 均未推进。
+
 ## S6.1-P1-R1 Option B 范围冻结与协议强化候选（2026-08-02）
 
 项目需求提出人已明确确认 `TITLE_INTENT = CONFIRMED`、`DETOXIFICATION_OPTION = OPTION_B` 和
