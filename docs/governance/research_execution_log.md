@@ -1241,3 +1241,28 @@ Approval Gate、Auto Continue。
 - Next Gate: A/B independently complete their matching Phase1/Phase2 V2 forms, per-field logs and retrospective declarations；
   coordinator hash-locks all four returns；owner separately approves return validation and any agreement calculation.
 - Auto Continue: `NO`.
+
+## REL-2026-0031 — PILOT2 Annotator-Friendly Targeted Re-review Kit Prepared
+
+- Record ID: `REL-2026-0031`.
+- Date: `2026-08-27`.
+- Stage / Task: `Stage 6.1 / Paper 1 / S6.1-P1-PILOT2-TARGETED-REREVIEW`.
+- Machine: `本机`；no 5090, model, GPU, Dataset, Detector, Training, agreement or Formal Experiment.
+- Approval: owner approved the narrowed human workflow under `PODR-065 / OR-027`; immutable Round1 raw, preflight,
+  owner correction and full V2 tree were read-only inputs.
+- Audit: Phase1 `3 × 36` and Phase2 `7 × 36` substantive tasks per annotator；preserved fields remain本人 V1只读；
+  B-only process fixes are `21` missing lookup-used values plus `1` search-engine source-type correction.
+- Workload: substantive tasks fell from `576` to `360` per annotator (`216 / 37.5%` saved) without weakening the
+  applicability or dependent-field contract.
+- Artifacts: four XLSX plus exchange CSV, A/B instructions, coordinator/owner manifests and transition gate under
+  `LLMGuard-Handoff/paper1_pilot2_targeted_rereview_20260827`; copy verification `17/17` SHA matched.
+- Validation: raw `4/4` and full V2 `32/32` unchanged；no-peer/no-label/no-agreement leakage；UTF-8 BOM, XLSX dropdown,
+  frozen/read-only cells, formulas, dependency prompts and 16 rendered sheets passed.
+- Final Status: `TARGETED_FIELD_AUDIT = COMPLETED`；`TARGETED_REREVIEW_KIT = READY_FOR_HUMAN_EXECUTION`；
+  `FORMAL_AGREEMENT_V2 = NOT_YET_ESTABLISHED`。
+- Claims Allowed: targeted schema scope, package identity, validation and reduced human workload only.
+- Claims Prohibited: recovered agreement, adjudicated Ground Truth, Benchmark/Dataset freeze, Detector/effectiveness,
+  Training, Formal Experiment, Paper Result or SOTA.
+- Next Gate: A/B targeted Phase1 return and dual hash-lock；then A/B targeted Phase2 return and dual hash-lock；stop for
+  separate owner approval of return validation/agreement.
+- Auto Continue: `NO`.

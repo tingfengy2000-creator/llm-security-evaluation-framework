@@ -16,16 +16,17 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-P1-PILOT2-ANNOTATION-V2`.
-- Task name: `Pilot2 Annotation Schema Repair and Round1 Independent Re-review`.
-- Task type: **LOCAL_SCHEMA_REPAIR / ARTIFACT_PREPARATION / NO_AGREEMENT / NO_ADJUDICATION / NO_FORMAL_EXPERIMENT**.
-- Status: **ANNOTATION_SCHEMA_V2_IMPLEMENTED / A_B_REREVIEW_READY_FOR_HUMAN_EXECUTION / AUTO_CONTINUE_NO**.
-- Base commit: `PILOT2_ANNOTATION_V2_BASE_COMMIT = 561750c6fc5706582dc547cc000271b981abed85`.
-- Execution machine: **本机**. Four immutable Round1 returns and the original preflight are hash-bound；V2 validators, complete field
-  dictionary and four annotator-isolated re-review ZIPs are prepared. No agreement, adjudication, return mutation, 5090 contact,
-  model/GMTP/GPU work, Dataset freeze, Detector, Training or formal experiment occurs.
-- Current ordered step: stop after Git synchronization. Human A/B independently complete the V2 packages；after all four returns are
-  locked, the owner must separately approve return validation and any agreement calculation.
+- Task ID: `S6.1-P1-PILOT2-TARGETED-REREVIEW`.
+- Task name: `Pilot2 Annotator-Friendly Targeted Re-review Kit`.
+- Task type: **LOCAL_FIELD_AUDIT / TARGETED_HUMAN_KIT / NO_AGREEMENT / NO_ADJUDICATION / NO_FORMAL_EXPERIMENT**.
+- Status: **TARGETED_REREVIEW_KIT_READY_FOR_HUMAN_EXECUTION / AUTO_CONTINUE_NO**.
+- Base commit: `PILOT2_TARGETED_REREVIEW_BASE_COMMIT = 09aa7e65e95e10a657e44c2b31e23ec02bc4210b`.
+- Execution machine: **本机**. Immutable Round1 raw and the complete Schema V2 package remain hash-bound and unchanged；a field audit
+  narrows human work to three Phase1 stealth fields, seven Phase2 fact/applicability fields and B-only process corrections.
+- Current ordered step: distribute only each annotator's targeted Phase1 XLSX, lock both Phase1 returns, then distribute the matching
+  targeted Phase2 XLSX. After all four targeted returns are locked, the owner must separately approve return validation and any
+  agreement calculation. No agreement, adjudication, return mutation, 5090 contact, Dataset freeze, Detector, Training or formal
+  experiment occurs.
 - Historical superseded H2 snapshot: `PROPOSED / NOT CANONICAL / NOT APPROVED`; preserve as history.
 - Formal RAG security experiment: **NOT STARTED**.
 - Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.
@@ -62,16 +63,16 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PODR-057` and `PODR-058`.
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
-- S6.1-P1: **PILOT2_SCHEMA_V2_REREVIEW_PREPARATION_ONLY / NOT FORMAL_EXPERIMENT**.
+- S6.1-P1: **PILOT2_TARGETED_REREVIEW_HUMAN_EXECUTION_GATE / NOT FORMAL_EXPERIMENT**.
 - S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
 - S6.1-P1-PILOT1: **HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED**.
 - Historical S6.1-P1-PILOT1: **COMPLETED_PENDING_REVIEW / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY**；superseded by OR-024.
-- S6.1-P1-PILOT2: **ROUND1_RAW_PRESERVED / SCHEMA_V2_REREVIEW_READY_FOR_HUMAN_EXECUTION**.
+- S6.1-P1-PILOT2: **ROUND1_RAW_PRESERVED / TARGETED_REREVIEW_READY_FOR_HUMAN_EXECUTION**.
 - PILOT2_ROUND1_RAW: **PRESERVED_IMMUTABLE**.
 - PILOT2_ROUND1: **PRESERVED_FOR_SCHEMA_V2_INDEPENDENT_REREVIEW**.
 - A_PHASE1_STRICT_BLINDNESS: **OWNER_CONFIRMED_PRESERVED**.
 - ANNOTATION_SCHEMA_V2: **IMPLEMENTED**.
-- A_B_REREVIEW: **READY_FOR_HUMAN_EXECUTION**.
+- A_B_REREVIEW: **TARGETED_REREVIEW_READY_FOR_HUMAN_EXECUTION**.
 - FORMAL_AGREEMENT_V2: **NOT_YET_ESTABLISHED**.
 - ANNOTATION_MODE: **TWO_INDEPENDENT_ANNOTATORS_WITH_OWNER_ADJUDICATION**.
 - BLINDNESS_SUBISSUE: **RESOLVED_BY_OWNER_CONFIRMED_ACTUAL_DISTRIBUTION_ORDER**.
@@ -80,10 +81,10 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - ANNOTATION_SCHEMA_SUBISSUE: **REMEDIATION_IN_PROGRESS**.
 - RETURN_FILE_CONTRACT_SUBISSUE: **V2_CONTRACT_IMPLEMENTED_PENDING_HUMAN_RETURN**.
 - ROUND1_PRESERVATION: **APPROVED / PRESERVED_IMMUTABLE**.
-- SCHEMA_V2_REREVIEW: **APPROVED / READY_FOR_HUMAN_EXECUTION**.
+- SCHEMA_V2_REREVIEW: **APPROVED / FULL_PACKAGE_PRESERVED / TARGETED_DISTRIBUTION_VIEW_READY**.
 - Historical S6.1-P1: **APPROVED_FOR_PILOT0_INFRASTRUCTURE_ONLY / NOT FORMAL_EXPERIMENT**；superseded by OR-023.
 - Historical S6.1-P1-PILOT0: **COMPLETED_PENDING_REVIEW**；superseded by final owner acceptance under OR-023.
-- HUMAN_ANNOTATION: **ROUND1 A/B PHASE1+2 RETURNS RECEIVED / V2 INDEPENDENT REREVIEW READY / NOT YET EXECUTED**；
+- HUMAN_ANNOTATION: **ROUND1 A/B PHASE1+2 RETURNS RECEIVED / TARGETED V2 INDEPENDENT REREVIEW READY / NOT YET EXECUTED**；
   ANNOTATION_AGREEMENT: **PENDING_SCHEMA_V2_REREVIEW_AND_RETURN_VALIDATION / NOT ESTABLISHED**.
 - REAL_DOUBLE_ANNOTATION / 240_GROUP_PILOT: **NOT APPROVED / NOT STARTED**.
 - Historical REAL_DATA_PILOT / 240_GROUP_PILOT: **NOT APPROVED / NOT STARTED**；PILOT1 did not authorize human annotation or the 240-group Pilot.
@@ -227,9 +228,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
 - Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
   evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- Next operational action: distribute only each annotator's matching V2 packages；A/B independently complete their own Phase1/Phase2
-  forms, change logs and retrospective declarations；lock all four return SHA256 values and stop. No automatic agreement calculation
-  or adjudication.
+- Next operational action: distribute A/B's own targeted Phase1 XLSX files；lock both returns before distributing either targeted
+  Phase2 XLSX；lock all four targeted return SHA256 values and stop. No automatic agreement calculation or adjudication.
   No second H2-B call, automatic resume_03, real-data Pilot, matrix, Dataset, Detector, training or formal experiment is authorized.
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
@@ -289,7 +289,7 @@ are established.
 ## Last Update
 
 - Date: `2026-08-27`.
-- Updated by: 本机 implementing PODR-064/OR-026. PODR-063 history and all raw/preflight evidence remain immutable；registration
-  error is documented and evidence-bound；Schema V2 and four isolated A/B re-review packages are ready for human execution.
+- Updated by: 本机 implementing PODR-065/OR-027. PODR-063 history, all raw/preflight evidence and the complete V2 package remain
+  immutable；the annotator-friendly targeted field audit and four isolated XLSX/CSV packages are ready for human execution.
   Formal agreement, disagreement, adjudication, Dataset, Detector, Training and Formal Experiment remain unestablished；Auto
   Continue = `NO`.

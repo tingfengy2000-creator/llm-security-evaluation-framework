@@ -230,3 +230,14 @@ disagreement 分开，未来只在双方都认为适用的子集计算 correctne
 同样重要的是证据不可变：修复 schema 不能回写 GB18030 raw return、补造 B 的历史 time/lookup 值或伪装原声明已签。
 正确做法是提供本人 V1 只读参考、新 V2 表、逐字段 KEEP/REVISE 记录和 retrospective declaration。测量工具被修复只
 能宣称“复核准备就绪”，不能宣称 agreement 已恢复或论文结果成立。
+
+## Pilot2 Targeted Re-review：应修测量缺陷，不应让人重复稳定答案（2026-08-27）
+
+完整 schema 是覆盖边界，不等于每次人工修复都要重做全部字段。先用 V1 disagreement、缺失值、applicability 变化和
+下游依赖做 field audit，可把真正受 schema 修复影响的字段变成定向任务，同时把定义稳定、非上游的答案作为本人 V1
+只读参考。本轮由此把每位标注人的实质任务从 576 降至 360，减少 37.5%，但仍保留三组 present/correctness 与
+overall fact 的依赖链。
+
+这种收敛只有在证据和隔离边界不被削弱时才成立：raw 与完整 V2 不回写，A/B 不见 peer result，原值只读，新值使用
+冻结枚举和联动提示，缺失历史数据明确标为不可恢复。企业标注流程中，这比“把整张表再填一次”更容易解释、审计和
+估算，也减少疲劳导致的新噪声；但它只证明复核工具准备就绪，不证明 agreement、Ground Truth 或模型效果。

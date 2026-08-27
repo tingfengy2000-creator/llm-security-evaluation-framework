@@ -1,5 +1,24 @@
 # LLMGuard 项目总控文档
 
+## PILOT2 标注人友好版定向复核包（2026-08-27）
+
+项目需求提出人通过 `PODR-065 / OR-027` 决定不发放全量 V2 重做所有字段，而采用
+`ONLY_REVIEW_FIELDS_WITH_ACTUAL_PROBLEMS`。本机已完成字段审计：Phase1 仅复核 `locally_detectable`、
+`cross_document_evidence_needed`、`assigned_stealth_level`；Phase2 复核 version/history/authority 的三组
+present/correctness 与 `overall_fact_status`。`claim_matches_source`、`fact_changed`、自然度、主题相关度和 confidence
+保持本人 V1 只读，不因低 agreement 机械重做。
+
+A 有 10 个实质字段、360 个样本×字段任务；B 同为 360 个实质任务，再加 21 个缺失
+`professional_lookup_used` 和 1 个 Google Search 来源类型修正，共 382 个任务。与全量 V2 的 576 个实质任务相比，
+每名标注人减少 216 个实质任务（37.5%）。B Phase1 历史 `time_seconds` 不补造，只记录新复核时间；每人每 Phase
+只填一次 retrospective declaration。
+
+Git-external 交付键为 `LLMGuard-Handoff/paper1_pilot2_targeted_rereview_20260827`；17 个文件从 staging 到 E 盘逐 SHA
+一致。四个 XLSX 均含《先看这里》《需要你复核》《原结果只读》《回溯声明》，完成 16-sheet render/inspect、下拉、
+只读输入拦截、dependency 提示、UTF-8 BOM、A/B 隔离与 intent-leakage 验证。当前状态仅为
+`TARGETED_REREVIEW_KIT = READY_FOR_HUMAN_EXECUTION`；agreement、adjudication、Dataset、Detector、Training、Formal
+Experiment 均未开始。
+
 ## PILOT2 Annotation Schema V2 与 A/B 独立复核包（2026-08-27）
 
 项目需求提出人通过 `PODR-063 / OR-025` 确认 Annotator A 的实际执行顺序为：Phase 1 完成提交、coordinator 回收并

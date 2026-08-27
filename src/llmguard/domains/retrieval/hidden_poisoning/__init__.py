@@ -94,6 +94,16 @@ from .source_registry import (
     TermsOrLicenseStatus,
     evaluate_pilot1_a,
 )
+from .targeted_rereview import (
+    PROCESS_FIX_COUNTS,
+    TARGETED_PHASE1_FIELDS,
+    TARGETED_PHASE2_FIELDS,
+    TARGETED_VALUE_ENUMS,
+    FieldAuditRecord,
+    FieldRereviewDecision,
+    validate_targeted_task_row,
+    workload_summary,
+)
 from .visibility import (
     EVALUATOR_ONLY_FIELDS,
     FIELD_POLICY,
@@ -132,6 +142,8 @@ __all__ = [
     "EvidenceState",
     "FieldVisibility",
     "FieldVisibilityDecision",
+    "FieldAuditRecord",
+    "FieldRereviewDecision",
     "GroupIdentityRecord",
     "HardNegativeType",
     "HiddenPoisoningError",
@@ -148,6 +160,7 @@ __all__ = [
     "MutationSpec",
     "OverallFactStatus",
     "PILOT1_A_GATE_NAMES",
+    "PROCESS_FIX_COUNTS",
     "PacketKind",
     "PHASE1_V2_FIELDS",
     "PHASE2_V2_FIELDS",
@@ -172,6 +185,9 @@ __all__ = [
     "SourceDomain",
     "StealthLevel",
     "TermsOrLicenseStatus",
+    "TARGETED_PHASE1_FIELDS",
+    "TARGETED_PHASE2_FIELDS",
+    "TARGETED_VALUE_ENUMS",
     "UnimplementedSemanticNearDuplicateScanner",
     "VersionRelation",
     "ViewEvidence",
@@ -203,4 +219,6 @@ __all__ = [
     "validate_phase1_v2_row",
     "validate_phase2_v2_row",
     "validate_revision_row",
+    "validate_targeted_task_row",
+    "workload_summary",
 ]

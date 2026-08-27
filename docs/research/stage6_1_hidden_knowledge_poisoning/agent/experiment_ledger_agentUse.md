@@ -13,7 +13,7 @@ Primary Human Mirror = `../human/experiment_ledger_tingfeng.md`
 project: LLMGuard Research Framework
 paper: Paper 1 - Chinese version-aware stealthy knowledge poisoning
 branch: research/stage6-1-hidden-poisoning
-document_source_commit: PILOT2_ANNOTATION_V2_BASE_561750c6fc5706582dc547cc000271b981abed85
+document_source_commit: PILOT2_TARGETED_REREVIEW_BASE_09aa7e65e95e10a657e44c2b31e23ec02bc4210b
 snapshot_date: 2026-08-27
 authority_order:
   - raw Git and external evidence
@@ -48,18 +48,20 @@ GMTP_REPRODUCTION: NOT ESTABLISHED
 DETECTION_EFFECTIVENESS: NOT ESTABLISHED
 STRICT_BASELINE_COMPARISON: NOT ESTABLISHED
 S6.1-P1-R1: HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK
-S6.1-P1: PILOT2_SCHEMA_V2_REREVIEW_PREPARATION_ONLY / NOT FORMAL_EXPERIMENT
+S6.1-P1: PILOT2_TARGETED_REREVIEW_PREPARATION_ONLY / NOT FORMAL_EXPERIMENT
 S6.1-P1-PILOT0: HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED
 S6.1-P1-PILOT1: HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED
-S6.1-P1-PILOT2: ROUND1_RAW_PRESERVED / SCHEMA_V2_REREVIEW_READY_FOR_HUMAN_EXECUTION
+S6.1-P1-PILOT2: ROUND1_RAW_PRESERVED / TARGETED_REREVIEW_READY_FOR_HUMAN_EXECUTION
 ANNOTATION_MODE: TWO_INDEPENDENT_ANNOTATORS_WITH_OWNER_ADJUDICATION
 P1_NUMERIC_PARAMETERS: PENDING_PILOT_EVIDENCE
-HUMAN_ANNOTATION: ROUND1_RETURNS_RECEIVED / V2_REREVIEW_READY / NOT_EXECUTED
+HUMAN_ANNOTATION: ROUND1_RETURNS_RECEIVED / TARGETED_REREVIEW_READY / NOT_EXECUTED
 BLINDNESS_SUBISSUE: RESOLVED_BY_OWNER_CONFIRMED_ACTUAL_DISTRIBUTION_ORDER
 REGISTRATION_METADATA_SUBISSUE: DOCUMENTED_AND_EVIDENCE_BOUND / ORIGINAL_PRESERVED
 ANNOTATION_SCHEMA_SUBISSUE: REMEDIATION_IN_PROGRESS
 ANNOTATION_SCHEMA_V2: IMPLEMENTED
 A_B_REREVIEW: READY_FOR_HUMAN_EXECUTION
+TARGETED_FIELD_AUDIT: COMPLETED
+TARGETED_REREVIEW_KIT: READY_FOR_HUMAN_EXECUTION
 ANNOTATION_AGREEMENT: PENDING_SCHEMA_V2_REREVIEW_AND_RETURN_VALIDATION / NOT ESTABLISHED
 240_GROUP_PILOT: NOT APPROVED / NOT STARTED
 Dataset: NOT FROZEN
@@ -73,15 +75,15 @@ H2_auto_continue: CONSUMED_AND_STOPPED
 DETOXIFICATION_OPTION: OPTION_B
 DETOXIFICATION_TECHNICAL_SCOPE: OPTION_B_CONFIRMED
 DETOXIFICATION_TECHNICAL_SCOPE_FULL: OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION
-P1_next_gate: HUMAN_AB_V2_REREVIEW_THEN_SEPARATE_RETURN_VALIDATION_AND_AGREEMENT_APPROVAL
+P1_next_gate: HUMAN_AB_TARGETED_PHASE1_DUAL_LOCK_THEN_TARGETED_PHASE2_DUAL_LOCK
 ```
 
 ## State Machine
 
-`LR1 HUMAN_ACCEPTED -> R0 HUMAN_ACCEPTED_WITH_BLOCKERS -> FU1/W2 closed -> Option B selected -> P1-R1 framework accepted -> PILOT0 accepted/closed -> PILOT1 accepted/closed -> PILOT2 kit prepared -> A/B Round1 returns -> owner metadata correction -> Schema V2 implemented -> A/B human V2 gate`
+`LR1 HUMAN_ACCEPTED -> R0 HUMAN_ACCEPTED_WITH_BLOCKERS -> FU1/W2 closed -> Option B selected -> P1-R1 framework accepted -> PILOT0 accepted/closed -> PILOT1 accepted/closed -> PILOT2 kit prepared -> A/B Round1 returns -> owner metadata correction -> Schema V2 implemented -> targeted field audit -> A/B targeted human gate`
 
 The owner correction resolves only the timestamp-derived blindness inference. Schema V2 package preparation is separately approved
-and complete；human re-review, return validation and agreement are not executed. The 240-group Pilot, Dataset freeze, Detector,
+and complete；the targeted kit narrows human work without changing that schema. Human re-review, return validation and agreement are not executed. The 240-group Pilot, Dataset freeze, Detector,
 Training and Formal Experiment remain closed.
 
 ## Stage Registry
@@ -143,6 +145,7 @@ next_gate: string
 | ART-P1-PILOT2-KIT | S6.1-P1 / PILOT2-KIT | artifact_preparation / 本机 | `ANNOTATION_KIT_PREPARED_PENDING_HUMAN_EXECUTION` | base `74b9afa954af56c5286c2fd4449281184ecce2fe`; Pilot1 summary `4952f166...ea6`; source index `17/17`; no model/environment identity | `PILOT1 HUMAN_ACCEPTED / PILOT2 APPROVED` -> `KIT VALIDATION 15/15 PASS` | A/B Phase 1+2 ZIP、6 synthetic practices、coordinator/owner-only controls；outer ZIP `a3c884ba...6463` | allowed: distributable kit identity only；prohibited: annotation/IAA/adjudication/Dataset/Detector/result | next_gate training + A/B Phase 1；lock both SHA before Phase 2 |
 | GOV-P1-PILOT2-RETURN-CORRECTION-01 | S6.1-P1 / PILOT2 Return Correction | governance_correction / 本机 | `OWNER_CORRECTION_REGISTERED / AUTO_CONTINUE_NO` | base `561750c6fc5706582dc547cc000271b981abed85`; raw returns and original preflight preserved | timestamp-based blind-contamination inference -> `SUPERSEDED_BY_OWNER_CONFIRMED_ACTUAL_DISTRIBUTION_ORDER` | PODR-063/OR-025；artifact `../s6_1_p1_pilot2_return_owner_correction.md` | allowed: corrected order and blocker interpretation；prohibited: agreement/adjudication/raw mutation/result | blocker `PROTOCOL_AND_ANNOTATION_SCHEMA_BLOCKER`; next_gate Schema V2 + A/B re-review approval |
 | ART-P1-PILOT2-ANNOTATION-V2 | S6.1-P1 / PILOT2 Annotation V2 | artifact_preparation / 本机 | `SCHEMA_V2_IMPLEMENTED / A_B_REREVIEW_READY` | raw return SHA `4/4` unchanged；preflight `adeb4586...bae0` unchanged；no model/environment identity | `APPROVED_TO_IMPLEMENT` -> `15 ARTIFACT/SCHEMA TESTS PASSED` | four isolated V2 ZIPs `0a896226...08a0` / `e3f7127b...f46e` / `3391ffc7...ddf5` / `74390b5c...f626`；artifact `../s6_1_p1_pilot2_annotation_v2.md` | allowed: schema/package readiness；prohibited: agreement/adjudication/Dataset/Detector/result | blocker `SCHEMA_REMEDIATION_IN_PROGRESS_UNTIL_HUMAN_RETURN`; next_gate A/B human V2 then separate validation/agreement approval |
+| ART-P1-PILOT2-TARGETED-REREVIEW | S6.1-P1 / PILOT2 Targeted Re-review | artifact_preparation / 本机 | `TARGETED_FIELD_AUDIT_COMPLETED / KIT_READY_FOR_HUMAN_EXECUTION` | base `09aa7e65e95e10a657e44c2b31e23ec02bc4210b`; raw `4/4` and full V2 `32/32` unchanged | full V2 16 fields -> targeted Phase1 3 + Phase2 7 | four XLSX/CSV pairs plus coordinator/owner manifests under `paper1_pilot2_targeted_rereview_20260827`; artifact `../s6_1_p1_pilot2_targeted_rereview.md`; copy `17/17` | allowed: scope/package/workload validation；prohibited: agreement/adjudication/Dataset/Detector/Training/result | blocker `HUMAN_TARGETED_RETURNS_PENDING`; next_gate Phase1 dual lock then Phase2 dual lock |
 
 ## Artifact Registry
 
@@ -192,7 +195,7 @@ H2 bundle contract additionally freezes bundle source bytes `1320359518`, archiv
 - S6.1-P1-R1 is `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`; numeric parameters and the formal protocol remain unfrozen.
 - PILOT0 is `HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED`；PILOT1 is `HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED`.
 - PILOT2 Round1 raw is preserved；blindness subissue is resolved by owner-confirmed actual order；registration error is documented
-  and evidence-bound；Annotation Schema V2 and four isolated re-review packages are implemented. Human V2 returns, agreement and
+  and evidence-bound；Annotation Schema V2 remains complete and the targeted Phase1/Phase2 packages are ready. Human returns, agreement and
   adjudication are not established. 240-group Pilot is not approved；Dataset is not frozen；Detector is not implemented；Training
   and Formal Experiment are not started.
 - Option B is confirmed only for detection plus lightweight hard filtering / soft downweighting. Complete trusted retrieval/context construction remains excluded.
@@ -207,8 +210,8 @@ H2 bundle contract additionally freezes bundle source bytes `1320359518`, archiv
 
 1. Preserve resume_01 and resume_02 as immutable evidence; do not overwrite, rerun, merge or create automatic resume_03.
 2. The only authorized H2-B call is consumed (`call_count=1`); no retry or second call is authorized.
-3. PILOT2 original kit/returns/registration/preflight remain immutable. Schema V2 package preparation is complete；next gate is A/B
-   independent human V2 re-review and hash-lock, followed by separate owner approval for validation/agreement.
+3. PILOT2 original kit/returns/registration/preflight and full V2 remain immutable. Next gate is A/B targeted Phase1 independent
+   return and dual hash-lock, then targeted Phase2 and dual hash-lock, followed by separate owner approval for validation/agreement.
 4. `DETOXIFICATION_OPTION = OPTION_B` is fixed. This does not authorize real data, annotation Pilot, dataset freeze, Detector, training or a formal run；every later gate remains separate.
 5. `Auto Continue = CONSUMED_AND_STOPPED`; outside H2 it remains `NO`.
 

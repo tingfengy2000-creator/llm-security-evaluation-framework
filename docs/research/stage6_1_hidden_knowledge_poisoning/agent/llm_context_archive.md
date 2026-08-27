@@ -233,3 +233,18 @@ Live Git and raw evidence override stale snapshot fields. Owner-confirmed requir
   Formal Experiment 未推进。
 - 下一门：A/B 独立完成四份 V2 return 和 retrospective declaration，coordinator 锁定 SHA；owner 另行批准 return
   validation/agreement。Auto Continue = `NO`。
+
+### Context Checkpoint — 2026-08-27 — S6.1-P1-PILOT2 Targeted Re-review
+
+- PODR-065/OR-027 将完整 V2 的机械全字段复核收敛为 problem-driven targeted kit；immutable raw、preflight、owner
+  correction 与完整 V2 tree 均未修改。
+- Phase1 targeted fields 为 locally detectable、cross-document evidence 和 assigned stealth；Phase2 为 version/history/
+  authority 三组 present/correctness 与 overall fact。其余稳定字段只读保留本人 V1。
+- 每人实质任务 `576 -> 360`，减少 `216 / 37.5%`；B-only process fixes 为 21 个 missing lookup-used + 1 个 Google
+  Search source type；历史 B Phase1 time 不补造。
+- Git-external targeted root 含 17 files；四个 XLSX 的 dropdown/readonly/formula/dependency 和 16 sheets render 通过，
+  staging 到 E 盘 `17/17` SHA 一致。
+- 状态：`TARGETED_REREVIEW_KIT = READY_FOR_HUMAN_EXECUTION`；agreement、adjudication、Dataset、Detector、Training、
+  5090 和 Formal Experiment 均未推进。
+- 下一门：A/B targeted Phase1 双 return hash-lock 后才发 targeted Phase2；四份 return 锁定后 STOP，等待 owner 另行
+  批准 return validation/agreement。Auto Continue = `NO`。

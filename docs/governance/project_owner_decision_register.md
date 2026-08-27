@@ -1026,3 +1026,27 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   hash-locked, owner separately approves return validation and any agreement calculation.
 - Canonical record: [PILOT2 Annotation Schema V2](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_pilot2_annotation_v2.md)、
   `OR-026`、`REL-2026-0030`.
+
+## PODR-065: PILOT2 Annotator-Friendly Targeted Re-review Approval
+
+- Date: `2026-08-27`.
+- Decision: 项目需求提出人否决“把完整 V2 全字段机械重做”的默认路径，批准只针对实际测量问题生成 A/B 隔离、
+  标注人友好的 targeted re-review kit；完整 V2 包继续作为只读、不可变的完整 schema 参考。
+- Substantive scope: Phase1 仅 `locally_detectable`、`cross_document_evidence_needed`、
+  `assigned_stealth_level`；Phase2 仅三组 present/correctness、`overall_fact_status`，合计每人 10 字段 × 36 样本。
+- Preserved without rework: Phase1 naturalness/topic/confidence、Phase2 `claim_matches_source`/`fact_changed`/confidence
+  与全部证据字段保持本人 V1 只读；不得借本轮改写 raw return。
+- Process-only scope: 仅 B 补 21 个 `professional_lookup_used` 缺失项并修正 1 个 Google Search source-type；B
+  Phase1 历史 `time_seconds` 维持不可恢复，A/B 各阶段只新增一次 retrospective declaration。
+- Workload: 每人实质任务从完整 V2 的 `576` 降至 `360`，减少 `216 / 37.5%`；A 总任务 360，B 含 process fixes
+  总任务 382，声明不计入逐样本任务。
+- Artifact: Git-external `LLMGuard-Handoff/paper1_pilot2_targeted_rereview_20260827`；四个主 XLSX 具有冻结语义、
+  下拉输入、只读原值、KEEP/REVISE 推导、applicability 联动提示和分阶段回溯声明。
+- Completion: `TARGETED_FIELD_AUDIT = COMPLETED`；`TARGETED_REREVIEW_KIT = READY_FOR_HUMAN_EXECUTION`；
+  `FORMAL_AGREEMENT_V2 = NOT_YET_ESTABLISHED`。
+- Next gate: 分别发 A/B targeted Phase1，双方回收并 hash-lock 后才发 targeted Phase2；四份 return 锁定后停止，
+  由 owner 另行批准 return validation 与任何 agreement analysis。
+- Prohibited: automatic agreement/disagreement/adjudication、raw/full-V2 mutation、Dataset freeze、Detector、Training、
+  5090、Formal Experiment 或 Paper Result。Auto Continue = `NO`。
+- Canonical record: [PILOT2 Targeted Re-review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_pilot2_targeted_rereview.md)、
+  `OR-027`、`REL-2026-0031`。
