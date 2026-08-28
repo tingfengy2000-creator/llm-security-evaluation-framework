@@ -27,6 +27,13 @@ from .annotation_v2 import (
     validate_revision_row,
 )
 from .attacks import ALLOWED_CHANGED_FIELDS, MutationSpec, validate_mutation_fields
+from .candidate_admission import (
+    CandidateAdmissionReason,
+    CandidateAdmissionRecord,
+    CandidateAdmissionStatus,
+    evaluate_candidate_self_containment,
+    require_formal_benchmark_eligibility,
+)
 from .groups import GroupIdentityRecord, build_independence_groups
 from .hard_negatives import hard_negative_coverage, validate_hard_negative_coverage
 from .intervention import (
@@ -125,6 +132,9 @@ __all__ = [
     "BenchmarkStatus",
     "CandidateKind",
     "CandidateStatus",
+    "CandidateAdmissionReason",
+    "CandidateAdmissionRecord",
+    "CandidateAdmissionStatus",
     "EVALUATOR_ONLY_FIELDS",
     "FIELD_POLICY",
     "FORBIDDEN_RUNTIME_KEYS",
@@ -204,6 +214,7 @@ __all__ = [
     "deterministic_group_split",
     "evaluator_values",
     "evaluate_pilot1_a",
+    "evaluate_candidate_self_containment",
     "field_visibility",
     "field_visibility_decision",
     "hard_filter",
@@ -211,6 +222,7 @@ __all__ = [
     "hkp_stealth_coverage",
     "missing_evidence_abstention",
     "project_runtime_payload",
+    "require_formal_benchmark_eligibility",
     "soft_downweight",
     "split_assignment_hash",
     "validate_group_split",

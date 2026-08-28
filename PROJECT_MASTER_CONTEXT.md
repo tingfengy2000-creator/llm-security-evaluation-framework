@@ -1,5 +1,11 @@
 # LLMGuard 项目总控文档
 
+## 后续新候选最低自包含性门（2026-08-28，只向前生效）
+
+项目需求提出人通过 `PODR-067 / OR-029` 将 candidate minimum self-containment 设为后续新文本数据标注的最高优先级门之一。法律、政策、制度、标准等事实主体必须可从候选文本本身唯一识别；“条例”、“规定”、“修订文本”、“2017年版”等依赖隐含上下文的裸指代不能用于正式 Benchmark。
+
+无法唯一恢复主体的新候选必须 fail closed 为 `BROKEN_CANDIDATE / MISSING_CONTEXT`，并在补全主体后作为新候选重新审核，或剔除。该门先于事实/隐蔽性标注、agreement、adjudication 和 Dataset freeze。既有 Pilot1/Pilot2 候选、raw returns 与当前定向复核结果全部保留，不回写、不推翻、不重新解释。
+
 ## PILOT2 最终三表更正包（2026-08-28）
 
 项目需求提出人报告 A Phase1 targeted workbook 已完成；本机将其以 SHA256

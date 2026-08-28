@@ -27,6 +27,11 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   independently complete corrected A Phase2/B Phase2. The three returned workbooks then enter return validation and hash locking.
   Only after that may the owner separately approve agreement and necessary adjudication. No agreement, adjudication, Dataset freeze,
   Detector, Training, 5090 contact or formal experiment occurs in this task.
+- Permanent prospective candidate gate (`PODR-067 / OR-029`): every annotation candidate created or newly introduced after
+  `2026-08-28` must identify its legal/policy/institutional/standards subject unambiguously from the candidate text itself. Bare
+  references such as “条例”、“规定”、“修订文本”、“2017年版” fail closed as `BROKEN_CANDIDATE / MISSING_CONTEXT` and must be
+  rewritten or excluded before formal Benchmark admission. Frozen historical candidates and returns are preserved and are not
+  retroactively rewritten, relabeled or reinterpreted by this rule.
 - Historical superseded H2 snapshot: `PROPOSED / NOT CANONICAL / NOT APPROVED`; preserve as history.
 - Formal RAG security experiment: **NOT STARTED**.
 - Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.

@@ -1289,3 +1289,20 @@ Approval Gate、Auto Continue。
 - Next Gate: three independent returns -> return validation/hash lock -> owner-approved agreement -> necessary adjudication -> Ground
   Truth candidate acceptance -> separately approved post-annotation experiment preparation.
 - Auto Continue: `NO`.
+
+## REL-2026-0033 — Prospective Candidate Minimum Self-Containment Gate Registered
+
+- Record ID: `REL-2026-0033`.
+- Date: `2026-08-28`.
+- Stage / Task: `Stage 6.1 / Paper 1 / prospective annotation candidate governance`.
+- Owner authority: `PODR-067 / OR-029`; one of the highest-priority instructions for future annotation of new candidate text.
+- Rule: a legal/policy/institutional/standards subject must be uniquely identifiable from the candidate text itself. Bare references
+  depending on hidden context fail as `BROKEN_CANDIDATE / MISSING_CONTEXT` and cannot enter the formal Benchmark.
+- Implementation: explicit subject mention, canonical subject identity and unique-identification decision are captured by a
+  prospective admission record; formal-Benchmark eligibility fails closed for broken or legacy-not-reevaluated records.
+- Historical boundary: frozen Pilot1/Pilot2 candidates, raw returns and current targeted returns are preserved and not modified,
+  overturned, relabeled or reinterpreted.
+- Next use: every future candidate-generation/annotation task must execute this gate before fact/stealth annotation and must rewrite
+  as a new candidate or exclude failures.
+- Non-claims: no existing sample quality reclassification, Dataset freeze, agreement, Ground Truth, Detector, Training or experiment.
+- Auto Continue: `NO`.

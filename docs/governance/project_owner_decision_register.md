@@ -1069,3 +1069,20 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Prohibited: automatic agreement, adjudication, Dataset freeze, Detector, Training, 5090 or Formal Experiment. Auto Continue = `NO`.
 - Canonical record: [PILOT2 Targeted Re-review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_pilot2_targeted_rereview.md)、
   `OR-028`、`REL-2026-0032`。
+
+## PODR-067: Prospective Candidate Minimum Self-Containment Gate
+
+- Date: `2026-08-28`.
+- Authority: one of the highest-priority instructions for all future Paper 1 data annotation involving newly created or newly
+  introduced candidate text.
+- Rule: legal, policy, institutional and standards subjects must be uniquely identifiable from the candidate text itself. Bare
+  references such as “条例”、“规定”、“修订文本” or “2017年版” cannot rely on hidden context or annotator inference.
+- Failure disposition: `BROKEN_CANDIDATE / MISSING_CONTEXT`; the candidate is barred from the formal Benchmark and must be rewritten
+  as a newly reviewed candidate with an explicit subject or excluded.
+- Gate order: self-containment admission precedes fact/stealth annotation, agreement, adjudication and Dataset freeze.
+- Prospective-only boundary: existing Pilot1/Pilot2 candidates, raw returns and current targeted re-review artifacts are preserved;
+  this decision does not rewrite, overturn, relabel or reinterpret historical content.
+- Enforcement: executable candidate-admission record and formal-Benchmark fail-closed guard are added under canonical `llmguard`.
+- Prohibited inference: registration of this rule is not Dataset freeze, agreement, Ground Truth acceptance or Formal Experiment.
+- Canonical authority: [Paper 1 Research Plan Authority](../research/stage6_1_hidden_knowledge_poisoning/human/research_plan_authority.md)、
+  `OR-029`、`REL-2026-0033`.

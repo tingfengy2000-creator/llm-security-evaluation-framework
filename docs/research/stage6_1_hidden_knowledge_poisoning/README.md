@@ -2,6 +2,8 @@
 
 > 快速状态：父 W2/FU1 与 PILOT0 已按各自工程范围关闭；`OPTION_B` 已冻结，P1-R1 已作为协议框架验收。PILOT1 已人工验收为 `REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED`。PILOT2 A/B Round1 raw returns 与完整 Schema V2 包均不可变保存；owner 确认真实发放顺序保持 A Phase1 strict blindness。当前 A Phase1 已由 owner 报告完成并保留，B Phase1/B Phase2 的旧值映射缺陷已修复，A Phase2 已检查；只等 A2/B1/B2 三份更正表独立完成。formal agreement 与 adjudication 均未执行；240-group Pilot、Dataset freeze、Detector、Training 未推进；`FORMAL_EXPERIMENT = NOT STARTED`。
 
+> 永久前瞻性候选门：`PODR-067 / OR-029` 要求以后新建/新引入候选的法律、政策、制度、标准主体在候选文本内唯一可识别；裸指代 fail closed 为 `BROKEN_CANDIDATE / MISSING_CONTEXT`。只向前生效，不改动现有 Pilot1/Pilot2 证据。
+
 ## 一、项目需求提出人入口
 
 1. [实验总账 — tingfeng](human/experiment_ledger_tingfeng.md) — 5–10 分钟恢复论文、阶段、结果、失败、风险和下一步。

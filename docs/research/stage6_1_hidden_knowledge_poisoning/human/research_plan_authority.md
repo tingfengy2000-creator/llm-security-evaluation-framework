@@ -38,6 +38,14 @@ Current Plan Status = `ACCEPTED_CURRENT_RESEARCH_PLAN`
 
 每个可评估样本绑定版本链与来源身份，显式保存 `effective`、`expiry`、`repeal`、`supersedes`、`amends`、`authority`。数据必须同时覆盖合法更新、历史版本、跨部门差异、例外条件与 hard negatives，从而区分正常版本变化和恶意隐蔽污染。正式 schema、快照、切分和标签隔离合同须在 S6.1-P1 冻结；当前 `Dataset = NOT FROZEN`。
 
+### 4.1 最低自包含性与主体唯一识别门（只向前生效）
+
+- 对 `2026-08-28` 之后新建或新引入的候选，法律、政策、制度、标准等事实主体必须能从候选文本本身唯一识别。
+- 不得单独使用“条例”、“规定”、“修订文本”、“2017年版”等依赖隐含上下文的裸指代。外部 metadata 或标注人猜测不能代替候选自包含性。
+- 若主体无法唯一恢复，必须记录 `BROKEN_CANDIDATE / MISSING_CONTEXT`，不得进入正式 Benchmark；只能在补全主体后作为新候选重新审核，或直接剔除。
+- 这是高优先级、fail-closed 的 candidate-admission gate，先于人工事实/隐蔽性标注、agreement 和 Dataset freeze。
+- 本规则不回溯：不修改、不推翻、不重新解释已冻结的 Pilot1/Pilot2 候选、raw returns 或当前定向复核结果。
+
 ## 5. 外部基线角色
 
 | 外部工作 | 当前角色 | 当前可用证据 | 不得宣称 |
