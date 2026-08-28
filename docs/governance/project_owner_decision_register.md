@@ -1050,3 +1050,22 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   5090、Formal Experiment 或 Paper Result。Auto Continue = `NO`。
 - Canonical record: [PILOT2 Targeted Re-review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_pilot2_targeted_rereview.md)、
   `OR-027`、`REL-2026-0031`。
+
+## PODR-066: PILOT2 V1 Mapping Correction and Final Human Round
+
+- Date: `2026-08-28`.
+- Owner fact: A Phase1 targeted re-review is reported completed. Its observed workbook is preserved unchanged and remains pending
+  return validation/formal hash lock; this record does not declare agreement or Ground Truth.
+- Correction decision: correct B Phase1's false all-`[V1_ABSENT]` display, inspect B Phase2/A Phase2 for the same class of defect,
+  and provide only the three still-open corrected workbooks for independent human completion.
+- Validity intent: the corrected returns are the owner's high-priority/high-weight validity evidence candidates for closing Pilot2
+  annotation after return validation; the owner does not want another blanket annotation cycle. This intent does not bypass return
+  validation, agreement review, necessary adjudication or Ground Truth acceptance.
+- Frozen interpretation: `version_context` is known-correct reference evidence; only factual conflicts receive S1/S2/S3;
+  currently consistent/legitimate history maps to `NOT_APPLICABLE`, insufficient evidence to `UNCERTAIN`; one direct official
+  source is S2 and not cross-document; S3 requires a multi-evidence/version/authority/provenance chain.
+- Artifact rule: publish to an additive correction namespace; do not overwrite the original targeted package or completed A Phase1.
+  `[V1_ABSENT]` is valid only for the three genuinely new Phase2 `*_present` fields; every other missing mapping fails closed.
+- Prohibited: automatic agreement, adjudication, Dataset freeze, Detector, Training, 5090 or Formal Experiment. Auto Continue = `NO`.
+- Canonical record: [PILOT2 Targeted Re-review](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_pilot2_targeted_rereview.md)、
+  `OR-028`、`REL-2026-0032`。

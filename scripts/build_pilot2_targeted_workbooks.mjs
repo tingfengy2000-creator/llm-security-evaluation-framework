@@ -69,34 +69,44 @@ function applyReadOnlyGuard(range) {
 function addGuideSheet(workbook, payload) {
   const sheet = workbook.worksheets.add("先看这里");
   sheet.showGridLines = false;
-  const rows = [
-    ["Pilot2 定向复核：先看这里"],
-    ["只处理第一次确有问题的字段；不要查看另一标注人，也不要为了一致而修改答案。"],
-    ["四个值怎么选"],
-    ["YES：问题适用于本样本，而且证据证明是对的。"],
-    ["NO：问题适用于本样本，而且证据证明是错的。"],
-    ["UNCERTAIN：问题适用于本样本，但合理查证后仍无法判断。"],
-    ["NOT_APPLICABLE：问题根本不适用于本样本，因为候选文本没有提出这种命题。"],
-    ["没提到 ≠ YES；没提到 ≠ UNCERTAIN；没提到 = NOT_APPLICABLE"],
-    ["例1：‘2007年劳动合同法自2008年1月1日起施行。’ authority=NOT_APPLICABLE；version/effective date=APPLICABLE。"],
-    ["例2：‘《会计法》由财政部制定。’ authority=APPLICABLE；若真实制定机关不是财政部，authority_matches=NO。"],
-    ["例3：‘报告期限为30日。’ 若完全无版本/生效/废止信息，version_relation_correct=NOT_APPLICABLE。"],
-    ["S1/S2/S3"],
-    ["S1：当前文本、内部矛盾或普通常识即可发现。"],
-    ["S2：文本自然，需要单一官方来源、同文档上下文或普通事实查询。"],
-    ["S3：必须跨版本、时间链、authority chain、来源链或多个文档才能可靠发现。"],
-    ["overall_fact_status 决策树"],
-    ["1 证据不足 → INSUFFICIENT_EVIDENCE"],
-    ["2 证据足够且与当前有效事实一致 → CURRENTLY_CONSISTENT"],
-    ["3 不一致但属于真实历史/合法旧版本/合法更新/地区部门差异/合法例外 → LEGITIMATE_VERSION_OR_HISTORY"],
-    ["4 其余不一致 → FACTUAL_CONFLICT"],
-    ["填写规则"],
-    ["只编辑黄色单元格。灰色字段为本人 V1/样本身份；KEEP/REVISE 自动计算。不要补造历史 time_seconds，只记录本次 rereview_time_seconds。"],
+  const content = [
+    { text: "Pilot2 定向复核：先看这里", kind: "title" },
+    { text: "只处理第一次确有问题的字段；不要查看另一标注人，也不要为了一致而修改答案。" },
+    { text: "旧值与参考证据", kind: "section" },
+    { text: "[V1_ABSENT] 只能出现在 Phase2 新增的 version_relation_present / history_or_update_claim_present / authority_claim_present；其他字段必须显示本人真实 V1 旧值。", kind: "warning" },
+    { text: "version_context / 版本背景在本轮视为已知正确的参考证据。" },
+    { text: "四个值怎么选", kind: "section" },
+    { text: "YES：问题适用于本样本，而且证据证明是对的。" },
+    { text: "NO：问题适用于本样本，而且证据证明是错的。" },
+    { text: "UNCERTAIN：问题适用于本样本，但合理查证后仍无法判断。" },
+    { text: "NOT_APPLICABLE：候选文本没有提出该命题，或候选并无事实错误而不应评隐蔽等级。" },
+    { text: "没提到 ≠ YES；没提到 ≠ UNCERTAIN；没提到 = NOT_APPLICABLE", kind: "warning" },
   ];
+  if (payload.phase === 1) {
+    content.push(
+      { text: "assigned_stealth_level 决策顺序", kind: "section" },
+      { text: "先判断候选有无事实错误：CURRENTLY_CONSISTENT / LEGITIMATE_VERSION_OR_HISTORY → NOT_APPLICABLE；INSUFFICIENT_EVIDENCE → UNCERTAIN；只有 FACTUAL_CONFLICT 才评 S1/S2/S3。" },
+      { text: "S1：仅凭候选文本、内部矛盾、明显时间逻辑或普通常识即可发现错误。" },
+      { text: "S2：只需一个直接官方来源、同文档直接上下文或一次普通查证；单独打开一个官方页面不算 cross-document，因此 cross_document_evidence_needed=NO。" },
+      { text: "S3：必须依赖多版本/多文档/多来源/时间演化/authority/provenance chain 的联合推理；因此 cross_document_evidence_needed=YES。" },
+      { text: "S2/S3 衡量已存在的事实错误多难发现，不是验证一个正确事实需要多少证据。", kind: "warning" },
+    );
+  } else {
+    content.push(
+      { text: "Phase2 applicability 与 overall_fact_status", kind: "section" },
+      { text: "*_present=NO 时，对应的 *_correct / *_matches / legitimate_update_or_history 必须是 NOT_APPLICABLE。" },
+      { text: "1 证据不足 → INSUFFICIENT_EVIDENCE；2 与当前有效事实一致 → CURRENTLY_CONSISTENT；3 属于真实历史/合法旧版本/合法更新/差异/例外 → LEGITIMATE_VERSION_OR_HISTORY；4 其余不一致 → FACTUAL_CONFLICT。" },
+    );
+  }
+  content.push(
+    { text: "填写规则", kind: "section" },
+    { text: "只编辑黄色单元格。灰色字段为本人 V1/样本身份；KEEP/REVISE 自动计算。不要补造历史 time_seconds，只记录本次 rereview_time_seconds。" },
+  );
+  const rows = content.map(({ text }) => [text]);
   sheet.getRange(`A1:A${rows.length}`).values = rows;
   sheet.mergeCells("A1:H1");
   styleTitle(sheet.getRange("A1:H1"));
-  for (const row of [3, 12, 16, 21]) {
+  for (const row of content.map((item, index) => item.kind === "section" ? index + 1 : null).filter(Boolean)) {
     sheet.mergeCells(`A${row}:H${row}`);
     sheet.getRange(`A${row}:H${row}`).format = { fill: colors.blue, font: { bold: true, color: colors.navy } };
   }
@@ -105,7 +115,9 @@ function addGuideSheet(workbook, payload) {
   sheet.getRange(`A1:H${rows.length}`).format.verticalAlignment = "center";
   sheet.getRange("A:H").format.columnWidth = 14;
   sheet.getRange(`A2:H${rows.length}`).format.rowHeight = 28;
-  sheet.getRange("A8:H8").format = { fill: colors.red, font: { bold: true, color: "#9C0006" } };
+  for (const row of content.map((item, index) => item.kind === "warning" ? index + 1 : null).filter(Boolean)) {
+    sheet.getRange(`A${row}:H${row}`).format = { fill: colors.red, font: { bold: true, color: "#9C0006" } };
+  }
 }
 
 function addTaskSheet(workbook, payload) {
@@ -221,8 +233,10 @@ function addDeclarationSheet(workbook, payload) {
 }
 
 const summaries = [];
+const selectedKeys = new Set((args.keys ?? "A1,A2,B1,B2").split(",").map((value) => value.trim()).filter(Boolean));
 for (const annotator of ["A", "B"]) {
   for (const phase of [1, 2]) {
+    if (!selectedKeys.has(`${annotator}${phase}`)) continue;
     const payloadPath = path.join(payloadRoot, `${annotator}_phase${phase}.json`);
     const payload = JSON.parse(await fs.readFile(payloadPath, "utf8"));
     const workbook = Workbook.create();

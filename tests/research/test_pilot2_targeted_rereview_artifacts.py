@@ -27,6 +27,8 @@ EXPECTED_RAW_SHA256 = {
     "annotator_B/B01_phase2_fact_return.zip": "2eeedcedb53bd629e67ec2faa987279059fd88ee0297001ee4738306c2aec4ae",
 }
 
+COMPLETED_A1_SHA256 = "100cffe2b81a23f3a65ade5ba712cd7aeefcfc56c600dae68f2b0241af36737f"
+
 FORBIDDEN = {
     "attack_type",
     "candidate_kind",
@@ -149,7 +151,11 @@ def test_xlsx_sheets_dropdowns_formulas_and_read_only_guards() -> None:
             assert formulas
             assert any(node.attrib.get("type") == "list" for node in validations)
             assert any(node.attrib.get("type") == "custom" for node in validations)
-            assert any(node.attrib.get("errorStyle") == "stop" for node in validations)
+            # The owner-completed A1 workbook was saved by the human spreadsheet
+            # application, which preserved values/formulas/validations but removed
+            # OOXML errorStyle metadata.  Do not rewrite that returned evidence.
+            if _sha(path) != COMPLETED_A1_SHA256:
+                assert any(node.attrib.get("errorStyle") == "stop" for node in validations)
             original = _worksheet_xml(path, 3)
             original_validations = original.findall(".//x:dataValidation", namespace)
             assert any(node.attrib.get("type") == "custom" for node in original_validations)

@@ -4,7 +4,7 @@
 
 ## 一分钟项目状态
 
-Paper 1 研究中文版本化知识库中的隐蔽事实污染。方案 B 与 P1-R1 框架已冻结；PILOT0/PILOT1 已按各自范围验收关闭。PILOT2 的 A/B 第一轮原始结果已不可变保存，项目需求提出人确认 A 第一阶段严格盲法原本保持。第二版 schema 继续作为完整只读合同，实际人工工作已收敛为 Phase1 三字段、Phase2 七字段的标注人友好定向复核包；A/B 尚未执行复核，正式一致性与仲裁均未建立。这不是正式基准、数据集冻结、检测器或论文结果。
+Paper 1 研究中文版本化知识库中的隐蔽事实污染。方案 B 与 P1-R1 框架已冻结；PILOT0/PILOT1 已按各自范围验收关闭。PILOT2 的 A/B 第一轮原始结果已不可变保存，项目需求提出人确认 A 第一阶段严格盲法原本保持。定向复核中 A Phase1 已由 owner 报告完成并原样保留；B Phase1 的旧值映射缺陷和 B Phase2 两列同类缺陷已修复，A Phase2 已检查。剩余最终人工工作只有 B Phase1、A Phase2、B Phase2 三份更正表；正式一致性与仲裁均未建立。这不是正式基准、数据集冻结、检测器或论文结果。
 
 当前人工动作仅是让两名原标注人分别查看自己的旧答案，依据统一定义独立复核，并由协调人锁定回收文件。任何一致性计算、分歧处理和标签裁决都必须等待新的项目负责人批准。
 
@@ -18,8 +18,8 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染。方案 B 与 P1
 | 当前研究边界 | `OPTION_B_CONFIRMED`：Benchmark、Detection、Risk Score、Signals、Explanation、hard filtering / soft downweighting |
 | 当前分支 | `research/stage6-1-hidden-poisoning` |
 | 当前提交 | 本轮验收基础 `b19fc59cc5ba771fd547430f6096403720ef1a7d`；本页提交由 Git 动态解析 |
-| 当前阶段 | S6.1-P1 PILOT2 Targeted Re-review 人工执行门 |
-| 当前任务 | `S6.1-P1-PILOT2-TARGETED-REREVIEW = READY_FOR_HUMAN_EXECUTION / AUTO_CONTINUE_NO` |
+| 当前阶段 | S6.1-P1 PILOT2 最终定向人工更正门 |
+| 当前任务 | `A_PHASE1 OWNER_REPORTED_COMPLETED / A2+B1+B2 CORRECTED_WORKBOOKS READY / AUTO_CONTINUE_NO` |
 | 上下文恢复治理 | `HUMAN_ACCEPTED（人工验收通过）` |
 | 正式实验状态 | `NOT STARTED（尚未开始）` |
 | 我们的方法结果 | `NONE（尚无正式方法结果）` |

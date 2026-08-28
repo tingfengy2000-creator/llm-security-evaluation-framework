@@ -1266,3 +1266,26 @@ Approval Gate、Auto Continue。
 - Next Gate: A/B targeted Phase1 return and dual hash-lock；then A/B targeted Phase2 return and dual hash-lock；stop for
   separate owner approval of return validation/agreement.
 - Auto Continue: `NO`.
+
+## REL-2026-0032 — PILOT2 Targeted V1 Mapping Correction Prepared
+
+- Record ID: `REL-2026-0032`.
+- Date: `2026-08-28`.
+- Stage / Task: `Stage 6.1 / Paper 1 / S6.1-P1-PILOT2-TARGETED-REREVIEW-CORRECTION-01`.
+- Machine: `本机`；no 5090, model, GPU, agreement, Dataset, Detector, Training or Formal Experiment.
+- Owner direction: preserve completed A Phase1, correct B Phase1, inspect B/A Phase2, and use this final three-workbook round as
+  high-priority/high-weight validity evidence candidates without another blanket relabeling cycle (`PODR-066 / OR-028`).
+- Root cause: historical B headers carried Chinese suffixes; exact-name lookup silently replaced 108 B Phase1 values and two B
+  Phase2 fields with `[V1_ABSENT]`. Raw returns were not missing and were not modified.
+- Correction: frozen alias normalization plus fail-closed unexpected-absence/conflicting-alias checks; `[V1_ABSENT]` is now legal
+  only for the three new Phase2 `*_present` fields. A Phase2 passed the same mapping audit.
+- Artifact: additive Git-external key `LLMGuard-Handoff/paper1_pilot2_targeted_rereview_correction01_20260828`; only A Phase2,
+  B Phase1 and B Phase2 XLSX/CSV plus coordinator/owner records. Completed A Phase1 SHA
+  `100cffe2b81a23f3a65ade5ba712cd7aeefcfc56c600dae68f2b0241af36737f` was not mutated or included.
+- Validation: B Phase1 `[V1_ABSENT]=0`; A/B Phase2 absent only the three expected present fields; 11 targeted tests, formula/error
+  scans, dropdown/read-only guards and visual review of `12/12` sheets passed.
+- Claims Allowed: mapping correction, artifact identity, frozen interpretation and readiness for independent human completion.
+- Claims Prohibited: valid final labels, recovered agreement, Ground Truth, Dataset/Detector/Training/Formal Experiment or Paper Result.
+- Next Gate: three independent returns -> return validation/hash lock -> owner-approved agreement -> necessary adjudication -> Ground
+  Truth candidate acceptance -> separately approved post-annotation experiment preparation.
+- Auto Continue: `NO`.

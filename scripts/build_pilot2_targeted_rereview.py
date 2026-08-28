@@ -11,7 +11,9 @@ import csv
 import hashlib
 import io
 import json
+import shutil
 import zipfile
+from collections import Counter
 from collections.abc import Mapping, Sequence
 from pathlib import Path
 
@@ -37,6 +39,28 @@ FULL_V2_PACKAGES = {
     "A2": "annotator_A/A_round1_phase2_review_v2.zip",
     "B1": "annotator_B/B_round1_phase1_review_v2.zip",
     "B2": "annotator_B/B_round1_phase2_review_v2.zip",
+}
+
+# Historical returns used a few human-readable column suffixes.  Normalize only
+# the frozen, known aliases; an unknown targeted field must fail closed instead
+# of being silently rendered as [V1_ABSENT].
+V1_HEADER_ALIASES = {
+    "locally_detectable仅靠当前文本/给定背景能否发现问题": "locally_detectable",
+    "cross_document_evidence_needed是否需要跨文档或跨版本证据": "cross_document_evidence_needed",
+    "assigned_stealth_level人工判定的隐蔽等级": "assigned_stealth_level",
+    "version_relation_correct（版本）": "version_relation_correct",
+    "authority_matches（发布机构）": "authority_matches",
+}
+
+EXPECTED_V1_ABSENT_BY_PHASE = {
+    1: frozenset(),
+    2: frozenset(
+        {
+            "version_relation_present",
+            "history_or_update_claim_present",
+            "authority_claim_present",
+        }
+    ),
 }
 
 REVISION_REASON_CODES = (
@@ -149,11 +173,35 @@ def read_zip_csv(
 
 
 def full_v2_reference(root: Path, key: str) -> list[dict[str, str]]:
-    return read_zip_csv(
+    rows = read_zip_csv(
         root / FULL_V2_PACKAGES[key],
         {"sample_id", "claim_text", "version_context", "source_title"},
         name_contains="02_V1",
     )
+    return [normalize_v1_row(row) for row in rows]
+
+
+def normalize_v1_row(row: Mapping[str, str]) -> dict[str, str]:
+    """Return one V1 row with frozen historical aliases canonicalized."""
+
+    normalized: dict[str, str] = {}
+    for raw_header, value in row.items():
+        stripped = raw_header.strip()
+        header = V1_HEADER_ALIASES.get(stripped, stripped)
+        if header in normalized and normalized[header] != value:
+            raise RuntimeError(f"conflicting V1 columns normalize to {header}")
+        normalized[header] = value
+    return normalized
+
+
+def v1_value_for(source: Mapping[str, str], field: str, phase: int) -> str:
+    """Read a V1 value and reject every non-contractual absence."""
+
+    if field in source:
+        return source[field]
+    if field in EXPECTED_V1_ABSENT_BY_PHASE[phase]:
+        return "[V1_ABSENT]"
+    raise RuntimeError(f"unexpected V1 absence after header normalization: phase={phase}, field={field}")
 
 
 def field_audit() -> list[FieldAuditRecord]:
@@ -303,7 +351,7 @@ def build_task_rows(
                     "version_context": source["version_context"],
                     "source_title": source["source_title"],
                     "source_or_evidence": source.get("evidence_url_1") or source.get("official_url", ""),
-                    "v1_value": source.get(field, "[V1_ABSENT]"),
+                    "v1_value": v1_value_for(source, field, phase),
                     "new_value": "",
                     "review_action": "",
                     "revision_reason_code": "",
@@ -401,7 +449,65 @@ def declaration_payload(annotator: str, phase: int, raw_sha: str) -> dict[str, o
 
 
 def guide_markdown(annotator: str) -> str:
-    return f"""# Annotator {annotator} 定向复核说明\n\n本轮只处理第一次确有协议、缺失或依赖问题的字段。不要查看另一标注人的材料，也不要为了“一致”修改答案。\n\n## 四个值怎么选\n\n- `YES`：这个问题适用于本样本，而且证据证明是对的。\n- `NO`：这个问题适用于本样本，而且证据证明是错的。\n- `UNCERTAIN`：这个问题适用于本样本，但合理查证后仍无法判断对错。\n- `NOT_APPLICABLE`：这个问题根本不适用于本样本，因为候选文本没有提出这种命题。\n\n**没提到 ≠ YES；没提到 ≠ UNCERTAIN；没提到 = NOT_APPLICABLE。**\n\n1. “2007年劳动合同法自2008年1月1日起施行。”：authority 不适用；version/effective date 适用。\n2. “《会计法》由财政部制定。”：authority 适用；若真实制定机关不是财政部，选 NO。\n3. “报告期限为30日。”：若完全无版本、生效、废止信息，version relation 选 NOT_APPLICABLE。\n\n## 填写\n\n只编辑黄色单元格；灰色字段为自己的 V1 只读材料。每个任务选择新值，KEEP/REVISE 自动生成；若修订，选择原因并写简短理由。记录本次 `rereview_time_seconds`，不要补造旧的 `time_seconds`。每个 Phase 的《回溯声明》只填一次。\n"""
+    return f"""# Annotator {annotator} 定向复核说明\n\n本轮只处理第一次确有协议、缺失或依赖问题的字段。不要查看另一标注人的材料，也不要为了“一致”修改答案。\n\n## 旧值与参考证据\n\n- `[V1_ABSENT]` 只能出现在 Phase2 新增的三个 `*_present` 字段；其他字段的旧值必须保留。\n- `version_context / 版本背景` 在本轮视为已知正确的参考证据。\n\n## 四个值怎么选\n\n- `YES`：这个问题适用于本样本，而且证据证明是对的。\n- `NO`：这个问题适用于本样本，而且证据证明是错的。\n- `UNCERTAIN`：这个问题适用于本样本，但合理查证后仍无法判断对错。\n- `NOT_APPLICABLE`：这个问题根本不适用于本样本，因为候选文本没有提出这种命题。\n\n**没提到 ≠ YES；没提到 ≠ UNCERTAIN；没提到 = NOT_APPLICABLE。**\n\n## 隐蔽等级决策顺序\n\n先判断候选是否有事实错误。`CURRENTLY_CONSISTENT` / `LEGITIMATE_VERSION_OR_HISTORY` → `NOT_APPLICABLE`；`INSUFFICIENT_EVIDENCE` → `UNCERTAIN`；只有 `FACTUAL_CONFLICT` 才评 S1/S2/S3。S1=文本、内部矛盾或常识可发现；S2=一个直接官方来源、同文档上下文或一次普通查证，此时 `cross_document_evidence_needed=NO`；S3=必须联合多版本/多文档/多来源/时间或 authority/provenance chain，此时选 YES。**S2/S3 衡量的是已存在的事实错误多难发现，不是验证正确事实需要多少证据。**\n\n## 填写\n\n只编辑黄色单元格；灰色字段为自己的 V1 只读材料。每个任务选择新值，KEEP/REVISE 自动生成；若修订，选择原因并写简短理由。记录本次 `rereview_time_seconds`，不要补造旧的 `time_seconds`。每个 Phase 的《回溯声明》只填一次。\n"""
+
+
+def publish_correction(staging_root: Path, correction_root: Path, completed_a1: Path) -> None:
+    """Publish only the three still-open workbooks in an additive namespace."""
+
+    if correction_root.exists():
+        raise RuntimeError(f"refusing to overwrite existing correction output: {correction_root}")
+    selected = (("A", 2), ("B", 1), ("B", 2))
+    correction_root.mkdir(parents=True)
+    artifacts: list[dict[str, object]] = []
+    distributions: dict[str, object] = {}
+    for annotator, phase in selected:
+        destination = correction_root / f"annotator_{annotator}"
+        destination.mkdir(exist_ok=True)
+        stem = f"{annotator}_phase{phase}_targeted_rereview"
+        for suffix in ("csv", "xlsx"):
+            source = staging_root / f"annotator_{annotator}" / f"{stem}.{suffix}"
+            target = destination / source.name
+            shutil.copy2(source, target)
+            artifacts.append({"path": target.relative_to(correction_root).as_posix(), "size_bytes": target.stat().st_size, "sha256": sha256(target)})
+        with (destination / f"{stem}.csv").open(encoding="utf-8-sig", newline="") as stream:
+            rows = list(csv.DictReader(stream))
+        distributions[f"{annotator}{phase}"] = {
+            "task_count": len(rows),
+            "v1_absent_fields": sorted({row["field_name"] for row in rows if row["v1_value"] == "[V1_ABSENT]"}),
+            "v1_value_counts_by_field": {
+                field: dict(sorted(Counter(row["v1_value"] for row in rows if row["field_name"] == field).items()))
+                for field in sorted({row["field_name"] for row in rows if row["task_type"] == "TARGETED_REREVIEW"})
+            },
+        }
+    coordinator = correction_root / "coordinator"
+    coordinator.mkdir()
+    (coordinator / "00_更正与填写顺序.md").write_text(
+        "# Pilot2 Targeted Re-review Correction 01\n\n"
+        "本包只更正 B Phase1 的三个旧值列名映射，并同时检查/更正 B Phase2 的 version_relation_correct 和 authority_matches 旧值映射。A Phase2 映射经检查无同类问题，但使用同一份增强规则指南。\n\n"
+        "已完成的 A Phase1 不在本包内，不得重新生成或覆盖。A/B 独立完成这三份表格后停止，交回做 return validation；不自动计算 agreement、仲裁、Dataset freeze、Detector、Training 或 Formal Experiment。\n",
+        encoding="utf-8",
+    )
+    artifacts.append({"path": "coordinator/00_更正与填写顺序.md", "size_bytes": (coordinator / "00_更正与填写顺序.md").stat().st_size, "sha256": sha256(coordinator / "00_更正与填写顺序.md")})
+    owner_only = correction_root / "owner_only"
+    owner_only.mkdir()
+    manifest = {
+        "task_id": "S6.1-P1-PILOT2-TARGETED-REREVIEW-CORRECTION-01",
+        "status": "THREE_CORRECTED_WORKBOOKS_READY_FOR_INDEPENDENT_HUMAN_COMPLETION",
+        "completed_a1": {"path": str(completed_a1), "sha256": sha256(completed_a1), "included": False, "mutation": "NONE"},
+        "correction_scope": ["B_PHASE1_V1_HEADER_MAPPING", "B_PHASE2_V1_HEADER_MAPPING", "A_PHASE2_RULE_AND_MAPPING_AUDIT"],
+        "expected_v1_absent_by_phase": {str(key): sorted(value) for key, value in EXPECTED_V1_ABSENT_BY_PHASE.items()},
+        "distributions": distributions,
+        "artifacts": sorted(artifacts, key=lambda item: str(item["path"])),
+        "formal_agreement": "NOT_STARTED",
+        "adjudication": "NOT_STARTED",
+        "dataset": "NOT_FROZEN",
+        "detector": "NOT_STARTED",
+        "training": "NOT_STARTED",
+        "formal_experiment": "NOT_STARTED",
+        "auto_continue": "NO",
+    }
+    (owner_only / "correction_manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def audit_summary_md() -> str:
@@ -538,16 +644,25 @@ def finalize(full_v2_root: Path, output_root: Path, work_root: Path) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--raw-root", type=Path)
-    parser.add_argument("--full-v2-root", type=Path, required=True)
+    parser.add_argument("--full-v2-root", type=Path)
     parser.add_argument("--output-root", type=Path, required=True)
-    parser.add_argument("--work-root", type=Path, required=True)
+    parser.add_argument("--work-root", type=Path)
     parser.add_argument("--finalize", action="store_true")
+    parser.add_argument("--publish-correction", action="store_true")
+    parser.add_argument("--correction-root", type=Path)
+    parser.add_argument("--completed-a1", type=Path)
     args = parser.parse_args()
-    if args.finalize:
+    if args.publish_correction:
+        if args.correction_root is None or args.completed_a1 is None:
+            parser.error("--correction-root and --completed-a1 are required with --publish-correction")
+        publish_correction(args.output_root, args.correction_root, args.completed_a1)
+    elif args.finalize:
+        if args.full_v2_root is None or args.work_root is None:
+            parser.error("--full-v2-root and --work-root are required with --finalize")
         finalize(args.full_v2_root, args.output_root, args.work_root)
     else:
-        if args.raw_root is None:
-            parser.error("--raw-root is required unless --finalize is used")
+        if args.raw_root is None or args.full_v2_root is None or args.work_root is None:
+            parser.error("--raw-root, --full-v2-root and --work-root are required for preparation")
         prepare(args.raw_root, args.full_v2_root, args.output_root, args.work_root)
     return 0
 

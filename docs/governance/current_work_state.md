@@ -16,17 +16,17 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-P1-PILOT2-TARGETED-REREVIEW`.
-- Task name: `Pilot2 Annotator-Friendly Targeted Re-review Kit`.
-- Task type: **LOCAL_FIELD_AUDIT / TARGETED_HUMAN_KIT / NO_AGREEMENT / NO_ADJUDICATION / NO_FORMAL_EXPERIMENT**.
-- Status: **TARGETED_REREVIEW_KIT_READY_FOR_HUMAN_EXECUTION / AUTO_CONTINUE_NO**.
+- Task ID: `S6.1-P1-PILOT2-TARGETED-REREVIEW-CORRECTION-01`.
+- Task name: `Pilot2 V1 Header Mapping Correction and Final Three-Workbook Human Round`.
+- Task type: **LOCAL_ARTIFACT_CORRECTION / TARGETED_HUMAN_RETURN / NO_AGREEMENT / NO_ADJUDICATION / NO_FORMAL_EXPERIMENT**.
+- Status: **A_PHASE1_OWNER_REPORTED_COMPLETED / THREE_CORRECTED_WORKBOOKS_READY_FOR_INDEPENDENT_HUMAN_COMPLETION / AUTO_CONTINUE_NO**.
 - Base commit: `PILOT2_TARGETED_REREVIEW_BASE_COMMIT = 09aa7e65e95e10a657e44c2b31e23ec02bc4210b`.
 - Execution machine: **本机**. Immutable Round1 raw and the complete Schema V2 package remain hash-bound and unchanged；a field audit
   narrows human work to three Phase1 stealth fields, seven Phase2 fact/applicability fields and B-only process corrections.
-- Current ordered step: distribute only each annotator's targeted Phase1 XLSX, lock both Phase1 returns, then distribute the matching
-  targeted Phase2 XLSX. After all four targeted returns are locked, the owner must separately approve return validation and any
-  agreement calculation. No agreement, adjudication, return mutation, 5090 contact, Dataset freeze, Detector, Training or formal
-  experiment occurs.
+- Current ordered step: preserve the completed A Phase1 workbook unchanged; Annotator B completes corrected B Phase1, then A and B
+  independently complete corrected A Phase2/B Phase2. The three returned workbooks then enter return validation and hash locking.
+  Only after that may the owner separately approve agreement and necessary adjudication. No agreement, adjudication, Dataset freeze,
+  Detector, Training, 5090 contact or formal experiment occurs in this task.
 - Historical superseded H2 snapshot: `PROPOSED / NOT CANONICAL / NOT APPROVED`; preserve as history.
 - Formal RAG security experiment: **NOT STARTED**.
 - Canonical formal status: `FORMAL_EXPERIMENT = NOT STARTED`.
@@ -63,16 +63,16 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PODR-057` and `PODR-058`.
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
-- S6.1-P1: **PILOT2_TARGETED_REREVIEW_HUMAN_EXECUTION_GATE / NOT FORMAL_EXPERIMENT**.
+- S6.1-P1: **PILOT2_FINAL_TARGETED_HUMAN_CORRECTION_GATE / NOT FORMAL_EXPERIMENT**.
 - S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
 - S6.1-P1-PILOT1: **HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED**.
 - Historical S6.1-P1-PILOT1: **COMPLETED_PENDING_REVIEW / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY**；superseded by OR-024.
-- S6.1-P1-PILOT2: **ROUND1_RAW_PRESERVED / TARGETED_REREVIEW_READY_FOR_HUMAN_EXECUTION**.
+- S6.1-P1-PILOT2: **ROUND1_RAW_PRESERVED / A_PHASE1_COMPLETED_PENDING_RETURN_VALIDATION / THREE_CORRECTED_WORKBOOKS_READY**.
 - PILOT2_ROUND1_RAW: **PRESERVED_IMMUTABLE**.
 - PILOT2_ROUND1: **PRESERVED_FOR_SCHEMA_V2_INDEPENDENT_REREVIEW**.
 - A_PHASE1_STRICT_BLINDNESS: **OWNER_CONFIRMED_PRESERVED**.
 - ANNOTATION_SCHEMA_V2: **IMPLEMENTED**.
-- A_B_REREVIEW: **TARGETED_REREVIEW_READY_FOR_HUMAN_EXECUTION**.
+- A_B_REREVIEW: **A_PHASE1_OWNER_REPORTED_COMPLETED / B_PHASE1_AND_A_B_PHASE2_PENDING_IN_CORRECTED_PACKAGE**.
 - FORMAL_AGREEMENT_V2: **NOT_YET_ESTABLISHED**.
 - ANNOTATION_MODE: **TWO_INDEPENDENT_ANNOTATORS_WITH_OWNER_ADJUDICATION**.
 - BLINDNESS_SUBISSUE: **RESOLVED_BY_OWNER_CONFIRMED_ACTUAL_DISTRIBUTION_ORDER**.
@@ -84,7 +84,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - SCHEMA_V2_REREVIEW: **APPROVED / FULL_PACKAGE_PRESERVED / TARGETED_DISTRIBUTION_VIEW_READY**.
 - Historical S6.1-P1: **APPROVED_FOR_PILOT0_INFRASTRUCTURE_ONLY / NOT FORMAL_EXPERIMENT**；superseded by OR-023.
 - Historical S6.1-P1-PILOT0: **COMPLETED_PENDING_REVIEW**；superseded by final owner acceptance under OR-023.
-- HUMAN_ANNOTATION: **ROUND1 A/B PHASE1+2 RETURNS RECEIVED / TARGETED V2 INDEPENDENT REREVIEW READY / NOT YET EXECUTED**；
+- HUMAN_ANNOTATION: **ROUND1 A/B PHASE1+2 RETURNS RECEIVED / TARGETED A PHASE1 OWNER-REPORTED COMPLETE / THREE CORRECTED RETURNS PENDING**；
   ANNOTATION_AGREEMENT: **PENDING_SCHEMA_V2_REREVIEW_AND_RETURN_VALIDATION / NOT ESTABLISHED**.
 - REAL_DOUBLE_ANNOTATION / 240_GROUP_PILOT: **NOT APPROVED / NOT STARTED**.
 - Historical REAL_DATA_PILOT / 240_GROUP_PILOT: **NOT APPROVED / NOT STARTED**；PILOT1 did not authorize human annotation or the 240-group Pilot.

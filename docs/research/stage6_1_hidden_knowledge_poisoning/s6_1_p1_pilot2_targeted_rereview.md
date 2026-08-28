@@ -62,3 +62,28 @@ render/inspect、dropdown、formula、只读拦截和 dependency 规则通过；
 停止。后续固定门为 `RETURN_VALIDATION -> FORMAL_AGREEMENT_ANALYSIS -> 必要 disagreement owner adjudication ->
 GROUND_TRUTH_CANDIDATE_LOCK`，但每一步均需独立批准。`POST_ANNOTATION_EXPERIMENT =
 WAITING_FOR_HUMAN_ANNOTATION_CLOSURE`；Auto Continue = `NO`。
+
+## 6. Correction 01 — V1 列名映射与最终三表（2026-08-28）
+
+项目需求提出人报告 A Phase1 已完成。本机观测到该文件为 `33057` bytes，SHA256
+`100cffe2b81a23f3a65ade5ba712cd7aeefcfc56c600dae68f2b0241af36737f`；它未被重新生成、复制进更正包或覆盖，当前仍是
+`OWNER_REPORTED_COMPLETED / PENDING_RETURN_VALIDATION_AND_FORMAL_LOCK`。
+
+B Phase1 的三个旧值列在 raw/full-V2 中并未缺失；它们的历史列名带有中文后缀，而旧生成器只用精确英文列名查找，
+因此错误地将 `108/108` 个任务显示为 `[V1_ABSENT]`。B Phase2 的 `version_relation_correct`、
+`authority_matches` 也有同类列名后缀；A Phase2 无同类映射缺陷。此问题是生成器/测试缺陷，不是 B 的历史标注缺失。
+
+修复后，B Phase1 的 `[V1_ABSENT]` 为 `0`；B Phase2 与 A Phase2 只有三个 V1 中真正不存在的新增
+`version_relation_present / history_or_update_claim_present / authority_claim_present` 保留该标记。生成器现在只接受白名单
+历史 alias；其他非预期缺失或 alias 冲突会立即 fail closed。首页同时冻结 owner 解释：`version_context` 为已知正确的
+参考证据；只有事实冲突才评 S1/S2/S3；一个直接官方来源是 S2 且不算 cross-document；S3 需要多证据链联合推理。
+
+Git-external 更正交付键为 `LLMGuard-Handoff/paper1_pilot2_targeted_rereview_correction01_20260828`，只含待填的 A Phase2、B Phase1、
+B Phase2 三份 XLSX/CSV、coordinator 说明和 owner-only manifest。三份表完成 `12/12` sheets 视觉复核、公式错误扫描、
+下拉/只读保护、UTF-8 BOM、映射分布和门控回归；staging 到 E 盘 `8/8` 文件 SHA 一致。三份 XLSX SHA256 为 A Phase2
+`5cfbb13fe8874aa1da06e30f3f37300402290f781b82b805468104b9a58e51c7`、B Phase1
+`15f7f49b62f7c2b33ad6d57701d2b82e84d64090055ef20258321b8b097ba3d5`、B Phase2
+`461e8b5ce10113d72bd0f2d331227a53240ee28ab23efc3c8d86d02c289b1eb2`。这是最终三表人工轮的准备，不是 agreement、Ground Truth 或正式实验结果。
+
+固定后续路由为：三份独立 return → return validation/hash lock → owner 批准 agreement → 仅必要分歧仲裁 → Ground Truth candidate
+验收 → 另行批准标注后实验准备。项目需求提出人将本轮结果指定为高优先级/高权重有效性证据候选，并要求不再进行无条件全量重复标注；这不跳过上述门。Auto Continue = `NO`。

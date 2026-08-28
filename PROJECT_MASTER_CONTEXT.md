@@ -1,5 +1,17 @@
 # LLMGuard 项目总控文档
 
+## PILOT2 最终三表更正包（2026-08-28）
+
+项目需求提出人报告 A Phase1 targeted workbook 已完成；本机将其以 SHA256
+`100cffe2b81a23f3a65ade5ba712cd7aeefcfc56c600dae68f2b0241af36737f` 保留，未重新生成或放入更正包。它仍待 return validation/hash lock。
+
+B Phase1 的所有 `[V1_ABSENT]` 来自生成器未识别带中文后缀的历史列名，不是 B 标注缺失。B Phase2 的
+`version_relation_correct` 与 `authority_matches` 也受同类问题影响；A Phase2 映射经检查正常。修复后 B Phase1
+的旧值 `108/108` 恢复，A/B Phase2 只在三个真正新增的 `*_present` 字段使用 `[V1_ABSENT]`。生成器现在对任何其他缺失 fail closed，并冻结 owner 的 S1/S2/S3 决策顺序。
+
+新的 Git-external 交付键为 `LLMGuard-Handoff/paper1_pilot2_targeted_rereview_correction01_20260828`，只含待完成的
+A Phase2、B Phase1、B Phase2 三份表格。它们是最终定向人工轮的高优先级/高权重有效性证据候选，但必须先通过 return validation、owner 批准的 agreement、仅必要仲裁和 Ground Truth candidate 验收。Dataset、Detector、Training、5090 和 Formal Experiment 未启动；Auto Continue = `NO`。
+
 ## PILOT2 标注人友好版定向复核包（2026-08-27）
 
 项目需求提出人通过 `PODR-065 / OR-027` 决定不发放全量 V2 重做所有字段，而采用
