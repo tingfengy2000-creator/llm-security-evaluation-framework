@@ -36,12 +36,13 @@ def test_post_annotation_record_binds_inputs_and_stop_gate() -> None:
     assert "AUTO_CONTINUE = NO" in text
 
 
-def test_current_state_and_owner_decision_point_to_adjudication_gate() -> None:
+def test_current_state_preserves_post_annotation_history_after_closure() -> None:
     current = CURRENT.read_text(encoding="utf-8")
     owner = OWNER.read_text(encoding="utf-8")
 
     assert "S6.1-P1-PILOT2-ADJUDICATION-CLOSURE-AND-PILOT3-ENTRY" in current
     assert "FORMAL_AGREEMENT_V2: **COMPLETED_ON_A_B_V2_CURRENT_VALUES**" in current
-    assert "OWNER_ADJUDICATION: **COMPLETION_PASS / CONSISTENCY_FAIL" in current
+    assert "OWNER_ADJUDICATION: **COMPLETION_PASS / OWNER_CORRECTION_BOUND_SEPARATELY / CONSISTENCY_PASS / NO_PENDING**" in current
     assert "PODR-068: PILOT2 Post-Annotation Validation and Formal Agreement Approval" in owner
     assert "Do not auto-adjudicate or generate Ground Truth" in owner
+    assert "PODR-070: PILOT2 Owner Correction, Ground Truth Closure and Pilot3 Smoke" in owner

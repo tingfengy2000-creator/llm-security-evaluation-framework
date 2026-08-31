@@ -18,16 +18,16 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 - Task ID: `S6.1-P1-PILOT2-ADJUDICATION-CLOSURE-AND-PILOT3-ENTRY`.
 - Task name: `Pilot2 Owner Adjudication Ingestion, Ground Truth Closure and Pilot3 Detection Signal Feasibility Entry`.
-- Task type: **LOCAL_OWNER_ADJUDICATION_VALIDATION / FAIL_CLOSED_BEFORE_GROUND_TRUTH / NO_FORMAL_EXPERIMENT**.
-- Status: **OWNER_COMPLETION_PASS_84_OF_84_AND_26_OF_26 / OWNER_ADJUDICATION_CONSISTENCY_BLOCKER / 4_CANDIDATE_RECONFIRMATION_REQUIRED / HUMAN_DECISION_REQUIRED / AUTO_CONTINUE_NO**.
-- Execution base commit: `PILOT2_ADJUDICATION_CLOSURE_BASE_COMMIT = 54481eb740cab09c559524623b022385cd0f8c3b`.
+- Task type: **LOCAL_PILOT2_GROUND_TRUTH_CLOSURE / PILOT3_SIGNAL_DIAGNOSTIC / NO_FORMAL_EXPERIMENT**.
+- Status: **PILOT2_HUMAN_ACCEPTED_CLOSED_FOR_FEASIBILITY / PILOT3_ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY / AUTO_CONTINUE_NO**.
+- Execution base commit: `PILOT2_OWNER_CORRECTION_BASE_COMMIT = 0b61e0124b1fb75f1a864132da41ce6a0fcbc3fc`.
 - Targeted package lineage base: `09aa7e65e95e10a657e44c2b31e23ec02bc4210b`.
 - Execution machine: **本机**. Immutable Round1 raw and the complete Schema V2 package remain hash-bound and unchanged；a field audit
   narrows human work to three Phase1 stealth fields, seven Phase2 fact/applicability fields and B-only process corrections.
-- Current ordered step: the completed owner workbook is hash-bound and all rows are filled, but four candidates contain an invalid
-  enum or conflicting final values. The project owner must confirm only those four candidates using the Git-external minimal blocker
-  table. Ground Truth construction, Pilot2 closure and Pilot3 entry remain stopped until a corrected owner evidence identity passes
-  the same validation. No Dataset freeze, Detector training, 5090 contact or formal experiment occurs.
+- Current ordered step: completed. The owner's four-candidate correction is bound separately from the immutable workbook; residual
+  inconsistency and PENDING are zero. A 36-record Pilot-only Ground Truth candidate closed Pilot2 for protocol/Ground-Truth
+  feasibility, followed by a local deterministic five-view Pilot3 smoke. Stop for owner route selection; no Dataset freeze,
+  240-group scale-up, formal Detector training, 5090 contact or Formal Experiment occurs.
 - Permanent prospective candidate gate (`PODR-067 / OR-029`): every annotation candidate created or newly introduced after
   `2026-08-28` must identify its legal/policy/institutional/standards subject unambiguously from the candidate text itself. Bare
   references such as “条例”、“规定”、“修订文本”、“2017年版” fail closed as `BROKEN_CANDIDATE / MISSING_CONTEXT` and must be
@@ -69,20 +69,20 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PODR-057` and `PODR-058`.
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
-- S6.1-P1: **PILOT2_OWNER_ADJUDICATION_CONSISTENCY_BLOCKER / NOT FORMAL_EXPERIMENT**.
+- S6.1-P1: **PILOT3_SIGNAL_DIAGNOSTIC_COMPLETED / NOT FORMAL_EXPERIMENT**.
 - S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
 - S6.1-P1-PILOT1: **HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED**.
 - Historical S6.1-P1-PILOT1: **COMPLETED_PENDING_REVIEW / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY**；superseded by OR-024.
-- S6.1-P1-PILOT2: **TARGETED_RETURNS_VALIDATED / FORMAL_AGREEMENT_COMPLETED / OWNER_ADJUDICATION_CONSISTENCY_BLOCKER / NOT_CLOSED**.
+- S6.1-P1-PILOT2: **HUMAN_ACCEPTED / ANNOTATION_PROTOCOL_AND_GROUND_TRUTH_FEASIBILITY_ONLY / CLOSED**.
 - PILOT2_ROUND1_RAW: **PRESERVED_IMMUTABLE**.
 - PILOT2_ROUND1: **PRESERVED_FOR_SCHEMA_V2_INDEPENDENT_REREVIEW**.
 - A_PHASE1_STRICT_BLINDNESS: **OWNER_CONFIRMED_PRESERVED**.
 - ANNOTATION_SCHEMA_V2: **IMPLEMENTED**.
 - A_B_REREVIEW: **FOUR_TARGETED_RETURNS_RECEIVED / HASH_LOCKED / VALIDATED_FOR_AGREEMENT**.
 - FORMAL_AGREEMENT_V2: **COMPLETED_ON_A_B_V2_CURRENT_VALUES**.
-- OWNER_ADJUDICATION: **COMPLETION_PASS / CONSISTENCY_FAIL / 4_CANDIDATE_RECONFIRMATION_REQUIRED**.
-- GROUND_TRUTH_CANDIDATE: **NOT_GENERATED / BLOCKED_PENDING_OWNER_ADJUDICATION**.
-- PILOT3: **NOT_STARTED / BLOCKED_BY_PILOT2_OWNER_CONSISTENCY**.
+- OWNER_ADJUDICATION: **COMPLETION_PASS / OWNER_CORRECTION_BOUND_SEPARATELY / CONSISTENCY_PASS / NO_PENDING**.
+- GROUND_TRUTH_CANDIDATE: **GENERATED / 36_RECORDS / PILOT_ONLY / NOT_FORMAL_DATASET**.
+- PILOT3: **ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY / STOPPED**.
 - ANNOTATION_MODE: **TWO_INDEPENDENT_ANNOTATORS_WITH_OWNER_ADJUDICATION**.
 - BLINDNESS_SUBISSUE: **RESOLVED_BY_OWNER_CONFIRMED_ACTUAL_DISTRIBUTION_ORDER**.
 - REGISTRATION_METADATA_SUBISSUE: **DOCUMENTED_AND_EVIDENCE_BOUND / ORIGINAL_METADATA_PRESERVED**.
@@ -237,9 +237,10 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
 - Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
   evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- Next operational action: distribute A/B's own targeted Phase1 XLSX files；lock both returns before distributing either targeted
-  Phase2 XLSX；lock all four targeted return SHA256 values and stop. No automatic agreement calculation or adjudication.
-  No second H2-B call, automatic resume_03, real-data Pilot, matrix, Dataset, Detector, training or formal experiment is authorized.
+- Next operational action: owner selects the post-Pilot3 route. Current recommendation is to repair structured Temporal-Version and
+  provenance signals, implement semantic near-duplicate scanning and improve Clean-class balance before any small Detector
+  prototype; do not enter the 240-group scale Pilot yet. No automatic scale-up, Dataset freeze, formal Detector, training, 5090 or
+  Formal Experiment is authorized.
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. Its acceptance does not approve S6-T5.6 ContextBuilder behavior; that remains a separate boundary.
@@ -258,9 +259,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   experiment. The narrowly approved H1 public-artifact download is complete and grants no continuing download authority.
 - On 5090: overwrite/delete/rename resume_01；reuse or rerun resume_02；automatic resume_03；a second H2-B call；anything beyond the exact frozen H2 contract；network fallback、
   environment mutation、algorithm reimplementation、silent source patch、parameter/input/model substitution or formal workload。
-- Everywhere: automatic owner adjudication, Ground Truth candidate generation before adjudication, any work beyond the approved
-  PILOT2 post-annotation gate, unapproved FU1 Worker execution, Detector/Retrieval Intervention implementation, dataset
-  freeze/construction, training, Paper Result, formal experiment or SOTA comparison.
+- Everywhere: any unapproved owner-decision change, 240-group scale-up, Dataset formal freeze, formal Detector/Retrieval
+  Intervention implementation, training, 5090 work, Paper Result, Formal Experiment or SOTA comparison.
 - Additional ContentResolver changes, document-content access beyond synthetic test inputs, Trust policy, retrieval guard, or any S6-T5.8 behavior beyond the completed documentation closure.
 - Groq, mock/real LLM invocation, evaluator, metrics, T10-T15, formal RAG attack matrix or report generation.
 - New Stage 6 business code under `src/codeguarder/`, any mutation of Stage 1-5, or any mutation of Stage 6 data fixtures.
@@ -283,9 +283,11 @@ baseline roles remain unchanged。PO-MHEP is permanently accepted as the highest
 
 Can claim: within the offline engineering-test scope, the `S6-T5 Controlled Retrieval and Traceable Context Baseline` is HUMAN_ACCEPTED. It comprises deterministic and label-isolated retrieval runtime contracts, provider-neutral DenseRetriever, the synthetic ContentResolver, EvidenceEnvelope/Citation boundaries, deterministic Context Package behavior, and S6-T5.7 controlled integration evidence including an opt-in fixed MiniLM plus temporary Chroma close/reopen check. `4ecf73a` is the accepted baseline content commit; the current governance acceptance commit is not an implementation or integration-evidence commit. Historical public loader imports remain compatible through the canonical `llmguard` type.
 
-Can claim: the four selected PILOT2 targeted returns were hash-locked and validated for V2 agreement; formal A/B V2 agreement was
-computed under the frozen applicable-subset rules. The analysis found 47 A/B disagreement records and 37 schema-logic conflicts,
-requiring owner adjudication for 26 candidate texts. This is annotation-quality evidence only; Ground Truth is not yet accepted.
+Can claim: the four selected PILOT2 targeted returns were hash-locked; formal A/B V2 agreement preserves 47 disagreement records
+and 37 schema-logic conflicts. Owner decisions plus a separately bound correction resolve all 84 issues across 26 candidates without
+rewriting the workbook. The Pilot-only Ground Truth contains 36 executable records (Clean 1 / Poison 12 / Hard Negative 23), and
+Pilot2 is closed only for annotation-protocol and Ground-Truth feasibility. A deterministic CPU-only Pilot3 generated 180 separated
+five-view signal records; this establishes engineering/signal diagnostic execution, not detector effectiveness.
 
 Cannot claim: the two-document smoke reproduces GMTP；its two scores establish detector effectiveness, calibration, safety,
 generalization or a paper metric；any
@@ -302,8 +304,7 @@ are established.
 
 ## Last Update
 
-- Date: `2026-08-27`.
-- Updated by: 本机 implementing PODR-065/OR-027. PODR-063 history, all raw/preflight evidence and the complete V2 package remain
-  immutable；the annotator-friendly targeted field audit and four isolated XLSX/CSV packages are ready for human execution.
-  Formal agreement, disagreement, adjudication, Dataset, Detector, Training and Formal Experiment remain unestablished；Auto
-  Continue = `NO`.
+- Date: `2026-08-31`.
+- Updated by: 本机 implementing PODR-070/OR-032. The owner workbook, original blocker evidence and A/B returns remain immutable;
+  correction evidence is additive. Pilot2 feasibility closure and Pilot3 signal smoke are complete. Dataset freeze, 240-group,
+  formal Detector/Training, 5090, Formal Experiment and Paper Result remain unapproved/unstarted; Auto Continue = `NO`.

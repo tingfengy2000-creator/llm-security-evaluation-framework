@@ -1,6 +1,6 @@
 # Paper 1 Start Here
 
-> 快速状态：父 W2/FU1 与 PILOT0 已按各自工程范围关闭；`OPTION_B` 已冻结，P1-R1 已作为协议框架验收。PILOT1 已人工验收为 `REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED`。PILOT2 的 84/84 issue 与 26/26 candidate 已由 owner 填写，但只读一致性验证发现 4 个候选仍有非法枚举或同字段冲突。当前是 `OWNER_ADJUDICATION_CONSISTENCY_BLOCKER / HUMAN_DECISION_REQUIRED`；Ground Truth candidate 尚未生成，Pilot2 未关闭，Pilot3 未进入，240-group Pilot、Dataset freeze、Detector、Training 未推进，`FORMAL_EXPERIMENT = NOT STARTED`。
+> 快速状态：父 W2/FU1、PILOT0/PILOT1 已按各自范围关闭。Owner 的四候选 correction 已独立绑定，原工作簿与 blocker 历史不变；`PILOT2_GROUND_TRUTH_CANDIDATE_V1` 共 36 条（Clean 1 / Poison 12 / Hard Negative 23），PILOT2 仅按 annotation protocol + Ground Truth feasibility 人工关闭。PILOT3 本机五视角 smoke 已建立工程与信号诊断可行性，但信号弱且类别失衡，绝非 detector effectiveness。240-group、Dataset freeze、正式 Detector/Training、5090、Formal Experiment 与 Paper Result 均未推进。
 
 > 永久前瞻性候选门：`PODR-067 / OR-029` 要求以后新建/新引入候选的法律、政策、制度、标准主体在候选文本内唯一可识别；裸指代 fail closed 为 `BROKEN_CANDIDATE / MISSING_CONTEXT`。只向前生效，不改动现有 Pilot1/Pilot2 证据。
 
@@ -24,6 +24,7 @@
 - [PILOT2 Targeted Re-review](s6_1_p1_pilot2_targeted_rereview.md) — 问题字段审计、A/B 最小工作量、V1 映射 Correction 01、XLSX 保护与人工后续门。
 - [PILOT2 Post-Annotation](s6_1_p1_pilot2_post_annotation.md) — 四份 return 身份、V2 agreement、分歧分类与最小 owner adjudication gate。
 - [PILOT2 Adjudication Closure Attempt](s6_1_p1_pilot2_adjudication_closure.md) — 完成版 owner workbook 身份、4-candidate consistency blocker 与 Ground Truth/Pilot3 停止门。
+- [PILOT2 Closure and PILOT3 Signal Feasibility](s6_1_p1_pilot2_closure_and_pilot3_signal_feasibility.md) — 独立 owner correction、36 条 Pilot-only Ground Truth、Pilot2 closure 与本机五视角诊断。
 - [S6.1-P1-R1 协议强化候选](s6_1_p1_r1_protocol_review_candidate.md) — 已验收框架的来源候选；其中数值参数仍为 `PENDING_PILOT_EVIDENCE`，不取代研究方案权威。
 - [旧 S6.1-P1 协议候选](s6_1_p1_protocol_candidate.md) — 历史候选，已在候选层被 P1-R1 替代但不可删除或改写。
 

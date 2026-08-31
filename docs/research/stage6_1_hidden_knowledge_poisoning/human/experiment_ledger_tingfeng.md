@@ -4,9 +4,9 @@
 
 ## 一分钟项目状态
 
-Paper 1 研究中文版本化知识库中的隐蔽事实污染。方案 B 与 P1-R1 框架已冻结；PILOT0/PILOT1 已按各自范围验收关闭。PILOT2 四份 targeted return 已不可变锁定并完成 V2 formal agreement。Owner 已填写 84/84 issue 和 26/26 candidate，但本机只读验证发现 4 个候选仍有非法枚举或同字段冲突。当前只需 owner 确认这 4 个候选；Ground Truth candidate 尚未生成，Pilot2 未关闭，Pilot3 未进入。这不是正式基准、数据集冻结、检测器或论文结果。
+Paper 1 研究中文版本化知识库中的隐蔽事实污染。方案 B 与 P1-R1 框架已冻结；PILOT0/PILOT1 已按各自范围验收关闭。PILOT2 四份定向复核返回已不可变锁定并完成 V2 正式一致性分析。项目负责人对四个候选的最终纠正已作为独立证据绑定，原工作簿和原阻塞历史未改；36 条试验性真值候选已生成，分布为当前正确 1、已验证污染 12、已验证困难负例 23。PILOT2 仅按标注协议与真值构造可行性关闭；PILOT3 本机五视角轻量诊断已完成，但信号弱且类别失衡。这不是正式基准、数据集冻结、检测器效果或论文结果。
 
-当前人工动作仅是由项目需求提出人在最小 packet 中裁决 26 个候选。A/B 不再进行第三轮全面标注；本机不得自动替 owner 裁决。
+当前人工动作是由项目需求提出人选择轻量诊断后的研究路线。建议先修结构化时序版本与来源信号、实现语义近重复扫描并补足当前正确类，再决定是否进入小型检测器原型；暂不进入 240 组扩展。
 
 对以后所有新建或新引入的标注候选，现增加一条最高优先级前置门：法律、政策、制度、标准等事实主体必须在候选文本内唯一可识别。“条例”、“规定”、“修订文本”、“2017年版”等裸指代无法唯一恢复主体时，必须标记 `BROKEN_CANDIDATE / MISSING_CONTEXT`并重写为新候选或剔除。该规则不回溯影响当前 Pilot1/Pilot2 文件。
 
@@ -20,8 +20,8 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染。方案 B 与 P1
 | 当前研究边界 | `OPTION_B_CONFIRMED`：Benchmark、Detection、Risk Score、Signals、Explanation、hard filtering / soft downweighting |
 | 当前分支 | `research/stage6-1-hidden-poisoning` |
 | 当前提交 | 本轮验收基础 `b19fc59cc5ba771fd547430f6096403720ef1a7d`；本页提交由 Git 动态解析 |
-| 当前阶段 | S6.1-P1 PILOT2 Owner Adjudication Consistency Blocker |
-| 当前任务 | `OWNER COMPLETION PASS / 4 CANDIDATES REQUIRE RECONFIRMATION / GROUND TRUTH NOT GENERATED / AUTO_CONTINUE_NO` |
+| 当前阶段 | S6.1-P1 PILOT3 五视角信号诊断完成并停止 |
+| 当前任务 | `PILOT2 CLOSED FOR FEASIBILITY / PILOT3 PILOT_DIAGNOSTIC_ONLY / AUTO_CONTINUE_NO` |
 | 上下文恢复治理 | `HUMAN_ACCEPTED（人工验收通过）` |
 | 正式实验状态 | `NOT STARTED（尚未开始）` |
 | 我们的方法结果 | `NONE（尚无正式方法结果）` |
@@ -38,8 +38,9 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染。方案 B 与 P1
 | S6.1-P1-R1 | 协议强化与 Option B 范围冻结 | `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK` | [审批级强化候选](../s6_1_p1_r1_protocol_review_candidate.md) | 框架已接受；数值参数待 Pilot 证据 | 保持 formal protocol 未冻结 |
 | S6.1-P1-PILOT0 | Benchmark 与轻量解毒基础设施 | `HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED` | [P1 工作过程](../stage_process/S6.1-P1_work_process.md)与纯合成工程测试 | 工程合同可行；不是 Benchmark 或方法结果 | 历史关闭 |
 | S6.1-P1-PILOT1 | 公开中文版本链与标注包可行性 | `HUMAN_ACCEPTED / CLOSED` | 12 条版本链、24 份 HASH_ONLY 来源、36 条候选、两类 Git-external 盲化包 | 只验收来源与 packet 可行性 | 作为 PILOT2 输入冻结 |
-| S6.1-P1-PILOT2 | 独立双人标注一致性 Pilot | `OWNER_COMPLETION_PASS / OWNER_ADJUDICATION_CONSISTENCY_BLOCKER / NOT_CLOSED` | [Closure attempt](../s6_1_p1_pilot2_adjudication_closure.md)；84/84 issue、26/26 candidate 已填；4 候选需确认 | Ground Truth 未生成 | owner 只确认最小表中的 4 个候选 |
-| S6.1-P1 | 正式实验协议批准 | `PILOT2_OWNER_ADJUDICATION_CONSISTENCY_BLOCKER / NOT FORMAL_EXPERIMENT` | 唯一 [canonical stage process](../stage_process/S6.1-P1_work_process.md) | 只推进到 owner consistency validation | 不自动生成 Ground Truth 或进入 Pilot3/实验 |
+| S6.1-P1-PILOT2 | 独立双人标注一致性 Pilot | `HUMAN_ACCEPTED / ANNOTATION_PROTOCOL_AND_GROUND_TRUTH_FEASIBILITY_ONLY / CLOSED` | [PILOT2 关闭与 PILOT3 诊断](../s6_1_p1_pilot2_closure_and_pilot3_signal_feasibility.md)；36 条试验性真值候选 | 标注与真值构造可行；不是正式数据集 | 历史关闭；不自动冻结数据集 |
+| S6.1-P1-PILOT3 | 五视角检测信号可行性 | `ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY / STOPPED` | 180 条分视角信号、诊断与失败分类 | 当前轻量信号弱；来源视角 35/36 不适用 | 项目负责人选择先修方法或后续小原型；暂不扩 240 组 |
+| S6.1-P1 | 正式实验协议批准 | `PILOT3_SIGNAL_DIAGNOSTIC_COMPLETED / NOT FORMAL_EXPERIMENT` | 唯一 [canonical stage process](../stage_process/S6.1-P1_work_process.md) | 只推进到小规模信号诊断 | 不自动进入正式检测器、训练或实验 |
 | 真实标注 Pilot | 样本规模、标注与资源可行性验证 | `NOT APPROVED / NOT STARTED` | 无 | 尚未执行 | 需独立批准 |
 | 中文 Benchmark 构建 | 版本链与隐蔽污染数据 | `NOT STARTED / DATASET NOT FROZEN` | 预期为冻结数据快照 | 尚未构建 | 先完成协议审批 |
 | 多视角 Detector 实现 | 五视角检测与风险评分 | `PLANNED / NOT IMPLEMENTED` | 预期为检测器实现 | 无实现结果 | 等待数据与协议 |

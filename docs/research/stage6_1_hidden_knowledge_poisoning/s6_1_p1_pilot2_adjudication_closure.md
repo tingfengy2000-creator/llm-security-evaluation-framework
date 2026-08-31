@@ -63,3 +63,19 @@ AUTO_CONTINUE = NO
 
 Next gate: the project owner confirms only the four rows in the minimal blocker table and returns a corrected owner workbook or an
 explicit issue-ID-to-final-value decision. LOCAL then rebinds the new evidence identity and repeats validation before Ground Truth.
+
+## 5. Additive owner correction and superseding resolution
+
+The project owner subsequently confirmed all four blocker candidates. The original workbook and this blocker record remain
+unchanged evidence; the decisions were bound in an independent owner-correction record and validated without rewriting cells.
+
+```text
+OWNER_CORRECTION = BOUND_AS_SEPARATE_PROJECT_OWNER_EVIDENCE
+RESIDUAL_OWNER_INCONSISTENCY = 0
+RESIDUAL_PENDING = 0
+GROUND_TRUTH_CANDIDATE = GENERATED_PILOT_ONLY_NOT_FORMAL_DATASET
+PILOT2 = HUMAN_ACCEPTED / ANNOTATION_PROTOCOL_AND_GROUND_TRUTH_FEASIBILITY_ONLY / CLOSED
+PILOT3 = ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY
+```
+
+Superseding current record: [Pilot2 Closure and Pilot3 Signal Feasibility](s6_1_p1_pilot2_closure_and_pilot3_signal_feasibility.md).

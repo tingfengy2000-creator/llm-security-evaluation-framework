@@ -3,6 +3,7 @@ from __future__ import annotations
 from copy import deepcopy
 
 from llmguard.domains.retrieval.hidden_poisoning.adjudication import (
+    OwnerCorrection,
     validate_owner_adjudication_rows,
 )
 
@@ -92,3 +93,23 @@ def test_owner_adjudication_validation_rejects_pending_rows() -> None:
 
     assert not result.passed
     assert result.pending_count == 1
+
+
+def test_owner_correction_supersedes_without_mutating_workbook_rows() -> None:
+    issues = [
+        _issue("D-001", "C-1", "locally_detectable", "YES"),
+        _issue("L-001", "C-1", "locally_detectable", "NO"),
+        _issue("D-002", "C-2", "version_relation_present", "YES;"),
+    ]
+    before = deepcopy(issues)
+    corrections = (
+        OwnerCorrection("C-1", "locally_detectable", "NO"),
+        OwnerCorrection("C-2", "version_relation_present", "YES"),
+    )
+
+    result = validate_owner_adjudication_rows(
+        issues, [_candidate("C-1"), _candidate("C-2")], corrections
+    )
+
+    assert result.passed
+    assert issues == before

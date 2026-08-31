@@ -78,6 +78,16 @@ class OwnerAdjudicationValidation:
         return self.pending_count == 0 and not self.problems
 
 
+@dataclass(frozen=True, slots=True)
+class OwnerCorrection:
+    """Owner-authored overlay that preserves, but supersedes, workbook evidence."""
+
+    canonical_candidate_id: str
+    field: str
+    final_value: str
+    authority: str = "PROJECT_REQUIREMENTS_OWNER"
+
+
 def _required(row: Mapping[str, object], key: str) -> str:
     value = str(row.get(key, "")).strip()
     return value
@@ -100,12 +110,25 @@ def _extract_composite_value(field: str, text: str) -> str | None:
 def validate_owner_adjudication_rows(
     issue_rows: Sequence[Mapping[str, object]],
     candidate_rows: Sequence[Mapping[str, object]],
+    corrections: Sequence[OwnerCorrection] = (),
 ) -> OwnerAdjudicationValidation:
     """Validate completion, enums and cross-row owner-decision uniqueness."""
 
     problems: list[OwnerAdjudicationProblem] = []
     decisions: dict[tuple[str, str], list[tuple[str, str]]] = defaultdict(list)
     pending_count = 0
+    correction_map: dict[tuple[str, str], OwnerCorrection] = {}
+    for owner_correction in corrections:
+        key = (owner_correction.canonical_candidate_id, owner_correction.field)
+        if owner_correction.field not in OWNER_FIELD_ENUMS:
+            raise ValueError(f"unknown corrected field: {owner_correction.field}")
+        if owner_correction.final_value not in OWNER_FIELD_ENUMS[owner_correction.field]:
+            raise ValueError(
+                f"invalid corrected value for {owner_correction.field}: {owner_correction.final_value}"
+            )
+        if key in correction_map and correction_map[key] != owner_correction:
+            raise ValueError(f"conflicting owner corrections for {key}")
+        correction_map[key] = owner_correction
 
     for row in issue_rows:
         issue_id = _required(row, "issue_id")
@@ -130,6 +153,12 @@ def validate_owner_adjudication_rows(
                         observed_value=owner_final,
                         detail="field is outside the frozen ten-field owner schema",
                     )
+                )
+                continue
+            field_correction = correction_map.get((candidate_id, field))
+            if field_correction is not None:
+                decisions[(candidate_id, field)].append(
+                    (f"OWNER_CORRECTION:{issue_id}", field_correction.final_value)
                 )
                 continue
             if len(expected_fields) == 1:
@@ -158,6 +187,9 @@ def validate_owner_adjudication_rows(
             pending_count += 1
 
     for (candidate_id, field), values in sorted(decisions.items()):
+        field_correction = correction_map.get((candidate_id, field))
+        if field_correction is not None:
+            values = [("OWNER_CORRECTION", field_correction.final_value)]
         unique_values = {value for _, value in values}
         if len(unique_values) <= 1:
             continue
@@ -186,5 +218,6 @@ __all__ = [
     "OWNER_FIELD_ENUMS",
     "OwnerAdjudicationProblem",
     "OwnerAdjudicationValidation",
+    "OwnerCorrection",
     "validate_owner_adjudication_rows",
 ]

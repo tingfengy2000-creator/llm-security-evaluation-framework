@@ -1351,3 +1351,23 @@ Approval Gate、Auto Continue。
 - Final Status: `OWNER_ADJUDICATION_CONSISTENCY_BLOCKER / HUMAN_DECISION_REQUIRED`; Ground Truth candidate `NOT_GENERATED`;
   Pilot2 `NOT_CLOSED`; Pilot3 `NOT_STARTED`; Auto Continue `NO`.
 - Next Gate: owner confirms only the four candidates, then LOCAL rebinds and repeats owner validation.
+
+## REL-2026-0036 — PILOT2 Closure and PILOT3 Signal Feasibility Smoke
+
+- Record ID: `REL-2026-0036`.
+- Date: `2026-08-31`.
+- Machine: `本机`; no 5090, GPU, model download, training or formal experiment.
+- Authority: `PODR-070 / OR-032`; five owner-confirmed field corrections across four candidates were bound as separate evidence;
+  the source workbook SHA256 and original blocker evidence remain unchanged.
+- Validation: issue completion `84/84`, candidate completion `26/26`, PENDING `0`, residual owner inconsistency `0`, remaining
+  schema-logic conflict `0`.
+- Ground Truth: deterministic Pilot-only `36` records; Clean `1`, Poison `12`, Hard Negative `23`; excluded/insufficient `0`;
+  source traceability and label isolation PASS; 12 version chains and 12 independence groups.
+- Audit caveat: six historical self-containment limitations preserved; semantic near-duplicate scan remains unimplemented and
+  blocks formal Dataset freeze, not Pilot2 feasibility closure.
+- Pilot2 status: `HUMAN_ACCEPTED / ANNOTATION_PROTOCOL_AND_GROUND_TRUTH_FEASIBILITY_ONLY / CLOSED`.
+- Pilot3: 36 included candidates × five views = 180 deterministic SignalRecords. Semantic/Entity/Temporal descriptive AUROC are
+  `0.432/0.396/0.465`; Provenance is N/A for 35/36. These are weak diagnostic signals, not effectiveness.
+- Final status: `ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY`; stop for owner route decision.
+- Git-external evidence: `paper1_pilot2_closure_20260831` and `paper1_pilot3_signal_feasibility_20260831`.
+- Prohibited: 240-group, Dataset freeze, formal Detector/training, 5090, Formal Experiment, Paper Result or SOTA.

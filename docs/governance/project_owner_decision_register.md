@@ -1122,3 +1122,19 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   intervention claim, Formal Experiment, Paper Result or SOTA claim.
 - Canonical evidence: [PILOT2 Adjudication Closure Attempt](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_pilot2_adjudication_closure.md),
   `OR-031`, `REL-2026-0035`.
+
+## PODR-070: PILOT2 Owner Correction, Ground Truth Closure and Pilot3 Smoke
+
+- Date: `2026-08-31`.
+- Owner decision: confirm the four blocker candidates exactly as recorded in `OR-032`; preserve the completed owner workbook and
+  bind an independent owner-correction record explicitly attributed to the project requirements owner.
+- Validation result: `84/84` issues and `26/26` candidate resolutions complete; PENDING `0`; residual owner inconsistency `0`;
+  remaining schema-logic conflict `0`.
+- Ground Truth: `PILOT2_GROUND_TRUTH_CANDIDATE_V1` generated deterministically with 36 Pilot-only records: Clean `1`, Poison `12`,
+  Hard Negative `23`, excluded/insufficient `0`.
+- Closure: `S6.1-P1-PILOT2 = HUMAN_ACCEPTED / ANNOTATION_PROTOCOL_AND_GROUND_TRUTH_FEASIBILITY_ONLY / CLOSED`.
+- Conditional continuation executed: local CPU-only Pilot3 emitted 180 independent SignalRecord rows. Its status is
+  `ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY`, never detector effectiveness.
+- Stop boundary: no 240-group, Dataset formal freeze, formal Detector/training, 5090, Formal Experiment, Paper Result or SOTA.
+- Canonical record: [Pilot2 Closure and Pilot3 Signal Feasibility](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_pilot2_closure_and_pilot3_signal_feasibility.md),
+  `OR-032`, `REL-2026-0036`.

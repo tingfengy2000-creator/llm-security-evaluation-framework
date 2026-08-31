@@ -13,7 +13,7 @@ Primary Human Mirror = `../human/experiment_ledger_tingfeng.md`
 project: LLMGuard Research Framework
 paper: Paper 1 - Chinese version-aware stealthy knowledge poisoning
 branch: research/stage6-1-hidden-poisoning
-document_source_commit: PILOT2_ADJUDICATION_CLOSURE_BLOCKER_PENDING_CURRENT_TASK_COMMIT
+document_source_commit: PILOT2_CLOSURE_AND_PILOT3_SIGNAL_FEASIBILITY_PENDING_CURRENT_TASK_COMMIT
 snapshot_date: 2026-08-31
 authority_order:
   - raw Git and external evidence
@@ -48,10 +48,10 @@ GMTP_REPRODUCTION: NOT ESTABLISHED
 DETECTION_EFFECTIVENESS: NOT ESTABLISHED
 STRICT_BASELINE_COMPARISON: NOT ESTABLISHED
 S6.1-P1-R1: HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK
-S6.1-P1: PILOT2_OWNER_ADJUDICATION_CONSISTENCY_BLOCKER / NOT FORMAL_EXPERIMENT
+S6.1-P1: PILOT3_SIGNAL_DIAGNOSTIC_COMPLETED / NOT FORMAL_EXPERIMENT
 S6.1-P1-PILOT0: HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED
 S6.1-P1-PILOT1: HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED
-S6.1-P1-PILOT2: OWNER_COMPLETION_PASS / OWNER_ADJUDICATION_CONSISTENCY_BLOCKER / NOT_CLOSED
+S6.1-P1-PILOT2: HUMAN_ACCEPTED / ANNOTATION_PROTOCOL_AND_GROUND_TRUTH_FEASIBILITY_ONLY / CLOSED
 ANNOTATION_MODE: TWO_INDEPENDENT_ANNOTATORS_WITH_OWNER_ADJUDICATION
 P1_NUMERIC_PARAMETERS: PENDING_PILOT_EVIDENCE
 HUMAN_ANNOTATION: TARGETED_A_B_PHASE1_PHASE2_RETURNS_RECEIVED_AND_HASH_LOCKED
@@ -63,9 +63,9 @@ A_B_REREVIEW: FOUR_RETURNS_VALIDATED_FOR_AGREEMENT
 TARGETED_FIELD_AUDIT: COMPLETED
 TARGETED_REREVIEW_KIT: HUMAN_COMPLETED / RETURNS_PRESERVED
 ANNOTATION_AGREEMENT: COMPLETED_ON_A_B_V2_CURRENT_VALUES
-OWNER_ADJUDICATION: COMPLETION_PASS / CONSISTENCY_FAIL / 4_CANDIDATE_RECONFIRMATION_REQUIRED
-GROUND_TRUTH_CANDIDATE: NOT_GENERATED / BLOCKED_PENDING_OWNER_ADJUDICATION
-PILOT3: NOT_STARTED / BLOCKED_BY_PILOT2_OWNER_CONSISTENCY
+OWNER_ADJUDICATION: COMPLETION_PASS / OWNER_CORRECTION_BOUND_SEPARATELY / CONSISTENCY_PASS / NO_PENDING
+GROUND_TRUTH_CANDIDATE: GENERATED / 36_RECORDS / PILOT_ONLY / NOT_FORMAL_DATASET
+PILOT3: ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY / STOPPED
 240_GROUP_PILOT: NOT APPROVED / NOT STARTED
 Dataset: NOT FROZEN
 Detector: NOT IMPLEMENTED
@@ -78,16 +78,16 @@ H2_auto_continue: CONSUMED_AND_STOPPED
 DETOXIFICATION_OPTION: OPTION_B
 DETOXIFICATION_TECHNICAL_SCOPE: OPTION_B_CONFIRMED
 DETOXIFICATION_TECHNICAL_SCOPE_FULL: OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION
-P1_next_gate: HUMAN_AB_TARGETED_PHASE1_DUAL_LOCK_THEN_TARGETED_PHASE2_DUAL_LOCK
+P1_next_gate: OWNER_SELECT_POST_PILOT3_ROUTE / REPAIR_SIGNALS_AND_BALANCE_BEFORE_SCALE
 ```
 
 ## State Machine
 
-`LR1 HUMAN_ACCEPTED -> R0 HUMAN_ACCEPTED_WITH_BLOCKERS -> FU1/W2 closed -> Option B selected -> P1-R1 framework accepted -> PILOT0 accepted/closed -> PILOT1 accepted/closed -> PILOT2 kit prepared -> A/B Round1 returns -> owner metadata correction -> Schema V2 implemented -> targeted field audit -> A/B targeted human gate`
+`LR1 HUMAN_ACCEPTED -> R0 HUMAN_ACCEPTED_WITH_BLOCKERS -> FU1/W2 closed -> Option B selected -> P1-R1 framework accepted -> PILOT0/PILOT1 closed -> PILOT2 targeted returns/agreement -> owner adjudication/correction -> PILOT2 feasibility closed -> PILOT3 signal diagnostic stopped`
 
-The owner correction resolves only the timestamp-derived blindness inference. Schema V2 package preparation is separately approved
-and complete；the targeted kit narrows human work without changing that schema. Human re-review, return validation and agreement are not executed. The 240-group Pilot, Dataset freeze, Detector,
-Training and Formal Experiment remain closed.
+The original timestamp correction, all returns, workbook and blocker history remain immutable. The latest owner correction is an
+additive evidence layer. Pilot2 now closes only protocol/Ground-Truth feasibility; Pilot3 establishes only executable separated
+signal diagnostics. The 240-group Pilot, Dataset freeze, formal Detector/Training and Formal Experiment remain closed.
 
 ## Stage Registry
 
