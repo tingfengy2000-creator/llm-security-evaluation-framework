@@ -1,5 +1,18 @@
 # LLMGuard 项目总控文档
 
+## PILOT2 Post-Annotation 一致性与仲裁门（2026-08-31）
+
+项目需求提出人通过 `PODR-068 / OR-030` 批准读取四份完成版 targeted return，按 A/B V2 current value 执行 return
+validation、formal agreement 与 disagreement classification。A/B Phase1 原声明中的 `sample_id_changed=YES` 均由 owner
+更正为有效过程值 `NO`；原 XLSX 不回写。
+
+四份 return SHA256 已锁定；验证结论为 `PASS_FOR_AGREEMENT_WITH_NON_SEMANTIC_DEFECTS`。正式 V2 agreement 发现 47 条
+A/B 分歧和 37 条 schema-logic 冲突，最小 owner packet 只覆盖 26 个候选、84 个问题行。故当前
+`OWNER_ADJUDICATION = REQUIRED / NOT_EXECUTED`，`GROUND_TRUTH_CANDIDATE = NOT_GENERATED`。Git-external 证据根为
+`LLMGuard-Handoff/paper1_pilot2_post_annotation_20260831`，workbook SHA256 为
+`67081c0e3f7c32d42041ccc736316ed2f42fa979d417a76f577b4e90418d363a`，index `11/11`。Dataset、Detector、Training、
+5090 与 Formal Experiment 均未启动；Auto Continue = `NO`。
+
 ## 后续新候选最低自包含性门（2026-08-28，只向前生效）
 
 项目需求提出人通过 `PODR-067 / OR-029` 将 candidate minimum self-containment 设为后续新文本数据标注的最高优先级门之一。法律、政策、制度、标准等事实主体必须可从候选文本本身唯一识别；“条例”、“规定”、“修订文本”、“2017年版”等依赖隐含上下文的裸指代不能用于正式 Benchmark。

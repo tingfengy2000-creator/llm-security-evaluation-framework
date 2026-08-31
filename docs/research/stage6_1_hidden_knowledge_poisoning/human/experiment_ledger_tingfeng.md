@@ -4,9 +4,9 @@
 
 ## 一分钟项目状态
 
-Paper 1 研究中文版本化知识库中的隐蔽事实污染。方案 B 与 P1-R1 框架已冻结；PILOT0/PILOT1 已按各自范围验收关闭。PILOT2 的 A/B 第一轮原始结果已不可变保存，项目需求提出人确认 A 第一阶段严格盲法原本保持。定向复核中 A Phase1 已由 owner 报告完成并原样保留；B Phase1 的旧值映射缺陷和 B Phase2 两列同类缺陷已修复，A Phase2 已检查。剩余最终人工工作只有 B Phase1、A Phase2、B Phase2 三份更正表；正式一致性与仲裁均未建立。这不是正式基准、数据集冻结、检测器或论文结果。
+Paper 1 研究中文版本化知识库中的隐蔽事实污染。方案 B 与 P1-R1 框架已冻结；PILOT0/PILOT1 已按各自范围验收关闭。PILOT2 四份 targeted return 已不可变锁定并完成 V2 formal agreement。结果有 47 条 A/B 分歧和 37 条 schema-logic 冲突，最小 owner packet 只包含 26 个需裁决候选、84 条问题。当前等待项目需求提出人仲裁；Ground Truth candidate 尚未生成。这不是正式基准、数据集冻结、检测器或论文结果。
 
-当前人工动作仅是让两名原标注人分别查看自己的旧答案，依据统一定义独立复核，并由协调人锁定回收文件。任何一致性计算、分歧处理和标签裁决都必须等待新的项目负责人批准。
+当前人工动作仅是由项目需求提出人在最小 packet 中裁决 26 个候选。A/B 不再进行第三轮全面标注；本机不得自动替 owner 裁决。
 
 对以后所有新建或新引入的标注候选，现增加一条最高优先级前置门：法律、政策、制度、标准等事实主体必须在候选文本内唯一可识别。“条例”、“规定”、“修订文本”、“2017年版”等裸指代无法唯一恢复主体时，必须标记 `BROKEN_CANDIDATE / MISSING_CONTEXT`并重写为新候选或剔除。该规则不回溯影响当前 Pilot1/Pilot2 文件。
 
@@ -20,8 +20,8 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染。方案 B 与 P1
 | 当前研究边界 | `OPTION_B_CONFIRMED`：Benchmark、Detection、Risk Score、Signals、Explanation、hard filtering / soft downweighting |
 | 当前分支 | `research/stage6-1-hidden-poisoning` |
 | 当前提交 | 本轮验收基础 `b19fc59cc5ba771fd547430f6096403720ef1a7d`；本页提交由 Git 动态解析 |
-| 当前阶段 | S6.1-P1 PILOT2 最终定向人工更正门 |
-| 当前任务 | `A_PHASE1 OWNER_REPORTED_COMPLETED / A2+B1+B2 CORRECTED_WORKBOOKS READY / AUTO_CONTINUE_NO` |
+| 当前阶段 | S6.1-P1 PILOT2 Owner Adjudication Gate |
+| 当前任务 | `FORMAL_AGREEMENT COMPLETED / 26 CANDIDATES WAIT_FOR_OWNER_ADJUDICATION / AUTO_CONTINUE_NO` |
 | 上下文恢复治理 | `HUMAN_ACCEPTED（人工验收通过）` |
 | 正式实验状态 | `NOT STARTED（尚未开始）` |
 | 我们的方法结果 | `NONE（尚无正式方法结果）` |
@@ -38,8 +38,8 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染。方案 B 与 P1
 | S6.1-P1-R1 | 协议强化与 Option B 范围冻结 | `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK` | [审批级强化候选](../s6_1_p1_r1_protocol_review_candidate.md) | 框架已接受；数值参数待 Pilot 证据 | 保持 formal protocol 未冻结 |
 | S6.1-P1-PILOT0 | Benchmark 与轻量解毒基础设施 | `HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED` | [P1 工作过程](../stage_process/S6.1-P1_work_process.md)与纯合成工程测试 | 工程合同可行；不是 Benchmark 或方法结果 | 历史关闭 |
 | S6.1-P1-PILOT1 | 公开中文版本链与标注包可行性 | `HUMAN_ACCEPTED / CLOSED` | 12 条版本链、24 份 HASH_ONLY 来源、36 条候选、两类 Git-external 盲化包 | 只验收来源与 packet 可行性 | 作为 PILOT2 输入冻结 |
-| S6.1-P1-PILOT2 | 独立双人标注一致性 Pilot | `ROUND1_RAW_PRESERVED / TARGETED_REREVIEW_READY_FOR_HUMAN_EXECUTION` | A/B raw returns、[owner correction](../s6_1_p1_pilot2_return_owner_correction.md)、[完整 Schema V2](../s6_1_p1_pilot2_annotation_v2.md)与[定向复核包](../s6_1_p1_pilot2_targeted_rereview.md) | 只复核实际问题字段；每人实质任务减少 37.5%；等待人工 return validation | A/B targeted Phase1 双锁后再发 Phase2；不得自动 agreement |
-| S6.1-P1 | 正式实验协议批准 | `PILOT2_TARGETED_REREVIEW_PREPARATION_ONLY / NOT FORMAL_EXPERIMENT` | 唯一 [canonical stage process](../stage_process/S6.1-P1_work_process.md) | 只推进到定向人工复核准备 | 不自动计算一致性或进入正式数据工作 |
+| S6.1-P1-PILOT2 | 独立双人标注一致性 Pilot | `TARGETED_RETURNS_VALIDATED / FORMAL_AGREEMENT_COMPLETED / OWNER_ADJUDICATION_REQUIRED` | [Post-Annotation record](../s6_1_p1_pilot2_post_annotation.md)；47 A/B 分歧、37 逻辑冲突、26 候选最小 packet | 已完成 V2 agreement；Ground Truth 未生成 | owner 仅裁决 packet 中 26 个候选 |
+| S6.1-P1 | 正式实验协议批准 | `PILOT2_OWNER_ADJUDICATION_GATE / NOT FORMAL_EXPERIMENT` | 唯一 [canonical stage process](../stage_process/S6.1-P1_work_process.md) | 只推进到 owner adjudication packet | 不自动生成 Ground Truth 或进入实验 |
 | 真实标注 Pilot | 样本规模、标注与资源可行性验证 | `NOT APPROVED / NOT STARTED` | 无 | 尚未执行 | 需独立批准 |
 | 中文 Benchmark 构建 | 版本链与隐蔽污染数据 | `NOT STARTED / DATASET NOT FROZEN` | 预期为冻结数据快照 | 尚未构建 | 先完成协议审批 |
 | 多视角 Detector 实现 | 五视角检测与风险评分 | `PLANNED / NOT IMPLEMENTED` | 预期为检测器实现 | 无实现结果 | 等待数据与协议 |
@@ -174,9 +174,10 @@ Paper 1 研究中文版本化知识库中的隐蔽事实污染。方案 B 与 P1
 - P1-R1：`HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；数值参数仍为 `PENDING_PILOT_EVIDENCE`。
 - PILOT0：`HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED`。
 - PILOT1：`HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED`；冻结 36 条候选和两类 36 行 packet。
-- PILOT2：A/B Round1 raw、原 timestamp inference 与完整 Schema V2 均保留；owner 确认 A Phase1 strict blindness。
-  定向复核包已准备，每人只处理 Phase1 三字段和 Phase2 七字段，人工 targeted return 尚未执行。
-- P1：`FORMAL_AGREEMENT = PENDING_SCHEMA_V2_REREVIEW_AND_RETURN_VALIDATION`；240-group Pilot 仍 `NOT APPROVED / NOT STARTED`；Dataset 未冻结，Detector 未实现，adjudication 未执行。
+- PILOT2：A/B Round1 raw、原 timestamp inference、完整 Schema V2 与四份 targeted return 均保留；owner 确认 A Phase1
+  strict blindness。V2 agreement 已完成；26 个候选等待 owner adjudication。
+- P1：`FORMAL_AGREEMENT_V2 = COMPLETED_ON_A_B_V2_CURRENT_VALUES`；26 个候选等待 owner adjudication；240-group Pilot 仍
+  `NOT APPROVED / NOT STARTED`；Dataset 未冻结，Detector 未实现。
 - Dataset `NOT FROZEN`；Detector 与 Retrieval Intervention 均 `NOT IMPLEMENTED`；Training、Formal Experiment 均 `NOT STARTED`。
 - P2：协议获批后才讨论中文 Benchmark 构建、多视角 Detector、Formal Evaluation、消融和泛化。
 

@@ -13,8 +13,8 @@ Primary Human Mirror = `../human/experiment_ledger_tingfeng.md`
 project: LLMGuard Research Framework
 paper: Paper 1 - Chinese version-aware stealthy knowledge poisoning
 branch: research/stage6-1-hidden-poisoning
-document_source_commit: PILOT2_TARGETED_REREVIEW_BASE_09aa7e65e95e10a657e44c2b31e23ec02bc4210b
-snapshot_date: 2026-08-27
+document_source_commit: PILOT2_POST_ANNOTATION_PENDING_CURRENT_TASK_COMMIT
+snapshot_date: 2026-08-31
 authority_order:
   - raw Git and external evidence
   - owner_requirement_register
@@ -48,21 +48,23 @@ GMTP_REPRODUCTION: NOT ESTABLISHED
 DETECTION_EFFECTIVENESS: NOT ESTABLISHED
 STRICT_BASELINE_COMPARISON: NOT ESTABLISHED
 S6.1-P1-R1: HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK
-S6.1-P1: PILOT2_TARGETED_REREVIEW_PREPARATION_ONLY / NOT FORMAL_EXPERIMENT
+S6.1-P1: PILOT2_OWNER_ADJUDICATION_GATE / NOT FORMAL_EXPERIMENT
 S6.1-P1-PILOT0: HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED
 S6.1-P1-PILOT1: HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED
-S6.1-P1-PILOT2: ROUND1_RAW_PRESERVED / TARGETED_REREVIEW_READY_FOR_HUMAN_EXECUTION
+S6.1-P1-PILOT2: TARGETED_RETURNS_VALIDATED / FORMAL_AGREEMENT_COMPLETED / OWNER_ADJUDICATION_REQUIRED
 ANNOTATION_MODE: TWO_INDEPENDENT_ANNOTATORS_WITH_OWNER_ADJUDICATION
 P1_NUMERIC_PARAMETERS: PENDING_PILOT_EVIDENCE
-HUMAN_ANNOTATION: ROUND1_RETURNS_RECEIVED / TARGETED_REREVIEW_READY / NOT_EXECUTED
+HUMAN_ANNOTATION: TARGETED_A_B_PHASE1_PHASE2_RETURNS_RECEIVED_AND_HASH_LOCKED
 BLINDNESS_SUBISSUE: RESOLVED_BY_OWNER_CONFIRMED_ACTUAL_DISTRIBUTION_ORDER
 REGISTRATION_METADATA_SUBISSUE: DOCUMENTED_AND_EVIDENCE_BOUND / ORIGINAL_PRESERVED
-ANNOTATION_SCHEMA_SUBISSUE: REMEDIATION_IN_PROGRESS
+ANNOTATION_SCHEMA_SUBISSUE: TARGETED_RETURNS_VALIDATED / LOGIC_CONFLICTS_ESCALATED
 ANNOTATION_SCHEMA_V2: IMPLEMENTED
-A_B_REREVIEW: READY_FOR_HUMAN_EXECUTION
+A_B_REREVIEW: FOUR_RETURNS_VALIDATED_FOR_AGREEMENT
 TARGETED_FIELD_AUDIT: COMPLETED
-TARGETED_REREVIEW_KIT: READY_FOR_HUMAN_EXECUTION
-ANNOTATION_AGREEMENT: PENDING_SCHEMA_V2_REREVIEW_AND_RETURN_VALIDATION / NOT ESTABLISHED
+TARGETED_REREVIEW_KIT: HUMAN_COMPLETED / RETURNS_PRESERVED
+ANNOTATION_AGREEMENT: COMPLETED_ON_A_B_V2_CURRENT_VALUES
+OWNER_ADJUDICATION: REQUIRED / NOT_EXECUTED / 26_CANDIDATES / 84_ISSUES
+GROUND_TRUTH_CANDIDATE: NOT_GENERATED / BLOCKED_PENDING_OWNER_ADJUDICATION
 240_GROUP_PILOT: NOT APPROVED / NOT STARTED
 Dataset: NOT FROZEN
 Detector: NOT IMPLEMENTED
@@ -148,6 +150,7 @@ next_gate: string
 | ART-P1-PILOT2-TARGETED-REREVIEW | S6.1-P1 / PILOT2 Targeted Re-review | artifact_preparation / 本机 | `TARGETED_FIELD_AUDIT_COMPLETED / KIT_READY_FOR_HUMAN_EXECUTION` | base `09aa7e65e95e10a657e44c2b31e23ec02bc4210b`; raw `4/4` and full V2 `32/32` unchanged | full V2 16 fields -> targeted Phase1 3 + Phase2 7 | four XLSX/CSV pairs plus coordinator/owner manifests under `paper1_pilot2_targeted_rereview_20260827`; artifact `../s6_1_p1_pilot2_targeted_rereview.md`; copy `17/17` | allowed: scope/package/workload validation；prohibited: agreement/adjudication/Dataset/Detector/Training/result | blocker `HUMAN_TARGETED_RETURNS_PENDING`; next_gate Phase1 dual lock then Phase2 dual lock |
 | ART-P1-PILOT2-TARGETED-CORRECTION-01 | S6.1-P1 / PILOT2 Targeted Correction | artifact_correction / 本机 | `A1_OWNER_REPORTED_COMPLETE / A2+B1+B2_CORRECTED_READY` | A1 observed SHA `100cffe2...737f`, not mutated/included; raw/full V2 unchanged | B1 108 false absences -> restored values; B2 two historical fields restored; A2 mapping audit pass | three XLSX/CSV pairs plus correction manifest under `paper1_pilot2_targeted_rereview_correction01_20260828`; artifact `../s6_1_p1_pilot2_targeted_rereview.md` | allowed: mapping correction/readiness only；prohibited: accepted labels/agreement/GT/Dataset/Detector/Training/result | blocker `THREE_HUMAN_RETURNS_PENDING`; next_gate return validation/hash lock |
 | GOV-P1-FUTURE-CANDIDATE-SELF-CONTAINMENT | S6.1-P1 / future candidate admission | prospective_governance_and_guard / 本机 | `PROSPECTIVE_FAIL_CLOSED_GATE_ACCEPTED` | `PODR-067 / OR-029`; no historical artifact mutation | explicit subject mention + canonical identity + unique-identification decision | `BROKEN_CANDIDATE / MISSING_CONTEXT` blocks formal Benchmark; executable guard and tests | allowed: future admission rule only；prohibited: retroactive relabel/Dataset freeze/agreement/result | next_gate every future candidate generation before annotation |
+| ART-P1-PILOT2-POST-ANNOTATION | S6.1-P1 / PILOT2 Post-Annotation | return_validation_and_agreement / 本机 | `FORMAL_AGREEMENT_COMPLETED / WAIT_FOR_OWNER_ADJUDICATION` | A1 `9e301816...0424`; A2 `b7865999...5096`; B1 `f4e1864e...2c8d`; B2 `0572a0c...0989d` | 10 V2 fields; conditional applicable subsets; 47 A/B disagreements + 37 logic conflicts | Git-external `paper1_pilot2_post_annotation_20260831`; workbook `67081c0e...d363a`; index `11/11`; artifact `../s6_1_p1_pilot2_post_annotation.md` | allowed: Pilot agreement and packet identity；prohibited: automatic adjudication/GT/Dataset/Detector/Training/result | blocker `26_CANDIDATE_OWNER_ADJUDICATION_REQUIRED` |
 
 ## Artifact Registry
 

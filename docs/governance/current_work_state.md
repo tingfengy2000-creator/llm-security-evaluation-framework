@@ -16,17 +16,18 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-P1-PILOT2-TARGETED-REREVIEW-CORRECTION-01`.
-- Task name: `Pilot2 V1 Header Mapping Correction and Final Three-Workbook Human Round`.
-- Task type: **LOCAL_ARTIFACT_CORRECTION / TARGETED_HUMAN_RETURN / NO_AGREEMENT / NO_ADJUDICATION / NO_FORMAL_EXPERIMENT**.
-- Status: **A_PHASE1_OWNER_REPORTED_COMPLETED / THREE_CORRECTED_WORKBOOKS_READY_FOR_INDEPENDENT_HUMAN_COMPLETION / AUTO_CONTINUE_NO**.
-- Base commit: `PILOT2_TARGETED_REREVIEW_BASE_COMMIT = 09aa7e65e95e10a657e44c2b31e23ec02bc4210b`.
+- Task ID: `S6.1-P1-PILOT2-POST-ANNOTATION`.
+- Task name: `Pilot2 Targeted Return Validation, Formal Agreement and Owner Adjudication Gate`.
+- Task type: **LOCAL_RETURN_VALIDATION / FORMAL_AGREEMENT / DISAGREEMENT_CLASSIFICATION / NO_AUTOMATIC_ADJUDICATION / NO_FORMAL_EXPERIMENT**.
+- Status: **RETURN_VALIDATION_PASS_FOR_AGREEMENT_WITH_NON_SEMANTIC_DEFECTS / FORMAL_AGREEMENT_COMPLETED / 26_CANDIDATE_OWNER_ADJUDICATION_REQUIRED / AUTO_CONTINUE_NO**.
+- Execution base commit: `PILOT2_POST_ANNOTATION_BASE_COMMIT = da54d83fe9b8d1dee8bc00e6ab09f5346fa385d7`.
+- Targeted package lineage base: `09aa7e65e95e10a657e44c2b31e23ec02bc4210b`.
 - Execution machine: **本机**. Immutable Round1 raw and the complete Schema V2 package remain hash-bound and unchanged；a field audit
   narrows human work to three Phase1 stealth fields, seven Phase2 fact/applicability fields and B-only process corrections.
-- Current ordered step: preserve the completed A Phase1 workbook unchanged; Annotator B completes corrected B Phase1, then A and B
-  independently complete corrected A Phase2/B Phase2. The three returned workbooks then enter return validation and hash locking.
-  Only after that may the owner separately approve agreement and necessary adjudication. No agreement, adjudication, Dataset freeze,
-  Detector, Training, 5090 contact or formal experiment occurs in this task.
+- Current ordered step: the four selected targeted returns are hash-locked and validated; A/B V2 agreement and disagreement
+  classification are complete. The minimal owner packet contains `84` issues covering `26` candidate texts. The project owner must
+  adjudicate those candidates before any Ground Truth candidate is generated. No automatic adjudication, Dataset freeze, Detector,
+  Training, 5090 contact or formal experiment occurs in this task.
 - Permanent prospective candidate gate (`PODR-067 / OR-029`): every annotation candidate created or newly introduced after
   `2026-08-28` must identify its legal/policy/institutional/standards subject unambiguously from the candidate text itself. Bare
   references such as “条例”、“规定”、“修订文本”、“2017年版” fail closed as `BROKEN_CANDIDATE / MISSING_CONTEXT` and must be
@@ -68,29 +69,31 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PODR-057` and `PODR-058`.
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
-- S6.1-P1: **PILOT2_FINAL_TARGETED_HUMAN_CORRECTION_GATE / NOT FORMAL_EXPERIMENT**.
+- S6.1-P1: **PILOT2_OWNER_ADJUDICATION_GATE / NOT FORMAL_EXPERIMENT**.
 - S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
 - S6.1-P1-PILOT1: **HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED**.
 - Historical S6.1-P1-PILOT1: **COMPLETED_PENDING_REVIEW / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY**；superseded by OR-024.
-- S6.1-P1-PILOT2: **ROUND1_RAW_PRESERVED / A_PHASE1_COMPLETED_PENDING_RETURN_VALIDATION / THREE_CORRECTED_WORKBOOKS_READY**.
+- S6.1-P1-PILOT2: **TARGETED_RETURNS_VALIDATED / FORMAL_AGREEMENT_COMPLETED / OWNER_ADJUDICATION_REQUIRED**.
 - PILOT2_ROUND1_RAW: **PRESERVED_IMMUTABLE**.
 - PILOT2_ROUND1: **PRESERVED_FOR_SCHEMA_V2_INDEPENDENT_REREVIEW**.
 - A_PHASE1_STRICT_BLINDNESS: **OWNER_CONFIRMED_PRESERVED**.
 - ANNOTATION_SCHEMA_V2: **IMPLEMENTED**.
-- A_B_REREVIEW: **A_PHASE1_OWNER_REPORTED_COMPLETED / B_PHASE1_AND_A_B_PHASE2_PENDING_IN_CORRECTED_PACKAGE**.
-- FORMAL_AGREEMENT_V2: **NOT_YET_ESTABLISHED**.
+- A_B_REREVIEW: **FOUR_TARGETED_RETURNS_RECEIVED / HASH_LOCKED / VALIDATED_FOR_AGREEMENT**.
+- FORMAL_AGREEMENT_V2: **COMPLETED_ON_A_B_V2_CURRENT_VALUES**.
+- OWNER_ADJUDICATION: **REQUIRED / NOT_EXECUTED / 26_CANDIDATES / 84_ISSUES**.
+- GROUND_TRUTH_CANDIDATE: **NOT_GENERATED / BLOCKED_PENDING_OWNER_ADJUDICATION**.
 - ANNOTATION_MODE: **TWO_INDEPENDENT_ANNOTATORS_WITH_OWNER_ADJUDICATION**.
 - BLINDNESS_SUBISSUE: **RESOLVED_BY_OWNER_CONFIRMED_ACTUAL_DISTRIBUTION_ORDER**.
 - REGISTRATION_METADATA_SUBISSUE: **DOCUMENTED_AND_EVIDENCE_BOUND / ORIGINAL_METADATA_PRESERVED**.
 - REGISTRATION_METADATA_ERROR: **DOCUMENTED**.
-- ANNOTATION_SCHEMA_SUBISSUE: **REMEDIATION_IN_PROGRESS**.
-- RETURN_FILE_CONTRACT_SUBISSUE: **V2_CONTRACT_IMPLEMENTED_PENDING_HUMAN_RETURN**.
+- ANNOTATION_SCHEMA_SUBISSUE: **TARGETED_RETURNS_VALIDATED / LOGIC_CONFLICTS_ESCALATED_TO_OWNER_PACKET**.
+- RETURN_FILE_CONTRACT_SUBISSUE: **V2_CONTRACT_EXECUTED / NON_SEMANTIC_DEFECTS_PRESERVED**.
 - ROUND1_PRESERVATION: **APPROVED / PRESERVED_IMMUTABLE**.
-- SCHEMA_V2_REREVIEW: **APPROVED / FULL_PACKAGE_PRESERVED / TARGETED_DISTRIBUTION_VIEW_READY**.
+- SCHEMA_V2_REREVIEW: **HUMAN_COMPLETED / FOUR_RETURNS_HASH_LOCKED / FORMAL_AGREEMENT_COMPLETED**.
 - Historical S6.1-P1: **APPROVED_FOR_PILOT0_INFRASTRUCTURE_ONLY / NOT FORMAL_EXPERIMENT**；superseded by OR-023.
 - Historical S6.1-P1-PILOT0: **COMPLETED_PENDING_REVIEW**；superseded by final owner acceptance under OR-023.
-- HUMAN_ANNOTATION: **ROUND1 A/B PHASE1+2 RETURNS RECEIVED / TARGETED A PHASE1 OWNER-REPORTED COMPLETE / THREE CORRECTED RETURNS PENDING**；
-  ANNOTATION_AGREEMENT: **PENDING_SCHEMA_V2_REREVIEW_AND_RETURN_VALIDATION / NOT ESTABLISHED**.
+- HUMAN_ANNOTATION: **TARGETED A/B PHASE1+2 RETURNS RECEIVED / ORIGINAL XLSX IMMUTABLE**；
+  ANNOTATION_AGREEMENT: **FORMAL_V2_ANALYSIS_COMPLETED / OWNER_ADJUDICATION_REQUIRED**.
 - REAL_DOUBLE_ANNOTATION / 240_GROUP_PILOT: **NOT APPROVED / NOT STARTED**.
 - Historical REAL_DATA_PILOT / 240_GROUP_PILOT: **NOT APPROVED / NOT STARTED**；PILOT1 did not authorize human annotation or the 240-group Pilot.
 - MINIMAL_MATRIX / FULL_MATRIX: **NOT APPROVED**.
@@ -254,8 +257,9 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   experiment. The narrowly approved H1 public-artifact download is complete and grants no continuing download authority.
 - On 5090: overwrite/delete/rename resume_01；reuse or rerun resume_02；automatic resume_03；a second H2-B call；anything beyond the exact frozen H2 contract；network fallback、
   environment mutation、algorithm reimplementation、silent source patch、parameter/input/model substitution or formal workload。
-- Everywhere: any unapproved FU1 Worker execution、S6.1-P1、Pilot、Detector/Retrieval Intervention implementation、dataset freeze/construction、training、Paper Result、
-  formal experiment or SOTA comparison。
+- Everywhere: automatic owner adjudication, Ground Truth candidate generation before adjudication, any work beyond the approved
+  PILOT2 post-annotation gate, unapproved FU1 Worker execution, Detector/Retrieval Intervention implementation, dataset
+  freeze/construction, training, Paper Result, formal experiment or SOTA comparison.
 - Additional ContentResolver changes, document-content access beyond synthetic test inputs, Trust policy, retrieval guard, or any S6-T5.8 behavior beyond the completed documentation closure.
 - Groq, mock/real LLM invocation, evaluator, metrics, T10-T15, formal RAG attack matrix or report generation.
 - New Stage 6 business code under `src/codeguarder/`, any mutation of Stage 1-5, or any mutation of Stage 6 data fixtures.
@@ -277,6 +281,10 @@ ceiling are frozen and W2/FU1 are accepted and closed only for engineering feasi
 baseline roles remain unchanged。PO-MHEP is permanently accepted as the highest internal execution authority。
 
 Can claim: within the offline engineering-test scope, the `S6-T5 Controlled Retrieval and Traceable Context Baseline` is HUMAN_ACCEPTED. It comprises deterministic and label-isolated retrieval runtime contracts, provider-neutral DenseRetriever, the synthetic ContentResolver, EvidenceEnvelope/Citation boundaries, deterministic Context Package behavior, and S6-T5.7 controlled integration evidence including an opt-in fixed MiniLM plus temporary Chroma close/reopen check. `4ecf73a` is the accepted baseline content commit; the current governance acceptance commit is not an implementation or integration-evidence commit. Historical public loader imports remain compatible through the canonical `llmguard` type.
+
+Can claim: the four selected PILOT2 targeted returns were hash-locked and validated for V2 agreement; formal A/B V2 agreement was
+computed under the frozen applicable-subset rules. The analysis found 47 A/B disagreement records and 37 schema-logic conflicts,
+requiring owner adjudication for 26 candidate texts. This is annotation-quality evidence only; Ground Truth is not yet accepted.
 
 Cannot claim: the two-document smoke reproduces GMTP；its two scores establish detector effectiveness, calibration, safety,
 generalization or a paper metric；any

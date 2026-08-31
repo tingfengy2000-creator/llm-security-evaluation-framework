@@ -1,6 +1,6 @@
 # Paper 1 Start Here
 
-> 快速状态：父 W2/FU1 与 PILOT0 已按各自工程范围关闭；`OPTION_B` 已冻结，P1-R1 已作为协议框架验收。PILOT1 已人工验收为 `REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED`。PILOT2 A/B Round1 raw returns 与完整 Schema V2 包均不可变保存；owner 确认真实发放顺序保持 A Phase1 strict blindness。当前 A Phase1 已由 owner 报告完成并保留，B Phase1/B Phase2 的旧值映射缺陷已修复，A Phase2 已检查；只等 A2/B1/B2 三份更正表独立完成。formal agreement 与 adjudication 均未执行；240-group Pilot、Dataset freeze、Detector、Training 未推进；`FORMAL_EXPERIMENT = NOT STARTED`。
+> 快速状态：父 W2/FU1 与 PILOT0 已按各自工程范围关闭；`OPTION_B` 已冻结，P1-R1 已作为协议框架验收。PILOT1 已人工验收为 `REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED`。PILOT2 四份 targeted return 已 hash-lock 并通过 agreement 输入验证；A/B V2 formal agreement 已完成，发现 47 条 A/B 分歧与 37 条逻辑冲突，最小 owner packet 覆盖 26 个候选。当前是 `WAIT_FOR_OWNER_ADJUDICATION`；Ground Truth candidate 尚未生成，240-group Pilot、Dataset freeze、Detector、Training 未推进，`FORMAL_EXPERIMENT = NOT STARTED`。
 
 > 永久前瞻性候选门：`PODR-067 / OR-029` 要求以后新建/新引入候选的法律、政策、制度、标准主体在候选文本内唯一可识别；裸指代 fail closed 为 `BROKEN_CANDIDATE / MISSING_CONTEXT`。只向前生效，不改动现有 Pilot1/Pilot2 证据。
 
@@ -18,10 +18,11 @@
 - [S6.1-LR1 工作过程](stage_process/S6.1-LR1_work_process.md) — 路线与基线对齐，`HUMAN_ACCEPTED`。
 - [S6.1-R0 工作过程](stage_process/S6.1-R0_work_process.md) — 工程预检，`HUMAN_ACCEPTED_WITH_BLOCKERS`。
 - [S6.1-R0-FU1 工作过程](stage_process/S6.1-R0-FU1_work_process.md) — P0/L1/W2 已验收；FU1 仅以最小工程可行性范围关闭。
-- [S6.1-P1 工作过程](stage_process/S6.1-P1_work_process.md) — P1-R1、PILOT0、PILOT1 与 PILOT2 的唯一追加式过程；当前 Schema V2 复核包已准备，等待 A/B 人工执行。
+- [S6.1-P1 工作过程](stage_process/S6.1-P1_work_process.md) — P1-R1、PILOT0、PILOT1 与 PILOT2 的唯一追加式过程；当前等待 26-candidate owner adjudication。
 - [PILOT2 Return Owner Correction](s6_1_p1_pilot2_return_owner_correction.md) — 保留原错误登记与原推断，并以 owner-confirmed actual order supersede 盲法污染解释。
 - [PILOT2 Annotation Schema V2](s6_1_p1_pilot2_annotation_v2.md) — V2 字段/验证合同、四包身份、验证结果与精确人工下一门。
 - [PILOT2 Targeted Re-review](s6_1_p1_pilot2_targeted_rereview.md) — 问题字段审计、A/B 最小工作量、V1 映射 Correction 01、XLSX 保护与人工后续门。
+- [PILOT2 Post-Annotation](s6_1_p1_pilot2_post_annotation.md) — 四份 return 身份、V2 agreement、分歧分类与最小 owner adjudication gate。
 - [S6.1-P1-R1 协议强化候选](s6_1_p1_r1_protocol_review_candidate.md) — 已验收框架的来源候选；其中数值参数仍为 `PENDING_PILOT_EVIDENCE`，不取代研究方案权威。
 - [旧 S6.1-P1 协议候选](s6_1_p1_protocol_candidate.md) — 历史候选，已在候选层被 P1-R1 替代但不可删除或改写。
 

@@ -254,3 +254,13 @@ overall fact 的依赖链。
 一条文本在原网页、前后段或文件名中可能很清楚，但剪成候选后只剩“该条例”或“2017年版”时，标注人实际上在使用包外上下文猜测主体。这会把上下文缺失错记成事实冲突、证据不足或高隐蔽性，污染 agreement 与难度分布。
 
 正确的顺序是先做 candidate admission：显式记录候选中的主体 mention、canonical identity 和“是否可从本文本唯一识别”。只有通过后才进入事实与隐蔽性标注；否则固定为 `BROKEN_CANDIDATE / MISSING_CONTEXT`。对历史数据采用 prospective-only 是为了不伪造“从未出错”的历史，而不是声称历史样本已自动通过新门。
+
+## Agreement 要先分清“分歧”和“单人内部逻辑冲突”（2026-08-31）
+
+A/B 在同一字段给出不同 V2 值是 inter-annotator disagreement；同一标注人的 `present=NO` 却把 correctness 填成
+YES，或把 `LEGITIMATE_VERSION_OR_HISTORY` 配成 S2/S3，则是 intra-annotator schema-logic conflict。二者都可能阻塞
+Ground Truth，但不能混成一个 κ：前者进入字段 agreement，后者进入单独逻辑校验并交给 owner 判断。
+
+条件字段的 κ 只能在双方都认为适用的子集计算。高 exact agreement 与低/负 κ 也不矛盾：当类别极不平衡时，κ 会
+受 prevalence 强烈影响。因此 Pilot 报告必须同时给 total N、applicable N、presence disagreement、exact agreement、
+κ 和 small-N/prevalence warning，不能用单个 κ 决定标注质量。

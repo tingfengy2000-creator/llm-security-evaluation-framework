@@ -1086,3 +1086,21 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Prohibited inference: registration of this rule is not Dataset freeze, agreement, Ground Truth acceptance or Formal Experiment.
 - Canonical authority: [Paper 1 Research Plan Authority](../research/stage6_1_hidden_knowledge_poisoning/human/research_plan_authority.md)、
   `OR-029`、`REL-2026-0033`.
+
+## PODR-068: PILOT2 Post-Annotation Validation and Formal Agreement Approval
+
+- Date: `2026-08-31`.
+- Owner fact: A/B targeted Phase2 annotation is complete; A/B Phase1 declaration field `sample_id_changed` was misunderstood and
+  has the owner-confirmed effective value `NO`. Source XLSX values remain unchanged and the correction is derived process metadata.
+- Approval: execute `S6.1-P1-PILOT2-POST-ANNOTATION` for immutable return hashing, return validation, A/B V2 formal agreement,
+  disagreement classification and a disagreement-only owner packet. Do not request a third blanket annotation round.
+- V2 authority: each annotator's V2 re-review value supersedes that annotator's V1 value. A/B agreement compares V2 to V2; V1 is
+  history only. `[V1_ABSENT]` is not a disagreement or missing label by itself.
+- Conditional agreement: presence is compared on all 36 samples; correctness is compared only when both annotators set presence to
+  `YES`. Presence mismatch is `APPLICABILITY_DISAGREEMENT`.
+- Result: four returns validated for agreement with preserved non-semantic defects; 47 A/B disagreement records plus 37
+  schema-logic conflicts require owner adjudication across 26 candidate texts.
+- Gate: generate the minimal packet and stop at `WAIT_FOR_OWNER_ADJUDICATION`. Do not auto-adjudicate or generate Ground Truth.
+- Prohibited: raw-return mutation, Dataset freeze, Detector, Training, 5090, Formal Experiment, Paper Result or SOTA claim.
+- Canonical record: [PILOT2 Post-Annotation](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_pilot2_post_annotation.md)、
+  `OR-030`、`REL-2026-0034`.

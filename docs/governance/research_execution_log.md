@@ -1306,3 +1306,29 @@ Approval Gate、Auto Continue。
   as a new candidate or exclude failures.
 - Non-claims: no existing sample quality reclassification, Dataset freeze, agreement, Ground Truth, Detector, Training or experiment.
 - Auto Continue: `NO`.
+
+## REL-2026-0034 — PILOT2 Post-Annotation Validation and Formal Agreement
+
+- Record ID: `REL-2026-0034`.
+- Date: `2026-08-31`.
+- Stage / Task: `Stage 6.1 / Paper 1 / S6.1-P1-PILOT2-POST-ANNOTATION`.
+- Machine: `本机`; no 5090, model, GPU, Dataset, Detector, Training or Formal Experiment.
+- Owner approval: `PODR-068 / OR-030`; use A/B V2 current values, interpret both Phase1 `sample_id_changed` values as
+  owner-confirmed `NO` without rewriting the source workbooks, and avoid another blanket annotation round.
+- Input SHA256: A1 `9e301816...0424`; A2 `b7865999...5096`; corrected B1 `f4e1864e...2c8d`; B2
+  `0572a0c...0989d`. The unfilled 20260827 B1 package was excluded.
+- Return validation: four workbooks opened; record/sample identity and V2 legality passed; non-semantic V1-display, reason/header and
+  process-metadata defects were retained separately. `sample_id + field` matching removed row-order dependence.
+- Formal agreement: exact rates range from `55.6%` (`assigned_stealth_level`) to `97.2%` (`authority_claim_present`) on the full
+  subsets; conditional correctness uses both-present-YES subsets. `authority_matches` has applicable N=1 and κ is not interpretable.
+- Disagreement: 47 A/B V2 records plus 37 intra-annotator schema-logic conflicts; minimal packet has 84 issue rows covering 26
+  unique candidate texts.
+- Artifact: `LLMGuard-Handoff/paper1_pilot2_post_annotation_20260831`; owner workbook SHA256
+  `67081c0e3f7c32d42041ccc736316ed2f42fa979d417a76f577b4e90418d363a`; evidence index `11/11` verified.
+- Final Status: `FORMAL_AGREEMENT_V2 = COMPLETED_ON_A_B_V2_CURRENT_VALUES`;
+  `OWNER_ADJUDICATION = REQUIRED / NOT_EXECUTED`; `GROUND_TRUTH_CANDIDATE = NOT_GENERATED`.
+- Claims Allowed: return identity/validation, Pilot agreement statistics, disagreement counts and adjudication workload.
+- Claims Prohibited: adjudicated Ground Truth, Benchmark/Dataset freeze, detector/effectiveness, training, formal result or SOTA.
+- Next Gate: project owner completes only the 26-candidate packet; then LOCAL validates the adjudication before any Ground Truth
+  candidate is generated.
+- Auto Continue: `NO`.

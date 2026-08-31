@@ -248,3 +248,15 @@ Live Git and raw evidence override stale snapshot fields. Owner-confirmed requir
   5090 和 Formal Experiment 均未推进。
 - 下一门：A/B targeted Phase1 双 return hash-lock 后才发 targeted Phase2；四份 return 锁定后 STOP，等待 owner 另行
   批准 return validation/agreement。Auto Continue = `NO`。
+
+### Context Checkpoint — 2026-08-31 — S6.1-P1-PILOT2 Post-Annotation
+
+- PODR-068/OR-030 批准四份 targeted return 的 validation、A/B V2 agreement、disagreement classification 和最小 owner
+  packet；A/B Phase1 `sample_id_changed` 有效过程值均为 owner-confirmed `NO`，原 XLSX 不改。
+- 输入 SHA：A1 `9e301816...0424`、A2 `b7865999...5096`、corrected B1 `f4e1864e...2c8d`、B2
+  `0572a0c...0989d`；未填写的 20260827 B1 不作为 return。
+- Return validation 可进入 agreement，但保留 V1 mapping、blank reason/header 和 process-metadata non-semantic defects。
+- `FORMAL_AGREEMENT_V2 = COMPLETED_ON_A_B_V2_CURRENT_VALUES`；47 A/B disagreements + 37 schema-logic conflicts。
+- Git-external packet 有 84 issues / 26 candidates；workbook SHA `67081c0e...d363a`；index `11/11`。
+- 当前 `WAIT_FOR_OWNER_ADJUDICATION`；Ground Truth candidate 未生成；Dataset/Detector/Training/5090/Formal Experiment 未推进。
+  Auto Continue = `NO`。
