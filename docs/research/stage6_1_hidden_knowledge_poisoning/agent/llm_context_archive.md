@@ -260,3 +260,12 @@ Live Git and raw evidence override stale snapshot fields. Owner-confirmed requir
 - Git-external packet 有 84 issues / 26 candidates；workbook SHA `67081c0e...d363a`；index `11/11`。
 - 当前 `WAIT_FOR_OWNER_ADJUDICATION`；Ground Truth candidate 未生成；Dataset/Detector/Training/5090/Formal Experiment 未推进。
   Auto Continue = `NO`。
+
+### Context Checkpoint — 2026-08-31 — PILOT2 Adjudication Closure Blocker
+
+- Owner completion workbook SHA `cf47a6c3...dcb1`；84/84 issue 与 26/26 candidate 完成度 PASS；原 workbook 只读。
+- 四个 candidate 存在非法 enum 或同一字段相互冲突；最小 owner reconfirmation table 位于
+  `LLMGuard-Handoff/paper1_pilot2_closure_20260831`，index `5/5`。
+- 当前 `OWNER_ADJUDICATION_CONSISTENCY_BLOCKER / HUMAN_DECISION_REQUIRED`；只允许 owner 确认四个候选。
+- Ground Truth candidate 未生成；Pilot2 未关闭；Pilot3/Dataset/Detector/Training/5090/Formal Experiment 未推进；
+  Auto Continue = `NO`。

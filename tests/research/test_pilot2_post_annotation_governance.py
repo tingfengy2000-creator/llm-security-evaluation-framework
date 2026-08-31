@@ -40,8 +40,8 @@ def test_current_state_and_owner_decision_point_to_adjudication_gate() -> None:
     current = CURRENT.read_text(encoding="utf-8")
     owner = OWNER.read_text(encoding="utf-8")
 
-    assert "S6.1-P1-PILOT2-POST-ANNOTATION" in current
+    assert "S6.1-P1-PILOT2-ADJUDICATION-CLOSURE-AND-PILOT3-ENTRY" in current
     assert "FORMAL_AGREEMENT_V2: **COMPLETED_ON_A_B_V2_CURRENT_VALUES**" in current
-    assert "OWNER_ADJUDICATION: **REQUIRED / NOT_EXECUTED / 26_CANDIDATES / 84_ISSUES**" in current
+    assert "OWNER_ADJUDICATION: **COMPLETION_PASS / CONSISTENCY_FAIL" in current
     assert "PODR-068: PILOT2 Post-Annotation Validation and Formal Agreement Approval" in owner
     assert "Do not auto-adjudicate or generate Ground Truth" in owner

@@ -16,18 +16,18 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-P1-PILOT2-POST-ANNOTATION`.
-- Task name: `Pilot2 Targeted Return Validation, Formal Agreement and Owner Adjudication Gate`.
-- Task type: **LOCAL_RETURN_VALIDATION / FORMAL_AGREEMENT / DISAGREEMENT_CLASSIFICATION / NO_AUTOMATIC_ADJUDICATION / NO_FORMAL_EXPERIMENT**.
-- Status: **RETURN_VALIDATION_PASS_FOR_AGREEMENT_WITH_NON_SEMANTIC_DEFECTS / FORMAL_AGREEMENT_COMPLETED / 26_CANDIDATE_OWNER_ADJUDICATION_REQUIRED / AUTO_CONTINUE_NO**.
-- Execution base commit: `PILOT2_POST_ANNOTATION_BASE_COMMIT = da54d83fe9b8d1dee8bc00e6ab09f5346fa385d7`.
+- Task ID: `S6.1-P1-PILOT2-ADJUDICATION-CLOSURE-AND-PILOT3-ENTRY`.
+- Task name: `Pilot2 Owner Adjudication Ingestion, Ground Truth Closure and Pilot3 Detection Signal Feasibility Entry`.
+- Task type: **LOCAL_OWNER_ADJUDICATION_VALIDATION / FAIL_CLOSED_BEFORE_GROUND_TRUTH / NO_FORMAL_EXPERIMENT**.
+- Status: **OWNER_COMPLETION_PASS_84_OF_84_AND_26_OF_26 / OWNER_ADJUDICATION_CONSISTENCY_BLOCKER / 4_CANDIDATE_RECONFIRMATION_REQUIRED / HUMAN_DECISION_REQUIRED / AUTO_CONTINUE_NO**.
+- Execution base commit: `PILOT2_ADJUDICATION_CLOSURE_BASE_COMMIT = 54481eb740cab09c559524623b022385cd0f8c3b`.
 - Targeted package lineage base: `09aa7e65e95e10a657e44c2b31e23ec02bc4210b`.
 - Execution machine: **本机**. Immutable Round1 raw and the complete Schema V2 package remain hash-bound and unchanged；a field audit
   narrows human work to three Phase1 stealth fields, seven Phase2 fact/applicability fields and B-only process corrections.
-- Current ordered step: the four selected targeted returns are hash-locked and validated; A/B V2 agreement and disagreement
-  classification are complete. The minimal owner packet contains `84` issues covering `26` candidate texts. The project owner must
-  adjudicate those candidates before any Ground Truth candidate is generated. No automatic adjudication, Dataset freeze, Detector,
-  Training, 5090 contact or formal experiment occurs in this task.
+- Current ordered step: the completed owner workbook is hash-bound and all rows are filled, but four candidates contain an invalid
+  enum or conflicting final values. The project owner must confirm only those four candidates using the Git-external minimal blocker
+  table. Ground Truth construction, Pilot2 closure and Pilot3 entry remain stopped until a corrected owner evidence identity passes
+  the same validation. No Dataset freeze, Detector training, 5090 contact or formal experiment occurs.
 - Permanent prospective candidate gate (`PODR-067 / OR-029`): every annotation candidate created or newly introduced after
   `2026-08-28` must identify its legal/policy/institutional/standards subject unambiguously from the candidate text itself. Bare
   references such as “条例”、“规定”、“修订文本”、“2017年版” fail closed as `BROKEN_CANDIDATE / MISSING_CONTEXT` and must be
@@ -69,19 +69,20 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PODR-057` and `PODR-058`.
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
-- S6.1-P1: **PILOT2_OWNER_ADJUDICATION_GATE / NOT FORMAL_EXPERIMENT**.
+- S6.1-P1: **PILOT2_OWNER_ADJUDICATION_CONSISTENCY_BLOCKER / NOT FORMAL_EXPERIMENT**.
 - S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
 - S6.1-P1-PILOT1: **HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED**.
 - Historical S6.1-P1-PILOT1: **COMPLETED_PENDING_REVIEW / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY**；superseded by OR-024.
-- S6.1-P1-PILOT2: **TARGETED_RETURNS_VALIDATED / FORMAL_AGREEMENT_COMPLETED / OWNER_ADJUDICATION_REQUIRED**.
+- S6.1-P1-PILOT2: **TARGETED_RETURNS_VALIDATED / FORMAL_AGREEMENT_COMPLETED / OWNER_ADJUDICATION_CONSISTENCY_BLOCKER / NOT_CLOSED**.
 - PILOT2_ROUND1_RAW: **PRESERVED_IMMUTABLE**.
 - PILOT2_ROUND1: **PRESERVED_FOR_SCHEMA_V2_INDEPENDENT_REREVIEW**.
 - A_PHASE1_STRICT_BLINDNESS: **OWNER_CONFIRMED_PRESERVED**.
 - ANNOTATION_SCHEMA_V2: **IMPLEMENTED**.
 - A_B_REREVIEW: **FOUR_TARGETED_RETURNS_RECEIVED / HASH_LOCKED / VALIDATED_FOR_AGREEMENT**.
 - FORMAL_AGREEMENT_V2: **COMPLETED_ON_A_B_V2_CURRENT_VALUES**.
-- OWNER_ADJUDICATION: **REQUIRED / NOT_EXECUTED / 26_CANDIDATES / 84_ISSUES**.
+- OWNER_ADJUDICATION: **COMPLETION_PASS / CONSISTENCY_FAIL / 4_CANDIDATE_RECONFIRMATION_REQUIRED**.
 - GROUND_TRUTH_CANDIDATE: **NOT_GENERATED / BLOCKED_PENDING_OWNER_ADJUDICATION**.
+- PILOT3: **NOT_STARTED / BLOCKED_BY_PILOT2_OWNER_CONSISTENCY**.
 - ANNOTATION_MODE: **TWO_INDEPENDENT_ANNOTATORS_WITH_OWNER_ADJUDICATION**.
 - BLINDNESS_SUBISSUE: **RESOLVED_BY_OWNER_CONFIRMED_ACTUAL_DISTRIBUTION_ORDER**.
 - REGISTRATION_METADATA_SUBISSUE: **DOCUMENTED_AND_EVIDENCE_BOUND / ORIGINAL_METADATA_PRESERVED**.

@@ -264,3 +264,14 @@ Ground Truth，但不能混成一个 κ：前者进入字段 agreement，后者�
 条件字段的 κ 只能在双方都认为适用的子集计算。高 exact agreement 与低/负 κ 也不矛盾：当类别极不平衡时，κ 会
 受 prevalence 强烈影响。因此 Pilot 报告必须同时给 total N、applicable N、presence disagreement、exact agreement、
 κ 和 small-N/prevalence warning，不能用单个 κ 决定标注质量。
+
+## “全部已填”不等于“仲裁可执行”（2026-08-31）
+
+Owner packet 的 completeness gate 与 consistency gate 必须分开。每行都有值、rationale 和 INCLUDE，只能说明完成度；
+同一 candidate/field 在 disagreement 行与 logic-conflict 行可能仍选择不同值，或把
+`LEGITIMATE_VERSION_OR_HISTORY` 误填入 `assigned_stealth_level`。若直接按“最后一行覆盖”生成 Ground Truth，会把行顺序
+变成不可见的裁决规则并伪造 owner 意图。
+
+正确做法是先对每个 `candidate + field` 聚合全部 owner cells，精确校验字段枚举，再检查 conditional dependency 和
+fact/stealth 逻辑。冲突时只返回最小 candidate-level 确认表；不得重做 A/B，也不得依据多数、rationale 或 LOCAL 推荐值
+静默选择。

@@ -1,5 +1,17 @@
 # LLMGuard 项目总控文档
 
+## PILOT2 Owner Adjudication 一致性阻塞（2026-08-31）
+
+项目需求提出人批准 `S6.1-P1-PILOT2-ADJUDICATION-CLOSURE-AND-PILOT3-ENTRY`，但 Ground Truth 与 Pilot3 只能在 owner
+packet 完整且逻辑可执行后推进。完成版 owner workbook SHA256 为
+`cf47a6c3ffada717a2a0dee2b67d6b92ebfb6236d599fb8a4daf2957e292dcb1`；84/84 issue 与 26/26 candidate 均已填写，
+无 PENDING。
+
+只读验证发现 4 个候选仍有非法枚举或同字段冲突，故当前为
+`OWNER_ADJUDICATION_CONSISTENCY_BLOCKER / HUMAN_DECISION_REQUIRED / AUTO_CONTINUE_NO`。最小确认表位于
+`LLMGuard-Handoff/paper1_pilot2_closure_20260831`，index `5/5`。Ground Truth candidate 未生成，Pilot2 未关闭，
+Pilot3 未进入；Dataset、Detector、Training、5090 与 Formal Experiment 均未推进。
+
 ## PILOT2 Post-Annotation 一致性与仲裁门（2026-08-31）
 
 项目需求提出人通过 `PODR-068 / OR-030` 批准读取四份完成版 targeted return，按 A/B V2 current value 执行 return

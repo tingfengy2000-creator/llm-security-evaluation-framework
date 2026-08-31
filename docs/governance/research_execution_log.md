@@ -1332,3 +1332,22 @@ Approval Gate、Auto Continue。
 - Next Gate: project owner completes only the 26-candidate packet; then LOCAL validates the adjudication before any Ground Truth
   candidate is generated.
 - Auto Continue: `NO`.
+
+## REL-2026-0035 — PILOT2 Owner Adjudication Consistency Blocker
+
+- Record ID: `REL-2026-0035`.
+- Date: `2026-08-31`.
+- Stage / Task: `Stage 6.1 / Paper 1 / S6.1-P1-PILOT2-ADJUDICATION-CLOSURE-AND-PILOT3-ENTRY`.
+- Machine: `本机`; no 5090, model download, Ground Truth, Dataset, training or Formal Experiment.
+- Git preflight: unique research worktree; base `54481eb740cab09c559524623b022385cd0f8c3b`; clean; upstream `0/0`.
+- Owner evidence: exact workbook match; size `42,081` bytes; SHA256
+  `cf47a6c3ffada717a2a0dee2b67d6b92ebfb6236d599fb8a4daf2957e292dcb1`; read-only import/render; zero formula-error matches.
+- Completion: `84/84` issue rows contain final value/rationale/inclusion and `26/26` candidate rows are `RESOLVED` with inclusion;
+  residual PENDING `0`.
+- Blocker: four candidates retain invalid enum text or conflicting values for `locally_detectable`,
+  `version_relation_present` or `assigned_stealth_level`. LOCAL did not normalize or choose a value.
+- Evidence: `LLMGuard-Handoff/paper1_pilot2_closure_20260831`; minimal four-candidate CSV/JSON, binding, blocker manifest,
+  human summary and index `5/5`.
+- Final Status: `OWNER_ADJUDICATION_CONSISTENCY_BLOCKER / HUMAN_DECISION_REQUIRED`; Ground Truth candidate `NOT_GENERATED`;
+  Pilot2 `NOT_CLOSED`; Pilot3 `NOT_STARTED`; Auto Continue `NO`.
+- Next Gate: owner confirms only the four candidates, then LOCAL rebinds and repeats owner validation.

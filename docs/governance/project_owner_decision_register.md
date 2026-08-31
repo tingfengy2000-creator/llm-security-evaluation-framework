@@ -1104,3 +1104,21 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Prohibited: raw-return mutation, Dataset freeze, Detector, Training, 5090, Formal Experiment, Paper Result or SOTA claim.
 - Canonical record: [PILOT2 Post-Annotation](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_pilot2_post_annotation.md)、
   `OR-030`、`REL-2026-0034`.
+
+## PODR-069: PILOT2 Adjudication Closure and Conditional Pilot3 Entry Approval
+
+- Date: `2026-08-31`.
+- Owner decision: approve read-only ingestion and validation of the completed owner adjudication workbook; only after a full pass,
+  construct a Pilot-only Ground Truth candidate, audit and close Pilot2, then enter a local small-scale Pilot3 signal diagnostic.
+- Input correction boundary: never alter owner cells or silently resolve contradictions; an invalid or conflicting owner decision
+  stops Ground Truth and produces only a minimal owner reconfirmation table.
+- Observed execution result: all `84/84` issue rows and `26/26` candidate rows are filled, but four candidates contain invalid enum
+  text or conflicting owner final values. Status is therefore `OWNER_ADJUDICATION_CONSISTENCY_BLOCKER / HUMAN_DECISION_REQUIRED`.
+- Owner evidence SHA256:
+  `cf47a6c3ffada717a2a0dee2b67d6b92ebfb6236d599fb8a4daf2957e292dcb1`.
+- Current authorization boundary: owner may reconfirm only the four blocker candidates; LOCAL may then revalidate. Ground Truth,
+  Pilot2 closure and Pilot3 have not occurred.
+- Prohibited: A/B relabeling, automatic adjudication, 5090, 240-group data, Dataset freeze, large training, formal Detector or
+  intervention claim, Formal Experiment, Paper Result or SOTA claim.
+- Canonical evidence: [PILOT2 Adjudication Closure Attempt](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_pilot2_adjudication_closure.md),
+  `OR-031`, `REL-2026-0035`.
