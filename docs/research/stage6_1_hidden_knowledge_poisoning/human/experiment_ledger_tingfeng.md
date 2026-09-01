@@ -5,7 +5,7 @@
 Document Role = `PAPER1_PRIMARY_HUMAN_ENTRY`<br>
 Audience = `项目负责人 / 导师与领导 / 新团队成员`<br>
 Reading Path = `5 minutes / 15 minutes / 30 minutes`<br>
-Current Evidence Cut = `cad3b2b / Pilot4 second Owner preflight pending`<br>
+Current Evidence Cut = `Repair-02 / Pilot4 final Owner preflight pending`<br>
 Last Updated = `2026-09-01`
 
 > 这是一张“项目地图”，不是 raw evidence，也不产生新授权。读完第 0 节可掌握当前状态；读到第 8 节可理解论文方法；
@@ -19,17 +19,17 @@ Last Updated = `2026-09-01`
 | 英文论文题目 | *Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework* |
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
-| 当前阶段 | ⏳ Pilot4 已完成定向修复，正在等待第二次项目负责人预审；仍是预标注阶段。 |
-| 当前任务 | `GOV-P1-HUMAN-DOCS-INTEGRATION-01`：整合人类总规划、总账和人机文档分层；不改变实验。 |
-| 当前完成度 | ✅ `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`，Pilot0–2 可行性门完成；🧪 Pilot3 信号诊断完成；🔧 Pilot4 的 72 条平衡候选已修复；正式数据、Detector 和正式实验均未开始。 |
-| 当前唯一人工动作 | 项目负责人审查 repaired 12-row Pilot4 second Owner preflight。 |
-| 当前主要 blocker | ⏳ 第二次 Owner preflight 尚未给出 PASS/targeted repair 决定；因此不能发 A/B，更不能进入 240-group。 |
-| 已经可以说什么 | Pilot4 的 72 条候选在工程层完成定向语义/证据路径修复与独立 QA；五视角 diagnostic framework 可运行，并暴露了数据与信号失败模式。 |
+| 当前阶段 | ⏳ Pilot4 Repair-02 已完成，等待最终项目负责人预审；仍是预标注阶段。 |
+| 当前任务 | `S6.1-P1-PILOT4-PREANNOTATION-TARGETED-REPAIR-02`：最终人工发放前定向修复。 |
+| 当前完成度 | ✅ `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`，Pilot0–2 可行性门完成；🧪 Pilot3 信号诊断完成；🔧 Pilot4 final 72 与 16-row Owner workbook 已准备；正式数据、Detector 和正式实验均未开始。 |
+| 当前唯一人工动作 | 项目负责人审查 `pilot4_owner_preflight_final.xlsx` 的 16 行。 |
+| 当前主要 blocker | ⏳ 最终 Owner preflight 尚未确认无 SYSTEMIC_BLOCKER；因此不能发 A/B，更不能进入 240-group。 |
+| 已经可以说什么 | Pilot4 Repair-02 的 72 条候选在工程层通过 genuine-S3、自然 S1、实际长度、模板/HN/来源/parity 与独立 QA；不代表人工有效性。 |
 | 绝对不能说什么 | 不得说 Pilot4 已接受、A/B 已开始、72 条已有 Ground Truth、240-group 已生成、Dataset 已冻结、Formal Detector 已实现、检测有效或 Paper Result 已形成。 |
 
 当前实验状态固定为：
 
-`PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION`
+`PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW / NO_HUMAN_DISTRIBUTION`
 
 状态的动态权威入口是 [Current Work State](../../../governance/current_work_state.md)。
 
@@ -234,6 +234,7 @@ Retriever
 | Pilot4 first preflight | 人工发放前低成本检查 | 24 triplets/72 candidates/12-row sample | lessons + public sources | 首版 package | 📌 历史：退回修复 | Owner 指出缺陷 | targeted repair | [P1 process](../stage_process/S6.1-P1_work_process.md) |
 | Pilot4 targeted repair | 修复实质缺陷 | 语义、stealth、echo、applicability、独立 QA | 首版与 owner feedback | repaired 72 + second sample | 🔧 已完成 | 修复验证通过 | second preflight | [Current State](../../../governance/current_work_state.md) |
 | Pilot4 second Owner preflight | 决定能否发人 | Owner 审查 repaired 12 rows | repaired workbook | PASS 或 targeted repair | ⏳ 当前唯一动作 | Owner 明确决定 | A/B 或修复 | [Current State](../../../governance/current_work_state.md) |
+| Pilot4 Repair-02 final preflight | 关闭第二轮系统性缺陷 | Owner 审查 final 16 rows | genuine-S3/S1/length/template/HN evidence | PASS 或 candidate-local correction | ⏳ 当前唯一动作 | Owner 明确决定 | 单独批准 A/B 或局部修正 | [Current State](../../../governance/current_work_state.md) |
 | Pilot4 A/B 72 annotation | 获得独立人工判断 | Phase1/2、双锁定 | Owner-accepted package | 四份 returns | 📌 未批准/未开始 | returns hash-lock | agreement | [Lessons](annotation_lessons_learned_and_future_dataset_rules.md) |
 | Pilot4 agreement | 量化一致性 | 合法子集 agreement | A/B returns | agreement/disagreement | 📌 未开始 | 逻辑/一致性验证 | adjudication | [Lessons](annotation_lessons_learned_and_future_dataset_rules.md) |
 | Pilot4 adjudication | 解决必要分歧 | Owner 只裁决分歧 | minimal packet | 唯一决定 | 📌 未开始 | residual inconsistency=0 | GT | [P1 process](../stage_process/S6.1-P1_work_process.md) |
@@ -351,33 +352,34 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 | 2026-09-01 | Pilot4 | applicability metadata | 适用性由 metadata 意图而非 claim 推导 | claim-derived applicability | ✅ RESOLVED IN REPAIR | [Execution log](../../../governance/research_execution_log.md) |
 | 2026-09-01 | Pilot4 | builder-declared PASS | 构造器自报通过，未验证序列化产物 | independent G1–G14 + Round D | ✅ RESOLVED IN REPAIR | [Execution log](../../../governance/research_execution_log.md) |
 | 2026-09-01 | Pilot4 | HN evidence weakness | 困难负例证据链过弱 | source-fact reverse check | ✅ RESOLVED IN REPAIR | [Execution log](../../../governance/research_execution_log.md) |
-| 2026-09-01 | Pilot4 | targeted repair acceptance | 工程修复完成但尚无人工作出接受决定 | second Owner preflight | ⏳ WAITING | [Current State](../../../governance/current_work_state.md) |
+| 2026-09-01 | Pilot4 | Repair-01 acceptance | 第二次预审发现 S3 necessity、S1 cue、实际长度、模板与 HN 语义问题 | Repair-02 | ✅ SUPERSEDED BY FINAL REPAIR | [Execution log](../../../governance/research_execution_log.md) |
+| 2026-09-01 | Pilot4 | final preannotation acceptance | Repair-02 工程门完成但尚无人工作出接受决定 | final 16-row Owner preflight | ⏳ WAITING | [Current State](../../../governance/current_work_state.md) |
 
 ## 14. 当前项目状态
 
-- `PILOT4_BALANCED_SET_REPAIRED`
-- `READY_FOR_SECOND_OWNER_PREFLIGHT`
+- `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW`
 - `PREANNOTATION_ONLY`
 - `NO_HUMAN_DISTRIBUTION`
 - 72 repaired candidates 已存在；仍非 Ground Truth、非 Formal Benchmark、非 frozen Dataset。
 - class intent 为 Clean / Poison / Hard Negative = `24/24/24`。
 - 生成覆盖为 `4 HKP × 3 intended-S × 2 replication = 24 poison cells`，对应 24 matched triplets。
-- repaired 12-row second Owner preflight 正在等待人工审查。
+- final 16-row Owner preflight 正在等待人工审查。
 - A/B 未开始；72 Ground Truth 未建立；240-group 未开始；Dataset = `NOT FROZEN`（未冻结）。
 - Formal Detector = `NOT IMPLEMENTED`（未实现）；Formal Experiment = `NOT STARTED`（未开始）；Our Method Result = `NONE`。
 
-当前 Git 修复身份为 `cad3b2b2c19dcef6c118e4163f705b3ec05713e1`；动态 Git 事实每次任务都需重新验证。
+Repair-02 当前 Git 身份与远端同步状态必须动态核验；`cad3b2b2c19dcef6c118e4163f705b3ec05713e1` 作为第二轮不可变
+历史身份保留。
 
 ## 15. 当前下一步
 
-唯一当前动作：**Owner reviews repaired 12-row Pilot4 second preflight**。
+唯一当前动作：**Owner reviews final 16-row Pilot4 Repair-02 preflight**。
 
 ```text
-Second Owner Preflight
+Final Owner Preflight
   ├─ PASS
   │    -> 另行批准 A/B 72 annotation（不会自动开始）
   └─ FAIL
-       -> 只做明确指出的 targeted repair
+       -> 只做明确指出的 candidate-local correction；新 SYSTEMIC_BLOCKER 则停止
 
 未来在独立审批下：
 A/B -> agreement -> adjudication -> 72 GT
@@ -453,4 +455,4 @@ index 和 Owner 对 claims 的接受。
 | 人类/机器/证据如何分层 | [Documentation Separation Contract](../documentation_separation_contract.md) |
 | 为什么本轮不移动文件 | [Document Inventory](../document_inventory.md) |
 
-> STOP：本页更新不接受 Pilot4，不分发 A/B，不启动 240-group、Detector、训练、5090 或 Formal Experiment。
+> STOP：Repair-02 只准备最终 16-row Owner review；不接受 Pilot4，不分发 A/B，不启动 240-group、Detector、训练、5090 或 Formal Experiment。

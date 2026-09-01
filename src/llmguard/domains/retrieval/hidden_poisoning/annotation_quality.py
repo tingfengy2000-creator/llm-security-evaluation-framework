@@ -134,7 +134,16 @@ def blind_cold_reader(candidate_text: str, visible_context: str) -> Mapping[str,
 
     del visible_context
     subject_matches = re.findall(r"《[^》]{2,80}》", candidate_text)
-    subject_unique = len(set(subject_matches)) == 1
+    unique_subjects = set(subject_matches)
+    explicit_relation = bool(
+        re.search(r"与|和|两者|分别|同时|联合|衔接|转载|承载", candidate_text)
+    )
+    # A cross-document proposition may legitimately name two or three documents.
+    # It remains self-contained only when their relationship is explicit; a bare
+    # list of document titles is still rejected.
+    subject_unique = len(unique_subjects) == 1 or (
+        2 <= len(unique_subjects) <= 3 and explicit_relation
+    )
     bare = bool(_BARE_REFERENCE.search(candidate_text.strip()))
     fact_recoverable = bool(
         re.search(

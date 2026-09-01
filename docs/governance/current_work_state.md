@@ -16,19 +16,19 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `GOV-P1-HUMAN-DOCS-INTEGRATION-01`.
-- Task name: `Paper 1 Human-readable Research Plan, Experiment Ledger and Human-Agent Documentation Separation`.
-- Task type: **DOCUMENTATION_STRUCTURE_AND_CONTEXT_INTEGRATION / NO_EXPERIMENT_STATE_CHANGE**.
-- Documentation status: **COMPLETED / EXPERIMENT_STATE_UNCHANGED**.
-- Experiment status: **PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY /
-  NO_HUMAN_DISTRIBUTION / AUTO_CONTINUE_NO**.
+- Task ID: `S6.1-P1-PILOT4-PREANNOTATION-TARGETED-REPAIR-02`.
+- Task name: `Pilot4 Genuine-S3 Construction, S1 Shortcut Removal, Length Validation and Final Owner Preflight`.
+- Task type: **TARGETED_PREANNOTATION_REPAIR / LOCAL_ONLY / NO_HUMAN_DISTRIBUTION**.
+- Engineering status: **COMPLETED / FINAL OWNER REVIEW PENDING**.
+- Experiment status: **PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW / NO_HUMAN_DISTRIBUTION /
+  PREANNOTATION_ONLY / AUTO_CONTINUE_NO**.
 - Execution base commit: `PILOT2_OWNER_CORRECTION_BASE_COMMIT = 0b61e0124b1fb75f1a864132da41ce6a0fcbc3fc`.
 - Targeted package lineage base: `09aa7e65e95e10a657e44c2b31e23ec02bc4210b`.
 - Execution machine: **本机**. Immutable Round1 raw and the complete Schema V2 package remain hash-bound and unchanged；a field audit
   narrows human work to three Phase1 stealth fields, seven Phase2 fact/applicability fields and B-only process corrections.
-- Current ordered step: documentation integration preserves the repaired Pilot4 state and exposes it through a 5/15/30-minute
-  human master, research authority, structured agent ledger and routed README. The original `a843697` package remains immutable;
-  repair identity is `cad3b2b2c19dcef6c118e4163f705b3ec05713e1`. No A/B distribution occurs.
+- Current ordered step: Owner reviews the 16-row `pilot4_owner_preflight_final.xlsx`. The original `a843697` package and the
+  second-preflight `cad3b2b2c19dcef6c118e4163f705b3ec05713e1` package remain immutable failed-but-useful history; Repair-02 is a new
+  additive evidence namespace. No A/B distribution occurs.
 - Historical completed task identity: `S6.1-P1-PILOT2-ADJUDICATION-CLOSURE-AND-PILOT3-ENTRY` closed Pilot2 feasibility and
   established the Pilot3 diagnostic baseline; the immutable closure history remains governed by `PODR-070 / OR-032`.
 - Permanent prospective candidate gate (`PODR-067 / OR-029`): every annotation candidate created or newly introduced after
@@ -72,7 +72,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PODR-057` and `PODR-058`.
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
-- S6.1-P1: **PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY /
+- S6.1-P1: **PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW / PREANNOTATION_ONLY /
   NO_HUMAN_DISTRIBUTION / NOT FORMAL_EXPERIMENT**.
 - S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
 - S6.1-P1-PILOT1: **HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED**.
@@ -88,7 +88,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - GROUND_TRUTH_CANDIDATE: **GENERATED / 36_RECORDS / PILOT_ONLY / NOT_FORMAL_DATASET**.
 - PILOT3: **ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY / STOPPED**.
 - Historical PILOT4 first preflight: **OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / a843697 EVIDENCE PRESERVED**.
-- PILOT4: **PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION**.
+- Historical PILOT4 second preflight: **SECOND_OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / cad3b2b EVIDENCE PRESERVED**.
+- PILOT4: **PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION**.
 - PILOT4 candidates: **72 PREANNOTATION_CANDIDATES / NOT GROUND TRUTH / NOT FORMAL BENCHMARK / NOT FROZEN DATASET**.
 - PAPER1_FORMAL_DOMAIN_SET: **OWNER_CONFIRMED / ENTERPRISE_HR / FINANCE / INFORMATION_SECURITY /
   PROCUREMENT_AND_R_AND_D / EDUCATION_AND_RESEARCH**.
@@ -251,7 +252,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
 - Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
   evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- Next operational action: owner performs the second `PILOT4_OWNER_PREFLIGHT` on the repaired 12-row stratified sample and either accepts the
+- Next operational action: owner performs the final `PILOT4_OWNER_PREFLIGHT` on the Repair-02 16-row stratified sample and either accepts the
   preannotation design, requests a targeted correction, or rejects it. Acceptance still does not distribute to A/B; human
   annotation requires a separate explicit approval. No automatic 240-group scale-up, Dataset freeze, formal Detector, training,
   5090 or Formal Experiment is authorized.
@@ -303,8 +304,10 @@ rewriting the workbook. The Pilot-only Ground Truth contains 36 executable recor
 Pilot2 is closed only for annotation-protocol and Ground-Truth feasibility. A deterministic CPU-only Pilot3 generated 180 separated
 five-view signal records; this establishes engineering/signal diagnostic execution, not detector effectiveness.
 
-Can claim: Pilot4 targeted repair produced 72 balanced preannotation candidates with 24/24/24 class intent and a repaired 12-row
-second Owner preflight. The five-domain Paper 1 set and 240-group matrix are owner-confirmed future planning structures only.
+Can claim: Pilot4 Repair-02 produced 72 balanced preannotation candidates with 24/24/24 class intent, genuine evidence-necessity
+contracts for eight S3 poison candidates, S1 text without explicit diagnostic cues, actual visible-length compliance, six Hard
+Negative subtypes ×4, and a final 16-row Owner preflight. This is engineering preannotation readiness only. The five-domain Paper 1
+set and 240-group matrix are owner-confirmed future planning structures only.
 
 Cannot claim: the two-document smoke reproduces GMTP；its two scores establish detector effectiveness, calibration, safety,
 generalization or a paper metric；any
@@ -322,7 +325,7 @@ are established.
 ## Last Update
 
 - Date: `2026-09-01`.
-- Updated by: 本机 implementing `PODR-073 / OR-035 / REL-2026-0039`. This is documentation/context integration only. Pilot4
-  remains repaired and pending second Owner preflight; its candidates, workbooks and evidence remain unchanged. Dataset freeze,
+- Updated by: 本机 implementing `PODR-074 / OR-036 / REL-2026-0040`. Pilot4 Repair-02 is ready for final Owner review but is not
+  accepted and has not been distributed. The `a843697` and `cad3b2b` evidence trees remain immutable. Dataset freeze,
   240-group execution, formal Detector/Training, 5090, Formal Experiment and Paper Result remain unapproved/unstarted;
   Auto Continue = `NO`.

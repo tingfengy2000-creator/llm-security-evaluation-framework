@@ -1193,3 +1193,19 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Canonical records: [Human Ledger](../research/stage6_1_hidden_knowledge_poisoning/human/experiment_ledger_tingfeng.md),
   [Research Plan Authority](../research/stage6_1_hidden_knowledge_poisoning/human/research_plan_authority.md), `OR-035`,
   `REL-2026-0039`.
+
+## PODR-074: Pilot4 Second Preflight Return and Final Preannotation Repair
+
+- Date: `2026-09-01`.
+- Owner decision: the second Pilot4 Owner preflight is `TARGETED_REPAIR_REQUIRED`; do not accept Pilot4 and do not distribute A/B.
+- Preservation: keep the first `a843697` preflight and the second `cad3b2b` preflight plus both Git-external evidence trees immutable.
+- Approved Repair-02: replace evidence-count S3 with genuine joint-evidence necessity; remove explicit S1 diagnostic commentary; enforce
+  actual 35–70 / 71–140 / 141–240 final visible lengths; remove cross-group boilerplate; align all Hard Negative subtype/text/source
+  semantics; preserve non-target claim parity; run a Phase1-only human-text sanity validator.
+- Final review artifact: 16 rows = one Poison per HKP×S cell, two Clean and two matched Hard Negative, with S3 contribution and
+  single-evidence-insufficiency details visible only to Owner.
+- Current status: `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW / NO_HUMAN_DISTRIBUTION`; this is not acceptance.
+- Prohibited: automatic A/B package/distribution, agreement, adjudication, Ground Truth, 240-group, Dataset freeze, formal Detector,
+  Training, 5090, Formal Experiment, Paper Result or SOTA claim.
+- Evidence and synchronization: `OR-036`, `REL-2026-0040`; Git-external namespace
+  `paper1_pilot4_preannotation_repair02_20260901`. Auto Continue `NO`.

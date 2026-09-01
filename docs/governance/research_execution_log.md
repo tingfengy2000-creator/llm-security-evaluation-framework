@@ -1436,3 +1436,24 @@ Approval Gate、Auto Continue。
 - Experiment status unchanged: `PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY /
   NO_HUMAN_DISTRIBUTION`.
 - Next gate: Owner reviews repaired 12-row Pilot4 second preflight. Auto Continue `NO`.
+
+## REL-2026-0040 — PILOT4 Final Preannotation Repair and Final Owner Preflight
+
+- Record ID: `REL-2026-0040`; date `2026-09-01`; task `S6.1-P1-PILOT4-PREANNOTATION-TARGETED-REPAIR-02`; machine `本机`.
+- Owner authority: `PODR-074 / OR-036`; second Owner preflight is `TARGETED_REPAIR_REQUIRED`. The `a843697` first preflight and
+  `cad3b2b2c19dcef6c118e4163f705b3ec05713e1` second preflight plus both external trees remain immutable.
+- Repairs: eight S3 poison candidates now require two distinct verified evidence units and joint inference; eight S1 candidates
+  contain natural internal conflict without diagnostic commentary; final Phase1-visible length is enforced from text; cross-group
+  sentence/template overlap, HN semantic alignment, source binding and non-target claim parity fail closed.
+- Construction: 24 matched triplets / 72 candidates, class intent `24/24/24`; 24 independence groups; each of 12 HKP×S cells has
+  2 poison candidates; six Hard Negative subtypes each have 4; computed length contains 8 triplets per band with actual ranges
+  SHORT `36–65`, MEDIUM `73–100`, LONG `143–165`.
+- QA: task-scoped Pilot4 tests `46 passed`; scoped Ruff and MyPy PASS; G1–G14 `72/72`; Round D `24/24`; S3 necessity `8/8`;
+  S1 cue gate `8/8`; source units all verified; cross-group sentence/ngram, duplicate/leakage and secret findings `0`; workbook
+  formula scan `0`; four sheets rendered and visually reviewed.
+- Artifact: additive Git-external `paper1_pilot4_preannotation_repair02_20260901`; manifest `22/22`, SHA256
+  `47a4f400e1516e489d59296d822bf0af43c5a3cf7313d1b6afb761810adfbe0d`; final Owner workbook has 16 rows and SHA256
+  `7b5cbc19e6dd17c8b3d8dc0a172b370a7d617d43f9ab8548ebbbc4d5e8827cc2`.
+- Final status: `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW / NO_HUMAN_DISTRIBUTION`; not accepted; no A/B, Ground Truth,
+  240-group, Dataset freeze, Detector/Training, 5090, Formal Experiment or Paper Result.
+- Next gate: Owner reviews all 16 final-preflight rows. Auto Continue `NO`.

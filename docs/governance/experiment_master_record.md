@@ -54,14 +54,14 @@
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
 | 当前最高完成阶段 | S6-T5 Controlled Retrieval and Traceable Context Baseline 已 `HUMAN_ACCEPTED BASELINE`；S6.1-LR1 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`。 |
-| 当前任务 | `GOV-P1-HUMAN-DOCS-INTEGRATION-01 = DOCUMENTATION_STRUCTURE_AND_CONTEXT_INTEGRATION`；实验状态保持 Pilot4 repaired。 |
-| 当前审批门 | owner reviews repaired 12-row Pilot4 second preflight；不得从文档任务推断 Pilot4 acceptance。 |
+| 当前任务 | `S6.1-P1-PILOT4-PREANNOTATION-TARGETED-REPAIR-02 = FINAL_PREANNOTATION_REPAIR`。 |
+| 当前审批门 | owner reviews final 16-row Pilot4 Repair-02 preflight；不得推断 Pilot4 acceptance 或 A/B distribution。 |
 | 下一批准任务 | none automatically；A/B 72 annotation、240-group、Dataset、Formal Detector、Training 和 Formal Experiment remain closed。 |
 | Baseline tag | annotated `s6-t5-rag-baseline-v1` 已恢复；本地/远端 peeled target 均核验为 `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
 | 最近工程验证 | H2 resume_02 archive SHA/safety/index `25/25`, H2-A `18/18`, exact local-model CUDA load, single-call and resource evidence passed Control Plane review。 |
-| 当前主要阻塞项 | Pilot4 second Owner preflight pending；formal protocol numeric parameters、Scale Pilot、Dataset 和 method effectiveness 均未冻结。 |
-| 当前允许宣称 | Pilot4 72 balanced preannotation candidates 已完成 targeted engineering repair；五视角 diagnostic framework 可运行；不代表 Detector effectiveness。 |
+| 当前主要阻塞项 | Pilot4 final Owner preflight pending；formal protocol numeric parameters、Scale Pilot、Dataset 和 method effectiveness 均未冻结。 |
+| 当前允许宣称 | Pilot4 Repair-02 72 balanced preannotation candidates 已通过最终工程门并生成 16-row Owner sample；不代表人工接受、Ground Truth 或 Detector effectiveness。 |
 | 当前禁止宣称 | GMTP reproduction/effectiveness/safety/generalization、strict baseline comparison、P1/formal experiment or paper result。 |
 
 历史审批快照补充：S6-T5.5/5.6/5.7 已按后续记录完成并通过相应人工验收；早期 pending/NOT APPROVED 文字保留为
@@ -134,7 +134,8 @@
 | S6.1-P1-PILOT4-PREANNOTATION | Pilot4 Signal Repair, Balanced Diagnostic Set and Pre-annotation Quality Gate | canonical lessons；field/candidate gates；structured signals；24 matched triplets / 72 candidates / 48 queries；four-round QA | historical first preflight returned for targeted repair；original evidence preserved | `HISTORICAL / OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR` | [future dataset rules](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md)、PODR-071、OR-033、REL-2026-0037；Git-external manifest 22/22 | superseded by targeted repair row |
 | S6.1-P1-PILOT4-PREANNOTATION-TARGETED-REPAIR-01 | Pilot4 semantic/evidence-path targeted repair | repair mutation semantics、stealth path、echo/meta-language、visibility、applicability、G1–G14、Round D and HN evidence | repaired 72 + second 12-row Owner sample；no human distribution | `PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY` | `cad3b2b2`、PODR-072、OR-034、REL-2026-0038；Git-external repair manifest | Owner second preflight only |
 | GOV-P1-HUMAN-DOCS-INTEGRATION-01 | Paper 1 Human/Agent/Evidence Documentation Integration | human master、research authority、agent ledger、navigation、inventory、five formal domains | documentation only；experiment state unchanged | `DOCUMENTATION_STRUCTURE_AND_CONTEXT_INTEGRATION` | PODR-073、OR-035、REL-2026-0039 | current experiment gate remains second Owner preflight |
-| Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | LR1/R0/FU1 accepted；P1-R1 framework accepted；Pilot4 repaired/preannotation；formal work not started | `PILOT_IN_PROGRESS / NOT_FORMAL_EXPERIMENT` | [长期需求](long_term_research_requirements.md) | Pilot4 second Owner preflight |
+| S6.1-P1-PILOT4-PREANNOTATION-TARGETED-REPAIR-02 | Pilot4 genuine-S3, S1-shortcut, actual-length and final-preflight repair | evidence necessity、natural S1 contradiction、final visible length、template diversity、HN semantics、source/parity/Phase1-only validation | final 72 + 16-row Owner workbook；no human distribution | `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW / NO_HUMAN_DISTRIBUTION` | PODR-074、OR-036、REL-2026-0040；Git-external manifest 22/22 | Owner final preflight only |
+| Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | LR1/R0/FU1 accepted；P1-R1 framework accepted；Pilot4 Repair-02 final preannotation；formal work not started | `PILOT_IN_PROGRESS / NOT_FORMAL_EXPERIMENT` | [长期需求](long_term_research_requirements.md) | Pilot4 final 16-row Owner preflight |
 | Stage 6.2 | Multi-Evidence Trustworthy Retrieval | 可信聚合、重排、拒答 | 规划中 | `PLANNED` | [长期需求](long_term_research_requirements.md) | Stage 6.1/设计批准 |
 | Stage 7 | Agent Security Evaluation | Tool/Memory/Planning 安全 | 规划中 | `PLANNED` | [Stage 7 README](../../stages/stage7_agent_security/README.md) | Trusted Context 契约 |
 
@@ -369,6 +370,7 @@ description/final_resolution 中，但不能代替 status。**WORKAROUND is not 
 | GATE-S6.1-P1-CANDIDATE | Historical Paper 1 formal protocol and Benchmark specification candidate | RQ1-5, schema, HKP/S, hard negatives, five views, Tracks, metrics, statistics, evidence/resource/license and detox A/B/C | `CONTRACT_CANDIDATE / SUPERSEDED_AT_CANDIDATE_LEVEL_BY_P1-R1` | preserved as historical design input | Dataset、Detector、Training、Formal Experiment、Paper Result | PODR-061 historical gate |
 | GATE-S6.1-P1-R1 | P1 protocol hardening and Option B scope freeze | owner-confirmed Option B；RQ1-6；group-aware Benchmark/splits；field visibility；baseline fairness；safety/utility co-primary outcomes；statistics、Pilot、resource、evidence、license and 20 entry conditions | `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK` | numeric parameters and formal freeze remain separate | Dataset freeze、Detector/Retrieval Intervention implementation、Training、Formal Experiment、Paper Result | 项目负责人 / PODR-062 |
 | GATE-S6.1-P1-PILOT4-SECOND-PREFLIGHT | repaired Pilot4 preannotation review | repaired 12-row sample；mutation/stealth/echo/visibility/applicability/G1–G14/Round D evidence | `READY_FOR_SECOND_OWNER_PREFLIGHT / NO_HUMAN_DISTRIBUTION` | owner accepts or requests targeted repair；PASS still needs separate A/B approval | automatic A/B、agreement、GT、240-group、Dataset freeze、Detector/Training、5090、Formal Experiment | 项目负责人 / PODR-072 |
+| GATE-S6.1-P1-PILOT4-FINAL-PREFLIGHT | Repair-02 final Pilot4 preannotation review | 16-row sample；genuine S3 necessity、natural S1、actual length、template/HN/source/parity、G1–G14/Round D evidence | `READY_FOR_OWNER_REVIEW / NO_HUMAN_DISTRIBUTION` | owner confirms no systemic blocker or requests candidate-local correction | automatic A/B、agreement、GT、240-group、Dataset freeze、Detector/Training、5090、Formal Experiment | 项目负责人 / PODR-074 |
 | GATE-S6.1-R0-FU1-W2-CORRECTION-02 | Command-derived disk measurement evidence | archive SHA `fcfa3f...3622`, safe `17/17`, GNU `du 9.4`, raw streams/exits/counts/no-mutation, materiality `11/11` | `CONTROL_PLANE_REVIEW_PASS / FINAL_CLOSURE_APPLIED` | historical evidence blocker closed | rerun/repackaging churn、GMTP/model load、P1/formal experiment | RTX5090 evidence；Control Plane accepted |
 
 **当前审批顺序**：既有 S6-T5 验收历史保持不变；S6.1-LR1、Context Recovery、Paper-First 和 current route 已接受；
@@ -382,7 +384,7 @@ the historical evidence blocker is resolved；H1 artifacts are verified on 5090�
 H2-B not executed/call_count zero；resume_02 is `CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED` with the
 single H2-B authorization consumed。Option B is confirmed at scope level；P1-R1 is
 `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK` with numeric/formal freezes open。Pilot0–2 feasibility gates are closed，Pilot3 is
-diagnostic only，and Pilot4 is repaired/preannotation pending second Owner preflight。A/B 72 annotation、240-group、Dataset、
+diagnostic only，and Pilot4 Repair-02 is final-preannotation pending Owner review。A/B 72 annotation、240-group、Dataset、
 Formal Detector、Retrieval Intervention effectiveness、training and formal RAG experiment remain unapproved/not started。
 
 ## 15. 当前结论边界
@@ -591,3 +593,4 @@ git log -15 --oneline
 | 2026-09-01 | PILOT4 balanced preannotation and signal repair | 第 2、4、12、14、15、20 节 | 冻结 canonical lessons；实现 field-schema/G1-G14/near-duplicate/structured signal contracts；构造 24 triplets、72 candidates、48 queries；四轮 QA 与 12-row Owner sample | [future dataset rules](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md)、PODR-071、OR-033、REL-2026-0037、Git-external manifest 22/22 | `READY_FOR_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION`；no Ground Truth/Dataset freeze/Detector/5090/Formal Experiment |
 | 2026-09-01 | PILOT4 targeted repair and second Owner preflight | 第 2、4、12、14、15、20 节 | 保留 a843697 首轮失败历史；按 mutation semantics/evidence path 重建候选；分离 Phase1/Phase2/owner；独立重载重算 G1--G14 与 Round D；生成新 12-row workbook | [future dataset rules](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md)、PODR-072、OR-034、REL-2026-0038、Git-external repair manifest | `READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION`；not accepted；no A/B/Ground Truth/freeze/training/5090/formal experiment |
 | 2026-09-01 | Paper 1 human documentation integration | 第 2、4、12、14、15、20 节 | 建立 0–19 人类总规划/总账、Research Authority 与 Agent ledger 同步、README 第一屏路由、文档清单和人机证据分层；Owner 确认未来正式五领域与 `5×4×3×4=240` scale structure | [human ledger](../research/stage6_1_hidden_knowledge_poisoning/human/experiment_ledger_tingfeng.md)、PODR-073、OR-035、REL-2026-0039 | `DOCUMENTATION_STRUCTURE_AND_CONTEXT_INTEGRATION` only；Pilot4 experiment status unchanged；240 groups/约720 records not executed/generated/frozen |
+| 2026-09-01 | PILOT4 final preannotation repair | 第 2、4、12、14、15、20 节 | 保留前两轮 Owner preflight；重构八个 genuine-S3；删除 S1 明示捷径；按最终文本执行长度门；去模板 padding；修复 HN 与来源/非目标 parity；重建 final 72 与 16-row Owner workbook | [future dataset rules](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md)、PODR-074、OR-036、REL-2026-0040、Git-external manifest `22/22` | `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW / NO_HUMAN_DISTRIBUTION`；not accepted；no A/B/GT/freeze/training/5090/formal experiment |

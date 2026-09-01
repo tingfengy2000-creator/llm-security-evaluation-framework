@@ -126,3 +126,21 @@ V1 缺少不适用值，YES/NO/UNCERTAIN 没有操作化，“没有提到”被
 - Builder 内存中的 `True/PASS` 只是 construction assertion。正式 preannotation QA 必须重新加载序列化 candidate、query、
   source-fact 与 release registry，独立重算 G1--G14、重复/泄漏、冷读、覆盖和 Round D。
 - Hard Negative 的合法性必须绑定直接来源；合法历史版本还必须记录历史版本身份、有效区间以及 successor/repeal 证据。
+
+## 十二、Pilot4 第二次 Owner Preflight 的永久新增门
+
+第二次 Owner Preflight 证明 Repair-01 的“数量/metadata 通过”仍不足以保证人类可读候选有效。以后所有新候选永久增加：
+
+- `S3_EVIDENCE_NECESSITY_GATE`：evidence count 不等于 evidence necessity。S3 必须满足两个单独直接证据均不足、联合证据
+  才充分；若单个官方页面已完整给出答案，必须降为 S2 或重构命题。
+- `S1_DIAGNOSTIC_CUE_BLOCKER`：S1 只能由自然事实陈述形成内部冲突，候选不得出现“前后矛盾”“无法同时成立”或等价的
+  错误提示语。
+- `FINAL_VISIBLE_LENGTH_GATE`：长度只能从最终 `phase1_view.candidate_text` 忽略空白后重算；metadata 不得替代实际
+  35–70 / 71–140 / 141–240 字符门。
+- `CROSS_GROUP_BOILERPLATE_GATE`：同领域通用背景句仍可能形成模板捷径；跨 independence group 的完整生成句复用、
+  高 n-gram 重叠和纯 padding 必须失败关闭。
+- `HN_SEMANTIC_ALIGNMENT_GATE`：Hard Negative subtype 必须与实际文本语义一致，并同时满足真实、合法、语义连贯、
+  对简单检测器有迷惑性和直接证据绑定。
+
+以上规则只前瞻约束新生成内容；首轮 `a843697` 和第二轮 `cad3b2b` 的工作簿、证据与 Owner 发现保持不可变，不得重写成
+“从未出错”。通过 Repair-02 机器门只允许最终 Owner review，不等于 Pilot4 接受或人工发放批准。
