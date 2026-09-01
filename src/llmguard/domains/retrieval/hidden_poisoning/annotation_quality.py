@@ -137,7 +137,11 @@ def blind_cold_reader(candidate_text: str, visible_context: str) -> Mapping[str,
     subject_unique = len(set(subject_matches)) == 1
     bare = bool(_BARE_REFERENCE.search(candidate_text.strip()))
     fact_recoverable = bool(
-        re.search(r"施行|修订|修正|修改|调整|废止|发布|制定|机关|负责|适用|有效", candidate_text)
+        re.search(
+            r"施行|修订|修正|修改|调整|废止|发布|制定|机关|负责|适用|有效|"
+            r"追责|通过|层级|个月|门槛|条款|管理|义务|权利|事项|文本",
+            candidate_text,
+        )
     )
     authority_claim = bool(re.search(r"由|制定机关|发布机关|联合发布", candidate_text))
     version_relation = bool(re.search(r"施行|修订|修正|修改|废止|替代|现行|原始文本", candidate_text))

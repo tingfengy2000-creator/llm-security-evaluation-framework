@@ -52,6 +52,12 @@ class MutationSpec(CanonicalRecord):
     stealth_review_required: bool
     schema_version: str = SCHEMA_VERSION
 
+    @property
+    def semantic_attack_type(self) -> AttackType:
+        """Expose the attack class determined by mutation semantics."""
+
+        return self.attack_type
+
     def __post_init__(self) -> None:
         if not isinstance(self.attack_type, AttackType):
             raise SchemaValidationError("attack_type must be canonical")

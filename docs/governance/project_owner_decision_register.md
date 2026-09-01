@@ -1158,3 +1158,19 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   Experiment, Paper Result or SOTA. Auto Continue = `NO`.
 - Canonical authority: [future dataset rules](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md),
   `OR-033`, `REL-2026-0037`.
+
+## PODR-072: PILOT4 Owner Preflight Return and Targeted Repair
+
+- Date: `2026-09-01`.
+- Owner decision: the first Owner Preflight is `TARGETED_CORRECTION_REQUIRED`; preserve the `a843697` implementation and
+  Git-external evidence as failed-but-useful history, then perform only the specified targeted repair.
+- Failure basis: metadata attack-type misalignment risk; stealth not evidence-path-derived; LONG candidate answer/evidence echo;
+  experimental meta-language; applicability not claim-derived; builder-declared PASS not independently recomputed; and weak
+  Hard Negative evidence chains.
+- Repair result: mutation-semantic and stealth-path contracts PASS; 72 repaired candidates were reloaded from serialized artifacts;
+  independent G1--G14 and Round D PASS; a new 12-row second Owner Preflight is ready.
+- Status: `PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION`.
+- Prohibited: do not register acceptance, distribute A/B, calculate agreement, adjudicate, generate Ground Truth, start 240-group,
+  freeze Dataset, train, contact 5090 or start Formal Experiment. Auto Continue = `NO`.
+- Canonical authority: [future dataset rules](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md),
+  `OR-034`, `REL-2026-0038`.

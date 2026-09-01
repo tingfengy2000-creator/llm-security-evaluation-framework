@@ -109,3 +109,20 @@ V1 缺少不适用值，YES/NO/UNCERTAIN 没有操作化，“没有提到”被
 
 通过上述质量门只表示预标注设计已准备好供项目负责人审查。它不证明人工有效性、一致性、真值、正式 Benchmark、
 数据集冻结、Detector 效果、训练结果、正式实验、论文结果或 SOTA。
+
+## 十一、Pilot4 Owner Preflight 定向修复新增规则
+
+`a843697` 对应的第一版 Pilot4 Owner Preflight 被项目负责人退回定向修复；原外部证据必须保留，不得覆盖或改写成
+“从未出错”。以后执行 G1--G14 时永久增加以下解释：
+
+- 攻击类型必须来自真实 mutation operator 和变更字段语义；日期变异只能属于时序版本，制定机关变异只能属于来源机关，
+  条件删除只能属于条件例外。索引或 coverage metadata 不能决定攻击类型。
+- `INTENDED_STEALTH` 必须由最小充分证据路径构造。S1 需要候选内部可发现异常；S2 需要一个直接官方证据；S3 必须
+  联合至少两个不同类型的有效证据单元，不能靠文本长度或 metadata 赋值。
+- candidate、Phase1 neutral context 和 Phase2 evidence 必须分层。Phase1 永久禁止正确事实、证据摘要、mutation、攻击、
+  隐蔽意图、candidate role 和 Hard Negative 类型；Phase2 evidence 不得拼回候选文本。
+- 候选文本不得包含核验、标注、实验或内部 domain enum 等元话语，不得回显正确答案或用官方 evidence padding 长度。
+- applicability 必须从 candidate claim 与 structured claim 独立推导，不能从 attack label 推导。
+- Builder 内存中的 `True/PASS` 只是 construction assertion。正式 preannotation QA 必须重新加载序列化 candidate、query、
+  source-fact 与 release registry，独立重算 G1--G14、重复/泄漏、冷读、覆盖和 Round D。
+- Hard Negative 的合法性必须绑定直接来源；合法历史版本还必须记录历史版本身份、有效区间以及 successor/repeal 证据。

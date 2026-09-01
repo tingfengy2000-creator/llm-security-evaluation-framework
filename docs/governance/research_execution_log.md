@@ -1399,3 +1399,21 @@ Approval Gate、Auto Continue。
 - Claims prohibited: Ground Truth, Formal Benchmark, Dataset freeze, Detector effectiveness, 240-group, 5090, Formal Experiment,
   Paper Result or SOTA.
 - Next gate: Owner reviews the 12-row sample and explicitly accepts, requests targeted correction or rejects. Auto Continue `NO`.
+
+## REL-2026-0038 — PILOT4 Targeted Repair and Second Owner Preflight
+
+- Record ID: `REL-2026-0038`; date `2026-09-01`; task `S6.1-P1-PILOT4-PREANNOTATION-TARGETED-REPAIR-01`; machine `本机`.
+- Preservation: `a843697` and `paper1_pilot4_preannotation_20260901` remain unchanged and are classified as
+  `OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR`.
+- Repairs: semantic attack alignment, evidence-path stealth, natural candidate rendering, evidence-echo blocker, Phase1/Phase2/
+  owner visibility separation, claim-derived applicability, serialized-artifact G1--G14 and independent SOURCE_FACT Round D.
+- Construction: the same 24 subjects form 24 repaired matched triplets and 72 candidates; class `24/24/24`; all 12 validated
+  HKP×intended-S cells contain 2; four domains contain 18 candidates each; length triplets are `8/8/8`; 48 queries.
+- QA: naturalness/evidence echo `72/72`; independent G1--G14 `72/72`; Round D `24/24`; exact/normalized/semantic duplicate
+  blockers `0`; six Hard Negative subtypes each contain 4; authority/temporal applicability are claim-derived.
+- Rejection: three defective construction probes were rejected/regenerated for metadata/semantic misalignment, evidence echo and
+  unnatural meta-language; failed probes are not candidate evidence.
+- Artifact: new Git-external root `paper1_pilot4_preannotation_repair_20260901`; old root not overwritten; 12-row repaired Owner
+  workbook separates Phase1, Phase2 and owner-only fields.
+- Final status: `PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION`.
+- Next gate: Owner performs only the second preflight and explicitly accepts or requests another targeted correction. Auto Continue `NO`.

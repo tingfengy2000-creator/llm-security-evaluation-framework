@@ -16,17 +16,18 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-P1-PILOT4-PREANNOTATION`.
-- Task name: `Pilot4 Signal Repair, Balanced Diagnostic Set and Pre-annotation Quality Gate`.
-- Task type: **LOCAL_SIGNAL_REPAIR / BALANCED_PREANNOTATION / NO_HUMAN_DISTRIBUTION / NO_FORMAL_EXPERIMENT**.
-- Status: **BALANCED_DIAGNOSTIC_SET_READY_FOR_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION / AUTO_CONTINUE_NO**.
+- Task ID: `S6.1-P1-PILOT4-PREANNOTATION-TARGETED-REPAIR-01`.
+- Task name: `Pilot4 Candidate Semantic Alignment, Stealth Evidence-path Repair and Independent Preannotation Validation`.
+- Task type: **LOCAL_TARGETED_REPAIR / INDEPENDENT_PREANNOTATION_VALIDATION / NO_HUMAN_DISTRIBUTION / NO_FORMAL_EXPERIMENT**.
+- Status: **PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION / AUTO_CONTINUE_NO**.
 - Execution base commit: `PILOT2_OWNER_CORRECTION_BASE_COMMIT = 0b61e0124b1fb75f1a864132da41ce6a0fcbc3fc`.
 - Targeted package lineage base: `09aa7e65e95e10a657e44c2b31e23ec02bc4210b`.
 - Execution machine: **本机**. Immutable Round1 raw and the complete Schema V2 package remain hash-bound and unchanged；a field audit
   narrows human work to three Phase1 stealth fields, seven Phase2 fact/applicability fields and B-only process corrections.
-- Current ordered step: Pilot4 machine construction/QA completed. A canonical lessons file, field-schema gate, G1-G14 candidate
-  gate, structured signal contracts and semantic near-duplicate scanner produced 24 independent matched triplets, 72
-  preannotation candidates and 48 queries. Owner reviews only the stratified 12-row preflight sample; no A/B distribution occurs.
+- Current ordered step: the first Pilot4 Owner Preflight was returned for targeted repair. The original `a843697` package remains
+  immutable. Mutation semantics, evidence-path stealth, naturalness/evidence-echo, visibility separation, claim-derived
+  applicability, serialized-artifact G1--G14 and independent Round D were repaired; a new 72-candidate package and 12-row second
+  Owner Preflight are ready. No A/B distribution occurs.
 - Historical completed task identity: `S6.1-P1-PILOT2-ADJUDICATION-CLOSURE-AND-PILOT3-ENTRY` closed Pilot2 feasibility and
   established the Pilot3 diagnostic baseline; the immutable closure history remains governed by `PODR-070 / OR-032`.
 - Permanent prospective candidate gate (`PODR-067 / OR-029`): every annotation candidate created or newly introduced after
@@ -84,7 +85,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - OWNER_ADJUDICATION: **COMPLETION_PASS / OWNER_CORRECTION_BOUND_SEPARATELY / CONSISTENCY_PASS / NO_PENDING**.
 - GROUND_TRUTH_CANDIDATE: **GENERATED / 36_RECORDS / PILOT_ONLY / NOT_FORMAL_DATASET**.
 - PILOT3: **ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY / STOPPED**.
-- PILOT4: **BALANCED_DIAGNOSTIC_SET_READY_FOR_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION**.
+- Historical PILOT4 first preflight: **OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / a843697 EVIDENCE PRESERVED**.
+- PILOT4: **PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION**.
 - PILOT4 candidates: **72 PREANNOTATION_CANDIDATES / NOT GROUND TRUTH / NOT FORMAL BENCHMARK / NOT FROZEN DATASET**.
 - ANNOTATION_MODE: **TWO_INDEPENDENT_ANNOTATORS_WITH_OWNER_ADJUDICATION**.
 - BLINDNESS_SUBISSUE: **RESOLVED_BY_OWNER_CONFIRMED_ACTUAL_DISTRIBUTION_ORDER**.
@@ -240,7 +242,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
 - Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
   evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- Next operational action: owner performs `PILOT4_OWNER_PREFLIGHT` on the 12-row stratified sample and either accepts the
+- Next operational action: owner performs the second `PILOT4_OWNER_PREFLIGHT` on the repaired 12-row stratified sample and either accepts the
   preannotation design, requests a targeted correction, or rejects it. Acceptance still does not distribute to A/B; human
   annotation requires a separate explicit approval. No automatic 240-group scale-up, Dataset freeze, formal Detector, training,
   5090 or Formal Experiment is authorized.
