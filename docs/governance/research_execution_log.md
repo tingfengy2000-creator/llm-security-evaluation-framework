@@ -1457,3 +1457,34 @@ Approval Gate、Auto Continue。
 - Final status: `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW / NO_HUMAN_DISTRIBUTION`; not accepted; no A/B, Ground Truth,
   240-group, Dataset freeze, Detector/Training, 5090, Formal Experiment or Paper Result.
 - Next gate: Owner reviews all 16 final-preflight rows. Auto Continue `NO`.
+
+## REL-2026-0041 — PILOT4 Data and Annotation Protocol Quality Convergence
+
+- Record ID: `REL-2026-0041`; date `2026-09-01`; task
+  `S6.1-P1-PILOT4-PREANNOTATION-QUALITY-CONVERGENCE-01`; machine `本机 / LOCAL_CONTROL_PLANE`.
+- Owner authority: `PODR-075 / OR-037`; Repair-02 is an immutable input history, not silently rewritten. New evidence namespace is
+  `paper1_pilot4_quality_convergence_20260901`.
+- New blockers/root causes: Phase1 target-field leakage; coverage quota overriding ecological validity; S1 validators checking
+  fragment presence instead of logical incompatibility; generated-proposition hashes being treated as source verification; and
+  Hard Negative truth using generated support text. All were handled as systemic quality blockers before human distribution.
+- Data repairs: Phase1 is restricted to 11 blind fields and contains no target/attack/evidence/Owner hints; S1 requires same-subject,
+  same-scope, same-time logical contradiction; S2 binds one directly sufficient source; S3 binds a natural relation for which each
+  single evidence unit is insufficient and joint inference is required. `forced_artificial_constructs=0`.
+- Source/HN validation: 64 unique official-source evidence units were actually retrieved; each stores HTTP/media identity, response
+  byte SHA256, support excerpt SHA256, anchors, location and method. Source usage across candidates passes `88/88`; Hard Negative
+  direct-source audit passes `24/24`.
+- Full audit: Phase1 leakage, primary subject, realism and full semantic audit `72/72`; S1/S2/S3 `8/8` each; all 12 HKP×S cells
+  retain two candidates without forcing artificial relations; no remaining blocker.
+- Schema: `PILOT4_ANNOTATION_SCHEMA_V3_CANDIDATE` has 28 fields; Phase1 no longer asks evidence scope or stealth; the 53-row truth
+  table is exhaustive; every manual field has 13 unique adversarial ambiguity encodings; derived stealth uses each annotator's own
+  `overall_fact_status + local_internal_anomaly + minimum_evidence_scope`.
+- Dry-run: 12 mock records across domains/classes/lengths/HKP/S; three XLSX and 8 Sheets were inspect/render/formula-scan checked,
+  with zero Phase1/Owner-only leakage and zero formula errors. `annotator_distribution=NO`.
+- Artifact: Git-external `LLMGuard-Handoff/paper1_pilot4_quality_convergence_20260901`; manifest indexes `45/45`
+  payload files, with 46/46 source-to-E-copy files byte-identical including the manifest. Manifest SHA256 is
+  `90ac505bee742fa78a892667142f5a411d61d49e4774921209d78f3bfb3c1ff7`.
+- Final status: `PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW / NO_HUMAN_DISTRIBUTION`.
+- Claims boundary: engineering/data/protocol readiness only; no human validity, agreement, Ground Truth, Dataset freeze, detector
+  effectiveness, training, formal experiment or paper-result claim.
+- Next gate: Owner reviews the complete 72-row artifact, Schema V3 candidate and three dry-run workbooks and explicitly accepts or
+  identifies a new blocker. Auto Continue `NO`.

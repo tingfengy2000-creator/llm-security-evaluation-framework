@@ -40,9 +40,10 @@
 | OR-034 | 2026-09-01 | 第一版项目负责人预审不通过；保留 `a843697` 与旧外部包，定向修复变异语义对齐、隐蔽等级证据路径、自然度与答案回显、`Phase1`/`Phase2` 可见性、按命题推导的适用性、序列化产物独立 `G1--G14` 复验、`Round D` 与困难负例证据链；重建 72 条并只生成第二版 12 行项目负责人预审 | Pilot4 定向修复与第二次低成本项目负责人门 | Paper 1 / P1-PILOT4 | `REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY` | `S6.1-P1-PILOT4-PREANNOTATION-TARGETED-REPAIR-01` | 项目需求提出人当前明确指令；`PODR-072` | 不得登记接受，不得覆盖旧证据，不得发 A/B，不得计算一致性或仲裁，不得生成真值，不得进入 240 组扩展、数据冻结、训练、5090 或正式实验 |
 | OR-035 | 2026-09-01 | 建立 Paper 1 5/15/30 分钟人类主入口与人类/研究权威/Agent-evidence 三层文档；正式领域冻结为 Enterprise HR、Finance、Information Security、Procurement and R&D、Education and Research；未来规模规划为 `5×4×3×4=240` independent groups | 文档结构与上下文整合 | Paper 1 全局治理 | `HUMAN_LEDGER_ROLE=PAPER1_PRIMARY_HUMAN_ENTRY / HUMAN_AGENT_DOCUMENTATION_SEPARATION=OWNER_CONFIRMED / PAPER1_FORMAL_DOMAIN_SET=OWNER_CONFIRMED` | `GOV-P1-HUMAN-DOCS-INTEGRATION-01` | 项目需求提出人当前明确指令；`PODR-073` | 只改文档/治理；Pilot4 四领域历史不改；240 groups/约720 candidates 未执行、未生成、未冻结；实验状态保持 waiting for second Owner preflight |
 | OR-036 | 2026-09-01 | 第二次 Pilot4 Owner Preflight 判定为 `TARGETED_REPAIR_REQUIRED`；保留 `a843697` 与 `cad3b2b` 两轮历史证据，构造真正需要联合证据的 S3，删除 S1 显式诊断捷径，从最终 Phase1 文本重算长度，移除跨组模板 padding，修复 Hard Negative 语义与来源绑定，并生成 16 行最终 Owner preflight | Pilot4 最终人工发放前定向修复 | Paper 1 / P1-PILOT4 | `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW / NO_HUMAN_DISTRIBUTION` | `S6.1-P1-PILOT4-PREANNOTATION-TARGETED-REPAIR-02` | 项目需求提出人当前明确指令；`PODR-074` | 不得登记接受、发 A/B、agreement/adjudication、Ground Truth、240-group、Dataset freeze、Detector/Training、5090、Formal Experiment 或 Paper Result；Owner 只审查最终 16 行 |
+| OR-037 | 2026-09-01 | 在任何人工发放前执行 `Pilot4` 数据与标注协议质量收敛：清除 `Phase1 target-field`、答案、证据和项目负责人提示；审计主要事实主体与关系真实性；以实际抓取官方材料核验 `S1/S2/S3` 和全部困难负例；建立 `Schema V3`、唯一编码歧义门、依赖真值表、全 72 条语义审计、`UTF-8` 人类复核材料与三个仅作试填的 `XLSX` | `Pilot4` 数据、来源、标注协议收敛与项目负责人接受门 | `Paper 1 / P1-PILOT4` | `PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW / NO_HUMAN_DISTRIBUTION` | `S6.1-P1-PILOT4-PREANNOTATION-QUALITY-CONVERGENCE-01` | 项目需求提出人当前明确指令；`PODR-075` | 不设固定修复次数；连续两轮相同根因重现则 `ROOT_CAUSE_REPAIR_FAILURE` 并停止。不得自动发 `A/B`、计算一致性、仲裁、生成真值、进入 240 组、冻结数据集、实现检测器、训练、联系 5090、正式实验或论文结果；自动继续为否 |
 
-当前唯一人工动作是审查 repaired 12-row Pilot4 second Owner preflight；不得因本次文档整合自动接受 Pilot4、分发 A/B、
-生成 72 条 Ground Truth 或启动 240-group 与后续实验。
+当前唯一人工动作是审查完整 72 条 `Pilot4` 质量材料、`Schema V3` 候选与三个试填工作簿；不得自动接受 `Pilot4`、
+分发 `A/B`、生成 72 条真值或启动 240 组与后续实验。
 
 本次批准的中文边界是：保留两名标注人的第一轮原始结果，只修复标注工具并准备本人独立复核材料。两名标注人仍不得互看、讨论或统一答案；协调人只负责发放、回收、计算摘要并锁定文件。第二版结果没有返回并通过后续独立验证前，不得宣称一致性已经恢复，也不得开始分歧仲裁、数据集冻结、检测器实现、训练或正式实验。
 

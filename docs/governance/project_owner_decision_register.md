@@ -1209,3 +1209,21 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   Training, 5090, Formal Experiment, Paper Result or SOTA claim.
 - Evidence and synchronization: `OR-036`, `REL-2026-0040`; Git-external namespace
   `paper1_pilot4_preannotation_repair02_20260901`. Auto Continue `NO`.
+
+## PODR-075: Pilot4 Quality Convergence Execution and Owner Acceptance Gate
+
+- Date: `2026-09-01`.
+- Owner instruction: execute `S6.1-P1-PILOT4-PREANNOTATION-QUALITY-CONVERGENCE-01` on LOCAL; discover and repair systemic
+  candidate/source/schema problems before any human distribution. Preserve all prior Pilot4 commits, workbooks and evidence roots.
+- Execution result: Phase1 leakage, primary subject, realism and full semantic audits pass `72/72`; S1/S2/S3 each pass `8/8`;
+  24 Hard Negatives are actual-source-backed; 64 unique source units are byte/excerpt hash and anchor verified.
+- Schema result: `PILOT4_ANNOTATION_SCHEMA_V3_CANDIDATE` contains 28 fields and a 53-row exhaustive dependency truth table;
+  evidence scope is Phase2-only and stealth is system-derived independently from each annotator's inputs.
+- Dry-run result: three `ANNOTATOR_DRY_RUN_ONLY` workbooks, 12 mock records and 8 rendered Sheets pass visibility, inspection,
+  dropdown and formula-error checks. These are not A/B release packages.
+- Current status: `PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW / NO_HUMAN_DISTRIBUTION`.
+- Owner next action: review the full 72-row human-readable artifact, Schema V3 candidate and dry-run workbooks; explicitly accept
+  the protocol/data package or identify a new blocker. Acceptance and human distribution remain separate decisions.
+- Prohibited: no automatic A/B, agreement, adjudication, Ground Truth, 240-group, Dataset freeze, Detector, Training, 5090,
+  Formal Experiment, Paper Result or SOTA claim. Auto Continue `NO`.
+- Canonical records: `OR-037`, `REL-2026-0041`, [future dataset rules](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md).

@@ -1,5 +1,22 @@
 # LLMGuard 项目总控文档
 
+## PILOT4 Data and Annotation Protocol Quality Convergence（2026-09-01）
+
+本机执行 `S6.1-P1-PILOT4-PREANNOTATION-QUALITY-CONVERGENCE-01`，将 Repair-02 作为不可变输入历史并在新的 additive
+namespace 中完成数据与标注协议质量收敛。Phase1 只保留盲法可判断字段；`target_field`、攻击类型、证据答案、隐蔽意图
+和 Owner-only 信息均不得进入可见界面。`assigned_stealth_level` 不再人工猜测，而是在 A/B 各自完成 Phase1 与 Phase2 后，
+由 `overall_fact_status + local_internal_anomaly + minimum_evidence_scope` 独立推导。
+
+全 72 条候选通过 primary subject、自然关系、长度、模板/近重复、Phase visibility 与语义审计；S1/S2/S3 各 `8/8`，
+24 Hard Negative 逐条绑定实际抓取的官方材料。64 个唯一证据单元具有实际响应字节 SHA256、支持摘录 SHA256、锚点和
+检索身份。Schema V3 candidate 包含 28 个字段、53 行 exhaustive dependency truth table 与所有人工字段的 13 类歧义
+对抗案例。Phase1、Phase2 和 Field Guide 三个工作簿仅为 `ANNOTATOR_DRY_RUN_ONLY`，未发 A/B。
+
+当前状态为 `PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW / NO_HUMAN_DISTRIBUTION`。Owner 的唯一下一
+动作是审查完整 72-row artifact、Schema V3 candidate 和 dry-run 界面，并明确接受或指出新的 blocker。不得自动进入
+agreement、adjudication、Ground Truth、240-group、Dataset freeze、Detector、Training、5090、Formal Experiment 或
+Paper Result。
+
 ## Paper 1 Human Documentation Integration（2026-09-01）
 
 项目需求提出人通过 `PODR-073 / OR-035` 将

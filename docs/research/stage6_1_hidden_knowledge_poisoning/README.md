@@ -1,7 +1,8 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY /
-> NO_HUMAN_DISTRIBUTION`。唯一当前动作是项目负责人审查 repaired 12-row second Owner preflight。72 条候选尚无 Ground
+> 当前实验状态：`PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW / PREANNOTATION_ONLY /
+> NO_HUMAN_DISTRIBUTION`。唯一当前动作是项目负责人审查完整 72-row quality review、Schema V3 candidate 和三个
+> `ANNOTATOR_DRY_RUN_ONLY` 工作簿。72 条候选尚无 Ground
 > Truth；240-group、Dataset freeze、Formal Detector、Training、5090、Formal Experiment 和 Paper Result 均未开始。
 > `FORMAL_EXPERIMENT = NOT STARTED`；`DATASET_FORMAL_FREEZE = NOT STARTED`。
 

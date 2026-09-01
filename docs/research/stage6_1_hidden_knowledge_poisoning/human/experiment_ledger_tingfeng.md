@@ -5,7 +5,7 @@
 Document Role = `PAPER1_PRIMARY_HUMAN_ENTRY`<br>
 Audience = `项目负责人 / 导师与领导 / 新团队成员`<br>
 Reading Path = `5 minutes / 15 minutes / 30 minutes`<br>
-Current Evidence Cut = `Repair-02 / Pilot4 final Owner preflight pending`<br>
+Current Evidence Cut = `Quality Convergence / Pilot4 Owner acceptance review pending`<br>
 Last Updated = `2026-09-01`
 
 > 这是一张“项目地图”，不是 raw evidence，也不产生新授权。读完第 0 节可掌握当前状态；读到第 8 节可理解论文方法；
@@ -19,17 +19,20 @@ Last Updated = `2026-09-01`
 | 英文论文题目 | *Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework* |
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
-| 当前阶段 | ⏳ Pilot4 Repair-02 已完成，等待最终项目负责人预审；仍是预标注阶段。 |
-| 当前任务 | `S6.1-P1-PILOT4-PREANNOTATION-TARGETED-REPAIR-02`：最终人工发放前定向修复。 |
-| 当前完成度 | ✅ `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`，Pilot0–2 可行性门完成；🧪 Pilot3 信号诊断完成；🔧 Pilot4 final 72 与 16-row Owner workbook 已准备；正式数据、Detector 和正式实验均未开始。 |
-| 当前唯一人工动作 | 项目负责人审查 `pilot4_owner_preflight_final.xlsx` 的 16 行。 |
-| 当前主要 blocker | ⏳ 最终 Owner preflight 尚未确认无 SYSTEMIC_BLOCKER；因此不能发 A/B，更不能进入 240-group。 |
-| 已经可以说什么 | Pilot4 Repair-02 的 72 条候选在工程层通过 genuine-S3、自然 S1、实际长度、模板/HN/来源/parity 与独立 QA；不代表人工有效性。 |
+| 当前阶段 | ⏳ Pilot4 数据与标注协议质量收敛完成，等待项目负责人 acceptance review；仍是预标注阶段。 |
+| 当前任务 | `S6.1-P1-PILOT4-PREANNOTATION-QUALITY-CONVERGENCE-01`：真实来源、全量语义与 Schema V3 收敛。 |
+| 当前完成度 | ✅ `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`，Pilot0–2 可行性门完成；🧪 Pilot3 信号诊断完成；🔧 Pilot4 72/72、64 个来源单元、Schema V3 与三个 dry-run workbook 已准备；正式数据、Detector 和正式实验均未开始。 |
+| 当前唯一人工动作 | 项目负责人审查完整 72-row review、Schema V3 candidate 与三个 `ANNOTATOR_DRY_RUN_ONLY` 工作簿。 |
+| 当前主要 blocker | ⏳ Owner acceptance 尚未给出；因此不能发 A/B，更不能进入 240-group。 |
+| 已经可以说什么 | Pilot4 的 72 条候选通过全量语义/可见性 QA，64 个实际官方来源证据单元完成字节/摘录 hash 与锚点验证；这仍不代表人工有效性。 |
 | 绝对不能说什么 | 不得说 Pilot4 已接受、A/B 已开始、72 条已有 Ground Truth、240-group 已生成、Dataset 已冻结、Formal Detector 已实现、检测有效或 Paper Result 已形成。 |
 
 当前实验状态固定为：
 
-`PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW / NO_HUMAN_DISTRIBUTION`
+`PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW / NO_HUMAN_DISTRIBUTION`
+
+保留的历史状态链：`PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT` →
+`PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` → 当前 quality-convergence 状态。历史 package 不被覆盖。
 
 状态的动态权威入口是 [Current Work State](../../../governance/current_work_state.md)。
 
@@ -353,33 +356,33 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 | 2026-09-01 | Pilot4 | builder-declared PASS | 构造器自报通过，未验证序列化产物 | independent G1–G14 + Round D | ✅ RESOLVED IN REPAIR | [Execution log](../../../governance/research_execution_log.md) |
 | 2026-09-01 | Pilot4 | HN evidence weakness | 困难负例证据链过弱 | source-fact reverse check | ✅ RESOLVED IN REPAIR | [Execution log](../../../governance/research_execution_log.md) |
 | 2026-09-01 | Pilot4 | Repair-01 acceptance | 第二次预审发现 S3 necessity、S1 cue、实际长度、模板与 HN 语义问题 | Repair-02 | ✅ SUPERSEDED BY FINAL REPAIR | [Execution log](../../../governance/research_execution_log.md) |
-| 2026-09-01 | Pilot4 | final preannotation acceptance | Repair-02 工程门完成但尚无人工作出接受决定 | final 16-row Owner preflight | ⏳ WAITING | [Current State](../../../governance/current_work_state.md) |
+| 2026-09-01 | Pilot4 | final preannotation acceptance | Repair-02 工程门完成但尚无人工作出接受决定 | quality convergence | ✅ SUPERSEDED BY FULL QUALITY GATES | [Execution log](../../../governance/research_execution_log.md) |
+| 2026-09-01 | Pilot4 | source/schema/visibility convergence | Phase1 hint、人工跨文档、伪来源核验、HN 支持与字段可操作性存在系统性风险 | actual-source verification + Schema V3 + full72 + dry-run | ⏳ READY FOR OWNER ACCEPTANCE REVIEW | [Current State](../../../governance/current_work_state.md) |
 
 ## 14. 当前项目状态
 
-- `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW`
+- `PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW`
 - `PREANNOTATION_ONLY`
 - `NO_HUMAN_DISTRIBUTION`
 - 72 repaired candidates 已存在；仍非 Ground Truth、非 Formal Benchmark、非 frozen Dataset。
 - class intent 为 Clean / Poison / Hard Negative = `24/24/24`。
 - 生成覆盖为 `4 HKP × 3 intended-S × 2 replication = 24 poison cells`，对应 24 matched triplets。
-- final 16-row Owner preflight 正在等待人工审查。
+- 完整 72-row review、Schema V3 candidate 与三个 dry-run workbook 正在等待人工审查。
 - A/B 未开始；72 Ground Truth 未建立；240-group 未开始；Dataset = `NOT FROZEN`（未冻结）。
 - Formal Detector = `NOT IMPLEMENTED`（未实现）；Formal Experiment = `NOT STARTED`（未开始）；Our Method Result = `NONE`。
 
-Repair-02 当前 Git 身份与远端同步状态必须动态核验；`cad3b2b2c19dcef6c118e4163f705b3ec05713e1` 作为第二轮不可变
-历史身份保留。
+当前 Git 身份与远端同步状态必须动态核验；`a843697`、`cad3b2b2` 与 `871aecf` 均作为不可变历史身份保留。
 
 ## 15. 当前下一步
 
-唯一当前动作：**Owner reviews final 16-row Pilot4 Repair-02 preflight**。
+唯一当前动作：**Owner reviews full 72-row Pilot4 quality artifact, Schema V3 candidate and three dry-run workbooks**。
 
 ```text
-Final Owner Preflight
+Owner Quality Acceptance Review
   ├─ PASS
-  │    -> 另行批准 A/B 72 annotation（不会自动开始）
+  │    -> 另行决定是否批准 A/B 72 annotation（不会自动开始）
   └─ FAIL
-       -> 只做明确指出的 candidate-local correction；新 SYSTEMIC_BLOCKER 则停止
+       -> 登记具体 blocker；同 root cause 连续重现则 ROOT_CAUSE_REPAIR_FAILURE 并停止
 
 未来在独立审批下：
 A/B -> agreement -> adjudication -> 72 GT

@@ -13,7 +13,7 @@ Primary Human Mirror = `../human/experiment_ledger_tingfeng.md`
 project: LLMGuard Research Framework
 paper: Paper 1 - Chinese version-aware stealthy knowledge poisoning
 branch: research/stage6-1-hidden-poisoning
-document_source_commit: cad3b2b2c19dcef6c118e4163f705b3ec05713e1
+document_source_base_commit: 871aecf30819ceee59898d8bfe2d59ffccf51495
 snapshot_date: 2026-09-01
 authority_order:
   - raw Git and external evidence
@@ -48,7 +48,7 @@ GMTP_REPRODUCTION: NOT ESTABLISHED
 DETECTION_EFFECTIVENESS: NOT ESTABLISHED
 STRICT_BASELINE_COMPARISON: NOT ESTABLISHED
 S6.1-P1-R1: HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK
-S6.1-P1: PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION
+S6.1-P1: PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION
 S6.1-P1-PILOT0: HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED
 S6.1-P1-PILOT1: HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED
 S6.1-P1-PILOT2: HUMAN_ACCEPTED / ANNOTATION_PROTOCOL_AND_GROUND_TRUTH_FEASIBILITY_ONLY / CLOSED
@@ -68,7 +68,9 @@ GROUND_TRUTH_CANDIDATE: GENERATED / 36_RECORDS / PILOT_ONLY / NOT_FORMAL_DATASET
 PILOT3: ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY / STOPPED
 PILOT4_FIRST_PREFLIGHT: OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / a843697 EVIDENCE_PRESERVED
 PILOT4_TARGETED_REPAIR: COMPLETED / cad3b2b2c19dcef6c118e4163f705b3ec05713e1
-PILOT4: PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION
+PILOT4_REPAIR02: PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW / 871aecf HISTORY_PRESERVED
+PILOT4_QUALITY_CONVERGENCE: PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW / NO_HUMAN_DISTRIBUTION
+PILOT4_HISTORICAL_STATE_CHAIN: PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / SUPERSEDED_WITHOUT_REWRITE
 PILOT4_CANDIDATES: 72 / PREANNOTATION_ONLY / NOT_GROUND_TRUTH / NOT_FORMAL_BENCHMARK
 PILOT4_CLASS_INTENT: CLEAN_24 / POISON_24 / HARD_NEGATIVE_24
 PILOT4_VALIDATED_GENERATION_CELLS: 4_HKP_X_3_STEALTH_X_2_REPLICATION
@@ -131,7 +133,7 @@ Detector/Training and Formal Experiment remain closed.
 | S6.1-R0 | engineering reproduction preflight | `HUMAN_ACCEPTED_WITH_BLOCKERS` | `../stage_process/S6.1-R0_work_process.md` |
 | S6.1-R0-FU1 | targeted baseline feasibility resolution | `HUMAN_ACCEPTED / CLOSED` | `../stage_process/S6.1-R0-FU1_work_process.md` |
 | S6.1-P1-R1 | protocol hardening and Option B scope freeze | `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK` | source candidate `../s6_1_p1_r1_protocol_review_candidate.md`; numeric parameters pending |
-| S6.1-P1 | Pilot0–2 feasibility closed; Pilot3 diagnostic complete; Pilot4 targeted repair awaiting second Owner preflight | `PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION` | `../stage_process/S6.1-P1_work_process.md` |
+| S6.1-P1 | Pilot0–2 feasibility closed; Pilot3 diagnostic complete; Pilot4 full72/source/Schema V3 quality convergence awaiting Owner acceptance review | `PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION` | `../stage_process/S6.1-P1_work_process.md` |
 
 ## Run Registry
 
@@ -191,6 +193,8 @@ next_gate: string
 | ART-P1-PILOT4-PREFLIGHT | S6.1-P1 / Pilot4 first preflight | preannotation_preparation / 本机 | `OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR` | source commit `a843697`; 24 triplets / 72 candidates / 48 queries; four domains historical | balanced generation and first 12-row Owner sample | Git-external `paper1_pilot4_preannotation_20260901`; evidence preserved | allowed: preannotation engineering evidence; prohibited: acceptance/A-B/GT/240/freeze/result | blocker `TARGETED_CORRECTION_REQUIRED`; next_gate targeted repair |
 | ART-P1-PILOT4-TARGETED-REPAIR | S6.1-P1 / Pilot4 targeted repair | targeted_repair_and_independent_validation / 本机 | `COMPLETED / READY_FOR_SECOND_OWNER_PREFLIGHT` | source commit `cad3b2b2c19dcef6c118e4163f705b3ec05713e1`; `PODR-072 / OR-034 / REL-2026-0038`; old package immutable | semantic alignment, evidence-path stealth, naturalness/echo, visibility, claim-derived applicability, serialized G1–G14 and Round D | Git-external `paper1_pilot4_preannotation_repair_20260901`; repaired 72 + 12-row second Owner sample | allowed: repaired preannotation readiness only; prohibited: acceptance/A-B/agreement/adjudication/GT/240/freeze/training/result | blocker `SECOND_OWNER_PREFLIGHT_PENDING`; next_gate Owner reviews repaired 12 rows |
 | GOV-P1-HUMAN-DOCS-INTEGRATION-01 | S6.1-P1 / documentation integration | documentation_governance / 本机 | `DOCUMENTATION_STRUCTURE_AND_CONTEXT_INTEGRATION` | source repair commit `cad3b2b2...`; `PAPER1_FORMAL_DOMAIN_SET=OWNER_CONFIRMED`; experiment artifacts unchanged | human master, authority/agent sync, navigation and separation contract | documentation only | allowed: docs/governance synchronization; prohibited: any experimental transition | blocker `NONE`; next_gate remains Pilot4 second Owner preflight |
+| ART-P1-PILOT4-REPAIR02 | S6.1-P1 / Pilot4 final preannotation repair | targeted_repair_and_final_preflight / 本机 | `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` | source commit `871aecf30819ceee59898d8bfe2d59ffccf51495`; `PODR-074 / OR-036 / REL-2026-0040` | genuine S3, cue-free S1, actual lengths, HN/source/parity and final 16-row preflight | Git-external `paper1_pilot4_preannotation_repair02_20260901`; immutable input to convergence | allowed: historical engineering readiness; prohibited: acceptance/distribution/downstream | blocker superseded by quality convergence review |
+| ART-P1-PILOT4-QUALITY-CONVERGENCE | S6.1-P1 / Pilot4 quality convergence | source_schema_semantic_validation / 本机 | `PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW` | `PODR-075 / OR-037 / REL-2026-0041`; 72 candidates; 64 unique actual-source records; Schema V3 28 fields / truth 53 | Phase1 visibility, primary/realism, S1/S2/S3, HN, source-content, ambiguity, full72 and dry-run gates | Git-external `paper1_pilot4_quality_convergence_20260901`; 3 XLSX / 8 rendered sheets | allowed: quality-converged preannotation candidate and protocol readiness; prohibited: human validity/A-B/GT/240/freeze/training/result | blocker `OWNER_ACCEPTANCE_PENDING`; next_gate full72/schema/dry-run Owner review |
 
 ## Artifact Registry
 
@@ -259,8 +263,8 @@ H2 bundle contract additionally freezes bundle source bytes `1320359518`, archiv
 2. The only authorized H2-B call is consumed (`call_count=1`); no retry or second call is authorized.
 3. PILOT2 original kit/returns/registration/preflight/full V2 and owner correction remain immutable; Pilot2 is closed only for
    annotation-protocol/Ground-Truth feasibility.
-4. The only current gate is Owner review of the repaired 12-row Pilot4 second preflight. PASS still requires separate approval for
-   A/B 72 annotation; FAIL permits targeted repair only.
+4. The only current gate is Owner review of the complete 72-row Pilot4 quality artifact, Schema V3 candidate and three dry-run
+   workbooks. PASS still requires separate approval for A/B 72 annotation; a new blocker stops at the appropriate repair gate.
 5. `PAPER1_FORMAL_DOMAIN_SET` is fixed for future Scale Pilot planning; it does not rewrite Pilot4's four-domain history or create
    240 groups / 720 candidates.
 6. `DETOXIFICATION_OPTION = OPTION_B` is fixed. It does not authorize Dataset freeze, Detector, training or a formal run.

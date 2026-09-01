@@ -144,3 +144,28 @@ V1 缺少不适用值，YES/NO/UNCERTAIN 没有操作化，“没有提到”被
 
 以上规则只前瞻约束新生成内容；首轮 `a843697` 和第二轮 `cad3b2b` 的工作簿、证据与 Owner 发现保持不可变，不得重写成
 “从未出错”。通过 Repair-02 机器门只允许最终 Owner review，不等于 Pilot4 接受或人工发放批准。
+
+## 十三、Pilot4 Quality Convergence 永久新增规则
+
+`S6.1-P1-PILOT4-PREANNOTATION-QUALITY-CONVERGENCE-01` 证明 Repair-02 工程门通过后仍需把数据语义、真实来源和标注
+可操作性作为独立门。以下规则前瞻适用于所有新候选、字段和人工发放：
+
+- **evidence count != evidence necessity**：两个 evidence ID 不自动构成 S3；必须证明任一单证据均不足、联合路径才充分。
+- **validator presence != semantic contradiction**：S1 不能只检查两段文字都出现；必须证明同主体、同范围、同时间命题
+  在逻辑上不能同时为真。
+- **verification status string != source verification**：`verified=true`、生成命题 hash 或人工状态字样都不算来源核验；
+  必须保存实际抓取材料身份、响应内容 SHA256、支持摘录 SHA256、锚点、位置和检索方法。
+- **target_field in neutral context causes semantic hint leakage**：Phase1 只允许主体/宽主题；target field、mutation、答案、
+  evidence path、HKP、intended S、candidate kind 与 Owner-only 信息全部禁止可见。
+- **coverage quota cannot override realism**：覆盖单元缺少自然公开关系时必须触发 `CELL_DATA_AVAILABILITY_BLOCKER`，由 Owner
+  决定找新来源、调整领域、替换主体或修改矩阵；禁止强造跨文档关系。
+- **blind Phase1 cannot reliably estimate evidence scope**：`cross_document_evidence_needed` 与人工
+  `assigned_stealth_level` 从 Phase1 移除；只有实际完成 Phase2 查证后才记录 `minimum_evidence_scope`。
+- **stealth should preferably be derived from operational evidence path**：每名标注人的 stealth 分别由其自己的
+  `overall_fact_status + local_internal_anomaly + minimum_evidence_scope` 推导；Clean/HN/合法历史不是 S2/S3。
+- **owner sample PASS cannot replace full-72 semantic QA**：Owner 抽样用于人工判断，不能替代全量 72 条 primary subject、
+  realism、来源、Hard Negative、S1/S2/S3、重复/泄漏与语义审计。
+
+任何全量机器门通过仍只表示 `READY_FOR_OWNER_ACCEPTANCE_REVIEW`。Schema V3 candidate、完整 72-row review 与 annotator
+dry-run 必须先由 Owner 接受；不得自动发 A/B，也不得自动进入 agreement、adjudication、Ground Truth、240-group、Dataset
+freeze、Detector、Training、5090、Formal Experiment 或 Paper Result。
