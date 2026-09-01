@@ -2,12 +2,16 @@
 
 Document Role = `P1_APPROVAL_GRADE_REVIEW_CANDIDATE`<br>
 Authority = `NON_CANONICAL_CANDIDATE`<br>
-Status = `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`<br>
+Creation Status Snapshot = `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`<br>
+Current Framework Acceptance = `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`<br>
+Formal Numeric/Execution Status = `PENDING_PILOT_EVIDENCE / FORMAL_PROTOCOL_NOT_FROZEN / FORMAL_EXPERIMENT_NOT_STARTED`<br>
 Primary Authority = [human/research_plan_authority.md](human/research_plan_authority.md)<br>
 Supersedes Candidate Draft = [s6_1_p1_protocol_candidate.md](s6_1_p1_protocol_candidate.md)<br>
 P1 R1 Base Commit = `aabe504d55626fb31008822b7bbabd3b32e2afd4`
 
-> `Supersedes Candidate Draft` 只表示候选设计版本替代。旧候选作为历史保留；本文件不批准 P1 或 Pilot，不冻结或构建 Dataset，不实现 Detector、过滤或降权，不运行 baseline 或 Formal Experiment，也不产生 Paper Result。
+> `Supersedes Candidate Draft` 只表示候选设计版本替代。旧候选作为历史保留。本文件创建时不批准 P1 或 Pilot；后续
+> Owner 已接受其作为 protocol framework，但没有因此冻结数值参数、构建 Dataset、批准 240-group、实现 Formal Detector、
+> 运行 baseline/Formal Experiment 或产生 Paper Result。当前状态以 Research Plan Authority、Current Work State 与 PODR 为准。
 
 ## 1. 决策、定位与候选缺口
 
@@ -22,7 +26,7 @@ P1 R1 Base Commit = `aabe504d55626fb31008822b7bbabd3b32e2afd4`
 
 Paper 1 候选范围包括中文版本化隐蔽知识污染 Benchmark、多视角污染检测、风险分数/视角信号/解释、检测后的轻量过滤或降权，以及检测安全性与检索效用的权衡评估。它明确不包括 trusted context package、完整上下文构造（构建）、多证据可信上下文生成、完整可信检索链、复杂端到端 Agent 防御或生产级 RAG 平台；这些边界保留给 Paper 2 或独立阶段。
 
-前一版候选存在十五项审批缺口：RQ 未绑定可证伪假设；主要/次要终点、评估单位、Benchmark 组成、标注/复核/仲裁、HKP 构造、S1–S3 判定、Hard Negative 匹配与比例、baseline 公平性、五视角接口、Option B 数学定义、数据规模/运行矩阵/资源、统计比较族/样本量、许可发布和可直接执行的进入条件均未完全冻结。本文件逐项给出审批级候选，但保持 `NOT APPROVED / NOT STARTED`。
+前一版候选存在十五项审批缺口：RQ 未绑定可证伪假设；主要/次要终点、评估单位、Benchmark 组成、标注/复核/仲裁、HKP 构造、S1–S3 判定、Hard Negative 匹配与比例、baseline 公平性、五视角接口、Option B 数学定义、数据规模/运行矩阵/资源、统计比较族/样本量、许可发布和可直接执行的进入条件均未完全冻结。本文件逐项给出审批级候选。创建时状态为 `NOT APPROVED / NOT STARTED`；后续已作为 framework 接受，数值与正式执行冻结仍未完成。
 
 ## 2. 研究目标与核心贡献候选
 
@@ -344,13 +348,15 @@ successful、failed、invalid、excluded runs 和 rerun reason 全部追加保�
 
 P1 获批前以下二十项必须全部满足：Option B 范围登记；RQ/假设；schema；数据来源；标注；HKP/S；hard negatives；split/leakage；baseline 分类；五视角接口；Option B 公式；指标；统计；Pilot 目标；运行矩阵；资源；可执行 evidence contract；许可发布；claims boundary；项目需求提出人明确批准。
 
-当前状态：
+当前状态（后续治理同步）：
 
-- `S6.1-P1-R1 = REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`
-- `S6.1-P1 = NOT APPROVED / NOT STARTED`
+- `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`
+- `P1_NUMERIC_PARAMETERS = PENDING_PILOT_EVIDENCE`
+- `FORMAL_PROTOCOL = NOT YET FROZEN`
+- `S6.1-P1 = PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY`
 - `Dataset = NOT FROZEN`
-- `Pilot = NOT APPROVED / NOT STARTED`
-- `Detector = NOT IMPLEMENTED`
+- `240_GROUP_SCALE_PILOT = NOT APPROVED / NOT STARTED`
+- `Formal Detector = NOT IMPLEMENTED`
 - `Retrieval Intervention = NOT IMPLEMENTED`
 - `Training = NOT STARTED`
 - `Our Method Result = NONE`
@@ -359,16 +365,16 @@ P1 获批前以下二十项必须全部满足：Option B 范围登记；RQ/假�
 ## 21. Forward Risk Review 与 Paper Risk Review
 
 - `FORWARD_RISK_REVIEW = PASS_FOR_REVIEW_CANDIDATE_ONLY`：Option B 与 Paper 2 trusted-context boundary 已分离；接口、split、evidence 和资源前置，可降低后期重构风险。
-- `PAPER_RISK_REVIEW = PASS_FOR_OWNER_REVIEW_WITH_OPEN_FREEZES`：主要 reviewer attack surface 是数据真实性/许可、hard-negative 难度、version-chain leakage、baseline 可比性、1% FPR 分辨率、utility margin 与选择性报告。本文给出处理合同，但在 Pilot/正式数量/发布策略获批前不得称为 accepted protocol。
-- Remaining blockers：`P1_R1_OWNER_REVIEW_REQUIRED`、`PILOT_NOT_APPROVED`、`DATASET_NOT_FROZEN`、`FORMAL_ENVIRONMENT_NOT_FROZEN`。
+- `PAPER_RISK_REVIEW = FRAMEWORK_ACCEPTED_WITH_OPEN_FREEZES`：主要 reviewer attack surface 是数据真实性/许可、hard-negative 难度、version-chain leakage、baseline 可比性、1% FPR 分辨率、utility margin 与选择性报告。本文给出处理合同，但在正式数量、Dataset/Protocol 和发布策略冻结前不得称为 formal protocol complete。
+- Remaining blockers：`PILOT4_SECOND_OWNER_PREFLIGHT_PENDING`、`SCALE_PILOT_NOT_APPROVED`、`DATASET_NOT_FROZEN`、`FORMAL_ENVIRONMENT_NOT_FROZEN`。
 
-## 22. 需要项目需求提出人决定
+## 22. Historical Decision Checklist 与当前下一门
 
-P1-R1 完成后只保留四项高层决定：
+以下是 P1-R1 创建时的高层决定清单；第 1 项 framework acceptance 已完成，后续 Pilot 已按独立 gate 推进：
 
 1. 是否接受本 P1-R1 正式协议框架？
 2. 是否批准只用于样本量、标注一致性和资源估计的小规模 Pilot？
 3. 正式路线选择 `MINIMAL_PUBLISHABLE_MATRIX` 还是 `FULL_MATRIX`？
 4. Benchmark 发布策略选择 `PUBLIC_FULL / PUBLIC_REDACTED / HASH_ONLY / INTERNAL_ONLY` 中的哪一级或按许可逐条混合？
 
-技术参数的当前推荐是 primary FPR `1%`、secondary FPR `5%`、primary `K=10`、sensitivity `K=5/20`、5 seeds（Full 10）、10,000 grouped resamples、2,000 test negative groups minimum、group-aware 70/15/15 和两阶段 Pilot → power/precision freeze。项目负责人只需决定框架、Pilot、矩阵规模和发布策略；任何批准仍须单独明确登记。
+技术参数的候选推荐是 primary FPR `1%`、secondary FPR `5%`、primary `K=10`、sensitivity `K=5/20`、5 seeds（Full 10）、10,000 grouped resamples、2,000 test negative groups minimum、group-aware 70/15/15 和两阶段 Pilot → power/precision freeze。它们仍待正式冻结。当前唯一下一门是 Pilot4 second Owner preflight；任何后续批准仍须单独明确登记。

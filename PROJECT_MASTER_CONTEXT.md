@@ -1,6 +1,30 @@
 # LLMGuard 项目总控文档
 
-## PILOT4 平衡预标注集与 Owner Preflight（2026-09-01）
+## Paper 1 Human Documentation Integration（2026-09-01）
+
+项目需求提出人通过 `PODR-073 / OR-035` 将
+`human/experiment_ledger_tingfeng.md` 冻结为 `PAPER1_PRIMARY_HUMAN_ENTRY`，并确认 Human、Research/Protocol Authority、
+Agent/Audit/Evidence 三层文档分工。README 只做路由；raw JSON/JSONL/log/XLSX/hash/manifest 不作为人类第一入口。
+
+正式 Paper 1 未来领域集合确认为 Enterprise HR、Finance、Information Security、Procurement and R&D、Education and
+Research。Scale Pilot 结构规划为 `5×4×3×4=240` independent groups，约 720 条 derived candidate records；均为
+`NOT EXECUTED / NOT GENERATED / DATASET NOT FROZEN`。Pilot4 的四领域覆盖仍是不可改写的历史事实。
+
+文档整合不改变实验状态。当前仍为 `PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT /
+PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION`；唯一下一人工动作是 Owner 审查 repaired 12-row second preflight。
+
+## PILOT4 Targeted Repair 与第二次 Owner Preflight（2026-09-01）
+
+第一次 Owner preflight 被 `PODR-072 / OR-034` 退回后，`a843697` 与原外部 package 保持历史不可变。本机完成 mutation
+semantic alignment、stealth evidence path、naturalness/evidence echo、visibility separation、claim-derived applicability、
+serialized-artifact G1–G14 和 independent Round D 修复；实现身份为
+`cad3b2b2c19dcef6c118e4163f705b3ec05713e1`。
+
+当前 repaired set 仍为 24 matched triplets / 72 preannotation candidates / class intent 24/24/24，并生成新的 12-row
+second Owner preflight。它不是 Ground Truth、Formal Benchmark 或 frozen Dataset；没有 A/B 分发、agreement、
+adjudication、240-group、Formal Detector、5090 或 Formal Experiment。
+
+## Historical Snapshot — PILOT4 首版平衡预标注集与 Owner Preflight（2026-09-01，已被 targeted repair supersede）
 
 项目需求提出人通过 `PODR-071 / OR-033` 批准在 240-group 之前执行最后一个专门小规模数据/标注校准阶段。本机已将
 Pilot1–3 的类别失衡、字段适用性、主体缺失、Hard Negative 误报和弱信号经验冻结为唯一 canonical future-dataset
@@ -116,9 +140,9 @@ Option B 干预公式、安全—效用指标、统计/Pilot/资源/evidence/lic
 [旧 P1 候选](docs/research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_protocol_candidate.md)，不删除历史，也不是 canonical
 stage process。
 
-当前状态严格为：P1-R1 `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`；P1 与 Pilot `NOT APPROVED / NOT STARTED`；
-Dataset `NOT FROZEN`；Detector 与 Retrieval Intervention `NOT IMPLEMENTED`；Training `NOT STARTED`；Our Method Result
-`NONE`；Formal Experiment `NOT STARTED`。本轮没有联系 5090、构建数据、实现方法、加载模型或执行实验。
+本段是 2026-08-02 创建 P1-R1 来源候选时的历史快照：当时 P1-R1 为 `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`。
+该审批状态已由后续 Owner 决定 supersede；当前为 `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`，但数值参数、Formal Dataset、
+Formal Detector、Retrieval Intervention effectiveness、Training 和 Formal Experiment 仍未冻结/未开始。
 
 ## S6.1-R0-FU1-W2 工程可行性最终验收与 P1 候选门（2026-08-02）
 

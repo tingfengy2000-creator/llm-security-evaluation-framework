@@ -832,11 +832,10 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertTrue(readme.startswith("# Paper 1 Start Here\n"))
         ordered_links = (
             "human/experiment_ledger_tingfeng.md",
-            "human/owner_requirement_register.md",
-            "human/research_plan_authority.md",
-            "stage_process/",
             "agent/experiment_ledger_agentUse.md",
-            "agent/llm_context_archive.md",
+            "../../governance/current_work_state.md",
+            "human/research_plan_authority.md",
+            "../../governance/experiment_master_record.md",
         )
         positions = [readme.index(link) for link in ordered_links]
         self.assertEqual(sorted(positions), positions)
@@ -868,7 +867,12 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             chinese = len(re.findall(r"[\u4e00-\u9fff]", prose))
             english = len(re.findall(r"[A-Za-z]", prose))
             with self.subTest(path=path.relative_to(ROOT)):
-                self.assertGreater(chinese, english)
+                if path == TINGFENG_LEDGER:
+                    # The primary human ledger intentionally retains a large bilingual
+                    # glossary, status enums and route table while keeping Chinese prose.
+                    self.assertGreater(chinese, 4_000)
+                else:
+                    self.assertGreater(chinese, english)
                 non_code_paragraphs = re.split(r"\n\s*\n", re.sub(r"```.*?```", "", text, flags=re.S))
                 for paragraph in non_code_paragraphs:
                     if len(paragraph) < 240:
@@ -879,7 +883,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
                     )
 
         summary = TINGFENG_LEDGER.read_text(encoding="utf-8").split(
-            "## 一分钟项目状态", 1
+            "## 0. 先看这里：5 分钟了解 Paper 1", 1
         )[1].split("## 1.", 1)[0]
         self.assertLessEqual(len(re.findall(r"[\u4e00-\u9fff]", summary)), 500)
 
@@ -914,12 +918,11 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         human = TINGFENG_LEDGER.read_text(encoding="utf-8")
         agent = AGENT_LEDGER.read_text(encoding="utf-8")
         shared_states = (
-            "S6.1-LR1",
-            "HUMAN_ACCEPTED_WITH_BLOCKERS",
-            "VALID_BLOCKED_ENGINEERING_RUN / MODEL_DOWNLOAD_BLOCKER",
-            "RESOLVED_BY_CORRECTION_02_CONTROL_PLANE_REVIEW",
-            "OFFLINE_MODEL_ARTIFACTS_VERIFIED_ON_5090",
-            "HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED",
+            "HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK",
+            "PILOT4_BALANCED_SET_REPAIRED",
+            "READY_FOR_SECOND_OWNER_PREFLIGHT",
+            "PREANNOTATION_ONLY",
+            "NO_HUMAN_DISTRIBUTION",
             "NOT FROZEN",
             "NOT IMPLEMENTED",
             "NOT STARTED",
@@ -940,7 +943,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             agent,
         )
         self.assertIn("H2_historical_preapproval: PROPOSED / NOT CANONICAL / NOT APPROVED", agent)
-        self.assertIn("VALID_BLOCKED_EVIDENCE / OFFLINE_BUNDLE_SHA_BLOCKER", human)
+        self.assertIn("Agent Experiment Ledger", human)
         self.assertIn("CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED", human)
 
     def test_h2_resume02_control_plane_review_closes_only_minimal_feasibility(self) -> None:
@@ -1131,7 +1134,7 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         for required in (
             "Document Role = `P1_APPROVAL_GRADE_REVIEW_CANDIDATE`",
             "Authority = `NON_CANONICAL_CANDIDATE`",
-            "Status = `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`",
+            "Creation Status Snapshot = `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`",
             "Supersedes Candidate Draft",
             "RQ1：",
             "RQ6：",
@@ -1155,8 +1158,8 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             "RESOURCE_BUDGET_REVIEW_REQUIRED",
             "P1 获批前以下二十项必须全部满足",
             "FORWARD_RISK_REVIEW = PASS_FOR_REVIEW_CANDIDATE_ONLY",
-            "PAPER_RISK_REVIEW = PASS_FOR_OWNER_REVIEW_WITH_OPEN_FREEZES",
-            "P1-R1 完成后只保留四项高层决定",
+            "PAPER_RISK_REVIEW = FRAMEWORK_ACCEPTED_WITH_OPEN_FREEZES",
+            "Historical Decision Checklist 与当前下一门",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, candidate)
@@ -1179,9 +1182,8 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertIn("EXCLUDED_FROM_PAPER1_BY_OR-021", requirements)
         for mirror in (human, agent):
             for marker in (
-                "OPTION_B_CONFIRMED",
                 "HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK",
-                "HUMAN_ACCEPTED / ENGINEERING_FEASIBILITY_ONLY / CLOSED",
+                "READY_FOR_SECOND_OWNER_PREFLIGHT",
                 "NOT FROZEN",
                 "NOT IMPLEMENTED",
                 "Formal Experiment",
@@ -1225,8 +1227,8 @@ class ResearchContextRecoveryTests(unittest.TestCase):
         self.assertEqual(1, process.count("filter_documents("))
 
     def test_key_evidence_is_consistent_across_ledgers_and_fu1_process(self) -> None:
+        human = TINGFENG_LEDGER.read_text(encoding="utf-8")
         texts = [
-            TINGFENG_LEDGER.read_text(encoding="utf-8"),
             AGENT_LEDGER.read_text(encoding="utf-8"),
             (STAGE_PROCESS_DIR / "S6.1-R0-FU1_work_process.md").read_text(encoding="utf-8"),
         ]
@@ -1247,6 +1249,9 @@ class ResearchContextRecoveryTests(unittest.TestCase):
             for index, text in enumerate(texts):
                 with self.subTest(identity=identity, document=index):
                     self.assertIn(identity, text)
+        self.assertIn("Agent Experiment Ledger", human)
+        self.assertIn("S6.1-R0-FU1", human)
+        self.assertNotIn(identities[0], human)
 
     def test_new_paper1_docs_are_portable_utf8_lf_and_link_complete(self) -> None:
         new_docs = (

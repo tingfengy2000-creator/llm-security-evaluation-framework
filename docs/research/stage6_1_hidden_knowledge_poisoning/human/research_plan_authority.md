@@ -17,7 +17,9 @@ Current Plan Status = `ACCEPTED_CURRENT_RESEARCH_PLAN`
 - `DETOXIFICATION_TECHNICAL_SCOPE_FULL = OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION`。
 - Option B 只允许基于校准风险的 hard filtering 或 soft downweighting，并同时报告安全与效用；不包含 trusted context package、完整上下文构造、多证据可信上下文生成、复杂端到端 Agent 防御、生产级 RAG 平台或完整可信检索链。
 - W2 工程门已以 `ENGINEERING_FEASIBILITY_ONLY` 人工验收并关闭；这不改变研究范围或建立检测有效性。
-- [P1-R1 正式实验协议强化候选](../s6_1_p1_r1_protocol_review_candidate.md)为 `REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`，在候选层替代但不删除[旧 P1 候选](../s6_1_p1_protocol_candidate.md)。
+- [P1-R1 正式实验协议强化候选](../s6_1_p1_r1_protocol_review_candidate.md)是已接受协议框架的来源文件：
+  `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`。其中样本量、阈值、重复次数等数值参数仍为
+  `PENDING_PILOT_EVIDENCE`，正式 protocol 尚未冻结；它在候选层替代但不删除[旧 P1 候选](../s6_1_p1_protocol_candidate.md)。
 
 ## 2. 研究问题
 
@@ -38,7 +40,22 @@ Current Plan Status = `ACCEPTED_CURRENT_RESEARCH_PLAN`
 
 每个可评估样本绑定版本链与来源身份，显式保存 `effective`、`expiry`、`repeal`、`supersedes`、`amends`、`authority`。数据必须同时覆盖合法更新、历史版本、跨部门差异、例外条件与 hard negatives，从而区分正常版本变化和恶意隐蔽污染。正式 schema、快照、切分和标签隔离合同须在 S6.1-P1 冻结；当前 `Dataset = NOT FROZEN`。
 
-### 4.1 最低自包含性与主体唯一识别门（只向前生效）
+### 4.1 正式领域集合与 Scale Pilot 规划
+
+`PAPER1_FORMAL_DOMAIN_SET = OWNER_CONFIRMED`：
+
+1. D1 Enterprise Human Resources / Enterprise HR（企业人力资源）；
+2. D2 Finance（财务）；
+3. D3 Information Security（信息安全）；
+4. D4 Procurement and R&D（采购与研发）；
+5. D5 Education and Research（教育与科研）。
+
+未来 Scale Pilot 的结构规划为 `5 domains × 4 HKP × 3 stealth levels × 4 independent chains = 240 independence groups`。
+若每组含 Clean + Poison + matched Hard Negative，可派生约 720 条 candidate records。其状态严格为
+`SCALE_PILOT_STRUCTURE / NOT EXECUTED / DATASET NOT FROZEN / 720 NOT GENERATED`。Pilot4 的四领域覆盖是既有小规模
+Pilot 历史事实，不因正式五领域确认而改写。
+
+### 4.2 最低自包含性与主体唯一识别门（只向前生效）
 
 - 对 `2026-08-28` 之后新建或新引入的候选，法律、政策、制度、标准等事实主体必须能从候选文本本身唯一识别。
 - 不得单独使用“条例”、“规定”、“修订文本”、“2017年版”等依赖隐含上下文的裸指代。外部 metadata 或标注人猜测不能代替候选自包含性。
@@ -60,13 +77,16 @@ Current Plan Status = `ACCEPTED_CURRENT_RESEARCH_PLAN`
 
 | 视角 | 计划信号 | 当前状态 |
 | --- | --- | --- |
-| Semantic View | 语义一致性与局部异常 | `PLANNED / NOT IMPLEMENTED` |
-| Entity-Claim View | 实体、主张与属性关系 | `PLANNED / NOT IMPLEMENTED` |
-| Provenance View | 来源、权威与引用链 | `PLANNED / NOT IMPLEMENTED` |
-| Temporal-Version View | 版本、时效与修订关系 | `PLANNED / NOT IMPLEMENTED` |
-| Retrieval-Behavior View | 排名、邻域与检索扰动 | `PLANNED / NOT IMPLEMENTED` |
+| Semantic View | 语义一致性与局部异常 | `METHOD CONTRACT ACCEPTED / PILOT3 DIAGNOSTIC PROTOTYPE` |
+| Entity-Claim View | 实体、主张与属性关系 | `METHOD CONTRACT ACCEPTED / PILOT3 DIAGNOSTIC PROTOTYPE` |
+| Provenance View | 来源、权威与引用链 | `METHOD CONTRACT ACCEPTED / STRUCTURED PROTOTYPE PARTIALLY IMPLEMENTED` |
+| Temporal-Version View | 版本、时效与修订关系 | `METHOD CONTRACT ACCEPTED / STRUCTURED PROTOTYPE PARTIALLY IMPLEMENTED` |
+| Retrieval-Behavior View | 排名、邻域与检索扰动 | `METHOD CONTRACT ACCEPTED / DIAGNOSTIC PRIMITIVE` |
 
-这些视角计划输出风险分数、信号和解释；Option B 计划在冻结阈值下对检索候选执行 hard filtering 或 soft downweighting，并将安全与效用作为分开的共同主结果。尚无 detector 或 retrieval intervention 实现与结果。
+五视角 `METHOD CONTRACT = ACCEPTED`；`DIAGNOSTIC IMPLEMENTATION = PARTIALLY IMPLEMENTED / PILOT3-PILOT4 ENGINEERING ONLY`。
+Pilot3/Pilot4 只证明接口、结构化信号和失败模式可被工程验证，尤其 structured Temporal-Version / Provenance prototype 已实现；
+`FORMAL DETECTOR = NOT IMPLEMENTED`，`DETECTION EFFECTIVENESS = NOT ESTABLISHED`。Option B 的 hard filtering / soft
+downweighting 技术范围已确认且存在工程 primitive，但 effectiveness 同样未建立。
 
 ## 7. Paper 1 与后续研究边界
 
@@ -106,8 +126,12 @@ Paper 1 包括 Benchmark、Detection、Risk Score、Signals、Explanation，以�
 1. S6.1-LR1：路线与基线对齐，已人工验收。
 2. S6.1-R0：工程预检，带阻塞项验收。
 3. S6.1-R0-FU1：P0/L1/W2 已验收；仅以工程可行性范围关闭。
-4. S6.1-P1-R1：审批级强化候选待审，`REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`；不得冻结或执行数据、Pilot、方法或实验。
-5. Benchmark、Detector、Formal Evaluation、Ablation、Generalization、Paper Writing：均需各自审批与证据门。
+4. S6.1-P1-R1：`HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；数值参数仍待 Pilot 证据，正式 protocol 未冻结。
+5. Pilot0–2 已在各自可行性范围关闭；Pilot3 只完成信号诊断；Pilot4 已完成 targeted repair，正在等待 second Owner
+   preflight，当前完整状态为 `PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY /
+   NO_HUMAN_DISTRIBUTION`。
+6. 240-group Scale Pilot、Benchmark freeze、Detector、Formal Evaluation、Ablation、Generalization、Option B effectiveness
+   和 Paper Writing 均需各自审批与证据门。
 
 ## 14. 正式实验进入条件
 
@@ -117,7 +141,9 @@ Paper 1 包括 Benchmark、Detection、Risk Score、Signals、Explanation，以�
 - 模型 revision、环境、随机种子、指标、统计和资源预算冻结。
 - 项目需求提出人明确批准 S6.1-P1 及后续相应阶段。
 
-当前 `S6.1-P1-R1 = REVIEW_CANDIDATE / NOT APPROVED / NOT STARTED`、`S6.1-P1 = NOT APPROVED / NOT STARTED`，不得自动进入 Pilot、Dataset Construction、Detector Implementation、Retrieval Intervention Implementation、Training 或 Formal Experiment。
+当前 `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`，但 formal protocol、Dataset、Detector 和正式实验均未冻结。
+当前实验门为 Pilot4 second Owner preflight；不得自动分发 A/B、进入 240-group、Dataset Construction、Detector
+Implementation、Retrieval Intervention effectiveness、Training 或 Formal Experiment。
 
 ## 15. 结论边界
 
@@ -147,6 +173,7 @@ Paper 1 包括 Benchmark、Detection、Risk Score、Signals、Explanation，以�
 | RPC-003 | 2026-08-01 | 英文工作题目 | 登记最新中文题目，同时保持当前已接受技术范围 | 反映项目需求提出人题目意图 | 是；技术范围待确认 | Paper 1 全局 | 本次文档重构提交 |
 | RPC-004 | 2026-08-02 | W2 等待人工决定 | W2/FU1 以单样本 detection-core 工程可行性范围验收关闭；P1 仅形成非权威协议候选 | 前置工程门已满足，但科学结论与正式实验仍需独立协议和审批 | 是；解毒 A/B/C 待确认 | FU1 closure / P1 candidate | PODR-061；本次提交 |
 | RPC-005 | 2026-08-02 | 解毒 A/B/C 待确认、旧 P1 合同候选 | 选择 Option B；Paper 1 冻结为检测与轻量 hard filtering/soft downweighting，并形成审批级 P1-R1 强化候选 | 使题目中的“解毒”具有可证伪、可预算和不扩张的技术边界 | 是；OR-021 / PODR-062 | S6.1-P1-R1 review gate | 本次提交 |
+| RPC-006 | 2026-09-01 | 三/四领域 Pilot 历史与正式领域规划分散 | 正式 Paper 1 领域冻结为 D1–D5；未来 Scale Pilot 规划 240 independent groups，明确未执行、未生成、未冻结 | 支持正式 Benchmark 跨领域规划，同时不改写 Pilot4 四领域历史 | 是；GOV-P1-HUMAN-DOCS-INTEGRATION-01 | future Scale Pilot / Formal Benchmark | 本次提交 |
 
 历史与支撑路线：[paper1_research_route.md](../paper1_research_route.md)，其 `Document Role = HISTORICAL_AND_SUPPORTING_RESEARCH_ROUTE`，不能覆盖本文件。
 

@@ -38,8 +38,10 @@
 | OR-032 | 2026-08-31 | 最终确认四个候选的五项字段纠正；批准将项目负责人纠正作为独立证据绑定原仲裁，原工作簿与填写痕迹不变；一致性全部通过后继续生成试验性真值候选、完成数据质量审计与关闭，并在本机执行五视角轻量诊断 | 项目负责人纠正与条件式可行性收口 | Paper 1 / P1-PILOT2 Closure / PILOT3 | `PILOT2 CLOSED FOR FEASIBILITY / PILOT3 SIGNAL DIAGNOSTIC COMPLETED` | `S6.1-P1-PILOT2-ADJUDICATION-CLOSURE-AND-PILOT3-ENTRY` | 项目需求提出人当前最终决定；`PODR-070` | 不得称为自动修正；禁止正式数据冻结、240 组扩展、正式检测器或训练、5090、正式实验与论文结果；完成轻量诊断后停止 |
 | OR-033 | 2026-09-01 | 在 240-group 前执行最后一个小规模 Pilot4 校准；冻结唯一标注教训规则，先设计 coverage/field schema，再构造 24 个 matched triplets、72 条平衡候选与 48+ query，并完成结构化信号修复、近重复与四轮人工发放前 QA；只生成 Owner preflight，不发 A/B | Pilot4 预标注与防返工门 | Paper 1 / P1-PILOT4 | `READY_FOR_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION` | `S6.1-P1-PILOT4-PREANNOTATION` | 项目需求提出人当前明确指令；`PODR-071` | 不得自动人工标注、agreement、adjudication、240-group、Dataset freeze、Detector/Training、5090、Formal Experiment 或 Paper Result |
 | OR-034 | 2026-09-01 | 第一版项目负责人预审不通过；保留 `a843697` 与旧外部包，定向修复变异语义对齐、隐蔽等级证据路径、自然度与答案回显、`Phase1`/`Phase2` 可见性、按命题推导的适用性、序列化产物独立 `G1--G14` 复验、`Round D` 与困难负例证据链；重建 72 条并只生成第二版 12 行项目负责人预审 | Pilot4 定向修复与第二次低成本项目负责人门 | Paper 1 / P1-PILOT4 | `REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY` | `S6.1-P1-PILOT4-PREANNOTATION-TARGETED-REPAIR-01` | 项目需求提出人当前明确指令；`PODR-072` | 不得登记接受，不得覆盖旧证据，不得发 A/B，不得计算一致性或仲裁，不得生成真值，不得进入 240 组扩展、数据冻结、训练、5090 或正式实验 |
+| OR-035 | 2026-09-01 | 建立 Paper 1 5/15/30 分钟人类主入口与人类/研究权威/Agent-evidence 三层文档；正式领域冻结为 Enterprise HR、Finance、Information Security、Procurement and R&D、Education and Research；未来规模规划为 `5×4×3×4=240` independent groups | 文档结构与上下文整合 | Paper 1 全局治理 | `HUMAN_LEDGER_ROLE=PAPER1_PRIMARY_HUMAN_ENTRY / HUMAN_AGENT_DOCUMENTATION_SEPARATION=OWNER_CONFIRMED / PAPER1_FORMAL_DOMAIN_SET=OWNER_CONFIRMED` | `GOV-P1-HUMAN-DOCS-INTEGRATION-01` | 项目需求提出人当前明确指令；`PODR-073` | 只改文档/治理；Pilot4 四领域历史不改；240 groups/约720 candidates 未执行、未生成、未冻结；实验状态保持 waiting for second Owner preflight |
 
-当前人工动作仅限确认四个候选的唯一最终值；不得重新发起双人标注，也不得在确认前生成真值或启动后续实验。
+当前唯一人工动作是审查 repaired 12-row Pilot4 second Owner preflight；不得因本次文档整合自动接受 Pilot4、分发 A/B、
+生成 72 条 Ground Truth 或启动 240-group 与后续实验。
 
 本次批准的中文边界是：保留两名标注人的第一轮原始结果，只修复标注工具并准备本人独立复核材料。两名标注人仍不得互看、讨论或统一答案；协调人只负责发放、回收、计算摘要并锁定文件。第二版结果没有返回并通过后续独立验证前，不得宣称一致性已经恢复，也不得开始分歧仲裁、数据集冻结、检测器实现、训练或正式实验。
 

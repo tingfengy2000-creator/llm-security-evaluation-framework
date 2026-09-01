@@ -1417,3 +1417,22 @@ Approval Gate、Auto Continue。
   workbook separates Phase1, Phase2 and owner-only fields.
 - Final status: `PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION`.
 - Next gate: Owner performs only the second preflight and explicitly accepts or requests another targeted correction. Auto Continue `NO`.
+
+## REL-2026-0039 — Paper 1 Human Documentation Integration
+
+- Record ID: `REL-2026-0039`; date `2026-09-01`; task `GOV-P1-HUMAN-DOCS-INTEGRATION-01`; machine `本机`.
+- Classification: `DOCUMENTATION_STRUCTURE_AND_CONTEXT_INTEGRATION`; no data, candidate, workbook, evidence artifact, method,
+  model, 5090 or experimental action.
+- Owner authority: `PODR-073 / OR-035`; human ledger is `PAPER1_PRIMARY_HUMAN_ENTRY`; Human/Research Authority/Agent-Evidence
+  separation is confirmed; formal future domains are D1 Enterprise HR, D2 Finance, D3 Information Security, D4 Procurement and
+  R&D, D5 Education and Research.
+- Documentation result: 0–19 human plan/ledger, research authority and agent ledger synchronization, first-screen README routing,
+  document inventory and separation contract; no protected path moved.
+- Validation: task-scoped documentation/Pilot4 contract tests `64 passed`; namespace, label-isolation and runtime-ignore tests
+  `12 passed`; scoped Ruff/MyPy, 391 Markdown relative links, UTF-8 no-BOM, secret scan, protected-path and `git diff --check`
+  passed. The immutable repair manifest reverified `19/19`, including candidate SHA256 `2abab9f7...fd5ab` and owner workbook
+  SHA256 `56576c7b...a006b`.
+- Planning boundary: `5×4×3×4=240` groups and approximately 720 derived records are structure only, not execution/data facts.
+- Experiment status unchanged: `PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY /
+  NO_HUMAN_DISTRIBUTION`.
+- Next gate: Owner reviews repaired 12-row Pilot4 second preflight. Auto Continue `NO`.

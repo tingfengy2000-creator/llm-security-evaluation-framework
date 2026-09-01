@@ -1174,3 +1174,22 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   freeze Dataset, train, contact 5090 or start Formal Experiment. Auto Continue = `NO`.
 - Canonical authority: [future dataset rules](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md),
   `OR-034`, `REL-2026-0038`.
+
+## PODR-073: Paper 1 Human Documentation Integration and Formal Domain Set
+
+- Date: `2026-09-01`.
+- Task classification: `DOCUMENTATION_STRUCTURE_AND_CONTEXT_INTEGRATION`.
+- Owner decision: keep `human/experiment_ledger_tingfeng.md` as the stable `PAPER1_PRIMARY_HUMAN_ENTRY`; establish explicit Human,
+  Research/Protocol Authority and Agent/Audit/Evidence layers without removing machine detail or duplicating raw evidence.
+- Domain decision: `PAPER1_FORMAL_DOMAIN_SET = OWNER_CONFIRMED` for future Scale Pilot/Formal Benchmark planning: Enterprise HR,
+  Finance, Information Security, Procurement and R&D, Education and Research.
+- Scale planning: `5 domains × 4 HKP × 3 stealth × 4 independent chains = 240 groups`; approximately 720 Clean/Poison/matched-HN
+  records is a derived plan only. Neither value is generated, frozen or approved for execution.
+- Historical boundary: Pilot4 remains a four-domain Pilot fact. Documentation must not rewrite it as five-domain coverage.
+- Experiment status unchanged: `PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY /
+  NO_HUMAN_DISTRIBUTION`.
+- Prohibited: Pilot4 acceptance, A/B distribution, agreement, adjudication, Ground Truth, 240-group execution, Dataset freeze,
+  Detector/training change, 5090, Formal Experiment or Paper Result. Auto Continue = `NO`.
+- Canonical records: [Human Ledger](../research/stage6_1_hidden_knowledge_poisoning/human/experiment_ledger_tingfeng.md),
+  [Research Plan Authority](../research/stage6_1_hidden_knowledge_poisoning/human/research_plan_authority.md), `OR-035`,
+  `REL-2026-0039`.

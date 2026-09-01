@@ -286,3 +286,14 @@ Owner packet 的 completeness gate 与 consistency gate 必须分开。每行都
 正确做法是先对每个 `candidate + field` 聚合全部 owner cells，精确校验字段枚举，再检查 conditional dependency 和
 fact/stealth 逻辑。冲突时只返回最小 candidate-level 确认表；不得重做 A/B，也不得依据多数、rationale 或 LOCAL 推荐值
 静默选择。
+
+## 人类总账、研究权威与机器证据必须分层（2026-09-01）
+
+当项目积累大量 Pilot、blocker、hash 和状态枚举后，“证据完整”不等于“人能快速理解”。若把 raw evidence、协议条款、
+当前进度和历史失败全部堆进同一个页面，项目负责人难以在 5 分钟内找到下一动作，Agent 也可能从旧段落恢复出错误当前
+状态。可复用做法是三层分离：Human doc 解释 why/what/next；Research/Protocol authority 冻结定义和进入条件；Agent/
+Evidence 保存 ID、hash、manifest、约束与追加历史。
+
+分层不是删减证据。Human 页面通过链接下钻，Agent 页面继续保留机器结构，raw evidence 继续不可变；README 只负责
+路由，document inventory 负责解释为什么高链接密度历史文件不移动。状态漂移应标记 Historical/Superseded，而不是
+改写成“从未出错”。这能同时降低人类认知负担和上下文恢复风险。
