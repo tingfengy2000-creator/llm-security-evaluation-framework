@@ -149,3 +149,7 @@ Paper 1 包括 Benchmark、Detection、Risk Score、Signals、Explanation，以�
 | RPC-005 | 2026-08-02 | 解毒 A/B/C 待确认、旧 P1 合同候选 | 选择 Option B；Paper 1 冻结为检测与轻量 hard filtering/soft downweighting，并形成审批级 P1-R1 强化候选 | 使题目中的“解毒”具有可证伪、可预算和不扩张的技术边界 | 是；OR-021 / PODR-062 | S6.1-P1-R1 review gate | 本次提交 |
 
 历史与支撑路线：[paper1_research_route.md](../paper1_research_route.md)，其 `Document Role = HISTORICAL_AND_SUPPORTING_RESEARCH_ROUTE`，不能覆盖本文件。
+
+未来任何 Paper 1 数据生成、标注字段设计或人工发放前 QA，必须先读取并遵守唯一 canonical
+[Annotation Lessons Learned and Future Dataset Rules](annotation_lessons_learned_and_future_dataset_rules.md)。该规则只向前
+约束新候选，不回写 Pilot1/Pilot2 历史证据；任何人工发放仍需项目需求提出人单独批准。

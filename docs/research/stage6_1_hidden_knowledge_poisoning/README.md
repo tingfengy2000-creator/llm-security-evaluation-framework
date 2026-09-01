@@ -1,6 +1,10 @@
 # Paper 1 Start Here
 
-> 快速状态：父 W2/FU1、PILOT0/PILOT1 已按各自范围关闭。Owner 的四候选 correction 已独立绑定，原工作簿与 blocker 历史不变；`PILOT2_GROUND_TRUTH_CANDIDATE_V1` 共 36 条（Clean 1 / Poison 12 / Hard Negative 23），PILOT2 仅按 annotation protocol + Ground Truth feasibility 人工关闭。PILOT3 本机五视角 smoke 已建立工程与信号诊断可行性，但信号弱且类别失衡，绝非 detector effectiveness。240-group、Dataset freeze、正式 Detector/Training、5090、Formal Experiment 与 Paper Result 均未推进。
+> 快速状态：PILOT2 已按 protocol/Ground-Truth feasibility 关闭，PILOT3 只建立弱信号诊断可行性。PILOT4 已完成
+> 24 个 matched triplets、72 条平衡 `PREANNOTATION_CANDIDATE`、48 条 query、结构化信号修复与四轮机器 QA，当前仅为
+> `READY_FOR_OWNER_PREFLIGHT / NO_HUMAN_DISTRIBUTION`。它不是 Ground Truth、Formal Benchmark 或 frozen Dataset；
+> 240-group、正式 Detector/Training、5090、Formal Experiment 与 Paper Result 均未推进。
+> `FORMAL_EXPERIMENT = NOT STARTED`；`DATASET_FORMAL_FREEZE = NOT STARTED`。
 
 > 永久前瞻性候选门：`PODR-067 / OR-029` 要求以后新建/新引入候选的法律、政策、制度、标准主体在候选文本内唯一可识别；裸指代 fail closed 为 `BROKEN_CANDIDATE / MISSING_CONTEXT`。只向前生效，不改动现有 Pilot1/Pilot2 证据。
 
@@ -9,16 +13,17 @@
 1. [实验总账 — tingfeng](human/experiment_ledger_tingfeng.md) — 5–10 分钟恢复论文、阶段、结果、失败、风险和下一步。
 2. [用户确认需求登记册](human/owner_requirement_register.md) — 唯一保存项目需求提出人明确确认需求的权威入口。
 3. [研究方案权威文件](human/research_plan_authority.md) — 唯一保存当前已接受 Paper 1 研究方案的权威入口。
-4. [阶段工作过程](stage_process/) — 每阶段一个 canonical 文件，保存时间顺序过程、失败、证据和审批门。
-5. [实验总账 — agentUse](agent/experiment_ledger_agentUse.md) — 面向智能体的派生结构化镜像，不覆盖人类权威或原始证据。
-6. [LLM 上下文物理存档](agent/llm_context_archive.md) — 精炼的上下文 capsule 与追加式 checkpoint。
+4. [标注教训与未来数据规则](human/annotation_lessons_learned_and_future_dataset_rules.md) — 新候选、field schema 与人工发放前 QA 的唯一 canonical 前置规则。
+5. [阶段工作过程](stage_process/) — 每阶段一个 canonical 文件，保存时间顺序过程、失败、证据和审批门。
+6. [实验总账 — agentUse](agent/experiment_ledger_agentUse.md) — 面向智能体的派生结构化镜像，不覆盖人类权威或原始证据。
+7. [LLM 上下文物理存档](agent/llm_context_archive.md) — 精炼的上下文 capsule 与追加式 checkpoint。
 
 ## 二、当前阶段过程
 
 - [S6.1-LR1 工作过程](stage_process/S6.1-LR1_work_process.md) — 路线与基线对齐，`HUMAN_ACCEPTED`。
 - [S6.1-R0 工作过程](stage_process/S6.1-R0_work_process.md) — 工程预检，`HUMAN_ACCEPTED_WITH_BLOCKERS`。
 - [S6.1-R0-FU1 工作过程](stage_process/S6.1-R0-FU1_work_process.md) — P0/L1/W2 已验收；FU1 仅以最小工程可行性范围关闭。
-- [S6.1-P1 工作过程](stage_process/S6.1-P1_work_process.md) — P1-R1、PILOT0、PILOT1 与 PILOT2 的唯一追加式过程；当前等待 owner 仅确认 4 个 blocker 候选。
+- [S6.1-P1 工作过程](stage_process/S6.1-P1_work_process.md) — P1-R1 与 PILOT0–4 的唯一追加式过程；当前等待 Pilot4 owner preflight。
 - [PILOT2 Return Owner Correction](s6_1_p1_pilot2_return_owner_correction.md) — 保留原错误登记与原推断，并以 owner-confirmed actual order supersede 盲法污染解释。
 - [PILOT2 Annotation Schema V2](s6_1_p1_pilot2_annotation_v2.md) — V2 字段/验证合同、四包身份、验证结果与精确人工下一门。
 - [PILOT2 Targeted Re-review](s6_1_p1_pilot2_targeted_rereview.md) — 问题字段审计、A/B 最小工作量、V1 映射 Correction 01、XLSX 保护与人工后续门。

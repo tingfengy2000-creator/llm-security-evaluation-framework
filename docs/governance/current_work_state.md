@@ -16,18 +16,19 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-P1-PILOT2-ADJUDICATION-CLOSURE-AND-PILOT3-ENTRY`.
-- Task name: `Pilot2 Owner Adjudication Ingestion, Ground Truth Closure and Pilot3 Detection Signal Feasibility Entry`.
-- Task type: **LOCAL_PILOT2_GROUND_TRUTH_CLOSURE / PILOT3_SIGNAL_DIAGNOSTIC / NO_FORMAL_EXPERIMENT**.
-- Status: **PILOT2_HUMAN_ACCEPTED_CLOSED_FOR_FEASIBILITY / PILOT3_ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY / AUTO_CONTINUE_NO**.
+- Task ID: `S6.1-P1-PILOT4-PREANNOTATION`.
+- Task name: `Pilot4 Signal Repair, Balanced Diagnostic Set and Pre-annotation Quality Gate`.
+- Task type: **LOCAL_SIGNAL_REPAIR / BALANCED_PREANNOTATION / NO_HUMAN_DISTRIBUTION / NO_FORMAL_EXPERIMENT**.
+- Status: **BALANCED_DIAGNOSTIC_SET_READY_FOR_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION / AUTO_CONTINUE_NO**.
 - Execution base commit: `PILOT2_OWNER_CORRECTION_BASE_COMMIT = 0b61e0124b1fb75f1a864132da41ce6a0fcbc3fc`.
 - Targeted package lineage base: `09aa7e65e95e10a657e44c2b31e23ec02bc4210b`.
 - Execution machine: **本机**. Immutable Round1 raw and the complete Schema V2 package remain hash-bound and unchanged；a field audit
   narrows human work to three Phase1 stealth fields, seven Phase2 fact/applicability fields and B-only process corrections.
-- Current ordered step: completed. The owner's four-candidate correction is bound separately from the immutable workbook; residual
-  inconsistency and PENDING are zero. A 36-record Pilot-only Ground Truth candidate closed Pilot2 for protocol/Ground-Truth
-  feasibility, followed by a local deterministic five-view Pilot3 smoke. Stop for owner route selection; no Dataset freeze,
-  240-group scale-up, formal Detector training, 5090 contact or Formal Experiment occurs.
+- Current ordered step: Pilot4 machine construction/QA completed. A canonical lessons file, field-schema gate, G1-G14 candidate
+  gate, structured signal contracts and semantic near-duplicate scanner produced 24 independent matched triplets, 72
+  preannotation candidates and 48 queries. Owner reviews only the stratified 12-row preflight sample; no A/B distribution occurs.
+- Historical completed task identity: `S6.1-P1-PILOT2-ADJUDICATION-CLOSURE-AND-PILOT3-ENTRY` closed Pilot2 feasibility and
+  established the Pilot3 diagnostic baseline; the immutable closure history remains governed by `PODR-070 / OR-032`.
 - Permanent prospective candidate gate (`PODR-067 / OR-029`): every annotation candidate created or newly introduced after
   `2026-08-28` must identify its legal/policy/institutional/standards subject unambiguously from the candidate text itself. Bare
   references such as “条例”、“规定”、“修订文本”、“2017年版” fail closed as `BROKEN_CANDIDATE / MISSING_CONTEXT` and must be
@@ -83,6 +84,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - OWNER_ADJUDICATION: **COMPLETION_PASS / OWNER_CORRECTION_BOUND_SEPARATELY / CONSISTENCY_PASS / NO_PENDING**.
 - GROUND_TRUTH_CANDIDATE: **GENERATED / 36_RECORDS / PILOT_ONLY / NOT_FORMAL_DATASET**.
 - PILOT3: **ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY / STOPPED**.
+- PILOT4: **BALANCED_DIAGNOSTIC_SET_READY_FOR_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION**.
+- PILOT4 candidates: **72 PREANNOTATION_CANDIDATES / NOT GROUND TRUTH / NOT FORMAL BENCHMARK / NOT FROZEN DATASET**.
 - ANNOTATION_MODE: **TWO_INDEPENDENT_ANNOTATORS_WITH_OWNER_ADJUDICATION**.
 - BLINDNESS_SUBISSUE: **RESOLVED_BY_OWNER_CONFIRMED_ACTUAL_DISTRIBUTION_ORDER**.
 - REGISTRATION_METADATA_SUBISSUE: **DOCUMENTED_AND_EVIDENCE_BOUND / ORIGINAL_METADATA_PRESERVED**.
@@ -237,10 +240,10 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
 - Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
   evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- Next operational action: owner selects the post-Pilot3 route. Current recommendation is to repair structured Temporal-Version and
-  provenance signals, implement semantic near-duplicate scanning and improve Clean-class balance before any small Detector
-  prototype; do not enter the 240-group scale Pilot yet. No automatic scale-up, Dataset freeze, formal Detector, training, 5090 or
-  Formal Experiment is authorized.
+- Next operational action: owner performs `PILOT4_OWNER_PREFLIGHT` on the 12-row stratified sample and either accepts the
+  preannotation design, requests a targeted correction, or rejects it. Acceptance still does not distribute to A/B; human
+  annotation requires a separate explicit approval. No automatic 240-group scale-up, Dataset freeze, formal Detector, training,
+  5090 or Formal Experiment is authorized.
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. Its acceptance does not approve S6-T5.6 ContextBuilder behavior; that remains a separate boundary.

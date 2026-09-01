@@ -1,5 +1,17 @@
 # LLMGuard 项目总控文档
 
+## PILOT4 平衡预标注集与 Owner Preflight（2026-09-01）
+
+项目需求提出人通过 `PODR-071 / OR-033` 批准在 240-group 之前执行最后一个专门小规模数据/标注校准阶段。本机已将
+Pilot1–3 的类别失衡、字段适用性、主体缺失、Hard Negative 误报和弱信号经验冻结为唯一 canonical future-dataset
+规则，并实现 field-schema gate、G1–G14 candidate gate、结构化 Temporal-Version/Provenance 与语义近重复扫描。
+
+Pilot4 当前有 24 个独立公开中文主体、24 个 matched triplets、72 条 `PREANNOTATION_CANDIDATE` 和 48 条 query；类别
+`24/24/24`，HKP×intended-S 12 个单元各 2，4 个领域与 8/8/8 长度覆盖成立。四轮机器 QA 全部通过，Git-external
+Owner preflight 只抽样 12 条。当前状态为 `BALANCED_DIAGNOSTIC_SET_READY_FOR_OWNER_PREFLIGHT / PREANNOTATION_ONLY /
+NO_HUMAN_DISTRIBUTION`。这些候选不是 Ground Truth、Formal Benchmark 或 frozen Dataset；A/B、240-group、正式 Detector/
+Training、5090、Formal Experiment 与 Paper Result 均未启动。
+
 ## PILOT2 Owner Adjudication 一致性阻塞（2026-08-31）
 
 项目需求提出人批准 `S6.1-P1-PILOT2-ADJUDICATION-CLOSURE-AND-PILOT3-ENTRY`，但 Ground Truth 与 Pilot3 只能在 owner

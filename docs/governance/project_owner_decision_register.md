@@ -1138,3 +1138,23 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Stop boundary: no 240-group, Dataset formal freeze, formal Detector/training, 5090, Formal Experiment, Paper Result or SOTA.
 - Canonical record: [Pilot2 Closure and Pilot3 Signal Feasibility](../research/stage6_1_hidden_knowledge_poisoning/s6_1_p1_pilot2_closure_and_pilot3_signal_feasibility.md),
   `OR-032`, `REL-2026-0036`.
+
+## PODR-071: PILOT4 Balanced Pre-annotation and Owner Preflight Approval
+
+- Date: `2026-09-01`.
+- Owner decision: execute the last dedicated small-scale data/annotation calibration before any 240-group design. Freeze one
+  canonical lessons file; require coverage-before-generation, field-schema quality, subject uniqueness, G1-G14 candidate admission,
+  blind cold-reader and four-round QA before human release.
+- Approved construction: 24 independent public Chinese source/version subjects, 24 matched Clean/Poison-intent/Hard-Negative
+  triplets, 72 preannotation candidates, 48+ self-contained queries, full HKP×intended-S coverage, four domains and three length
+  bands. Generation intent is never Ground Truth.
+- Signal scope: structured Temporal-Version and Provenance contracts, hard-negative-aware Semantic/Entity diagnostics and an
+  operational independence-group/matched-triplet-aware semantic near-duplicate scanner.
+- Execution result: `24/24/24`, 12 HKP×S cells ×2, four domains ×6 triplets, length `8/8/8`, authority/temporal applicability
+  `12/24` each, six HN subtypes ×4, subject uniqueness `72/72`, G1-G14 and four QA rounds PASS.
+- Artifact: Git-external `LLMGuard-Handoff/paper1_pilot4_preannotation_20260901`; Owner sees a stratified 12-row workbook sample.
+- Final status: `BALANCED_DIAGNOSTIC_SET_READY_FOR_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION`.
+- Prohibited: A/B distribution, agreement, adjudication, 240-group, Dataset freeze, formal Detector/training, 5090, Formal
+  Experiment, Paper Result or SOTA. Auto Continue = `NO`.
+- Canonical authority: [future dataset rules](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md),
+  `OR-033`, `REL-2026-0037`.

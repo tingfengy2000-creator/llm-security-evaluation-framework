@@ -32,6 +32,7 @@ class LeakageFinding:
 
 class SemanticScanStatus(str, Enum):
     NOT_IMPLEMENTED = "NOT_IMPLEMENTED"
+    OPERATIONAL = "OPERATIONAL"
 
 
 class SemanticNearDuplicateScanner(Protocol):
@@ -50,6 +51,79 @@ class UnimplementedSemanticNearDuplicateScanner:
         if required:
             raise LeakageBlocker("SEMANTIC_NEAR_DUPLICATE_NOT_IMPLEMENTED")
         return ()
+
+
+def _character_ngrams(text: str, size: int = 3) -> frozenset[str]:
+    compact = _normalized_text(text)
+    if len(compact) < size:
+        return frozenset({compact}) if compact else frozenset()
+    return frozenset(compact[index : index + size] for index in range(len(compact) - size + 1))
+
+
+def _template_text(text: str) -> str:
+    normalized = unicodedata.normalize("NFKC", text).casefold()
+    normalized = re.sub(r"《[^》]+》", "《SUBJECT》", normalized)
+    normalized = re.sub(r"\d+(?:\.\d+)?", "#", normalized)
+    return re.sub(r"\s+", "", normalized)
+
+
+class DeterministicSemanticNearDuplicateScanner:
+    """Conservative lexical-semantic scanner for future split safety.
+
+    The implementation is dependency-free and deterministic.  It combines
+    character n-gram similarity with template, entity, version-chain and source
+    family overlap.  Findings within one matched triplet are expected and are
+    explicitly suppressed; cross-independence-group findings are blockers.
+    """
+
+    status = SemanticScanStatus.OPERATIONAL
+
+    def __init__(self, *, similarity_threshold: float = 0.78) -> None:
+        if not 0.0 < similarity_threshold <= 1.0:
+            raise ValueError("similarity_threshold must be within (0, 1]")
+        self.similarity_threshold = similarity_threshold
+
+    def scan(
+        self, documents: tuple[LeakageDocument, ...], *, required: bool
+    ) -> tuple[LeakageFinding, ...]:
+        del required
+        findings: list[LeakageFinding] = []
+        ordered = sorted(documents, key=lambda item: item.record_id)
+        for index, left in enumerate(ordered):
+            for right in ordered[index + 1 :]:
+                same_triplet = (
+                    left.group_identity.version_chain_id
+                    == right.group_identity.version_chain_id
+                )
+                if same_triplet:
+                    continue
+                left_grams = _character_ngrams(left.text)
+                right_grams = _character_ngrams(right.text)
+                union = left_grams | right_grams
+                similarity = len(left_grams & right_grams) / len(union) if union else 1.0
+                template_match = _template_text(left.text) == _template_text(right.text)
+                identity_overlap = sum(
+                    (
+                        left.group_identity.entity_id == right.group_identity.entity_id,
+                        left.group_identity.version_chain_id
+                        == right.group_identity.version_chain_id,
+                        left.group_identity.source_document_family
+                        == right.group_identity.source_document_family,
+                    )
+                )
+                if similarity >= self.similarity_threshold or identity_overlap >= 2:
+                    findings.append(
+                        LeakageFinding(
+                            check_name="semantic_near_duplicate",
+                            left_record_id=left.record_id,
+                            right_record_id=right.record_id,
+                            detail=(
+                                f"similarity={similarity:.4f};template={template_match};"
+                                f"identity_overlap={identity_overlap};cross_independence_group=true"
+                            ),
+                        )
+                    )
+        return tuple(findings)
 
 
 def _normalized_text(text: str) -> str:
@@ -156,6 +230,7 @@ def assert_embedding_input_isolated(
 __all__ = [
     "LeakageDocument",
     "LeakageFinding",
+    "DeterministicSemanticNearDuplicateScanner",
     "SemanticNearDuplicateScanner",
     "SemanticScanStatus",
     "UnimplementedSemanticNearDuplicateScanner",

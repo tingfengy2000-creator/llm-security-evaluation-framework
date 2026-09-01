@@ -1371,3 +1371,31 @@ Approval Gate、Auto Continue。
 - Final status: `ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY`; stop for owner route decision.
 - Git-external evidence: `paper1_pilot2_closure_20260831` and `paper1_pilot3_signal_feasibility_20260831`.
 - Prohibited: 240-group, Dataset freeze, formal Detector/training, 5090, Formal Experiment, Paper Result or SOTA.
+
+## REL-2026-0037 — PILOT4 Balanced Pre-annotation and Owner Preflight
+
+- Record ID: `REL-2026-0037`.
+- Date: `2026-09-01`.
+- Stage / Task: `Stage 6.1 / Paper 1 / S6.1-P1-PILOT4-PREANNOTATION`.
+- Machine: `本机`; no A/B distribution, model, GPU, 5090, training or formal experiment.
+- Authority: `PODR-071 / OR-033`; this is the last dedicated small-scale preannotation calibration before any separately approved
+  240-group design.
+- Context/Git preflight: unique research worktree; base `31b1d672be4006d6cd6b98cc187b6677c9c0620b`; clean and upstream `0/0`
+  before task; Stage1–5 unchanged.
+- Canonical rule: one future dataset/annotation lessons file freezes coverage-before-generation, field-schema quality,
+  self-containment, subject uniqueness, G1-G14, blind cold-reader, evidence immutability and human-resource rules.
+- Construction: 24 independent official-public subjects, 24 matched triplets, 72 preannotation candidates and 48 self-contained
+  queries. Class `24/24/24`; HKP×intended-S 12 cells ×2; four domains ×6 triplets; length `8/8/8`; authority and temporal
+  applicability `12/24` each; six hard-negative subtypes ×4.
+- QA: field schema PASS; subject uniqueness/self-containment `72/72`; G1-G14 `72/72`; four rounds PASS; cross-independence-group
+  semantic near-duplicate blockers `0`; source registry is public/traceable with `HASH_ONLY` release policy.
+- Rejection: two construction probes rejected and regenerated (`BROKEN_CANDIDATE / MISSING_CONTEXT` and
+  `MUTATION_DID_NOT_CHANGE_FACT`); max retry budget 3 per target cell; rejected probes are not candidate evidence.
+- Signal repair: structured VersionFact/VersionRelation and Provenance contracts; host/issuer separation; no-authority N/A;
+  legitimate history/update/exception/scope hard-negative adjustment; no Ground-Truth-to-signal feature path.
+- Artifact: Git-external `LLMGuard-Handoff/paper1_pilot4_preannotation_20260901`; manifest `22/22`; Owner workbook contains only a
+  stratified 12-row review sample and is not an annotator package.
+- Final status: `BALANCED_DIAGNOSTIC_SET_READY_FOR_OWNER_PREFLIGHT / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION`.
+- Claims prohibited: Ground Truth, Formal Benchmark, Dataset freeze, Detector effectiveness, 240-group, 5090, Formal Experiment,
+  Paper Result or SOTA.
+- Next gate: Owner reviews the 12-row sample and explicitly accepts, requests targeted correction or rejects. Auto Continue `NO`.

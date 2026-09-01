@@ -255,6 +255,17 @@ overall fact 的依赖链。
 
 正确的顺序是先做 candidate admission：显式记录候选中的主体 mention、canonical identity 和“是否可从本文本唯一识别”。只有通过后才进入事实与隐蔽性标注；否则固定为 `BROKEN_CANDIDATE / MISSING_CONTEXT`。对历史数据采用 prospective-only 是为了不伪造“从未出错”的历史，而不是声称历史样本已自动通过新门。
 
+## Pilot4：把返工移到人工发放之前（2026-09-01）
+
+先设计 coverage matrix 再写文本，可以在机器阶段发现类别、HKP×S、领域、长度、authority/temporal applicability 与
+hard-negative subtype 的空单元。field schema 同样必须先定义适用性、依赖、证据和 agreement population；否则即使
+工作簿技术上可填写，也会把测量歧义转嫁给标注人。
+
+近重复扫描不能把 matched triplet 内刻意相近的 Clean/Poison/HN 当泄漏，也不能忽略跨独立主体的模板相似；正确做法
+是同时使用文本、模板、entity/version/source overlap 和 independence-group 身份。通过该扫描只表示未来 split safety
+工具已运行，不表示 Dataset split 已冻结。Owner preflight 只抽查分层 12 条，是在不消耗 A/B 的前提下做最后一次低成本
+sanity check；72 条仍没有人类 Ground Truth。
+
 ## Agreement 要先分清“分歧”和“单人内部逻辑冲突”（2026-08-31）
 
 A/B 在同一字段给出不同 V2 值是 inter-annotator disagreement；同一标注人的 `present=NO` 却把 correctness 填成
