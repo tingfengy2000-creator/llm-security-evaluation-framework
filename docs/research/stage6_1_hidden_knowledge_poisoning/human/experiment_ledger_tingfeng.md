@@ -5,7 +5,7 @@
 Document Role = `PAPER1_PRIMARY_HUMAN_ENTRY`<br>
 Audience = `项目负责人 / 导师与领导 / 新团队成员`<br>
 Reading Path = `5 minutes / 15 minutes / 30 minutes`<br>
-Current Evidence Cut = `Quality Convergence / Pilot4 Owner acceptance review pending`<br>
+Current Evidence Cut = `Evidence Pool repaired / Schema V3.1 Owner acceptance pending`<br>
 Last Updated = `2026-09-01`
 
 > 这是一张“项目地图”，不是 raw evidence，也不产生新授权。读完第 0 节可掌握当前状态；读到第 8 节可理解论文方法；
@@ -19,20 +19,20 @@ Last Updated = `2026-09-01`
 | 英文论文题目 | *Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework* |
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
-| 当前阶段 | ⏳ Pilot4 数据与标注协议质量收敛完成，等待项目负责人 acceptance review；仍是预标注阶段。 |
-| 当前任务 | `S6.1-P1-PILOT4-PREANNOTATION-QUALITY-CONVERGENCE-01`：真实来源、全量语义与 Schema V3 收敛。 |
-| 当前完成度 | ✅ `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`，Pilot0–2 可行性门完成；🧪 Pilot3 信号诊断完成；🔧 Pilot4 72/72、64 个来源单元、Schema V3 与三个 dry-run workbook 已准备；正式数据、Detector 和正式实验均未开始。 |
-| 当前唯一人工动作 | 项目负责人审查完整 72-row review、Schema V3 candidate 与三个 `ANNOTATOR_DRY_RUN_ONLY` 工作簿。 |
+| 当前阶段 | ⏳ Pilot4 Evidence Pool 与 Schema V3.1 工程修复完成，等待项目负责人 acceptance；仍是预标注阶段。 |
+| 当前任务 | `PILOT4-EVIDENCE-POOL-REPAIR-01`：distinct companion source、Annotator-friendly Schema V3.1 与 English-first UI。 |
+| 当前完成度 | ✅ 72/72 evidence pool 可执行；23/23 受影响 triplet 各新增一个不同 URL/hash/document identity 的 verified official companion；duplicate visible E1/E2 URL 为 0；Schema V3.1 与三个 dry-run workbook 已准备。 |
+| 当前唯一人工动作 | 项目负责人审查 `annotation_v3_1_final_owner_review.md`、三份 V3.1 workbook 与 companion source QA，并明确接受或指出新 blocker。 |
 | 当前主要 blocker | ⏳ Owner acceptance 尚未给出；因此不能发 A/B，更不能进入 240-group。 |
 | 已经可以说什么 | Pilot4 的 72 条候选通过全量语义/可见性 QA，64 个实际官方来源证据单元完成字节/摘录 hash 与锚点验证；这仍不代表人工有效性。 |
 | 绝对不能说什么 | 不得说 Pilot4 已接受、A/B 已开始、72 条已有 Ground Truth、240-group 已生成、Dataset 已冻结、Formal Detector 已实现、检测有效或 Paper Result 已形成。 |
 
 当前实验状态固定为：
 
-`PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW / NO_HUMAN_DISTRIBUTION`
+`PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / NO_HUMAN_DISTRIBUTION`
 
 保留的历史状态链：`PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT` →
-`PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` → 当前 quality-convergence 状态。历史 package 不被覆盖。
+`PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` → `PILOT4_QUALITY_CONVERGED` → 当前 Schema V3.1 状态。历史 package 不被覆盖。
 
 状态的动态权威入口是 [Current Work State](../../../governance/current_work_state.md)。
 
@@ -358,16 +358,17 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 | 2026-09-01 | Pilot4 | Repair-01 acceptance | 第二次预审发现 S3 necessity、S1 cue、实际长度、模板与 HN 语义问题 | Repair-02 | ✅ SUPERSEDED BY FINAL REPAIR | [Execution log](../../../governance/research_execution_log.md) |
 | 2026-09-01 | Pilot4 | final preannotation acceptance | Repair-02 工程门完成但尚无人工作出接受决定 | quality convergence | ✅ SUPERSEDED BY FULL QUALITY GATES | [Execution log](../../../governance/research_execution_log.md) |
 | 2026-09-01 | Pilot4 | source/schema/visibility convergence | Phase1 hint、人工跨文档、伪来源核验、HN 支持与字段可操作性存在系统性风险 | actual-source verification + Schema V3 + full72 + dry-run | ⏳ READY FOR OWNER ACCEPTANCE REVIEW | [Current State](../../../governance/current_work_state.md) |
+| 2026-09-01 | Pilot4 | duplicate visible evidence slots | 55/72 candidates、23 triplets 的 E1/E2 指向同一 visible official URL | 23 verified companion sources + distinct URL/hash/document identity + A/B independent order + Schema V3.1 | ✅ RESOLVED / OWNER ACCEPTANCE PENDING | [Current State](../../../governance/current_work_state.md) |
 
 ## 14. 当前项目状态
 
-- `PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW`
+- `PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / NO_HUMAN_DISTRIBUTION`
 - `PREANNOTATION_ONLY`
 - `NO_HUMAN_DISTRIBUTION`
 - 72 repaired candidates 已存在；仍非 Ground Truth、非 Formal Benchmark、非 frozen Dataset。
 - class intent 为 Clean / Poison / Hard Negative = `24/24/24`。
 - 生成覆盖为 `4 HKP × 3 intended-S × 2 replication = 24 poison cells`，对应 24 matched triplets。
-- 完整 72-row review、Schema V3 candidate 与三个 dry-run workbook 正在等待人工审查。
+- 完整 72-row QA、Schema V3.1、23 个 companion source records 与三个 V3.1 dry-run workbook 正在等待人工审查。
 - A/B 未开始；72 Ground Truth 未建立；240-group 未开始；Dataset = `NOT FROZEN`（未冻结）。
 - Formal Detector = `NOT IMPLEMENTED`（未实现）；Formal Experiment = `NOT STARTED`（未开始）；Our Method Result = `NONE`。
 
@@ -375,7 +376,7 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 
 ## 15. 当前下一步
 
-唯一当前动作：**Owner reviews full 72-row Pilot4 quality artifact, Schema V3 candidate and three dry-run workbooks**。
+唯一当前动作：**Owner reviews annotation_v3_1_final_owner_review.md, the three V3.1 workbooks, companion-source QA and full72 answerability, then explicitly accepts or reports a new blocker**。
 
 ```text
 Owner Quality Acceptance Review
@@ -458,4 +459,4 @@ index 和 Owner 对 claims 的接受。
 | 人类/机器/证据如何分层 | [Documentation Separation Contract](../documentation_separation_contract.md) |
 | 为什么本轮不移动文件 | [Document Inventory](../document_inventory.md) |
 
-> STOP：Repair-02 只准备最终 16-row Owner review；不接受 Pilot4，不分发 A/B，不启动 240-group、Detector、训练、5090 或 Formal Experiment。
+> STOP：Schema V3.1 与 Evidence Pool 仅准备 Owner acceptance；不接受 Pilot4，不分发 A/B，不启动 240-group、Detector、训练、5090 或 Formal Experiment。

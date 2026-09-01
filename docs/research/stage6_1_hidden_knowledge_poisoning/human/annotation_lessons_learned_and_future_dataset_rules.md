@@ -169,3 +169,24 @@ V1 缺少不适用值，YES/NO/UNCERTAIN 没有操作化，“没有提到”被
 任何全量机器门通过仍只表示 `READY_FOR_OWNER_ACCEPTANCE_REVIEW`。Schema V3 candidate、完整 72-row review 与 annotator
 dry-run 必须先由 Owner 接受；不得自动发 A/B，也不得自动进入 agreement、adjudication、Ground Truth、240-group、Dataset
 freeze、Detector、Training、5090、Formal Experiment 或 Paper Result。
+
+## 十四、Evidence Pool 与 English-first Schema V3.1 永久规则
+
+`PILOT4-EVIDENCE-POOL-REPAIR-01` 将以下规则冻结为未来 Paper 1 人工标注协议的永久组成部分：
+
+- **English-first canonical vocabulary + Chinese support**：machine field name、JSON/CSV/XLSX canonical value 与 enum
+  只使用英文；中文只放在括号说明、Quick Start、Field Guide、Legend 或相邻帮助文字中。
+- **Do not introduce unnecessary bilingual value mapping**：不得把“中文展示值”再反向映射为英文 machine value；避免
+  增加第二套值域、隐藏转换和不可审计歧义。
+- **Distinct visible evidence units**：Phase2 的 E1/E2 必须是不同 URL、不同内容 hash、不同 official document/source
+  identity 且与候选相关、实际核验过的 source unit。相同 URL、内容、文档、摘录或身份的重复记录只能计一个证据单元。
+- **Evidence slot duplication is a protocol defect**：重复 slot 会同时污染 evidence selection、minimum evidence scope 与
+  S2/S3 测量；不能用无关官方页面凑满两个 slot。真实来源不足时必须触发 source-availability blocker。
+- **Claim-presence ambiguity != evidence insufficiency**：候选是否提出 version/authority claim 本身不清楚时，用
+  `phase2_issue=CANDIDATE_AMBIGUOUS`；只有 claim 明确存在但证据不足时，才用 `PRESENT_EVIDENCE_INSUFFICIENT`。
+- **Annotator UI readability is protocol quality**：English-first 表头、中文辅助解释、Phase1/Phase2 职责分离、Evidence Pool
+  单独 Sheet、合理冻结窗格与只读/人工输入配色，都必须进入 workbook visual QA，而不是视为可选美化。
+
+Annotator 仍不直接填写 S1/S2/S3；`derived_stealth_level` 由验证后的
+`overall_fact_status + local_internal_conflict + minimum_external_evidence_needed` 确定性派生。任何通过只表示协议已准备供
+Owner acceptance，不自动授权 A/B distribution。

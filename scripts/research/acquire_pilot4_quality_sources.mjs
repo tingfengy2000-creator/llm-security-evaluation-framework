@@ -1,7 +1,6 @@
 import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
-import { getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
 
 function sha256(data) {
   return crypto.createHash("sha256").update(data).digest("hex");
@@ -34,6 +33,7 @@ function decodeHtml(bytes, contentType) {
 }
 
 async function decodePdf(bytes) {
+  const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
   const document = await getDocument({ data: new Uint8Array(bytes) }).promise;
   const pages = [];
   for (let number = 1; number <= document.numPages; number += 1) {
@@ -116,9 +116,14 @@ async function acquire(spec) {
   }
   return {
     evidence_id: spec.evidence_id,
+    triplet_id: spec.triplet_id ?? null,
     source_url: spec.source_url,
     final_url: response.url,
     source_identity: spec.source_identity,
+    document_identity: spec.document_identity ?? spec.source_identity,
+    official_role: spec.official_role ?? "OFFICIAL_GOVERNMENT_SOURCE",
+    relationship_to_primary_subject: spec.relationship_to_primary_subject ?? null,
+    neutral_source_type: spec.neutral_source_type ?? "OFFICIAL_WEB_PAGE",
     retrieved_at: new Date().toISOString(),
     retrieval_status: "HTTP_DOCUMENT_RETRIEVED_AND_CONTENT_MATCHED",
     http_status: response.status,

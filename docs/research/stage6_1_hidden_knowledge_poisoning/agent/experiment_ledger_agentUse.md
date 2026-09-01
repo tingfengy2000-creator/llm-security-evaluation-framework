@@ -48,7 +48,7 @@ GMTP_REPRODUCTION: NOT ESTABLISHED
 DETECTION_EFFECTIVENESS: NOT ESTABLISHED
 STRICT_BASELINE_COMPARISON: NOT ESTABLISHED
 S6.1-P1-R1: HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK
-S6.1-P1: PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION
+S6.1-P1: PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION
 S6.1-P1-PILOT0: HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED
 S6.1-P1-PILOT1: HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED
 S6.1-P1-PILOT2: HUMAN_ACCEPTED / ANNOTATION_PROTOCOL_AND_GROUND_TRUTH_FEASIBILITY_ONLY / CLOSED
@@ -70,6 +70,11 @@ PILOT4_FIRST_PREFLIGHT: OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / a843697 E
 PILOT4_TARGETED_REPAIR: COMPLETED / cad3b2b2c19dcef6c118e4163f705b3ec05713e1
 PILOT4_REPAIR02: PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW / 871aecf HISTORY_PRESERVED
 PILOT4_QUALITY_CONVERGENCE: PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW / NO_HUMAN_DISTRIBUTION
+PILOT4_EVIDENCE_POOL_REPAIR: PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / NO_HUMAN_DISTRIBUTION
+PILOT4_EVIDENCE_POOL_DUPLICATE_BEFORE: 55_OF_72_CANDIDATES / 23_TRIPLETS
+PILOT4_EVIDENCE_POOL_DUPLICATE_AFTER: 0_OF_72_CANDIDATES
+PILOT4_COMPANION_SOURCES: 23_OF_23_HTTP_200_ANCHOR_VERIFIED_AND_DISTINCT
+PILOT4_SCHEMA: V3_1 / PHASE1_MANUAL_4 / PHASE2_MANUAL_7 / ENGLISH_CANONICAL_ENUMS
 PILOT4_HISTORICAL_STATE_CHAIN: PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / SUPERSEDED_WITHOUT_REWRITE
 PILOT4_CANDIDATES: 72 / PREANNOTATION_ONLY / NOT_GROUND_TRUTH / NOT_FORMAL_BENCHMARK
 PILOT4_CLASS_INTENT: CLEAN_24 / POISON_24 / HARD_NEGATIVE_24
@@ -118,7 +123,7 @@ PROHIBITED_CONTINUATION:
 
 ## State Machine
 
-`LR1 HUMAN_ACCEPTED -> R0 HUMAN_ACCEPTED_WITH_BLOCKERS -> FU1/W2 closed -> Option B selected -> P1-R1 framework accepted -> PILOT0/PILOT1 closed -> PILOT2 targeted returns/agreement -> owner adjudication/correction -> PILOT2 feasibility closed -> PILOT3 signal diagnostic stopped -> PILOT4 first preflight returned -> targeted repair completed -> second Owner preflight pending`
+`LR1 HUMAN_ACCEPTED -> R0 HUMAN_ACCEPTED_WITH_BLOCKERS -> FU1/W2 closed -> Option B selected -> P1-R1 framework accepted -> PILOT0/PILOT1 closed -> PILOT2 targeted returns/agreement -> owner adjudication/correction -> PILOT2 feasibility closed -> PILOT3 signal diagnostic stopped -> PILOT4 quality convergence -> evidence pool repaired -> Schema V3.1 owner acceptance pending`
 
 The original timestamp correction, all returns, workbook and blocker history remain immutable. The latest owner correction is an
 additive evidence layer. Pilot2 now closes only protocol/Ground-Truth feasibility; Pilot3 establishes only executable separated
@@ -133,7 +138,7 @@ Detector/Training and Formal Experiment remain closed.
 | S6.1-R0 | engineering reproduction preflight | `HUMAN_ACCEPTED_WITH_BLOCKERS` | `../stage_process/S6.1-R0_work_process.md` |
 | S6.1-R0-FU1 | targeted baseline feasibility resolution | `HUMAN_ACCEPTED / CLOSED` | `../stage_process/S6.1-R0-FU1_work_process.md` |
 | S6.1-P1-R1 | protocol hardening and Option B scope freeze | `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK` | source candidate `../s6_1_p1_r1_protocol_review_candidate.md`; numeric parameters pending |
-| S6.1-P1 | Pilot0–2 feasibility closed; Pilot3 diagnostic complete; Pilot4 full72/source/Schema V3 quality convergence awaiting Owner acceptance review | `PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION` | `../stage_process/S6.1-P1_work_process.md` |
+| S6.1-P1 | Pilot0–2 feasibility closed; Pilot3 diagnostic complete; Pilot4 distinct Evidence Pool and Schema V3.1 awaiting Owner acceptance | `PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION` | `../stage_process/S6.1-P1_work_process.md` |
 
 ## Run Registry
 
@@ -195,6 +200,7 @@ next_gate: string
 | GOV-P1-HUMAN-DOCS-INTEGRATION-01 | S6.1-P1 / documentation integration | documentation_governance / 本机 | `DOCUMENTATION_STRUCTURE_AND_CONTEXT_INTEGRATION` | source repair commit `cad3b2b2...`; `PAPER1_FORMAL_DOMAIN_SET=OWNER_CONFIRMED`; experiment artifacts unchanged | human master, authority/agent sync, navigation and separation contract | documentation only | allowed: docs/governance synchronization; prohibited: any experimental transition | blocker `NONE`; next_gate remains Pilot4 second Owner preflight |
 | ART-P1-PILOT4-REPAIR02 | S6.1-P1 / Pilot4 final preannotation repair | targeted_repair_and_final_preflight / 本机 | `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` | source commit `871aecf30819ceee59898d8bfe2d59ffccf51495`; `PODR-074 / OR-036 / REL-2026-0040` | genuine S3, cue-free S1, actual lengths, HN/source/parity and final 16-row preflight | Git-external `paper1_pilot4_preannotation_repair02_20260901`; immutable input to convergence | allowed: historical engineering readiness; prohibited: acceptance/distribution/downstream | blocker superseded by quality convergence review |
 | ART-P1-PILOT4-QUALITY-CONVERGENCE | S6.1-P1 / Pilot4 quality convergence | source_schema_semantic_validation / 本机 | `PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW` | `PODR-075 / OR-037 / REL-2026-0041`; 72 candidates; 64 unique actual-source records; Schema V3 28 fields / truth 53 | Phase1 visibility, primary/realism, S1/S2/S3, HN, source-content, ambiguity, full72 and dry-run gates | Git-external `paper1_pilot4_quality_convergence_20260901`; 3 XLSX / 8 rendered sheets | allowed: quality-converged preannotation candidate and protocol readiness; prohibited: human validity/A-B/GT/240/freeze/training/result | blocker `OWNER_ACCEPTANCE_PENDING`; next_gate full72/schema/dry-run Owner review |
+| ART-P1-PILOT4-EVIDENCE-POOL-REPAIR | S6.1-P1 / Pilot4 Schema V3.1 | evidence_pool_repair_and_annotator_ui / 本机 | `PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE` | `REL-2026-0042`; 23 companions; duplicate 55/72 -> 0/72; full72 PASS | distinct-unit pool, independent A/B order, final version/authority semantics, validator and 10-Sheet visual QA | Git-external `paper1_pilot4_evidence_pool_repair_20260901`; 3 V3.1 XLSX | allowed: protocol readiness for Owner acceptance; prohibited: A/B/GT/240/freeze/training/result | blocker `OWNER_ACCEPTANCE_PENDING`; next_gate V3.1 Owner acceptance |
 
 ## Artifact Registry
 
@@ -246,7 +252,7 @@ H2 bundle contract additionally freezes bundle source bytes `1320359518`, archiv
 
 - S6.1-P1-R1 is `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`; numeric parameters and the formal protocol remain unfrozen.
 - PILOT0 is `HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED`；PILOT1 is `HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED`.
-- PILOT4 second Owner preflight is pending. No A/B distribution, Pilot4 agreement, adjudication or 72-record Ground Truth exists.
+- PILOT4 Schema V3.1 Owner acceptance is pending. No A/B distribution, Pilot4 agreement, adjudication or 72-record Ground Truth exists.
 - The formal five-domain Scale Pilot structure is confirmed only as planning. 240-group execution is not approved/started；Dataset
   is not frozen；Formal Detector is not implemented；Training and Formal Experiment are not started.
 - Option B is confirmed only for detection plus lightweight hard filtering / soft downweighting. Complete trusted retrieval/context construction remains excluded.
@@ -263,8 +269,8 @@ H2 bundle contract additionally freezes bundle source bytes `1320359518`, archiv
 2. The only authorized H2-B call is consumed (`call_count=1`); no retry or second call is authorized.
 3. PILOT2 original kit/returns/registration/preflight/full V2 and owner correction remain immutable; Pilot2 is closed only for
    annotation-protocol/Ground-Truth feasibility.
-4. The only current gate is Owner review of the complete 72-row Pilot4 quality artifact, Schema V3 candidate and three dry-run
-   workbooks. PASS still requires separate approval for A/B 72 annotation; a new blocker stops at the appropriate repair gate.
+4. The only current gate is Owner review of the Schema V3.1 final review, three V3.1 workbooks, 23 companion-source records and
+   full72/validator QA. `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` still requires separate approval for A/B 72 annotation.
 5. `PAPER1_FORMAL_DOMAIN_SET` is fixed for future Scale Pilot planning; it does not rewrite Pilot4's four-domain history or create
    240 groups / 720 candidates.
 6. `DETOXIFICATION_OPTION = OPTION_B` is fixed. It does not authorize Dataset freeze, Detector, training or a formal run.

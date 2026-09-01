@@ -1488,3 +1488,26 @@ Approval Gate、Auto Continue。
   effectiveness, training, formal experiment or paper-result claim.
 - Next gate: Owner reviews the complete 72-row artifact, Schema V3 candidate and three dry-run workbooks and explicitly accepts or
   identifies a new blocker. Auto Continue `NO`.
+
+## REL-2026-0042 — PILOT4 Evidence Pool Repair and Schema V3.1 Finalization
+
+- Record ID: `REL-2026-0042`; date `2026-09-01`; task `PILOT4-EVIDENCE-POOL-REPAIR-01`; machine
+  `本机 / LOCAL_CONTROL_PLANE`.
+- Preservation: the 72 candidate texts/IDs, 24 triplets/independence groups, 24/24/24 class-intent structure, 64 frozen source
+  units, source/candidate hashes and full72 quality-convergence audit remain unchanged. Uncommitted Schema V3.1 work was retained.
+- Blocker before: 55/72 candidates across 23 triplets exposed E1/E2 with the same visible official URL, making selection and
+  distinct-unit counting ambiguous. Blocker after: duplicate URL/content/document/excerpt/identity pair count is zero for 72/72.
+- Source acquisition: 23/23 affected triplets received one relevant official companion; all 23 are HTTP 200, content-anchor
+  verified, unique by URL/content hash/document identity and distinct from the frozen source for that triplet.
+- Pool/UI: two neutral visible slots per candidate; no role, answer, minimum-path, class, HKP or intended-stealth leakage. A/B use
+  independent deterministic visible ordering; all 72 positions swap between variants and position-leakage QA passes.
+- Schema V3.1: four Phase1 and seven Phase2 manual fields; final version/authority enums distinguish clear-claim evidence
+  insufficiency from `CANDIDATE_AMBIGUOUS`; annotators do not fill derived stealth or evidence metadata. Canonical machine values
+  remain English with Chinese support only in explanatory UI/docs.
+- QA: full72 answerability `72/72 PASS`; SIM_A/SIM_B ambiguity `0`; return validator PASS; targeted unit tests `23 passed`;
+  three XLSX / 10 Sheets render and formula scan PASS with agent visual inspection completed.
+- Evidence: additive Git-external namespace `paper1_pilot4_evidence_pool_repair_20260901`; manifest `53/53`, SHA256
+  `180307ac3e24f7b82ba2f1bfb94417304286aa61a7de3556339f61b5f1640f64`; earlier namespaces are not overwritten.
+- Final status: `PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / NO_HUMAN_DISTRIBUTION`.
+- Next gate: Owner reviews the V3.1 final Owner review, three workbooks and companion/full72/validator QA, then explicitly accepts
+  the protocol or reports a new blocker. Acceptance does not itself authorize A/B distribution. Auto Continue `NO`.

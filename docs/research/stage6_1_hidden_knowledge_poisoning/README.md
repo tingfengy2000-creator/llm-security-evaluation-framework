@@ -1,8 +1,8 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW / PREANNOTATION_ONLY /
-> NO_HUMAN_DISTRIBUTION`。唯一当前动作是项目负责人审查完整 72-row quality review、Schema V3 candidate 和三个
-> `ANNOTATOR_DRY_RUN_ONLY` 工作簿。72 条候选尚无 Ground
+> 当前实验状态：`PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / NO_HUMAN_DISTRIBUTION`。Evidence Pool
+> duplicate-slot blocker 已从 `55/72 candidates / 23 triplets` 修复为 `0/72`；唯一当前动作是项目负责人审查
+> Schema V3.1、23 个 verified companion sources、完整 72-row QA 和三个 `ANNOTATOR_DRY_RUN_ONLY` 工作簿。72 条候选尚无 Ground
 > Truth；240-group、Dataset freeze、Formal Detector、Training、5090、Formal Experiment 和 Paper Result 均未开始。
 > `FORMAL_EXPERIMENT = NOT STARTED`；`DATASET_FORMAL_FREEZE = NOT STARTED`。
 
@@ -39,7 +39,7 @@
 - [S6.1-LR1](stage_process/S6.1-LR1_work_process.md) — 路线与 baseline alignment，已关闭。
 - [S6.1-R0](stage_process/S6.1-R0_work_process.md) — 工程预检，已按边界验收。
 - [S6.1-R0-FU1](stage_process/S6.1-R0-FU1_work_process.md) — W2 单样本工程可行性，已关闭。
-- [S6.1-P1](stage_process/S6.1-P1_work_process.md) — P1-R1、Pilot0–4 的追加式过程；当前等待 Pilot4 second Owner preflight。
+- [S6.1-P1](stage_process/S6.1-P1_work_process.md) — P1-R1、Pilot0–4 的追加式过程；当前等待 Schema V3.1 / Evidence Pool Owner acceptance。
 
 ## Pilot Records
 

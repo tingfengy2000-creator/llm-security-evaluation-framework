@@ -16,20 +16,20 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `S6.1-P1-PILOT4-PREANNOTATION-QUALITY-CONVERGENCE-01`.
-- Task name: `Pilot4 Source-Verified Data and Annotation Protocol Quality Convergence`.
-- Task type: **QUALITY_CONVERGENCE / LOCAL_CONTROL_PLANE / ANNOTATOR_DRY_RUN_ONLY / NO_HUMAN_DISTRIBUTION**.
-- Engineering status: **QUALITY GATES COMPLETED / OWNER ACCEPTANCE REVIEW PENDING**.
-- Experiment status: **PILOT4_QUALITY_CONVERGED / READY_FOR_OWNER_ACCEPTANCE_REVIEW /
+- Task ID: `PILOT4-EVIDENCE-POOL-REPAIR-01`.
+- Task name: `Pilot4 Evidence Pool Repair, Annotator-friendly Schema V3.1 Finalization and English-first Bilingual Documentation`.
+- Task type: **EVIDENCE_POOL_REPAIR / SCHEMA_V3_1_FINALIZATION / LOCAL_CONTROL_PLANE / NO_HUMAN_DISTRIBUTION**.
+- Engineering status: **EVIDENCE POOL + SCHEMA V3.1 + WORKBOOK QA COMPLETED / OWNER ACCEPTANCE PENDING**.
+- Experiment status: **PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE /
   NO_HUMAN_DISTRIBUTION / PREANNOTATION_ONLY / AUTO_CONTINUE_NO**.
 - Execution base commit: `PILOT2_OWNER_CORRECTION_BASE_COMMIT = 0b61e0124b1fb75f1a864132da41ce6a0fcbc3fc`.
 - Targeted package lineage base: `09aa7e65e95e10a657e44c2b31e23ec02bc4210b`.
 - Execution machine: **本机**. Immutable Round1 raw and the complete Schema V2 package remain hash-bound and unchanged；a field audit
   narrows human work to three Phase1 stealth fields, seven Phase2 fact/applicability fields and B-only process corrections.
-- Current ordered step: Owner reviews the complete 72-row human-readable preannotation artifact, Schema V3 candidate and the three
-  dry-run workbooks under `paper1_pilot4_quality_convergence_20260901`. The original `a843697`, second-preflight `cad3b2b2` and
-  Repair-02 `871aecf` histories/evidence remain immutable; quality convergence is a new additive namespace. No A/B distribution
-  occurs.
+- Current ordered step: Owner reviews `annotation_v3_1_final_owner_review.md`, the three V3.1 dry-run workbooks, the 23 companion
+  source acquisition records and full72/validator QA under `paper1_pilot4_evidence_pool_repair_20260901`, then explicitly accepts
+  the annotation protocol or identifies a new blocker. The quality-convergence candidate corpus and all earlier histories/evidence
+  remain immutable. No A/B distribution occurs.
 - Historical completed task identity: `S6.1-P1-PILOT2-ADJUDICATION-CLOSURE-AND-PILOT3-ENTRY` closed Pilot2 feasibility and
   established the Pilot3 diagnostic baseline; the immutable closure history remains governed by `PODR-070 / OR-032`.
 - Permanent prospective candidate gate (`PODR-067 / OR-029`): every annotation candidate created or newly introduced after
@@ -73,7 +73,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PODR-057` and `PODR-058`.
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
-- S6.1-P1: **PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW / PREANNOTATION_ONLY /
+- S6.1-P1: **PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / PREANNOTATION_ONLY /
   NO_HUMAN_DISTRIBUTION / NOT FORMAL_EXPERIMENT**.
 - S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
 - S6.1-P1-PILOT1: **HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED**.
@@ -90,7 +90,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - PILOT3: **ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY / STOPPED**.
 - Historical PILOT4 first preflight: **OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / a843697 EVIDENCE PRESERVED**.
 - Historical PILOT4 second preflight: **SECOND_OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / cad3b2b EVIDENCE PRESERVED**.
-- PILOT4: **PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION**.
+- PILOT4: **PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION**.
 - PILOT4 candidates: **72 PREANNOTATION_CANDIDATES / NOT GROUND TRUTH / NOT FORMAL BENCHMARK / NOT FROZEN DATASET**.
 - PAPER1_FORMAL_DOMAIN_SET: **OWNER_CONFIRMED / ENTERPRISE_HR / FINANCE / INFORMATION_SECURITY /
   PROCUREMENT_AND_R_AND_D / EDUCATION_AND_RESEARCH**.
@@ -253,10 +253,10 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
 - Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
   evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- Next operational action: owner performs the final `PILOT4_OWNER_PREFLIGHT` on the Repair-02 16-row stratified sample and either accepts the
-  preannotation design, requests a targeted correction, or rejects it. Acceptance still does not distribute to A/B; human
-  annotation requires a separate explicit approval. No automatic 240-group scale-up, Dataset freeze, formal Detector, training,
-  5090 or Formal Experiment is authorized.
+- Next operational action: owner reviews the V3.1 final Owner review, three V3.1 workbooks, 23 companion-source records and
+  full72/validator QA, then explicitly records `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` or identifies a new blocker. Acceptance still
+  does not distribute to A/B; human annotation requires a separate explicit approval. No automatic 240-group scale-up, Dataset
+  freeze, formal Detector, training, 5090 or Formal Experiment is authorized.
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. Its acceptance does not approve S6-T5.6 ContextBuilder behavior; that remains a separate boundary.
@@ -305,13 +305,12 @@ rewriting the workbook. The Pilot-only Ground Truth contains 36 executable recor
 Pilot2 is closed only for annotation-protocol and Ground-Truth feasibility. A deterministic CPU-only Pilot3 generated 180 separated
 five-view signal records; this establishes engineering/signal diagnostic execution, not detector effectiveness.
 
-Can claim: Pilot4 quality convergence produced 72 balanced preannotation candidates with 24/24/24 class intent; Phase1 leakage,
-primary-subject, realism and full semantic audit gates pass `72/72`; S1/S2/S3 gates pass `8/8` each; 24 Hard Negatives are rebound
-to actually retrieved official content; and 64 unique evidence units are byte-hash, excerpt-hash and anchor verified. Schema V3 has
-28 fields and an exhaustive 53-row dependency truth table; three visually verified workbooks are `ANNOTATOR_DRY_RUN_ONLY`. This is
-engineering/data-protocol readiness for Owner review only. The five-domain Paper 1 set and 240-group matrix remain future planning.
-Git-external evidence is `LLMGuard-Handoff/paper1_pilot4_quality_convergence_20260901`; the manifest indexes `45/45` payload
-files and has SHA256 `90ac505bee742fa78a892667142f5a411d61d49e4774921209d78f3bfb3c1ff7`.
+Can claim: the quality-converged 72-candidate corpus remains unchanged and the former visible-slot duplication affecting 55/72
+candidates across 23 triplets is repaired to zero. Each affected triplet has one actually retrieved, anchor-verified official
+companion with distinct URL, content hash and document identity. All 72 pools contain two distinct units; A/B visible order is
+deterministically independent; Schema V3.1 has 4 Phase1 and 7 Phase2 manual fields, English canonical enums, deterministic V3
+compatibility and system-derived stealth/evidence metadata. Full72 answerability, return validator, SIM_A/SIM_B and all 10 rendered
+workbook Sheets pass. This is annotation-protocol readiness for Owner acceptance only, not human validity or distribution.
 
 Cannot claim: the two-document smoke reproduces GMTP；its two scores establish detector effectiveness, calibration, safety,
 generalization or a paper metric；any
@@ -329,7 +328,7 @@ are established.
 ## Last Update
 
 - Date: `2026-09-01`.
-- Updated by: 本机 implementing `PODR-075 / OR-037 / REL-2026-0041`. Pilot4 quality convergence is ready for Owner acceptance review
-  but is not accepted and has not been distributed. The `a843697`, `cad3b2b` and `871aecf` histories/evidence remain immutable. Dataset freeze,
-  240-group execution, formal Detector/Training, 5090, Formal Experiment and Paper Result remain unapproved/unstarted;
-  Auto Continue = `NO`.
+- Updated by: 本机 executing `PILOT4-EVIDENCE-POOL-REPAIR-01 / REL-2026-0042`. Pilot4 Schema V3.1 and the distinct-unit Evidence
+  Pool are ready for Owner acceptance but are not accepted and have not been distributed. All candidate/source histories remain
+  immutable. Dataset freeze, 240-group execution, formal Detector/Training, 5090, Formal Experiment and Paper Result remain
+  unapproved/unstarted; Auto Continue = `NO`.
