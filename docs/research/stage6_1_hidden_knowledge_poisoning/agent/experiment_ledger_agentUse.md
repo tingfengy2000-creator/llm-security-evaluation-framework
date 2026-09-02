@@ -13,7 +13,7 @@ Primary Human Mirror = `../human/experiment_ledger_tingfeng.md`
 project: LLMGuard Research Framework
 paper: Paper 1 - Chinese version-aware stealthy knowledge poisoning
 branch: research/stage6-1-hidden-poisoning
-task_execution_base_commit: 34254d57ae822fb71bc16ebacb2f1b42bc32574f
+task_execution_base_commit: 14ec6a22ef1b0f9541401847ef935fd1a3ba5b69
 latest_commit_source: DYNAMIC_GIT_FACT / DO_NOT_HARDCODE
 snapshot_date: 2026-09-02
 authority_order:
@@ -28,8 +28,8 @@ authority_order:
 ## Current State Snapshot
 
 ```yaml
-CURRENT_TASK: PILOT4-EXTERNAL-BLIND-PHASE1-RETURN-LOCK-AND-DEFECT-TRIAGE-01
-CURRENT_TASK_TYPE: RETURN_VALIDATION / IMMUTABLE_EVIDENCE_LOCK / BLIND_OWNER_PREFLIGHT
+CURRENT_TASK: PILOT4-PHASE1-OWNER-DEFECT-ADJUDICATION-AND-CANDIDATE-LOCAL-REPAIR-01
+CURRENT_TASK_TYPE: OWNER_DECISION_INGESTION / FIVE_CANDIDATE_LOCAL_REPAIR / FRESH_FULL72_ATTEMPT_PREPARATION
 PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT: OWNER_CONFIRMED
 PAPER1_HUMAN_LEDGER_SYNC_ON_TASK_CLOSE: MANDATORY
 AUTO_DOCUMENTATION_SYNC_POLICY: ACTIVE
@@ -58,7 +58,7 @@ GMTP_REPRODUCTION: NOT ESTABLISHED
 DETECTION_EFFECTIVENESS: NOT ESTABLISHED
 STRICT_BASELINE_COMPARISON: NOT ESTABLISHED
 S6.1-P1-R1: HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK
-S6.1-P1: PILOT4_EXTERNAL_BLIND_PHASE1_RETURN_LOCKED / OWNER_DEFECT_TRIAGE_PENDING / PHASE2_WITHHELD / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION
+S6.1-P1: PILOT4_PHASE1_FIVE_DEFECTS_REPAIRED / EXTERNAL_BLIND_PHASE1_ATTEMPT2_PACKET_READY / WAITING_FOR_FRESH_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION
 S6.1-P1-PILOT0: HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED
 S6.1-P1-PILOT1: HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED
 S6.1-P1-PILOT2: HUMAN_ACCEPTED / ANNOTATION_PROTOCOL_AND_GROUND_TRUTH_FEASIBILITY_ONLY / CLOSED
@@ -85,7 +85,7 @@ PILOT4_EVIDENCE_POOL_DUPLICATE_BEFORE: 55_OF_72_CANDIDATES / 23_TRIPLETS
 PILOT4_EVIDENCE_POOL_DUPLICATE_AFTER: 0_OF_72_CANDIDATES
 PILOT4_COMPANION_SOURCES: 23_OF_23_HTTP_200_ANCHOR_VERIFIED_AND_DISTINCT
 PILOT4_SCHEMA: V3_1 / PHASE1_MANUAL_4 / PHASE2_MANUAL_7 / ENGLISH_CANONICAL_ENUMS
-PILOT4_EXTERNAL_PHASE_SEPARATION: PHASE1_RETURN_LOCKED / OWNER_DEFECT_TRIAGE_PENDING / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION
+PILOT4_EXTERNAL_PHASE_SEPARATION: ATTEMPT1_PRESERVED_AS_DEFECT_DISCOVERY_EVIDENCE / ATTEMPT2_PHASE1_PACKET_READY / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION
 PILOT4_COMBINED_PACKET: COMBINED_PACKET_ENGINEERING_ARTIFACT / NOT_APPROVED_FOR_BLIND_SEMANTIC_REVIEW / SUPERSEDED_FOR_REVIEW_BY_PHASE_SEPARATED_PROTOCOL
 PILOT4_PHASE1_RAW_SIZE_BYTES: 5001
 PILOT4_PHASE1_RAW_SHA256: 59446c4be65b035be29528de81b6b8f8aa4113007df8fcac962fe4058a889261
@@ -95,13 +95,18 @@ PILOT4_PHASE1_RETURN_ENUMS_VALID: TRUE
 PILOT4_PHASE1_RETURN_CONDITIONAL_REASONS_VALID: TRUE
 PILOT4_PHASE1_RETURN_HASH_LOCKED: TRUE
 PILOT4_PHASE1_RETURN_IMMUTABLE: TRUE
-PILOT4_PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED: FALSE
+PILOT4_ATTEMPT1_CANDIDATE_DEFECT_TRIAGE: FIVE_OF_FIVE_OWNER_ACCEPTED_FOR_LOCAL_REPAIR
 PILOT4_PHASE1_ISSUE_ROWS: 5
-PILOT4_IDENTITY_MAPPING_UNLOCKED: FALSE
+PILOT4_ATTEMPT1_MAPPING_UNLOCK_SCOPE: EXACT_FIVE_ONLY / OTHER_OUTPUT_COUNT_0
 PILOT4_EXPECTED_CONTRACT_LOADED: FALSE
 PILOT4_PHASE2_RELEASED: FALSE
-PILOT4_PHASE2_RELEASE_GATE: BLOCKED_PENDING_OWNER_DEFECT_TRIAGE
-CURRENT_BLOCKER: PHASE1_CANDIDATE_DEFECT_TRIAGE_PENDING
+PILOT4_FINAL_CANDIDATE_CORPUS: PILOT4_CANDIDATE_CORPUS_POST_EXTERNAL_PHASE1_REPAIR_V1 / 72
+PILOT4_REPAIR_QA: SEMANTIC_PARITY_5_OF_5 / SOURCE_VERIFICATION_5_OF_5 / UNAFFECTED_67_BYTE_IDENTICAL
+PILOT4_ATTEMPT2_BLIND_IDS: 72_UNIQUE / ATTEMPT1_REUSE_0
+PILOT4_ATTEMPT2_PHASE1_LEAKAGE: ZERO
+PILOT4_ATTEMPT2_PHASE2: PREBUILT_SAME_FINAL_CORPUS_AND_IDS / WITHHELD
+PILOT4_PHASE2_RELEASE_GATE: BLOCKED_PENDING_ATTEMPT2_PHASE1_RETURN_LOCK_AND_TRIAGE
+CURRENT_BLOCKER: ATTEMPT2_EXTERNAL_PHASE1_RETURN_PENDING
 EXTERNAL_REVIEW_CONTEXT_ISOLATION_REQUIRED: TRUE
 PILOT4_HISTORICAL_STATE_CHAIN: PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / SUPERSEDED_WITHOUT_REWRITE
 PILOT4_CANDIDATES: 72 / PREANNOTATION_ONLY / NOT_GROUND_TRUTH / NOT_FORMAL_BENCHMARK
@@ -169,7 +174,7 @@ Detector/Training and Formal Experiment remain closed.
 | S6.1-R0 | engineering reproduction preflight | `HUMAN_ACCEPTED_WITH_BLOCKERS` | `../stage_process/S6.1-R0_work_process.md` |
 | S6.1-R0-FU1 | targeted baseline feasibility resolution | `HUMAN_ACCEPTED / CLOSED` | `../stage_process/S6.1-R0-FU1_work_process.md` |
 | S6.1-P1-R1 | protocol hardening and Option B scope freeze | `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK` | source candidate `../s6_1_p1_r1_protocol_review_candidate.md`; numeric parameters pending |
-| S6.1-P1 | Pilot0–2 feasibility closed; Pilot3 diagnostic complete; Pilot4 external Phase1 return locked, blind defect triage pending | `PILOT4_EXTERNAL_BLIND_PHASE1_RETURN_LOCKED / OWNER_DEFECT_TRIAGE_PENDING / PHASE2_WITHHELD / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION` | `../stage_process/S6.1-P1_work_process.md` |
+| S6.1-P1 | Pilot0–2 feasibility closed; Pilot3 diagnostic complete; Pilot4 five defects repaired and fresh Full72 Attempt2 ready | `PILOT4_PHASE1_FIVE_DEFECTS_REPAIRED / EXTERNAL_BLIND_PHASE1_ATTEMPT2_PACKET_READY / WAITING_FOR_FRESH_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION` | `../stage_process/S6.1-P1_work_process.md` |
 
 ## Run Registry
 
@@ -237,6 +242,7 @@ next_gate: string
 | ART-P1-PILOT4-EXTERNAL-PHASE-SEPARATION | S6.1-P1 / Pilot4 external blind Phase separation | phase_separation_and_release_gate / 本机 | `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION` | `PODR-078 / OR-040 / REL-2026-0045`; 5d6b4b5/c1b/b705cc and old namespace immutable | Phase1 candidate-only 72/72; leakage zero; Phase2 72/72 and 144/144 title slots withheld; same opaque IDs; zero-adjacency order; five-condition fail-closed release | Git-external `paper1_pilot4_external_blind_phase_separation_20260902`; base manifest `4c09089a...369ef`; additive order manifest `3d1f850c...d05f`; Phase1 packet `78e53cbd...58125`; combined packet superseded for review | allowed: Phase1 packet distribution to fresh isolated context only; prohibited: Phase2 release/review simulation/mapping/expected comparison/A-B/downstream | blocker `EXTERNAL_PHASE1_RETURN_PENDING`; next_gate exact Phase1 two-file distribution and raw return |
 | ART-P1-DOCUMENTATION-CLOSEOUT-GOVERNANCE | Paper 1 / persistent governance | mandatory_documentation_closeout / 本机 | `PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED` | `PODR-079 / OR-041 / REL-2026-0046`; execution base `e8ad33bd...48b3`; latest commit resolved dynamically from Git | mandatory Human/Agent/Current/Execution sync; conditional-document matrix; 17-field checklist; staleness gate; provisional/accepted lesson promotion | existing canonical documentation only; `NEW_DOCUMENT_COUNT=0`; no external evidence namespace | allowed: documentation governance synchronization; prohibited: any Pilot4 review, Phase2 release, acceptance, A/B or downstream experiment | no governance blocker after checklist PASS; experiment blocker remains `EXTERNAL_PHASE1_RETURN_PENDING`; next gate unchanged |
 | ART-P1-PILOT4-EXTERNAL-PHASE1-RETURN-LOCK | S6.1-P1 / Pilot4 external Phase1 return | raw_return_lock_schema_validation_and_blind_defect_triage / 本机 | `PILOT4_EXTERNAL_BLIND_PHASE1_RETURN_LOCKED / OWNER_DEFECT_TRIAGE_PENDING / PHASE2_WITHHELD` | `PODR-080 / OR-042 / REL-2026-0047`; source `5001 bytes`; raw SHA256 `59446c4b...889261`; execution base `34254d57...32574f` | exact five columns; 72/72 opaque IDs; enum/reason PASS; 5 blind issue rows; mapping/expected not loaded | Git-external `paper1_pilot4_external_blind_phase1_return_20260902`; 9/9 manifest; aggregate SHA256 `76d1bcfe...ee2b3f` | allowed: descriptive Phase1 return QA and Owner blind-ID triage only; prohibited: expected comparison/auto-fix/Phase2/A-B/downstream | blocker `PHASE1_CANDIDATE_DEFECT_TRIAGE_PENDING`; next_gate Owner append-only five-row disposition |
+| ART-P1-PILOT4-PHASE1-ATTEMPT2-REPAIR | S6.1-P1 / Pilot4 final candidate corpus + fresh Phase1 Attempt2 | owner_decision_ingestion_and_targeted_repair / 本机 | `FIVE_DEFECTS_REPAIRED / ATTEMPT2_PACKET_READY / PHASE2_WITHHELD` | `PODR-081 / OR-043 / REL-2026-0048`; execution base `14ec6a22...ba5b69`; Attempt1 raw SHA `59446c4b...889261` | exact five mapping unlock; semantic/source `5/5`; 67 byte-identical; final72; 72 new IDs/0 reuse; zero leakage; no expected comparison | Git-external `paper1_pilot4_phase1_owner_defect_repair_20260902`; manifest `24/24`; aggregate SHA256 `c71a2525...37b107` | allowed: distribute exactly Attempt2 Phase1 packet+guide to a fresh isolated reviewer; prohibited: current review execution/Phase2/expected/A-B/downstream | blocker `ATTEMPT2_EXTERNAL_PHASE1_RETURN_PENDING`; next_gate fresh Full72 Phase1 return |
 
 ## Artifact Registry
 
@@ -290,8 +296,8 @@ H2 bundle contract additionally freezes bundle source bytes `1320359518`, archiv
 
 - S6.1-P1-R1 is `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`; numeric parameters and the formal protocol remain unfrozen.
 - PILOT0 is `HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED`；PILOT1 is `HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED`.
-- Pilot4 external Phase1 raw return is locked and receipt/schema/72-of-72/hash-lock/immutability passed. Five blind-ID candidate
-  issues require Owner disposition; the sixth release fact remains false, so Phase2 and mapping/expected comparison remain withheld.
+- Pilot4 Attempt1 raw return remains immutable and is classified as valid defect-discovery evidence. Owner accepted all five issue rows；
+  five local repairs and 67-row immutability passed；Attempt2 Phase1 is ready with new IDs, while Phase2 and expected comparison remain withheld.
 - The formal five-domain Scale Pilot structure is confirmed only as planning. 240-group execution is not approved/started；Dataset
   is not frozen；Formal Detector is not implemented；Training and Formal Experiment are not started.
 - Option B is confirmed only for detection plus lightweight hard filtering / soft downweighting. Complete trusted retrieval/context construction remains excluded.
@@ -308,9 +314,9 @@ H2 bundle contract additionally freezes bundle source bytes `1320359518`, archiv
 2. The only authorized H2-B call is consumed (`call_count=1`); no retry or second call is authorized.
 3. PILOT2 original kit/returns/registration/preflight/full V2 and owner correction remain immutable; Pilot2 is closed only for
    annotation-protocol/Ground-Truth feasibility.
-4. The only current experiment gate is Owner blind-only disposition of the five candidate-issue rows in
-   `PILOT4_PHASE1_BLIND_DEFECT_TRIAGE.md`. Preserve the raw return; do not unlock mapping or expected contract. Phase2 remains blocked
-   until `PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED=true` is validly recorded and a later release task is approved.
+4. The only current experiment gate is the fresh Full72 Attempt2 external Phase1 return. Owner distributes only the Attempt2 packet
+   Markdown and guide Markdown to a new isolated reviewer context. Preserve Attempt1 and all repair evidence；do not release Phase2 or
+   load/compare expected contract. A later task must lock and validate the complete Attempt2 return before any release decision.
 5. `PAPER1_FORMAL_DOMAIN_SET` is fixed for future Scale Pilot planning; it does not rewrite Pilot4's four-domain history or create
    240 groups / 720 candidates.
 6. `DETOXIFICATION_OPTION = OPTION_B` is fixed. It does not authorize Dataset freeze, Detector, training or a formal run.

@@ -1332,3 +1332,26 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   adjudication, Ground Truth, 240-group, Dataset freeze, Detector, Training, 5090, Formal Experiment or Paper Result. Auto Continue `NO`.
 - Canonical records: `OR-042`, `REL-2026-0047`, [current work state](current_work_state.md) and
   [canonical lessons](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md).
+
+## PODR-081: Pilot4 Five Candidate Defects Accepted, Repaired and Rebound to Fresh Full72 Attempt2
+
+- Date: `2026-09-02`.
+- Owner disposition: all five blind-ID issues are
+  `REVIEWER_ISSUE_ACCEPTED / CANDIDATE_LOCAL_REPAIR_REQUIRED`: `BR-D0C6884849`, `BR-58AAE07B7B`, `BR-B67E68835B`,
+  `BR-F106F2592D` and `BR-C9BF22304E`.
+- Controlled access: only those five Attempt1 IDs may be mapped for local repair；metadata access is limited to the affected five and
+  their necessary source/semantic contracts. The other 67 Attempt1 mapping records must not be output or used for expected comparison.
+- Repair decision: perform only minimal、source-backed、semantic-preserving text repair. Candidate class、HKP、polarity、stealth
+  intent、source relation and evidence necessity must remain unchanged；the other 67 candidate texts remain byte-identical.
+- Evidence classification: Attempt1 is permanently
+  `VALID_DEFECT_DISCOVERY_REVIEW / NOT_FINAL_CORPUS_ACCEPTANCE_REVIEW`. Its raw return、SHA、packet、mapping、observations and
+  decisions remain immutable and visible as history.
+- Final review decision: after any candidate change, do not splice old 67 reviewer rows with five repaired rows. Create one additive
+  final72 corpus, 72 fresh opaque IDs and a fresh random order；run a complete external Phase1 Attempt2 in a new isolated reviewer
+  context. Rebuild the matching Phase2 against the same final corpus/IDs but keep it withheld.
+- Current status: `PILOT4_PHASE1_FIVE_DEFECTS_REPAIRED / EXTERNAL_BLIND_PHASE1_ATTEMPT2_PACKET_READY /
+  WAITING_FOR_FRESH_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`.
+- Prohibited: Codex executing Attempt2 review、Attempt1 full expected comparison、Phase2 release、protocol acceptance、A/B、agreement、
+  adjudication、Ground Truth、240-group、Dataset freeze、Detector、Training、5090、Formal Experiment or Paper Result. Auto Continue `NO`.
+- Canonical records: `OR-043`, `REL-2026-0048`, [current work state](current_work_state.md) and
+  [canonical lessons](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md).

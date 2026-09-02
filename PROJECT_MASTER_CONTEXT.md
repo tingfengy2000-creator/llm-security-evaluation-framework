@@ -1,5 +1,25 @@
 # LLMGuard 项目总控文档
 
+## PILOT4 Phase1 五项缺陷修复与 Full72 Attempt2 准备（2026-09-02）
+
+项目需求提出人通过 `PODR-081 / OR-043` 对 Attempt1 的五条 blind-ID 问题全部作出
+`REVIEWER_ISSUE_ACCEPTED / CANDIDATE_LOCAL_REPAIR_REQUIRED` 决定。本机仅对这五个 ID 解锁身份映射，并仅访问五条候选
+必要的 construction/source metadata；其余 67 条 Attempt1 mapping 未输出，Attempt1 expected contract 未加载、未比较。
+
+五条候选已完成 source-backed、minimal、semantic-preserving 局部修复，语义/class/HKP/stealth/evidence-necessity parity
+均为 `5/5 PASS`；其余 67 条 candidate text 和源 JSONL 行保持 byte-identical。新的 additive corpus 为
+`PILOT4_CANDIDATE_CORPUS_POST_EXTERNAL_PHASE1_REPAIR_V1`，总计 72 条。Attempt1 的 raw return、SHA、packet、mapping、
+blind observations 与 Owner decisions 永久分类为
+`VALID_DEFECT_DISCOVERY_REVIEW / NOT_FINAL_CORPUS_ACCEPTANCE_REVIEW`，没有删除、覆盖或伪装成未发生。
+
+本机已生成全新的 Full72 Attempt2：72 个新 opaque ID、Attempt1 ID 复用为 0、新随机顺序、matched-triplet adjacency 为
+0，五条修复候选没有集中放置；Phase1 URL/Evidence/Phase2/sample/label/expected leakage 均为 0。对应 final corpus 和同一组
+Attempt2 ID 的 Phase2 已重建，但继续置于 `withheld_phase2 / DO_NOT_RELEASE`。当前状态固定为
+`PILOT4_PHASE1_FIVE_DEFECTS_REPAIRED / EXTERNAL_BLIND_PHASE1_ATTEMPT2_PACKET_READY /
+WAITING_FOR_FRESH_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`。Owner 下一步只把 Attempt2 Phase1
+packet Markdown 与 guide Markdown 发给新的隔离 reviewer context；不得执行 Attempt2 review、释放 Phase2、比较 expected
+contract、启动 A/B、240-group、Dataset freeze、Detector、Training、5090 或 Formal Experiment。
+
 ## PILOT4 外部盲审 Phase1 回收锁定与候选缺陷门（2026-09-02）
 
 `PILOT4-EXTERNAL-BLIND-PHASE1-RETURN-LOCK-AND-DEFECT-TRIAGE-01` 已将外部 reviewer 的 Phase1 原始返回按字节

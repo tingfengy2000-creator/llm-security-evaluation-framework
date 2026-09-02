@@ -320,3 +320,16 @@ sample-ID leakage、combined-packet flaw 与 phase-separation repair 的时间�
 
 本规则当前状态为 `PROVISIONAL_PENDING_PILOT4_FINAL_ACCEPTANCE`。它可保守阻止带缺陷候选直接进入 Phase2，但尚不能
 描述为已验收的正式数据集规则，也不授权 Codex 自动修正候选、打开正确答案、释放 Phase2 或启动 A/B。
+
+## 十九、真实盲审作为候选质量门与 final-corpus 一致性（临时规则）
+
+Attempt1 证明，真实 blind review 不仅能检查 annotation schema，也能发现机器 QA 和 Owner preflight 未发现的自然度、
+自包含性与指代问题。因此第一次外部复核发现 candidate defect 时，应保存为有效 defect-discovery evidence，不能写成
+“无效所以删除”，也不能回写原始 return 让历史看起来从未出错。
+
+如果 blind review 后任何 candidate text 发生变化，最终复核证据必须对应同一个 final corpus。禁止把旧 corpus/reviewer 的
+未修改行与新 corpus/reviewer 的修复行静默拼接；应对统一 final corpus 重新生成 opaque identity 和顺序，并完整重跑所需
+blind phase。旧 attempt、Owner correction、mapping scope、repair audit 和新 attempt 必须分别保存并可追溯。
+
+本规则当前状态为 `PROVISIONAL_PENDING_PILOT4_FINAL_ACCEPTANCE`。它允许 fail closed、保留历史并要求 fresh Full72 review，
+但不证明 annotation protocol 已被接受，也不授权 Phase2、A/B、Dataset freeze 或正式实验。

@@ -1677,3 +1677,58 @@ Approval Gate、Auto Continue。
     `README_condition_evaluated=true`（navigation/entry unchanged，不修改）。
   - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
     `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.
+
+## REL-2026-0048 — Pilot4 Five-Candidate Repair and Fresh Full72 Phase1 Attempt2 Preparation
+
+- Record ID: `REL-2026-0048`; date `2026-09-02`; task
+  `PILOT4-PHASE1-OWNER-DEFECT-ADJUDICATION-AND-CANDIDATE-LOCAL-REPAIR-01`; machine `本机 / LOCAL_CONTROL_PLANE`；execution base
+  `14ec6a22ef1b0f9541401847ef935fd1a3ba5b69`; Owner authority `PODR-081 / OR-043`.
+- Owner decisions: the five issue IDs `BR-D0C6884849`, `BR-58AAE07B7B`, `BR-B67E68835B`, `BR-F106F2592D` and
+  `BR-C9BF22304E` are all `REVIEWER_ISSUE_ACCEPTED / CANDIDATE_LOCAL_REPAIR_REQUIRED`. These are Owner decisions, not Codex
+  auto-corrections.
+- Controlled mapping: only the approved five Attempt1 identities were emitted, mapping respectively to `P4Q-0de42010ea94`,
+  `P4Q-bf24bec76327`, `P4Q-de8e6e7d3360`, `P4Q-72e86646e3b5` and `P4Q-6f022a267636`; unauthorized mapping output count is 0.
+  `REPAIR_METADATA_ACCESS_SCOPE=AFFECTED_FIVE_ONLY`; Attempt1 full expected comparison was not executed.
+- Repairs: all five source-backed before/after rewrites pass semantic、candidate-class、HKP、stealth-intent、source-relation and
+  evidence-necessity parity；source verification、self-containment、naturalness、meta-cue and answer-echo checks pass `5/5`.
+- Unaffected/final corpus: the other 67 candidate texts and their source JSONL lines are byte-identical. The additive final corpus is
+  `PILOT4_CANDIDATE_CORPUS_POST_EXTERNAL_PHASE1_REPAIR_V1`, 72 rows, SHA256
+  `f530471ecd6551300d68c8ddf104cadce2305d8ff91e64010be222820628252d`；the source corpus remains
+  `15500aa75bced9fb470edaac98f9527e7bb4bc689b86583e6f69b892c48eb210`.
+- Attempt2 identity/order: 72 new unique opaque IDs；Attempt1 ID reuse 0；matched-triplet adjacency 0；class/HKP/stealth/domain/
+  actual-length exact periods 2–12 all absent. Repaired positions are `1,26,51,61,70`, minimum gap 9, and at most 2 appear in any
+  12-row window.
+- Attempt2 Phase1: 72/72 visibility contract passed；URL、Evidence title/ID、Phase2 field、sample ID、Owner label、expected contract、
+  prefilled result and repaired-marker leakage counts are all 0. No review was executed.
+- Attempt2 Phase2: rebuilt against the same final corpus, new IDs and order；72/72 cross-phase identity/text parity and 144 distinct
+  evidence slots pass. It remains `DO_NOT_RELEASE_BEFORE_ATTEMPT2_PHASE1_LOCK_AND_TRIAGE`; all six release facts are false.
+- Attempt1 preservation: raw SHA256 `59446c4be65b035be29528de81b6b8f8aa4113007df8fcac962fe4058a889261` and both historical
+  evidence trees are unchanged pre/post. Attempt1 is `VALID_DEFECT_DISCOVERY_REVIEW / NOT_FINAL_CORPUS_ACCEPTANCE_REVIEW`；nothing
+  was deleted, overwritten or disguised as never having occurred.
+- Evidence: new additive Git-external namespace `paper1_pilot4_phase1_owner_defect_repair_20260902`; manifest recomputation passed
+  `24/24`, aggregate SHA256 `c71a25256d09a8768037317a93caebe98d23bc036c7418a9ba0c471f9b37b107`. Reviewer-distributable files are only
+  `attempt2_packet/PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_PACKET.md` and
+  `attempt2_packet/PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_GUIDE.md`.
+- Code/QA: added a fail-closed builder and integration regression. Final hidden-poisoning/architecture/research suite passed
+  `356 tests / 1678 subtests` with 14 skips；Ruff、scoped MyPy、strict UTF-8/LF、manifest recomputation、secret scan、Markdown/
+  context governance tests、`git diff --check` and task-diff Stage 1–5 immutability passed.
+- Final status: `PILOT4_PHASE1_FIVE_DEFECTS_REPAIRED / EXTERNAL_BLIND_PHASE1_ATTEMPT2_PACKET_READY /
+  WAITING_FOR_FRESH_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`. Attempt2 review、expected comparison、
+  protocol acceptance、A/B、Ground Truth、240-group、Dataset freeze、Detector、Training、5090、Formal Experiment and Paper Result
+  did not occur.
+- Owner next action: create a new isolated Project/context, preferably `P1-Pilot4-External-Blind-Review-R2` with conversation
+  `Pilot4 External Blind Review — Phase1 Final`; send only the two Attempt2 Phase1 Markdown files and collect a complete 72-row
+  return. Do not import Attempt1 conversation/return、repair history、repo、mapping、expected contract or Phase2.
+- `DOCUMENTATION_CLOSEOUT_CHECKLIST`:
+  - `human_ledger_checked=true`; `human_ledger_updated_if_required=true`（task/status/blocker/next action changed）。
+  - `agent_ledger_checked=true`; `agent_ledger_updated=true`; `current_work_state_updated=true`;
+    `execution_log_appended=true`.
+  - `experiment_master_condition_evaluated=true`（new evidence/gate，已更新）；
+    `owner_decision_condition_evaluated=true`（five Owner decisions，已更新）；
+    `stage_process_condition_evaluated=true`（fresh Attempt2 path，已更新）；
+    `lessons_condition_evaluated=true`（blind review as candidate-quality gate and single-final-corpus rule，provisional update）。
+  - `project_master_condition_evaluated=true`（current project status changed，已更新）；
+    `research_authority_condition_evaluated=true`（frozen research contract unchanged，不修改）；
+    `README_condition_evaluated=true`（navigation/entry unchanged，不修改）。
+  - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
+    `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.

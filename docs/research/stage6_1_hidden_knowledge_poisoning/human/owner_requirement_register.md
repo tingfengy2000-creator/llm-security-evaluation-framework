@@ -46,13 +46,15 @@
 | OR-040 | 2026-09-02 | Owner 判定 combined Phase1/Phase2 文档无法建立严格 LLM blindness；旧包只保留为工程历史，正式外部复核必须按 Phase1 return hash-lock 后再释放 Phase2，并使用全新隔离对话或独立真人 | Pilot4 分阶段盲审与释放门 | Paper 1 / P1-PILOT4 | `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION` | `PILOT4-EXTERNAL-BLIND-REVIEW-PHASE-SEPARATION-01` | 项目需求提出人当前明确指令；`PODR-078` | 当前项目对话不得充当 external reviewer；Phase1 禁止 web/事实查证；五项 return-lock 条件未全真时 Phase2 fail closed；不得执行 review、A/B 或任何下游实验 |
 | OR-041 | 2026-09-02 | Owner 要求所有 Paper 1 任务永久执行 Documentation Closeout Gate：Human/Agent Ledger、Current Work State、Execution Log 强制检查/同步，其他 canonical docs 按条件更新；文档未收口不得称任务完成；Pilot4 经验仅在最终协议验收后提升 | Paper 1 任务收口与经验提升治理 | Paper 1 全局治理 | `PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED / PILOT4_PROTOCOL_LESSONS = PROVISIONAL_PENDING_FINAL_ACCEPTANCE` | `GOV-P1-MANDATORY-DOCUMENTATION-CLOSEOUT-01` | 项目需求提出人当前明确指令；`PODR-079 / REL-2026-0046` | persistent requirement；未来 prompt 未重复亦生效；`NO_DOCUMENTATION_CHANGE` 仍须条件评估；不改变当前 Pilot4 Gate，不授权 External review、Phase2、A/B 或下游实验 |
 | OR-042 | 2026-09-02 | 项目负责人授权锁定外部第一阶段原始返回，并检查五列格式、72/72 不透明标识、枚举、条件理由和盲态描述性统计；若复核人标记候选缺陷，必须新增仅按盲标识执行的负责人处置门，原始返回不回写，身份映射和预期答案合同不得加载 | Pilot4 外部第一阶段返回锁定与候选缺陷处置 | Paper 1 / P1-PILOT4 | `PILOT4_EXTERNAL_BLIND_PHASE1_RETURN_LOCKED / OWNER_DEFECT_TRIAGE_PENDING / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION` | `PILOT4-EXTERNAL-BLIND-PHASE1-RETURN-LOCK-AND-DEFECT-TRIAGE-01` | 项目需求提出人当前明确指令；`PODR-080 / REL-2026-0047` | 五项返回锁定事实为真，但 `PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED=false`；只允许项目负责人审查五条盲标识缺陷清单；不得自动修候选、释放第二阶段、解锁身份映射或预期答案、发 A/B 或进入下游实验 |
+| OR-043 | 2026-09-02 | 项目负责人接受 Attempt1 五项 blind-level reviewer issue，逐项要求候选局部修复；只允许解锁这五个身份并访问五条必要 metadata/source，保留其余 67 条与全部 Attempt1 历史；修复后必须基于统一 final72 生成新 ID、新顺序的 Full72 Attempt2，并重建但封存同身份 Phase2 | Pilot4 五项缺陷处置、最终候选版本与 fresh Full72 复核门 | Paper 1 / P1-PILOT4 | `PILOT4_PHASE1_FIVE_DEFECTS_REPAIRED / EXTERNAL_BLIND_PHASE1_ATTEMPT2_PACKET_READY / WAITING_FOR_FRESH_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION` | `PILOT4-PHASE1-OWNER-DEFECT-ADJUDICATION-AND-CANDIDATE-LOCAL-REPAIR-01` | 项目需求提出人当前最终指令；`PODR-081 / REL-2026-0048` | Attempt1 是有效 defect-discovery evidence、不是 final acceptance；不得把旧 67 行与新 5 行静默拼接。只允许 Owner 向全新隔离 reviewer 发送 Attempt2 Phase1 packet+guide；不得执行 review、expected comparison、Phase2、A/B、240-group、Dataset freeze、Detector/Training、5090 或 Formal Experiment |
 
-当前唯一人工动作是审查五条 blind-ID 候选缺陷清单并追加处置决定；原始 Phase1 return、identity mapping、expected
-contract 与 Phase2 保持关闭。不得自动接受 `Pilot4`、分发 `A/B`、生成 72 条真值或启动 240 组与后续实验。
+当前唯一人工动作是在全新隔离 Project/context 中向 fresh reviewer 只发送 Attempt2 Phase1 packet Markdown 与 guide
+Markdown，并收回完整 72 行结果。Attempt1 历史、repair history、repo、mapping、expected contract 与 Phase2 均不得进入
+该 reviewer context。不得自动接受 `Pilot4`、分发 `A/B`、生成 72 条真值或启动 240 组与后续实验。
 
-通俗解释：外部复核已经真实完成，文件完整性和格式检查也已经通过；但陌生复核者指出五条候选文本可能缺少背景、
-指代不清或存在其他局部问题。这说明质量检查成功发现了风险，而不是实验失败。项目负责人应先在不知道候选真实身份
-和预期答案的情况下逐条判断这些问题是否重要，再决定保留、修订重审或剔除替换。此判断完成以前，第二阶段材料继续封存。
+通俗解释：第一次真实外部盲审不是失败；它成功发现了机器和负责人预检遗漏的五个文本问题。项目负责人五项全部
+接受，本机只修了对应五条，并证明其余 67 条未动。由于候选版本已经变化，最终证据必须来自同一个 final72 和新的独立
+reviewer，不能把 Attempt1 的 67 行与修后的 5 行拼起来。第二阶段材料继续封存。
 
 本次批准的中文边界是：保留两名标注人的第一轮原始结果，只修复标注工具并准备本人独立复核材料。两名标注人仍不得互看、讨论或统一答案；协调人只负责发放、回收、计算摘要并锁定文件。第二版结果没有返回并通过后续独立验证前，不得宣称一致性已经恢复，也不得开始分歧仲裁、数据集冻结、检测器实现、训练或正式实验。
 
