@@ -12,8 +12,10 @@ from dataclasses import dataclass
 from hashlib import sha256
 import hmac
 from html.parser import HTMLParser
-from io import BytesIO
+from io import BytesIO, StringIO
+import csv
 import re
+from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
 from charset_normalizer import from_bytes
@@ -41,6 +43,30 @@ PHASE2_FIELDS = (
     "evidence_selection",
     "phase2_issue",
     "phase2_reason",
+)
+
+PHASE1_PACKET_ROW_FIELDS = (
+    "blind_review_id",
+    "candidate_text",
+    "source_title",
+) + PHASE1_FIELDS
+
+PHASE2_PACKET_ROW_FIELDS = (
+    "blind_review_id",
+    "candidate_text",
+    "source_title",
+    "evidence_pool",
+) + PHASE2_FIELDS
+
+PHASE1_RETURN_FIELDS = ("blind_review_id",) + PHASE1_FIELDS
+PHASE2_RETURN_FIELDS = ("blind_review_id",) + PHASE2_FIELDS
+
+PHASE2_RELEASE_REQUIREMENTS = (
+    "PHASE1_RETURN_RECEIVED",
+    "PHASE1_RETURN_SCHEMA_VALID",
+    "PHASE1_RETURN_72_72",
+    "PHASE1_RETURN_HASH_LOCKED",
+    "PHASE1_RETURN_IMMUTABLE",
 )
 
 MANUAL_FIELDS = PHASE1_FIELDS + PHASE2_FIELDS
@@ -475,6 +501,146 @@ def validate_packet_rows(rows: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
     }
 
 
+def _validate_opaque_ids(rows: Sequence[Mapping[str, Any]]) -> list[str]:
+    if len(rows) != 72:
+        raise ValueError("PHASE_PACKET_CANDIDATE_COUNT_BLOCKER")
+    identities = [str(row.get("blind_review_id", "")) for row in rows]
+    if len(set(identities)) != 72 or any(
+        not re.fullmatch(r"BR-[0-9A-F]{10}", item) for item in identities
+    ):
+        raise ValueError("PHASE_PACKET_IDENTITY_BLOCKER")
+    return identities
+
+
+def validate_phase1_packet_rows(
+    rows: Sequence[Mapping[str, Any]],
+) -> dict[str, Any]:
+    """Validate the candidate-only Phase1 visibility contract."""
+
+    identities = _validate_opaque_ids(rows)
+    for row in rows:
+        if tuple(row) != PHASE1_PACKET_ROW_FIELDS:
+            raise ValueError("PHASE1_PACKET_ROW_SCHEMA_BLOCKER")
+        if any(row[field] != "" for field in PHASE1_FIELDS):
+            raise ValueError("PHASE1_PACKET_NONEMPTY_RESPONSE_BLOCKER")
+        forbidden = FORBIDDEN_PACKET_KEYS.intersection(iter_mapping_keys(row))
+        if forbidden:
+            raise ValueError(f"PHASE1_PACKET_KEY_LEAKAGE:{sorted(forbidden)}")
+    serialized = "\n".join(str(dict(row)) for row in rows)
+    url_count = len(re.findall(r"https?://", serialized, flags=re.I))
+    if url_count:
+        raise ValueError("PHASE1_PACKET_URL_LEAKAGE_BLOCKER")
+    return {
+        "status": "PASS",
+        "candidate_count": 72,
+        "phase1_visibility_contract": "72/72",
+        "blind_id_unique_count": len(set(identities)),
+        "evidence_url_count": 0,
+        "evidence_title_count": 0,
+        "evidence_id_count": 0,
+        "phase2_field_count": 0,
+        "sample_id_count": 0,
+        "owner_label_count": 0,
+        "expected_contract_count": 0,
+        "review_result_filled_count": 0,
+    }
+
+
+def validate_phase2_packet_rows(
+    rows: Sequence[Mapping[str, Any]],
+) -> dict[str, Any]:
+    """Validate an unfilled Phase2 packet without authorizing its release."""
+
+    identities = _validate_opaque_ids(rows)
+    evidence_slot_count = 0
+    for row in rows:
+        if tuple(row) != PHASE2_PACKET_ROW_FIELDS:
+            raise ValueError("PHASE2_PACKET_ROW_SCHEMA_BLOCKER")
+        forbidden = FORBIDDEN_PACKET_KEYS.intersection(iter_mapping_keys(row))
+        if forbidden:
+            raise ValueError(f"PHASE2_PACKET_KEY_LEAKAGE:{sorted(forbidden)}")
+        evidence = row["evidence_pool"]
+        if len(evidence) != 2:
+            raise ValueError("PHASE2_PACKET_EVIDENCE_COUNT_BLOCKER")
+        if any(tuple(item) != PACKET_EVIDENCE_FIELDS for item in evidence):
+            raise ValueError("PHASE2_PACKET_EVIDENCE_SCHEMA_BLOCKER")
+        if len({str(item["official_source_url"]) for item in evidence}) != 2:
+            raise ValueError("PHASE2_PACKET_EVIDENCE_DUPLICATE_BLOCKER")
+        if any(row[field] != "" for field in PHASE2_FIELDS):
+            raise ValueError("PHASE2_PACKET_NONEMPTY_RESPONSE_BLOCKER")
+        evidence_slot_count += len(evidence)
+    return {
+        "status": "PASS",
+        "candidate_count": 72,
+        "blind_id_unique_count": len(set(identities)),
+        "evidence_slots": evidence_slot_count,
+        "e1_e2_distinct": "72/72",
+        "review_result_filled_count": 0,
+    }
+
+
+def assert_phase2_release_allowed(gate: Mapping[str, bool]) -> str:
+    """Fail closed until every independently recorded Phase1 lock fact is true."""
+
+    missing = [
+        name for name in PHASE2_RELEASE_REQUIREMENTS if gate.get(name) is not True
+    ]
+    if missing:
+        raise ValueError(f"PHASE2_RELEASE_GATE_BLOCKER:{','.join(missing)}")
+    return "PHASE2_RELEASE_APPROVED"
+
+
+def lock_phase1_raw_return(
+    raw_csv: bytes, expected_ids: Sequence[str], destination: Path
+) -> str:
+    """Validate and create an immutable raw-return file without normalizing bytes.
+
+    The exclusive create mode makes a repeated or overwriting lock attempt fail.
+    This helper is deliberately not called during packet preparation.
+    """
+
+    try:
+        decoded = raw_csv.decode("utf-8-sig")
+    except UnicodeDecodeError as error:
+        raise ValueError("PHASE1_RETURN_UTF8_BLOCKER") from error
+    reader = csv.DictReader(StringIO(decoded))
+    if tuple(reader.fieldnames or ()) != PHASE1_RETURN_FIELDS:
+        raise ValueError("PHASE1_RETURN_SCHEMA_BLOCKER")
+    rows = list(reader)
+    returned_ids = [str(row["blind_review_id"]) for row in rows]
+    if (
+        len(rows) != 72
+        or len(set(returned_ids)) != 72
+        or set(returned_ids) != set(expected_ids)
+    ):
+        raise ValueError("PHASE1_RETURN_72_72_BLOCKER")
+    allowed = {
+        "text_naturalness": {"NATURAL", "MINOR_ISSUE", "UNNATURAL"},
+        "local_internal_conflict": {"YES", "NO", "UNCERTAIN"},
+        "phase1_issue": {
+            "NONE",
+            "MISSING_CONTEXT",
+            "AMBIGUOUS_REFERENCE",
+            "OTHER",
+        },
+    }
+    for row in rows:
+        if any(row[field] not in values for field, values in allowed.items()):
+            raise ValueError("PHASE1_RETURN_ENUM_BLOCKER")
+        if not str(row["phase1_reason"]).strip():
+            raise ValueError("PHASE1_RETURN_REASON_BLOCKER")
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    sidecar = destination.with_suffix(destination.suffix + ".sha256")
+    if destination.exists() or sidecar.exists():
+        raise FileExistsError("PHASE1_RETURN_LOCK_ALREADY_EXISTS")
+    with destination.open("xb") as handle:
+        handle.write(raw_csv)
+    digest = canonical_sha256(raw_csv)
+    with sidecar.open("x", encoding="utf-8", newline="\n") as handle:
+        handle.write(f"{digest}  {destination.name}\n")
+    return digest
+
+
 def lexical_duplicate_qa(
     texts: Sequence[str], groups: Sequence[str] | None = None
 ) -> dict[str, Any]:
@@ -519,10 +685,16 @@ __all__ = [
     "PACKET_EVIDENCE_FIELDS",
     "PACKET_ROW_FIELDS",
     "PHASE1_FIELDS",
+    "PHASE1_PACKET_ROW_FIELDS",
+    "PHASE1_RETURN_FIELDS",
     "PHASE2_FIELDS",
+    "PHASE2_PACKET_ROW_FIELDS",
+    "PHASE2_RELEASE_REQUIREMENTS",
+    "PHASE2_RETURN_FIELDS",
     "TITLE_ORIGINS",
     "ExtractedTitle",
     "adjacent_same_group_count",
+    "assert_phase2_release_allowed",
     "blind_review_id",
     "canonical_sha256",
     "deterministic_blind_order",
@@ -530,6 +702,9 @@ __all__ = [
     "extract_html_title",
     "extract_pdf_title",
     "lexical_duplicate_qa",
+    "lock_phase1_raw_return",
     "order_profile",
     "validate_packet_rows",
+    "validate_phase1_packet_rows",
+    "validate_phase2_packet_rows",
 ]

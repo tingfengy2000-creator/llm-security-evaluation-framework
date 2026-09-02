@@ -75,6 +75,10 @@ PILOT4_EVIDENCE_POOL_DUPLICATE_BEFORE: 55_OF_72_CANDIDATES / 23_TRIPLETS
 PILOT4_EVIDENCE_POOL_DUPLICATE_AFTER: 0_OF_72_CANDIDATES
 PILOT4_COMPANION_SOURCES: 23_OF_23_HTTP_200_ANCHOR_VERIFIED_AND_DISTINCT
 PILOT4_SCHEMA: V3_1 / PHASE1_MANUAL_4 / PHASE2_MANUAL_7 / ENGLISH_CANONICAL_ENUMS
+PILOT4_EXTERNAL_PHASE_SEPARATION: PHASE1_PACKET_READY / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION
+PILOT4_COMBINED_PACKET: COMBINED_PACKET_ENGINEERING_ARTIFACT / NOT_APPROVED_FOR_BLIND_SEMANTIC_REVIEW / SUPERSEDED_FOR_REVIEW_BY_PHASE_SEPARATED_PROTOCOL
+PILOT4_PHASE2_RELEASE_GATE: BLOCKED_PENDING_RECEIPT_SCHEMA_72_72_HASH_LOCK_AND_IMMUTABILITY
+EXTERNAL_REVIEW_CONTEXT_ISOLATION_REQUIRED: TRUE
 PILOT4_HISTORICAL_STATE_CHAIN: PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / SUPERSEDED_WITHOUT_REWRITE
 PILOT4_CANDIDATES: 72 / PREANNOTATION_ONLY / NOT_GROUND_TRUTH / NOT_FORMAL_BENCHMARK
 PILOT4_CLASS_INTENT: CLEAN_24 / POISON_24 / HARD_NEGATIVE_24
@@ -107,7 +111,7 @@ H2_auto_continue: CONSUMED_AND_STOPPED
 DETOXIFICATION_OPTION: OPTION_B
 DETOXIFICATION_TECHNICAL_SCOPE: OPTION_B_CONFIRMED
 DETOXIFICATION_TECHNICAL_SCOPE_FULL: OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION
-P1_next_gate: OWNER_REVIEW_REPAIRED_12_ROW_PILOT4_SECOND_PREFLIGHT
+P1_next_gate: OWNER_DISTRIBUTES_PHASE1_PACKET_AND_GUIDE_ONLY_TO_FRESH_ISOLATED_REVIEWER
 AUTO_CONTINUE: NO
 PROHIBITED_CONTINUATION:
   - A_B_DISTRIBUTION
@@ -203,6 +207,7 @@ next_gate: string
 | ART-P1-PILOT4-EVIDENCE-POOL-REPAIR | S6.1-P1 / Pilot4 Schema V3.1 | evidence_pool_repair_and_annotator_ui / 本机 | `PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE` | `REL-2026-0042`; 23 companions; duplicate 55/72 -> 0/72; full72 PASS | distinct-unit pool, independent A/B order, final version/authority semantics, validator and 10-Sheet visual QA | Git-external `paper1_pilot4_evidence_pool_repair_20260901`; 3 V3.1 XLSX | allowed: protocol readiness for Owner acceptance; prohibited: A/B/GT/240/freeze/training/result | blocker `OWNER_ACCEPTANCE_PENDING`; next_gate V3.1 Owner acceptance |
 | ART-P1-PILOT4-PROTOCOL-HARDENING | S6.1-P1 / Pilot4 Schema V3.1 | label_blind_validation_and_candidate_cleanup / 本机 | `PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / NO_HUMAN_DISTRIBUTION` | `PODR-076 / OR-038 / REL-2026-0043`; b705cc history immutable; one-context review only | 23 additive candidate rewrites; lock-before-compare 72/72; attempt01 5 mismatches preserved; final 0; four-column neutral Evidence Pool; validator and 10-Sheet visual QA | Git-external `paper1_pilot4_protocol_independent_validation_20260902`; 3 V3.1 XLSX | allowed: Owner acceptance review only; prohibited: claim of independent A/B, distribution/GT/240/freeze/training/result | blocker `OWNER_ACCEPTANCE_PENDING`; next_gate Owner review |
 | ART-P1-PILOT4-EXTERNAL-BLIND-PACKET | S6.1-P1 / Pilot4 external blind review | external_blind_packet_and_title_provenance / 本机 | `PILOT4_EXTERNAL_BLIND_REVIEW_PACKET_READY / WAITING_FOR_EXTERNAL_OWNER_REVIEW / NO_HUMAN_DISTRIBUTION` | `PODR-077 / OR-039 / REL-2026-0044`; c1b/b705cc history immutable; c1b Full72 reclassified contaminated | 72 opaque IDs; isolated mapping; 56 unique actual-title sources / 144 slots; 66 independent guide cases; randomized no-adjacent-triplet order; no semantic answers | Git-external `paper1_pilot4_external_blind_review_packet_20260902`; exactly four external files + owner provenance/QA | allowed: `BLIND_PACKET_READY + NO_LABEL_LEAKAGE`; prohibited: expected comparison, answerability, acceptance/A-B/GT/240/freeze/training/result | blocker `EXTERNAL_BLIND_REVIEW_RETURN_PENDING`; next_gate isolated external GPT/Owner return |
+| ART-P1-PILOT4-EXTERNAL-PHASE-SEPARATION | S6.1-P1 / Pilot4 external blind Phase separation | phase_separation_and_release_gate / 本机 | `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION` | `PODR-078 / OR-040 / REL-2026-0045`; 5d6b4b5/c1b/b705cc and old namespace immutable | Phase1 candidate-only 72/72; leakage zero; Phase2 72/72 and 144/144 title slots withheld; same opaque IDs; zero-adjacency order; five-condition fail-closed release | Git-external `paper1_pilot4_external_blind_phase_separation_20260902`; base manifest `4c09089a...369ef`; additive order manifest `3d1f850c...d05f`; Phase1 packet `78e53cbd...58125`; combined packet superseded for review | allowed: Phase1 packet distribution to fresh isolated context only; prohibited: Phase2 release/review simulation/mapping/expected comparison/A-B/downstream | blocker `EXTERNAL_PHASE1_RETURN_PENDING`; next_gate exact Phase1 two-file distribution and raw return |
 
 ## Artifact Registry
 

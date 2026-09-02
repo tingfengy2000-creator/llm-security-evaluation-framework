@@ -252,3 +252,18 @@ Owner acceptance，不自动授权 A/B distribution。
 
 完成外部包只支持 `BLIND_PACKET_READY + NO_LABEL_LEAKAGE`。外部 reviewer 返回前不得加载 expected contract、计算 mismatch、
 宣布 answerability、接受协议或发放 A/B。
+
+## Permanent external LLM blind-review separation rule（2026-09-02）
+
+- 单一文档若同时含有第一阶段候选判断和第二阶段证据，就会破坏大模型复核者的严格第一阶段盲法：
+  `A single document containing Phase1 candidate judgment and Phase2 evidence breaks strict Phase1 blindness for an LLM reviewer.`
+- “暂时不要阅读证据”的行为指令不等于证据从模型上下文中物理缺席：
+  `Do not read the evidence yet is not equivalent to evidence being absent from model context.`
+- 盲审必须以文件和释放门进行结构性信息隔离，不能依赖复核者自我约束：
+  `Blind review must enforce information separation structurally, not behaviorally.`
+- 已看过候选、标签或修复历史的同项目模型，不得宣称为隔离的外部复核者：
+  `A same-project GPT already exposed to candidate, label or repair history is not an isolated external reviewer.`
+- 第二阶段证据释放前，第一阶段原始返回必须完成结构验证、身份全集核验、哈希锁定和不可变保存：
+  `The exact Phase1 raw return must be schema-validated, identity-complete, hash-locked and immutable before Phase2 evidence release.`
+- 正式顺序永久固定为 `PHASE1 -> RETURN -> HASH LOCK -> PHASE2 RELEASE`；第一阶段使用网页或事实查证即
+  `PHASE1_BLINDNESS_VIOLATION`，该轮 return 失效。

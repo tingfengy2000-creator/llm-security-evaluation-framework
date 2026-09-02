@@ -5,7 +5,7 @@
 Document Role = `PAPER1_PRIMARY_HUMAN_ENTRY`<br>
 Audience = `项目负责人 / 导师与领导 / 新团队成员`<br>
 Reading Path = `5 minutes / 15 minutes / 30 minutes`<br>
-Current Evidence Cut = `external blind packet ready / isolated semantic review pending`<br>
+Current Evidence Cut = `phase-separated Phase1 packet ready / Phase2 withheld / isolated review pending`<br>
 Last Updated = `2026-09-02`
 
 > 这是一张“项目地图”，不是 raw evidence，也不产生新授权。读完第 0 节可掌握当前状态；读到第 8 节可理解论文方法；
@@ -19,17 +19,17 @@ Last Updated = `2026-09-02`
 | 英文论文题目 | *Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework* |
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
-| 当前阶段 | ⏳ Pilot4 外部标签盲法复核包已通过机器 QA，等待隔离的外部 GPT/Owner 完成人工语义复核；仍是预标注阶段。 |
-| 当前任务 | `PILOT4-EXTERNAL-BLIND-OWNER-REVIEW-PACKET-01`：不透明身份、随机顺序、真实标题溯源、66 个字段指南案例和四文件外部包。 |
-| 当前完成度 | ✅ c1b 历史完整保留并纠正分类；72 行外部包不含原 sample ID/设计标签/expected contract；144/144 可见标题有实际页面/文档来源；11 字段/66 案例完整。 |
-| 当前唯一人工动作 | 项目负责人把 `PILOT4_EXTERNAL_BLIND_REVIEW_PACKET.md` 上传给隔离的外部 GPT/Owner reviewer，并取回 `blind_review_id + 11 fields + reasoning`。 |
-| 当前主要 blocker | ⏳ 外部盲法语义复核尚未返回；因此不能比较 expected contract、接受协议或发 A/B。 |
+| 当前阶段 | ⏳ Pilot4 外部盲审 Phase1/Phase2 已物理隔离；Phase1 包就绪，Phase2 尚未释放。 |
+| 当前任务 | `PILOT4-EXTERNAL-BLIND-REVIEW-PHASE-SEPARATION-01`：候选-only Phase1、withheld Phase2 与五条件释放门。 |
+| 当前完成度 | ✅ 72/72 跨阶段 opaque ID 一致；Phase1 URL/Evidence/Phase2/原身份/Owner 标签均为 0；Phase2 144 槽保留且 withheld。 |
+| 当前唯一人工动作 | 项目负责人在全新隔离对话中只上传 Phase1 packet 与 Phase1 guide；禁止同时提供 Phase2 或项目历史。 |
+| 当前主要 blocker | ⏳ 外部 Phase1 尚未真实返回并完成 schema、72/72、hash-lock、immutable 五项验证，因此 Phase2 不能释放。 |
 | 已经可以说什么 | 外部盲审包已准备且通过机器级身份、泄漏、标题来源、顺序、Evidence Pool 和格式 QA；不能说 72 条已被语义验证。 |
 | 绝对不能说什么 | 不得说 Pilot4 已接受、A/B 已开始、72 条已有 Ground Truth、240-group 已生成、Dataset 已冻结、Formal Detector 已实现、检测有效或 Paper Result 已形成。 |
 
 当前实验状态固定为：
 
-`PILOT4_EXTERNAL_BLIND_REVIEW_PACKET_READY / WAITING_FOR_EXTERNAL_OWNER_REVIEW / NO_HUMAN_DISTRIBUTION`
+`PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`
 
 保留的历史状态链：`PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT` →
 `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` → `PILOT4_QUALITY_CONVERGED` → Schema V3.1 hardening → 当前外部盲审包状态。历史 package 不被覆盖。
@@ -365,13 +365,13 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 
 ## 14. 当前项目状态
 
-- `PILOT4_EXTERNAL_BLIND_REVIEW_PACKET_READY / WAITING_FOR_EXTERNAL_OWNER_REVIEW / NO_HUMAN_DISTRIBUTION`
+- `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`
 - `PREANNOTATION_ONLY`
 - `NO_HUMAN_DISTRIBUTION`
 - 72 repaired candidates 已存在；仍非 Ground Truth、非 Formal Benchmark、非 frozen Dataset。
 - class intent 为 Clean / Poison / Hard Negative = `24/24/24`。
 - 生成覆盖为 `4 HKP × 3 intended-S × 2 replication = 24 poison cells`，对应 24 matched triplets。
-- 外部 72-row packet、144/144 actual-title slots、66 个指南案例和 Field Guide workbook 已通过机器 QA；外部语义答案仍为空。
+- Phase1 72-row packet 的 URL/Evidence/Phase2/原身份泄漏均为 0；Phase2 的 144/144 actual-title slots 已预构建但 withheld；外部语义答案仍为空。
 - A/B 未开始；72 Ground Truth 未建立；240-group 未开始；Dataset = `NOT FROZEN`（未冻结）。
 - Formal Detector = `NOT IMPLEMENTED`（未实现）；Formal Experiment = `NOT STARTED`（未开始）；Our Method Result = `NONE`。
 
@@ -379,14 +379,14 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 
 ## 15. 当前下一步
 
-唯一当前动作：**Owner 把 `PILOT4_EXTERNAL_BLIND_REVIEW_PACKET.md` 交给隔离的外部 GPT/Owner reviewer，并收回
-`blind_review_id + 11 fields + reasoning`**。
+唯一当前动作：**Owner 新建无项目历史的隔离对话，只上传 `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET.md` 与
+`PILOT4_EXTERNAL_BLIND_PHASE1_GUIDE.md`，并收回 72 行 `blind_review_id + 4 Phase1 fields`**。
 
 ```text
-External Blind Review Return
-  ├─ complete and structurally valid
-  │    -> 下一独立任务才可解锁 mapping 并比较 expected contract
-  └─ incomplete / ambiguous / inaccessible
+External Phase1 Return
+  ├─ schema valid + 72/72 + hash locked + immutable
+  │    -> 下一独立任务才可批准向同一隔离 reviewer 释放 Phase2
+  └─ incomplete / invalid / lookup-contaminated
        -> 登记 HUMAN_DECISION_REQUIRED blocker 并停止
 
 未来在独立审批下：

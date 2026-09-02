@@ -2,11 +2,18 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import csv
+from io import StringIO
 
 import pytest
 
 from llmguard.domains.retrieval.hidden_poisoning.external_blind_review import (
     MANUAL_FIELDS,
+    PHASE1_FIELDS,
+    PHASE1_RETURN_FIELDS,
+    PHASE2_FIELDS,
+    PHASE2_RELEASE_REQUIREMENTS,
+    assert_phase2_release_allowed,
     TITLE_ORIGINS,
     adjacent_same_group_count,
     blind_review_id,
@@ -15,8 +22,14 @@ from llmguard.domains.retrieval.hidden_poisoning.external_blind_review import (
     evidence_should_swap,
     extract_html_title,
     lexical_duplicate_qa,
+    lock_phase1_raw_return,
     order_profile,
     validate_packet_rows,
+    validate_phase1_packet_rows,
+    validate_phase2_packet_rows,
+)
+from scripts.research.build_pilot4_external_blind_phase_packets import (
+    build as build_phase_packets,
 )
 from scripts.research.build_pilot4_external_blind_packet import build
 from scripts.research.prepare_pilot4_external_blind_owner_assets import (
@@ -66,6 +79,80 @@ def _rows() -> list[dict[str, object]]:
         }
         for index in range(72)
     ]
+
+
+def _phase1_rows() -> list[dict[str, object]]:
+    return [
+        {
+            "blind_review_id": row["blind_review_id"],
+            "candidate_text": row["candidate_text"],
+            "source_title": row["source_title"],
+            **{field: "" for field in PHASE1_FIELDS},
+        }
+        for row in _rows()
+    ]
+
+
+def _phase2_rows() -> list[dict[str, object]]:
+    return [
+        {
+            "blind_review_id": row["blind_review_id"],
+            "candidate_text": row["candidate_text"],
+            "source_title": row["source_title"],
+            "evidence_pool": row["evidence_pool"],
+            **{field: "" for field in PHASE2_FIELDS},
+        }
+        for row in _rows()
+    ]
+
+
+def _fake_prior(tmp_path: Path) -> Path:
+    prior = tmp_path / "prior"
+    external = prior / "external_blind_review"
+    external.mkdir(parents=True)
+    (external / "PILOT4_EXTERNAL_BLIND_REVIEW_PACKET.jsonl").write_text(
+        "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in _rows()),
+        encoding="utf-8",
+    )
+    staging = prior / "staging"
+    staging.mkdir()
+    (staging / "field_guide_cases.json").write_text(
+        json.dumps(field_guide_cases(), ensure_ascii=False), encoding="utf-8"
+    )
+    owner = prior / "owner_only"
+    owner.mkdir()
+    mapping = owner / "blind_review_identity_mapping.json"
+    mapping.write_text('{"classification":"OWNER_ONLY"}\n', encoding="utf-8")
+    digest = __import__("hashlib").sha256(mapping.read_bytes()).hexdigest()
+    (owner / "blind_review_identity_mapping.sha256").write_text(
+        f"{digest}  {mapping.name}\n", encoding="utf-8"
+    )
+    title = prior / "title_provenance"
+    title.mkdir()
+    records = [
+        {"blind_review_id": row["blind_review_id"], "evidence_id": item["evidence_id"]}
+        for row in _rows()
+        for item in row["evidence_pool"]
+    ]
+    (title / "evidence_display_title_records.json").write_text(
+        json.dumps({"visible_slot_count": 144, "records": records}), encoding="utf-8"
+    )
+    qa = prior / "qa"
+    qa.mkdir()
+    (qa / "blind_order_leakage_qa.json").write_text(
+        json.dumps(
+            {
+                "status": "PASS",
+                "matched_triplet_adjacency_count": 0,
+                "class_periodicity": {"exact_periods_2_to_12": []},
+                "hkp_periodicity": {"exact_periods_2_to_12": []},
+                "stealth_periodicity": {"exact_periods_2_to_12": []},
+                "domain_periodicity": {"exact_periods_2_to_12": []},
+            }
+        ),
+        encoding="utf-8",
+    )
+    return prior
 
 
 def test_actual_html_title_is_source_backed() -> None:
@@ -362,3 +449,234 @@ def test_external_builder_creates_four_unfilled_files(tmp_path: Path) -> None:
         )
         == 73
     )
+
+
+def test_phase1_packet_contains_no_phase2_field() -> None:
+    serialized = json.dumps(_phase1_rows(), ensure_ascii=False)
+    assert all(field not in serialized for field in PHASE2_FIELDS)
+
+
+def test_phase1_packet_url_count_is_zero() -> None:
+    qa = validate_phase1_packet_rows(_phase1_rows())
+    assert qa["evidence_url_count"] == 0
+
+
+def test_phase1_packet_evidence_title_count_is_zero() -> None:
+    qa = validate_phase1_packet_rows(_phase1_rows())
+    assert qa["evidence_title_count"] == qa["evidence_id_count"] == 0
+
+
+def test_phase1_validator_rejects_phase2_key() -> None:
+    rows = _phase1_rows()
+    rows[0]["overall_fact_status"] = ""
+    with pytest.raises(ValueError, match="PHASE1_PACKET_ROW_SCHEMA"):
+        validate_phase1_packet_rows(rows)
+
+
+def test_phase2_packet_has_two_distinct_evidence_slots() -> None:
+    qa = validate_phase2_packet_rows(_phase2_rows())
+    assert qa["evidence_slots"] == 144
+    assert qa["e1_e2_distinct"] == "72/72"
+
+
+def test_phase2_release_fails_without_locked_phase1_return() -> None:
+    with pytest.raises(ValueError, match="PHASE2_RELEASE_GATE_BLOCKER"):
+        assert_phase2_release_allowed({})
+
+
+def test_phase2_release_requires_all_five_lock_facts() -> None:
+    gate = {name: True for name in PHASE2_RELEASE_REQUIREMENTS}
+    assert assert_phase2_release_allowed(gate) == "PHASE2_RELEASE_APPROVED"
+    gate["PHASE1_RETURN_HASH_LOCKED"] = False
+    with pytest.raises(ValueError, match="PHASE1_RETURN_HASH_LOCKED"):
+        assert_phase2_release_allowed(gate)
+
+
+def test_phase1_raw_return_is_byte_locked_and_non_overwritable(tmp_path: Path) -> None:
+    ids = [str(row["blind_review_id"]) for row in _phase1_rows()]
+    stream = StringIO()
+    writer = csv.DictWriter(stream, fieldnames=PHASE1_RETURN_FIELDS)
+    writer.writeheader()
+    for opaque_id in ids:
+        writer.writerow(
+            {
+                "blind_review_id": opaque_id,
+                "text_naturalness": "NATURAL",
+                "local_internal_conflict": "NO",
+                "phase1_issue": "NONE",
+                "phase1_reason": "The shown wording is complete and internally coherent.",
+            }
+        )
+    raw = stream.getvalue().encode("utf-8")
+    destination = tmp_path / "PILOT4_EXTERNAL_BLIND_PHASE1_RETURN.csv"
+    digest = lock_phase1_raw_return(raw, ids, destination)
+    assert destination.read_bytes() == raw
+    assert digest in destination.with_suffix(".csv.sha256").read_text(encoding="utf-8")
+    with pytest.raises(FileExistsError):
+        lock_phase1_raw_return(raw, ids, destination)
+
+
+def test_phase1_return_rejects_duplicate_identity(tmp_path: Path) -> None:
+    ids = [str(row["blind_review_id"]) for row in _phase1_rows()]
+    header = ",".join(PHASE1_RETURN_FIELDS) + "\n"
+    returned = ids[:-1] + [ids[0]]
+    body = "\n".join(f"{item},NATURAL,NO,NONE,reason" for item in returned)
+    with pytest.raises(ValueError, match="PHASE1_RETURN_72_72"):
+        lock_phase1_raw_return((header + body).encode(), ids, tmp_path / "raw.csv")
+
+
+def test_phase1_return_accepts_reordered_complete_identity_set(tmp_path: Path) -> None:
+    ids = [str(row["blind_review_id"]) for row in _phase1_rows()]
+    header = ",".join(PHASE1_RETURN_FIELDS) + "\n"
+    body = "\n".join(f"{item},NATURAL,NO,NONE,reason" for item in reversed(ids))
+    destination = tmp_path / "raw.csv"
+    lock_phase1_raw_return((header + body).encode(), ids, destination)
+    assert destination.is_file()
+
+
+def test_phase1_lock_refuses_existing_sidecar_before_raw_write(tmp_path: Path) -> None:
+    ids = [str(row["blind_review_id"]) for row in _phase1_rows()]
+    header = ",".join(PHASE1_RETURN_FIELDS) + "\n"
+    body = "\n".join(f"{item},NATURAL,NO,NONE,reason" for item in ids)
+    destination = tmp_path / "raw.csv"
+    destination.with_suffix(".csv.sha256").write_text("occupied", encoding="utf-8")
+    with pytest.raises(FileExistsError, match="LOCK_ALREADY_EXISTS"):
+        lock_phase1_raw_return((header + body).encode(), ids, destination)
+    assert not destination.exists()
+
+
+def test_phase_builder_creates_separated_release_gated_artifacts(
+    tmp_path: Path,
+) -> None:
+    prior = _fake_prior(tmp_path)
+    before = {
+        path.relative_to(prior).as_posix(): path.read_bytes()
+        for path in prior.rglob("*")
+        if path.is_file()
+    }
+    output = tmp_path / "separated"
+    result = build_phase_packets(prior, output)
+    assert result["phase1_rows"] == result["phase2_rows"] == 72
+    assert result["phase2_release_approved"] is False
+    assert (
+        output / "external_blind_review" / "PILOT4_EXTERNAL_BLIND_PHASE1_PACKET.md"
+    ).is_file()
+    assert (
+        output
+        / "external_blind_review"
+        / "withheld_phase2"
+        / "PILOT4_EXTERNAL_BLIND_PHASE2_PACKET.md"
+    ).is_file()
+    after = {
+        path.relative_to(prior).as_posix(): path.read_bytes()
+        for path in prior.rglob("*")
+        if path.is_file()
+    }
+    assert before == after
+
+
+def test_phase_builder_preserves_cross_phase_identity_and_order(tmp_path: Path) -> None:
+    output = tmp_path / "separated"
+    build_phase_packets(_fake_prior(tmp_path), output)
+    phase1 = [
+        json.loads(line)
+        for line in (
+            output
+            / "external_blind_review"
+            / "PILOT4_EXTERNAL_BLIND_PHASE1_PACKET.jsonl"
+        )
+        .read_text(encoding="utf-8")
+        .splitlines()
+    ]
+    phase2 = [
+        json.loads(line)
+        for line in (
+            output
+            / "external_blind_review"
+            / "withheld_phase2"
+            / "PILOT4_EXTERNAL_BLIND_PHASE2_PACKET.jsonl"
+        )
+        .read_text(encoding="utf-8")
+        .splitlines()
+    ]
+    assert [row["blind_review_id"] for row in phase1] == [
+        row["blind_review_id"] for row in phase2
+    ]
+
+
+def test_phase1_external_files_exclude_phase2_and_identity_leakage(
+    tmp_path: Path,
+) -> None:
+    output = tmp_path / "separated"
+    build_phase_packets(_fake_prior(tmp_path), output)
+    external = output / "external_blind_review"
+    text = "\n".join(
+        path.read_text(encoding="utf-8-sig" if path.suffix == ".csv" else "utf-8")
+        for path in external.iterdir()
+        if path.is_file() and "INSTRUCTIONS" not in path.name
+    )
+    assert "sample_id" not in text
+    assert "official_source_url" not in text
+    assert all(field not in text for field in PHASE2_FIELDS)
+
+
+def test_phase1_guide_has_no_phase2_evidence_or_s_level_hint(tmp_path: Path) -> None:
+    output = tmp_path / "separated"
+    build_phase_packets(_fake_prior(tmp_path), output)
+    guide = (
+        output / "external_blind_review" / "PILOT4_EXTERNAL_BLIND_PHASE1_GUIDE.md"
+    ).read_text(encoding="utf-8")
+    assert "Phase2" not in guide
+    assert "Evidence Pool" not in guide
+    assert "S2" not in guide and "S3" not in guide
+
+
+def test_phase2_external_packet_excludes_private_and_expected_keys(
+    tmp_path: Path,
+) -> None:
+    output = tmp_path / "separated"
+    build_phase_packets(_fake_prior(tmp_path), output)
+    text = (
+        output
+        / "external_blind_review"
+        / "withheld_phase2"
+        / "PILOT4_EXTERNAL_BLIND_PHASE2_PACKET.jsonl"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "sample_id",
+        "triplet_id",
+        "target_field",
+        "expected_answer",
+        "owner_decision",
+        "source_role",
+        "source_type",
+    ):
+        assert token not in text
+
+
+def test_combined_packet_is_marked_superseded_without_mutation(tmp_path: Path) -> None:
+    output = tmp_path / "separated"
+    prior = _fake_prior(tmp_path)
+    original = (
+        prior / "external_blind_review" / "PILOT4_EXTERNAL_BLIND_REVIEW_PACKET.jsonl"
+    ).read_bytes()
+    build_phase_packets(prior, output)
+    governance = json.loads(
+        (output / "governance" / "combined_packet_supersession.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert governance["status"] == "SUPERSEDED_FOR_REVIEW_BY_PHASE_SEPARATED_PROTOCOL"
+    assert (
+        prior / "external_blind_review" / "PILOT4_EXTERNAL_BLIND_REVIEW_PACKET.jsonl"
+    ).read_bytes() == original
+
+
+def test_phase_builder_binds_frozen_zero_adjacency_order(tmp_path: Path) -> None:
+    output = tmp_path / "separated"
+    build_phase_packets(_fake_prior(tmp_path), output)
+    qa = json.loads(
+        (output / "qa" / "frozen_order_and_pattern_qa.json").read_text(encoding="utf-8")
+    )
+    assert qa["same_frozen_order_reused"] is True
+    assert qa["matched_triplet_adjacency_count"] == 0

@@ -16,21 +16,26 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `PILOT4-EXTERNAL-BLIND-OWNER-REVIEW-PACKET-01`.
-- Task name: `Pilot4 External Label-Blind Owner Review Packet, Evidence-title Provenance Hardening and Field-guide Case Completion`.
-- Task type: **EXTERNAL_BLIND_REVIEW_PACKET_PREPARATION / TITLE_PROVENANCE / FIELD_GUIDE_CASE_COMPLETION /
-  LOCAL_CONTROL_PLANE / NO_HUMAN_DISTRIBUTION**.
-- Engineering status: **BLIND PACKET MACHINE QA PASS / EXTERNAL SEMANTIC REVIEW NOT EXECUTED**.
-- Experiment status: **PILOT4_EXTERNAL_BLIND_REVIEW_PACKET_READY / WAITING_FOR_EXTERNAL_OWNER_REVIEW /
-  NO_HUMAN_DISTRIBUTION / PREANNOTATION_ONLY / AUTO_CONTINUE_NO**.
+- Task ID: `PILOT4-EXTERNAL-BLIND-REVIEW-PHASE-SEPARATION-01`.
+- Task name: `Pilot4 External Blind Review Phase1/Phase2 Separation and Release-gated Review Protocol`.
+- Task type: **PHASE_SEPARATION / RELEASE_GATING / LOCAL_CONTROL_PLANE / NO_HUMAN_DISTRIBUTION**.
+- Engineering status: **PHASE1 VISIBILITY QA PASS / PHASE2 PREBUILT AND WITHHELD / EXTERNAL SEMANTIC REVIEW NOT EXECUTED**.
+- Experiment status: **PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW /
+  PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION / PREANNOTATION_ONLY / AUTO_CONTINUE_NO**.
 - Execution base commit: `PILOT2_OWNER_CORRECTION_BASE_COMMIT = 0b61e0124b1fb75f1a864132da41ce6a0fcbc3fc`.
 - Targeted package lineage base: `09aa7e65e95e10a657e44c2b31e23ec02bc4210b`.
 - Execution machine: **本机**. Immutable Round1 raw and the complete Schema V2 package remain hash-bound and unchanged；a field audit
   narrows human work to three Phase1 stealth fields, seven Phase2 fact/applicability fields and B-only process corrections.
-- Current ordered step: Owner gives `external_blind_review/PILOT4_EXTERNAL_BLIND_REVIEW_PACKET.md` to an isolated external
-  GPT/Owner reviewer. The reviewer returns only `blind_review_id + 11 annotation fields + reasoning`. A later separately approved
-  task may unlock `owner_only/blind_review_identity_mapping.json` and compare with the expected contract. No comparison is performed
-  in the current task.
+- Current ordered step: Owner starts a fresh isolated conversation or independent human context and gives it only
+  `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET.md` plus `PILOT4_EXTERNAL_BLIND_PHASE1_GUIDE.md`. Phase1 forbids web search and factual
+  lookup. After the reviewer returns all 72 rows, a later separately approved task must validate and immutably hash-lock the raw
+  return before Phase2 can be released to the same isolated reviewer.
+- Combined-packet correction: the `5d6b4b5` combined packet is preserved unchanged as
+  `COMBINED_PACKET_ENGINEERING_ARTIFACT / NOT_APPROVED_FOR_BLIND_SEMANTIC_REVIEW` and
+  `SUPERSEDED_FOR_REVIEW_BY_PHASE_SEPARATED_PROTOCOL`. Evidence being present in one LLM context breaks strict Phase1 blindness;
+  a behavioral “do not read yet” instruction is not structural separation.
+- Phase2 release gate: `PHASE1_RETURN_RECEIVED`, `PHASE1_RETURN_SCHEMA_VALID`, `PHASE1_RETURN_72_72`,
+  `PHASE1_RETURN_HASH_LOCKED`, and `PHASE1_RETURN_IMMUTABLE` are all currently false. Release fails closed.
 - Historical correction: the `c1b1245` Full72 result is
   `SAMPLE_ID_LABEL_LOOKUP_CONTAMINATED_REVIEW / NOT_ACCEPTABLE_AS_EXTERNAL_LABEL_BLIND_EVIDENCE` because reviewer logic used
   `sample_id` to query compiled label sets. Its locked output, mismatch chain, final comparison and workbooks remain immutable.
@@ -332,7 +337,7 @@ are established.
 ## Last Update
 
 - Date: `2026-09-02`.
-- Updated by: 本机 executing `PILOT4-EXTERNAL-BLIND-OWNER-REVIEW-PACKET-01 / REL-2026-0044`.
-  The hardened additive protocol package is ready for Owner acceptance but is not accepted and has not been distributed. Historical
+- Updated by: 本机 executing `PILOT4-EXTERNAL-BLIND-REVIEW-PHASE-SEPARATION-01 / REL-2026-0045`.
+  Phase1 is structurally separated and ready for an isolated external return; Phase2 remains withheld. Historical 5d6b4b5/c1b1245/
   b705cc evidence remains immutable. Dataset freeze, 240-group execution, formal Detector/Training, 5090, Formal Experiment and
   Paper Result remain unapproved/unstarted; Auto Continue = `NO`.

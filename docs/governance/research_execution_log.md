@@ -1562,3 +1562,27 @@ Approval Gate、Auto Continue。
   answerability, protocol acceptance, A/B, Ground Truth, Dataset freeze, training, formal experiment and Paper Result remain absent.
 - Next gate: Owner sends the external Markdown packet to an isolated GPT/Owner reviewer and collects
   `blind_review_id + 11 fields + reasoning`. Auto Continue `NO`.
+
+## REL-2026-0045 — PILOT4 External Blind Review Phase Separation
+
+- Record ID: `REL-2026-0045`; date `2026-09-02`; task `PILOT4-EXTERNAL-BLIND-REVIEW-PHASE-SEPARATION-01`; machine
+  `本机 / LOCAL_CONTROL_PLANE`.
+- Owner authority: `PODR-078 / OR-040`. Commit `5d6b4b5`, its parents `c1b1245`/`b705cc`, and the prior Git-external namespace
+  remained byte-identical; the combined packet is retained as a superseded engineering artifact, not a strict blind-review input.
+- Structural correction: generated candidate-only Phase1 Markdown/JSONL/template/guide and separately prebuilt Phase2 under
+  `withheld_phase2`. The same 72 opaque IDs and frozen order are used in both phases; original identity remains owner-only.
+- Phase1 QA: 72/72 visibility contract; URLs, evidence titles/IDs, Phase2 fields, sample IDs, Owner labels and expected-contract
+  references all equal zero. The guide is Phase1-only and permanently states `NO WEB / NO FACT LOOKUP IN PHASE1`.
+- Phase2 QA: 72 rows, 144/144 title-provenance slots and 72/72 distinct E1/E2; no role/type/design/expected/Owner/minimum-path
+  leakage. Release is blocked because all five actual-return lock facts are currently false.
+- Evidence: additive Git-external namespace `paper1_pilot4_external_blind_phase_separation_20260902`, 23 physical files; immutable
+  base manifest SHA256 `4c09089ac3fd8b957603135b1c45ded7c15b2bda80a0624a1453d1fea7d369ef`; additive order-QA manifest
+  SHA256 `3d1f850c24af594de6b88b9cf0225fe918191dd3ff1d21bbd6f761530ffcd05f`; Phase1 packet SHA256
+  `78e53cbd709ceba156890c2ab7cab3ac22ad1950281818d01c9d36789fc58125`; Phase1 guide SHA256
+  `3b5d48af80f31998ebb88a9d6dc625ee7e6e22aecd0f3b2d981f3419f75db587`.
+- Isolation: current project chat is ineligible. Phase1 receives only the Phase1 packet and guide in a fresh isolated context; the
+  same reviewer may receive Phase2 only after a later task validates and immutably locks the raw Phase1 return.
+- Final status: `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD /
+  NO_HUMAN_DISTRIBUTION`.
+- Claims boundary: packet separation and machine visibility QA only; no review result, protocol acceptance, A/B, Ground Truth,
+  Dataset freeze, training, formal experiment or Paper Result. Auto Continue `NO`.

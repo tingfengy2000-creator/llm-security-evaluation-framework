@@ -1,9 +1,9 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`PILOT4_EXTERNAL_BLIND_REVIEW_PACKET_READY / WAITING_FOR_EXTERNAL_OWNER_REVIEW /
-> NO_HUMAN_DISTRIBUTION`。c1b Full72 已纠正分类为 sample-ID label lookup contaminated history；外部四文件包使用 72 个
-> 不透明 ID、144 个真实标题来源槽和 66 个独立指南案例，不含 expected answer。唯一当前动作是项目负责人把外部 Markdown
-> 包交给隔离的 GPT/Owner reviewer 并取回 `blind_review_id + 11 fields + reasoning`。72 条候选仍无 Ground Truth；240-group、
+> 当前实验状态：`PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW /
+> PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`。`5d6b4b5` combined packet 保留为工程历史但不批准用于严格盲审；新包把
+> Phase1 与 Phase2 做物理隔离，并以真实 Phase1 return 的 schema、72/72、hash-lock 和 immutable 五条件控制 Phase2 释放。
+> 唯一当前动作是项目负责人在全新隔离对话中仅提供 Phase1 packet 与 Phase1 guide，等待真实返回。72 条候选仍无 Ground Truth；240-group、
 > Dataset freeze、Formal Detector、Training、5090、Formal Experiment 和 Paper Result 均未开始。
 > `FORMAL_EXPERIMENT = NOT STARTED`；`DATASET_FORMAL_FREEZE = NOT STARTED`。
 

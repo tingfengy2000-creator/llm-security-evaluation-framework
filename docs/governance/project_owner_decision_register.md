@@ -1271,3 +1271,21 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Prohibited: protocol acceptance, A/B distribution, agreement, adjudication, Ground Truth, 240-group, Dataset freeze, Detector,
   Training, 5090, Formal Experiment or Paper Result. Auto Continue `NO`.
 - Canonical records: `OR-039`, `REL-2026-0044`, [future dataset rules](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md).
+
+## PODR-078: Pilot4 External Blind Review Phase Separation
+
+- Date: `2026-09-02`.
+- Owner decision: the `5d6b4b5` combined packet does not establish strict Phase1 blindness because Phase2 Evidence is already in
+  the same LLM context. Preserve it unchanged as `COMBINED_PACKET_ENGINEERING_ARTIFACT /
+  NOT_APPROVED_FOR_BLIND_SEMANTIC_REVIEW` and mark it `SUPERSEDED_FOR_REVIEW_BY_PHASE_SEPARATED_PROTOCOL` additively.
+- Approved protocol: `PHASE1 -> RETURN -> HASH LOCK -> PHASE2 RELEASE`; Phase1 contains candidate-only visibility and explicitly
+  forbids web search, factual lookup, official sources and Phase2 material. Any lookup is `PHASE1_BLINDNESS_VIOLATION`.
+- Isolation: the current project chat is ineligible because it has project history. Use a fresh isolated conversation, temporary
+  chat or independent human; Phase1 receives only the Phase1 Markdown packet and Phase1 guide.
+- Release gate: Phase2 is prebuilt under `withheld_phase2 / DO_NOT_RELEASE_BEFORE_PHASE1_LOCK`; receipt, schema validity, 72/72
+  identity, SHA256 lock and immutable raw-return status must all be true in a later task before release.
+- Current status: `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD /
+  NO_HUMAN_DISTRIBUTION`.
+- Prohibited: external review execution/simulation, mapping unlock, expected comparison, protocol acceptance, A/B, agreement,
+  adjudication, Ground Truth, 240-group, Dataset freeze, Detector, Training, 5090, Formal Experiment or Paper Result. Auto Continue `NO`.
+- Canonical records: `OR-040`, `REL-2026-0045`, [future dataset rules](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md).

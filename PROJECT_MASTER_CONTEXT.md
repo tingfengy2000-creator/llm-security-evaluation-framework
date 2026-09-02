@@ -1,5 +1,21 @@
 # LLMGuard 项目总控文档
 
+## PILOT4 外部盲审分阶段隔离（2026-09-02）
+
+项目需求提出人通过 `PODR-078 / OR-040` 判定 `5d6b4b5` 的 combined packet 只能保留为
+`COMBINED_PACKET_ENGINEERING_ARTIFACT / NOT_APPROVED_FOR_BLIND_SEMANTIC_REVIEW`。同一 LLM 上下文同时出现 Phase1
+候选和 Phase2 Evidence，会破坏严格 Phase1 blindness；“要求暂时不读”不等于信息未进入上下文。旧 commit、旧 E 盘
+命名空间与全部历史文件保持不变，并登记为 `SUPERSEDED_FOR_REVIEW_BY_PHASE_SEPARATED_PROTOCOL`。
+
+新的 additive 命名空间严格实现 `PHASE1 -> RETURN -> HASH LOCK -> PHASE2 RELEASE`。Phase1 对外只允许候选、主题标题、
+opaque ID 与四个人工字段，URL/Evidence/Phase2/原 sample identity/设计与 Owner 标签均为零；Phase2 已预构建但置于
+`withheld_phase2`，五项真实 return 锁定条件未全部满足前 release function 必须失败。当前项目对话已接触项目历史，不能
+充当独立 reviewer；必须使用全新隔离对话、temporary chat 或独立真人。
+
+当前状态固定为 `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW /
+PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`。这只证明结构隔离与机器 QA，不证明外部语义复核、协议接受、A/B、Ground
+Truth、Dataset freeze、Detector、Training、5090、Formal Experiment 或 Paper Result。
+
 ## PILOT4 外部标签盲法 Owner 复核包（2026-09-02）
 
 项目需求提出人通过 `PODR-077 / OR-039` 判定 `c1b1245` 的 Full72 reviewer 虽然接收过脱敏输入，reviewer 代码仍可用
@@ -13,10 +29,9 @@ locked review、attempt01 mismatch、final comparison、workbooks 与历史 evid
 144/144 个来自实际 HTML title/H1/官方文档或 PDF 标题的可见来源标题。外部包不含 `sample_id`、Owner 标签、expected
 contract、source role/type 或机器语义答案；Field Guide 为 11 个人工字段提供 66 个不复用 72 候选的真实教学案例。
 
-当前状态只允许 `PILOT4_EXTERNAL_BLIND_REVIEW_PACKET_READY / WAITING_FOR_EXTERNAL_OWNER_REVIEW /
-NO_HUMAN_DISTRIBUTION`。Owner 下一步把 `PILOT4_EXTERNAL_BLIND_REVIEW_PACKET.md` 交给隔离的外部 GPT/Owner reviewer，
-由其返回 `blind_review_id + 11 fields + reasoning`；identity mapping 的解锁与 expected-contract 比较必须是下一独立任务。
-不得把本轮描述为协议接受，不得自动发 A/B 或进入任何下游实验。
+该任务当时登记为 `PILOT4_EXTERNAL_BLIND_REVIEW_PACKET_READY / WAITING_FOR_EXTERNAL_OWNER_REVIEW /
+NO_HUMAN_DISTRIBUTION`，现已由本文顶部的 Phase-separated protocol 替代作为当前 review 路径。旧包、当时的下一步和
+证据身份均作为历史保留，但不得再把 combined packet 发给正式 strict-blind reviewer。
 
 ## PILOT4 标签盲法协议验证与候选清理（2026-09-02）
 
