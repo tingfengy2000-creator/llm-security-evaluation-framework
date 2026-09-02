@@ -1,9 +1,10 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW /
-> PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`。`5d6b4b5` combined packet 保留为工程历史但不批准用于严格盲审；新包把
-> Phase1 与 Phase2 做物理隔离，并以真实 Phase1 return 的 schema、72/72、hash-lock 和 immutable 五条件控制 Phase2 释放。
-> 唯一当前动作是项目负责人在全新隔离对话中仅提供 Phase1 packet 与 Phase1 guide，等待真实返回。72 条候选仍无 Ground Truth；240-group、
+> 当前实验状态：`PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_LOCKED / PHASE1_CANDIDATE_QUALITY_GATE_PASS /
+> PHASE2_RELEASED_TO_OWNER_FOR_EXTERNAL_REVIEW / WAITING_FOR_EXTERNAL_PHASE2_RETURN / NO_HUMAN_DISTRIBUTION`。Attempt2 canonical
+> raw return 已按字节锁定，72/72 candidate issue 为 NONE，六项 Phase1 release fact 全部通过；mapping 与 expected contract
+> 仍关闭。唯一当前动作是项目负责人回到同一个 Attempt2 reviewer Project/conversation，仅发送已释放的 Phase2 packet 与
+> guide，等待真实 Phase2 return。72 条候选仍无 Ground Truth；240-group、
 > Dataset freeze、Formal Detector、Training、5090、Formal Experiment 和 Paper Result 均未开始。
 > `FORMAL_EXPERIMENT = NOT STARTED`；`DATASET_FORMAL_FREEZE = NOT STARTED`。
 

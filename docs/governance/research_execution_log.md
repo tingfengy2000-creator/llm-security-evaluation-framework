@@ -1732,3 +1732,45 @@ Approval Gate、Auto Continue。
     `README_condition_evaluated=true`（navigation/entry unchanged，不修改）。
   - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
     `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.
+
+## REL-2026-0049 — Pilot4 Phase1 Attempt2 Lock and Controlled Phase2 Release
+
+- Record ID: `REL-2026-0049`; date `2026-09-02`; task
+  `PILOT4-EXTERNAL-BLIND-PHASE1-ATTEMPT2-LOCK-AND-PHASE2-RELEASE-01`; machine `本机 / LOCAL_CONTROL_PLANE`; execution base
+  `bc6c7e85b87f0235621288612367977b1d6181e0`; Owner authority `PODR-082 / OR-044`.
+- Raw identity: canonical source `PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_RETURN.csv`, `3117 bytes`, SHA256
+  `1e5e81fee3825071a77d520c6da5cbfc4c2b59125aca0499cda6c7e2f363c9c5`; immutable copy is byte-identical and has an independent
+  SHA256 sidecar. No Excel resave、newline normalization、row sort or column rewrite occurred.
+- Validation: exact five-column schema；72 rows / 72 unique opaque IDs；duplicate、blank、missing、unexpected and invalid enum 0；
+  required reasons `7/7`；Attempt2 packet ID parity `72/72`.
+- Descriptive-only return: naturalness `NATURAL=59 / MINOR_ISSUE=13 / UNNATURAL=0`; local internal conflict
+  `NO=65 / YES=7 / UNCERTAIN=0`; candidate issue `NONE=72 / all other enums=0`. Accuracy、agreement、expected match and Ground
+  Truth correctness were not evaluated.
+- Candidate gate: repaired visible positions `1/26/51/61/70` all have `phase1_issue=NONE` without mapping unlock. All six Phase1
+  release facts are true, so `PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED=true` and Candidate Text Quality Gate closes for final72.
+- Isolation: `EXPECTED_CONTRACT_LOADED=false`; `IDENTITY_MAPPING_UNLOCKED=false`; Phase1 raw cannot be changed、reinterpreted or
+  overwritten. Attempt1 remains `VALID_DEFECT_DISCOVERY_REVIEW / NOT_FINAL_CORPUS_ACCEPTANCE_REVIEW` and all historical trees are
+  byte-identical pre/post.
+- Phase2 release QA: same final corpus SHA `f530471e...8252d`；72/72 cross-phase ID/text/title parity；72 rows；144 distinct E1/E2
+  slots；official URL/title provenance `144/144`; source type/role/expected-label/hidden-key leakage 0；all seven response fields blank.
+  Codex did not perform Phase2 annotation.
+- Evidence: additive Git-external namespace `paper1_pilot4_external_blind_phase1_attempt2_return_20260902`; manifest `16/16`;
+  aggregate SHA256 `1ad64c61778c6237845b665802ab60949a46cbdbcc01c333e0b72191e20b2f87`. Reviewer-distributable files are only the Phase2
+  packet Markdown and guide Markdown under `release/`; JSONL/CSV remain control-plane-only.
+- Final status: `PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_LOCKED / PHASE1_CANDIDATE_QUALITY_GATE_PASS /
+  PHASE2_RELEASED_TO_OWNER_FOR_EXTERNAL_REVIEW / WAITING_FOR_EXTERNAL_PHASE2_RETURN / NO_HUMAN_DISTRIBUTION`.
+- Owner next action: return to the same `P1-Pilot4-External-Blind-Review-R2` Project and
+  `Pilot4 External Blind Review — Phase1 Final` conversation；send only the released Phase2 packet Markdown plus guide Markdown；
+  collect a complete 72-row Phase2 return. Do not modify Phase1 or load mapping/expected contract.
+- `DOCUMENTATION_CLOSEOUT_CHECKLIST`:
+  - `human_ledger_checked=true`; `human_ledger_updated_if_required=true`; `agent_ledger_checked=true`;
+    `agent_ledger_updated=true`; `current_work_state_updated=true`; `execution_log_appended=true`.
+  - `experiment_master_condition_evaluated=true`（annotation evidence/gate changed，updated）；
+    `owner_decision_condition_evaluated=true`（new conditional release authorization，updated）；
+    `stage_process_condition_evaluated=true`（Phase1 closed and Phase2 gate opened，updated）；
+    `lessons_condition_evaluated=true`（fresh Full72 adds provisional support，not promoted）。
+  - `project_master_condition_evaluated=true`（current project status changed，updated）；
+    `research_authority_condition_evaluated=true`（frozen research contract unchanged，not modified）；
+    `README_condition_evaluated=true`（first-screen current entry changed，updated）。
+  - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
+    `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.

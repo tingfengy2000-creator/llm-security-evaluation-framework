@@ -16,27 +16,27 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `PILOT4-PHASE1-OWNER-DEFECT-ADJUDICATION-AND-CANDIDATE-LOCAL-REPAIR-01`.
-- Task name: `Pilot4 Phase1 Owner Defect Adjudication, Controlled Five-Candidate Repair and Fresh Full72 Blind Re-review Preparation`.
-- Task type: **OWNER DECISION INGESTION / FIVE-CANDIDATE LOCAL REPAIR / FRESH BLIND ATTEMPT PREPARATION / LOCAL CONTROL PLANE**.
-- Engineering status: **FIVE REPAIRS PASS / FINAL72 ADDITIVE CORPUS READY / ATTEMPT2 PHASE1 PACKET READY / ATTEMPT2 PHASE2 PREBUILT WITHHELD**.
-- Experiment status: **PILOT4_PHASE1_FIVE_DEFECTS_REPAIRED / EXTERNAL_BLIND_PHASE1_ATTEMPT2_PACKET_READY /
-  WAITING_FOR_FRESH_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION / PREANNOTATION_ONLY /
-  AUTO_CONTINUE_NO**.
+- Task ID: `PILOT4-EXTERNAL-BLIND-PHASE1-ATTEMPT2-LOCK-AND-PHASE2-RELEASE-01`.
+- Task name: `Pilot4 External Blind Phase1 Attempt2 Final Return Lock, Zero-defect Closure and Controlled Phase2 Release`.
+- Task type: **IMMUTABLE RETURN LOCK / CANDIDATE QUALITY GATE / CONTROLLED PHASE2 PACKET RELEASE / LOCAL CONTROL PLANE**.
+- Engineering status: **RAW LOCK PASS / SIX RELEASE FACTS TRUE / PHASE2 PACKET QA PASS / PHASE2 ANNOTATION NOT EXECUTED**.
+- Experiment status: **PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_LOCKED / PHASE1_CANDIDATE_QUALITY_GATE_PASS /
+  PHASE2_RELEASED_TO_OWNER_FOR_EXTERNAL_REVIEW / WAITING_FOR_EXTERNAL_PHASE2_RETURN / NO_HUMAN_DISTRIBUTION /
+  PREANNOTATION_ONLY / AUTO_CONTINUE_NO**.
 - Documentation gate: **PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED / HUMAN_LEDGER_CONTINUOUS_SYNC =
   MANDATORY / TASK_DOCUMENTATION_CLOSEOUT = MANDATORY**. Paper 1 task completion requires execution, tests, evidence,
   documentation closeout and valid Git status; otherwise status is `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING` with
   `TASK_DOCUMENTATION_CLOSEOUT_BLOCKER`.
-- Execution base commit: `14ec6a22ef1b0f9541401847ef935fd1a3ba5b69`.
+- Execution base commit: `bc6c7e85b87f0235621288612367977b1d6181e0`.
 - Candidate source identity: `candidates_v3_1_additive.jsonl` SHA256
   `15500aa75bced9fb470edaac98f9527e7bb4bc689b86583e6f69b892c48eb210`; final additive corpus SHA256
   `f530471ecd6551300d68c8ddf104cadce2305d8ff91e64010be222820628252d`.
 - Execution machine: **本机**. No model load、GPU workload、5090 contact、formal Dataset/Detector/Training or experiment occurred.
-- Current ordered step: Owner creates a fresh isolated Project/context, preferably `P1-Pilot4-External-Blind-Review-R2` with
-  conversation `Pilot4 External Blind Review — Phase1 Final`, and supplies exactly the Attempt2 Phase1 packet Markdown plus guide
-  Markdown. Attempt1 conversation、return、repair history、repo、mapping and Phase2 must not enter that context.
-- Current blocker: `ATTEMPT2_EXTERNAL_PHASE1_RETURN_PENDING`. Attempt2 review has not executed；its six Phase2 release facts are all
-  false, so the rebuilt Attempt2 Phase2 remains fail-closed and withheld.
+- Current ordered step: Owner returns to the same `P1-Pilot4-External-Blind-Review-R2` Project and the same
+  `Pilot4 External Blind Review — Phase1 Final` conversation, then supplies exactly the released Attempt2 Phase2 packet Markdown
+  plus guide Markdown. Phase1 is locked and must not be modified、reinterpreted or overwritten.
+- Current blocker: `ATTEMPT2_EXTERNAL_PHASE2_RETURN_PENDING`. Phase2 packet release is complete, but Phase2 annotation has not been
+  executed and no Phase2 raw return exists.
 - Pilot4 lesson status: `PROVISIONAL_PENDING_FINAL_ACCEPTANCE`. Promotion to `ACCEPTED_LESSON` is permitted only in a future task that
   records `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` and executes `PILOT4_PROTOCOL_LESSON_PROMOTION`.
 - Combined-packet correction: the `5d6b4b5` combined packet is preserved unchanged as
@@ -44,15 +44,16 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `SUPERSEDED_FOR_REVIEW_BY_PHASE_SEPARATED_PROTOCOL`. Evidence being present in one LLM context breaks strict Phase1 blindness;
   a behavioral “do not read yet” instruction is not structural separation.
 - Attempt2 release gate: `PHASE1_RETURN_RECEIVED`, `PHASE1_RETURN_SCHEMA_VALID`, `PHASE1_RETURN_72_72`,
-  `PHASE1_RETURN_HASH_LOCKED`, `PHASE1_RETURN_IMMUTABLE` and `PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED` are all false before the
-  fresh return. Phase2 release therefore fails closed；Attempt2 expected comparison is not authorized.
+  `PHASE1_RETURN_HASH_LOCKED`, `PHASE1_RETURN_IMMUTABLE` and `PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED` are all true. Phase2 packet
+  release is approved only for the same external reviewer；Attempt2 expected comparison remains unauthorized.
 - Attempt1 history: raw bytes `5001`, SHA256 `59446c4be65b035be29528de81b6b8f8aa4113007df8fcac962fe4058a889261`；
   exact five-column schema、72/72 opaque IDs、enums and conditional reasons passed. Owner accepted all five blind-level issues and
   required local repair. Attempt1 remains `VALID_DEFECT_DISCOVERY_REVIEW / NOT_FINAL_CORPUS_ACCEPTANCE_REVIEW` and all files are
   immutable.
 - Repair/Attempt2 facts: controlled Attempt1 mapping output `5/5` with 0 unauthorized rows；semantic and source parity `5/5`；67
-  unaffected candidate texts and source lines byte-identical；final additive corpus 72；Attempt2 IDs `72/72` unique with 0 Attempt1
-  reuse；matched-triplet adjacency 0 and Phase1 leakage 0. Attempt2 Phase2 has 72 rows / 144 distinct slots and is withheld.
+  unaffected candidate texts and source lines byte-identical；final additive corpus 72；Attempt2 raw SHA256
+  `1e5e81fee3825071a77d520c6da5cbfc4c2b59125aca0499cda6c7e2f363c9c5`；exact schema/72 IDs/enums/7 reasons PASS；
+  `phase1_issue=NONE` is 72/72. Attempt2 Phase2 has 72 rows / 144 distinct slots and is released as an unfilled packet only.
 - Historical correction: the `c1b1245` Full72 result is
   `SAMPLE_ID_LABEL_LOOKUP_CONTAMINATED_REVIEW / NOT_ACCEPTABLE_AS_EXTERNAL_LABEL_BLIND_EVIDENCE` because reviewer logic used
   `sample_id` to query compiled label sets. Its locked output, mismatch chain, final comparison and workbooks remain immutable.
@@ -99,8 +100,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PODR-057` and `PODR-058`.
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
-- S6.1-P1: **PILOT4_PHASE1_FIVE_DEFECTS_REPAIRED / EXTERNAL_BLIND_PHASE1_ATTEMPT2_PACKET_READY /
-  WAITING_FOR_FRESH_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION / PREANNOTATION_ONLY /
+- S6.1-P1: **PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_LOCKED / PHASE1_CANDIDATE_QUALITY_GATE_PASS /
+  PHASE2_RELEASED_TO_OWNER_FOR_EXTERNAL_REVIEW / WAITING_FOR_EXTERNAL_PHASE2_RETURN / NO_HUMAN_DISTRIBUTION / PREANNOTATION_ONLY /
   NOT FORMAL_EXPERIMENT**.
 - S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
 - S6.1-P1-PILOT1: **HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED**.
@@ -117,8 +118,9 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - PILOT3: **ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY / STOPPED**.
 - Historical PILOT4 first preflight: **OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / a843697 EVIDENCE PRESERVED**.
 - Historical PILOT4 second preflight: **SECOND_OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / cad3b2b EVIDENCE PRESERVED**.
-- PILOT4: **PILOT4_PHASE1_FIVE_DEFECTS_REPAIRED / EXTERNAL_BLIND_PHASE1_ATTEMPT2_PACKET_READY /
-  WAITING_FOR_FRESH_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION**.
+- PILOT4: **PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_LOCKED / PHASE1_CANDIDATE_QUALITY_GATE_PASS /
+  PHASE2_RELEASED_TO_OWNER_FOR_EXTERNAL_REVIEW / WAITING_FOR_EXTERNAL_PHASE2_RETURN / PREANNOTATION_ONLY /
+  NO_HUMAN_DISTRIBUTION**.
 - PILOT4 candidates: **PILOT4_CANDIDATE_CORPUS_POST_EXTERNAL_PHASE1_REPAIR_V1 / 72 PREANNOTATION_CANDIDATES /
   NOT GROUND TRUTH / NOT FORMAL BENCHMARK / NOT FROZEN DATASET**.
 - PAPER1_FORMAL_DOMAIN_SET: **OWNER_CONFIRMED / ENTERPRISE_HR / FINANCE / INFORMATION_SECURITY /
@@ -282,12 +284,10 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
 - Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
   evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- Next operational action: Owner creates a fresh isolated reviewer context and gives it only
-  `PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_PACKET.md` plus `PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_GUIDE.md` from the new
-  Git-external Attempt2 namespace. Phase2 remains withheld until a later separately approved task validates the complete Attempt2
-  raw Phase1 return, confirms schema and 72/72 identities, hash-locks it, preserves it immutably and completes candidate-defect triage.
-  No automatic review execution、Phase2 release、expected comparison、A/B、240-group scale-up、Dataset freeze、formal Detector、
-  training、5090 or Formal Experiment is authorized.
+- Next operational action: Owner uses the same Attempt2 reviewer Project/conversation and gives it only
+  `PILOT4_EXTERNAL_BLIND_PHASE2_ATTEMPT2_PACKET.md` plus `PILOT4_EXTERNAL_BLIND_PHASE2_ATTEMPT2_GUIDE.md` from the new
+  Git-external release namespace. Phase1 is immutable；no automatic Phase2 annotation、expected comparison、A/B、240-group
+  scale-up、Dataset freeze、formal Detector、training、5090 or Formal Experiment is authorized.
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. Its acceptance does not approve S6-T5.6 ContextBuilder behavior; that remains a separate boundary.
@@ -359,8 +359,7 @@ are established.
 ## Last Update
 
 - Date: `2026-09-02`.
-- Updated by: 本机 executing `PILOT4-PHASE1-OWNER-DEFECT-ADJUDICATION-AND-CANDIDATE-LOCAL-REPAIR-01 / REL-2026-0048`.
-  Owner accepted all five blind-level defects；five source-backed semantic-preserving repairs and the 72-row additive final corpus pass
-  QA. A fresh 72-ID Attempt2 Phase1 packet is ready, while Attempt1 remains immutable defect-discovery evidence and the rebuilt
-  Attempt2 Phase2 remains withheld. Attempt2 review、expected comparison、A/B、Dataset freeze、240-group、Detector/Training、5090、
-  Formal Experiment and Paper Result remain unapproved/unstarted；Auto Continue = `NO`.
+- Updated by: 本机 executing `PILOT4-EXTERNAL-BLIND-PHASE1-ATTEMPT2-LOCK-AND-PHASE2-RELEASE-01 / REL-2026-0049`.
+  Attempt2 raw return is immutable and valid；all 72 rows report no candidate defect, all six release facts are true, and the unfilled
+  Phase2 packet is released to Owner for the same external reviewer. Mapping/expected contract remain closed；Phase2 annotation、A/B、
+  Dataset freeze、240-group、Detector/Training、5090、Formal Experiment and Paper Result remain unapproved/unstarted；Auto Continue = `NO`.

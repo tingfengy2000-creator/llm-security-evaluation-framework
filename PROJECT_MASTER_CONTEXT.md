@@ -1,5 +1,26 @@
 # LLMGuard 项目总控文档
 
+## PILOT4 Phase1 Attempt2 锁定与 Phase2 受控释放（2026-09-02）
+
+项目需求提出人授权 `PILOT4-EXTERNAL-BLIND-PHASE1-ATTEMPT2-LOCK-AND-PHASE2-RELEASE-01`。本机对 canonical
+`PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_RETURN.csv` 按原始字节验证并冻结：`3117 bytes`，SHA256
+`1e5e81fee3825071a77d520c6da5cbfc4c2b59125aca0499cda6c7e2f363c9c5`。exact five-column schema、72/72 fresh opaque IDs、
+枚举与 7 条条件理由均 PASS；naturalness 为 `59 NATURAL / 13 MINOR_ISSUE / 0 UNNATURAL`，local conflict 为
+`65 NO / 7 YES / 0 UNCERTAIN`，`phase1_issue=NONE` 为 `72/72`。
+
+六项 Phase1 release fact 已全部为 true，因而只关闭 Candidate Text Quality Gate：
+`PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED=true`。这不代表 expected-label accuracy、annotation protocol acceptance 或 Ground
+Truth。blind-ID→sample-ID mapping 未解锁，expected contract 未加载或比较。Attempt1 继续按
+`VALID_DEFECT_DISCOVERY_REVIEW / NOT_FINAL_CORPUS_ACCEPTANCE_REVIEW` 不可变保存。
+
+基于同一 final72、同一 Attempt2 opaque ID 与同一顺序预构建的 Phase2 已通过 72-row、144-slot、E1/E2 distinct、标题/
+URL provenance、跨阶段 ID/text parity 与 hidden-label leakage QA，并只释放 packet Markdown 与 guide Markdown 给 Owner。
+当前状态为 `PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_LOCKED / PHASE1_CANDIDATE_QUALITY_GATE_PASS /
+PHASE2_RELEASED_TO_OWNER_FOR_EXTERNAL_REVIEW / WAITING_FOR_EXTERNAL_PHASE2_RETURN / NO_HUMAN_DISTRIBUTION`。下一动作是 Owner
+回到同一个 `P1-Pilot4-External-Blind-Review-R2` Project 和 `Pilot4 External Blind Review — Phase1 Final` conversation，
+只发送两个 Phase2 Markdown；不得修改 Phase1，也不得执行 expected comparison、A/B、Dataset freeze、Detector、Training、
+5090 或 Formal Experiment。
+
 ## PILOT4 Phase1 五项缺陷修复与 Full72 Attempt2 准备（2026-09-02）
 
 项目需求提出人通过 `PODR-081 / OR-043` 对 Attempt1 的五条 blind-ID 问题全部作出

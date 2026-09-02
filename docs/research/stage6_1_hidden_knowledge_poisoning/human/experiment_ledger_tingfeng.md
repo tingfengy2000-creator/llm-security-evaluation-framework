@@ -5,7 +5,7 @@
 Document Role = `PAPER1_PRIMARY_HUMAN_ENTRY`<br>
 Audience = `项目负责人 / 导师与领导 / 新团队成员`<br>
 Reading Path = `5 minutes / 15 minutes / 30 minutes`<br>
-Current Evidence Cut = `five candidate defects repaired / fresh Full72 Attempt2 Phase1 packet ready / Phase2 withheld`<br>
+Current Evidence Cut = `Attempt2 Phase1 immutable zero-defect return / Candidate Quality Gate pass / Phase2 packet released`<br>
 Last Updated = `2026-09-02`
 
 > 这是一张“项目地图”，不是 raw evidence，也不产生新授权。读完第 0 节可掌握当前状态；读到第 8 节可理解论文方法；
@@ -19,17 +19,17 @@ Last Updated = `2026-09-02`
 | 英文论文题目 | *Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework* |
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
-| 当前阶段 | ⏳ Pilot4 的五条候选缺陷已修复；全新的 72 条 Attempt2 Phase1 盲审包已准备好，Phase2 继续封存。 |
-| 当前任务 | `PILOT4-PHASE1-OWNER-DEFECT-ADJUDICATION-AND-CANDIDATE-LOCAL-REPAIR-01`：登记五项 Owner 决定、受控修复五条候选并准备统一 final corpus 的 Full72 Attempt2。 |
-| 当前完成度 | ✅ 五项 repair 的语义与来源核验 `5/5`；67 条未修改；72 个新盲 ID 且不复用 Attempt1；⏳ fresh external review 尚未执行。 |
-| 当前唯一人工动作 | 项目负责人建立全新隔离 reviewer Project/context，只发 Attempt2 Phase1 packet Markdown 和 guide Markdown，收回完整 72 行结果。 |
-| 当前主要 blocker | ⏳ `ATTEMPT2_EXTERNAL_PHASE1_RETURN_PENDING`：Attempt2 尚未返回；Phase2 六项释放事实均为 false。 |
-| 已经可以说什么 | 第一次真实盲审成功发现五条文本问题；Owner 全部接受并完成 source-backed 局部修复；统一 final72 的新盲审包已就绪。不能说协议或 expected labels 已接受。 |
+| 当前阶段 | ⏳ Pilot4 的 fresh Full72 Attempt2 Phase1 已锁定且 72/72 无候选缺陷；Phase2 空白复核包已受控释放给 Owner。 |
+| 当前任务 | `PILOT4-EXTERNAL-BLIND-PHASE1-ATTEMPT2-LOCK-AND-PHASE2-RELEASE-01`：锁定 canonical raw、关闭 Candidate Quality Gate 并释放同一 reviewer 的 Phase2 packet。 |
+| 当前完成度 | ✅ raw SHA/schema/72 IDs/enums/7 reasons 全部通过；六项 release fact 全真；Phase2 72 rows/144 slots QA 通过；⏳ 人工 Phase2 尚未执行。 |
+| 当前唯一人工动作 | 项目负责人回到同一个 Attempt2 reviewer Project/conversation，只发 Phase2 packet Markdown 和 guide Markdown，收回完整 72 行结果。 |
+| 当前主要 blocker | ⏳ `ATTEMPT2_EXTERNAL_PHASE2_RETURN_PENDING`：Phase2 annotation 尚未完成，expected contract 与 mapping 继续关闭。 |
+| 已经可以说什么 | 第一次真实盲审发现五条文本问题并触发修复；fresh final72 重审未再发现 candidate defect，Candidate Text Quality Gate 已关闭。不能说协议或 expected labels 已接受。 |
 | 绝对不能说什么 | 不得说 Pilot4 已接受、A/B 已开始、72 条已有 Ground Truth、240-group 已生成、Dataset 已冻结、Formal Detector 已实现、检测有效或 Paper Result 已形成。 |
 
 当前实验状态固定为：
 
-`PILOT4_PHASE1_FIVE_DEFECTS_REPAIRED / EXTERNAL_BLIND_PHASE1_ATTEMPT2_PACKET_READY / WAITING_FOR_FRESH_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`
+`PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_LOCKED / PHASE1_CANDIDATE_QUALITY_GATE_PASS / PHASE2_RELEASED_TO_OWNER_FOR_EXTERNAL_REVIEW / WAITING_FOR_EXTERNAL_PHASE2_RETURN / NO_HUMAN_DISTRIBUTION`
 
 保留的历史状态链：`PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT` →
 `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` → `PILOT4_QUALITY_CONVERGED` → Schema V3.1 hardening → 当前外部盲审包状态。历史 package 不被覆盖。
@@ -366,12 +366,12 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 | 2026-09-02 | Pilot4 | sample-ID leakage | 早期 Full72 reviewer 可用 `sample_id` 查询隐藏标签集合，脱敏输入不等于真实标签盲法 | 旧结果追加重分类为 contaminated evidence；使用一次性 opaque ID、隔离 mapping 与外部复核路径 | ✅ ENGINEERING REPAIR / FINAL OWNER ACCEPTANCE PENDING | [Execution log](../../../governance/research_execution_log.md) |
 | 2026-09-02 | Pilot4 | combined Phase1/Phase2 packet flaw | 第一阶段候选与第二阶段证据同时进入一个 LLM 上下文，“先别看 Evidence”不能保证严格盲法 | 保留 combined packet 历史；重建 candidate-only Phase1、withheld Phase2 与 return hash-lock 释放门 | ✅ PHASE-SEPARATION REPAIR / EXTERNAL PHASE1 RETURN PENDING | [Current State](../../../governance/current_work_state.md) |
 | 2026-09-02 | Paper 1 governance | documentation closeout gap | 代码、测试或 push 完成后，人类总账和控制面文档仍可能停留在旧任务 | 每项 Paper 1 任务强制执行文档收口清单和跨文档陈旧状态门 | ✅ POLICY ACTIVE | [Closeout contract](../documentation_separation_contract.md) |
-| 2026-09-02 | Pilot4 | external Phase1 candidate defects | 外部 blind reviewer 在 72 行返回中标记 5 条候选缺上下文、指代模糊或其他局部问题；在处置前释放证据可能把候选缺陷带入 Phase2 | 原始 return 不回写；只生成 blind-ID triage，新增第六个 Owner 处置释放门 | ⏳ `OWNER_DEFECT_TRIAGE_PENDING / PHASE2_WITHHELD` | [Execution log](../../../governance/research_execution_log.md) |
-| 2026-09-02 | Pilot4 | final-corpus blind review consistency | Owner 接受五项 reviewer issue；若只重标五条并与旧 67 条拼接，会混合不同 corpus/reviewer 的证据 | 五条 source-backed 局部修复；67 条不变；统一 final72 生成 72 个新 ID 与 fresh Full72 Attempt2；Attempt1 永久保留为 defect-discovery evidence | ⏳ `ATTEMPT2 PACKET READY / FRESH RETURN PENDING / PHASE2 WITHHELD` | [Execution log](../../../governance/research_execution_log.md) |
+| 2026-09-02 | Pilot4 | external Phase1 candidate defects | 外部 blind reviewer 在 Attempt1 的 72 行返回中标记 5 条候选缺上下文、指代模糊或其他局部问题；在处置前释放证据可能把候选缺陷带入 Phase2 | 原始 return 不回写；blind-ID triage、Owner 五项处置、局部修复与 fresh Full72 Attempt2 | ✅ `RESOLVED BY FRESH ATTEMPT2 ZERO-DEFECT RETURN` | [Execution log](../../../governance/research_execution_log.md) |
+| 2026-09-02 | Pilot4 | final-corpus blind review consistency | Owner 接受五项 reviewer issue；若只重标五条并与旧 67 条拼接，会混合不同 corpus/reviewer 的证据 | 五条 source-backed 局部修复；67 条不变；统一 final72 生成 72 个新 ID 与 fresh Full72 Attempt2；Attempt1 永久保留为 defect-discovery evidence | ✅ `ATTEMPT2 PHASE1 LOCKED / PHASE2 RELEASED` | [Execution log](../../../governance/research_execution_log.md) |
 
 ## 14. 当前项目状态
 
-- `PILOT4_PHASE1_FIVE_DEFECTS_REPAIRED / EXTERNAL_BLIND_PHASE1_ATTEMPT2_PACKET_READY / WAITING_FOR_FRESH_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`
+- `PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_LOCKED / PHASE1_CANDIDATE_QUALITY_GATE_PASS / PHASE2_RELEASED_TO_OWNER_FOR_EXTERNAL_REVIEW / WAITING_FOR_EXTERNAL_PHASE2_RETURN / NO_HUMAN_DISTRIBUTION`
 - `PREANNOTATION_ONLY`
 - `NO_HUMAN_DISTRIBUTION`
 - `PILOT4_CANDIDATE_CORPUS_POST_EXTERNAL_PHASE1_REPAIR_V1` 已形成 72 条；仍非 Ground Truth、非 Formal Benchmark、非 frozen Dataset。
@@ -379,7 +379,9 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 - 生成覆盖为 `4 HKP × 3 intended-S × 2 replication = 24 poison cells`，对应 24 matched triplets。
 - Attempt1 72-row 原始返回继续按 `5001 bytes` 与 SHA256 `59446c4b...889261` 完整保留；它是有效的缺陷发现证据，不是 final corpus acceptance review。
 - Owner 接受五条 issue；五条局部修复的 semantic/source parity 均为 `5/5 PASS`，其余 67 条 candidate text 与源行 byte-identical。
-- Attempt2 使用 72 个新 opaque ID，Attempt1 ID 复用为 0；matched-triplet adjacency 为 0，Phase1 leakage 为 0。配套 Phase2 72 行/144 slots 已重建但 withheld；Attempt2 expected comparison 未执行。
+- Attempt2 使用 72 个新 opaque ID，Attempt1 ID 复用为 0；canonical raw SHA256 为 `1e5e81fe...63c9c5`，schema/72 IDs/
+  enums/7 reasons PASS；59 条 NATURAL、13 条 MINOR_ISSUE、7 条局部冲突，且 72/72 `phase1_issue=NONE`。六项 release
+  fact 全部为 true，配套未填写 Phase2 72 行/144 slots 已释放给 Owner；Attempt2 expected comparison 未执行。
 - A/B 未开始；72 Ground Truth 未建立；240-group 未开始；Dataset = `NOT FROZEN`（未冻结）。
 - Formal Detector = `NOT IMPLEMENTED`（未实现）；Formal Experiment = `NOT STARTED`（未开始）；Our Method Result = `NONE`。
 
@@ -387,16 +389,16 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 
 ## 15. 当前下一步
 
-唯一当前动作：**Owner 创建全新隔离 Project/context（建议 `P1-Pilot4-External-Blind-Review-R2` / `Pilot4 External Blind
-Review — Phase1 Final`），只发送 Git-external Attempt2 的
-`PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_PACKET.md` 与 `PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_GUIDE.md`，完成并返回 72 行
-Phase1 结果**。不得导入 Attempt1 conversation/return、repair history、repo、mapping、expected contract 或 Phase2。
+唯一当前动作：**Owner 回到同一个 `P1-Pilot4-External-Blind-Review-R2` Project 和
+`Pilot4 External Blind Review — Phase1 Final` conversation，只发送 Git-external Attempt2 release 中的
+`PILOT4_EXTERNAL_BLIND_PHASE2_ATTEMPT2_PACKET.md` 与 `PILOT4_EXTERNAL_BLIND_PHASE2_ATTEMPT2_GUIDE.md`，完成并返回 72 行
+Phase2 结果**。Phase1 已 locked，不得修改、重新解释或覆盖；mapping 与 expected contract 继续关闭。
 
 ```text
 Attempt1 (immutable defect-discovery evidence)
   └─ five Owner-accepted defects -> five repaired + 67 unchanged -> unified final72
        └─ fresh opaque IDs + fresh order -> Attempt2 Phase1 in new isolated reviewer context
-            └─ return -> schema/72-ID/hash lock/immutability/defect triage -> later Phase2 release decision
+            └─ immutable return + zero defects -> Candidate Quality Gate PASS -> same-reviewer Phase2
 
 未来在独立审批下：
 A/B -> agreement -> adjudication -> 72 GT

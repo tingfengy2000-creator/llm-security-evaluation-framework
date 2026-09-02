@@ -1355,3 +1355,26 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   adjudication、Ground Truth、240-group、Dataset freeze、Detector、Training、5090、Formal Experiment or Paper Result. Auto Continue `NO`.
 - Canonical records: `OR-043`, `REL-2026-0048`, [current work state](current_work_state.md) and
   [canonical lessons](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md).
+
+## PODR-082: Pilot4 Phase1 Attempt2 Zero-defect Lock and Controlled Phase2 Release
+
+- Date: `2026-09-02`.
+- Owner fact: a fresh independent reviewer completed all 72 rows of Phase1 Attempt2 in the isolated
+  `P1-Pilot4-External-Blind-Review-R2` context without receiving Attempt1、repair history、repo、mapping、expected contract、Phase2、
+  Evidence Pool or design labels.
+- Canonical raw identity: `PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_RETURN.csv`, `3117 bytes`, SHA256
+  `1e5e81fee3825071a77d520c6da5cbfc4c2b59125aca0499cda6c7e2f363c9c5`. It must be copied byte-for-byte and never normalized or
+  rewritten.
+- Conditional authorization: if transport、exact five-column schema、72/72 opaque IDs、enum、conditional reasons、raw immutability
+  and Attempt2 packet parity all pass, and `phase1_issue != NONE` count is zero, set all six release facts true and release only the
+  matching prebuilt Attempt2 Phase2 packet.
+- Closure meaning: `PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED=true` closes only the Candidate Text Quality Gate. It is not
+  expected-label accuracy、annotation protocol acceptance、A/B validity、Ground Truth or Dataset acceptance.
+- Continuity: Phase2 returns to the same Project and same conversation. Phase1 is locked and may not be changed、reinterpreted or
+  overwritten. Owner sends only the Phase2 packet Markdown and guide Markdown.
+- Current status: `PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_LOCKED / PHASE1_CANDIDATE_QUALITY_GATE_PASS /
+  PHASE2_RELEASED_TO_OWNER_FOR_EXTERNAL_REVIEW / WAITING_FOR_EXTERNAL_PHASE2_RETURN / NO_HUMAN_DISTRIBUTION`.
+- Prohibited: Codex Phase2 annotation、mapping unlock、expected-contract load/comparison、protocol acceptance、A/B、agreement、
+  adjudication、Ground Truth、240-group、Dataset freeze、Detector、Training、5090、Formal Experiment or Paper Result. Auto Continue `NO`.
+- Canonical records: `OR-044`, `REL-2026-0049`, [current work state](current_work_state.md) and Git-external
+  `paper1_pilot4_external_blind_phase1_attempt2_return_20260902`.

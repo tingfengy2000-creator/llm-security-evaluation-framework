@@ -333,3 +333,8 @@ blind phase。旧 attempt、Owner correction、mapping scope、repair audit 和�
 
 本规则当前状态为 `PROVISIONAL_PENDING_PILOT4_FINAL_ACCEPTANCE`。它允许 fail closed、保留历史并要求 fresh Full72 review，
 但不证明 annotation protocol 已被接受，也不授权 Phase2、A/B、Dataset freeze 或正式实验。
+
+Attempt2 的 fresh Full72 return 现为该临时规则新增支持证据：final corpus 的 72 条均返回 `phase1_issue=NONE`，因此本轮
+Candidate Text Quality Gate 可以关闭，并按照同一 annotator、locked Phase1、再释放 Phase2 的顺序继续。该结果只说明
+候选文本缺陷门通过，不是 expected-label accuracy、annotation protocol 或正式数据集验收；本规则继续保持
+`PROVISIONAL_PENDING_PILOT4_FINAL_ACCEPTANCE`，不得提前提升为 Accepted Lesson。

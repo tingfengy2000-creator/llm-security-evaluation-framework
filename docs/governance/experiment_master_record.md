@@ -54,14 +54,14 @@
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
 | 当前最高完成阶段 | S6-T5 Controlled Retrieval and Traceable Context Baseline 已 `HUMAN_ACCEPTED BASELINE`；S6.1-LR1 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`。 |
-| 当前任务 | `PILOT4-PHASE1-OWNER-DEFECT-ADJUDICATION-AND-CANDIDATE-LOCAL-REPAIR-01`：登记五项 Owner 决定、局部修复并准备 fresh Full72 Attempt2。 |
-| 当前审批门 | Owner 在全新隔离 reviewer context 只发送 Attempt2 Phase1 packet+guide，并收回完整 72 行 return；Phase2 与 expected comparison 保持关闭。 |
+| 当前任务 | `PILOT4-EXTERNAL-BLIND-PHASE1-ATTEMPT2-LOCK-AND-PHASE2-RELEASE-01`：锁定 fresh Attempt2 raw return，关闭 Candidate Quality Gate 并受控释放 Phase2 packet。 |
+| 当前审批门 | Owner 回到同一 Attempt2 reviewer Project/conversation，只发送 Phase2 packet+guide 并收回完整 72 行 return；Phase1、mapping 与 expected contract 保持锁定。 |
 | 下一批准任务 | none automatically；A/B 72 annotation、240-group、Dataset、Formal Detector、Training 和 Formal Experiment remain closed。 |
 | Baseline tag | annotated `s6-t5-rag-baseline-v1` 已恢复；本地/远端 peeled target 均核验为 `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
 | 最近工程验证 | H2 resume_02 archive SHA/safety/index `25/25`, H2-A `18/18`, exact local-model CUDA load, single-call and resource evidence passed Control Plane review。 |
-| 当前主要阻塞项 | `ATTEMPT2_EXTERNAL_PHASE1_RETURN_PENDING`；fresh Full72 review 未执行，Attempt2 Phase2 六项 release fact 均为 false；formal protocol numeric parameters、Scale Pilot、Dataset 和 method effectiveness 均未冻结。 |
-| 当前允许宣称 | Attempt1 是 immutable 的有效 defect-discovery evidence；Owner 接受五项 issue；五条 semantic/source-preserving repair、67 条不变和 72-ID fresh Attempt2 packet QA passed；不代表 expected-label accuracy、协议接受、Ground Truth 或 Detector effectiveness。 |
+| 当前主要阻塞项 | `ATTEMPT2_EXTERNAL_PHASE2_RETURN_PENDING`；Phase2 packet 已释放但人工 Phase2 尚未执行；formal protocol numeric parameters、Scale Pilot、Dataset 和 method effectiveness 均未冻结。 |
+| 当前允许宣称 | Attempt2 canonical raw 已锁定，exact schema/72 IDs/enums/reasons PASS，72/72 candidate issue 为 NONE，六项 release fact 全真且 Phase2 packet QA passed；不代表 expected-label accuracy、协议接受、Ground Truth 或 Detector effectiveness。 |
 | 当前禁止宣称 | GMTP reproduction/effectiveness/safety/generalization、strict baseline comparison、P1/formal experiment or paper result。 |
 
 历史审批快照补充：S6-T5.5/5.6/5.7 已按后续记录完成并通过相应人工验收；早期 pending/NOT APPROVED 文字保留为
@@ -143,7 +143,8 @@
 | GOV-P1-MANDATORY-DOCUMENTATION-CLOSEOUT-01 | Paper 1 mandatory task-close documentation gate | Human/Agent/current-state/execution-log synchronization; conditional document matrix; staleness and lesson-promotion gates | persistent governance active; existing canonical documents only; no experiment/evidence execution | `OWNER_CONFIRMED / EXPERIMENT_GATE_UNCHANGED` | `PODR-079 / OR-041 / REL-2026-0046`; execution base `e8ad33bd...48b3` | apply closeout to every future Paper 1 task |
 | PILOT4-EXTERNAL-BLIND-PHASE1-RETURN-LOCK-AND-DEFECT-TRIAGE-01 | Pilot4 external Phase1 raw return lock and blind candidate-defect triage | immutable raw-byte lock; exact schema/72-ID/enum/reason validation; descriptive-only Phase1 QA; blind-ID Owner triage | 5001-byte return locked; five original lock facts pass; five issue rows; sixth triage fact false | `PILOT4_EXTERNAL_BLIND_PHASE1_RETURN_LOCKED / OWNER_DEFECT_TRIAGE_PENDING / PHASE2_WITHHELD` | `PODR-080 / OR-042 / REL-2026-0047`; Git-external `paper1_pilot4_external_blind_phase1_return_20260902`; raw SHA `59446c4b...889261`; manifest `9/9` | Owner blind-only disposition of five issue rows |
 | PILOT4-PHASE1-OWNER-DEFECT-ADJUDICATION-AND-CANDIDATE-LOCAL-REPAIR-01 | Pilot4 five-candidate local repair and fresh Full72 blind re-review preparation | exact-five controlled mapping；source-backed semantic-preserving repair；final72 version；new opaque IDs/order；rebound withheld Phase2 | five repairs `5/5`；67 byte-identical；72 new IDs/0 reuse；Phase1 leakage 0；Phase2 withheld | `PILOT4_PHASE1_FIVE_DEFECTS_REPAIRED / EXTERNAL_BLIND_PHASE1_ATTEMPT2_PACKET_READY / WAITING_FOR_FRESH_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD` | `PODR-081 / OR-043 / REL-2026-0048`; Git-external `paper1_pilot4_phase1_owner_defect_repair_20260902`; manifest `24/24`, aggregate `c71a2525...37b107` | Owner distributes exactly Attempt2 Phase1 packet+guide to a fresh isolated reviewer |
-| Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | LR1/R0/FU1 accepted；P1-R1 framework accepted；Pilot4 five defects repaired, Full72 Attempt2 ready and Phase2 withheld；formal work not started | `PILOT_IN_PROGRESS / NOT_FORMAL_EXPERIMENT` | [长期需求](long_term_research_requirements.md) | Fresh isolated Full72 Attempt2 Phase1 review |
+| PILOT4-EXTERNAL-BLIND-PHASE1-ATTEMPT2-LOCK-AND-PHASE2-RELEASE-01 | Pilot4 Attempt2 Phase1 immutable lock and controlled Phase2 release | canonical raw lock；exact schema/72-ID/enum/reason；zero candidate defects；six-fact release gate；Phase2 packet leakage/provenance QA | raw `3117 bytes` / SHA `1e5e81fe...63c9c5`；72/72 issue NONE；Phase2 72 rows/144 slots released unfilled | `PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_LOCKED / PHASE1_CANDIDATE_QUALITY_GATE_PASS / PHASE2_RELEASED_TO_OWNER_FOR_EXTERNAL_REVIEW / WAITING_FOR_EXTERNAL_PHASE2_RETURN` | `PODR-082 / OR-044 / REL-2026-0049`; Git-external `paper1_pilot4_external_blind_phase1_attempt2_return_20260902`; manifest `16/16`, aggregate `1ad64c61...20b2f87` | same external reviewer completes Phase2; expected/mapping remain closed |
+| Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | LR1/R0/FU1 accepted；P1-R1 framework accepted；Pilot4 Candidate Quality Gate passed and Phase2 packet released to Owner；formal work not started | `PILOT_IN_PROGRESS / NOT_FORMAL_EXPERIMENT` | [长期需求](long_term_research_requirements.md) | Same-reviewer Attempt2 Phase2 return |
 | Stage 6.2 | Multi-Evidence Trustworthy Retrieval | 可信聚合、重排、拒答 | 规划中 | `PLANNED` | [长期需求](long_term_research_requirements.md) | Stage 6.1/设计批准 |
 | Stage 7 | Agent Security Evaluation | Tool/Memory/Planning 安全 | 规划中 | `PLANNED` | [Stage 7 README](../../stages/stage7_agent_security/README.md) | Trusted Context 契约 |
 
@@ -384,6 +385,7 @@ description/final_resolution 中，但不能代替 status。**WORKAROUND is not 
 | GATE-P1-DOCUMENTATION-CLOSEOUT | Every Paper 1 task closeout | mandatory Human/Agent/Current/Execution synchronization; conditional-doc evaluation; 17-field checklist; staleness gate | `OWNER_CONFIRMED / ACTIVE` | task may be reported complete only after closeout and valid Git status | bypassing closeout、mechanical all-file edits、premature accepted lessons | 项目负责人 / PODR-079 |
 | GATE-S6.1-P1-PILOT4-OWNER-DEFECT-TRIAGE | External Phase1 candidate-defect disposition before Phase2 | immutable raw return; blind-ID-only five-row triage; mapping/expected contract closed; append-only Owner decisions | `OWNER_DEFECT_TRIAGE_PENDING / PHASE2_WITHHELD` | all five rows receive Owner disposition and subsequent evidence binding validates `PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED=true` | automatic correction、mapping/expected unlock、Phase2、A/B、downstream experiment | 项目负责人 / PODR-080 |
 | GATE-S6.1-P1-PILOT4-ATTEMPT2-PHASE1 | Fresh Full72 final-corpus external Phase1 review | new isolated reviewer；72 fresh opaque IDs；candidate-only packet；no web/fact lookup；complete return schema/ID/hash/immutability/defect triage | `WAITING_FOR_FRESH_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD` | later task locks and validates the complete Attempt2 return；only then may a separate Phase2 release decision occur | Codex executing review、Attempt1/2 expected comparison、current Phase2、A/B、downstream experiment | 项目负责人 / PODR-081 |
+| GATE-S6.1-P1-PILOT4-ATTEMPT2-PHASE2-RETURN | Same-reviewer evidence-based Phase2 return | locked Phase1；released unfilled 72-row/144-slot packet；same opaque IDs/order；official URLs；seven Phase2 fields | `WAITING_FOR_EXTERNAL_PHASE2_RETURN / NO_HUMAN_DISTRIBUTION` | later task locks raw Phase2 before any expected comparison or protocol decision | Phase1 rewrite、Codex annotation、mapping/expected unlock、A/B、downstream experiment | 项目负责人 / PODR-082 |
 | GATE-S6.1-R0-FU1-W2-CORRECTION-02 | Command-derived disk measurement evidence | archive SHA `fcfa3f...3622`, safe `17/17`, GNU `du 9.4`, raw streams/exits/counts/no-mutation, materiality `11/11` | `CONTROL_PLANE_REVIEW_PASS / FINAL_CLOSURE_APPLIED` | historical evidence blocker closed | rerun/repackaging churn、GMTP/model load、P1/formal experiment | RTX5090 evidence；Control Plane accepted |
 
 **当前审批顺序**：既有 S6-T5 验收历史保持不变；S6.1-LR1、Context Recovery、Paper-First 和 current route 已接受；
@@ -397,8 +399,8 @@ the historical evidence blocker is resolved；H1 artifacts are verified on 5090�
 H2-B not executed/call_count zero；resume_02 is `CONTROL_PLANE_REVIEW_PASS / ENGINEERING_SMOKE_EVIDENCE_ACCEPTED` with the
 single H2-B authorization consumed。Option B is confirmed at scope level；P1-R1 is
 `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK` with numeric/formal freezes open。Pilot0–2 feasibility gates are closed，Pilot3 is
-diagnostic only，and Pilot4 has five repaired defects plus a fresh Full72 Attempt2 packet waiting for external Phase1 return；Phase2
-remains withheld。A/B 72 annotation、240-group、Dataset、
+diagnostic only，and Pilot4 Attempt2 Phase1 is immutable with zero candidate defects；its unfilled Phase2 packet is released to Owner
+for the same external reviewer and now waits for the raw Phase2 return。A/B 72 annotation、240-group、Dataset、
 Formal Detector、Retrieval Intervention effectiveness、training and formal RAG experiment remain unapproved/not started。
 
 ## 15. 当前结论边界
