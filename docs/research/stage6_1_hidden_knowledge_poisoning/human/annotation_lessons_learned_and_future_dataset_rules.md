@@ -308,3 +308,15 @@ Promotion 必须逐项记录 `ACCEPTED_LESSON`、继续 provisional 或 rejected
 acceptance 后，Human Ledger 再新增“Pilot4 标注体系给项目留下了什么经验？”通俗摘要，按“问题 -> 原因 -> 最终规则”
 组织并链接本文件；首次/二次 preflight、evidence echo、fake S3、length mismatch、schema ambiguity、Evidence Pool duplicate、
 sample-ID leakage、combined-packet flaw 与 phase-separation repair 的时间线不得删除。
+
+## 十八、Phase1 返回后的候选缺陷处置门（临时规则）
+
+外部盲审的第一阶段不仅检查复核流程，也可能暴露候选自身的上下文缺失、指代模糊或不自然表达。若 Phase1 return 中
+存在 `phase1_issue != NONE` 或明显自然度问题，不得因为 schema、72/72 ID 和 hash-lock 已通过就立即释放 Phase2。
+
+此时应保留 raw return，不回写 reviewer 单元格；仅用 blind ID、候选文本和 Phase1 可见字段生成项目负责人预检。项目
+负责人在身份映射、expected contract 与 Phase2 均关闭的情况下，逐条决定接受原候选、局部修订后重新盲审，或剔除/
+替换。只有这些决定被追加记录且相应验证完成后，`PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED` 才能为 true。
+
+本规则当前状态为 `PROVISIONAL_PENDING_PILOT4_FINAL_ACCEPTANCE`。它可保守阻止带缺陷候选直接进入 Phase2，但尚不能
+描述为已验收的正式数据集规则，也不授权 Codex 自动修正候选、打开正确答案、释放 Phase2 或启动 A/B。

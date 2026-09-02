@@ -26,7 +26,11 @@ from llmguard.domains.retrieval.hidden_poisoning.external_blind_review import (
     order_profile,
     validate_packet_rows,
     validate_phase1_packet_rows,
+    validate_phase1_raw_return,
     validate_phase2_packet_rows,
+)
+from scripts.research.lock_pilot4_external_phase1_return import (
+    build as build_phase1_return_lock,
 )
 from scripts.research.build_pilot4_external_blind_phase_packets import (
     build as build_phase_packets,
@@ -484,11 +488,15 @@ def test_phase2_release_fails_without_locked_phase1_return() -> None:
         assert_phase2_release_allowed({})
 
 
-def test_phase2_release_requires_all_five_lock_facts() -> None:
+def test_phase2_release_requires_all_lock_and_triage_facts() -> None:
     gate = {name: True for name in PHASE2_RELEASE_REQUIREMENTS}
     assert assert_phase2_release_allowed(gate) == "PHASE2_RELEASE_APPROVED"
     gate["PHASE1_RETURN_HASH_LOCKED"] = False
     with pytest.raises(ValueError, match="PHASE1_RETURN_HASH_LOCKED"):
+        assert_phase2_release_allowed(gate)
+    gate["PHASE1_RETURN_HASH_LOCKED"] = True
+    gate["PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED"] = False
+    with pytest.raises(ValueError, match="PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED"):
         assert_phase2_release_allowed(gate)
 
 
@@ -543,6 +551,102 @@ def test_phase1_lock_refuses_existing_sidecar_before_raw_write(tmp_path: Path) -
     with pytest.raises(FileExistsError, match="LOCK_ALREADY_EXISTS"):
         lock_phase1_raw_return((header + body).encode(), ids, destination)
     assert not destination.exists()
+
+
+def _phase1_return_bytes() -> tuple[bytes, dict[str, str]]:
+    rows = _phase1_rows()
+    expected_issues = {
+        str(rows[index]["blind_review_id"]): (
+            "AMBIGUOUS_REFERENCE" if index % 2 == 0 else "MISSING_CONTEXT"
+        )
+        for index in range(5)
+    }
+    stream = StringIO()
+    writer = csv.DictWriter(stream, fieldnames=PHASE1_RETURN_FIELDS)
+    writer.writeheader()
+    for index, packet_row in enumerate(rows):
+        opaque_id = str(packet_row["blind_review_id"])
+        issue = expected_issues.get(opaque_id, "NONE")
+        writer.writerow(
+            {
+                "blind_review_id": opaque_id,
+                "text_naturalness": (
+                    "MINOR_ISSUE"
+                    if index < 8
+                    else "UNNATURAL"
+                    if index == 8
+                    else "NATURAL"
+                ),
+                "local_internal_conflict": "YES" if index < 6 else "NO",
+                "phase1_issue": issue,
+                "phase1_reason": "reviewer reason" if index < 6 else "",
+            }
+        )
+    return stream.getvalue().encode("utf-8"), expected_issues
+
+
+def test_phase1_return_reason_is_conditional_not_globally_required() -> None:
+    raw, _ = _phase1_return_bytes()
+    ids = [str(row["blind_review_id"]) for row in _phase1_rows()]
+    validation = validate_phase1_raw_return(raw, ids)
+    assert validation["required_reason_rows"] == 6
+    assert validation["missing_required_reason_count"] == 0
+    assert validation["issue_row_count"] == 5
+    assert validation["non_natural_row_count"] == 9
+    assert validation["local_yes_row_count"] == 6
+
+
+def test_phase1_return_rejects_missing_conditionally_required_reason() -> None:
+    raw, _ = _phase1_return_bytes()
+    text = raw.decode("utf-8").replace("reviewer reason", "", 1)
+    ids = [str(row["blind_review_id"]) for row in _phase1_rows()]
+    with pytest.raises(ValueError, match="PHASE1_RETURN_REASON_BLOCKER"):
+        validate_phase1_raw_return(text.encode("utf-8"), ids)
+
+
+def test_phase1_return_lock_builds_blind_only_defect_gate(tmp_path: Path) -> None:
+    packet = tmp_path / "PILOT4_EXTERNAL_BLIND_PHASE1_PACKET.jsonl"
+    packet.write_text(
+        "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in _phase1_rows()),
+        encoding="utf-8",
+    )
+    raw, expected_issues = _phase1_return_bytes()
+    source = tmp_path / "source.csv"
+    copy = tmp_path / "copy.csv"
+    source.write_bytes(raw)
+    copy.write_bytes(raw)
+    output = tmp_path / "locked"
+    result = build_phase1_return_lock(
+        source,
+        packet,
+        output,
+        expected_sha256=__import__("hashlib").sha256(raw).hexdigest(),
+        expected_issue_rows=expected_issues,
+        corroborating_copies=[copy],
+    )
+    assert result["issue_row_count"] == 5
+    assert result["non_natural_row_count"] == 9
+    assert result["local_yes_row_count"] == 6
+    assert result["phase2_release_approved"] is False
+    assert (
+        output / "raw" / "PILOT4_EXTERNAL_BLIND_PHASE1_RETURN.csv"
+    ).read_bytes() == raw
+    gate = json.loads(
+        (output / "qa" / "phase2_release_gate.json").read_text(encoding="utf-8")
+    )
+    assert gate["requirements"]["PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED"] is False
+    assert gate["release_approved"] is False
+    triage = (
+        output / "owner_preflight" / "PILOT4_PHASE1_BLIND_DEFECT_TRIAGE.md"
+    ).read_text(encoding="utf-8")
+    assert triage.count("\n| BR-") == 5
+    assert "sample_id" not in triage
+    manifest = json.loads(
+        (output / "manifest" / "manifest.json").read_text(encoding="utf-8")
+    )
+    assert manifest["expected_contract_loaded"] is False
+    assert manifest["identity_mapping_unlocked"] is False
+    assert manifest["phase2_released"] is False
 
 
 def test_phase_builder_creates_separated_release_gated_artifacts(

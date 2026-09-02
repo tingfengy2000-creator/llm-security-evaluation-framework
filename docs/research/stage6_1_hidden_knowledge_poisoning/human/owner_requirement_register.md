@@ -45,9 +45,14 @@
 | OR-039 | 2026-09-02 | Owner 判定 c1b Full72 通过 `sample_id` 硬编码集合恢复隐藏标签，须重分类为污染复核证据；保留全部历史，构建使用一次性不透明 ID、隔离 mapping、真实来源标题和完整真实案例指南的外部标签盲法复核包，生成后等待外部 GPT/Owner 独立语义复核 | Pilot4 外部盲审与证据标题溯源 | Paper 1 / P1-PILOT4 | `PILOT4_EXTERNAL_BLIND_REVIEW_PACKET_READY / WAITING_FOR_EXTERNAL_OWNER_REVIEW / NO_HUMAN_DISTRIBUTION` | `PILOT4-EXTERNAL-BLIND-OWNER-REVIEW-PACKET-01` | 项目需求提出人当前明确指令；`PODR-077` | 机器只做结构/泄漏/来源/顺序 QA，不填答案、不加载 expected contract、不比较；不得接受协议、发 A/B、agreement/adjudication、GT、240-group、Dataset freeze、Detector/Training、5090、Formal Experiment 或 Paper Result；Auto Continue = NO |
 | OR-040 | 2026-09-02 | Owner 判定 combined Phase1/Phase2 文档无法建立严格 LLM blindness；旧包只保留为工程历史，正式外部复核必须按 Phase1 return hash-lock 后再释放 Phase2，并使用全新隔离对话或独立真人 | Pilot4 分阶段盲审与释放门 | Paper 1 / P1-PILOT4 | `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION` | `PILOT4-EXTERNAL-BLIND-REVIEW-PHASE-SEPARATION-01` | 项目需求提出人当前明确指令；`PODR-078` | 当前项目对话不得充当 external reviewer；Phase1 禁止 web/事实查证；五项 return-lock 条件未全真时 Phase2 fail closed；不得执行 review、A/B 或任何下游实验 |
 | OR-041 | 2026-09-02 | Owner 要求所有 Paper 1 任务永久执行 Documentation Closeout Gate：Human/Agent Ledger、Current Work State、Execution Log 强制检查/同步，其他 canonical docs 按条件更新；文档未收口不得称任务完成；Pilot4 经验仅在最终协议验收后提升 | Paper 1 任务收口与经验提升治理 | Paper 1 全局治理 | `PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED / PILOT4_PROTOCOL_LESSONS = PROVISIONAL_PENDING_FINAL_ACCEPTANCE` | `GOV-P1-MANDATORY-DOCUMENTATION-CLOSEOUT-01` | 项目需求提出人当前明确指令；`PODR-079 / REL-2026-0046` | persistent requirement；未来 prompt 未重复亦生效；`NO_DOCUMENTATION_CHANGE` 仍须条件评估；不改变当前 Pilot4 Gate，不授权 External review、Phase2、A/B 或下游实验 |
+| OR-042 | 2026-09-02 | 项目负责人授权锁定外部第一阶段原始返回，并检查五列格式、72/72 不透明标识、枚举、条件理由和盲态描述性统计；若复核人标记候选缺陷，必须新增仅按盲标识执行的负责人处置门，原始返回不回写，身份映射和预期答案合同不得加载 | Pilot4 外部第一阶段返回锁定与候选缺陷处置 | Paper 1 / P1-PILOT4 | `PILOT4_EXTERNAL_BLIND_PHASE1_RETURN_LOCKED / OWNER_DEFECT_TRIAGE_PENDING / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION` | `PILOT4-EXTERNAL-BLIND-PHASE1-RETURN-LOCK-AND-DEFECT-TRIAGE-01` | 项目需求提出人当前明确指令；`PODR-080 / REL-2026-0047` | 五项返回锁定事实为真，但 `PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED=false`；只允许项目负责人审查五条盲标识缺陷清单；不得自动修候选、释放第二阶段、解锁身份映射或预期答案、发 A/B 或进入下游实验 |
 
-当前唯一人工动作是审查 locked 72 条单次 label-blind review、候选 before/after、Schema V3.1 与三个试填工作簿；不得自动接受 `Pilot4`、
-分发 `A/B`、生成 72 条真值或启动 240 组与后续实验。
+当前唯一人工动作是审查五条 blind-ID 候选缺陷清单并追加处置决定；原始 Phase1 return、identity mapping、expected
+contract 与 Phase2 保持关闭。不得自动接受 `Pilot4`、分发 `A/B`、生成 72 条真值或启动 240 组与后续实验。
+
+通俗解释：外部复核已经真实完成，文件完整性和格式检查也已经通过；但陌生复核者指出五条候选文本可能缺少背景、
+指代不清或存在其他局部问题。这说明质量检查成功发现了风险，而不是实验失败。项目负责人应先在不知道候选真实身份
+和预期答案的情况下逐条判断这些问题是否重要，再决定保留、修订重审或剔除替换。此判断完成以前，第二阶段材料继续封存。
 
 本次批准的中文边界是：保留两名标注人的第一轮原始结果，只修复标注工具并准备本人独立复核材料。两名标注人仍不得互看、讨论或统一答案；协调人只负责发放、回收、计算摘要并锁定文件。第二版结果没有返回并通过后续独立验证前，不得宣称一致性已经恢复，也不得开始分歧仲裁、数据集冻结、检测器实现、训练或正式实验。
 

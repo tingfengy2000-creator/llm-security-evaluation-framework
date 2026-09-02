@@ -1,5 +1,19 @@
 # LLMGuard 项目总控文档
 
+## PILOT4 外部盲审 Phase1 回收锁定与候选缺陷门（2026-09-02）
+
+`PILOT4-EXTERNAL-BLIND-PHASE1-RETURN-LOCK-AND-DEFECT-TRIAGE-01` 已将外部 reviewer 的 Phase1 原始返回按字节
+冻结：`5001 bytes`，SHA256 `59446c4be65b035be29528de81b6b8f8aa4113007df8fcac962fe4058a889261`。下载目录两份
+副本与 E 盘实际来源 `PILOT4_EXTERNAL_BLIND_PHASE1_RETURN(1).csv` 完全一致；合同示例中的无后缀文件名并不存在，记录
+不伪造别名。exact five-column schema、72/72 opaque IDs、枚举与条件理由均通过验证，原始 return 不回写。
+
+盲态描述性预检发现 5 条 `phase1_issue != NONE` 的候选行，并另存只含 opaque ID、候选文本与 Phase1 可见字段的 Owner
+triage；identity mapping、expected contract 与 Phase2 均未加载。Phase2 release gate 现由六项事实组成：前五项 return-lock
+事实为真，第六项 `PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED=false`，所以状态固定为
+`PILOT4_EXTERNAL_BLIND_PHASE1_RETURN_LOCKED / OWNER_DEFECT_TRIAGE_PENDING / PHASE2_WITHHELD /
+NO_HUMAN_DISTRIBUTION`。Owner 下一步仅审查 blind-ID triage 并追加处置决定；不得自动修复候选、解锁 mapping、比较 expected
+contract、释放 Phase2、启动 A/B 或任何下游实验。
+
 ## Paper 1 每次任务结束强制文档收口（2026-09-02）
 
 项目需求提出人通过 `PODR-079 / OR-041` 冻结 `GOV-P1-MANDATORY-DOCUMENTATION-CLOSEOUT-01`：以后所有 Paper 1 任务都
@@ -16,9 +30,8 @@ Pilot4 当前经验状态为 `PROVISIONAL_PENDING_FINAL_ACCEPTANCE`。只有未�
 `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` 后，对应任务才执行 `PILOT4_PROTOCOL_LESSON_PROMOTION`，把经验证经验提升为
 accepted；中间失败和修复历史必须保留。
 
-本治理任务不改变实验 Gate。当前仍为 `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY /
-WAITING_FOR_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`；唯一下一动作仍是 Owner 在全新隔离上下文
-只提供 Phase1 packet 与 Phase1 guide。
+该治理任务当时不改变实验 Gate；当前实验状态已由本文顶部的 Phase1 return-lock/defect-triage 记录取代。closeout policy
+仍对本次和后续任务持续生效。
 
 ## PILOT4 外部盲审分阶段隔离（2026-09-02）
 
@@ -32,8 +45,7 @@ opaque ID 与四个人工字段，URL/Evidence/Phase2/原 sample identity/设计
 `withheld_phase2`，五项真实 return 锁定条件未全部满足前 release function 必须失败。当前项目对话已接触项目历史，不能
 充当独立 reviewer；必须使用全新隔离对话、temporary chat 或独立真人。
 
-当前状态固定为 `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW /
-PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`。这只证明结构隔离与机器 QA，不证明外部语义复核、协议接受、A/B、Ground
+该阶段的 packet-ready 状态已由本文顶部的 immutable return-lock 状态推进。它仍不证明 expected-label accuracy、协议接受、A/B、Ground
 Truth、Dataset freeze、Detector、Training、5090、Formal Experiment 或 Paper Result。
 
 ## PILOT4 外部标签盲法 Owner 复核包（2026-09-02）

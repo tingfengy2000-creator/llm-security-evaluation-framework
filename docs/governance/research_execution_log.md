@@ -1622,3 +1622,58 @@ Approval Gate、Auto Continue。
     `README_condition_evaluated=true`（导航/入口未改变，不修改）。
   - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
     `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.
+
+## REL-2026-0047 — Pilot4 External Phase1 Return Lock and Candidate-Defect Triage
+
+- Record ID: `REL-2026-0047`; date `2026-09-02`; task
+  `PILOT4-EXTERNAL-BLIND-PHASE1-RETURN-LOCK-AND-DEFECT-TRIAGE-01`; machine `本机 / LOCAL_CONTROL_PLANE`；execution base
+  `34254d57ae822fb71bc16ebacb2f1b42bc32574f`; Owner authority `PODR-080 / OR-042`.
+- Input identity: the actual E-drive source is `PILOT4_EXTERNAL_BLIND_PHASE1_RETURN(1).csv`; the no-suffix contract example was
+  absent and no alias was fabricated. The E-drive source and two supplied Download copies were byte-identical: `5001 bytes`, SHA256
+  `59446c4be65b035be29528de81b6b8f8aa4113007df8fcac962fe4058a889261`. Source last-write UTC was
+  `2026-09-02T05:20:30.865715Z`; `received_at=NOT_RECORDED`; separate lock timestamp
+  `2026-09-02T05:30:39.088560Z`.
+- Immutable evidence: new additive Git-external namespace
+  `paper1_pilot4_external_blind_phase1_return_20260902`; raw copy is byte-identical and accompanied by a
+  sidecar. Manifest recomputation passed `9/9`; manifest aggregate SHA256
+  `76d1bcfe032db9d5656f0d02ad876ab0e54f81769f89fea46b2a10d755ee2b3f`.
+- Structural validation: exact headers
+  `blind_review_id,text_naturalness,local_internal_conflict,phase1_issue,phase1_reason`; 72 rows；72 unique IDs；missing/unexpected/
+  duplicate/blank IDs all zero；enum failures zero；11 conditional-reason-required rows and zero missing required reasons.
+- Descriptive-only results: naturalness `NATURAL=63 / MINOR_ISSUE=8 / UNNATURAL=1`; local conflict
+  `NO=66 / YES=6 / UNCERTAIN=0`; phase1 issue `NONE=67 / MISSING_CONTEXT=2 / AMBIGUOUS_REFERENCE=2 / OTHER=1`. No accuracy,
+  agreement, expected-match, S-level recall or Ground Truth claim is made.
+- Candidate-issue rows: `BR-D0C6884849=AMBIGUOUS_REFERENCE`, `BR-58AAE07B7B=MISSING_CONTEXT`,
+  `BR-B67E68835B=OTHER`, `BR-F106F2592D=AMBIGUOUS_REFERENCE`, `BR-C9BF22304E=MISSING_CONTEXT`.
+- Blind-only artifacts: `owner_preflight/PILOT4_PHASE1_BLIND_DEFECT_TRIAGE.md` contains exactly the five issue rows；
+  `PILOT4_PHASE1_NATURALNESS_OBSERVATIONS.md` contains the nine non-`NATURAL` rows. QA found no forbidden sample/private identity,
+  Phase2, mapping, expected-contract or semantic-answer fields.
+- Release facts: `PHASE1_RETURN_RECEIVED=true`, `PHASE1_RETURN_SCHEMA_VALID=true`, `PHASE1_RETURN_72_72=true`,
+  `PHASE1_RETURN_HASH_LOCKED=true`, `PHASE1_RETURN_IMMUTABLE=true`, but
+  `PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED=false`. `EXPECTED_CONTRACT_LOADED=false`,
+  `IDENTITY_MAPPING_UNLOCKED=false`, `PHASE2_RELEASED=false`; release result is
+  `PHASE2_RELEASE_GATE_BLOCKER:PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED`.
+- Code/QA: added a pure public raw-return validator and fail-closed sixth release prerequisite, a blind-only lock builder, and tests.
+  Final targeted external-blind plus governance regression passed `124 tests / 1071 subtests`; Ruff and scoped MyPy passed；strict
+  UTF-8/LF、secret scan、Markdown links、`git diff --check` and Stage 1–5 immutability passed. The prior phase-separation manifest
+  recomputed `20/20`, its additive file `1/1`, and its base manifest hash remained `4c09089a...369ef`.
+- Final status: `PILOT4_EXTERNAL_BLIND_PHASE1_RETURN_LOCKED / OWNER_DEFECT_TRIAGE_PENDING / PHASE2_WITHHELD /
+  NO_HUMAN_DISTRIBUTION`. No raw rewrite, mapping unlock, expected comparison, auto-fix, Phase2 release, protocol acceptance, A/B,
+  Ground Truth, 240-group, Dataset freeze, Detector, Training, 5090, Formal Experiment or Paper Result occurred.
+- Owner next action: read only Git-external
+  `paper1_pilot4_external_blind_phase1_return_20260902/owner_preflight/PILOT4_PHASE1_BLIND_DEFECT_TRIAGE.md`
+  and append one of `REVIEWER_ISSUE_ACCEPTED / CANDIDATE_LOCAL_REPAIR_REQUIRED`,
+  `REVIEWER_ISSUE_NOT_MATERIAL / CANDIDATE_CAN_PROCEED`, or `OWNER_NEEDS_MORE_REVIEW` for each row. Do not open mapping or expected
+  contract during blind-level triage.
+- `DOCUMENTATION_CLOSEOUT_CHECKLIST`:
+  - `human_ledger_checked=true`; `human_ledger_updated_if_required=true`（experiment status、current action and blocker changed）。
+  - `agent_ledger_checked=true`; `agent_ledger_updated=true`; `current_work_state_updated=true`;
+    `execution_log_appended=true`.
+  - `experiment_master_condition_evaluated=true`（approval gate and evidence state changed，已更新）；
+    `owner_decision_condition_evaluated=true`（new Owner triage gate，已更新）；
+    `stage_process_condition_evaluated=true`（new return-lock step，已更新）；
+    `lessons_condition_evaluated=true`（provisional pre-Phase2 defect-triage lesson，已更新）。
+  - `research_authority_condition_evaluated=true`（frozen research contract unchanged，不修改）；
+    `README_condition_evaluated=true`（navigation/entry unchanged，不修改）。
+  - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
+    `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.

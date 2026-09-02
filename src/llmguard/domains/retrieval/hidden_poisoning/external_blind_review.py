@@ -67,7 +67,16 @@ PHASE2_RELEASE_REQUIREMENTS = (
     "PHASE1_RETURN_72_72",
     "PHASE1_RETURN_HASH_LOCKED",
     "PHASE1_RETURN_IMMUTABLE",
+    "PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED",
 )
+
+PHASE1_RETURN_ENUMS = {
+    "text_naturalness": frozenset({"NATURAL", "MINOR_ISSUE", "UNNATURAL"}),
+    "local_internal_conflict": frozenset({"YES", "NO", "UNCERTAIN"}),
+    "phase1_issue": frozenset(
+        {"NONE", "MISSING_CONTEXT", "AMBIGUOUS_REFERENCE", "OTHER"}
+    ),
+}
 
 MANUAL_FIELDS = PHASE1_FIELDS + PHASE2_FIELDS
 
@@ -599,46 +608,114 @@ def lock_phase1_raw_return(
     This helper is deliberately not called during packet preparation.
     """
 
-    try:
-        decoded = raw_csv.decode("utf-8-sig")
-    except UnicodeDecodeError as error:
-        raise ValueError("PHASE1_RETURN_UTF8_BLOCKER") from error
-    reader = csv.DictReader(StringIO(decoded))
-    if tuple(reader.fieldnames or ()) != PHASE1_RETURN_FIELDS:
-        raise ValueError("PHASE1_RETURN_SCHEMA_BLOCKER")
-    rows = list(reader)
-    returned_ids = [str(row["blind_review_id"]) for row in rows]
-    if (
-        len(rows) != 72
-        or len(set(returned_ids)) != 72
-        or set(returned_ids) != set(expected_ids)
-    ):
-        raise ValueError("PHASE1_RETURN_72_72_BLOCKER")
-    allowed = {
-        "text_naturalness": {"NATURAL", "MINOR_ISSUE", "UNNATURAL"},
-        "local_internal_conflict": {"YES", "NO", "UNCERTAIN"},
-        "phase1_issue": {
-            "NONE",
-            "MISSING_CONTEXT",
-            "AMBIGUOUS_REFERENCE",
-            "OTHER",
-        },
-    }
-    for row in rows:
-        if any(row[field] not in values for field, values in allowed.items()):
-            raise ValueError("PHASE1_RETURN_ENUM_BLOCKER")
-        if not str(row["phase1_reason"]).strip():
-            raise ValueError("PHASE1_RETURN_REASON_BLOCKER")
+    validation = validate_phase1_raw_return(raw_csv, expected_ids)
     destination.parent.mkdir(parents=True, exist_ok=True)
     sidecar = destination.with_suffix(destination.suffix + ".sha256")
     if destination.exists() or sidecar.exists():
         raise FileExistsError("PHASE1_RETURN_LOCK_ALREADY_EXISTS")
     with destination.open("xb") as handle:
         handle.write(raw_csv)
-    digest = canonical_sha256(raw_csv)
+    digest = str(validation["raw_sha256"])
     with sidecar.open("x", encoding="utf-8", newline="\n") as handle:
         handle.write(f"{digest}  {destination.name}\n")
     return digest
+
+
+def validate_phase1_raw_return(
+    raw_csv: bytes, expected_ids: Sequence[str]
+) -> dict[str, Any]:
+    """Validate a Phase1 return without changing its bytes or unlocking identity.
+
+    The returned rows retain the exact decoded field values.  They may be used
+    only for derived blind-ID reports; the raw bytes remain authoritative.
+    """
+
+    try:
+        decoded = raw_csv.decode("utf-8-sig")
+    except UnicodeDecodeError as error:
+        raise ValueError("PHASE1_RETURN_UTF8_BLOCKER") from error
+    reader = csv.DictReader(StringIO(decoded, newline=""))
+    if tuple(reader.fieldnames or ()) != PHASE1_RETURN_FIELDS:
+        raise ValueError("PHASE1_RETURN_SCHEMA_BLOCKER")
+    raw_rows = list(reader)
+    if any(tuple(row) != PHASE1_RETURN_FIELDS for row in raw_rows) or any(
+        value is None for row in raw_rows for value in row.values()
+    ):
+        raise ValueError("PHASE1_RETURN_SCHEMA_BLOCKER")
+    rows = [
+        {field: str(row[field]) for field in PHASE1_RETURN_FIELDS} for row in raw_rows
+    ]
+    returned_ids = [row["blind_review_id"] for row in rows]
+    returned_id_set = set(returned_ids)
+    expected_id_set = set(expected_ids)
+    missing_ids = sorted(expected_id_set - returned_id_set)
+    unexpected_ids = sorted(returned_id_set - expected_id_set)
+    duplicate_id_count = len(returned_ids) - len(returned_id_set)
+    blank_id_count = sum(not item for item in returned_ids)
+    if (
+        len(rows) != 72
+        or len(expected_ids) != 72
+        or len(expected_id_set) != 72
+        or duplicate_id_count
+        or blank_id_count
+        or missing_ids
+        or unexpected_ids
+    ):
+        raise ValueError("PHASE1_RETURN_72_72_BLOCKER")
+
+    invalid_enum_rows: list[dict[str, str]] = []
+    required_reason_rows = 0
+    missing_required_reason_rows: list[str] = []
+    for row in rows:
+        for field, values in PHASE1_RETURN_ENUMS.items():
+            if row[field] not in values:
+                invalid_enum_rows.append(
+                    {
+                        "blind_review_id": row["blind_review_id"],
+                        "field": field,
+                        "value": row[field],
+                    }
+                )
+        reason_required = (
+            row["local_internal_conflict"] in {"YES", "UNCERTAIN"}
+            or row["phase1_issue"] != "NONE"
+        )
+        if reason_required:
+            required_reason_rows += 1
+            if not row["phase1_reason"].strip():
+                missing_required_reason_rows.append(row["blind_review_id"])
+    if invalid_enum_rows:
+        raise ValueError("PHASE1_RETURN_ENUM_BLOCKER")
+    if missing_required_reason_rows:
+        raise ValueError("PHASE1_RETURN_REASON_BLOCKER")
+
+    naturalness_counts = Counter(row["text_naturalness"] for row in rows)
+    conflict_counts = Counter(row["local_internal_conflict"] for row in rows)
+    issue_counts = Counter(row["phase1_issue"] for row in rows)
+    issue_rows = [row for row in rows if row["phase1_issue"] != "NONE"]
+    non_natural_rows = [row for row in rows if row["text_naturalness"] != "NATURAL"]
+    local_yes_rows = [row for row in rows if row["local_internal_conflict"] == "YES"]
+    return {
+        "status": "PASS",
+        "raw_sha256": canonical_sha256(raw_csv),
+        "headers": list(PHASE1_RETURN_FIELDS),
+        "row_count": len(rows),
+        "unique_id_count": len(returned_id_set),
+        "duplicate_id_count": duplicate_id_count,
+        "blank_id_count": blank_id_count,
+        "missing_ids": missing_ids,
+        "unexpected_ids": unexpected_ids,
+        "invalid_enum_count": 0,
+        "required_reason_rows": required_reason_rows,
+        "missing_required_reason_count": len(missing_required_reason_rows),
+        "text_naturalness_counts": dict(sorted(naturalness_counts.items())),
+        "local_internal_conflict_counts": dict(sorted(conflict_counts.items())),
+        "phase1_issue_counts": dict(sorted(issue_counts.items())),
+        "issue_row_count": len(issue_rows),
+        "non_natural_row_count": len(non_natural_rows),
+        "local_yes_row_count": len(local_yes_rows),
+        "rows": rows,
+    }
 
 
 def lexical_duplicate_qa(
@@ -686,6 +763,7 @@ __all__ = [
     "PACKET_ROW_FIELDS",
     "PHASE1_FIELDS",
     "PHASE1_PACKET_ROW_FIELDS",
+    "PHASE1_RETURN_ENUMS",
     "PHASE1_RETURN_FIELDS",
     "PHASE2_FIELDS",
     "PHASE2_PACKET_ROW_FIELDS",
@@ -706,5 +784,6 @@ __all__ = [
     "order_profile",
     "validate_packet_rows",
     "validate_phase1_packet_rows",
+    "validate_phase1_raw_return",
     "validate_phase2_packet_rows",
 ]

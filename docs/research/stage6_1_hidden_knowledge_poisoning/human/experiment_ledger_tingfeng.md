@@ -5,7 +5,7 @@
 Document Role = `PAPER1_PRIMARY_HUMAN_ENTRY`<br>
 Audience = `项目负责人 / 导师与领导 / 新团队成员`<br>
 Reading Path = `5 minutes / 15 minutes / 30 minutes`<br>
-Current Evidence Cut = `phase-separated Phase1 packet ready / Phase2 withheld / isolated review pending`<br>
+Current Evidence Cut = `external Phase1 raw return locked / five blind-ID candidate issues pending Owner triage / Phase2 withheld`<br>
 Last Updated = `2026-09-02`
 
 > 这是一张“项目地图”，不是 raw evidence，也不产生新授权。读完第 0 节可掌握当前状态；读到第 8 节可理解论文方法；
@@ -19,17 +19,17 @@ Last Updated = `2026-09-02`
 | 英文论文题目 | *Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework* |
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
-| 当前阶段 | ⏳ Pilot4 外部盲审 Phase1/Phase2 已物理隔离；Phase1 包就绪，Phase2 尚未释放。 |
-| 当前任务 | `GOV-P1-MANDATORY-DOCUMENTATION-CLOSEOUT-01`：固化每次 Paper 1 任务结束的强制文档同步门；不执行或改变当前 Pilot4 实验。 |
-| 当前完成度 | ✅ 强制收口矩阵、陈旧状态检查、任务完成定义与 Pilot4 验收后经验提升门已登记；Phase1 包和 Phase2 withheld 状态不变。 |
-| 当前唯一人工动作 | 项目负责人在全新隔离对话中只上传 Phase1 packet 与 Phase1 guide；禁止同时提供 Phase2 或项目历史。 |
-| 当前主要 blocker | ⏳ `EXTERNAL_PHASE1_RETURN_PENDING`：外部 Phase1 尚未真实返回并完成 schema、72/72、hash-lock、immutable 五项验证，因此 Phase2 不能释放。 |
-| 已经可以说什么 | 外部盲审包已准备且通过机器级身份、泄漏、标题来源、顺序、Evidence Pool 和格式 QA；不能说 72 条已被语义验证。 |
+| 当前阶段 | ⏳ Pilot4 外部盲审 Phase1 原始返回已冻结；五条候选缺陷需要项目负责人在盲态下裁定，Phase2 尚未释放。 |
+| 当前任务 | `PILOT4-EXTERNAL-BLIND-PHASE1-RETURN-LOCK-AND-DEFECT-TRIAGE-01`：锁定返回、检查格式和身份、准备盲态 Owner 缺陷预检。 |
+| 当前完成度 | ✅ 原始字节、五列格式、72/72 ID、枚举和条件理由均通过；⏳ 第六个候选缺陷处置门尚未完成。 |
+| 当前唯一人工动作 | 项目负责人只阅读五条 blind ID 缺陷清单，并为每条追加处置决定；暂不打开身份映射或正确答案合同。 |
+| 当前主要 blocker | ⏳ `PHASE1_CANDIDATE_DEFECT_TRIAGE_PENDING`：前五项回收锁定事实已通过，第六项 `PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED` 为 false。 |
+| 已经可以说什么 | 外部 Phase1 72 行真实返回已按原字节锁定，格式/身份/枚举/理由验证通过，并记录了描述性作答分布；不能说回答与预期真值一致。 |
 | 绝对不能说什么 | 不得说 Pilot4 已接受、A/B 已开始、72 条已有 Ground Truth、240-group 已生成、Dataset 已冻结、Formal Detector 已实现、检测有效或 Paper Result 已形成。 |
 
 当前实验状态固定为：
 
-`PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`
+`PILOT4_EXTERNAL_BLIND_PHASE1_RETURN_LOCKED / OWNER_DEFECT_TRIAGE_PENDING / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`
 
 保留的历史状态链：`PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT` →
 `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` → `PILOT4_QUALITY_CONVERGED` → Schema V3.1 hardening → 当前外部盲审包状态。历史 package 不被覆盖。
@@ -240,7 +240,8 @@ Retriever
 | Pilot4 targeted repair | 修复实质缺陷 | 语义、stealth、echo、applicability、独立 QA | 首版与 owner feedback | repaired 72 + second sample | 🔧 已完成 | 修复验证通过 | second preflight | [Current State](../../../governance/current_work_state.md) |
 | Pilot4 second Owner preflight | 决定能否发人 | Owner 审查 repaired 12 rows | repaired workbook | targeted repair | 📌 历史：已触发 Repair-02 | Owner 明确决定 | Repair-02 | [Current State](../../../governance/current_work_state.md) |
 | Pilot4 Repair-02 final preflight | 关闭第二轮系统性缺陷 | Owner 审查 final 16 rows | genuine-S3/S1/length/template/HN evidence | quality convergence | 📌 历史：已进入后续收敛 | Owner 明确决定 | Schema V3/V3.1 | [Current State](../../../governance/current_work_state.md) |
-| Pilot4 Protocol hardening | 排除标签感知循环验证与候选核验路径泄漏 | locked Full72、candidate before/after、V3.1 三表 | b705cc + additive candidate version | Owner accept 或 blocker | ⏳ 当前唯一动作 | Owner 明确接受协议 | 单独批准 A/B 或继续定向修复 | [Current State](../../../governance/current_work_state.md) |
+| Pilot4 Protocol hardening | 排除标签感知循环验证与候选核验路径泄漏 | locked Full72、candidate before/after、V3.1 三表 | b705cc + additive candidate version | 外部两阶段盲审路径 | 📌 历史：已进入外部盲审 | 阶段隔离完成 | Phase1 外部复核 | [P1 process](../stage_process/S6.1-P1_work_process.md) |
+| Pilot4 external Phase1 return | 锁定陌生复核者的第一阶段原始判断并拦截候选缺陷 | 原始 CSV、公开 Phase1 ID 集 | immutable return + 5-row blind triage | 项目负责人盲态处置 | ⏳ 当前唯一动作 | 五条均有追加决定并通过后续绑定 | 另行审批 Phase2 release | [Current State](../../../governance/current_work_state.md) |
 | Pilot4 A/B 72 annotation | 获得独立人工判断 | Phase1/2、双锁定 | Owner-accepted package | 四份 returns | 📌 未批准/未开始 | returns hash-lock | agreement | [Lessons](annotation_lessons_learned_and_future_dataset_rules.md) |
 | Pilot4 agreement | 量化一致性 | 合法子集 agreement | A/B returns | agreement/disagreement | 📌 未开始 | 逻辑/一致性验证 | adjudication | [Lessons](annotation_lessons_learned_and_future_dataset_rules.md) |
 | Pilot4 adjudication | 解决必要分歧 | Owner 只裁决分歧 | minimal packet | 唯一决定 | 📌 未开始 | residual inconsistency=0 | GT | [P1 process](../stage_process/S6.1-P1_work_process.md) |
@@ -365,16 +366,18 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 | 2026-09-02 | Pilot4 | sample-ID leakage | 早期 Full72 reviewer 可用 `sample_id` 查询隐藏标签集合，脱敏输入不等于真实标签盲法 | 旧结果追加重分类为 contaminated evidence；使用一次性 opaque ID、隔离 mapping 与外部复核路径 | ✅ ENGINEERING REPAIR / FINAL OWNER ACCEPTANCE PENDING | [Execution log](../../../governance/research_execution_log.md) |
 | 2026-09-02 | Pilot4 | combined Phase1/Phase2 packet flaw | 第一阶段候选与第二阶段证据同时进入一个 LLM 上下文，“先别看 Evidence”不能保证严格盲法 | 保留 combined packet 历史；重建 candidate-only Phase1、withheld Phase2 与 return hash-lock 释放门 | ✅ PHASE-SEPARATION REPAIR / EXTERNAL PHASE1 RETURN PENDING | [Current State](../../../governance/current_work_state.md) |
 | 2026-09-02 | Paper 1 governance | documentation closeout gap | 代码、测试或 push 完成后，人类总账和控制面文档仍可能停留在旧任务 | 每项 Paper 1 任务强制执行文档收口清单和跨文档陈旧状态门 | ✅ POLICY ACTIVE | [Closeout contract](../documentation_separation_contract.md) |
+| 2026-09-02 | Pilot4 | external Phase1 candidate defects | 外部 blind reviewer 在 72 行返回中标记 5 条候选缺上下文、指代模糊或其他局部问题；在处置前释放证据可能把候选缺陷带入 Phase2 | 原始 return 不回写；只生成 blind-ID triage，新增第六个 Owner 处置释放门 | ⏳ `OWNER_DEFECT_TRIAGE_PENDING / PHASE2_WITHHELD` | [Execution log](../../../governance/research_execution_log.md) |
 
 ## 14. 当前项目状态
 
-- `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`
+- `PILOT4_EXTERNAL_BLIND_PHASE1_RETURN_LOCKED / OWNER_DEFECT_TRIAGE_PENDING / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`
 - `PREANNOTATION_ONLY`
 - `NO_HUMAN_DISTRIBUTION`
 - 72 repaired candidates 已存在；仍非 Ground Truth、非 Formal Benchmark、非 frozen Dataset。
 - class intent 为 Clean / Poison / Hard Negative = `24/24/24`。
 - 生成覆盖为 `4 HKP × 3 intended-S × 2 replication = 24 poison cells`，对应 24 matched triplets。
-- Phase1 72-row packet 的 URL/Evidence/Phase2/原身份泄漏均为 0；Phase2 的 144/144 actual-title slots 已预构建但 withheld；外部语义答案仍为空。
+- Phase1 72-row 原始返回已按 `5001 bytes` 完整锁定；五列格式、72/72 opaque ID、枚举和条件理由通过。描述性结果为自然度 `63/8/1`、局部冲突 `66/6/0`、候选问题 `67 NONE + 5 flagged`。
+- 五项 return-lock 事实均为 true；第六项 `PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED=false`。Phase2 的 144/144 actual-title slots 仍 withheld；identity mapping 与 expected contract 未加载。
 - A/B 未开始；72 Ground Truth 未建立；240-group 未开始；Dataset = `NOT FROZEN`（未冻结）。
 - Formal Detector = `NOT IMPLEMENTED`（未实现）；Formal Experiment = `NOT STARTED`（未开始）；Our Method Result = `NONE`。
 
@@ -382,15 +385,17 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 
 ## 15. 当前下一步
 
-唯一当前动作：**Owner 新建无项目历史的隔离对话，只上传 `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET.md` 与
-`PILOT4_EXTERNAL_BLIND_PHASE1_GUIDE.md`，并收回 72 行 `blind_review_id + 4 Phase1 fields`**。
+唯一当前动作：**Owner 只阅读 Git-external
+`paper1_pilot4_external_blind_phase1_return_20260902/owner_preflight/PILOT4_PHASE1_BLIND_DEFECT_TRIAGE.md`，
+对 5 条 blind ID 分别追加“接受原候选、候选局部修订后重审、或剔除/替换”的处置决定**。不得在该判断前打开 mapping、
+expected contract 或 Phase2。
 
 ```text
-External Phase1 Return
-  ├─ schema valid + 72/72 + hash locked + immutable
-  │    -> 下一独立任务才可批准向同一隔离 reviewer 释放 Phase2
-  └─ incomplete / invalid / lookup-contaminated
-       -> 登记 HUMAN_DECISION_REQUIRED blocker 并停止
+External Phase1 Return (locked and structurally valid)
+  ├─ five blind-ID candidate issues -> Owner append-only disposition
+  │    ├─ triage resolved + later release approval -> only then evaluate Phase2 release
+  │    └─ candidate repair/removal required -> preserve raw return and stop for a new approved task
+  └─ mapping / expected contract remain closed during triage
 
 未来在独立审批下：
 A/B -> agreement -> adjudication -> 72 GT

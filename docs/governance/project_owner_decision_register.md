@@ -1313,3 +1313,22 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Canonical records: `OR-041`, `REL-2026-0046`,
   [documentation closeout contract](../research/stage6_1_hidden_knowledge_poisoning/documentation_separation_contract.md) and
   [canonical lessons](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md).
+
+## PODR-080: Pilot4 External Phase1 Raw Return Lock and Candidate-Defect Triage Gate
+
+- Date: `2026-09-02`.
+- Owner authorization: ingest the supplied external Phase1 CSV copies, verify transport identity, preserve the exact raw bytes, and
+  perform schema/72-ID/enum/conditional-reason validation plus descriptive Phase1-only QA.
+- Raw evidence identity: the actual E-drive source is `PILOT4_EXTERNAL_BLIND_PHASE1_RETURN(1).csv`; the contract example without
+  suffix is absent and must not be invented. Three available copies are byte-identical at `5001 bytes`, SHA256
+  `59446c4be65b035be29528de81b6b8f8aa4113007df8fcac962fe4058a889261`.
+- Triage decision: five rows with `phase1_issue != NONE` require a blind-ID-only Owner disposition before Phase2. Add the sixth
+  release fact `PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED`; it is currently false while the original five return-lock facts are true.
+- Blindness boundary: identity mapping and expected contract remain closed; raw return is immutable; Codex must not auto-correct,
+  re-label or attribute any candidate disposition to the Owner.
+- Current status: `PILOT4_EXTERNAL_BLIND_PHASE1_RETURN_LOCKED / OWNER_DEFECT_TRIAGE_PENDING / PHASE2_WITHHELD /
+  NO_HUMAN_DISTRIBUTION`.
+- Prohibited: Phase2 release, mapping unlock, expected comparison, automatic candidate repair, protocol acceptance, A/B, agreement,
+  adjudication, Ground Truth, 240-group, Dataset freeze, Detector, Training, 5090, Formal Experiment or Paper Result. Auto Continue `NO`.
+- Canonical records: `OR-042`, `REL-2026-0047`, [current work state](current_work_state.md) and
+  [canonical lessons](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md).
