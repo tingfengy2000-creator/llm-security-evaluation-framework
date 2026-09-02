@@ -5,7 +5,7 @@
 Document Role = `PAPER1_PRIMARY_HUMAN_ENTRY`<br>
 Audience = `项目负责人 / 导师与领导 / 新团队成员`<br>
 Reading Path = `5 minutes / 15 minutes / 30 minutes`<br>
-Current Evidence Cut = `Attempt2 Phase1 immutable zero-defect return / Candidate Quality Gate pass / Phase2 packet released`<br>
+Current Evidence Cut = `Final Phase2 immutable superseding return / expected comparison / targeted-repair recommendation`<br>
 Last Updated = `2026-09-02`
 
 > 这是一张“项目地图”，不是 raw evidence，也不产生新授权。读完第 0 节可掌握当前状态；读到第 8 节可理解论文方法；
@@ -19,17 +19,17 @@ Last Updated = `2026-09-02`
 | 英文论文题目 | *Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework* |
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
-| 当前阶段 | ⏳ Pilot4 的 fresh Full72 Attempt2 Phase1 已锁定且 72/72 无候选缺陷；Phase2 空白复核包已受控释放给 Owner。 |
-| 当前任务 | `PILOT4-EXTERNAL-BLIND-PHASE1-ATTEMPT2-LOCK-AND-PHASE2-RELEASE-01`：锁定 canonical raw、关闭 Candidate Quality Gate 并释放同一 reviewer 的 Phase2 packet。 |
-| 当前完成度 | ✅ raw SHA/schema/72 IDs/enums/7 reasons 全部通过；六项 release fact 全真；Phase2 72 rows/144 slots QA 通过；⏳ 人工 Phase2 尚未执行。 |
-| 当前唯一人工动作 | 项目负责人回到同一个 Attempt2 reviewer Project/conversation，只发 Phase2 packet Markdown 和 guide Markdown，收回完整 72 行结果。 |
-| 当前主要 blocker | ⏳ `ATTEMPT2_EXTERNAL_PHASE2_RETURN_PENDING`：Phase2 annotation 尚未完成，expected contract 与 mapping 继续关闭。 |
-| 已经可以说什么 | 第一次真实盲审发现五条文本问题并触发修复；fresh final72 重审未再发现 candidate defect，Candidate Text Quality Gate 已关闭。不能说协议或 expected labels 已接受。 |
+| 当前阶段 | ⚠️ Pilot4 最终 Phase2 已锁定并完成 expected comparison；本机建议定向修复，Owner 尚未接受协议。 |
+| 当前任务 | `PILOT4-PHASE2-FINAL-RETURN-LOCK-EXPECTED-COMPARISON-AND-PROTOCOL-ACCEPTANCE-01`：保存两次 Phase2 历史、比较 final72 与 expected contract，并生成协议建议。 |
+| 当前完成度 | ✅ final raw 16321 bytes / SHA `6f6cc042...92f1`、8 列、72/72、enum 与 lock-before-expected 全部通过；Phase1 exact 58/72，Phase2 exact 48/72；43 个 field mismatch 已分类。 |
+| 当前唯一人工动作 | 项目负责人审查并决定：16 条 CURRENT/LEGITIMATE 边界采用哪条冻结规则，以及是否批准 expected/minimum-evidence 与 `BR-18F1D39495` 的追加式定向修复。 |
+| 当前主要 blocker | `OVERALL_FACT_STATUS_CURRENT_VS_LEGITIMATE_BOUNDARY_16_ROWS`，另有 expected/minimum-evidence 定向问题和一条 Evidence Pool 缺陷。 |
+| 已经可以说什么 | 同一 reviewer retry 后 23 条访问限制全部解决；最终 raw 与 expected comparison 均可审计；当前只能说 `RECOMMEND_TARGETED_REPAIR`，不能说协议已接受。 |
 | 绝对不能说什么 | 不得说 Pilot4 已接受、A/B 已开始、72 条已有 Ground Truth、240-group 已生成、Dataset 已冻结、Formal Detector 已实现、检测有效或 Paper Result 已形成。 |
 
 当前实验状态固定为：
 
-`PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_LOCKED / PHASE1_CANDIDATE_QUALITY_GATE_PASS / PHASE2_RELEASED_TO_OWNER_FOR_EXTERNAL_REVIEW / WAITING_FOR_EXTERNAL_PHASE2_RETURN / NO_HUMAN_DISTRIBUTION`
+`PILOT4_FINAL_BLIND_REVIEW_COMPARISON_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY / OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`
 
 保留的历史状态链：`PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT` →
 `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` → `PILOT4_QUALITY_CONVERGED` → Schema V3.1 hardening → 当前外部盲审包状态。历史 package 不被覆盖。
@@ -368,10 +368,11 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 | 2026-09-02 | Paper 1 governance | documentation closeout gap | 代码、测试或 push 完成后，人类总账和控制面文档仍可能停留在旧任务 | 每项 Paper 1 任务强制执行文档收口清单和跨文档陈旧状态门 | ✅ POLICY ACTIVE | [Closeout contract](../documentation_separation_contract.md) |
 | 2026-09-02 | Pilot4 | external Phase1 candidate defects | 外部 blind reviewer 在 Attempt1 的 72 行返回中标记 5 条候选缺上下文、指代模糊或其他局部问题；在处置前释放证据可能把候选缺陷带入 Phase2 | 原始 return 不回写；blind-ID triage、Owner 五项处置、局部修复与 fresh Full72 Attempt2 | ✅ `RESOLVED BY FRESH ATTEMPT2 ZERO-DEFECT RETURN` | [Execution log](../../../governance/research_execution_log.md) |
 | 2026-09-02 | Pilot4 | final-corpus blind review consistency | Owner 接受五项 reviewer issue；若只重标五条并与旧 67 条拼接，会混合不同 corpus/reviewer 的证据 | 五条 source-backed 局部修复；67 条不变；统一 final72 生成 72 个新 ID 与 fresh Full72 Attempt2；Attempt1 永久保留为 defect-discovery evidence | ✅ `ATTEMPT2 PHASE1 LOCKED / PHASE2 RELEASED` | [Execution log](../../../governance/research_execution_log.md) |
+| 2026-09-02 | Pilot4 | final Phase2 expected comparison | 首次返回有 23 条临时访问限制；retry 后全 0，但对比暴露 16 条 primary status 边界、expected/minimum-evidence 问题与一条缺失版本证据 | 两份 raw 分别锁定；raw lock 后才解锁 mapping/expected；生成完整 mismatch taxonomy 和定向修复建议 | ⚠️ `OWNER PROTOCOL ACCEPTANCE PENDING / RECOMMEND TARGETED REPAIR` | [Execution log](../../../governance/research_execution_log.md) |
 
 ## 14. 当前项目状态
 
-- `PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_LOCKED / PHASE1_CANDIDATE_QUALITY_GATE_PASS / PHASE2_RELEASED_TO_OWNER_FOR_EXTERNAL_REVIEW / WAITING_FOR_EXTERNAL_PHASE2_RETURN / NO_HUMAN_DISTRIBUTION`
+- `PILOT4_FINAL_BLIND_REVIEW_COMPARISON_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY / OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`
 - `PREANNOTATION_ONLY`
 - `NO_HUMAN_DISTRIBUTION`
 - `PILOT4_CANDIDATE_CORPUS_POST_EXTERNAL_PHASE1_REPAIR_V1` 已形成 72 条；仍非 Ground Truth、非 Formal Benchmark、非 frozen Dataset。
@@ -381,7 +382,9 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 - Owner 接受五条 issue；五条局部修复的 semantic/source parity 均为 `5/5 PASS`，其余 67 条 candidate text 与源行 byte-identical。
 - Attempt2 使用 72 个新 opaque ID，Attempt1 ID 复用为 0；canonical raw SHA256 为 `1e5e81fe...63c9c5`，schema/72 IDs/
   enums/7 reasons PASS；59 条 NATURAL、13 条 MINOR_ISSUE、7 条局部冲突，且 72/72 `phase1_issue=NONE`。六项 release
-  fact 全部为 true，配套未填写 Phase2 72 行/144 slots 已释放给 Owner；Attempt2 expected comparison 未执行。
+  fact 全部为 true。第一份 Phase2 raw 的 23 条 `SOURCE_UNREACHABLE` 作为过程证据保留；同一 reviewer retry 的 final raw
+  将其降为 0，并以 `16321 bytes` / SHA `6f6cc042...92f1` 锁定。raw-lock-before-expected PASS；Phase1/Phase2 exact 分别
+  `58/72` 与 `48/72`。43 个 mismatch 的 taxonomy 为 M1=13、M2=16、M4=3、M5=6、M8=4、M9=1。
 - A/B 未开始；72 Ground Truth 未建立；240-group 未开始；Dataset = `NOT FROZEN`（未冻结）。
 - Formal Detector = `NOT IMPLEMENTED`（未实现）；Formal Experiment = `NOT STARTED`（未开始）；Our Method Result = `NONE`。
 
@@ -389,10 +392,9 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 
 ## 15. 当前下一步
 
-唯一当前动作：**Owner 回到同一个 `P1-Pilot4-External-Blind-Review-R2` Project 和
-`Pilot4 External Blind Review — Phase1 Final` conversation，只发送 Git-external Attempt2 release 中的
-`PILOT4_EXTERNAL_BLIND_PHASE2_ATTEMPT2_PACKET.md` 与 `PILOT4_EXTERNAL_BLIND_PHASE2_ATTEMPT2_GUIDE.md`，完成并返回 72 行
-Phase2 结果**。Phase1 已 locked，不得修改、重新解释或覆盖；mapping 与 expected contract 继续关闭。
+唯一当前动作：**Owner 审查 acceptance evidence，冻结 `CURRENTLY_CONSISTENT` 与
+`LEGITIMATE_VERSION_OR_HISTORY` 的边界，并决定是否批准对 expected/minimum-evidence cases 和 `BR-18F1D39495` 执行
+追加式定向修复**。当前不得写 `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED`；即使未来修复通过，A/B 仍需单独审批。
 
 ```text
 Attempt1 (immutable defect-discovery evidence)

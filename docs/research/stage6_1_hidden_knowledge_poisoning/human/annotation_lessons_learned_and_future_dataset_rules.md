@@ -338,3 +338,20 @@ Attempt2 的 fresh Full72 return 现为该临时规则新增支持证据：final
 Candidate Text Quality Gate 可以关闭，并按照同一 annotator、locked Phase1、再释放 Phase2 的顺序继续。该结果只说明
 候选文本缺陷门通过，不是 expected-label accuracy、annotation protocol 或正式数据集验收；本规则继续保持
 `PROVISIONAL_PENDING_PILOT4_FINAL_ACCEPTANCE`，不得提前提升为 Accepted Lesson。
+
+## 二十、在线链接重试、原始返回先锁定和标签边界审计（临时规则）
+
+Pilot4 最终第二阶段提供三项新增但尚未最终验收的经验。第一，同一复核人的 `SOURCE_UNREACHABLE` 从 23 降为 0，说明
+外部环境单次打不开在线官方链接，不能直接推断链接已经失效或指定证据无效；未来仍应同时保存链接来源信息与冻结证据
+快照，以降低工具或环境瞬时访问差异带来的影响。第二，盲审原始返回必须在身份映射和预期答案合同之前完成物理锁定，
+并保存可核验的时间顺序；只有这样，后续对比才不会反向污染复核人返回。第三，预期答案合同不是绝对真理，系统性分歧
+必须检查标注指南边界、证据充分性和预期答案构造过程，不能批量归因于复核人错误。
+
+本轮 16 条 `CURRENTLY_CONSISTENT` / `LEGITIMATE_VERSION_OR_HISTORY` 主标签分歧说明，“候选只要正确讨论修订或版本演化，
+是否就属于合法版本或历史”尚未形成唯一操作定义；在项目需求提出人冻结边界前，这是
+`GUIDE_AMBIGUITY / SYSTEMIC_PRIMARY_LABEL_BOUNDARY_BLOCKER`。`BR-18F1D39495` 进一步说明，如果指定证据池不支持预期
+命题，应登记证据池或预期答案缺陷，而不是改写复核人的原始返回来通过验收。
+
+本规则当前状态为 `PROVISIONAL_PENDING_PILOT4_FINAL_ACCEPTANCE`。它支持本轮
+`RECOMMEND_TARGETED_REPAIR`，但不得写成已接受的正式标注协议，也不授权 A/B、真值、240 组、数据集冻结、检测器、训练
+或正式实验。

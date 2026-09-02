@@ -1378,3 +1378,26 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   adjudication、Ground Truth、240-group、Dataset freeze、Detector、Training、5090、Formal Experiment or Paper Result. Auto Continue `NO`.
 - Canonical records: `OR-044`, `REL-2026-0049`, [current work state](current_work_state.md) and Git-external
   `paper1_pilot4_external_blind_phase1_attempt2_return_20260902`.
+
+## PODR-083: Pilot4 Final Phase2 Superseding Return and Controlled Expected Comparison
+
+- Date: `2026-09-02`.
+- Owner decision: the prior 23-row snapshot-rescue task is withdrawn and must not execute. Preserve the first Phase2 return at
+  SHA256 `d7aed1b2...f6cd` as access-limited process evidence, not final analysis；use the same-reviewer retry return only after exact
+  `16321 bytes` / SHA256 `6f6cc042...92f1` validation and immutable raw lock.
+- Blindness statement: no reviewer interaction transcript independently proves scope, so record
+  `FINAL_REVIEWER_EXPECTED_BLINDNESS=OWNER_ATTESTED_FROM_REVIEW_CONTEXT`; the reviewer was instructed to retry supplied Evidence
+  URLs, not to obtain hidden labels or expected answers. No Evidence-Pool-external formal source use was detected.
+- Controlled unlock: only after raw hash/schema/72 IDs/enums/immutability pass may the Final72 mapping and post-repair expected
+  contract load. Mapping authorization is Final72-only；expected values never automatically override the reviewer.
+- First/final disposition: all 23 first-return `SOURCE_UNREACHABLE` rows changed and final unreachable count is 0；two further
+  refinement rows are `BR-46BC044669` and `BR-C27BF02D5F`. First raw remains immutable and is excluded from final agreement.
+- Acceptance boundary: Codex may produce only `PROTOCOL_ACCEPTANCE_RECOMMENDATION`。The evidence-based result is
+  `RECOMMEND_TARGETED_REPAIR` because a 16-row primary-status guide boundary、six likely expected-contract field defects、four
+  minimum-evidence contract cases and the `BR-18F1D39495` Evidence Pool defect remain. This is not Owner protocol acceptance.
+- Current status: `PILOT4_FINAL_BLIND_REVIEW_COMPARISON_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
+  OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`.
+- Prohibited: auto-writing `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED`、A/B distribution、Ground Truth、240-group、Dataset freeze、
+  Detector、Training、5090、Formal Experiment or Paper Result. Auto Continue `NO`.
+- Canonical records: `OR-045`, `REL-2026-0050`, [current work state](current_work_state.md) and Git-external
+  `paper1_pilot4_phase2_final_expected_comparison_20260902`.

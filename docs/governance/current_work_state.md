@@ -16,36 +16,38 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `PILOT4-EXTERNAL-BLIND-PHASE1-ATTEMPT2-LOCK-AND-PHASE2-RELEASE-01`.
-- Task name: `Pilot4 External Blind Phase1 Attempt2 Final Return Lock, Zero-defect Closure and Controlled Phase2 Release`.
-- Task type: **IMMUTABLE RETURN LOCK / CANDIDATE QUALITY GATE / CONTROLLED PHASE2 PACKET RELEASE / LOCAL CONTROL PLANE**.
-- Engineering status: **RAW LOCK PASS / SIX RELEASE FACTS TRUE / PHASE2 PACKET QA PASS / PHASE2 ANNOTATION NOT EXECUTED**.
-- Experiment status: **PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_LOCKED / PHASE1_CANDIDATE_QUALITY_GATE_PASS /
-  PHASE2_RELEASED_TO_OWNER_FOR_EXTERNAL_REVIEW / WAITING_FOR_EXTERNAL_PHASE2_RETURN / NO_HUMAN_DISTRIBUTION /
-  PREANNOTATION_ONLY / AUTO_CONTINUE_NO**.
+- Task ID: `PILOT4-PHASE2-FINAL-RETURN-LOCK-EXPECTED-COMPARISON-AND-PROTOCOL-ACCEPTANCE-01`.
+- Task name: `Pilot4 Final Phase2 Superseding Return Lock, Expected-Contract Comparison, Disagreement Taxonomy and
+  Annotation-Protocol Acceptance Evidence`.
+- Task type: **FINAL RAW LOCK / CONTROLLED MAPPING UNLOCK / EXPECTED COMPARISON / PROTOCOL RECOMMENDATION / LOCAL CONTROL PLANE**.
+- Engineering status: **FINAL RAW LOCK PASS / EXPECTED COMPARISON COMPLETE / TAXONOMY COMPLETE / DOCUMENTATION CLOSEOUT PASS**.
+- Experiment status: **PILOT4_FINAL_BLIND_REVIEW_COMPARISON_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
+  OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION / PREANNOTATION_ONLY / AUTO_CONTINUE_NO**.
 - Documentation gate: **PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED / HUMAN_LEDGER_CONTINUOUS_SYNC =
   MANDATORY / TASK_DOCUMENTATION_CLOSEOUT = MANDATORY**. Paper 1 task completion requires execution, tests, evidence,
   documentation closeout and valid Git status; otherwise status is `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING` with
   `TASK_DOCUMENTATION_CLOSEOUT_BLOCKER`.
-- Execution base commit: `bc6c7e85b87f0235621288612367977b1d6181e0`.
+- Execution base commit: `a9d687ece695ab83d3a23906194b930459e2783b`.
 - Candidate source identity: `candidates_v3_1_additive.jsonl` SHA256
   `15500aa75bced9fb470edaac98f9527e7bb4bc689b86583e6f69b892c48eb210`; final additive corpus SHA256
   `f530471ecd6551300d68c8ddf104cadce2305d8ff91e64010be222820628252d`.
 - Execution machine: **本机**. No model load、GPU workload、5090 contact、formal Dataset/Detector/Training or experiment occurred.
-- Current ordered step: Owner returns to the same `P1-Pilot4-External-Blind-Review-R2` Project and the same
-  `Pilot4 External Blind Review — Phase1 Final` conversation, then supplies exactly the released Attempt2 Phase2 packet Markdown
-  plus guide Markdown. Phase1 is locked and must not be modified、reinterpreted or overwritten.
-- Current blocker: `ATTEMPT2_EXTERNAL_PHASE2_RETURN_PENDING`. Phase2 packet release is complete, but Phase2 annotation has not been
-  executed and no Phase2 raw return exists.
+- Current ordered step: Owner reviews the acceptance evidence and chooses a repair policy for the 16-row primary-status boundary,
+  the identified expected/minimum-evidence cases and `BR-18F1D39495`. Only after additive repair and targeted validation may Owner
+  explicitly accept the protocol；A/B execution requires another separate approval.
+- Current blockers: `OVERALL_FACT_STATUS_CURRENT_VS_LEGITIMATE_BOUNDARY_16_ROWS`、
+  `EXPECTED_CONTRACT_TARGETED_REPAIR_REQUIRED`、`MINIMUM_EVIDENCE_CONTRACT_REVIEW_REQUIRED` and
+  `BR-18F1D39495_EVIDENCE_POOL_DESIGN_DEFECT`.
 - Pilot4 lesson status: `PROVISIONAL_PENDING_FINAL_ACCEPTANCE`. Promotion to `ACCEPTED_LESSON` is permitted only in a future task that
   records `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` and executes `PILOT4_PROTOCOL_LESSON_PROMOTION`.
 - Combined-packet correction: the `5d6b4b5` combined packet is preserved unchanged as
   `COMBINED_PACKET_ENGINEERING_ARTIFACT / NOT_APPROVED_FOR_BLIND_SEMANTIC_REVIEW` and
   `SUPERSEDED_FOR_REVIEW_BY_PHASE_SEPARATED_PROTOCOL`. Evidence being present in one LLM context breaks strict Phase1 blindness;
   a behavioral “do not read yet” instruction is not structural separation.
-- Attempt2 release gate: `PHASE1_RETURN_RECEIVED`, `PHASE1_RETURN_SCHEMA_VALID`, `PHASE1_RETURN_72_72`,
-  `PHASE1_RETURN_HASH_LOCKED`, `PHASE1_RETURN_IMMUTABLE` and `PHASE1_CANDIDATE_DEFECT_TRIAGE_RESOLVED` are all true. Phase2 packet
-  release is approved only for the same external reviewer；Attempt2 expected comparison remains unauthorized.
+- Attempt2 final comparison facts: first Phase2 raw SHA256 `d7aed1b2...f6cd` remains immutable process evidence；final Phase2 raw is
+  `16321 bytes` / SHA256 `6f6cc042...92f1` and supersedes it for analysis. Raw lock preceded mapping/expected load；mapping and final
+  corpus parity are 72/72；Phase1 exact is 58/72 and Phase2 exact is 48/72. This comparison authorization is consumed and does not
+  authorize protocol acceptance or A/B.
 - Attempt1 history: raw bytes `5001`, SHA256 `59446c4be65b035be29528de81b6b8f8aa4113007df8fcac962fe4058a889261`；
   exact five-column schema、72/72 opaque IDs、enums and conditional reasons passed. Owner accepted all five blind-level issues and
   required local repair. Attempt1 remains `VALID_DEFECT_DISCOVERY_REVIEW / NOT_FINAL_CORPUS_ACCEPTANCE_REVIEW` and all files are
@@ -100,9 +102,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PODR-057` and `PODR-058`.
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
-- S6.1-P1: **PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_LOCKED / PHASE1_CANDIDATE_QUALITY_GATE_PASS /
-  PHASE2_RELEASED_TO_OWNER_FOR_EXTERNAL_REVIEW / WAITING_FOR_EXTERNAL_PHASE2_RETURN / NO_HUMAN_DISTRIBUTION / PREANNOTATION_ONLY /
-  NOT FORMAL_EXPERIMENT**.
+- S6.1-P1: **PILOT4_FINAL_BLIND_REVIEW_COMPARISON_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
+  OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION / PREANNOTATION_ONLY / NOT FORMAL_EXPERIMENT**.
 - S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
 - S6.1-P1-PILOT1: **HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED**.
 - Historical S6.1-P1-PILOT1: **COMPLETED_PENDING_REVIEW / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY**；superseded by OR-024.
@@ -118,9 +119,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - PILOT3: **ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY / STOPPED**.
 - Historical PILOT4 first preflight: **OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / a843697 EVIDENCE PRESERVED**.
 - Historical PILOT4 second preflight: **SECOND_OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / cad3b2b EVIDENCE PRESERVED**.
-- PILOT4: **PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_LOCKED / PHASE1_CANDIDATE_QUALITY_GATE_PASS /
-  PHASE2_RELEASED_TO_OWNER_FOR_EXTERNAL_REVIEW / WAITING_FOR_EXTERNAL_PHASE2_RETURN / PREANNOTATION_ONLY /
-  NO_HUMAN_DISTRIBUTION**.
+- PILOT4: **PILOT4_FINAL_BLIND_REVIEW_COMPARISON_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
+  RECOMMEND_TARGETED_REPAIR / OWNER_PROTOCOL_ACCEPTANCE_PENDING / PREANNOTATION_ONLY / NO_AB_DISTRIBUTION**.
 - PILOT4 candidates: **PILOT4_CANDIDATE_CORPUS_POST_EXTERNAL_PHASE1_REPAIR_V1 / 72 PREANNOTATION_CANDIDATES /
   NOT GROUND TRUTH / NOT FORMAL BENCHMARK / NOT FROZEN DATASET**.
 - PAPER1_FORMAL_DOMAIN_SET: **OWNER_CONFIRMED / ENTERPRISE_HR / FINANCE / INFORMATION_SECURITY /
@@ -359,7 +359,8 @@ are established.
 ## Last Update
 
 - Date: `2026-09-02`.
-- Updated by: 本机 executing `PILOT4-EXTERNAL-BLIND-PHASE1-ATTEMPT2-LOCK-AND-PHASE2-RELEASE-01 / REL-2026-0049`.
-  Attempt2 raw return is immutable and valid；all 72 rows report no candidate defect, all six release facts are true, and the unfilled
-  Phase2 packet is released to Owner for the same external reviewer. Mapping/expected contract remain closed；Phase2 annotation、A/B、
-  Dataset freeze、240-group、Detector/Training、5090、Formal Experiment and Paper Result remain unapproved/unstarted；Auto Continue = `NO`.
+- Updated by: 本机 executing `PILOT4-PHASE2-FINAL-RETURN-LOCK-EXPECTED-COMPARISON-AND-PROTOCOL-ACCEPTANCE-01 /
+  REL-2026-0050`。First/final Phase2 returns are separately immutable；final raw validation and lock-before-expected order passed；
+  controlled mapping/expected comparison completed with no raw or expected-source rewrite。Codex recommendation is
+  `RECOMMEND_TARGETED_REPAIR`；Owner protocol acceptance、A/B、Dataset freeze、240-group、Detector/Training、5090、Formal
+  Experiment and Paper Result remain unapproved/unstarted；Auto Continue = `NO`.

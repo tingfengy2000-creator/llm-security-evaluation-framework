@@ -13,6 +13,7 @@ from llmguard.domains.retrieval.hidden_poisoning.external_blind_review import (
     PHASE1_RETURN_FIELDS,
     PHASE2_FIELDS,
     PHASE2_RELEASE_REQUIREMENTS,
+    PHASE2_RETURN_FIELDS,
     assert_phase2_release_allowed,
     TITLE_ORIGINS,
     adjacent_same_group_count,
@@ -23,11 +24,13 @@ from llmguard.domains.retrieval.hidden_poisoning.external_blind_review import (
     extract_html_title,
     lexical_duplicate_qa,
     lock_phase1_raw_return,
+    lock_phase2_raw_return,
     order_profile,
     validate_packet_rows,
     validate_phase1_packet_rows,
     validate_phase1_raw_return,
     validate_phase2_packet_rows,
+    validate_phase2_raw_return,
 )
 from scripts.research.lock_pilot4_external_phase1_return import (
     build as build_phase1_return_lock,
@@ -602,6 +605,56 @@ def test_phase1_return_rejects_missing_conditionally_required_reason() -> None:
     ids = [str(row["blind_review_id"]) for row in _phase1_rows()]
     with pytest.raises(ValueError, match="PHASE1_RETURN_REASON_BLOCKER"):
         validate_phase1_raw_return(text.encode("utf-8"), ids)
+
+
+def _phase2_return_bytes() -> bytes:
+    rows = _phase1_rows()
+    stream = StringIO()
+    writer = csv.DictWriter(stream, fieldnames=PHASE2_RETURN_FIELDS)
+    writer.writeheader()
+    for index, packet_row in enumerate(rows):
+        writer.writerow(
+            {
+                "blind_review_id": str(packet_row["blind_review_id"]),
+                "overall_fact_status": (
+                    "FACTUAL_CONFLICT" if index == 0 else "CURRENTLY_CONSISTENT"
+                ),
+                "version_claim_status": (
+                    "PRESENT_INCORRECT" if index == 0 else "NOT_PRESENT"
+                ),
+                "authority_claim_status": "NOT_PRESENT",
+                "minimum_external_evidence_needed": (
+                    "ONE_OFFICIAL_EVIDENCE" if index == 0 else "NOT_APPLICABLE"
+                ),
+                "evidence_selection": "E1" if index == 0 else "NONE",
+                "phase2_issue": "NONE",
+                "phase2_reason": "reviewer reason" if index == 0 else "",
+            }
+        )
+    return stream.getvalue().encode("utf-8")
+
+
+def test_phase2_return_is_validated_and_byte_locked(tmp_path: Path) -> None:
+    ids = [str(row["blind_review_id"]) for row in _phase1_rows()]
+    raw = _phase2_return_bytes()
+    validation = validate_phase2_raw_return(raw, ids)
+    destination = tmp_path / "PILOT4_EXTERNAL_BLIND_PHASE2_RETURN.csv"
+    digest = lock_phase2_raw_return(raw, ids, destination)
+
+    assert validation["status"] == "PASS"
+    assert validation["row_count"] == 72
+    assert validation["invalid_enum_count"] == 0
+    assert destination.read_bytes() == raw
+    assert digest in destination.with_suffix(".csv.sha256").read_text(encoding="utf-8")
+    with pytest.raises(FileExistsError, match="LOCK_ALREADY_EXISTS"):
+        lock_phase2_raw_return(raw, ids, destination)
+
+
+def test_phase2_return_rejects_invalid_enum() -> None:
+    ids = [str(row["blind_review_id"]) for row in _phase1_rows()]
+    raw = _phase2_return_bytes().replace(b"CURRENTLY_CONSISTENT", b"UNKNOWN", 1)
+    with pytest.raises(ValueError, match="PHASE2_RETURN_ENUM_BLOCKER"):
+        validate_phase2_raw_return(raw, ids)
 
 
 def test_phase1_return_lock_builds_blind_only_defect_gate(tmp_path: Path) -> None:

@@ -1774,3 +1774,46 @@ Approval Gate、Auto Continue。
     `README_condition_evaluated=true`（first-screen current entry changed，updated）。
   - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
     `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.
+
+## REL-2026-0050 — Pilot4 Final Phase2 Lock, Expected Comparison and Protocol Recommendation
+
+- Record ID: `REL-2026-0050`; date `2026-09-02`; task
+  `PILOT4-PHASE2-FINAL-RETURN-LOCK-EXPECTED-COMPARISON-AND-PROTOCOL-ACCEPTANCE-01`; machine `本机 / LOCAL_CONTROL_PLANE`；
+  execution base `a9d687ece695ab83d3a23906194b930459e2783b`; Owner authority `PODR-083 / OR-045`.
+- Interrupted recovery: the previous 23-row snapshot-rescue task was Owner-withdrawn。No rescue evidence existed；its rescue script was
+  removed, while the generic Phase2 validator was retained and rebased into this task. No unknown evidence was deleted or disguised
+  as completed.
+- Raw preservation: first return is `15985 bytes` / SHA256 `d7aed1b2cdf0f7740404c527466d13507e6e06d9b4c34424d279a7c6ee88f6cd` and remains
+  `INTERMEDIATE_REVIEWER_ACCESS_LIMITED_RETURN / VALID_PROCESS_EVIDENCE / NOT_FINAL_PHASE2_ANALYSIS_RETURN`。Final return is
+  `16321 bytes` / SHA256 `6f6cc042bd3f85a42ae5bf4f425df9c994eae1d230a13caf0e0a625de04792f1` and passes exact 8-column、72/72 ID、enum and immutable-copy gates.
+- Process diff: 25 changed rows；all 23 prior `SOURCE_UNREACHABLE` rows changed and final unreachable is 0；two additional refinements
+  are `BR-46BC044669` and `BR-C27BF02D5F`。The first return remains excluded from final agreement.
+- Order proof: final raw lock timestamp `2026-09-02T13:32:48.640267Z` is earlier than controlled mapping/expected load timestamp
+  `2026-09-02T13:42:28.686442Z`. Mapping SHA256 is `25041576...68751` with 72/72 parity；final corpus SHA256 is
+  `f530471e...8252d`；expected source SHA256 is `de5e20a0...cdc03`；five repair records all preserve expected labels.
+- Comparison: Phase1 exact relevant-field agreement is `58/72`；naturalness 59/72 is QC only, local conflict 71/72, issue 72/72。
+  Phase2 exact is `48/72`；overall 55/72, version 70/72, authority 68/72, minimum evidence 67/72 and issue 71/72。
+  `evidence_selection` remains descriptive only and receives no fabricated accuracy score.
+- Taxonomy: 43 field mismatches = M1 13、M2 16、M4 3、M5 6、M8 4、M9 1。Evidence-level refinement preserved all raw and
+  expected-source hashes。The 16 primary-status rows constitute a systemic `CURRENTLY_CONSISTENT` versus
+  `LEGITIMATE_VERSION_OR_HISTORY` guide boundary；likely expected-contract defects and four S3/minimum cases require additive review.
+- Special case: `BR-18F1D39495` is `B / EVIDENCE_POOL_DESIGN_DEFECT`。The frozen supplied items do not state the candidate's 2014
+  amendment proposition, so `INSUFFICIENT_EVIDENCE` is reasonable and expected does not automatically win.
+- Recommendation/final status: `RECOMMEND_TARGETED_REPAIR`；
+  `PILOT4_FINAL_BLIND_REVIEW_COMPARISON_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
+  OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`。No A/B、GT、240-group、Dataset freeze、Detector/Training、5090、
+  Formal Experiment or Paper Result occurred.
+- Owner next action: review the acceptance evidence, freeze the primary-status boundary, and either authorize additive targeted repair
+  of the listed guide/expected/evidence cases or return a different explicit disposition. Protocol acceptance and A/B remain separate gates.
+- `DOCUMENTATION_CLOSEOUT_CHECKLIST`:
+  - `human_ledger_checked=true`; `human_ledger_updated_if_required=true`; `agent_ledger_checked=true`;
+    `agent_ledger_updated=true`; `current_work_state_updated=true`; `execution_log_appended=true`.
+  - `experiment_master_condition_evaluated=true`（comparison evidence and gate changed，updated）；
+    `owner_decision_condition_evaluated=true`（new controlled unlock and recommendation boundary，updated）；
+    `stage_process_condition_evaluated=true`（Phase2 comparison step，updated）；
+    `lessons_condition_evaluated=true`（access retry、lock-before-expected and label-boundary lessons remain provisional，updated）。
+  - `project_master_condition_evaluated=true`（current project status changed，updated）；
+    `research_authority_condition_evaluated=true`（frozen research contract unchanged，not modified）；
+    `README_condition_evaluated=true`（first-screen current state changed，updated）。
+  - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
+    `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.

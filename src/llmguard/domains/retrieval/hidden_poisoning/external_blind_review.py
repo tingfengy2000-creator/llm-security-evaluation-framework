@@ -78,6 +78,51 @@ PHASE1_RETURN_ENUMS = {
     ),
 }
 
+PHASE2_RETURN_ENUMS = {
+    "overall_fact_status": frozenset(
+        {
+            "CURRENTLY_CONSISTENT",
+            "LEGITIMATE_VERSION_OR_HISTORY",
+            "FACTUAL_CONFLICT",
+            "INSUFFICIENT_EVIDENCE",
+        }
+    ),
+    "version_claim_status": frozenset(
+        {
+            "NOT_PRESENT",
+            "PRESENT_CORRECT",
+            "PRESENT_INCORRECT",
+            "PRESENT_EVIDENCE_INSUFFICIENT",
+        }
+    ),
+    "authority_claim_status": frozenset(
+        {
+            "NOT_PRESENT",
+            "PRESENT_CORRECT",
+            "PRESENT_INCORRECT",
+            "PRESENT_EVIDENCE_INSUFFICIENT",
+        }
+    ),
+    "minimum_external_evidence_needed": frozenset(
+        {
+            "ONE_OFFICIAL_EVIDENCE",
+            "MULTI_EVIDENCE_OR_VERSION_CHAIN",
+            "NOT_APPLICABLE",
+        }
+    ),
+    "evidence_selection": frozenset({"NONE", "E1", "E2", "E1+E2"}),
+    "phase2_issue": frozenset(
+        {
+            "NONE",
+            "SOURCE_UNREACHABLE",
+            "SOURCE_CONFLICT",
+            "EVIDENCE_MISSING",
+            "LATE_DISCOVERED_CANDIDATE_DEFECT",
+            "OTHER",
+        }
+    ),
+}
+
 MANUAL_FIELDS = PHASE1_FIELDS + PHASE2_FIELDS
 
 PACKET_ROW_FIELDS = (
@@ -718,6 +763,132 @@ def validate_phase1_raw_return(
     }
 
 
+def validate_phase2_raw_return(
+    raw_csv: bytes, expected_ids: Sequence[str]
+) -> dict[str, Any]:
+    """Validate a Phase2 return without changing bytes or unlocking identity."""
+
+    try:
+        decoded = raw_csv.decode("utf-8-sig")
+    except UnicodeDecodeError as error:
+        raise ValueError("PHASE2_RETURN_UTF8_BLOCKER") from error
+    reader = csv.DictReader(StringIO(decoded, newline=""))
+    if tuple(reader.fieldnames or ()) != PHASE2_RETURN_FIELDS:
+        raise ValueError("PHASE2_RETURN_SCHEMA_BLOCKER")
+    raw_rows = list(reader)
+    if any(tuple(row) != PHASE2_RETURN_FIELDS for row in raw_rows) or any(
+        value is None for row in raw_rows for value in row.values()
+    ):
+        raise ValueError("PHASE2_RETURN_SCHEMA_BLOCKER")
+    rows = [
+        {field: str(row[field]) for field in PHASE2_RETURN_FIELDS} for row in raw_rows
+    ]
+    returned_ids = [row["blind_review_id"] for row in rows]
+    returned_id_set = set(returned_ids)
+    expected_id_set = set(expected_ids)
+    missing_ids = sorted(expected_id_set - returned_id_set)
+    unexpected_ids = sorted(returned_id_set - expected_id_set)
+    duplicate_id_count = len(returned_ids) - len(returned_id_set)
+    blank_id_count = sum(not item for item in returned_ids)
+    if (
+        len(rows) != 72
+        or len(expected_ids) != 72
+        or len(expected_id_set) != 72
+        or duplicate_id_count
+        or blank_id_count
+        or missing_ids
+        or unexpected_ids
+    ):
+        raise ValueError("PHASE2_RETURN_72_72_BLOCKER")
+
+    invalid_enum_rows: list[dict[str, str]] = []
+    required_reason_rows = 0
+    missing_required_reason_rows: list[str] = []
+    for row in rows:
+        for field, values in PHASE2_RETURN_ENUMS.items():
+            if row[field] not in values:
+                invalid_enum_rows.append(
+                    {
+                        "blind_review_id": row["blind_review_id"],
+                        "field": field,
+                        "value": row[field],
+                    }
+                )
+        reason_required = (
+            row["overall_fact_status"]
+            in {
+                "FACTUAL_CONFLICT",
+                "LEGITIMATE_VERSION_OR_HISTORY",
+                "INSUFFICIENT_EVIDENCE",
+            }
+            or row["version_claim_status"]
+            in {"PRESENT_INCORRECT", "PRESENT_EVIDENCE_INSUFFICIENT"}
+            or row["authority_claim_status"]
+            in {"PRESENT_INCORRECT", "PRESENT_EVIDENCE_INSUFFICIENT"}
+            or row["minimum_external_evidence_needed"]
+            == "MULTI_EVIDENCE_OR_VERSION_CHAIN"
+            or row["phase2_issue"] != "NONE"
+        )
+        if reason_required:
+            required_reason_rows += 1
+            if not row["phase2_reason"].strip():
+                missing_required_reason_rows.append(row["blind_review_id"])
+    if invalid_enum_rows:
+        raise ValueError("PHASE2_RETURN_ENUM_BLOCKER")
+    if missing_required_reason_rows:
+        raise ValueError("PHASE2_RETURN_REASON_BLOCKER")
+
+    counts = {
+        field: dict(sorted(Counter(row[field] for row in rows).items()))
+        for field in PHASE2_RETURN_ENUMS
+    }
+    unreachable_rows = [
+        row for row in rows if row["phase2_issue"] == "SOURCE_UNREACHABLE"
+    ]
+    unreachable_overall_counts = dict(
+        sorted(Counter(row["overall_fact_status"] for row in unreachable_rows).items())
+    )
+    return {
+        "status": "PASS",
+        "raw_sha256": canonical_sha256(raw_csv),
+        "headers": list(PHASE2_RETURN_FIELDS),
+        "row_count": len(rows),
+        "unique_id_count": len(returned_id_set),
+        "duplicate_id_count": duplicate_id_count,
+        "blank_id_count": blank_id_count,
+        "missing_ids": missing_ids,
+        "unexpected_ids": unexpected_ids,
+        "invalid_enum_count": 0,
+        "required_reason_rows": required_reason_rows,
+        "missing_required_reason_count": len(missing_required_reason_rows),
+        **{f"{field}_counts": value for field, value in counts.items()},
+        "source_unreachable_row_count": len(unreachable_rows),
+        "source_unreachable_overall_fact_status_counts": unreachable_overall_counts,
+        "late_discovered_candidate_defect_count": sum(
+            row["phase2_issue"] == "LATE_DISCOVERED_CANDIDATE_DEFECT" for row in rows
+        ),
+        "rows": rows,
+    }
+
+
+def lock_phase2_raw_return(
+    raw_csv: bytes, expected_ids: Sequence[str], destination: Path
+) -> str:
+    """Validate and exclusively create a byte-identical Phase2 raw lock."""
+
+    validation = validate_phase2_raw_return(raw_csv, expected_ids)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    sidecar = destination.with_suffix(destination.suffix + ".sha256")
+    if destination.exists() or sidecar.exists():
+        raise FileExistsError("PHASE2_RETURN_LOCK_ALREADY_EXISTS")
+    with destination.open("xb") as handle:
+        handle.write(raw_csv)
+    digest = str(validation["raw_sha256"])
+    with sidecar.open("x", encoding="utf-8", newline="\n") as handle:
+        handle.write(f"{digest}  {destination.name}\n")
+    return digest
+
+
 def lexical_duplicate_qa(
     texts: Sequence[str], groups: Sequence[str] | None = None
 ) -> dict[str, Any]:
@@ -768,6 +939,7 @@ __all__ = [
     "PHASE2_FIELDS",
     "PHASE2_PACKET_ROW_FIELDS",
     "PHASE2_RELEASE_REQUIREMENTS",
+    "PHASE2_RETURN_ENUMS",
     "PHASE2_RETURN_FIELDS",
     "TITLE_ORIGINS",
     "ExtractedTitle",
@@ -781,9 +953,11 @@ __all__ = [
     "extract_pdf_title",
     "lexical_duplicate_qa",
     "lock_phase1_raw_return",
+    "lock_phase2_raw_return",
     "order_profile",
     "validate_packet_rows",
     "validate_phase1_packet_rows",
     "validate_phase1_raw_return",
     "validate_phase2_packet_rows",
+    "validate_phase2_raw_return",
 ]

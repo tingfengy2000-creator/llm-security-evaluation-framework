@@ -1,5 +1,27 @@
 # LLMGuard 项目总控文档
 
+## PILOT4 Final Phase2 锁定、Expected 对比与协议建议（2026-09-02）
+
+项目需求提出人授权 `PILOT4-PHASE2-FINAL-RETURN-LOCK-EXPECTED-COMPARISON-AND-PROTOCOL-ACCEPTANCE-01`。上一条
+23-row snapshot rescue 任务已撤回且未形成 evidence；本轮不执行 snapshot rescue。第一份 Phase2 返回按原始 SHA256
+`d7aed1b2...f6cd` 永久保留为 `INTERMEDIATE_REVIEWER_ACCESS_LIMITED_RETURN / VALID_PROCESS_EVIDENCE /
+NOT_FINAL_PHASE2_ANALYSIS_RETURN`。最终返回为 `16321 bytes`、SHA256 `6f6cc042...92f1`，8 列、72/72 IDs、枚举与 raw
+immutable lock 全部通过；23 条 `SOURCE_UNREACHABLE` 在同一 reviewer retry 后全部降为 0，另有 2 条 process refinement。
+
+最终 raw lock 时间 `2026-09-02T13:32:48.640267Z` 早于 mapping/expected load 时间
+`2026-09-02T13:42:28.686442Z`。受 Owner 限定授权后，Attempt2 mapping 以 72/72 解锁；final corpus SHA256
+`f530471e...8252d` 与 post-repair V1 一致，五条候选修复均有 `owner_or_expected_label_changed=false` 绑定。Phase1 exact
+relevant-field agreement 为 `58/72`（naturalness 仅 QC）；Phase2 为 `48/72`。43 个 field mismatch 的最终 taxonomy 为
+M1=13、M2=16、M4=3、M5=6、M8=4、M9=1。
+
+本机建议 `RECOMMEND_TARGETED_REPAIR`，不是协议接受：16 条 primary status 显示
+`CURRENTLY_CONSISTENT` 与 `LEGITIMATE_VERSION_OR_HISTORY` 的系统性 guide boundary；另有 expected-contract 与
+minimum-evidence 定向问题。`BR-18F1D39495` 的指定 Evidence Pool 无法支持“2014 年修正”，分类为
+`EVIDENCE_POOL_DESIGN_DEFECT`，expected 不自动胜出。当前状态为
+`PILOT4_FINAL_BLIND_REVIEW_COMPARISON_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
+OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`。正式 A/B、Ground Truth、240-group、Dataset freeze、Detector、
+Training、5090、Formal Experiment 与 Paper Result 均未获批准。
+
 ## PILOT4 Phase1 Attempt2 锁定与 Phase2 受控释放（2026-09-02）
 
 项目需求提出人授权 `PILOT4-EXTERNAL-BLIND-PHASE1-ATTEMPT2-LOCK-AND-PHASE2-RELEASE-01`。本机对 canonical

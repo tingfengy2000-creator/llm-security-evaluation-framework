@@ -1,10 +1,11 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`PILOT4_EXTERNAL_BLIND_PHASE1_ATTEMPT2_LOCKED / PHASE1_CANDIDATE_QUALITY_GATE_PASS /
-> PHASE2_RELEASED_TO_OWNER_FOR_EXTERNAL_REVIEW / WAITING_FOR_EXTERNAL_PHASE2_RETURN / NO_HUMAN_DISTRIBUTION`。Attempt2 canonical
-> raw return 已按字节锁定，72/72 candidate issue 为 NONE，六项 Phase1 release fact 全部通过；mapping 与 expected contract
-> 仍关闭。唯一当前动作是项目负责人回到同一个 Attempt2 reviewer Project/conversation，仅发送已释放的 Phase2 packet 与
-> guide，等待真实 Phase2 return。72 条候选仍无 Ground Truth；240-group、
+> 当前实验状态：`PILOT4_FINAL_BLIND_REVIEW_COMPARISON_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
+> OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`。第一份 access-limited Phase2 raw 与最终 superseding raw 已分别
+> 按原字节锁定；同一 reviewer retry 后 23 条 `SOURCE_UNREACHABLE` 全部解决。raw lock 先于 mapping/expected load，
+> Phase1 exact 为 58/72，Phase2 exact 为 48/72。本机只建议 `RECOMMEND_TARGETED_REPAIR`：16 条 primary-label guide
+> boundary、expected/minimum-evidence 定向问题及 `BR-18F1D39495` Evidence Pool 缺陷尚待 Owner 决策。72 条候选仍无
+> Ground Truth；240-group、
 > Dataset freeze、Formal Detector、Training、5090、Formal Experiment 和 Paper Result 均未开始。
 > `FORMAL_EXPERIMENT = NOT STARTED`；`DATASET_FORMAL_FREEZE = NOT STARTED`。
 
@@ -41,7 +42,7 @@
 - [S6.1-LR1](stage_process/S6.1-LR1_work_process.md) — 路线与 baseline alignment，已关闭。
 - [S6.1-R0](stage_process/S6.1-R0_work_process.md) — 工程预检，已按边界验收。
 - [S6.1-R0-FU1](stage_process/S6.1-R0-FU1_work_process.md) — W2 单样本工程可行性，已关闭。
-- [S6.1-P1](stage_process/S6.1-P1_work_process.md) — P1-R1、Pilot0–4 的追加式过程；当前等待外部标签盲法 Owner/GPT review return。
+- [S6.1-P1](stage_process/S6.1-P1_work_process.md) — P1-R1、Pilot0–4 的追加式过程；当前等待 Owner 审查定向修复建议，协议与 A/B 均未接受/批准。
 
 ## Pilot Records
 
