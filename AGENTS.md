@@ -175,17 +175,28 @@ RTX5090 永远仅为 `COMPUTE_WORKER / NO_SELF_APPROVAL_AUTHORITY`。任何新�
 
 ## Completion Protocol
 
-每个任务结束前必须：
+每个任务结束前必须执行 `DOCUMENTATION CLOSEOUT GATE`。Paper 1 任务的完整完成条件永久冻结为
+`EXECUTION_DONE AND TESTS_PASS AND EVIDENCE_RECORDED AND DOCUMENTATION_CLOSEOUT_PASS AND GIT_STATUS_VALID`；缺少文档收口时只能
+报告 `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING`，并登记 `TASK_DOCUMENTATION_CLOSEOUT_BLOCKER`。
+
+每个 Paper 1 任务无论 prompt 是否重复要求，都必须检查并按条件同步
+[Paper 1 Documentation Separation Contract](docs/research/stage6_1_hidden_knowledge_poisoning/documentation_separation_contract.md)
+规定的 Human Ledger、Agent Ledger、Current Work State、Research Execution Log 及条件式文档矩阵。即使任务明确写
+`NO_DOCUMENTATION_CHANGE`，仍须执行条件判断并记录为什么 conditional documents 无需改动；禁止为了制造 diff 机械修改所有文件。
+
+每个任务结束前还必须：
 
 1. 更新 `docs/governance/current_work_state.md`；
 2. 更新 `PROJECT_MASTER_CONTEXT.md` 的状态、结论边界和下一步；
-3. 更新当前 Stage README 和学习笔记；
+3. 根据 closeout matrix 判断当前 Stage README、learning/canonical lessons、Experiment Master、Owner Decision Register、
+   Stage Process 与 Research Plan Authority 是否需要更新；
 4. 运行任务测试、Ruff、MyPy、标签泄漏检查、secret scan 和 runtime Git-ignore 检查；
 5. 创建清晰 commit 并 push；
 6. 确认本地与远端同步、工作树干净；
-7. 执行 `CONTEXT_PERSISTENCE_CHECK`，确认 task/status、批准/禁止项、blocker、next gate、claims、Formal Experiment、
-   Git sync、private evidence hash/index 均可从物理文件恢复；
-8. 完成后暂停，不自动开始下一任务。
+7. 执行 `CONTEXT_PERSISTENCE_CHECK` 和 `PAPER1_DOCUMENT_STALENESS_GATE`，确认 task/status、批准/禁止项、blocker、
+   next gate、claims、Formal Experiment、Git sync、private evidence hash/index 均可从物理文件恢复；
+8. 完成 `DOCUMENTATION_CLOSEOUT_CHECKLIST`；任何 required field 为 false 时 fail closed；
+9. 完成后暂停，不自动开始下一任务。
 
 研究路线、Owner Decision、Blocker、实验/工程验证或审批门发生变化时，还必须追加
 `docs/governance/research_execution_log.md`；历史记录错误用 `CORRECTION`/`SUPERSEDING_RECORD`，不得静默覆盖。

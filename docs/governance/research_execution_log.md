@@ -1586,3 +1586,39 @@ Approval Gate、Auto Continue。
   NO_HUMAN_DISTRIBUTION`.
 - Claims boundary: packet separation and machine visibility QA only; no review result, protocol acceptance, A/B, Ground Truth,
   Dataset freeze, training, formal experiment or Paper Result. Auto Continue `NO`.
+
+## REL-2026-0046 — Paper 1 Mandatory Documentation Closeout Governance
+
+- Record ID: `REL-2026-0046`; date `2026-09-02`; task `GOV-P1-MANDATORY-DOCUMENTATION-CLOSEOUT-01`; machine
+  `本机 / LOCAL_CONTROL_PLANE`; purpose: establish a persistent documentation-closeout and accepted-lesson promotion gate.
+- Owner authority: `PODR-079 / OR-041`. Every future Paper 1 task must complete both execution and documentation closeout; incomplete
+  closeout is `TASK_DOCUMENTATION_CLOSEOUT_BLOCKER` and limits status to `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING`.
+- Required synchronization: state-changing tasks update the Human Ledger; every task checks/updates Agent Ledger, Current Work State
+  and this append-only log. Experiment Master, Owner Decision Register, Stage Process, Canonical Lessons, Research Plan Authority and
+  README are evaluated according to their documented conditions, not mechanically edited.
+- QA contract: 17-field `DOCUMENTATION_CLOSEOUT_CHECKLIST` plus `PAPER1_DOCUMENT_STALENESS_GATE` checks current task/status/next
+  action/blocker parity and forbids premature A/B, Dataset freeze or formal-result claims.
+- Validation: the first governance regression correctly caught an overlong five-minute Human Ledger summary and excessive English in
+  the human lessons file; both were repaired without changing research meaning. Final governance regression passed `61 tests / 1070
+  subtests`; Ruff and scoped MyPy passed; strict UTF-8, secret scan, Markdown links, `git diff --check`, task/status/next/blocker parity
+  and Stage 1–5/code/test/data immutability passed. The existing tracked-ignored `experiments/registry.json` is unchanged by this task.
+- Lesson policy: current Pilot4 protocol lessons are `PROVISIONAL_PENDING_FINAL_ACCEPTANCE`; the 18-item
+  `PILOT4_PROTOCOL_LESSON_PROMOTION` is required only after future Owner acceptance. Historical failure and repair evidence remains.
+- Evidence namespace: none; existing canonical Git documentation only; `NEW_DOCUMENT_COUNT=0`. Execution base commit
+  `e8ad33bd0e096483beaec7c65a8ff5dc194248b3`; final task commit and remote equality are dynamic Git facts.
+- Blocker: no experiment blocker was resolved. `EXTERNAL_PHASE1_RETURN_PENDING` remains open and Phase2 remains withheld.
+- Final experiment status unchanged: `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW /
+  PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`. Next gate remains exact two-file Phase1 distribution to a fresh isolated reviewer;
+  Auto Continue `NO`.
+- `DOCUMENTATION_CLOSEOUT_CHECKLIST`:
+  - `human_ledger_checked=true`; `human_ledger_updated_if_required=true`（本任务改变持久治理/current task）。
+  - `agent_ledger_checked=true`; `agent_ledger_updated=true`; `current_work_state_updated=true`;
+    `execution_log_appended=true`.
+  - `experiment_master_condition_evaluated=true`（approval gate 变化，已更新）；
+    `owner_decision_condition_evaluated=true`（Owner gate decision，已更新）；
+    `stage_process_condition_evaluated=true`（新增永久 closeout gate，已更新）；
+    `lessons_condition_evaluated=true`（Pilot4 provisional/accepted 分类与 promotion gate，已更新）。
+  - `research_authority_condition_evaluated=true`（frozen research contract 未改变，不修改）；
+    `README_condition_evaluated=true`（导航/入口未改变，不修改）。
+  - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
+    `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.

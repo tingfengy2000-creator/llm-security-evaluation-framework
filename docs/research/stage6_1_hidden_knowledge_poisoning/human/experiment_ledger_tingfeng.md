@@ -20,10 +20,10 @@ Last Updated = `2026-09-02`
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
 | 当前阶段 | ⏳ Pilot4 外部盲审 Phase1/Phase2 已物理隔离；Phase1 包就绪，Phase2 尚未释放。 |
-| 当前任务 | `PILOT4-EXTERNAL-BLIND-REVIEW-PHASE-SEPARATION-01`：候选-only Phase1、withheld Phase2 与五条件释放门。 |
-| 当前完成度 | ✅ 72/72 跨阶段 opaque ID 一致；Phase1 URL/Evidence/Phase2/原身份/Owner 标签均为 0；Phase2 144 槽保留且 withheld。 |
+| 当前任务 | `GOV-P1-MANDATORY-DOCUMENTATION-CLOSEOUT-01`：固化每次 Paper 1 任务结束的强制文档同步门；不执行或改变当前 Pilot4 实验。 |
+| 当前完成度 | ✅ 强制收口矩阵、陈旧状态检查、任务完成定义与 Pilot4 验收后经验提升门已登记；Phase1 包和 Phase2 withheld 状态不变。 |
 | 当前唯一人工动作 | 项目负责人在全新隔离对话中只上传 Phase1 packet 与 Phase1 guide；禁止同时提供 Phase2 或项目历史。 |
-| 当前主要 blocker | ⏳ 外部 Phase1 尚未真实返回并完成 schema、72/72、hash-lock、immutable 五项验证，因此 Phase2 不能释放。 |
+| 当前主要 blocker | ⏳ `EXTERNAL_PHASE1_RETURN_PENDING`：外部 Phase1 尚未真实返回并完成 schema、72/72、hash-lock、immutable 五项验证，因此 Phase2 不能释放。 |
 | 已经可以说什么 | 外部盲审包已准备且通过机器级身份、泄漏、标题来源、顺序、Evidence Pool 和格式 QA；不能说 72 条已被语义验证。 |
 | 绝对不能说什么 | 不得说 Pilot4 已接受、A/B 已开始、72 条已有 Ground Truth、240-group 已生成、Dataset 已冻结、Formal Detector 已实现、检测有效或 Paper Result 已形成。 |
 
@@ -362,6 +362,9 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 | 2026-09-01 | Pilot4 | final preannotation acceptance | Repair-02 工程门完成但尚无人工作出接受决定 | quality convergence | ✅ SUPERSEDED BY FULL QUALITY GATES | [Execution log](../../../governance/research_execution_log.md) |
 | 2026-09-01 | Pilot4 | source/schema/visibility convergence | Phase1 hint、人工跨文档、伪来源核验、HN 支持与字段可操作性存在系统性风险 | actual-source verification + Schema V3 + full72 + dry-run | ⏳ READY FOR OWNER ACCEPTANCE REVIEW | [Current State](../../../governance/current_work_state.md) |
 | 2026-09-01 | Pilot4 | duplicate visible evidence slots | 55/72 candidates、23 triplets 的 E1/E2 指向同一 visible official URL | 23 verified companion sources + distinct URL/hash/document identity + A/B independent order + Schema V3.1 | ✅ RESOLVED / OWNER ACCEPTANCE PENDING | [Current State](../../../governance/current_work_state.md) |
+| 2026-09-02 | Pilot4 | sample-ID leakage | 早期 Full72 reviewer 可用 `sample_id` 查询隐藏标签集合，脱敏输入不等于真实标签盲法 | 旧结果追加重分类为 contaminated evidence；使用一次性 opaque ID、隔离 mapping 与外部复核路径 | ✅ ENGINEERING REPAIR / FINAL OWNER ACCEPTANCE PENDING | [Execution log](../../../governance/research_execution_log.md) |
+| 2026-09-02 | Pilot4 | combined Phase1/Phase2 packet flaw | 第一阶段候选与第二阶段证据同时进入一个 LLM 上下文，“先别看 Evidence”不能保证严格盲法 | 保留 combined packet 历史；重建 candidate-only Phase1、withheld Phase2 与 return hash-lock 释放门 | ✅ PHASE-SEPARATION REPAIR / EXTERNAL PHASE1 RETURN PENDING | [Current State](../../../governance/current_work_state.md) |
+| 2026-09-02 | Paper 1 governance | documentation closeout gap | 代码、测试或 push 完成后，人类总账和控制面文档仍可能停留在旧任务 | 每项 Paper 1 任务强制执行文档收口清单和跨文档陈旧状态门 | ✅ POLICY ACTIVE | [Closeout contract](../documentation_separation_contract.md) |
 
 ## 14. 当前项目状态
 

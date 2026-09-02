@@ -16,12 +16,16 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `PILOT4-EXTERNAL-BLIND-REVIEW-PHASE-SEPARATION-01`.
-- Task name: `Pilot4 External Blind Review Phase1/Phase2 Separation and Release-gated Review Protocol`.
-- Task type: **PHASE_SEPARATION / RELEASE_GATING / LOCAL_CONTROL_PLANE / NO_HUMAN_DISTRIBUTION**.
-- Engineering status: **PHASE1 VISIBILITY QA PASS / PHASE2 PREBUILT AND WITHHELD / EXTERNAL SEMANTIC REVIEW NOT EXECUTED**.
+- Task ID: `GOV-P1-MANDATORY-DOCUMENTATION-CLOSEOUT-01`.
+- Task name: `Paper 1 Mandatory Documentation Closeout Gate and Accepted-Lesson Promotion Policy`.
+- Task type: **GOVERNANCE / DOCUMENTATION CLOSEOUT / LOCAL CONTROL PLANE / NO EXPERIMENT EXECUTION**.
+- Engineering status: **MANDATORY DOCUMENTATION CLOSEOUT POLICY ACTIVE / CURRENT EXPERIMENT GATE UNCHANGED**.
 - Experiment status: **PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW /
   PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION / PREANNOTATION_ONLY / AUTO_CONTINUE_NO**.
+- Documentation gate: **PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED / HUMAN_LEDGER_CONTINUOUS_SYNC =
+  MANDATORY / TASK_DOCUMENTATION_CLOSEOUT = MANDATORY**. Paper 1 task completion requires execution, tests, evidence,
+  documentation closeout and valid Git status; otherwise status is `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING` with
+  `TASK_DOCUMENTATION_CLOSEOUT_BLOCKER`.
 - Execution base commit: `PILOT2_OWNER_CORRECTION_BASE_COMMIT = 0b61e0124b1fb75f1a864132da41ce6a0fcbc3fc`.
 - Targeted package lineage base: `09aa7e65e95e10a657e44c2b31e23ec02bc4210b`.
 - Execution machine: **本机**. Immutable Round1 raw and the complete Schema V2 package remain hash-bound and unchanged；a field audit
@@ -30,6 +34,10 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET.md` plus `PILOT4_EXTERNAL_BLIND_PHASE1_GUIDE.md`. Phase1 forbids web search and factual
   lookup. After the reviewer returns all 72 rows, a later separately approved task must validate and immutably hash-lock the raw
   return before Phase2 can be released to the same isolated reviewer.
+- Current blocker: `EXTERNAL_PHASE1_RETURN_PENDING`; this governance task neither resolves nor advances it. The closeout policy itself
+  has no open documentation blocker once its required cross-document checklist passes.
+- Pilot4 lesson status: `PROVISIONAL_PENDING_FINAL_ACCEPTANCE`. Promotion to `ACCEPTED_LESSON` is permitted only in a future task that
+  records `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` and executes `PILOT4_PROTOCOL_LESSON_PROMOTION`.
 - Combined-packet correction: the `5d6b4b5` combined packet is preserved unchanged as
   `COMBINED_PACKET_ENGINEERING_ARTIFACT / NOT_APPROVED_FOR_BLIND_SEMANTIC_REVIEW` and
   `SUPERSEDED_FOR_REVIEW_BY_PHASE_SEPARATED_PROTOCOL`. Evidence being present in one LLM context breaks strict Phase1 blindness;
@@ -82,8 +90,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PODR-057` and `PODR-058`.
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
-- S6.1-P1: **PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / PREANNOTATION_ONLY /
-  NO_HUMAN_DISTRIBUTION / NOT FORMAL_EXPERIMENT**.
+- S6.1-P1: **PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD /
+  NO_HUMAN_DISTRIBUTION / PREANNOTATION_ONLY / NOT FORMAL_EXPERIMENT**.
 - S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
 - S6.1-P1-PILOT1: **HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED**.
 - Historical S6.1-P1-PILOT1: **COMPLETED_PENDING_REVIEW / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY**；superseded by OR-024.
@@ -99,7 +107,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - PILOT3: **ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY / STOPPED**.
 - Historical PILOT4 first preflight: **OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / a843697 EVIDENCE PRESERVED**.
 - Historical PILOT4 second preflight: **SECOND_OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / cad3b2b EVIDENCE PRESERVED**.
-- PILOT4: **PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION**.
+- PILOT4: **PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD /
+  PREANNOTATION_ONLY / NO_HUMAN_DISTRIBUTION**.
 - PILOT4 candidates: **72 PREANNOTATION_CANDIDATES / NOT GROUND TRUTH / NOT FORMAL BENCHMARK / NOT FROZEN DATASET**.
 - PAPER1_FORMAL_DOMAIN_SET: **OWNER_CONFIRMED / ENTERPRISE_HR / FINANCE / INFORMATION_SECURITY /
   PROCUREMENT_AND_R_AND_D / EDUCATION_AND_RESEARCH**.
@@ -262,10 +271,11 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
 - Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
   evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- Next operational action: owner reviews the V3.1 final Owner review, three V3.1 workbooks, 23 companion-source records and
-  full72/validator QA, then explicitly records `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` or identifies a new blocker. Acceptance still
-  does not distribute to A/B; human annotation requires a separate explicit approval. No automatic 240-group scale-up, Dataset
-  freeze, formal Detector, training, 5090 or Formal Experiment is authorized.
+- Next operational action: Owner creates a fresh isolated reviewer context and gives it only
+  `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET.md` plus `PILOT4_EXTERNAL_BLIND_PHASE1_GUIDE.md`. Phase2 remains withheld until a later
+  separately approved task validates the complete raw Phase1 return, confirms schema and 72/72 identities, hash-locks it and preserves
+  it immutably. No automatic Phase2 release, A/B, 240-group scale-up, Dataset freeze, formal Detector, training, 5090 or Formal
+  Experiment is authorized.
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. Its acceptance does not approve S6-T5.6 ContextBuilder behavior; that remains a separate boundary.
@@ -337,7 +347,8 @@ are established.
 ## Last Update
 
 - Date: `2026-09-02`.
-- Updated by: 本机 executing `PILOT4-EXTERNAL-BLIND-REVIEW-PHASE-SEPARATION-01 / REL-2026-0045`.
-  Phase1 is structurally separated and ready for an isolated external return; Phase2 remains withheld. Historical 5d6b4b5/c1b1245/
-  b705cc evidence remains immutable. Dataset freeze, 240-group execution, formal Detector/Training, 5090, Formal Experiment and
-  Paper Result remain unapproved/unstarted; Auto Continue = `NO`.
+- Updated by: 本机 executing `GOV-P1-MANDATORY-DOCUMENTATION-CLOSEOUT-01 / REL-2026-0046`.
+  The mandatory Paper 1 documentation closeout and post-acceptance lesson-promotion gates are active. Experiment state remains
+  `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD /
+  NO_HUMAN_DISTRIBUTION`; Dataset freeze, 240-group execution, formal Detector/Training, 5090, Formal Experiment and Paper Result
+  remain unapproved/unstarted; Auto Continue = `NO`.

@@ -1,5 +1,25 @@
 # LLMGuard 项目总控文档
 
+## Paper 1 每次任务结束强制文档收口（2026-09-02）
+
+项目需求提出人通过 `PODR-079 / OR-041` 冻结 `GOV-P1-MANDATORY-DOCUMENTATION-CLOSEOUT-01`：以后所有 Paper 1 任务都
+必须同时通过 `TASK EXECUTION` 与 `TASK DOCUMENTATION CLOSEOUT`。完整任务结束要求 execution、tests、evidence、文档收口
+和 Git 状态全部有效；缺少收口时只能登记 `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING` 与
+`TASK_DOCUMENTATION_CLOSEOUT_BLOCKER`。
+
+Human Ledger、Agent Ledger、Current Work State 与 Research Execution Log 按合同强制检查/同步；Experiment Master、Owner
+Decision Register、Stage Process、canonical lessons、Research Plan Authority 与 README 只在各自条件触发时更新，禁止机械
+制造 diff。每轮还必须执行 cross-document staleness gate，防止旧 task/blocker/next action/commit/Pilot stage 被继续描述为
+current，或在授权前声称 A/B、Dataset freeze、Formal Experiment/Paper Result。
+
+Pilot4 当前经验状态为 `PROVISIONAL_PENDING_FINAL_ACCEPTANCE`。只有未来 Owner 明确登记
+`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` 后，对应任务才执行 `PILOT4_PROTOCOL_LESSON_PROMOTION`，把经验证经验提升为
+accepted；中间失败和修复历史必须保留。
+
+本治理任务不改变实验 Gate。当前仍为 `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY /
+WAITING_FOR_EXTERNAL_PHASE1_REVIEW / PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`；唯一下一动作仍是 Owner 在全新隔离上下文
+只提供 Phase1 packet 与 Phase1 guide。
+
 ## PILOT4 外部盲审分阶段隔离（2026-09-02）
 
 项目需求提出人通过 `PODR-078 / OR-040` 判定 `5d6b4b5` 的 combined packet 只能保留为

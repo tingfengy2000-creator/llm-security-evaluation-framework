@@ -1289,3 +1289,27 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Prohibited: external review execution/simulation, mapping unlock, expected comparison, protocol acceptance, A/B, agreement,
   adjudication, Ground Truth, 240-group, Dataset freeze, Detector, Training, 5090, Formal Experiment or Paper Result. Auto Continue `NO`.
 - Canonical records: `OR-040`, `REL-2026-0045`, [future dataset rules](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md).
+
+## PODR-079: Paper 1 Mandatory Documentation Closeout and Lesson Promotion
+
+- Date: `2026-09-02`.
+- Owner decision: `PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED`,
+  `PAPER1_HUMAN_LEDGER_SYNC_ON_TASK_CLOSE = MANDATORY`, `AUTO_DOCUMENTATION_SYNC_POLICY = ACTIVE`,
+  `PAPER1_TASK_DOCUMENTATION_CLOSEOUT = MANDATORY` and `PAPER1_HUMAN_LEDGER_CONTINUOUS_SYNC = MANDATORY`.
+- Task completion: every Paper 1 task has execution and documentation-closeout phases. Full completion requires
+  `EXECUTION_DONE AND TESTS_PASS AND EVIDENCE_RECORDED AND DOCUMENTATION_CLOSEOUT_PASS AND GIT_STATUS_VALID`; otherwise record
+  `TASK_DOCUMENTATION_CLOSEOUT_BLOCKER` and at most `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING`.
+- Mandatory/conditional split: Human Ledger is mandatory for state-changing Paper 1 tasks; Agent Ledger, Current Work State and
+  Research Execution Log are mandatory. Experiment Master, Owner Decision Register, Stage Process and Canonical Lessons are
+  conditional; Research Plan Authority changes only with a frozen research-contract change and README only with navigation change.
+- Persistent behavior: future Paper 1 prompts need not repeat the gate. `NO_DOCUMENTATION_CHANGE` still requires condition evaluation
+  and a recorded rationale; mechanical edits to every document are prohibited.
+- Lesson status: `PILOT4_PROTOCOL_LESSONS = PROVISIONAL_PENDING_FINAL_ACCEPTANCE` and
+  `PILOT4_LESSON_PROMOTION = AFTER_FINAL_ACCEPTANCE`. A future `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` task must execute the
+  18-item promotion review before any lesson is described as accepted.
+- Experiment boundary unchanged: `PILOT4_EXTERNAL_BLIND_PHASE1_PACKET_READY / WAITING_FOR_EXTERNAL_PHASE1_REVIEW /
+  PHASE2_WITHHELD / NO_HUMAN_DISTRIBUTION`; External review, Phase2 release, mapping/expected comparison, protocol acceptance, A/B,
+  agreement, adjudication, Ground Truth, 240-group, Dataset freeze, Detector, Training, 5090 and Formal Experiment remain prohibited.
+- Canonical records: `OR-041`, `REL-2026-0046`,
+  [documentation closeout contract](../research/stage6_1_hidden_knowledge_poisoning/documentation_separation_contract.md) and
+  [canonical lessons](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md).

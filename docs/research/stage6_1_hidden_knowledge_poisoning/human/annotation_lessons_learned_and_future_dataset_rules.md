@@ -110,10 +110,15 @@ V1 缺少不适用值，YES/NO/UNCERTAIN 没有操作化，“没有提到”被
 通过上述质量门只表示预标注设计已准备好供项目负责人审查。它不证明人工有效性、一致性、真值、正式 Benchmark、
 数据集冻结、Detector 效果、训练结果、正式实验、论文结果或 SOTA。
 
-## 十一、Pilot4 Owner Preflight 定向修复新增规则
+## 十一、Pilot4 Owner Preflight 定向修复候选经验
+
+> 第 11–16 节当前状态：`PROVISIONAL_LESSON / PILOT4_PROTOCOL_LESSONS =
+> PROVISIONAL_PENDING_FINAL_ACCEPTANCE`。这些规则有工程证据，但 External Phase1、External Phase2、blind comparison 与
+> Owner 最终 acceptance 尚未完成，因此不得描述为 `ACCEPTED_LESSON` 或已最终证明的永久规则。原问题、修复内容和工件
+> 保持不变；未来仅在 `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` 后通过 promotion gate 决定哪些规则转为 accepted。
 
 `a843697` 对应的第一版 Pilot4 Owner Preflight 被项目负责人退回定向修复；原外部证据必须保留，不得覆盖或改写成
-“从未出错”。以后执行 G1--G14 时永久增加以下解释：
+“从未出错”。在 Pilot4 最终验收前，执行 G1--G14 时按以下 provisional 解释 fail closed：
 
 - 攻击类型必须来自真实 mutation operator 和变更字段语义；日期变异只能属于时序版本，制定机关变异只能属于来源机关，
   条件删除只能属于条件例外。索引或 coverage metadata 不能决定攻击类型。
@@ -127,9 +132,10 @@ V1 缺少不适用值，YES/NO/UNCERTAIN 没有操作化，“没有提到”被
   source-fact 与 release registry，独立重算 G1--G14、重复/泄漏、冷读、覆盖和 Round D。
 - Hard Negative 的合法性必须绑定直接来源；合法历史版本还必须记录历史版本身份、有效区间以及 successor/repeal 证据。
 
-## 十二、Pilot4 第二次 Owner Preflight 的永久新增门
+## 十二、Pilot4 第二次 Owner Preflight 的 provisional 新增门
 
-第二次 Owner Preflight 证明 Repair-01 的“数量/metadata 通过”仍不足以保证人类可读候选有效。以后所有新候选永久增加：
+第二次 Owner Preflight 证明 Repair-01 的“数量/metadata 通过”仍不足以保证人类可读候选有效。当前所有新候选按以下
+provisional 门执行，是否提升为永久规则留待最终 acceptance：
 
 - `S3_EVIDENCE_NECESSITY_GATE`：evidence count 不等于 evidence necessity。S3 必须满足两个单独直接证据均不足、联合证据
   才充分；若单个官方页面已完整给出答案，必须降为 S2 或重构命题。
@@ -145,7 +151,7 @@ V1 缺少不适用值，YES/NO/UNCERTAIN 没有操作化，“没有提到”被
 以上规则只前瞻约束新生成内容；首轮 `a843697` 和第二轮 `cad3b2b` 的工作簿、证据与 Owner 发现保持不可变，不得重写成
 “从未出错”。通过 Repair-02 机器门只允许最终 Owner review，不等于 Pilot4 接受或人工发放批准。
 
-## 十三、Pilot4 Quality Convergence 永久新增规则
+## 十三、Pilot4 Quality Convergence provisional 新增规则
 
 `S6.1-P1-PILOT4-PREANNOTATION-QUALITY-CONVERGENCE-01` 证明 Repair-02 工程门通过后仍需把数据语义、真实来源和标注
 可操作性作为独立门。以下规则前瞻适用于所有新候选、字段和人工发放：
@@ -170,9 +176,9 @@ V1 缺少不适用值，YES/NO/UNCERTAIN 没有操作化，“没有提到”被
 dry-run 必须先由 Owner 接受；不得自动发 A/B，也不得自动进入 agreement、adjudication、Ground Truth、240-group、Dataset
 freeze、Detector、Training、5090、Formal Experiment 或 Paper Result。
 
-## 十四、Evidence Pool 与 English-first Schema V3.1 永久规则
+## 十四、Evidence Pool 与 English-first Schema V3.1 provisional 规则
 
-`PILOT4-EVIDENCE-POOL-REPAIR-01` 将以下规则冻结为未来 Paper 1 人工标注协议的永久组成部分：
+`PILOT4-EVIDENCE-POOL-REPAIR-01` 将以下内容登记为待最终验收的协议候选经验：
 
 - **English-first canonical vocabulary + Chinese support**：machine field name、JSON/CSV/XLSX canonical value 与 enum
   只使用英文；中文只放在括号说明、Quick Start、Field Guide、Legend 或相邻帮助文字中。
@@ -193,10 +199,10 @@ Annotator 仍不直接填写 S1/S2/S3；`derived_stealth_level` 由验证后的
 `overall_fact_status + local_internal_conflict + minimum_external_evidence_needed` 确定性派生。任何通过只表示协议已准备供
 Owner acceptance，不自动授权 A/B distribution。
 
-## 十五、Pilot4 标签盲法可作答性与候选核验路径去泄漏永久规则
+## 十五、Pilot4 标签盲法可作答性与候选核验路径去泄漏 provisional 规则
 
-`PILOT4-ANNOTATION-PROTOCOL-INDEPENDENT-VALIDATION-AND-CANDIDATE-CLEANUP-01` 将以下规则追加为后续人工标注协议的
-强制质量门；`b705cc` 及此前 Evidence Pool 仍保持历史不可变：
+`PILOT4-ANNOTATION-PROTOCOL-INDEPENDENT-VALIDATION-AND-CANDIDATE-CLEANUP-01` 将以下规则追加为当前 Pilot4 的
+provisional fail-closed 质量门；`b705cc` 及此前 Evidence Pool 仍保持历史不可变：
 
 - **Expected-label reconstruction is not independent answerability validation**：读取 `candidate_kind`、attack type、
   intended stealth 或其他 Owner-only 字段后重建答案，只能叫 `EXPECTED_CONTRACT / LABEL_AWARE_ENGINEERING_CHECK_ONLY`，
@@ -227,11 +233,12 @@ Owner acceptance，不自动授权 A/B distribution。
 机器侧 72/72 label-blind 可执行与零设计 mismatch 只支持 Owner acceptance review。机器未建立两个独立人类 reviewer，
 因此仍不得登记协议接受或发放 A/B。
 
-## 十六、外部标签盲法、身份隔离与标题溯源永久规则
+## 十六、外部标签盲法、身份隔离与标题溯源 provisional 规则
 
 `PILOT4-EXTERNAL-BLIND-OWNER-REVIEW-PACKET-01` 纠正上节对 c1b Full72 的证据分类，但不删除或覆盖上节及其原始
 工件。c1b reviewer 使用 `sample_id` 查询硬编码标签集合，因此该历史结果只能登记为
-`SAMPLE_ID_LABEL_LOOKUP_CONTAMINATED_REVIEW / NOT_ACCEPTABLE_AS_EXTERNAL_LABEL_BLIND_EVIDENCE`。以下规则永久生效：
+`SAMPLE_ID_LABEL_LOOKUP_CONTAMINATED_REVIEW / NOT_ACCEPTABLE_AS_EXTERNAL_LABEL_BLIND_EVIDENCE`。以下规则当前作为
+`PROVISIONAL_LESSON` 生效于 Pilot4 收口前的保守执行，不代表已获最终方法学验收：
 
 - **Sanitized input alone does not establish blindness**：即使序列化输入不含 `owner_only`，reviewer 代码只要编译了
   sample-ID label lookup，仍能恢复隐藏 expected labels。
@@ -253,7 +260,7 @@ Owner acceptance，不自动授权 A/B distribution。
 完成外部包只支持 `BLIND_PACKET_READY + NO_LABEL_LEAKAGE`。外部 reviewer 返回前不得加载 expected contract、计算 mismatch、
 宣布 answerability、接受协议或发放 A/B。
 
-## Permanent external LLM blind-review separation rule（2026-09-02）
+## Provisional external LLM blind-review separation rule（2026-09-02）
 
 - 单一文档若同时含有第一阶段候选判断和第二阶段证据，就会破坏大模型复核者的严格第一阶段盲法：
   `A single document containing Phase1 candidate judgment and Phase2 evidence breaks strict Phase1 blindness for an LLM reviewer.`
@@ -265,5 +272,39 @@ Owner acceptance，不自动授权 A/B distribution。
   `A same-project GPT already exposed to candidate, label or repair history is not an isolated external reviewer.`
 - 第二阶段证据释放前，第一阶段原始返回必须完成结构验证、身份全集核验、哈希锁定和不可变保存：
   `The exact Phase1 raw return must be schema-validated, identity-complete, hash-locked and immutable before Phase2 evidence release.`
-- 正式顺序永久固定为 `PHASE1 -> RETURN -> HASH LOCK -> PHASE2 RELEASE`；第一阶段使用网页或事实查证即
+- Pilot4 当前复核顺序固定为 `PHASE1 -> RETURN -> HASH LOCK -> PHASE2 RELEASE`；第一阶段使用网页或事实查证即
   `PHASE1_BLINDNESS_VIOLATION`，该轮 return 失效。
+
+## 十七、Pilot4 协议经验提升门
+
+临时经验与已验收经验必须分开。临时经验可以在当前流程中用于保守地阻止已知风险，但它只说明工程排查发现了问题并
+形成候选解决办法，还没有证明外部人员能稳定理解、独立作答和重复执行。只有完成两阶段外部复核、比较与项目负责人
+最终验收后，才能判断规则是否真正可复用。这样既不会丢失返工教训，也不会把尚待检验的方法提前写成论文结论。
+
+当前：`PILOT4_LESSON_PROMOTION = AFTER_FINAL_ACCEPTANCE`。未来且仅当 Owner 明确登记
+`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` 时，对应 acceptance task 必须执行 `PILOT4_PROTOCOL_LESSON_PROMOTION`，逐项审查：
+
+1. `Annotator-facing Schema` 与 `Canonical Machine Schema` 分离。
+2. 机器可派生字段不要求人工重复填写。
+3. 同一人工判断不拆成多个高度相关字段重复询问。
+4. `Evidence count` 不等于 `Evidence necessity`。
+5. S1/S2/S3 按 `operational evidence path` 从底层人工判断派生，而非让 annotator 直接猜。
+6. Candidate 不含 `verification procedure`、`minimum-evidence hint`、`answer echo` 或
+   `experimental meta-language`。
+7. `Coverage quota` 不凌驾于 naturalness、construct validity 与 source quality。
+8. `Hard Negative` 必须真实成立、有官方证据且容易与 `Poison` 混淆。
+9. `Sanitized input` 在 reviewer code 含 `sample-ID label lookup` 时不构成真正 blindness。
+10. `sample_id` 本身可能成为 leakage key。
+11. `Lock-before-compare` 只有在 reviewer logic 不知道 expected label 时才构成真正盲法。
+12. `Machine validator` 不能替代 `semantic review`。
+13. `Evidence Pool` 的 source role、source type 与 researcher-authored title 都可能形成 leakage。
+14. `Annotator-facing title` 必须可追溯至真实 official page/document title。
+15. Phase1/Phase2 必须结构隔离，不能依赖“先不要看后面的 Evidence”。
+16. Phase1 raw return 必须 immutable lock 后才允许 Phase2 release。
+17. 已接触 project history 的 GPT context 不能宣称 isolated external reviewer。
+18. 人工 annotation 应置于 candidate/source/schema 高强度 machine QA 与 Owner QA 之后，以减少返工。
+
+Promotion 必须逐项记录 `ACCEPTED_LESSON`、继续 provisional 或 rejected/superseded 的证据与理由，不得整批自动接受。最终
+acceptance 后，Human Ledger 再新增“Pilot4 标注体系给项目留下了什么经验？”通俗摘要，按“问题 -> 原因 -> 最终规则”
+组织并链接本文件；首次/二次 preflight、evidence echo、fake S3、length mismatch、schema ambiguity、Evidence Pool duplicate、
+sample-ID leakage、combined-packet flaw 与 phase-separation repair 的时间线不得删除。
