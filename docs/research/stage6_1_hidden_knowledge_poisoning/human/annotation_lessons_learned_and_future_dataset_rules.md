@@ -226,3 +226,29 @@ Owner acceptance，不自动授权 A/B distribution。
 
 机器侧 72/72 label-blind 可执行与零设计 mismatch 只支持 Owner acceptance review。机器未建立两个独立人类 reviewer，
 因此仍不得登记协议接受或发放 A/B。
+
+## 十六、外部标签盲法、身份隔离与标题溯源永久规则
+
+`PILOT4-EXTERNAL-BLIND-OWNER-REVIEW-PACKET-01` 纠正上节对 c1b Full72 的证据分类，但不删除或覆盖上节及其原始
+工件。c1b reviewer 使用 `sample_id` 查询硬编码标签集合，因此该历史结果只能登记为
+`SAMPLE_ID_LABEL_LOOKUP_CONTAMINATED_REVIEW / NOT_ACCEPTABLE_AS_EXTERNAL_LABEL_BLIND_EVIDENCE`。以下规则永久生效：
+
+- **Sanitized input alone does not establish blindness**：即使序列化输入不含 `owner_only`，reviewer 代码只要编译了
+  sample-ID label lookup，仍能恢复隐藏 expected labels。
+- **Sample identity can itself be a leakage key**：正式外部包必须使用一次性、非连续、不透明 ID；原 `sample_id`、triplet、
+  independence group 和设计标签只留在隔离的 owner mapping。
+- **Lock-before-compare is necessary but not sufficient**：若 expected knowledge 已编译进 reviewer logic，先锁输出仍不能
+  证明盲法；必须同时证明 reviewer path 无 label table/import/lookup。
+- **Unique reasons are not independent reasoning evidence**：72 个不同字符串或候选特定理由不能证明语义独立性，更不能
+  替代外部人类/LLM 在隔离上下文中的事实判断。
+- **Machine validators do not substitute for semantic reviewers**：机器只检查 schema、visibility、hash、enum、dependency、
+  source retrieval、format、duplicate 和 leakage；不得输出 candidate 的事实答案或冒充 annotator。
+- **External mapping must be isolated and hash-bound**：opaque ID mapping 必须 owner-only、Git-external、单独 manifest entry，
+  且不得进入 external packet 或被 blind packet formatter/reviewer 读取。
+- **Visible official titles need actual provenance**：`official_page_title` 只允许来自 HTML title、页面 H1、官方文档 heading
+  或 PDF heading，并绑定 source snapshot 与标题文本 SHA256；禁止人工 override、研究者 source identity 或合成标题。
+- **Field-guide examples must be genuine teaching fixtures**：每个人工字段必须覆盖常见、alternative/negative 与边界案例；
+  reason 字段还要含 good/bad/forbidden，禁止把字段定义套模板后冒充案例，也不得复用正式候选。
+
+完成外部包只支持 `BLIND_PACKET_READY + NO_LABEL_LEAKAGE`。外部 reviewer 返回前不得加载 expected contract、计算 mismatch、
+宣布 answerability、接受协议或发放 A/B。

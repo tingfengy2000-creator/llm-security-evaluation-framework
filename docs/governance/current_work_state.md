@@ -16,21 +16,24 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `PILOT4-ANNOTATION-PROTOCOL-INDEPENDENT-VALIDATION-AND-CANDIDATE-CLEANUP-01`.
-- Task name: `Pilot4 Independent Annotation Answerability Validation, Candidate Evidence-path Cleanup and Schema V3.1 Logic Hardening`.
-- Task type: **LABEL_BLIND_PROTOCOL_VALIDATION / CANDIDATE_CLEANUP / SCHEMA_V3_1_HARDENING / LOCAL_CONTROL_PLANE / NO_HUMAN_DISTRIBUTION**.
-- Engineering status: **LABEL-BLIND LOCK-BEFORE-COMPARE + CANDIDATE/SCHEMA/WORKBOOK QA COMPLETED / OWNER ACCEPTANCE PENDING**.
-- Experiment status: **PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE /
+- Task ID: `PILOT4-EXTERNAL-BLIND-OWNER-REVIEW-PACKET-01`.
+- Task name: `Pilot4 External Label-Blind Owner Review Packet, Evidence-title Provenance Hardening and Field-guide Case Completion`.
+- Task type: **EXTERNAL_BLIND_REVIEW_PACKET_PREPARATION / TITLE_PROVENANCE / FIELD_GUIDE_CASE_COMPLETION /
+  LOCAL_CONTROL_PLANE / NO_HUMAN_DISTRIBUTION**.
+- Engineering status: **BLIND PACKET MACHINE QA PASS / EXTERNAL SEMANTIC REVIEW NOT EXECUTED**.
+- Experiment status: **PILOT4_EXTERNAL_BLIND_REVIEW_PACKET_READY / WAITING_FOR_EXTERNAL_OWNER_REVIEW /
   NO_HUMAN_DISTRIBUTION / PREANNOTATION_ONLY / AUTO_CONTINUE_NO**.
 - Execution base commit: `PILOT2_OWNER_CORRECTION_BASE_COMMIT = 0b61e0124b1fb75f1a864132da41ce6a0fcbc3fc`.
 - Targeted package lineage base: `09aa7e65e95e10a657e44c2b31e23ec02bc4210b`.
 - Execution machine: **本机**. Immutable Round1 raw and the complete Schema V2 package remain hash-bound and unchanged；a field audit
   narrows human work to three Phase1 stealth fields, seven Phase2 fact/applicability fields and B-only process corrections.
-- Current ordered step: Owner reviews `FINAL_OWNER_ANNOTATOR_DRYRUN_REVIEW.md`, the three V3.1 dry-run workbooks, the locked
-  72-row one-context label-blind semantic review, attempt01 mismatch record and final comparison under
-  `paper1_pilot4_protocol_independent_validation_20260902`; then explicitly accepts the protocol or identifies a new blocker.
-  The `b705cc` Evidence Pool tree and all earlier histories remain immutable. Machine independence is not established and no A/B
-  distribution occurs.
+- Current ordered step: Owner gives `external_blind_review/PILOT4_EXTERNAL_BLIND_REVIEW_PACKET.md` to an isolated external
+  GPT/Owner reviewer. The reviewer returns only `blind_review_id + 11 annotation fields + reasoning`. A later separately approved
+  task may unlock `owner_only/blind_review_identity_mapping.json` and compare with the expected contract. No comparison is performed
+  in the current task.
+- Historical correction: the `c1b1245` Full72 result is
+  `SAMPLE_ID_LABEL_LOOKUP_CONTAMINATED_REVIEW / NOT_ACCEPTABLE_AS_EXTERNAL_LABEL_BLIND_EVIDENCE` because reviewer logic used
+  `sample_id` to query compiled label sets. Its locked output, mismatch chain, final comparison and workbooks remain immutable.
 - Historical completed task identity: `S6.1-P1-PILOT2-ADJUDICATION-CLOSURE-AND-PILOT3-ENTRY` closed Pilot2 feasibility and
   established the Pilot3 diagnostic baseline; the immutable closure history remains governed by `PODR-070 / OR-032`.
 - Permanent prospective candidate gate (`PODR-067 / OR-029`): every annotation candidate created or newly introduced after
@@ -329,7 +332,7 @@ are established.
 ## Last Update
 
 - Date: `2026-09-02`.
-- Updated by: 本机 executing `PILOT4-ANNOTATION-PROTOCOL-INDEPENDENT-VALIDATION-AND-CANDIDATE-CLEANUP-01 / REL-2026-0043`.
+- Updated by: 本机 executing `PILOT4-EXTERNAL-BLIND-OWNER-REVIEW-PACKET-01 / REL-2026-0044`.
   The hardened additive protocol package is ready for Owner acceptance but is not accepted and has not been distributed. Historical
   b705cc evidence remains immutable. Dataset freeze, 240-group execution, formal Detector/Training, 5090, Formal Experiment and
   Paper Result remain unapproved/unstarted; Auto Continue = `NO`.

@@ -1248,3 +1248,26 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Prohibited: automatic A/B, agreement, adjudication, Ground Truth, 240-group, Dataset freeze, Detector, Training, 5090,
   Formal Experiment, Paper Result or SOTA claim. Auto Continue `NO`.
 - Canonical records: `OR-038`, `REL-2026-0043`, [future dataset rules](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md).
+
+## PODR-077: Pilot4 External Label-blind Owner Review Packet
+
+- Date: `2026-09-02`.
+- Owner decision: `PILOT4_OWNER_ACCEPTANCE_REVIEW = BLIND_EXTERNAL_REVIEW_REQUIRED`; do not register protocol acceptance and keep
+  `NO_HUMAN_DISTRIBUTION`.
+- Historical correction: preserve commit `c1b1245c061b7bec096b12894ea153499c2af2e2`, `b705cc` and all locked review/mismatch/
+  comparison/workbook/evidence trees. Reclassify the c1b Full72 result as
+  `SAMPLE_ID_LABEL_LOOKUP_CONTAMINATED_REVIEW / NOT_ACCEPTABLE_AS_EXTERNAL_LABEL_BLIND_EVIDENCE` because its reviewer used
+  `sample_id` to query compiled expected-label sets.
+- Approved packet design: 72 stable non-sequential one-time blind IDs; cryptographically deterministic shuffle; isolated hash-bound
+  owner mapping; external packet contains only candidate, actual-title-provenance E1/E2 and 4 Phase1 + 7 Phase2 manual questions.
+- Title and guide requirement: all 144 visible title slots must come from HTML title/H1/official document/PDF heading with source
+  snapshot hashes; the 11 manual fields require independent real teaching fixtures, not definition templates or reuse of the 72 rows.
+- Machine boundary: validators may check schema, visibility, hash, enum, dependency, retrieval, leakage and format only. They may not
+  fill factual answers, load the expected contract on the blind side, or impersonate a semantic reviewer.
+- Current status: `PILOT4_EXTERNAL_BLIND_REVIEW_PACKET_READY / WAITING_FOR_EXTERNAL_OWNER_REVIEW /
+  NO_HUMAN_DISTRIBUTION`.
+- Owner next action: send the external Markdown packet to an isolated GPT/Owner reviewer and obtain
+  `blind_review_id + 11 fields + reasoning`; mapping unlock and expected-contract comparison require a later independent task.
+- Prohibited: protocol acceptance, A/B distribution, agreement, adjudication, Ground Truth, 240-group, Dataset freeze, Detector,
+  Training, 5090, Formal Experiment or Paper Result. Auto Continue `NO`.
+- Canonical records: `OR-039`, `REL-2026-0044`, [future dataset rules](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md).

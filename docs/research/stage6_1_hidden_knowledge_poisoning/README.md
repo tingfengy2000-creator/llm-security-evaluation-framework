@@ -1,9 +1,10 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / NO_HUMAN_DISTRIBUTION`。Evidence Pool
-> duplicate-slot blocker 已从 `55/72 candidates / 23 triplets` 修复为 `0/72`；唯一当前动作是项目负责人审查
-> Schema V3.1、23 个 verified companion sources、完整 72-row QA 和三个 `ANNOTATOR_DRY_RUN_ONLY` 工作簿。72 条候选尚无 Ground
-> Truth；240-group、Dataset freeze、Formal Detector、Training、5090、Formal Experiment 和 Paper Result 均未开始。
+> 当前实验状态：`PILOT4_EXTERNAL_BLIND_REVIEW_PACKET_READY / WAITING_FOR_EXTERNAL_OWNER_REVIEW /
+> NO_HUMAN_DISTRIBUTION`。c1b Full72 已纠正分类为 sample-ID label lookup contaminated history；外部四文件包使用 72 个
+> 不透明 ID、144 个真实标题来源槽和 66 个独立指南案例，不含 expected answer。唯一当前动作是项目负责人把外部 Markdown
+> 包交给隔离的 GPT/Owner reviewer 并取回 `blind_review_id + 11 fields + reasoning`。72 条候选仍无 Ground Truth；240-group、
+> Dataset freeze、Formal Detector、Training、5090、Formal Experiment 和 Paper Result 均未开始。
 > `FORMAL_EXPERIMENT = NOT STARTED`；`DATASET_FORMAL_FREEZE = NOT STARTED`。
 
 ## First screen routing
@@ -39,7 +40,7 @@
 - [S6.1-LR1](stage_process/S6.1-LR1_work_process.md) — 路线与 baseline alignment，已关闭。
 - [S6.1-R0](stage_process/S6.1-R0_work_process.md) — 工程预检，已按边界验收。
 - [S6.1-R0-FU1](stage_process/S6.1-R0-FU1_work_process.md) — W2 单样本工程可行性，已关闭。
-- [S6.1-P1](stage_process/S6.1-P1_work_process.md) — P1-R1、Pilot0–4 的追加式过程；当前等待 Schema V3.1 / Evidence Pool Owner acceptance。
+- [S6.1-P1](stage_process/S6.1-P1_work_process.md) — P1-R1、Pilot0–4 的追加式过程；当前等待外部标签盲法 Owner/GPT review return。
 
 ## Pilot Records
 

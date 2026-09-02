@@ -5,7 +5,7 @@
 Document Role = `PAPER1_PRIMARY_HUMAN_ENTRY`<br>
 Audience = `项目负责人 / 导师与领导 / 新团队成员`<br>
 Reading Path = `5 minutes / 15 minutes / 30 minutes`<br>
-Current Evidence Cut = `Schema V3.1 hardened / label-blind review locked / Owner acceptance pending`<br>
+Current Evidence Cut = `external blind packet ready / isolated semantic review pending`<br>
 Last Updated = `2026-09-02`
 
 > 这是一张“项目地图”，不是 raw evidence，也不产生新授权。读完第 0 节可掌握当前状态；读到第 8 节可理解论文方法；
@@ -19,22 +19,24 @@ Last Updated = `2026-09-02`
 | 英文论文题目 | *Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework* |
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
-| 当前阶段 | ⏳ Pilot4 Schema V3.1 已完成标签盲法、候选去元提示和字段逻辑收口，等待项目负责人 acceptance；仍是预标注阶段。 |
-| 当前任务 | `PILOT4-ANNOTATION-PROTOCOL-INDEPENDENT-VALIDATION-AND-CANDIDATE-CLEANUP-01`：label-blind lock-before-compare、候选去核验路径、证据标题中性化与 Schema V3.1 hardening。 |
-| 当前完成度 | ✅ 旧 b705cc evidence 未改；23 条候选增量改写；72/72 单次 label-blind semantic review 可执行、72 条具体理由、最终 mismatch=0；Evidence Pool 仅四列；三个 dry-run workbook / 10 Sheets 已检查。 |
-| 当前唯一人工动作 | 项目负责人审查 `FINAL_OWNER_ANNOTATOR_DRYRUN_REVIEW.md`、三份 V3.1 workbook、72 条 locked review 与 attempt01 mismatch 修复链，明确接受协议或指出 blocker。 |
-| 当前主要 blocker | ⏳ Owner acceptance 尚未给出；因此不能发 A/B，更不能进入 240-group。 |
-| 已经可以说什么 | Pilot4 的增量候选与 Schema V3.1 已通过本机标签盲法输入隔离、锁定后比较、字段逻辑和工作簿工程 QA；机器未建立两个独立标注人，这仍不代表人工有效性。 |
+| 当前阶段 | ⏳ Pilot4 外部标签盲法复核包已通过机器 QA，等待隔离的外部 GPT/Owner 完成人工语义复核；仍是预标注阶段。 |
+| 当前任务 | `PILOT4-EXTERNAL-BLIND-OWNER-REVIEW-PACKET-01`：不透明身份、随机顺序、真实标题溯源、66 个字段指南案例和四文件外部包。 |
+| 当前完成度 | ✅ c1b 历史完整保留并纠正分类；72 行外部包不含原 sample ID/设计标签/expected contract；144/144 可见标题有实际页面/文档来源；11 字段/66 案例完整。 |
+| 当前唯一人工动作 | 项目负责人把 `PILOT4_EXTERNAL_BLIND_REVIEW_PACKET.md` 上传给隔离的外部 GPT/Owner reviewer，并取回 `blind_review_id + 11 fields + reasoning`。 |
+| 当前主要 blocker | ⏳ 外部盲法语义复核尚未返回；因此不能比较 expected contract、接受协议或发 A/B。 |
+| 已经可以说什么 | 外部盲审包已准备且通过机器级身份、泄漏、标题来源、顺序、Evidence Pool 和格式 QA；不能说 72 条已被语义验证。 |
 | 绝对不能说什么 | 不得说 Pilot4 已接受、A/B 已开始、72 条已有 Ground Truth、240-group 已生成、Dataset 已冻结、Formal Detector 已实现、检测有效或 Paper Result 已形成。 |
 
 当前实验状态固定为：
 
-`PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / NO_HUMAN_DISTRIBUTION`
+`PILOT4_EXTERNAL_BLIND_REVIEW_PACKET_READY / WAITING_FOR_EXTERNAL_OWNER_REVIEW / NO_HUMAN_DISTRIBUTION`
 
 保留的历史状态链：`PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT` →
-`PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` → `PILOT4_QUALITY_CONVERGED` → 当前 Schema V3.1 状态。历史 package 不被覆盖。
+`PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` → `PILOT4_QUALITY_CONVERGED` → Schema V3.1 hardening → 当前外部盲审包状态。历史 package 不被覆盖。
 
 状态的动态权威入口是 [Current Work State](../../../governance/current_work_state.md)。
+
+历史协议框架事实：`S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；该接受不等于数值协议、Dataset 或正式实验冻结。
 
 ## 1. 项目背景：我们到底在研究什么
 
@@ -363,13 +365,13 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 
 ## 14. 当前项目状态
 
-- `PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / NO_HUMAN_DISTRIBUTION`
+- `PILOT4_EXTERNAL_BLIND_REVIEW_PACKET_READY / WAITING_FOR_EXTERNAL_OWNER_REVIEW / NO_HUMAN_DISTRIBUTION`
 - `PREANNOTATION_ONLY`
 - `NO_HUMAN_DISTRIBUTION`
 - 72 repaired candidates 已存在；仍非 Ground Truth、非 Formal Benchmark、非 frozen Dataset。
 - class intent 为 Clean / Poison / Hard Negative = `24/24/24`。
 - 生成覆盖为 `4 HKP × 3 intended-S × 2 replication = 24 poison cells`，对应 24 matched triplets。
-- 完整 72-row QA、Schema V3.1、23 个 companion source records 与三个 V3.1 dry-run workbook 正在等待人工审查。
+- 外部 72-row packet、144/144 actual-title slots、66 个指南案例和 Field Guide workbook 已通过机器 QA；外部语义答案仍为空。
 - A/B 未开始；72 Ground Truth 未建立；240-group 未开始；Dataset = `NOT FROZEN`（未冻结）。
 - Formal Detector = `NOT IMPLEMENTED`（未实现）；Formal Experiment = `NOT STARTED`（未开始）；Our Method Result = `NONE`。
 
@@ -377,14 +379,15 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 
 ## 15. 当前下一步
 
-唯一当前动作：**Owner reviews FINAL_OWNER_ANNOTATOR_DRYRUN_REVIEW.md, the locked 72-row one-context review, attempt01 mismatch chain and the three V3.1 workbooks, then explicitly accepts or reports a new blocker**。
+唯一当前动作：**Owner 把 `PILOT4_EXTERNAL_BLIND_REVIEW_PACKET.md` 交给隔离的外部 GPT/Owner reviewer，并收回
+`blind_review_id + 11 fields + reasoning`**。
 
 ```text
-Owner Quality Acceptance Review
-  ├─ PASS
-  │    -> 另行决定是否批准 A/B 72 annotation（不会自动开始）
-  └─ FAIL
-       -> 登记具体 blocker；同 root cause 连续重现则 ROOT_CAUSE_REPAIR_FAILURE 并停止
+External Blind Review Return
+  ├─ complete and structurally valid
+  │    -> 下一独立任务才可解锁 mapping 并比较 expected contract
+  └─ incomplete / ambiguous / inaccessible
+       -> 登记 HUMAN_DECISION_REQUIRED blocker 并停止
 
 未来在独立审批下：
 A/B -> agreement -> adjudication -> 72 GT
@@ -460,4 +463,4 @@ index 和 Owner 对 claims 的接受。
 | 人类/机器/证据如何分层 | [Documentation Separation Contract](../documentation_separation_contract.md) |
 | 为什么本轮不移动文件 | [Document Inventory](../document_inventory.md) |
 
-> STOP：Schema V3.1 与 Evidence Pool 仅准备 Owner acceptance；不接受 Pilot4，不分发 A/B，不启动 240-group、Detector、训练、5090 或 Formal Experiment。
+> STOP：外部盲审包仅准备外部语义复核；不比较 expected contract、不接受 Pilot4、不分发 A/B，不启动 240-group、Detector、训练、5090 或 Formal Experiment。

@@ -1,5 +1,23 @@
 # LLMGuard 项目总控文档
 
+## PILOT4 外部标签盲法 Owner 复核包（2026-09-02）
+
+项目需求提出人通过 `PODR-077 / OR-039` 判定 `c1b1245` 的 Full72 reviewer 虽然接收过脱敏输入，reviewer 代码仍可用
+`sample_id` 查询硬编码标签集合，因此历史结果永久重分类为
+`SAMPLE_ID_LABEL_LOOKUP_CONTAMINATED_REVIEW / NOT_ACCEPTABLE_AS_EXTERNAL_LABEL_BLIND_EVIDENCE`。`c1b1245`、`b705cc`、
+locked review、attempt01 mismatch、final comparison、workbooks 与历史 evidence tree 均原样保留；本次 correction 只追加，
+不把失败历史伪装成从未发生。
+
+本机在新的 `paper1_pilot4_external_blind_review_packet_20260902` 命名空间中准备了 72 行外部复核包：一次性 HMAC
+不透明 `blind_review_id`、独立 owner-only identity mapping、冻结随机 seed、无相邻 matched triplet 的随机顺序，以及
+144/144 个来自实际 HTML title/H1/官方文档或 PDF 标题的可见来源标题。外部包不含 `sample_id`、Owner 标签、expected
+contract、source role/type 或机器语义答案；Field Guide 为 11 个人工字段提供 66 个不复用 72 候选的真实教学案例。
+
+当前状态只允许 `PILOT4_EXTERNAL_BLIND_REVIEW_PACKET_READY / WAITING_FOR_EXTERNAL_OWNER_REVIEW /
+NO_HUMAN_DISTRIBUTION`。Owner 下一步把 `PILOT4_EXTERNAL_BLIND_REVIEW_PACKET.md` 交给隔离的外部 GPT/Owner reviewer，
+由其返回 `blind_review_id + 11 fields + reasoning`；identity mapping 的解锁与 expected-contract 比较必须是下一独立任务。
+不得把本轮描述为协议接受，不得自动发 A/B 或进入任何下游实验。
+
 ## PILOT4 标签盲法协议验证与候选清理（2026-09-02）
 
 Owner 通过 `PODR-076 / OR-038` 判定 `b705cc` 的 Full72 answerability 为 label-aware engineering check，且共享

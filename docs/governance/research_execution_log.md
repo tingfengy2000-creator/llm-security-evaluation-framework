@@ -1537,3 +1537,28 @@ Approval Gate、Auto Continue。
   Dataset freeze, detector effectiveness, training, formal experiment or Paper Result.
 - Next gate: Owner reviews `FINAL_OWNER_ANNOTATOR_DRYRUN_REVIEW.md`, locked Full72, mismatch evidence and the three V3.1 workbooks.
   Auto Continue `NO`.
+
+## REL-2026-0044 — PILOT4 External Label-blind Owner Review Packet
+
+- Record ID: `REL-2026-0044`; date `2026-09-02`; task `PILOT4-EXTERNAL-BLIND-OWNER-REVIEW-PACKET-01`; machine
+  `本机 / LOCAL_CONTROL_PLANE`.
+- Owner authority: `PODR-077 / OR-039`; c1b and b705cc commits plus their evidence trees were preserved. The c1b Full72 reviewer
+  was reclassified as `SAMPLE_ID_LABEL_LOOKUP_CONTAMINATED_REVIEW / NOT_ACCEPTABLE_AS_EXTERNAL_LABEL_BLIND_EVIDENCE` because
+  compiled label sets were queried by original `sample_id`.
+- Isolation: generated 72 unique non-sequential one-time blind IDs from a frozen cryptographic seed, placed the reversible mapping
+  only in hash-bound owner material, and used a physically separate formatter that reads only sanitized rows and independent guide cases.
+- Title provenance: acquired 56 unique official sources and bound all 144 visible evidence slots to actual HTML title/H1/official
+  document/PDF headings and source snapshot hashes. Manual title override and source-identity fallback counts are zero.
+- External packet: exactly four files, 72 rows, 4 Phase1 + 7 Phase2 fields, two distinct E1/E2 official sources per row, no original
+  identity, design label, Owner material, source role/type, expected contract or filled semantic answer.
+- Guide/workbook: 66 independent cases cover all 11 manual fields; enum fields have common/alternative/boundary cases and reason fields
+  have good/bad/forbidden cases. Field Guide XLSX updated additively; all other Sheet contents remained unchanged; five Sheets rendered
+  and visually reviewed; formula scan is clean.
+- Machine QA: blind IDs `72/72`; title provenance `144/144`; E1/E2 distinct `72/72`; matched-triplet adjacency 0; class/HKP/S/domain
+  periodicity 0; duplicate and cross-triplet lexical near duplicate 0; mapping isolated; machine semantic answer generation 0.
+- Final status: `PILOT4_EXTERNAL_BLIND_REVIEW_PACKET_READY / WAITING_FOR_EXTERNAL_OWNER_REVIEW /
+  NO_HUMAN_DISTRIBUTION`.
+- Claims boundary: only packet readiness and no-label-leakage are established. External semantic review, expected comparison,
+  answerability, protocol acceptance, A/B, Ground Truth, Dataset freeze, training, formal experiment and Paper Result remain absent.
+- Next gate: Owner sends the external Markdown packet to an isolated GPT/Owner reviewer and collects
+  `blind_review_id + 11 fields + reasoning`. Auto Continue `NO`.
