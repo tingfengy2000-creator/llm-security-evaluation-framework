@@ -5,7 +5,7 @@
 Document Role = `PAPER1_PRIMARY_HUMAN_ENTRY`<br>
 Audience = `项目负责人 / 导师与领导 / 新团队成员`<br>
 Reading Path = `5 minutes / 15 minutes / 30 minutes`<br>
-Current Evidence Cut = `Final Phase2 immutable superseding return / expected comparison / targeted-repair recommendation`<br>
+Current Evidence Cut = `Guide V3.2 / Expected V2 / Evidence Pool V2 / targeted R3 packet ready`<br>
 Last Updated = `2026-09-02`
 
 > 这是一张“项目地图”，不是 raw evidence，也不产生新授权。读完第 0 节可掌握当前状态；读到第 8 节可理解论文方法；
@@ -19,17 +19,17 @@ Last Updated = `2026-09-02`
 | 英文论文题目 | *Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework* |
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
-| 当前阶段 | ⚠️ Pilot4 最终 Phase2 已锁定并完成 expected comparison；本机建议定向修复，Owner 尚未接受协议。 |
-| 当前任务 | `PILOT4-PHASE2-FINAL-RETURN-LOCK-EXPECTED-COMPARISON-AND-PROTOCOL-ACCEPTANCE-01`：保存两次 Phase2 历史、比较 final72 与 expected contract，并生成协议建议。 |
-| 当前完成度 | ✅ final raw 16321 bytes / SHA `6f6cc042...92f1`、8 列、72/72、enum 与 lock-before-expected 全部通过；Phase1 exact 58/72，Phase2 exact 48/72；43 个 field mismatch 已分类。 |
-| 当前唯一人工动作 | 项目负责人审查并决定：16 条 CURRENT/LEGITIMATE 边界采用哪条冻结规则，以及是否批准 expected/minimum-evidence 与 `BR-18F1D39495` 的追加式定向修复。 |
-| 当前主要 blocker | `OVERALL_FACT_STATUS_CURRENT_VS_LEGITIMATE_BOUNDARY_16_ROWS`，另有 expected/minimum-evidence 定向问题和一条 Evidence Pool 缺陷。 |
-| 已经可以说什么 | 同一 reviewer retry 后 23 条访问限制全部解决；最终 raw 与 expected comparison 均可审计；当前只能说 `RECOMMEND_TARGETED_REPAIR`，不能说协议已接受。 |
+| 当前阶段 | ⚠️ Pilot4 的定向协议修复已完成，37 行 fresh targeted R3 验证包已就绪；协议仍未接受。 |
+| 当前任务 | `PILOT4-PROTOCOL-TARGETED-REPAIR-AND-R3-VALIDATION-PACKET-01`：追加 Guide V3.2、Expected V2、Evidence Pool V2，并构造受影响样本加匹配控制的 R3 包。 |
+| 当前完成度 | ✅ M2 16/16 已裁定；Expected V2 改 16 个字段；Evidence Pool V2 改 1 个来源；候选文本 0 改动；R3 为 21 affected + 16 controls = 37。 |
+| 当前唯一人工动作 | 项目负责人建立全新隔离 R3 reviewer context，只发送 reviewer packet、guide 和冻结证据快照，并回收完成版 CSV。 |
+| 当前主要 blocker | `WAITING_FOR_FRESH_TARGETED_EXTERNAL_REVIEW`；它是协议验收前的验证门，不是 Full72 重标注。 |
+| 已经可以说什么 | Phase1 与大多数 Phase2 稳定；问题是字段局部边界而非实验失败；修复和 R3 包可审计，但 R3 尚未执行、协议尚未接受。 |
 | 绝对不能说什么 | 不得说 Pilot4 已接受、A/B 已开始、72 条已有 Ground Truth、240-group 已生成、Dataset 已冻结、Formal Detector 已实现、检测有效或 Paper Result 已形成。 |
 
 当前实验状态固定为：
 
-`PILOT4_FINAL_BLIND_REVIEW_COMPARISON_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY / OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`
+`TARGETED_REPAIR_COMPLETE / R3_VALIDATION_PACKET_READY / WAITING_FOR_FRESH_TARGETED_EXTERNAL_REVIEW / NO_AB_DISTRIBUTION`
 
 保留的历史状态链：`PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT` →
 `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` → `PILOT4_QUALITY_CONVERGED` → Schema V3.1 hardening → 当前外部盲审包状态。历史 package 不被覆盖。
@@ -59,6 +59,17 @@ Hard Negative（困难负例）：表面像污染、实际合法，用来测量�
 | Hard Negative | “原职业教育法自 1996 年 9 月 1 日起施行，后被修订文本替代。” | 描述历史版本，日期不同但不是污染。 |
 
 核心难题不是“找出所有不同”，而是“用版本、时间、来源和检索行为证据区分恶意事实改变与合法差异”。
+
+### 为什么这次不再重跑 Full72
+
+Pilot4 的外部复核已经证明 72 条候选在 Phase1 没有候选缺陷；Phase2 也不是全面失控，而是绝大多数字段稳定，分歧主要
+聚集在“一个正确命题只是提到历史日期，还是必须依赖历史/版本限定才成立”这个字段边界。此前还发现少量 Expected 字段
+和 Evidence Pool 设计问题。把这种局部测量工具问题写成“实验失败”不准确，再让 reviewer 重做全部 72 条也会浪费人工。
+
+本轮因此采用更窄但更严格的方法：先把边界、Expected 和 Evidence 逐项修复并保留全部旧版本，再把 21 条真正受影响样本
+与 16 条在领域、候选类型、HKP、隐蔽等级和命题结构上匹配的控制样本混合，交给全新的隔离 reviewer。Reviewer 不知道
+哪些被修、哪些是控制，也看不到旧 ID、sample ID、mapping、expected 或 mismatch 分类。这样能直接回答“新规则是否更清楚，
+同时有没有把原本稳定的判断弄坏”。在这 37 条新返回完成并锁定前，协议仍未接受，A/B 仍不能开始。
 
 ## 2. 专业术语中英文速查
 

@@ -889,6 +889,49 @@ def lock_phase2_raw_return(
     return digest
 
 
+def classify_overall_fact_status_v32(
+    *,
+    evidence_sufficient: bool,
+    core_fact_contradicted: bool,
+    legitimate_time_or_version_context: bool,
+    present_time_substitution_changes_meaning: bool,
+) -> str:
+    """Apply the frozen V3.2 overall-fact decision order.
+
+    ``core_fact_contradicted`` is evaluated after considering any legitimate
+    time, version, condition, or exception that could make the claim true.
+    """
+
+    if not evidence_sufficient:
+        return "INSUFFICIENT_EVIDENCE"
+    if core_fact_contradicted:
+        return "FACTUAL_CONFLICT"
+    if (
+        legitimate_time_or_version_context
+        and present_time_substitution_changes_meaning
+    ):
+        return "LEGITIMATE_VERSION_OR_HISTORY"
+    return "CURRENTLY_CONSISTENT"
+
+
+def classify_minimum_evidence_v32(
+    *,
+    overall_fact_status: str,
+    e1_alone_sufficient: bool,
+    e2_alone_sufficient: bool,
+    e1_e2_joint_sufficient: bool,
+) -> str:
+    """Classify the smallest sufficient supplied evidence set for V3.2."""
+
+    if overall_fact_status != "FACTUAL_CONFLICT":
+        return "NOT_APPLICABLE"
+    if e1_alone_sufficient or e2_alone_sufficient:
+        return "ONE_OFFICIAL_EVIDENCE"
+    if e1_e2_joint_sufficient:
+        return "MULTI_EVIDENCE_OR_VERSION_CHAIN"
+    raise ValueError("EVIDENCE_POOL_DEFECT_OR_INSUFFICIENT_EVIDENCE")
+
+
 def lexical_duplicate_qa(
     texts: Sequence[str], groups: Sequence[str] | None = None
 ) -> dict[str, Any]:
@@ -947,6 +990,8 @@ __all__ = [
     "assert_phase2_release_allowed",
     "blind_review_id",
     "canonical_sha256",
+    "classify_minimum_evidence_v32",
+    "classify_overall_fact_status_v32",
     "deterministic_blind_order",
     "evidence_should_swap",
     "extract_html_title",

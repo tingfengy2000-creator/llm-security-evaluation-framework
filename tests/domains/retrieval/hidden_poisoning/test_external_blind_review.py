@@ -18,6 +18,8 @@ from llmguard.domains.retrieval.hidden_poisoning.external_blind_review import (
     TITLE_ORIGINS,
     adjacent_same_group_count,
     blind_review_id,
+    classify_minimum_evidence_v32,
+    classify_overall_fact_status_v32,
     deterministic_constrained_blind_order,
     deterministic_blind_order,
     evidence_should_swap,
@@ -827,6 +829,90 @@ def test_combined_packet_is_marked_superseded_without_mutation(tmp_path: Path) -
     assert (
         prior / "external_blind_review" / "PILOT4_EXTERNAL_BLIND_REVIEW_PACKET.jsonl"
     ).read_bytes() == original
+
+
+@pytest.mark.parametrize(
+    ("inputs", "expected"),
+    [
+        (
+            {
+                "evidence_sufficient": False,
+                "core_fact_contradicted": False,
+                "legitimate_time_or_version_context": True,
+                "present_time_substitution_changes_meaning": True,
+            },
+            "INSUFFICIENT_EVIDENCE",
+        ),
+        (
+            {
+                "evidence_sufficient": True,
+                "core_fact_contradicted": True,
+                "legitimate_time_or_version_context": False,
+                "present_time_substitution_changes_meaning": False,
+            },
+            "FACTUAL_CONFLICT",
+        ),
+        (
+            {
+                "evidence_sufficient": True,
+                "core_fact_contradicted": False,
+                "legitimate_time_or_version_context": True,
+                "present_time_substitution_changes_meaning": True,
+            },
+            "LEGITIMATE_VERSION_OR_HISTORY",
+        ),
+        (
+            {
+                "evidence_sufficient": True,
+                "core_fact_contradicted": False,
+                "legitimate_time_or_version_context": True,
+                "present_time_substitution_changes_meaning": False,
+            },
+            "CURRENTLY_CONSISTENT",
+        ),
+    ],
+)
+def test_overall_fact_status_v32_follows_frozen_decision_order(
+    inputs: dict[str, bool], expected: str
+) -> None:
+    assert classify_overall_fact_status_v32(**inputs) == expected
+
+
+def test_minimum_evidence_v32_uses_actual_supplied_pool_ablation() -> None:
+    assert (
+        classify_minimum_evidence_v32(
+            overall_fact_status="CURRENTLY_CONSISTENT",
+            e1_alone_sufficient=True,
+            e2_alone_sufficient=True,
+            e1_e2_joint_sufficient=True,
+        )
+        == "NOT_APPLICABLE"
+    )
+    assert (
+        classify_minimum_evidence_v32(
+            overall_fact_status="FACTUAL_CONFLICT",
+            e1_alone_sufficient=False,
+            e2_alone_sufficient=True,
+            e1_e2_joint_sufficient=True,
+        )
+        == "ONE_OFFICIAL_EVIDENCE"
+    )
+    assert (
+        classify_minimum_evidence_v32(
+            overall_fact_status="FACTUAL_CONFLICT",
+            e1_alone_sufficient=False,
+            e2_alone_sufficient=False,
+            e1_e2_joint_sufficient=True,
+        )
+        == "MULTI_EVIDENCE_OR_VERSION_CHAIN"
+    )
+    with pytest.raises(ValueError, match="EVIDENCE_POOL_DEFECT"):
+        classify_minimum_evidence_v32(
+            overall_fact_status="FACTUAL_CONFLICT",
+            e1_alone_sufficient=False,
+            e2_alone_sufficient=False,
+            e1_e2_joint_sufficient=False,
+        )
 
 
 def test_phase_builder_binds_frozen_zero_adjacency_order(tmp_path: Path) -> None:

@@ -1,11 +1,10 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`PILOT4_FINAL_BLIND_REVIEW_COMPARISON_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
-> OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`。第一份 access-limited Phase2 raw 与最终 superseding raw 已分别
-> 按原字节锁定；同一 reviewer retry 后 23 条 `SOURCE_UNREACHABLE` 全部解决。raw lock 先于 mapping/expected load，
-> Phase1 exact 为 58/72，Phase2 exact 为 48/72。本机只建议 `RECOMMEND_TARGETED_REPAIR`：16 条 primary-label guide
-> boundary、expected/minimum-evidence 定向问题及 `BR-18F1D39495` Evidence Pool 缺陷尚待 Owner 决策。72 条候选仍无
-> Ground Truth；240-group、
+> 当前实验状态：`TARGETED_REPAIR_COMPLETE / R3_VALIDATION_PACKET_READY /
+> WAITING_FOR_FRESH_TARGETED_EXTERNAL_REVIEW / NO_AB_DISTRIBUTION`。Guide V3.2、Expected V2、Evidence Pool V2 和 37 行
+> targeted R3 packet 已追加准备；历史 raw、Expected V1、旧 comparison/taxonomy 与 final72 corpus 不变。R3 尚未执行，
+> `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=FALSE`。下一步只由 Owner 把 reviewer packet、guide 与冻结证据快照交给新的隔离
+> reviewer，回收后另起任务先锁 raw 再比较；72 条候选仍无 Ground Truth，240-group、
 > Dataset freeze、Formal Detector、Training、5090、Formal Experiment 和 Paper Result 均未开始。
 > `FORMAL_EXPERIMENT = NOT STARTED`；`DATASET_FORMAL_FREEZE = NOT STARTED`。
 

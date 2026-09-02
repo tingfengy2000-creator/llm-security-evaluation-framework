@@ -1401,3 +1401,22 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   Detector、Training、5090、Formal Experiment or Paper Result. Auto Continue `NO`.
 - Canonical records: `OR-045`, `REL-2026-0050`, [current work state](current_work_state.md) and Git-external
   `paper1_pilot4_phase2_final_expected_comparison_20260902`.
+
+## PODR-084: Pilot4 Targeted Protocol Repair and Fresh R3 Validation Packet
+
+- Date: `2026-09-02`.
+- Owner authorization: targeted repair is approved for the frozen M2、M5、M8 and `BR-18F1D39495` findings. Full72 Phase1/Phase2
+  rerun is not approved；formal A/B remains closed.
+- Additive-only rule: preserve every historical raw return、Expected V1、old comparison/taxonomy and final candidate corpus unchanged.
+  Publish only versioned Guide V3.2、Expected Contract V2、Evidence Pool V2 and their change lineage.
+- Repair disposition: M2 `16/16` receives a field-local current-versus-history boundary decision；Expected V2 contains exactly 16
+  traceable changes（M2=6、M5=6、M8=4）；the Evidence Pool overlay changes one E1 for `BR-18F1D39495` and changes no candidate text.
+- R3 scope: validate 21 impacted unique candidates plus 16 matched controls, total 37. Use fresh opaque IDs and conceal old IDs、
+  sample IDs、expected values、mapping、mismatch taxonomy and control designation from the reviewer.
+- Current status: `TARGETED_REPAIR_COMPLETE / R3_VALIDATION_PACKET_READY /
+  WAITING_FOR_FRESH_TARGETED_EXTERNAL_REVIEW / NO_AB_DISTRIBUTION`；`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=FALSE` and
+  `R3_EXTERNAL_REVIEW_EXECUTED=FALSE`.
+- Prohibited: Codex executing R3、automatic protocol acceptance、A/B distribution、Ground Truth、240-group、Dataset freeze、
+  Detector、Training、5090、Formal Experiment or Paper Result. Auto Continue `NO`.
+- Canonical records: `OR-046`, `REL-2026-0051`, [current work state](current_work_state.md) and Git-external
+  `paper1_pilot4_protocol_targeted_repair_r3_20260902`.

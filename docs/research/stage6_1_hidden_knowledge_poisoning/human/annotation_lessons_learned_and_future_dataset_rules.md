@@ -355,3 +355,17 @@ Pilot4 最终第二阶段提供三项新增但尚未最终验收的经验。第�
 本规则当前状态为 `PROVISIONAL_PENDING_PILOT4_FINAL_ACCEPTANCE`。它支持本轮
 `RECOMMEND_TARGETED_REPAIR`，但不得写成已接受的正式标注协议，也不授权 A/B、真值、240 组、数据集冻结、检测器、训练
 或正式实验。
+
+## 二十一、字段局部修复与匹配控制验证（临时规则）
+
+当外部复核显示 Phase1 候选质量和大部分 Phase2 字段稳定，而分歧集中在一个可明确定位的字段边界时，不应把问题误写成
+“整个实验失败”，也不应为了形式完整机械重跑全部候选。应先保持 raw、candidate corpus 和旧 expected 不变，追加新 guide、
+new expected/evidence version 与逐项 lineage；再用“全部受影响样本 + 匹配控制”做新的隔离验证，检查修复是否真正改善边界、
+同时没有破坏原来稳定的样本。
+
+匹配控制必须覆盖与受影响样本相近的 domain、candidate class、HKP、intended stealth、version/authority claim profile，且
+reviewer 不得知道哪些是 impacted、哪些是 controls。新一轮使用 fresh opaque ID；旧 reviewer ID、sample ID、expected、mapping、
+mismatch taxonomy 和 control designation 均不得进入 reviewer context。验证结果必须先锁 raw，再比较 Expected V2。
+
+本规则当前状态为 `PROVISIONAL_PENDING_PILOT4_FINAL_ACCEPTANCE`。本轮 21 impacted + 16 matched controls 的 R3 包只是待执行的
+验证设计，不是协议已经清晰、可复现或可扩展的结果；只有 fresh external return 完成并经 Owner 最终验收，才可考虑提升。

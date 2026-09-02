@@ -1817,3 +1817,41 @@ Approval Gate、Auto Continue。
     `README_condition_evaluated=true`（first-screen current state changed，updated）。
   - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
     `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.
+
+## REL-2026-0051 — Pilot4 Targeted Protocol Repair and Fresh R3 Validation Packet
+
+- Record ID: `REL-2026-0051`; date `2026-09-02`; task
+  `PILOT4-PROTOCOL-TARGETED-REPAIR-AND-R3-VALIDATION-PACKET-01`; machine `本机 / LOCAL_CONTROL_PLANE`; execution base
+  `242b172506539a01cc0c9fa419811a9435fc3a11`; Owner authority `PODR-084 / OR-046`.
+- Recovery and immutability: dynamic worktree lookup found the unique `research/stage6-1-hidden-poisoning` binding；upstream was
+  synchronized and clean before execution. All historical raw returns、Expected V1、old comparison/taxonomy、final72 corpus and
+  Stage1–5 paths were hash-checked before/after and not modified.
+- Boundary repair: all 16 M2 primary-status disagreements received explicit V3.2 decision-order adjudication；10 remain
+  `CURRENTLY_CONSISTENT` and 6 become `LEGITIMATE_VERSION_OR_HISTORY`. The rule asks whether the correct claim loses or materially
+  changes meaning when version/history qualification is removed；mere presence of a date or amendment verb is not enough.
+- Expected/Evidence repair: Expected V2 has 16 field changes with lineage（M2=6、M5=6、M8=4）；all four M8 cases were re-run as
+  E1-alone/E2-alone/joint ablations and resolve to `ONE_OFFICIAL_EVIDENCE`. `BR-18F1D39495` receives one official-page E1 replacement;
+  Expected remains unchanged and candidate text changes are 0.
+- R3 packet: 21 impacted unique candidates plus 16 matched controls, total 37；fresh opaque IDs 37/37、old-ID reuse 0、old-ID visible
+  hits 0、forbidden expected/mapping/taxonomy/control-marker hits 0. Every E1/E2 has a frozen snapshot and URL provenance；formal
+  candidate text is absent from teaching examples.
+- Interpretation: the prior external run was not a failed experiment. Phase1 candidate quality was stable and most Phase2 fields
+  were stable；the defect was a field-local current-versus-history boundary plus targeted contract/evidence issues. Therefore a
+  matched targeted validation is more informative and less wasteful than another Full72 rerun.
+- Final status: `TARGETED_REPAIR_COMPLETE / R3_VALIDATION_PACKET_READY /
+  WAITING_FOR_FRESH_TARGETED_EXTERNAL_REVIEW / NO_AB_DISTRIBUTION`；`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=FALSE`；R3 was not run.
+- Owner next action: create a new isolated `P1-Pilot4-Protocol-Targeted-Validation-R3` Project and
+  `Pilot4 Targeted Phase2 Boundary Validation` conversation；send only the reviewer packet、V3.2 guide and frozen snapshot materials,
+  collect the complete CSV, then start a separate raw-lock-before-Expected task.
+- `DOCUMENTATION_CLOSEOUT_CHECKLIST`:
+  - `human_ledger_checked=true`; `human_ledger_updated_if_required=true`; `agent_ledger_checked=true`;
+    `agent_ledger_updated=true`; `current_work_state_updated=true`; `execution_log_appended=true`.
+  - `experiment_master_condition_evaluated=true`（targeted validation gate added，updated）；
+    `owner_decision_condition_evaluated=true`（new repair authorization，updated）；
+    `stage_process_condition_evaluated=true`（R3 gate added，updated）；
+    `lessons_condition_evaluated=true`（field-local boundary and matched-control validation remain provisional，updated）。
+  - `project_master_condition_evaluated=true`（current project status changed，updated）；
+    `research_authority_condition_evaluated=true`（frozen research plan unchanged，not modified）；
+    `README_condition_evaluated=true`（current entry changed，updated）。
+  - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
+    `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.

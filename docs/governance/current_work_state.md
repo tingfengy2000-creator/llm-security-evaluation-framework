@@ -16,28 +16,28 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `PILOT4-PHASE2-FINAL-RETURN-LOCK-EXPECTED-COMPARISON-AND-PROTOCOL-ACCEPTANCE-01`.
-- Task name: `Pilot4 Final Phase2 Superseding Return Lock, Expected-Contract Comparison, Disagreement Taxonomy and
-  Annotation-Protocol Acceptance Evidence`.
-- Task type: **FINAL RAW LOCK / CONTROLLED MAPPING UNLOCK / EXPECTED COMPARISON / PROTOCOL RECOMMENDATION / LOCAL CONTROL PLANE**.
-- Engineering status: **FINAL RAW LOCK PASS / EXPECTED COMPARISON COMPLETE / TAXONOMY COMPLETE / DOCUMENTATION CLOSEOUT PASS**.
-- Experiment status: **PILOT4_FINAL_BLIND_REVIEW_COMPARISON_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
-  OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION / PREANNOTATION_ONLY / AUTO_CONTINUE_NO**.
+- Task ID: `PILOT4-PROTOCOL-TARGETED-REPAIR-AND-R3-VALIDATION-PACKET-01`.
+- Task name: `Pilot4 Annotation Protocol Targeted Repair, Expected/Evidence Adjudication and Fresh R3 Blind Validation Packet`.
+- Task type: **ADDITIVE GUIDE/EXPECTED/EVIDENCE REPAIR / TARGETED R3 PACKET PREPARATION / LOCAL CONTROL PLANE**.
+- Engineering status: **TARGETED REPAIR PASS / R3 PACKET QA PASS / DOCUMENTATION CLOSEOUT PASS**.
+- Experiment status: **TARGETED_REPAIR_COMPLETE / R3_VALIDATION_PACKET_READY /
+  WAITING_FOR_FRESH_TARGETED_EXTERNAL_REVIEW / NO_AB_DISTRIBUTION / PREANNOTATION_ONLY / AUTO_CONTINUE_NO**.
 - Documentation gate: **PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED / HUMAN_LEDGER_CONTINUOUS_SYNC =
   MANDATORY / TASK_DOCUMENTATION_CLOSEOUT = MANDATORY**. Paper 1 task completion requires execution, tests, evidence,
   documentation closeout and valid Git status; otherwise status is `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING` with
   `TASK_DOCUMENTATION_CLOSEOUT_BLOCKER`.
-- Execution base commit: `a9d687ece695ab83d3a23906194b930459e2783b`.
+- Execution base commit: `242b172506539a01cc0c9fa419811a9435fc3a11`.
 - Candidate source identity: `candidates_v3_1_additive.jsonl` SHA256
   `15500aa75bced9fb470edaac98f9527e7bb4bc689b86583e6f69b892c48eb210`; final additive corpus SHA256
   `f530471ecd6551300d68c8ddf104cadce2305d8ff91e64010be222820628252d`.
 - Execution machine: **本机**. No model load、GPU workload、5090 contact、formal Dataset/Detector/Training or experiment occurred.
-- Current ordered step: Owner reviews the acceptance evidence and chooses a repair policy for the 16-row primary-status boundary,
-  the identified expected/minimum-evidence cases and `BR-18F1D39495`. Only after additive repair and targeted validation may Owner
-  explicitly accept the protocol；A/B execution requires another separate approval.
-- Current blockers: `OVERALL_FACT_STATUS_CURRENT_VS_LEGITIMATE_BOUNDARY_16_ROWS`、
-  `EXPECTED_CONTRACT_TARGETED_REPAIR_REQUIRED`、`MINIMUM_EVIDENCE_CONTRACT_REVIEW_REQUIRED` and
-  `BR-18F1D39495_EVIDENCE_POOL_DESIGN_DEFECT`.
+- Current ordered step: Owner creates a fresh isolated R3 reviewer context and sends only the 37-row reviewer packet、V3.2 guide and
+  frozen Evidence snapshots. The completed CSV must return to a later task for immutable raw lock before mapping/Expected V2 load.
+- Current blockers: `WAITING_FOR_FRESH_TARGETED_EXTERNAL_REVIEW`。The prior M2/M5/M8/Evidence-Pool repair items are closed as
+  versioned repair artifacts, not as protocol acceptance；`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=FALSE`.
+- Targeted repair facts: M2 boundary adjudication `16/16`；Expected V2 changes `16`（M2=6、M5=6、M8=4）；Evidence Pool V2
+  changes `1`；candidate text changes `0`；R3 impacted/control/total `21/16/37`；fresh opaque IDs `37/37`；old-ID reuse `0`；
+  reviewer-visible hidden-control leakage `0`.
 - Pilot4 lesson status: `PROVISIONAL_PENDING_FINAL_ACCEPTANCE`. Promotion to `ACCEPTED_LESSON` is permitted only in a future task that
   records `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` and executes `PILOT4_PROTOCOL_LESSON_PROMOTION`.
 - Combined-packet correction: the `5d6b4b5` combined packet is preserved unchanged as
@@ -102,8 +102,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PODR-057` and `PODR-058`.
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
-- S6.1-P1: **PILOT4_FINAL_BLIND_REVIEW_COMPARISON_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
-  OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION / PREANNOTATION_ONLY / NOT FORMAL_EXPERIMENT**.
+- S6.1-P1: **TARGETED_REPAIR_COMPLETE / R3_VALIDATION_PACKET_READY / WAITING_FOR_FRESH_TARGETED_EXTERNAL_REVIEW /
+  NO_AB_DISTRIBUTION / PREANNOTATION_ONLY / NOT FORMAL_EXPERIMENT**.
 - S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
 - S6.1-P1-PILOT1: **HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED**.
 - Historical S6.1-P1-PILOT1: **COMPLETED_PENDING_REVIEW / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY**；superseded by OR-024.

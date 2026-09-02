@@ -1,5 +1,23 @@
 # LLMGuard 项目总控文档
 
+## PILOT4 协议定向修复与 R3 验证包（2026-09-02）
+
+项目需求提出人批准 `PILOT4-PROTOCOL-TARGETED-REPAIR-AND-R3-VALIDATION-PACKET-01`。这不是实验失败，也不是重跑
+Full72：Attempt2 Phase1 的候选质量门仍为 `72/72 NONE`，大多数 Phase2 字段也稳定；问题集中在“当前正确”与“合法历史/
+版本关系”的局部边界、少数 Expected 字段、四条 minimum-evidence 判定，以及一条 Evidence Pool 缺口。
+
+本机已追加准备 `ANNOTATION_GUIDE_V3_2_TARGETED_REPAIR`、`PILOT4_EXPECTED_CONTRACT_V2_TARGETED_REPAIR`、
+`PILOT4_EVIDENCE_POOL_V2_TARGETED_REPAIR` 与 fresh targeted R3 包。M2 的 16 条边界均逐条裁定；Expected V2 共 16 个可追溯
+变更（M2=6、M5=6、M8=4）；`BR-18F1D39495` 只替换缺失 2014 修订命题的 E1，不改候选文本。R3 仅含 21 条受影响样本
+和 16 条匹配控制，共 37 条；使用全新 opaque ID，旧 ID、sample ID、expected、mapping、mismatch taxonomy 与 control 标记
+均不对 reviewer 可见。所有历史 raw、Expected V1、旧 comparison/taxonomy 和 final72 candidate corpus 保持不变。
+
+当前状态为 `TARGETED_REPAIR_COMPLETE / R3_VALIDATION_PACKET_READY /
+WAITING_FOR_FRESH_TARGETED_EXTERNAL_REVIEW / NO_AB_DISTRIBUTION`。`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=FALSE`，R3 尚未
+执行。下一步仅由项目负责人建立新的隔离 R3 reviewer context，发送 reviewer packet、guide 和冻结证据快照，回收原始 CSV；
+之后另起任务先锁定 raw，再解锁 mapping/Expected V2。不得自动接受协议、发 A/B、生成 Ground Truth、冻结 Dataset、
+启动 Detector/Training、联系 5090 或执行 Formal Experiment。
+
 ## PILOT4 Final Phase2 锁定、Expected 对比与协议建议（2026-09-02）
 
 项目需求提出人授权 `PILOT4-PHASE2-FINAL-RETURN-LOCK-EXPECTED-COMPARISON-AND-PROTOCOL-ACCEPTANCE-01`。上一条
