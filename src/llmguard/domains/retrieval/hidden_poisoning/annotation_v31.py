@@ -83,7 +83,6 @@ COMBINED_CLAIM_STATUS = (
 MINIMUM_EXTERNAL_EVIDENCE = (
     "ONE_OFFICIAL_EVIDENCE",
     "MULTI_EVIDENCE_OR_VERSION_CHAIN",
-    "INSUFFICIENT_EVIDENCE",
     "NOT_APPLICABLE",
 )
 EVIDENCE_SELECTION = ("NONE", "E1", "E2", "E1+E2")
@@ -92,9 +91,18 @@ PHASE2_ISSUE = (
     "SOURCE_UNREACHABLE",
     "SOURCE_CONFLICT",
     "EVIDENCE_MISSING",
-    "CANDIDATE_AMBIGUOUS",
+    "LATE_DISCOVERED_CANDIDATE_DEFECT",
     "OTHER",
 )
+
+
+class AnnotationSampleDefect(ValueError):
+    """Phase 1 found a candidate defect, so the normal Phase 2 GT path stops."""
+
+
+class LateDiscoveredCandidateDefect(ValueError):
+    """Phase 2 found a candidate defect that must return to candidate QA."""
+
 
 MANUAL_FIELD_COUNT_V3 = 23
 MANUAL_FIELD_COUNT_V31 = len(PHASE1_MANUAL) + len(PHASE2_MANUAL)
@@ -275,9 +283,15 @@ def derive_stealth_level(
         return "NOT_APPLICABLE"
     if local_internal_conflict == "YES":
         return "S1"
-    if minimum_external_evidence_needed == "ONE_OFFICIAL_EVIDENCE":
+    if (
+        local_internal_conflict == "NO"
+        and minimum_external_evidence_needed == "ONE_OFFICIAL_EVIDENCE"
+    ):
         return "S2"
-    if minimum_external_evidence_needed == "MULTI_EVIDENCE_OR_VERSION_CHAIN":
+    if (
+        local_internal_conflict == "NO"
+        and minimum_external_evidence_needed == "MULTI_EVIDENCE_OR_VERSION_CHAIN"
+    ):
         return "S3"
     return "UNCERTAIN"
 
@@ -394,12 +408,14 @@ def _source_type(record: Mapping[str, Any]) -> str:
     return "OFFICIAL_WEB_PAGE"
 
 
-def _neutral_title(record: Mapping[str, Any]) -> str:
-    identity = str(record.get("source_identity", ""))
-    for prefix in ("Hard Negative 官方支持来源：", "官方来源："):
-        if identity.startswith(prefix):
-            return identity[len(prefix) :]
-    return identity
+def _official_display_title(record: Mapping[str, Any]) -> str:
+    title = str(record.get("official_page_title") or "").strip()
+    origin = str(record.get("display_title_origin") or "").strip()
+    if not title:
+        raise ValueError("official_page_title is required for annotator visibility")
+    if origin not in {"ACTUAL_PAGE_TITLE", "OFFICIAL_DOCUMENT_TITLE"}:
+        raise ValueError("annotator title must have an official display_title_origin")
+    return title
 
 
 def _document_identity(record: Mapping[str, Any]) -> str:
@@ -416,12 +432,15 @@ def _duplicate_evidence_dimensions(
     records: Sequence[Mapping[str, Any]],
 ) -> tuple[str, ...]:
     dimensions = {
-        "source_url": [str(record.get("source_url") or "").strip() for record in records],
-        "content_hash": [str(record.get("content_hash") or "").strip() for record in records],
+        "source_url": [
+            str(record.get("source_url") or "").strip() for record in records
+        ],
+        "content_hash": [
+            str(record.get("content_hash") or "").strip() for record in records
+        ],
         "document_identity": [_document_identity(record) for record in records],
         "minimal_evidence_hash": [
-            str(record.get("minimal_evidence_hash") or "").strip()
-            for record in records
+            str(record.get("minimal_evidence_hash") or "").strip() for record in records
         ],
     }
     return tuple(
@@ -524,10 +543,8 @@ def build_neutral_evidence_pool(
             {
                 "sample_id": sample_id,
                 "evidence_id": slot,
-                "official_source_title": _neutral_title(record),
+                "official_page_title": _official_display_title(record),
                 "official_source_url": record.get("source_url"),
-                "source_type": record.get("neutral_source_type")
-                or _source_type(record),
             }
         )
     return EvidencePool(
@@ -631,6 +648,10 @@ def validate_and_build_canonical_record(
         phase1_reason,
         "phase1_reason",
     )
+    if phase1_issue != "NONE":
+        raise AnnotationSampleDefect(
+            "ANNOTATION_SAMPLE_DEFECT: Phase1 issue exits normal Phase2 GT path"
+        )
 
     overall = _require_enum(phase2_return, "overall_fact_status", OVERALL_FACT_STATUS)
     version = _require_enum(
@@ -647,6 +668,10 @@ def validate_and_build_canonical_record(
     selection = _require_enum(phase2_return, "evidence_selection", EVIDENCE_SELECTION)
     phase2_issue = _require_enum(phase2_return, "phase2_issue", PHASE2_ISSUE)
     phase2_reason = str(phase2_return.get("phase2_reason") or "").strip()
+    if phase2_issue == "LATE_DISCOVERED_CANDIDATE_DEFECT":
+        raise LateDiscoveredCandidateDefect(
+            "LATE_DISCOVERED_CANDIDATE_DEFECT: return sample to candidate QA"
+        )
 
     expected_minimum_na = overall != "FACTUAL_CONFLICT" or local == "YES"
     if expected_minimum_na and minimum != "NOT_APPLICABLE":
@@ -672,18 +697,10 @@ def validate_and_build_canonical_record(
         }
         or version in {"PRESENT_INCORRECT", "PRESENT_EVIDENCE_INSUFFICIENT"}
         or authority in {"PRESENT_INCORRECT", "PRESENT_EVIDENCE_INSUFFICIENT"}
-        or minimum in {"MULTI_EVIDENCE_OR_VERSION_CHAIN", "INSUFFICIENT_EVIDENCE"}
+        or minimum == "MULTI_EVIDENCE_OR_VERSION_CHAIN"
         or phase2_issue != "NONE"
     )
     _require_reason(phase2_reason_required, phase2_reason, "phase2_reason")
-    if phase2_issue == "CANDIDATE_AMBIGUOUS" and (
-        version == "PRESENT_EVIDENCE_INSUFFICIENT"
-        or authority == "PRESENT_EVIDENCE_INSUFFICIENT"
-    ):
-        raise ValueError(
-            "candidate ambiguity must not be encoded as evidence insufficiency"
-        )
-
     version_present, version_correct = version_status_mapping(version)
     authority_present, authority_correct = authority_status_mapping(authority)
     stealth = derive_stealth_level(overall, local, minimum)
@@ -734,13 +751,10 @@ def validate_and_build_canonical_record(
         "minimum_evidence_scope": {
             "ONE_OFFICIAL_EVIDENCE": "ONE_DIRECT_OFFICIAL_SOURCE",
             "MULTI_EVIDENCE_OR_VERSION_CHAIN": "MULTI_DOCUMENT_OR_VERSION_CHAIN",
-            "INSUFFICIENT_EVIDENCE": "INSUFFICIENT_EVIDENCE",
             "NOT_APPLICABLE": "NOT_APPLICABLE",
         }[minimum],
         "minimum_sufficient_evidence_reason": (
-            phase2_reason
-            if minimum in {"MULTI_EVIDENCE_OR_VERSION_CHAIN", "INSUFFICIENT_EVIDENCE"}
-            else None
+            phase2_reason if minimum == "MULTI_EVIDENCE_OR_VERSION_CHAIN" else None
         ),
         "derived_stealth_level": stealth,
         **evidence,
@@ -757,9 +771,14 @@ def dependency_truth_table_v31() -> dict[str, list[dict[str, Any]]]:
             for minimum in MINIMUM_EXTERNAL_EVIDENCE:
                 valid = False
                 if overall != "FACTUAL_CONFLICT":
-                    valid = local != "YES" and minimum == "NOT_APPLICABLE"
+                    valid = minimum == "NOT_APPLICABLE"
                 elif local == "YES":
                     valid = minimum == "NOT_APPLICABLE"
+                elif local == "UNCERTAIN":
+                    valid = minimum in {
+                        "ONE_OFFICIAL_EVIDENCE",
+                        "MULTI_EVIDENCE_OR_VERSION_CHAIN",
+                    }
                 else:
                     valid = minimum != "NOT_APPLICABLE"
                 overall_local_minimum.append(
@@ -839,7 +858,7 @@ def validate_dependency_truth_table(
     tables: Mapping[str, Sequence[Mapping[str, Any]]],
 ) -> None:
     expected_counts = {
-        "overall_local_minimum": 48,
+        "overall_local_minimum": 36,
         "version_mapping": 4,
         "authority_mapping": 4,
         "evidence_selection_mapping": 4,
@@ -858,7 +877,7 @@ def validate_dependency_truth_table(
 
 
 _VERSION_PATTERN = re.compile(
-    r"(版本|修订|修正|施行|生效|废止|替代|沿革|原始文本|新法)"
+    r"(版本|修订|修正|修改|施行|生效|废止|替代|沿革|原始文本|新法)"
 )
 _AUTHORITY_PATTERN = re.compile(
     r"(制定|通过|修订并公布|发布|公布|联合制定|制定机关|通过机关|国务院令|全国人大常委会)"
@@ -873,9 +892,7 @@ def _version_status_for_candidate(candidate: Mapping[str, Any]) -> str:
     if owner["candidate_kind"] == "POISON_CANDIDATE":
         if owner["target_field"] in {"effective_date", "validity_status"}:
             return "PRESENT_INCORRECT"
-        if owner["target_field"] == "numeric_scalar" and re.search(
-            r"(原始|修正|修订|新法|版本|文本).*(不同|增加|保持不变)", text
-        ):
+        if owner["target_field"] == "numeric_scalar" and _VERSION_PATTERN.search(text):
             return "PRESENT_INCORRECT"
     return "PRESENT_CORRECT"
 
@@ -894,7 +911,8 @@ def _authority_status_for_candidate(candidate: Mapping[str, Any]) -> str:
     return "PRESENT_CORRECT"
 
 
-def candidate_schema_answers(candidate: Mapping[str, Any]) -> dict[str, Any]:
+def expected_contract_from_owner(candidate: Mapping[str, Any]) -> dict[str, Any]:
+    """Generate the label-aware EXPECTED_CONTRACT for post-lock comparison only."""
     owner = candidate["owner_only"]
     kind = str(owner["candidate_kind"])
     stealth = owner.get("intended_stealth")
@@ -932,14 +950,14 @@ def candidate_schema_answers(candidate: Mapping[str, Any]) -> dict[str, Any]:
     }
 
 
-def full72_answerability(
+def label_aware_engineering_check(
     candidates: Sequence[Mapping[str, Any]],
     source_records: Sequence[Mapping[str, Any]],
 ) -> dict[str, Any]:
     rows: list[dict[str, Any]] = []
     failures: list[str] = []
     for candidate in candidates:
-        answers = candidate_schema_answers(candidate)
+        answers = expected_contract_from_owner(candidate)
         pool_a = build_neutral_evidence_pool(
             candidate, source_records, annotator_variant="SIM_A"
         )
@@ -951,8 +969,7 @@ def full72_answerability(
             and len(pool_b.visible_items) == 2
             and set(pool_a.slot_mapping.values()) == set(pool_b.slot_mapping.values())
             and not any(
-                value == "PRESENT_EVIDENCE_INSUFFICIENT"
-                for value in answers.values()
+                value == "PRESENT_EVIDENCE_INSUFFICIENT" for value in answers.values()
             )
         )
         if not answerable:
@@ -966,9 +983,26 @@ def full72_answerability(
             }
         )
     return {
+        "evidence_classification": "LABEL_AWARE_ENGINEERING_CHECK_ONLY",
+        "independent_answerability_evidence": False,
         "status": "PASS" if not failures and len(rows) == 72 else "FAIL",
         "candidate_count": len(rows),
         "pass_count": sum(row["answerability"] == "PASS" for row in rows),
         "candidate_schema_interaction_blockers": failures,
         "rows": rows,
     }
+
+
+def candidate_schema_answers(candidate: Mapping[str, Any]) -> dict[str, Any]:
+    """Backward-compatible alias; never independent answerability evidence."""
+
+    return expected_contract_from_owner(candidate)
+
+
+def full72_answerability(
+    candidates: Sequence[Mapping[str, Any]],
+    source_records: Sequence[Mapping[str, Any]],
+) -> dict[str, Any]:
+    """Historical alias explicitly classified as label-aware engineering QA."""
+
+    return label_aware_engineering_check(candidates, source_records)

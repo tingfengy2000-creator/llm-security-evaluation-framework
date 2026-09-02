@@ -16,20 +16,21 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `PILOT4-EVIDENCE-POOL-REPAIR-01`.
-- Task name: `Pilot4 Evidence Pool Repair, Annotator-friendly Schema V3.1 Finalization and English-first Bilingual Documentation`.
-- Task type: **EVIDENCE_POOL_REPAIR / SCHEMA_V3_1_FINALIZATION / LOCAL_CONTROL_PLANE / NO_HUMAN_DISTRIBUTION**.
-- Engineering status: **EVIDENCE POOL + SCHEMA V3.1 + WORKBOOK QA COMPLETED / OWNER ACCEPTANCE PENDING**.
+- Task ID: `PILOT4-ANNOTATION-PROTOCOL-INDEPENDENT-VALIDATION-AND-CANDIDATE-CLEANUP-01`.
+- Task name: `Pilot4 Independent Annotation Answerability Validation, Candidate Evidence-path Cleanup and Schema V3.1 Logic Hardening`.
+- Task type: **LABEL_BLIND_PROTOCOL_VALIDATION / CANDIDATE_CLEANUP / SCHEMA_V3_1_HARDENING / LOCAL_CONTROL_PLANE / NO_HUMAN_DISTRIBUTION**.
+- Engineering status: **LABEL-BLIND LOCK-BEFORE-COMPARE + CANDIDATE/SCHEMA/WORKBOOK QA COMPLETED / OWNER ACCEPTANCE PENDING**.
 - Experiment status: **PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE /
   NO_HUMAN_DISTRIBUTION / PREANNOTATION_ONLY / AUTO_CONTINUE_NO**.
 - Execution base commit: `PILOT2_OWNER_CORRECTION_BASE_COMMIT = 0b61e0124b1fb75f1a864132da41ce6a0fcbc3fc`.
 - Targeted package lineage base: `09aa7e65e95e10a657e44c2b31e23ec02bc4210b`.
 - Execution machine: **本机**. Immutable Round1 raw and the complete Schema V2 package remain hash-bound and unchanged；a field audit
   narrows human work to three Phase1 stealth fields, seven Phase2 fact/applicability fields and B-only process corrections.
-- Current ordered step: Owner reviews `annotation_v3_1_final_owner_review.md`, the three V3.1 dry-run workbooks, the 23 companion
-  source acquisition records and full72/validator QA under `paper1_pilot4_evidence_pool_repair_20260901`, then explicitly accepts
-  the annotation protocol or identifies a new blocker. The quality-convergence candidate corpus and all earlier histories/evidence
-  remain immutable. No A/B distribution occurs.
+- Current ordered step: Owner reviews `FINAL_OWNER_ANNOTATOR_DRYRUN_REVIEW.md`, the three V3.1 dry-run workbooks, the locked
+  72-row one-context label-blind semantic review, attempt01 mismatch record and final comparison under
+  `paper1_pilot4_protocol_independent_validation_20260902`; then explicitly accepts the protocol or identifies a new blocker.
+  The `b705cc` Evidence Pool tree and all earlier histories remain immutable. Machine independence is not established and no A/B
+  distribution occurs.
 - Historical completed task identity: `S6.1-P1-PILOT2-ADJUDICATION-CLOSURE-AND-PILOT3-ENTRY` closed Pilot2 feasibility and
   established the Pilot3 diagnostic baseline; the immutable closure history remains governed by `PODR-070 / OR-032`.
 - Permanent prospective candidate gate (`PODR-067 / OR-029`): every annotation candidate created or newly introduced after
@@ -305,12 +306,12 @@ rewriting the workbook. The Pilot-only Ground Truth contains 36 executable recor
 Pilot2 is closed only for annotation-protocol and Ground-Truth feasibility. A deterministic CPU-only Pilot3 generated 180 separated
 five-view signal records; this establishes engineering/signal diagnostic execution, not detector effectiveness.
 
-Can claim: the quality-converged 72-candidate corpus remains unchanged and the former visible-slot duplication affecting 55/72
-candidates across 23 triplets is repaired to zero. Each affected triplet has one actually retrieved, anchor-verified official
-companion with distinct URL, content hash and document identity. All 72 pools contain two distinct units; A/B visible order is
-deterministically independent; Schema V3.1 has 4 Phase1 and 7 Phase2 manual fields, English canonical enums, deterministic V3
-compatibility and system-derived stealth/evidence metadata. Full72 answerability, return validator, SIM_A/SIM_B and all 10 rendered
-workbook Sheets pass. This is annotation-protocol readiness for Owner acceptance only, not human validity or distribution.
+Can claim: the b705cc quality-convergence/Evidence Pool history remains unchanged and the additive hardened candidate version has
+23 targeted text repairs. All 72 pools retain two distinct units and A/B deterministic slot-order separation; the human-visible pool
+now has four columns with official page/document titles only. Schema V3.1 retains 4 Phase1 and 7 Phase2 manual fields. A separate
+visible-input-only process locked one 72/72 semantic review before expected-contract comparison; attempt01 mismatches remain evidence,
+final mismatch is zero, validator and all 10 rendered workbook Sheets pass. This is annotation-protocol readiness for Owner acceptance
+only. It is explicitly not independent A/B evidence, human validity or distribution.
 
 Cannot claim: the two-document smoke reproduces GMTP；its two scores establish detector effectiveness, calibration, safety,
 generalization or a paper metric；any
@@ -327,8 +328,8 @@ are established.
 
 ## Last Update
 
-- Date: `2026-09-01`.
-- Updated by: 本机 executing `PILOT4-EVIDENCE-POOL-REPAIR-01 / REL-2026-0042`. Pilot4 Schema V3.1 and the distinct-unit Evidence
-  Pool are ready for Owner acceptance but are not accepted and have not been distributed. All candidate/source histories remain
-  immutable. Dataset freeze, 240-group execution, formal Detector/Training, 5090, Formal Experiment and Paper Result remain
-  unapproved/unstarted; Auto Continue = `NO`.
+- Date: `2026-09-02`.
+- Updated by: 本机 executing `PILOT4-ANNOTATION-PROTOCOL-INDEPENDENT-VALIDATION-AND-CANDIDATE-CLEANUP-01 / REL-2026-0043`.
+  The hardened additive protocol package is ready for Owner acceptance but is not accepted and has not been distributed. Historical
+  b705cc evidence remains immutable. Dataset freeze, 240-group execution, formal Detector/Training, 5090, Formal Experiment and
+  Paper Result remain unapproved/unstarted; Auto Continue = `NO`.

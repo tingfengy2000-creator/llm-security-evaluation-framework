@@ -1227,3 +1227,24 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Prohibited: no automatic A/B, agreement, adjudication, Ground Truth, 240-group, Dataset freeze, Detector, Training, 5090,
   Formal Experiment, Paper Result or SOTA claim. Auto Continue `NO`.
 - Canonical records: `OR-037`, `REL-2026-0041`, [future dataset rules](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md).
+
+## PODR-076: Pilot4 Label-blind Protocol Validation and Candidate Cleanup
+
+- Date: `2026-09-02`.
+- Owner decision: `PILOT4_OWNER_PROTOCOL_REVIEW = TARGETED_PROTOCOL_AND_CANDIDATE_REPAIR_REQUIRED`; preserve commit
+  `b705cc919a69ac2219fce0f8ead33a9dac542f4e` and its evidence, do not register protocol acceptance, and keep
+  `NO_HUMAN_DISTRIBUTION`.
+- Root causes: Full72 answerability read Owner-only construction labels; SIM_A/SIM_B shared one answer table; minimum evidence
+  contained a contradictory insufficiency value; local `UNCERTAIN` could become S2/S3; candidate-defect paths overlapped;
+  Evidence Pool roles/titles and candidate prose leaked verification paths; naturalness examples mixed truth and context.
+- Approved repair: additive candidate version; label-blind review locked before expected-contract comparison; shared-rule result
+  renamed `SCHEMA_RULE_CONSISTENCY_A/B`; minimum enum reduced to ONE/MULTI/N/A; candidate defects exit normal GT; Evidence Pool
+  visible columns reduced to four official-title fields; Field Guide split by phase and Dependency Table made machine-only.
+- Independence boundary: the machine must not fabricate two independent contexts. Current evidence is exactly
+  `ONE_LABEL_BLIND_SEMANTIC_REVIEW + OWNER_REVIEW_REQUIRED / INDEPENDENCE_NOT_ESTABLISHED_BY_MACHINE`.
+- Status ceiling: `PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / NO_HUMAN_DISTRIBUTION`.
+- Owner next action: review the final Owner dry-run review, locked Full72 audit, mismatch chain and three V3.1 workbooks; explicitly
+  accept the protocol or report a blocker. A/B distribution remains a later, separate approval.
+- Prohibited: automatic A/B, agreement, adjudication, Ground Truth, 240-group, Dataset freeze, Detector, Training, 5090,
+  Formal Experiment, Paper Result or SOTA claim. Auto Continue `NO`.
+- Canonical records: `OR-038`, `REL-2026-0043`, [future dataset rules](../research/stage6_1_hidden_knowledge_poisoning/human/annotation_lessons_learned_and_future_dataset_rules.md).

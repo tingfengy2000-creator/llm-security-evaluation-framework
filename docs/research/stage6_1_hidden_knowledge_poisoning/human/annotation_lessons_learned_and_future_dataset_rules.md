@@ -182,11 +182,47 @@ freeze、Detector、Training、5090、Formal Experiment 或 Paper Result。
   identity 且与候选相关、实际核验过的 source unit。相同 URL、内容、文档、摘录或身份的重复记录只能计一个证据单元。
 - **Evidence slot duplication is a protocol defect**：重复 slot 会同时污染 evidence selection、minimum evidence scope 与
   S2/S3 测量；不能用无关官方页面凑满两个 slot。真实来源不足时必须触发 source-availability blocker。
-- **Claim-presence ambiguity != evidence insufficiency**：候选是否提出 version/authority claim 本身不清楚时，用
-  `phase2_issue=CANDIDATE_AMBIGUOUS`；只有 claim 明确存在但证据不足时，才用 `PRESENT_EVIDENCE_INSUFFICIENT`。
+- **Historical rule — superseded by Section 15**：本节当时用 `phase2_issue=CANDIDATE_AMBIGUOUS` 区分 claim ambiguity 与
+  evidence insufficiency；Section 15 已将其收口为 Phase1 candidate defect 或
+  `LATE_DISCOVERED_CANDIDATE_DEFECT`，两者都退出普通 GT path。只有 claim 明确存在但证据不足时，才用
+  `PRESENT_EVIDENCE_INSUFFICIENT`。
 - **Annotator UI readability is protocol quality**：English-first 表头、中文辅助解释、Phase1/Phase2 职责分离、Evidence Pool
   单独 Sheet、合理冻结窗格与只读/人工输入配色，都必须进入 workbook visual QA，而不是视为可选美化。
 
 Annotator 仍不直接填写 S1/S2/S3；`derived_stealth_level` 由验证后的
 `overall_fact_status + local_internal_conflict + minimum_external_evidence_needed` 确定性派生。任何通过只表示协议已准备供
 Owner acceptance，不自动授权 A/B distribution。
+
+## 十五、Pilot4 标签盲法可作答性与候选核验路径去泄漏永久规则
+
+`PILOT4-ANNOTATION-PROTOCOL-INDEPENDENT-VALIDATION-AND-CANDIDATE-CLEANUP-01` 将以下规则追加为后续人工标注协议的
+强制质量门；`b705cc` 及此前 Evidence Pool 仍保持历史不可变：
+
+- **Expected-label reconstruction is not independent answerability validation**：读取 `candidate_kind`、attack type、
+  intended stealth 或其他 Owner-only 字段后重建答案，只能叫 `EXPECTED_CONTRACT / LABEL_AWARE_ENGINEERING_CHECK_ONLY`，
+  不得作为标注人可作答性的独立证据。
+- **Two simulations sharing one answer table are not independent annotators**：共享 `_SIM_RULES` 的两次编码只能登记为
+  `SCHEMA_RULE_CONSISTENCY_A/B`；无法建立两个独立推理上下文时，必须如实使用
+  `ONE_LABEL_BLIND_SEMANTIC_REVIEW + OWNER_REVIEW_REQUIRED`。
+- **Lock before compare**：全量 label-blind reviewer 输出、具体理由与歧义发现必须先完成并做 SHA256 锁定，之后才允许
+  加载 `EXPECTED_CONTRACT`；任何 mismatch 原样保留，禁止把 reviewer 自动改成 expected。
+- **Factual conflict and insufficient evidence are mutually exclusive at the minimum-evidence layer**：
+  `minimum_external_evidence_needed` 只允许 `ONE_OFFICIAL_EVIDENCE / MULTI_EVIDENCE_OR_VERSION_CHAIN / NOT_APPLICABLE`；
+  证据不足由 `overall_fact_status=INSUFFICIENT_EVIDENCE` 表达，且 minimum 必须为 `NOT_APPLICABLE`。
+- **Ambiguous local conflict must not silently become S2/S3**：只有 `local_internal_conflict=NO` 且 minimum 分别为 ONE/MULTI
+  才能派生 S2/S3；`UNCERTAIN` 永远派生 `UNCERTAIN`。
+- **Candidate defects exit normal Ground Truth flow**：Phase1 核心缺陷登记为 `ANNOTATION_SAMPLE_DEFECT` 并停止普通
+  Phase2；只在证据映射时才发现的缺陷使用 `LATE_DISCOVERED_CANDIDATE_DEFECT`，退回 Candidate QA。
+- **Evidence Pool source-role metadata may leak provenance**：正式人类可见证据池只显示 `sample_id / evidence_id /
+  official_page_title / official_source_url`。`source_type`、角色、支持命题、锚点和最小路径只留在 machine registry。
+- **Researcher-authored identity is not a neutral page title**：人类可见标题必须来自 actual page title 或 official document
+  title，并记录 `display_title_origin`；不得显示研究者撰写的转载、版本题注或角色解释。
+- **Candidate must not describe its own verification procedure**：候选只陈述自然知识命题，不得告诉读者需要几个来源、
+  应比较哪些角色或怎样核验。语义门必须覆盖方法性改写，不能只靠关键词正则自证通过。
+- **Naturalness is independent of truth and self-containment**：自然度只判断语法、流畅、模板痕迹、重复和句间连贯；
+  事实真伪与主体缺失分别由 Phase2 和 `phase1_issue` 处理。
+- **Actual evidence used and minimum evidence required are different variables**：`evidence_selection` 记录标注人实际使用的
+  E1/E2；实际使用 `E1+E2` 与 minimum=`ONE_OFFICIAL_EVIDENCE` 完全可以同时成立。
+
+机器侧 72/72 label-blind 可执行与零设计 mismatch 只支持 Owner acceptance review。机器未建立两个独立人类 reviewer，
+因此仍不得登记协议接受或发放 A/B。

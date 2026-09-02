@@ -268,13 +268,12 @@ addAnnotationSheet(phase2, "Annotation（标注）", "Pilot4 Phase 2 V3.1 — 16
 
 const evidenceSheet = phase2.worksheets.add("Evidence Pool（证据池）");
 evidenceSheet.showGridLines = false;
-const evidenceHeaders = ["sample_id", "evidence_id", "official_source_title", "official_source_url", "source_type"];
+const evidenceHeaders = ["sample_id", "evidence_id", "official_page_title", "official_source_url"];
 evidenceSheet.getRangeByIndexes(0, 0, 1, evidenceHeaders.length).values = [[
   "sample_id（样本编号）",
   "evidence_id（证据编号）",
-  "official_source_title（官方来源标题）",
+  "official_page_title（官方页面/文档标题）",
   "official_source_url（官方来源链接）",
-  "source_type（中性来源类型）",
 ]];
 styleHeader(evidenceSheet.getRangeByIndexes(0, 0, 1, evidenceHeaders.length));
 const evidenceValues = payload.evidence_pool_rows.map((row) => evidenceHeaders.map((key) => normalizeCell(row[key])));
@@ -283,7 +282,7 @@ styleBody(evidenceSheet.getRangeByIndexes(1, 0, evidenceValues.length, evidenceH
 evidenceSheet.getRangeByIndexes(1, 0, evidenceValues.length, evidenceHeaders.length).format.fill = colors.gray;
 evidenceSheet.freezePanes.freezeRows(1);
 evidenceSheet.freezePanes.freezeColumns(1);
-[20, 18, 38, 74, 42].forEach((width, index) => {
+[20, 18, 46, 84].forEach((width, index) => {
   evidenceSheet.getRangeByIndexes(0, index, evidenceValues.length + 1, 1).format.columnWidth = width;
 });
 
@@ -297,41 +296,32 @@ addReadMe(guide, "Pilot4 Annotation Field Guide V3.1（标注字段指南）", [
   ["Canonical values（规范值）", "All machine field names and dropdown values remain English. Chinese is explanatory only; no reverse mapping layer（机器值仅英文，中文仅辅助）."],
   ["Authority roles（机关角色）", "Website Host != Original Issuing Authority != Legislative/Adopting Authority != Official Repost Institution != Regulator（网页宿主不等于制定、通过、转载或监管机关）."],
   ["Colors（颜色）", "Gray = read-only; yellow = manual input; green = guidance/derivation（灰=只读，黄=人工，绿=说明）."],
-  ["Examples（案例）", "Each manual field includes at least 2 normal, 2 negative/alternative, and 2 boundary examples（每字段至少六个真实案例）."],
-  ["Boundary（边界）", "SIM_A/SIM_B are isolated protocol QA, not human agreement. No automatic A/B distribution."],
+  ["Examples（案例）", "Examples are kept on a separate sheet; naturalness examples vary only language quality, never truth or missing context（案例独立成表；自然度案例只改变语言质量）."],
+  ["Boundary（边界）", "The machine produced one label-blind semantic review only. Independence is not established; no automatic A/B distribution."],
 ]);
 
-const overview = guide.worksheets.add("Field Guide（字段指南）");
+function addGuideSheet(sheetName, fields) {
+const overview = guide.worksheets.add(sheetName);
 overview.showGridLines = false;
 const overviewHeaders = [
   "field_name",
-  "phase",
   "Chinese explanation（中文解释）",
   "What am I judging?（判断什么）",
   "When is this applicable?（何时适用）",
-  "Canonical values（规范值）",
-  "Chinese interpretations（中文释义）",
+  "Canonical values + Chinese explanation（规范值+中文释义）",
+  "Key rule（关键规则）",
   "Common mistakes（常见错误）",
-  "2 normal examples（2个普通案例）",
-  "2 negative/alternative examples（2个反例/替代案例）",
-  "2 boundary examples（2个边界案例）",
 ];
-const overviewRows = payload.field_specs.map((field) => {
-  const examples = payload.field_examples[field.field_name];
-  const describe = (rows) => rows.map((row) => `${row.correct_annotation}: ${row.candidate_snippet}`).join("\n---\n");
+const overviewRows = fields.map((field) => {
   const definitions = Object.entries(field.definitions).map(([value, explanation]) => `${value}: ${explanation}`).join("\n");
   return [
     field.field_name,
-    field.phase,
-    field.question_cn,
-    field.question_en,
-    field.conditional_rule,
-    field.allowed_values.join(" | "),
+    field.chinese_explanation,
+    field.judging,
+    field.applicable,
     definitions,
-    examples[0].why_nearby_alternative_is_wrong,
-    describe(examples.slice(0, 2)),
-    describe(examples.slice(2, 4)),
-    describe(examples.slice(-2)),
+    field.key_rule,
+    field.common_mistake,
   ];
 });
 overview.getRangeByIndexes(0, 0, overviewRows.length + 1, overviewHeaders.length).values = [overviewHeaders, ...overviewRows];
@@ -339,10 +329,15 @@ styleHeader(overview.getRangeByIndexes(0, 0, 1, overviewHeaders.length));
 styleBody(overview.getRangeByIndexes(1, 0, overviewRows.length, overviewHeaders.length), 82);
 overview.freezePanes.freezeRows(1);
 overview.freezePanes.freezeColumns(1);
-[32, 12, 46, 62, 55, 48, 62, 52, 62, 62, 62].forEach((width, index) => {
+[34, 40, 64, 54, 72, 62, 58].forEach((width, index) => {
   overview.getRangeByIndexes(0, index, overviewRows.length + 1, 1).format.columnWidth = width;
 });
 overview.getRangeByIndexes(1, 0, overviewRows.length, overviewHeaders.length).format.fill = colors.green;
+return overview;
+}
+
+const phase1Guide = addGuideSheet("Phase1 Guide（第一阶段指南）", payload.field_specs.filter((field) => field.phase === "PHASE1"));
+const phase2Guide = addGuideSheet("Phase2 Guide（第二阶段指南）", payload.field_specs.filter((field) => field.phase === "PHASE2"));
 
 const examplesSheet = guide.worksheets.add("Examples（案例）");
 examplesSheet.showGridLines = false;
@@ -355,18 +350,16 @@ const exampleHeaders = [
   "why",
   "why_nearby_alternative_is_wrong",
 ];
-const exampleRows = Object.entries(payload.field_examples).flatMap(([field, rows]) =>
-  rows.map((row) => [
-    field,
-    row.example_class,
-    row.candidate_snippet,
-    row.available_evidence_condition,
-    row.correct_annotation,
-    row.why,
-    row.why_nearby_alternative_is_wrong,
-  ]),
-);
-if (exampleRows.length < 66) throw new Error("REAL_EXAMPLE_COUNT_BLOCKER");
+const exampleRows = payload.field_examples.map((row) => [
+  row.field_name,
+  row.example_class,
+  row.candidate_snippet,
+  row.available_evidence_condition ?? "See field applicability rule",
+  row.correct_annotation,
+  row.why,
+  row.why_nearby_alternative_is_wrong ?? "Use only the field's own decision target.",
+]);
+if (exampleRows.length < 25) throw new Error("REAL_EXAMPLE_COUNT_BLOCKER");
 examplesSheet.getRangeByIndexes(0, 0, exampleRows.length + 1, exampleHeaders.length).values = [exampleHeaders, ...exampleRows];
 styleHeader(examplesSheet.getRangeByIndexes(0, 0, 1, exampleHeaders.length));
 styleBody(examplesSheet.getRangeByIndexes(1, 0, exampleRows.length, exampleHeaders.length), 82);
@@ -384,7 +377,7 @@ const flowRows = [
   ["2", "Local Internal Conflict?（文本内部冲突？）", "Record YES / NO / UNCERTAIN; do not use external sources."],
   ["3", "Evidence Pool（证据池）", "Open only in Phase 2; E1/E2 are distinct official evidence units."],
   ["4", "Overall Fact Status（总体事实状态）", "CURRENTLY_CONSISTENT / LEGITIMATE_VERSION_OR_HISTORY / FACTUAL_CONFLICT / INSUFFICIENT_EVIDENCE"],
-  ["5", "Version Claim?（版本关系？）", "A clear claim with insufficient evidence uses PRESENT_EVIDENCE_INSUFFICIENT; candidate ambiguity uses phase2_issue=CANDIDATE_AMBIGUOUS."],
+  ["5", "Version Claim?（版本关系？）", "A clear claim with insufficient evidence uses PRESENT_EVIDENCE_INSUFFICIENT; candidate ambiguity exits the normal GT path."],
   ["6", "Authority Claim?（权威归属？）", "Distinguish website host, issuer, adopting authority, repost institution, and regulator."],
   ["7", "FACTUAL_CONFLICT?（事实冲突？）", "If local_internal_conflict != YES, decide minimum_external_evidence_needed."],
   ["8", "Evidence used（实际使用证据）", "NONE / E1 / E2 / E1+E2."],
@@ -398,47 +391,7 @@ flowSheet.freezePanes.freezeRows(1);
   flowSheet.getRangeByIndexes(0, index, flowRows.length, 1).format.columnWidth = width;
 });
 
-const truthSheet = guide.worksheets.add("Dependency Table（依赖表）");
-truthSheet.showGridLines = false;
-const truthHeaders = ["table", "conditions", "valid_or_required", "derived_outputs"];
-const truthRows = [];
-for (const [tableName, rows] of Object.entries(payload.truth_tables)) {
-  for (const row of rows) {
-    const conditions = { ...row };
-    const outputs = {};
-    for (const key of [
-      "valid",
-      "derived_stealth_level",
-      "version_relation_present",
-      "version_relation_correct",
-      "authority_claim_present",
-      "authority_matches",
-      "selected_slot_count",
-      "professional_lookup_used",
-      "phase1_reason_required",
-      "phase2_reason_required",
-    ]) {
-      if (Object.hasOwn(conditions, key)) {
-        outputs[key] = conditions[key];
-        delete conditions[key];
-      }
-    }
-    truthRows.push([
-      tableName,
-      JSON.stringify(conditions),
-      outputs.valid ?? outputs.phase1_reason_required ?? outputs.phase2_reason_required ?? "N/A",
-      JSON.stringify(outputs),
-    ]);
-  }
-}
-truthSheet.getRangeByIndexes(0, 0, truthRows.length + 1, truthHeaders.length).values = [truthHeaders, ...truthRows];
-styleHeader(truthSheet.getRangeByIndexes(0, 0, 1, truthHeaders.length));
-styleBody(truthSheet.getRangeByIndexes(1, 0, truthRows.length, truthHeaders.length), 44);
-truthSheet.freezePanes.freezeRows(1);
-truthSheet.freezePanes.freezeColumns(1);
-[36, 90, 22, 70].forEach((width, index) => {
-  truthSheet.getRangeByIndexes(0, index, truthRows.length + 1, 1).format.columnWidth = width;
-});
+if (payload.dependency_table_human_visible !== false) throw new Error("DEPENDENCY_TABLE_VISIBILITY_BLOCKER");
 
 async function sha256File(filePath) {
   const bytes = await fs.readFile(filePath);
@@ -506,15 +459,15 @@ outputs.push(
 outputs.push(
   await exportAndQa(phase2, "phase2_mock_packet_v3_1.xlsx", ["Quick Start（快速开始）", "Annotation（标注）", "Evidence Pool（证据池）"], [
     { sheet: "Annotation（标注）", range: "A1:J19", rows: 19, cols: 10 },
-    { sheet: "Evidence Pool（证据池）", range: "A1:E20", rows: 20, cols: 5 },
+    { sheet: "Evidence Pool（证据池）", range: "A1:D20", rows: 20, cols: 4 },
   ]),
 );
 outputs.push(
-  await exportAndQa(guide, "annotation_field_guide_v3_1.xlsx", ["Quick Start（快速开始）", "Field Guide（字段指南）", "Examples（案例）", "Decision Flow（判断流程）", "Dependency Table（依赖表）"], [
-    { sheet: "Field Guide（字段指南）", range: "A1:K12", rows: 12, cols: 11 },
+  await exportAndQa(guide, "annotation_field_guide_v3_1.xlsx", ["Quick Start（快速开始）", "Phase1 Guide（第一阶段指南）", "Phase2 Guide（第二阶段指南）", "Examples（案例）", "Decision Flow（判断流程）"], [
+    { sheet: "Phase1 Guide（第一阶段指南）", range: "A1:G5", rows: 5, cols: 7 },
+    { sheet: "Phase2 Guide（第二阶段指南）", range: "A1:G8", rows: 8, cols: 7 },
     { sheet: "Examples（案例）", range: "A1:G16", rows: 16, cols: 7 },
     { sheet: "Decision Flow（判断流程）", range: "A1:C10", rows: 10, cols: 3 },
-    { sheet: "Dependency Table（依赖表）", range: "A1:D20", rows: 20, cols: 4 },
   ]),
 );
 

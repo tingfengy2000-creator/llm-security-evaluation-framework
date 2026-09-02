@@ -5,6 +5,8 @@ from copy import deepcopy
 import pytest
 
 from llmguard.domains.retrieval.hidden_poisoning.annotation_v31 import (
+    AnnotationSampleDefect,
+    LateDiscoveredCandidateDefect,
     MANUAL_FIELD_COUNT_V3,
     MANUAL_FIELD_COUNT_V31,
     PHASE1_MANUAL,
@@ -27,9 +29,7 @@ from llmguard.domains.retrieval.hidden_poisoning.annotation_v31 import (
 
 
 def _sources(triplet: str, *, s3: bool = False) -> list[dict[str, object]]:
-    suffixes = ["PRIMARY", "HN", "COMPANION-01"] + (
-        ["S3-1", "S3-2"] if s3 else []
-    )
+    suffixes = ["PRIMARY", "HN", "COMPANION-01"] + (["S3-1", "S3-2"] if s3 else [])
     return [
         {
             "evidence_id": (
@@ -43,6 +43,8 @@ def _sources(triplet: str, *, s3: bool = False) -> list[dict[str, object]]:
                 if suffix == "HN"
                 else f"官方来源：{triplet}规则"
             ),
+            "official_page_title": f"{triplet} official page {index}",
+            "display_title_origin": "ACTUAL_PAGE_TITLE",
             "source_url": f"https://example.gov.cn/{triplet}/official-{index}",
             "document_identity": f"DOC-{triplet}-{index}",
             "content_hash": f"content-{triplet}-{index}",
@@ -187,7 +189,13 @@ def test_overall_fact_status_uniquely_derives_source_match(
             "MULTI_EVIDENCE_OR_VERSION_CHAIN",
             "S3",
         ),
-        ("FACTUAL_CONFLICT", "NO", "INSUFFICIENT_EVIDENCE", "UNCERTAIN"),
+        ("FACTUAL_CONFLICT", "UNCERTAIN", "ONE_OFFICIAL_EVIDENCE", "UNCERTAIN"),
+        (
+            "FACTUAL_CONFLICT",
+            "UNCERTAIN",
+            "MULTI_EVIDENCE_OR_VERSION_CHAIN",
+            "UNCERTAIN",
+        ),
     ],
 )
 def test_derived_stealth_is_system_only_and_deterministic(
@@ -210,6 +218,13 @@ def test_evidence_pool_has_equal_visibility_randomization_and_no_intended_cues()
     serialized = str(pool_a.visible_items)
     for forbidden in ("PRIMARY", "S3-1", "S3-2", "HN", "intended_stealth"):
         assert forbidden not in serialized
+    assert "source_type" not in pool_a.visible_items[0]
+    assert set(pool_a.visible_items[0]) == {
+        "sample_id",
+        "evidence_id",
+        "official_page_title",
+        "official_source_url",
+    }
     assert candidate == original_candidate
     assert sources == original_sources
 
@@ -258,7 +273,7 @@ def test_evidence_selection_rejects_duplicate_source_units() -> None:
 def test_dependency_truth_table_is_complete_mutually_exclusive_and_validated() -> None:
     tables = dependency_truth_table_v31()
     validate_dependency_truth_table(tables)
-    assert len(tables["overall_local_minimum"]) == 48
+    assert len(tables["overall_local_minimum"]) == 36
     assert len(tables["phase2_reason_conditions"]) == 32
 
 
@@ -357,7 +372,7 @@ def test_return_validator_enforces_conditional_reasons_minimum_and_phase_identit
         )
 
 
-def test_candidate_ambiguity_is_not_evidence_insufficiency() -> None:
+def test_candidate_defects_exit_normal_ground_truth_flow() -> None:
     candidate = _candidate(1, stealth="S2")
     sources = _sources("T01")
     registry = {str(row["evidence_id"]): row for row in sources}
@@ -371,8 +386,8 @@ def test_candidate_ambiguity_is_not_evidence_insufficiency() -> None:
         **identity,
         "text_naturalness": "NATURAL",
         "local_internal_conflict": "NO",
-        "phase1_issue": "NONE",
-        "phase1_reason": "",
+        "phase1_issue": "AMBIGUOUS_REFERENCE",
+        "phase1_reason": "核心指代存在两个合理解释。",
     }
     phase2 = {
         **identity,
@@ -381,10 +396,10 @@ def test_candidate_ambiguity_is_not_evidence_insufficiency() -> None:
         "authority_claim_status": "NOT_PRESENT",
         "minimum_external_evidence_needed": "NOT_APPLICABLE",
         "evidence_selection": "E1+E2",
-        "phase2_issue": "CANDIDATE_AMBIGUOUS",
+        "phase2_issue": "NONE",
         "phase2_reason": "候选版本对象无法唯一解释。",
     }
-    with pytest.raises(ValueError, match="must not be encoded"):
+    with pytest.raises(AnnotationSampleDefect, match="ANNOTATION_SAMPLE_DEFECT"):
         validate_and_build_canonical_record(
             phase1,
             phase2,
@@ -394,16 +409,19 @@ def test_candidate_ambiguity_is_not_evidence_insufficiency() -> None:
             process_time_seconds=1.0,
             construction_metadata={},
         )
+    phase1_ok = {**phase1, "phase1_issue": "NONE", "phase1_reason": ""}
     with pytest.raises(
-        ValueError, match="read-only field changed|sample identity mismatch"
+        LateDiscoveredCandidateDefect, match="LATE_DISCOVERED_CANDIDATE_DEFECT"
     ):
         validate_and_build_canonical_record(
-            phase1,
+            phase1_ok,
             {
                 **phase2,
-                "sample_id": "S-OTHER",
-                "minimum_external_evidence_needed": "ONE_OFFICIAL_EVIDENCE",
-                "phase2_reason": "官方证据直接反驳。",
+                "overall_fact_status": "INSUFFICIENT_EVIDENCE",
+                "version_claim_status": "NOT_PRESENT",
+                "minimum_external_evidence_needed": "NOT_APPLICABLE",
+                "phase2_issue": "LATE_DISCOVERED_CANDIDATE_DEFECT",
+                "phase2_reason": "证据映射后发现候选对象无法唯一解释。",
             },
             immutable_identity=identity,
             slot_mapping=pool.slot_mapping,

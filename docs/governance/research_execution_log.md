@@ -1511,3 +1511,29 @@ Approval Gate、Auto Continue。
 - Final status: `PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / NO_HUMAN_DISTRIBUTION`.
 - Next gate: Owner reviews the V3.1 final Owner review, three workbooks and companion/full72/validator QA, then explicitly accepts
   the protocol or reports a new blocker. Acceptance does not itself authorize A/B distribution. Auto Continue `NO`.
+
+## REL-2026-0043 — PILOT4 Label-blind Protocol Validation and Candidate Cleanup
+
+- Record ID: `REL-2026-0043`; date `2026-09-02`; task
+  `PILOT4-ANNOTATION-PROTOCOL-INDEPENDENT-VALIDATION-AND-CANDIDATE-CLEANUP-01`; machine `本机 / LOCAL_CONTROL_PLANE`.
+- Owner authority: `PODR-076 / OR-038`. Commit `b705cc919a69ac2219fce0f8ead33a9dac542f4e` and namespace
+  `paper1_pilot4_evidence_pool_repair_20260901` were tree-hashed before and after and remained byte-identical.
+- Candidate/schema repair: 23 candidates were additively rewritten to remove verification-method, minimum-path, role-teaching and
+  naturalness contamination; five Owner-named regressions and same-root cases pass semantic meta-cue/self-containment QA `72/72`.
+  Minimum evidence now has only ONE/MULTI/N/A; local `UNCERTAIN` never yields S2/S3; Phase1/late candidate defects leave normal GT.
+- Evidence/UI repair: human Evidence Pool shows only `sample_id / evidence_id / official_page_title / official_source_url`;
+  titles are bound to actual page or official document origin. Source type and researcher-authored interpretive role remain machine-only.
+- Label-blind protocol: a separate process read only Annotator-visible artifacts and produced 72/72 executable rows with 72 unique
+  candidate-specific reasons; review SHA256 was locked before expected-contract loading. Machine independence is not established;
+  the evidence class is `ONE_LABEL_BLIND_SEMANTIC_REVIEW + OWNER_REVIEW_REQUIRED`.
+- Mismatch handling: attempt01 preserved five `version_claim_status` mismatches caused by expected-contract omission of the term
+  “修改”; only the label-aware expected rule was repaired. Locked reviewer output remained unchanged; final comparison mismatch=0.
+- QA: return validator PASS; E1+E2 with minimum ONE accepted; three XLSX / 10 Sheets inspected, rendered and visually reviewed;
+  formula errors 0. Shared SIM output is recorded only as `SCHEMA_RULE_CONSISTENCY_A/B`.
+- Evidence: additive Git-external namespace `paper1_pilot4_protocol_independent_validation_20260902`; manifest and workbook hashes
+  are authoritative in the namespace manifest.
+- Final status: `PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / NO_HUMAN_DISTRIBUTION`.
+- Claims boundary: protocol/candidate engineering readiness only; no independent human validity, A/B, agreement, Ground Truth,
+  Dataset freeze, detector effectiveness, training, formal experiment or Paper Result.
+- Next gate: Owner reviews `FINAL_OWNER_ANNOTATOR_DRYRUN_REVIEW.md`, locked Full72, mismatch evidence and the three V3.1 workbooks.
+  Auto Continue `NO`.

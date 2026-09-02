@@ -1,5 +1,22 @@
 # LLMGuard 项目总控文档
 
+## PILOT4 标签盲法协议验证与候选清理（2026-09-02）
+
+Owner 通过 `PODR-076 / OR-038` 判定 `b705cc` 的 Full72 answerability 为 label-aware engineering check，且共享
+`_SIM_RULES` 的 SIM_A/B 只能表示 schema rule consistency。本机保留旧 commit 与 Git-external evidence 不变，在新增
+`paper1_pilot4_protocol_independent_validation_20260902` 命名空间中完成 23 条候选去核验路径改写、Evidence Pool 四列
+中性化、minimum/stealth/issue 逻辑收口和 Field Guide 人机分层。
+
+单独 label-blind 进程只读取 Annotator-visible candidate/E1/E2/Guide，72 条具体理由在加载 expected contract 前完成
+SHA256 锁定。首次比较暴露 5 个“修改”版本命题识别缺口；原 mismatch evidence 保留，修正 expected-contract 后最终
+mismatch 为 0，reviewer 输出未改写。机器没有建立两个独立 reviewer，状态明确为
+`ONE_LABEL_BLIND_SEMANTIC_REVIEW + OWNER_REVIEW_REQUIRED / INDEPENDENCE_NOT_ESTABLISHED_BY_MACHINE`。
+
+当前只允许 `PILOT4_ANNOTATION_PROTOCOL_READY_FOR_OWNER_ACCEPTANCE / NO_HUMAN_DISTRIBUTION`。Owner 下一步审查
+`FINAL_OWNER_ANNOTATOR_DRYRUN_REVIEW.md`、locked Full72、三份 V3.1 workbook 和 mismatch 修复链；不得自动发 A/B、
+agreement、adjudication、Ground Truth、240-group、Dataset freeze、Detector、Training、5090、Formal Experiment 或
+Paper Result。
+
 ## PILOT4 Data and Annotation Protocol Quality Convergence（2026-09-01）
 
 本机执行 `S6.1-P1-PILOT4-PREANNOTATION-QUALITY-CONVERGENCE-01`，将 Repair-02 作为不可变输入历史并在新的 additive

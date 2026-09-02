@@ -5,8 +5,8 @@
 Document Role = `PAPER1_PRIMARY_HUMAN_ENTRY`<br>
 Audience = `项目负责人 / 导师与领导 / 新团队成员`<br>
 Reading Path = `5 minutes / 15 minutes / 30 minutes`<br>
-Current Evidence Cut = `Evidence Pool repaired / Schema V3.1 Owner acceptance pending`<br>
-Last Updated = `2026-09-01`
+Current Evidence Cut = `Schema V3.1 hardened / label-blind review locked / Owner acceptance pending`<br>
+Last Updated = `2026-09-02`
 
 > 这是一张“项目地图”，不是 raw evidence，也不产生新授权。读完第 0 节可掌握当前状态；读到第 8 节可理解论文方法；
 > 读完第 19 节可进入项目工作。精确状态、协议、决定和证据分别通过链接下钻。
@@ -19,12 +19,12 @@ Last Updated = `2026-09-01`
 | 英文论文题目 | *Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework* |
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
-| 当前阶段 | ⏳ Pilot4 Evidence Pool 与 Schema V3.1 工程修复完成，等待项目负责人 acceptance；仍是预标注阶段。 |
-| 当前任务 | `PILOT4-EVIDENCE-POOL-REPAIR-01`：distinct companion source、Annotator-friendly Schema V3.1 与 English-first UI。 |
-| 当前完成度 | ✅ 72/72 evidence pool 可执行；23/23 受影响 triplet 各新增一个不同 URL/hash/document identity 的 verified official companion；duplicate visible E1/E2 URL 为 0；Schema V3.1 与三个 dry-run workbook 已准备。 |
-| 当前唯一人工动作 | 项目负责人审查 `annotation_v3_1_final_owner_review.md`、三份 V3.1 workbook 与 companion source QA，并明确接受或指出新 blocker。 |
+| 当前阶段 | ⏳ Pilot4 Schema V3.1 已完成标签盲法、候选去元提示和字段逻辑收口，等待项目负责人 acceptance；仍是预标注阶段。 |
+| 当前任务 | `PILOT4-ANNOTATION-PROTOCOL-INDEPENDENT-VALIDATION-AND-CANDIDATE-CLEANUP-01`：label-blind lock-before-compare、候选去核验路径、证据标题中性化与 Schema V3.1 hardening。 |
+| 当前完成度 | ✅ 旧 b705cc evidence 未改；23 条候选增量改写；72/72 单次 label-blind semantic review 可执行、72 条具体理由、最终 mismatch=0；Evidence Pool 仅四列；三个 dry-run workbook / 10 Sheets 已检查。 |
+| 当前唯一人工动作 | 项目负责人审查 `FINAL_OWNER_ANNOTATOR_DRYRUN_REVIEW.md`、三份 V3.1 workbook、72 条 locked review 与 attempt01 mismatch 修复链，明确接受协议或指出 blocker。 |
 | 当前主要 blocker | ⏳ Owner acceptance 尚未给出；因此不能发 A/B，更不能进入 240-group。 |
-| 已经可以说什么 | Pilot4 的 72 条候选通过全量语义/可见性 QA，64 个实际官方来源证据单元完成字节/摘录 hash 与锚点验证；这仍不代表人工有效性。 |
+| 已经可以说什么 | Pilot4 的增量候选与 Schema V3.1 已通过本机标签盲法输入隔离、锁定后比较、字段逻辑和工作簿工程 QA；机器未建立两个独立标注人，这仍不代表人工有效性。 |
 | 绝对不能说什么 | 不得说 Pilot4 已接受、A/B 已开始、72 条已有 Ground Truth、240-group 已生成、Dataset 已冻结、Formal Detector 已实现、检测有效或 Paper Result 已形成。 |
 
 当前实验状态固定为：
@@ -236,8 +236,9 @@ Retriever
 | Pilot3 | 信号能否运行 | 五视角 180 条 SignalRecord | Pilot2 GT | 弱信号/失败模式 | 🧪 已完成并停止 | 诊断报告 | Pilot4 | [Pilot3](../s6_1_p1_pilot2_closure_and_pilot3_signal_feasibility.md) |
 | Pilot4 first preflight | 人工发放前低成本检查 | 24 triplets/72 candidates/12-row sample | lessons + public sources | 首版 package | 📌 历史：退回修复 | Owner 指出缺陷 | targeted repair | [P1 process](../stage_process/S6.1-P1_work_process.md) |
 | Pilot4 targeted repair | 修复实质缺陷 | 语义、stealth、echo、applicability、独立 QA | 首版与 owner feedback | repaired 72 + second sample | 🔧 已完成 | 修复验证通过 | second preflight | [Current State](../../../governance/current_work_state.md) |
-| Pilot4 second Owner preflight | 决定能否发人 | Owner 审查 repaired 12 rows | repaired workbook | PASS 或 targeted repair | ⏳ 当前唯一动作 | Owner 明确决定 | A/B 或修复 | [Current State](../../../governance/current_work_state.md) |
-| Pilot4 Repair-02 final preflight | 关闭第二轮系统性缺陷 | Owner 审查 final 16 rows | genuine-S3/S1/length/template/HN evidence | PASS 或 candidate-local correction | ⏳ 当前唯一动作 | Owner 明确决定 | 单独批准 A/B 或局部修正 | [Current State](../../../governance/current_work_state.md) |
+| Pilot4 second Owner preflight | 决定能否发人 | Owner 审查 repaired 12 rows | repaired workbook | targeted repair | 📌 历史：已触发 Repair-02 | Owner 明确决定 | Repair-02 | [Current State](../../../governance/current_work_state.md) |
+| Pilot4 Repair-02 final preflight | 关闭第二轮系统性缺陷 | Owner 审查 final 16 rows | genuine-S3/S1/length/template/HN evidence | quality convergence | 📌 历史：已进入后续收敛 | Owner 明确决定 | Schema V3/V3.1 | [Current State](../../../governance/current_work_state.md) |
+| Pilot4 Protocol hardening | 排除标签感知循环验证与候选核验路径泄漏 | locked Full72、candidate before/after、V3.1 三表 | b705cc + additive candidate version | Owner accept 或 blocker | ⏳ 当前唯一动作 | Owner 明确接受协议 | 单独批准 A/B 或继续定向修复 | [Current State](../../../governance/current_work_state.md) |
 | Pilot4 A/B 72 annotation | 获得独立人工判断 | Phase1/2、双锁定 | Owner-accepted package | 四份 returns | 📌 未批准/未开始 | returns hash-lock | agreement | [Lessons](annotation_lessons_learned_and_future_dataset_rules.md) |
 | Pilot4 agreement | 量化一致性 | 合法子集 agreement | A/B returns | agreement/disagreement | 📌 未开始 | 逻辑/一致性验证 | adjudication | [Lessons](annotation_lessons_learned_and_future_dataset_rules.md) |
 | Pilot4 adjudication | 解决必要分歧 | Owner 只裁决分歧 | minimal packet | 唯一决定 | 📌 未开始 | residual inconsistency=0 | GT | [P1 process](../stage_process/S6.1-P1_work_process.md) |
@@ -376,7 +377,7 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 
 ## 15. 当前下一步
 
-唯一当前动作：**Owner reviews annotation_v3_1_final_owner_review.md, the three V3.1 workbooks, companion-source QA and full72 answerability, then explicitly accepts or reports a new blocker**。
+唯一当前动作：**Owner reviews FINAL_OWNER_ANNOTATOR_DRYRUN_REVIEW.md, the locked 72-row one-context review, attempt01 mismatch chain and the three V3.1 workbooks, then explicitly accepts or reports a new blocker**。
 
 ```text
 Owner Quality Acceptance Review
