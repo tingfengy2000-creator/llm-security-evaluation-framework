@@ -53,21 +53,29 @@
 | OR-047 | 2026-09-03 | 批准把外部复核人完成的 37 行 R3 CSV 先按原始字节锁定，再受控解锁 mapping 与 Expected V2，完成 M2/M4/M8、匹配控制、全部相关字段和冻结验收门对比；只形成 Protocol Acceptance Recommendation，不自动执行 R4 或接受协议 | Pilot4 R3 最终锁定、Expected V2 对比与验收证据 V2 | Paper 1 / P1-PILOT4 | `PILOT4_R3_VALIDATION_COMPLETE / RECOMMEND_TARGETED_REPAIR / EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION` | `PILOT4-R3-FINAL-RAW-LOCK-COMPARISON-AND-PROTOCOL-ACCEPTANCE-EVIDENCE-V2-01` | 项目需求提出人当前明确批准；`PODR-085 / REL-2026-0052` | R3 raw、Guide V3.2、Expected V2、Evidence Pool V2、R3 packet/mapping 与 final72 corpus 不得改；不得自动 R4、接受 protocol、发 A/B、生成 GT、冻结 Dataset、启动 Detector/Training、联系 5090 或执行 Formal Experiment；Auto Continue = NO |
 | OR-048 | 2026-09-03 | 明确批准 `OWNER_EXPECTED_V3_TARGETED_CORRECTION_APPROVED=TRUE`；只对已审计的 6 个候选、7 个字段建立 additive Expected V3，并在 reviewer-blind 独立证据判断锁定后复用原 R3 raw 重算冻结门 A–F | Pilot4 Expected V3 定向更正与冻结门重算 | Paper 1 / P1-PILOT4 | `PILOT4_EXPECTED_V3_CORRECTION_COMPLETE / PILOT4_CALIBRATION_STOP_CONDITION_MET / RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES / OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION` | `PILOT4-EXPECTED-V3-TARGETED-CORRECTION-AND-FROZEN-GATE-RECOMPUTE-01` | 项目需求提出人当前明确批准；`PODR-086 / REL-2026-0053` | Expected V1/V2、R3 raw、Guide V3.2、Evidence Pool V2、mapping/corpus、prior comparison/acceptance 与阈值不得改；不得自动接受 protocol、执行 R4、发 A/B、生成 GT、进入 240-group/Dataset freeze/Detector/Training/5090/Formal Experiment；Auto Continue = NO |
 | OR-049 | 2026-09-03 | 正式接受 Pilot4 标注协议并关闭校准：`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=TRUE`、`ACCEPTED_WITH_NONBLOCKING_NOTES`、`R4_EXTERNAL_REVIEW_REQUIRED=FALSE`；冻结 `PILOT4_ACCEPTED_ANNOTATION_STACK_V1`，逐项提升有证据支持的 lessons，并仅准备 A/B 执行审批材料 | Pilot4 Owner 协议验收与 A/B 执行预检 | Paper 1 / P1-PILOT4 | `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / PILOT4_CALIBRATION_CLOSED / PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET` | `PILOT4-OWNER-PROTOCOL-ACCEPTANCE-AND-AB-EXECUTION-PREFLIGHT-01` | 项目需求提出人当前明确决定；`PODR-087 / REL-2026-0054` | 接受仅代表 Pilot-level annotation readiness，不授权 A/B 执行或发包；A/B roster、独立性/隔离声明和执行仍需 Owner 单独批准；不得自动 agreement/adjudication/GT、240-group、Dataset freeze、Detector/Training、5090、Formal Experiment 或 Paper Result；Auto Continue = NO |
+| OR-050 | 2026-09-03 | 正式批准 Pilot4 A/B 人工标注执行与 Phase1 分发，指定两个不同真人 `HUMAN-A01`、`HUMAN-B01`，确认完整独立性/隔离与 `NO_LLM_ASSISTANCE`；批准生成两套 Final72 Phase1 包，并仅预构建、封存对应 Phase2 | Pilot4 正式双人工标注执行批准与两阶段发放门 | Paper 1 / P1-PILOT4 | `PILOT4_A_B_EXECUTION_APPROVED / HUMAN_A01_PHASE1_PACKET_READY / HUMAN_B01_PHASE1_PACKET_READY / WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / PHASE2_WITHHELD / NO_GROUND_TRUTH_YET` | `PILOT4-A-B-EXECUTION-APPROVAL-AND-PHASE1-PACKET-GENERATION-01` | 项目需求提出人当前明确决定；`PODR-088 / REL-2026-0055` | Owner 手工分发各自 Phase1；两份 Phase1 raw 均通过 schema/72/hash/immutable lock 后才可同时释放 Phase2；四份 raw 全锁后才可 mapping/Expected/agreement；不得执行 annotation、提前释放 Phase2、生成 GT、240-group、Dataset freeze、Detector/Training、5090 或 Formal Experiment；Auto Continue = NO |
 
 本登记表中的英文枚举用于机器一致性核验；对人的含义以每行中文授权范围、禁止项和下一道审批门为准。任何“已准备”都不等于“已执行”，任何协议验收也不自动扩展为数据、训练或正式实验授权。
 
-当前唯一人工动作是审查 Expected V3 Final Decision Packet，并明确决定 `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` 或
-`RETURNED_FOR_REPAIR`。冻结门 A–F 已通过、R4 不需要，但 Codex 的建议不等于项目负责人验收。当前不得自动分发 `A/B`、
-生成 72 条真值或启动 240 组与后续实验；协议接受和 A/B 执行继续是两个独立审批门。
+当前唯一人工动作是 Owner 将各自 `HUMAN-A01/phase1/` 与 `HUMAN-B01/phase1/` 中的五个文件分别交给对应真人；
+不得交叉发送，也不得发送 `mapping/`、`owner_control/`、`qa/`、`manifest/`、`register/` 或 `withheld_phase2/`。
+两人独立完成后分别返回冻结文件名；当前没有 Phase2 release、agreement 或 Ground Truth。
 
-本轮决定的中文解释：项目负责人只批准修正已经由证据审计确认的预期答案缺陷，没有批准修改候选文本、复核人原始答案、
-标注指南、证据池或验收门槛。系统先依据候选、指南和冻结证据独立形成新预期答案，再读取复核结果计算一致性，防止为了
-提高通过率而倒推答案。六项验收门全部通过后，当前只说明校准证据已经足够、无需继续复核；是否正式接受标注协议仍必须
-由项目负责人亲自决定。即使协议被接受，正式双人标注的生成、发放和执行也必须等待下一项独立授权。
+本轮决定的中文解释：协议校准与 A/B 执行是两个独立的审批门，现在两门都已由项目负责人明确通过。批准的是两个真实、
+独立的人分别完成同一个 Final72 的两阶段标注；不是让 Codex 代填，也不是批准直接生成 Ground Truth。两人的 opaque ID、
+顺序和 Phase1 文件互相隔离，人工标注时不能使用 LLM。
 
-通俗解释：第一次真实外部盲审不是失败；它成功发现了机器和负责人预检遗漏的五个文本问题。项目负责人五项全部
-接受，本机只修了对应五条，并证明其余 67 条未动。由于候选版本已经变化，最终证据必须来自同一个 final72 和新的独立
-reviewer，不能把 Attempt1 的 67 行与修后的 5 行拼起来。第二阶段材料继续封存。
+通俗解释：现在可以把 A 的五个 Phase1 文件发给 A，把 B 的五个 Phase1 文件发给 B。两人都交回完整且锁定的 Phase1
+原始 CSV 以前，谁都不能先拿到 Phase2。以后四份 raw 全部锁定，才允许看 mapping/Expected、计算一致性和进入 Owner
+分歧仲裁；这之前没有 72 条 Ground Truth。
+
+这项批准的实际含义是：两位标注人面对的是同一批候选，但看到的编号和排列不同，因此既能比较判断是否可重复，又能避免
+排列暗示答案。第一阶段只看候选文字本身，不查询事实；第二阶段才使用项目提供的冻结官方材料。负责人分发时必须严格按人
+分开，不能把甲方目录交给乙方，也不能把控制目录、身份对应表、预期答案、历史复核或第二阶段材料混入第一阶段。回收文件时
+保持原始字节，不借助表格软件重新保存。只有两份第一阶段返回都完成格式、行数、摘要和不可变锁定，第二阶段才可以同时发给
+两人。任何一人先完成都不能先获得下一阶段，以免先完成者接触证据后与另一人交流。两份第二阶段也锁定以后，控制面才能做
+身份还原和一致性计算；存在分歧时由项目负责人依据候选、规则和冻结证据逐项裁决。整个过程只产生试验性人工标注证据，不会
+自动形成正式数据集、训练任务、模型结论或论文结果。
 
 本次批准的中文边界是：保留两名标注人的第一轮原始结果，只修复标注工具并准备本人独立复核材料。两名标注人仍不得互看、讨论或统一答案；协调人只负责发放、回收、计算摘要并锁定文件。第二版结果没有返回并通过后续独立验证前，不得宣称一致性已经恢复，也不得开始分歧仲裁、数据集冻结、检测器实现、训练或正式实验。
 

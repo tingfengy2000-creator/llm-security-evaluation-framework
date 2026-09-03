@@ -1,10 +1,11 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / ACCEPTED_WITH_NONBLOCKING_NOTES /
-> PILOT4_CALIBRATION_CLOSED / PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET`。
+> 当前实验状态：`PILOT4_A_B_EXECUTION_APPROVED / HUMAN_A01_PHASE1_PACKET_READY /
+> HUMAN_B01_PHASE1_PACKET_READY / WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / PHASE2_WITHHELD / NO_GROUND_TRUTH_YET`。
 > Owner 已按 M2 `2/16`、matched controls `16/16`、M4 `0`、M8 `4/4` 和其余冻结门全部 PASS 正式接受 Protocol；
 > 两条 residual reviewer variance 保持不可变且不触发 R4。Accepted Stack 绑定 Final72、Attempt2 Phase1、Guide V3.2、
-> Expected V3、Evidence Pool V2 与 frozen snapshot + URL provenance。A/B 仅有审批包和候选合同，尚未批准或分发；
+> Expected V3、Evidence Pool V2 与 frozen snapshot + URL provenance。Owner 已指定两个不同真人并批准 A/B 执行与
+> Phase1 分发；两套 Phase1 包已经生成但尚未记录真实分发，Phase2 只在控制面封存；
 > 72 条候选仍无 Ground Truth，240-group、
 > Dataset freeze、Formal Detector、Training、5090、Formal Experiment 和 Paper Result 均未开始。
 > `FORMAL_EXPERIMENT = NOT STARTED`；`DATASET_FORMAL_FREEZE = NOT STARTED`。
@@ -42,7 +43,7 @@
 - [S6.1-LR1](stage_process/S6.1-LR1_work_process.md) — 路线与 baseline alignment，已关闭。
 - [S6.1-R0](stage_process/S6.1-R0_work_process.md) — 工程预检，已按边界验收。
 - [S6.1-R0-FU1](stage_process/S6.1-R0-FU1_work_process.md) — W2 单样本工程可行性，已关闭。
-- [S6.1-P1](stage_process/S6.1-P1_work_process.md) — P1-R1、Pilot0–4 的追加式过程；Expected V3 与冻结门重算已完成，当前等待 Owner 最终协议决定，A/B 尚未批准。
+- [S6.1-P1](stage_process/S6.1-P1_work_process.md) — P1-R1、Pilot0–4 的追加式过程；协议已验收，A/B 执行已批准，当前等待 Owner 分别发放两套 Phase1。
 
 ## Pilot Records
 

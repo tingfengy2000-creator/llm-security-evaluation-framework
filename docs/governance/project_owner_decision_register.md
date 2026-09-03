@@ -1495,3 +1495,24 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   Formal Experiment or Paper Result. Auto Continue `NO`.
 - Canonical records: `OR-049`, `REL-2026-0054`, [current work state](current_work_state.md) and Git-external
   `paper1_pilot4_protocol_acceptance_ab_preflight_20260903`.
+
+## PODR-088: Pilot4 A/B Execution Approval and Independent Phase1 Packets
+
+- Date: `2026-09-03`.
+- Owner decision: `PILOT4_A_B_EXECUTION_APPROVED=TRUE`；`PILOT4_A_B_PHASE1_PACKET_GENERATION_APPROVED=TRUE`；
+  `PILOT4_A_B_PHASE1_DISTRIBUTION_APPROVED=TRUE`；`PILOT4_A_B_PHASE2_RELEASE_APPROVED=FALSE`.
+- Roster: `ANNOTATOR_A=HUMAN-A01` and `ANNOTATOR_B=HUMAN-B01`. The Owner explicitly attests that they are different real
+  people, annotate independently, share no context/results, cannot access hidden mapping/Expected/design strata or prior R1–R3
+  material, and use no LLM/AI assistant during annotation. The Owner is only the future disagreement adjudicator.
+- Population and identity: each annotator receives all 72 Final72 candidates in a separate reviewer-local opaque namespace and a
+  separate deterministic randomized order. The two namespaces are disjoint and reuse no known Attempt1/Attempt2/R3 identity.
+- Phase boundary: only each annotator's Phase1 directory is distributable now. Phase2 packages are prebuilt with the same local
+  identities/order and 144/144 frozen official snapshot slots per annotator, but remain `DO_NOT_DISTRIBUTE / PHASE2_WITHHELD`.
+- Release rule: both Phase1 raw returns must independently be received, exact-schema valid, 72/72, hash-locked and immutable before
+  simultaneous Phase2 release. Mapping/Expected/agreement remain closed until all four raw returns are locked.
+- Current status: `PILOT4_A_B_EXECUTION_APPROVED / HUMAN_A01_PHASE1_PACKET_READY /
+  HUMAN_B01_PHASE1_PACKET_READY / WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / PHASE2_WITHHELD / NO_GROUND_TRUTH_YET`.
+- Prohibited: Codex/human simulation of labels、early Phase2 release、agreement、adjudication、Ground Truth、240-group、Dataset
+  freeze、Detector、Training、5090、Formal Experiment or Paper Result. Auto Continue `NO`.
+- Canonical records: `OR-050`, `REL-2026-0055`, [current work state](current_work_state.md) and Git-external
+  `paper1_pilot4_ab_execution_20260903`.

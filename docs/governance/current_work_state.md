@@ -16,35 +16,38 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `PILOT4-OWNER-PROTOCOL-ACCEPTANCE-AND-AB-EXECUTION-PREFLIGHT-01`.
-- Task name: `Pilot4 Owner Annotation-Protocol Acceptance, Calibration Closure and A/B Execution Preflight`.
-- Task type: **OWNER PROTOCOL ACCEPTANCE / CALIBRATION CLOSURE / A-B EXECUTION PREFLIGHT ONLY**.
-- Engineering status: **ACCEPTED STACK VERIFIED / FINAL ACCEPTANCE RECORD CREATED / A-B EXISTING DESIGN RECONSTRUCTED /
-  A-B CONTRACT CANDIDATE READY / DOCUMENTATION CLOSEOUT PASS**.
+- Task ID: `PILOT4-A-B-EXECUTION-APPROVAL-AND-PHASE1-PACKET-GENERATION-01`.
+- Task name: `Pilot4 Human A/B Annotation Execution Approval, Independent Phase1 Packet Generation and Withheld Phase2 Preparation`.
+- Task type: **OWNER A-B EXECUTION APPROVAL / PHASE1 PACKET GENERATION / PHASE2 PREBUILD AND WITHHOLDING**.
+- Engineering status: **ACCEPTED STACK VERIFIED / A-B ROSTER AND ISOLATION FROZEN / BOTH PHASE1 PACKETS READY /
+  BOTH PHASE2 PACKAGES PREBUILT AND WITHHELD / DOCUMENTATION CLOSEOUT PASS**.
 - Experiment status: **PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / PILOT4_CALIBRATION_CLOSED /
-  PILOT4_PROTOCOL_LESSONS_PROMOTED / PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION /
-  NO_GROUND_TRUTH_YET / AUTO_CONTINUE_NO**.
+  PILOT4_A_B_EXECUTION_APPROVED / HUMAN_A01_PHASE1_PACKET_READY / HUMAN_B01_PHASE1_PACKET_READY /
+  WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / PHASE2_WITHHELD / NO_GROUND_TRUTH_YET / AUTO_CONTINUE_NO**.
 - Documentation gate: **PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED / HUMAN_LEDGER_CONTINUOUS_SYNC =
   MANDATORY / TASK_DOCUMENTATION_CLOSEOUT = MANDATORY**. Paper 1 task completion requires execution, tests, evidence,
   documentation closeout and valid Git status; otherwise status is `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING` with
   `TASK_DOCUMENTATION_CLOSEOUT_BLOCKER`.
-- Execution base commit: `c6c752572660e4f900fa2e509949de2bd6244276`.
+- Execution base commit: `ec5e6def0b6a8e09f2b92838240edec20bce1d6a`.
 - Candidate source identity: `candidates_v3_1_additive.jsonl` SHA256
   `15500aa75bced9fb470edaac98f9527e7bb4bc689b86583e6f69b892c48eb210`; final additive corpus SHA256
   `f530471ecd6551300d68c8ddf104cadce2305d8ff91e64010be222820628252d`.
 - Execution machine: **本机**. No model load、GPU workload、5090 contact、formal Dataset/Detector/Training or experiment occurred.
-- Current ordered step: Owner reviews `PILOT4_A_B_EXECUTION_APPROVAL_PACKET.md` and the machine-readable contract candidate, assigns
-  two independent human annotators and either approves A/B execution or returns the candidate for repair.
-- Current blocker: no Pilot4 calibration or A/B design blocker remains. The open execution gate is
-  `PILOT4_A_B_EXECUTION_APPROVAL_PENDING`; annotator roster/independence attestations and exact distribution register are also pending.
-  `A_B_EXECUTION_APPROVED=FALSE`、`A_B_DISTRIBUTION_STARTED=FALSE` and `GROUND_TRUTH_CREATED=FALSE`.
+- Current ordered step: Owner manually distributes only the five files in `HUMAN-A01/phase1/` to HUMAN-A01 and only the five files
+  in `HUMAN-B01/phase1/` to HUMAN-B01, then returns the two exact raw CSV filenames without Excel resave.
+- Current blocker: no Pilot4 protocol/A-B design/packet blocker remains. Actual distribution is not yet recorded.
+  `A_B_EXECUTION_APPROVED=TRUE`、`A_B_DISTRIBUTION_STARTED=FALSE`、`PHASE2_RELEASE_ALLOWED=FALSE` and
+  `GROUND_TRUTH_CREATED=FALSE`.
 - Owner acceptance: `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=TRUE / ACCEPTED_WITH_NONBLOCKING_NOTES`；all frozen A–F gates passed；
   the two nonblocking reviewer variances remain immutable and do not trigger R4.
 - Accepted stack: `PILOT4_ACCEPTED_ANNOTATION_STACK_V1` points to the existing Final72 corpus、Attempt2 final Phase1 protocol/raw、
   Guide V3.2、Expected V3、Evidence Pool V2 and `FROZEN_OFFICIAL_SNAPSHOT_PLUS_URL_PROVENANCE`; it creates no rewritten accepted content.
-- A/B preflight: canonical design is two independent human annotators with Owner disagreement-only adjudication, all Final72 candidates,
-  fresh reviewer-local opaque IDs, independent deterministic randomized orders, both Phase1 returns locked before Phase2 release, and
-  all four raw returns locked before mapping/Expected comparison. Evidence snapshot coverage is `144/144`; no reviewer packet was built.
+- A/B execution: Owner named two different independent humans, `HUMAN-A01` and `HUMAN-B01`, and froze complete isolation plus
+  `NO_LLM_ASSISTANCE`. Each receives all Final72 through 72 fresh reviewer-local opaque IDs and an independent deterministic order.
+  The two five-file Phase1 packages are ready but not recorded as distributed. Phase2 is prebuilt with 144/144 snapshot coverage per
+  annotator and strictly withheld；both Phase1 locks precede simultaneous Phase2 release，all four locks precede mapping/Expected comparison.
+  Git-external namespace `paper1_pilot4_ab_execution_20260903` has manifest SHA256
+  `aa8742baccab4072a0fe901bcd430b46011cea9b436738a730164f166f0d7d91`.
 - R3 raw facts: `12062 bytes`；SHA256 `80a10a1ebf2e2321198c750e92214b8d26f9b2a8f4161c64ebf38cae830b4441`；
   exact 8 columns；37 rows / 37 unique opaque IDs；enum、reason and internal consistency PASS；raw-lock-before-Expected PASS；
   mapping parity `37/37`；affected/control `21/16`.
@@ -121,8 +124,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PODR-057` and `PODR-058`.
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
-- S6.1-P1: **PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / PILOT4_CALIBRATION_CLOSED /
-  PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET / NOT FORMAL_EXPERIMENT**.
+- S6.1-P1: **PILOT4_A_B_EXECUTION_APPROVED / HUMAN_A01_PHASE1_PACKET_READY / HUMAN_B01_PHASE1_PACKET_READY /
+  WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / PHASE2_WITHHELD / NO_GROUND_TRUTH_YET / NOT FORMAL_EXPERIMENT**.
 - S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
 - S6.1-P1-PILOT1: **HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED**.
 - Historical S6.1-P1-PILOT1: **COMPLETED_PENDING_REVIEW / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY**；superseded by OR-024.
@@ -139,7 +142,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Historical PILOT4 first preflight: **OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / a843697 EVIDENCE PRESERVED**.
 - Historical PILOT4 second preflight: **SECOND_OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / cad3b2b EVIDENCE PRESERVED**.
 - PILOT4: **PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / ACCEPTED_WITH_NONBLOCKING_NOTES / PILOT4_CALIBRATION_CLOSED /
-  PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET**.
+  PILOT4_A_B_EXECUTION_APPROVED / BOTH_PHASE1_PACKETS_READY / WAITING_FOR_OWNER_PHASE1_DISTRIBUTION /
+  PHASE2_WITHHELD / NO_GROUND_TRUTH_YET**.
 - PILOT4 candidates: **PILOT4_CANDIDATE_CORPUS_POST_EXTERNAL_PHASE1_REPAIR_V1 / 72 PREANNOTATION_CANDIDATES /
   NOT GROUND TRUTH / NOT FORMAL BENCHMARK / NOT FROZEN DATASET**.
 - PAPER1_FORMAL_DOMAIN_SET: **OWNER_CONFIRMED / ENTERPRISE_HR / FINANCE / INFORMATION_SECURITY /
@@ -384,8 +388,8 @@ are established.
 ## Last Update
 
 - Date: `2026-09-03`.
-- Updated by: 本机 executing `PILOT4-OWNER-PROTOCOL-ACCEPTANCE-AND-AB-EXECUTION-PREFLIGHT-01 / REL-2026-0054`。
-  Owner has accepted the Pilot4 annotation protocol with two nonblocking notes and closed calibration. The accepted stack and final
-  acceptance record are complete；the canonical A/B design is reconstructed only as `CANDIDATE_FOR_OWNER_APPROVAL`.
-  A/B execution/distribution、Ground Truth、Dataset freeze、240-group、Detector/Training、5090、Formal Experiment and Paper Result
-  remain unapproved/unstarted；Auto Continue = `NO`.
+- Updated by: 本机 executing `PILOT4-A-B-EXECUTION-APPROVAL-AND-PHASE1-PACKET-GENERATION-01 / REL-2026-0055`。
+  Owner has approved A/B execution and Phase1 distribution, named HUMAN-A01/HUMAN-B01, and attested full independence/isolation.
+  Both separate Phase1 packages are ready but actual distribution is not recorded；both Phase2 packages remain withheld.
+  No annotation、agreement、Ground Truth、Dataset freeze、240-group、Detector/Training、5090、Formal Experiment or Paper Result
+  has been created；Auto Continue = `NO`.

@@ -5,7 +5,7 @@
 Document Role = `PAPER1_PRIMARY_HUMAN_ENTRY`<br>
 Audience = `项目负责人 / 导师与领导 / 新团队成员`<br>
 Reading Path = `5 minutes / 15 minutes / 30 minutes`<br>
-Current Evidence Cut = `Owner protocol accepted / calibration closed / A/B execution approval pending`<br>
+Current Evidence Cut = `A/B execution approved / both Phase1 packets ready / Phase2 withheld`<br>
 Last Updated = `2026-09-03`
 
 > 这是一张“项目地图”，不是 raw evidence，也不产生新授权。读完第 0 节可掌握当前状态；读到第 8 节可理解论文方法；
@@ -19,19 +19,19 @@ Last Updated = `2026-09-03`
 | 英文论文题目 | *Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework* |
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
-| 当前阶段 | ✅ Owner 已按 `ACCEPTED_WITH_NONBLOCKING_NOTES` 正式接受 Pilot4 标注协议并关闭校准；⚠️ A/B 执行仍等待单独批准。 |
-| 当前任务 | `PILOT4-OWNER-PROTOCOL-ACCEPTANCE-AND-AB-EXECUTION-PREFLIGHT-01`：登记 Owner 验收、冻结 Accepted Stack V1、提升证据支持的 lessons，并准备 A/B 执行审批材料。 |
-| 当前完成度 | ✅ A–F 六门全部通过；2 条 reviewer variance 作为非阻断说明保留；Accepted Stack V1、最终验收记录和 A/B execution contract candidate 已形成。 |
-| 当前唯一人工动作 | 项目负责人审查 A/B Execution Approval Packet；若批准，需明确指定 A/B 身份、独立性与隔离声明，并另行授权执行。 |
-| 当前主要 blocker | 无协议设计 blocker；`A_B_EXECUTION_APPROVAL_PENDING` 与 annotator roster/attestation 尚未完成。 |
-| 已经可以说什么 | Pilot4 标注协议已达到 Pilot-level annotation readiness；校准已关闭，不需要 R4；正式 A/B 所需设计已可追溯重建。 |
-| 绝对不能说什么 | 不得说 A/B 已批准或已开始、72 条已有 Ground Truth、240-group 已生成、Dataset 已冻结、Formal Detector 已实现、检测有效或 Paper Result 已形成。 |
+| 当前阶段 | ✅ Pilot4 协议已验收、校准已关闭，正式双人工 A/B execution 已批准；A/B 两套 Phase1 包已就绪，Phase2 仍封存。 |
+| 当前任务 | `PILOT4-A-B-EXECUTION-APPROVAL-AND-PHASE1-PACKET-GENERATION-01`：登记两个真人与隔离声明，生成两套 Phase1 包，并预构建但不释放 Phase2。 |
+| 当前完成度 | ✅ A/B 各覆盖完整 72 条；各自 72 个新 opaque ID 与独立随机顺序；Phase1 泄漏为 0；Phase2 各 144/144 冻结快照就绪但 withheld。 |
+| 当前唯一人工动作 | Owner 只把 A 的五个 Phase1 文件交给 HUMAN-A01、B 的五个 Phase1 文件交给 HUMAN-B01，回收时保留 CSV 原始字节。 |
+| 当前主要 blocker | 没有协议/包设计 blocker；正在等待 Owner 真实分发及两名人工独立完成 Phase1。 |
+| 已经可以说什么 | A/B 执行与 Phase1 分发已获 Owner 批准；两位不同真人、独立性、隔离、禁用 LLM 和双 Phase1 锁门已冻结。 |
+| 绝对不能说什么 | 不得说已经分发、人工标注已完成、Phase2 已释放、agreement 已计算、72 条已有 Ground Truth，或任何 Dataset/Detector/Formal Result 已形成。 |
 
 当前实验状态固定为：
 
-`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / PILOT4_CALIBRATION_CLOSED /
-PILOT4_PROTOCOL_LESSONS_PROMOTED / PILOT4_A_B_EXECUTION_APPROVAL_PENDING /
-NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET`
+`PILOT4_A_B_EXECUTION_APPROVED / HUMAN_A01_PHASE1_PACKET_READY /
+HUMAN_B01_PHASE1_PACKET_READY / WAITING_FOR_OWNER_PHASE1_DISTRIBUTION /
+PHASE2_WITHHELD / NO_GROUND_TRUTH_YET`
 
 保留的历史状态链含 `PREANNOTATION_ONLY`：`PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT` →
 `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` → `PILOT4_QUALITY_CONVERGED` → Schema V3.1 hardening → 当前外部盲审包状态。历史 package 不被覆盖。
@@ -404,12 +404,14 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 | 2026-09-03 | Pilot4 | targeted R3 gate failure | R3 raw 37/37 完整，M4/M8 通过；M2 3/16、controls overall 13/16，且 7 个分歧字段由 Expected V2 缺陷解释 | 保留 R3 raw 与 Expected V2；只申请 additive Expected V3，批准后复用同一 raw 重算，不默认 R4 | ⚠️ `EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER DECISION PENDING` | [Execution log](../../../governance/research_execution_log.md) |
 | 2026-09-03 | Pilot4 | Expected V3 gate closure | Owner 批准 7 字段/6 候选定向修正；V3 在 reviewer load 前由 Guide/Evidence 独立锁定；M2 2/16、controls 16/16、all exact 35/37、A–F PASS | 停止校准，不做 R4；提交 Owner Protocol Final Decision Packet，协议和 A/B 分开审批 | ✅ `CALIBRATION STOP MET / OWNER PROTOCOL DECISION PENDING` | [Execution log](../../../governance/research_execution_log.md) |
 | 2026-09-03 | Pilot4 | Owner protocol acceptance and A/B preflight | Owner 以 nonblocking notes 接受协议并关闭校准；Accepted Stack V1 固定 Final72、Guide V3.2、Expected V3、Evidence Pool V2 与冻结快照+URL provenance；2 条 variance 原样保留 | 提升 13 条证据支持的 lesson；重建 A/B 角色、盲法、双阶段锁定、agreement/Owner 仲裁边界并生成审批包；不发包 | ✅ `PROTOCOL ACCEPTED / A_B EXECUTION APPROVAL PENDING` | [Execution log](../../../governance/research_execution_log.md) |
+| 2026-09-03 | Pilot4 | A/B execution approval and Phase1 packets | Owner 指定 HUMAN-A01/HUMAN-B01 两个不同真人，确认完整隔离、互不看结果和禁用 LLM；批准完整 Final72 A/B execution 与 Phase1 分发 | 各自 72 新 ID/独立顺序，两个五文件 Phase1 包；Phase2 各 144/144 快照预构建但封存 | ✅ `A_B EXECUTION APPROVED / BOTH PHASE1 READY / WAITING OWNER DISTRIBUTION / PHASE2 WITHHELD` | [Execution log](../../../governance/research_execution_log.md) |
 
 ## 14. 当前项目状态
 
-- `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / PILOT4_CALIBRATION_CLOSED / PILOT4_PROTOCOL_LESSONS_PROMOTED / PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET`
+- `PILOT4_A_B_EXECUTION_APPROVED / HUMAN_A01_PHASE1_PACKET_READY / HUMAN_B01_PHASE1_PACKET_READY / WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / PHASE2_WITHHELD / NO_GROUND_TRUTH_YET`
 - `PILOT_LEVEL_ANNOTATION_READINESS_ONLY`
-- `NO_HUMAN_DISTRIBUTION`
+- `A_B_PHASE1_DISTRIBUTION_OWNER_APPROVED / ACTUAL_DISTRIBUTION_NOT_YET_RECORDED`
+- 历史预检状态 `NO_HUMAN_DISTRIBUTION` 已被本轮 Owner 分发批准取代；它仅作为时间线事实保留，不能描述当前授权。
 - `PILOT4_CANDIDATE_CORPUS_POST_EXTERNAL_PHASE1_REPAIR_V1` 已形成 72 条；仍非 Ground Truth、非 Formal Benchmark、非 frozen Dataset。
 - class intent 为 Clean / Poison / Hard Negative = `24/24/24`。
 - 生成覆盖为 `4 HKP × 3 intended-S × 2 replication = 24 poison cells`，对应 24 matched triplets。
@@ -423,15 +425,17 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 - Targeted R3 raw 保持 `12062 bytes` / SHA `80a10a1e...0b4441`。Expected V3 先经 reviewer-blind 独立审计锁定，再加载 raw；
   只改 7 字段/6 候选。V3 overall `35/37`、version/authority/minimum/issue 各 `37/37`、exact `35/37`；M2 `2/16`、
   controls overall/exact `16/16`，M4/BR18 和 M8 4/4 通过，A–F 全部 PASS；只剩 2 条非系统性 reviewer variance。
-- A/B 未开始；72 Ground Truth 未建立；240-group 未开始；Dataset = `NOT FROZEN`（未冻结）。
+- A/B 人工标注尚未完成；当前只有两套 Phase1 包 ready，真实分发未登记，Phase2 withheld；72 Ground Truth 未建立；
+  240-group 未开始；Dataset = `NOT FROZEN`（未冻结）。
 - Formal Detector = `NOT IMPLEMENTED`（未实现）；Formal Experiment = `NOT STARTED`（未开始）；Our Method Result = `NONE`。
 
 当前 Git 身份与远端同步状态必须动态核验；`a843697`、`cad3b2b2` 与 `871aecf` 均作为不可变历史身份保留。
 
 ## 15. 当前下一步
 
-唯一当前动作：**Owner 审查 A/B Execution Approval Packet，决定批准或退回；若批准，还须指定 A/B annotator 身份并确认
-二者独立、未接触 mapping/Expected/隐藏标签、能够按 Phase1 锁定后再接收 Phase2。** 协议接受本身不授权发包或执行。
+唯一当前动作：**Owner 只把 `HUMAN-A01/phase1/` 的五个文件交给 HUMAN-A01，把 `HUMAN-B01/phase1/` 的五个文件
+交给 HUMAN-B01；两人分别完成 72 条，只把 exact filename 的 CSV 原始文件交回 Owner。** 两份 Phase1 raw 都锁定前，
+不得向任何一人释放 Phase2。
 
 ```text
 Attempt1 (immutable defect-discovery evidence)
@@ -441,10 +445,11 @@ Attempt1 (immutable defect-discovery evidence)
                  └─ Guide/Expected/Evidence targeted repair -> R3 locked and compared
                       └─ additive Expected V3 -> same-raw gates A-F PASS
                            └─ Owner accepted with nonblocking notes -> calibration closed
-                                └─ current: A/B execution approval + roster/attestation pending
+                                └─ A/B approved + roster frozen + both Phase1 packets ready
+                                     └─ current: Owner separately distributes each five-file Phase1 package
 
 未来在独立审批下：
-A/B execution approval -> A/B Phase1 dual lock -> A/B Phase2 dual lock -> agreement -> adjudication -> 72 GT
+A/B Phase1 dual lock -> simultaneous A/B Phase2 release -> A/B Phase2 dual lock -> agreement -> adjudication -> 72 GT
     -> signal re-evaluation -> Scale Readiness
     -> Owner 单独批准 -> 240-group
 ```
@@ -517,4 +522,6 @@ index 和 Owner 对 claims 的接受。
 | 人类/机器/证据如何分层 | [Documentation Separation Contract](../documentation_separation_contract.md) |
 | 为什么本轮不移动文件 | [Document Inventory](../document_inventory.md) |
 
-> STOP：Pilot4 标注协议已由 Owner 接受，但 A/B execution 尚未批准或分发；不生成 Ground Truth，不启动 240-group、Dataset freeze、Detector、训练、5090 或 Formal Experiment。
+> STOP：A/B execution 和 Phase1 分发已由 Owner 批准，但真实分发尚未登记；Owner 现在只分发各自五个 Phase1 文件。
+> 两份 Phase1 锁定前不释放 Phase2；四份 raw 锁定前不做 agreement；当前不生成 Ground Truth，也不启动 240-group、
+> Dataset freeze、Detector、训练、5090 或 Formal Experiment。

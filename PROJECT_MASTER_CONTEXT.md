@@ -1,5 +1,23 @@
 # LLMGuard 项目总控文档
 
+## PILOT4 双人工 A/B 执行批准与 Phase1 分发包（2026-09-03）
+
+项目需求提出人通过 `PILOT4-A-B-EXECUTION-APPROVAL-AND-PHASE1-PACKET-GENERATION-01` 正式批准 Pilot4 human A/B
+execution 与 Phase1 distribution，指定 `HUMAN-A01`、`HUMAN-B01` 为两个不同真人，并确认独立上下文、互不可见、
+不接触 Expected/mapping/设计层级/旧复核、人工标注期间禁止 LLM。Owner 不参与独立首轮，只保留未来分歧仲裁职责。
+
+本机重新核验 Accepted Stack 后，为 A/B 各生成完整 Final72、各自 72 个新 opaque ID 和独立确定性随机顺序。两套
+Phase1 各只有五个可分发文件，严格五列空白模板、0 标签预填和 0 hidden/Evidence/对方身份泄漏。对应 Phase2 按同一
+reviewer-local ID/order 预构建，A/B 各覆盖 144/144 frozen official snapshot slots，但均留在
+`withheld_phase2 / DO_NOT_DISTRIBUTE`。Git-external namespace 为 `paper1_pilot4_ab_execution_20260903`，manifest SHA256
+`aa8742baccab4072a0fe901bcd430b46011cea9b436738a730164f166f0d7d91`。
+
+当前状态是 `PILOT4_A_B_EXECUTION_APPROVED / HUMAN_A01_PHASE1_PACKET_READY /
+HUMAN_B01_PHASE1_PACKET_READY / WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / PHASE2_WITHHELD / NO_GROUND_TRUTH_YET`。
+Owner 现在只分别发送各自 Phase1 五文件包；两份 Phase1 raw 均锁定前不释放 Phase2，四份 raw 全锁前不解锁
+mapping/Expected 或计算 agreement。尚无 annotation completion、Ground Truth、Dataset、Detector、Training、5090、
+Formal Experiment 或 Paper Result。
+
 ## PILOT4 Owner 协议验收、校准关闭与 A/B 执行预检（2026-09-03）
 
 项目需求提出人通过 `PILOT4-OWNER-PROTOCOL-ACCEPTANCE-AND-AB-EXECUTION-PREFLIGHT-01` 正式签署
@@ -15,7 +33,7 @@ Pilot4 calibration 正式关闭，R1/R2 保留为历史校准证据，R3 为最�
 
 现有 A/B 设计已重建为只供 Owner 审批的候选合同：两名独立人工标注人、全部 Final72、各自新 opaque ID 与确定性随机顺序、
 Phase1 双返回锁定后才释放 Phase2、冻结 snapshot 加 URL provenance、四份 raw 锁定后才解锁 mapping/Expected、Owner 仅仲裁
-分歧。当前仍是 `PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET`；未生成 reviewer packet，
+分歧。该预检任务结束时为 `PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET`；未生成 reviewer packet，
 未批准或执行 A/B、240-group、Dataset freeze、Detector、Training、5090、Formal Experiment 或 Paper Result。
 
 ## PILOT4 Expected V3 定向更正与冻结门重算（2026-09-03）
@@ -32,7 +50,7 @@ byte-identical；无第 8 项更正、无候选或 reviewer rewrite。
 `37/37`，overall 为 `35/37`。M4 旧 Evidence defect 未复现，M8 为 `4/4` 唯一操作解释；冻结门 A–F 全部 PASS。
 仅剩两条 non-systemic `R3-M1 REVIEWER_VARIANCE`，没有剩余 Expected V3、Evidence Pool 或 Guide systemic blocker。
 
-当前状态为 `PILOT4_EXPECTED_V3_CORRECTION_COMPLETE / PILOT4_CALIBRATION_STOP_CONDITION_MET /
+该 Expected V3 任务结束时状态为 `PILOT4_EXPECTED_V3_CORRECTION_COMPLETE / PILOT4_CALIBRATION_STOP_CONDITION_MET /
 PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY / RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES /
 OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`。`R4_EXTERNAL_REVIEW_REQUIRED=FALSE`，但
 `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=FALSE`。下一步只允许 Owner 明确签署 Protocol 接受或退回修复；若接受，正式 A/B
@@ -51,7 +69,7 @@ exact relevant fields `29/37`。M4/BR18 修复与 M8 四条消融均通过；但
 overall 同根最大簇 `3`、controls overall `13/16`。逐项证据审计将 9 个字段分歧分为 reviewer variance `2` 与
 Expected V2 defect `7`；后者涉及 6 个候选。没有发现 Evidence Pool V2 defect 或新的 Guide V3.2 系统性歧义。
 
-当前状态为 `PILOT4_R3_VALIDATION_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
+该 R3 任务结束时状态为 `PILOT4_R3_VALIDATION_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
 RECOMMEND_TARGETED_REPAIR / EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER_PROTOCOL_ACCEPTANCE_PENDING /
 NO_AB_DISTRIBUTION`。`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=FALSE`。Owner 下一步只需决定是否批准 additive Expected V3
 对 7 个字段/6 个候选的修正；若批准，可直接用已锁定 R3 raw 重算门，不默认执行 R4。即使重算全部通过，Protocol 接受与
@@ -90,10 +108,10 @@ immutable lock 全部通过；23 条 `SOURCE_UNREACHABLE` 在同一 reviewer ret
 relevant-field agreement 为 `58/72`（naturalness 仅 QC）；Phase2 为 `48/72`。43 个 field mismatch 的最终 taxonomy 为
 M1=13、M2=16、M4=3、M5=6、M8=4、M9=1。
 
-本机建议 `RECOMMEND_TARGETED_REPAIR`，不是协议接受：16 条 primary status 显示
+该对比任务当时建议 `RECOMMEND_TARGETED_REPAIR`，不是协议接受：16 条 primary status 显示
 `CURRENTLY_CONSISTENT` 与 `LEGITIMATE_VERSION_OR_HISTORY` 的系统性 guide boundary；另有 expected-contract 与
 minimum-evidence 定向问题。`BR-18F1D39495` 的指定 Evidence Pool 无法支持“2014 年修正”，分类为
-`EVIDENCE_POOL_DESIGN_DEFECT`，expected 不自动胜出。当前状态为
+`EVIDENCE_POOL_DESIGN_DEFECT`，expected 不自动胜出。该任务结束时状态为
 `PILOT4_FINAL_BLIND_REVIEW_COMPARISON_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
 OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`。正式 A/B、Ground Truth、240-group、Dataset freeze、Detector、
 Training、5090、Formal Experiment 与 Paper Result 均未获批准。

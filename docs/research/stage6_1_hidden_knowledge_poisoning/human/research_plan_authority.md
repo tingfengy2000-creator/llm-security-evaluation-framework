@@ -131,8 +131,9 @@ Paper 1 包括 Benchmark、Detection、Risk Score、Signals、Explanation，以�
 4. S6.1-P1-R1：`HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；数值参数仍待 Pilot 证据，正式 protocol 未冻结。
 5. Pilot0–2 已在各自可行性范围关闭；Pilot3 只完成信号诊断；Pilot4 已完成外部两阶段盲审、R3 定向验证和 additive
    Expected V3 gate recompute。Owner 已正式登记 `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED /
-   ACCEPTED_WITH_NONBLOCKING_NOTES / PILOT4_CALIBRATION_CLOSED`。当前下一门为
-   `PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET`。
+   ACCEPTED_WITH_NONBLOCKING_NOTES / PILOT4_CALIBRATION_CLOSED`，并另行批准 `PILOT4_A_B_EXECUTION_APPROVED`。
+   HUMAN-A01/HUMAN-B01 的独立 Phase1 包已就绪；当前下一门为 Owner 实际分发、两份 Phase1 raw 回收与双锁，
+   `PHASE2_WITHHELD / NO_GROUND_TRUTH_YET`。
 6. 240-group Scale Pilot、Benchmark freeze、Detector、Formal Evaluation、Ablation、Generalization、Option B effectiveness
    和 Paper Writing 均需各自审批与证据门。
 
@@ -144,10 +145,11 @@ Paper 1 包括 Benchmark、Detection、Risk Score、Signals、Explanation，以�
 - 模型 revision、环境、随机种子、指标、统计和资源预算冻结。
 - 项目需求提出人明确批准 S6.1-P1 及后续相应阶段。
 
-当前 `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；Pilot4 annotation protocol 已按 pilot-level readiness 接受，但
-formal Dataset、Detector 和正式实验仍未冻结。当前实验门为 Owner 对 A/B execution candidate 的独立批准；不得自动分发
-A/B、生成 Ground Truth、进入 240-group、Dataset Construction、Detector Implementation、Retrieval Intervention
-effectiveness、Training 或 Formal Experiment。
+当前 `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；Pilot4 annotation protocol 与独立 A/B execution 已由 Owner
+分别批准，但 formal Dataset、Detector 和正式实验仍未冻结。当前实验门只允许 Owner 分别分发 A/B 的 Phase1 五文件包并
+回收两份原始 CSV；双 Phase1 锁前不得释放 Phase2，四份 raw 锁前不得 agreement/mapping/Expected。不得自动生成 Ground
+Truth、进入 240-group、Dataset Construction、Detector Implementation、Retrieval Intervention effectiveness、Training 或
+Formal Experiment。
 
 ## 15. 结论边界
 

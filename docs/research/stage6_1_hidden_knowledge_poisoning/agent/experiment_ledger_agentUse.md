@@ -28,8 +28,8 @@ authority_order:
 ## Current State Snapshot
 
 ```yaml
-CURRENT_TASK: PILOT4-OWNER-PROTOCOL-ACCEPTANCE-AND-AB-EXECUTION-PREFLIGHT-01
-CURRENT_TASK_TYPE: OWNER_ACCEPTANCE_INGESTION / ACCEPTED_STACK_FREEZE / A_B_EXECUTION_PREFLIGHT
+CURRENT_TASK: PILOT4-A-B-EXECUTION-APPROVAL-AND-PHASE1-PACKET-GENERATION-01
+CURRENT_TASK_TYPE: A_B_EXECUTION_APPROVAL / PHASE1_PACKET_GENERATION / WITHHELD_PHASE2_PREBUILD
 PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT: OWNER_CONFIRMED
 PAPER1_HUMAN_LEDGER_SYNC_ON_TASK_CLOSE: MANDATORY
 AUTO_DOCUMENTATION_SYNC_POLICY: ACTIVE
@@ -58,7 +58,7 @@ GMTP_REPRODUCTION: NOT ESTABLISHED
 DETECTION_EFFECTIVENESS: NOT ESTABLISHED
 STRICT_BASELINE_COMPARISON: NOT ESTABLISHED
 S6.1-P1-R1: HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK
-S6.1-P1: PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / PILOT4_CALIBRATION_CLOSED / PILOT4_PROTOCOL_LESSONS_PROMOTED / PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET
+S6.1-P1: PILOT4_A_B_EXECUTION_APPROVED / HUMAN_A01_PHASE1_PACKET_READY / HUMAN_B01_PHASE1_PACKET_READY / WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / PHASE2_WITHHELD / NO_GROUND_TRUTH_YET
 PILOT4_ANNOTATION_PROTOCOL_ACCEPTED: TRUE / OWNER_DECISION
 PILOT4_PROTOCOL_ACCEPTANCE_MODE: ACCEPTED_WITH_NONBLOCKING_NOTES
 PILOT4_ACCEPTED_ANNOTATION_STACK: PILOT4_ACCEPTED_ANNOTATION_STACK_V1
@@ -159,11 +159,14 @@ PILOT4_PROTOCOL_RECOMMENDATION: RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES
 PILOT4_PROTOCOL_ACCEPTANCE: OWNER_ACCEPTED_WITH_NONBLOCKING_NOTES
 PILOT4_NONBLOCKING_REVIEWER_VARIANCE: P4Q-AA0D4DCD8A07 / P4Q-8FF2D8645DF1
 PILOT4_A_B_DESIGN_BLOCKER: NONE
-PILOT4_A_B_EXECUTION_APPROVAL: PENDING / NOT_GRANTED_BY_PROTOCOL_ACCEPTANCE
-PILOT4_A_B_EXECUTION_CONTRACT: CANDIDATE_READY_FOR_OWNER_REVIEW
-PILOT4_A_B_ROSTER_AND_ATTESTATION: PENDING
-CURRENT_BLOCKER: NONE_PROTOCOL_SYSTEMIC / A_B_EXECUTION_APPROVAL_AND_ROSTER_PENDING
-CURRENT_OWNER_ACTION: REVIEW_A_B_EXECUTION_APPROVAL_PACKET_AND_APPROVE_OR_RETURN
+PILOT4_A_B_EXECUTION_APPROVAL: TRUE / OWNER_DECISION
+PILOT4_A_B_EXECUTION_CONTRACT: ACTIVE_FOR_PHASE1_DISTRIBUTION
+PILOT4_A_B_ROSTER_AND_ATTESTATION: HUMAN_A01 / HUMAN_B01 / DIFFERENT_REAL_PEOPLE / INDEPENDENCE_TRUE
+PILOT4_A_B_PHASE1_PACKETS: A_READY / B_READY / 72_EACH / ZERO_LABEL_PREFILL
+PILOT4_A_B_PHASE2_PACKAGES: A_PREBUILT / B_PREBUILT / WITHHELD / 144_SNAPSHOT_SLOTS_EACH
+PILOT4_A_B_NO_LLM_ASSISTANCE: TRUE
+CURRENT_BLOCKER: NONE_PROTOCOL_OR_PACKET / WAITING_FOR_OWNER_PHASE1_DISTRIBUTION_AND_HUMAN_RETURNS
+CURRENT_OWNER_ACTION: DISTRIBUTE_ONLY_EACH_ANNOTATOR_PHASE1_FIVE_FILE_DIRECTORY
 R4_EXECUTION: NOT_REQUIRED / NOT_AUTHORIZED
 EXTERNAL_REVIEW_CONTEXT_ISOLATION_REQUIRED: TRUE
 PILOT4_HISTORICAL_STATE_CHAIN: PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / SUPERSEDED_WITHOUT_REWRITE
@@ -171,7 +174,7 @@ PILOT4_CANDIDATES: 72 / PREANNOTATION_ONLY / NOT_GROUND_TRUTH / NOT_FORMAL_BENCH
 PILOT4_CLASS_INTENT: CLEAN_24 / POISON_24 / HARD_NEGATIVE_24
 PILOT4_VALIDATED_GENERATION_CELLS: 4_HKP_X_3_STEALTH_X_2_REPLICATION
 PILOT4_SECOND_OWNER_PREFLIGHT: HISTORICAL_12_ROWS / SUPERSEDED_WITHOUT_REWRITE
-PILOT4_A_B_DISTRIBUTION: NOT_STARTED / NOT_AUTHORIZED_BY_THIS_TASK
+PILOT4_A_B_DISTRIBUTION: OWNER_APPROVED / NOT_STARTED_OR_CLAIMED_BY_CONTROL_PLANE
 PILOT4_GROUND_TRUTH: NOT_ESTABLISHED
 PAPER1_FORMAL_DOMAIN_SET: OWNER_CONFIRMED
 PAPER1_FORMAL_DOMAINS:
@@ -230,7 +233,7 @@ Detector/Training and Formal Experiment remain closed.
 | S6.1-R0 | engineering reproduction preflight | `HUMAN_ACCEPTED_WITH_BLOCKERS` | `../stage_process/S6.1-R0_work_process.md` |
 | S6.1-R0-FU1 | targeted baseline feasibility resolution | `HUMAN_ACCEPTED / CLOSED` | `../stage_process/S6.1-R0-FU1_work_process.md` |
 | S6.1-P1-R1 | protocol hardening and Option B scope freeze | `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK` | source candidate `../s6_1_p1_r1_protocol_review_candidate.md`; numeric parameters pending |
-| S6.1-P1 | Pilot0–2 feasibility closed; Pilot3 diagnostic complete; Pilot4 protocol Owner-accepted and calibration closed; A/B execution decision pending | `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / PILOT4_CALIBRATION_CLOSED / PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET` | `../stage_process/S6.1-P1_work_process.md` |
+| S6.1-P1 | Pilot0–2 feasibility closed; Pilot3 diagnostic complete; Pilot4 protocol accepted/calibration closed; A/B execution approved and both Phase1 packets ready | `PILOT4_A_B_EXECUTION_APPROVED / WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / PHASE2_WITHHELD / NO_GROUND_TRUTH_YET` | `../stage_process/S6.1-P1_work_process.md` |
 
 ## Run Registry
 
@@ -304,6 +307,7 @@ next_gate: string
 | ART-P1-PILOT4-R3-FINAL-ACCEPTANCE-V2 | S6.1-P1 / Pilot4 targeted R3 | immutable_r3_lock_expected_v2_comparison_and_gate_assessment / 本机 | `R3_VALIDATION_COMPLETE / RECOMMEND_TARGETED_REPAIR / EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER_PENDING` | `PODR-085 / OR-047 / REL-2026-0052`; execution base `ab3a9b2f...b7e2e`; raw `12062 bytes / 80a10a1e...0b4441` | exact 8 columns；37/37；21 impacted + 16 controls；lock-before-Expected；overall 31/37；exact 29/37；M2 3/16；controls 13/16；M4/M8 PASS；Expected defects 7 fields/6 candidates | Git-external `paper1_pilot4_r3_final_acceptance_20260903`; Acceptance Evidence V2 + Owner Decision Packet + manifest | allowed: Owner additive Expected V3 decision；prohibited: R4 by default、auto acceptance、A/B/GT/240/freeze/training/5090/formal experiment | blocker `EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER`; next_gate approve/reject additive Expected V3 |
 | ART-P1-PILOT4-EXPECTED-V3-GATE-RECOMPUTE | S6.1-P1 / Pilot4 Expected V3 | reviewer_blind_expected_correction_and_frozen_gate_recompute / 本机 | `EXPECTED_V3_CORRECTION_COMPLETE / CALIBRATION_STOP_MET / RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES / OWNER_PENDING` | `PODR-086 / OR-048 / REL-2026-0053`; execution base `54dea4f9...ebcecb`; raw `12062 bytes / 80a10a1e...0b4441`; parent V2 `caef1702...cfd00` | Expected V3 `dc549ff6...031433`; 7 fields/6 candidates；V3 locked before reviewer load；M2 2/16；controls overall/exact 16/16；all exact 35/37；A–F PASS；2 R3-M1 residuals | Git-external `paper1_pilot4_expected_v3_gate_recompute_20260903`; Expected V3 + independent audit + Acceptance Evidence/Owner Packet V3 + manifest | allowed: Owner protocol acceptance/repair decision only；prohibited: auto acceptance、R4、A/B/GT/240/freeze/training/5090/formal experiment | no systemic blocker；next_gate Owner protocol decision, then separate A/B approval |
 | GOV-P1-PILOT4-PROTOCOL-ACCEPTANCE-AB-PREFLIGHT | S6.1-P1 / Pilot4 Owner acceptance | owner_acceptance_and_ab_execution_preflight / 本机 | `PROTOCOL_ACCEPTED_WITH_NONBLOCKING_NOTES / CALIBRATION_CLOSED / A_B_EXECUTION_APPROVAL_PENDING` | `PODR-087 / OR-049 / REL-2026-0054`; execution base `c6c75257...4276`; Final72 `f530471e...8252d`; Guide V3.2; Expected V3 `dc549ff6...031433` | Accepted Stack V1；A–F PASS；2 immutable reviewer variances；13 lessons promoted；A/B two-independent-annotator, two-phase, lock-before-compare contract reconstructed | Git-external `paper1_pilot4_protocol_acceptance_ab_preflight_20260903`; Final Acceptance Record + A/B Approval Packet + contract candidate | allowed: Pilot-level annotation readiness and Owner A/B decision preparation；prohibited: packet distribution、A/B execution、agreement、adjudication、GT、240/freeze/training/5090/formal experiment | no design blocker；next_gate Owner separately approves or returns A/B execution and assigns isolated A/B roster |
+| ART-P1-PILOT4-AB-PHASE1-PACKETS | S6.1-P1 / Pilot4 formal human A/B | owner_execution_approval_and_phase1_packet_generation / 本机 | `A_B_EXECUTION_APPROVED / A_PHASE1_READY / B_PHASE1_READY / PHASE2_WITHHELD / NO_GT` | `PODR-088 / OR-050 / REL-2026-0055`; execution base `ec5e6def...d6a`; Final72 `f530471e...8252d`; Guide V3.2 `83fced51...d561`; Expected V3 control-only `dc549ff6...031433`; Evidence V2 `44b5c71b...622e` | HUMAN-A01/B01 roster；72+72 fresh disjoint IDs；independent orders；two exact blank five-column CSV templates；reviewer-visible leakage 0；Phase2 144/144 snapshots each and withheld | Git-external `paper1_pilot4_ab_execution_20260903`; manifest `aa8742ba...d7d91`; two Phase1 handoffs + withheld Phase2 + mappings/register/manifest/QA | allowed: Owner manual Phase1 distribution and raw return collection；prohibited: early Phase2、agreement/mapping/Expected before four locks、GT、240/freeze/training/5090/formal experiment | no packet blocker；next_gate Owner distributes five Phase1 files to each human and returns two raw CSVs |
 
 ## Artifact Registry
 
@@ -358,9 +362,9 @@ H2 bundle contract additionally freezes bundle source bytes `1320359518`, archiv
 
 - S6.1-P1-R1 is `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`; numeric parameters and the formal protocol remain unfrozen.
 - PILOT0 is `HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED`；PILOT1 is `HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED`.
-- Pilot4 Attempt1 raw return remains immutable and is classified as valid defect-discovery evidence. Attempt2 Phase1 raw is now
-  immutable with zero candidate defects；Phase2 packet is released unfilled to Owner, while identity mapping and expected comparison
-  remain closed. The open blocker is the external Phase2 return.
+- Pilot4 protocol calibration is closed and the formal A/B execution is Owner-approved. The open operational dependency is Owner
+  distribution of the two separate Phase1 packages and independent completion by HUMAN-A01/HUMAN-B01. Phase2 remains withheld；
+  there is no agreement or Ground Truth yet.
 - The formal five-domain Scale Pilot structure is confirmed only as planning. 240-group execution is not approved/started；Dataset
   is not frozen；Formal Detector is not implemented；Training and Formal Experiment are not started.
 - Option B is confirmed only for detection plus lightweight hard filtering / soft downweighting. Complete trusted retrieval/context construction remains excluded.
@@ -377,10 +381,9 @@ H2 bundle contract additionally freezes bundle source bytes `1320359518`, archiv
 2. The only authorized H2-B call is consumed (`call_count=1`); no retry or second call is authorized.
 3. PILOT2 original kit/returns/registration/preflight/full V2 and owner correction remain immutable; Pilot2 is closed only for
    annotation-protocol/Ground-Truth feasibility.
-4. The only current experiment gate is the fresh Full72 Attempt2 external Phase2 return. Owner returns to the same reviewer
-   Project/conversation and distributes only the released Phase2 packet Markdown and guide Markdown. Preserve locked Phase1 and all
-   repair evidence；do not load mapping/expected contract. A later task must lock and validate the complete Phase2 return before any
-   comparison or protocol decision.
+4. The only current experiment gate is manual distribution of each annotator's five-file Phase1 directory. Owner must not cross-send
+   packages or send control/withheld files. Both raw Phase1 returns must be schema-valid、72/72、hash-locked and immutable before
+   simultaneous Phase2 release；all four raw locks must precede mapping/Expected/agreement.
 5. `PAPER1_FORMAL_DOMAIN_SET` is fixed for future Scale Pilot planning; it does not rewrite Pilot4's four-domain history or create
    240 groups / 720 candidates.
 6. `DETOXIFICATION_OPTION = OPTION_B` is fixed. It does not authorize Dataset freeze, Detector, training or a formal run.

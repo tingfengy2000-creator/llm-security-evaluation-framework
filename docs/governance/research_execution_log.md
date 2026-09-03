@@ -1985,3 +1985,48 @@ Approval Gate、Auto Continue。
     `README_condition_evaluated=true`（root and Paper 1 first-screen states changed，updated）。
   - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
     `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.
+
+## REL-2026-0055 — Pilot4 A/B Execution Approval and Independent Phase1 Packet Generation
+
+- Record ID: `REL-2026-0055`; date `2026-09-03`; task
+  `PILOT4-A-B-EXECUTION-APPROVAL-AND-PHASE1-PACKET-GENERATION-01`; machine `本机 / LOCAL_CONTROL_PLANE`;
+  execution base `ec5e6def0b6a8e09f2b92838240edec20bce1d6a`; Owner authority `PODR-088 / OR-050`.
+- Approval and roster: Owner approved formal Pilot4 human A/B execution, named `HUMAN-A01` and `HUMAN-B01` as two different
+  independent real people, froze all non-exposure attestations and `NO_LLM_ASSISTANCE_DURING_HUMAN_ANNOTATION=TRUE`, and kept
+  the Owner out of independent first-round annotation.
+- Stack revalidation: Final72 `f530471e...8252d`、Guide V3.2 `83fced51...d561`、Expected V3 control-only
+  `dc549ff6...1433` and Evidence Pool V2 `44b5c71b...622e` all match the accepted identities.
+- Packages: A and B each have a five-file, reviewer-visible Phase1 package over all 72 candidates, with exact empty five-column CSV
+  return templates. Each has 72 fresh opaque IDs；A/B overlap `0`；reuse against 181 known Attempt1/Attempt2/R3 IDs `0`；orders
+  differ and matched-triplet adjacency/periodicity leakage checks pass.
+- Withheld Phase2: A and B each have a prebuilt same-ID/same-order Phase2 package with exact empty eight-column template and
+  `144/144` frozen official snapshot slots. These 300 files are manifest-classified `WITHHELD_PHASE2`; release remains false.
+- Leakage/isolation: both five-file Phase1 directories contain no sample identity、Expected、mapping、candidate class、HKP、stealth、
+  HN subtype、Evidence/URL/snapshot、Phase2 fields、old reviewer IDs、repair markers or other-annotator identity. Cross-order and
+  cross-file leakage checks pass.
+- Distribution: Codex did not contact either annotator and did not claim distribution. Owner may now manually send only the five files
+  in each annotator's Phase1 directory. Future raw filenames are
+  `PILOT4_AB_HUMAN_A01_PHASE1_RETURN.csv` and `PILOT4_AB_HUMAN_B01_PHASE1_RETURN.csv`.
+- Boundary: Phase2 requires both Phase1 raws to be received、schema-valid、72/72、hash-locked and immutable, then released
+  simultaneously. Agreement/mapping/Expected require all four raw locks. No labels、agreement、adjudication、GT、Dataset、Detector、
+  Training、5090 or Formal Experiment were produced.
+- Evidence: Git-external `paper1_pilot4_ab_execution_20260903` with owner control、two distributable Phase1 directories、two
+  withheld Phase2 directories、machine mappings、distribution register、future raw-lock contract、QA and manifest；final manifest
+  SHA256 `aa8742baccab4072a0fe901bcd430b46011cea9b436738a730164f166f0d7d91`，335 physical files including manifest.
+- Final status: `PILOT4_A_B_EXECUTION_APPROVED / HUMAN_A01_PHASE1_PACKET_READY /
+  HUMAN_B01_PHASE1_PACKET_READY / WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / PHASE2_WITHHELD / NO_GROUND_TRUTH_YET`.
+- Owner next action: distribute exactly the A five-file Phase1 directory to HUMAN-A01 and the B five-file Phase1 directory to
+  HUMAN-B01; collect the two exact raw filenames without Excel resave and submit them to a later lock task.
+- `DOCUMENTATION_CLOSEOUT_CHECKLIST`:
+  - `human_ledger_checked=true`; `human_ledger_updated_if_required=true`; `agent_ledger_checked=true`;
+    `agent_ledger_updated=true`; `current_work_state_updated=true`; `execution_log_appended=true`.
+  - `experiment_master_condition_evaluated=true`（A/B gate changed，updated）；
+    `owner_decision_condition_evaluated=true`（new execution approval，updated）；
+    `stage_process_condition_evaluated=true`（packages generated，updated）；
+    `lessons_condition_evaluated=true`（no new lesson promotion，not modified）。
+  - `project_master_condition_evaluated=true`（current project status changed，updated）；
+    `research_authority_condition_evaluated=true`（current Pilot4 gate changed，updated）；
+    `long_term_requirement_condition_evaluated=true`（long-term goals unchanged，not modified）；
+    `README_condition_evaluated=true`（root and Paper 1 first-screen state changed，updated）。
+  - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
+    `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.
