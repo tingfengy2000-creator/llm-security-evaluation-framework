@@ -127,9 +127,9 @@ Paper 1 包括 Benchmark、Detection、Risk Score、Signals、Explanation，以�
 2. S6.1-R0：工程预检，带阻塞项验收。
 3. S6.1-R0-FU1：P0/L1/W2 已验收；仅以工程可行性范围关闭。
 4. S6.1-P1-R1：`HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；数值参数仍待 Pilot 证据，正式 protocol 未冻结。
-5. Pilot0–2 已在各自可行性范围关闭；Pilot3 只完成信号诊断；Pilot4 已完成 targeted repair，正在等待 second Owner
-   preflight，当前完整状态为 `PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / PREANNOTATION_ONLY /
-   NO_HUMAN_DISTRIBUTION`。
+5. Pilot0–2 已在各自可行性范围关闭；Pilot3 只完成信号诊断；Pilot4 已完成外部两阶段盲审、R3 定向验证和 additive
+   Expected V3 gate recompute。当前为 `PILOT4_CALIBRATION_STOP_CONDITION_MET /
+   RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES / OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`；Protocol 尚未接受。
 6. 240-group Scale Pilot、Benchmark freeze、Detector、Formal Evaluation、Ablation、Generalization、Option B effectiveness
    和 Paper Writing 均需各自审批与证据门。
 
@@ -142,8 +142,9 @@ Paper 1 包括 Benchmark、Detection、Risk Score、Signals、Explanation，以�
 - 项目需求提出人明确批准 S6.1-P1 及后续相应阶段。
 
 当前 `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`，但 formal protocol、Dataset、Detector 和正式实验均未冻结。
-当前实验门为 Pilot4 second Owner preflight；不得自动分发 A/B、进入 240-group、Dataset Construction、Detector
-Implementation、Retrieval Intervention effectiveness、Training 或 Formal Experiment。
+当前实验门为 Owner 对 Pilot4 Protocol 的最终接受/退回决定；即使接受，正式 A/B execution 仍需另行批准。不得自动分发
+A/B、进入 240-group、Dataset Construction、Detector Implementation、Retrieval Intervention effectiveness、Training 或
+Formal Experiment。
 
 ## 15. 结论边界
 

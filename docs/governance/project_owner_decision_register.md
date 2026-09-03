@@ -1444,3 +1444,29 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   Detector、Training、5090、Formal Experiment or Paper Result. Auto Continue `NO`.
 - Canonical records: `OR-047`, `REL-2026-0052`, [current work state](current_work_state.md) and Git-external
   `paper1_pilot4_r3_final_acceptance_20260903`.
+
+## PODR-086: Pilot4 Expected V3 Targeted Correction and Frozen Gate Recompute
+
+- Date: `2026-09-03`.
+- Owner authorization: `OWNER_EXPECTED_V3_TARGETED_CORRECTION_APPROVED=TRUE`. Create an additive
+  `PILOT4_EXPECTED_CONTRACT_V3_TARGETED_CORRECTION` for exactly seven fields across the six already audited candidates；do not
+  expand scope or use reviewer agreement as the reason for a correction.
+- Independence and lineage: candidate、Guide V3.2 and frozen E1/E2 evidence are independently read before reviewer values. Expected
+  V3 is physically written and SHA-locked before the R3 raw is parsed；the prior reviewer-derived defect audit is loaded only later
+  to verify 7/7 scope parity. Expected V1/V2、R3 raw、Guide、Evidence Pool、mapping、candidate corpus、R3 comparison V2 and
+  Acceptance Evidence V2 remain byte-identical.
+- Correction result: exactly `7 fields / 6 candidates / 0 candidate changes / 0 reviewer changes`; Expected V3 SHA256
+  `dc549ff6adbacc6a87049c08c7db7e414b9d52dafc19c31f98b5c10490031433`.
+- Gate result: M2 `3/16 → 2/16`; max same-root cluster `3 → 2`; controls overall `13/16 → 16/16`; controls exact
+  `11/16 → 16/16`; all-R3 exact `29/37 → 35/37`. M4 PASS、M8 4/4 PASS、A–F all PASS. Two residuals are non-systemic
+  `R3-M1 REVIEWER_VARIANCE`; no Expected V3/Evidence/Guide systemic blocker remains.
+- Recommendation boundary: `RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES` and
+  `PILOT4_CALIBRATION_STOP_CONDITION_MET=TRUE / R4_EXTERNAL_REVIEW_REQUIRED=FALSE` are Codex recommendations/evidence states，
+  not Owner protocol acceptance.
+- Current status: `PILOT4_EXPECTED_V3_CORRECTION_COMPLETE / PILOT4_CALIBRATION_STOP_CONDITION_MET /
+  PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY / RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES /
+  OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`.
+- Prohibited: automatic `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED`、R4、A/B distribution、Ground Truth、240-group、Dataset freeze、
+  Detector、Training、5090、Formal Experiment or Paper Result. Auto Continue `NO`.
+- Canonical records: `OR-048`, `REL-2026-0053`, [current work state](current_work_state.md) and Git-external
+  `paper1_pilot4_expected_v3_gate_recompute_20260903`.

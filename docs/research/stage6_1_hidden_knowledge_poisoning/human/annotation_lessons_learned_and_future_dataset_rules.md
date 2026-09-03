@@ -384,3 +384,17 @@ R3 已把上一节的验证设计变成了真实外部返回：37/37 raw、枚�
 本规则当前状态继续为 `PROVISIONAL_PENDING_PILOT4_FINAL_ACCEPTANCE`。它支持 additive Expected V3 和复用已锁定 R3 raw
 重算门，不支持默认 R4。只有 Owner 后续明确接受协议并执行 lesson promotion，才能决定哪些条目升级为
 `ACCEPTED_LESSON`；A/B 仍需单独审批。
+
+## 二十三、Expected contract 更正必须先于 reviewer 对比锁定（临时规则）
+
+当 reviewer 与 Expected 的分歧经审计指向 Expected defect 时，不能因为 reviewer 选择了某值就机械把 Expected 改成该值。
+应把 candidate、Guide rule 和冻结 Evidence 作为独立输入，在不读取 reviewer value 的阶段逐项形成理由，并先生成、哈希锁定
+新的 additive Expected version；之后才能加载已锁定 reviewer raw 重算 agreement 和 gate。旧 Expected 和 raw 必须保持
+byte-identical，新的 Expected diff 必须受 Owner 授权范围和 fail-closed 数量门约束。
+
+Pilot4 Expected V3 为该规则提供支持证据：独立审计精确产生 7 字段/6 候选更正，锁定后重算使 M2 为 2/16、controls
+overall/exact 为 16/16，全部 A–F 门通过；剩余两项为非系统性 reviewer variance，故继续 R4 没有必要。但这只能形成
+`RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES` 和 calibration stop，不能由 Codex 自动写成 Protocol accepted。
+
+本规则继续为 `PROVISIONAL_PENDING_PILOT4_FINAL_ACCEPTANCE`。只有 Owner 明确接受 Protocol 并执行 lesson promotion 后，
+才可升级；A/B execution 仍需另一独立审批。

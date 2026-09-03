@@ -12,6 +12,10 @@ It is not affiliated with or derived from Protect AI's llm-guard project.
 面试复习入口：[interview_prep/README.md](interview_prep/README.md)
 项目总控：[PROJECT_MASTER_CONTEXT.md](PROJECT_MASTER_CONTEXT.md)
 
+Paper 1 当前门：Pilot4 Expected V3 已完成 7 字段/6 候选的追加式证据修正，冻结门 A–F 全部通过；当前仅等待项目负责人
+最终协议决定。Protocol 尚未接受，正式 A/B、Dataset freeze、Detector、Training 与 Formal Experiment 均未启动。详见
+[Paper 1 Start Here](docs/research/stage6_1_hidden_knowledge_poisoning/README.md)。
+
 ## Repository Map
 
 - `src/llmguard/`: canonical evaluation framework code

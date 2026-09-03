@@ -13,7 +13,7 @@ Primary Human Mirror = `../human/experiment_ledger_tingfeng.md`
 project: LLMGuard Research Framework
 paper: Paper 1 - Chinese version-aware stealthy knowledge poisoning
 branch: research/stage6-1-hidden-poisoning
-task_execution_base_commit: ab3a9b2f2437d3103753a98b5bd1ac6bc78b7e2e
+task_execution_base_commit: 54dea4f98112f9e0ee4c593f97cba6c4f8ebcecb
 latest_commit_source: DYNAMIC_GIT_FACT / DO_NOT_HARDCODE
 snapshot_date: 2026-09-03
 authority_order:
@@ -28,8 +28,8 @@ authority_order:
 ## Current State Snapshot
 
 ```yaml
-CURRENT_TASK: PILOT4-R3-FINAL-RAW-LOCK-COMPARISON-AND-PROTOCOL-ACCEPTANCE-EVIDENCE-V2-01
-CURRENT_TASK_TYPE: R3_RAW_LOCK / EXPECTED_V2_COMPARISON / ACCEPTANCE_GATE_ASSESSMENT
+CURRENT_TASK: PILOT4-EXPECTED-V3-TARGETED-CORRECTION-AND-FROZEN-GATE-RECOMPUTE-01
+CURRENT_TASK_TYPE: ADDITIVE_EXPECTED_V3 / REVIEWER_BLIND_JUSTIFICATION / FROZEN_GATE_RECOMPUTE
 PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT: OWNER_CONFIRMED
 PAPER1_HUMAN_LEDGER_SYNC_ON_TASK_CLOSE: MANDATORY
 AUTO_DOCUMENTATION_SYNC_POLICY: ACTIVE
@@ -58,7 +58,7 @@ GMTP_REPRODUCTION: NOT ESTABLISHED
 DETECTION_EFFECTIVENESS: NOT ESTABLISHED
 STRICT_BASELINE_COMPARISON: NOT ESTABLISHED
 S6.1-P1-R1: HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK
-S6.1-P1: PILOT4_R3_VALIDATION_COMPLETE / RECOMMEND_TARGETED_REPAIR / EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER_PROTOCOL_ACCEPTANCE_PENDING / PREANNOTATION_ONLY / NO_AB_DISTRIBUTION
+S6.1-P1: PILOT4_EXPECTED_V3_CORRECTION_COMPLETE / PILOT4_CALIBRATION_STOP_CONDITION_MET / RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES / OWNER_PROTOCOL_ACCEPTANCE_PENDING / PREANNOTATION_ONLY / NO_AB_DISTRIBUTION
 PILOT4_ANNOTATION_PROTOCOL_ACCEPTED: FALSE
 R3_EXTERNAL_REVIEW_EXECUTED: TRUE_BY_EXTERNAL_REVIEWER / RAW_RETURN_LOCKED_BY_CONTROL_PLANE
 R3_IMPACTED_CONTROL_TOTAL: 21 / 16 / 37
@@ -69,16 +69,25 @@ R3_RAW_SHA256: 80a10a1ebf2e2321198c750e92214b8d26f9b2a8f4161c64ebf38cae830b4441
 R3_RAW_VALIDATION: EXACT_8_COLUMNS / 37_OF_37_IDS / ENUM_REASON_LOGIC_PASS / IMMUTABLE
 R3_RAW_LOCK_BEFORE_EXPECTED: PASS
 R3_MAPPING_PARITY: 37_OF_37
-R3_OVERALL_AGREEMENT: 31_OF_37
-R3_EXACT_RELEVANT_FIELD_AGREEMENT: 29_OF_37
-R3_M2_RESIDUAL: 3_OF_16 / FROZEN_GATE_A_FAIL
-R3_CONTROL_OVERALL: 13_OF_16 / FROZEN_GATE_C_FAIL
-R3_CONTROL_EXACT: 11_OF_16
+EXPECTED_V3_VERSION: PILOT4_EXPECTED_CONTRACT_V3_TARGETED_CORRECTION
+EXPECTED_V3_SHA256: dc549ff6adbacc6a87049c08c7db7e414b9d52dafc19c31f98b5c10490031433
+EXPECTED_V3_SCOPE: 7_FIELDS / 6_CANDIDATES / 0_CANDIDATE_CHANGES / 0_REVIEWER_CHANGES
+EXPECTED_V3_REVIEWER_BLIND_DERIVATION: PASS / V3_LOCKED_BEFORE_R3_RAW_PARSE
+R3_OVERALL_AGREEMENT: 35_OF_37
+R3_EXACT_RELEVANT_FIELD_AGREEMENT: 35_OF_37
+R3_M2_RESIDUAL: 2_OF_16 / FROZEN_GATE_A_PASS
+R3_CONTROL_OVERALL: 16_OF_16 / FROZEN_GATE_C_PASS
+R3_CONTROL_EXACT: 16_OF_16
 R3_M4_BR18: PASS
 R3_M8: 4_OF_4_PASS
-R3_RESIDUAL_TAXONOMY: REVIEWER_VARIANCE_2 / EXPECTED_V2_DEFECT_7_FIELDS_6_CANDIDATES
+R3_RESIDUAL_TAXONOMY: R3_M1_REVIEWER_VARIANCE_2 / NON_SYSTEMIC
 R3_EVIDENCE_V2_DEFECTS: 0
 R3_NEW_GUIDE_V3_2_SYSTEMIC_AMBIGUITY: 0
+EXPECTED_V3_DEFECTS_REMAINING: 0
+FROZEN_ACCEPTANCE_GATES_A_TO_F: PASS / PASS / PASS / PASS / PASS / PASS
+PILOT4_CALIBRATION_STOP_CONDITION_MET: TRUE
+R4_EXTERNAL_REVIEW_REQUIRED: FALSE
+PROTOCOL_ACCEPTANCE_RECOMMENDATION: RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES
 S6.1-P1-PILOT0: HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED
 S6.1-P1-PILOT1: HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED
 S6.1-P1-PILOT2: HUMAN_ACCEPTED / ANNOTATION_PROTOCOL_AND_GROUND_TRUTH_FEASIBILITY_ONLY / CLOSED
@@ -137,11 +146,11 @@ PILOT4_RAW_LOCK_BEFORE_EXPECTED: PASS / 2026-09-02T13:32:48.640267Z_BEFORE_2026-
 PILOT4_PHASE1_EXPECTED_EXACT: 58_OF_72 / NATURALNESS_QC_ONLY
 PILOT4_PHASE2_EXPECTED_EXACT: 48_OF_72
 PILOT4_MISMATCH_TAXONOMY: M1_13 / M2_16 / M4_3 / M5_6 / M8_4 / M9_1
-PILOT4_PROTOCOL_RECOMMENDATION: RECOMMEND_TARGETED_REPAIR
+PILOT4_PROTOCOL_RECOMMENDATION: RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES
 PILOT4_PROTOCOL_ACCEPTANCE: OWNER_PENDING / NOT_ACCEPTED
-CURRENT_BLOCKER: EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER
-CURRENT_OWNER_ACTION: APPROVE_OR_REJECT_ADDITIVE_EXPECTED_V3_CORRECTION_FOR_7_FIELDS_6_CANDIDATES
-R4_EXECUTION: NOT_AUTHORIZED / NO_R4_BY_DEFAULT
+CURRENT_BLOCKER: NONE_SYSTEMIC / OWNER_PROTOCOL_ACCEPTANCE_PENDING
+CURRENT_OWNER_ACTION: ACCEPT_PROTOCOL_OR_RETURN_FOR_REPAIR
+R4_EXECUTION: NOT_REQUIRED / NOT_AUTHORIZED
 EXTERNAL_REVIEW_CONTEXT_ISOLATION_REQUIRED: TRUE
 PILOT4_HISTORICAL_STATE_CHAIN: PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT / SUPERSEDED_WITHOUT_REWRITE
 PILOT4_CANDIDATES: 72 / PREANNOTATION_ONLY / NOT_GROUND_TRUTH / NOT_FORMAL_BENCHMARK
@@ -175,8 +184,8 @@ H2_auto_continue: CONSUMED_AND_STOPPED
 DETOXIFICATION_OPTION: OPTION_B
 DETOXIFICATION_TECHNICAL_SCOPE: OPTION_B_CONFIRMED
 DETOXIFICATION_TECHNICAL_SCOPE_FULL: OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION
-P1_next_gate: OWNER_REVIEWS_PROTOCOL_REPAIR_RECOMMENDATION
-P1_next_action: FREEZE_PRIMARY_STATUS_BOUNDARY_AND_AUTHORIZE_ADDITIVE_TARGETED_REPAIR_OR_RETURN_FOR_DIFFERENT_DISPOSITION
+P1_next_gate: OWNER_PROTOCOL_FINAL_DECISION
+P1_next_action: SIGN_PILOT4_ANNOTATION_PROTOCOL_ACCEPTED_OR_RETURN_FOR_REPAIR
 AUTO_CONTINUE: NO
 PROHIBITED_CONTINUATION:
   - A_B_DISTRIBUTION
@@ -192,7 +201,7 @@ PROHIBITED_CONTINUATION:
 
 ## State Machine
 
-`LR1 HUMAN_ACCEPTED -> R0 HUMAN_ACCEPTED_WITH_BLOCKERS -> FU1/W2 closed -> Option B selected -> P1-R1 framework accepted -> PILOT0/PILOT1 closed -> PILOT2 targeted returns/agreement -> owner adjudication/correction -> PILOT2 feasibility closed -> PILOT3 signal diagnostic stopped -> PILOT4 quality convergence -> external two-phase blind review -> final expected comparison -> targeted repair recommendation -> Owner protocol acceptance pending`
+`LR1 HUMAN_ACCEPTED -> R0 HUMAN_ACCEPTED_WITH_BLOCKERS -> FU1/W2 closed -> Option B selected -> P1-R1 framework accepted -> PILOT0/PILOT1 closed -> PILOT2 targeted returns/agreement -> owner adjudication/correction -> PILOT2 feasibility closed -> PILOT3 signal diagnostic stopped -> PILOT4 quality convergence -> external two-phase blind review -> targeted R3 -> additive Expected V3 -> frozen gates A-F PASS -> Owner protocol acceptance pending`
 
 The original timestamp correction, all returns, workbook and blocker history remain immutable. The latest owner correction is an
 additive evidence layer. Pilot2 now closes only protocol/Ground-Truth feasibility; Pilot3 establishes only executable separated
@@ -207,7 +216,7 @@ Detector/Training and Formal Experiment remain closed.
 | S6.1-R0 | engineering reproduction preflight | `HUMAN_ACCEPTED_WITH_BLOCKERS` | `../stage_process/S6.1-R0_work_process.md` |
 | S6.1-R0-FU1 | targeted baseline feasibility resolution | `HUMAN_ACCEPTED / CLOSED` | `../stage_process/S6.1-R0-FU1_work_process.md` |
 | S6.1-P1-R1 | protocol hardening and Option B scope freeze | `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK` | source candidate `../s6_1_p1_r1_protocol_review_candidate.md`; numeric parameters pending |
-| S6.1-P1 | Pilot0–2 feasibility closed; Pilot3 diagnostic complete; Pilot4 targeted R3 locked and compared; Expected V2 repair pending | `PILOT4_R3_VALIDATION_COMPLETE / RECOMMEND_TARGETED_REPAIR / EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER_PROTOCOL_ACCEPTANCE_PENDING / PREANNOTATION_ONLY / NO_AB_DISTRIBUTION` | `../stage_process/S6.1-P1_work_process.md` |
+| S6.1-P1 | Pilot0–2 feasibility closed; Pilot3 diagnostic complete; Pilot4 Expected V3 and frozen gate recompute complete; Owner protocol decision pending | `PILOT4_CALIBRATION_STOP_CONDITION_MET / RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES / OWNER_PROTOCOL_ACCEPTANCE_PENDING / PREANNOTATION_ONLY / NO_AB_DISTRIBUTION` | `../stage_process/S6.1-P1_work_process.md` |
 
 ## Run Registry
 
@@ -279,6 +288,7 @@ next_gate: string
 | ART-P1-PILOT4-PHASE1-ATTEMPT2-LOCK | S6.1-P1 / Pilot4 Attempt2 Phase1 lock + Phase2 release | immutable_return_lock_and_controlled_release / 本机 | `PHASE1_CANDIDATE_QUALITY_GATE_PASS / PHASE2_RELEASED_TO_OWNER / WAITING_FOR_EXTERNAL_PHASE2_RETURN` | `PODR-082 / OR-044 / REL-2026-0049`; execution base `bc6c7e85...181e0`; raw `3117 bytes`; SHA `1e5e81fe...63c9c5` | exact five columns；72/72 IDs；enums/reasons PASS；issue NONE 72/72；six release facts true；mapping/expected closed；Phase2 not annotated | Git-external `paper1_pilot4_external_blind_phase1_attempt2_return_20260902`; manifest `16/16`; aggregate `1ad64c61...20b2f87` | allowed: Owner sends exactly released Phase2 packet+guide to same reviewer; prohibited: Codex annotation/mapping/expected/A-B/downstream | blocker `ATTEMPT2_EXTERNAL_PHASE2_RETURN_PENDING`; next_gate immutable Phase2 return |
 | ART-P1-PILOT4-FINAL-PHASE2-COMPARISON | S6.1-P1 / Pilot4 final Phase2 comparison | immutable_raw_lock_expected_comparison_and_protocol_recommendation / 本机 | `COMPARISON_COMPLETE / RECOMMEND_TARGETED_REPAIR / OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION` | `PODR-083 / OR-045 / REL-2026-0050`; execution base `a9d687ec...e2783b`; first raw `d7aed1b2...f6cd`; final raw `16321 bytes / 6f6cc042...92f1` | 8 columns；72/72；23 unreachable resolved；lock-before-expected；mapping/corpus/expected parity；Phase1 exact 58/72；Phase2 48/72；taxonomy M1 13/M2 16/M4 3/M5 6/M8 4/M9 1 | Git-external `paper1_pilot4_phase2_final_expected_comparison_20260902`; acceptance evidence + manifest | allowed: Owner repair/acceptance review；prohibited: auto acceptance/A-B/GT/240/freeze/training/5090/formal experiment | blockers `PRIMARY_STATUS_BOUNDARY / TARGETED_EXPECTED_AND_EVIDENCE_REPAIR`; next_gate Owner disposition |
 | ART-P1-PILOT4-R3-FINAL-ACCEPTANCE-V2 | S6.1-P1 / Pilot4 targeted R3 | immutable_r3_lock_expected_v2_comparison_and_gate_assessment / 本机 | `R3_VALIDATION_COMPLETE / RECOMMEND_TARGETED_REPAIR / EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER_PENDING` | `PODR-085 / OR-047 / REL-2026-0052`; execution base `ab3a9b2f...b7e2e`; raw `12062 bytes / 80a10a1e...0b4441` | exact 8 columns；37/37；21 impacted + 16 controls；lock-before-Expected；overall 31/37；exact 29/37；M2 3/16；controls 13/16；M4/M8 PASS；Expected defects 7 fields/6 candidates | Git-external `paper1_pilot4_r3_final_acceptance_20260903`; Acceptance Evidence V2 + Owner Decision Packet + manifest | allowed: Owner additive Expected V3 decision；prohibited: R4 by default、auto acceptance、A/B/GT/240/freeze/training/5090/formal experiment | blocker `EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER`; next_gate approve/reject additive Expected V3 |
+| ART-P1-PILOT4-EXPECTED-V3-GATE-RECOMPUTE | S6.1-P1 / Pilot4 Expected V3 | reviewer_blind_expected_correction_and_frozen_gate_recompute / 本机 | `EXPECTED_V3_CORRECTION_COMPLETE / CALIBRATION_STOP_MET / RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES / OWNER_PENDING` | `PODR-086 / OR-048 / REL-2026-0053`; execution base `54dea4f9...ebcecb`; raw `12062 bytes / 80a10a1e...0b4441`; parent V2 `caef1702...cfd00` | Expected V3 `dc549ff6...031433`; 7 fields/6 candidates；V3 locked before reviewer load；M2 2/16；controls overall/exact 16/16；all exact 35/37；A–F PASS；2 R3-M1 residuals | Git-external `paper1_pilot4_expected_v3_gate_recompute_20260903`; Expected V3 + independent audit + Acceptance Evidence/Owner Packet V3 + manifest | allowed: Owner protocol acceptance/repair decision only；prohibited: auto acceptance、R4、A/B/GT/240/freeze/training/5090/formal experiment | no systemic blocker；next_gate Owner protocol decision, then separate A/B approval |
 
 ## Artifact Registry
 

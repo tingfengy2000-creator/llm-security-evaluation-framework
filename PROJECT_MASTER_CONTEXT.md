@@ -1,5 +1,26 @@
 # LLMGuard 项目总控文档
 
+## PILOT4 Expected V3 定向更正与冻结门重算（2026-09-03）
+
+项目需求提出人通过 `PILOT4-EXPECTED-V3-TARGETED-CORRECTION-AND-FROZEN-GATE-RECOMPUTE-01` 明确批准只对已审计的
+6 个候选、7 个字段建立追加式 `PILOT4_EXPECTED_CONTRACT_V3_TARGETED_CORRECTION`。本机在不读取 reviewer value 的独立
+证据阶段验证候选、Guide V3.2 和冻结 E1/E2，先生成并锁定 Expected V3（SHA256
+`dc549ff6adbacc6a87049c08c7db7e414b9d52dafc19c31f98b5c10490031433`），之后才加载已锁定 R3 raw。Expected V1/V2、
+R3 raw、Guide V3.2、Evidence Pool V2、mapping、candidate corpus、R3 comparison V2 和 Acceptance Evidence V2 均保持
+byte-identical；无第 8 项更正、无候选或 reviewer rewrite。
+
+重算结果：M2 residual `3/16 → 2/16`，same-root cluster `3 → 2`，controls overall `13/16 → 16/16`，controls exact
+`11/16 → 16/16`，全部 R3 exact relevant fields `29/37 → 35/37`；version、authority、minimum 和 issue 分别达到
+`37/37`，overall 为 `35/37`。M4 旧 Evidence defect 未复现，M8 为 `4/4` 唯一操作解释；冻结门 A–F 全部 PASS。
+仅剩两条 non-systemic `R3-M1 REVIEWER_VARIANCE`，没有剩余 Expected V3、Evidence Pool 或 Guide systemic blocker。
+
+当前状态为 `PILOT4_EXPECTED_V3_CORRECTION_COMPLETE / PILOT4_CALIBRATION_STOP_CONDITION_MET /
+PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY / RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES /
+OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`。`R4_EXTERNAL_REVIEW_REQUIRED=FALSE`，但
+`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=FALSE`。下一步只允许 Owner 明确签署 Protocol 接受或退回修复；若接受，正式 A/B
+execution 仍需另一个独立审批。Ground Truth、240-group、Dataset freeze、Detector、Training、5090、Formal Experiment 和
+Paper Result 继续关闭。
+
 ## PILOT4 R3 最终锁定、Expected V2 对比与验收证据 V2（2026-09-03）
 
 项目需求提出人授权 `PILOT4-R3-FINAL-RAW-LOCK-COMPARISON-AND-PROTOCOL-ACCEPTANCE-EVIDENCE-V2-01`。R3 原始返回已按

@@ -1,11 +1,12 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`PILOT4_R3_VALIDATION_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
-> RECOMMEND_TARGETED_REPAIR / EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER_PROTOCOL_ACCEPTANCE_PENDING /
-> NO_AB_DISTRIBUTION`。R3 raw 已以 `12062 bytes` / SHA256 `80a10a1e...0b4441` 锁定并在之后完成 37/37 mapping 与
-> Expected V2 对比；M4/BR18 和 M8 通过，但 M2 residual `3/16`、controls overall `13/16`，Expected V2 尚有
-> 7 字段/6 候选需追加修正。`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=FALSE`。下一步只由 Owner 决定是否批准 additive
-> Expected V3；不默认执行 R4。72 条候选仍无 Ground Truth，240-group、
+> 当前实验状态：`PILOT4_EXPECTED_V3_CORRECTION_COMPLETE / PILOT4_CALIBRATION_STOP_CONDITION_MET /
+> PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY / RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES /
+> OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`。Expected V3 已在 reviewer raw 加载前完成独立证据审计并锁定：
+> 只改 7 字段/6 候选，不改 R3 raw、Expected V1/V2、Guide、Evidence、mapping 或 candidate corpus。M2 residual `2/16`，
+> controls overall/exact `16/16`，exact relevant fields `35/37`，冻结门 A–F 全部 PASS；仅剩两条 non-systemic reviewer
+> variance。`R4_EXTERNAL_REVIEW_REQUIRED=FALSE`，但 `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=FALSE`。下一步只由 Owner
+> 接受协议或退回修复；接受后正式 A/B 仍需另行批准。72 条候选仍无 Ground Truth，240-group、
 > Dataset freeze、Formal Detector、Training、5090、Formal Experiment 和 Paper Result 均未开始。
 > `FORMAL_EXPERIMENT = NOT STARTED`；`DATASET_FORMAL_FREEZE = NOT STARTED`。
 
@@ -42,7 +43,7 @@
 - [S6.1-LR1](stage_process/S6.1-LR1_work_process.md) — 路线与 baseline alignment，已关闭。
 - [S6.1-R0](stage_process/S6.1-R0_work_process.md) — 工程预检，已按边界验收。
 - [S6.1-R0-FU1](stage_process/S6.1-R0-FU1_work_process.md) — W2 单样本工程可行性，已关闭。
-- [S6.1-P1](stage_process/S6.1-P1_work_process.md) — P1-R1、Pilot0–4 的追加式过程；当前等待 Owner 审查定向修复建议，协议与 A/B 均未接受/批准。
+- [S6.1-P1](stage_process/S6.1-P1_work_process.md) — P1-R1、Pilot0–4 的追加式过程；Expected V3 与冻结门重算已完成，当前等待 Owner 最终协议决定，A/B 尚未批准。
 
 ## Pilot Records
 

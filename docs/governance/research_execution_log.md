@@ -1899,3 +1899,45 @@ Approval Gate、Auto Continue。
     `README_condition_evaluated=true`（first-screen current state changed，updated）。
   - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
     `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.
+
+## REL-2026-0053 — Pilot4 Expected V3 Targeted Correction and Frozen Gate Recompute
+
+- Record ID: `REL-2026-0053`; date `2026-09-03`; task
+  `PILOT4-EXPECTED-V3-TARGETED-CORRECTION-AND-FROZEN-GATE-RECOMPUTE-01`; machine `本机 / LOCAL_CONTROL_PLANE`;
+  execution base `54dea4f98112f9e0ee4c593f97cba6c4f8ebcecb`; Owner authority `PODR-086 / OR-048`.
+- Preservation: R3 raw remains `12062 bytes` / SHA256 `80a10a1e...0b4441`; Expected V2 remains SHA256
+  `caef1702...cfd00`. Expected V1、Guide V3.2、Evidence Pool V2、R3 mapping/population、candidate corpus、comparison V2 and
+  Acceptance Evidence V2 all pass pre/post byte identity.
+- Independent correction: the builder receives no reviewer-return object during Expected derivation. It validates the six candidate
+  texts、Guide V3.2 rules and twelve frozen E1/E2 snapshot hashes；writes and hashes Expected V3 before parsing R3 raw. The exact row
+  diff is seven fields across six candidates；no eighth field、candidate change or reviewer rewrite occurred.
+- Expected V3 identity: `PILOT4_EXPECTED_CONTRACT_V3_TARGETED_CORRECTION`, SHA256
+  `dc549ff6adbacc6a87049c08c7db7e414b9d52dafc19c31f98b5c10490031433`.
+- Recompute: overall `35/37`; version/authority/minimum/issue each `37/37`; exact relevant fields `35/37`. M2 residual
+  `3/16 → 2/16`; max same-root cluster `3 → 2`; controls overall `13/16 → 16/16`; controls exact `11/16 → 16/16`.
+  Evidence selection remains descriptive.
+- Gates: A–F all PASS；M4 prior Evidence defect does not recur；M8 is unique `4/4`. Residual taxonomy contains two non-systemic
+  `R3-M1 REVIEWER_VARIANCE` only. Expected V3 defect、Evidence defect and Guide systemic blocker counts are zero.
+- Recommendation: `RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES`；calibration stop TRUE；R4 required FALSE. These do not auto-accept
+  Protocol. Owner final decision and later A/B execution approval remain separate gates.
+- Evidence: Git-external `paper1_pilot4_expected_v3_gate_recompute_20260903`, including Expected V3、independent audit、change log、
+  V3 comparison/taxonomy、gate recompute、Acceptance Evidence V3、Owner Final Decision Packet V3、QA and manifest.
+- Final status: `PILOT4_EXPECTED_V3_CORRECTION_COMPLETE / PILOT4_CALIBRATION_STOP_CONDITION_MET /
+  PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY / RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES /
+  OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`.
+- Owner next action: sign `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` or return the Protocol for evidence-based repair. If accepted, issue
+  a separate formal A/B execution approval；do not auto-start Ground Truth、240-group、Dataset freeze、Detector/Training、5090 or
+  Formal Experiment.
+- `DOCUMENTATION_CLOSEOUT_CHECKLIST`:
+  - `human_ledger_checked=true`; `human_ledger_updated_if_required=true`; `agent_ledger_checked=true`;
+    `agent_ledger_updated=true`; `current_work_state_updated=true`; `execution_log_appended=true`.
+  - `experiment_master_condition_evaluated=true`（gates/status changed，updated）；
+    `owner_decision_condition_evaluated=true`（new Owner correction authorization，updated）；
+    `stage_process_condition_evaluated=true`（Expected V3 and gates executed，updated）；
+    `lessons_condition_evaluated=true`（calibration support added but lessons remain provisional，updated）。
+  - `project_master_condition_evaluated=true`（current gate changed，updated）；
+    `research_authority_condition_evaluated=true`（current Pilot4 gate changed，updated）；
+    `long_term_requirement_condition_evaluated=true`（long-term goals unchanged，not modified）；
+    `README_condition_evaluated=true`（first-screen state changed，updated）。
+  - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
+    `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.

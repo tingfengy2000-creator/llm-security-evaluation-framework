@@ -51,10 +51,16 @@
 | OR-045 | 2026-09-02 | 撤回上一条 23 条冻结快照补救；永久保留首次受访问限制的第二阶段返回，并将同一复核人重试后的最终 72 条返回在原始文件锁定之后受控解锁身份映射和预期答案，完成两个阶段的一致性、分歧分类与协议建议；Codex 不得自动接受协议 | Pilot4 最终第二阶段覆盖返回、预期答案对比与协议建议 | Paper 1 / P1-PILOT4 | `PILOT4_FINAL_BLIND_REVIEW_COMPARISON_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY / OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION` | `PILOT4-PHASE2-FINAL-RETURN-LOCK-EXPECTED-COMPARISON-AND-PROTOCOL-ACCEPTANCE-01` | 项目需求提出人当前明确指令；`PODR-083 / REL-2026-0050` | 首次和最终原始返回均不可改；预期答案不自动胜出；只允许形成建议。不得自动写入协议已接受、发放 A/B、生成真值、扩展 240 组、冻结数据集、实现检测器或训练、联系 5090、执行正式实验或形成论文结果 |
 | OR-046 | 2026-09-02 | 批准对 M2/M5/M8 与 `BR-18F1D39495` 执行追加式定向修复，形成 Guide V3.2、Expected V2、Evidence Pool V2，并构造 21 条受影响样本加 16 条匹配控制的 fresh R3 blind validation packet；不重跑 Full72 | Pilot4 协议边界、Expected/Evidence 修复与 R3 验证入口 | Paper 1 / P1-PILOT4 | `TARGETED_REPAIR_COMPLETE / R3_VALIDATION_PACKET_READY / WAITING_FOR_FRESH_TARGETED_EXTERNAL_REVIEW / NO_AB_DISTRIBUTION` | `PILOT4-PROTOCOL-TARGETED-REPAIR-AND-R3-VALIDATION-PACKET-01` | 项目需求提出人当前明确批准；`PODR-084 / REL-2026-0051` | 历史 raw、Expected V1、旧 comparison/taxonomy、final72 corpus 均不可改；R3 不得由本机执行；不得自动接受 protocol、发 A/B、生成 GT、冻结 Dataset、启动 Detector/Training、联系 5090 或执行 Formal Experiment；Auto Continue = NO |
 | OR-047 | 2026-09-03 | 批准把外部复核人完成的 37 行 R3 CSV 先按原始字节锁定，再受控解锁 mapping 与 Expected V2，完成 M2/M4/M8、匹配控制、全部相关字段和冻结验收门对比；只形成 Protocol Acceptance Recommendation，不自动执行 R4 或接受协议 | Pilot4 R3 最终锁定、Expected V2 对比与验收证据 V2 | Paper 1 / P1-PILOT4 | `PILOT4_R3_VALIDATION_COMPLETE / RECOMMEND_TARGETED_REPAIR / EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION` | `PILOT4-R3-FINAL-RAW-LOCK-COMPARISON-AND-PROTOCOL-ACCEPTANCE-EVIDENCE-V2-01` | 项目需求提出人当前明确批准；`PODR-085 / REL-2026-0052` | R3 raw、Guide V3.2、Expected V2、Evidence Pool V2、R3 packet/mapping 与 final72 corpus 不得改；不得自动 R4、接受 protocol、发 A/B、生成 GT、冻结 Dataset、启动 Detector/Training、联系 5090 或执行 Formal Experiment；Auto Continue = NO |
+| OR-048 | 2026-09-03 | 明确批准 `OWNER_EXPECTED_V3_TARGETED_CORRECTION_APPROVED=TRUE`；只对已审计的 6 个候选、7 个字段建立 additive Expected V3，并在 reviewer-blind 独立证据判断锁定后复用原 R3 raw 重算冻结门 A–F | Pilot4 Expected V3 定向更正与冻结门重算 | Paper 1 / P1-PILOT4 | `PILOT4_EXPECTED_V3_CORRECTION_COMPLETE / PILOT4_CALIBRATION_STOP_CONDITION_MET / RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES / OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION` | `PILOT4-EXPECTED-V3-TARGETED-CORRECTION-AND-FROZEN-GATE-RECOMPUTE-01` | 项目需求提出人当前明确批准；`PODR-086 / REL-2026-0053` | Expected V1/V2、R3 raw、Guide V3.2、Evidence Pool V2、mapping/corpus、prior comparison/acceptance 与阈值不得改；不得自动接受 protocol、执行 R4、发 A/B、生成 GT、进入 240-group/Dataset freeze/Detector/Training/5090/Formal Experiment；Auto Continue = NO |
 
-当前唯一人工动作是审查最终验收证据，冻结 16 条主状态分歧所暴露的语义边界，并决定是否批准预期答案、最小证据
-相关案例与 `BR-18F1D39495` 的追加式定向修复。当前不得自动接受 `Pilot4`、分发 `A/B`、生成 72 条真值或启动 240 组
-与后续实验。协议接受和 A/B 执行必须继续由两个独立的项目负责人审批门决定。
+当前唯一人工动作是审查 Expected V3 Final Decision Packet，并明确决定 `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` 或
+`RETURNED_FOR_REPAIR`。冻结门 A–F 已通过、R4 不需要，但 Codex 的建议不等于项目负责人验收。当前不得自动分发 `A/B`、
+生成 72 条真值或启动 240 组与后续实验；协议接受和 A/B 执行继续是两个独立审批门。
+
+本轮决定的中文解释：项目负责人只批准修正已经由证据审计确认的预期答案缺陷，没有批准修改候选文本、复核人原始答案、
+标注指南、证据池或验收门槛。系统先依据候选、指南和冻结证据独立形成新预期答案，再读取复核结果计算一致性，防止为了
+提高通过率而倒推答案。六项验收门全部通过后，当前只说明校准证据已经足够、无需继续复核；是否正式接受标注协议仍必须
+由项目负责人亲自决定。即使协议被接受，正式双人标注的生成、发放和执行也必须等待下一项独立授权。
 
 通俗解释：第一次真实外部盲审不是失败；它成功发现了机器和负责人预检遗漏的五个文本问题。项目负责人五项全部
 接受，本机只修了对应五条，并证明其余 67 条未动。由于候选版本已经变化，最终证据必须来自同一个 final72 和新的独立
