@@ -1,12 +1,11 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`PILOT4_EXPECTED_V3_CORRECTION_COMPLETE / PILOT4_CALIBRATION_STOP_CONDITION_MET /
-> PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY / RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES /
-> OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`。Expected V3 已在 reviewer raw 加载前完成独立证据审计并锁定：
-> 只改 7 字段/6 候选，不改 R3 raw、Expected V1/V2、Guide、Evidence、mapping 或 candidate corpus。M2 residual `2/16`，
-> controls overall/exact `16/16`，exact relevant fields `35/37`，冻结门 A–F 全部 PASS；仅剩两条 non-systemic reviewer
-> variance。`R4_EXTERNAL_REVIEW_REQUIRED=FALSE`，但 `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=FALSE`。下一步只由 Owner
-> 接受协议或退回修复；接受后正式 A/B 仍需另行批准。72 条候选仍无 Ground Truth，240-group、
+> 当前实验状态：`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / ACCEPTED_WITH_NONBLOCKING_NOTES /
+> PILOT4_CALIBRATION_CLOSED / PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET`。
+> Owner 已按 M2 `2/16`、matched controls `16/16`、M4 `0`、M8 `4/4` 和其余冻结门全部 PASS 正式接受 Protocol；
+> 两条 residual reviewer variance 保持不可变且不触发 R4。Accepted Stack 绑定 Final72、Attempt2 Phase1、Guide V3.2、
+> Expected V3、Evidence Pool V2 与 frozen snapshot + URL provenance。A/B 仅有审批包和候选合同，尚未批准或分发；
+> 72 条候选仍无 Ground Truth，240-group、
 > Dataset freeze、Formal Detector、Training、5090、Formal Experiment 和 Paper Result 均未开始。
 > `FORMAL_EXPERIMENT = NOT STARTED`；`DATASET_FORMAL_FREEZE = NOT STARTED`。
 

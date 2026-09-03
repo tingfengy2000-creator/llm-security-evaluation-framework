@@ -398,3 +398,47 @@ overall/exact 为 16/16，全部 A–F 门通过；剩余两项为非系统性 r
 
 本规则继续为 `PROVISIONAL_PENDING_PILOT4_FINAL_ACCEPTANCE`。只有 Owner 明确接受 Protocol 并执行 lesson promotion 后，
 才可升级；A/B execution 仍需另一独立审批。
+
+## 二十四、Pilot4 最终协议经验提升（Owner Accepted）
+
+项目需求提出人通过 `PILOT4-OWNER-PROTOCOL-ACCEPTANCE-AND-AB-EXECUTION-PREFLIGHT-01` 正式登记
+`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=TRUE / ACCEPTED_WITH_NONBLOCKING_NOTES`。本节只提升由 Pilot4 完整时间线、
+不可变 raw、R3 matched controls、Expected V3 独立审计与冻结 Gate A–F 直接支持的规则；此前 provisional 历史原文保留。
+
+以下逐项提升为 `ACCEPTED_PILOT4_PROTOCOL_LESSON`：
+
+1. 真实 blind review 是 Candidate Quality Gate；Attempt1 的五条缺陷发现与 Attempt2 Final72 `phase1_issue=NONE 72/72`
+   共同支持该结论。
+2. Candidate text 变化后必须在同一个 final corpus 上重新执行所需 blind review；不得拼接旧 corpus 的未修改行与新修复行。
+3. Phase1 与 Phase2 必须通过文件与释放门结构隔离；行为性“先别看 Evidence”不能替代物理隔离。
+4. `sample_id` 或 identity lookup 可泄漏 label；annotator 只能看到 fresh opaque ID，mapping 必须 control-plane only。
+5. Expected contract 不是绝对真值；mismatch 必须分别审计 reviewer、Guide、Evidence 与 Expected。
+6. Blind disagreement 能暴露 Ground-Truth/Expected contract 缺陷；Expected V2 的 7 字段缺陷由独立证据审计确认。
+7. Raw reviewer return 必须 byte-immutable；更正、解释、taxonomy 与 superseding return 只能追加绑定。
+8. Expected/mapping 只能在 blind raw 完成 schema/hash lock 后加载；必须保存可验证的时间顺序。
+9. Evidence sufficiency 应通过 E1-alone、E2-alone、joint 的 operational ablation 判断；实际查看数量不等于最低必要数量。
+10. 单次 live URL 访问失败不证明 Evidence 无效；同一 reviewer 重试使 `SOURCE_UNREACHABLE 23 → 0`。
+11. 稳定 Evidence delivery 使用 frozen official snapshot + URL provenance；live URL 是溯源/重试路径，不是单点依赖。
+12. 字段局部修复后的 targeted validation 必须包含 matched controls，并隐藏 impacted/control 身份。
+13. Acceptance gates 必须在看到结果前冻结，不能为提高通过率移动；本轮 A–F 按原阈值重算并全部通过。
+
+以下继续为 provisional，不能因 Pilot4 Protocol acceptance 自动升级：
+
+- 正式 A/B 的 inter-annotator reproducibility：尚未执行或分发 A/B。
+- Final72 Ground Truth validity：尚无四份 A/B return、agreement 或 traceable adjudication。
+- Formal Dataset freeze、split 与跨集合泄漏控制：仍需单独协议和 Owner gate。
+- 240-group scale、跨领域泛化、统计显著性及论文效果：尚未生成或运行。
+
+因此 lesson promotion 只关闭 Pilot4 annotation-protocol calibration；不批准 A/B execution、Ground Truth、Dataset、Detector、
+Training、5090 或 Formal Experiment。
+
+用普通语言概括，本轮真正被接受的是一套防止“标注过程自己制造答案”的操作纪律。候选文本要先独立检查是否完整、自然且
+不泄漏类别；看不到证据的第一阶段必须和使用证据的第二阶段分开；每次人工返回都要先按原始字节保存并核验身份，之后才能
+打开内部映射和参考答案。出现分歧时，不能默认参考答案一定正确，而要分别检查候选、说明、证据和参考合同。在线链接偶尔
+打不开时也不能马上宣布证据失效，应保留官方链接的来源记录，同时提供已冻结、可复核的证据快照。局部修复后需要加入匹配
+控制样本，避免只在已知问题上“对答案”。最后，验收阈值必须事先固定，不能在看到结果后移动。
+
+这些规则已经由多轮不可变返回、失败记录、局部修复和对照复核共同支持，因此可用于下一次正式人工标注的执行合同。不过，
+它们尚未证明两名真实标注人在完整流程中的一致性，也没有产生最终真值或可用于论文训练测试的数据集。后续必须先由项目
+负责人单独批准执行、指定两名相互独立的标注人并完成隔离声明；只有四份返回全部锁定、分歧分析和负责人定向仲裁完成后，
+才有资格讨论七十二条候选的真值。扩大到更多领域、更多样本以及检验方法效果，仍属于更后的审批门。

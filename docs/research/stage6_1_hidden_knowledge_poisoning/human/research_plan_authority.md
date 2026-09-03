@@ -21,6 +21,8 @@ Current Plan Status = `ACCEPTED_CURRENT_RESEARCH_PLAN`
   `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`。其中样本量、阈值、重复次数等数值参数仍为
   `PENDING_PILOT_EVIDENCE`，正式 protocol 尚未冻结；它在候选层替代但不删除[旧 P1 候选](../s6_1_p1_protocol_candidate.md)。
 
+本研究方案始终以可验证事实为边界：工程可运行只说明接口和证据链可检查，小规模标注协议通过只说明具备继续收集人工判断的条件。只有数据身份、切分、参数、统计计划和结果审计分别冻结后，才允许形成正式实验结论。任何阶段都不得用准备状态替代执行状态，也不得用局部样本现象代替总体有效性证据。
+
 ## 2. 研究问题
 
 1. 如何在不依赖明显异常措辞的条件下，构建覆盖版本、时效、权威与例外关系的中文隐蔽知识污染 Benchmark？
@@ -128,8 +130,9 @@ Paper 1 包括 Benchmark、Detection、Risk Score、Signals、Explanation，以�
 3. S6.1-R0-FU1：P0/L1/W2 已验收；仅以工程可行性范围关闭。
 4. S6.1-P1-R1：`HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；数值参数仍待 Pilot 证据，正式 protocol 未冻结。
 5. Pilot0–2 已在各自可行性范围关闭；Pilot3 只完成信号诊断；Pilot4 已完成外部两阶段盲审、R3 定向验证和 additive
-   Expected V3 gate recompute。当前为 `PILOT4_CALIBRATION_STOP_CONDITION_MET /
-   RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES / OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`；Protocol 尚未接受。
+   Expected V3 gate recompute。Owner 已正式登记 `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED /
+   ACCEPTED_WITH_NONBLOCKING_NOTES / PILOT4_CALIBRATION_CLOSED`。当前下一门为
+   `PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET`。
 6. 240-group Scale Pilot、Benchmark freeze、Detector、Formal Evaluation、Ablation、Generalization、Option B effectiveness
    和 Paper Writing 均需各自审批与证据门。
 
@@ -141,10 +144,10 @@ Paper 1 包括 Benchmark、Detection、Risk Score、Signals、Explanation，以�
 - 模型 revision、环境、随机种子、指标、统计和资源预算冻结。
 - 项目需求提出人明确批准 S6.1-P1 及后续相应阶段。
 
-当前 `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`，但 formal protocol、Dataset、Detector 和正式实验均未冻结。
-当前实验门为 Owner 对 Pilot4 Protocol 的最终接受/退回决定；即使接受，正式 A/B execution 仍需另行批准。不得自动分发
-A/B、进入 240-group、Dataset Construction、Detector Implementation、Retrieval Intervention effectiveness、Training 或
-Formal Experiment。
+当前 `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；Pilot4 annotation protocol 已按 pilot-level readiness 接受，但
+formal Dataset、Detector 和正式实验仍未冻结。当前实验门为 Owner 对 A/B execution candidate 的独立批准；不得自动分发
+A/B、生成 Ground Truth、进入 240-group、Dataset Construction、Detector Implementation、Retrieval Intervention
+effectiveness、Training 或 Formal Experiment。
 
 ## 15. 结论边界
 
@@ -175,6 +178,7 @@ Formal Experiment。
 | RPC-004 | 2026-08-02 | W2 等待人工决定 | W2/FU1 以单样本 detection-core 工程可行性范围验收关闭；P1 仅形成非权威协议候选 | 前置工程门已满足，但科学结论与正式实验仍需独立协议和审批 | 是；解毒 A/B/C 待确认 | FU1 closure / P1 candidate | PODR-061；本次提交 |
 | RPC-005 | 2026-08-02 | 解毒 A/B/C 待确认、旧 P1 合同候选 | 选择 Option B；Paper 1 冻结为检测与轻量 hard filtering/soft downweighting，并形成审批级 P1-R1 强化候选 | 使题目中的“解毒”具有可证伪、可预算和不扩张的技术边界 | 是；OR-021 / PODR-062 | S6.1-P1-R1 review gate | 本次提交 |
 | RPC-006 | 2026-09-01 | 三/四领域 Pilot 历史与正式领域规划分散 | 正式 Paper 1 领域冻结为 D1–D5；未来 Scale Pilot 规划 240 independent groups，明确未执行、未生成、未冻结 | 支持正式 Benchmark 跨领域规划，同时不改写 Pilot4 四领域历史 | 是；GOV-P1-HUMAN-DOCS-INTEGRATION-01 | future Scale Pilot / Formal Benchmark | 本次提交 |
+| RPC-007 | 2026-09-03 | Pilot4 Protocol 等待 Owner 最终决定 | Owner 按冻结 Gate A–F 接受 Pilot4 annotation protocol 并关闭 calibration；Accepted Stack V1 冻结，A/B execution 保持独立待批准门 | 全部预先冻结 gate 已通过，只剩两条非系统 reviewer variance；继续 R4 无相称方法学收益 | 是；PILOT4-OWNER-PROTOCOL-ACCEPTANCE-AND-AB-EXECUTION-PREFLIGHT-01 | Pilot4 closure / A-B preflight | 本次提交 |
 
 历史与支撑路线：[paper1_research_route.md](../paper1_research_route.md)，其 `Document Role = HISTORICAL_AND_SUPPORTING_RESEARCH_ROUTE`，不能覆盖本文件。
 

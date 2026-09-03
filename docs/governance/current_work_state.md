@@ -16,27 +16,35 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `PILOT4-EXPECTED-V3-TARGETED-CORRECTION-AND-FROZEN-GATE-RECOMPUTE-01`.
-- Task name: `Pilot4 Expected V3 Evidence-Supported Targeted Correction and Frozen Acceptance-Gate Recalculation`.
-- Task type: **ADDITIVE EXPECTED CONTRACT CORRECTION / REVIEWER-BLIND EVIDENCE AUDIT / FROZEN GATE RECOMPUTE**.
-- Engineering status: **EXPECTED V3 7-FIELD/6-CANDIDATE SCOPE PASS / REVIEWER-BLIND ORDER PASS / FROZEN GATES A-F PASS / DOCUMENTATION CLOSEOUT PASS**.
-- Experiment status: **PILOT4_EXPECTED_V3_CORRECTION_COMPLETE / PILOT4_CALIBRATION_STOP_CONDITION_MET /
-  PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY / RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES /
-  OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION / PREANNOTATION_ONLY / AUTO_CONTINUE_NO**.
+- Task ID: `PILOT4-OWNER-PROTOCOL-ACCEPTANCE-AND-AB-EXECUTION-PREFLIGHT-01`.
+- Task name: `Pilot4 Owner Annotation-Protocol Acceptance, Calibration Closure and A/B Execution Preflight`.
+- Task type: **OWNER PROTOCOL ACCEPTANCE / CALIBRATION CLOSURE / A-B EXECUTION PREFLIGHT ONLY**.
+- Engineering status: **ACCEPTED STACK VERIFIED / FINAL ACCEPTANCE RECORD CREATED / A-B EXISTING DESIGN RECONSTRUCTED /
+  A-B CONTRACT CANDIDATE READY / DOCUMENTATION CLOSEOUT PASS**.
+- Experiment status: **PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / PILOT4_CALIBRATION_CLOSED /
+  PILOT4_PROTOCOL_LESSONS_PROMOTED / PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION /
+  NO_GROUND_TRUTH_YET / AUTO_CONTINUE_NO**.
 - Documentation gate: **PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED / HUMAN_LEDGER_CONTINUOUS_SYNC =
   MANDATORY / TASK_DOCUMENTATION_CLOSEOUT = MANDATORY**. Paper 1 task completion requires execution, tests, evidence,
   documentation closeout and valid Git status; otherwise status is `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING` with
   `TASK_DOCUMENTATION_CLOSEOUT_BLOCKER`.
-- Execution base commit: `54dea4f98112f9e0ee4c593f97cba6c4f8ebcecb`.
+- Execution base commit: `c6c752572660e4f900fa2e509949de2bd6244276`.
 - Candidate source identity: `candidates_v3_1_additive.jsonl` SHA256
   `15500aa75bced9fb470edaac98f9527e7bb4bc689b86583e6f69b892c48eb210`; final additive corpus SHA256
   `f530471ecd6551300d68c8ddf104cadce2305d8ff91e64010be222820628252d`.
 - Execution machine: **本机**. No model load、GPU workload、5090 contact、formal Dataset/Detector/Training or experiment occurred.
-- Current ordered step: Owner reviews `PILOT4_OWNER_PROTOCOL_FINAL_DECISION_PACKET_V3.md` and explicitly records either
-  `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` or `RETURNED_FOR_REPAIR`. A Protocol acceptance, if given, still does not authorize formal
-  A/B execution；that requires a separate approval.
-- Current blocker: no calibration/systemic blocker remains；the only open gate is `OWNER_PROTOCOL_ACCEPTANCE_PENDING`。
-  `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=FALSE` and `A_B_EXECUTION_APPROVED=FALSE`.
+- Current ordered step: Owner reviews `PILOT4_A_B_EXECUTION_APPROVAL_PACKET.md` and the machine-readable contract candidate, assigns
+  two independent human annotators and either approves A/B execution or returns the candidate for repair.
+- Current blocker: no Pilot4 calibration or A/B design blocker remains. The open execution gate is
+  `PILOT4_A_B_EXECUTION_APPROVAL_PENDING`; annotator roster/independence attestations and exact distribution register are also pending.
+  `A_B_EXECUTION_APPROVED=FALSE`、`A_B_DISTRIBUTION_STARTED=FALSE` and `GROUND_TRUTH_CREATED=FALSE`.
+- Owner acceptance: `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=TRUE / ACCEPTED_WITH_NONBLOCKING_NOTES`；all frozen A–F gates passed；
+  the two nonblocking reviewer variances remain immutable and do not trigger R4.
+- Accepted stack: `PILOT4_ACCEPTED_ANNOTATION_STACK_V1` points to the existing Final72 corpus、Attempt2 final Phase1 protocol/raw、
+  Guide V3.2、Expected V3、Evidence Pool V2 and `FROZEN_OFFICIAL_SNAPSHOT_PLUS_URL_PROVENANCE`; it creates no rewritten accepted content.
+- A/B preflight: canonical design is two independent human annotators with Owner disagreement-only adjudication, all Final72 candidates,
+  fresh reviewer-local opaque IDs, independent deterministic randomized orders, both Phase1 returns locked before Phase2 release, and
+  all four raw returns locked before mapping/Expected comparison. Evidence snapshot coverage is `144/144`; no reviewer packet was built.
 - R3 raw facts: `12062 bytes`；SHA256 `80a10a1ebf2e2321198c750e92214b8d26f9b2a8f4161c64ebf38cae830b4441`；
   exact 8 columns；37 rows / 37 unique opaque IDs；enum、reason and internal consistency PASS；raw-lock-before-Expected PASS；
   mapping parity `37/37`；affected/control `21/16`.
@@ -47,10 +55,10 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   exact relevant fields `35/37`. M2 residual `2/16`；same-root cluster `2`；controls overall/exact `16/16`；M4/BR18 PASS；
   M8 `4/4` PASS；gates A–F all PASS. Residual taxonomy contains only two non-systemic `R3-M1 REVIEWER_VARIANCE`；
   Expected V3 defect `0`；Evidence defect `0`；Guide systemic blocker `0`.
-- Calibration decision: `PILOT4_CALIBRATION_STOP_CONDITION_MET=TRUE / R4_EXTERNAL_REVIEW_REQUIRED=FALSE`；Codex recommendation
-  is `RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES`, not Owner acceptance.
-- Pilot4 lesson status: `PROVISIONAL_PENDING_FINAL_ACCEPTANCE`. Promotion to `ACCEPTED_LESSON` is permitted only in a future task that
-  records `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` and executes `PILOT4_PROTOCOL_LESSON_PROMOTION`.
+- Calibration decision: `PILOT4_PREANNOTATION_CALIBRATION=CLOSED / PILOT4_CALIBRATION_STOP_CONDITION_MET=TRUE /
+  R4_EXTERNAL_REVIEW_REQUIRED=FALSE`. R1/R2 remain historical calibration evidence；R3 is final targeted validation evidence.
+- Pilot4 lesson status: thirteen evidence-supported protocol lessons are individually promoted to
+  `ACCEPTED_PILOT4_PROTOCOL_LESSON`; claims requiring actual A/B、Ground Truth、Dataset freeze or scale evidence remain provisional.
 - Combined-packet correction: the `5d6b4b5` combined packet is preserved unchanged as
   `COMBINED_PACKET_ENGINEERING_ARTIFACT / NOT_APPROVED_FOR_BLIND_SEMANTIC_REVIEW` and
   `SUPERSEDED_FOR_REVIEW_BY_PHASE_SEPARATED_PROTOCOL`. Evidence being present in one LLM context breaks strict Phase1 blindness;
@@ -113,9 +121,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PODR-057` and `PODR-058`.
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
-- S6.1-P1: **PILOT4_EXPECTED_V3_CORRECTION_COMPLETE / PILOT4_CALIBRATION_STOP_CONDITION_MET /
-  RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES / OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION /
-  PREANNOTATION_ONLY / NOT FORMAL_EXPERIMENT**.
+- S6.1-P1: **PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / PILOT4_CALIBRATION_CLOSED /
+  PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET / NOT FORMAL_EXPERIMENT**.
 - S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
 - S6.1-P1-PILOT1: **HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED**.
 - Historical S6.1-P1-PILOT1: **COMPLETED_PENDING_REVIEW / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY**；superseded by OR-024.
@@ -131,9 +138,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - PILOT3: **ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY / STOPPED**.
 - Historical PILOT4 first preflight: **OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / a843697 EVIDENCE PRESERVED**.
 - Historical PILOT4 second preflight: **SECOND_OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / cad3b2b EVIDENCE PRESERVED**.
-- PILOT4: **PILOT4_EXPECTED_V3_CORRECTION_COMPLETE / PILOT4_CALIBRATION_STOP_CONDITION_MET /
-  PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY / RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES /
-  OWNER_PROTOCOL_ACCEPTANCE_PENDING / PREANNOTATION_ONLY / NO_AB_DISTRIBUTION**.
+- PILOT4: **PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / ACCEPTED_WITH_NONBLOCKING_NOTES / PILOT4_CALIBRATION_CLOSED /
+  PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET**.
 - PILOT4 candidates: **PILOT4_CANDIDATE_CORPUS_POST_EXTERNAL_PHASE1_REPAIR_V1 / 72 PREANNOTATION_CANDIDATES /
   NOT GROUND TRUTH / NOT FORMAL BENCHMARK / NOT FROZEN DATASET**.
 - PAPER1_FORMAL_DOMAIN_SET: **OWNER_CONFIRMED / ENTERPRISE_HR / FINANCE / INFORMATION_SECURITY /
@@ -378,8 +384,8 @@ are established.
 ## Last Update
 
 - Date: `2026-09-03`.
-- Updated by: 本机 executing `PILOT4-EXPECTED-V3-TARGETED-CORRECTION-AND-FROZEN-GATE-RECOMPUTE-01 /
-  REL-2026-0053`。Expected V3 reviewer-blind evidence audit、7-field/6-candidate additive correction and locked-R3 gate recompute
-  are complete. Frozen gates A–F pass；recommendation is `RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES`，calibration stop is true and
-  R4 is not required. Owner protocol acceptance、A/B、Dataset freeze、240-group、Detector/Training、5090、Formal Experiment and
-  Paper Result remain unapproved/unstarted；Auto Continue = `NO`.
+- Updated by: 本机 executing `PILOT4-OWNER-PROTOCOL-ACCEPTANCE-AND-AB-EXECUTION-PREFLIGHT-01 / REL-2026-0054`。
+  Owner has accepted the Pilot4 annotation protocol with two nonblocking notes and closed calibration. The accepted stack and final
+  acceptance record are complete；the canonical A/B design is reconstructed only as `CANDIDATE_FOR_OWNER_APPROVAL`.
+  A/B execution/distribution、Ground Truth、Dataset freeze、240-group、Detector/Training、5090、Formal Experiment and Paper Result
+  remain unapproved/unstarted；Auto Continue = `NO`.

@@ -1470,3 +1470,28 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   Detector、Training、5090、Formal Experiment or Paper Result. Auto Continue `NO`.
 - Canonical records: `OR-048`, `REL-2026-0053`, [current work state](current_work_state.md) and Git-external
   `paper1_pilot4_expected_v3_gate_recompute_20260903`.
+
+## PODR-087: Pilot4 Protocol Acceptance, Calibration Closure and A/B Execution Preflight
+
+- Date: `2026-09-03`.
+- Owner decision: `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=TRUE` with
+  `PILOT4_PROTOCOL_ACCEPTANCE_MODE=ACCEPTED_WITH_NONBLOCKING_NOTES`. This is an Owner decision, not a Codex recommendation.
+- Calibration decision: `PILOT4_CALIBRATION_CLOSED=TRUE` and `PILOT4_CALIBRATION_STOP_CONDITION_MET=TRUE`；R4 is not
+  required. The two residual cases `P4Q-aa0d4dcd8a07` and `P4Q-8ff2d8645df1` remain immutable reviewer-variance evidence and do
+  not authorize rewriting reviewer raw or Expected V3.
+- Accepted stack: freeze `PILOT4_ACCEPTED_ANNOTATION_STACK_V1` over the Final72 corpus SHA256
+  `f530471ecd6551300d68c8ddf104cadce2305d8ff91e64010be222820628252d`、Attempt2 Phase1 raw SHA256
+  `1e5e81fee3825071a77d520c6da5cbfc4c2b59125aca0499cda6c7e2f363c9c5`、Guide V3.2、Expected V3 SHA256
+  `dc549ff6adbacc6a87049c08c7db7e414b9d52dafc19c31f98b5c10490031433`、Evidence Pool V2 and
+  `FROZEN_OFFICIAL_SNAPSHOT_PLUS_URL_PROVENANCE` delivery.
+- Lesson decision: promote only the 13 item-level lessons supported by Pilot4 evidence；formal A/B reproducibility、Final72
+  Ground Truth、formal Dataset/splits and scale/generalization/statistics remain provisional.
+- A/B boundary: the accepted Protocol establishes Pilot-level annotation readiness only. This task may reconstruct the existing
+  two-independent-annotator、two-phase、dual-lock、Owner-disagreement-adjudication contract and prepare an approval packet, but
+  `PILOT4_A_B_EXECUTION_APPROVAL=NOT_GRANTED`, no annotator packet is generated or distributed, and no person is contacted.
+- Current status: `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / PILOT4_CALIBRATION_CLOSED /
+  PILOT4_PROTOCOL_LESSONS_PROMOTED / PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET`.
+- Prohibited: automatic A/B execution、agreement、adjudication、Ground Truth、240-group、Dataset freeze、Detector、Training、5090、
+  Formal Experiment or Paper Result. Auto Continue `NO`.
+- Canonical records: `OR-049`, `REL-2026-0054`, [current work state](current_work_state.md) and Git-external
+  `paper1_pilot4_protocol_acceptance_ab_preflight_20260903`.

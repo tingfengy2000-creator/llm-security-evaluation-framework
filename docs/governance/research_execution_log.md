@@ -1941,3 +1941,47 @@ Approval Gate、Auto Continue。
     `README_condition_evaluated=true`（first-screen state changed，updated）。
   - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
     `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.
+
+## REL-2026-0054 — Pilot4 Owner Protocol Acceptance and A/B Execution Preflight
+
+- Record ID: `REL-2026-0054`; date `2026-09-03`; task
+  `PILOT4-OWNER-PROTOCOL-ACCEPTANCE-AND-AB-EXECUTION-PREFLIGHT-01`; machine `本机 / LOCAL_CONTROL_PLANE`;
+  execution base `c6c752572660e4f900fa2e509949de2bd6244276`; Owner authority `PODR-087 / OR-049`.
+- Owner acceptance: `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=TRUE` with
+  `ACCEPTED_WITH_NONBLOCKING_NOTES`; `PILOT4_CALIBRATION_CLOSED=TRUE`; frozen A–F gates remain PASS and
+  `R4_EXTERNAL_REVIEW_REQUIRED=FALSE`. This record attributes the acceptance only to the Owner.
+- Accepted stack: `PILOT4_ACCEPTED_ANNOTATION_STACK_V1` binds Final72 SHA256 `f530471e...8252d`、Attempt2 Phase1 raw
+  SHA256 `1e5e81fe...63c9c5`、Guide `ANNOTATION_GUIDE_V3_2_TARGETED_REPAIR`、Expected V3 SHA256
+  `dc549ff6...031433`、Evidence Pool V2 and `FROZEN_OFFICIAL_SNAPSHOT_PLUS_URL_PROVENANCE`. Full delivery reconstruction
+  verifies 72 candidates、144 evidence slots and 144/144 frozen snapshot coverage.
+- Nonblocking notes: `P4Q-aa0d4dcd8a07` and `P4Q-8ff2d8645df1` remain immutable reviewer-variance evidence. No reviewer raw、
+  Expected V3 or historical artifact was changed and no R4 was started.
+- Lessons: 13 item-level evidence-supported Pilot4 lessons were promoted to accepted；formal A/B reproducibility、Final72
+  Ground Truth、formal Dataset/splits and scale/generalization/statistics remain provisional.
+- A/B preflight: existing canonical design is sufficient and `A_B_DESIGN_BLOCKER=NONE`. The candidate contract requires two
+  independent human annotators、distinct reviewer-local opaque ID namespaces and deterministic independent order、candidate-only
+  Phase1、both Phase1 returns hash-locked before Phase2、Guide V3.2 plus frozen Evidence V2 in Phase2、all four returns locked before
+  mapping/Expected comparison、Expected-not-auto-truth and Owner disagreement-only adjudication.
+- Boundary: `PILOT4_A_B_EXECUTION_APPROVAL=PENDING`; no reviewer packet was generated or distributed, no person contacted, no
+  annotation/agreement/adjudication/Ground Truth performed. 240-group、Dataset freeze、Detector/Training、5090 and Formal
+  Experiment remain closed.
+- Evidence: Git-external `paper1_pilot4_protocol_acceptance_ab_preflight_20260903`, including Final Acceptance Record、Accepted
+  Stack V1、nonblocking notes、lesson-promotion record、A/B Execution Approval Packet、machine-readable contract candidate、QA and
+  manifest.
+- Final status: `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / PILOT4_CALIBRATION_CLOSED /
+  PILOT4_PROTOCOL_LESSONS_PROMOTED / PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET`.
+- Owner next action: review the A/B Execution Approval Packet and either return it for correction or separately authorize execution;
+  an approval must identify annotators A and B and bind independence、non-exposure and phase-isolation attestations.
+- `DOCUMENTATION_CLOSEOUT_CHECKLIST`:
+  - `human_ledger_checked=true`; `human_ledger_updated_if_required=true`; `agent_ledger_checked=true`;
+    `agent_ledger_updated=true`; `current_work_state_updated=true`; `execution_log_appended=true`.
+  - `experiment_master_condition_evaluated=true`（Owner acceptance and next gate changed，updated）；
+    `owner_decision_condition_evaluated=true`（new Owner acceptance，updated）；
+    `stage_process_condition_evaluated=true`（acceptance/preflight executed，updated）；
+    `lessons_condition_evaluated=true`（13 promoted / 4 remain provisional，updated）。
+  - `project_master_condition_evaluated=true`（current project status changed，updated）；
+    `research_authority_condition_evaluated=true`（Pilot4 entry boundary changed，updated）；
+    `long_term_requirement_condition_evaluated=true`（long-term goals unchanged，not modified）；
+    `README_condition_evaluated=true`（root and Paper 1 first-screen states changed，updated）。
+  - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
+    `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.

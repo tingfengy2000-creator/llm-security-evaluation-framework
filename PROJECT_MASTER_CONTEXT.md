@@ -1,5 +1,23 @@
 # LLMGuard 项目总控文档
 
+## PILOT4 Owner 协议验收、校准关闭与 A/B 执行预检（2026-09-03）
+
+项目需求提出人通过 `PILOT4-OWNER-PROTOCOL-ACCEPTANCE-AND-AB-EXECUTION-PREFLIGHT-01` 正式签署
+`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=TRUE / ACCEPTED_WITH_NONBLOCKING_NOTES`。该决定基于冻结 Gate A–F 全部 PASS：
+M2 residual `2/16`、same-root cluster `2`、matched controls `16/16`、M4 recurrence `0`、M8 `4/4`、new systemic failure
+`0`。`P4Q-aa0d4dcd8a07` 与 `P4Q-8ff2d8645df1` 继续作为不可变的非阻断 reviewer variance，不改 raw 或 Expected V3，
+不触发 R4。
+
+本机以 `PILOT4_ACCEPTED_ANNOTATION_STACK_V1` 绑定既有 Final72 corpus、Attempt2 final Phase1 protocol/raw、Guide V3.2、
+Expected V3、Evidence Pool V2 和 `FROZEN_OFFICIAL_SNAPSHOT_PLUS_URL_PROVENANCE`；没有复制编辑出新的“accepted内容”。
+Pilot4 calibration 正式关闭，R1/R2 保留为历史校准证据，R3 为最终定向验证证据；13 条直接得到 Pilot4 全流程支持的
+方法规则逐项提升为 `ACCEPTED_PILOT4_PROTOCOL_LESSON`，需要真实 A/B、Ground Truth、Dataset 或 scale 结果的经验继续 provisional。
+
+现有 A/B 设计已重建为只供 Owner 审批的候选合同：两名独立人工标注人、全部 Final72、各自新 opaque ID 与确定性随机顺序、
+Phase1 双返回锁定后才释放 Phase2、冻结 snapshot 加 URL provenance、四份 raw 锁定后才解锁 mapping/Expected、Owner 仅仲裁
+分歧。当前仍是 `PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET`；未生成 reviewer packet，
+未批准或执行 A/B、240-group、Dataset freeze、Detector、Training、5090、Formal Experiment 或 Paper Result。
+
 ## PILOT4 Expected V3 定向更正与冻结门重算（2026-09-03）
 
 项目需求提出人通过 `PILOT4-EXPECTED-V3-TARGETED-CORRECTION-AND-FROZEN-GATE-RECOMPUTE-01` 明确批准只对已审计的

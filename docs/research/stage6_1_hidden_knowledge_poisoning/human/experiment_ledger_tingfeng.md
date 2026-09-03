@@ -5,7 +5,7 @@
 Document Role = `PAPER1_PRIMARY_HUMAN_ENTRY`<br>
 Audience = `项目负责人 / 导师与领导 / 新团队成员`<br>
 Reading Path = `5 minutes / 15 minutes / 30 minutes`<br>
-Current Evidence Cut = `Expected V3 locked / frozen gates A-F pass / Owner protocol decision pending`<br>
+Current Evidence Cut = `Owner protocol accepted / calibration closed / A/B execution approval pending`<br>
 Last Updated = `2026-09-03`
 
 > 这是一张“项目地图”，不是 raw evidence，也不产生新授权。读完第 0 节可掌握当前状态；读到第 8 节可理解论文方法；
@@ -19,21 +19,21 @@ Last Updated = `2026-09-03`
 | 英文论文题目 | *Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework* |
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
-| 当前阶段 | ✅ Pilot4 Expected V3 定向更正和冻结验收门重算已完成；⚠️ 协议仍等待项目负责人最终决定。 |
-| 当前任务 | `PILOT4-EXPECTED-V3-TARGETED-CORRECTION-AND-FROZEN-GATE-RECOMPUTE-01`：独立核验并追加修正 7 个 Expected 字段，再用同一锁定 R3 raw 重算既有门。 |
-| 当前完成度 | ✅ 7 字段/6 候选精确修正；M2 2/16、控制组 overall/exact 16/16、全部 exact 35/37；A–F 六门全部通过。 |
-| 当前唯一人工动作 | 项目负责人审查 Final Decision Packet，明确写出 `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` 或 `RETURNED_FOR_REPAIR`。若接受，正式 A/B 仍需下一次独立批准。 |
-| 当前主要 blocker | 没有剩余校准或系统性 blocker；唯一未关闭项是 `OWNER_PROTOCOL_ACCEPTANCE_PENDING`。 |
-| 已经可以说什么 | Expected V3 更正有独立证据和 Guide 支撑，不是照抄 reviewer；R3 只剩 2 条非系统性 reviewer variance，校准停止条件已满足，不需要 R4。 |
-| 绝对不能说什么 | 不得说 Pilot4 已接受、A/B 已开始、72 条已有 Ground Truth、240-group 已生成、Dataset 已冻结、Formal Detector 已实现、检测有效或 Paper Result 已形成。 |
+| 当前阶段 | ✅ Owner 已按 `ACCEPTED_WITH_NONBLOCKING_NOTES` 正式接受 Pilot4 标注协议并关闭校准；⚠️ A/B 执行仍等待单独批准。 |
+| 当前任务 | `PILOT4-OWNER-PROTOCOL-ACCEPTANCE-AND-AB-EXECUTION-PREFLIGHT-01`：登记 Owner 验收、冻结 Accepted Stack V1、提升证据支持的 lessons，并准备 A/B 执行审批材料。 |
+| 当前完成度 | ✅ A–F 六门全部通过；2 条 reviewer variance 作为非阻断说明保留；Accepted Stack V1、最终验收记录和 A/B execution contract candidate 已形成。 |
+| 当前唯一人工动作 | 项目负责人审查 A/B Execution Approval Packet；若批准，需明确指定 A/B 身份、独立性与隔离声明，并另行授权执行。 |
+| 当前主要 blocker | 无协议设计 blocker；`A_B_EXECUTION_APPROVAL_PENDING` 与 annotator roster/attestation 尚未完成。 |
+| 已经可以说什么 | Pilot4 标注协议已达到 Pilot-level annotation readiness；校准已关闭，不需要 R4；正式 A/B 所需设计已可追溯重建。 |
+| 绝对不能说什么 | 不得说 A/B 已批准或已开始、72 条已有 Ground Truth、240-group 已生成、Dataset 已冻结、Formal Detector 已实现、检测有效或 Paper Result 已形成。 |
 
 当前实验状态固定为：
 
-`PILOT4_EXPECTED_V3_CORRECTION_COMPLETE / PILOT4_CALIBRATION_STOP_CONDITION_MET /
-PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY / RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES /
-OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`
+`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / PILOT4_CALIBRATION_CLOSED /
+PILOT4_PROTOCOL_LESSONS_PROMOTED / PILOT4_A_B_EXECUTION_APPROVAL_PENDING /
+NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET`
 
-保留的历史状态链：`PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT` →
+保留的历史状态链含 `PREANNOTATION_ONLY`：`PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT` →
 `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` → `PILOT4_QUALITY_CONVERGED` → Schema V3.1 hardening → 当前外部盲审包状态。历史 package 不被覆盖。
 
 状态的动态权威入口是 [Current Work State](../../../governance/current_work_state.md)。
@@ -79,8 +79,17 @@ Pool 全面失效。因此下一步是一次追加式 Expected V3 处置和同 r
 Expected V3 已把上述审计发现变成 7 个追加式字段更正，但没有覆盖 Expected V2，也没有改 reviewer raw。为避免“看答案改
 答案”，本机先只读取候选、Guide 和冻结 E1/E2，生成并哈希锁定 Expected V3，之后才加载 reviewer value 做重算。结果把
 M2 从 3/16 降到 2/16、控制组 overall 从 13/16 提到 16/16、exact relevant fields 从 29/37 提到 35/37；剩余两条均为
-非系统性 reviewer variance。由于所有冻结门已经通过，继续 R4 或要求复核人再次填写不会增加必要的校准证据。当前应由
-项目负责人做协议最终决定，而不是继续反复标注；即使接受协议，也要另行批准正式 A/B。
+非系统性 reviewer variance。所有冻结门通过后，Owner 正式选择 `ACCEPTED_WITH_NONBLOCKING_NOTES`，关闭校准并确认不需要
+R4。现在不再反复做校准标注；下一道门是独立审批正式 A/B 执行，而不是自动发放标注材料。
+
+### Pilot4 最终留下了什么
+
+Pilot4 先暴露了候选自包含性、sample-ID 泄漏、Phase1/Phase2 同上下文、Evidence 重复与 Expected 边界等问题；其根因分别
+落在候选设计、盲法隔离、证据传输和控制面标签合同，而不是简单的“reviewer 填错”。最终规则是：候选先过盲法质量门；
+Phase1 与 Phase2 结构分离；raw return 先锁定再加载 mapping/Expected；每个证据槽保留冻结官方快照与 URL provenance；
+Expected 不是自动真值；自然度只作 QC、evidence selection 只作过程描述；A/B 必须独立，分歧由 Owner 定向仲裁。共 13 条
+有证据支持的 lesson 已提升为 accepted，正式 A/B 重复性、Final72 Ground Truth、正式 Dataset/split 和规模化统计仍保持
+provisional，必须由后续真实执行证据决定。
 
 ## 2. 专业术语中英文速查
 
@@ -394,11 +403,12 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 | 2026-09-02 | Pilot4 | final Phase2 expected comparison | 首次返回有 23 条临时访问限制；retry 后全 0，但对比暴露 16 条 primary status 边界、expected/minimum-evidence 问题与一条缺失版本证据 | 两份 raw 分别锁定；raw lock 后才解锁 mapping/expected；生成完整 mismatch taxonomy 和定向修复建议 | ⚠️ `OWNER PROTOCOL ACCEPTANCE PENDING / RECOMMEND TARGETED REPAIR` | [Execution log](../../../governance/research_execution_log.md) |
 | 2026-09-03 | Pilot4 | targeted R3 gate failure | R3 raw 37/37 完整，M4/M8 通过；M2 3/16、controls overall 13/16，且 7 个分歧字段由 Expected V2 缺陷解释 | 保留 R3 raw 与 Expected V2；只申请 additive Expected V3，批准后复用同一 raw 重算，不默认 R4 | ⚠️ `EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER DECISION PENDING` | [Execution log](../../../governance/research_execution_log.md) |
 | 2026-09-03 | Pilot4 | Expected V3 gate closure | Owner 批准 7 字段/6 候选定向修正；V3 在 reviewer load 前由 Guide/Evidence 独立锁定；M2 2/16、controls 16/16、all exact 35/37、A–F PASS | 停止校准，不做 R4；提交 Owner Protocol Final Decision Packet，协议和 A/B 分开审批 | ✅ `CALIBRATION STOP MET / OWNER PROTOCOL DECISION PENDING` | [Execution log](../../../governance/research_execution_log.md) |
+| 2026-09-03 | Pilot4 | Owner protocol acceptance and A/B preflight | Owner 以 nonblocking notes 接受协议并关闭校准；Accepted Stack V1 固定 Final72、Guide V3.2、Expected V3、Evidence Pool V2 与冻结快照+URL provenance；2 条 variance 原样保留 | 提升 13 条证据支持的 lesson；重建 A/B 角色、盲法、双阶段锁定、agreement/Owner 仲裁边界并生成审批包；不发包 | ✅ `PROTOCOL ACCEPTED / A_B EXECUTION APPROVAL PENDING` | [Execution log](../../../governance/research_execution_log.md) |
 
 ## 14. 当前项目状态
 
-- `PILOT4_EXPECTED_V3_CORRECTION_COMPLETE / PILOT4_CALIBRATION_STOP_CONDITION_MET / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY / RECOMMEND_ACCEPT_WITH_NONBLOCKING_NOTES / OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`
-- `PREANNOTATION_ONLY`
+- `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / PILOT4_CALIBRATION_CLOSED / PILOT4_PROTOCOL_LESSONS_PROMOTED / PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET`
+- `PILOT_LEVEL_ANNOTATION_READINESS_ONLY`
 - `NO_HUMAN_DISTRIBUTION`
 - `PILOT4_CANDIDATE_CORPUS_POST_EXTERNAL_PHASE1_REPAIR_V1` 已形成 72 条；仍非 Ground Truth、非 Formal Benchmark、非 frozen Dataset。
 - class intent 为 Clean / Poison / Hard Negative = `24/24/24`。
@@ -420,9 +430,8 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 
 ## 15. 当前下一步
 
-唯一当前动作：**Owner 审查 Final Decision Packet，并明确写出 `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` 或
-`RETURNED_FOR_REPAIR`**。校准已停止，不再做 R4。当前不得由 Codex 自动写入协议接受；即使 Owner 接受，A/B execution
-仍需下一次独立审批。
+唯一当前动作：**Owner 审查 A/B Execution Approval Packet，决定批准或退回；若批准，还须指定 A/B annotator 身份并确认
+二者独立、未接触 mapping/Expected/隐藏标签、能够按 Phase1 锁定后再接收 Phase2。** 协议接受本身不授权发包或执行。
 
 ```text
 Attempt1 (immutable defect-discovery evidence)
@@ -431,10 +440,11 @@ Attempt1 (immutable defect-discovery evidence)
             └─ immutable return + zero defects -> Candidate Quality Gate PASS -> same-reviewer Phase2
                  └─ Guide/Expected/Evidence targeted repair -> R3 locked and compared
                       └─ additive Expected V3 -> same-raw gates A-F PASS
-                           └─ current: Owner protocol acceptance or return-for-repair decision
+                           └─ Owner accepted with nonblocking notes -> calibration closed
+                                └─ current: A/B execution approval + roster/attestation pending
 
 未来在独立审批下：
-Protocol acceptance -> A/B -> agreement -> adjudication -> 72 GT
+A/B execution approval -> A/B Phase1 dual lock -> A/B Phase2 dual lock -> agreement -> adjudication -> 72 GT
     -> signal re-evaluation -> Scale Readiness
     -> Owner 单独批准 -> 240-group
 ```
@@ -507,4 +517,4 @@ index 和 Owner 对 claims 的接受。
 | 人类/机器/证据如何分层 | [Documentation Separation Contract](../documentation_separation_contract.md) |
 | 为什么本轮不移动文件 | [Document Inventory](../document_inventory.md) |
 
-> STOP：外部盲审包仅准备外部语义复核；不比较 expected contract、不接受 Pilot4、不分发 A/B，不启动 240-group、Detector、训练、5090 或 Formal Experiment。
+> STOP：Pilot4 标注协议已由 Owner 接受，但 A/B execution 尚未批准或分发；不生成 Ground Truth，不启动 240-group、Dataset freeze、Detector、训练、5090 或 Formal Experiment。
