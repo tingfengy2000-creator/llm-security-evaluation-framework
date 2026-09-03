@@ -1,5 +1,24 @@
 # LLMGuard 项目总控文档
 
+## PILOT4 R3 最终锁定、Expected V2 对比与验收证据 V2（2026-09-03）
+
+项目需求提出人授权 `PILOT4-R3-FINAL-RAW-LOCK-COMPARISON-AND-PROTOCOL-ACCEPTANCE-EVIDENCE-V2-01`。R3 原始返回已按
+`12062 bytes`、SHA256 `80a10a1ebf2e2321198c750e92214b8d26f9b2a8f4161c64ebf38cae830b4441` 不可变锁定；8 列、37 行、
+37 个唯一 opaque ID、枚举、理由和条件逻辑全部通过。物理证据确认 raw lock 发生在 mapping 与 Expected V2 load 之前；
+37/37 mapping、21 affected + 16 matched controls 与 final72 corpus lineage 均一致。
+
+R3 对比结果为 overall `31/37`、version `37/37`、authority `36/37`、minimum evidence `35/37`、issue `37/37`，
+exact relevant fields `29/37`。M4/BR18 修复与 M8 四条消融均通过；但冻结门 A/B/C 失败：M2 residual `3/16`、全部
+overall 同根最大簇 `3`、controls overall `13/16`。逐项证据审计将 9 个字段分歧分为 reviewer variance `2` 与
+Expected V2 defect `7`；后者涉及 6 个候选。没有发现 Evidence Pool V2 defect 或新的 Guide V3.2 系统性歧义。
+
+当前状态为 `PILOT4_R3_VALIDATION_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
+RECOMMEND_TARGETED_REPAIR / EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER_PROTOCOL_ACCEPTANCE_PENDING /
+NO_AB_DISTRIBUTION`。`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=FALSE`。Owner 下一步只需决定是否批准 additive Expected V3
+对 7 个字段/6 个候选的修正；若批准，可直接用已锁定 R3 raw 重算门，不默认执行 R4。即使重算全部通过，Protocol 接受与
+A/B execution 仍需两个独立审批；Ground Truth、240-group、Dataset freeze、Detector、Training、5090 和 Formal Experiment
+保持关闭。
+
 ## PILOT4 协议定向修复与 R3 验证包（2026-09-02）
 
 项目需求提出人批准 `PILOT4-PROTOCOL-TARGETED-REPAIR-AND-R3-VALIDATION-PACKET-01`。这不是实验失败，也不是重跑

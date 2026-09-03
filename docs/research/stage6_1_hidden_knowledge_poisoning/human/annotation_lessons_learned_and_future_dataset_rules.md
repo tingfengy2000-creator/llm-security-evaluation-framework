@@ -369,3 +369,18 @@ mismatch taxonomy 和 control designation 均不得进入 reviewer context。验
 
 本规则当前状态为 `PROVISIONAL_PENDING_PILOT4_FINAL_ACCEPTANCE`。本轮 21 impacted + 16 matched controls 的 R3 包只是待执行的
 验证设计，不是协议已经清晰、可复现或可扩展的结果；只有 fresh external return 完成并经 Owner 最终验收，才可考虑提升。
+
+## 二十二、R3 匹配控制与 Expected 契约独立审计（临时规则）
+
+R3 已把上一节的验证设计变成了真实外部返回：37/37 raw、枚举、理由、条件逻辑和 lock-before-Expected 顺序通过；M4 的
+证据缺口没有复现，M8 四条也全部得到唯一的 one-official-evidence 判定。这说明 targeted review 能够在不重跑 Full72 的
+情况下验证局部修复及其控制样本，但它不能把 Expected contract 当作不可质疑的真值。
+
+本轮 controls overall 只有 13/16。逐项阅读候选、Guide 和 Evidence 后，三条同根 control 分歧来自 Expected V2 把当前仍
+有效的修订/更新过度归类为历史；另有一个未命名 authority overcall、一个 intrinsic version-sequence underclassification
+和两个 minimum-evidence contract error。故评估流程必须先分别审计 reviewer、guide、evidence 和 expected，再决定根因；
+不得为了提高 agreement 静默把 reviewer 改成 expected，也不得把 Expected 修正写成 reviewer 重标注。
+
+本规则当前状态继续为 `PROVISIONAL_PENDING_PILOT4_FINAL_ACCEPTANCE`。它支持 additive Expected V3 和复用已锁定 R3 raw
+重算门，不支持默认 R4。只有 Owner 后续明确接受协议并执行 lesson promotion，才能决定哪些条目升级为
+`ACCEPTED_LESSON`；A/B 仍需单独审批。

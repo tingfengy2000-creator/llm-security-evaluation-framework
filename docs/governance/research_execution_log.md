@@ -1855,3 +1855,47 @@ Approval Gate、Auto Continue。
     `README_condition_evaluated=true`（current entry changed，updated）。
   - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
     `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.
+
+## REL-2026-0052 — Pilot4 R3 Final Lock, Expected V2 Comparison and Acceptance Evidence V2
+
+- Record ID: `REL-2026-0052`; date `2026-09-03`; task
+  `PILOT4-R3-FINAL-RAW-LOCK-COMPARISON-AND-PROTOCOL-ACCEPTANCE-EVIDENCE-V2-01`; machine `本机 / LOCAL_CONTROL_PLANE`;
+  execution base `ab3a9b2f2437d3103753a98b5bd1ac6bc78b7e2e`; Owner authority `PODR-085 / OR-047`.
+- Raw lock: canonical R3 source is `PILOT4_TARGETED_PROTOCOL_R3_PHASE2_RETURN.csv`, `12062 bytes`, SHA256
+  `80a10a1ebf2e2321198c750e92214b8d26f9b2a8f4161c64ebf38cae830b4441`. Exact 8 columns、37 rows、37 unique opaque IDs、
+  enum、nonblank reasons and minimum-evidence conditional logic pass. The immutable copy is byte-identical; reviewer values were
+  not normalized or rewritten.
+- Order and reconstruction: raw lock timestamp `2026-09-03T03:12:46.009838+00:00` strictly precedes Expected load timestamp
+  `2026-09-03T03:12:46.010841+00:00`. Mapping parity is `37/37`; the population reconstructs to 21 impacted and 16 matched controls
+  against the unchanged final72 corpus SHA `f530471e...8252d`.
+- Comparison: targeted overall agreement is `31/37`; version `37/37`; authority `36/37`; minimum evidence `35/37`; issue
+  `37/37`; exact relevant fields `29/37`. M2 residual is `3/16`; controls overall `13/16 = 81.25%` and exact `11/16`.
+- Repair validation: M4/`BR-18F1D39495` no longer reproduces the old evidence gap and matches Expected V2 across relevant fields.
+  All four M8 rows reproduce `ONE_OFFICIAL_EVIDENCE` against both Expected V2 and prior E1/E2 ablation.
+- Residual audit: 9 field mismatches across 8 R3 rows comprise `R3-M1 REVIEWER_VARIANCE=2` and
+  `R3-M4 EXPECTED_V2_DEFECT=7`. The seven Expected defects affect six candidates; Evidence Pool V2 defect count is 0 and no new
+  Guide V3.2 systemic ambiguity remains after Expected defects are separated.
+- Gate and recommendation: frozen gates A/B/C fail；D/E/F pass. The material blocker is
+  `EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER`; recommendation is `RECOMMEND_TARGETED_REPAIR / NO_R4_BY_DEFAULT`. Protocol remains
+  unaccepted and no A/B、GT、240-group、Dataset freeze、Detector/Training、5090、Formal Experiment or Paper Result occurred.
+- Final status: `PILOT4_R3_VALIDATION_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
+  RECOMMEND_TARGETED_REPAIR / EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER_PROTOCOL_ACCEPTANCE_PENDING /
+  NO_AB_DISTRIBUTION`.
+- Evidence: Git-external `paper1_pilot4_r3_final_acceptance_20260903`, including immutable raw、comparison、mismatch taxonomy、
+  Acceptance Evidence V2、Owner Decision Packet、QA and manifest.
+- Owner next action: approve or reject an additive Expected V3 correction of 7 fields across 6 candidates. If approved, reuse the
+  already locked R3 raw to recompute the frozen gates; do not run R4 by default. Protocol acceptance and A/B remain later separate
+  Owner decisions.
+- `DOCUMENTATION_CLOSEOUT_CHECKLIST`:
+  - `human_ledger_checked=true`; `human_ledger_updated_if_required=true`; `agent_ledger_checked=true`;
+    `agent_ledger_updated=true`; `current_work_state_updated=true`; `execution_log_appended=true`.
+  - `experiment_master_condition_evaluated=true`（R3 comparison evidence and gate changed，updated）；
+    `owner_decision_condition_evaluated=true`（new lock/comparison authorization and recommendation，updated）；
+    `stage_process_condition_evaluated=true`（R3 gate executed，updated）；
+    `lessons_condition_evaluated=true`（matched-control and Expected-defect lessons remain provisional，updated）。
+  - `project_master_condition_evaluated=true`（current project status changed，updated）；
+    `research_authority_condition_evaluated=true`（frozen research contract unchanged，not modified）；
+    `long_term_requirement_condition_evaluated=true`（long-term goals unchanged，not modified）；
+    `README_condition_evaluated=true`（first-screen current state changed，updated）。
+  - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
+    `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.

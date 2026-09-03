@@ -1,10 +1,11 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`TARGETED_REPAIR_COMPLETE / R3_VALIDATION_PACKET_READY /
-> WAITING_FOR_FRESH_TARGETED_EXTERNAL_REVIEW / NO_AB_DISTRIBUTION`。Guide V3.2、Expected V2、Evidence Pool V2 和 37 行
-> targeted R3 packet 已追加准备；历史 raw、Expected V1、旧 comparison/taxonomy 与 final72 corpus 不变。R3 尚未执行，
-> `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=FALSE`。下一步只由 Owner 把 reviewer packet、guide 与冻结证据快照交给新的隔离
-> reviewer，回收后另起任务先锁 raw 再比较；72 条候选仍无 Ground Truth，240-group、
+> 当前实验状态：`PILOT4_R3_VALIDATION_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
+> RECOMMEND_TARGETED_REPAIR / EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER_PROTOCOL_ACCEPTANCE_PENDING /
+> NO_AB_DISTRIBUTION`。R3 raw 已以 `12062 bytes` / SHA256 `80a10a1e...0b4441` 锁定并在之后完成 37/37 mapping 与
+> Expected V2 对比；M4/BR18 和 M8 通过，但 M2 residual `3/16`、controls overall `13/16`，Expected V2 尚有
+> 7 字段/6 候选需追加修正。`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=FALSE`。下一步只由 Owner 决定是否批准 additive
+> Expected V3；不默认执行 R4。72 条候选仍无 Ground Truth，240-group、
 > Dataset freeze、Formal Detector、Training、5090、Formal Experiment 和 Paper Result 均未开始。
 > `FORMAL_EXPERIMENT = NOT STARTED`；`DATASET_FORMAL_FREEZE = NOT STARTED`。
 

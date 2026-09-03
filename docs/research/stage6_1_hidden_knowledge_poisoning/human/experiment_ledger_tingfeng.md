@@ -5,8 +5,8 @@
 Document Role = `PAPER1_PRIMARY_HUMAN_ENTRY`<br>
 Audience = `项目负责人 / 导师与领导 / 新团队成员`<br>
 Reading Path = `5 minutes / 15 minutes / 30 minutes`<br>
-Current Evidence Cut = `Guide V3.2 / Expected V2 / Evidence Pool V2 / targeted R3 packet ready`<br>
-Last Updated = `2026-09-02`
+Current Evidence Cut = `R3 raw locked / Expected V2 compared / Acceptance Evidence V2 ready`<br>
+Last Updated = `2026-09-03`
 
 > 这是一张“项目地图”，不是 raw evidence，也不产生新授权。读完第 0 节可掌握当前状态；读到第 8 节可理解论文方法；
 > 读完第 19 节可进入项目工作。精确状态、协议、决定和证据分别通过链接下钻。
@@ -19,17 +19,18 @@ Last Updated = `2026-09-02`
 | 英文论文题目 | *Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework* |
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
-| 当前阶段 | ⚠️ Pilot4 的定向协议修复已完成，37 行 fresh targeted R3 验证包已就绪；协议仍未接受。 |
-| 当前任务 | `PILOT4-PROTOCOL-TARGETED-REPAIR-AND-R3-VALIDATION-PACKET-01`：追加 Guide V3.2、Expected V2、Evidence Pool V2，并构造受影响样本加匹配控制的 R3 包。 |
-| 当前完成度 | ✅ M2 16/16 已裁定；Expected V2 改 16 个字段；Evidence Pool V2 改 1 个来源；候选文本 0 改动；R3 为 21 affected + 16 controls = 37。 |
-| 当前唯一人工动作 | 项目负责人建立全新隔离 R3 reviewer context，只发送 reviewer packet、guide 和冻结证据快照，并回收完成版 CSV。 |
-| 当前主要 blocker | `WAITING_FOR_FRESH_TARGETED_EXTERNAL_REVIEW`；它是协议验收前的验证门，不是 Full72 重标注。 |
-| 已经可以说什么 | Phase1 与大多数 Phase2 稳定；问题是字段局部边界而非实验失败；修复和 R3 包可审计，但 R3 尚未执行、协议尚未接受。 |
+| 当前阶段 | ⚠️ Pilot4 的 37 行 R3 已完成原始返回锁定和 Expected V2 对比；协议仍未接受。 |
+| 当前任务 | `PILOT4-R3-FINAL-RAW-LOCK-COMPARISON-AND-PROTOCOL-ACCEPTANCE-EVIDENCE-V2-01`：验证 R3 raw、重建受影响/控制组、检查冻结门并形成验收建议。 |
+| 当前完成度 | ✅ raw 37/37、M4/BR18 和 M8 4/4 通过；overall 31/37、exact 29/37。⚠️ M2 3/16、控制组 overall 13/16，7 个 Expected V2 字段仍需修正。 |
+| 当前唯一人工动作 | 项目负责人决定是否批准 additive Expected V3，对 7 个字段/6 个候选做可追溯修正；批准后用同一份已锁定 R3 raw 重算门。 |
+| 当前主要 blocker | `EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER`；不默认做 R4，也不需要再让 reviewer 重填这 37 行。 |
+| 已经可以说什么 | R3 返回本身完整，Evidence Pool 修复与 minimum-evidence 规则有效；剩余主要问题在 Expected V2，而非候选、证据池或整套指南失效。 |
 | 绝对不能说什么 | 不得说 Pilot4 已接受、A/B 已开始、72 条已有 Ground Truth、240-group 已生成、Dataset 已冻结、Formal Detector 已实现、检测有效或 Paper Result 已形成。 |
 
 当前实验状态固定为：
 
-`TARGETED_REPAIR_COMPLETE / R3_VALIDATION_PACKET_READY / WAITING_FOR_FRESH_TARGETED_EXTERNAL_REVIEW / NO_AB_DISTRIBUTION`
+`PILOT4_R3_VALIDATION_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY / RECOMMEND_TARGETED_REPAIR /
+EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`
 
 保留的历史状态链：`PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT` →
 `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` → `PILOT4_QUALITY_CONVERGED` → Schema V3.1 hardening → 当前外部盲审包状态。历史 package 不被覆盖。
@@ -69,7 +70,10 @@ Pilot4 的外部复核已经证明 72 条候选在 Phase1 没有候选缺陷；P
 本轮因此采用更窄但更严格的方法：先把边界、Expected 和 Evidence 逐项修复并保留全部旧版本，再把 21 条真正受影响样本
 与 16 条在领域、候选类型、HKP、隐蔽等级和命题结构上匹配的控制样本混合，交给全新的隔离 reviewer。Reviewer 不知道
 哪些被修、哪些是控制，也看不到旧 ID、sample ID、mapping、expected 或 mismatch 分类。这样能直接回答“新规则是否更清楚，
-同时有没有把原本稳定的判断弄坏”。在这 37 条新返回完成并锁定前，协议仍未接受，A/B 仍不能开始。
+同时有没有把原本稳定的判断弄坏”。现在这 37 条已经返回并完成锁定：M4/BR18 与 M8 通过，但 controls overall 只有
+13/16。逐项审计显示，主要原因是 Expected V2 仍把若干当前有效更新过度标成“合法历史”，而不是 reviewer 或 Evidence
+Pool 全面失效。因此下一步是一次追加式 Expected V3 处置和同 raw 重算，不是继续要求 reviewer 反复标注；协议和 A/B
+仍须后续独立批准。
 
 ## 2. 专业术语中英文速查
 
@@ -252,7 +256,8 @@ Retriever
 | Pilot4 second Owner preflight | 决定能否发人 | Owner 审查 repaired 12 rows | repaired workbook | targeted repair | 📌 历史：已触发 Repair-02 | Owner 明确决定 | Repair-02 | [Current State](../../../governance/current_work_state.md) |
 | Pilot4 Repair-02 final preflight | 关闭第二轮系统性缺陷 | Owner 审查 final 16 rows | genuine-S3/S1/length/template/HN evidence | quality convergence | 📌 历史：已进入后续收敛 | Owner 明确决定 | Schema V3/V3.1 | [Current State](../../../governance/current_work_state.md) |
 | Pilot4 Protocol hardening | 排除标签感知循环验证与候选核验路径泄漏 | locked Full72、candidate before/after、V3.1 三表 | b705cc + additive candidate version | 外部两阶段盲审路径 | 📌 历史：已进入外部盲审 | 阶段隔离完成 | Phase1 外部复核 | [P1 process](../stage_process/S6.1-P1_work_process.md) |
-| Pilot4 external Phase1 return | 锁定陌生复核者的第一阶段原始判断并拦截候选缺陷 | 原始 CSV、公开 Phase1 ID 集 | immutable return + 5-row blind triage | 项目负责人盲态处置 | ⏳ 当前唯一动作 | 五条均有追加决定并通过后续绑定 | 另行审批 Phase2 release | [Current State](../../../governance/current_work_state.md) |
+| Pilot4 external Phase1 return | 锁定陌生复核者的第一阶段原始判断并拦截候选缺陷 | 原始 CSV、公开 Phase1 ID 集 | immutable return + 5-row blind triage | 项目负责人盲态处置 | ✅ 历史门已关闭 | fresh Attempt2 72/72 无候选缺陷 | Phase2 已完成 | [Current State](../../../governance/current_work_state.md) |
+| Pilot4 targeted R3 | 检查局部协议修复及匹配控制 | 37 行外部 return、Guide V3.2、Expected/Evidence V2 | immutable raw + gate assessment | Expected V2 定向修正决定 | ⚠️ 当前 Owner 门 | 7-field/6-candidate additive decision | 同 raw 重算 gate | [Current State](../../../governance/current_work_state.md) |
 | Pilot4 A/B 72 annotation | 获得独立人工判断 | Phase1/2、双锁定 | Owner-accepted package | 四份 returns | 📌 未批准/未开始 | returns hash-lock | agreement | [Lessons](annotation_lessons_learned_and_future_dataset_rules.md) |
 | Pilot4 agreement | 量化一致性 | 合法子集 agreement | A/B returns | agreement/disagreement | 📌 未开始 | 逻辑/一致性验证 | adjudication | [Lessons](annotation_lessons_learned_and_future_dataset_rules.md) |
 | Pilot4 adjudication | 解决必要分歧 | Owner 只裁决分歧 | minimal packet | 唯一决定 | 📌 未开始 | residual inconsistency=0 | GT | [P1 process](../stage_process/S6.1-P1_work_process.md) |
@@ -380,10 +385,11 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 | 2026-09-02 | Pilot4 | external Phase1 candidate defects | 外部 blind reviewer 在 Attempt1 的 72 行返回中标记 5 条候选缺上下文、指代模糊或其他局部问题；在处置前释放证据可能把候选缺陷带入 Phase2 | 原始 return 不回写；blind-ID triage、Owner 五项处置、局部修复与 fresh Full72 Attempt2 | ✅ `RESOLVED BY FRESH ATTEMPT2 ZERO-DEFECT RETURN` | [Execution log](../../../governance/research_execution_log.md) |
 | 2026-09-02 | Pilot4 | final-corpus blind review consistency | Owner 接受五项 reviewer issue；若只重标五条并与旧 67 条拼接，会混合不同 corpus/reviewer 的证据 | 五条 source-backed 局部修复；67 条不变；统一 final72 生成 72 个新 ID 与 fresh Full72 Attempt2；Attempt1 永久保留为 defect-discovery evidence | ✅ `ATTEMPT2 PHASE1 LOCKED / PHASE2 RELEASED` | [Execution log](../../../governance/research_execution_log.md) |
 | 2026-09-02 | Pilot4 | final Phase2 expected comparison | 首次返回有 23 条临时访问限制；retry 后全 0，但对比暴露 16 条 primary status 边界、expected/minimum-evidence 问题与一条缺失版本证据 | 两份 raw 分别锁定；raw lock 后才解锁 mapping/expected；生成完整 mismatch taxonomy 和定向修复建议 | ⚠️ `OWNER PROTOCOL ACCEPTANCE PENDING / RECOMMEND TARGETED REPAIR` | [Execution log](../../../governance/research_execution_log.md) |
+| 2026-09-03 | Pilot4 | targeted R3 gate failure | R3 raw 37/37 完整，M4/M8 通过；M2 3/16、controls overall 13/16，且 7 个分歧字段由 Expected V2 缺陷解释 | 保留 R3 raw 与 Expected V2；只申请 additive Expected V3，批准后复用同一 raw 重算，不默认 R4 | ⚠️ `EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER DECISION PENDING` | [Execution log](../../../governance/research_execution_log.md) |
 
 ## 14. 当前项目状态
 
-- `PILOT4_FINAL_BLIND_REVIEW_COMPARISON_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY / OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`
+- `PILOT4_R3_VALIDATION_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY / RECOMMEND_TARGETED_REPAIR / EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION`
 - `PREANNOTATION_ONLY`
 - `NO_HUMAN_DISTRIBUTION`
 - `PILOT4_CANDIDATE_CORPUS_POST_EXTERNAL_PHASE1_REPAIR_V1` 已形成 72 条；仍非 Ground Truth、非 Formal Benchmark、非 frozen Dataset。
@@ -396,6 +402,8 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
   fact 全部为 true。第一份 Phase2 raw 的 23 条 `SOURCE_UNREACHABLE` 作为过程证据保留；同一 reviewer retry 的 final raw
   将其降为 0，并以 `16321 bytes` / SHA `6f6cc042...92f1` 锁定。raw-lock-before-expected PASS；Phase1/Phase2 exact 分别
   `58/72` 与 `48/72`。43 个 mismatch 的 taxonomy 为 M1=13、M2=16、M4=3、M5=6、M8=4、M9=1。
+- Targeted R3 raw 为 `12062 bytes` / SHA `80a10a1e...0b4441`，37/37 QA 与 lock-before-Expected PASS；overall `31/37`、
+  exact `29/37`。M4/BR18 和 M8 4/4 通过；9 个 residual fields 中 reviewer variance 2、Expected V2 defect 7。
 - A/B 未开始；72 Ground Truth 未建立；240-group 未开始；Dataset = `NOT FROZEN`（未冻结）。
 - Formal Detector = `NOT IMPLEMENTED`（未实现）；Formal Experiment = `NOT STARTED`（未开始）；Our Method Result = `NONE`。
 
@@ -403,18 +411,20 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 
 ## 15. 当前下一步
 
-唯一当前动作：**Owner 审查 acceptance evidence，冻结 `CURRENTLY_CONSISTENT` 与
-`LEGITIMATE_VERSION_OR_HISTORY` 的边界，并决定是否批准对 expected/minimum-evidence cases 和 `BR-18F1D39495` 执行
-追加式定向修复**。当前不得写 `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED`；即使未来修复通过，A/B 仍需单独审批。
+唯一当前动作：**Owner 决定是否批准 additive Expected V3，对证据包列出的 7 个字段/6 个候选做可追溯修正**。
+批准后直接用已锁定 R3 raw 重算冻结门，不默认再做 R4。当前不得写 `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED`；即使门重算
+通过，协议接受和 A/B execution 仍需两个独立审批。
 
 ```text
 Attempt1 (immutable defect-discovery evidence)
   └─ five Owner-accepted defects -> five repaired + 67 unchanged -> unified final72
        └─ fresh opaque IDs + fresh order -> Attempt2 Phase1 in new isolated reviewer context
             └─ immutable return + zero defects -> Candidate Quality Gate PASS -> same-reviewer Phase2
+                 └─ Guide/Expected/Evidence targeted repair -> R3 locked and compared
+                      └─ current: Owner Expected V3 decision -> same-raw gate recomputation
 
 未来在独立审批下：
-A/B -> agreement -> adjudication -> 72 GT
+Protocol acceptance -> A/B -> agreement -> adjudication -> 72 GT
     -> signal re-evaluation -> Scale Readiness
     -> Owner 单独批准 -> 240-group
 ```

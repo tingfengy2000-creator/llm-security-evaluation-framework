@@ -1420,3 +1420,27 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   Detector、Training、5090、Formal Experiment or Paper Result. Auto Continue `NO`.
 - Canonical records: `OR-046`, `REL-2026-0051`, [current work state](current_work_state.md) and Git-external
   `paper1_pilot4_protocol_targeted_repair_r3_20260902`.
+
+## PODR-085: Pilot4 R3 Final Raw Lock and Protocol Acceptance Evidence V2
+
+- Date: `2026-09-03`.
+- Owner authorization: accept the returned 37-row R3 CSV only as immutable blind-review input, lock it before controlled mapping and
+  Expected V2 load, then assess the previously frozen protocol gates. Do not modify Guide V3.2、Expected V2、Evidence Pool V2、R3
+  packet/mapping or the final72 corpus.
+- Raw identity: `PILOT4_TARGETED_PROTOCOL_R3_PHASE2_RETURN.csv`, `12062 bytes`, SHA256
+  `80a10a1ebf2e2321198c750e92214b8d26f9b2a8f4161c64ebf38cae830b4441`; exact 8 columns、37/37 unique opaque IDs、enum、
+  reasons、internal consistency and raw-lock-before-Expected all pass.
+- Comparison result: M2 residual `3/16`; matched-control overall `13/16` and exact relevant fields `11/16`; full targeted overall
+  `31/37` and exact `29/37`. M4/BR18 evidence repair passes and M8 reproduces `4/4` ONE_OFFICIAL_EVIDENCE.
+- Evidence-based disposition: 9 mismatched fields comprise `2` reviewer-variance fields and `7` Expected V2 defects across `6`
+  candidates. No Evidence Pool V2 defect or new Guide V3.2 systemic ambiguity was found. Frozen gates A/B/C fail and D/E/F pass.
+- Decision boundary: Codex recommendation is `RECOMMEND_TARGETED_REPAIR / NO_R4_BY_DEFAULT`; this is not Owner protocol
+  acceptance. Owner must approve or reject an additive Expected V3 correction before gate recomputation. R3 raw and Expected V2
+  remain immutable.
+- Current status: `PILOT4_R3_VALIDATION_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
+  RECOMMEND_TARGETED_REPAIR / EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER_PROTOCOL_ACCEPTANCE_PENDING /
+  NO_AB_DISTRIBUTION`.
+- Prohibited: automatic R4、`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED`、A/B distribution、Ground Truth、240-group、Dataset freeze、
+  Detector、Training、5090、Formal Experiment or Paper Result. Auto Continue `NO`.
+- Canonical records: `OR-047`, `REL-2026-0052`, [current work state](current_work_state.md) and Git-external
+  `paper1_pilot4_r3_final_acceptance_20260903`.

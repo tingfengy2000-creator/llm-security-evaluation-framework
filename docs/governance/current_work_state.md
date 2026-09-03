@@ -16,28 +16,34 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `PILOT4-PROTOCOL-TARGETED-REPAIR-AND-R3-VALIDATION-PACKET-01`.
-- Task name: `Pilot4 Annotation Protocol Targeted Repair, Expected/Evidence Adjudication and Fresh R3 Blind Validation Packet`.
-- Task type: **ADDITIVE GUIDE/EXPECTED/EVIDENCE REPAIR / TARGETED R3 PACKET PREPARATION / LOCAL CONTROL PLANE**.
-- Engineering status: **TARGETED REPAIR PASS / R3 PACKET QA PASS / DOCUMENTATION CLOSEOUT PASS**.
-- Experiment status: **TARGETED_REPAIR_COMPLETE / R3_VALIDATION_PACKET_READY /
-  WAITING_FOR_FRESH_TARGETED_EXTERNAL_REVIEW / NO_AB_DISTRIBUTION / PREANNOTATION_ONLY / AUTO_CONTINUE_NO**.
+- Task ID: `PILOT4-R3-FINAL-RAW-LOCK-COMPARISON-AND-PROTOCOL-ACCEPTANCE-EVIDENCE-V2-01`.
+- Task name: `Pilot4 R3 Final Raw Lock, Expected V2 Comparison, Systemic-Blocker Assessment and Protocol Acceptance Evidence V2`.
+- Task type: **IMMUTABLE R3 RAW LOCK / CONTROLLED EXPECTED V2 COMPARISON / ACCEPTANCE RECOMMENDATION**.
+- Engineering status: **R3 RAW/SCHEMA/MAPPING/COMPARISON QA PASS / FROZEN ACCEPTANCE GATES A-C FAIL / DOCUMENTATION CLOSEOUT PASS**.
+- Experiment status: **PILOT4_R3_VALIDATION_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
+  RECOMMEND_TARGETED_REPAIR / EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER_PROTOCOL_ACCEPTANCE_PENDING /
+  NO_AB_DISTRIBUTION / PREANNOTATION_ONLY / AUTO_CONTINUE_NO**.
 - Documentation gate: **PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED / HUMAN_LEDGER_CONTINUOUS_SYNC =
   MANDATORY / TASK_DOCUMENTATION_CLOSEOUT = MANDATORY**. Paper 1 task completion requires execution, tests, evidence,
   documentation closeout and valid Git status; otherwise status is `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING` with
   `TASK_DOCUMENTATION_CLOSEOUT_BLOCKER`.
-- Execution base commit: `242b172506539a01cc0c9fa419811a9435fc3a11`.
+- Execution base commit: `ab3a9b2f2437d3103753a98b5bd1ac6bc78b7e2e`.
 - Candidate source identity: `candidates_v3_1_additive.jsonl` SHA256
   `15500aa75bced9fb470edaac98f9527e7bb4bc689b86583e6f69b892c48eb210`; final additive corpus SHA256
   `f530471ecd6551300d68c8ddf104cadce2305d8ff91e64010be222820628252d`.
 - Execution machine: **本机**. No model load、GPU workload、5090 contact、formal Dataset/Detector/Training or experiment occurred.
-- Current ordered step: Owner creates a fresh isolated R3 reviewer context and sends only the 37-row reviewer packet、V3.2 guide and
-  frozen Evidence snapshots. The completed CSV must return to a later task for immutable raw lock before mapping/Expected V2 load.
-- Current blockers: `WAITING_FOR_FRESH_TARGETED_EXTERNAL_REVIEW`。The prior M2/M5/M8/Evidence-Pool repair items are closed as
-  versioned repair artifacts, not as protocol acceptance；`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=FALSE`.
-- Targeted repair facts: M2 boundary adjudication `16/16`；Expected V2 changes `16`（M2=6、M5=6、M8=4）；Evidence Pool V2
-  changes `1`；candidate text changes `0`；R3 impacted/control/total `21/16/37`；fresh opaque IDs `37/37`；old-ID reuse `0`；
-  reviewer-visible hidden-control leakage `0`.
+- Current ordered step: Owner approves or rejects an additive Expected V3 correction for the evidence-supported `7 fields / 6
+  candidates`. Approval permits comparison-gate recomputation from the already locked R3 raw; it does not authorize R4 or protocol
+  acceptance.
+- Current blocker: `EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER`。R3 raw and mapping are complete, but frozen gates A/B/C fail；
+  `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=FALSE`.
+- R3 raw facts: `12062 bytes`；SHA256 `80a10a1ebf2e2321198c750e92214b8d26f9b2a8f4161c64ebf38cae830b4441`；
+  exact 8 columns；37 rows / 37 unique opaque IDs；enum、reason and internal consistency PASS；raw-lock-before-Expected PASS；
+  mapping parity `37/37`；affected/control `21/16`.
+- R3 comparison facts: overall `31/37`；version `37/37`；authority `36/37`；minimum evidence `35/37`；issue `37/37`；
+  exact relevant fields `29/37`. M2 residual `3/16`；controls overall `13/16` and exact `11/16`；M4/BR18 PASS；M8 `4/4`
+  PASS. Residual taxonomy is reviewer variance `2` and Expected V2 defect `7`；Evidence V2 defect `0`；new Guide V3.2 systemic
+  ambiguity `0`.
 - Pilot4 lesson status: `PROVISIONAL_PENDING_FINAL_ACCEPTANCE`. Promotion to `ACCEPTED_LESSON` is permitted only in a future task that
   records `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED` and executes `PILOT4_PROTOCOL_LESSON_PROMOTION`.
 - Combined-packet correction: the `5d6b4b5` combined packet is preserved unchanged as
@@ -102,8 +108,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PODR-057` and `PODR-058`.
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
-- S6.1-P1: **TARGETED_REPAIR_COMPLETE / R3_VALIDATION_PACKET_READY / WAITING_FOR_FRESH_TARGETED_EXTERNAL_REVIEW /
-  NO_AB_DISTRIBUTION / PREANNOTATION_ONLY / NOT FORMAL_EXPERIMENT**.
+- S6.1-P1: **PILOT4_R3_VALIDATION_COMPLETE / RECOMMEND_TARGETED_REPAIR / EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER /
+  OWNER_PROTOCOL_ACCEPTANCE_PENDING / NO_AB_DISTRIBUTION / PREANNOTATION_ONLY / NOT FORMAL_EXPERIMENT**.
 - S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
 - S6.1-P1-PILOT1: **HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED**.
 - Historical S6.1-P1-PILOT1: **COMPLETED_PENDING_REVIEW / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY**；superseded by OR-024.
@@ -119,8 +125,9 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - PILOT3: **ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY / STOPPED**.
 - Historical PILOT4 first preflight: **OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / a843697 EVIDENCE PRESERVED**.
 - Historical PILOT4 second preflight: **SECOND_OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / cad3b2b EVIDENCE PRESERVED**.
-- PILOT4: **PILOT4_FINAL_BLIND_REVIEW_COMPARISON_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
-  RECOMMEND_TARGETED_REPAIR / OWNER_PROTOCOL_ACCEPTANCE_PENDING / PREANNOTATION_ONLY / NO_AB_DISTRIBUTION**.
+- PILOT4: **PILOT4_R3_VALIDATION_COMPLETE / PROTOCOL_ACCEPTANCE_RECOMMENDATION_READY /
+  RECOMMEND_TARGETED_REPAIR / EXPECTED_V2_SYSTEMIC_REPAIR_BLOCKER / OWNER_PROTOCOL_ACCEPTANCE_PENDING /
+  PREANNOTATION_ONLY / NO_AB_DISTRIBUTION**.
 - PILOT4 candidates: **PILOT4_CANDIDATE_CORPUS_POST_EXTERNAL_PHASE1_REPAIR_V1 / 72 PREANNOTATION_CANDIDATES /
   NOT GROUND TRUTH / NOT FORMAL BENCHMARK / NOT FROZEN DATASET**.
 - PAPER1_FORMAL_DOMAIN_SET: **OWNER_CONFIRMED / ENTERPRISE_HR / FINANCE / INFORMATION_SECURITY /
@@ -343,6 +350,12 @@ visible-input-only process locked one 72/72 semantic review before expected-cont
 final mismatch is zero, validator and all 10 rendered workbook Sheets pass. This is annotation-protocol readiness for Owner acceptance
 only. It is explicitly not independent A/B evidence, human validity or distribution.
 
+Can claim: the externally completed targeted R3 raw is immutable at `12062 bytes` / SHA256 `80a10a1e...0b4441` and passed exact
+schema、37/37 identity、enum、reason、conditional logic and lock-before-Expected checks. R3 targeted agreement is overall `31/37`
+and exact relevant fields `29/37`; M4/BR18 and M8 pass. Seven of nine residual field mismatches are evidence-supported Expected V2
+defects across six candidates. This supports `RECOMMEND_TARGETED_REPAIR / NO_R4_BY_DEFAULT`, not protocol acceptance or benchmark
+performance.
+
 Cannot claim: the two-document smoke reproduces GMTP；its two scores establish detector effectiveness, calibration, safety,
 generalization or a paper metric；any
 external baseline was reproduced；strict comparison is ready；SafeRAG pipeline is ready；dataset/
@@ -358,9 +371,9 @@ are established.
 
 ## Last Update
 
-- Date: `2026-09-02`.
-- Updated by: 本机 executing `PILOT4-PHASE2-FINAL-RETURN-LOCK-EXPECTED-COMPARISON-AND-PROTOCOL-ACCEPTANCE-01 /
-  REL-2026-0050`。First/final Phase2 returns are separately immutable；final raw validation and lock-before-expected order passed；
-  controlled mapping/expected comparison completed with no raw or expected-source rewrite。Codex recommendation is
-  `RECOMMEND_TARGETED_REPAIR`；Owner protocol acceptance、A/B、Dataset freeze、240-group、Detector/Training、5090、Formal
-  Experiment and Paper Result remain unapproved/unstarted；Auto Continue = `NO`.
+- Date: `2026-09-03`.
+- Updated by: 本机 executing `PILOT4-R3-FINAL-RAW-LOCK-COMPARISON-AND-PROTOCOL-ACCEPTANCE-EVIDENCE-V2-01 /
+  REL-2026-0052`。R3 raw immutable lock、blind QA、mapping/Expected V2 comparison、M4/M8 validation and mismatch taxonomy are
+  complete. Frozen gates A/B/C fail because Expected V2 retains 7 evidence-supported defects across 6 candidates；recommendation is
+  `RECOMMEND_TARGETED_REPAIR / NO_R4_BY_DEFAULT`。Owner protocol acceptance、A/B、Dataset freeze、240-group、Detector/Training、
+  5090、Formal Experiment and Paper Result remain unapproved/unstarted；Auto Continue = `NO`.
