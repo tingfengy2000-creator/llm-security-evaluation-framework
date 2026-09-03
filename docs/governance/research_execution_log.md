@@ -2030,3 +2030,47 @@ Approval Gate、Auto Continue。
     `README_condition_evaluated=true`（root and Paper 1 first-screen state changed，updated）。
   - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
     `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.
+
+## REL-2026-0056 — Pilot4 Human A/B Annotation Usability Repair and Distribution-safe V2
+
+- Record ID: `REL-2026-0056`; date `2026-09-03`; task
+  `PILOT4-A-B-HUMAN-ANNOTATION-USABILITY-REPAIR-01`; machine `本机 / LOCAL_CONTROL_PLANE`;
+  execution base `49ef17a9c6d23a4265157efc169d03080d04a9fa`; Owner authority `PODR-089 / OR-051`.
+- Classification: Owner paused real distribution after finding that V1 was semantically valid but insufficiently usable by a trained
+  non-project human. This is `HUMAN_FACING_DOCUMENTATION_UX_REPAIR`, not protocol repair, calibration reopening or research-rule
+  change.
+- V1 preservation: V1 namespace `paper1_pilot4_ab_execution_20260903` remains unchanged and undistributed. All 334 manifest entries
+  and 335 physical files revalidated; its manifest SHA256 remains
+  `aa8742baccab4072a0fe901bcd430b46011cea9b436738a730164f166f0d7d91`.
+- V2 Phase1: A/B each receive Guide V2、Quick Reference V2、read-only three-column Packet V2、exact five-column Return Template V2、
+  unchanged Independence Notice and README V2. Candidate/ID/order/source parity is 72/72; template ID order and schema are unchanged.
+- Human manuals: Phase1 includes fixed seven-step workflow、field/value boundaries、six complete filled examples、eight common
+  mistakes、reason good/bad examples、CSV instructions and self-check. Phase2 detailed seven-field Guide/Quick Reference V2 is
+  prebuilt, but both directories remain `WITHHELD`.
+- Accepted semantic rule: `phase1_reason` is required iff `local_internal_conflict in {YES, UNCERTAIN}` or
+  `phase1_issue != NONE`; a naturalness issue alone does not require it. Guide V3.2 rule parity audit records new/removed/changed
+  rules `0/0/0`.
+- Safety QA: A/B normalized semantic parity true；teaching-example near-duplicate against Final72 and prior Pilot4 examples `0`；
+  reviewer-visible Expected/mapping/label leakage `0`；Phase1 distributions remain false；Phase2 release false；GT false.
+- Evidence: Git-external `paper1_pilot4_ab_usability_repair_20260903`; final package contains 332 physical files including manifest.
+  Final manifest SHA256 is `a079b84b71f22d2dc94b664ad6c1b4a1f26d5506e592ccece2e67fef1000adfb`.
+- Final status: `PILOT4_A_B_EXECUTION_APPROVED / HUMAN_ANNOTATION_USABILITY_REPAIR_COMPLETE /
+  HUMAN_A01_PHASE1_V2_DISTRIBUTION_READY / HUMAN_B01_PHASE1_V2_DISTRIBUTION_READY /
+  PHASE2_V2_PREBUILT_WITHHELD / WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / NO_GROUND_TRUTH_YET`.
+- Owner next action: send exactly each annotator's six V2 Phase1 files；do not send V1, Phase2, mapping, Expected or control files.
+  Preserve each completed CSV's raw bytes on return.
+- Boundary: no annotation、Phase2 release、agreement、adjudication、Ground Truth、240-group、Dataset freeze、Detector、Training、
+  5090、Formal Experiment or Paper Result. Auto Continue `NO`.
+- `DOCUMENTATION_CLOSEOUT_CHECKLIST`:
+  - `human_ledger_checked=true`; `human_ledger_updated_if_required=true`; `agent_ledger_checked=true`;
+    `agent_ledger_updated=true`; `current_work_state_updated=true`; `execution_log_appended=true`.
+  - `experiment_master_condition_evaluated=true`（distribution authority changed from V1 to V2，updated）；
+    `owner_decision_condition_evaluated=true`（new Owner usability directive，updated）；
+    `stage_process_condition_evaluated=true`（V2 package built and QA complete，updated）；
+    `lessons_condition_evaluated=true`（no accepted/provisional research lesson change，not modified）。
+  - `project_master_condition_evaluated=true`（current operational package changed，updated）；
+    `research_authority_condition_evaluated=true`（research plan/accepted semantics unchanged，not modified）；
+    `long_term_requirement_condition_evaluated=true`（long-term goals unchanged，not modified）；
+    `README_condition_evaluated=true`（root and Paper 1 first-screen states changed，updated）。
+  - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
+    `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.

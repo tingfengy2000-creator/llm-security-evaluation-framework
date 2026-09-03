@@ -1,5 +1,32 @@
 # LLMGuard 项目总控文档
 
+## PILOT4 双人工标注可用性修复与分发安全 V2（2026-09-03）
+
+Owner 在正式分发前人工检查 V1，确认 accepted protocol 没有问题，但简短 guide、带四个空答案列的 Packet 和工程式
+README 不足以让未参与项目的受训真人稳定执行。因此 `PODR-089 / OR-051 / REL-2026-0056` 只批准 human-facing
+documentation/UX repair；没有重开 calibration，也没有改变 Guide V3.2、Candidate、A/B 身份、opaque ID、顺序、schema、
+Expected 或 Evidence。
+
+原 Git-external `paper1_pilot4_ab_execution_20260903` 的 335 个物理文件继续按 manifest SHA256
+`aa8742baccab4072a0fe901bcd430b46011cea9b436738a730164f166f0d7d91` 保留，分类为
+`HUMAN_ANNOTATION_PACKAGE_V1 / NOT_DISTRIBUTED / SUPERSEDED_FOR_DISTRIBUTION_BY_V2 /
+PROTOCOL_SEMANTICS_VALID / HUMAN_USABILITY_INSUFFICIENT`。新的 additive
+`paper1_pilot4_ab_usability_repair_20260903` 为 A/B 分别增加详细 Phase1 Guide V2、1–2 页 Quick Reference、只显示
+`blind_review_id/candidate_text/source_title` 的只读 Packet V2、字节等价的五列 CSV Template V2 和明确的 README V2；
+原 independence notice 保持不变。
+
+Phase1 manual 明确区分语言自然度、文本内冲突、缺上下文与指代歧义，并冻结 accepted validator 的实际 reason 规则：
+只有 `local_internal_conflict in {YES,UNCERTAIN} OR phase1_issue != NONE` 才必填；自然度单独异常不新增协议义务。
+Phase2 同时预构建详细 Guide/Quick Reference V2，覆盖 strict overall decision order、present-time substitution、version/
+authority、minimum-evidence ablation、实际 evidence selection、issue/reason，但仍为 `WITHHELD / DO_NOT_DISTRIBUTE`。
+
+V2 QA 证明 Candidate/ID/order/source-title parity 均为 72/72，A/B Guide 归一化语义一致，规则新增/删除/变化均为 0，
+教学例与 Final72/既有教学例近重复均为 0，Phase1 hidden-label/mapping/Expected/Evidence/URL 泄漏均为 0。当前状态为
+`PILOT4_A_B_EXECUTION_APPROVED / HUMAN_ANNOTATION_USABILITY_REPAIR_COMPLETE /
+HUMAN_A01_PHASE1_V2_DISTRIBUTION_READY / HUMAN_B01_PHASE1_V2_DISTRIBUTION_READY /
+PHASE2_V2_PREBUILT_WITHHELD / WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / NO_GROUND_TRUTH_YET`。Owner 现在只能分别发送
+六个 Phase1 V2 文件；没有执行 annotation、agreement、adjudication、Ground Truth 或任何下游实验。
+
 ## PILOT4 双人工 A/B 执行批准与 Phase1 分发包（2026-09-03）
 
 项目需求提出人通过 `PILOT4-A-B-EXECUTION-APPROVAL-AND-PHASE1-PACKET-GENERATION-01` 正式批准 Pilot4 human A/B

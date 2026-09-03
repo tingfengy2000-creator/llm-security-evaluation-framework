@@ -16,26 +16,28 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `PILOT4-A-B-EXECUTION-APPROVAL-AND-PHASE1-PACKET-GENERATION-01`.
-- Task name: `Pilot4 Human A/B Annotation Execution Approval, Independent Phase1 Packet Generation and Withheld Phase2 Preparation`.
-- Task type: **OWNER A-B EXECUTION APPROVAL / PHASE1 PACKET GENERATION / PHASE2 PREBUILD AND WITHHOLDING**.
-- Engineering status: **ACCEPTED STACK VERIFIED / A-B ROSTER AND ISOLATION FROZEN / BOTH PHASE1 PACKETS READY /
-  BOTH PHASE2 PACKAGES PREBUILT AND WITHHELD / DOCUMENTATION CLOSEOUT PASS**.
+- Task ID: `PILOT4-A-B-HUMAN-ANNOTATION-USABILITY-REPAIR-01`.
+- Task name: `Pilot4 Human A/B Annotation Usability Repair, Detailed Field Manual and Distribution-Safe Package V2`.
+- Task type: **HUMAN-FACING DOCUMENTATION / UX REPAIR / ADDITIVE DISTRIBUTION PACKAGE V2**.
+- Engineering status: **V1 PRESERVED / V2 HUMAN MANUALS AND PACKETS VERIFIED / BOTH PHASE1 V2 PACKAGES DISTRIBUTION-READY /
+  BOTH PHASE2 V2 PACKAGES PREBUILT AND WITHHELD / DOCUMENTATION CLOSEOUT PASS**.
 - Experiment status: **PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / PILOT4_CALIBRATION_CLOSED /
-  PILOT4_A_B_EXECUTION_APPROVED / HUMAN_A01_PHASE1_PACKET_READY / HUMAN_B01_PHASE1_PACKET_READY /
-  WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / PHASE2_WITHHELD / NO_GROUND_TRUTH_YET / AUTO_CONTINUE_NO**.
+  PILOT4_A_B_EXECUTION_APPROVED / HUMAN_ANNOTATION_USABILITY_REPAIR_COMPLETE /
+  HUMAN_A01_PHASE1_V2_DISTRIBUTION_READY / HUMAN_B01_PHASE1_V2_DISTRIBUTION_READY /
+  PHASE2_V2_PREBUILT_WITHHELD / WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / NO_GROUND_TRUTH_YET / AUTO_CONTINUE_NO**.
 - Documentation gate: **PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED / HUMAN_LEDGER_CONTINUOUS_SYNC =
   MANDATORY / TASK_DOCUMENTATION_CLOSEOUT = MANDATORY**. Paper 1 task completion requires execution, tests, evidence,
   documentation closeout and valid Git status; otherwise status is `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING` with
   `TASK_DOCUMENTATION_CLOSEOUT_BLOCKER`.
-- Execution base commit: `ec5e6def0b6a8e09f2b92838240edec20bce1d6a`.
+- Execution base commit: `49ef17a9c6d23a4265157efc169d03080d04a9fa`.
 - Candidate source identity: `candidates_v3_1_additive.jsonl` SHA256
   `15500aa75bced9fb470edaac98f9527e7bb4bc689b86583e6f69b892c48eb210`; final additive corpus SHA256
   `f530471ecd6551300d68c8ddf104cadce2305d8ff91e64010be222820628252d`.
 - Execution machine: **本机**. No model load、GPU workload、5090 contact、formal Dataset/Detector/Training or experiment occurred.
-- Current ordered step: Owner manually distributes only the five files in `HUMAN-A01/phase1/` to HUMAN-A01 and only the five files
-  in `HUMAN-B01/phase1/` to HUMAN-B01, then returns the two exact raw CSV filenames without Excel resave.
-- Current blocker: no Pilot4 protocol/A-B design/packet blocker remains. Actual distribution is not yet recorded.
+- Current ordered step: Owner manually distributes only the six V2 files in `HUMAN-A01/phase1/` to HUMAN-A01 and only the six V2
+  files in `HUMAN-B01/phase1/` to HUMAN-B01, then returns the two exact raw CSV filenames without Excel resave. V1 must not be sent.
+- Current blocker: the pre-distribution human-usability defect is resolved by additive V2；no protocol or calibration blocker was opened.
+  Actual distribution is not yet recorded.
   `A_B_EXECUTION_APPROVED=TRUE`、`A_B_DISTRIBUTION_STARTED=FALSE`、`PHASE2_RELEASE_ALLOWED=FALSE` and
   `GROUND_TRUTH_CREATED=FALSE`.
 - Owner acceptance: `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=TRUE / ACCEPTED_WITH_NONBLOCKING_NOTES`；all frozen A–F gates passed；
@@ -43,11 +45,14 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Accepted stack: `PILOT4_ACCEPTED_ANNOTATION_STACK_V1` points to the existing Final72 corpus、Attempt2 final Phase1 protocol/raw、
   Guide V3.2、Expected V3、Evidence Pool V2 and `FROZEN_OFFICIAL_SNAPSHOT_PLUS_URL_PROVENANCE`; it creates no rewritten accepted content.
 - A/B execution: Owner named two different independent humans, `HUMAN-A01` and `HUMAN-B01`, and froze complete isolation plus
-  `NO_LLM_ASSISTANCE`. Each receives all Final72 through 72 fresh reviewer-local opaque IDs and an independent deterministic order.
-  The two five-file Phase1 packages are ready but not recorded as distributed. Phase2 is prebuilt with 144/144 snapshot coverage per
-  annotator and strictly withheld；both Phase1 locks precede simultaneous Phase2 release，all four locks precede mapping/Expected comparison.
-  Git-external namespace `paper1_pilot4_ab_execution_20260903` has manifest SHA256
-  `aa8742baccab4072a0fe901bcd430b46011cea9b436738a730164f166f0d7d91`.
+  `NO_LLM_ASSISTANCE`. The original V1 packages remain immutable/not distributed and are now superseded for distribution because
+  their human-facing explanations were insufficient. Additive V2 keeps all 72 candidates、opaque IDs、independent order and exact
+  five-column CSV schema unchanged；Packet V2 is a three-column read-only question sheet, while CSV is the only answer sheet.
+  Phase2 V2 adds detailed manuals and desk references but remains strictly withheld with 144/144 snapshot coverage per annotator.
+  Both Phase1 locks still precede simultaneous Phase2 release，and all four locks still precede mapping/Expected comparison.
+  Git-external V1 namespace remains `paper1_pilot4_ab_execution_20260903` with manifest SHA256
+  `aa8742baccab4072a0fe901bcd430b46011cea9b436738a730164f166f0d7d91`；V2 is additive under
+  `paper1_pilot4_ab_usability_repair_20260903`.
 - R3 raw facts: `12062 bytes`；SHA256 `80a10a1ebf2e2321198c750e92214b8d26f9b2a8f4161c64ebf38cae830b4441`；
   exact 8 columns；37 rows / 37 unique opaque IDs；enum、reason and internal consistency PASS；raw-lock-before-Expected PASS；
   mapping parity `37/37`；affected/control `21/16`.
@@ -124,8 +129,9 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PODR-057` and `PODR-058`.
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
-- S6.1-P1: **PILOT4_A_B_EXECUTION_APPROVED / HUMAN_A01_PHASE1_PACKET_READY / HUMAN_B01_PHASE1_PACKET_READY /
-  WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / PHASE2_WITHHELD / NO_GROUND_TRUTH_YET / NOT FORMAL_EXPERIMENT**.
+- S6.1-P1: **PILOT4_A_B_EXECUTION_APPROVED / HUMAN_ANNOTATION_USABILITY_REPAIR_COMPLETE /
+  HUMAN_A01_PHASE1_V2_DISTRIBUTION_READY / HUMAN_B01_PHASE1_V2_DISTRIBUTION_READY /
+  WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / PHASE2_V2_PREBUILT_WITHHELD / NO_GROUND_TRUTH_YET / NOT FORMAL_EXPERIMENT**.
 - S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
 - S6.1-P1-PILOT1: **HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED**.
 - Historical S6.1-P1-PILOT1: **COMPLETED_PENDING_REVIEW / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY**；superseded by OR-024.
@@ -142,8 +148,8 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Historical PILOT4 first preflight: **OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / a843697 EVIDENCE PRESERVED**.
 - Historical PILOT4 second preflight: **SECOND_OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / cad3b2b EVIDENCE PRESERVED**.
 - PILOT4: **PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / ACCEPTED_WITH_NONBLOCKING_NOTES / PILOT4_CALIBRATION_CLOSED /
-  PILOT4_A_B_EXECUTION_APPROVED / BOTH_PHASE1_PACKETS_READY / WAITING_FOR_OWNER_PHASE1_DISTRIBUTION /
-  PHASE2_WITHHELD / NO_GROUND_TRUTH_YET**.
+  PILOT4_A_B_EXECUTION_APPROVED / HUMAN_ANNOTATION_USABILITY_REPAIR_COMPLETE / BOTH_PHASE1_V2_PACKETS_READY /
+  WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / PHASE2_V2_PREBUILT_WITHHELD / NO_GROUND_TRUTH_YET**.
 - PILOT4 candidates: **PILOT4_CANDIDATE_CORPUS_POST_EXTERNAL_PHASE1_REPAIR_V1 / 72 PREANNOTATION_CANDIDATES /
   NOT GROUND TRUTH / NOT FORMAL BENCHMARK / NOT FROZEN DATASET**.
 - PAPER1_FORMAL_DOMAIN_SET: **OWNER_CONFIRMED / ENTERPRISE_HR / FINANCE / INFORMATION_SECURITY /
@@ -388,8 +394,9 @@ are established.
 ## Last Update
 
 - Date: `2026-09-03`.
-- Updated by: 本机 executing `PILOT4-A-B-EXECUTION-APPROVAL-AND-PHASE1-PACKET-GENERATION-01 / REL-2026-0055`。
-  Owner has approved A/B execution and Phase1 distribution, named HUMAN-A01/HUMAN-B01, and attested full independence/isolation.
-  Both separate Phase1 packages are ready but actual distribution is not recorded；both Phase2 packages remain withheld.
+- Updated by: 本机 executing `PILOT4-A-B-HUMAN-ANNOTATION-USABILITY-REPAIR-01 / REL-2026-0056`。
+  Owner held distribution after finding that V1 was semantically valid but insufficiently usable by non-project human annotators.
+  V1 is preserved and not distributed；additive A/B Phase1 V2 packages now contain detailed manuals、quick references、read-only
+  three-column Packets and unchanged five-column CSV answer templates. Actual distribution is not recorded；Phase2 V2 remains withheld.
   No annotation、agreement、Ground Truth、Dataset freeze、240-group、Detector/Training、5090、Formal Experiment or Paper Result
   has been created；Auto Continue = `NO`.

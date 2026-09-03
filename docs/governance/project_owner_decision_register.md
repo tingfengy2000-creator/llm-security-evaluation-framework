@@ -1516,3 +1516,30 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   freeze、Detector、Training、5090、Formal Experiment or Paper Result. Auto Continue `NO`.
 - Canonical records: `OR-050`, `REL-2026-0055`, [current work state](current_work_state.md) and Git-external
   `paper1_pilot4_ab_execution_20260903`.
+
+## PODR-089: Pilot4 Human A/B Annotation Usability Repair and Distribution-safe V2
+
+- Date: `2026-09-03`.
+- Owner decision: the Pilot4 protocol remains accepted and calibration remains closed, but the V1 reviewer-facing package is held
+  before real distribution because its field explanations, enum boundaries, worked examples, decision flow and Packet-versus-CSV
+  instructions are not yet sufficient for a trained non-project annotator.
+- Defect classification: `HUMAN_USABILITY_REPAIR_REQUIRED`, not protocol repair, calibration reopening or Guide V3.2 semantic
+  change. V1 remains immutable, semantically valid and `NOT_DISTRIBUTED`, and is superseded for distribution only.
+- V2 authority: only additive human-facing documentation/UX is authorized. Candidate text, 72-row population, annotator identities,
+  opaque IDs, A/B order, mappings, canonical enums/schemas, Expected V3, Evidence Pool V2, accepted protocol and independence
+  contract remain unchanged.
+- Canonical Phase1 reason rule was re-read from the accepted implementation: `phase1_reason` is required when
+  `local_internal_conflict in {YES, UNCERTAIN}` or `phase1_issue != NONE`; non-`NATURAL` naturalness alone does not make it
+  mandatory. The hypothetical broader rule in the task prompt was not adopted.
+- Distribution: A/B Phase1 V2 packages are ready, actual distribution remains false, and each annotator receives exactly six V2
+  files: Guide, Quick Reference, three-column read-only Packet, exact five-column Return Template, Independence Notice and README.
+  V1 must not be sent.
+- Phase2: detailed human Guide/Quick Reference V2 are prebuilt only; every Phase2 artifact remains `WITHHELD`, and release remains
+  false until the existing dual-Phase1-lock gate is separately satisfied.
+- Current status: `PILOT4_A_B_EXECUTION_APPROVED / HUMAN_ANNOTATION_USABILITY_REPAIR_COMPLETE /
+  HUMAN_A01_PHASE1_V2_DISTRIBUTION_READY / HUMAN_B01_PHASE1_V2_DISTRIBUTION_READY /
+  PHASE2_V2_PREBUILT_WITHHELD / WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / NO_GROUND_TRUTH_YET`.
+- Prohibited: annotation、Phase2 release、mapping/Expected unlock、agreement、adjudication、Ground Truth、240-group、Dataset
+  freeze、Detector、Training、5090、Formal Experiment or Paper Result. Auto Continue `NO`.
+- Canonical records: `OR-051`, `REL-2026-0056`, [current work state](current_work_state.md) and Git-external
+  `paper1_pilot4_ab_usability_repair_20260903`.
