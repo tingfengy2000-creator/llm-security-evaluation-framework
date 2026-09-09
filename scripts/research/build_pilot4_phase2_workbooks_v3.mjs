@@ -20,6 +20,8 @@ const mode = args.mode;
 const payloadDir = path.resolve(args["payload-dir"]);
 const outputRoot = path.resolve(args["output-root"]);
 const qaRoot = path.resolve(args["qa-root"]);
+const layoutVersion = args["layout-version"] ?? "v3";
+if (!["v3", "v3_2"].includes(layoutVersion)) throw new Error(`unsupported --layout-version=${layoutVersion}`);
 await fs.mkdir(outputRoot, { recursive: true });
 await fs.mkdir(qaRoot, { recursive: true });
 
@@ -232,13 +234,107 @@ function addMainSheet(workbook, payload, evidenceAnchors) {
   return sheet;
 }
 
+function addMainSheetV32(workbook, payload) {
+  const sheet = workbook.worksheets.add("01_标注表");
+  sheet.showGridLines = false;
+  sheet.getRange("A1").values = [[`Pilot4 ${payload.annotator} Phase2 人工标注工作簿 V3.2`]];
+  titleStyle(sheet.getRange("A1:O1"));
+  sheet.getRange("A2").values = [["灰色列只读；黄色/橙色列请填写。优先点击 E1/E2 官方 URL；若网页暂时不可访问，使用 02_证据 中的冻结快照。允许调整行高、列宽、缩放、换行和筛选。"]];
+  sheet.getRange("A2:O2").format = { font: { name: font, italic: true, color: colors.navy, size: 10 }, wrapText: true };
+  sheet.getRange("A2:O2").format.rowHeight = 38;
+
+  const headers = [
+    "blind_review_id（只读）",
+    "candidate_text（候选文本｜只读）",
+    "source_title（来源标题｜只读）",
+    "E1_title（只读）",
+    "E1_official_url（只读｜可点击）",
+    "E2_title（只读）",
+    "E2_official_url（只读｜可点击）",
+    "overall_fact_status【请填写】",
+    "version_claim_status【请填写】",
+    "authority_claim_status【请填写】",
+    "minimum_external_evidence_needed【请填写】",
+    "evidence_selection【请填写】",
+    "phase2_issue【请填写】",
+    "phase2_reason【必须填写】",
+    "填写检查（自动）",
+  ];
+  sheet.getRange("A3:O3").values = [headers];
+  headerStyle(sheet.getRange("A3:O3"));
+  const values = payload.rows.map((row) => {
+    const evidence = Object.fromEntries(row.evidence_pool.map((item) => [item.evidence_id, item]));
+    return [
+      row.blind_review_id,
+      row.candidate_text,
+      row.source_title,
+      evidence.E1.official_page_title,
+      evidence.E1.official_source_url,
+      evidence.E2.official_page_title,
+      evidence.E2.official_source_url,
+      "", "", "", "", "", "", "", "",
+    ];
+  });
+  sheet.getRangeByIndexes(3, 0, values.length, values[0].length).values = values;
+  bodyStyle(sheet.getRange("A4:O75"), 94);
+  sheet.getRange("A4:G75").format.fill = colors.gray;
+  sheet.getRange("H4:M75").format.fill = colors.yellow;
+  sheet.getRange("N4:N75").format.fill = colors.orange;
+  sheet.getRange("O4:O75").format.fill = colors.paleBlue;
+  sheet.getRange("H4:N75").format.borders = { preset: "inside", style: "thin", color: colors.navy };
+  sheet.getRange("E4:E75").format.font = { name: font, color: "#0563C1", underline: true, size: 9 };
+  sheet.getRange("G4:G75").format.font = { name: font, color: "#0563C1", underline: true, size: 9 };
+
+  payload.rows.forEach((row, index) => {
+    const excelRow = index + 4;
+    const evidence = Object.fromEntries(row.evidence_pool.map((item) => [item.evidence_id, item]));
+    sheet.getRange(`E${excelRow}`).formulas = [[`=HYPERLINK("${evidence.E1.official_source_url}","${evidence.E1.official_source_url}")`]];
+    sheet.getRange(`G${excelRow}`).formulas = [[`=HYPERLINK("${evidence.E2.official_source_url}","${evidence.E2.official_source_url}")`]];
+    sheet.getRange(`O${excelRow}`).formulas = [[
+      `=IF(OR(COUNTBLANK(H${excelRow}:M${excelRow})>0,N${excelRow}=""),"缺少填写",IF(AND(H${excelRow}<>"FACTUAL_CONFLICT",K${excelRow}<>"NOT_APPLICABLE"),"minimum逻辑不一致",IF(AND(H${excelRow}="FACTUAL_CONFLICT",K${excelRow}="NOT_APPLICABLE"),"minimum逻辑不一致","OK")))`,
+    ]];
+  });
+
+  const validationSpecs = [
+    ["H4:H75", payload.phase2_enums.overall_fact_status, "整体事实状态", "严格按证据充分性→事实冲突→当前时点替换测试→当前一致的顺序判断。"],
+    ["I4:I75", payload.phase2_enums.version_claim_status, "版本命题", "只有 Candidate 自己提出修订、废止、替代、生效或版本关系才是 version claim。"],
+    ["J4:J75", payload.phase2_enums.authority_claim_status, "权威归属", "区分网页承载者、发布者、制定者、通过者、批准者与主管机关。"],
+    ["K4:K75", payload.phase2_enums.minimum_external_evidence_needed, "最少证据", "仅 overall=FACTUAL_CONFLICT 时做 E1 alone/E2 alone/联合消融；其它填 NOT_APPLICABLE。"],
+    ["L4:L75", payload.phase2_enums.evidence_selection, "实际使用证据", "记录实际使用路径，不等于最低充分证据数量。"],
+    ["M4:M75", payload.phase2_enums.phase2_issue, "Phase2 问题", "INSUFFICIENT_EVIDENCE 是结论；phase2_issue 记录造成问题的材料或流程状态。"],
+  ];
+  for (const [rangeAddress, enums, promptTitle, promptMessage] of validationSpecs) {
+    sheet.getRange(rangeAddress).dataValidation = {
+      ignoreBlanks: false,
+      inCellDropDown: true,
+      rule: { type: "list", values: enums },
+      prompt: { title: promptTitle, message: promptMessage, show: true },
+      errorAlert: { style: "stop", title: "枚举值不合法", message: "只能从下拉列表选择冻结的 English canonical enum。", show: true },
+    };
+  }
+  sheet.freezePanes.freezeRows(3);
+  sheet.freezePanes.freezeColumns(3);
+  const widths = [22, 58, 25, 28, 52, 28, 52, 27, 26, 27, 33, 19, 29, 48, 22];
+  widths.forEach((width, index) => sheet.getRangeByIndexes(0, index, 75, 1).format.columnWidth = width);
+  sheet.getRange("A4:A75").format.horizontalAlignment = "center";
+  sheet.getRange("O4:O75").format.horizontalAlignment = "center";
+  return sheet;
+}
+
 function makeEvidenceRows(payload) {
   const rows = [];
   const rowKinds = [];
   const anchors = {};
   rows.push([`Pilot4 ${payload.annotator} Phase2 冻结证据`, "", "", ""]);
   rowKinds.push("title");
-  rows.push(["说明", "冻结正文是稳定主要标注载体；官方 URL 仅用于 provenance。正文已完整提取并分块显示。", "", ""]);
+  rows.push([
+    "说明",
+    layoutVersion === "v3_2"
+      ? "官方 URL 是主要核验入口；冻结正文是在 live URL 暂时不可访问时使用的稳定备份。正文已完整提取并分块显示，且保留 SHA256/provenance。"
+      : "冻结正文是稳定主要标注载体；官方 URL 仅用于 provenance。正文已完整提取并分块显示。",
+    "",
+    "",
+  ]);
   rowKinds.push("note");
   for (const record of payload.rows) {
     anchors[record.blind_review_id] = {};
@@ -467,6 +563,77 @@ function buildTextContract(payload) {
   };
 }
 
+function buildTextContractV32(payload) {
+  const entries = [];
+  const headers = [
+    "blind_review_id（只读）",
+    "candidate_text（候选文本｜只读）",
+    "source_title（来源标题｜只读）",
+    "E1_title（只读）",
+    "E1_official_url（只读｜可点击）",
+    "E2_title（只读）",
+    "E2_official_url（只读｜可点击）",
+    "overall_fact_status【请填写】",
+    "version_claim_status【请填写】",
+    "authority_claim_status【请填写】",
+    "minimum_external_evidence_needed【请填写】",
+    "evidence_selection【请填写】",
+    "phase2_issue【请填写】",
+    "phase2_reason【必须填写】",
+    "填写检查（自动）",
+  ];
+  addValueEntries(entries, "01_标注表", 1, 0, [[`Pilot4 ${payload.annotator} Phase2 人工标注工作簿 V3.2`]]);
+  addValueEntries(entries, "01_标注表", 2, 0, [["灰色列只读；黄色/橙色列请填写。优先点击 E1/E2 官方 URL；若网页暂时不可访问，使用 02_证据 中的冻结快照。允许调整行高、列宽、缩放、换行和筛选。"]]);
+  addValueEntries(entries, "01_标注表", 3, 0, [headers]);
+  payload.rows.forEach((row, index) => {
+    const excelRow = index + 4;
+    const evidence = Object.fromEntries(row.evidence_pool.map((item) => [item.evidence_id, item]));
+    addValueEntries(entries, "01_标注表", excelRow, 0, [[
+      row.blind_review_id,
+      row.candidate_text,
+      row.source_title,
+      evidence.E1.official_page_title,
+      evidence.E1.official_source_url,
+      evidence.E2.official_page_title,
+      evidence.E2.official_source_url,
+    ]]);
+    entries.push({ sheet: "01_标注表", cell: `E${excelRow}`, externalHyperlink: evidence.E1.official_source_url, value: evidence.E1.official_source_url });
+    entries.push({ sheet: "01_标注表", cell: `G${excelRow}`, externalHyperlink: evidence.E2.official_source_url, value: evidence.E2.official_source_url });
+    entries.push({
+      sheet: "01_标注表",
+      cell: `O${excelRow}`,
+      formula: `IF(OR(COUNTBLANK(H${excelRow}:M${excelRow})>0,N${excelRow}=""),"缺少填写",IF(AND(H${excelRow}<>"FACTUAL_CONFLICT",K${excelRow}<>"NOT_APPLICABLE"),"minimum逻辑不一致",IF(AND(H${excelRow}="FACTUAL_CONFLICT",K${excelRow}="NOT_APPLICABLE"),"minimum逻辑不一致","OK")))`,
+      cachedValue: "缺少填写",
+    });
+  });
+  const evidence = makeEvidenceRows(payload);
+  addValueEntries(entries, "02_证据", 1, 0, evidence.rows);
+  addValueEntries(entries, "03_字段说明", 1, 0, [[`Pilot4 ${payload.annotator} Phase2 字段说明`]]);
+  addValueEntries(entries, "03_字段说明", 2, 0, [["固定顺序：读 Candidate → 读 E1/E2 → 证据是否充分 → overall → version → authority → minimum → selection → issue → reason。English canonical values 写入标注表，中文只帮助理解。"]]);
+  addValueEntries(entries, "03_字段说明", 3, 0, [["canonical field", "中文名称", "判断什么", "不判断什么", "canonical value / rule", "什么时候选择", "常见混淆", "教学例"]]);
+  addValueEntries(entries, "03_字段说明", 4, 0, FIELD_MANUAL_ROWS);
+  addValueEntries(entries, "04_填写示例", 1, 0, [[`Pilot4 ${payload.annotator} Phase2 完整教学示例（均为虚构，非本项目 Candidate）`]]);
+  addValueEntries(entries, "04_填写示例", 3, 0, [["场景", "Candidate", "E1/E2 简化证据", "overall_fact_status", "version_claim_status", "authority_claim_status", "minimum_external_evidence_needed", "evidence_selection", "phase2_issue", "phase2_reason", "为什么这么填"]]);
+  addValueEntries(entries, "04_填写示例", 4, 0, EXAMPLE_ROWS);
+  addValueEntries(entries, "05_提交前检查", 1, 0, [[`Pilot4 ${payload.annotator} Phase2 提交前检查`]]);
+  addValueEntries(entries, "05_提交前检查", 3, 0, [["序号", "人工确认", "检查项"]]);
+  addValueEntries(entries, "05_提交前检查", 4, 0, CHECKLIST_ROWS.map((item, index) => [index + 1, "□", item]));
+  return {
+    annotator: payload.annotator,
+    entries,
+    validationMessages: [
+      { range: "H4:H75", title: "整体事实状态", prompt: "严格按证据充分性→事实冲突→当前时点替换测试→当前一致的顺序判断。" },
+      { range: "I4:I75", title: "版本命题", prompt: "只有 Candidate 自己提出修订、废止、替代、生效或版本关系才是 version claim。" },
+      { range: "J4:J75", title: "权威归属", prompt: "区分网页承载者、发布者、制定者、通过者、批准者与主管机关。" },
+      { range: "K4:K75", title: "最少证据", prompt: "仅 overall=FACTUAL_CONFLICT 时做 E1 alone/E2 alone/联合消融；其它填 NOT_APPLICABLE。" },
+      { range: "L4:L75", title: "实际使用证据", prompt: "记录实际使用路径，不等于最低充分证据数量。" },
+      { range: "M4:M75", title: "Phase2 问题", prompt: "INSUFFICIENT_EVIDENCE 是结论；phase2_issue 记录造成问题的材料或流程状态。" },
+    ],
+    validationErrorTitle: "枚举值不合法",
+    validationErrorMessage: "只能从下拉列表选择冻结的 English canonical enum。",
+  };
+}
+
 async function sha256File(filePath) {
   const bytes = await fs.readFile(filePath);
   return crypto.createHash("sha256").update(bytes).digest("hex");
@@ -490,7 +657,8 @@ function buildWorkbook(payload) {
   if (new Set(payload.rows.map((row) => row.blind_review_id)).size !== 72) throw new Error(`ID_BLOCKER:${payload.annotator}`);
   if (payload.snapshot_qa.length !== 144) throw new Error(`SNAPSHOT_BLOCKER:${payload.annotator}`);
   const finalBook = Workbook.create();
-  addMainSheet(finalBook, payload, planEvidenceAnchors(payload));
+  if (layoutVersion === "v3_2") addMainSheetV32(finalBook, payload);
+  else addMainSheet(finalBook, payload, planEvidenceAnchors(payload));
   addEvidenceSheet(finalBook, payload);
   addManualSheet(finalBook, payload);
   addExamplesSheet(finalBook, payload);
@@ -515,7 +683,7 @@ async function inspectAndRender(workbook, annotator, renderRoot, renderEvidenceR
   await fs.writeFile(path.join(renderRoot, "workbook_inspect.ndjson"), inspect.ndjson, "utf8");
   await fs.writeFile(path.join(renderRoot, "formula_error_scan.ndjson"), formulaErrors.ndjson, "utf8");
   const renderSpecs = [
-    ["01_标注表", "A1:M18"],
+    ["01_标注表", layoutVersion === "v3_2" ? "A1:O18" : "A1:M18"],
     ["02_证据", renderEvidenceRange],
     ["03_字段说明", "A1:H29"],
     ["04_填写示例", "A1:K11"],
@@ -539,11 +707,12 @@ async function createAll() {
     const payload = JSON.parse(await fs.readFile(path.join(payloadDir, `${annotator}_phase2_v3_payload.json`), "utf8"));
     const contractDir = path.join(qaRoot, "cell_text_contract");
     await fs.mkdir(contractDir, { recursive: true });
-    await fs.writeFile(path.join(contractDir, `${annotator}.json`), `${JSON.stringify(buildTextContract(payload), null, 2)}\n`, "utf8");
+    const textContract = layoutVersion === "v3_2" ? buildTextContractV32(payload) : buildTextContract(payload);
+    await fs.writeFile(path.join(contractDir, `${annotator}.json`), `${JSON.stringify(textContract, null, 2)}\n`, "utf8");
     const workbook = buildWorkbook(payload);
-    const distribution = path.join(outputRoot, annotator, "phase2_v3_distribution");
+    const distribution = path.join(outputRoot, annotator, layoutVersion === "v3_2" ? "phase2_v3_2_distribution" : "phase2_v3_distribution");
     await fs.mkdir(distribution, { recursive: true });
-    const fileName = `PILOT4_AB_HUMAN_${tag}_PHASE2_ANNOTATION_WORKBOOK_V3.xlsx`;
+    const fileName = `PILOT4_AB_HUMAN_${tag}_PHASE2_ANNOTATION_WORKBOOK_${layoutVersion === "v3_2" ? "V3_2" : "V3"}.xlsx`;
     const outputPath = path.join(distribution, fileName);
     const beforeQa = await inspectAndRender(workbook, annotator, path.join(qaRoot, "pre_patch", annotator));
     const artifact = await SpreadsheetFile.exportXlsx(workbook);
@@ -558,8 +727,8 @@ async function verifyAll() {
   const results = [];
   for (const annotator of ["HUMAN-A01", "HUMAN-B01"]) {
     const tag = annotator.replace("HUMAN-", "");
-    const fileName = `PILOT4_AB_HUMAN_${tag}_PHASE2_ANNOTATION_WORKBOOK_V3.xlsx`;
-    const outputPath = path.join(outputRoot, annotator, "phase2_v3_distribution", fileName);
+    const fileName = `PILOT4_AB_HUMAN_${tag}_PHASE2_ANNOTATION_WORKBOOK_${layoutVersion === "v3_2" ? "V3_2" : "V3"}.xlsx`;
+    const outputPath = path.join(outputRoot, annotator, layoutVersion === "v3_2" ? "phase2_v3_2_distribution" : "phase2_v3_distribution", fileName);
     const blob = await FileBlob.load(outputPath);
     const workbook = await SpreadsheetFile.importXlsx(blob);
     const qa = await inspectAndRender(workbook, annotator, path.join(qaRoot, "final_render", annotator));

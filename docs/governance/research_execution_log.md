@@ -1628,6 +1628,7 @@ Approval Gate、Auto Continue。
 - Record ID: `REL-2026-0057`; date `2026-09-08`; task
   `PILOT4-A-B-DUAL-PHASE1-RAW-LOCK-AND-HUMAN-FRIENDLY-PHASE2-RELEASE-01`; machine `本机 / LOCAL_CONTROL_PLANE`;
   execution base `790937fce9fd6300836d9e6fadbd43006fab372b`; Owner authority `PODR-090 / OR-052`.
+
 - Raw locks: HUMAN-A01 `3313 bytes` / SHA256 `bb74908f7433bca1c834e8e7ea8e8721316edb1a503202805f90dd0e974d8bac`；
   HUMAN-B01 `3658 bytes` / SHA256 `b27d291dcf86088dccc9a7fc7e5dda1e5c1e7af54ac7db7c3bad5d78b215daf2`。
   Both are immutable exact-five-column UTF-8-BOM CSVs with 72 rows/72 unique IDs, exact V2-template ID/order parity, valid enums
@@ -1650,6 +1651,29 @@ Approval Gate、Auto Continue。
 - `DOCUMENTATION_CLOSEOUT_CHECKLIST`: Human Ledger、Agent Ledger、Current Work State、Execution Log、Experiment Master、Owner Decision、
   Owner Requirement、Stage Process、Project Master、root/Paper1 README updated；Research Authority、canonical lessons and long-term
   requirements evaluated unchanged；cross-document status/next-action/blocker consistent；Markdown links required to pass before commit.
+
+## REL-2026-0058 — Pilot4 Phase2 Field Rework-risk Audit and Minimal Usability Repair
+
+- Record ID: `REL-2026-0058`; date `2026-09-09`; task
+  `PILOT4-A-B-PHASE2-FIELD-REWORK-RISK-AUDIT-AND-MINIMAL-USABILITY-REPAIR-01`; Owner authority `PODR-091 / OR-053`.
+- Recovery: dynamically resolved the unique `refs/heads/research/stage6-1-hidden-poisoning` worktree. The unrelated pre-existing
+  modification to `docs/superpowers/specs/2026-07-01-stage6-rag-security-trustworthy-retrieval-design.md` was preserved and excluded.
+- Read-only audit: re-read Guide V3.2, both Phase1 Guide V2 references, the V3 A/B workbooks, Evidence payloads and distribution
+  register before workbook edits. No semantic blocker was found; schema redesign remained false.
+- Minimal repair: generated additive A/B V3.2 workbooks with Candidate + E1/E2 titles/full official URLs in `01_标注表`, 144/144
+  external hyperlink string/target parity, complete frozen snapshots with SHA/provenance in `02_证据`, zero sheet protection,
+  six unchanged canonical dropdowns and no annotation values.
+- Human documentation: Guide V4 provides a fixed ten-step flow, seven-field relationship table, nine complete safe examples and ten
+  common rework errors. A/B semantic parity and Guide V3.2 rule parity both pass with zero new/removed/changed rules.
+- Boundary: A/B Phase2 actual distribution remains false; no mapping、Expected、agreement、adjudication、Ground Truth、Dataset
+  freeze、240-group、Detector/Training、5090、Formal Experiment or Paper Result was executed.
+- Evidence: Git-external `paper1_pilot4_phase2_usability_repair_20260909`.
+- Final status: `PHASE2_FIELD_REWORK_RISK_AUDITED / PHASE2_PROTOCOL_SEMANTICS_UNCHANGED /
+  PHASE2_GUIDE_V4_HUMAN_READY / HUMAN_A01_PHASE2_V3_2_READY / HUMAN_B01_PHASE2_V3_2_READY /
+  WAITING_FOR_OWNER_DUAL_PHASE2_DISTRIBUTION / NO_AGREEMENT_YET / NO_GROUND_TRUTH_YET`.
+- `DOCUMENTATION_CLOSEOUT_CHECKLIST`: Human Ledger、Agent Ledger、Current Work State、Execution Log、Experiment Master、Owner Decision
+  and Owner Requirement updated；Research Authority、lessons and Stage Process evaluated unchanged；cross-document status and next
+  action required to pass before commit.
 
 ## REL-2026-0047 — Pilot4 External Phase1 Return Lock and Candidate-Defect Triage
 

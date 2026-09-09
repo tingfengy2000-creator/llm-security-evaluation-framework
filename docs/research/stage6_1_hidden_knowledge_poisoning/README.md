@@ -1,13 +1,13 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`PILOT4_AB_DUAL_PHASE1_RAW_LOCKED / DUAL_PHASE1_LOCK_GATE_PASS / PHASE2_RELEASE_ALLOWED /
-> HUMAN_A01_PHASE2_V3_READY / HUMAN_B01_PHASE2_V3_READY / WAITING_FOR_OWNER_DUAL_PHASE2_DISTRIBUTION /
+> 当前实验状态：`PHASE2_FIELD_REWORK_RISK_AUDITED / PHASE2_PROTOCOL_SEMANTICS_UNCHANGED / PHASE2_RELEASE_ALLOWED /
+> HUMAN_A01_PHASE2_V3_2_READY / HUMAN_B01_PHASE2_V3_2_READY / WAITING_FOR_OWNER_DUAL_PHASE2_DISTRIBUTION /
 > NO_AGREEMENT_YET / NO_GROUND_TRUTH_YET`。
 > Owner 已按 M2 `2/16`、matched controls `16/16`、M4 `0`、M8 `4/4` 和其余冻结门全部 PASS 正式接受 Protocol；
 > 两条 residual reviewer variance 保持不可变且不触发 R4。Accepted Stack 绑定 Final72、Attempt2 Phase1、Guide V3.2、
 > Expected V3、Evidence Pool V2 与 frozen snapshot + URL provenance。Owner 已指定两个不同真人并批准 A/B 执行与
 > Phase1 分发；V1 因 human usability 被 V2 替代但原样保留。A/B 已独立完成 Phase1，两份 raw 已原样锁定并通过双门。
-> Candidate、ID、顺序与研究规则均未变化；A/B Phase2 V3 人类工作簿现已通过 QA，可由 Owner 分别受控发放；
+> Candidate、ID、顺序与研究规则均未变化；A/B Phase2 V3.2 工作簿和 Guide V4 已通过 QA，可由 Owner 分别受控发放；
 > 72 条候选仍无 Ground Truth，240-group、
 > Dataset freeze、Formal Detector、Training、5090、Formal Experiment 和 Paper Result 均未开始。
 > `FORMAL_EXPERIMENT = NOT STARTED`；`DATASET_FORMAL_FREEZE = NOT STARTED`。
@@ -45,7 +45,7 @@
 - [S6.1-LR1](stage_process/S6.1-LR1_work_process.md) — 路线与 baseline alignment，已关闭。
 - [S6.1-R0](stage_process/S6.1-R0_work_process.md) — 工程预检，已按边界验收。
 - [S6.1-R0-FU1](stage_process/S6.1-R0-FU1_work_process.md) — W2 单样本工程可行性，已关闭。
-- [S6.1-P1](stage_process/S6.1-P1_work_process.md) — P1-R1、Pilot0–4 的追加式过程；协议已验收、A/B 执行已批准，双 Phase1 raw 已锁定，当前等待 Owner 分别发放 Phase2 V3。
+- [S6.1-P1](stage_process/S6.1-P1_work_process.md) — P1-R1、Pilot0–4 的追加式过程；协议已验收、A/B 执行已批准，双 Phase1 raw 已锁定，当前等待 Owner 分别发放 Phase2 V3.2 四文件包。
 
 ## Pilot Records
 

@@ -1563,3 +1563,22 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   5090、Formal Experiment or Paper Result. Auto Continue `NO`.
 - Canonical records: `OR-052`, `REL-2026-0057`, [current work state](current_work_state.md) and Git-external
   `paper1_pilot4_dual_phase1_phase2_v3_20260908`.
+
+## PODR-091: Pilot4 Phase2 Field Rework-risk Audit and Minimal Human Usability Repair
+
+- Date: `2026-09-09`.
+- Owner decision: before distributing the approved A/B Phase2 task, perform a read-only seven-field rework-risk audit. Proceed only
+  if the accepted Guide V3.2 schema has no semantic blocker; otherwise stop rather than redesigning labels silently.
+- Audit result: `PHASE2_FIELD_SCHEMA_REDESIGN_REQUIRED=FALSE`；`PHASE2_HUMAN_GUIDE_REPAIR_REQUIRED=TRUE`；
+  `PHASE2_EXCEL_MINIMAL_USABILITY_REPAIR_REQUIRED=TRUE`. The highest human rework risks are the overall/version/authority/minimum
+  boundaries and the distinction between evidence insufficiency and `phase2_issue`.
+- Additive V3.2 authority: Candidate、72-row population、A/B opaque IDs and independent order、Evidence Pool V2 identity、Guide
+  V3.2 semantics、Expected V3、canonical seven fields/enums and the blind independence contract remain unchanged. V3.2 exposes
+  each E1/E2 title and full official URL beside the Candidate, retains 144/144 frozen snapshots as backup, removes reviewer-facing
+  sheet protection, and adds human Guide/README V4 explanation only.
+- Distribution: old Phase2 V3 remains immutable but is no longer distribution-authoritative. Each annotator may receive only their
+  own V3.2 workbook、Guide V4、README V4 and original Independence Notice. Actual Phase2 distribution remains false.
+- Prohibited: annotation by Codex、mapping/Expected load、agreement、adjudication、Ground Truth、Dataset freeze、240-group、
+  Detector、Training、5090、Formal Experiment or Paper Result. Auto Continue `NO`.
+- Canonical records: `OR-053`, `REL-2026-0058`, [current work state](current_work_state.md) and Git-external
+  `paper1_pilot4_phase2_usability_repair_20260909`.
