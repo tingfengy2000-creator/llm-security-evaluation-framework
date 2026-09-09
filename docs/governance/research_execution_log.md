@@ -1623,6 +1623,34 @@ Approval Gate、Auto Continue。
   - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
     `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.
 
+## REL-2026-0057 — Pilot4 A/B Dual Phase1 Raw Lock and Human-friendly Phase2 Release
+
+- Record ID: `REL-2026-0057`; date `2026-09-08`; task
+  `PILOT4-A-B-DUAL-PHASE1-RAW-LOCK-AND-HUMAN-FRIENDLY-PHASE2-RELEASE-01`; machine `本机 / LOCAL_CONTROL_PLANE`;
+  execution base `790937fce9fd6300836d9e6fadbd43006fab372b`; Owner authority `PODR-090 / OR-052`.
+- Raw locks: HUMAN-A01 `3313 bytes` / SHA256 `bb74908f7433bca1c834e8e7ea8e8721316edb1a503202805f90dd0e974d8bac`；
+  HUMAN-B01 `3658 bytes` / SHA256 `b27d291dcf86088dccc9a7fc7e5dda1e5c1e7af54ac7db7c3bad5d78b215daf2`。
+  Both are immutable exact-five-column UTF-8-BOM CSVs with 72 rows/72 unique IDs, exact V2-template ID/order parity, valid enums
+  and conditional reasons. `DUAL_PHASE1_LOCK_GATE=PASS`.
+- Phase2 V3: A/B each receive an additive 72-row workbook with Candidate visible, seven highlighted input columns, canonical-English
+  dropdowns, Chinese manual/examples/checklist, 144 internal Evidence links and 144/144 embedded frozen snapshot coverage.
+- Export: a deterministic fail-closed XLSX exporter emits only the exact canonical eight-column UTF-8-BOM CSV in reviewer-local order;
+  synthetic completed workbook double-runs are byte-identical and blank templates are rejected.
+- Isolation: A/B workbook semantics are normalized-parity true；Candidate/ID/order/Evidence parity is 72/72；reviewer-visible mapping,
+  Expected, candidate class, HKP, intended stealth, ground truth and peer identity leakage is zero.
+- Distribution: `PHASE2_RELEASE_ALLOWED=TRUE`, but `A_PHASE2_DISTRIBUTED=FALSE / B_PHASE2_DISTRIBUTED=FALSE`. Owner must send each
+  annotator only their own workbook、README and independence notice. The exporter stays with Owner/control plane unless separately needed.
+- Boundary: no mapping/Expected load、agreement、adjudication、Ground Truth、240-group、Dataset freeze、Detector、Training、5090、
+  Formal Experiment or Paper Result. Auto Continue `NO`.
+- Evidence: Git-external `paper1_pilot4_dual_phase1_phase2_v3_20260908`; manifest binds raw locks、workbooks、export contracts、QA、
+  distribution register and Owner guide.
+- Final status: `PILOT4_AB_DUAL_PHASE1_RAW_LOCKED / DUAL_PHASE1_LOCK_GATE_PASS / PHASE2_RELEASE_ALLOWED /
+  HUMAN_A01_PHASE2_V3_READY / HUMAN_B01_PHASE2_V3_READY / WAITING_FOR_OWNER_DUAL_PHASE2_DISTRIBUTION /
+  NO_AGREEMENT_YET / NO_GROUND_TRUTH_YET`.
+- `DOCUMENTATION_CLOSEOUT_CHECKLIST`: Human Ledger、Agent Ledger、Current Work State、Execution Log、Experiment Master、Owner Decision、
+  Owner Requirement、Stage Process、Project Master、root/Paper1 README updated；Research Authority、canonical lessons and long-term
+  requirements evaluated unchanged；cross-document status/next-action/blocker consistent；Markdown links required to pass before commit.
+
 ## REL-2026-0047 — Pilot4 External Phase1 Return Lock and Candidate-Defect Triage
 
 - Record ID: `REL-2026-0047`; date `2026-09-02`; task

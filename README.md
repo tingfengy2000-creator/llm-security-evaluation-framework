@@ -12,9 +12,9 @@ It is not affiliated with or derived from Protect AI's llm-guard project.
 面试复习入口：[interview_prep/README.md](interview_prep/README.md)
 项目总控：[PROJECT_MASTER_CONTEXT.md](PROJECT_MASTER_CONTEXT.md)
 
-Paper 1 当前门：Owner 已按全部 A–F 冻结门正式接受 Pilot4 标注协议并关闭 calibration，并另行批准两个真人的 A/B
-execution 与 Phase1 分发。V1 包因 human usability 被 V2 替代但原样保留且未分发；两套六文件 Phase1 V2 已就绪但尚未
-登记真实分发，Phase2 V2 仍封存；Ground Truth、Dataset freeze、Detector、Training 与 Formal Experiment 均未启动。详见
+Paper 1 当前门：Owner 已接受 Pilot4 标注协议并批准两个真人 A/B 执行；A/B 已独立完成 Phase1，两份原始 CSV 已按字节
+锁定且双 Phase1 gate 通过。两套人类可用 Phase2 V3 工作簿已就绪，等待 Owner 分别发放；mapping/Expected、agreement、
+Ground Truth、Dataset freeze、Detector、Training 与 Formal Experiment 均未启动。详见
 [Paper 1 Start Here](docs/research/stage6_1_hidden_knowledge_poisoning/README.md)。
 
 ## Repository Map

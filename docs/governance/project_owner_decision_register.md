@@ -1543,3 +1543,23 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   freeze、Detector、Training、5090、Formal Experiment or Paper Result. Auto Continue `NO`.
 - Canonical records: `OR-051`, `REL-2026-0056`, [current work state](current_work_state.md) and Git-external
   `paper1_pilot4_ab_usability_repair_20260903`.
+
+## PODR-090: Pilot4 A/B Dual Phase1 Raw Lock and Human-friendly Phase2 Release
+
+- Date: `2026-09-08`.
+- Owner decision: accept the two independently completed Phase1 returns for immutable control-plane lock and, only after both pass the
+  same schema/identity/order/enum/reason gate, allow simultaneous controlled Phase2 release to HUMAN-A01 and HUMAN-B01.
+- Phase1 evidence: A `3313 bytes` / SHA256 `bb74908f7433bca1c834e8e7ea8e8721316edb1a503202805f90dd0e974d8bac`；
+  B `3658 bytes` / SHA256 `b27d291dcf86088dccc9a7fc7e5dda1e5c1e7af54ac7db7c3bad5d78b215daf2`；both exact five
+  columns, strict UTF-8 BOM, 72/72 unique IDs and exact annotator-local V2 template order.
+- Authorized additive UX: create a human-friendly Phase2 Workbook V3 per annotator, keeping Candidate visible with seven highlighted
+  answer fields, canonical-English dropdowns, Chinese field help/examples/checklist and internal links to complete frozen Evidence.
+  Provide a deterministic exporter that emits only the exact canonical eight-column CSV.
+- Frozen semantics: Candidate text、72-row population、A/B identities、opaque IDs/order、Guide V3.2、canonical enums/schema、Expected
+  V3、Evidence Pool V2、accepted protocol and A/B independence contract remain unchanged.
+- Distribution decision: `PHASE2_RELEASE_ALLOWED=TRUE`; actual A/B Phase2 distribution remains false until Owner sends each person's
+  own three-file V3 package separately. No cross-send and no mapping/Expected/control material.
+- Prohibited: mapping/Expected unlock、agreement、adjudication、Ground Truth、Dataset formal freeze、240-group、Detector、Training、
+  5090、Formal Experiment or Paper Result. Auto Continue `NO`.
+- Canonical records: `OR-052`, `REL-2026-0057`, [current work state](current_work_state.md) and Git-external
+  `paper1_pilot4_dual_phase1_phase2_v3_20260908`.

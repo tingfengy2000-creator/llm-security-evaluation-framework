@@ -1,5 +1,21 @@
 # LLMGuard 项目总控文档
 
+## PILOT4 双 Phase1 锁定与 Phase2 V3 受控释放（2026-09-08）
+
+`PODR-090 / OR-052 / REL-2026-0057` 记录 HUMAN-A01 与 HUMAN-B01 已各自独立完成 Phase1。控制面原样锁定两份
+CSV：A 为 `3313 bytes` / SHA256 `bb74908f7433bca1c834e8e7ea8e8721316edb1a503202805f90dd0e974d8bac`，B 为
+`3658 bytes` / SHA256 `b27d291dcf86088dccc9a7fc7e5dda1e5c1e7af54ac7db7c3bad5d78b215daf2`。两者均通过
+严格 UTF-8 BOM、精确五列、72/72 唯一 opaque ID、各自模板 ID/顺序、枚举和条件理由核验；双 Phase1 锁定门关闭。
+
+为减少真人 Phase2 操作错误，新增 A/B 各自 Phase2 Workbook V3。每本工作簿在同一行显示 Candidate 与七个高亮输入字段，
+使用英文 canonical enum 和中文字段解释，Evidence 单独成表并以内部链接连接 144/144 个冻结快照；最终由确定性导出器
+生成严格八列 UTF-8 BOM CSV。Candidate、ID、顺序、Guide V3.2 语义、Evidence 和 Accepted Protocol 均未改变。
+
+当前状态是 `PILOT4_AB_DUAL_PHASE1_RAW_LOCKED / DUAL_PHASE1_LOCK_GATE_PASS / PHASE2_RELEASE_ALLOWED /
+HUMAN_A01_PHASE2_V3_READY / HUMAN_B01_PHASE2_V3_READY / WAITING_FOR_OWNER_DUAL_PHASE2_DISTRIBUTION /
+NO_AGREEMENT_YET / NO_GROUND_TRUTH_YET`。Owner 只能分别发送对应 annotator 的 Workbook V3、README 与 independence notice；
+两份 Phase2 raw 均锁定前不得解锁 mapping/Expected、计算 agreement、仲裁或生成 Ground Truth，亦未授权任何下游实验。
+
 ## PILOT4 双人工标注可用性修复与分发安全 V2（2026-09-03）
 
 Owner 在正式分发前人工检查 V1，确认 accepted protocol 没有问题，但简短 guide、带四个空答案列的 Packet 和工程式

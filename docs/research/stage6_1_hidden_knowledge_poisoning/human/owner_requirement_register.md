@@ -55,13 +55,18 @@
 | OR-049 | 2026-09-03 | 正式接受 Pilot4 标注协议并关闭校准：`PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=TRUE`、`ACCEPTED_WITH_NONBLOCKING_NOTES`、`R4_EXTERNAL_REVIEW_REQUIRED=FALSE`；冻结 `PILOT4_ACCEPTED_ANNOTATION_STACK_V1`，逐项提升有证据支持的 lessons，并仅准备 A/B 执行审批材料 | Pilot4 Owner 协议验收与 A/B 执行预检 | Paper 1 / P1-PILOT4 | `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / PILOT4_CALIBRATION_CLOSED / PILOT4_A_B_EXECUTION_APPROVAL_PENDING / NO_AB_DISTRIBUTION / NO_GROUND_TRUTH_YET` | `PILOT4-OWNER-PROTOCOL-ACCEPTANCE-AND-AB-EXECUTION-PREFLIGHT-01` | 项目需求提出人当前明确决定；`PODR-087 / REL-2026-0054` | 接受仅代表 Pilot-level annotation readiness，不授权 A/B 执行或发包；A/B roster、独立性/隔离声明和执行仍需 Owner 单独批准；不得自动 agreement/adjudication/GT、240-group、Dataset freeze、Detector/Training、5090、Formal Experiment 或 Paper Result；Auto Continue = NO |
 | OR-050 | 2026-09-03 | 正式批准 Pilot4 A/B 人工标注执行与 Phase1 分发，指定两个不同真人 `HUMAN-A01`、`HUMAN-B01`，确认完整独立性/隔离与 `NO_LLM_ASSISTANCE`；批准生成两套 Final72 Phase1 包，并仅预构建、封存对应 Phase2 | Pilot4 正式双人工标注执行批准与两阶段发放门 | Paper 1 / P1-PILOT4 | `PILOT4_A_B_EXECUTION_APPROVED / HUMAN_A01_PHASE1_PACKET_READY / HUMAN_B01_PHASE1_PACKET_READY / WAITING_FOR_OWNER_PHASE1_DISTRIBUTION / PHASE2_WITHHELD / NO_GROUND_TRUTH_YET` | `PILOT4-A-B-EXECUTION-APPROVAL-AND-PHASE1-PACKET-GENERATION-01` | 项目需求提出人当前明确决定；`PODR-088 / REL-2026-0055` | Owner 手工分发各自 Phase1；两份 Phase1 raw 均通过 schema/72/hash/immutable lock 后才可同时释放 Phase2；四份 raw 全锁后才可 mapping/Expected/agreement；不得执行 annotation、提前释放 Phase2、生成 GT、240-group、Dataset freeze、Detector/Training、5090 或 Formal Experiment；Auto Continue = NO |
 | OR-051 | 2026-09-03 | 正式分发前暂停 V1，确认其协议语义有效但人类可用性不足；只批准增加详细字段解释、枚举边界、教学/完整填写例、reason 规则、CSV 操作、自检、Quick Reference、只读三列 Packet V2 和 Phase2 预构建说明，不改任何 accepted research semantics | Pilot4 双人工标注可用性修复与分发安全 V2 | Paper 1 / P1-PILOT4 | `HUMAN_ANNOTATION_USABILITY_REPAIR_COMPLETE / HUMAN_A01_PHASE1_V2_DISTRIBUTION_READY / HUMAN_B01_PHASE1_V2_DISTRIBUTION_READY / PHASE2_V2_PREBUILT_WITHHELD / WAITING_FOR_OWNER_PHASE1_DISTRIBUTION` | `PILOT4-A-B-HUMAN-ANNOTATION-USABILITY-REPAIR-01` | 项目需求提出人当前明确决定；`PODR-089 / REL-2026-0056` | V1 原样保留且不得分发；Candidate、ID、顺序、mapping、Guide V3.2、enum/schema、Expected、Evidence、protocol、calibration 和 independence contract 均不变；只发 Phase1 V2 六文件；不得 annotation、释放 Phase2、agreement、GT、Dataset freeze、Detector/Training、5090 或 Formal Experiment |
+| OR-052 | 2026-09-08 | A/B 两位真人已独立完成 Phase1；批准原始字节锁定、双 Phase1 门验证和仅在两份均 PASS 后生成/释放人类友好的 Phase2 V3；V3 以 Candidate 同行、七个高亮输入、英文 canonical enum 下拉、中文详细说明、内部 Evidence 链接和确定性八列 CSV 导出降低填写错误 | Pilot4 双 Phase1 锁定与人类友好 Phase2 V3 受控释放 | Paper 1 / P1-PILOT4 | `PILOT4_AB_DUAL_PHASE1_RAW_LOCKED / DUAL_PHASE1_LOCK_GATE_PASS / PHASE2_RELEASE_ALLOWED / HUMAN_A01_PHASE2_V3_READY / HUMAN_B01_PHASE2_V3_READY / WAITING_FOR_OWNER_DUAL_PHASE2_DISTRIBUTION / NO_AGREEMENT_YET / NO_GROUND_TRUTH_YET` | `PILOT4-A-B-DUAL-PHASE1-RAW-LOCK-AND-HUMAN-FRIENDLY-PHASE2-RELEASE-01` | 项目需求提出人当前明确决定；`PODR-090 / REL-2026-0057` | 原 Phase1 raw 不回写；Candidate/ID/order/Guide/Expected/Evidence/protocol 不变；A/B 仅收各自三文件；两份 Phase2 raw 全锁前不得 mapping/Expected/agreement/adjudication/GT；不得 Dataset freeze、240-group、Detector/Training、5090 或 Formal Experiment |
 
 本登记表中的英文枚举用于机器一致性核验；对人的含义以每行中文授权范围、禁止项和下一道审批门为准。任何“已准备”都不等于“已执行”，任何协议验收也不自动扩展为数据、训练或正式实验授权。
 
-当前唯一人工动作是项目负责人把各自目录中的六个第二版第一阶段文件分别交给对应真人；第一版不得发送，第二阶段继续
-封存。不得交叉发送，也不得发送身份映射、负责人控制材料、质量核验、清单、登记表或封存目录。两人独立完成后分别
-返回规定文件名的原始表格；当前没有第二阶段释放、一致性计算或真值生成。这样既能让真人读懂说明，又不改变任何研究
-规则、候选内容、标识与顺序。
+当前唯一人工动作是项目负责人把各自目录中的三份 Phase2 V3 文件分别交给对应真人；不得交叉发送，也不得发送身份映射、
+Expected、负责人控制材料、质量核验或登记表。两人独立完成后分别返回规定文件名的八列 CSV；当前没有一致性计算或真值
+生成。这样既能让真人在同一工作簿中查看候选、证据和说明，又不改变任何研究规则、候选内容、标识与顺序。
+
+通俗解释：第一阶段两份原始答卷已经分别保全并通过检查，所以第二阶段可以开始准备发放。负责人仍需把甲、乙两套材料
+严格分开，同时交付；两位标注人只填写自己的工作簿，不看对方答案，也不接触身份对应表或预期答案。第二阶段回收后，先
+保存人工工作簿的原始字节，再由工具生成统一格式的表格；在两份第二阶段返回都锁定以前，不做一致性计算或负责人仲裁。
+这次变化只是让填写界面更直观，不更改题目、选项含义、证据或研究结论。
 
 本轮决定的中文解释：协议校准与 A/B 执行是两个独立的审批门，现在两门都已由项目负责人明确通过。批准的是两个真实、
 独立的人分别完成同一个 Final72 的两阶段标注；不是让 Codex 代填，也不是批准直接生成 Ground Truth。两人的 opaque ID、
