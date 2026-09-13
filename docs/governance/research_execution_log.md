@@ -1623,6 +1623,30 @@ Approval Gate、Auto Continue。
   - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
     `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.
 
+## REL-2026-0059 — Pilot4 A/B Dual Phase2 Raw Lock and Agreement Preflight
+
+- Record ID: `REL-2026-0059`; date `2026-09-13`; task
+  `PILOT4-A-B-DUAL-PHASE2-RAW-LOCK-AND-AGREEMENT-PREFLIGHT-01`; machine `本机 / LOCAL_CONTROL_PLANE`;
+  execution base `5f5796820c075d5f63449c14503fa8ff0aebe115`; Owner authority `PODR-092 / OR-054`.
+- Intake: A workbook `554781 bytes` / SHA256 `7fc043e294ad6455d9ff1bb87928e04bdfd5d1f0be0cc3ab76958abe0466a5b4`；
+  B workbook `550353 bytes` / SHA256 `20cc4cca61f033ccd8e26ee8b9fcdb2fe29eeed4ea3e498931529ad24575347c`.
+  Both passed semantic parity against the distributed V3.2 baseline with changes restricted to the 72 annotation rows.
+- Canonical exports: A SHA256 `622f62d5b15a96c229e0cf18ba7f314e156ba2effb5e6666c6602cb7e543b7ea`；B SHA256
+  `5ba6fd2629062eebc0d0e1c5391a9dc888cdd101b32e7553b8aa287f5761f3e0`; each exact 8 columns, 72/72 IDs/order,
+  valid enums/reasons and conditional minimum-evidence logic.
+- Lock ordering: both Phase2 raw locks and dual-lock gate were written before A/B mapping unlock. Expected V3 was not loaded.
+- Agreement: overall `54/72` (κ `0.56305`), version `59/72` (κ `0.70389`), authority `67/72` (κ `0.82081`), minimum
+  evidence `62/72` (κ `0.70443`), issue `54/72` (κ `0.000771`), derived stealth `64/72` (κ `0.77622`).
+  `evidence_selection` is process-only: `18/72`, not benchmark-label accuracy.
+- Escalation: 78 material field disagreements across 40 samples, 54 descriptive process differences, and five B-side
+  `LATE_DISCOVERED_CANDIDATE_DEFECT` flags. A decision-ready disagreement-only packet was produced without changing either raw.
+- Evidence: Git-external `paper1_pilot4_ab_phase2_raw_lock_agreement_20260913`; manifest has 16 entries and aggregate SHA256
+  `953edb32967f0e28f29631449f5b6acdab79275c5215b95a69584da621d2a01f`.
+- Final status: `PILOT4_AB_ALL_FOUR_RAWS_LOCKED / DUAL_PHASE2_LOCK_GATE_PASS / AB_AGREEMENT_PREFLIGHT_COMPUTED /
+  OWNER_ADJUDICATION_PENDING / HUMAN_DECISION_REQUIRED / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET / AUTO_CONTINUE_NO`.
+- Boundary: no automatic adjudication, Candidate/Evidence repair, Ground Truth, Dataset freeze, 240-group, Detector/Training,
+  5090, Formal Experiment or Paper Result.
+
 ## REL-2026-0057 — Pilot4 A/B Dual Phase1 Raw Lock and Human-friendly Phase2 Release
 
 - Record ID: `REL-2026-0057`; date `2026-09-08`; task

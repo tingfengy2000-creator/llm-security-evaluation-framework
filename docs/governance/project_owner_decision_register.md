@@ -1582,3 +1582,19 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   Detector、Training、5090、Formal Experiment or Paper Result. Auto Continue `NO`.
 - Canonical records: `OR-053`, `REL-2026-0058`, [current work state](current_work_state.md) and Git-external
   `paper1_pilot4_phase2_usability_repair_20260909`.
+
+## PODR-092: Pilot4 A/B Dual Phase2 Return Intake and Agreement Preflight
+
+- Date: `2026-09-13`.
+- Owner fact and instruction: HUMAN-A01 and HUMAN-B01 have completed Phase2 independently, the returned V3.2 workbooks are synced to
+  the configured Git-external handoff root, and the control plane is instructed to continue.
+- Authorized scope: immutable intake, byte/hash/schema/ID/order/enum/reason/semantic-parity validation, dual Phase2 lock gate,
+  post-lock A/B identity mapping unlock, human-human agreement preflight and disagreement-only Owner packet.
+- Result: all four A/B raw returns are locked. Phase2 contains 78 material field disagreements across 40 samples, plus 54
+  descriptive `evidence_selection` differences and five B-side `LATE_DISCOVERED_CANDIDATE_DEFECT` flags.
+- Decision boundary: the Owner statement does not itself adjudicate any disagreement. Expected V3 is not an automatic truth source;
+  Codex may not rewrite human returns, repair candidates/evidence, create Ground Truth or cross any downstream experiment gate.
+- Current status: `DUAL_PHASE2_LOCK_GATE_PASS / AB_AGREEMENT_PREFLIGHT_COMPUTED / HUMAN_DECISION_REQUIRED /
+  OWNER_ADJUDICATION_PENDING / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET / AUTO_CONTINUE_NO`.
+- Canonical records: `OR-054`, `REL-2026-0059`, [current work state](current_work_state.md) and Git-external
+  `paper1_pilot4_ab_phase2_raw_lock_agreement_20260913`.

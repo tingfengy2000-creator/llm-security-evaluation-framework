@@ -1,5 +1,24 @@
 # LLMGuard 项目总控文档
 
+## PILOT4 双 Phase2 锁定与 A/B 一致性预检（2026-09-13）
+
+`PODR-092 / OR-054 / REL-2026-0059` 记录 HUMAN-A01 与 HUMAN-B01 已独立完成 Phase2。控制面原样锁定两份 V3.2
+工作簿，并确定性导出严格八列 CSV：A workbook 为 `554781 bytes` / SHA256
+`7fc043e294ad6455d9ff1bb87928e04bdfd5d1f0be0cc3ab76958abe0466a5b4`，B workbook 为 `550353 bytes` / SHA256
+`20cc4cca61f033ccd8e26ee8b9fcdb2fe29eeed4ea3e498931529ad24575347c`；A/B canonical CSV SHA256 分别为
+`622f62d5b15a96c229e0cf18ba7f314e156ba2effb5e6666c6602cb7e543b7ea` 与
+`5ba6fd2629062eebc0d0e1c5391a9dc888cdd101b32e7553b8aa287f5761f3e0`。两份均通过 72/72 ID/顺序、枚举、理由、
+条件逻辑、144 links 和 workbook semantic parity；四份人工 raw 现已全部锁定。
+
+双锁后才解锁 A/B identity mapping；本轮没有加载 Expected V3。A/B Phase2 核心字段 agreement 为 overall `54/72`、
+version `59/72`、authority `67/72`、minimum evidence `62/72`、phase2 issue `54/72`，derived stealth 为 `64/72`；
+`evidence_selection=18/72` 仅作为过程差异。共 78 个 material field disagreements，覆盖 40 个 sample，另有 54 个
+descriptive process differences。B 标出五个 `LATE_DISCOVERED_CANDIDATE_DEFECT`，不能由 Codex 自动定性。
+
+当前状态为 `PILOT4_AB_ALL_FOUR_RAWS_LOCKED / DUAL_PHASE2_LOCK_GATE_PASS / AB_AGREEMENT_PREFLIGHT_COMPUTED /
+OWNER_ADJUDICATION_PENDING / HUMAN_DECISION_REQUIRED / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET`。下一步只能由 Owner
+处理 disagreement-only packet；不得自动修复 Candidate/Evidence、生成 Ground Truth、冻结 Dataset 或启动任何下游实验。
+
 ## PILOT4 双 Phase1 锁定与 Phase2 V3 受控释放（2026-09-08）
 
 `PODR-090 / OR-052 / REL-2026-0057` 记录 HUMAN-A01 与 HUMAN-B01 已各自独立完成 Phase1。控制面原样锁定两份

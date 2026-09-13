@@ -16,28 +16,27 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `PILOT4-A-B-PHASE2-FIELD-REWORK-RISK-AUDIT-AND-MINIMAL-USABILITY-REPAIR-01`.
-- Task name: `Pilot4 Human A/B Phase2 Field Rework-Risk Audit and Minimal Annotation Usability Repair`.
-- Task type: **READ-ONLY FIELD RISK AUDIT / GUIDE V4 EXPLANATION EXPANSION / ADDITIVE PHASE2 V3.2 UX REPAIR**.
-- Engineering status: **SEMANTIC BLOCKER FALSE / A/B PHASE2 V3.2 WORKBOOKS VERIFIED / 144/144 EXTERNAL LINKS /
-  144/144 FROZEN BACKUP / SHEET PROTECTION ZERO / DOCUMENTATION CLOSEOUT PASS**.
-- Experiment status: **PHASE2_FIELD_REWORK_RISK_AUDITED / PHASE2_PROTOCOL_SEMANTICS_UNCHANGED /
-  PHASE2_GUIDE_V4_HUMAN_READY / HUMAN_A01_PHASE2_V3_2_READY / HUMAN_B01_PHASE2_V3_2_READY /
-  WAITING_FOR_OWNER_DUAL_PHASE2_DISTRIBUTION / NO_AGREEMENT_YET / NO_GROUND_TRUTH_YET / AUTO_CONTINUE_NO**.
+- Task ID: `PILOT4-A-B-DUAL-PHASE2-RAW-LOCK-AND-AGREEMENT-PREFLIGHT-01`.
+- Task name: `Pilot4 A/B Dual Phase2 Raw Lock and Agreement Preflight`.
+- Task type: **IMMUTABLE DUAL RAW LOCK / HUMAN-HUMAN AGREEMENT PREFLIGHT / OWNER-ONLY DISAGREEMENT ESCALATION**.
+- Engineering status: **A/B PHASE2 V3.2 RAW AND CANONICAL CSV LOCKED / DUAL PHASE2 LOCK GATE PASS /
+  MAPPING UNLOCKED AFTER FOUR RAW LOCKS / AGREEMENT PREFLIGHT COMPLETE / DOCUMENTATION CLOSEOUT PASS**.
+- Experiment status: **PILOT4_AB_ALL_FOUR_RAWS_LOCKED / AB_AGREEMENT_PREFLIGHT_COMPUTED /
+  OWNER_ADJUDICATION_PENDING / HUMAN_DECISION_REQUIRED / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET / AUTO_CONTINUE_NO**.
 - Documentation gate: **PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED / HUMAN_LEDGER_CONTINUOUS_SYNC =
   MANDATORY / TASK_DOCUMENTATION_CLOSEOUT = MANDATORY**. Paper 1 task completion requires execution, tests, evidence,
   documentation closeout and valid Git status; otherwise status is `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING` with
   `TASK_DOCUMENTATION_CLOSEOUT_BLOCKER`.
-- Execution base commit: `3f8f9f1cf8637745dfdb3e404fb8983594c4913e`.
+- Execution base commit: `5f5796820c075d5f63449c14503fa8ff0aebe115`.
 - Candidate source identity: `candidates_v3_1_additive.jsonl` SHA256
   `15500aa75bced9fb470edaac98f9527e7bb4bc689b86583e6f69b892c48eb210`; final additive corpus SHA256
   `f530471ecd6551300d68c8ddf104cadce2305d8ff91e64010be222820628252d`.
 - Execution machine: **本机**. No model load、GPU workload、5090 contact、formal Dataset/Detector/Training or experiment occurred.
-- Current ordered step: Owner separately gives HUMAN-A01 and HUMAN-B01 only their own Phase2 V3.2 workbook、Guide V4、README V4
-  and original Independence Notice from `paper1_pilot4_phase2_usability_repair_20260909`; the two annotators remain isolated.
-- Current blocker: none for controlled Phase2 distribution. Both Phase1 raw returns passed byte/hash/schema/ID/order/enum/reason QA and
-  are immutable. `PHASE2_RELEASE_ALLOWED=TRUE`, while `A_PHASE2_DISTRIBUTED=FALSE`、`B_PHASE2_DISTRIBUTED=FALSE`、
-  `AGREEMENT_COMPUTED=FALSE` and `GROUND_TRUTH_CREATED=FALSE`.
+- Current ordered step: Owner reviews the disagreement-only packet and makes explicit decisions; Codex must not auto-adjudicate,
+  rewrite either return, load Expected V3 as an automatic answer key, or create Ground Truth.
+- Current blocker: `HUMAN_DECISION_REQUIRED`. Agreement preflight found 78 material field disagreements across 40 samples and five
+  B-side `LATE_DISCOVERED_CANDIDATE_DEFECT` flags. Owner must first classify those five flags, then adjudicate the remaining packet.
+  `AGREEMENT_COMPUTED=TRUE` and `GROUND_TRUTH_CREATED=FALSE`.
 - Owner acceptance: `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=TRUE / ACCEPTED_WITH_NONBLOCKING_NOTES`；all frozen A–F gates passed；
   the two nonblocking reviewer variances remain immutable and do not trigger R4.
 - Accepted stack: `PILOT4_ACCEPTED_ANNOTATION_STACK_V1` points to the existing Final72 corpus、Attempt2 final Phase1 protocol/raw、
@@ -130,9 +129,9 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PODR-057` and `PODR-058`.
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
-- S6.1-P1: **PHASE2_FIELD_REWORK_RISK_AUDITED / PHASE2_PROTOCOL_SEMANTICS_UNCHANGED / PHASE2_RELEASE_ALLOWED /
-  HUMAN_A01_PHASE2_V3_2_READY / HUMAN_B01_PHASE2_V3_2_READY / WAITING_FOR_OWNER_DUAL_PHASE2_DISTRIBUTION /
-  NO_AGREEMENT_YET / NO_GROUND_TRUTH_YET / NOT FORMAL_EXPERIMENT**.
+- S6.1-P1: **PILOT4_AB_ALL_FOUR_RAWS_LOCKED / DUAL_PHASE2_LOCK_GATE_PASS / AB_AGREEMENT_PREFLIGHT_COMPUTED /
+  OWNER_ADJUDICATION_PENDING / HUMAN_DECISION_REQUIRED / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET /
+  NOT FORMAL_EXPERIMENT**.
 - S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
 - S6.1-P1-PILOT1: **HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED**.
 - Historical S6.1-P1-PILOT1: **COMPLETED_PENDING_REVIEW / REAL_PUBLIC_SOURCE_FEASIBILITY_ONLY**；superseded by OR-024.
@@ -149,9 +148,9 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Historical PILOT4 first preflight: **OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / a843697 EVIDENCE PRESERVED**.
 - Historical PILOT4 second preflight: **SECOND_OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / cad3b2b EVIDENCE PRESERVED**.
 - PILOT4: **PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / ACCEPTED_WITH_NONBLOCKING_NOTES / PILOT4_CALIBRATION_CLOSED /
-  PILOT4_A_B_EXECUTION_APPROVED / PILOT4_AB_DUAL_PHASE1_RAW_LOCKED / DUAL_PHASE1_LOCK_GATE_PASS /
-  PHASE2_RELEASE_ALLOWED / BOTH_PHASE2_V3_2_READY / WAITING_FOR_OWNER_DUAL_PHASE2_DISTRIBUTION /
-  NO_AGREEMENT_YET / NO_GROUND_TRUTH_YET**.
+  PILOT4_A_B_EXECUTION_APPROVED / PILOT4_AB_ALL_FOUR_RAWS_LOCKED / DUAL_PHASE2_LOCK_GATE_PASS /
+  AB_AGREEMENT_PREFLIGHT_COMPUTED / OWNER_ADJUDICATION_PENDING / HUMAN_DECISION_REQUIRED /
+  EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET**.
 - PILOT4 candidates: **PILOT4_CANDIDATE_CORPUS_POST_EXTERNAL_PHASE1_REPAIR_V1 / 72 PREANNOTATION_CANDIDATES /
   NOT GROUND TRUTH / NOT FORMAL BENCHMARK / NOT FROZEN DATASET**.
 - PAPER1_FORMAL_DOMAIN_SET: **OWNER_CONFIRMED / ENTERPRISE_HR / FINANCE / INFORMATION_SECURITY /
@@ -315,10 +314,9 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - The accepted scope is research route, benchmark alignment, governance, context persistence and reproduction planning only.
 - Historical R0 execution approval and first `RETURNED_FOR_WORKER_CORRECTION` review remain preserved。The superseding corrected-
   evidence decision is `S6.1-R0 = HUMAN_ACCEPTED_WITH_BLOCKERS`。
-- Next operational action: Owner uses the same Attempt2 reviewer Project/conversation and gives it only
-  `PILOT4_EXTERNAL_BLIND_PHASE2_ATTEMPT2_PACKET.md` plus `PILOT4_EXTERNAL_BLIND_PHASE2_ATTEMPT2_GUIDE.md` from the new
-  Git-external release namespace. Phase1 is immutable；no automatic Phase2 annotation、expected comparison、A/B、240-group
-  scale-up、Dataset freeze、formal Detector、training、5090 or Formal Experiment is authorized.
+- Next operational action: Owner reviews the Pilot4 A/B disagreement-only packet. Begin with the five
+  `LATE_DISCOVERED_CANDIDATE_DEFECT` flags, then adjudicate the remaining material field disagreements. No automatic Ground Truth,
+  Candidate/Evidence repair, 240-group scale-up、Dataset freeze、formal Detector、training、5090 or Formal Experiment is authorized.
 - Human accepted: GOV-ER1, GOV-ER1-H1, GOV-PODR1, S6-T5.2, S6-T5.3-P1, S6-T5.3-H1, S6-T5.3 DenseRetriever, S6-T5.4-P1, S6-T5.4-I1, S6-T5.4-H1, and S6-T5.4.
 - S6-T5.3 human acceptance is limited to its documented offline engineering scope and deterministic test behavior.
 - `S6-T5.4` is **HUMAN_ACCEPTED**. Its acceptance does not approve S6-T5.6 ContextBuilder behavior; that remains a separate boundary.
@@ -396,7 +394,7 @@ are established.
 ## Last Update
 
 - Date: `2026-09-09`.
-- Updated by: 本机 executing `PILOT4-A-B-PHASE2-FIELD-REWORK-RISK-AUDIT-AND-MINIMAL-USABILITY-REPAIR-01 / REL-2026-0058`。
+- Updated by: 本机 executing `PILOT4-A-B-DUAL-PHASE2-RAW-LOCK-AND-AGREEMENT-PREFLIGHT-01 / REL-2026-0059`。
   The seven-field pre-edit audit found no schema/semantic blocker. Additive A/B Phase2 V3.2 workbooks preserve Candidate、72-row
   population、opaque IDs/order、Evidence Pool V2 identity、Guide V3.2 semantics、Expected V3 and canonical enums. Each workbook
   exposes 144/144 official URL strings with matching external hyperlink targets, retains 144/144 frozen snapshots as backup, and

@@ -1,5 +1,19 @@
 # Paper 1 人类可读实验总规划与实验总账
 
+## 2026-09-13：两位标注人的 Phase2 已锁定，当前需要 Owner 处理分歧
+
+HUMAN-A01 与 HUMAN-B01 都完成了第二阶段。控制面没有改答案，而是先把两本工作簿按原始字节保存，再核验 72 条编号、
+顺序、枚举、理由、条件逻辑和 Evidence 链接，最后导出严格八列 CSV。四份人工返回现在全部不可变锁定；只有在这个门
+关闭后，A/B 的不同匿名编号才被还原到同一 Candidate。本轮没有加载 Expected V3，也没有把预期答案当裁判。
+
+一致性预检显示：overall fact status 相同 54/72，version 59/72，authority 67/72，minimum evidence 62/72，derived stealth
+64/72。`evidence_selection` 反映“实际看了什么”，不是 benchmark 标签，因此它的 18/72 只作过程观察。总体有 78 个需要
+实质裁决的字段分歧，覆盖 40 个 Candidate；B 另标出五个 late candidate defect。它们可能是候选缺陷，也可能是标注理解
+差异，控制面不能替 Owner 自动决定。
+
+下一步不是重新让 A/B 全量标注，而是 Owner 只看 disagreement-only packet：先判断五个 defect flags，再逐项决定其余分歧。
+在裁决完成、pending=0 且所有门重新核验前，不生成 Ground Truth，也不启动 Dataset、Detector、Training、5090 或正式实验。
+
 ## 2026-09-09：Phase2 七字段返工风险已审计，V3.2 可以分别发放
 
 HUMAN-A01 与 HUMAN-B01 已各自独立完成 72 条第一阶段标注。控制面没有改动答案，而是按原始字节保存并核对：A 文件
@@ -21,8 +35,8 @@ SHA256 `b27d291dcf86088dccc9a7fc7e5dda1e5c1e7af54ac7db7c3bad5d78b215daf2`。两�
 Document Role = `PAPER1_PRIMARY_HUMAN_ENTRY`<br>
 Audience = `项目负责人 / 导师与领导 / 新团队成员`<br>
 Reading Path = `5 minutes / 15 minutes / 30 minutes`<br>
-Current Evidence Cut = `A/B execution approved / dual Phase1 raw locked / Phase2 V3.2 distribution-ready`<br>
-Last Updated = `2026-09-09`
+Current Evidence Cut = `all four A/B raws locked / agreement preflight complete / Owner adjudication pending`<br>
+Last Updated = `2026-09-13`
 
 > 这是一张“项目地图”，不是 raw evidence，也不产生新授权。读完第 0 节可掌握当前状态；读到第 8 节可理解论文方法；
 > 读完第 19 节可进入项目工作。精确状态、协议、决定和证据分别通过链接下钻。
@@ -35,20 +49,19 @@ Last Updated = `2026-09-09`
 | 英文论文题目 | *Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework* |
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
-| 当前阶段 | ✅ Pilot4 协议/A-B 执行已批准；双 Phase1 raw 已锁定；Phase2 七字段返工风险审计完成，语义不变的 V3.2 可受控分发。 |
-| 当前任务 | `PILOT4-A-B-PHASE2-FIELD-REWORK-RISK-AUDIT-AND-MINIMAL-USABILITY-REPAIR-01`：只做风险审计和 Phase2 人工 UX 修复。 |
-| 当前完成度 | ✅ A/B V3.2 各 72 行；官方 URL string/target 144/144、冻结快照 144/144、sheet protection 0、Guide V4 rule change 0。 |
-| 当前唯一人工动作 | Owner 分别给 HUMAN-A01/HUMAN-B01 本人的 V3.2 工作簿、Guide V4、README V4 和原 Independence Notice。 |
-| 当前主要 blocker | 没有 Phase2 分发 blocker；正在等待 Owner 分别发放。 |
-| 已经可以说什么 | A/B Phase1 raw 已不可变锁定，双门通过，Phase2 release allowed，两份 Phase2 V3.2 工具已就绪。 |
-| 绝对不能说什么 | 不得说 Phase2 已分发/完成、agreement 已计算、72 条已有 Ground Truth，或任何 Dataset/Detector/Formal Result 已形成。 |
+| 当前阶段 | ✅ Pilot4 协议/A-B 执行已批准；四份 A/B raw 已锁定；agreement preflight 已完成。 |
+| 当前任务 | `PILOT4-A-B-DUAL-PHASE2-RAW-LOCK-AND-AGREEMENT-PREFLIGHT-01`：锁定 Phase2 并把分歧交给 Owner。 |
+| 当前完成度 | ✅ A/B Phase2 72/72 QA、双锁、post-lock mapping、agreement 与 disagreement-only packet 已完成。 |
+| 当前唯一人工动作 | Owner 先裁决五个 late-candidate-defect flags，再填写其余 material disagreements。 |
+| 当前主要 blocker | `HUMAN_DECISION_REQUIRED`：78 个 material field disagreements，覆盖 40 个 sample。 |
+| 已经可以说什么 | 四份 raw 全部不可变锁定，agreement preflight 已计算，Expected V3 未加载。 |
+| 绝对不能说什么 | 不得说分歧已仲裁、72 条已有 Ground Truth，或任何 Dataset/Detector/Formal Result 已形成。 |
 
 当前实验状态固定为：
 
 当前状态枚举如下；它只说明已经批准和仍在等待的边界：
-`PHASE2_FIELD_REWORK_RISK_AUDITED / PHASE2_PROTOCOL_SEMANTICS_UNCHANGED / PHASE2_RELEASE_ALLOWED /
-HUMAN_A01_PHASE2_V3_2_READY / HUMAN_B01_PHASE2_V3_2_READY / WAITING_FOR_OWNER_DUAL_PHASE2_DISTRIBUTION /
-NO_AGREEMENT_YET / NO_GROUND_TRUTH_YET`
+`PILOT4_AB_ALL_FOUR_RAWS_LOCKED / DUAL_PHASE2_LOCK_GATE_PASS / AB_AGREEMENT_PREFLIGHT_COMPUTED /
+OWNER_ADJUDICATION_PENDING / HUMAN_DECISION_REQUIRED / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET`
 
 保留的历史状态链含 `PREANNOTATION_ONLY`：`PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT` →
 `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` → `PILOT4_QUALITY_CONVERGED` → Schema V3.1 hardening → 当前外部盲审包状态。历史 package 不被覆盖。
@@ -427,7 +440,7 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 
 ## 14. 当前项目状态
 
-- `PHASE2_FIELD_REWORK_RISK_AUDITED / PHASE2_PROTOCOL_SEMANTICS_UNCHANGED / PHASE2_GUIDE_V4_HUMAN_READY / HUMAN_A01_PHASE2_V3_2_READY / HUMAN_B01_PHASE2_V3_2_READY / WAITING_FOR_OWNER_DUAL_PHASE2_DISTRIBUTION / NO_AGREEMENT_YET / NO_GROUND_TRUTH_YET`
+- `PILOT4_AB_ALL_FOUR_RAWS_LOCKED / DUAL_PHASE2_LOCK_GATE_PASS / AB_AGREEMENT_PREFLIGHT_COMPUTED / OWNER_ADJUDICATION_PENDING / HUMAN_DECISION_REQUIRED / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET`
 - `PILOT_LEVEL_ANNOTATION_READINESS_ONLY`
 - `PILOT4_A_B_EXECUTION_APPROVED / PILOT4_AB_DUAL_PHASE1_RAW_LOCKED / PHASE2_RELEASE_ALLOWED`
 - 历史预检状态 `NO_HUMAN_DISTRIBUTION` 已被本轮 Owner 分发批准取代；它仅作为时间线事实保留，不能描述当前授权。
@@ -444,7 +457,7 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 - Targeted R3 raw 保持 `12062 bytes` / SHA `80a10a1e...0b4441`。Expected V3 先经 reviewer-blind 独立审计锁定，再加载 raw；
   只改 7 字段/6 候选。V3 overall `35/37`、version/authority/minimum/issue 各 `37/37`、exact `35/37`；M2 `2/16`、
   controls overall/exact `16/16`，M4/BR18 和 M8 4/4 通过，A–F 全部 PASS；只剩 2 条非系统性 reviewer variance。
-- A/B Phase1 已由两位真人独立完成并完成 raw lock；Phase2 已获受控释放许可但尚未实际分发。旧 Phase2 V3 保留且不再作为分发权威；当前仅 V3.2 + Guide V4 + README V4 + 原 Independence Notice 可分发；72 Ground Truth 未建立；
+- A/B Phase1 与 Phase2 已由两位真人独立完成并完成四 raw lock；dual Phase2 gate 后 mapping 已解锁并完成 agreement preflight；Expected V3 未加载。当前有 78 个 material field disagreements（40 samples）与五个 late-candidate-defect flags 待 Owner 裁决；72 Ground Truth 未建立；
   240-group 未开始；Dataset = `NOT FROZEN`（未冻结）。
 - Formal Detector = `NOT IMPLEMENTED`（未实现）；Formal Experiment = `NOT STARTED`（未开始）；Our Method Result = `NONE`。
 
@@ -452,7 +465,7 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 
 ## 15. 当前下一步
 
-唯一当前动作：**Owner 分别向 HUMAN-A01、HUMAN-B01 发送各自的四个 Phase2 文件：V3.2 工作簿、Guide V4、README V4、原 Independence Notice。** 不得发送旧 V3、另一标注人的包、mapping、Expected 或 control material。两份 Phase2 返回均原样锁定前，不得执行 mapping/Expected/agreement/adjudication/Ground Truth。
+唯一当前动作：**Owner 打开 disagreement-only packet，先裁决五个 `LATE_DISCOVERED_CANDIDATE_DEFECT` flags，再处理其余 material disagreements。** 不得改写原始 A/B 返回；若确认 Candidate/Evidence defect，必须走 additive repair 与定向复核门，不能直接生成 Ground Truth。
 
 ```text
 Attempt1 (immutable defect-discovery evidence)
