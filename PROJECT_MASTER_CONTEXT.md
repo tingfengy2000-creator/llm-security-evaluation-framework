@@ -1,5 +1,21 @@
 # LLMGuard 项目总控文档
 
+## PILOT4 Owner 盲态仲裁准备（2026-09-13）
+
+`PODR-093 / OR-055 / REL-2026-0060` 在不加载 Expected V3 的前提下重新核验四份 A/B raw，并从 raw 重算裁决前一致性；
+结果与既有 preflight 完全一致。Phase1 仍是 Candidate/QC 复现性，Phase2 是核心标签复现性；`evidence_selection` 仅作过程
+观察，derived stealth 只作确定性派生。本轮未设置事后通过阈值，也未生成 Ground Truth。
+
+新的 Git-external additive package `paper1_pilot4_owner_adjudication_prep_20260913` 提供中文友好的 Owner workbook：先处理
+5 个 Candidate 缺陷标记，再处理 78 个实质字段分歧；所有 Owner 输入初始为空，完整 canonical enum 下拉允许选择 A/B
+之外的第三值，冻结 Evidence 正文可按 sample 内链阅读。工作簿 SHA256 为
+`252501902ea9fdbfccc63b52fe18a27e9d96208be4a8c329503da25e512e8f38`；22 项 package aggregate 为
+`6ade7f091edda6b05320074a514ca967d7af5211dffb746adced78006b3c5bff`。Expected V3、研究者答案提示、自动仲裁和下游实验均保持关闭。
+
+当前状态：`PILOT4_AB_ALL_FOUR_RAWS_LOCKED / PRE_ADJUDICATION_REPRODUCIBILITY_FROZEN /
+OWNER_DEFECT_TRIAGE_WORKBOOK_READY / OWNER_EXPECTED_BLIND_ADJUDICATION_WORKBOOK_READY / EXPECTED_V3_NOT_LOADED /
+OWNER_DECISION_REQUIRED / NO_GROUND_TRUTH_YET`。下一步只能由 Owner 填写并返回工作簿。
+
 ## PILOT4 双 Phase2 锁定与 A/B 一致性预检（2026-09-13）
 
 `PODR-092 / OR-054 / REL-2026-0059` 记录 HUMAN-A01 与 HUMAN-B01 已独立完成 Phase2。控制面原样锁定两份 V3.2

@@ -54,13 +54,13 @@
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
 | 当前最高完成阶段 | S6-T5 Controlled Retrieval and Traceable Context Baseline 已 `HUMAN_ACCEPTED BASELINE`；S6.1-LR1 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`。 |
-| 当前任务 | `PILOT4-A-B-DUAL-PHASE2-RAW-LOCK-AND-AGREEMENT-PREFLIGHT-01`：锁定 A/B Phase2 raw 并计算 human-human agreement preflight。 |
-| 当前审批门 | A/B 四份 raw 已锁定；mapping 在双 Phase2 锁后解锁；agreement preflight 已完成；当前为 Owner disagreement adjudication gate。 |
-| 下一批准任务 | Owner 先处理五个 late-candidate-defect flags，再裁决 disagreement-only packet；GT 和所有下游实验仍关闭。 |
+| 当前任务 | `PILOT4-A-B-OWNER-DEFECT-TRIAGE-AND-BLIND-ADJUDICATION-PREP-01`：冻结仲裁前复现性并准备 Expected-blind Owner 工作簿。 |
+| 当前审批门 | 5 个 Candidate 缺陷决定与 78 个实质字段仲裁均等待 Owner；Expected V3 仍封存，GT 未生成。 |
+| 下一批准任务 | Owner 先填工作簿的缺陷优先表，再填可进入普通仲裁的字段并原样返回；随后另行批准 raw lock/import。 |
 | Baseline tag | annotated `s6-t5-rag-baseline-v1` 已恢复；本地/远端 peeled target 均核验为 `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
 | 最近工程验证 | H2 resume_02 archive SHA/safety/index `25/25`, H2-A `18/18`, exact local-model CUDA load, single-call and resource evidence passed Control Plane review。 |
-| 当前主要阻塞项 | `HUMAN_DECISION_REQUIRED`：78 个 material field disagreements 覆盖 40 个 sample，另有五个 late-candidate-defect flags；Ground Truth 尚未建立。 |
+| 当前主要阻塞项 | `OWNER_DECISION_REQUIRED`：Owner 工作簿的 5 个缺陷决定和 78 个字段决定均为空；Ground Truth 尚未建立。 |
 | 当前允许宣称 | Owner 已接受 Pilot4 标注协议并关闭校准；Accepted Stack V1 与 13 条证据支持 lessons 已冻结；这仅是 Pilot-level annotation readiness。 |
 | 当前禁止宣称 | GMTP reproduction/effectiveness/safety/generalization、strict baseline comparison、P1/formal experiment or paper result。 |
 

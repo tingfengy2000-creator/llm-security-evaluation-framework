@@ -1,5 +1,15 @@
 # Paper 1 人类可读实验总规划与实验总账
 
+## 2026-09-13：Owner 仲裁工具已准备，Expected 仍未打开
+
+我们没有让系统根据“预期答案”自动判谁对，而是先把 A/B 四份原始答卷的复现性再次固定下来。现在有一份专门给项目
+负责人使用的中文工作簿：第一页先处理 5 个“候选本身可能有缺陷”的问题；只有被判为标注理解差异的样本，才进入后面的
+普通字段仲裁。其余 78 个分歧按同一候选连续排列，并保留 A/B 原值、理由、规则和冻结官方证据。
+
+所有需要负责人填写的格子目前都是空的，系统没有代做决定。负责人可以从完整下拉选项中选择第三种值，不被迫在 A/B
+之间二选一。Expected V3 仍保持封存；只有工作簿填写完成并在下一任务中先按原始字节锁定、校验和提取 Owner 决定后，
+才可能单独批准加载 Expected 做研究者 QC。当前没有 Ground Truth，也没有开始数据集冻结、检测器、训练或正式实验。
+
 ## 2026-09-13：两位标注人的 Phase2 已锁定，当前需要 Owner 处理分歧
 
 HUMAN-A01 与 HUMAN-B01 都完成了第二阶段。控制面没有改答案，而是先把两本工作簿按原始字节保存，再核验 72 条编号、
@@ -35,7 +45,7 @@ SHA256 `b27d291dcf86088dccc9a7fc7e5dda1e5c1e7af54ac7db7c3bad5d78b215daf2`。两�
 Document Role = `PAPER1_PRIMARY_HUMAN_ENTRY`<br>
 Audience = `项目负责人 / 导师与领导 / 新团队成员`<br>
 Reading Path = `5 minutes / 15 minutes / 30 minutes`<br>
-Current Evidence Cut = `all four A/B raws locked / agreement preflight complete / Owner adjudication pending`<br>
+Current Evidence Cut = `all four A/B raws locked / pre-adjudication reproducibility frozen / Expected-blind Owner workbook ready`<br>
 Last Updated = `2026-09-13`
 
 > 这是一张“项目地图”，不是 raw evidence，也不产生新授权。读完第 0 节可掌握当前状态；读到第 8 节可理解论文方法；
@@ -50,11 +60,11 @@ Last Updated = `2026-09-13`
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
 | 当前阶段 | ✅ Pilot4 协议/A-B 执行已批准；四份 A/B raw 已锁定；agreement preflight 已完成。 |
-| 当前任务 | `PILOT4-A-B-DUAL-PHASE2-RAW-LOCK-AND-AGREEMENT-PREFLIGHT-01`：锁定 Phase2 并把分歧交给 Owner。 |
-| 当前完成度 | ✅ A/B Phase2 72/72 QA、双锁、post-lock mapping、agreement 与 disagreement-only packet 已完成。 |
-| 当前唯一人工动作 | Owner 先裁决五个 late-candidate-defect flags，再填写其余 material disagreements。 |
+| 当前任务 | `PILOT4-A-B-OWNER-DEFECT-TRIAGE-AND-BLIND-ADJUDICATION-PREP-01`：准备 Expected-blind Owner 仲裁工具。 |
+| 当前完成度 | ✅ 四 raw 复核、裁决前一致性冻结、五缺陷优先分流和 78 字段仲裁工作簿已完成。 |
+| 当前唯一人工动作 | Owner 先填 5 个缺陷决定，再填状态允许进入普通仲裁的字段并原样返回工作簿。 |
 | 当前主要 blocker | `HUMAN_DECISION_REQUIRED`：78 个 material field disagreements，覆盖 40 个 sample。 |
-| 已经可以说什么 | 四份 raw 全部不可变锁定，agreement preflight 已计算，Expected V3 未加载。 |
+| 已经可以说什么 | 四份 raw 全部不可变锁定，仲裁前复现性已冻结，Expected-blind Owner 工作簿已准备。 |
 | 绝对不能说什么 | 不得说分歧已仲裁、72 条已有 Ground Truth，或任何 Dataset/Detector/Formal Result 已形成。 |
 
 当前实验状态固定为：

@@ -2150,3 +2150,19 @@ Approval Gate、Auto Continue。
     `README_condition_evaluated=true`（root and Paper 1 first-screen states changed，updated）。
   - `cross_document_current_task_consistent=true`; `cross_document_status_consistent=true`;
     `cross_document_next_action_consistent=true`; `cross_document_blocker_consistent=true`; `markdown_links_valid=true`.
+
+## REL-2026-0060 — Pilot4 A/B Expected-blind Owner Adjudication Preparation
+
+- Date: `2026-09-13`; task `PILOT4-A-B-OWNER-DEFECT-TRIAGE-AND-BLIND-ADJUDICATION-PREP-01`; machine `本机控制面`;
+  authority `PODR-093 / OR-055`; execution base `346f2e24c7459fbd68694969a481729bbc88c271`.
+- Reverified the four locked raw identities and recomputed Phase1/Phase2 human-human metrics from raw-only data. Results exactly match
+  the prior preflight. No post-hoc threshold was introduced; weighted naturalness kappa is supplementary because the accepted protocol
+  does not define a weighting scheme; Gwet AC1 remains not computed because no existing stable project implementation was available.
+- Created an additive seven-sheet Owner workbook with five defect-first rows, 78 ordinary material disagreement rows, full canonical
+  dropdowns, Guide-rule summaries, internal links and full frozen Evidence text. Owner input cells are blank; no Expected values or
+  researcher answer hints are exposed.
+- Added a blank machine-readable decision template and a future import contract. Returned Owner workbooks must first be byte/hash
+  locked and validated; only a later separate gate may load Expected V3 for researcher QC.
+- Final status: `PILOT4_AB_ALL_FOUR_RAWS_LOCKED / PRE_ADJUDICATION_REPRODUCIBILITY_FROZEN /
+  OWNER_DEFECT_TRIAGE_WORKBOOK_READY / OWNER_EXPECTED_BLIND_ADJUDICATION_WORKBOOK_READY / EXPECTED_V3_NOT_LOADED /
+  OWNER_DECISION_REQUIRED / NO_GROUND_TRUTH_YET`.

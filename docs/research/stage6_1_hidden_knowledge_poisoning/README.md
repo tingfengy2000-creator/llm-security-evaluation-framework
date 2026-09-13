@@ -1,14 +1,15 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`PILOT4_AB_ALL_FOUR_RAWS_LOCKED / DUAL_PHASE2_LOCK_GATE_PASS / AB_AGREEMENT_PREFLIGHT_COMPUTED /
-> OWNER_ADJUDICATION_PENDING / HUMAN_DECISION_REQUIRED / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET`。
+> 当前实验状态：`PILOT4_AB_ALL_FOUR_RAWS_LOCKED / PRE_ADJUDICATION_REPRODUCIBILITY_FROZEN /
+> OWNER_DEFECT_TRIAGE_WORKBOOK_READY / OWNER_EXPECTED_BLIND_ADJUDICATION_WORKBOOK_READY /
+> EXPECTED_V3_NOT_LOADED / OWNER_DECISION_REQUIRED / NO_GROUND_TRUTH_YET`。
 > Owner 已按 M2 `2/16`、matched controls `16/16`、M4 `0`、M8 `4/4` 和其余冻结门全部 PASS 正式接受 Protocol；
 > 两条 residual reviewer variance 保持不可变且不触发 R4。Accepted Stack 绑定 Final72、Attempt2 Phase1、Guide V3.2、
 > Expected V3、Evidence Pool V2 与 frozen snapshot + URL provenance。Owner 已指定两个不同真人并批准 A/B 执行与
 > Phase1 分发；V1 因 human usability 被 V2 替代但原样保留。A/B 已独立完成 Phase1，两份 raw 已原样锁定并通过双门。
 > Candidate、ID、顺序与研究规则均未变化；A/B Phase2 V3.2 返回均已锁定并通过 QA，映射只在四 raw 锁定后解锁。
-> Agreement preflight 发现 78 个 material field disagreements（40 个 sample）及五个 late-candidate-defect flags，等待 Owner
-> disagreement-only adjudication。72 条候选仍无 Ground Truth，240-group、
+> Agreement preflight 发现的 78 个 material field disagreements（40 个 sample）及五个 late-candidate-defect flags 已进入
+> 空白、Expected-blind Owner 工作簿；Owner 必须先做缺陷分流，再做普通字段仲裁。72 条候选仍无 Ground Truth，240-group、
 > Dataset freeze、Formal Detector、Training、5090、Formal Experiment 和 Paper Result 均未开始。
 > `FORMAL_EXPERIMENT = NOT STARTED`；`DATASET_FORMAL_FREEZE = NOT STARTED`。
 
@@ -45,7 +46,7 @@
 - [S6.1-LR1](stage_process/S6.1-LR1_work_process.md) — 路线与 baseline alignment，已关闭。
 - [S6.1-R0](stage_process/S6.1-R0_work_process.md) — 工程预检，已按边界验收。
 - [S6.1-R0-FU1](stage_process/S6.1-R0-FU1_work_process.md) — W2 单样本工程可行性，已关闭。
-- [S6.1-P1](stage_process/S6.1-P1_work_process.md) — P1-R1、Pilot0–4 的追加式过程；协议已验收、A/B 四份 raw 已锁定，agreement preflight 已完成，当前等待 Owner 裁决。
+- [S6.1-P1](stage_process/S6.1-P1_work_process.md) — P1-R1、Pilot0–4 的追加式过程；四份 raw 与仲裁前复现性已冻结，Expected-blind Owner 工作簿已准备。
 
 ## Pilot Records
 

@@ -16,27 +16,31 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `PILOT4-A-B-DUAL-PHASE2-RAW-LOCK-AND-AGREEMENT-PREFLIGHT-01`.
-- Task name: `Pilot4 A/B Dual Phase2 Raw Lock and Agreement Preflight`.
-- Task type: **IMMUTABLE DUAL RAW LOCK / HUMAN-HUMAN AGREEMENT PREFLIGHT / OWNER-ONLY DISAGREEMENT ESCALATION**.
-- Engineering status: **A/B PHASE2 V3.2 RAW AND CANONICAL CSV LOCKED / DUAL PHASE2 LOCK GATE PASS /
-  MAPPING UNLOCKED AFTER FOUR RAW LOCKS / AGREEMENT PREFLIGHT COMPLETE / DOCUMENTATION CLOSEOUT PASS**.
-- Experiment status: **PILOT4_AB_ALL_FOUR_RAWS_LOCKED / AB_AGREEMENT_PREFLIGHT_COMPUTED /
-  OWNER_ADJUDICATION_PENDING / HUMAN_DECISION_REQUIRED / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET / AUTO_CONTINUE_NO**.
+- Task ID: `PILOT4-A-B-OWNER-DEFECT-TRIAGE-AND-BLIND-ADJUDICATION-PREP-01`.
+- Task name: `Pilot4 A/B Pre-Adjudication Reproducibility Freeze, Candidate-Defect Triage and Expected-Blind Owner Adjudication Workbook Preparation`.
+- Task type: **RAW-ONLY REPRODUCIBILITY FREEZE / OWNER DEFECT-TRIAGE TOOLING / EXPECTED-BLIND ADJUDICATION PREPARATION**.
+- Engineering status: **FOUR RAW IDENTITIES REVERIFIED / PRE-ADJUDICATION METRICS RECOMPUTED / FIVE-DEFECT-FIRST OWNER WORKBOOK READY /
+  78 MATERIAL FIELD ROWS READY / EXPECTED V3 SEALED / DOCUMENTATION CLOSEOUT PASS**.
+- Experiment status: **PILOT4_AB_ALL_FOUR_RAWS_LOCKED / PRE_ADJUDICATION_REPRODUCIBILITY_FROZEN /
+  OWNER_DEFECT_TRIAGE_WORKBOOK_READY / OWNER_EXPECTED_BLIND_ADJUDICATION_WORKBOOK_READY / EXPECTED_V3_NOT_LOADED /
+  OWNER_DECISION_REQUIRED / NO_GROUND_TRUTH_YET / AUTO_CONTINUE_NO**.
 - Documentation gate: **PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED / HUMAN_LEDGER_CONTINUOUS_SYNC =
   MANDATORY / TASK_DOCUMENTATION_CLOSEOUT = MANDATORY**. Paper 1 task completion requires execution, tests, evidence,
   documentation closeout and valid Git status; otherwise status is `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING` with
   `TASK_DOCUMENTATION_CLOSEOUT_BLOCKER`.
-- Execution base commit: `5f5796820c075d5f63449c14503fa8ff0aebe115`.
+- Execution base commit: `346f2e24c7459fbd68694969a481729bbc88c271`.
 - Candidate source identity: `candidates_v3_1_additive.jsonl` SHA256
   `15500aa75bced9fb470edaac98f9527e7bb4bc689b86583e6f69b892c48eb210`; final additive corpus SHA256
   `f530471ecd6551300d68c8ddf104cadce2305d8ff91e64010be222820628252d`.
 - Execution machine: **本机**. No model load、GPU workload、5090 contact、formal Dataset/Detector/Training or experiment occurred.
-- Current ordered step: Owner reviews the disagreement-only packet and makes explicit decisions; Codex must not auto-adjudicate,
-  rewrite either return, load Expected V3 as an automatic answer key, or create Ground Truth.
-- Current blocker: `HUMAN_DECISION_REQUIRED`. Agreement preflight found 78 material field disagreements across 40 samples and five
-  B-side `LATE_DISCOVERED_CANDIDATE_DEFECT` flags. Owner must first classify those five flags, then adjudicate the remaining packet.
-  `AGREEMENT_COMPUTED=TRUE` and `GROUND_TRUTH_CREATED=FALSE`.
+- Current ordered step: Owner opens the prepared workbook, first classifies all five Candidate-defect flags, then adjudicates only
+  rows routed as `READY_FOR_OWNER_ADJUDICATION`. Codex must not prefill decisions, load Expected V3, or create Ground Truth.
+- Current blocker: `OWNER_DECISION_REQUIRED`. The workbook contains five blank defect decisions and 78 blank material field
+  adjudications. Confirmed defects must be quarantined; targeted rereview decisions remain on hold. The returned workbook must be
+  raw-locked and validated in a later separately authorized task before Expected V3 may be loaded for researcher QC.
+- Current evidence: Git-external namespace `paper1_pilot4_owner_adjudication_prep_20260913`; workbook SHA256
+  `252501902ea9fdbfccc63b52fe18a27e9d96208be4a8c329503da25e512e8f38`; package aggregate SHA256
+  `6ade7f091edda6b05320074a514ca967d7af5211dffb746adced78006b3c5bff` across 22 manifest entries.
 - Owner acceptance: `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=TRUE / ACCEPTED_WITH_NONBLOCKING_NOTES`；all frozen A–F gates passed；
   the two nonblocking reviewer variances remain immutable and do not trigger R4.
 - Accepted stack: `PILOT4_ACCEPTED_ANNOTATION_STACK_V1` points to the existing Final72 corpus、Attempt2 final Phase1 protocol/raw、

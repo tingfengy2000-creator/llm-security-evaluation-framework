@@ -1598,3 +1598,19 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   OWNER_ADJUDICATION_PENDING / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET / AUTO_CONTINUE_NO`.
 - Canonical records: `OR-054`, `REL-2026-0059`, [current work state](current_work_state.md) and Git-external
   `paper1_pilot4_ab_phase2_raw_lock_agreement_20260913`.
+
+## PODR-093: Pilot4 Expected-blind Owner Defect Triage and Adjudication Preparation
+
+- Date: `2026-09-13`.
+- Owner authorization: freeze raw-only pre-adjudication reproducibility and prepare a Chinese-friendly workbook without loading or
+  comparing Expected V3. All Owner decision cells must remain blank at delivery.
+- Ordered decision gate: first classify exactly five Candidate flags using `CONFIRMED_DEFECT / ANNOTATOR_INTERPRETATION_VARIANCE /
+  NEEDS_TARGETED_REREVIEW`; only the interpretation-variance route may proceed to ordinary field adjudication.
+- Ordinary adjudication: 78 material disagreement rows grouped by sample and field, full canonical dropdowns, A/B reasons, Guide rule
+  summaries and frozen Evidence. `evidence_selection` remains process-only and derived stealth is not directly adjudicated.
+- Future import boundary: raw-lock the returned workbook, validate, extract defect routing, extract only eligible field decisions,
+  create an immutable Owner record, and only then request separate authorization to load Expected V3 for researcher QC.
+- Prohibited: automatic adjudication, raw/Candidate/Evidence rewrite, Ground Truth, Dataset freeze, Detector, Training, 5090 or formal
+  experiment. Current status is `OWNER_DECISION_REQUIRED / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET`.
+- Canonical records: `OR-055`, `REL-2026-0060`, [current work state](current_work_state.md) and Git-external
+  `paper1_pilot4_owner_adjudication_prep_20260913`.
