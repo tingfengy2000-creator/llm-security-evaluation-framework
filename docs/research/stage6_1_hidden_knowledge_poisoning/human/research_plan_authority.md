@@ -141,7 +141,7 @@ Paper 1 包括 Benchmark、Detection、Risk Score、Signals、Explanation，以�
 5. Pilot0–2 已在各自可行性范围关闭；Pilot3 只完成信号诊断；Pilot4 已完成协议、双人工两阶段标注、Owner 盲态仲裁、
    Expected QC 与 Final72 GT。Owner 已登记 `PILOT4_FINAL72_GT_ACCEPTED /
    ACCEPTED_WITH_KNOWN_EVIDENCE_LIMITATIONS / PILOT4_GT_CONSTRUCTION_CLOSED`。Final72 仅作为 development/method-engineering
-   set；Signal Feasibility execution 尚未批准。
+   集；信号可行性已在“仅限开发集、无标签提取”的合同下执行并收口为 `READY_WITH_VIEW_LIMITATIONS`。
 6. 240-group Scale Pilot、Benchmark freeze、Detector、Formal Evaluation、Ablation、Generalization、Option B effectiveness
    和 Paper Writing 均需各自审批与证据门。
 
@@ -153,10 +153,13 @@ Paper 1 包括 Benchmark、Detection、Risk Score、Signals、Explanation，以�
 - 模型 revision、环境、随机种子、指标、统计和资源预算冻结。
 - 项目需求提出人明确批准 S6.1-P1 及后续相应阶段。
 
-当前 `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；Pilot4 Final72 GT 已由 Owner 正式接受，五视角 Signal/
-Detection 合同与接口工程已启动。下一实验门只允许在单独审批后执行 `SIGNAL_FEASIBILITY_AND_SEPARABILITY_STUDY`；该门
-必须先冻结 input/query/retriever/embedding/model/signal parameters/missing handling/statistics/resources。240-group、正式
-Dataset freeze、正式 Detector evaluation/training、Retrieval Intervention effectiveness、5090 和 Formal Experiment 均未批准。
+当前 `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；Pilot4 Final72 真值已由项目负责人正式接受。五视角信号
+可行性已按无标签提取、原始矩阵锁定、后加载标签的顺序执行：S/E/P/T 有可计算项，R 因无冻结查询与检索运行记录
+而存在输入缺口，MLM/PPL 因无冻结模型不可用。下一推荐门是独立审批的
+`P1-RETRIEVAL-BEHAVIOR-SIGNAL-HARNESS-01`。240-group、正式 Dataset freeze、Detector evaluation/training、Retrieval
+Intervention effectiveness、5090 和 Formal Experiment 均未批准。
+
+这表示当前只确认“部分证据可提取且值得继续研究”，不表示分类器已经完成，也不表示论文效果已经得到证明。
 
 ## 15. 结论边界
 
@@ -189,6 +192,7 @@ Dataset freeze、正式 Detector evaluation/training、Retrieval Intervention ef
 | RPC-006 | 2026-09-01 | 三/四领域 Pilot 历史与正式领域规划分散 | 正式 Paper 1 领域冻结为 D1–D5；未来 Scale Pilot 规划 240 independent groups，明确未执行、未生成、未冻结 | 支持正式 Benchmark 跨领域规划，同时不改写 Pilot4 四领域历史 | 是；GOV-P1-HUMAN-DOCS-INTEGRATION-01 | future Scale Pilot / Formal Benchmark | 本次提交 |
 | RPC-007 | 2026-09-03 | Pilot4 Protocol 等待 Owner 最终决定 | Owner 按冻结 Gate A–F 接受 Pilot4 annotation protocol 并关闭 calibration；Accepted Stack V1 冻结，A/B execution 保持独立待批准门 | 全部预先冻结 gate 已通过，只剩两条非系统 reviewer variance；继续 R4 无相称方法学收益 | 是；PILOT4-OWNER-PROTOCOL-ACCEPTANCE-AND-AB-EXECUTION-PREFLIGHT-01 | Pilot4 closure / A-B preflight | 本次提交 |
 | RPC-008 | 2026-09-15 | Final72 GT Candidate 等待接受；五视角仅有分散的 Pilot 诊断合同 | Owner 接受并冻结 Final72 GT 为 development/method-engineering set，冻结 `Benchmark→Signals→Detection→Risk→Explanation→Retrieval Detoxification` 方法链、五视角 Signal Contract V1、baseline/fusion/metric/ablation/scale-readiness 与接口骨架 | 关闭人工 Benchmark GT 构建并进入不产生结果的 method engineering，同时保护 untouched test 与 label isolation | 是；OR-059 / PODR-097 | Final72 GT / Signal-Detection kickoff | 本次提交 |
+| RPC-009 | 2026-09-15 | 五视角仅有合同与接口，实际信号执行未批准 | 项目负责人批准 Final72 开发集无标签可行性运行；结果 S/E/P/T 部分可用、R 存在输入缺口，进入 `READY_WITH_VIEW_LIMITATIONS`，并把检索行为信号工具链设为下一独立审批门 | 用实际可用性与可分性证据约束检测器和 240-group 元数据设计，同时不跨训练或正式结果门 | 是；OR-060 / PODR-098 | 信号可行性与检索工具链门 | 本次提交 |
 
 历史与支撑路线：[paper1_research_route.md](../paper1_research_route.md)，其 `Document Role = HISTORICAL_AND_SUPPORTING_RESEARCH_ROUTE`，不能覆盖本文件。
 

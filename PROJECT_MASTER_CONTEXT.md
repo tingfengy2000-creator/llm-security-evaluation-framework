@@ -1,5 +1,26 @@
 # LLMGuard 项目总控文档
 
+## Final72 五视角 Signal Feasibility 执行（2026-09-15）
+
+Owner 通过 `PODR-098 / OR-060 / REL-2026-0065` 批准并完成
+`P1-FINAL72-FIVE-VIEW-SIGNAL-FEASIBILITY-EXECUTION-01`。本轮在 Final72 development set 上以三个物理隔离进程完成：
+先生成不含标签的安全输入投影，再提取并锁定 72×42=`3024` 条 raw signal，最后才加载 class、HKP、S 与 matched-group
+设计标签做描述性分析。Raw JSONL SHA256 为
+`ab63568b86b035fa26291e8459606aacf8b745ce7f97e4b628a1da9d390fc4fd`；analysis JSONL SHA256 为
+`86a9e14be536d664e3f85f6e32f0eb172b1c47ce0ab94bb1292ab7bcc037447d`。Expected V3、GT value、A/B 与 Owner
+仲裁均未进入 feature，raw matrix forbidden-label hit 为 0。
+
+Semantic、Entity-Claim、Provenance 与 Temporal-Version 均产生可审计的 computed signals；Retrieval-Behavior 因没有冻结
+query、retriever、top-k/score trace 而 720/720 为 `INPUT_MISSING`。MLM/PPL 因没有冻结 checkpoint/tokenizer 为
+`MODEL_UNAVAILABLE`，GMTP 为 `DEFERRED_WITH_REASON`，没有下载模型或改变环境。类别为 Clean/Poison/Hard Negative
+各 24，24 个 matched groups 完整。单信号效应量与 AUROC/AUPRC 仅是 development-set diagnostic；没有训练 Detector、
+选择阈值、校准风险或形成正式论文效果。Applicability leakage finding 为 0；七个已知 Evidence-limitation sample 未呈现
+强类别集中，但 missingness 仍禁止作为 feature。
+
+当前结论：`FINAL72_SIGNAL_FEASIBILITY_COMPLETE / READY_WITH_VIEW_LIMITATIONS`。下一门推荐
+`P1-RETRIEVAL-BEHAVIOR-SIGNAL-HARNESS-01`，用于冻结合法 query/retriever/corpus/run trace 并补齐 Retrieval View；这不是
+自动授权，第一版 Detector training、240-group、Dataset freeze、5090 和正式实验仍需独立批准。
+
 ## Final72 GT 正式验收与 Signals/Detection 工程启动（2026-09-15）
 
 Owner 通过 `PODR-097 / OR-059 / REL-2026-0064` 以

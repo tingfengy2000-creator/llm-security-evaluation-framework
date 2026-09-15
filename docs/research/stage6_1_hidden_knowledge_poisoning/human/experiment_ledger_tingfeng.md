@@ -1,5 +1,23 @@
 # Paper 1 人类可读实验总规划与实验总账
 
+## 2026-09-15：Final72 五视角信号可行性已完成，尚未训练分类器
+
+我们现在不是在“训练分类器”，而是在检查五种安全证据是否真的存在、能否稳定提取，以及是否包含区分 Poison 和合法历史
+Hard Negative 的信息。控制面先从候选、冻结 Evidence 与来源/版本信息生成无标签输入；另一个进程只读取这份输入，生成
+72×42=`3024` 条 raw signal 并按 SHA 锁定；第三个进程核验锁定后，才加载 Clean/Poison/Hard Negative、HKP、S 和
+matched-group 身份。Raw 中没有这些标签，也没有 Expected、A/B 或 Owner 仲裁值。
+
+实际结果是：Semantic、Entity-Claim、Provenance、Temporal-Version 都有可计算信号，但很多只是确定性规则代理，部分为
+常量、近常量或高度相关；Retrieval-Behavior 因 Final72 没有冻结合法 query 与独立 retrieval run，全部 720 项都标为
+`INPUT_MISSING`，没有用标签倒推 query。MLM/PPL 没有冻结模型，因此保持 `MODEL_UNAVAILABLE`；GMTP 也因缺少完整可复现
+依赖而推迟。类别各 24 条，24 个 Clean/Poison/Hard Negative 匹配组完整；Applicability 没有发现达到门槛的类别泄漏，
+七个已知 Evidence 限制样本也没有形成强类别集中。
+
+单信号的 Cliff's delta、AUROC/AUPRC 和 matched-group 方向仅用于 development-set 诊断，不能叫 Detector 准确率，更不能
+声称方法优于 baseline、可泛化或达到论文结果。当前结论是 `READY_WITH_VIEW_LIMITATIONS`：S/E/P/T 足以继续方法工程，
+但五视角版本在训练前应先补齐 Retrieval 输入。建议的下一任务是
+`P1-RETRIEVAL-BEHAVIOR-SIGNAL-HARNESS-01`，仍需 Owner 单独批准。
+
 ## 2026-09-15：Final72 Ground Truth 正式接受，进入 Signals / Detection 方法工程
 
 项目负责人已经以“接受，但保留已知冻结证据限制”的方式正式验收 Final72 Ground Truth。72 条候选、576 个最终字段和
@@ -110,7 +128,7 @@ SHA256 `b27d291dcf86088dccc9a7fc7e5dda1e5c1e7af54ac7db7c3bad5d78b215daf2`。两�
 Document Role = `PAPER1_PRIMARY_HUMAN_ENTRY`<br>
 Audience = `项目负责人 / 导师与领导 / 新团队成员`<br>
 Reading Path = `5 minutes / 15 minutes / 30 minutes`<br>
-Current Evidence Cut = `Owner adjudication consistency closed / 9 of 9 findings resolved / Expected sealed / no Ground Truth`<br>
+Current Evidence Cut = `Final72 signal feasibility complete / raw lock before labels / ready with view limitations`<br>
 Last Updated = `2026-09-15`
 
 > 这是一张“项目地图”，不是 raw evidence，也不产生新授权。读完第 0 节可掌握当前状态；读到第 8 节可理解论文方法；
@@ -124,20 +142,19 @@ Last Updated = `2026-09-15`
 | 英文论文题目 | *Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework* |
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
-| 当前阶段 | ✅ Pilot4 协议/A-B 执行已批准；四份 A/B raw 已锁定；agreement preflight 已完成。 |
-| 当前任务 | `PILOT4-A-B-OWNER-ADJUDICATION-CONSISTENCY-CLOSURE-01`：追加绑定 Owner correction 并验证完整 candidate view。 |
-| 当前完成度 | ✅ 9/9 finding 已解决；72×8 candidate view 一致性 PASS；原始 workbook/raw 不变。 |
-| 当前唯一人工动作 | Owner 决定是否另行批准加载 Expected V3；本任务不会自动继续。 |
-| 当前主要 blocker | 本轮一致性 blocker 为 `0`；下一门仍是 Owner 审批。 |
-| 已经可以说什么 | `OWNER_ADJUDICATION_CONSISTENCY_CLOSED`，且 correction lineage 可逐字段追溯。 |
-| 绝对不能说什么 | 不得把候选视图称为 Ground Truth，或宣称 Dataset/Detector/Formal Result 已形成。 |
+| 当前阶段 | ✅ Final72 GT 已接受；五视角 signal feasibility 已完成。 |
+| 当前任务 | `P1-FINAL72-FIVE-VIEW-SIGNAL-FEASIBILITY-EXECUTION-01`：无标签提取、锁定后描述性分析。 |
+| 当前完成度 | ✅ 72×42 raw、availability、quality、class/matched/HKP/S/redundancy/bias analysis 全部完成。 |
+| 当前唯一人工动作 | Owner 决定是否批准 Retrieval-Behavior harness；本任务不会自动训练 Detector。 |
+| 当前主要 blocker | 无 label leakage blocker；Retrieval 缺少冻结 query/retriever/run trace。 |
+| 已经可以说什么 | Final72 development set 上存在若干有潜力信号，但带覆盖率与规则代理限制。 |
+| 绝对不能说什么 | 不得称为 Detector 结果、正式 test 结果、superiority、generalization 或有效防御。 |
 
 当前实验状态固定为：
 
 当前状态枚举如下；它只说明已经批准和仍在等待的边界：
-`PILOT4_AB_ALL_FOUR_RAWS_LOCKED / DUAL_PHASE2_LOCK_GATE_PASS / AB_AGREEMENT_PREFLIGHT_COMPUTED /
-OWNER_ADJUDICATION_RETURN_RAW_LOCKED / OWNER_ADJUDICATION_CONSISTENCY_CLOSED /
-UNRESOLVED_CONSISTENCY_BLOCKER_0 / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET / WAITING_FOR_OWNER_NEXT_APPROVAL`
+`PILOT4_FINAL72_GT_ACCEPTED / FINAL72_SIGNAL_FEASIBILITY_COMPLETE / READY_WITH_VIEW_LIMITATIONS /
+RETRIEVAL_VIEW_INPUT_GAP / NO_DETECTOR_TRAINING / NO_FORMAL_RESULT / AUTO_CONTINUE_NO`
 
 保留的历史状态链含 `PREANNOTATION_ONLY`：`PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT` →
 `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` → `PILOT4_QUALITY_CONVERGED` → Schema V3.1 hardening → 当前外部盲审包状态。历史 package 不被覆盖。
@@ -541,7 +558,9 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 
 ## 15. 当前下一步
 
-唯一当前动作：**Owner 打开 disagreement-only packet，先裁决五个 `LATE_DISCOVERED_CANDIDATE_DEFECT` flags，再处理其余 material disagreements。** 不得改写原始 A/B 返回；若确认 Candidate/Evidence defect，必须走 additive repair 与定向复核门，不能直接生成 Ground Truth。
+唯一当前动作：**Owner 决定是否批准 `P1-RETRIEVAL-BEHAVIOR-SIGNAL-HARNESS-01`。** 该任务应冻结合法 query、retriever、
+corpus、top-k、score 和 repeated-run trace，再补齐 Retrieval View。当前也可以另行讨论四视角 prototype，但任何 Detector
+training、threshold tuning、240-group 或正式结果都必须是独立审批，不能由本轮自动继续。
 
 ```text
 Attempt1 (immutable defect-discovery evidence)
@@ -554,12 +573,12 @@ Attempt1 (immutable defect-discovery evidence)
                                  └─ A/B approved + roster frozen + V1 preserved but human-usability superseded
                                       └─ V2 manuals/packets ready, Phase2 V2 withheld
                                            └─ dual Phase1 raw locked -> Phase2 V3.2 UX repaired without semantic changes
-                                                └─ current: Owner separately distributes each four-file Phase2 V3.2 package
+                                                └─ A/B complete -> Owner adjudication -> Final72 GT accepted
+                                                     └─ label-blind 42-signal extraction -> raw lock -> analysis
+                                                          └─ current: READY_WITH_VIEW_LIMITATIONS / Retrieval input gap
 
 未来在独立审批下：
-A/B Phase1 dual lock -> simultaneous A/B Phase2 release -> A/B Phase2 dual lock -> agreement -> adjudication -> 72 GT
-    -> signal re-evaluation -> Scale Readiness
-    -> Owner 单独批准 -> 240-group
+Retrieval harness -> optional first multiview detector prototype -> Scale Readiness -> Owner 单独批准 -> 240-group
 ```
 
 ## 16. 论文实验指标

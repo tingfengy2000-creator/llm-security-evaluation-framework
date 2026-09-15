@@ -1,8 +1,7 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`PILOT4_FINAL72_GT_ACCEPTED / PILOT4_GT_CONSTRUCTION_CLOSED /
-> PAPER1_SIGNAL_DETECTION_ENGINEERING_STARTED / FINAL72_DEVELOPMENT_SET_ACTIVE /
-> FORMAL_SCALE_BENCHMARK_PENDING / NO_FORMAL_DETECTOR_RESULT_YET`。
+> 当前实验状态：`FINAL72_SIGNAL_FEASIBILITY_COMPLETE / READY_WITH_VIEW_LIMITATIONS /
+> RETRIEVAL_VIEW_INPUT_GAP / NO_FORMAL_DETECTOR_RESULT_YET`。
 > Owner 已按 M2 `2/16`、matched controls `16/16`、M4 `0`、M8 `4/4` 和其余冻结门全部 PASS 正式接受 Protocol；
 > 两条 residual reviewer variance 保持不可变且不触发 R4。Accepted Stack 绑定 Final72、Attempt2 Phase1、Guide V3.2、
 > Expected V3、Evidence Pool V2 与 frozen snapshot + URL provenance。Owner 已指定两个不同真人并批准 A/B 执行与
@@ -16,8 +15,10 @@
 > 重建为 72 条/576 字段；Expected 显式定义的 504 个字段中 469 个一致，35 个差异均已分类，新的 GT blocker 为 0。
 > Owner 已以 `ACCEPTED_WITH_KNOWN_EVIDENCE_LIMITATIONS` 接受 Final72 GT；72/576 与 lineage 完整，11 项已知冻结
 > Evidence limitation 继续显式编码。Final72 只能用于 development/method engineering，不是 untouched final test。
-> 五视角 Signal/Detection 合同和接口骨架已启动；actual signal study、240-group、Dataset freeze、正式 Detector、Training、
-> 5090、Formal Experiment 和 Paper Result 均未开始。
+> 五视角 signal feasibility 已按 label-blind raw lock → post-lock analysis 的顺序完成。72×42 raw records 不含 class/HKP/S/
+> GT/Expected/Owner 字段；S/E/P/T 有可计算项，Retrieval 因无冻结 query/run trace 为 input gap，MLM/PPL 因无冻结模型不可用。
+> 这些是 development-set 单信号诊断，不是 Detector 或论文结果；240-group、Dataset freeze、正式 Detector、Training、5090、
+> Formal Experiment 和 Paper Result 均未开始。
 > `FORMAL_EXPERIMENT = NOT STARTED`；`DATASET_FORMAL_FREEZE = NOT STARTED`。
 
 ## First screen routing
@@ -50,6 +51,8 @@
 
 - [Five-view Signal Contract V1](method_engineering/PAPER1_FIVE_VIEW_SIGNAL_CONTRACT_V1.md)
 - [Signal Feasibility Experiment Spec V1](method_engineering/SIGNAL_FEASIBILITY_EXPERIMENT_SPEC_V1.md)
+- [Final72 Five-view Signal Feasibility Report V1](method_engineering/PAPER1_FINAL72_FIVE_VIEW_SIGNAL_FEASIBILITY_REPORT_V1.md)
+- [Signal-to-Scale Requirement Feedback V1](benchmark/PAPER1_SIGNAL_TO_SCALE_REQUIREMENT_FEEDBACK_V1.md)
 - [Baseline Matrix V1](method_engineering/PAPER1_BASELINE_MATRIX_V1.md)
 - [Fusion, Risk and Explanation Design V1](method_engineering/PAPER1_FUSION_RISK_EXPLANATION_DESIGN_V1.md)
 - [Metric and Ablation Contract V1](method_engineering/PAPER1_METRIC_AND_ABLATION_CONTRACT_V1.md)

@@ -12,10 +12,10 @@ It is not affiliated with or derived from Protect AI's llm-guard project.
 面试复习入口：[interview_prep/README.md](interview_prep/README.md)
 项目总控：[PROJECT_MASTER_CONTEXT.md](PROJECT_MASTER_CONTEXT.md)
 
-Paper 1 当前门：A/B 的 Phase1 与 Phase2 四份 raw 已全部按字节锁定，裁决前复现性已经重新冻结；Expected V3 未加载。
-中文 Owner 工作簿已准备，要求先处理五个 late-candidate-defect flags，再处理 78 个 material field disagreements；所有
-Owner 决定均为空并等待人工填写。Ground Truth、
-Dataset freeze、Detector、Training 与 Formal Experiment 均未启动。详见
+Paper 1 当前门：Final72 GT 已正式接受为 development/method-engineering set；42 项五视角 signal 已在无标签输入上提取并
+锁定 3,024 条 raw records，之后才加载分析标签。当前为 `READY_WITH_VIEW_LIMITATIONS`：S/E/P/T 可用于后续工程，
+Retrieval 因缺少冻结 query/retrieval trace 暂不可用。尚未训练 Detector、选择阈值、冻结正式 Dataset 或执行 Formal
+Experiment。详见
 [Paper 1 Start Here](docs/research/stage6_1_hidden_knowledge_poisoning/README.md)。
 
 ## Repository Map

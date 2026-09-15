@@ -1,6 +1,6 @@
 # Signal Feasibility and Separability Study Spec V1
 
-Status = `PREPARED / EXECUTION_NOT_APPROVED`
+Status = `OWNER_APPROVED / EXECUTED / DEVELOPMENT_SET_DIAGNOSTIC_ONLY`
 Population role = `FINAL72 DEVELOPMENT_AND_METHOD_ENGINEERING_SET`
 
 ## 目标与问题
@@ -38,8 +38,19 @@ Population role = `FINAL72 DEVELOPMENT_AND_METHOD_ENGINEERING_SET`
 - extractor、retriever、feature vector 和 inference payload 不得访问 label、attack ID、HKP、stealth 或 expected answer。
 - 必须单独报告 Poison vs Hard Negative，不能只与 easy Clean 比较。
 
-## 进入实际执行前的独立审批门
+## 本次执行身份（2026-09-15）
+
+Owner 通过 `P1-FINAL72-FIVE-VIEW-SIGNAL-FEASIBILITY-EXECUTION-01` 批准实际运行。执行采用三个独立进程：
+
+1. 从冻结 Candidate/Evidence 生成无标签安全投影；
+2. 仅消费安全投影提取 72×42 raw signals 并锁定 SHA；
+3. 验证 raw lock 后才加载 class/HKP/S/matched-group labels 做描述性统计。
+
+结果为 `READY_WITH_VIEW_LIMITATIONS`：S/E/P/T 存在部分可计算 signal；R 因无合法 query/retrieval trace 全部
+`INPUT_MISSING`；MLM/PPL 因无冻结模型全部 `MODEL_UNAVAILABLE`。本结果不是 Detector、正式 test 或论文效果。
+
+## 后续执行的独立审批门
 
 必须另行冻结：输入 snapshot、query/retriever/embedding/model revisions、signal parameterization、missing handling、
 normalization、threshold ownership、统计/CI、seed/repeat、资源预算、输出 manifest 与 secret/privacy boundary。本文件不授权
-调用模型、运行 GMTP、训练 estimator 或产生正式效果。
+调用新模型、运行 GMTP、训练 estimator、调 threshold 或产生正式效果。

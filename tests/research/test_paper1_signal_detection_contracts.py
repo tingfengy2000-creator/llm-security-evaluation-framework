@@ -180,7 +180,8 @@ def test_method_documents_are_complete_and_do_not_claim_results() -> None:
     checked = kickoff.validate_method_docs(repo_root)
     assert len(checked) == 6
     feasibility = (repo_root / checked[1]).read_text(encoding="utf-8")
-    assert "EXECUTION_NOT_APPROVED" in feasibility
+    assert "EXECUTED / DEVELOPMENT_SET_DIAGNOSTIC_ONLY" in feasibility
+    assert "本结果不是 Detector、正式 test 或论文效果" in feasibility
     assert "HYPOTHESIS / EXPERIMENTAL QUESTION" in feasibility
     scale = (repo_root / checked[-1]).read_text(encoding="utf-8")
     assert "DATA_NOT_GENERATED" in scale

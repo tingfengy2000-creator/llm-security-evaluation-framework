@@ -26,6 +26,23 @@ class SignalOutputType(str, Enum):
     CATEGORICAL = "CATEGORICAL"
 
 
+class SignalComputationStatus(str, Enum):
+    COMPUTED = "COMPUTED"
+    NOT_APPLICABLE = "NOT_APPLICABLE"
+    INPUT_MISSING = "INPUT_MISSING"
+    NOT_IMPLEMENTED = "NOT_IMPLEMENTED"
+    COMPUTATION_FAILED = "COMPUTATION_FAILED"
+    MODEL_UNAVAILABLE = "MODEL_UNAVAILABLE"
+    PROTOCOL_BLOCKED = "PROTOCOL_BLOCKED"
+
+
+class SignalOrientation(str, Enum):
+    HIGHER_IS_RISKIER = "HIGHER_IS_RISKIER"
+    LOWER_IS_RISKIER = "LOWER_IS_RISKIER"
+    NON_MONOTONIC = "NON_MONOTONIC"
+    UNDEFINED = "UNDEFINED"
+
+
 @dataclass(frozen=True, slots=True, kw_only=True)
 class SignalDefinition:
     signal_name: str
@@ -70,6 +87,37 @@ class SignalObservation:
         ):
             if value is not None and not 0.0 <= value <= 1.0:
                 raise ValueError(f"{name} must be in [0, 1]")
+
+
+@dataclass(frozen=True, slots=True, kw_only=True)
+class SignalInstance:
+    """A feasibility-study record that separates applicability from availability."""
+
+    sample_id: str
+    signal_name: str
+    view: SignalView
+    value: bool | int | float | str | None
+    applicable: bool
+    confidence: float | None
+    computation_status: SignalComputationStatus
+    reason_code: str
+    reason: str
+    source_refs: tuple[str, ...]
+    extractor_version: str
+    orientation: SignalOrientation
+    details: Mapping[str, bool | int | float | str | None] | None = None
+
+    def __post_init__(self) -> None:
+        if self.computation_status is SignalComputationStatus.COMPUTED:
+            if not self.applicable or self.value is None:
+                raise ValueError("COMPUTED requires applicable=True and a value")
+        elif self.value is not None:
+            raise ValueError("non-COMPUTED status requires value=None")
+        if self.computation_status is SignalComputationStatus.NOT_APPLICABLE:
+            if self.applicable:
+                raise ValueError("NOT_APPLICABLE requires applicable=False")
+        if self.confidence is not None and not 0.0 <= self.confidence <= 1.0:
+            raise ValueError("confidence must be in [0, 1]")
 
 
 @dataclass(frozen=True, slots=True, kw_only=True)
@@ -134,8 +182,11 @@ __all__ = [
     "DetectionPrediction",
     "DetectorFeatureVector",
     "SignalDefinition",
+    "SignalComputationStatus",
     "SignalGroundedExplanation",
+    "SignalInstance",
     "SignalObservation",
+    "SignalOrientation",
     "SignalOutputType",
     "SignalView",
 ]

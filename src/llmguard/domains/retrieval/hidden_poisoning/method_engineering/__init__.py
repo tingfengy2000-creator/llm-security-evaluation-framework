@@ -17,14 +17,22 @@ from .evaluation import (
     SCALE_READINESS,
 )
 from .explanation import EXPLANATION_CONTRACT, ExplanationBuilder
+from .feasibility import (
+    EXTRACTOR_VERSION,
+    SIGNAL_ORIENTATIONS,
+    extract_sample_signals,
+)
 from .registry import FIVE_VIEW_SIGNAL_REGISTRY, signals_for_view
 from .schema import (
     ClaimRepresentation,
     DetectionPrediction,
     DetectorFeatureVector,
     SignalDefinition,
+    SignalComputationStatus,
     SignalGroundedExplanation,
+    SignalInstance,
     SignalObservation,
+    SignalOrientation,
     SignalOutputType,
     SignalView,
 )
@@ -34,6 +42,7 @@ __all__ = [
     "BASELINE_MATRIX",
     "BREAKDOWN_AXES",
     "EXPLANATION_CONTRACT",
+    "EXTRACTOR_VERSION",
     "FIVE_VIEW_SIGNAL_REGISTRY",
     "FORMAL_RESEARCH_QUESTIONS",
     "METRIC_CONTRACTS",
@@ -47,11 +56,16 @@ __all__ = [
     "FusionDetector",
     "RiskCalibrator",
     "SignalDefinition",
+    "SignalComputationStatus",
     "SignalExtractor",
     "SignalGroundedExplanation",
+    "SignalInstance",
     "SignalObservation",
+    "SignalOrientation",
     "SignalOutputType",
     "SignalView",
     "SingleViewScorer",
+    "SIGNAL_ORIENTATIONS",
+    "extract_sample_signals",
     "signals_for_view",
 ]

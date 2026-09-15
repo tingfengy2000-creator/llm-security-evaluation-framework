@@ -1687,3 +1687,19 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   formal Dataset freeze, 5090 workload or paper-result claim. These require separate gates.
 - Canonical records: `OR-059`, `REL-2026-0064`, [current work state](current_work_state.md) and Git-external
   `paper1_final72_gt_acceptance_signal_kickoff_20260915`.
+
+## PODR-098: Final72 Five-view Signal Feasibility Execution
+
+- Date: `2026-09-15`.
+- Owner decision: approve Final72 development-set signal extraction、availability QA、descriptive separability、matched-group、
+  redundancy and single-signal diagnostics under strict label-blind extraction. Detector training、threshold tuning、formal test、
+  240-group result and superiority/effectiveness claims remain unapproved.
+- Execution order: safe input projection → raw 72×42 signal extraction → SHA/manifest/availability immutable lock → only then load
+  class、HKP、S and group labels. Raw-label hits and Expected/GT-value/A-B/Owner feature use are zero.
+- Result: S/E/P/T produce computed signals; Retrieval is 720/720 `INPUT_MISSING` because no frozen query/retriever/run trace exists.
+  MLM/PPL are `MODEL_UNAVAILABLE`; GMTP is `DEFERRED_WITH_REASON`. No model download、environment mutation、training or tuning ran.
+- Interpretation: Final72 remains development-exposed. All effect sizes and univariate AUROC/AUPRC are exploratory diagnostics, not
+  Detector or paper results. Final status is `FINAL72_SIGNAL_FEASIBILITY_COMPLETE / READY_WITH_VIEW_LIMITATIONS`.
+- Next gate: recommend, but do not auto-start, `P1-RETRIEVAL-BEHAVIOR-SIGNAL-HARNESS-01`. Formal Detector and scale remain separate.
+- Canonical records: `OR-060`, `REL-2026-0065`, [current work state](current_work_state.md) and Git-external
+  `paper1_final72_signal_feasibility_20260915`.

@@ -16,33 +16,33 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `P1-FINAL72-GT-ACCEPTANCE-AND-SIGNAL-DETECTION-EXPERIMENT-KICKOFF-01`.
-- Task name: `Paper 1 Final72 Ground Truth Acceptance and Five-view Signal/Detection Engineering Kickoff`.
-- Task type: **OWNER GT ACCEPTANCE / ADDITIVE GT FREEZE / METHOD CONTRACT AND INTERFACE ENGINEERING**.
-- Engineering status: **FINAL72 GT FROZEN / FIVE-VIEW SIGNAL CONTRACT V1 / FEASIBILITY SPEC / BASELINE-METRIC-ABLATION-SCALE
-  CONTRACTS / LABEL-ISOLATED INTERFACE SKELETON / DOCUMENTATION CLOSEOUT PASS**.
-- Experiment status: **PILOT4_FINAL72_GT_ACCEPTED / PILOT4_GT_CONSTRUCTION_CLOSED /
-  PAPER1_SIGNAL_DETECTION_ENGINEERING_STARTED / FINAL72_DEVELOPMENT_SET_ACTIVE /
-  FORMAL_SCALE_BENCHMARK_PENDING / NO_FORMAL_DETECTOR_RESULT_YET / AUTO_CONTINUE_NO**.
+- Task ID: `P1-FINAL72-FIVE-VIEW-SIGNAL-FEASIBILITY-EXECUTION-01`.
+- Task name: `Paper 1 Final72 Five-view Signal Extractability, Availability and Class-separability Study`.
+- Task type: **OWNER-APPROVED DEVELOPMENT-SET SIGNAL EXTRACTION / AVAILABILITY QA / DESCRIPTIVE DIAGNOSTIC**.
+- Engineering status: **42-SIGNAL LABEL-BLIND EXTRACTOR / 3024-ROW RAW LOCK / POST-LOCK ANALYSIS / VIEW-LEVEL QA /
+  SCALE-REQUIREMENT FEEDBACK / DOCUMENTATION CLOSEOUT PASS**.
+- Experiment status: **FINAL72_SIGNAL_FEASIBILITY_COMPLETE / READY_WITH_VIEW_LIMITATIONS /
+  RETRIEVAL_VIEW_INPUT_GAP / NO_DETECTOR_TRAINING / NO_THRESHOLD_TUNING / NO_FORMAL_RESULT / AUTO_CONTINUE_NO**.
 - Documentation gate: **PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED / HUMAN_LEDGER_CONTINUOUS_SYNC =
   MANDATORY / TASK_DOCUMENTATION_CLOSEOUT = MANDATORY**. Paper 1 task completion requires execution, tests, evidence,
   documentation closeout and valid Git status; otherwise status is `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING` with
   `TASK_DOCUMENTATION_CLOSEOUT_BLOCKER`.
-- Execution base commit: `425ae714290356d706da44017de375eb7cb8576a`.
+- Execution base commit: `e6ecca78f2eb129ad14ab74bf4079e34eedc95e2`.
 - Candidate source identity: `candidates_v3_1_additive.jsonl` SHA256
   `15500aa75bced9fb470edaac98f9527e7bb4bc689b86583e6f69b892c48eb210`; final additive corpus SHA256
   `f530471ecd6551300d68c8ddf104cadce2305d8ff91e64010be222820628252d`.
-- Execution machine: **本机**. No model load、GPU workload、5090 contact、formal Dataset/Detector/Training or experiment occurred.
-- Current ordered step: STOP after contract/interface kickoff. The next executable gate is a separately approved
-  `SIGNAL_FEASIBILITY_AND_SEPARABILITY_STUDY`; 240-group generation and formal Dataset freeze remain independently gated.
-- Current blocker: **NONE FOR GT ACCEPTANCE OR CONTRACT SKELETON**. Actual signal execution still lacks a separately frozen
-  input/model/query/retriever/parameter/statistics/resource contract; this is an approval gate, not an execution failure.
-- Current evidence: Git-external namespace `paper1_final72_gt_acceptance_signal_kickoff_20260915`. Source Candidate SHA256 remains
-  `7cc8baf832a57ead85958b8fbd0ca511caab31f840b52e864de623a11134845b`; accepted GT SHA256 is
-  `9e6224ef2cb2cb8e729f9ab569d09589c951e6df4ed3327c63c82913066d720a`, with 72/72 records and 576/576 lineage-backed values.
-  Acceptance mode is `ACCEPTED_WITH_KNOWN_EVIDENCE_LIMITATIONS`; the 11 frozen Evidence limitations remain explicitly encoded and
-  unresolved blockers are 0. Final72 is development-exposed and not an untouched test set. Signal registry/interfaces are prepared;
-  no extractor, model, detector training, calibrated risk, scale data or formal result was run.
+- Execution machine: **本机**. No model download、GPU workload、5090 contact、formal Dataset/Detector/Training or experiment occurred.
+- Current ordered step: STOP after feasibility closeout. The next recommended but separately gated task is
+  `P1-RETRIEVAL-BEHAVIOR-SIGNAL-HARNESS-01`; first Detector training and 240-group generation are not automatically authorized.
+- Current blocker: **NO LABEL-LEAKAGE BLOCKER; RETRIEVAL VIEW HAS AN INPUT GAP**. S/E/P/T can support further engineering, while
+  Retrieval needs frozen query、retriever configuration、corpus、top-k scores and repeated-run traces. MLM/PPL also remain unavailable
+  until a frozen checkpoint/tokenizer bundle is approved.
+- Current evidence: Git-external namespace `paper1_final72_signal_feasibility_20260915`. Accepted GT SHA256 is
+  `9e6224ef2cb2cb8e729f9ab569d09589c951e6df4ed3327c63c82913066d720a`. The raw matrix has 3024 rows and SHA256
+  `ab63568b86b035fa26291e8459606aacf8b745ce7f97e4b628a1da9d390fc4fd`; the post-lock analysis matrix SHA256 is
+  `86a9e14be536d664e3f85f6e32f0eb172b1c47ce0ab94bb1292ab7bcc037447d`. Raw-label hits, Expected feature use, GT-value feature
+  use and adjudication feature use are all zero. Clean/Poison/Hard Negative counts are 24/24/24 and all 24 matched groups are intact.
+  Retrieval is 720/720 `INPUT_MISSING`; MLM/PPL are 144/144 `MODEL_UNAVAILABLE`. Diagnostic effects are hypothesis-generation only.
 - Owner acceptance: `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=TRUE / ACCEPTED_WITH_NONBLOCKING_NOTES`；all frozen A–F gates passed；
   the two nonblocking reviewer variances remain immutable and do not trigger R4.
 - Accepted stack: `PILOT4_ACCEPTED_ANNOTATION_STACK_V1` points to the existing Final72 corpus、Attempt2 final Phase1 protocol/raw、

@@ -1,7 +1,7 @@
 # Paper 1 Five-View Signal Contract V1
 
 Status = `OWNER_FROZEN_METHOD_ENGINEERING_CONTRACT`
-Execution = `NOT_RUN`
+Execution = `FINAL72_DEVELOPMENT_SET_FEASIBILITY_RUN_COMPLETE`
 Formal result = `NONE`
 
 ## 1. 方法位置
@@ -28,6 +28,12 @@ poison label、attack ID、HKP 或 stealth label 均不得成为 inference featu
 - `confidence` 与 `evidence_quality` 分开记录，范围均为 `[0,1]`；缺失时允许为 `null`。
 - `missing`、`not applicable` 和真实零值是三种不同状态。
 - Evidence 不足不得通过读取 Ground Truth 补齐。
+- 每个 signal 在 label load 前冻结 `HIGHER_IS_RISKIER`、`LOWER_IS_RISKIER`、`NON_MONOTONIC` 或 `UNDEFINED`
+  orientation；分析阶段不得为提高 AUROC 临时翻转。
+
+本次执行没有改变 42 项 signal 的科学定义。它仅补充计算状态、预声明 orientation 和可复现的 deterministic-rule
+extractor；无法满足输入合同的 signal 保持 `null` 并明确写入 `INPUT_MISSING`、`MODEL_UNAVAILABLE` 或
+`NOT_APPLICABLE`。
 
 机器级完整定义见 `method_engineering/registry.py`；以下为人类可读冻结摘要。
 

@@ -2242,3 +2242,26 @@ Approval Gate、Auto Continue。
 - Final status: `PILOT4_FINAL72_GT_ACCEPTED / PILOT4_GT_CONSTRUCTION_CLOSED /
   PAPER1_SIGNAL_DETECTION_ENGINEERING_STARTED / FINAL72_DEVELOPMENT_SET_ACTIVE /
   FORMAL_SCALE_BENCHMARK_PENDING / NO_FORMAL_DETECTOR_RESULT_YET`.
+
+## REL-2026-0065 — Final72 Five-view Signal Feasibility Execution
+
+- Date: `2026-09-15`; task `P1-FINAL72-FIVE-VIEW-SIGNAL-FEASIBILITY-EXECUTION-01`; machine `本机控制面`;
+  authority `PODR-098 / OR-060`; execution base `e6ecca78f2eb129ad14ab74bf4079e34eedc95e2`.
+- Input/ordering: verified accepted GT SHA256 `9e6224ef...720a` and Final72 corpus SHA256 `f530471e...252d`; generated a
+  72-row label-free projection with 144 frozen Evidence units. A separate extractor produced and locked the raw matrix before a
+  third process loaded class/HKP/S/group labels. Lock timestamp precedes label-load timestamp; raw forbidden-label hits are zero.
+- Matrix identity: raw JSONL 3024 rows, SHA256 `ab63568b86b035fa26291e8459606aacf8b745ce7f97e4b628a1da9d390fc4fd`;
+  post-lock analysis JSONL 3024 rows, SHA256 `86a9e14be536d664e3f85f6e32f0eb172b1c47ce0ab94bb1292ab7bcc037447d`.
+  Expected V3 feature use、GT value feature use and adjudication feature use are all zero.
+- Availability: Semantic 154 computed / 134 input missing / 144 model unavailable; Entity-Claim 443 computed / 205 N/A;
+  Provenance 317 computed / 161 input missing / 98 N/A; Temporal-Version 266 computed / 222 input missing / 160 N/A;
+  Retrieval 720/720 input missing. MLM/PPL had no frozen model; GMTP was deferred with reason; downloads/environment changes zero.
+- Analysis: class counts 24/24/24 and 24 matched triplets pass. Effect sizes、exploratory U and univariate AUROC/AUPRC are explicitly
+  development-set diagnostics. Applicability leakage findings are zero; seven evidence-limited samples show no strong class
+  concentration, and missingness remains forbidden as a feature. No detector training or threshold tuning occurred.
+- Result: `FINAL72_SIGNAL_FEASIBILITY_COMPLETE / READY_WITH_VIEW_LIMITATIONS`. Retrieval harness is the recommended separately
+  approved next task; scale/Detector/formal-result gates remain closed.
+- Evidence: Git-external `paper1_final72_signal_feasibility_20260915`; Human report and scale feedback are linked from Paper 1 README.
+- `DOCUMENTATION_CLOSEOUT_CHECKLIST`: Human Ledger、Agent Ledger、Current Work State、Execution Log、Experiment Master Record、
+  Owner Decision Register、S6.1-P1 process、Research Plan Authority、Project Master、root/Paper1 README checked and updated;
+  Stage1–5 and prior evidence unchanged; cross-document current task/status/next gate consistent.
