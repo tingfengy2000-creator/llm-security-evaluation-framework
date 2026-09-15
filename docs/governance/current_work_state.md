@@ -16,30 +16,33 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `PILOT4-A-B-OWNER-ADJUDICATION-CONSISTENCY-CLOSURE-01`.
-- Task name: `Pilot4 A/B Owner Adjudication Consistency Closure`.
-- Task type: **ADDITIVE OWNER CORRECTION INGESTION / FULL CANDIDATE-VIEW CONSISTENCY VALIDATION / APPROVAL-GATED CLOSEOUT**.
-- Engineering status: **TEN FIELD-LEVEL OWNER OVERLAYS BOUND / SIX VALUE CHANGES / FOUR VALUE CONFIRMATIONS /
-  NINE FINDINGS RESOLVED / FULL 72-BY-8 CONSISTENCY PASS / DOCUMENTATION CLOSEOUT PASS**.
-- Experiment status: **PILOT4_AB_ALL_FOUR_RAWS_LOCKED / OWNER_ADJUDICATION_RETURN_RAW_LOCKED /
-  OWNER_ADJUDICATION_CONSISTENCY_CLOSED / UNRESOLVED_CONSISTENCY_BLOCKER_0 / EXPECTED_V3_NOT_LOADED /
-  NO_GROUND_TRUTH_YET / WAITING_FOR_OWNER_NEXT_APPROVAL / AUTO_CONTINUE_NO**.
+- Task ID: `PILOT4-FINAL72-EXPECTED-V3-QC-AND-GROUND-TRUTH-CANDIDATE-01`.
+- Task name: `Pilot4 Final72 Expected V3 Researcher QC and Ground Truth Candidate Construction`.
+- Task type: **POST-ADJUDICATION RESEARCHER QC / FULL LINEAGE RECONSTRUCTION / APPROVAL-GATED GT CANDIDATE**.
+- Engineering status: **72-BY-8 HUMAN CANDIDATE RECONSTRUCTED / 576-BY-FIELD LINEAGE COMPLETE /
+  EXPECTED V3 POST-ADJUDICATION QC COMPLETE / GT CANDIDATE QA PASS / DOCUMENTATION CLOSEOUT PASS**.
+- Experiment status: **OWNER_ADJUDICATION_CLOSED / EXPECTED_V3_POST_ADJUDICATION_QC_COMPLETE /
+  FINAL72_GROUND_TRUTH_CANDIDATE_READY / WAITING_FOR_OWNER_FINAL_GT_ACCEPTANCE /
+  NO_FORMAL_DATASET_FREEZE_YET / NO_FORMAL_DETECTOR_RESULT_YET / AUTO_CONTINUE_NO**.
 - Documentation gate: **PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED / HUMAN_LEDGER_CONTINUOUS_SYNC =
   MANDATORY / TASK_DOCUMENTATION_CLOSEOUT = MANDATORY**. Paper 1 task completion requires execution, tests, evidence,
   documentation closeout and valid Git status; otherwise status is `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING` with
   `TASK_DOCUMENTATION_CLOSEOUT_BLOCKER`.
-- Execution base commit: `7a8702c533738d0f9c641d45593c9a76b92bdf0f`.
+- Execution base commit: `542bfdb20a881703b1fcfff7e18874737e6239d1`.
 - Candidate source identity: `candidates_v3_1_additive.jsonl` SHA256
   `15500aa75bced9fb470edaac98f9527e7bb4bc689b86583e6f69b892c48eb210`; final additive corpus SHA256
   `f530471ecd6551300d68c8ddf104cadce2305d8ff91e64010be222820628252d`.
 - Execution machine: **本机**. No model load、GPU workload、5090 contact、formal Dataset/Detector/Training or experiment occurred.
-- Current ordered step: STOP and wait for the Owner to authorize the next gate. This task does not authorize Expected V3 loading or
-  Final72 Ground Truth generation.
-- Current blocker: **NONE WITHIN OWNER ADJUDICATION CONSISTENCY**. The previous nine findings are resolved `9/9`; unresolved `0`.
-- Current evidence: Git-external namespace `paper1_pilot4_owner_adjudication_consistency_closure_20260915`; 10 field-level overlays
-  preserve before/after, prior/effective reason, Evidence basis and Owner lineage. Full candidate view is 72 samples / 576 fields;
-  canonical enums and all frozen relations pass. Original Owner workbook remains `373729 bytes` / SHA256
-  `a4c65a22dd3a410c7744be5f256206d7217b8fda33d63c58ac99bb386fe95b01` and is unchanged.
+- Current ordered step: STOP and wait for the Owner's single decision on accepting
+  `PILOT4_FINAL72_GROUND_TRUTH_CANDIDATE_V1`. This task does not authorize formal Dataset freeze、240-group or Detector evaluation.
+- Current blocker: **NONE FOR GT CANDIDATE CONSTRUCTION**. New Candidate/Evidence/Guide/Owner/lineage/enum/relation blockers: `0`.
+- Current evidence: Git-external namespace `paper1_pilot4_final72_gt_candidate_20260915`. Human GT candidate is 72 samples / 576
+  categorical fields with complete per-field A/B、Owner and overlay lineage. Expected V3 was loaded only after Human reconstruction;
+  it has no value precedence. Expected explicitly defines 504 comparable fields: agreement `469/504` (`93.0556%`), 35 mismatches
+  across 28 samples, exact seven-field records `44/72`. Taxonomy is Expected V3 defect `4`, known frozen-evidence limitation `11`,
+  Human adjudication variance `20`; Guide ambiguity and new blocker are `0`. Expected does not define `phase2_issue`, so 72 slots are
+  recorded as non-comparable instead of fabricating a value. Original A/B raw and Owner workbook remain unchanged; Owner workbook SHA256
+  is `a4c65a22dd3a410c7744be5f256206d7217b8fda33d63c58ac99bb386fe95b01`.
 - Owner acceptance: `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=TRUE / ACCEPTED_WITH_NONBLOCKING_NOTES`；all frozen A–F gates passed；
   the two nonblocking reviewer variances remain immutable and do not trigger R4.
 - Accepted stack: `PILOT4_ACCEPTED_ANNOTATION_STACK_V1` points to the existing Final72 corpus、Attempt2 final Phase1 protocol/raw、

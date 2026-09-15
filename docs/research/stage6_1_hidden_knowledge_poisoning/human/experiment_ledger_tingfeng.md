@@ -1,5 +1,21 @@
 # Paper 1 人类可读实验总规划与实验总账
 
+## 2026-09-15：Final72 Ground Truth Candidate 已生成，等待项目负责人最终接受
+
+人工仲裁已经正式结束。系统先从四份不可变 A/B 返回重建全部 72 条、576 个字段：A/B 相同的 498 项直接沿用，两人不同的
+78 项使用项目负责人在不知道 Expected V3 时作出的决定，随后再应用 8 条已批准规则 overlay 和 10 条一致性 correction
+overlay。每个最终值都能回查 A、B、Owner 决定与 overlay；原始答卷和 Owner 工作簿均未修改。
+
+只有上述 Human-adjudicated candidate 完整锁定后，才第一次把 Expected V3 用于研究者侧质量核验。Expected V3 不是
+Ground Truth，也没有覆盖任何人工值。Expected 明确定义的 504 个字段中，469 个与 Human candidate 一致，35 个差异覆盖
+28 个样本；其中 4 项是 Expected V3 需要以后另行版本化修正的 QC 缺陷，11 项来自已经由 Owner 以
+`INSUFFICIENT_EVIDENCE / EVIDENCE_MISSING` 固定下来的已知 Evidence 限制，20 项是非阻断的人类仲裁差异。Expected 没有
+定义 `phase2_issue`，因此其 72 个比较槽位明确记为不可比较，没有虚构预期值。新的 Ground Truth blocker 为 0。
+
+当前产物是 `PILOT4_FINAL72_GROUND_TRUTH_CANDIDATE_V1`，不是已接受的 Ground Truth，也不是正式冻结数据集。Final72 已参与
+校准、人工仲裁和研究者 QC，未来只能用于 development / method engineering，不能再称为 untouched final test set。项目
+负责人下一步只需决定是否接受该 GT Candidate；在明确接受前，不开始 240-group、正式 Dataset freeze 或 Detector evaluation。
+
 ## 2026-09-15：Owner 仲裁一致性已闭合，未解决项为 0
 
 项目负责人已逐项确认上一轮 9 个核验项。控制面没有修改 A/B 原始返回，也没有修改 Owner 原始工作簿，而是新增了 10 个

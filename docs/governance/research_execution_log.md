@@ -2188,6 +2188,25 @@ Approval Gate、Auto Continue。
 - `DOCUMENTATION_CLOSEOUT_CHECKLIST`: Human Ledger、Agent Ledger、Current Work State、Execution Log、Experiment Master Record、
   Owner Decision Register、S6.1-P1 process and Paper1 README were checked and updated; Stage1–5 and prior evidence remain unchanged.
 
+## REL-2026-0063 — Pilot4 Final72 Expected V3 QC and Ground Truth Candidate
+
+- Date: `2026-09-15`; task `PILOT4-FINAL72-EXPECTED-V3-QC-AND-GROUND-TRUTH-CANDIDATE-01`; machine `本机控制面`;
+  authority `PODR-096 / OR-058`; execution base `542bfdb20a881703b1fcfff7e18874737e6239d1`.
+- Reconstructed all 72 samples / 576 categorical fields directly from immutable A/B Phase1 and Phase2 returns, 498 A/B consensus
+  resolutions, 78 Owner expected-blind adjudications, eight Owner-rule overlays and ten consistency overlays. Per-field lineage is
+  complete; A/B raw, mappings, Owner workbook and prior evidence remained unchanged.
+- Loaded Expected V3 only after the Human candidate reconstruction event. SHA256 is
+  `dc549ff6adbacc6a87049c08c7db7e414b9d52dafc19c31f98b5c10490031433`; Expected has no Human GT value precedence.
+- Generated 576 QC slots. Expected explicitly defines seven fields / 504 comparable values: 469 match (`93.0556%`), 35 mismatch
+  across 28 samples, and 44/72 records match all seven. `phase2_issue` is absent from Expected V3, so 72 slots are explicitly
+  non-comparable rather than inferred.
+- Taxonomy: Expected V3 defect `4`, known frozen-evidence limitation `11`, Human adjudication variance `20`, new Candidate/Evidence/
+  Guide/Owner/lineage/enum/relation blocker `0`. The known evidence-limited samples retain the Owner-approved insufficient/missing
+  labels and do not trigger post-hoc Evidence expansion.
+- Final status: `OWNER_ADJUDICATION_CLOSED / EXPECTED_V3_POST_ADJUDICATION_QC_COMPLETE /
+  FINAL72_GROUND_TRUTH_CANDIDATE_READY / WAITING_FOR_OWNER_FINAL_GT_ACCEPTANCE /
+  NO_FORMAL_DATASET_FREEZE_YET / NO_FORMAL_DETECTOR_RESULT_YET`.
+
 ## REL-2026-0062 — Pilot4 Owner Adjudication Consistency Closure
 
 - Date: `2026-09-15`; task `PILOT4-A-B-OWNER-ADJUDICATION-CONSISTENCY-CLOSURE-01`; machine `本机控制面`;

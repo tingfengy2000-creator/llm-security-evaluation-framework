@@ -1653,3 +1653,19 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   WAITING_FOR_OWNER_NEXT_APPROVAL / AUTO_CONTINUE_NO`.
 - Canonical records: `OR-057`, `REL-2026-0062`, [current work state](current_work_state.md) and Git-external
   `paper1_pilot4_owner_adjudication_consistency_closure_20260915`.
+
+## PODR-096: Pilot4 Expected V3 Researcher QC and Final72 Ground Truth Candidate
+
+- Date: `2026-09-15`.
+- Owner authorization: after `OWNER_ADJUDICATION_CONSISTENCY_CLOSED`, load Expected V3 strictly as a researcher-side QC reference and
+  construct `PILOT4_FINAL72_GROUND_TRUTH_CANDIDATE_V1`. Expected V3 is neither Ground Truth nor an automatic override.
+- Human precedence: 498 A/B consensus fields plus 78 Owner expected-blind adjudications form the base 576-field resolution; eight
+  approved Owner-rule overlays and ten consistency overlays remain additive and fully traceable.
+- QC result: Expected V3 SHA256 remains `dc549ff6adbacc6a87049c08c7db7e414b9d52dafc19c31f98b5c10490031433`.
+  Its seven explicit fields provide 504 comparisons: 469 match and 35 differ across 28 samples. The 72 `phase2_issue` slots are
+  recorded as Expected-undefined and are not fabricated. Mismatch taxonomy is Expected V3 defect 4, known frozen-evidence limitation
+  11 and Human adjudication variance 20; new GT blockers are 0.
+- Decision boundary: the candidate is ready but not accepted. Final72 is development/method-engineering data, not an untouched final
+  test set. Formal dataset freeze、240-group、Detector evaluation、Training、5090 and formal experiment remain closed.
+- Canonical records: `OR-058`, `REL-2026-0063`, [current work state](current_work_state.md) and Git-external
+  `paper1_pilot4_final72_gt_candidate_20260915`.

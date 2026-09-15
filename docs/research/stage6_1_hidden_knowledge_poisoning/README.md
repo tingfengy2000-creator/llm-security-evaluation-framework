@@ -1,8 +1,8 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`PILOT4_AB_ALL_FOUR_RAWS_LOCKED / OWNER_ADJUDICATION_RETURN_RAW_LOCKED /
-> OWNER_DECISIONS_EXTRACTED_5_PLUS_78 / OWNER_ADJUDICATION_CONSISTENCY_CLOSED /
-> UNRESOLVED_CONSISTENCY_BLOCKER_0 / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET / WAITING_FOR_OWNER_NEXT_APPROVAL`。
+> 当前实验状态：`OWNER_ADJUDICATION_CLOSED / EXPECTED_V3_POST_ADJUDICATION_QC_COMPLETE /
+> FINAL72_GROUND_TRUTH_CANDIDATE_READY / WAITING_FOR_OWNER_FINAL_GT_ACCEPTANCE /
+> NO_FORMAL_DATASET_FREEZE_YET / NO_FORMAL_DETECTOR_RESULT_YET`。
 > Owner 已按 M2 `2/16`、matched controls `16/16`、M4 `0`、M8 `4/4` 和其余冻结门全部 PASS 正式接受 Protocol；
 > 两条 residual reviewer variance 保持不可变且不触发 R4。Accepted Stack 绑定 Final72、Attempt2 Phase1、Guide V3.2、
 > Expected V3、Evidence Pool V2 与 frozen snapshot + URL provenance。Owner 已指定两个不同真人并批准 A/B 执行与
@@ -11,8 +11,11 @@
 > Agreement preflight 发现的 78 个 material field disagreements（40 个 sample）及五个 late-candidate-defect flags 已由
 > Owner 完成仲裁；返回工作簿已原样锁定并提取 5+78 项决定。Owner 又逐项确认了 9 个关系/证据来源核验项，控制面以 10 个
 > 字段级 overlay 保留 before/after、理由、Evidence basis 和 Owner lineage；6 个值变化、4 个值不变但有效理由得到规范化。
-> 全量 72×8 一致性复核为 PASS、未解决 blocker 为 0。72 条候选仍无 Ground Truth，240-group、
-> Dataset freeze、Formal Detector、Training、5090、Formal Experiment 和 Paper Result 均未开始。
+> 全量 72×8 一致性复核为 PASS、未解决 blocker 为 0。Expected V3 直到此后才首次用于研究者侧 QC，且不具有
+> Ground Truth 优先级。Final72 GT Candidate 已按 498 个 A/B consensus、78 个 Owner 盲态仲裁及批准的 additive overlay
+> 重建为 72 条/576 字段；Expected 显式定义的 504 个字段中 469 个一致，35 个差异均已分类，新的 GT blocker 为 0。
+> GT Candidate 尚待 Owner 最终接受；240-group、Dataset freeze、Formal Detector、Training、5090、Formal Experiment 和
+> Paper Result 均未开始。
 > `FORMAL_EXPERIMENT = NOT STARTED`；`DATASET_FORMAL_FREEZE = NOT STARTED`。
 
 ## First screen routing
