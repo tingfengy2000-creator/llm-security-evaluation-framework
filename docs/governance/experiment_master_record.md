@@ -54,13 +54,13 @@
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
 | 当前最高完成阶段 | S6-T5 Controlled Retrieval and Traceable Context Baseline 已 `HUMAN_ACCEPTED BASELINE`；S6.1-LR1 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`。 |
-| 当前任务 | `PILOT4-A-B-OWNER-ADJUDICATION-RETURN-LOCK-AND-CONSISTENCY-PREFLIGHT-01`：锁定 Owner 返回并提取/核验仲裁决定。 |
-| 当前审批门 | Owner 5+78 项决定已提取；9 个关系/来源项等待最小追加确认；Expected V3 仍封存，GT 未生成。 |
-| 下一批准任务 | Owner 直接确认定向建议值或补充 E3 provenance；不需要重新保存工作簿。 |
+| 当前任务 | `PILOT4-A-B-OWNER-ADJUDICATION-CONSISTENCY-CLOSURE-01`：绑定 Owner 定向修正并关闭仲裁一致性。 |
+| 当前审批门 | `OWNER_ADJUDICATION_CONSISTENCY_CLOSED`；Expected V3 仍封存，GT 未生成，下一步等待 Owner 单独批准。 |
+| 下一批准任务 | 由 Owner 决定是否授权加载 Expected V3；当前任务不自动继续。 |
 | Baseline tag | annotated `s6-t5-rag-baseline-v1` 已恢复；本地/远端 peeled target 均核验为 `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
 | 最近工程验证 | H2 resume_02 archive SHA/safety/index `25/25`, H2-A `18/18`, exact local-model CUDA load, single-call and resource evidence passed Control Plane review。 |
-| 当前主要阻塞项 | `PILOT4_OWNER_RETURN_CONSISTENCY_BLOCKER_01`：4 条 minimum 关系、1 条 issue/overall 关系及 4 条 E3 来源引用待确认。 |
+| 当前主要阻塞项 | 仲裁一致性 blocker `0`；Expected/GT 仍由独立 Owner gate 阻止自动进入。 |
 | 当前允许宣称 | Owner 已接受 Pilot4 标注协议并关闭校准；Accepted Stack V1 与 13 条证据支持 lessons 已冻结；这仅是 Pilot-level annotation readiness。 |
 | 当前禁止宣称 | GMTP reproduction/effectiveness/safety/generalization、strict baseline comparison、P1/formal experiment or paper result。 |
 
@@ -69,10 +69,10 @@
 
 正式 RAG 安全实验：**Not started**。Historical R0 execution/return snapshots and current R0 acceptance do not change this status。
 
-Pilot4 当前追加事实（2026-09-15）：Owner 返回工作簿已按 `373729 bytes` / SHA256
-`a4c65a22dd3a410c7744be5f256206d7217b8fda33d63c58ac99bb386fe95b01` 原样锁定，5 个缺陷决定和 78 个字段仲裁均已
-提取。72×8 候选视图以 498 个 A/B 一致值和 78 个 Owner 仲裁值组成；已批准解释规则只通过独立 overlay 绑定。九个
-关系/provenance 核验项仍阻止 Ground Truth，Expected V3 仍未加载。
+Pilot4 当前追加事实（2026-09-15）：Owner 返回工作簿保持 `373729 bytes` / SHA256
+`a4c65a22dd3a410c7744be5f256206d7217b8fda33d63c58ac99bb386fe95b01` 不变。9 个关系/provenance finding 已通过 10 个
+字段级 Owner overlay 全部关闭；72×8 candidate view 验证 PASS，未解决一致性 blocker 为 0。Expected V3 仍未加载，
+Ground Truth 仍未生成。
 
 **阅读入口**：先读 [AGENTS.md](../../AGENTS.md)、[Context Authority Map](context_authority_map.md)、
 [PO-MHEP](project_owner_sovereignty_and_mandatory_escalation_principle.md)、[长期研究需求](long_term_research_requirements.md)、

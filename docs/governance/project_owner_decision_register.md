@@ -1633,3 +1633,23 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   NO_GROUND_TRUTH_YET / AUTO_CONTINUE_NO`. Dataset freeze、Detector、Training、5090 and formal experiment remain closed.
 - Canonical records: `OR-056`, `REL-2026-0061`, [current work state](current_work_state.md) and Git-external
   `paper1_pilot4_owner_adjudication_return_lock_20260915`.
+
+## PODR-095: Pilot4 Owner Adjudication Consistency Closure
+
+- Date: `2026-09-15`.
+- Owner decision: approve all nine targeted consistency-verification resolutions. Four non-conflict samples set minimum evidence to
+  `NOT_APPLICABLE`; `P4Q-f27d8deeb5a7` keeps `CURRENTLY_CONSISTENT` and sets issue to `NONE`; `P4Q-097a559a5f61` corrects the
+  version-reason reference from E3 to frozen E1 without changing the value.
+- Frozen-packet-only decision: `P4Q-02a9af3fa54f` remains `INSUFFICIENT_EVIDENCE / EVIDENCE_MISSING /
+  NOT_APPLICABLE`, while version becomes `PRESENT_EVIDENCE_INSUFFICIENT`. No E3 is introduced. Any future Evidence addition must be
+  a versioned additive Evidence repair with separately approved targeted rereview, not a current closure shortcut.
+- Evidence form: ten field-level overlay records preserve prior and effective value, prior and effective reason, Evidence basis and
+  Owner lineage. Six values change; four values are confirmed while their effective reason/provenance is normalized. A/B returns and
+  the Owner workbook remain immutable.
+- Validation result: full 72-sample / 576-field candidate view passes canonical enum and relational validation; source findings `9`,
+  resolved `9`, unresolved `0`. Original Owner workbook SHA256 remains
+  `a4c65a22dd3a410c7744be5f256206d7217b8fda33d63c58ac99bb386fe95b01`.
+- Current boundary: `OWNER_ADJUDICATION_CONSISTENCY_CLOSED / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET /
+  WAITING_FOR_OWNER_NEXT_APPROVAL / AUTO_CONTINUE_NO`.
+- Canonical records: `OR-057`, `REL-2026-0062`, [current work state](current_work_state.md) and Git-external
+  `paper1_pilot4_owner_adjudication_consistency_closure_20260915`.

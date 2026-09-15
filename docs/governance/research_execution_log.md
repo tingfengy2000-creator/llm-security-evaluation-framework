@@ -2187,3 +2187,22 @@ Approval Gate、Auto Continue。
   OWNER_RETURN_CONSISTENCY_BLOCKER / OWNER_CORRECTION_REQUIRED / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET`.
 - `DOCUMENTATION_CLOSEOUT_CHECKLIST`: Human Ledger、Agent Ledger、Current Work State、Execution Log、Experiment Master Record、
   Owner Decision Register、S6.1-P1 process and Paper1 README were checked and updated; Stage1–5 and prior evidence remain unchanged.
+
+## REL-2026-0062 — Pilot4 Owner Adjudication Consistency Closure
+
+- Date: `2026-09-15`; task `PILOT4-A-B-OWNER-ADJUDICATION-CONSISTENCY-CLOSURE-01`; machine `本机控制面`;
+  authority `PODR-095 / OR-057`; execution base `7a8702c533738d0f9c641d45593c9a76b92bdf0f`.
+- Ingested the Owner's nine targeted decisions as a new additive overlay. Ten field records preserve before/after value, historical and
+  effective reason, Evidence basis and Owner lineage: six values changed and four values were confirmed with reason/provenance repair.
+- The four non-conflict minimum fields are now `NOT_APPLICABLE`; `P4Q-f27d8deeb5a7` keeps the Owner overall result and now has issue
+  `NONE`; the securities-law reason uses frozen E1. `P4Q-02a9af3fa54f` is packet-only `INSUFFICIENT_EVIDENCE /
+  PRESENT_EVIDENCE_INSUFFICIENT / NOT_APPLICABLE / EVIDENCE_MISSING`, with no E3/E4 dependency in its effective reasons.
+- Revalidated all 72 samples / 576 fields. Canonical enums, minimum/overall, internal-contradiction, evidence-missing and effective
+  Evidence-reference checks pass; source findings `9/9` resolved and unresolved consistency blocker `0`.
+- Original A/B raw returns and Owner workbook were not modified. The Owner workbook remains `373729 bytes` / SHA256
+  `a4c65a22dd3a410c7744be5f256206d7217b8fda33d63c58ac99bb386fe95b01`.
+- Expected V3 was not loaded and Ground Truth was not generated. Final status:
+  `OWNER_ADJUDICATION_CONSISTENCY_CLOSED / UNRESOLVED_CONSISTENCY_BLOCKER_0 / EXPECTED_V3_NOT_LOADED /
+  NO_GROUND_TRUTH_YET / WAITING_FOR_OWNER_NEXT_APPROVAL`.
+- `DOCUMENTATION_CLOSEOUT_CHECKLIST`: Human Ledger、Agent Ledger、Current Work State、Execution Log、Experiment Master Record、
+  Owner Decision Register、S6.1-P1 process and Paper1 README were checked and updated; Stage1–5 and prior evidence remain unchanged.

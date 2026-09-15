@@ -16,31 +16,30 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `PILOT4-A-B-OWNER-ADJUDICATION-RETURN-LOCK-AND-CONSISTENCY-PREFLIGHT-01`.
-- Task name: `Pilot4 A/B Owner Adjudication Return Lock and Consistency Preflight`.
-- Task type: **IMMUTABLE OWNER RETURN LOCK / OWNER-PRIORITIZED DECISION EXTRACTION / RELATIONAL AND PROVENANCE PREFLIGHT**.
-- Engineering status: **RETURNED WORKBOOK RAW LOCKED / SEVEN-SHEET STRUCTURE PASS / FIVE DEFECT DECISIONS EXTRACTED /
-  78 FIELD ADJUDICATIONS EXTRACTED / OWNER RULE OVERLAYS BOUND ADDITIVELY / DOCUMENTATION CLOSEOUT PASS**.
+- Task ID: `PILOT4-A-B-OWNER-ADJUDICATION-CONSISTENCY-CLOSURE-01`.
+- Task name: `Pilot4 A/B Owner Adjudication Consistency Closure`.
+- Task type: **ADDITIVE OWNER CORRECTION INGESTION / FULL CANDIDATE-VIEW CONSISTENCY VALIDATION / APPROVAL-GATED CLOSEOUT**.
+- Engineering status: **TEN FIELD-LEVEL OWNER OVERLAYS BOUND / SIX VALUE CHANGES / FOUR VALUE CONFIRMATIONS /
+  NINE FINDINGS RESOLVED / FULL 72-BY-8 CONSISTENCY PASS / DOCUMENTATION CLOSEOUT PASS**.
 - Experiment status: **PILOT4_AB_ALL_FOUR_RAWS_LOCKED / OWNER_ADJUDICATION_RETURN_RAW_LOCKED /
-  OWNER_DECISIONS_EXTRACTED_5_PLUS_78 / OWNER_RETURN_CONSISTENCY_BLOCKER / OWNER_CORRECTION_REQUIRED /
-  EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET / AUTO_CONTINUE_NO**.
+  OWNER_ADJUDICATION_CONSISTENCY_CLOSED / UNRESOLVED_CONSISTENCY_BLOCKER_0 / EXPECTED_V3_NOT_LOADED /
+  NO_GROUND_TRUTH_YET / WAITING_FOR_OWNER_NEXT_APPROVAL / AUTO_CONTINUE_NO**.
 - Documentation gate: **PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED / HUMAN_LEDGER_CONTINUOUS_SYNC =
   MANDATORY / TASK_DOCUMENTATION_CLOSEOUT = MANDATORY**. Paper 1 task completion requires execution, tests, evidence,
   documentation closeout and valid Git status; otherwise status is `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING` with
   `TASK_DOCUMENTATION_CLOSEOUT_BLOCKER`.
-- Execution base commit: `eefa582a4e34ceeb5e3d45f22beed540aae08675`.
+- Execution base commit: `7a8702c533738d0f9c641d45593c9a76b92bdf0f`.
 - Candidate source identity: `candidates_v3_1_additive.jsonl` SHA256
   `15500aa75bced9fb470edaac98f9527e7bb4bc689b86583e6f69b892c48eb210`; final additive corpus SHA256
   `f530471ecd6551300d68c8ddf104cadce2305d8ff91e64010be222820628252d`.
 - Execution machine: **本机**. No model load、GPU workload、5090 contact、formal Dataset/Detector/Training or experiment occurred.
-- Current ordered step: Owner gives a minimal additive confirmation for the targeted relation/provenance findings. Do not reopen or
-  resave the workbook. Codex must not load Expected V3 or create Ground Truth until the correction record is complete and validated.
-- Current blocker: `PILOT4_OWNER_RETURN_CONSISTENCY_BLOCKER_01`. Four non-conflict rows still carry a substantive minimum-evidence
-  value; one decisive overall status is paired with `EVIDENCE_MISSING`; four Owner reasons cite unbound `E3/证据3` provenance.
-- Current evidence: Git-external namespace `paper1_pilot4_owner_adjudication_return_lock_20260915`; returned workbook `373729 bytes` /
-  SHA256 `a4c65a22dd3a410c7744be5f256206d7217b8fda33d63c58ac99bb386fe95b01`. The five defect decisions are all
-  `ANNOTATOR_INTERPRETATION_VARIANCE`; 78/78 field values and reasons are complete. Resolution candidate contains 72 samples / 576
-  fields: A/B agreement 498, Owner adjudication 78; it is explicitly `NOT_GROUND_TRUTH` while blockers remain.
+- Current ordered step: STOP and wait for the Owner to authorize the next gate. This task does not authorize Expected V3 loading or
+  Final72 Ground Truth generation.
+- Current blocker: **NONE WITHIN OWNER ADJUDICATION CONSISTENCY**. The previous nine findings are resolved `9/9`; unresolved `0`.
+- Current evidence: Git-external namespace `paper1_pilot4_owner_adjudication_consistency_closure_20260915`; 10 field-level overlays
+  preserve before/after, prior/effective reason, Evidence basis and Owner lineage. Full candidate view is 72 samples / 576 fields;
+  canonical enums and all frozen relations pass. Original Owner workbook remains `373729 bytes` / SHA256
+  `a4c65a22dd3a410c7744be5f256206d7217b8fda33d63c58ac99bb386fe95b01` and is unchanged.
 - Owner acceptance: `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=TRUE / ACCEPTED_WITH_NONBLOCKING_NOTES`；all frozen A–F gates passed；
   the two nonblocking reviewer variances remain immutable and do not trigger R4.
 - Accepted stack: `PILOT4_ACCEPTED_ANNOTATION_STACK_V1` points to the existing Final72 corpus、Attempt2 final Phase1 protocol/raw、
@@ -134,7 +133,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
 - S6.1-P1: **PILOT4_AB_ALL_FOUR_RAWS_LOCKED / OWNER_ADJUDICATION_RETURN_RAW_LOCKED /
-  OWNER_DECISIONS_EXTRACTED_5_PLUS_78 / OWNER_RETURN_CONSISTENCY_BLOCKER / OWNER_CORRECTION_REQUIRED /
+  OWNER_ADJUDICATION_CONSISTENCY_CLOSED / UNRESOLVED_CONSISTENCY_BLOCKER_0 /
   EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET /
   NOT FORMAL_EXPERIMENT**.
 - S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
@@ -154,7 +153,7 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - Historical PILOT4 second preflight: **SECOND_OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / cad3b2b EVIDENCE PRESERVED**.
 - PILOT4: **PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / ACCEPTED_WITH_NONBLOCKING_NOTES / PILOT4_CALIBRATION_CLOSED /
   PILOT4_A_B_EXECUTION_APPROVED / PILOT4_AB_ALL_FOUR_RAWS_LOCKED / OWNER_ADJUDICATION_RETURN_RAW_LOCKED /
-  OWNER_DECISIONS_EXTRACTED_5_PLUS_78 / OWNER_RETURN_CONSISTENCY_BLOCKER / OWNER_CORRECTION_REQUIRED /
+  OWNER_ADJUDICATION_CONSISTENCY_CLOSED / UNRESOLVED_CONSISTENCY_BLOCKER_0 / WAITING_FOR_OWNER_NEXT_APPROVAL /
   EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET**.
 - PILOT4 candidates: **PILOT4_CANDIDATE_CORPUS_POST_EXTERNAL_PHASE1_REPAIR_V1 / 72 PREANNOTATION_CANDIDATES /
   NOT GROUND TRUTH / NOT FORMAL BENCHMARK / NOT FROZEN DATASET**.
