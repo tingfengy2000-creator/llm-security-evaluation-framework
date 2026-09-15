@@ -2166,3 +2166,24 @@ Approval Gate、Auto Continue。
 - Final status: `PILOT4_AB_ALL_FOUR_RAWS_LOCKED / PRE_ADJUDICATION_REPRODUCIBILITY_FROZEN /
   OWNER_DEFECT_TRIAGE_WORKBOOK_READY / OWNER_EXPECTED_BLIND_ADJUDICATION_WORKBOOK_READY / EXPECTED_V3_NOT_LOADED /
   OWNER_DECISION_REQUIRED / NO_GROUND_TRUTH_YET`.
+
+## REL-2026-0061 — Pilot4 Owner Adjudication Return Lock and Consistency Preflight
+
+- Date: `2026-09-15`; task `PILOT4-A-B-OWNER-ADJUDICATION-RETURN-LOCK-AND-CONSISTENCY-PREFLIGHT-01`; machine `本机控制面`;
+  authority `PODR-094 / OR-056`; execution base `eefa582a4e34ceeb5e3d45f22beed540aae08675`.
+- Locked the Owner-returned seven-sheet workbook byte-for-byte: `373729 bytes`, SHA256
+  `a4c65a22dd3a410c7744be5f256206d7217b8fda33d63c58ac99bb386fe95b01`. Structure, hidden/macro/comment/external-link safety,
+  canonical enums, five submission checks, read-only payload parity and all required Owner cells passed.
+- Extracted all five defect decisions and 78 material field adjudications. All five defect rows are
+  `ANNOTATOR_INTERPRETATION_VARIANCE`; among field rows Owner chose A 46 times, B 26 times and a third canonical value 6 times.
+- Reconstructed a 72-sample / 576-field pre-Ground-Truth candidate: 498 cells use A/B agreement and 78 use Owner adjudication.
+  Bound eight additive Owner-rule applications without changing the workbook: seven internal-contradiction minimum bindings (five
+  value changes, two confirmations) and one explicit-revision version binding.
+- Fail-closed preflight found nine targeted items across six samples: four non-conflict minimum values, one decisive overall paired
+  with `EVIDENCE_MISSING`, and four field reasons referencing unbound E3/证据3 provenance. These are targeted Owner confirmation or
+  provenance tasks, not a request to repeat A/B annotation.
+- Expected V3 was not loaded and Ground Truth was not generated. Final status:
+  `OWNER_ADJUDICATION_RETURN_RAW_LOCKED / OWNER_DECISIONS_EXTRACTED_5_PLUS_78 / OWNER_RULE_OVERLAYS_BOUND_ADDITIVELY /
+  OWNER_RETURN_CONSISTENCY_BLOCKER / OWNER_CORRECTION_REQUIRED / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET`.
+- `DOCUMENTATION_CLOSEOUT_CHECKLIST`: Human Ledger、Agent Ledger、Current Work State、Execution Log、Experiment Master Record、
+  Owner Decision Register、S6.1-P1 process and Paper1 README were checked and updated; Stage1–5 and prior evidence remain unchanged.

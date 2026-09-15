@@ -1614,3 +1614,22 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   experiment. Current status is `OWNER_DECISION_REQUIRED / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET`.
 - Canonical records: `OR-055`, `REL-2026-0060`, [current work state](current_work_state.md) and Git-external
   `paper1_pilot4_owner_adjudication_prep_20260913`.
+
+## PODR-094: Pilot4 Owner Adjudication Return Authority and Additive Rule Binding
+
+- Date: `2026-09-15`.
+- Owner fact: `PILOT4_AB_OWNER_EXPECTED_BLIND_ADJUDICATION_WORKBOOK_V1.xlsx` has been completed by the project Owner and returned
+  through the configured Git-external handoff directory. Future resolution should use the Owner adjudication wherever the contract
+  remains internally consistent.
+- Immutable intake: the returned workbook is preserved as `373729 bytes`, SHA256
+  `a4c65a22dd3a410c7744be5f256206d7217b8fda33d63c58ac99bb386fe95b01`. Its five defect decisions and 78 field values/reasons are
+  attributed to the Owner, not Codex. The original workbook is not rewritten.
+- Existing Owner rules remain controlling and are recorded as separate overlays: internal contradiction plus factual conflict makes
+  `minimum_external_evidence_needed=NOT_APPLICABLE`; an explicit revision assertion is a version claim even without a date, and an
+  incorrect revision/revised-content assertion is `PRESENT_INCORRECT`, with authority evaluated separately.
+- Preflight result: workbook structure, enums and completeness pass, but nine targeted relation/provenance findings remain. These do
+  not authorize silently changing the raw workbook. Owner may confirm corrections in chat or bind the cited E3 evidence separately.
+- Current boundary: `OWNER_RETURN_CONSISTENCY_BLOCKER / OWNER_CORRECTION_REQUIRED / EXPECTED_V3_NOT_LOADED /
+  NO_GROUND_TRUTH_YET / AUTO_CONTINUE_NO`. Dataset freeze、Detector、Training、5090 and formal experiment remain closed.
+- Canonical records: `OR-056`, `REL-2026-0061`, [current work state](current_work_state.md) and Git-external
+  `paper1_pilot4_owner_adjudication_return_lock_20260915`.

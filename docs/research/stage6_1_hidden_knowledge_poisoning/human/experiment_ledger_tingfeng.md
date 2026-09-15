@@ -1,5 +1,17 @@
 # Paper 1 人类可读实验总规划与实验总账
 
+## 2026-09-15：Owner 仲裁已回收并锁定，剩余是定向一致性确认
+
+项目负责人已经完成工作簿。控制面把这份返回文件按原始字节保存，没有改写任何填写痕迹；5 个候选缺陷决定和 78 个字段
+仲裁全部完整。五个候选都被 Owner 判为“标注理解差异”，没有候选被自动隔离。78 个字段中，Owner 选 A 46 项、选 B 26 项、
+选择 A/B 之外的第三值 6 项；其余 498 个字段沿用 A/B 一致结果，因此已形成一个 72 条、576 字段的仲裁后候选视图。
+
+这个候选视图还不是 Ground Truth。原因不是要 A/B 重新标注，而是有少数关系约束需要 Owner 最小追加确认：4 条在 overall
+不是 `FACTUAL_CONFLICT` 时仍填写了实质 minimum 值；1 条把决定性 overall 与 `EVIDENCE_MISSING` 并置；4 个理由引用了
+工作簿未绑定的 E3/证据3。此前 Owner 已批准的两条规则——“文本内部矛盾时 minimum 为 NOT_APPLICABLE”和“显式修订命题
+属于 version claim”——已经作为单独覆盖记录绑定，原工作簿和原填写均保持不变。下一步只需逐项确认建议值或补充 E3 来源，
+不需要重新保存工作簿，也不需要重新标注 72 条。
+
 ## 2026-09-13：Owner 仲裁工具已准备，Expected 仍未打开
 
 我们没有让系统根据“预期答案”自动判谁对，而是先把 A/B 四份原始答卷的复现性再次固定下来。现在有一份专门给项目
@@ -45,8 +57,8 @@ SHA256 `b27d291dcf86088dccc9a7fc7e5dda1e5c1e7af54ac7db7c3bad5d78b215daf2`。两�
 Document Role = `PAPER1_PRIMARY_HUMAN_ENTRY`<br>
 Audience = `项目负责人 / 导师与领导 / 新团队成员`<br>
 Reading Path = `5 minutes / 15 minutes / 30 minutes`<br>
-Current Evidence Cut = `all four A/B raws locked / pre-adjudication reproducibility frozen / Expected-blind Owner workbook ready`<br>
-Last Updated = `2026-09-13`
+Current Evidence Cut = `Owner workbook raw-locked / 5+78 decisions extracted / targeted consistency correction pending`<br>
+Last Updated = `2026-09-15`
 
 > 这是一张“项目地图”，不是 raw evidence，也不产生新授权。读完第 0 节可掌握当前状态；读到第 8 节可理解论文方法；
 > 读完第 19 节可进入项目工作。精确状态、协议、决定和证据分别通过链接下钻。
@@ -60,18 +72,19 @@ Last Updated = `2026-09-13`
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
 | 当前阶段 | ✅ Pilot4 协议/A-B 执行已批准；四份 A/B raw 已锁定；agreement preflight 已完成。 |
-| 当前任务 | `PILOT4-A-B-OWNER-DEFECT-TRIAGE-AND-BLIND-ADJUDICATION-PREP-01`：准备 Expected-blind Owner 仲裁工具。 |
-| 当前完成度 | ✅ 四 raw 复核、裁决前一致性冻结、五缺陷优先分流和 78 字段仲裁工作簿已完成。 |
-| 当前唯一人工动作 | Owner 先填 5 个缺陷决定，再填状态允许进入普通仲裁的字段并原样返回工作簿。 |
-| 当前主要 blocker | `HUMAN_DECISION_REQUIRED`：78 个 material field disagreements，覆盖 40 个 sample。 |
-| 已经可以说什么 | 四份 raw 全部不可变锁定，仲裁前复现性已冻结，Expected-blind Owner 工作簿已准备。 |
-| 绝对不能说什么 | 不得说分歧已仲裁、72 条已有 Ground Truth，或任何 Dataset/Detector/Formal Result 已形成。 |
+| 当前任务 | `PILOT4-A-B-OWNER-ADJUDICATION-RETURN-LOCK-AND-CONSISTENCY-PREFLIGHT-01`：锁定 Owner 返回并做关系/来源预检。 |
+| 当前完成度 | ✅ 返回工作簿原样锁定；5 个缺陷决定与 78 个字段仲裁已提取；Owner 已冻结规则已追加绑定。 |
+| 当前唯一人工动作 | Owner 对 9 个定向核验项确认建议值，或提供 E3 的标题、URL、快照与 SHA256。 |
+| 当前主要 blocker | `PILOT4_OWNER_RETURN_CONSISTENCY_BLOCKER_01`：关系约束与 E3 provenance 尚未闭合。 |
+| 已经可以说什么 | Owner 已完成仲裁，返回证据完整；72×8 候选视图主要以 A/B 一致值和 Owner 仲裁为准。 |
+| 绝对不能说什么 | 不得把候选视图称为 Ground Truth，或宣称 Dataset/Detector/Formal Result 已形成。 |
 
 当前实验状态固定为：
 
 当前状态枚举如下；它只说明已经批准和仍在等待的边界：
 `PILOT4_AB_ALL_FOUR_RAWS_LOCKED / DUAL_PHASE2_LOCK_GATE_PASS / AB_AGREEMENT_PREFLIGHT_COMPUTED /
-OWNER_ADJUDICATION_PENDING / HUMAN_DECISION_REQUIRED / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET`
+OWNER_ADJUDICATION_RETURN_RAW_LOCKED / OWNER_DECISIONS_EXTRACTED_5_PLUS_78 /
+OWNER_RETURN_CONSISTENCY_BLOCKER / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET`
 
 保留的历史状态链含 `PREANNOTATION_ONLY`：`PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT` →
 `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` → `PILOT4_QUALITY_CONVERGED` → Schema V3.1 hardening → 当前外部盲审包状态。历史 package 不被覆盖。
@@ -450,7 +463,7 @@ Owner 只在双方结果锁定后裁决必要分歧。Owner 的目的不是“�
 
 ## 14. 当前项目状态
 
-- `PILOT4_AB_ALL_FOUR_RAWS_LOCKED / DUAL_PHASE2_LOCK_GATE_PASS / AB_AGREEMENT_PREFLIGHT_COMPUTED / OWNER_ADJUDICATION_PENDING / HUMAN_DECISION_REQUIRED / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET`
+- `PILOT4_AB_ALL_FOUR_RAWS_LOCKED / OWNER_ADJUDICATION_RETURN_RAW_LOCKED / OWNER_DECISIONS_EXTRACTED_5_PLUS_78 / OWNER_RETURN_CONSISTENCY_BLOCKER / OWNER_CORRECTION_REQUIRED / EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET`
 - `PILOT_LEVEL_ANNOTATION_READINESS_ONLY`
 - `PILOT4_A_B_EXECUTION_APPROVED / PILOT4_AB_DUAL_PHASE1_RAW_LOCKED / PHASE2_RELEASE_ALLOWED`
 - 历史预检状态 `NO_HUMAN_DISTRIBUTION` 已被本轮 Owner 分发批准取代；它仅作为时间线事实保留，不能描述当前授权。
