@@ -54,25 +54,26 @@
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
 | 当前最高完成阶段 | S6-T5 Controlled Retrieval and Traceable Context Baseline 已 `HUMAN_ACCEPTED BASELINE`；S6.1-LR1 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`。 |
-| 当前任务 | `PILOT4-FINAL72-EXPECTED-V3-QC-AND-GROUND-TRUTH-CANDIDATE-01`：Expected V3 研究者侧 QC 与 Final72 GT Candidate 构建。 |
-| 当前审批门 | `FINAL72_GROUND_TRUTH_CANDIDATE_READY`；最终接受为 false，正式数据冻结与 Detector 仍未批准。 |
-| 下一批准任务 | Owner 只需决定是否接受 `PILOT4_FINAL72_GROUND_TRUTH_CANDIDATE_V1`；当前任务不自动继续。 |
+| 当前任务 | `P1-FINAL72-GT-ACCEPTANCE-AND-SIGNAL-DETECTION-EXPERIMENT-KICKOFF-01`：Final72 GT 冻结与 Signals/Detection 合同工程启动。 |
+| 当前审批门 | `PILOT4_FINAL72_GT_ACCEPTED / FINAL72_DEVELOPMENT_SET_ACTIVE`；实际 signal feasibility、正式 scale 与 Detector 结果尚未执行。 |
+| 下一批准任务 | 单独冻结并批准 `SIGNAL_FEASIBILITY_AND_SEPARABILITY_STUDY` 的实际运行合同；Scale Track 保持独立门。 |
 | Baseline tag | annotated `s6-t5-rag-baseline-v1` 已恢复；本地/远端 peeled target 均核验为 `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
 | 最近工程验证 | H2 resume_02 archive SHA/safety/index `25/25`, H2-A `18/18`, exact local-model CUDA load, single-call and resource evidence passed Control Plane review。 |
-| 当前主要阻塞项 | 仲裁一致性 blocker `0`；Expected/GT 仍由独立 Owner gate 阻止自动进入。 |
-| 当前允许宣称 | Owner 已接受 Pilot4 标注协议并关闭校准；Accepted Stack V1 与 13 条证据支持 lessons 已冻结；这仅是 Pilot-level annotation readiness。 |
-| 当前禁止宣称 | GMTP reproduction/effectiveness/safety/generalization、strict baseline comparison、P1/formal experiment or paper result。 |
+| 当前主要阻塞项 | GT blocker `0`；signal 实际执行合同与 formal scale 仍需各自批准。 |
+| 当前允许宣称 | Owner 已接受并冻结 Final72 GT；五视角 Signals/Detection method-engineering 合同与接口骨架已建立。 |
+| 当前禁止宣称 | detector superiority/effectiveness、risk calibration、explanation faithfulness、detoxification effectiveness、formal scale 或 paper result。 |
 
 历史审批快照补充：S6-T5.5/5.6/5.7 已按后续记录完成并通过相应人工验收；早期 pending/NOT APPROVED 文字保留为
 时间点事实。当前 accepted implementation/integration identities 分别是 `b136ee2` 与 `b6cedf3`；LR1 不改变该 taxonomy。
 
 正式 RAG 安全实验：**Not started**。Historical R0 execution/return snapshots and current R0 acceptance do not change this status。
 
-Pilot4 当前追加事实（2026-09-15）：Owner 返回工作簿保持 `373729 bytes` / SHA256
-`a4c65a22dd3a410c7744be5f256206d7217b8fda33d63c58ac99bb386fe95b01` 不变。仲裁一致性关闭后才加载 Expected V3 作
-researcher-side QC。Final72 GT Candidate 已按 Human precedence 生成 72 条/576 字段；Expected 显式 504 字段中 469 一致、
-35 差异，Expected defect 4、known Evidence limitation 11、Human variance 20，新的 GT blocker 为 0。GT 尚未最终接受。
+Pilot4 当前追加事实（2026-09-15）：Owner 以 `ACCEPTED_WITH_KNOWN_EVIDENCE_LIMITATIONS` 正式接受 Final72 GT。Source
+Candidate SHA256 `7cc8baf8...845b`；冻结 GT SHA256 `9e6224ef...720a`；72 条/576 字段与 576 lineage 全部完整。11 项
+frozen Evidence limitation 保持显式编码，unresolved blocker 为 0。Final72 只用于 development/method engineering。
+五视角 signal、baseline、fusion、metric、ablation、scale readiness 与接口 skeleton 已冻结/准备，但未执行 signal study、
+训练、校准、240-group 或正式实验。
 
 **阅读入口**：先读 [AGENTS.md](../../AGENTS.md)、[Context Authority Map](context_authority_map.md)、
 [PO-MHEP](project_owner_sovereignty_and_mandatory_escalation_principle.md)、[长期研究需求](long_term_research_requirements.md)、
@@ -158,7 +159,8 @@ researcher-side QC。Final72 GT Candidate 已按 Human precedence 生成 72 条/
 | PILOT4-A-B-DUAL-PHASE1-RAW-LOCK-AND-HUMAN-FRIENDLY-PHASE2-RELEASE-01 | Pilot4 dual Phase1 raw lock and human-friendly Phase2 V3 release | immutable A/B Phase1 raw locks；dual gate；Candidate-visible XLSX；embedded Evidence navigation；deterministic exact-eight-column export | A/B `72/72`；hash/schema/order/enum/reason PASS；both workbooks 72 rows and 144/144 snapshots；mapping/Expected/agreement/GT untouched | `DUAL_PHASE1_LOCK_GATE_PASS / PHASE2_RELEASE_ALLOWED / BOTH_PHASE2_V3_READY / WAITING_OWNER_DUAL_PHASE2_DISTRIBUTION / NO_GT` | `PODR-090 / OR-052 / REL-2026-0057`; Git-external `paper1_pilot4_dual_phase1_phase2_v3_20260908` | Owner separately sends each annotator's three Phase2 V3 files and preserves returned CSV bytes |
 | PILOT4-A-B-PHASE2-FIELD-REWORK-RISK-AUDIT-AND-MINIMAL-USABILITY-REPAIR-01 | Pilot4 Phase2 field rework-risk audit and minimal human usability repair | pre-edit seven-field risk audit；visible E1/E2 titles/full official URLs；frozen backup；unprotected XLSX；Guide/README V4 | semantic blocker false；Candidate/ID/order 72/72；Evidence identity/snapshot and external hyperlink target 144/144；semantic rule changes 0；A/B Guide parity true | `BOTH_PHASE2_V3_2_READY / WAITING_OWNER_DUAL_PHASE2_DISTRIBUTION / NO_AGREEMENT / NO_GT` | `PODR-091 / OR-053 / REL-2026-0058`; Git-external `paper1_pilot4_phase2_usability_repair_20260909` | Owner separately sends each annotator's own four-file Phase2 V3.2 package; old V3 is preserved but superseded for distribution |
 | PILOT4-A-B-DUAL-PHASE2-RAW-LOCK-AND-AGREEMENT-PREFLIGHT-01 | Pilot4 A/B dual Phase2 raw lock and agreement preflight | immutable A/B workbooks and canonical CSVs；dual lock before mapping；human-human agreement；disagreement-only packet | A/B 72/72 QA；78 material field disagreements / 40 samples；54 process-only differences；5 late-candidate-defect flags；Expected V3 not loaded | `ALL_FOUR_RAWS_LOCKED / AGREEMENT_PREFLIGHT_COMPUTED / HUMAN_DECISION_REQUIRED / NO_GT` | `PODR-092 / OR-054 / REL-2026-0059`; Git-external `paper1_pilot4_ab_phase2_raw_lock_agreement_20260913` | Owner adjudicates only disagreements; no automatic repair or Ground Truth |
-| Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | LR1/R0/FU1 accepted；P1-R1 framework accepted；Pilot4 protocol/A-B execution approved；dual Phase1 locked；Phase2 V3.2 human-ready；formal work not started | `PILOT_IN_PROGRESS / WAITING_OWNER_DUAL_PHASE2_DISTRIBUTION / NOT_FORMAL_EXPERIMENT` | [长期需求](long_term_research_requirements.md) | Owner separately distributes each annotator's four Phase2 V3.2 files；no mapping/Expected/agreement until both returns lock |
+| P1-FINAL72-GT-ACCEPTANCE-AND-SIGNAL-DETECTION-EXPERIMENT-KICKOFF-01 | Final72 GT acceptance and five-view method-engineering kickoff | freeze accepted GT；bind development-only role；freeze S/E/P/T/R signals、baseline、fusion、risk、explanation、metrics、ablation、scale-readiness；add interfaces | GT 72/72、576/576、lineage 576/576；SHA `9e6224ef...720a`；signal registry 42 definitions；no result run | `PILOT4_FINAL72_GT_ACCEPTED / PAPER1_SIGNAL_DETECTION_ENGINEERING_STARTED / SIGNAL_FEASIBILITY_EXECUTION_APPROVAL_PENDING` | `PODR-097 / OR-059 / REL-2026-0064`; Git-external `paper1_final72_gt_acceptance_signal_kickoff_20260915` | separately approve Signal Feasibility execution contract；formal scale remains separate |
+| Stage 6.1 | Hidden Knowledge Poisoning Detection | 隐蔽污染检测 | LR1/R0/FU1 accepted；P1-R1 framework accepted；Pilot4 GT accepted；five-view method engineering started；formal result not started | `FINAL72_DEVELOPMENT_SET_ACTIVE / SIGNAL_FEASIBILITY_EXECUTION_APPROVAL_PENDING / NOT_FORMAL_EXPERIMENT` | [长期需求](long_term_research_requirements.md) | Freeze and approve first Signal Feasibility execution contract；no automatic model/training/scale run |
 | Stage 6.2 | Multi-Evidence Trustworthy Retrieval | 可信聚合、重排、拒答 | 规划中 | `PLANNED` | [长期需求](long_term_research_requirements.md) | Stage 6.1/设计批准 |
 | Stage 7 | Agent Security Evaluation | Tool/Memory/Planning 安全 | 规划中 | `PLANNED` | [Stage 7 README](../../stages/stage7_agent_security/README.md) | Trusted Context 契约 |
 

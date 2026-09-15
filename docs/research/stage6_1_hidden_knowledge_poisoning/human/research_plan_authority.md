@@ -77,6 +77,13 @@ Pilot 历史事实，不因正式五领域确认而改写。
 
 ## 6. 多视角方法
 
+当前方法链由 Owner 冻结为：
+
+`Benchmark → Signals → Detection → Risk Score → Explanation → Retrieval Detoxification`
+
+Signal 是可观察证据，Detection 才利用信号进行风险判定；二者不得混写。每个 signal 必须包含 value、applicability 与
+confidence/evidence quality，`NOT_APPLICABLE` 不得编码成 safe/zero risk。
+
 | 视角 | 计划信号 | 当前状态 |
 | --- | --- | --- |
 | Semantic View | 语义一致性与局部异常 | `METHOD CONTRACT ACCEPTED / PILOT3 DIAGNOSTIC PROTOTYPE` |
@@ -85,10 +92,12 @@ Pilot 历史事实，不因正式五领域确认而改写。
 | Temporal-Version View | 版本、时效与修订关系 | `METHOD CONTRACT ACCEPTED / STRUCTURED PROTOTYPE PARTIALLY IMPLEMENTED` |
 | Retrieval-Behavior View | 排名、邻域与检索扰动 | `METHOD CONTRACT ACCEPTED / DIAGNOSTIC PRIMITIVE` |
 
-五视角 `METHOD CONTRACT = ACCEPTED`；`DIAGNOSTIC IMPLEMENTATION = PARTIALLY IMPLEMENTED / PILOT3-PILOT4 ENGINEERING ONLY`。
-Pilot3/Pilot4 只证明接口、结构化信号和失败模式可被工程验证，尤其 structured Temporal-Version / Provenance prototype 已实现；
-`FORMAL DETECTOR = NOT IMPLEMENTED`，`DETECTION EFFECTIVENESS = NOT ESTABLISHED`。Option B 的 hard filtering / soft
-downweighting 技术范围已确认且存在工程 primitive，但 effectiveness 同样未建立。
+五视角 `METHOD CONTRACT = ACCEPTED`；`PAPER1_FIVE_VIEW_SIGNAL_CONTRACT_V1 = OWNER_FROZEN`；
+`DIAGNOSTIC IMPLEMENTATION = PARTIALLY IMPLEMENTED / PILOT3-PILOT4 ENGINEERING ONLY`。Pilot3/Pilot4 只证明接口、结构化
+信号和失败模式可被工程验证，尤其 structured Temporal-Version / Provenance prototype 已实现；新增 method-engineering
+代码仍只是 schema/registry/interfaces。`FORMAL DETECTOR = NOT IMPLEMENTED`，`DETECTION EFFECTIVENESS = NOT ESTABLISHED`。
+MLM/PPL 是 lexical-naturalness baseline / Semantic signal；GMTP 是可复现时使用的强外部 poisoning-defense baseline，
+均不是 proposed core method。核心 proposed method 是 Version-aware Multi-view Detection。Option B effectiveness 仍未建立。
 
 ## 7. Paper 1 与后续研究边界
 
@@ -129,11 +138,10 @@ Paper 1 包括 Benchmark、Detection、Risk Score、Signals、Explanation，以�
 2. S6.1-R0：工程预检，带阻塞项验收。
 3. S6.1-R0-FU1：P0/L1/W2 已验收；仅以工程可行性范围关闭。
 4. S6.1-P1-R1：`HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；数值参数仍待 Pilot 证据，正式 protocol 未冻结。
-5. Pilot0–2 已在各自可行性范围关闭；Pilot3 只完成信号诊断；Pilot4 已完成外部两阶段盲审、R3 定向验证和 additive
-   Expected V3 gate recompute。Owner 已正式登记 `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED /
-   ACCEPTED_WITH_NONBLOCKING_NOTES / PILOT4_CALIBRATION_CLOSED`，并另行批准 `PILOT4_A_B_EXECUTION_APPROVED`。
-   HUMAN-A01/HUMAN-B01 的独立 Phase1 包已就绪；当前下一门为 Owner 实际分发、两份 Phase1 raw 回收与双锁，
-   `PHASE2_WITHHELD / NO_GROUND_TRUTH_YET`。
+5. Pilot0–2 已在各自可行性范围关闭；Pilot3 只完成信号诊断；Pilot4 已完成协议、双人工两阶段标注、Owner 盲态仲裁、
+   Expected QC 与 Final72 GT。Owner 已登记 `PILOT4_FINAL72_GT_ACCEPTED /
+   ACCEPTED_WITH_KNOWN_EVIDENCE_LIMITATIONS / PILOT4_GT_CONSTRUCTION_CLOSED`。Final72 仅作为 development/method-engineering
+   set；Signal Feasibility execution 尚未批准。
 6. 240-group Scale Pilot、Benchmark freeze、Detector、Formal Evaluation、Ablation、Generalization、Option B effectiveness
    和 Paper Writing 均需各自审批与证据门。
 
@@ -145,11 +153,10 @@ Paper 1 包括 Benchmark、Detection、Risk Score、Signals、Explanation，以�
 - 模型 revision、环境、随机种子、指标、统计和资源预算冻结。
 - 项目需求提出人明确批准 S6.1-P1 及后续相应阶段。
 
-当前 `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；Pilot4 annotation protocol 与独立 A/B execution 已由 Owner
-分别批准，但 formal Dataset、Detector 和正式实验仍未冻结。当前实验门只允许 Owner 分别分发 A/B 的 Phase1 五文件包并
-回收两份原始 CSV；双 Phase1 锁前不得释放 Phase2，四份 raw 锁前不得 agreement/mapping/Expected。不得自动生成 Ground
-Truth、进入 240-group、Dataset Construction、Detector Implementation、Retrieval Intervention effectiveness、Training 或
-Formal Experiment。
+当前 `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；Pilot4 Final72 GT 已由 Owner 正式接受，五视角 Signal/
+Detection 合同与接口工程已启动。下一实验门只允许在单独审批后执行 `SIGNAL_FEASIBILITY_AND_SEPARABILITY_STUDY`；该门
+必须先冻结 input/query/retriever/embedding/model/signal parameters/missing handling/statistics/resources。240-group、正式
+Dataset freeze、正式 Detector evaluation/training、Retrieval Intervention effectiveness、5090 和 Formal Experiment 均未批准。
 
 ## 15. 结论边界
 
@@ -181,6 +188,7 @@ Formal Experiment。
 | RPC-005 | 2026-08-02 | 解毒 A/B/C 待确认、旧 P1 合同候选 | 选择 Option B；Paper 1 冻结为检测与轻量 hard filtering/soft downweighting，并形成审批级 P1-R1 强化候选 | 使题目中的“解毒”具有可证伪、可预算和不扩张的技术边界 | 是；OR-021 / PODR-062 | S6.1-P1-R1 review gate | 本次提交 |
 | RPC-006 | 2026-09-01 | 三/四领域 Pilot 历史与正式领域规划分散 | 正式 Paper 1 领域冻结为 D1–D5；未来 Scale Pilot 规划 240 independent groups，明确未执行、未生成、未冻结 | 支持正式 Benchmark 跨领域规划，同时不改写 Pilot4 四领域历史 | 是；GOV-P1-HUMAN-DOCS-INTEGRATION-01 | future Scale Pilot / Formal Benchmark | 本次提交 |
 | RPC-007 | 2026-09-03 | Pilot4 Protocol 等待 Owner 最终决定 | Owner 按冻结 Gate A–F 接受 Pilot4 annotation protocol 并关闭 calibration；Accepted Stack V1 冻结，A/B execution 保持独立待批准门 | 全部预先冻结 gate 已通过，只剩两条非系统 reviewer variance；继续 R4 无相称方法学收益 | 是；PILOT4-OWNER-PROTOCOL-ACCEPTANCE-AND-AB-EXECUTION-PREFLIGHT-01 | Pilot4 closure / A-B preflight | 本次提交 |
+| RPC-008 | 2026-09-15 | Final72 GT Candidate 等待接受；五视角仅有分散的 Pilot 诊断合同 | Owner 接受并冻结 Final72 GT 为 development/method-engineering set，冻结 `Benchmark→Signals→Detection→Risk→Explanation→Retrieval Detoxification` 方法链、五视角 Signal Contract V1、baseline/fusion/metric/ablation/scale-readiness 与接口骨架 | 关闭人工 Benchmark GT 构建并进入不产生结果的 method engineering，同时保护 untouched test 与 label isolation | 是；OR-059 / PODR-097 | Final72 GT / Signal-Detection kickoff | 本次提交 |
 
 历史与支撑路线：[paper1_research_route.md](../paper1_research_route.md)，其 `Document Role = HISTORICAL_AND_SUPPORTING_RESEARCH_ROUTE`，不能覆盖本文件。
 

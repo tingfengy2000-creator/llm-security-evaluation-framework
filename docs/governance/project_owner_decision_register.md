@@ -1669,3 +1669,21 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   test set. Formal dataset freeze、240-group、Detector evaluation、Training、5090 and formal experiment remain closed.
 - Canonical records: `OR-058`, `REL-2026-0063`, [current work state](current_work_state.md) and Git-external
   `paper1_pilot4_final72_gt_candidate_20260915`.
+
+## PODR-097: Final72 Ground Truth Acceptance and Signal/Detection Engineering Kickoff
+
+- Date: `2026-09-15`.
+- Owner decision: accept `PILOT4_FINAL72_GROUND_TRUTH_V1` under
+  `ACCEPTED_WITH_KNOWN_EVIDENCE_LIMITATIONS` and close Pilot4 GT construction. Source Candidate SHA256 is
+  `7cc8baf832a57ead85958b8fbd0ca511caab31f840b52e864de623a11134845b`; frozen GT SHA256 is
+  `9e6224ef2cb2cb8e729f9ab569d09589c951e6df4ed3327c63c82913066d720a`.
+- Integrity and limits: 72/72 records, 576/576 values and 576/576 lineage pass. Expected V3 has no value precedence. The eleven
+  frozen Evidence limitations remain explicitly encoded; unresolved GT blocker is 0.
+- Role: Final72 is `DEVELOPMENT_AND_METHOD_ENGINEERING_SET`, never an untouched final test population. Repeated Final72 tuning is
+  development-exposed; future paper effects require a scaled, version-chain-group-aware split and untouched test population.
+- Authorized now: freeze `PAPER1_FIVE_VIEW_SIGNAL_CONTRACT_V1`, Signal Feasibility Spec, baseline/fusion/risk/explanation/metric/
+  ablation/scale-readiness contracts and label-isolated interface skeletons.
+- Not authorized: actual signal study, model execution, Detector training/tuning, calibrated-risk result, 240-group generation,
+  formal Dataset freeze, 5090 workload or paper-result claim. These require separate gates.
+- Canonical records: `OR-059`, `REL-2026-0064`, [current work state](current_work_state.md) and Git-external
+  `paper1_final72_gt_acceptance_signal_kickoff_20260915`.

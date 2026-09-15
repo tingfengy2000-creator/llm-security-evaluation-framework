@@ -1,5 +1,30 @@
 # Paper 1 人类可读实验总规划与实验总账
 
+## 2026-09-15：Final72 Ground Truth 正式接受，进入 Signals / Detection 方法工程
+
+项目负责人已经以“接受，但保留已知冻结证据限制”的方式正式验收 Final72 Ground Truth。72 条候选、576 个最终字段和
+每个字段的 A/B、Owner 仲裁与 correction lineage 都完整；11 项 Evidence 限制继续明确写成证据不足或证据缺失，没有被
+隐藏或事后补证。Expected V3 仍只是人工仲裁完成后的研究质量对照，不能覆盖人工真值。
+
+Final72 从现在起是开发与方法工程数据，不是论文最终独立测试集。因为我们已经用它校准标注规则、处理仲裁并检查方法，
+任何在它上面反复调试的方案都必须叫 development-exposed。未来论文最终效果必须来自扩大后的 Benchmark、按 version chain
+分组切分，以及从未参与开发的 test population。
+
+### 我们接下来到底怎样检测知识污染？
+
+`Signals（信号）` 是可观察证据，例如候选更像历史版本还是当前版本、主张中的数字/条件是否与证据冲突、声称机关是否与
+真实发布/制定/修订关系一致、检索结果是否被历史版本占据。`Detection（检测）` 是把这些信号组合起来，输出污染风险。
+Signals 本身不是答案，也不能读取 Ground Truth。
+
+第一版方法使用五个视角：Semantic 看语言和语义接近度；Entity-Claim 看主体、数值、日期、条件、例外和关系；Provenance
+区分网站、页面发布者、制定/通过/修订机关与官方转载；Temporal-Version 判断现行、历史、废止、替代和时间绑定；Retrieval-
+Behavior 看 rank、score、top-k 版本构成与稳定性。MLM/PPL 只是语言自然度 baseline/语义信号，GMTP 是可复现时使用的外部
+检测 baseline，不是我们的全部方法；核心 proposed method 仍是 Version-aware Multi-view Detection。
+
+本轮只把信号定义、适用性、baseline、Logistic Regression fusion、风险校准候选、证据化解释、指标、消融和 240-group
+Scale Readiness 写清并建立代码接口。没有跑实际信号矩阵，没有训练 Detector，没有得到准确率或优越性结论。下一步需由
+项目负责人单独批准第一轮 `SIGNAL_FEASIBILITY_AND_SEPARABILITY_STUDY` 的输入、模型、query/retriever、参数和统计合同。
+
 ## 2026-09-15：Final72 Ground Truth Candidate 已生成，等待项目负责人最终接受
 
 人工仲裁已经正式结束。系统先从四份不可变 A/B 返回重建全部 72 条、576 个字段：A/B 相同的 498 项直接沿用，两人不同的

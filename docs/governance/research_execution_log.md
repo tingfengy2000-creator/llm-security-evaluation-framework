@@ -2225,3 +2225,20 @@ Approval Gate、Auto Continue。
   NO_GROUND_TRUTH_YET / WAITING_FOR_OWNER_NEXT_APPROVAL`.
 - `DOCUMENTATION_CLOSEOUT_CHECKLIST`: Human Ledger、Agent Ledger、Current Work State、Execution Log、Experiment Master Record、
   Owner Decision Register、S6.1-P1 process and Paper1 README were checked and updated; Stage1–5 and prior evidence remain unchanged.
+
+## REL-2026-0064 — Final72 GT Acceptance and Signal/Detection Engineering Kickoff
+
+- Date: `2026-09-15`; task `P1-FINAL72-GT-ACCEPTANCE-AND-SIGNAL-DETECTION-EXPERIMENT-KICKOFF-01`; machine
+  `本机控制面`; authority `PODR-097 / OR-059`; execution base `425ae714290356d706da44017de375eb7cb8576a`.
+- Owner accepted Final72 under `ACCEPTED_WITH_KNOWN_EVIDENCE_LIMITATIONS`. Candidate SHA256 `7cc8baf8...845b` was verified;
+  accepted GT SHA256 is `9e6224ef...720a`. Integrity is 72 records / 576 values / 576 lineage; Expected V3 does not override GT;
+  known frozen Evidence limitations remain 11 and unresolved blockers are 0.
+- Frozen role: `DEVELOPMENT_AND_METHOD_ENGINEERING_SET / NOT_UNTOUCHED_FINAL_TEST`. Future formal effects require scaled data,
+  version-chain-group-aware splitting and untouched test population.
+- Prepared Five-view Signal Contract V1, Signal Feasibility Spec, baseline matrix, Logistic Regression primary fusion with
+  XGBoost/LightGBM comparisons, Platt/Isotonic calibration candidates, signal/evidence-grounded explanation, metric/ablation
+  contracts and 240-group Scale Readiness Spec. Added label-isolated interfaces only.
+- No signal extractor, model, GMTP, training, tuning, calibrated risk, scale data, 5090 workload or formal result was run.
+- Final status: `PILOT4_FINAL72_GT_ACCEPTED / PILOT4_GT_CONSTRUCTION_CLOSED /
+  PAPER1_SIGNAL_DETECTION_ENGINEERING_STARTED / FINAL72_DEVELOPMENT_SET_ACTIVE /
+  FORMAL_SCALE_BENCHMARK_PENDING / NO_FORMAL_DETECTOR_RESULT_YET`.

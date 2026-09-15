@@ -1,8 +1,8 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`OWNER_ADJUDICATION_CLOSED / EXPECTED_V3_POST_ADJUDICATION_QC_COMPLETE /
-> FINAL72_GROUND_TRUTH_CANDIDATE_READY / WAITING_FOR_OWNER_FINAL_GT_ACCEPTANCE /
-> NO_FORMAL_DATASET_FREEZE_YET / NO_FORMAL_DETECTOR_RESULT_YET`。
+> 当前实验状态：`PILOT4_FINAL72_GT_ACCEPTED / PILOT4_GT_CONSTRUCTION_CLOSED /
+> PAPER1_SIGNAL_DETECTION_ENGINEERING_STARTED / FINAL72_DEVELOPMENT_SET_ACTIVE /
+> FORMAL_SCALE_BENCHMARK_PENDING / NO_FORMAL_DETECTOR_RESULT_YET`。
 > Owner 已按 M2 `2/16`、matched controls `16/16`、M4 `0`、M8 `4/4` 和其余冻结门全部 PASS 正式接受 Protocol；
 > 两条 residual reviewer variance 保持不可变且不触发 R4。Accepted Stack 绑定 Final72、Attempt2 Phase1、Guide V3.2、
 > Expected V3、Evidence Pool V2 与 frozen snapshot + URL provenance。Owner 已指定两个不同真人并批准 A/B 执行与
@@ -14,8 +14,10 @@
 > 全量 72×8 一致性复核为 PASS、未解决 blocker 为 0。Expected V3 直到此后才首次用于研究者侧 QC，且不具有
 > Ground Truth 优先级。Final72 GT Candidate 已按 498 个 A/B consensus、78 个 Owner 盲态仲裁及批准的 additive overlay
 > 重建为 72 条/576 字段；Expected 显式定义的 504 个字段中 469 个一致，35 个差异均已分类，新的 GT blocker 为 0。
-> GT Candidate 尚待 Owner 最终接受；240-group、Dataset freeze、Formal Detector、Training、5090、Formal Experiment 和
-> Paper Result 均未开始。
+> Owner 已以 `ACCEPTED_WITH_KNOWN_EVIDENCE_LIMITATIONS` 接受 Final72 GT；72/576 与 lineage 完整，11 项已知冻结
+> Evidence limitation 继续显式编码。Final72 只能用于 development/method engineering，不是 untouched final test。
+> 五视角 Signal/Detection 合同和接口骨架已启动；actual signal study、240-group、Dataset freeze、正式 Detector、Training、
+> 5090、Formal Experiment 和 Paper Result 均未开始。
 > `FORMAL_EXPERIMENT = NOT STARTED`；`DATASET_FORMAL_FREEZE = NOT STARTED`。
 
 ## First screen routing
@@ -43,6 +45,15 @@
 
 - [P1-R1 Protocol Framework Source](s6_1_p1_r1_protocol_review_candidate.md) — 框架已接受；数值参数和正式 protocol 仍待冻结。
 - [Paper 1 Benchmark Alignment Matrix](paper1_benchmark_alignment_matrix.md) — 外部工作与本项目角色对齐。
+
+## Signal / Detection Method Engineering
+
+- [Five-view Signal Contract V1](method_engineering/PAPER1_FIVE_VIEW_SIGNAL_CONTRACT_V1.md)
+- [Signal Feasibility Experiment Spec V1](method_engineering/SIGNAL_FEASIBILITY_EXPERIMENT_SPEC_V1.md)
+- [Baseline Matrix V1](method_engineering/PAPER1_BASELINE_MATRIX_V1.md)
+- [Fusion, Risk and Explanation Design V1](method_engineering/PAPER1_FUSION_RISK_EXPLANATION_DESIGN_V1.md)
+- [Metric and Ablation Contract V1](method_engineering/PAPER1_METRIC_AND_ABLATION_CONTRACT_V1.md)
+- [240-group Scale Readiness Spec V1](benchmark/PAPER1_240_GROUP_SCALE_READINESS_SPEC_V1.md)
 - [Baseline Reproduction Protocol](baseline_reproduction_protocol.md) — 外部 baseline 复现与 claims 边界。
 - [Hardware Execution Policy](hardware_execution_policy.md) — 本机与 RTX5090 的职责边界。
 

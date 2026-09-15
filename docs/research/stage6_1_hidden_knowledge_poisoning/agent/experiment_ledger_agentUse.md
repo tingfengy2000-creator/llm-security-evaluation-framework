@@ -13,7 +13,7 @@ Primary Human Mirror = `../human/experiment_ledger_tingfeng.md`
 project: LLMGuard Research Framework
 paper: Paper 1 - Chinese version-aware stealthy knowledge poisoning
 branch: research/stage6-1-hidden-poisoning
-task_execution_base_commit: 542bfdb20a881703b1fcfff7e18874737e6239d1
+task_execution_base_commit: 425ae714290356d706da44017de375eb7cb8576a
 latest_commit_source: DYNAMIC_GIT_FACT / DO_NOT_HARDCODE
 snapshot_date: 2026-09-15
 authority_order:
@@ -28,8 +28,8 @@ authority_order:
 ## Current State Snapshot
 
 ```yaml
-CURRENT_TASK: PILOT4-FINAL72-EXPECTED-V3-QC-AND-GROUND-TRUTH-CANDIDATE-01
-CURRENT_TASK_TYPE: POST_ADJUDICATION_EXPECTED_QC / GROUND_TRUTH_CANDIDATE_CONSTRUCTION
+CURRENT_TASK: P1-FINAL72-GT-ACCEPTANCE-AND-SIGNAL-DETECTION-EXPERIMENT-KICKOFF-01
+CURRENT_TASK_TYPE: FINAL72_GT_ACCEPTANCE / SIGNAL_DETECTION_METHOD_ENGINEERING_KICKOFF
 PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT: OWNER_CONFIRMED
 PAPER1_HUMAN_LEDGER_SYNC_ON_TASK_CLOSE: MANDATORY
 AUTO_DOCUMENTATION_SYNC_POLICY: ACTIVE
@@ -58,7 +58,7 @@ GMTP_REPRODUCTION: NOT ESTABLISHED
 DETECTION_EFFECTIVENESS: NOT ESTABLISHED
 STRICT_BASELINE_COMPARISON: NOT ESTABLISHED
 S6.1-P1-R1: HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK
-S6.1-P1: OWNER_ADJUDICATION_CLOSED / EXPECTED_V3_POST_ADJUDICATION_QC_COMPLETE / FINAL72_GROUND_TRUTH_CANDIDATE_READY / WAITING_FOR_OWNER_FINAL_GT_ACCEPTANCE / NO_FORMAL_DATASET_FREEZE_YET / NO_FORMAL_DETECTOR_RESULT_YET
+S6.1-P1: PILOT4_FINAL72_GT_ACCEPTED / PILOT4_GT_CONSTRUCTION_CLOSED / PAPER1_SIGNAL_DETECTION_ENGINEERING_STARTED / FINAL72_DEVELOPMENT_SET_ACTIVE / FORMAL_SCALE_BENCHMARK_PENDING / NO_FORMAL_DETECTOR_RESULT_YET
 PILOT4_HUMAN_A01_PHASE1_RAW: IMMUTABLE / 3313_BYTES / SHA256_bb74908f7433bca1c834e8e7ea8e8721316edb1a503202805f90dd0e974d8bac
 PILOT4_HUMAN_B01_PHASE1_RAW: IMMUTABLE / 3658_BYTES / SHA256_b27d291dcf86088dccc9a7fc7e5dda1e5c1e7af54ac7db7c3bad5d78b215daf2
 PILOT4_DUAL_PHASE1_LOCK_GATE: PASS
@@ -84,8 +84,18 @@ PILOT4_HUMAN_EXPECTED_QC: 469_OF_504_EXPLICIT_EXPECTED_FIELDS / 93.0556_PERCENT 
 PILOT4_EXPECTED_UNDEFINED_QC_SCOPE: PHASE2_ISSUE_72_SLOTS / NOT_FABRICATED
 PILOT4_EXPECTED_QC_TAXONOMY: EXPECTED_V3_DEFECT_4 / KNOWN_EVIDENCE_DEFECT_11 / HUMAN_ADJUDICATION_VARIANCE_20
 PILOT4_NEW_GT_BLOCKERS: 0
-PILOT4_GROUND_TRUTH_CREATED: CANDIDATE_ONLY / FINAL_ACCEPTANCE_FALSE
-PILOT4_FINAL72_ROLE: DEVELOPMENT_AND_METHOD_ENGINEERING / NOT_UNTOUCHED_FINAL_TEST
+PILOT4_GROUND_TRUTH_CREATED: PILOT4_FINAL72_GROUND_TRUTH_V1 / OWNER_ACCEPTED / 72_RECORDS / 576_VALUES / LINEAGE_576
+PILOT4_GT_ACCEPTANCE_MODE: ACCEPTED_WITH_KNOWN_EVIDENCE_LIMITATIONS
+PILOT4_FINAL_GT_SHA256: 9e6224ef2cb2cb8e729f9ab569d09589c951e6df4ed3327c63c82913066d720a
+PILOT4_FINAL72_ROLE: DEVELOPMENT_AND_METHOD_ENGINEERING_SET / NOT_UNTOUCHED_FINAL_TEST
+PAPER1_FIVE_VIEW_SIGNAL_CONTRACT: V1_OWNER_FROZEN
+PAPER1_SIGNAL_VIEWS: SEMANTIC / ENTITY_CLAIM / PROVENANCE / TEMPORAL_VERSION / RETRIEVAL_BEHAVIOR
+PAPER1_SIGNAL_OBSERVATION: VALUE / APPLICABLE / CONFIDENCE / EVIDENCE_QUALITY
+PAPER1_PRIMARY_FUSION: LOGISTIC_REGRESSION / NOT_TRAINED
+PAPER1_NONLINEAR_COMPARATORS: XGBOOST / LIGHTGBM / NOT_TRAINED
+PAPER1_SIGNAL_FEASIBILITY_STUDY: SPEC_PREPARED / EXECUTION_NOT_APPROVED
+PAPER1_SCALE_READINESS: 240_GROUP_SPEC_PREPARED / 720_NOT_GENERATED / DATASET_NOT_FROZEN
+PAPER1_HARD_SPLIT_RULE: VERSION_CHAIN_GROUP_AWARE_NO_CHAIN_ACROSS_TRAIN_DEV_TEST
 PILOT4_ANNOTATION_PROTOCOL_ACCEPTED: TRUE / OWNER_DECISION
 PILOT4_PROTOCOL_ACCEPTANCE_MODE: ACCEPTED_WITH_NONBLOCKING_NOTES
 PILOT4_ACCEPTED_ANNOTATION_STACK: PILOT4_ACCEPTED_ANNOTATION_STACK_V1
@@ -249,12 +259,12 @@ PROHIBITED_CONTINUATION:
 
 ## State Machine
 
-`LR1 HUMAN_ACCEPTED -> R0 HUMAN_ACCEPTED_WITH_BLOCKERS -> FU1/W2 closed -> Option B selected -> P1-R1 framework accepted -> PILOT0/PILOT1 closed -> PILOT2 targeted returns/agreement -> owner adjudication/correction -> PILOT2 feasibility closed -> PILOT3 signal diagnostic stopped -> PILOT4 quality convergence -> external two-phase blind review -> targeted R3 -> additive Expected V3 -> frozen gates A-F PASS -> Owner protocol accepted with nonblocking notes -> calibration closed -> A/B execution approved -> V1 preserved/not distributed -> human-usability V2 ready -> waiting Owner Phase1 V2 distribution`
+`LR1 HUMAN_ACCEPTED -> R0 HUMAN_ACCEPTED_WITH_BLOCKERS -> FU1/W2 closed -> Option B selected -> P1-R1 framework accepted -> PILOT0/PILOT1 closed -> PILOT2 feasibility closed -> PILOT3 diagnostic stopped -> PILOT4 protocol/calibration -> independent A/B Phase1+2 -> Owner expected-blind adjudication -> consistency closure -> post-adjudication Expected QC -> Final72 GT Owner accepted -> five-view Signal/Detection method engineering started -> Signal Feasibility execution approval pending`
 
 The original timestamp correction, all returns, workbook and blocker history remain immutable. The latest owner correction is an
 additive evidence layer. Pilot2 now closes only protocol/Ground-Truth feasibility; Pilot3 establishes only executable separated
 signal diagnostics. PILOT4 now contains repaired preannotation candidates only. The 240-group Pilot, Dataset freeze, formal
-Detector/Training and Formal Experiment remain closed.
+Detector/Training and Formal Experiment remain closed. Final72 is development-exposed and cannot be the future untouched test set.
 
 ## Stage Registry
 
@@ -264,7 +274,7 @@ Detector/Training and Formal Experiment remain closed.
 | S6.1-R0 | engineering reproduction preflight | `HUMAN_ACCEPTED_WITH_BLOCKERS` | `../stage_process/S6.1-R0_work_process.md` |
 | S6.1-R0-FU1 | targeted baseline feasibility resolution | `HUMAN_ACCEPTED / CLOSED` | `../stage_process/S6.1-R0-FU1_work_process.md` |
 | S6.1-P1-R1 | protocol hardening and Option B scope freeze | `HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK` | source candidate `../s6_1_p1_r1_protocol_review_candidate.md`; numeric parameters pending |
-| S6.1-P1 | Pilot0–2 feasibility closed; Pilot3 diagnostic complete; Pilot4 protocol accepted/calibration closed; A/B execution approved; V1 preserved/not distributed; both Phase1 V2 packages ready | `PILOT4_A_B_EXECUTION_APPROVED / HUMAN_ANNOTATION_USABILITY_REPAIR_COMPLETE / WAITING_FOR_OWNER_PHASE1_V2_DISTRIBUTION / PHASE2_V2_WITHHELD / NO_GROUND_TRUTH_YET` | `../stage_process/S6.1-P1_work_process.md` |
+| S6.1-P1 | Pilot0–2 feasibility closed; Pilot3 diagnostic complete; Pilot4 protocol/A-B/adjudication/GT closed; five-view method engineering started | `PILOT4_FINAL72_GT_ACCEPTED / FINAL72_DEVELOPMENT_SET_ACTIVE / SIGNAL_FEASIBILITY_EXECUTION_APPROVAL_PENDING / NO_FORMAL_DETECTOR_RESULT_YET` | `../stage_process/S6.1-P1_work_process.md` |
 
 ## Run Registry
 

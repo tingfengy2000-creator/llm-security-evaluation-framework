@@ -1,5 +1,20 @@
 # LLMGuard 项目总控文档
 
+## Final72 GT 正式验收与 Signals/Detection 工程启动（2026-09-15）
+
+Owner 通过 `PODR-097 / OR-059 / REL-2026-0064` 以
+`ACCEPTED_WITH_KNOWN_EVIDENCE_LIMITATIONS` 正式接受 `PILOT4_FINAL72_GROUND_TRUTH_V1`。Source Candidate SHA256 为
+`7cc8baf832a57ead85958b8fbd0ca511caab31f840b52e864de623a11134845b`；冻结 GT SHA256 为
+`9e6224ef2cb2cb8e729f9ab569d09589c951e6df4ed3327c63c82913066d720a`。72/72 records、576/576 values 与 576/576
+lineage 全部通过；Expected V3 仍只作 post-adjudication researcher QC，不参与值优先级。11 项 frozen Evidence limitation
+已显式编码，unresolved blocker 为 0。
+
+Final72 角色冻结为 `DEVELOPMENT_AND_METHOD_ENGINEERING_SET`，不得未来声称为 untouched final test。项目由人工 Benchmark
+构建阶段进入 Signals/Detection method engineering：五视角 S/E/P/T/R signal contract、Signal Feasibility Spec、baseline、
+Logistic Regression primary fusion、XGBoost/LightGBM nonlinear comparison、risk calibration、signal/evidence-grounded
+explanation、metrics/ablation 与 240-group scale-readiness 已冻结或准备；代码仅为 label-isolated interface skeleton。
+没有执行 signal extraction、训练、调参、风险校准、240-group 数据生成、5090 或正式实验，也没有任何 method result。
+
 ## PILOT4 Owner 盲态仲裁准备（2026-09-13）
 
 `PODR-093 / OR-055 / REL-2026-0060` 在不加载 Expected V3 的前提下重新核验四份 A/B raw，并从 raw 重算裁决前一致性；

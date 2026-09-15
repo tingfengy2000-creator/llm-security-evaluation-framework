@@ -16,33 +16,33 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `PILOT4-FINAL72-EXPECTED-V3-QC-AND-GROUND-TRUTH-CANDIDATE-01`.
-- Task name: `Pilot4 Final72 Expected V3 Researcher QC and Ground Truth Candidate Construction`.
-- Task type: **POST-ADJUDICATION RESEARCHER QC / FULL LINEAGE RECONSTRUCTION / APPROVAL-GATED GT CANDIDATE**.
-- Engineering status: **72-BY-8 HUMAN CANDIDATE RECONSTRUCTED / 576-BY-FIELD LINEAGE COMPLETE /
-  EXPECTED V3 POST-ADJUDICATION QC COMPLETE / GT CANDIDATE QA PASS / DOCUMENTATION CLOSEOUT PASS**.
-- Experiment status: **OWNER_ADJUDICATION_CLOSED / EXPECTED_V3_POST_ADJUDICATION_QC_COMPLETE /
-  FINAL72_GROUND_TRUTH_CANDIDATE_READY / WAITING_FOR_OWNER_FINAL_GT_ACCEPTANCE /
-  NO_FORMAL_DATASET_FREEZE_YET / NO_FORMAL_DETECTOR_RESULT_YET / AUTO_CONTINUE_NO**.
+- Task ID: `P1-FINAL72-GT-ACCEPTANCE-AND-SIGNAL-DETECTION-EXPERIMENT-KICKOFF-01`.
+- Task name: `Paper 1 Final72 Ground Truth Acceptance and Five-view Signal/Detection Engineering Kickoff`.
+- Task type: **OWNER GT ACCEPTANCE / ADDITIVE GT FREEZE / METHOD CONTRACT AND INTERFACE ENGINEERING**.
+- Engineering status: **FINAL72 GT FROZEN / FIVE-VIEW SIGNAL CONTRACT V1 / FEASIBILITY SPEC / BASELINE-METRIC-ABLATION-SCALE
+  CONTRACTS / LABEL-ISOLATED INTERFACE SKELETON / DOCUMENTATION CLOSEOUT PASS**.
+- Experiment status: **PILOT4_FINAL72_GT_ACCEPTED / PILOT4_GT_CONSTRUCTION_CLOSED /
+  PAPER1_SIGNAL_DETECTION_ENGINEERING_STARTED / FINAL72_DEVELOPMENT_SET_ACTIVE /
+  FORMAL_SCALE_BENCHMARK_PENDING / NO_FORMAL_DETECTOR_RESULT_YET / AUTO_CONTINUE_NO**.
 - Documentation gate: **PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED / HUMAN_LEDGER_CONTINUOUS_SYNC =
   MANDATORY / TASK_DOCUMENTATION_CLOSEOUT = MANDATORY**. Paper 1 task completion requires execution, tests, evidence,
   documentation closeout and valid Git status; otherwise status is `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING` with
   `TASK_DOCUMENTATION_CLOSEOUT_BLOCKER`.
-- Execution base commit: `542bfdb20a881703b1fcfff7e18874737e6239d1`.
+- Execution base commit: `425ae714290356d706da44017de375eb7cb8576a`.
 - Candidate source identity: `candidates_v3_1_additive.jsonl` SHA256
   `15500aa75bced9fb470edaac98f9527e7bb4bc689b86583e6f69b892c48eb210`; final additive corpus SHA256
   `f530471ecd6551300d68c8ddf104cadce2305d8ff91e64010be222820628252d`.
 - Execution machine: **本机**. No model load、GPU workload、5090 contact、formal Dataset/Detector/Training or experiment occurred.
-- Current ordered step: STOP and wait for the Owner's single decision on accepting
-  `PILOT4_FINAL72_GROUND_TRUTH_CANDIDATE_V1`. This task does not authorize formal Dataset freeze、240-group or Detector evaluation.
-- Current blocker: **NONE FOR GT CANDIDATE CONSTRUCTION**. New Candidate/Evidence/Guide/Owner/lineage/enum/relation blockers: `0`.
-- Current evidence: Git-external namespace `paper1_pilot4_final72_gt_candidate_20260915`. Human GT candidate is 72 samples / 576
-  categorical fields with complete per-field A/B、Owner and overlay lineage. Expected V3 was loaded only after Human reconstruction;
-  it has no value precedence. Expected explicitly defines 504 comparable fields: agreement `469/504` (`93.0556%`), 35 mismatches
-  across 28 samples, exact seven-field records `44/72`. Taxonomy is Expected V3 defect `4`, known frozen-evidence limitation `11`,
-  Human adjudication variance `20`; Guide ambiguity and new blocker are `0`. Expected does not define `phase2_issue`, so 72 slots are
-  recorded as non-comparable instead of fabricating a value. Original A/B raw and Owner workbook remain unchanged; Owner workbook SHA256
-  is `a4c65a22dd3a410c7744be5f256206d7217b8fda33d63c58ac99bb386fe95b01`.
+- Current ordered step: STOP after contract/interface kickoff. The next executable gate is a separately approved
+  `SIGNAL_FEASIBILITY_AND_SEPARABILITY_STUDY`; 240-group generation and formal Dataset freeze remain independently gated.
+- Current blocker: **NONE FOR GT ACCEPTANCE OR CONTRACT SKELETON**. Actual signal execution still lacks a separately frozen
+  input/model/query/retriever/parameter/statistics/resource contract; this is an approval gate, not an execution failure.
+- Current evidence: Git-external namespace `paper1_final72_gt_acceptance_signal_kickoff_20260915`. Source Candidate SHA256 remains
+  `7cc8baf832a57ead85958b8fbd0ca511caab31f840b52e864de623a11134845b`; accepted GT SHA256 is
+  `9e6224ef2cb2cb8e729f9ab569d09589c951e6df4ed3327c63c82913066d720a`, with 72/72 records and 576/576 lineage-backed values.
+  Acceptance mode is `ACCEPTED_WITH_KNOWN_EVIDENCE_LIMITATIONS`; the 11 frozen Evidence limitations remain explicitly encoded and
+  unresolved blockers are 0. Final72 is development-exposed and not an untouched test set. Signal registry/interfaces are prepared;
+  no extractor, model, detector training, calibrated risk, scale data or formal result was run.
 - Owner acceptance: `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=TRUE / ACCEPTED_WITH_NONBLOCKING_NOTES`；all frozen A–F gates passed；
   the two nonblocking reviewer variances remain immutable and do not trigger R4.
 - Accepted stack: `PILOT4_ACCEPTED_ANNOTATION_STACK_V1` points to the existing Final72 corpus、Attempt2 final Phase1 protocol/raw、
@@ -135,9 +135,9 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
   `PODR-057` and `PODR-058`.
 - S6.1-P1-R1: **HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK**.
 - P1 numeric parameters: **PENDING_PILOT_EVIDENCE**；formal protocol: **NOT YET FROZEN**.
-- S6.1-P1: **PILOT4_AB_ALL_FOUR_RAWS_LOCKED / OWNER_ADJUDICATION_RETURN_RAW_LOCKED /
-  OWNER_ADJUDICATION_CONSISTENCY_CLOSED / UNRESOLVED_CONSISTENCY_BLOCKER_0 /
-  EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET /
+- S6.1-P1: **PILOT4_FINAL72_GT_ACCEPTED / PILOT4_GT_CONSTRUCTION_CLOSED /
+  PAPER1_SIGNAL_DETECTION_ENGINEERING_STARTED / FINAL72_DEVELOPMENT_SET_ACTIVE /
+  FORMAL_SCALE_BENCHMARK_PENDING / NO_FORMAL_DETECTOR_RESULT_YET /
   NOT FORMAL_EXPERIMENT**.
 - S6.1-P1-PILOT0: **HUMAN_ACCEPTED / ENGINEERING_INFRASTRUCTURE_ONLY / CLOSED**.
 - S6.1-P1-PILOT1: **HUMAN_ACCEPTED / REAL_PUBLIC_SOURCE_AND_PACKET_FEASIBILITY_ONLY / CLOSED**.
@@ -154,18 +154,18 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 - PILOT3: **ENGINEERING_AND_SIGNAL_FEASIBILITY_ESTABLISHED / PILOT_DIAGNOSTIC_ONLY / STOPPED**.
 - Historical PILOT4 first preflight: **OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / a843697 EVIDENCE PRESERVED**.
 - Historical PILOT4 second preflight: **SECOND_OWNER_PREFLIGHT_RETURNED_FOR_TARGETED_REPAIR / cad3b2b EVIDENCE PRESERVED**.
-- PILOT4: **PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / ACCEPTED_WITH_NONBLOCKING_NOTES / PILOT4_CALIBRATION_CLOSED /
-  PILOT4_A_B_EXECUTION_APPROVED / PILOT4_AB_ALL_FOUR_RAWS_LOCKED / OWNER_ADJUDICATION_RETURN_RAW_LOCKED /
-  OWNER_ADJUDICATION_CONSISTENCY_CLOSED / UNRESOLVED_CONSISTENCY_BLOCKER_0 / WAITING_FOR_OWNER_NEXT_APPROVAL /
-  EXPECTED_V3_NOT_LOADED / NO_GROUND_TRUTH_YET**.
-- PILOT4 candidates: **PILOT4_CANDIDATE_CORPUS_POST_EXTERNAL_PHASE1_REPAIR_V1 / 72 PREANNOTATION_CANDIDATES /
-  NOT GROUND TRUTH / NOT FORMAL BENCHMARK / NOT FROZEN DATASET**.
+- PILOT4: **PILOT4_ANNOTATION_PROTOCOL_ACCEPTED / PILOT4_CALIBRATION_CLOSED /
+  PILOT4_A_B_EXECUTION_COMPLETED / OWNER_ADJUDICATION_CLOSED /
+  PILOT4_FINAL72_GT_ACCEPTED / ACCEPTED_WITH_KNOWN_EVIDENCE_LIMITATIONS /
+  PILOT4_GT_CONSTRUCTION_CLOSED**.
+- PILOT4 Final72: **PILOT4_FINAL72_GROUND_TRUTH_V1 / 72 RECORDS / 576 VALUES /
+  DEVELOPMENT_AND_METHOD_ENGINEERING_SET / NOT_UNTOUCHED_FINAL_TEST / NOT_FORMAL_FROZEN_DATASET**.
 - PAPER1_FORMAL_DOMAIN_SET: **OWNER_CONFIRMED / ENTERPRISE_HR / FINANCE / INFORMATION_SECURITY /
   PROCUREMENT_AND_R_AND_D / EDUCATION_AND_RESEARCH**.
 - SCALE_PILOT_STRUCTURE: **5 DOMAINS × 4 HKP × 3 STEALTH × 4 INDEPENDENT CHAINS = 240 GROUPS /
   NOT EXECUTED / APPROX 720 DERIVED CANDIDATES NOT GENERATED / DATASET NOT FROZEN**.
-- FIVE_VIEW_METHOD_CONTRACT: **ACCEPTED**；DIAGNOSTIC IMPLEMENTATION:
-  **PARTIALLY IMPLEMENTED / PILOT3-PILOT4 ENGINEERING ONLY**；FORMAL DETECTOR: **NOT IMPLEMENTED**；
+- FIVE_VIEW_METHOD_CONTRACT: **ACCEPTED / SIGNAL_CONTRACT_V1_OWNER_FROZEN**；METHOD ENGINEERING:
+  **SCHEMA_REGISTRY_INTERFACES_READY / SIGNAL_FEASIBILITY_EXECUTION_NOT_APPROVED**；FORMAL DETECTOR: **NOT IMPLEMENTED**；
   DETECTION EFFECTIVENESS: **NOT ESTABLISHED**.
 - ANNOTATION_MODE: **TWO_INDEPENDENT_ANNOTATORS_WITH_OWNER_ADJUDICATION**.
 - BLINDNESS_SUBISSUE: **RESOLVED_BY_OWNER_CONFIRMED_ACTUAL_DISTRIBUTION_ORDER**.
