@@ -30,7 +30,7 @@ Sparse 使用 frozen Chinese character 2/3-gram BM25。Dense 使用本地 CPU、
 
 Registry 有 47 families / 57 versions；24 个 matched groups 中 20 个可直接按 family name 对齐。独立支持的 effective start 为 23/57、issuer 或 authority metadata 为 33/57；只有 4 current + 4 historical roles 可由完整 effective-start chronology 推导，其余保持 `UNKNOWN`。PTS V2 为 `COMPUTED=10 / INPUT_MISSING=27 / NOT_APPLICABLE=35`。
 
-Retrieved Evidence matrix 为 72×32 S/E/P/T records。与 Oracle matrix 双方均可计算的 1,179 个值精确一致率为 89.48%。这衡量 signal stability，不是 Detection accuracy。
+三条件均已物理输出为 72×32 S/E/P/T records：Candidate-only 计算 753/2304，Retrieved Evidence 计算 1284/2304，Oracle upper bound 计算 1180/2304。Retrieved 与 Oracle 双方均可计算的 1,179 个 numeric/binary 值精确一致率为 89.48%，MAE 0.0293，Spearman 0.9298。异构 signals 不共享统一 categorical label space，因此不伪造 aggregate Cohen kappa。这些指标衡量 signal stability，不是 Detection accuracy。
 
 42-signal V2 边界：20 `DEPLOYABLE_WITH_TRUSTED_RETRIEVER`、8 `DEPLOYABLE_WITH_VERSION_REGISTRY`、4 `QUERY_RUNTIME_ONLY`、8 `ORACLE_ONLY`、2 `NOT_READY`。V1 的 29 个 Oracle diagnostic signals 中 21 个获得合法替代路径；八个未充分 registry-grounded 的 Temporal signals不升级。
 

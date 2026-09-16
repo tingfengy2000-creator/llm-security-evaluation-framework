@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import os
 import re
 import statistics
@@ -545,6 +546,54 @@ def signals(args: argparse.Namespace) -> None:
     )
 
 
+def candidate_only(args: argparse.Namespace) -> None:
+    """Materialize the evidence-free comparison condition without labels."""
+    out = args.output.resolve()
+    rows: list[dict[str, Any]] = []
+    for candidate in read_jsonl(args.candidates):
+        phase1 = candidate["phase1_view"]
+        sample = {
+            "sample_id": candidate["sample_id"],
+            "candidate_text": phase1["candidate_text"],
+            "source_title": phase1["source_title"],
+            "evidence": [],
+        }
+        for instance in extract_sample_signals(sample):
+            if instance.view.value != "RETRIEVAL_BEHAVIOR":
+                rows.append(instance_to_dict(instance))
+    path = out / "signals/PAPER1_FINAL72_SIGNAL_MATRIX_CANDIDATE_ONLY_V1.jsonl"
+    write_jsonl(path, rows)
+    write_json(
+        out / "lock/candidate_only_signal_lock.json",
+        {
+            "locked_at": now(),
+            "rows": len(rows),
+            "sha256": sha(path),
+            "label_fields_read": [],
+            "evidence_documents_read": 0,
+        },
+    )
+
+
+def _rank(values: list[float]) -> list[float]:
+    order = sorted(range(len(values)), key=lambda index: values[index])
+    ranks = [0.0] * len(values)
+    for rank, index in enumerate(order, start=1):
+        ranks[index] = float(rank)
+    return ranks
+
+
+def _pearson(left: list[float], right: list[float]) -> float | None:
+    if len(left) < 2:
+        return None
+    lm, rm = statistics.mean(left), statistics.mean(right)
+    numerator = sum((a - lm) * (b - rm) for a, b in zip(left, right, strict=True))
+    denominator = math.sqrt(
+        sum((a - lm) ** 2 for a in left) * sum((b - rm) ** 2 for b in right)
+    )
+    return None if denominator == 0 else numerator / denominator
+
+
 def evaluate(args: argparse.Namespace) -> None:
     out = args.output.resolve()
     rl = json.loads((out / "lock/retrieval_run_lock.json").read_text(encoding="utf-8"))
@@ -625,6 +674,8 @@ def evaluate(args: argparse.Namespace) -> None:
         if r.get("view") != "RETRIEVAL_BEHAVIOR"
     }
     comparable = []
+    numeric_left: list[float] = []
+    numeric_right: list[float] = []
     for r in retrieved:
         other = o.get((r["sample_id"], r["signal_name"]))
         if (
@@ -633,13 +684,43 @@ def evaluate(args: argparse.Namespace) -> None:
             and other.get("computation_status") == "COMPUTED"
         ):
             comparable.append(r.get("value") == other.get("value"))
+            if isinstance(r.get("value"), (int, float)) and isinstance(
+                other.get("value"), (int, float)
+            ):
+                numeric_left.append(float(r["value"]))
+                numeric_right.append(float(other["value"]))
+    candidate_only = read_jsonl(
+        out / "signals/PAPER1_FINAL72_SIGNAL_MATRIX_CANDIDATE_ONLY_V1.jsonl"
+    )
     comparison = {
+        "candidate_only_rows": len(candidate_only),
+        "candidate_only_computed": sum(
+            r.get("computation_status") == "COMPUTED" for r in candidate_only
+        ),
         "retrieved_rows": len(retrieved),
+        "retrieved_computed": sum(
+            r.get("computation_status") == "COMPUTED" for r in retrieved
+        ),
         "oracle_rows_non_r": len(o),
+        "oracle_computed": sum(
+            r.get("computation_status") == "COMPUTED" for r in o.values()
+        ),
         "joint_computed_exact_agreement": sum(comparable) / len(comparable)
         if comparable
         else None,
         "joint_computed_n": len(comparable),
+        "numeric_pair_n": len(numeric_left),
+        "numeric_mae": statistics.mean(
+            abs(a - b) for a, b in zip(numeric_left, numeric_right, strict=True)
+        )
+        if numeric_left
+        else None,
+        "numeric_spearman": _pearson(_rank(numeric_left), _rank(numeric_right)),
+        "categorical_or_binary_agreement": sum(comparable) / len(comparable)
+        if comparable
+        else None,
+        "cohen_kappa": None,
+        "cohen_kappa_reason": "heterogeneous signals do not share one categorical label space; per-signal n is too small for a stable aggregate kappa",
     }
     write_json(
         out / "evaluation/PAPER1_EVIDENCE_RETRIEVAL_METRICS_V1.json",
@@ -828,6 +909,7 @@ def main() -> None:
         ("prepare", prepare),
         ("retrieve", retrieve),
         ("signals", signals),
+        ("candidate-only", candidate_only),
         ("evaluate", evaluate),
     ):
         p = sub.add_parser(name)
@@ -839,6 +921,8 @@ def main() -> None:
         if name == "retrieve":
             p.add_argument("--dense-cache", type=Path, required=True)
         if name == "signals":
+            p.add_argument("--candidates", type=Path, required=True)
+        if name == "candidate-only":
             p.add_argument("--candidates", type=Path, required=True)
         if name == "evaluate":
             p.add_argument("--gt", type=Path, required=True)
