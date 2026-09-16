@@ -193,6 +193,11 @@ Intervention effectiveness、5090 和 Formal Experiment 均未批准。
 | RPC-007 | 2026-09-03 | Pilot4 Protocol 等待 Owner 最终决定 | Owner 按冻结 Gate A–F 接受 Pilot4 annotation protocol 并关闭 calibration；Accepted Stack V1 冻结，A/B execution 保持独立待批准门 | 全部预先冻结 gate 已通过，只剩两条非系统 reviewer variance；继续 R4 无相称方法学收益 | 是；PILOT4-OWNER-PROTOCOL-ACCEPTANCE-AND-AB-EXECUTION-PREFLIGHT-01 | Pilot4 closure / A-B preflight | 本次提交 |
 | RPC-008 | 2026-09-15 | Final72 GT Candidate 等待接受；五视角仅有分散的 Pilot 诊断合同 | Owner 接受并冻结 Final72 GT 为 development/method-engineering set，冻结 `Benchmark→Signals→Detection→Risk→Explanation→Retrieval Detoxification` 方法链、五视角 Signal Contract V1、baseline/fusion/metric/ablation/scale-readiness 与接口骨架 | 关闭人工 Benchmark GT 构建并进入不产生结果的 method engineering，同时保护 untouched test 与 label isolation | 是；OR-059 / PODR-097 | Final72 GT / Signal-Detection kickoff | 本次提交 |
 | RPC-009 | 2026-09-15 | 五视角仅有合同与接口，实际信号执行未批准 | 项目负责人批准 Final72 开发集无标签可行性运行；结果 S/E/P/T 部分可用、R 存在输入缺口，进入 `READY_WITH_VIEW_LIMITATIONS`，并把检索行为信号工具链设为下一独立审批门 | 用实际可用性与可分性证据约束检测器和 240-group 元数据设计，同时不跨训练或正式结果门 | 是；OR-060 / PODR-098 | 信号可行性与检索工具链门 | 本次提交 |
+| RPC-010 | 2026-09-15 | 检索视角与文档投毒检测尚未严格分层；人工预匹配证据的部署边界尚未系统审计 | 冻结第一阶段 `S+E+P+T→document_poison_risk` 与第二阶段 `document risk+R+query→retrieval_exposure_risk`；完成四十二项信号证据访问审计，并将二十九项人工预匹配证据信号保留为仅诊断用途 | 防止把合法硬负样本的高排名误判为投毒，并让可部署性取决于推理时输入是否合法可得，而不是开发集区分度 | 是；OR-061 / PODR-099 | 检索实验台与检测器准备度 | 本次提交 |
+
+该变更不减少五视角，而是明确职责：语义、实体命题、来源和时间版本主要服务于离线文档风险；检索行为主要服务于查询条件下
+的暴露风险。版本登记表只能保存文档身份、有效区间、继承替代关系、权威机构、官方地址与冻结文档校验值，不能保存投毒类别、
+人工真值、预期答案或难度标签。没有独立版本角色时，当前版和历史版构成信号必须失败关闭为输入缺失。
 
 历史与支撑路线：[paper1_research_route.md](../paper1_research_route.md)，其 `Document Role = HISTORICAL_AND_SUPPORTING_RESEARCH_ROUTE`，不能覆盖本文件。
 

@@ -46,3 +46,12 @@ Final72 五视角运行证明，仅保留 Candidate 文本和最终标签不足�
 
 本反馈只约束未来 scale 数据的可检测性与可复现性，不授权生成 240 groups、冻结 Formal Dataset、训练 Detector 或
 运行正式测试。
+
+## 2026-09-16 Retrieval Harness 追加要求
+
+本轮把上述 Query/Retrieval 计划验证为可执行 harness，并暴露出 future scale 必须从构造时原生保存的字段：每组 neutral
+query、subject、predicate、query temporal intent、document/version ID、current/history role、effective interval、
+supersession link、authority、source identity 与 corpus membership。不能在检索完成后用 Clean/Poison/HN label 反填版本角色。
+
+只有 label-free Trusted Version Registry 独立提供这些字段时，7 个 current/history R signals 才能启用；否则必须继续
+`INPUT_MISSING`。Matched E1/E2 不得默认进入 deployable detector feature plane。

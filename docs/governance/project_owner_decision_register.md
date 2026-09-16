@@ -1703,3 +1703,20 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 - Next gate: recommend, but do not auto-start, `P1-RETRIEVAL-BEHAVIOR-SIGNAL-HARNESS-01`. Formal Detector and scale remain separate.
 - Canonical records: `OR-060`, `REL-2026-0065`, [current work state](current_work_state.md) and Git-external
   `paper1_final72_signal_feasibility_20260915`.
+
+## PODR-099: Retrieval Harness and Deployable Signal Boundary
+
+- Date: `2026-09-15`.
+- Owner decision: approve a label-blind Retrieval-Behavior harness, two-stage risk boundary review, 42-signal Evidence access audit
+  and Temporal input-gap audit. Formal Detector training、240-group generation、formal test and superiority claims remain unapproved.
+- Architecture: Stage A uses S/E/P/T for `document_poison_risk`; Stage B uses document risk + R + query context for
+  `retrieval_exposure_risk`. High retrieval exposure for a legal Historical Hard Negative does not change its document label.
+- Result: 24 neutral queries, one 72-document corpus, deterministic Sparse and frozen-offline Dense retrievers, two complete runs
+  each, and an 8448-row R matrix were locked before label analysis. Rank/score/stability compute; seven registry-dependent R signals
+  remain input-missing.
+- Threat model: 29 signals are matched-E1/E2 oracle diagnostic, 4 query-runtime, 7 registry-dependent and 2 not ready. No GT/HN
+  value supplies current/history role.
+- Readiness: Document Detector `NOT_READY`; Retrieval Risk `READY_WITH_LIMITATIONS`. The recommended next task is a separately
+  approved trusted Evidence retriever and version-registry prototype, not detector training.
+- Canonical records: `OR-061`, `REL-2026-0066`, [current work state](current_work_state.md), and Git-external
+  `paper1_retrieval_behavior_harness_20260915`.

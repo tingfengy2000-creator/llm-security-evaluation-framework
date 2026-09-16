@@ -2265,3 +2265,29 @@ Approval Gate、Auto Continue。
 - `DOCUMENTATION_CLOSEOUT_CHECKLIST`: Human Ledger、Agent Ledger、Current Work State、Execution Log、Experiment Master Record、
   Owner Decision Register、S6.1-P1 process、Research Plan Authority、Project Master、root/Paper1 README checked and updated;
   Stage1–5 and prior evidence unchanged; cross-document current task/status/next gate consistent.
+
+## REL-2026-0066 — Retrieval Harness and Deployable Signal Boundary
+
+- Date: `2026-09-15/16`; task `P1-RETRIEVAL-BEHAVIOR-HARNESS-AND-DEPLOYABLE-SIGNAL-BOUNDARY-01`; machine `本机`;
+  authority `PODR-099 / OR-061`; execution base `e46639518aaf58eb9590790917a235e96447898c`.
+- Physical ordering: safe allowlist projection → 24-query immutable lock → 72-document corpus lock → Sparse/Dense retrieval run lock
+  → 8448-row R matrix lock → first label load. Query/corpus label and answer leakage are zero; Expected is not a feature.
+- The first post-lock analysis process stopped on the corpus enum alias `MATCHED_HARD_NEGATIVE`; this occurred after every raw lock.
+  The alias was mapped to the existing analysis class without changing source labels or any query/corpus/trace/R bytes, then analysis
+  resumed. Both label-load events and the interruption remain visible in the append-only event stream.
+- Sparse: Chinese-compatible character 2/3-gram BM25, k1=1.2, b=0.75. Dense: offline frozen multilingual MiniLM revision
+  `16e5344f...b4e1`, model-tree SHA `14be5b8d...1fb7`, CPU, normalized. Each retriever has two deterministic complete 1728-row traces.
+- R matrix SHA256 is `eeebe7ea92857b0b04dbfb983497b0e28b72f785f507f1acd046cd3cedc6fdef`; rank、score、stability compute in 7104 rows;
+  seven current/history signal types remain 1344 `INPUT_MISSING` because no Trusted Version Registry exists. GT/HN never supplies role.
+- Threat model: all 42 signals audited; 29 matched-Evidence oracle diagnostic, 4 query-runtime, 7 registry-dependent, 2 not ready.
+  PTS remaining 65 split into 32 `NO_TEMPORAL_CLAIM` and 33 `NO_VERSION_ROLE_METADATA`; old seven computed are diagnostic-only.
+- Interpretation: Stage A is S/E/P/T document risk; Stage B is document risk + R + query exposure. Legal HN high rank does not imply
+  Poison. Post-lock matched-group rank summaries are descriptive only.
+- Result: `DOCUMENT_DETECTOR_READINESS=NOT_READY`; `RETRIEVAL_RISK_READINESS=READY_WITH_LIMITATIONS`; no detector、threshold、
+  calibration、240-group、5090 or formal result.
+- Evidence: Git-external `paper1_retrieval_behavior_harness_20260915`; raw R SHA above; final manifest SHA
+  `d102e426516caa137b20b28368e97b8d2d01d3cf625dadf0b7d16699c4e40bea`.
+- `DOCUMENTATION_CLOSEOUT_CHECKLIST`: Human Ledger、Agent Ledger、Current Work State、Execution Log、Experiment Master Record、
+  Owner Requirement/Decision Registers、S6.1-P1 process、Research Plan Authority、Paper1 README、method/scale docs updated;
+  Stage1–5 and prior evidence unchanged. Next gate is
+  `P1-TRUSTED-EVIDENCE-RETRIEVER-AND-VERSION-REGISTRY-PROTOTYPE-01`, separately approved only.

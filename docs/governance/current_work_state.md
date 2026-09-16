@@ -16,33 +16,31 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
-- Task ID: `P1-FINAL72-FIVE-VIEW-SIGNAL-FEASIBILITY-EXECUTION-01`.
-- Task name: `Paper 1 Final72 Five-view Signal Extractability, Availability and Class-separability Study`.
-- Task type: **OWNER-APPROVED DEVELOPMENT-SET SIGNAL EXTRACTION / AVAILABILITY QA / DESCRIPTIVE DIAGNOSTIC**.
-- Engineering status: **42-SIGNAL LABEL-BLIND EXTRACTOR / 3024-ROW RAW LOCK / POST-LOCK ANALYSIS / VIEW-LEVEL QA /
-  SCALE-REQUIREMENT FEEDBACK / DOCUMENTATION CLOSEOUT PASS**.
-- Experiment status: **FINAL72_SIGNAL_FEASIBILITY_COMPLETE / READY_WITH_VIEW_LIMITATIONS /
-  RETRIEVAL_VIEW_INPUT_GAP / NO_DETECTOR_TRAINING / NO_THRESHOLD_TUNING / NO_FORMAL_RESULT / AUTO_CONTINUE_NO**.
+- Task ID: `P1-RETRIEVAL-BEHAVIOR-HARNESS-AND-DEPLOYABLE-SIGNAL-BOUNDARY-01`.
+- Task name: `Paper 1 Retrieval-Behavior Harness, Two-stage Risk Boundary and Deployable Signal Audit`.
+- Task type: **OWNER-APPROVED LABEL-BLIND RETRIEVAL HARNESS / THREAT-MODEL AUDIT / TEMPORAL INPUT-GAP AUDIT**.
+- Engineering status: **24 QUERY LOCK / 72-DOCUMENT CORPUS LOCK / SPARSE+DENSE DOUBLE TRACE / 8448-ROW R MATRIX LOCK /
+  42-SIGNAL DEPLOYABILITY AUDIT / DOCUMENTATION CLOSEOUT**.
+- Experiment status: **RETRIEVAL_HARNESS_COMPLETE / TWO_STAGE_RISK_BOUNDARY_FROZEN / DOCUMENT_DETECTOR_NOT_READY /
+  RETRIEVAL_RISK_READY_WITH_LIMITATIONS / NO_DETECTOR_TRAINING / NO_FORMAL_RESULT / AUTO_CONTINUE_NO**.
 - Documentation gate: **PAPER1_MANDATORY_DOCUMENTATION_CLOSEOUT = OWNER_CONFIRMED / HUMAN_LEDGER_CONTINUOUS_SYNC =
   MANDATORY / TASK_DOCUMENTATION_CLOSEOUT = MANDATORY**. Paper 1 task completion requires execution, tests, evidence,
   documentation closeout and valid Git status; otherwise status is `ENGINEERING_COMPLETED / DOCUMENTATION_CLOSEOUT_PENDING` with
   `TASK_DOCUMENTATION_CLOSEOUT_BLOCKER`.
-- Execution base commit: `e6ecca78f2eb129ad14ab74bf4079e34eedc95e2`.
+- Execution base commit: `e46639518aaf58eb9590790917a235e96447898c`.
 - Candidate source identity: `candidates_v3_1_additive.jsonl` SHA256
   `15500aa75bced9fb470edaac98f9527e7bb4bc689b86583e6f69b892c48eb210`; final additive corpus SHA256
   `f530471ecd6551300d68c8ddf104cadce2305d8ff91e64010be222820628252d`.
-- Execution machine: **本机**. No model download、GPU workload、5090 contact、formal Dataset/Detector/Training or experiment occurred.
-- Current ordered step: STOP after feasibility closeout. The next recommended but separately gated task is
-  `P1-RETRIEVAL-BEHAVIOR-SIGNAL-HARNESS-01`; first Detector training and 240-group generation are not automatically authorized.
-- Current blocker: **NO LABEL-LEAKAGE BLOCKER; RETRIEVAL VIEW HAS AN INPUT GAP**. S/E/P/T can support further engineering, while
-  Retrieval needs frozen query、retriever configuration、corpus、top-k scores and repeated-run traces. MLM/PPL also remain unavailable
-  until a frozen checkpoint/tokenizer bundle is approved.
-- Current evidence: Git-external namespace `paper1_final72_signal_feasibility_20260915`. Accepted GT SHA256 is
-  `9e6224ef2cb2cb8e729f9ab569d09589c951e6df4ed3327c63c82913066d720a`. The raw matrix has 3024 rows and SHA256
-  `ab63568b86b035fa26291e8459606aacf8b745ce7f97e4b628a1da9d390fc4fd`; the post-lock analysis matrix SHA256 is
-  `86a9e14be536d664e3f85f6e32f0eb172b1c47ce0ab94bb1292ab7bcc037447d`. Raw-label hits, Expected feature use, GT-value feature
-  use and adjudication feature use are all zero. Clean/Poison/Hard Negative counts are 24/24/24 and all 24 matched groups are intact.
-  Retrieval is 720/720 `INPUT_MISSING`; MLM/PPL are 144/144 `MODEL_UNAVAILABLE`. Diagnostic effects are hypothesis-generation only.
+- Execution machine: **本机**. Frozen MiniLM ran CPU/local-only; no download、GPU workload、5090 contact、Detector training、240-group
+  generation、formal Dataset or formal experiment occurred.
+- Current ordered step: STOP after harness closeout. The next recommended but separately gated task is
+  `P1-TRUSTED-EVIDENCE-RETRIEVER-AND-VERSION-REGISTRY-PROTOTYPE-01`; Detector training is not automatically authorized.
+- Current blocker: **DOCUMENT DETECTOR INPUT THREAT MODEL NOT CLOSED**. Twenty-nine S/E/P/T signals still depend on oracle-matched
+  E1/E2. Seven R signals require a Trusted Version Registry; they remain input-missing rather than using GT/HN roles.
+- Current evidence: Git-external namespace `paper1_retrieval_behavior_harness_20260915`. Query/corpus locks are
+  `d101d2d4...6f1f` / `0194e1d3...446b`. Sparse and Dense each have two full 1728-row traces. The 8448-row R matrix SHA256 is
+  `eeebe7ea92857b0b04dbfb983497b0e28b72f785f507f1acd046cd3cedc6fdef`; 7104 rows compute rank/score/stability and 1344 rows remain
+  input-missing for seven version-aware signal types. Query/corpus leakage is zero; locks precede first label load.
 - Owner acceptance: `PILOT4_ANNOTATION_PROTOCOL_ACCEPTED=TRUE / ACCEPTED_WITH_NONBLOCKING_NOTES`；all frozen A–F gates passed；
   the two nonblocking reviewer variances remain immutable and do not trigger R4.
 - Accepted stack: `PILOT4_ACCEPTED_ANNOTATION_STACK_V1` points to the existing Final72 corpus、Attempt2 final Phase1 protocol/raw、
@@ -400,12 +398,9 @@ are established.
 
 ## Last Update
 
-- Date: `2026-09-09`.
-- Updated by: 本机 executing `PILOT4-A-B-DUAL-PHASE2-RAW-LOCK-AND-AGREEMENT-PREFLIGHT-01 / REL-2026-0059`。
-  The seven-field pre-edit audit found no schema/semantic blocker. Additive A/B Phase2 V3.2 workbooks preserve Candidate、72-row
-  population、opaque IDs/order、Evidence Pool V2 identity、Guide V3.2 semantics、Expected V3 and canonical enums. Each workbook
-  exposes 144/144 official URL strings with matching external hyperlink targets, retains 144/144 frozen snapshots as backup, and
-  has zero reviewer-facing sheet protection. Guide V4 adds only human explanation, nine safe examples and ten common-error cases.
-  Old V3 workbooks remain immutable but are superseded for distribution. Actual A/B Phase2 distribution remains false；no
-  mapping/Expected load、annotation by Codex、agreement、adjudication、Ground Truth、Dataset freeze、240-group、Detector/Training、
-  5090、Formal Experiment or Paper Result occurred；Auto Continue=`NO`.
+- Date: `2026-09-16`.
+- Updated by: 本机 executing
+  `P1-RETRIEVAL-BEHAVIOR-HARNESS-AND-DEPLOYABLE-SIGNAL-BOUNDARY-01 / REL-2026-0066`.
+- Query/corpus/run/signal locks pass before labels. Sparse and frozen-offline Dense each preserve two complete traces. The R matrix
+  computes rank/score/stability while version-aware composition remains input-missing. No Detector、threshold、240-group、5090、
+  Formal Experiment or Paper Result occurred; Auto Continue=`NO`.

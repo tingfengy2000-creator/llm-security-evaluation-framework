@@ -64,6 +64,12 @@
 | OR-058 | 2026-09-15 | 在 Owner 仲裁一致性关闭后批准首次加载 Expected V3 作研究者侧 QC，并批准按 A/B consensus、Owner expected-blind adjudication、已批准 overlay 的严格优先级构建 Final72 GT Candidate | Expected V3 QC 与 GT Candidate 门 | Paper 1 / P1-PILOT4 | `EXPECTED_V3_POST_ADJUDICATION_QC_COMPLETE / FINAL72_GROUND_TRUTH_CANDIDATE_READY / FINAL_ACCEPTANCE_FALSE` | `PILOT4-FINAL72-EXPECTED-V3-QC-AND-GROUND-TRUTH-CANDIDATE-01` | 项目需求提出人当前明确批准；`PODR-096 / REL-2026-0063` | Expected 仅作 QC、无值优先级；不得自动接受 GT、冻结正式数据、启动 240-group、Detector 或正式实验 |
 | OR-059 | 2026-09-15 | 以 `ACCEPTED_WITH_KNOWN_EVIDENCE_LIMITATIONS` 正式接受并冻结 Final72 GT，关闭 GT construction，冻结 Final72 为 development/method-engineering set，并批准五视角 Signals/Detection 合同、实验规格和接口骨架启动 | Final72 GT 最终验收与方法工程启动 | Paper 1 / Signals and Detection | `PILOT4_FINAL72_GT_ACCEPTED / PAPER1_SIGNAL_DETECTION_ENGINEERING_STARTED / NO_FORMAL_DETECTOR_RESULT_YET` | `P1-FINAL72-GT-ACCEPTANCE-AND-SIGNAL-DETECTION-EXPERIMENT-KICKOFF-01` | 项目需求提出人当前明确最终决定；`PODR-097 / REL-2026-0064` | 不得把 Final72 称为 untouched test；本轮不执行 signal study、训练、240-group 或正式效果；下一运行需单独批准 |
 | OR-060 | 2026-09-15 | 批准在 Final72 开发集上执行五视角无标签信号提取、可用性与质量核验、描述性类别可分性、匹配组、HKP/S、冗余与偏差审计；原始矩阵必须先锁定，标签只能随后加载 | Final72 五视角信号可行性执行 | Paper 1 信号与检测 | `FINAL72_SIGNAL_FEASIBILITY_COMPLETE / READY_WITH_VIEW_LIMITATIONS / RETRIEVAL_VIEW_INPUT_GAP` | `P1-FINAL72-FIVE-VIEW-SIGNAL-FEASIBILITY-EXECUTION-01` | 项目需求提出人当前明确批准；`PODR-098 / REL-2026-0065` | 不训练检测器、不调阈值、不称正式测试或优越性；MLM/PPL 无冻结模型则不可用；检索视角无冻结查询与运行记录则输入缺失；下一任务仍需单独批准 |
+| OR-061 | 2026-09-15 | 批准建立无标签泄漏的检索实验台、两阶段风险边界、四十二项信号证据访问与可部署性审计、时间版本输入缺口审计；明确检索行为回答查询条件下的暴露问题，不等于文档投毒身份 | 检索行为实验台与可部署信号边界 | Paper 1 方法工程 | `RETRIEVAL_HARNESS_COMPLETE / DOCUMENT_DETECTOR_NOT_READY / RETRIEVAL_RISK_READY_WITH_LIMITATIONS` | `P1-RETRIEVAL-BEHAVIOR-HARNESS-AND-DEPLOYABLE-SIGNAL-BOUNDARY-01` | 项目需求提出人当前明确批准；`PODR-099 / REL-2026-0066` | 不训练检测器、不生成二百四十组、不进行正式测试；人工匹配证据仅用于诊断；当前版与历史版身份不得由真值或硬负样本身份反填；下一门仍需单独批准 |
+
+本轮决定的中文解释：文档本身是否被投毒，与它在某个问题下是否容易被检索出来，是两个不同判断。合法历史文件即使在询问
+当前制度时排名很高，也只能说明回答可能暴露于旧版本，不能据此把文件称为投毒。现有试点里人工提前配好的两项证据可用于
+研究诊断，但真实系统只有通过独立可信检索或版本登记表找到证据后，相关信号才具备部署条件。任何缺失的版本身份继续记为
+输入缺失，不得用人工真值、类别、难度或预期答案补齐。
 
 本轮批准的通俗含义是：先验证五类证据能否稳定形成机器信号，再决定是否进入检测器工程；缺少输入必须如实保留，不能用零值伪装成安全。
 

@@ -1,5 +1,10 @@
 # Paper 1 Five-View Signal Contract V1
 
+> 2026-09-16 boundary addendum: S/E/P/T primarily support offline document-level poison risk. R is query-conditioned and
+> primarily supports retrieval exposure risk. A legal historical Hard Negative may have high R exposure under a current-state query
+> without becoming a Poison document. Matched E1/E2 signals remain diagnostic-only until an independent trusted retriever or version
+> registry supplies their inference-time inputs. See [Two-stage Risk Architecture V1](PAPER1_TWO_STAGE_RISK_ARCHITECTURE_V1.md).
+
 Status = `OWNER_FROZEN_METHOD_ENGINEERING_CONTRACT`
 Execution = `FINAL72_DEVELOPMENT_SET_FEASIBILITY_RUN_COMPLETE`
 Formal result = `NONE`

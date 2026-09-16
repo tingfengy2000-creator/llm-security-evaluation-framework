@@ -1,7 +1,7 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`FINAL72_SIGNAL_FEASIBILITY_COMPLETE / READY_WITH_VIEW_LIMITATIONS /
-> RETRIEVAL_VIEW_INPUT_GAP / NO_FORMAL_DETECTOR_RESULT_YET`。
+> 当前实验状态：`RETRIEVAL_HARNESS_COMPLETE / TWO_STAGE_RISK_BOUNDARY_FROZEN /
+> DOCUMENT_DETECTOR_NOT_READY / RETRIEVAL_RISK_READY_WITH_LIMITATIONS / NO_FORMAL_DETECTOR_RESULT_YET`。
 > Owner 已按 M2 `2/16`、matched controls `16/16`、M4 `0`、M8 `4/4` 和其余冻结门全部 PASS 正式接受 Protocol；
 > 两条 residual reviewer variance 保持不可变且不触发 R4。Accepted Stack 绑定 Final72、Attempt2 Phase1、Guide V3.2、
 > Expected V3、Evidence Pool V2 与 frozen snapshot + URL provenance。Owner 已指定两个不同真人并批准 A/B 执行与
@@ -19,6 +19,11 @@
 > GT/Expected/Owner 字段；S/E/P/T 有可计算项，Retrieval 因无冻结 query/run trace 为 input gap，MLM/PPL 因无冻结模型不可用。
 > 这些是 development-set 单信号诊断，不是 Detector 或论文结果；240-group、Dataset freeze、正式 Detector、Training、5090、
 > Formal Experiment 和 Paper Result 均未开始。
+> Retrieval harness 已冻结 24 个中性 current-state query、统一 72 文档 corpus、deterministic char n-gram BM25 和
+> fixed-revision offline Dense trace。R 的 rank/score/stability 已可计算；7 个 current/history signals 因缺 Trusted
+> Version Registry 继续 `INPUT_MISSING`。42 signals 中 29 个依赖 matched E1/E2，只能作为 oracle diagnostic。
+> 现在明确区分 Stage A `S+E+P+T → document_poison_risk` 与 Stage B
+> `document_poison_risk+R+query → retrieval_exposure_risk`；合法 HN 高 rank 不等于 Poison。
 > `FORMAL_EXPERIMENT = NOT STARTED`；`DATASET_FORMAL_FREEZE = NOT STARTED`。
 
 ## First screen routing
@@ -52,6 +57,10 @@
 - [Five-view Signal Contract V1](method_engineering/PAPER1_FIVE_VIEW_SIGNAL_CONTRACT_V1.md)
 - [Signal Feasibility Experiment Spec V1](method_engineering/SIGNAL_FEASIBILITY_EXPERIMENT_SPEC_V1.md)
 - [Final72 Five-view Signal Feasibility Report V1](method_engineering/PAPER1_FINAL72_FIVE_VIEW_SIGNAL_FEASIBILITY_REPORT_V1.md)
+- [Final72 Signal Feasibility Report V2](method_engineering/PAPER1_FINAL72_SIGNAL_FEASIBILITY_REPORT_V2.md)
+- [Two-stage Risk Architecture V1](method_engineering/PAPER1_TWO_STAGE_RISK_ARCHITECTURE_V1.md)
+- [Signal Deployability Matrix V1](method_engineering/PAPER1_SIGNAL_DEPLOYABILITY_MATRIX_V1.md)
+- [Trusted Version Registry Contract V1](method_engineering/PAPER1_TRUSTED_VERSION_REGISTRY_CONTRACT_V1.md)
 - [Signal-to-Scale Requirement Feedback V1](benchmark/PAPER1_SIGNAL_TO_SCALE_REQUIREMENT_FEEDBACK_V1.md)
 - [Baseline Matrix V1](method_engineering/PAPER1_BASELINE_MATRIX_V1.md)
 - [Fusion, Risk and Explanation Design V1](method_engineering/PAPER1_FUSION_RISK_EXPLANATION_DESIGN_V1.md)

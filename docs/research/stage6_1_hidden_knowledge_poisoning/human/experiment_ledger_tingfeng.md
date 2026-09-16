@@ -1,5 +1,22 @@
 # Paper 1 人类可读实验总规划与实验总账
 
+## 2026-09-16：为什么 Retrieval View 不能简单等于 Poison Detection？
+
+本轮已经建成无标签泄漏的检索实验台：24 个中性“当前规定是什么”query 面对同一套 72 文档，字符 BM25 与固定
+revision 的离线 Dense retriever 都保存了完整 rank/score trace。现在能稳定得到 rank、score、重复运行 stability；但没有
+Trusted Version Registry，所以 7 个需要 current/history 身份的 R signals 仍不计算。
+
+项目现正式采用两阶段风险：第一阶段用 S/E/P/T 判断文档本身的 `document_poison_risk`；第二阶段结合 query 和 R 判断
+`retrieval_exposure_risk`。比如一份真实合法的 2021 年历史文件在“当前规定是什么？”下排名第一，可能造成回答采用旧版本，
+所以 retrieval risk 较高；它仍然不是 Poison。
+
+还必须区分“研究时已人工配好的 E1/E2”和真实 inference。Pilot 中直接拿 matched E1/E2 可以诊断 signal 是否有潜力，
+但真实系统若没有独立 trusted evidence retrieval 或 version registry，就不可能合法得到同样输入。42 个 signals 中目前
+29 个属于这种 oracle-only diagnostic，4 个是 query-runtime 可获得，7 个等待 registry，2 个 MLM/PPL 尚未冻结。
+
+结论不是“Detector 可以训练了”：Document Detector 仍 `NOT_READY`；Retrieval Risk 为
+`READY_WITH_LIMITATIONS`。下一步先补独立 Evidence retrieval 与 Trusted Version Registry，不自动训练 Detector。
+
 ## 2026-09-15：Final72 五视角信号可行性已完成，尚未训练分类器
 
 我们现在不是在“训练分类器”，而是在检查五种安全证据是否真的存在、能否稳定提取，以及是否包含区分 Poison 和合法历史
@@ -128,8 +145,8 @@ SHA256 `b27d291dcf86088dccc9a7fc7e5dda1e5c1e7af54ac7db7c3bad5d78b215daf2`。两�
 Document Role = `PAPER1_PRIMARY_HUMAN_ENTRY`<br>
 Audience = `项目负责人 / 导师与领导 / 新团队成员`<br>
 Reading Path = `5 minutes / 15 minutes / 30 minutes`<br>
-Current Evidence Cut = `Final72 signal feasibility complete / raw lock before labels / ready with view limitations`<br>
-Last Updated = `2026-09-15`
+Current Evidence Cut = `Retrieval harness complete / two-stage boundary frozen / deployability audited`<br>
+Last Updated = `2026-09-16`
 
 > 这是一张“项目地图”，不是 raw evidence，也不产生新授权。读完第 0 节可掌握当前状态；读到第 8 节可理解论文方法；
 > 读完第 19 节可进入项目工作。精确状态、协议、决定和证据分别通过链接下钻。
@@ -142,19 +159,19 @@ Last Updated = `2026-09-15`
 | 英文论文题目 | *Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework* |
 | 一句话研究问题 | 在版本、时间和来源关系复杂的中文知识库里，如何识别“语言自然、检索相关、事实却被悄悄改变”的内容，同时不误伤合法旧版本和正常更新？ |
 | 一句话核心方法 | 构建 Clean–Poison–Hard Negative 匹配数据，用 Semantic、Entity-Claim、Provenance、Temporal-Version、Retrieval-Behavior 五类互补证据估计风险，再做可校准的过滤或降权。 |
-| 当前阶段 | ✅ Final72 GT 已接受；五视角 signal feasibility 已完成。 |
-| 当前任务 | `P1-FINAL72-FIVE-VIEW-SIGNAL-FEASIBILITY-EXECUTION-01`：无标签提取、锁定后描述性分析。 |
-| 当前完成度 | ✅ 72×42 raw、availability、quality、class/matched/HKP/S/redundancy/bias analysis 全部完成。 |
-| 当前唯一人工动作 | Owner 决定是否批准 Retrieval-Behavior harness；本任务不会自动训练 Detector。 |
-| 当前主要 blocker | 无 label leakage blocker；Retrieval 缺少冻结 query/retriever/run trace。 |
-| 已经可以说什么 | Final72 development set 上存在若干有潜力信号，但带覆盖率与规则代理限制。 |
+| 当前阶段 | ✅ Retrieval harness 已完成；Document Risk 与 Retrieval Exposure 已分层。 |
+| 当前任务 | `P1-RETRIEVAL-BEHAVIOR-HARNESS-AND-DEPLOYABLE-SIGNAL-BOUNDARY-01`：检索运行与输入威胁模型收口。 |
+| 当前完成度 | ✅ 24 queries、72 corpus、Sparse+Dense 双运行、8448-row R matrix、42-signal audit 完成。 |
+| 当前唯一人工动作 | Owner 决定是否批准 Trusted Evidence Retriever + Version Registry prototype；不自动训练 Detector。 |
+| 当前主要 blocker | 29 signals 仍是 matched-Evidence oracle；7 个 R signals 缺 Trusted Version Registry。 |
+| 已经可以说什么 | R 的 rank/score/stability 工具链可复现；Retrieval Risk 已具备受限工程入口。 |
 | 绝对不能说什么 | 不得称为 Detector 结果、正式 test 结果、superiority、generalization 或有效防御。 |
 
 当前实验状态固定为：
 
 当前状态枚举如下；它只说明已经批准和仍在等待的边界：
-`PILOT4_FINAL72_GT_ACCEPTED / FINAL72_SIGNAL_FEASIBILITY_COMPLETE / READY_WITH_VIEW_LIMITATIONS /
-RETRIEVAL_VIEW_INPUT_GAP / NO_DETECTOR_TRAINING / NO_FORMAL_RESULT / AUTO_CONTINUE_NO`
+`PILOT4_FINAL72_GT_ACCEPTED / RETRIEVAL_HARNESS_COMPLETE / DOCUMENT_DETECTOR_NOT_READY /
+RETRIEVAL_RISK_READY_WITH_LIMITATIONS / NO_DETECTOR_TRAINING / NO_FORMAL_RESULT / AUTO_CONTINUE_NO`
 
 保留的历史状态链含 `PREANNOTATION_ONLY`：`PILOT4_BALANCED_SET_REPAIRED / READY_FOR_SECOND_OWNER_PREFLIGHT` →
 `PILOT4_FINAL_PREANNOTATION_READY_FOR_OWNER_REVIEW` → `PILOT4_QUALITY_CONVERGED` → Schema V3.1 hardening → 当前外部盲审包状态。历史 package 不被覆盖。
