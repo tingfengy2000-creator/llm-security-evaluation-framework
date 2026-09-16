@@ -115,3 +115,10 @@ Pilot4 当前事实由 [Current Work State](../../governance/current_work_state.
 - [Research Execution Log](../../governance/research_execution_log.md)
 
 Raw JSON/JSONL/log/XLSX/hash/manifest 保持原治理位置或 Git-external；本目录只提供可审计入口，不复制原始 evidence。
+# 2026-09-16 method-engineering update
+
+Trusted Evidence Retriever V1 and Trusted Version Registry V1 are complete on Final72. Oracle E1/E2 was sealed until retrieval and Retrieved Signal locks. The 57-document corpus and partial 47-family Registry create legitimate non-Oracle paths for 21 of the prior 29 Oracle-dependent signals; eight Temporal signals remain Oracle-only. Current gate is `DOCUMENT_DETECTOR_READY_WITH_LIMITATIONS`; no Detector has been trained.
+
+- [Trusted Evidence Retriever Feasibility Report V1](method_engineering/PAPER1_TRUSTED_EVIDENCE_RETRIEVER_FEASIBILITY_REPORT_V1.md)
+- [Signal Deployability Matrix V2](method_engineering/PAPER1_SIGNAL_DEPLOYABILITY_MATRIX_V2.md)
+- [240-group Scale Readiness Spec V2](benchmark/PAPER1_240_GROUP_SCALE_READINESS_SPEC_V2.md)

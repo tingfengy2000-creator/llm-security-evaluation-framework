@@ -204,3 +204,6 @@ Intervention effectiveness、5090 和 Formal Experiment 均未批准。
 未来任何 Paper 1 数据生成、标注字段设计或人工发放前 QA，必须先读取并遵守唯一 canonical
 [Annotation Lessons Learned and Future Dataset Rules](annotation_lessons_learned_and_future_dataset_rules.md)。该规则只向前
 约束新候选，不回写 Pilot1/Pilot2 历史证据；任何人工发放仍需项目需求提出人单独批准。
+# Trusted Evidence Retrieval authority update — 2026-09-16
+
+The deployable Paper 1 path is Candidate/Claim → unified Trusted Evidence Corpus → locked Retriever → Retrieved Evidence Bundle → S/E/P/T signals. Manually matched E1/E2 remains evaluation-only Oracle upper bound. Version and authority metadata must be independently supported; unknown values remain missing. Current readiness is limited and does not authorize Detector training.

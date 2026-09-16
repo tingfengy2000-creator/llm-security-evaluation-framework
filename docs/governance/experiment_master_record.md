@@ -648,3 +648,11 @@ git log -15 --oneline
 | 2026-09-08 | PILOT4 A/B dual Phase1 raw lock and Phase2 V3 release | 第 2、4、12、14、15、20 节 | A/B Phase1 raw 按字节锁定并通过双门；为每位真人生成 Candidate 同行、中文说明、英文下拉、Evidence 内部链接和确定性八列导出的 Phase2 V3 | [current state](current_work_state.md)、PODR-090、OR-052、REL-2026-0057、Git-external `paper1_pilot4_dual_phase1_phase2_v3_20260908` | `DUAL_PHASE1 LOCK PASS / PHASE2 RELEASE ALLOWED / BOTH V3 READY / NO AGREEMENT / NO GT`；next only Owner separate Phase2 V3 distribution |
 | 2026-09-09 | PILOT4 Phase2 human annotation rework risk control | 第 2、4、12、14、15、20 节 | 分发前完成七字段风险审计；不改协议，只加入同屏官方 URL、冻结备份、可调尺寸无保护工作簿和 Guide V4 解释层 | [current state](current_work_state.md)、PODR-091、OR-053、REL-2026-0058、Git-external `paper1_pilot4_phase2_usability_repair_20260909` | `SEMANTIC BLOCKER FALSE / BOTH V3.2 READY / WAITING OWNER DISTRIBUTION / NO AGREEMENT / NO GT` |
 | 2026-09-13 | PILOT4 A/B dual Phase2 lock and agreement preflight | 第 2、4、12、14、15、20 节 | A/B Phase2 workbook + canonical CSV immutable lock；dual gate before mapping；agreement/confusion/kappa；disagreement-only Owner packet | [current state](current_work_state.md)、PODR-092、OR-054、REL-2026-0059、Git-external `paper1_pilot4_ab_phase2_raw_lock_agreement_20260913` | `78 MATERIAL DISAGREEMENTS / 40 SAMPLES / 5 DEFECT FLAGS / OWNER ADJUDICATION PENDING / NO GT` |
+# P1 Trusted Evidence Retriever Prototype — 2026-09-16
+
+- Type: `METHOD_ENGINEERING / DEVELOPMENT_SET / NOT_FORMAL_EXPERIMENT`.
+- Evidence namespace: `E:\LLMGuard-Handoff\paper1_trusted_evidence_retriever_registry_20260916`.
+- Corpus: 57 documents, SHA256 `331705332f7785ef0c7cd39dbfb294f912e0bb94954974b985e5967dafe8ff7b`.
+- Retrieval trace: 12,312 rows, SHA256 `037b8463e6cd2fbf3f4fd5584680e2e9edb3965a39780e92d98a194d7fa5e04a`.
+- Physical gate: retrieval and Retrieved Signal locks precede first Oracle reference load.
+- Claims boundary: reference recall and signal stability only; no Detector performance or superiority claim.

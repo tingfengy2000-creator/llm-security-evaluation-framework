@@ -404,3 +404,10 @@ are established.
 - Query/corpus/run/signal locks pass before labels. Sparse and frozen-offline Dense each preserve two complete traces. The R matrix
   computes rank/score/stability while version-aware composition remains input-missing. No Detector、threshold、240-group、5090、
   Formal Experiment or Paper Result occurred; Auto Continue=`NO`.
+# 2026-09-16 — Trusted Evidence Retriever / Version Registry prototype
+
+- Current task: `P1-TRUSTED-EVIDENCE-RETRIEVER-AND-VERSION-REGISTRY-PROTOTYPE-01` completed.
+- Status: `TRUSTED_EVIDENCE_RETRIEVAL_COMPLETE / VERSION_REGISTRY_READY_WITH_LIMITATIONS / DOCUMENT_DETECTOR_READY_WITH_LIMITATIONS`.
+- 57-doc trusted corpus and 72 Candidate-derived queries were locked before Oracle E1/E2 evaluation; label/oracle-query leakage is zero.
+- Registry metadata remains partial; eight Temporal signals stay `ORACLE_ONLY`. No Detector training, threshold tuning, risk calibration, 240-group run or formal result occurred.
+- Next gate: Owner approval for registry coverage repair and non-Oracle Document Detector feature freeze.

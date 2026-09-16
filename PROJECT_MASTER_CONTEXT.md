@@ -1916,3 +1916,6 @@ cutoff，之后候选不访问正文。Trace 和 Package 的普通 audit 不导�
 当前 `S6-T5.6` 与 `S6-T5.6-I1` 均为 `Completed, pending human acceptance`。这不是对检索质量、Citation Accuracy、
 RAG 安全、可信检索、模型集成或生产可用性的结论；`S6-T5.7+` 和正式 RAG 安全实验仍未批准/未开始。最后已接受
 implementation commit 仍为 `6da27a6`；I1 提交只可作为候选实现留档。
+# Paper 1 method transition — 2026-09-16
+
+Paper 1 has completed a development-set Trusted Evidence Retriever and partial Trusted Version Registry prototype. This is the architectural transition from manually matched Benchmark Evidence to autonomous trusted Evidence retrieval. It establishes a lawful inference path for many S/E/P signals and a small subset of Temporal/Registry signals, but not formal detector effectiveness. Final72 remains development-exposed; scaled benchmark and untouched group-aware test remain pending.

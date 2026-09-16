@@ -1720,3 +1720,6 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
   approved trusted Evidence retriever and version-registry prototype, not detector training.
 - Canonical records: `OR-061`, `REL-2026-0066`, [current work state](current_work_state.md), and Git-external
   `paper1_retrieval_behavior_harness_20260915`.
+# PODR-100 — Trusted Evidence Retriever and Version Registry prototype approval (2026-09-16)
+
+Owner approved a Final72 development-only Trusted Evidence Retriever, Trusted Version Registry, locked Oracle-vs-retrieved comparison and deployability reclassification. Formal Detector training/evaluation, 240-group execution, calibration and detoxification remain unapproved. Execution produced a 57-document de-mapped trusted corpus, a partial 47-family registry and a label-blind Sparse/Dense/Hybrid run locked before Oracle evaluation. Final recommendation is `DOCUMENT_DETECTOR_READY_WITH_LIMITATIONS`, not a formal effectiveness claim.

@@ -669,3 +669,8 @@ index 和 Owner 对 claims 的接受。
 > STOP：A/B execution 和 Phase1 分发已由 Owner 批准，但真实分发尚未登记；Owner 现在只分发各自六个 Phase1 V2 文件，V1 不得发送。
 > 两份 Phase1 锁定前不释放 Phase2；四份 raw 锁定前不做 agreement；当前不生成 Ground Truth，也不启动 240-group、
 > Dataset freeze、Detector、训练、5090 或 Formal Experiment。
+# 2026-09-16：系统开始自己找可信证据
+
+过去的信号实验已经知道“这条 Candidate 应该看哪两篇 E1/E2”，只能算诊断上限。本轮先把所有官方快照合并成统一的 57 文档库，隐藏每条 Candidate 的 E1/E2 对应关系，再让 Sparse、Dense 和 Hybrid 检索器自己找证据。检索结果锁定以后，才拿人工对应表检查找得准不准。
+
+结果说明这条路可行但还没完全成熟：Sparse/Hybrid 在这个小型冻结库里表现较好；Version Registry 只有部分版本时间和 current/history 关系，因此 21 个原 Oracle-dependent signals 有了合法替代路径，8 个 Temporal signals 仍不能部署。项目已经从 Benchmark diagnostic 跨到 deployable method prototype，但还没有训练 Detector，也没有论文结果。

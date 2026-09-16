@@ -509,3 +509,12 @@ Canonical authority: [`../human/research_plan_authority.md`](../human/research_p
 4. Compare Current State Snapshot with governance current state and experiment master record; fail closed on conflict.
 5. Do not infer approval from a plan, chat suggestion, prepared artifact or engineering smoke.
 6. Stop at the next human decision gate.
+# 2026-09-16 machine recovery record
+
+task: P1-TRUSTED-EVIDENCE-RETRIEVER-AND-VERSION-REGISTRY-PROTOTYPE-01
+status: TRUSTED_EVIDENCE_RETRIEVAL_COMPLETE / VERSION_REGISTRY_READY_WITH_LIMITATIONS / DOCUMENT_DETECTOR_READY_WITH_LIMITATIONS
+evidence_root: E:\LLMGuard-Handoff\paper1_trusted_evidence_retriever_registry_20260916
+corpus_sha256: 331705332f7785ef0c7cd39dbfb294f912e0bb94954974b985e5967dafe8ff7b
+retrieval_run_sha256: 037b8463e6cd2fbf3f4fd5584680e2e9edb3965a39780e92d98a194d7fa5e04a
+oracle_loaded_only_after_retrieval_and_signal_lock: true
+detector_training: false
