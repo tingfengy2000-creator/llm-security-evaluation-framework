@@ -1723,3 +1723,7 @@ PODR-027 的实施状态更新为 `COMPLETED_PENDING_HUMAN_ACCEPTANCE`。本轮�
 # PODR-100 — Trusted Evidence Retriever and Version Registry prototype approval (2026-09-16)
 
 Owner approved a Final72 development-only Trusted Evidence Retriever, Trusted Version Registry, locked Oracle-vs-retrieved comparison and deployability reclassification. Formal Detector training/evaluation, 240-group execution, calibration and detoxification remain unapproved. Execution produced a 57-document de-mapped trusted corpus, a partial 47-family registry and a label-blind Sparse/Dense/Hybrid run locked before Oracle evaluation. Final recommendation is `DOCUMENT_DETECTOR_READY_WITH_LIMITATIONS`, not a formal effectiveness claim.
+
+# PODR-101 — Registry coverage repair, query robustness and feature-freeze authority (2026-09-17)
+
+Owner authorized an additive Registry V2 repair from already frozen official Evidence, four pre-Oracle query robustness conditions, and a non-Oracle Document Detector feature freeze. The execution freezes `Q_NO_TITLE + HYBRID` as the deployable prototype setting, even though it is not selected by post-hoc metric maximization. The 23-feature raw S/E/P/T matrix is an input contract only. Retrieval-Behavior remains Stage B; availability/missingness is not a model feature; six Temporal fields remain Oracle diagnostic. Detector fitting, threshold tuning, calibration, formal scale evaluation and superiority claims remain unapproved.

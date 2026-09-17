@@ -18,6 +18,22 @@ version_registry_blocked_r_types: 7
 oracle_only_signals: 29
 query_runtime_signals: 4
 detector_training: false
+
+# 2026-09-17 machine recovery record
+
+task: P1-TRUSTED-VERSION-REGISTRY-COVERAGE-REPAIR-QUERY-ROBUSTNESS-AND-DOCUMENT-DETECTOR-FEATURE-FREEZE-01
+evidence_root: E:\LLMGuard-Handoff\paper1_registry_query_robustness_feature_freeze_20260917
+registry_v2_sha256: 1e76808efd3bf30115d399ac96ea2777eddd47a36cef693d569b2344acba20dc
+chosen_setting: Q_NO_TITLE+HYBRID
+source_title_risk: NONE
+lexical_overlap_risk: MATERIAL
+feature_matrix_sha256: c1a8dfa250ab62843d9234754f27936667c2a760dbdae8be4f5405bb47dc30c0
+feature_count: 23
+rows: 72
+remaining_oracle_only_signals: 6
+readiness: READY_WITH_LIMITATIONS
+oracle_loaded_only_after_all_query_run_locks: true
+detector_training: false
 next_gate: P1-TRUSTED-EVIDENCE-RETRIEVER-AND-VERSION-REGISTRY-PROTOTYPE-01
 ```
 

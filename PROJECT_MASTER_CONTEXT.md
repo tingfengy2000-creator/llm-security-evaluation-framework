@@ -1919,3 +1919,7 @@ implementation commit 仍为 `6da27a6`；I1 提交只可作为候选实现留档
 # Paper 1 method transition — 2026-09-16
 
 Paper 1 has completed a development-set Trusted Evidence Retriever and partial Trusted Version Registry prototype. This is the architectural transition from manually matched Benchmark Evidence to autonomous trusted Evidence retrieval. It establishes a lawful inference path for many S/E/P signals and a small subset of Temporal/Registry signals, but not formal detector effectiveness. Final72 remains development-exposed; scaled benchmark and untouched group-aware test remain pending.
+
+# Paper 1 feature-freeze transition — 2026-09-17
+
+Registry V2 repairs only metadata that is directly supported by the frozen official corpus: current/history coverage is `5/5`, effective intervals `26`, authority/issuer `55`, and explicit predecessor/successor links `1/1`; chronology is never silently promoted to supersession. Four label-blind query conditions were locked before Oracle evaluation. Removing source titles caused no material degradation, while free-text lexical overlap showed material shortcut risk. The first non-Oracle Stage-A Document Detector input is frozen as 23 raw S/E/P/T features under `Q_NO_TITLE + HYBRID`; availability is stored separately and Retrieval-Behavior remains Stage B. This is a feature-input freeze, not training, effectiveness evidence, threshold tuning, calibration, or a paper result.

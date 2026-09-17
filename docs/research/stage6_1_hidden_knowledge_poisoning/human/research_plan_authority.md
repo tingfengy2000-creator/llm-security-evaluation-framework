@@ -207,3 +207,7 @@ Intervention effectiveness、5090 和 Formal Experiment 均未批准。
 # Trusted Evidence Retrieval authority update — 2026-09-16
 
 The deployable Paper 1 path is Candidate/Claim → unified Trusted Evidence Corpus → locked Retriever → Retrieved Evidence Bundle → S/E/P/T signals. Manually matched E1/E2 remains evaluation-only Oracle upper bound. Version and authority metadata must be independently supported; unknown values remain missing. Current readiness is limited and does not authorize Detector training.
+
+# RPC-011 — Registry/query robustness and Document Detector input boundary (2026-09-17)
+
+The first Stage-A Document Detector contract is frozen as `Q_NO_TITLE + HYBRID → 23 raw S/E/P/T features`. The choice is governance-driven and predeclared, not selected after viewing the best recall. Availability/missingness remains separate, Retrieval-Behavior remains Stage B, and six Temporal features without lawful non-Oracle inference stay excluded. Registry relations require explicit frozen Evidence; chronological order alone is not supersession. Current status is `READY_WITH_LIMITATIONS` and does not authorize model fitting, threshold selection, calibration or formal evaluation.

@@ -2294,3 +2294,7 @@ Approval Gate、Auto Continue。
 # 2026-09-16 — From manually matched Evidence to autonomous trusted retrieval
 
 Final72's 144 Evidence slots were de-mapped and content-hash deduplicated into a 57-document official corpus. The system built 72 deterministic Candidate-derived queries, ran frozen Sparse/Dense/equal-weight Hybrid retrieval, locked traces and Retrieved S/E/P/T signals, and only then loaded the sealed E1/E2 reference for evaluation. Sparse/Hybrid recovered at least one reference Evidence for every Candidate by K=3; the partial Registry supports only 4 current and 4 historical version records, so readiness remains limited. No post-hoc retriever tuning or Detector training occurred.
+
+# 2026-09-17 — Registry coverage repair, query shortcut audit and Stage-A feature freeze
+
+The frozen corpus was not expanded. Registry V2 recovered only evidence-backed metadata and records ambiguous dates/relations as missing. Four query variants were built from the same Candidate inputs and locked before the sealed Oracle mapping was loaded. All 12 retrieval traces reproduced deterministically. Title removal did not materially harm Hybrid retrieval, but free-text queries materially outperformed the structured query, so lexical overlap is a documented prototype shortcut rather than method success. The frozen deployable setting is `Q_NO_TITLE + HYBRID`; its 23-feature, 72-row S/E/P/T matrix excludes labels, adjudication, Expected values, IDs, process fields, R signals and availability indicators. No model training or performance metric was produced.

@@ -122,3 +122,12 @@ Trusted Evidence Retriever V1 and Trusted Version Registry V1 are complete on Fi
 - [Trusted Evidence Retriever Feasibility Report V1](method_engineering/PAPER1_TRUSTED_EVIDENCE_RETRIEVER_FEASIBILITY_REPORT_V1.md)
 - [Signal Deployability Matrix V2](method_engineering/PAPER1_SIGNAL_DEPLOYABILITY_MATRIX_V2.md)
 - [240-group Scale Readiness Spec V2](benchmark/PAPER1_240_GROUP_SCALE_READINESS_SPEC_V2.md)
+
+## 2026-09-17 registry/query robustness and feature-freeze update
+
+Registry V2, four query-condition robustness runs and the first non-Oracle Document Detector Feature Set are frozen. The selected inference setting is `Q_NO_TITLE + HYBRID`; it deliberately excludes source-title dependence while preserving the predeclared retriever. Source-title risk is `NONE`, lexical-overlap shortcut risk is `MATERIAL`, and the current 57-document corpus is too easy for formal retrieval evaluation. The raw 23-feature S/E/P/T matrix is a Stage-A input artifact only; no Detector has been trained.
+
+- [Registry and Query Robustness Feature-Freeze Report V1](method_engineering/PAPER1_VERSION_REGISTRY_AND_QUERY_ROBUSTNESS_FEATURE_FREEZE_REPORT_V1.md)
+- [Document Detector Feature Set V1](method_engineering/PAPER1_DOCUMENT_DETECTOR_FEATURE_SET_V1.md)
+- [Signal Deployability Matrix V3](method_engineering/PAPER1_SIGNAL_DEPLOYABILITY_MATRIX_V3.md)
+- [240-group Scale Readiness Spec V3](benchmark/PAPER1_240_GROUP_SCALE_READINESS_SPEC_V3.md)

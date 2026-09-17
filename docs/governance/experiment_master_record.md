@@ -656,3 +656,13 @@ git log -15 --oneline
 - Retrieval trace: 12,312 rows, SHA256 `037b8463e6cd2fbf3f4fd5584680e2e9edb3965a39780e92d98a194d7fa5e04a`.
 - Physical gate: retrieval and Retrieved Signal locks precede first Oracle reference load.
 - Claims boundary: reference recall and signal stability only; no Detector performance or superiority claim.
+
+# P1 Registry/query robustness/feature freeze — 2026-09-17
+
+- Type: `METHOD_ENGINEERING / DEVELOPMENT_SET / FEATURE_INPUT_FREEZE / NOT_FORMAL_EXPERIMENT`.
+- Evidence namespace: `E:\LLMGuard-Handoff\paper1_registry_query_robustness_feature_freeze_20260917`.
+- Registry V2 SHA256: `1e76808efd3bf30115d399ac96ea2777eddd47a36cef693d569b2344acba20dc`; frozen corpus identity remains unchanged.
+- Four query conditions × Sparse/Dense/Hybrid were independently locked and deterministically rerun before Oracle reference load.
+- Shortcut findings: source-title risk `NONE`; lexical-overlap risk `MATERIAL`. The 57-document corpus is too easy for formal retrieval evaluation because it has no frozen lexically similar irrelevant distractors at the declared threshold.
+- Frozen Stage-A input: `Q_NO_TITLE + HYBRID`, 23 S/E/P/T features, 72 rows; matrix SHA256 `c1a8dfa250ab62843d9234754f27936667c2a760dbdae8be4f5405bb47dc30c0`.
+- Result: `DOCUMENT_DETECTOR_READY_WITH_LIMITATIONS`; no fitting, labels-as-features, threshold, calibration, formal result, or automatic next-stage execution.
