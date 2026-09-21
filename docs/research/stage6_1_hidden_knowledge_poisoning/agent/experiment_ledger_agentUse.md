@@ -18,9 +18,11 @@ version_registry_blocked_r_types: 7
 oracle_only_signals: 29
 query_runtime_signals: 4
 detector_training: false
+```
 
-# 2026-09-17 machine recovery record
+## 2026-09-17 machine recovery record
 
+```yaml
 task: P1-TRUSTED-VERSION-REGISTRY-COVERAGE-REPAIR-QUERY-ROBUSTNESS-AND-DOCUMENT-DETECTOR-FEATURE-FREEZE-01
 evidence_root: E:\LLMGuard-Handoff\paper1_registry_query_robustness_feature_freeze_20260917
 registry_v2_sha256: 1e76808efd3bf30115d399ac96ea2777eddd47a36cef693d569b2344acba20dc
@@ -35,6 +37,25 @@ readiness: READY_WITH_LIMITATIONS
 oracle_loaded_only_after_all_query_run_locks: true
 detector_training: false
 next_gate: P1-TRUSTED-EVIDENCE-RETRIEVER-AND-VERSION-REGISTRY-PROTOTYPE-01
+```
+
+## 2026-09-21 detector preflight recovery record
+
+```yaml
+task: P1-FIRST-DOCUMENT-DETECTOR-PROTOTYPE-PREFLIGHT-AND-DEVELOPMENT-EXECUTION-01
+evidence_root: E:\LLMGuard-Handoff\paper1_first_document_detector_preflight_20260921
+evidence_manifest_sha256: 64904507beb2eee7ed89cdd8c59380922dc5fb9a393581792948653820a7e6a0
+authority: PODR-102
+phase_a: BLOCKED
+phase_b_authorized: false
+training_started: false
+blocking_issue: P1-FDD-PREFLIGHT-BLOCKER-01
+blocking_features:
+  - host_publisher_relation: 0 observed / 72 INPUT_MISSING
+  - publisher_issuer_match: 0 observed / 72 INPUT_MISSING
+logo_structure: 24 folds / 69 train / 3 validation / each candidate once / no group crossing
+metrics_generated: false
+auto_continue: false
 ```
 
 Recovery rule: query/corpus/trace/R matrix are immutable; never rebuild them from labels. The first label-load event is after all

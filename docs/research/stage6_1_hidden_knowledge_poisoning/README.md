@@ -1,7 +1,7 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`RETRIEVAL_HARNESS_COMPLETE / TWO_STAGE_RISK_BOUNDARY_FROZEN /
-> DOCUMENT_DETECTOR_NOT_READY / RETRIEVAL_RISK_READY_WITH_LIMITATIONS / NO_FORMAL_DETECTOR_RESULT_YET`。
+> 当前实验状态：`DOCUMENT_DETECTOR_PHASE_A_BLOCKED / PHASE_B_NOT_AUTHORIZED /
+> TRAINING_NOT_STARTED / HUMAN_DECISION_REQUIRED / NO_FORMAL_DETECTOR_RESULT_YET`。
 > Owner 已按 M2 `2/16`、matched controls `16/16`、M4 `0`、M8 `4/4` 和其余冻结门全部 PASS 正式接受 Protocol；
 > 两条 residual reviewer variance 保持不可变且不触发 R4。Accepted Stack 绑定 Final72、Attempt2 Phase1、Guide V3.2、
 > Expected V3、Evidence Pool V2 与 frozen snapshot + URL provenance。Owner 已指定两个不同真人并批准 A/B 执行与
@@ -131,3 +131,10 @@ Registry V2, four query-condition robustness runs and the first non-Oracle Docum
 - [Document Detector Feature Set V1](method_engineering/PAPER1_DOCUMENT_DETECTOR_FEATURE_SET_V1.md)
 - [Signal Deployability Matrix V3](method_engineering/PAPER1_SIGNAL_DEPLOYABILITY_MATRIX_V3.md)
 - [240-group Scale Readiness Spec V3](benchmark/PAPER1_240_GROUP_SCALE_READINESS_SPEC_V3.md)
+
+## 2026-09-21 first Detector preflight
+
+Owner 批准的是“Phase A 全通过后才训练”。预检确认 72×23 identity、24 matched groups、24-fold LOGO、R/Oracle 排除和 leakage gate，但发现两项 Provenance feature 在 72/72 行全为 `INPUT_MISSING`，且没有合法 neutral value。项目没有用 0 填充、删列或加 missingness indicator；Phase B 物理停止，当前无模型和指标。
+
+- [Development Protocol V1](method_engineering/PAPER1_FINAL72_DOCUMENT_DETECTOR_DEVELOPMENT_PROTOCOL_V1.md)
+- [Phase A Preflight Report V1](method_engineering/PAPER1_FINAL72_DOCUMENT_DETECTOR_PREFLIGHT_REPORT_V1.md)

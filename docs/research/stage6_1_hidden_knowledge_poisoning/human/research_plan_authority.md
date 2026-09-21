@@ -211,3 +211,7 @@ The deployable Paper 1 path is Candidate/Claim → unified Trusted Evidence Corp
 # RPC-011 — Registry/query robustness and Document Detector input boundary (2026-09-17)
 
 The first Stage-A Document Detector contract is frozen as `Q_NO_TITLE + HYBRID → 23 raw S/E/P/T features`. The choice is governance-driven and predeclared, not selected after viewing the best recall. Availability/missingness remains separate, Retrieval-Behavior remains Stage B, and six Temporal features without lawful non-Oracle inference stay excluded. Registry relations require explicit frozen Evidence; chronological order alone is not supersession. Current status is `READY_WITH_LIMITATIONS` and does not authorize model fitting, threshold selection, calibration or formal evaluation.
+
+# RPC-012 — First Detector LOGO protocol and missingness stop boundary (2026-09-21)
+
+Owner approved fixed 24-fold LOGO and fixed L2 Logistic Regression for Final72 development diagnostics, conditional on all Phase A gates. Preprocessing must be fitted per training fold; missingness indicators, tuning and calibration are forbidden. The first preflight found two globally all-missing frozen Provenance features without neutral semantics. Therefore no 23-feature conforming model can currently be fitted, and no 21-feature or constant-filled substitute may be created without a versioned Owner decision.

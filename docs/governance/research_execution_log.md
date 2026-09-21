@@ -2298,3 +2298,11 @@ Final72's 144 Evidence slots were de-mapped and content-hash deduplicated into a
 # 2026-09-17 — Registry coverage repair, query shortcut audit and Stage-A feature freeze
 
 The frozen corpus was not expanded. Registry V2 recovered only evidence-backed metadata and records ambiguous dates/relations as missing. Four query variants were built from the same Candidate inputs and locked before the sealed Oracle mapping was loaded. All 12 retrieval traces reproduced deterministically. Title removal did not materially harm Hybrid retrieval, but free-text queries materially outperformed the structured query, so lexical overlap is a documented prototype shortcut rather than method success. The frozen deployable setting is `Q_NO_TITLE + HYBRID`; its 23-feature, 72-row S/E/P/T matrix excludes labels, adjudication, Expected values, IDs, process fields, R signals and availability indicators. No model training or performance metric was produced.
+
+## REL-2026-0067 — First Document Detector Phase A fail-closed preflight
+
+- Date: `2026-09-21`; task `P1-FIRST-DOCUMENT-DETECTOR-PROTOTYPE-PREFLIGHT-AND-DEVELOPMENT-EXECUTION-01`; machine `本机`; authority `PODR-102`.
+- The label-blind missingness policy was physically locked before class/group/GT loading. Input hashes, 23 features, 72 rows, zero forbidden fields, R/Oracle exclusion and fixed LR configuration passed.
+- Post-policy group validation found 24 complete Clean/Poison/HN triplets and built 24 LOGO folds with 69 train / 3 validation candidates; every candidate is held out exactly once and no group crosses a fold.
+- Two Provenance features are 72/72 `INPUT_MISSING`, have zero observed values and no frozen neutral value. Phase A status is `BLOCKED`; the Phase B gate returned exit code 1 before any fit.
+- No OOF predictions, detector metric, threshold, calibration, ablation, coefficient analysis, bootstrap or permutation control was produced. `P1-FDD-PREFLIGHT-BLOCKER-01` requires an Owner choice; Auto Continue=`NO`.

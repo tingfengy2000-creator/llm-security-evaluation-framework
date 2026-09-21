@@ -419,3 +419,12 @@ are established.
 - Four query conditions and 12 deterministic runs were locked before Oracle evaluation. `Q_FULL→Q_NO_TITLE` Hybrid Any-R@1 delta is `-0.0139` and MRR delta `-0.0069` (`SOURCE_TITLE_RISK=NONE`). `Q_TEXT_ONLY→Q_STRUCTURED` deltas are `+0.1667/+0.0833` (`LEXICAL_OVERLAP_RISK=MATERIAL`).
 - The deployment-realistic frozen setting is `Q_NO_TITLE + HYBRID`, not the best post-hoc setting. Feature Set V1 contains 23 raw non-Oracle S/E/P/T features; R remains Stage B and six Temporal features remain Oracle diagnostic only.
 - Current gate: `DOCUMENT_DETECTOR_READY_WITH_LIMITATIONS`. No Detector was trained; no threshold, calibration, 240-group execution, 5090 run, formal test or result claim occurred.
+
+# 2026-09-21 — First Document Detector Phase A blocked before fitting
+
+- Current task: `P1-FIRST-DOCUMENT-DETECTOR-PROTOTYPE-PREFLIGHT-AND-DEVELOPMENT-EXECUTION-01`.
+- Owner approved protocol freeze and prototype training only after every blocking Phase A gate passed.
+- Input identity、23 frozen features、72 rows、R/Oracle exclusion、zero blocking leakage、24 matched groups and 24-fold LOGO all pass.
+- Missingness gate fails: `host_publisher_relation` and `publisher_issuer_match` are `INPUT_MISSING` in 72/72 rows, have zero observed values and no frozen neutral representation. Training-fold mode is undefined.
+- Status: `PHASE_A_BLOCKED / PHASE_B_NOT_AUTHORIZED / TRAINING_STARTED_FALSE / P1-FDD-PREFLIGHT-BLOCKER-01 / HUMAN_DECISION_REQUIRED / Auto Continue=NO`.
+- No OOF prediction, metric, ablation, coefficient, bootstrap, permutation control, calibration, Risk or Retrieval Exposure model exists. Next gate is Owner selection of an additive upstream repair, explicit all-missing engineering representation, or versioned 21-feature contract.

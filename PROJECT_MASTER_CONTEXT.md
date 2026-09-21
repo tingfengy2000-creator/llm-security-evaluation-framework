@@ -1923,3 +1923,7 @@ Paper 1 has completed a development-set Trusted Evidence Retriever and partial T
 # Paper 1 feature-freeze transition — 2026-09-17
 
 Registry V2 repairs only metadata that is directly supported by the frozen official corpus: current/history coverage is `5/5`, effective intervals `26`, authority/issuer `55`, and explicit predecessor/successor links `1/1`; chronology is never silently promoted to supersession. Four label-blind query conditions were locked before Oracle evaluation. Removing source titles caused no material degradation, while free-text lexical overlap showed material shortcut risk. The first non-Oracle Stage-A Document Detector input is frozen as 23 raw S/E/P/T features under `Q_NO_TITLE + HYBRID`; availability is stored separately and Retrieval-Behavior remains Stage B. This is a feature-input freeze, not training, effectiveness evidence, threshold tuning, calibration, or a paper result.
+
+# Paper 1 first Detector preflight — 2026-09-21
+
+Owner conditionally approved the first Final72 LOGO Logistic Regression prototype. Phase A verified the frozen matrix/Feature Set/GT/corpus identities, 24 complete triplets and 24 group-isolated folds, but stopped before fit because two frozen Provenance features are all-missing and have no authorized neutral value. Filling, deleting or indicator-encoding them would change frozen semantics. Current status is `HUMAN_DECISION_REQUIRED`; no Detector result, OOF metric or formal experiment exists.

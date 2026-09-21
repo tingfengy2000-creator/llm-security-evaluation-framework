@@ -50,3 +50,7 @@ Stage A consumes only frozen, non-Oracle S/E/P/T inputs. Availability/missingnes
 7. Formal run, Detector training and untouched-test evaluation each receive separate Owner approval.
 
 Current Final72 outcome is only engineering feedback: `Q_NO_TITLE + HYBRID` is the frozen prototype setting, lexical-overlap risk is material, and the 57-document corpus is too easy for formal evaluation. None of these observations is a Paper result.
+
+## 2026-09-21 detector-preflight feedback
+
+Before any scaled Detector fit, every frozen feature must have either observable training values or an independently justified neutral/applicability representation. A feature that is globally `INPUT_MISSING` cannot be silently filled, dropped or converted into a missingness indicator. The scale corpus and Registry must therefore provide real host/publisher and publisher/issuer relations across train/dev/test, with missingness rates reported by class, domain and split before labels are used for model development. This requirement is added because Final72 Feature Set V1 contains two 72/72 all-missing Provenance columns; no model result was produced from them.

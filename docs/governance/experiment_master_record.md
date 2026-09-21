@@ -666,3 +666,13 @@ git log -15 --oneline
 - Shortcut findings: source-title risk `NONE`; lexical-overlap risk `MATERIAL`. The 57-document corpus is too easy for formal retrieval evaluation because it has no frozen lexically similar irrelevant distractors at the declared threshold.
 - Frozen Stage-A input: `Q_NO_TITLE + HYBRID`, 23 S/E/P/T features, 72 rows; matrix SHA256 `c1a8dfa250ab62843d9234754f27936667c2a760dbdae8be4f5405bb47dc30c0`.
 - Result: `DOCUMENT_DETECTOR_READY_WITH_LIMITATIONS`; no fitting, labels-as-features, threshold, calibration, formal result, or automatic next-stage execution.
+
+# P1 First Document Detector Phase A preflight — 2026-09-21
+
+- Type: `DEVELOPMENT_PROTOCOL_FREEZE / PREFLIGHT / BLOCKED_BEFORE_TRAINING / NOT_FORMAL_EXPERIMENT`.
+- Evidence namespace: `E:\LLMGuard-Handoff\paper1_first_document_detector_preflight_20260921`.
+- Evidence index: `manifest/final_manifest.json`, SHA256 `64904507beb2eee7ed89cdd8c59380922dc5fb9a393581792948653820a7e6a0`, 13 indexed files plus the manifest itself.
+- Exact inputs: Feature Matrix SHA256 `c1a8dfa...30c0`; Feature Set SHA256 `585350c7...e06`; accepted GT SHA256 `9e6224ef...720a`; candidate corpus SHA256 `f530471e...252d`.
+- Passed: 23-feature parity, 72 rows, zero forbidden matrix keys, R/Oracle exclusion, 24 complete groups, 24 LOGO folds, each candidate held out once, no group crossing, fixed LR/no-tuning/no-calibration contract.
+- Blocker: `host_publisher_relation` and `publisher_issuer_match` have 0 observed / 72 missing values and no authorized neutral representation. Phase B command exited `1` with `PHASE_B_BLOCKED_BY_PREFLIGHT`.
+- Claims boundary: no OOF/metrics/model/ablation/bootstrap/control was executed; no development or formal effectiveness claim.

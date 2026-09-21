@@ -1727,3 +1727,7 @@ Owner approved a Final72 development-only Trusted Evidence Retriever, Trusted Ve
 # PODR-101 — Registry coverage repair, query robustness and feature-freeze authority (2026-09-17)
 
 Owner authorized an additive Registry V2 repair from already frozen official Evidence, four pre-Oracle query robustness conditions, and a non-Oracle Document Detector feature freeze. The execution freezes `Q_NO_TITLE + HYBRID` as the deployable prototype setting, even though it is not selected by post-hoc metric maximization. The 23-feature raw S/E/P/T matrix is an input contract only. Retrieval-Behavior remains Stage B; availability/missingness is not a model feature; six Temporal fields remain Oracle diagnostic. Detector fitting, threshold tuning, calibration, formal scale evaluation and superiority claims remain unapproved.
+
+# PODR-102 — First Document Detector conditional execution approval (2026-09-21)
+
+Owner approved the fixed 24-fold LOGO, L2 Logistic Regression development protocol and automatic Phase B execution only if all Phase A blocking gates passed. The approval prohibits feature selection, R/Oracle inputs, tuning, calibration and formal claims. Phase A subsequently found two 72/72 all-missing frozen features without neutral semantics, so the approval condition was not satisfied and no training occurred. Resolution of `P1-FDD-PREFLIGHT-BLOCKER-01` remains an Owner decision; Codex did not choose a constant, delete features or create indicators.
