@@ -676,3 +676,11 @@ git log -15 --oneline
 - Passed: 23-feature parity, 72 rows, zero forbidden matrix keys, R/Oracle exclusion, 24 complete groups, 24 LOGO folds, each candidate held out once, no group crossing, fixed LR/no-tuning/no-calibration contract.
 - Blocker: `host_publisher_relation` and `publisher_issuer_match` have 0 observed / 72 missing values and no authorized neutral representation. Phase B command exited `1` with `PHASE_B_BLOCKED_BY_PREFLIGHT`.
 - Claims boundary: no OOF/metrics/model/ablation/bootstrap/control was executed; no development or formal effectiveness claim.
+
+# P1 Document Detector missingness contract resolution — 2026-09-22
+
+- Type: `METHOD_ENGINEERING / UPSTREAM_OBSERVABILITY_AUDIT / VERSIONED_INPUT_FREEZE / NOT_MODEL_TRAINING / NOT_FORMAL_EXPERIMENT`.
+- Authority: Owner A→conditional C, B rejected (`PODR-103 / OR-062`). Evidence namespace: `E:\LLMGuard-Handoff\paper1_document_detector_missingness_owner_resolution_20260922`; manifest SHA256 `c2eb03862cd0a2fedef7c21d7c593c9713aa383fbe3352aa097a09e89cd1a1a4`.
+- A audit: 57/57 trusted documents have host; 25/57 have publisher and issuer; Top5 360/360 host and 122/360 paired roles. No frozen host/publisher categorical mapping or candidate-bound Top5 publisher/issuer aggregation exists, so both candidate-level fields remain 72/72 input-missing. No external evidence was added.
+- C artifact: exact 21-column V1 projection with S3/E9/P6/T3. Feature Set V1.1 SHA256 `a3190b3b3fd6f3323229a83f9c919143fdba9efe06f209ef492242cdc1e37ee8`; 72×21 Matrix V1.1 SHA256 `2d418ae2fd6d22f848fcf812a6126fd68ff9b7b880c389a2ca510a5c94dd5b2d`. V1 matrix, V1 set, GT and corpus are unchanged.
+- Matrix lock preceded class load. Excluded-feature missingness is 24/24 in each Clean/Poison/HN class; 24/24 LOGO folds have lawful train-fold statistics for all retained fields (smallest observed training count 6). Status: `PHASE_A_PREFLIGHT_PASS / READY_TO_EXECUTE_FIRST_DETECTOR_PROTOTYPE`; no fit, OOF, metric, threshold or formal claim.

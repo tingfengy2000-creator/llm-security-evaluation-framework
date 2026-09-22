@@ -1731,3 +1731,9 @@ Owner authorized an additive Registry V2 repair from already frozen official Evi
 # PODR-102 — First Document Detector conditional execution approval (2026-09-21)
 
 Owner approved the fixed 24-fold LOGO, L2 Logistic Regression development protocol and automatic Phase B execution only if all Phase A blocking gates passed. The approval prohibits feature selection, R/Oracle inputs, tuning, calibration and formal claims. Phase A subsequently found two 72/72 all-missing frozen features without neutral semantics, so the approval condition was not satisfied and no training occurred. Resolution of `P1-FDD-PREFLIGHT-BLOCKER-01` remains an Owner decision; Codex did not choose a constant, delete features or create indicators.
+
+# PODR-103 — Provenance missingness Owner resolution (2026-09-22)
+
+Owner chose Option A first: recover only lawful provenance inputs and create a versioned 23-feature matrix if both relations retain their accepted meanings and all LOGO folds are feasible. Owner explicitly rejected Option B (global constants, pseudo-neutral values and missingness indicators). If A cannot be repaired within the frozen evidence/semantic boundary, Owner conditionally pre-authorized Option C: an additive 21-feature V1.1 excluding only `host_publisher_relation` and `publisher_issuer_match` for measurability, not performance. This decision supersedes PODR-102's open choice; it does not rewrite its historical preflight or authorize a model fit in the resolution task.
+
+The frozen-source audit found document-level host/publisher/issuer metadata but no valid candidate-level categorical host relation encoding or Top5-to-candidate publisher/issuer aggregation. A therefore failed on semantic observability; C was applied. V1.1 Phase A passes 24/24 fold-statistic gates; the next development-only Detector execution remains a distinct evidence event. No formal scale, risk calibration or paper result was approved.

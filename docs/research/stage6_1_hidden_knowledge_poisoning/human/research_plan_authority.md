@@ -215,3 +215,7 @@ The first Stage-A Document Detector contract is frozen as `Q_NO_TITLE + HYBRID �
 # RPC-012 — First Detector LOGO protocol and missingness stop boundary (2026-09-21)
 
 Owner approved fixed 24-fold LOGO and fixed L2 Logistic Regression for Final72 development diagnostics, conditional on all Phase A gates. Preprocessing must be fitted per training fold; missingness indicators, tuning and calibration are forbidden. The first preflight found two globally all-missing frozen Provenance features without neutral semantics. Therefore no 23-feature conforming model can currently be fitted, and no 21-feature or constant-filled substitute may be created without a versioned Owner decision.
+
+# RPC-013 — Owner-authorized measurability-based 21-feature fallback (2026-09-22)
+
+The Owner has now provided the missing versioned decision: try frozen-source recovery of the two provenance relations first; reject constants and missingness indicators; if the original semantics cannot be observed, freeze an additive V1.1 21-feature projection. The A audit found document-level metadata but no justified candidate-level relation mapping/aggregation, so C was applied. S/E/P/T remains 3/9/6/3; R stays Stage B. The V1.1 Phase A readiness gate passes 24 LOGO folds, but no fitting or model result was produced. This supersedes only RPC-012's open decision gate, not its historical failed preflight or the fixed estimator/split contract.

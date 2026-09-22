@@ -1927,3 +1927,7 @@ Registry V2 repairs only metadata that is directly supported by the frozen offic
 # Paper 1 first Detector preflight — 2026-09-21
 
 Owner conditionally approved the first Final72 LOGO Logistic Regression prototype. Phase A verified the frozen matrix/Feature Set/GT/corpus identities, 24 complete triplets and 24 group-isolated folds, but stopped before fit because two frozen Provenance features are all-missing and have no authorized neutral value. Filling, deleting or indicator-encoding them would change frozen semantics. Current status is `HUMAN_DECISION_REQUIRED`; no Detector result, OOF metric or formal experiment exists.
+
+# Paper 1 provenance input-contract resolution — 2026-09-22
+
+The Owner resolved the prior missingness choice: lawful metadata repair first (A), no constants or missingness indicators (B rejected), and a versioned 21-feature fallback if A cannot preserve the accepted meaning (C pre-authorized). The frozen corpus has partial publisher/issuer metadata but lacks a supported candidate-level host/publisher relation taxonomy and Top5-to-candidate publisher/issuer aggregation. Therefore A was not scientifically feasible under the current Pilot input contract, and C froze an additive 72×21 S/E/P/T matrix without modifying the original 23-feature artifacts or Final72 GT. All 24 LOGO training folds now have legal preprocessing statistics. Status is `PHASE_A_PREFLIGHT_PASS / READY_TO_EXECUTE_FIRST_DETECTOR_PROTOTYPE / NO_MODEL_FIT`; the next independent execution may run a development-only prototype, not a formal paper evaluation.

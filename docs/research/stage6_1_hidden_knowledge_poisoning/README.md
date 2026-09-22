@@ -1,7 +1,8 @@
 # Paper 1 Start Here
 
-> 当前实验状态：`DOCUMENT_DETECTOR_PHASE_A_BLOCKED / PHASE_B_NOT_AUTHORIZED /
-> TRAINING_NOT_STARTED / HUMAN_DECISION_REQUIRED / NO_FORMAL_DETECTOR_RESULT_YET`。
+> 当前实验状态（2026-09-22）：`FEATURE_SET_V1_1_21_FEATURES_FROZEN / DOCUMENT_DETECTOR_PHASE_A_PREFLIGHT_PASS /
+> READY_TO_EXECUTE_FIRST_DETECTOR_PROTOTYPE / TRAINING_NOT_STARTED / NO_FORMAL_DETECTOR_RESULT_YET`。
+> 旧 23-feature 阻断已通过 Owner A→C 决议以追加版本收口，原始失败证据不改；[输入合同修复报告](method_engineering/PAPER1_DOCUMENT_DETECTOR_MISSINGNESS_OWNER_RESOLUTION_REPORT_V1.md) 解释为什么两项全缺失关系不能填 0 或从 Top5 随意赋值。下一模型执行仍是独立任务。
 > Owner 已按 M2 `2/16`、matched controls `16/16`、M4 `0`、M8 `4/4` 和其余冻结门全部 PASS 正式接受 Protocol；
 > 两条 residual reviewer variance 保持不可变且不触发 R4。Accepted Stack 绑定 Final72、Attempt2 Phase1、Guide V3.2、
 > Expected V3、Evidence Pool V2 与 frozen snapshot + URL provenance。Owner 已指定两个不同真人并批准 A/B 执行与

@@ -16,6 +16,13 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
+- **Current as of 2026-09-22**: `P1-DOCUMENT-DETECTOR-MISSINGNESS-CONTRACT-OWNER-RESOLUTION-01` has completed the Owner-approved A→conditional-C missingness resolution. Option A did not produce a lawful candidate-level relation; Option B was explicitly rejected; additive Option C freezes Feature Set V1.1 and Matrix V1.1 at 72×21 (S3/E9/P6/T3).
+- **Gate**: `PHASE_A_PREFLIGHT_PASS / READY_TO_EXECUTE_FIRST_DETECTOR_PROTOTYPE / TRAINING_STARTED_FALSE`. All 24 LOGO training folds have a legal train-only statistic for every retained feature. This is input readiness, not a model, OOF prediction, formal result or automatic execution authority.
+- **Evidence**: `E:\LLMGuard-Handoff\paper1_document_detector_missingness_owner_resolution_20260922`; matrix SHA256 `2d418ae2fd6d22f848fcf812a6126fd68ff9b7b880c389a2ca510a5c94dd5b2d`. The original 23-feature artifacts and the 2026-09-21 blocker remain immutable history.
+- **Next gate**: separately execute the first Final72 development-only LOGO Detector prototype using exactly V1.1, after a fresh execution preflight. No model fit, threshold tuning, calibration, Stage B or formal benchmark has occurred in this task.
+
+## Historical 2026-09-16 task snapshot (superseded as current)
+
 - Task ID: `P1-RETRIEVAL-BEHAVIOR-HARNESS-AND-DEPLOYABLE-SIGNAL-BOUNDARY-01`.
 - Task name: `Paper 1 Retrieval-Behavior Harness, Two-stage Risk Boundary and Deployable Signal Audit`.
 - Task type: **OWNER-APPROVED LABEL-BLIND RETRIEVAL HARNESS / THREAT-MODEL AUDIT / TEMPORAL INPUT-GAP AUDIT**.
@@ -396,7 +403,7 @@ are established.
 - S6-T5.3 must preserve all frozen contracts; any need to change them is a `DESIGN_OR_PROTOCOL_BLOCKER`.
 - Resolved protocol record: the former hit boundary lacked `parent_doc_id`; schema `1.1` now carries it through the public metadata contract without changing legacy schema `1.0`. See [S6-T5.3 blocker record](s6_t5_3_protocol_blocker_record.md).
 
-## Last Update
+## Historical update — 2026-09-16
 
 - Date: `2026-09-16`.
 - Updated by: 本机 executing

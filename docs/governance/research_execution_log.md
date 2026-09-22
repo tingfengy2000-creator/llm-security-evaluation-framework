@@ -2306,3 +2306,10 @@ The frozen corpus was not expanded. Registry V2 recovered only evidence-backed m
 - Post-policy group validation found 24 complete Clean/Poison/HN triplets and built 24 LOGO folds with 69 train / 3 validation candidates; every candidate is held out exactly once and no group crosses a fold.
 - Two Provenance features are 72/72 `INPUT_MISSING`, have zero observed values and no frozen neutral value. Phase A status is `BLOCKED`; the Phase B gate returned exit code 1 before any fit.
 - No OOF predictions, detector metric, threshold, calibration, ablation, coefficient analysis, bootstrap or permutation control was produced. `P1-FDD-PREFLIGHT-BLOCKER-01` requires an Owner choice; Auto Continue=`NO`.
+
+## REL-2026-0068 — Owner A→C provenance input resolution (2026-09-22)
+
+- Owner resolved the prior decision gate: A preferred, B rejected, C pre-authorized if A is scientifically invalid (`PODR-103 / OR-062`). Old V1 and blocker evidence remain unchanged.
+- A's label-blind audit used only the frozen 57-document trusted corpus, Registry V2, official snapshots and locked `Q_NO_TITLE + HYBRID + Top5` trace. Hosts are present in 57/57 source documents; publisher and issuer in 25/57 each. The candidate-level host relation remains categorically undefined; publisher/issuer needs a missing candidate-source/Top5 binding. No values were invented and no new web evidence was added.
+- The additive V1.1 21-feature matrix was locked before class/group load. Post-lock missingness audit found the two excluded fields missing uniformly in all three classes; 24 LOGO folds pass train-only statistic feasibility. The 21 retained values are a deterministic V1 projection, not performance-selected features.
+- Evidence root `E:\LLMGuard-Handoff\paper1_document_detector_missingness_owner_resolution_20260922`; manifest SHA256 `c2eb03862cd0a2fedef7c21d7c593c9713aa383fbe3352aa097a09e89cd1a1a4`. Status: `PHASE_A_PREFLIGHT_PASS / READY_TO_EXECUTE_FIRST_DETECTOR_PROTOTYPE / NO_MODEL_FIT`; next task must be separately executed. No OOF or paper result.

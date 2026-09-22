@@ -1,5 +1,32 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current machine recovery record — 2026-09-22
+
+```yaml
+task: P1-DOCUMENT-DETECTOR-MISSINGNESS-CONTRACT-OWNER-RESOLUTION-01
+authority: PODR-103 / OR-062 / REL-2026-0068
+owner_policy: A_THEN_CONDITIONAL_C
+option_b: REJECTED
+option_a: NOT_SCIENTIFICALLY_FEASIBLE_UNDER_FROZEN_CANDIDATE_LEVEL_SEMANTICS
+option_c: APPLIED
+evidence_root: E:\LLMGuard-Handoff\paper1_document_detector_missingness_owner_resolution_20260922
+evidence_manifest_sha256: c2eb03862cd0a2fedef7c21d7c593c9713aa383fbe3352aa097a09e89cd1a1a4
+feature_set_v1_1_sha256: a3190b3b3fd6f3323229a83f9c919143fdba9efe06f209ef492242cdc1e37ee8
+feature_matrix_v1_1_sha256: 2d418ae2fd6d22f848fcf812a6126fd68ff9b7b880c389a2ca510a5c94dd5b2d
+features: {semantic: 3, entity_claim: 9, provenance: 6, temporal_version: 3, total: 21}
+raw_rows: 72
+old_v1_and_gt_modified: false
+matrix_lock_before_class_load: true
+excluded_feature_missingness: 72/72_each; 24/24_each_class
+logo_train_fold_statistics: 24/24_PASS
+phase_a: PASS
+training_started: false
+next_gate: separate Final72 development-only LOGO detector execution on exact V1.1
+formal_result: false
+```
+
+The V1 23-feature preflight blocker is historical and preserved. The relation audit uses only frozen trusted metadata and locked retrieval results; a document-level role pair is not a candidate-level feature. No class, GT, Oracle matching, Expected or Owner adjudication was used to create feature values.
+
 ## Retrieval Harness / Two-stage Risk Capsule — 2026-09-16
 
 ```yaml
