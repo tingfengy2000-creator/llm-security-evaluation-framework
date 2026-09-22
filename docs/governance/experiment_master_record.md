@@ -54,15 +54,15 @@
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
 | 当前最高完成阶段 | S6-T5 Controlled Retrieval and Traceable Context Baseline 已 `HUMAN_ACCEPTED BASELINE`；S6.1-LR1 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`。 |
-| 当前任务 | `P1-FIRST-DOCUMENT-DETECTOR-V1_1-LOGO-PROTOTYPE-EXECUTION-01`：Final72 首次非 Oracle LOGO 开发原型已执行。 |
-| 当前审批门 | `PROTOTYPE_VALID_WITH_LIMITATIONS / MULTIVIEW_SIGNAL_MIXED`；正式 benchmark、untouched test、校准与 Stage B 未批准。 |
-| 下一批准任务 | Owner 单独审查并批准 failure analysis / scale-hypothesis refinement；不得自动改 Final72 或启动 formal evaluation。 |
+| 当前任务 | `P1-DOCUMENT-DETECTOR-FAILURE-ANALYSIS-AND-SCALE-HYPOTHESIS-REFINEMENT-01`：冻结结果预检因八模型逐样本 OOF 未留存而暂停。 |
+| 当前审批门 | `P1-FDD-FAILURE-ANALYSIS-EVIDENCE-BLOCKER-01 / HUMAN_DECISION_REQUIRED / Auto Continue=NO`。 |
+| 下一批准任务 | Owner 选择提供既存真实 OOF、单独批准追加证据重建，或批准缩小分析范围；不得自动重训。 |
 | Baseline tag | annotated `s6-t5-rag-baseline-v1` 已恢复；本地/远端 peeled target 均核验为 `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
 | 最近工程验证 | H2 resume_02 archive SHA/safety/index `25/25`, H2-A `18/18`, exact local-model CUDA load, single-call and resource evidence passed Control Plane review。 |
-| 当前主要阻塞项 | 当前原型 pipeline 无 blocking leakage；正式规模数据、较完整 T/P 可观测性与独立测试仍待审批/构建。 |
+| 当前主要阻塞项 | 八个视角/消融模型的逐样本 OOF 未在原运行中保存，无法从汇总指标得到逐组 score shift。 |
 | 当前允许宣称 | Final72 24 折 LOGO 开发集原型结果存在且可审计：Full SEPT AUROC `.6471`、AUPRC `.4964`、P>HN `18/24`，只限 development OOF。 |
-| 当前禁止宣称 | 多视角正式优越性、泛化/生产有效性、calibrated risk、formal scale 或 paper final result。 |
+| 当前禁止宣称 | 本轮失败分析已完成、任何伪造的逐组 Full-vs-Full-T/P 差异、多视角正式优越性、泛化/生产有效性、calibrated risk、formal scale 或 paper final result。 |
 
 历史审批快照补充：S6-T5.5/5.6/5.7 已按后续记录完成并通过相应人工验收；早期 pending/NOT APPROVED 文字保留为
 时间点事实。当前 accepted implementation/integration identities 分别是 `b136ee2` 与 `b6cedf3`；LR1 不改变该 taxonomy。
@@ -692,3 +692,9 @@ git log -15 --oneline
 - Fixed non-Oracle V1.1 72×21 S3/E9/P6/T3, 24 matched-group LOGO folds, nine fixed L2 LR models, each 72/72 OOF. Fold-local median/mode + continuous scaling; no R, Oracle, indicators, calibration, tuning or threshold search.
 - Full SEPT pooled OOF: AUROC `.6471354`, AUPRC `.4964136`, Precision `.46875`, Recall `.625`, F1 `.5357143`, Balanced Accuracy `.6354167`, HN-FPR@0.5 `.3333333`; Poison>HN `18/24`, P highest `17/24`. Recall@1%FPR not reliably estimable; Recall@5%FPR `.08333` descriptive only.
 - Controls: 2000 matched-group bootstrap, 200 within-group poison-identity label permutations, complete coefficient/error/leakage/overfit diagnostics. No convergence warnings; 7 frozen features constant on observed values. Full-P/Full-T exceed Full on AUROC/AUPRC, so finding `MULTIVIEW_SIGNAL_MIXED / PROTOTYPE_VALID_WITH_LIMITATIONS`, not multiview superiority. Final72 is development-exposed, not untouched test. Owner next gate: separate failure analysis and scale-hypothesis refinement.
+
+# P1 Detector failure-analysis evidence-gap preflight — 2026-09-22
+
+- Type: `EVIDENCE_VALIDATION / PO-MHEP_BLOCKER / NOT_MODEL_EXECUTION`. Owner approved frozen-result diagnosis (`PODR-105`), explicitly prohibited retraining. Input HEAD `cd46629be0a7212dac8dba602e8eca3645b947e1`.
+- Prototype result manifest SHA256 `e788af67ee1a67d8635ddb11a9a27feeb3d7c89009a87bb3d1788ddfd90737af`; ten indexed files re-hashed with zero mismatches. Full SEPT OOF 72/72 SHA256 `eed87a32979cb2d1c85bbd67584cf5a3d2c9cd32789af933758530e65ba9d423`. Other eight model outputs preserve aggregate metrics/matched rates but not sample/group scores; only Full SEPT has per-fold coefficient vectors. No alternate handoff file found in bounded search.
+- `P1-FDD-FAILURE-ANALYSIS-EVIDENCE-BLOCKER-01 / HUMAN_DECISION_REQUIRED / Auto Continue=NO`: 24-group Full-vs-Full-T/P score-shift and view-specific group diagnosis cannot be calculated without an authentic missing artifact or separately approved additive fit. The original run remains valid and immutable; this task has produced no new model, failure taxonomy, scale hypothesis or formal result. [Decision-ready record](../research/stage6_1_hidden_knowledge_poisoning/method_engineering/PAPER1_DOCUMENT_DETECTOR_FAILURE_ANALYSIS_EVIDENCE_BLOCKER_01.md).

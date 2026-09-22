@@ -1,5 +1,27 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current machine recovery record — 2026-09-22 failure-analysis preflight
+
+```yaml
+task: P1-DOCUMENT-DETECTOR-FAILURE-ANALYSIS-AND-SCALE-HYPOTHESIS-REFINEMENT-01
+owner_scope: FROZEN_RESULT_DIAGNOSIS_ONLY; NO_RETRAINING
+status: HUMAN_DECISION_REQUIRED
+auto_continue: false
+blocker: P1-FDD-FAILURE-ANALYSIS-EVIDENCE-BLOCKER-01
+prototype_result_manifest_sha256: e788af67ee1a67d8635ddb11a9a27feeb3d7c89009a87bb3d1788ddfd90737af
+indexed_files_verified: 10/10
+sample_level_oof_available: Full-SEPT 72/72 only
+sample_level_oof_missing: [S-only, E-only, P-only, T-only, Full-S, Full-E, Full-P, Full-T]
+aggregate_view_ablation_metrics_available: true
+required_group_score_shift_evaluable: false
+model_fit_in_this_task: false
+frozen_artifact_mutation: false
+next_gate: Owner selects existing authentic artifact, separately approved additive reconstruction, or reduced scope
+formal_result: false
+```
+
+See [decision-ready evidence blocker](../method_engineering/PAPER1_DOCUMENT_DETECTOR_FAILURE_ANALYSIS_EVIDENCE_BLOCKER_01.md). No complete failure-analysis or formal scale-hypothesis package has been generated.
+
 ## Current machine recovery record — 2026-09-22 V1.1 detector execution
 
 ```yaml

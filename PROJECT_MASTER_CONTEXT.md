@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## Final72 Detector 失败分析证据缺口（2026-09-22）
+
+Owner 已批准对冻结 V1.1 原型做失败分析，但本轮预检发现：原运行只物理保存了 Full SEPT 的 72 条逐样本 OOF；S/E/P/T-only 和 Full-minus-view 只保留汇总指标，没有八个模型的逐样本分数。原模型训练过不等于分数可恢复；在当前明确禁止重训的条件下，不能计算所要求的逐组 Full-vs-Full-T/P score shift 或视角级失败组。状态为 `P1-FDD-FAILURE-ANALYSIS-EVIDENCE-BLOCKER-01 / HUMAN_DECISION_REQUIRED / Auto Continue=NO`；[决策就绪记录](docs/research/stage6_1_hidden_knowledge_poisoning/method_engineering/PAPER1_DOCUMENT_DETECTOR_FAILURE_ANALYSIS_EVIDENCE_BLOCKER_01.md)列出既存工件、新版追加重建或缩小范围三种 Owner 选择。已锁定原型、其 `MULTIVIEW_SIGNAL_MIXED` 结论及全部 SHA 均不改；不生成完整失败分析、正式规模假设或论文效果结论。
+
 ## Final72 首次 Document Detector LOGO 开发集原型（2026-09-22）
 
 Owner 已单独批准并完成 V1.1 的首次固定 Logistic Regression 拟合；24 个匹配组做 24 折 LOGO，九个预设 S/E/P/T 模型各有 72/72 OOF。Full SEPT 开发集 AUROC `.6471`、AUPRC `.4964`、Poison>合法历史 HN `18/24`，但 Full-P / Full-T 的总指标高于 Full，结论为 `MULTIVIEW_SIGNAL_MIXED / PROTOTYPE_VALID_WITH_LIMITATIONS`，不是正式优越性。输入为已冻结非 Oracle 21 特征（S3/E9/P6/T3），R 仍属 Stage B；两项不可观测 P 关系及六项 Oracle-only T 未纳入。完整结果、置换与 bootstrap 见 [开发集报告](docs/research/stage6_1_hidden_knowledge_poisoning/method_engineering/PAPER1_FINAL72_DOCUMENT_DETECTOR_PROTOTYPE_REPORT_V1_1.md)及 Git 外哈希锁定命名空间 `paper1_final72_document_detector_v1_1_logo_20260922`。Final72 仍是 development-exposed；风险校准、Stage B、240-group 正式 test 与论文最终结果均未启动。下一步须 Owner 单独批准 failure analysis / scale-hypothesis refinement。
