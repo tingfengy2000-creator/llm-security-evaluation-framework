@@ -1,8 +1,8 @@
 # LLMGuard 项目总控文档
 
-## Final72 Detector 失败分析证据缺口（2026-09-22）
+## Final72 Detector 证据重建与失败分析（2026-09-22）
 
-Owner 已批准对冻结 V1.1 原型做失败分析，但本轮预检发现：原运行只物理保存了 Full SEPT 的 72 条逐样本 OOF；S/E/P/T-only 和 Full-minus-view 只保留汇总指标，没有八个模型的逐样本分数。原模型训练过不等于分数可恢复；在当前明确禁止重训的条件下，不能计算所要求的逐组 Full-vs-Full-T/P score shift 或视角级失败组。状态为 `P1-FDD-FAILURE-ANALYSIS-EVIDENCE-BLOCKER-01 / HUMAN_DECISION_REQUIRED / Auto Continue=NO`；[决策就绪记录](docs/research/stage6_1_hidden_knowledge_poisoning/method_engineering/PAPER1_DOCUMENT_DETECTOR_FAILURE_ANALYSIS_EVIDENCE_BLOCKER_01.md)列出既存工件、新版追加重建或缩小范围三种 Owner 选择。已锁定原型、其 `MULTIVIEW_SIGNAL_MIXED` 结论及全部 SHA 均不改；不生成完整失败分析、正式规模假设或论文效果结论。
+Owner 已对 `P1-FDD-FAILURE-ANALYSIS-EVIDENCE-BLOCKER-01` 决定 `A_FIRST_THEN_B_IF_NEEDED`。有界搜索未发现可证明身份的八模型原始逐样本 OOF；一次严格等配置、单独命名空间的证据重建通过原 Full OOF 和九模型机器汇总一致性门，原 Prototype 与 SHA 全部保留。由此完成 Final72 开发集的 [Detector 失败分析](docs/research/stage6_1_hidden_knowledge_poisoning/method_engineering/PAPER1_FINAL72_DOCUMENT_DETECTOR_FAILURE_ANALYSIS_REPORT_V1.md)：21 项中七项常量，T/P-only 对 Poison 与合法历史 HN 均有 20/24 打平，Full 加 T/P 的逐组间隔变化混合。`MULTIVIEW_SIGNAL_MIXED` 不变；正式 240-group、untouched test 与论文效果尚未启动。下一优先方向是需要另行批准的规模 benchmark 构建，而非在 Final72 调参。此前 blocker 记录保留为 Owner 决议前的真实历史。
 
 ## Final72 首次 Document Detector LOGO 开发集原型（2026-09-22）
 

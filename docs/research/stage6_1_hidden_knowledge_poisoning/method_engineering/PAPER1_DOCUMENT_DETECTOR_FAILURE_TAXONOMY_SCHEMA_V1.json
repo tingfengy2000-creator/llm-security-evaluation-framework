@@ -1,0 +1,20 @@
+{
+  "status": "DEVELOPMENT_DIAGNOSTIC_TAXONOMY_NOT_CAUSAL_ADJUDICATION",
+  "group_tag_artifact": "paper1_final72_detector_failure_analysis_20260922/PAPER1_DOCUMENT_DETECTOR_FAILURE_TAXONOMY_V1.json",
+  "categories": [
+    {"id": "F1", "name": "SEMANTIC_INSUFFICIENCY", "evidence_status": "GROUP_LEVEL_CANDIDATE"},
+    {"id": "F2", "name": "HISTORICALNESS_CONFUSION", "evidence_status": "GROUP_LEVEL_CANDIDATE_ONLY; GLOBAL_STRONG_CLAIM_NOT_SUPPORTED_BY_20_TIES"},
+    {"id": "F3", "name": "CURRENT_VERSION_BINDING_MISSING", "evidence_status": "GROUP_LEVEL_CANDIDATE_AND_REGISTRY_GAP"},
+    {"id": "F4", "name": "PROVENANCE_HOMOGENEITY", "evidence_status": "GROUP_LEVEL_CANDIDATE_AND_GLOBAL_VARIANCE_GAP"},
+    {"id": "F5", "name": "METADATA_COVERAGE_GAP", "evidence_status": "PTS_AND_FEATURE_AVAILABILITY_OBSERVED"},
+    {"id": "F6", "name": "EVIDENCE_RETRIEVAL_AMBIGUITY", "evidence_status": "NOT_GROUP_ADJUDICATED"},
+    {"id": "F7", "name": "FEATURE_CONSTANT_OR_LOW_VARIANCE", "evidence_status": "GLOBAL_SEVEN_CONSTANTS_OBSERVED"},
+    {"id": "F8", "name": "FEATURE_REDUNDANCY", "evidence_status": "GLOBAL_EXACT_DUPLICATES_AND_CORRELATIONS_OBSERVED"},
+    {"id": "F9", "name": "DOMAIN_SPECIFIC_PATTERN", "evidence_status": "DESCRIPTIVE_SMALL_STRATA_ONLY"},
+    {"id": "F10", "name": "HKP_SIGNAL_MISMATCH", "evidence_status": "DESCRIPTIVE_SMALL_STRATA_ONLY"},
+    {"id": "F11", "name": "SMALL_N_MODEL_INSTABILITY", "evidence_status": "RISK_NOT_INDEPENDENTLY_ESTABLISHED"},
+    {"id": "F12", "name": "OTHER", "evidence_status": "RESERVED"}
+  ],
+  "multi_label_per_group_allowed": true,
+  "absence_of_group_tag_does_not_mean_absence_of_mechanism": true
+}

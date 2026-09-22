@@ -1,6 +1,6 @@
 # Paper 1 Start Here
 
-> 当前治理门（2026-09-22）：Owner 批准的 [Detector 失败分析](method_engineering/PAPER1_DOCUMENT_DETECTOR_FAILURE_ANALYSIS_EVIDENCE_BLOCKER_01.md)预检发现原运行缺少八个视角/消融模型的逐样本 OOF；所需逐组 Full-vs-minus-view 比较不能在禁止重训时完成。`HUMAN_DECISION_REQUIRED / Auto Continue=NO`，等待 Owner 选择补充既存工件、单独批准追加重建或明确缩小范围。下述原型分数是已完成的历史开发集结果，未被推翻。
+> 当前治理门（2026-09-22）：Owner 对[原证据缺口](method_engineering/PAPER1_DOCUMENT_DETECTOR_FAILURE_ANALYSIS_EVIDENCE_BLOCKER_01.md)已选择先找原件、找不到则严格重建。一次[证据重建](method_engineering/PAPER1_DETECTOR_V1_1_EVIDENCE_RECONSTRUCTION_RECORD_V1.md)通过原 Full OOF 和九模型机器汇总校验，随后完成[开发集失败分析](method_engineering/PAPER1_FINAL72_DOCUMENT_DETECTOR_FAILURE_ANALYSIS_REPORT_V1.md)。原型未推翻，`MULTIVIEW_SIGNAL_MIXED` 保持；下一步正式规模 benchmark 构建仍须另行 Owner 批准，不能自动训练或宣称论文效果。
 
 > 当前实验状态（2026-09-22）：`FEATURE_SET_V1_1_21_FEATURES_FROZEN / FIRST_DOCUMENT_DETECTOR_DEVELOPMENT_LOGO_COMPLETE /
 > MULTIVIEW_SIGNAL_MIXED / PROTOTYPE_VALID_WITH_LIMITATIONS / NO_FORMAL_DETECTOR_RESULT_YET`。

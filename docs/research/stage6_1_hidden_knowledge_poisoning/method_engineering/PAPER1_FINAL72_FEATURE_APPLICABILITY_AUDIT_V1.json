@@ -1,0 +1,30 @@
+{
+  "status": "ADDITIVE_AVAILABILITY_OVERLAY_NOT_MODEL_INPUT",
+  "source": "Frozen V1 per-feature availability for the 21 retained V1.1 fields",
+  "source_sha256": "93beba0093821785c2303fe722cb2d5e7da1a99381b5786305e17fe57a68d7b2",
+  "rows_per_feature": 72,
+  "counts": {
+    "claimed_authority_match": {"computed": 8, "not_applicable": 64, "input_missing": 0, "evidence_insufficient": 0},
+    "condition_conflict": {"computed": 31, "not_applicable": 41, "input_missing": 0, "evidence_insufficient": 0},
+    "current_fact_match": {"computed": 10, "not_applicable": 32, "input_missing": 8, "evidence_insufficient": 22},
+    "current_version_semantic_similarity": {"computed": 72, "not_applicable": 0, "input_missing": 0, "evidence_insufficient": 0},
+    "date_conflict": {"computed": 10, "not_applicable": 62, "input_missing": 0, "evidence_insufficient": 0},
+    "document_identity_match": {"computed": 72, "not_applicable": 0, "input_missing": 0, "evidence_insufficient": 0},
+    "entity_conflict": {"computed": 72, "not_applicable": 0, "input_missing": 0, "evidence_insufficient": 0},
+    "exception_conflict": {"computed": 9, "not_applicable": 63, "input_missing": 0, "evidence_insufficient": 0},
+    "historical_fact_match": {"computed": 10, "not_applicable": 32, "input_missing": 8, "evidence_insufficient": 22},
+    "historical_version_semantic_similarity": {"computed": 72, "not_applicable": 0, "input_missing": 0, "evidence_insufficient": 0},
+    "negation_flip": {"computed": 72, "not_applicable": 0, "input_missing": 0, "evidence_insufficient": 0},
+    "numeric_conflict": {"computed": 33, "not_applicable": 39, "input_missing": 0, "evidence_insufficient": 0},
+    "official_repost": {"computed": 64, "not_applicable": 0, "input_missing": 8, "evidence_insufficient": 0},
+    "official_source": {"computed": 72, "not_applicable": 0, "input_missing": 0, "evidence_insufficient": 0},
+    "predicate_match": {"computed": 72, "not_applicable": 0, "input_missing": 0, "evidence_insufficient": 0},
+    "present_time_substitution_signal": {"computed": 10, "not_applicable": 32, "input_missing": 8, "evidence_insufficient": 22},
+    "provenance_consistency": {"computed": 72, "not_applicable": 0, "input_missing": 0, "evidence_insufficient": 0},
+    "relation_conflict": {"computed": 72, "not_applicable": 0, "input_missing": 0, "evidence_insufficient": 0},
+    "semantic_version_margin": {"computed": 72, "not_applicable": 0, "input_missing": 0, "evidence_insufficient": 0},
+    "subject_match": {"computed": 72, "not_applicable": 0, "input_missing": 0, "evidence_insufficient": 0},
+    "version_identity_match": {"computed": 38, "not_applicable": 34, "input_missing": 0, "evidence_insufficient": 0}
+  },
+  "reconstruction_or_model_feature": false
+}

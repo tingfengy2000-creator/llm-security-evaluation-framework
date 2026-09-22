@@ -54,15 +54,15 @@
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
 | 当前最高完成阶段 | S6-T5 Controlled Retrieval and Traceable Context Baseline 已 `HUMAN_ACCEPTED BASELINE`；S6.1-LR1 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`。 |
-| 当前任务 | `P1-DOCUMENT-DETECTOR-FAILURE-ANALYSIS-AND-SCALE-HYPOTHESIS-REFINEMENT-01`：冻结结果预检因八模型逐样本 OOF 未留存而暂停。 |
-| 当前审批门 | `P1-FDD-FAILURE-ANALYSIS-EVIDENCE-BLOCKER-01 / HUMAN_DECISION_REQUIRED / Auto Continue=NO`。 |
-| 下一批准任务 | Owner 选择提供既存真实 OOF、单独批准追加证据重建，或批准缩小分析范围；不得自动重训。 |
+| 当前任务 | `P1-DOCUMENT-DETECTOR-FAILURE-ANALYSIS-AND-SCALE-HYPOTHESIS-REFINEMENT-01`：Owner 批准 A→必要时 B；严格证据重建与开发集失败分析完成。 |
+| 当前审批门 | 原 OOF 粒度 blocker 已按 `PODR-106` 解决；正式 240-group 构建需单独 Owner 批准，`Auto Continue=NO`。 |
+| 下一批准任务 | Owner 审阅开发集失败分析与规模假设，再单独批准正式规模 benchmark 构建协议；不得自动生成数据或训练。 |
 | Baseline tag | annotated `s6-t5-rag-baseline-v1` 已恢复；本地/远端 peeled target 均核验为 `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
 | 最近工程验证 | H2 resume_02 archive SHA/safety/index `25/25`, H2-A `18/18`, exact local-model CUDA load, single-call and resource evidence passed Control Plane review。 |
-| 当前主要阻塞项 | 八个视角/消融模型的逐样本 OOF 未在原运行中保存，无法从汇总指标得到逐组 score shift。 |
-| 当前允许宣称 | Final72 24 折 LOGO 开发集原型结果存在且可审计：Full SEPT AUROC `.6471`、AUPRC `.4964`、P>HN `18/24`，只限 development OOF。 |
-| 当前禁止宣称 | 本轮失败分析已完成、任何伪造的逐组 Full-vs-Full-T/P 差异、多视角正式优越性、泛化/生产有效性、calibrated risk、formal scale 或 paper final result。 |
+| 当前主要阻塞项 | 原八模型逐样本 OOF 在原运行中未保存；经严格数值/身份验证的追加证据重建已供开发集失败分析使用。正式规模证据、untouched test 仍缺。 |
+| 当前允许宣称 | Final72 24 折 LOGO 原型及追加重建支持开发集逐组诊断；Full 原件 canonical，八模型重建件是 `EVIDENCE_RECONSTRUCTION`；`MULTIVIEW_SIGNAL_MIXED`。 |
+| 当前禁止宣称 | 重建 OOF 是原始运行文件、独立模型复现、多视角正式优越性、泛化/生产有效性、calibrated risk、formal scale 或 paper final result。 |
 
 历史审批快照补充：S6-T5.5/5.6/5.7 已按后续记录完成并通过相应人工验收；早期 pending/NOT APPROVED 文字保留为
 时间点事实。当前 accepted implementation/integration identities 分别是 `b136ee2` 与 `b6cedf3`；LR1 不改变该 taxonomy。
@@ -698,3 +698,10 @@ git log -15 --oneline
 - Type: `EVIDENCE_VALIDATION / PO-MHEP_BLOCKER / NOT_MODEL_EXECUTION`. Owner approved frozen-result diagnosis (`PODR-105`), explicitly prohibited retraining. Input HEAD `cd46629be0a7212dac8dba602e8eca3645b947e1`.
 - Prototype result manifest SHA256 `e788af67ee1a67d8635ddb11a9a27feeb3d7c89009a87bb3d1788ddfd90737af`; ten indexed files re-hashed with zero mismatches. Full SEPT OOF 72/72 SHA256 `eed87a32979cb2d1c85bbd67584cf5a3d2c9cd32789af933758530e65ba9d423`. Other eight model outputs preserve aggregate metrics/matched rates but not sample/group scores; only Full SEPT has per-fold coefficient vectors. No alternate handoff file found in bounded search.
 - `P1-FDD-FAILURE-ANALYSIS-EVIDENCE-BLOCKER-01 / HUMAN_DECISION_REQUIRED / Auto Continue=NO`: 24-group Full-vs-Full-T/P score-shift and view-specific group diagnosis cannot be calculated without an authentic missing artifact or separately approved additive fit. The original run remains valid and immutable; this task has produced no new model, failure taxonomy, scale hypothesis or formal result. [Decision-ready record](../research/stage6_1_hidden_knowledge_poisoning/method_engineering/PAPER1_DOCUMENT_DETECTOR_FAILURE_ANALYSIS_EVIDENCE_BLOCKER_01.md).
+
+# P1 Detector V1.1 one-time evidence reconstruction and failure analysis — 2026-09-22
+
+- Type: `OWNER_APPROVED_EXACT_EVIDENCE_RECONSTRUCTION / DEVELOPMENT_SET_FAILURE_DIAGNOSTIC / NOT_FORMAL_EXPERIMENT`. Owner authority `PODR-106`; original run remains canonical. Option A bounded search did not verify original eight-model OOF. Option B used the unchanged historical fit code and exact frozen 72×21 input, 24 LOGO folds, fixed nine LR configurations. Original Full OOF and all nine machine summary trees matched within predeclared absolute `1e-12` tolerance; Python/sklearn matched, historical NumPy version was not recorded. No bootstrap/permutation replacement or tuning.
+- Additive private reconstruction namespace `paper1_final72_detector_v1_1_evidence_reconstruction_20260922`, manifest SHA256 `5924015e75d951223081925dc2ce7429cae23ea798cfbcef98aba5fe296f051b`. Original Full SHA256 `eed87a32979cb2d1c85bbd67584cf5a3d2c9cd32789af933758530e65ba9d423` remains unchanged and authoritative. Eight comparison OOF vectors are explicitly `EVIDENCE_RECONSTRUCTION`, not original-run artifacts.
+- Additive post-lock analysis namespace `paper1_final72_detector_failure_analysis_20260922`, manifest SHA256 `5d9edc8c1031ad9a42fa15a77a85eaa6e0aa7703d89c8f774b2304f979c4f6c8`. Seven observed-constant fields and 13 unique varying vectors; T-only/P-only each `2 win / 20 tie / 2 loss` on Poison–HN; Full vs Full-T margin `7 helped / 17 hurt`, Full vs Full-P `19 helped / 5 hurt`. `MULTIVIEW_SIGNAL_MIXED` remains; [human report](../research/stage6_1_hidden_knowledge_poisoning/method_engineering/PAPER1_FINAL72_DOCUMENT_DETECTOR_FAILURE_ANALYSIS_REPORT_V1.md) lists the development-only interpretation and formal-scale hypotheses.
+- Next gate: separate Owner approval for 240-group construction planning/execution. Final72 is not untouched test; formal Detector evaluation and Paper result remain `NOT_STARTED`.

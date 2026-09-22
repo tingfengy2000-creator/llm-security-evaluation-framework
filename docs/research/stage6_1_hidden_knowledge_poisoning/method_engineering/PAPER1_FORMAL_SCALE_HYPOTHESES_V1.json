@@ -1,0 +1,13 @@
+{
+  "status": "DEVELOPMENT_DERIVED_HYPOTHESES_NOT_CONCLUSIONS",
+  "source": "Final72 frozen V1.1 prototype plus validated evidence reconstruction",
+  "hypotheses": [
+    {"id": "H1", "statement": "Semantic-only apparent strength may attenuate under a lexically difficult unified official-evidence corpus.", "basis": "S-only AUROC 0.623 vs Full 0.647; prior query robustness found material lexical-overlap dependence and no lexically similar irrelevant distractor at its frozen threshold.", "formal_test": "Predeclare query variants and hard official distractors; compare group-isolated S-only to SEPT on untouched scale test."},
+    {"id": "H2", "statement": "Temporal benefit requires observable current/history binding, version relations and effective intervals; historicalness alone may cause HN errors.", "basis": "T-only P>HN is 2 wins, 20 ties, 2 losses; adding T reduces P-HN margin in 17/24 groups; PTS V3 computes in 10/40 temporal-applicable samples.", "formal_test": "Freeze complete provenance-backed temporal metadata and predeclare HN-FPR and matched P>HN tests."},
+    {"id": "H3", "statement": "Provenance benefit may require candidate-bound issuer/publisher/host/authority relations and source-role variation.", "basis": "Three of six P features are constant; two relations are deferred; P-only has 20/24 matched ties despite adding P increasing P-HN margin in 19 groups.", "formal_test": "Measure relation coverage and P view variance by domain/class before model freeze; then evaluate on an independent group-aware test."},
+    {"id": "H4", "statement": "Multiview effects may vary by HKP and stealth rather than showing uniform average gain.", "basis": "Final72 full P>HN is 5/6 for HKP1-3 but 3/6 for HKP4; S3 full is 5/8. Small development strata cannot establish a trend.", "formal_test": "Prespecify HKP1-4 and S1-3 stratified matched outcomes with sufficient independent chains."},
+    {"id": "H5", "statement": "Hard negatives must be source-backed and lexically/structurally close to poison, with current/history near-duplicate and same-authority distractors.", "basis": "Six Final72 groups do not rank Poison above HN; the current 57-document corpus lacks frozen-threshold lexical hard distractors.", "formal_test": "Construct balanced hard negatives and audit fact validity, version role and difficulty before formal split."}
+  ],
+  "next_research_priority": "MOVE_TO_FORMAL_240_GROUP_BENCHMARK_CONSTRUCTION",
+  "formal_execution_approved": false
+}

@@ -1,5 +1,32 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current machine recovery record — 2026-09-22 evidence reconstruction and failure analysis
+
+```yaml
+task: P1-DOCUMENT-DETECTOR-FAILURE-ANALYSIS-AND-SCALE-HYPOTHESIS-REFINEMENT-01
+owner_resolution: A_FIRST_THEN_B_IF_NEEDED
+option_a: BOUNDED_SEARCH_INCOMPLETE; only canonical Full original OOF found
+option_b: ONE_TIME_EXACT_EVIDENCE_RECONSTRUCTION_ACCEPTED
+original_result_manifest_sha256: e788af67ee1a67d8635ddb11a9a27feeb3d7c89009a87bb3d1788ddfd90737af
+original_full_oof_sha256: eed87a32979cb2d1c85bbd67584cf5a3d2c9cd32789af933758530e65ba9d423
+reconstruction_manifest_sha256: 5924015e75d951223081925dc2ce7429cae23ea798cfbcef98aba5fe296f051b
+analysis_manifest_sha256: 5d9edc8c1031ad9a42fa15a77a85eaa6e0aa7703d89c8f774b2304f979c4f6c8
+canonical_full: ORIGINAL_IMMUTABLE
+comparison_models: VALIDATED_EVIDENCE_RECONSTRUCTION
+folds: 24_exact_LOGO
+rows_per_model: 72
+models: 9_original_fixed_configurations
+numeric_tolerance_absolute: 1e-12
+full_oof_parity: PASS
+all_machine_summary_parity: PASS
+failure_analysis: COMPLETE_DEVELOPMENT_DIAGNOSTIC
+multiview_taxonomy: MULTIVIEW_SIGNAL_MIXED
+next_research_priority: MOVE_TO_FORMAL_240_GROUP_BENCHMARK_CONSTRUCTION; SEPARATE_OWNER_APPROVAL_REQUIRED
+formal_experiment: NOT_STARTED
+```
+
+Private evidence namespaces: `paper1_final72_detector_v1_1_evidence_reconstruction_20260922` and `paper1_final72_detector_failure_analysis_20260922` in the Owner's handoff root. [Reconstruction provenance](../method_engineering/PAPER1_DETECTOR_V1_1_EVIDENCE_RECONSTRUCTION_RECORD_V1.md); [failure analysis](../method_engineering/PAPER1_FINAL72_DOCUMENT_DETECTOR_FAILURE_ANALYSIS_REPORT_V1.md). The following blocker section is preserved as a historical pre-Owner-decision snapshot, not current authorization.
+
 ## Current machine recovery record — 2026-09-22 failure-analysis preflight
 
 ```yaml
