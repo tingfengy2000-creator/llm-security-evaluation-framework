@@ -1,0 +1,29 @@
+{
+  "schema_id": "PAPER1_FORMAL_ANNOTATION_SCHEMA_V4",
+  "status": "FROZEN_CONTRACT_NOT_ANNOTATED",
+  "supersedes_for_formal240_only": "Pilot4 Guide V3.2 version/minimum interpretations",
+  "historical_pilot_immutable": true,
+  "phase1": {
+    "text_naturalness": ["NATURAL", "MINOR_ISSUE", "UNNATURAL"],
+    "local_internal_conflict": ["YES", "NO", "UNCERTAIN"],
+    "phase1_issue": ["NONE", "MISSING_CONTEXT", "AMBIGUOUS_REFERENCE", "OTHER"],
+    "phase1_reason": "required if local_internal_conflict != NO or phase1_issue != NONE; optional for naturalness alone"
+  },
+  "phase2": {
+    "overall_fact_status": ["CURRENTLY_CONSISTENT", "LEGITIMATE_VERSION_OR_HISTORY", "FACTUAL_CONFLICT", "INSUFFICIENT_EVIDENCE"],
+    "version_claim_status": ["NOT_PRESENT", "PRESENT_CORRECT", "PRESENT_INCORRECT", "PRESENT_EVIDENCE_INSUFFICIENT"],
+    "authority_claim_status": ["NOT_PRESENT", "PRESENT_CORRECT", "PRESENT_INCORRECT", "PRESENT_EVIDENCE_INSUFFICIENT"],
+    "minimum_external_evidence_needed": ["ZERO_EXTERNAL_EVIDENCE_REQUIRED", "ONE_OFFICIAL_EVIDENCE", "MULTI_EVIDENCE_OR_VERSION_CHAIN", "NOT_APPLICABLE"],
+    "evidence_selection": ["NONE", "E1", "E2", "E1+E2"],
+    "phase2_issue": ["NONE", "SOURCE_UNREACHABLE", "SOURCE_CONFLICT", "EVIDENCE_MISSING", "LATE_DISCOVERED_CANDIDATE_DEFECT", "OTHER"],
+    "phase2_reason": "required; bind candidate proposition, used evidence, and decision"
+  },
+  "control_plane_only": {
+    "target_stealth_design": ["S1", "S2", "S3"],
+    "derived_stealth_level": ["S1", "S2", "S3", "NOT_APPLICABLE", "UNRESOLVED"],
+    "version_metadata_claim_present": "boolean adjudicated from candidate wording, not inferred from authority/content",
+    "substantive_content_conflict": "boolean adjudicated from evidence, not a version status shortcut"
+  },
+  "source_of_truth": "Owner Formal240 decision 2026-09-22; accepted Pilot4 Phase1/Phase2 enums except additive ZERO",
+  "no_candidate_records_created": true
+}

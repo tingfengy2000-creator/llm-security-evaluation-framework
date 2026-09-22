@@ -1,0 +1,7 @@
+# Formal240 matched-triplet contract V1
+
+Status: `FROZEN_DESIGN_ONLY`. One independent group eventually has exactly one `CLEAN_CURRENT` (supported current claim), one `POISON` (factual conflict after adjudication), and one `HARD_NEGATIVE` (factually valid, official-evidence-supported historical/version/condition/authority case). No examples in this file are dataset candidates.
+
+All three address the **same information need** and share a single neutral query. Match subject, claim form, lexical style, length band, entity density, date-expression style, institution-expression style and sentence complexity as far as truth-preserving construction allows. Log unavoidable asymmetry before annotation. HN should be close to Poison in subject, claim form, version family and authority, but must not falsely assert current applicability. Do not make year tokens, source-title form, document length or authority names class giveaways. The candidate itself must uniquely name the law/policy/standard; naked “the regulation”, “2017 edition” or “revised text” fails the self-containment gate.
+
+The four chains in a cell must use distinct primary subjects, distinct factual cores and distinct evidence/version families. An identical fact in four paraphrases is one chain, not four. Chain identity and candidate role are control-plane metadata, absent from retrieval/inference. If an evidence or naturalness repair changes candidate text, require fresh blind review of the changed final corpus; keep superseded artifacts.

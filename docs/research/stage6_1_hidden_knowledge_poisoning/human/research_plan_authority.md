@@ -65,6 +65,10 @@ Pilot 历史事实，不因正式五领域确认而改写。
 - 这是高优先级、fail-closed 的 candidate-admission gate，先于人工事实/隐蔽性标注、agreement 和 Dataset freeze。
 - 本规则不回溯：不修改、不推翻、不重新解释已冻结的 Pilot1/Pilot2 候选、raw returns 或当前定向复核结果。
 
+### 4.3 Formal240 V4 协议冻结（2026-09-22；PODR-107）
+
+Owner 已批准独立的 [Formal240 协议包](../formal240/PAPER1_FORMAL_240_GROUP_PROTOCOL_OWNER_ACCEPTANCE_PACKET.md)，把原五领域 × 四 HKP × 三目标 S × 四事实链规划冻结为 240 个**空组槽位**。未来每组三条候选合计 720 条，但目前未生成数据。V4 仅评价文件级版本事件/身份/日期/状态/关系的 `version_claim_status`；具体条款内容和修订机关分别由整体事实与 authority 字段评价。正式版新增内部冲突时的 `ZERO_EXTERNAL_EVIDENCE_REQUIRED`，Pilot4 历史 N/A 不变。S1/S2/S3 由仲裁后的证据路径派生，目标 S 只用于构造平衡。四链要事实核心、主体和证据/版本族独立；证据先于候选，难负例和统一可信语料不得让模型走年份/来源捷径。Split 仅冻结算法和 seed `20260922`，**未执行**；D1 48 组实际构建必须另获 Owner 批准，人工分发、GT、训练和正式测试分别设门。Final72 是 development-exposed，不是 formal untouched test。
+
 ## 5. 外部基线角色
 
 | 外部工作 | 当前角色 | 当前可用证据 | 不得宣称 |

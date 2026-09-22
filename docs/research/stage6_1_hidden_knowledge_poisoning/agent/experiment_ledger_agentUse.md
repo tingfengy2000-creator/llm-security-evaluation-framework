@@ -1,5 +1,27 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current machine recovery record — 2026-09-22 Formal240 protocol freeze
+
+```yaml
+task: P1-FORMAL240-ANNOTATION-SCHEMA-V4-AND-CONSTRUCTION-PROTOCOL-FREEZE-01
+owner_authority: PODR-107 / OR-063
+final72_role: DEVELOPMENT_EXPOSED; construction priority closed
+formal_annotation_v4: FROZEN_ADDITIVE
+version_status_scope: DOCUMENT_LEVEL_VERSION_METADATA_ONLY
+minimum_external_new_enum: ZERO_EXTERNAL_EVIDENCE_REQUIRED
+pilot4_v3_2_and_gt: IMMUTABLE
+factorial_slots: {domains: 5, hkp: 4, target_s: 3, independent_chains_per_cell: 4, groups: 240}
+actual_formal_candidates: 0
+formal_annotations: 0
+split_seed: 20260922
+split_executed: false
+formal_detector_trained: false
+formal_experiment: NOT_STARTED
+next_gate: OWNER_WAVE_D1_APPROVAL_REQUIRED
+```
+
+Canonical new artifacts: [Formal240 Owner packet](../formal240/PAPER1_FORMAL_240_GROUP_PROTOCOL_OWNER_ACCEPTANCE_PACKET.md), [V4 schema](../formal240/PAPER1_FORMAL_ANNOTATION_SCHEMA_V4.json), [240-slot matrix](../formal240/PAPER1_FORMAL_240_GROUP_MATRIX_V1.jsonl), [split algorithm](../formal240/PAPER1_FORMAL_SPLIT_PROTOCOL_V1.md). The V4 semantic override affects **future Formal240 only**; historical Pilot4 values remain in their original raw/GT lineage.
+
 ## Current machine recovery record — 2026-09-22 evidence reconstruction and failure analysis
 
 ```yaml

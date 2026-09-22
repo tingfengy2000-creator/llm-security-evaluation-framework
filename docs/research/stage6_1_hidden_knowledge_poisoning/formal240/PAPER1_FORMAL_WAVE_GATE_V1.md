@@ -1,0 +1,5 @@
+# Formal240 domain-wave gate V1
+
+Status: `FROZEN_FUTURE_GATE / D1_NOT_STARTED`. Build D1 enterprise HR → D2 finance → D3 information security → D4 procurement/R&D → D5 education/research only after each separately authorized wave. Each future wave targets 48 independent groups and 144 candidates: 4 HKP × 3 target S × 4 chain slots, with one C/P/H triplet per group.
+
+Before allowing the next domain, verify all 48/144 actual records and IDs, four truly independent primary-subject/factual-core/evidence-family chains per cell, official Evidence completeness and license/provenance, version and authority metadata, explicit nulls, candidate naturalness and unique self-contained subject, shared neutral query without class/answer leakage, evidence-first path, V4 derived S and target mismatch handling, feature observability and pre-GT variance, and difficult unified official distractors. Maintain immutable raw A/B and Owner lineage; unresolved blocker means stop, not “approximately complete”. A complete design slot is not a completed group. This task creates no wave candidates.

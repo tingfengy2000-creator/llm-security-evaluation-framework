@@ -48,15 +48,19 @@
 4. 本 Experiment Master Record 的索引和汇总；
 5. 教学或面试材料。
 
+## Formal240 protocol-freeze evidence index — 2026-09-22
+
+Task `P1-FORMAL240-ANNOTATION-SCHEMA-V4-AND-CONSTRUCTION-PROTOCOL-FREEZE-01`; type `DESIGN_FREEZE`, **not** a formal experimental run. Owner authority `PODR-107 / OR-063`. [Protocol and Owner packet](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_240_GROUP_PROTOCOL_OWNER_ACCEPTANCE_PACKET.md) index the additive V4 annotation, evidence-first construction, 240-slot factorial matrix, pre-generation observability and pre-GT variance gates, algorithm-only seed `20260922`, and H1–H5 falsifiability. Actual formal candidates/annotations/split assignments/model fits = `0/0/0/0`; 720 is a future target, not a produced population. Historical Pilot4/Final72 artifacts remain authoritative for their original scope. `FORMAL_EXPERIMENT=NOT_STARTED`; next gate = separate D1 Wave Owner approval.
+
 ## 2. 五分钟项目快照
 
 | 项目 | 当前事实 |
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
 | 当前最高完成阶段 | S6-T5 Controlled Retrieval and Traceable Context Baseline 已 `HUMAN_ACCEPTED BASELINE`；S6.1-LR1 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`。 |
-| 当前任务 | `P1-DOCUMENT-DETECTOR-FAILURE-ANALYSIS-AND-SCALE-HYPOTHESIS-REFINEMENT-01`：Owner 批准 A→必要时 B；严格证据重建与开发集失败分析完成。 |
-| 当前审批门 | 原 OOF 粒度 blocker 已按 `PODR-106` 解决；正式 240-group 构建需单独 Owner 批准，`Auto Continue=NO`。 |
-| 下一批准任务 | Owner 审阅开发集失败分析与规模假设，再单独批准正式规模 benchmark 构建协议；不得自动生成数据或训练。 |
+| 当前任务 | `P1-FORMAL240-ANNOTATION-SCHEMA-V4-AND-CONSTRUCTION-PROTOCOL-FREEZE-01`：Owner 已批准 V4/构建协议及 240 空组矩阵冻结；未生成正式候选。 |
+| 当前审批门 | `PODR-107` 仅批准协议与矩阵；D1 Wave 48 组/144 条实际构建仍须单独批准，`Auto Continue=NO`。 |
+| 下一批准任务 | Owner 审阅 [Formal240 protocol packet](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_240_GROUP_PROTOCOL_OWNER_ACCEPTANCE_PACKET.md)，再单独批准或退回 D1；不得自动标注、切分或训练。 |
 | Baseline tag | annotated `s6-t5-rag-baseline-v1` 已恢复；本地/远端 peeled target 均核验为 `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
 | 最近工程验证 | H2 resume_02 archive SHA/safety/index `25/25`, H2-A `18/18`, exact local-model CUDA load, single-call and resource evidence passed Control Plane review。 |

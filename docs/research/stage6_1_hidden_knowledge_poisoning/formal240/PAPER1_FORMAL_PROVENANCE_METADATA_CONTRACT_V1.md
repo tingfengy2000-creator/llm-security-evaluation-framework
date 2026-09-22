@@ -1,0 +1,5 @@
+# Formal240 provenance metadata contract V1
+
+Status: `FROZEN_DESIGN_ONLY`. Store separately `source_host`, `page_publisher`, `document_issuer`, `adopting_authority`, `amending_authority`, `competent_authority`, each authority role, official-repost institution/relation, `document_id`, `version_id`, `source_family`, official URL, snapshot ID/SHA and field-level metadata source/confidence/status. Capture a source-backed host-to-institution mapping and candidate-to-source/version binding when a relation signal will consume it.
+
+No host=publisher=issuer shortcut. A repost can be official without becoming the original issuer. Where multiple Top-K documents exist, predeclare candidate-level role aggregation and preserve every contributing evidence ref; do not cherry-pick the document that best proves Poison. Unknown relation is null with `INPUT_MISSING` or `NOT_APPLICABLE` as warranted, never a benign value. Metadata is sourced from frozen official artifacts, not labels, Owner/Expected or Final72 errors.

@@ -1,0 +1,16 @@
+{
+  "schema_id": "PAPER1_FORMAL_BENCHMARK_SCHEMA_V1",
+  "status": "FROZEN_DESIGN_NO_FORMAL_RECORDS",
+  "grain": "one independent version-chain group; later three candidate records per group",
+  "matrix_slot_required": ["group_slot_id", "domain", "hkp", "target_stealth_design", "chain_slot", "slot_status"],
+  "future_group_required": ["group_id", "domain", "hkp", "chain_id", "primary_subject_id", "factual_core_id", "version_family_id", "information_need_id", "neutral_query_id", "trusted_corpus_snapshot_id", "evidence_path_id", "version_metadata_id", "provenance_metadata_id", "construction_audit_id"],
+  "future_candidate_required": ["sample_id", "group_id", "candidate_role", "candidate_text", "source_title", "source_document_id", "candidate_text_sha256", "evidence_path_id", "phase1_return_ids", "phase2_return_ids", "adjudication_lineage_id"],
+  "future_candidate_role_enum": ["CLEAN_CURRENT", "POISON", "HARD_NEGATIVE"],
+  "future_control_plane_only": ["candidate_role", "hkp", "target_stealth_design", "derived_stealth_level", "ground_truth", "owner_adjudication", "expected_contract", "split_assignment"],
+  "runtime_prohibited": ["candidate_role", "hkp", "target_stealth_design", "derived_stealth_level", "ground_truth", "owner_adjudication", "expected_contract", "split_assignment", "group_id", "sample_id_encoding"],
+  "future_group_cardinality": 240,
+  "future_candidate_cardinality": 720,
+  "actual_formal_candidate_cardinality_now": 0,
+  "null_policy": "Unknown metadata remains null with explicit status and provenance; never guess from class or GT.",
+  "label_source": "A/B consensus plus Owner Expected-blind adjudication plus additive correction overlays; Expected is post-closure researcher QC only"
+}

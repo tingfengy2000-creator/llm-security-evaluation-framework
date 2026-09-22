@@ -1,0 +1,17 @@
+{
+  "status": "FROZEN_MACHINE_RULES_NOT_APPLIED_TO_FORMAL_ANNOTATIONS",
+  "rules": [
+    {"id":"A","if":"overall_fact_status != FACTUAL_CONFLICT","then":"minimum_external_evidence_needed == NOT_APPLICABLE","severity":"BLOCK"},
+    {"id":"B","if":"overall_fact_status == FACTUAL_CONFLICT and local_internal_conflict == YES","then":"minimum_external_evidence_needed == ZERO_EXTERNAL_EVIDENCE_REQUIRED","severity":"BLOCK"},
+    {"id":"C","if":"minimum_external_evidence_needed == ZERO_EXTERNAL_EVIDENCE_REQUIRED","then":"overall_fact_status == FACTUAL_CONFLICT and local_internal_conflict == YES and derived_stealth_level == S1","severity":"BLOCK"},
+    {"id":"D","if":"minimum_external_evidence_needed == ONE_OFFICIAL_EVIDENCE","then":"overall_fact_status == FACTUAL_CONFLICT and local_internal_conflict != YES and derived_stealth_level == S2","severity":"BLOCK"},
+    {"id":"E","if":"minimum_external_evidence_needed == MULTI_EVIDENCE_OR_VERSION_CHAIN","then":"overall_fact_status == FACTUAL_CONFLICT and local_internal_conflict != YES and derived_stealth_level == S3","severity":"BLOCK"},
+    {"id":"F","if":"version_claim_status == NOT_PRESENT","then":"version_metadata_claim_present == false","severity":"BLOCK"},
+    {"id":"G","if":"authority status changes without version-metadata evidence changing","then":"never mechanically change version status; require separately adjudicated version evidence","severity":"MANUAL_SEMANTIC_REVIEW"},
+    {"id":"H","if":"substantive content is wrong but version metadata is supported","then":"overall FACTUAL_CONFLICT; version PRESENT_CORRECT; no content-to-version propagation","severity":"MANUAL_SEMANTIC_REVIEW"},
+    {"id":"I","if":"target_stealth_design != derived_stealth_level for a conflict","then":"STEALTH_DESIGN_MISMATCH; repair or regenerate; do not force derived","severity":"BLOCK"},
+    {"id":"J","if":"pure local conflict and no independent process defect","then":"phase2_issue == NONE","severity":"BLOCK"}
+  ],
+  "validator_limit": "Rules G/H require separately evidenced human semantic flags; never derive them from a target label or candidate class. Rule J requires an explicit no_process_defect assertion.",
+  "pilot_history_unchanged": true
+}

@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## Formal240 标注与构建协议冻结（2026-09-22）
+
+Owner 关闭 Final72 的开发集构建阶段并批准 `P1-FORMAL240-ANNOTATION-SCHEMA-V4-AND-CONSTRUCTION-PROTOCOL-FREEZE-01`。新增 [Formal240 Owner 审阅包](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_240_GROUP_PROTOCOL_OWNER_ACCEPTANCE_PACKET.md)及 240 个空因子槽位；720 条候选是未来目标，实际候选/标注/切分/训练均为零。正式 V4 只把文件级版本元数据与实体内容、机关归属分开，并新增内部冲突的零外部证据值；Pilot4 与 Final72 不回写。正式 split 算法和 seed 已冻结但未执行。Final72 Detector 的混合开发集信号保持历史事实，不得成为正式测试效果。下一门为 Owner 单独批准 D1 48 组 Wave；`FORMAL_EXPERIMENT=NOT_STARTED`，没有 Paper Result。
+
 ## Final72 Detector 证据重建与失败分析（2026-09-22）
 
 Owner 已对 `P1-FDD-FAILURE-ANALYSIS-EVIDENCE-BLOCKER-01` 决定 `A_FIRST_THEN_B_IF_NEEDED`。有界搜索未发现可证明身份的八模型原始逐样本 OOF；一次严格等配置、单独命名空间的证据重建通过原 Full OOF 和九模型机器汇总一致性门，原 Prototype 与 SHA 全部保留。由此完成 Final72 开发集的 [Detector 失败分析](docs/research/stage6_1_hidden_knowledge_poisoning/method_engineering/PAPER1_FINAL72_DOCUMENT_DETECTOR_FAILURE_ANALYSIS_REPORT_V1.md)：21 项中七项常量，T/P-only 对 Poison 与合法历史 HN 均有 20/24 打平，Full 加 T/P 的逐组间隔变化混合。`MULTIVIEW_SIGNAL_MIXED` 不变；正式 240-group、untouched test 与论文效果尚未启动。下一优先方向是需要另行批准的规模 benchmark 构建，而非在 Final72 调参。此前 blocker 记录保留为 Owner 决议前的真实历史。
