@@ -54,15 +54,15 @@
 | --- | --- |
 | 总目标 | 建立从模型层安全评测、Guard 对照到 RAG 安全与可信检索、再到 Agent 安全的可复现研究框架。 |
 | 当前最高完成阶段 | S6-T5 Controlled Retrieval and Traceable Context Baseline 已 `HUMAN_ACCEPTED BASELINE`；S6.1-LR1 与 Context Recovery Governance 已 `HUMAN_ACCEPTED`。 |
-| 当前任务 | `P1-FINAL72-GT-ACCEPTANCE-AND-SIGNAL-DETECTION-EXPERIMENT-KICKOFF-01`：Final72 GT 冻结与 Signals/Detection 合同工程启动。 |
-| 当前审批门 | `PILOT4_FINAL72_GT_ACCEPTED / FINAL72_DEVELOPMENT_SET_ACTIVE`；实际 signal feasibility、正式 scale 与 Detector 结果尚未执行。 |
-| 下一批准任务 | 单独冻结并批准 `SIGNAL_FEASIBILITY_AND_SEPARABILITY_STUDY` 的实际运行合同；Scale Track 保持独立门。 |
+| 当前任务 | `P1-FIRST-DOCUMENT-DETECTOR-V1_1-LOGO-PROTOTYPE-EXECUTION-01`：Final72 首次非 Oracle LOGO 开发原型已执行。 |
+| 当前审批门 | `PROTOTYPE_VALID_WITH_LIMITATIONS / MULTIVIEW_SIGNAL_MIXED`；正式 benchmark、untouched test、校准与 Stage B 未批准。 |
+| 下一批准任务 | Owner 单独审查并批准 failure analysis / scale-hypothesis refinement；不得自动改 Final72 或启动 formal evaluation。 |
 | Baseline tag | annotated `s6-t5-rag-baseline-v1` 已恢复；本地/远端 peeled target 均核验为 `18cf2741c8383d35604715af6ebf8cbaa2a3ddf1`。 |
 | 最近正式安全实验 | Stage 5 Paper Mock 确定性运行，`20260701T081320Z-c29f39`，88 attempts。 |
 | 最近工程验证 | H2 resume_02 archive SHA/safety/index `25/25`, H2-A `18/18`, exact local-model CUDA load, single-call and resource evidence passed Control Plane review。 |
-| 当前主要阻塞项 | GT blocker `0`；signal 实际执行合同与 formal scale 仍需各自批准。 |
-| 当前允许宣称 | Owner 已接受并冻结 Final72 GT；五视角 Signals/Detection method-engineering 合同与接口骨架已建立。 |
-| 当前禁止宣称 | detector superiority/effectiveness、risk calibration、explanation faithfulness、detoxification effectiveness、formal scale 或 paper result。 |
+| 当前主要阻塞项 | 当前原型 pipeline 无 blocking leakage；正式规模数据、较完整 T/P 可观测性与独立测试仍待审批/构建。 |
+| 当前允许宣称 | Final72 24 折 LOGO 开发集原型结果存在且可审计：Full SEPT AUROC `.6471`、AUPRC `.4964`、P>HN `18/24`，只限 development OOF。 |
+| 当前禁止宣称 | 多视角正式优越性、泛化/生产有效性、calibrated risk、formal scale 或 paper final result。 |
 
 历史审批快照补充：S6-T5.5/5.6/5.7 已按后续记录完成并通过相应人工验收；早期 pending/NOT APPROVED 文字保留为
 时间点事实。当前 accepted implementation/integration identities 分别是 `b136ee2` 与 `b6cedf3`；LR1 不改变该 taxonomy。
@@ -684,3 +684,11 @@ git log -15 --oneline
 - A audit: 57/57 trusted documents have host; 25/57 have publisher and issuer; Top5 360/360 host and 122/360 paired roles. No frozen host/publisher categorical mapping or candidate-bound Top5 publisher/issuer aggregation exists, so both candidate-level fields remain 72/72 input-missing. No external evidence was added.
 - C artifact: exact 21-column V1 projection with S3/E9/P6/T3. Feature Set V1.1 SHA256 `a3190b3b3fd6f3323229a83f9c919143fdba9efe06f209ef492242cdc1e37ee8`; 72×21 Matrix V1.1 SHA256 `2d418ae2fd6d22f848fcf812a6126fd68ff9b7b880c389a2ca510a5c94dd5b2d`. V1 matrix, V1 set, GT and corpus are unchanged.
 - Matrix lock preceded class load. Excluded-feature missingness is 24/24 in each Clean/Poison/HN class; 24/24 LOGO folds have lawful train-fold statistics for all retained fields (smallest observed training count 6). Status: `PHASE_A_PREFLIGHT_PASS / READY_TO_EXECUTE_FIRST_DETECTOR_PROTOTYPE`; no fit, OOF, metric, threshold or formal claim.
+
+# P1 Final72 V1.1 first Document Detector development prototype — 2026-09-22
+
+- Type: `DEVELOPMENT_SET_MODEL_PROTOTYPE / LOGO_OOF_DIAGNOSTIC / NOT_FORMAL_EXPERIMENT`；Owner authority `PODR-104`，pre-fit code commit `d9956c44f7e9eec03201a227416cc44d6c78d14c`.
+- Git-external evidence namespace: `paper1_final72_document_detector_v1_1_logo_20260922`; `result_hash_manifest.json` SHA256 `e788af67ee1a67d8635ddb11a9a27fee3d7c89009a87bb3d1788ddfd90737af`. Its pre-fit manifest records GT/Feature Set/Matrix/protocol/code/Python/sklearn/fold identity before any model fit. All indexed result hashes rechecked.
+- Fixed non-Oracle V1.1 72×21 S3/E9/P6/T3, 24 matched-group LOGO folds, nine fixed L2 LR models, each 72/72 OOF. Fold-local median/mode + continuous scaling; no R, Oracle, indicators, calibration, tuning or threshold search.
+- Full SEPT pooled OOF: AUROC `.6471354`, AUPRC `.4964136`, Precision `.46875`, Recall `.625`, F1 `.5357143`, Balanced Accuracy `.6354167`, HN-FPR@0.5 `.3333333`; Poison>HN `18/24`, P highest `17/24`. Recall@1%FPR not reliably estimable; Recall@5%FPR `.08333` descriptive only.
+- Controls: 2000 matched-group bootstrap, 200 within-group poison-identity label permutations, complete coefficient/error/leakage/overfit diagnostics. No convergence warnings; 7 frozen features constant on observed values. Full-P/Full-T exceed Full on AUROC/AUPRC, so finding `MULTIVIEW_SIGNAL_MIXED / PROTOTYPE_VALID_WITH_LIMITATIONS`, not multiview superiority. Final72 is development-exposed, not untouched test. Owner next gate: separate failure analysis and scale-hypothesis refinement.

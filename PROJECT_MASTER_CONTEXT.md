@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## Final72 首次 Document Detector LOGO 开发集原型（2026-09-22）
+
+Owner 已单独批准并完成 V1.1 的首次固定 Logistic Regression 拟合；24 个匹配组做 24 折 LOGO，九个预设 S/E/P/T 模型各有 72/72 OOF。Full SEPT 开发集 AUROC `.6471`、AUPRC `.4964`、Poison>合法历史 HN `18/24`，但 Full-P / Full-T 的总指标高于 Full，结论为 `MULTIVIEW_SIGNAL_MIXED / PROTOTYPE_VALID_WITH_LIMITATIONS`，不是正式优越性。输入为已冻结非 Oracle 21 特征（S3/E9/P6/T3），R 仍属 Stage B；两项不可观测 P 关系及六项 Oracle-only T 未纳入。完整结果、置换与 bootstrap 见 [开发集报告](docs/research/stage6_1_hidden_knowledge_poisoning/method_engineering/PAPER1_FINAL72_DOCUMENT_DETECTOR_PROTOTYPE_REPORT_V1_1.md)及 Git 外哈希锁定命名空间 `paper1_final72_document_detector_v1_1_logo_20260922`。Final72 仍是 development-exposed；风险校准、Stage B、240-group 正式 test 与论文最终结果均未启动。下一步须 Owner 单独批准 failure analysis / scale-hypothesis refinement。
+
 ## Final72 五视角 Signal Feasibility 执行（2026-09-15）
 
 Owner 通过 `PODR-098 / OR-060 / REL-2026-0065` 批准并完成

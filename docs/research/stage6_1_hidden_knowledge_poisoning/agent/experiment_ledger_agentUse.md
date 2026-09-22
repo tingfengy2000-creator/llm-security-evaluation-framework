@@ -1,5 +1,30 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current machine recovery record — 2026-09-22 V1.1 detector execution
+
+```yaml
+task: P1-FIRST-DOCUMENT-DETECTOR-V1_1-LOGO-PROTOTYPE-EXECUTION-01
+authority: PODR-104 / REL-2026-0069
+code_commit_before_fit: d9956c44f7e9eec03201a227416cc44d6c78d14c
+evidence_root: E:\LLMGuard-Handoff\paper1_final72_document_detector_v1_1_logo_20260922
+result_hash_manifest_sha256: e788af67ee1a67d8635ddb11a9a27fee3d7c89009a87bb3d1788ddfd90737af
+gt_sha256: 9e6224ef2cb2cb8e729f9ab569d09589c951e6df4ed3327c63c82913066d720a
+feature_set_v1_1_sha256: a3190b3b3fd6f3323229a83f9c919143fdba9efe06f209ef492242cdc1e37ee8
+matrix_v1_1_sha256: 2d418ae2fd6d22f848fcf812a6126fd68ff9b7b880c389a2ca510a5c94dd5b2d
+features: {S: 3, E: 9, P: 6, T: 3, total: 21, R: 0, oracle: 0}
+logo: {folds: 24, train_each: 69, validation_each: 3, oof: 72/72}
+models: [S-only, E-only, P-only, T-only, Full-SEPT, Full-S, Full-E, Full-P, Full-T]
+full_sept: {auroc: 0.6471354, auprc: 0.4964136, poison_gt_hn: 18/24, hn_fpr_at_0_5: 8/24}
+controls: {group_bootstrap: 2000, within_group_permutations: 200, high_performance_trigger: false, convergence_warnings: 0}
+finding: MULTIVIEW_SIGNAL_MIXED
+prototype: PROTOTYPE_VALID_WITH_LIMITATIONS
+role: DEVELOPMENT_EXPOSED_FINAL72_ONLY
+formal_result: false
+next_gate: Owner approval for failure analysis and scale-hypothesis refinement
+```
+
+The SHA in `result_hash_manifest_sha256` is the immutable external result-lock identity. Earlier no-training records below are dated historical snapshots, not current state.
+
 ## Current machine recovery record — 2026-09-22
 
 ```yaml

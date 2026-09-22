@@ -219,3 +219,7 @@ Owner approved fixed 24-fold LOGO and fixed L2 Logistic Regression for Final72 d
 # RPC-013 — Owner-authorized measurability-based 21-feature fallback (2026-09-22)
 
 The Owner has now provided the missing versioned decision: try frozen-source recovery of the two provenance relations first; reject constants and missingness indicators; if the original semantics cannot be observed, freeze an additive V1.1 21-feature projection. The A audit found document-level metadata but no justified candidate-level relation mapping/aggregation, so C was applied. S/E/P/T remains 3/9/6/3; R stays Stage B. The V1.1 Phase A readiness gate passes 24 LOGO folds, but no fitting or model result was produced. This supersedes only RPC-012's open decision gate, not its historical failed preflight or the fixed estimator/split contract.
+
+# RPC-014 — V1.1 development execution status, no research-contract change (2026-09-22)
+
+Owner separately authorized actual fixed-LR LOGO execution on the already frozen 21-feature V1.1. This **does not change** the accepted method semantics, Stage A/Stage B boundary, feature inventory, thresholds or formal-study plan. The development-only result is mixed: Full SEPT OOF AUROC/AUPRC `.647/.496`, while Full-P and Full-T exceed Full on some diagnostics. Therefore no multiview superiority or formal effectiveness conclusion follows. Final72 remains development-exposed; 240-group version-chain-isolated untouched testing and any method change remain future, separately approved work.

@@ -16,6 +16,12 @@ branch、HEAD、tag、working tree 和 upstream；权威层级见 [Context Autho
 
 ## Current Task
 
+- **Current as of 2026-09-22**: `P1-FIRST-DOCUMENT-DETECTOR-V1_1-LOGO-PROTOTYPE-EXECUTION-01` completed the first **development-only** non-Oracle Document Detector fit under Owner approval `PODR-104`. Frozen V1.1 GT/Feature Set/Matrix identities passed; 9 fixed LR models each produced 72/72 OOF predictions under 24 complete-group LOGO folds. Full SEPT AUROC `.6471`, AUPRC `.4964`, Poison>HN `18/24`, HN-FPR@0.5 `8/24`; development finding `MULTIVIEW_SIGNAL_MIXED / PROTOTYPE_VALID_WITH_LIMITATIONS`. See the [human report](../research/stage6_1_hidden_knowledge_poisoning/method_engineering/PAPER1_FINAL72_DOCUMENT_DETECTOR_PROTOTYPE_REPORT_V1_1.md) and Git-external hash-locked run `paper1_final72_document_detector_v1_1_logo_20260922`.
+- **Next gate**: Owner review and separate approval for failure analysis/scale-hypothesis refinement. No Final72-tuned feature or threshold repair, risk calibration, Stage B, 240-group formal result, untouched-test claim or superiority claim is authorized. `FORMAL_EXPERIMENT=NOT_STARTED`.
+- **Git note**: the unrelated pre-existing edit to the Stage 6 trustworthy-retrieval design file remains outside this task; resolve ownership separately. Branch/HEAD/upstream remain dynamic Git facts.
+
+## Completed 2026-09-22 input-resolution snapshot (superseded as current)
+
 - **Current as of 2026-09-22**: `P1-DOCUMENT-DETECTOR-MISSINGNESS-CONTRACT-OWNER-RESOLUTION-01` has completed the Owner-approved A→conditional-C missingness resolution. Option A did not produce a lawful candidate-level relation; Option B was explicitly rejected; additive Option C freezes Feature Set V1.1 and Matrix V1.1 at 72×21 (S3/E9/P6/T3).
 - **Gate**: `PHASE_A_PREFLIGHT_PASS / READY_TO_EXECUTE_FIRST_DETECTOR_PROTOTYPE / TRAINING_STARTED_FALSE`. All 24 LOGO training folds have a legal train-only statistic for every retained feature. This is input readiness, not a model, OOF prediction, formal result or automatic execution authority.
 - **Evidence**: `E:\LLMGuard-Handoff\paper1_document_detector_missingness_owner_resolution_20260922`; matrix SHA256 `2d418ae2fd6d22f848fcf812a6126fd68ff9b7b880c389a2ca510a5c94dd5b2d`. The original 23-feature artifacts and the 2026-09-21 blocker remain immutable history.

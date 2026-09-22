@@ -6,6 +6,7 @@ import numpy as np
 import pytest
 
 from scripts.research.run_document_detector_v1_1 import (
+    fit_logo,
     fold_indices,
     matched,
     metrics,
@@ -77,7 +78,9 @@ def test_hn_fpr_uses_hn_only() -> None:
 
 
 def test_missing_training_statistic_fails_closed() -> None:
-    model = pipeline(["x"], [], ["x"])
-    with pytest.raises(ValueError):
-        # sklearn must not be given a one-class target.
-        model.fit(np.asarray([[np.nan], [np.nan]]), np.asarray([0, 0]))
+    rows = _rows()
+    for row in rows:
+        row["features"]["x"] = None
+    targets = np.asarray([r["target"] for r in rows])
+    with pytest.raises(ValueError, match="ALL_MISSING_TRAIN_FEATURE"):
+        fit_logo(rows, ["x"], [], ["x"], fold_indices(rows), targets)
