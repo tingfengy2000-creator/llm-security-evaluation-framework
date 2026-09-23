@@ -35,6 +35,7 @@ runtime/stage6_rag_security/
 
 # Git-external research runs and evidence
 /experiments/
+/outputs/paper1_formal240_d1_canary_20260922/
 
 # Generated local planning exports
 /docs/superpowers/plans/*.pdf

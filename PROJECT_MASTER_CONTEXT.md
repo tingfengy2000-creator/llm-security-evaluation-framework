@@ -1930,6 +1930,8 @@ RAG 安全、可信检索、模型集成或生产可用性的结论；`S6-T5.7+`
 implementation commit 仍为 `6da27a6`；I1 提交只可作为候选实现留档。
 # Paper 1 method transition — 2026-09-16
 
+> 2026-09-23 Formal240 D1 Canary: Owner approved an eight-group/24-candidate Evidence-first construction test, not the full D1 wave or Human A/B release. Fourteen official raw snapshots and a versioned private construction cohort exist; mechanical QA is bounded and two independent external blind reviewer returns are pending. The earlier V0 wording scratch predates full per-signal input preflight and is not a compliant formal candidate version. Current V2 remains pre-annotation construction evidence, not accepted Ground Truth, a split, a trained detector, or a paper result. See `REL-2026-0073`, `PODR-108`, and the Paper 1 Human/Agent ledgers.
+
 Paper 1 has completed a development-set Trusted Evidence Retriever and partial Trusted Version Registry prototype. This is the architectural transition from manually matched Benchmark Evidence to autonomous trusted Evidence retrieval. It establishes a lawful inference path for many S/E/P signals and a small subset of Temporal/Registry signals, but not formal detector effectiveness. Final72 remains development-exposed; scaled benchmark and untouched group-aware test remain pending.
 
 # Paper 1 feature-freeze transition — 2026-09-17

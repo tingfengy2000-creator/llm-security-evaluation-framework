@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> 当前 D1 Canary 门（2026-09-23）：Owner 已批准 8 个真实槽位/24 条候选的 Evidence-first 构造和两阶段独立盲审准备。构造 V2 与机械 QA 就绪，但 R1/R2 尚未返回、Owner 尚未验收；剩余 D1 40 组、Human A/B、正式切分与训练均未启动。[D1 Full Wave Plan](formal240/PAPER1_FORMAL_D1_FULL_WAVE_CONSTRUCTION_PLAN_V1.md)仅是验收后的计划。下方“等待 D1 批准”是此前的历史快照，不是当前门。
+
 > 当前治理门（2026-09-22）：Owner 已批准并冻结[Formal240 标注 V4 与构建协议包](formal240/PAPER1_FORMAL_240_GROUP_PROTOCOL_OWNER_ACCEPTANCE_PACKET.md)。[240 组矩阵](formal240/PAPER1_FORMAL_240_GROUP_MATRIX_V1.jsonl)目前全是空设计槽位；720 条只是未来目标。D1 Wave、候选正文、标注、split 执行和模型训练均未启动，下一步须 Owner 单独批准 D1。下方较早“正式规模构建尚需另批”的文字是本轮批准前的历史快照。
 
 > 当前治理门（2026-09-22）：Owner 对[原证据缺口](method_engineering/PAPER1_DOCUMENT_DETECTOR_FAILURE_ANALYSIS_EVIDENCE_BLOCKER_01.md)已选择先找原件、找不到则严格重建。一次[证据重建](method_engineering/PAPER1_DETECTOR_V1_1_EVIDENCE_RECONSTRUCTION_RECORD_V1.md)通过原 Full OOF 和九模型机器汇总校验，随后完成[开发集失败分析](method_engineering/PAPER1_FINAL72_DOCUMENT_DETECTOR_FAILURE_ANALYSIS_REPORT_V1.md)。原型未推翻，`MULTIVIEW_SIGNAL_MIXED` 保持；下一步正式规模 benchmark 构建仍须另行 Owner 批准，不能自动训练或宣称论文效果。

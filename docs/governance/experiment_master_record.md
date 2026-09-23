@@ -1,5 +1,7 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+> 2026-09-23 Formal240 D1 Canary 控制面增量：Owner `PODR-108` 批准 8 个真实 D1 槽位/24 条构造候选的 Evidence-first Canary 与独立外部盲审准备。私有证据命名空间 `paper1_formal240_d1_canary_20260922` 保存 14 份官方 raw 网页快照、事实锚点、信号输入预检、候选 V0/V1/V2 和阶段盲包的追加历史。当前待审候选 V2 SHA256 `bd5085e4ba25c54731b9d5201ab7c48d2689060fea48436c9c972a19d1524176`；机械 QA 有边界，R1/R2 返回尚无。`D1_CANARY_OWNER_ACCEPTANCE=PENDING / HUMAN_AB=NOT_STARTED / FORMAL_SPLIT=NOT_STARTED / DETECTOR_TRAINING=NOT_STARTED`。此索引不替代 raw 工件，也不将 Canary 构造升级为正式效果。
+
 > 英文名：Experiment Master Record
 >
 > 文档性质：项目**唯一的实验控制面**、证据索引和汇总入口。

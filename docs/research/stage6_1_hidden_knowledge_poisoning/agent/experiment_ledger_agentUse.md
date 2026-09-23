@@ -1,5 +1,33 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current machine recovery record — 2026-09-23 Formal240 D1 Canary construction
+
+```yaml
+task: P1-FORMAL240-D1-EVIDENCE-FIRST-CANARY-AND-PREANNOTATION-QA-01
+owner_authority: PODR-108 / OR-064
+scope: D1 eight real matrix slots; 24 C/P/H construction candidates
+private_namespace: paper1_formal240_d1_canary_20260922
+candidate_authoritative_for_blind_qa: PAPER1_FORMAL_D1_CANARY_CANDIDATES_V2.jsonl
+candidate_sha256: bd5085e4ba25c54731b9d5201ab7c48d2689060fea48436c9c972a19d1524176
+phase1_blind_package: PAPER1_FORMAL_D1_BLIND_REVIEW_PACKAGE_PHASE1_V2.json
+phase1_sha256: 7967437231a4bc3990a7cd870a3dc8117517948f92a73bcc2dae79c3df8170ac
+phase2_blind_package: PAPER1_FORMAL_D1_BLIND_REVIEW_PACKAGE_PHASE2_V3.json
+phase2_sha256: 1d00db1db38a48df525987d3253c29910ae754aaa8da0bceedf2fc4e463bb487
+official_raw_snapshots_sha_pass: 14/14
+prior_v0_wording_draft: PRE_FULL_SIGNAL_PREFLIGHT_SCRATCH_NOT_FORMAL_CANDIDATE
+candidate_v1_and_phase2_v1_v2: PRESERVED_SUPERSEDED_NOT_DISTRIBUTED
+mechanical_style_flags_after_v2: 0
+heuristic_atom_audit: NO_UNEXPECTED_NUMERIC_ATOMS; NOT_EXHAUSTIVE_FACT_CHECK
+external_blind_r1_r2: NOT_RUN
+canary_owner_acceptance: PENDING
+remaining_d1_groups: NOT_GENERATED
+human_ab_annotation: NOT_STARTED
+formal_split_detector_training: NOT_STARTED
+next_gate: R1_R2_PHASE1_RETURN_LOCK_THEN_PHASE2_RELEASE_THEN_OWNER_CANARY_DECISION
+```
+
+Do not expose the private role mapping or Owner packet to R1/R2. Phase1 V2 is candidate-only; Phase2 V3 contains frozen bounded E1/E2 official excerpts. Full HTML snapshots remain private; two extracted-text logical hashes differ from disk-byte hashes due to newline expansion, while all raw HTML hashes pass. The 42-signal preflight describes legal input paths, **not** computed signal values or Formal detector readiness. Current state is `D1_CANARY_CONSTRUCTION_V2_AND_MECHANICAL_QA_READY / EXTERNAL_BLIND_REVIEW_PENDING / OWNER_ACCEPTANCE_PENDING / NO_HUMAN_AB`.
+
 ## Current machine recovery record — 2026-09-22 Formal240 protocol freeze
 
 ```yaml
