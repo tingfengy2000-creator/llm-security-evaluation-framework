@@ -1,0 +1,11 @@
+# D1 Canary blind quality review — R4-codex Phase2
+
+Continue as reviewer `R4-codex` in the **same session that produced your locked Phase1 return**. Begin only after the coordinator confirms that **both fresh Phase1 raw returns and run attestations passed**. Work independently; do not inspect another reviewer's work, coordinator/owner analysis, a project repository or handoff folder, mapping, expected answers, hidden construction information, or unrelated prior chat/memory context. Your own Phase1 interaction is the sole permitted prior session context. Do not ask another AI assistant.
+
+Read only the supplied `PAPER1_FORMAL_D1_BLIND_REVIEW_PACKAGE_PHASE2_V3.json`, `PAPER1_FORMAL_D1_BLIND_REVIEW_IMPORT_SCHEMA_V2.json`, `PAPER1_FORMAL_ANNOTATION_GUIDE_V4_1_CLARIFICATION.md` and this prompt. Use only each row's frozen E1/E2 excerpts and official URLs explicitly permitted by the frozen packet; do not search for another source or invent unavailable contents. The guide supplies field meanings, not candidate answers.
+
+For each opaque ID, independently decide `overall_fact_status`, `version_claim_status`, `authority_claim_status`, `minimum_external_evidence_needed`, `evidence_selection`, `phase2_issue`, `possible_accidental_secondary_error`, and `evidence_sufficiency`. Write an evidence-bound `phase2_reason`; use `reviewer_note` only for concise row-specific observations. Keep document-version semantics separate from adoption/publication and substantive institutional actors. Tell the coordinator about reviewer/session/routing defects **outside candidate JSON**, never as a candidate `phase2_issue`.
+
+Return exactly one JSON array of 24 objects, in packet order, with exactly the Phase2 schema keys and canonical enums. Preserve each `blind_review_id` and all supplied candidate/evidence text. Submit raw JSON separately. This is construction QA, not final benchmark truth.
+
+Codex-specific execution boundary: remain in the **same isolated projectless Phase1 task**. Open only the three explicitly supplied Phase2 files and this prompt. Do not run `rg`, Git commands, filesystem scans or tool searches for project files; do not browse any local project/handoff location. If any disallowed context is exposed, stop and report it at run level; the response cannot count toward independent agreement.

@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> 当前新评审席位（2026-09-23）：Owner 将 D1 Canary 下一轮盲审员明确为 `R3-gpt` 和 `R4-codex`。[V2 协调计划](formal240/PAPER1_FORMAL_D1_CANARY_R3_GPT_R4_CODEX_REVIEW_PLAN_V2.md)要求 Codex 使用与本项目控制面彻底分离的新会话；两份新 Phase1 原件及运行级独立性证明全部通过后才放行 Phase2。席位与提示词已备妥，**尚未创建会话或收到返回**。旧 R1/R2 与候选/证据/规则不变，Canary 与 Human A/B 仍未获验收/授权。下方 R3/R4 为命名调整前快照。
+
 > 当前 D1 Canary Phase2 门（2026-09-23）：旧 R1 原件明确暴露会话身份串位，不能与 R2 算有效独立双审。两段 Phase2 原件已按字节保存并通过 24/24 格式校验；分歧只用于发现说明边界问题。[流程事件](formal240/PAPER1_FORMAL_D1_BLIND_REVIEW_PROCESS_INCIDENT_V1.md)与[Formal V4.1 解释](formal240/PAPER1_FORMAL_ANNOTATION_GUIDE_V4_1_CLARIFICATION.md)均为追加版本。下一步必须用全新独立 R3/R4 会话各自从 Phase1 开始；Canary 验收、Human A/B、其余 D1 40 组、split 与训练均未获放行。下方 Phase1 允许释放 Phase2 的状态是事件发现前的历史快照。
 
 > 当前 D1 Canary Phase1 门（2026-09-23）：两名独立外部 GPT Reviewer 的原始返回已分别锁定；24/24 ID、顺序、schema、枚举全部通过，五个分类字段均 24/24 一致。[Phase1 锁定记录](formal240/PAPER1_FORMAL_D1_CANARY_BLIND_PHASE1_RAW_LOCK_RECORD_V1.md)。Phase2 V3 现在**允许释放**，但本轮未发送/分析；Canary Owner 验收、Human A/B 与其余 D1 40 组仍未启动。下方“R1/R2 尚未返回”是上轮历史快照。

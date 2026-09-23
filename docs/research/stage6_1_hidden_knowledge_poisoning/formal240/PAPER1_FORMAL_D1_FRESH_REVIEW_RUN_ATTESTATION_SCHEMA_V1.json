@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "D1 Canary fresh reviewer run-level attestation; not candidate annotation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "reviewer_id",
+    "review_platform",
+    "phase",
+    "session_lineage_token",
+    "fresh_session_confirmed",
+    "repo_access_prohibited",
+    "repo_access_occurred",
+    "owner_packet_not_seen",
+    "old_reviewer_returns_not_seen",
+    "label_mapping_not_seen",
+    "phase2_not_seen_before_phase1_lock",
+    "external_search_not_used",
+    "allowed_files",
+    "started_at",
+    "phase1_raw_sha256",
+    "prior_attestation_sha256",
+    "attestation_status",
+    "evidence_basis"
+  ],
+  "properties": {
+    "reviewer_id": { "enum": ["R3-gpt", "R4-codex"] },
+    "review_platform": { "enum": ["GPT", "CODEX"] },
+    "phase": { "enum": ["PHASE1", "PHASE2"] },
+    "session_lineage_token": { "type": "string", "minLength": 1, "description": "Opaque non-secret identifier; no account credential" },
+    "fresh_session_confirmed": { "type": "boolean" },
+    "repo_access_prohibited": { "type": "boolean" },
+    "repo_access_occurred": { "type": "boolean" },
+    "owner_packet_not_seen": { "type": "boolean" },
+    "old_reviewer_returns_not_seen": { "type": "boolean" },
+    "label_mapping_not_seen": { "type": "boolean" },
+    "phase2_not_seen_before_phase1_lock": { "type": "boolean" },
+    "external_search_not_used": { "type": "boolean" },
+    "allowed_files": { "type": "array", "minItems": 3, "maxItems": 4, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "started_at": { "type": ["string", "null"], "format": "date-time" },
+    "phase1_raw_sha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
+    "prior_attestation_sha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
+    "attestation_status": { "enum": ["PENDING", "PASS", "FAIL"] },
+    "evidence_basis": { "type": "string", "minLength": 1 }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "reviewer_id": { "const": "R3-gpt" } }, "required": ["reviewer_id"] },
+      "then": { "properties": { "review_platform": { "const": "GPT" } } },
+      "else": { "properties": { "review_platform": { "const": "CODEX" } } }
+    },
+    {
+      "if": { "properties": { "phase": { "const": "PHASE1" } }, "required": ["phase"] },
+      "then": { "properties": { "prior_attestation_sha256": { "const": null } } },
+      "else": { "properties": { "prior_attestation_sha256": { "type": "string" } } }
+    },
+    {
+      "if": { "properties": { "attestation_status": { "const": "PASS" } }, "required": ["attestation_status"] },
+      "then": {
+        "properties": {
+          "fresh_session_confirmed": { "const": true },
+          "repo_access_prohibited": { "const": true },
+          "repo_access_occurred": { "const": false },
+          "owner_packet_not_seen": { "const": true },
+          "old_reviewer_returns_not_seen": { "const": true },
+          "label_mapping_not_seen": { "const": true },
+          "phase2_not_seen_before_phase1_lock": { "const": true },
+          "external_search_not_used": { "const": true },
+          "phase1_raw_sha256": { "type": "string" }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "reviewer_id": { "const": "R3-gpt" }, "phase": { "const": "PHASE1" } }, "required": ["reviewer_id", "phase"] },
+      "then": { "properties": { "allowed_files": { "const": ["PAPER1_FORMAL_D1_BLIND_REVIEW_PACKAGE_PHASE1_V2.json", "PAPER1_FORMAL_D1_BLIND_REVIEW_IMPORT_SCHEMA_V2.json", "PAPER1_FORMAL_D1_R3_GPT_BLIND_REVIEWER_PROMPT_PHASE1_V4_1.md"] } } }
+    },
+    {
+      "if": { "properties": { "reviewer_id": { "const": "R4-codex" }, "phase": { "const": "PHASE1" } }, "required": ["reviewer_id", "phase"] },
+      "then": { "properties": { "allowed_files": { "const": ["PAPER1_FORMAL_D1_BLIND_REVIEW_PACKAGE_PHASE1_V2.json", "PAPER1_FORMAL_D1_BLIND_REVIEW_IMPORT_SCHEMA_V2.json", "PAPER1_FORMAL_D1_R4_CODEX_BLIND_REVIEWER_PROMPT_PHASE1_V4_1.md"] } } }
+    },
+    {
+      "if": { "properties": { "reviewer_id": { "const": "R3-gpt" }, "phase": { "const": "PHASE2" } }, "required": ["reviewer_id", "phase"] },
+      "then": { "properties": { "allowed_files": { "const": ["PAPER1_FORMAL_D1_BLIND_REVIEW_PACKAGE_PHASE2_V3.json", "PAPER1_FORMAL_D1_BLIND_REVIEW_IMPORT_SCHEMA_V2.json", "PAPER1_FORMAL_ANNOTATION_GUIDE_V4_1_CLARIFICATION.md", "PAPER1_FORMAL_D1_R3_GPT_BLIND_REVIEWER_PROMPT_PHASE2_V4_1.md"] } } }
+    },
+    {
+      "if": { "properties": { "reviewer_id": { "const": "R4-codex" }, "phase": { "const": "PHASE2" } }, "required": ["reviewer_id", "phase"] },
+      "then": { "properties": { "allowed_files": { "const": ["PAPER1_FORMAL_D1_BLIND_REVIEW_PACKAGE_PHASE2_V3.json", "PAPER1_FORMAL_D1_BLIND_REVIEW_IMPORT_SCHEMA_V2.json", "PAPER1_FORMAL_ANNOTATION_GUIDE_V4_1_CLARIFICATION.md", "PAPER1_FORMAL_D1_R4_CODEX_BLIND_REVIEWER_PROMPT_PHASE2_V4_1.md"] } } }
+    }
+  ]
+}

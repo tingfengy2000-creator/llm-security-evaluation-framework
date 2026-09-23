@@ -1,5 +1,7 @@
 # D1 Canary fresh R3/R4 independent blind review plan V1
 
+Historical plan, superseded **only for fresh reviewer naming, platform isolation and the both-Phase1-lock release gate** by the additive [R3-gpt/R4-codex V2 plan](PAPER1_FORMAL_D1_CANARY_R3_GPT_R4_CODEX_REVIEW_PLAN_V2.md). The V1 text below is retained as the pre-rename record; do not distribute its old prompts as current authority.
+
 Status: `PLAN_READY / NOT_DISTRIBUTED / CANARY_ACCEPTANCE_PENDING`. Owner requires two **new** independent GPT sessions/accounts; reusing the old R1/R2 sessions or merely relabeling their answers is prohibited. The Owner/coordinator records an opaque account/session identifier for each slot, verifies they differ, and keeps review-run metadata separate from all candidate-level fields. Neither reviewer sees any earlier R1/R2 raw return, diagnostic difference, incident record, Owner packet, hidden mapping or construction labels. This control-plane plan must not be included in reviewer packets.
 
 | Gate | R3 | R4 | Required proof |

@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## Formal240 D1 Canary 新评审身份与隔离门（2026-09-23）
+
+Owner 将未来有效独立评审槽位正式命名为 `R3-gpt` 与 `R4-codex`。前者使用全新 GPT 会话，后者必须使用与当前项目控制面无上下文继承、不能访问仓库或交接目录的全新隔离 Codex 会话；两者获得语义等价的材料。新增[协调计划 V2](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_CANARY_R3_GPT_R4_CODEX_REVIEW_PLAN_V2.md)与 run-level attestation 合同，仅准备槽位，尚未创建或执行新评审。两个 Phase1 原件都锁定并通过身份/访问证明后才可释放 Phase2。旧 R1/R2 返回及事件、V4/V4.1、候选、证据保持原样；Canary 与 Human A/B 仍未批准。下方 R3/R4 文字是更名前历史计划。
+
 ## Formal240 D1 Canary Phase2 独立性事件与 V4.1 澄清（2026-09-23）
 
 当前 R1/R2 Phase2 复合来源原件及两段逐字节 JSON 已在 Git-external `paper1_formal240_d1_canary_phase2_preclarification_20260923` 锁定并通过各 24/24 结构检查。R1 原文声明当前会话 Phase1 身份为 R2，故两份不能构成有效独立 Phase2 一致性或 Canary 验收。仅供澄清的版本/机关/证据选择/issue 差异分别为 6/4/5/1；事实总状态、最少证据、次生错误、证据充分性差异均为 0。[流程事件](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_BLIND_REVIEW_PROCESS_INCIDENT_V1.md)与[前向 V4.1](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_ANNOTATION_GUIDE_V4_1_CLARIFICATION.md)不改 V4、候选、证据或原始返回。Owner 指定全新 R3/R4 各自 Phase1→锁定→Phase2→锁定；Canary、Human A/B、Full48、split、训练仍待后续门控。下方早期状态快照按当时事实保留。

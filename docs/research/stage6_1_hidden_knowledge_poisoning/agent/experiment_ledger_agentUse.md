@@ -1,5 +1,36 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current machine recovery record — 2026-09-23 D1 fresh reviewer identity freeze
+
+```yaml
+owner_authority: PODR-111 / OR-067
+task: P1-FORMAL240-D1-CANARY-FRESH-REVIEWER-IDENTITY-AND-ISOLATION-01
+owner_directive_private_namespace: paper1_formal240_d1_fresh_reviewer_identity_20260923
+owner_directive_raw_filename: OWNER_FRESH_REVIEWER_IDENTITY_DIRECTIVE_RAW_V1.txt
+owner_directive_raw_bytes: 6430
+owner_directive_raw_sha256: e8d0111ae70cfba95d3b7ae907623d349971fff338e8d6cdbe97e18472db54f6
+reviewer_pair: [R3-gpt, R4-codex]
+r3_platform: NEW_INDEPENDENT_GPT_SESSION
+r4_platform: NEW_PROJECTLESS_ISOLATED_CODEX_SESSION_NOT_THIS_CONTROL_PLANE
+fresh_sessions_started: false
+new_raw_returns_exist: false
+run_attestations_exist: false
+phase1_inputs: FROZEN_PHASE1_V2_PACKAGE + IMPORT_SCHEMA_V2 + MATCHING_PROMPT
+phase2_inputs: FROZEN_PHASE2_V3_PACKAGE + IMPORT_SCHEMA_V2 + V4_1 + MATCHING_PROMPT
+phase2_release_authorized: false
+release_condition: BOTH_PHASE1_RAW_LOCKS_AND_24_24_VALIDATION_AND_RUN_ATTESTATIONS_PASS
+attestation_level: REVIEW_RUN_NOT_CANDIDATE_JSON
+r4_repo_or_construction_context_access: PROHIBITED; ANY_OBSERVED_ACCESS_INVALIDATES_INDEPENDENCE
+old_r1_r2_identity_and_raw: IMMUTABLE
+candidate_evidence_formal_v4_v4_1_matrix: UNCHANGED
+canary_acceptance: PENDING
+human_ab: NOT_AUTHORIZED
+formal_experiment: NOT_STARTED
+next_gate: OWNER_COORDINATES_TWO_FRESH_PHASE1_REVIEWS_AND_SEPARATE_RAW_LOCKS
+```
+
+The [V2 coordinator plan](../formal240/PAPER1_FORMAL_D1_CANARY_R3_GPT_R4_CODEX_REVIEW_PLAN_V2.md) supersedes V1 only for new reviewer identity/platform/isolation and the both-Phase1-lock gate. Do not provide this agent ledger, old raw, owner packet or construction mapping to either reviewer. `R4-codex` must not be spawned from this context. Future raw and run attestation names are reserved, not current artifacts.
+
 ## Current machine recovery record — 2026-09-23 D1 Phase2 preclarification incident
 
 ```yaml
