@@ -1,5 +1,36 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current machine recovery record — 2026-09-23 R3/R4 Phase1 lock and V3 repair preparation
+
+```yaml
+task: P1-FORMAL240-D1-CANARY-R3R4-PHASE1-LOCK-AND-TARGETED-NATURALNESS-REPAIR-01
+owner_authority: PODR-112 / OR-068
+private_namespace: E:\LLMGuard-Handoff\paper1_formal240_d1_canary_r3r4_phase1_raw_lock_20260923
+r3_source: OWNER_CONFIRMED_ATTACHMENT_2
+r3_raw_bytes: 5661
+r3_raw_sha256: 323584b020cad90e382c9d7b202e20acd5ecbe2acabb0111180d6d059b44f36d
+r4_source: OWNER_CONFIRMED_ATTACHMENT_1
+r4_raw_bytes: 6451
+r4_raw_sha256: afb0af1b61e927af61c76620f0a2ef76443c2123c07704dd7a56144a08f60e74
+session_isolation: OWNER_ATTESTED_NOT_SYSTEM_VERIFIED
+raw_validation: EACH_24_24_EXACT_ID_ORDER_KEYS_ENUM
+five_field_agreement: 24/24
+minor_issue_ids: [D1BR-F3FA4889DA53, D1BR-008E1E01060C]
+candidate_v2_sha256_unchanged: bd5085e4ba25c54731b9d5201ab7c48d2689060fea48436c9c972a19d1524176
+candidate_v3_sha256: 6210a6de8f519fb4a58334ff531954b67e774375d021d099dea050f8fe47032e
+candidate_v3_changed: 2
+candidate_v3_unchanged: 22
+targeted_phase1_package_sha256: d898e41a6a1a9ff7807a3b987fe5c05a5b666caa6d22c00d9440ee2f609bc48d
+phase2_v4_prebuilt_sha256: 2daf08286581cb8d28e70ab95ea844e5cdf41e2a6916980bf41b0a90a548ac38
+phase2_release_authorized: false
+repair_accepted: false
+canary_accepted: false
+human_ab: NOT_AUTHORIZED
+next_gate: R3_AND_R4_ORIGINAL_SESSIONS_RETURN_TWO_ROW_TARGETED_PHASE1_REVIEWS
+```
+
+The [additive lock/repair record](../formal240/PAPER1_FORMAL_D1_CANARY_R3_R4_PHASE1_LOCK_AND_TARGETED_REPAIR_RECORD_V1.md) and private SHA manifest bind both immutable raw returns, Owner-only attestation level, V3 exact two-span repair and withheld V4 package. Earlier “no new returns” sections below are historical snapshots, not current state. No R3 premature-Phase2 incident was created; the Owner paste correction does not alter the older R1/R2 incident.
+
 ## Current machine recovery record — 2026-09-23 D1 fresh reviewer identity freeze
 
 ```yaml
