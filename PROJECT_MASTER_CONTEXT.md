@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## Formal240 D1 Canary Phase1 原始返回双锁（2026-09-23）
+
+Owner 交付独立外部 GPT R1/R2 对同一 Phase1 V2 24 条的原始返回。两份 raw 在 Git-external `paper1_formal240_d1_canary_phase1_raw_lock_20260923` 逐字节保留；ID/顺序/schema/枚举全部通过，五个分类字段各 24/24 一致，分歧 ID 零。[控制面锁定记录](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_CANARY_BLIND_PHASE1_RAW_LOCK_RECORD_V1.md)列出 SHA 与边界。`PHASE2_RELEASE_AUTHORIZED=TRUE` 不等于已分发；本轮未加载内部角色/Expected/GT，也不等于 Canary Owner 验收或 Human A/B 放行。下方协议冻结段落是早期状态快照。
+
 ## Formal240 标注与构建协议冻结（2026-09-22）
 
 Owner 关闭 Final72 的开发集构建阶段并批准 `P1-FORMAL240-ANNOTATION-SCHEMA-V4-AND-CONSTRUCTION-PROTOCOL-FREEZE-01`。新增 [Formal240 Owner 审阅包](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_240_GROUP_PROTOCOL_OWNER_ACCEPTANCE_PACKET.md)及 240 个空因子槽位；720 条候选是未来目标，实际候选/标注/切分/训练均为零。正式 V4 只把文件级版本元数据与实体内容、机关归属分开，并新增内部冲突的零外部证据值；Pilot4 与 Final72 不回写。正式 split 算法和 seed 已冻结但未执行。Final72 Detector 的混合开发集信号保持历史事实，不得成为正式测试效果。下一门为 Owner 单独批准 D1 48 组 Wave；`FORMAL_EXPERIMENT=NOT_STARTED`，没有 Paper Result。

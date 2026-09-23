@@ -1,5 +1,7 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+> 2026-09-23 Formal240 D1 Canary Phase1 双原始返回增量：Owner `PODR-109 / OR-065` 提供 R1/R2 独立外部 GPT JSON，分别按原字节锁于 Git-external `paper1_formal240_d1_canary_phase1_raw_lock_20260923`。R1 5,593 bytes / SHA256 `f8dae99ab2ebee5610107c973da58ed32dc1b3fe94bc5219c88f0c98ad032cea`；R2 6,335 bytes / SHA256 `a2f4ae785d8515517e55b365f8f7b7e42663761afd0c36c46aed99b9d5ed962f`。两份均 24/24，ID/顺序/schema/enum PASS，五个分类字段分别 24/24 一致，分歧 ID 零。`PHASE2_RELEASE_AUTHORIZED=TRUE` 但未分发或分析；Canary Owner acceptance/Human A/B 仍 pending。[详情](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_CANARY_BLIND_PHASE1_RAW_LOCK_RECORD_V1.md)。下方旧“R1/R2 尚无”段落保持其历史时间点含义。
+
 > 2026-09-23 Formal240 D1 Canary 控制面增量：Owner `PODR-108` 批准 8 个真实 D1 槽位/24 条构造候选的 Evidence-first Canary 与独立外部盲审准备。私有证据命名空间 `paper1_formal240_d1_canary_20260922` 保存 14 份官方 raw 网页快照、事实锚点、信号输入预检、候选 V0/V1/V2 和阶段盲包的追加历史。当前待审候选 V2 SHA256 `bd5085e4ba25c54731b9d5201ab7c48d2689060fea48436c9c972a19d1524176`；机械 QA 有边界，R1/R2 返回尚无。`D1_CANARY_OWNER_ACCEPTANCE=PENDING / HUMAN_AB=NOT_STARTED / FORMAL_SPLIT=NOT_STARTED / DETECTOR_TRAINING=NOT_STARTED`。此索引不替代 raw 工件，也不将 Canary 构造升级为正式效果。
 
 > 英文名：Experiment Master Record

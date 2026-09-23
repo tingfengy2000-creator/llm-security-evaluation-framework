@@ -1,0 +1,16 @@
+# D1 Canary independent blind Phase1 raw lock V1
+
+Task `P1-FORMAL240-D1-CANARY-BLIND-PHASE1-RAW-LOCK-01`; Owner authority `PODR-109 / OR-065`. This is a Phase1 return-integrity and inter-reviewer agreement record, not Canary acceptance, human annotation, Ground Truth or Phase2 analysis.
+
+Owner supplied attachment 1 as external GPT Reviewer R1 and attachment 2 as R2, attesting that they worked independently from the same Git-external `PAPER1_FORMAL_D1_BLIND_REVIEW_PACKAGE_PHASE1_V2.json` and import schema V2. Independence is **Owner-attested**, not inferable solely from matching JSON. Neither reviewer has yet been given Phase2 according to Owner. The control-plane audit loaded only the Phase1 V2 packet, import schema and the two raw returns; it did not load C/P/H, HKP, target/derived S, Expected, GT or the private Owner mapping.
+
+| Raw immutable handoff artifact | Bytes | SHA256 |
+| --- | ---: | --- |
+| `paper1_formal240_d1_canary_phase1_raw_lock_20260923/PAPER1_FORMAL_D1_CANARY_R1_PHASE1_RAW_V1.json` | 5,593 | `f8dae99ab2ebee5610107c973da58ed32dc1b3fe94bc5219c88f0c98ad032cea` |
+| `paper1_formal240_d1_canary_phase1_raw_lock_20260923/PAPER1_FORMAL_D1_CANARY_R2_PHASE1_RAW_V1.json` | 6,335 | `a2f4ae785d8515517e55b365f8f7b7e42663761afd0c36c46aed99b9d5ed962f` |
+
+The namespace is under the agreed `LLMGuard-Handoff` drive root and has byte-identical local audit copies. Original uploaded text bytes were copied without cleaning, rewriting, sorting or normalizing. Source attachment paths, copy identities and SHA checks are in the Git-external provenance JSON. Phase1 V2 packet SHA256 is `7967437231a4bc3990a7cd870a3dc8117517948f92a73bcc2dae79c3df8170ac`; schema V2 SHA256 is `1edeaf01189ad4c2fb97b25f5ca011f9195454fd1452cda08dfac570f57e4e05`. Audit timestamp: `2026-09-23T02:28:14Z`.
+
+Both R1 and R2 pass: JSON array, 24 records, 24 unique IDs, exact packet ID set and order, seven exact Phase1 keys per row, legal categorical enums, `issue_note` string, no missing/extra/duplicate IDs. Five-field categorical agreement is `24/24` for each of `text_naturalness`, `local_internal_conflict`, `self_containment`, `ambiguous_referent`, `meta_or_template_language`; exact five-field row agreement is `24/24`. Disagreement IDs: none. Both reviewers mark 24 `NATURAL`, 22 `NO` plus 2 `YES` internal conflicts, 24 self-containment `PASS`, 24 referent `NO`, and 24 meta/template `NO`. Two nonempty `issue_note` pairs have different raw wording but are semantically concordant on the same internally conflicting leave-entitlement statements; literal note equality is not required. See the Git-external agreement JSON and issue-note comparison memo.
+
+Gate result: `PHASE1_R1_LOCKED=TRUE / PHASE1_R2_LOCKED=TRUE / PHASE1_DOUBLE_BLIND_LOCK_COMPLETE=TRUE / PHASE2_RELEASE_AUTHORIZED=TRUE`. “Authorized” does **not** mean Phase2 was distributed or analyzed. Phase2 reviewer returns do not yet exist in this task. This lock does not evaluate reviewer correctness against construction roles, accept the Canary, authorize Human A/B, generate the remaining D1 40 groups or start any formal experiment. The next separately executed step is coordinated Phase2 V3 distribution to the same isolated reviewers, followed by raw lock and bounded QA.

@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> 当前 D1 Canary Phase1 门（2026-09-23）：两名独立外部 GPT Reviewer 的原始返回已分别锁定；24/24 ID、顺序、schema、枚举全部通过，五个分类字段均 24/24 一致。[Phase1 锁定记录](formal240/PAPER1_FORMAL_D1_CANARY_BLIND_PHASE1_RAW_LOCK_RECORD_V1.md)。Phase2 V3 现在**允许释放**，但本轮未发送/分析；Canary Owner 验收、Human A/B 与其余 D1 40 组仍未启动。下方“R1/R2 尚未返回”是上轮历史快照。
+
 > 当前 D1 Canary 门（2026-09-23）：Owner 已批准 8 个真实槽位/24 条候选的 Evidence-first 构造和两阶段独立盲审准备。构造 V2 与机械 QA 就绪，但 R1/R2 尚未返回、Owner 尚未验收；剩余 D1 40 组、Human A/B、正式切分与训练均未启动。[D1 Full Wave Plan](formal240/PAPER1_FORMAL_D1_FULL_WAVE_CONSTRUCTION_PLAN_V1.md)仅是验收后的计划。下方“等待 D1 批准”是此前的历史快照，不是当前门。
 
 > 当前治理门（2026-09-22）：Owner 已批准并冻结[Formal240 标注 V4 与构建协议包](formal240/PAPER1_FORMAL_240_GROUP_PROTOCOL_OWNER_ACCEPTANCE_PACKET.md)。[240 组矩阵](formal240/PAPER1_FORMAL_240_GROUP_MATRIX_V1.jsonl)目前全是空设计槽位；720 条只是未来目标。D1 Wave、候选正文、标注、split 执行和模型训练均未启动，下一步须 Owner 单独批准 D1。下方较早“正式规模构建尚需另批”的文字是本轮批准前的历史快照。

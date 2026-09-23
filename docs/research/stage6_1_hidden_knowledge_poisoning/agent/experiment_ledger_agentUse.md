@@ -1,5 +1,36 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current machine recovery record — 2026-09-23 D1 Canary Phase1 R1/R2 raw lock
+
+```yaml
+task: P1-FORMAL240-D1-CANARY-BLIND-PHASE1-RAW-LOCK-01
+owner_authority: PODR-109 / OR-065
+input_packet: PAPER1_FORMAL_D1_BLIND_REVIEW_PACKAGE_PHASE1_V2.json
+input_packet_sha256: 7967437231a4bc3990a7cd870a3dc8117517948f92a73bcc2dae79c3df8170ac
+input_schema: PAPER1_FORMAL_D1_BLIND_REVIEW_IMPORT_SCHEMA_V2.json
+input_schema_sha256: 1edeaf01189ad4c2fb97b25f5ca011f9195454fd1452cda08dfac570f57e4e05
+private_raw_namespace: paper1_formal240_d1_canary_phase1_raw_lock_20260923
+r1_raw_bytes: 5593
+r1_raw_sha256: f8dae99ab2ebee5610107c973da58ed32dc1b3fe94bc5219c88f0c98ad032cea
+r2_raw_bytes: 6335
+r2_raw_sha256: a2f4ae785d8515517e55b365f8f7b7e42663761afd0c36c46aed99b9d5ed962f
+r1_r2_validation: 24/24 each; exact ID set/order/7 keys/legal enums; zero duplicates
+five_categorical_field_agreement: 24/24 each
+categorical_disagreement_ids: []
+issue_note: two nonempty paired notes; semantic agreement, raw wording differs
+reviewer_independence: OWNER_ATTESTED; not independently proven from return bytes
+phase1_double_blind_lock_complete: true
+phase2_release_authorized: true
+phase2_distributed_by_this_task: false
+hidden_labels_mapping_expected_gt_loaded: false
+canary_owner_acceptance: PENDING
+human_ab_annotation: NOT_STARTED
+remaining_d1_groups: NOT_GENERATED
+next_gate: DISTRIBUTE_PHASE2_V3_TO_SAME_ISOLATED_REVIEWERS_THEN_LOCK_RETURNS
+```
+
+The prior D1 construction record below remains historical, including its then-true “R1/R2 not run” status. See [raw-lock control record](../formal240/PAPER1_FORMAL_D1_CANARY_BLIND_PHASE1_RAW_LOCK_RECORD_V1.md). No reviewer raw value was rewritten; this is not GT or Canary acceptance.
+
 ## Current machine recovery record — 2026-09-23 Formal240 D1 Canary construction
 
 ```yaml
