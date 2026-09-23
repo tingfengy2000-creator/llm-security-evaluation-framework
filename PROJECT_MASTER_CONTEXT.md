@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## Formal240 D1 Canary Phase2 独立性事件与 V4.1 澄清（2026-09-23）
+
+当前 R1/R2 Phase2 复合来源原件及两段逐字节 JSON 已在 Git-external `paper1_formal240_d1_canary_phase2_preclarification_20260923` 锁定并通过各 24/24 结构检查。R1 原文声明当前会话 Phase1 身份为 R2，故两份不能构成有效独立 Phase2 一致性或 Canary 验收。仅供澄清的版本/机关/证据选择/issue 差异分别为 6/4/5/1；事实总状态、最少证据、次生错误、证据充分性差异均为 0。[流程事件](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_BLIND_REVIEW_PROCESS_INCIDENT_V1.md)与[前向 V4.1](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_ANNOTATION_GUIDE_V4_1_CLARIFICATION.md)不改 V4、候选、证据或原始返回。Owner 指定全新 R3/R4 各自 Phase1→锁定→Phase2→锁定；Canary、Human A/B、Full48、split、训练仍待后续门控。下方早期状态快照按当时事实保留。
+
 ## Formal240 D1 Canary Phase1 原始返回双锁（2026-09-23）
 
 Owner 交付独立外部 GPT R1/R2 对同一 Phase1 V2 24 条的原始返回。两份 raw 在 Git-external `paper1_formal240_d1_canary_phase1_raw_lock_20260923` 逐字节保留；ID/顺序/schema/枚举全部通过，五个分类字段各 24/24 一致，分歧 ID 零。[控制面锁定记录](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_CANARY_BLIND_PHASE1_RAW_LOCK_RECORD_V1.md)列出 SHA 与边界。`PHASE2_RELEASE_AUTHORIZED=TRUE` 不等于已分发；本轮未加载内部角色/Expected/GT，也不等于 Canary Owner 验收或 Human A/B 放行。下方协议冻结段落是早期状态快照。

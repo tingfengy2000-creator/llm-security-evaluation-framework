@@ -1,0 +1,80 @@
+{
+  "rule_set_id": "PAPER1_FORMAL_ANNOTATION_CONSISTENCY_RULES_V4_1",
+  "status": "OWNER_APPROVED_FORWARD_ONLY_CLARIFICATION",
+  "inherits": [
+    "PAPER1_FORMAL_ANNOTATION_SCHEMA_V4.json",
+    "PAPER1_FORMAL_ANNOTATION_CONSISTENCY_RULES_V1.json",
+    "PAPER1_FORMAL_ANNOTATION_GUIDE_V4.md"
+  ],
+  "enum_sets_unchanged": true,
+  "historical_raw_returns_immutable": true,
+  "rules": [
+    {
+      "id": "V4_1_VERSION_SEMANTICS_REQUIRED",
+      "scope": "candidate-level Phase2",
+      "if": "candidate asserts document revision, repeal, replacement, effective state, version identity/relation, current-history binding or a date expressly performing one of those functions",
+      "then": "version_claim_status is PRESENT_*; correctness depends on frozen evidence",
+      "severity": "MANUAL_SEMANTIC_REVIEW"
+    },
+    {
+      "id": "V4_1_PUBLICATION_ALONE_NOT_VERSION",
+      "scope": "candidate-level Phase2",
+      "if": "candidate asserts only adoption, promulgation, publication, publication date or document number, without version semantics",
+      "then": "version_claim_status == NOT_PRESENT; evaluate any institutional issuer/publisher/adopting claim independently under authority",
+      "severity": "MANUAL_SEMANTIC_REVIEW"
+    },
+    {
+      "id": "V4_1_OPERATIONAL_ACTOR_NOT_AUTHORITY",
+      "scope": "candidate-level Phase2",
+      "if": "an institution is only a substantive operational or evidentiary actor, with no issuer/publisher/adopting/revising/competence claim",
+      "then": "authority_claim_status == NOT_PRESENT",
+      "severity": "MANUAL_SEMANTIC_REVIEW"
+    },
+    {
+      "id": "V4_1_ISSUER_PUBLISHER_IS_AUTHORITY",
+      "scope": "candidate-level Phase2",
+      "if": "candidate expressly attributes issue, publication, adoption, revision, source authority or statutory competence to an institution",
+      "then": "authority_claim_status is PRESENT_*; correctness depends on frozen evidence",
+      "severity": "MANUAL_SEMANTIC_REVIEW"
+    },
+    {
+      "id": "V4_1_REVIEWER_PROCESS_IS_RUN_LEVEL",
+      "scope": "review-run QA only",
+      "if": "reviewer identity/session independence/package routing is defective",
+      "then": "record in review_run_metadata / blind_review_process_QA; never create a candidate-level phase2_issue solely for this defect",
+      "severity": "BLOCK"
+    }
+  ],
+  "teaching_cases_not_dataset_answers": [
+    {
+      "id": "PUBLICATION_ALONE",
+      "hypothetical_claim_role": "adoption_and_promulgation_only",
+      "version_claim_status": "NOT_PRESENT",
+      "authority_claim_scope": "PRESENT_IF_EVIDENCE_SUPPORTS_OR_REFUTES"
+    },
+    {
+      "id": "REVISION_EFFECTIVE_TRANSITION",
+      "hypothetical_claim_role": "amendment_plus_effective_transition",
+      "version_claim_scope": "PRESENT; exact value evidence-dependent"
+    },
+    {
+      "id": "OPERATIONAL_ACTOR",
+      "hypothetical_claim_role": "institution_performs_substantive_processing_only",
+      "authority_claim_status": "NOT_PRESENT"
+    },
+    {
+      "id": "ISSUER_PUBLISHER",
+      "hypothetical_claim_role": "institution_issues_or_publishes_document",
+      "authority_claim_scope": "PRESENT; exact value evidence-dependent"
+    },
+    {
+      "id": "WRONG_REVIEWER_SESSION",
+      "hypothetical_claim_role": "reviewer_run_identity_mismatch",
+      "record_level": "review_run_metadata / blind_review_process_QA",
+      "candidate_phase2_issue_change": "NONE_FROM_RUN_INCIDENT"
+    }
+  ],
+  "supersedes_v4_phrase_only": "V4's OTHER real schema/process defect cannot be used for reviewer-run identity/session/routing defects; row-level candidate/evidence/schema-interface defects remain candidate issues",
+  "candidate_or_evidence_changed": false,
+  "enum_changed": false
+}

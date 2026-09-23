@@ -37,6 +37,7 @@ runtime/stage6_rag_security/
 /experiments/
 /outputs/paper1_formal240_d1_canary_20260922/
 /outputs/paper1_formal240_d1_canary_phase1_raw_lock_20260923/
+/outputs/paper1_formal240_d1_canary_phase2_preclarification_20260923/
 
 # Generated local planning exports
 /docs/superpowers/plans/*.pdf

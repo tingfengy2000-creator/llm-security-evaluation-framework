@@ -1,5 +1,36 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current machine recovery record — 2026-09-23 D1 Phase2 preclarification incident
+
+```yaml
+task: P1-FORMAL240-D1-CANARY-PHASE2-RAW-LOCK-AND-V4_1-CLARIFICATION-01
+owner_authority: PODR-110 / OR-066
+private_namespace: paper1_formal240_d1_canary_phase2_preclarification_20260923
+source_form: ONE_COMPOSITE_ATTACHMENT_WITH_VERBATIM_R1_R2_JSON_SLICES
+source_composite_bytes: 32274
+source_composite_sha256: 2227d5f7e988833a3ebd7b95fd11dcf72fe9fa73f5c486aa4654ff35f633d29b
+r1_slice_bytes: 14925
+r1_slice_sha256: 487bbbb7b33bc18d6af8b58fc0de968a03260483b454574d938b7dd65ab573a8
+r2_slice_bytes: 15745
+r2_slice_sha256: 1a7187859ddb0fd652ddfb4eaad5add732e5f1e6731d8639eba859c2f2f40092
+raw_validation: 24/24 each; exact ID/order/keys/enums; no missing/duplicate; reason present
+r1_phase2_independence: INVALID_EXPLICIT_SESSION_ROLE_MISMATCH
+r1_role: NON_INDEPENDENT_AUXILIARY_QA_EVIDENCE
+r2_role: PRECLARIFICATION_ONLY_PENDING_SESSION_LINEAGE_PROOF
+valid_independent_phase2_agreement: NOT_COMPUTED
+diagnostic_differences: overall 0; version 6; authority 4; minimum 0; evidence_selection 5; phase2_issue 1; secondary_error 0; evidence_sufficiency 0
+historical_r1_phase2_issue_OTHER: PRESERVED_NOT_CANDIDATE_LEVEL_PROCESS_RESOLUTION
+guide_v4_1: ADDITIVE_FORWARD_ONLY_ENUMS_UNCHANGED
+candidate_and_evidence: UNCHANGED
+required_next_pair: FRESH_INDEPENDENT_R3_R4_PHASE1_THEN_PHASE2
+canary_owner_acceptance: PENDING
+human_ab: PROHIBITED
+remaining_d1_groups: NOT_GENERATED
+split_and_training: NOT_STARTED
+```
+
+Do not send the [incident record](../formal240/PAPER1_FORMAL_D1_BLIND_REVIEW_PROCESS_INCIDENT_V1.md), diagnostic comparison or prior returns to R3/R4. Send only the phase-appropriate frozen package/schema and paired prompt; withhold Phase2 and V4.1 until that reviewer's Phase1 raw is locked. The older Phase1-lock record below remains a true historical lock, but it does not prove this later R1 session continuity.
+
 ## Current machine recovery record — 2026-09-23 D1 Canary Phase1 R1/R2 raw lock
 
 ```yaml
