@@ -1,0 +1,74 @@
+{
+  "status": "PRIMARY_PHASE2_STRUCTURAL_QA_PASS_MATERIAL_DISAGREEMENT_OPEN",
+  "phase2_run_scope_attestation": "OWNER_ATTESTED_NOT_MACHINE_VERIFIED",
+  "task": "P1-FORMAL240-D1-CANARY-R3R4-PHASE2-RAW-LOCK-AND-DISAGREEMENT-TRIAGE-01",
+  "candidate_v3_sha256": "6210a6de8f519fb4a58334ff531954b67e774375d021d099dea050f8fe47032e",
+  "phase2_v4_sha256": "2daf08286581cb8d28e70ab95ea844e5cdf41e2a6916980bf41b0a90a548ac38",
+  "private_raw_namespace": "paper1_formal240_d1_canary_phase2_r3r4_raw_lock_20260926",
+  "raw_inputs": {
+    "r3_initial_malformed_transport": {
+      "filename": "R3_GPT_PHASE2_INITIAL_MALFORMED_TRANSPORT.txt",
+      "bytes": 17199,
+      "sha256": "121776bece1048be3a11c4569bfb4e0e0d48d7cbcfa422772e63a5affa0abeb5",
+      "json_parse": false
+    },
+    "r3_valid_reexport": {
+      "filename": "R3_GPT_PHASE2_VALID_REEXPORT.json",
+      "bytes": 18396,
+      "sha256": "29392396f705345e6213e50d5f457cc5881316ead52d706fc8d51d52024fd4fd",
+      "json_parse": true,
+      "categorical_and_id_changes_from_first_transport": 0,
+      "reason_bodies_exact_after_ui_citation_marker_removal": 24
+    },
+    "r4_raw": {
+      "filename": "R4_CODEX_PHASE2_RAW.json",
+      "bytes": 17607,
+      "sha256": "a1f8f4a50739d230770f7bb56920ea367a9171f1e581283105f33c9bd37c379d",
+      "json_parse": true
+    }
+  },
+  "per_reviewer_validation": {
+    "rows": 24,
+    "unique_ids": 24,
+    "packet_id_order_parity": true,
+    "exact_schema_keys": true,
+    "canonical_enums": true,
+    "nonblank_reasons": 24,
+    "phase1_internal_conflict_zero_rule": true
+  },
+  "agreement": {
+    "overall_fact_status": "22/24",
+    "version_claim_status": "11/24",
+    "authority_claim_status": "24/24",
+    "minimum_external_evidence_needed": "24/24",
+    "evidence_selection": "24/24",
+    "phase2_issue": "24/24",
+    "possible_accidental_secondary_error": "24/24",
+    "evidence_sufficiency": "24/24",
+    "mismatching_fields": 15,
+    "mismatching_ids": 15
+  },
+  "differences": [
+    {"blind_review_id": "D1BR-EB126783B95E", "field": "overall_fact_status", "r3": "LEGITIMATE_VERSION_OR_HISTORY", "r4": "CURRENTLY_CONSISTENT"},
+    {"blind_review_id": "D1BR-F64D9CDAF252", "field": "overall_fact_status", "r3": "LEGITIMATE_VERSION_OR_HISTORY", "r4": "CURRENTLY_CONSISTENT"},
+    {"blind_review_id": "D1BR-1187C884B742", "field": "version_claim_status", "r3": "NOT_PRESENT", "r4": "PRESENT_CORRECT"},
+    {"blind_review_id": "D1BR-0A533F363A06", "field": "version_claim_status", "r3": "NOT_PRESENT", "r4": "PRESENT_CORRECT"},
+    {"blind_review_id": "D1BR-89AF72FC0DA1", "field": "version_claim_status", "r3": "PRESENT_CORRECT", "r4": "NOT_PRESENT"},
+    {"blind_review_id": "D1BR-1EC27F82DC9B", "field": "version_claim_status", "r3": "NOT_PRESENT", "r4": "PRESENT_CORRECT"},
+    {"blind_review_id": "D1BR-06BB2069DAFB", "field": "version_claim_status", "r3": "NOT_PRESENT", "r4": "PRESENT_CORRECT"},
+    {"blind_review_id": "D1BR-C9E69F1920D5", "field": "version_claim_status", "r3": "NOT_PRESENT", "r4": "PRESENT_CORRECT"},
+    {"blind_review_id": "D1BR-61B29673D6D7", "field": "version_claim_status", "r3": "NOT_PRESENT", "r4": "PRESENT_CORRECT"},
+    {"blind_review_id": "D1BR-5654C8EF39A1", "field": "version_claim_status", "r3": "NOT_PRESENT", "r4": "PRESENT_CORRECT"},
+    {"blind_review_id": "D1BR-80BFF76E98E3", "field": "version_claim_status", "r3": "NOT_PRESENT", "r4": "PRESENT_CORRECT"},
+    {"blind_review_id": "D1BR-CD3175E0CA7D", "field": "version_claim_status", "r3": "NOT_PRESENT", "r4": "PRESENT_CORRECT"},
+    {"blind_review_id": "D1BR-4E05742512B2", "field": "version_claim_status", "r3": "NOT_PRESENT", "r4": "PRESENT_CORRECT"},
+    {"blind_review_id": "D1BR-99CF0EB2D83F", "field": "version_claim_status", "r3": "NOT_PRESENT", "r4": "PRESENT_CORRECT"},
+    {"blind_review_id": "D1BR-3132012A70EC", "field": "version_claim_status", "r3": "NOT_PRESENT", "r4": "PRESENT_CORRECT"}
+  ],
+  "owner_decision_required": true,
+  "auto_continue": false,
+  "canary_accepted": false,
+  "human_ab_authorized": false,
+  "expected_or_hidden_labels_loaded_for_comparison": false,
+  "reviewer_values_rewritten": false
+}

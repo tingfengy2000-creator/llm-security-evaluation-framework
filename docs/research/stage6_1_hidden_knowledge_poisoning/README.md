@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> 当前 Formal240 D1 Canary（2026-09-26）：R3-gpt 与 R4-codex Phase2 两份结构化返回已锁定、各通过 24/24 格式和顺序检查；R3 首次失格式传输也作为历史证据保留。事实总状态有 2 条、版本主张有 13 条分歧，涉及规则边界，不能自动接受 Canary。[双人 Phase2 锁定与 Owner 决策材料](formal240/PAPER1_FORMAL_D1_CANARY_R3_R4_PHASE2_RAW_LOCK_AND_DISAGREEMENT_BLOCKER_V1.md)。`HUMAN_DECISION_REQUIRED / Auto Continue=NO`；真人 A/B、其余40组、split、训练继续暂停。下一段“可以发第二阶段”是本轮交卷前的真实历史快照。
+
 > 当前 Formal240 D1 Canary（2026-09-26）：R3-gpt 与 R4-codex 对两条修订文本的定向 Phase1 复核已按原字节锁定、2/2 结构合规、五字段一致；Candidate V3 接受，原 S1 内部矛盾保留。现有 Phase2 V4 经 Evidence 与机械复核后**允许由 Owner 分发给原两会话**，但尚未执行。[收口与分发说明](formal240/PAPER1_FORMAL_D1_CANARY_PHASE1_FINAL_CLOSEOUT_V1.md)。R5-claude 两份原件后来已锁定、仅作可选辅助；Canary、真人 A/B、其余40组、split 和训练均未放行。下方“定向复核待返回”是历史快照。
 
 > 当前 Formal240 D1 Canary 门（2026-09-23）：R3-gpt 与 R4-codex 的 Phase1 原件已双锁，24/24 合规且五字段一致；Owner 人工确认隔离。两条共同指出的轻微措辞问题已生成仅两条的 Candidate V3 定向修复与复核包。[记录](formal240/PAPER1_FORMAL_D1_CANARY_R3_R4_PHASE1_LOCK_AND_TARGETED_REPAIR_RECORD_V1.md)。**修复尚未验收**：请原两会话分别返回定向 Phase1，Phase2 V4 暂扣；Canary/Human A/B/其余40组/split/训练均未放行。下方“R3/R4 尚无返回”为此前快照。

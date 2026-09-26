@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## Formal240 D1 Canary Phase2 双返回已锁定，版本解释待 Owner 决定（2026-09-26）
+
+R3-gpt 首次答卷的文本传输因引号丢失不能当作有效 JSON，但原件保留；R3 有效重导出与 R4-codex 原件各通过 24/24 结构核验。R3 重导出未改变首次答卷的题号、分类或理由正文（排除界面引用标记），但并非相同字节。Owner 人工证明两位沿用原隔离会话且仅用冻结 E1/E2；未取得机器访问日志。两人事实总状态 22/24 一致，版本主张 11/24 一致，其余六分类字段全部一致。系统性版本边界和两条历史状态差异在[决策材料](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_CANARY_R3_R4_PHASE2_RAW_LOCK_AND_DISAGREEMENT_BLOCKER_V1.md)保留原值并等待 Owner 决定。`HUMAN_DECISION_REQUIRED / Auto Continue=NO`：Canary 尚未接受，不得发 Human A/B、构造其余40组、切分或训练。下方 Phase2 可分发但未执行是之前时点的记录。
+
 ## Formal240 D1 Canary Phase1 定向修复已通过，Phase2 可以分发（2026-09-26）
 
 正式门控对为 R3-gpt 与 R4-codex；R5-claude 只是可选辅助。两份两条定向 Phase1 原件已按附件原始 JSON 字节片段锁定，结构化判断 2/2 完全一致；V3 修复消除了“第四条下”的自然度问题而保留刻意的文本内部矛盾。24 条 Candidate V3 和先前预建的 Phase2 V4 经哈希、Evidence 不变与有界机械复核后冻结，不覆盖旧版。[Phase1 收口记录](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_CANARY_PHASE1_FINAL_CLOSEOUT_V1.md)。现在只授权 Owner 把 V4、schema、Guide V4/V4.1 和各自提示词分别发给原 R3/R4 会话；本机没有执行 Phase2。Owner 后续同步的两份 R5 文件已原样锁定并完成 24/2 条结构核验，其自然度分歧仅为辅助观察，不阻断主门。Canary 最终验收、真人 A/B、其余40组、切分和训练仍未获放行。下方“定向复核待返回”为此前真实快照。

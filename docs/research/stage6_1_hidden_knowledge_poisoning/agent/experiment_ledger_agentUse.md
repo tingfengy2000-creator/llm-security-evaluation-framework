@@ -1,5 +1,38 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current machine recovery record — 2026-09-26 R3/R4 Phase2 comparison blocker
+
+```yaml
+task: P1-FORMAL240-D1-CANARY-R3R4-PHASE2-RAW-LOCK-AND-DISAGREEMENT-TRIAGE-01
+input_head: 4ab378ceafa877f079751ce6ab1c173795b0d472
+private_namespace: E:\LLMGuard-Handoff\paper1_formal240_d1_canary_phase2_r3r4_raw_lock_20260926
+r3_initial_transport_bytes: 17199
+r3_initial_transport_sha256: 121776bece1048be3a11c4569bfb4e0e0d48d7cbcfa422772e63a5affa0abeb5
+r3_initial_json: INVALID_PRESERVED
+r3_valid_reexport_bytes: 18396
+r3_valid_reexport_sha256: 29392396f705345e6213e50d5f457cc5881316ead52d706fc8d51d52024fd4fd
+r3_reexport_content_lineage: ID_AND_EIGHT_ENUM_FIELDS_IDENTICAL; REASON_BODY_24_OF_24_EXACT_AFTER_UI_MARKER_REMOVAL
+r4_raw_bytes: 17607
+r4_raw_sha256: a1f8f4a50739d230770f7bb56920ea367a9171f1e581283105f33c9bd37c379d
+structured_qa: BOTH_24_OF_24_ID_ORDER_KEYS_ENUMS_REASON_ZERO_RULE_PASS
+overall_agreement: 22/24
+version_agreement: 11/24
+other_six_categorical_fields: EACH_24/24
+material_disagreement_fields: 15
+material_disagreement_ids: 15
+run_scope_attestation: OWNER_ATTESTED_NOT_MACHINE_VERIFIED
+reviewer_independence_prior: OWNER_ATTESTED_NOT_MACHINE_VERIFIED
+expected_gt_mapping_loaded: false
+canary_owner_accepted: false
+human_ab_authorized: false
+blocker: D1-CANARY-PHASE2-VERSION-SCOPE-BLOCKER-01
+status: HUMAN_DECISION_REQUIRED
+auto_continue: false
+next_gate: OWNER_VERSION_HISTORY_BOUNDARY_DECISION
+```
+
+[Raw-lock and decision record](../formal240/PAPER1_FORMAL_D1_CANARY_R3_R4_PHASE2_RAW_LOCK_AND_DISAGREEMENT_BLOCKER_V1.md) and [exact field comparison](../formal240/PAPER1_FORMAL_D1_CANARY_R3_R4_PHASE2_COMPARISON_V1.json) supersede only the prior `PHASE2_NOT_EXECUTED` status. No reviewer raw or frozen candidate/evidence/guide was modified.
+
 ## Current machine recovery record — 2026-09-26 primary Phase1 closeout
 
 ```yaml
