@@ -1,0 +1,39 @@
+{
+  "rule_set_id": "PAPER1_FORMAL_ANNOTATION_CONSISTENCY_RULES_V4_3",
+  "status": "OWNER_APPROVED_ADDITIVE_CLARIFICATION",
+  "inherits": [
+    "PAPER1_FORMAL_ANNOTATION_GUIDE_V4.md",
+    "PAPER1_FORMAL_ANNOTATION_GUIDE_V4_1_CLARIFICATION.md",
+    "PAPER1_FORMAL_ANNOTATION_GUIDE_V4_2_VERSION_SCOPE_DECISION.md",
+    "PAPER1_FORMAL_ANNOTATION_CONSISTENCY_RULES_V4_2.json"
+  ],
+  "enum_sets_unchanged": true,
+  "candidate_and_evidence_unchanged": true,
+  "historical_reviewer_raw_immutable": true,
+  "claim_presence_input": "CANDIDATE_TEXT_ONLY",
+  "claim_correctness_input": "CANDIDATE_TEXT_PLUS_FROZEN_EVIDENCE",
+  "rules": [
+    {
+      "id": "RULE-VERSION-05",
+      "if": "candidate compares substantive values, conditions, or facts at different times or in distinctly titled dated documents, without asserting an explicit document-version event, identity, state, relation, or transition",
+      "then": "version_claim_status == NOT_PRESENT"
+    },
+    {
+      "id": "RULE-VERSION-06",
+      "if": "candidate describes a currently applicable substantive value in a dated notice or answer, but does not assert that the document itself is a current version",
+      "then": "version_claim_status == NOT_PRESENT"
+    },
+    {
+      "id": "RULE-VERSION-07",
+      "if": "candidate explicitly asserts original/revised/current/historical document-version identity, amendment/repeal/replacement, predecessor/successor, supersession, amendment-decision identity, or document effective/expiry transition",
+      "then": "version_claim_status is PRESENT_*; correctness requires frozen Evidence"
+    },
+    {
+      "id": "RULE-OVERALL-02",
+      "if": "a historical or cross-time substantive claim is evidence-supported but makes no document-version assertion",
+      "then": "overall_fact_status may be LEGITIMATE_VERSION_OR_HISTORY while version_claim_status == NOT_PRESENT"
+    }
+  ],
+  "current_batch_application": "OWNER_SEMANTIC_OVERLAY_ONLY_NOT_GROUND_TRUTH",
+  "targeted_external_rereview": "NOT_REQUIRED_BY_OWNER_FOR_CURRENT_SIX_SCOPE_DISAGREEMENTS"
+}

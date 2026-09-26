@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> **当前 Formal240 D1（2026-09-27）：** HKP1 第一批 10 组/30 条的 R3/R4 第二阶段答卷已原样锁定、结构通过，事实与证据安全字段 30/30 一致；六条“跨时间实体比较是否等于文件版本主张”的差异由 Owner [V4.3 统一解释](formal240/PAPER1_FORMAL_ANNOTATION_GUIDE_V4_3_TEMPORAL_VS_VERSION_SCOPE.md)另记，不改原答。[第一批有界验收](formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_PHASE2_ACCEPTANCE_RECORD_V1.md)只准继续构造 D1。[剩余90条大批量路线](formal240/PAPER1_FORMAL_D1_REMAINING90_MEGAWAVE_ROUTING_V1.md)获批，需先完成 HKP2/3/4 的官方证据和内部质检，再统一找全新独立 R3/R4 盲审。尚未授权真人 A/B、GT、正式切分或训练。下方 Phase2 待返回的段落是历史快照。
+
 > **当前 Formal240 D1 HKP1 第一批（2026-09-26）：** 旧 R3 会话串位已保留但不计独立门控。新 R3/R4 Phase1 原件各 30/30 结构通过、五分类 30/30 一致。R4 新建 Codex Project 不符合原 `projectless` 字面要求；在只读核查当前目录且如实保留平台历史不可机器证实的边界后，Owner 明确批准**只限本批这一次**的有界等价例外。现在[Phase2 冻结证据包](formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_PHASE2_RELEASE_RECORD_V1.md)已准备好，请只按[逐人完整文件清单](formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_REVIEWER_FILE_CHECKLIST_V1.md)发给本批各自原会话。尚无 Phase2 回答、Batch-1 未验收、HKP2 未启动；真人 A/B、GT、切分、训练和论文结果仍未放行。下一段“等待原始返回”是早期快照。
 
 > **当前 Formal240 D1（2026-09-26）：** 剩余40组已获 Owner 顺序构造批准，但第一批 HKP1 的10组/30条目前只完成本机 Evidence-first 构造与预盲审；[权威 V4 盲包和门控](formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_PREBLIND_STATUS_V1.md)已备妥，等待独立 R3-gpt/R4-codex 第一阶段原始返回。第二阶段暂扣、第一批未验收、HKP2 尚未启动。真人 A/B、GT、切分、训练和正式结果均未获放行。下文“Canary 已验收、仍待批准剩余40组”是前一时点历史快照。

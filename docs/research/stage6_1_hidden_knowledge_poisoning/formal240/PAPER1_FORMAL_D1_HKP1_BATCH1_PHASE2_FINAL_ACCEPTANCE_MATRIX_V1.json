@@ -1,0 +1,48 @@
+{
+  "batch": "D1_HKP1_BATCH1",
+  "status": "D1_HKP1_BATCH1_ACCEPTED_FOR_D1_CONSTRUCTION_ONLY",
+  "phase1_fresh_run02": "PASS_WITH_OWNER_APPROVED_ONE_RUN_R4_NEW_PROJECT_EXCEPTION",
+  "phase2_r3_structural": "PASS_30_OF_30",
+  "phase2_r4_structural": "PASS_30_OF_30",
+  "phase2_packet_sha256": "974c9348186be7ce37fe7bd11b77900f0a4f04cdedf2dd1013c2ccba8adc6991",
+  "r3_raw_sha256": "65bec342aabd38b936694299f6c97330951fd24154beea5e22f648609361cdf0",
+  "r4_raw_sha256": "561737885f0801441c0a69cbac61cbdf2388a023b19cc2bdd2b20ad44946e7eb",
+  "raw_lock_utc_before_target_load": "2026-09-26T15:59:43.356808+00:00",
+  "raw_agreement": {
+    "overall_fact_status": "30/30",
+    "version_claim_status": "24/30_BEFORE_OWNER_OVERLAY",
+    "authority_claim_status": "30/30",
+    "minimum_external_evidence_needed": "30/30",
+    "evidence_selection": "30/30",
+    "phase2_issue": "30/30",
+    "possible_accidental_secondary_error": "30/30",
+    "evidence_sufficiency": "30/30"
+  },
+  "version_scope_six": "RESOLVED_BY_OWNER_GLOBAL_SEMANTIC_RULE_V4_3_NOT_REVIEWER_PRECEDENCE",
+  "evidence_sufficiency": "SUFFICIENT_30_OF_30_BOTH_REVIEWERS",
+  "possible_accidental_secondary_error": "NO_30_OF_30_BOTH_REVIEWERS",
+  "phase2_issue": "NONE_30_OF_30_BOTH_REVIEWERS",
+  "overall_distribution_each": {
+    "CURRENTLY_CONSISTENT": 12,
+    "FACTUAL_CONFLICT": 10,
+    "LEGITIMATE_VERSION_OR_HISTORY": 8
+  },
+  "conflict_minimum_evidence_each": {
+    "ZERO_EXTERNAL_EVIDENCE_REQUIRED": 3,
+    "ONE_OFFICIAL_EVIDENCE": 3,
+    "MULTI_EVIDENCE_OR_VERSION_CHAIN": 4
+  },
+  "post_lock_construction_comparison": "ALL_10_POISON_FACTUAL_CONFLICT; DERIVED_S_3_3_4_EQUALS_FROZEN_TARGET_3_3_4",
+  "official_snapshots": "PASS_17_HASH_CHECKED_IN_PREBLIND_V4",
+  "fact_atoms": "PASS_10_CONTROLLED_POISON_ZERO_ACCIDENTAL_ZERO_AMBIGUOUS_CONSTRUCTION_AUDIT_PLUS_BLIND_SECONDARY_ERROR_NO_30_OF_30",
+  "triplet_parity": "PASS_MAX_LENGTH_RATIO_1.151",
+  "view_readiness": "PASS_WITH_DESIGN_NA",
+  "missingness_shortcut": "PASS_NONE",
+  "neutral_query": "PASS_10_OF_10",
+  "retrieval_smoke": "PASS_ENGINEERING_ONLY_10_OF_10",
+  "human_ab": "NOT_AUTHORIZED",
+  "ground_truth": "NOT_CREATED",
+  "formal_split": "NOT_EXECUTED",
+  "detector_training": "NOT_STARTED",
+  "next_gate": "REMAINING90_INTERNAL_EVIDENCE_FIRST_CONSTRUCTION"
+}

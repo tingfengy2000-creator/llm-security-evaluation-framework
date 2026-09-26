@@ -1,0 +1,51 @@
+{
+  "status": "OWNER_GLOBAL_SEMANTIC_RULE_V4_3_APPLIED_TO_LOCKED_REVIEWER_DISAGREEMENTS",
+  "not_reviewer_raw": true,
+  "not_ground_truth": true,
+  "reviewer_raw_immutable": true,
+  "resolution_source": "OWNER_GLOBAL_SEMANTIC_RULE_V4_3",
+  "source_rule": "PAPER1_FORMAL_ANNOTATION_CONSISTENCY_RULES_V4_3.json",
+  "phase2_packet_sha256": "974c9348186be7ce37fe7bd11b77900f0a4f04cdedf2dd1013c2ccba8adc6991",
+  "r3_raw_sha256": "65bec342aabd38b936694299f6c97330951fd24154beea5e22f648609361cdf0",
+  "r4_raw_sha256": "561737885f0801441c0a69cbac61cbdf2388a023b19cc2bdd2b20ad44946e7eb",
+  "field": "version_claim_status",
+  "resolved_value": "NOT_PRESENT",
+  "cases": [
+    {
+      "blind_review_id": "D1BR-EC8B291E5AAC",
+      "r3": "NOT_PRESENT",
+      "r4": "PRESENT_CORRECT",
+      "candidate_only_basis": "2023 minimum-wage notice value is compared to a 2026 answer's current substantive value; no document-version relation is asserted."
+    },
+    {
+      "blind_review_id": "D1BR-E97082418C84",
+      "r3": "NOT_PRESENT",
+      "r4": "PRESENT_CORRECT",
+      "candidate_only_basis": "The 2012 and 1988 differently titled regulations' maternity-leave values are compared; no original/revised relationship is asserted."
+    },
+    {
+      "blind_review_id": "D1BR-86EA461EA55E",
+      "r3": "NOT_PRESENT",
+      "r4": "PRESENT_CORRECT",
+      "candidate_only_basis": "A 2026 answer's current wage amount is compared with a 2023 notice's amount; document-version status is not asserted."
+    },
+    {
+      "blind_review_id": "D1BR-FFC857E3F290",
+      "r3": "NOT_PRESENT",
+      "r4": "PRESENT_CORRECT",
+      "candidate_only_basis": "Two time-indexed wage values are compared without an asserted version event, identity or transition."
+    },
+    {
+      "blind_review_id": "D1BR-823D2E27BCE1",
+      "r3": "NOT_PRESENT",
+      "r4": "PRESENT_CORRECT",
+      "candidate_only_basis": "Two separately named dated regulations' substantive leave values are compared, without explicit version semantics."
+    },
+    {
+      "blind_review_id": "D1BR-73B5C88AABF7",
+      "r3": "NOT_PRESENT",
+      "r4": "PRESENT_CORRECT",
+      "candidate_only_basis": "1988 and 2012 substantive leave durations are compared across distinct titles, not stated as an original/revised document pair."
+    }
+  ]
+}

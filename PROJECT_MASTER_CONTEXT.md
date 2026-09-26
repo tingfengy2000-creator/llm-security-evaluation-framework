@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## 当前：D1 HKP1 第一批通过有界构造验收，剩余90条内部构造获批（2026-09-27）
+
+R3/R4 第二阶段原始30条已分别锁定并通过结构核查；六条版本字段分歧由 Owner V4.3 追加规则处理，原答不改。HKP1 Batch-1 只对继续 D1 构造验收。HKP2/3/4 须先逐组锁官方证据、通过事实与五视角上游输入硬门，再一次性准备90条外部独立盲审。[验收记录](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_PHASE2_ACCEPTANCE_RECORD_V1.md)与[大包路由](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_MEGAWAVE_ROUTING_V1.md)。不授权 Human A/B、GT、切分、训练或正式论文效果；下方旧“Phase2 待发”是历史状态。
+
 ## 当前：D1 HKP1 第一批 Phase1 有界通过，Phase2 题包待 Owner 分发（2026-09-26）
 
 第一轮 R3 自报沿用含 Canary/Phase2 历史的会话，故该原件只作过程证据。新 R3/R4 第一阶段原件已原样锁定，各 30 条结构合规，五个分类字段 30/30 相同。R4 使用新 Codex Project 而非既定 `projectless`；只读核查当前目录仅有交付的 JSON、无隐藏文件或 Git，平台历史不可机器证明。Owner **明确仅对本批这次 R4 作有界等价例外**，不改变后续批次 projectless 要求。现在[30条 Phase2 证据题包](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_PHASE2_RELEASE_RECORD_V1.md)已准备好，可按[逐人完整发件清单](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_REVIEWER_FILE_CHECKLIST_V1.md)交给**本批各自原隔离会话**；尚无 Phase2 回答。Batch-1 未验收、HKP2 不启动；真人 A/B、GT、切分、训练及论文正式结论仍关闭。下节“原件尚未收到”是历史快照。

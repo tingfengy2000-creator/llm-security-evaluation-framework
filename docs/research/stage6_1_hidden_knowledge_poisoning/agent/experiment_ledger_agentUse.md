@@ -1,5 +1,24 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current recovery — 2026-09-27 D1 HKP1 Batch-1 Phase2 acceptance and V4.3
+
+```yaml
+task: P1-FORMAL240-D1-HKP1-PHASE2-CLOSEOUT-V4_3-AND-REMAINING90-MEGAWAVE-01
+authority: PODR-118 / OR-074
+input_head: 9f65c729af56de6d85a76027e0b66f5c0cbddf8c
+phase2_packet_sha256: 974c9348186be7ce37fe7bd11b77900f0a4f04cdedf2dd1013c2ccba8adc6991
+raw_lock: E:\LLMGuard-Handoff\paper1_formal240_d1_remaining40_hkp1_batch1_20260926\phase2_raw_lock_fresh_r3r4_run02_20260926
+r3_phase2_sha256: 65bec342aabd38b936694299f6c97330951fd24154beea5e22f648609361cdf0
+r4_phase2_sha256: 561737885f0801441c0a69cbac61cbdf2388a023b19cc2bdd2b20ad44946e7eb
+schema_enum_order: PASS_30_OF_30_EACH
+agreement: {overall: 30/30, version_before_overlay: 24/30, authority: 30/30, minimum: 30/30, evidence_selection: 30/30, issue: 30/30, secondary_error: 30/30, sufficiency: 30/30}
+version_six: OWNER_GLOBAL_SEMANTIC_RULE_V4_3_NOT_R3_PRECEDENCE
+batch1: ACCEPTED_FOR_D1_CONSTRUCTION_ONLY
+remaining90: OWNER_AUTHORIZED_INTERNAL_EVIDENCE_FIRST_BUILD_THEN_ONE_EXTERNAL_MEGAWAVE
+future_r4: FRESH_PROJECTLESS_EMPTY_DIRECTORY_REQUIRED
+human_ab_gt_split_training: NOT_AUTHORIZED
+```
+
 ## Current recovery — 2026-09-26 D1 HKP1 Batch-1 fresh Phase1 Run02
 
 ```yaml
