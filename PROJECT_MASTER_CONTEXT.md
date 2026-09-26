@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## Formal240 D1 Canary V4.2 定向复核 15/15 一致，等待完整验收（2026-09-26）
+
+原 R3-gpt/R4-codex 会话的 15 条定向 JSON 已逐字节只读锁定，结构核验各 15/15，通过 V4.2 目标值双方一致和 Owner 语义覆盖一致 15/15。[复核报告](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_CANARY_V4_2_TARGETED_RULE_STABILITY_REPORT_V1.md)。Owner 人工确认会话/材料隔离，非机器证明。此结果只关闭定向解释稳定性门，旧答卷、候选、证据和覆盖记录不改；完整 Canary 仍待 Owner 单独验收，真人 A/B、剩余40组、split、训练均未授权。下面“等待原两位评审定向复核”为历史时点快照。
+
 ## Formal240 D1 Canary V4.2 语义边界已冻结，等待原两位评审定向复核（2026-09-26）
 
 Owner 决定不能从 Evidence 页的“现行有效”等元数据反推候选提出了版本主张：12 条裸法条实体陈述应为 `NOT_PRESENT`；明确命名修改决定的 1 条有版本主张且冻结证据支持；明确比较 2003 原版与 2010 修订版的 2 条正确命题归合法版本/历史。这不是按 R3/R4 人头选胜者。15 条 Owner-semantic 结果在[独立覆盖记录](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_CANARY_PHASE2_OWNER_SEMANTIC_ADJUDICATION_OVERLAY_V1.json)，旧原件、候选、Evidence、V4/V4.1 不变。15 条不含既有答案的定向包和对称提示词已准备，**尚未分发**；原 R3-gpt/R4-codex 会话须各自提交真实 JSON 文件。只有复核完成并解决残余 blocker 后，才进入 Owner Canary 验收门。Human A/B、其余40组、split 和训练均未授权。下方“版本解释待 Owner 决定”是之前时点快照。

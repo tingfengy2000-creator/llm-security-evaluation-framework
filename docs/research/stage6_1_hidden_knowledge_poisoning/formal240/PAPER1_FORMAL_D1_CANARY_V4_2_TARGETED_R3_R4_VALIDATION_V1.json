@@ -1,0 +1,228 @@
+{
+  "artifact_id": "PAPER1_FORMAL_D1_CANARY_V4_2_TARGETED_R3_R4_VALIDATION_V1",
+  "review_role": "SAME_ORIGINAL_SESSIONS_TARGETED_RULE_CONFIRMATION_NOT_FRESH_INDEPENDENT_ANNOTATION",
+  "review_run_lineage": "OWNER_ATTESTED_ORIGINAL_R3_R4_SESSIONS_EQUAL_MATERIALS_NO_MUTUAL_OR_OVERLAY_ACCESS_NOT_MACHINE_VERIFIED",
+  "raw_lock_verified_at_utc": "2026-09-26T05:07:12Z",
+  "frozen_package_sha256": "92360d2415687129521c92df2cf3be0898b8e3b800f14ea48d5e82fa664ed6dc",
+  "owner_overlay_sha256": "f5c4c899de2e48c9c453a857e22bfba065fb2020aba71fc057532d994ced9b8e",
+  "raw_files": {
+    "r3_gpt": {
+      "source_filename": "PAPER1_FORMAL_D1_R3_GPT_PHASE2_V4_2_TARGETED_RETURN.json",
+      "locked_filename": "PAPER1_FORMAL_D1_R3_GPT_PHASE2_V4_2_TARGETED_RETURN.json",
+      "byte_size": 4655,
+      "sha256": "24bf845e98e2fae8c9193fac8c584be1e7a36130ff2b595d3a88c1ced4f9885a",
+      "source_locked_byte_parity": true,
+      "locked_read_only": true,
+      "utf8_no_bom_json_no_duplicate_keys": true,
+      "exact_rows_ids_order_schema_enums_nonblank_reasons": "15/15_PASS"
+    },
+    "r4_codex": {
+      "source_filename": "PAPER1_FORMAL_D1_R4_CODEX_PHASE2_V4_2_TARGETED_RETURN.json",
+      "locked_filename": "PAPER1_FORMAL_D1_R4_CODEX_PHASE2_V4_2_TARGETED_RETURN.json",
+      "byte_size": 5699,
+      "sha256": "e2eefbc4435a6cf250a3e1b67e5e337927c4d738e957bf461d9772fa14343fe8",
+      "source_locked_byte_parity": true,
+      "locked_read_only": true,
+      "utf8_no_bom_json_no_duplicate_keys": true,
+      "exact_rows_ids_order_schema_enums_nonblank_reasons": "15/15_PASS"
+    }
+  },
+  "target_fields": {
+    "version_claim_status": 13,
+    "overall_fact_status": 2
+  },
+  "case_categories": {
+    "bare_substantive": 12,
+    "amendment_decision": 1,
+    "historical_comparison": 2
+  },
+  "r3_r4_target_value_agreement": "15/15",
+  "both_match_owner_semantic_overlay": "15/15",
+  "disagreement_ids": [],
+  "overlay_mismatch_ids": [],
+  "targeted_rule_status": "VERSION_SCOPE_RULE_STABILITY_PASS",
+  "canary_owner_accepted": false,
+  "human_ab_authorized": false,
+  "comparison": [
+    {
+      "blind_review_id": "D1BR-1187C884B742",
+      "target_field": "version_claim_status",
+      "case_category": "bare_substantive",
+      "r3_value": "NOT_PRESENT",
+      "r4_value": "NOT_PRESENT",
+      "owner_semantic_overlay_value": "NOT_PRESENT",
+      "r3_r4_agree": true,
+      "both_match_owner_overlay": true,
+      "r3_reason_sha256": "3338aa2738572061ffdcd51860bc80f646b8e9140ab6f2683041637c6bebe04a",
+      "r4_reason_sha256": "8244e3b13e35120f7acbdc621ec26fbc394ab32d87c7a3cf5cf6a04d5f398f32"
+    },
+    {
+      "blind_review_id": "D1BR-0A533F363A06",
+      "target_field": "version_claim_status",
+      "case_category": "bare_substantive",
+      "r3_value": "NOT_PRESENT",
+      "r4_value": "NOT_PRESENT",
+      "owner_semantic_overlay_value": "NOT_PRESENT",
+      "r3_r4_agree": true,
+      "both_match_owner_overlay": true,
+      "r3_reason_sha256": "4067d1634773f67ff9f9467180e835eb78d64fb3d1163370dd1348c7190cdb61",
+      "r4_reason_sha256": "a0bd2ccac20674416ecdf4c169e6f1118dbad5d06cee80186dce70e0b1c2ebc6"
+    },
+    {
+      "blind_review_id": "D1BR-89AF72FC0DA1",
+      "target_field": "version_claim_status",
+      "case_category": "amendment_decision",
+      "r3_value": "PRESENT_CORRECT",
+      "r4_value": "PRESENT_CORRECT",
+      "owner_semantic_overlay_value": "PRESENT_CORRECT",
+      "r3_r4_agree": true,
+      "both_match_owner_overlay": true,
+      "r3_reason_sha256": "d893da95cb72e62dfcfa41aad36f11c626e964dee07a01ef5362fef0f0ab0e95",
+      "r4_reason_sha256": "bfc9342abc2c0dfe21b9f3d7d77ae58fbf9a4cf2eed73ffa287a36f501719b61"
+    },
+    {
+      "blind_review_id": "D1BR-1EC27F82DC9B",
+      "target_field": "version_claim_status",
+      "case_category": "bare_substantive",
+      "r3_value": "NOT_PRESENT",
+      "r4_value": "NOT_PRESENT",
+      "owner_semantic_overlay_value": "NOT_PRESENT",
+      "r3_r4_agree": true,
+      "both_match_owner_overlay": true,
+      "r3_reason_sha256": "f6b199b594b5c531fe4324a53a9bef5a9581fd0f313e7a1c28bfcda062563606",
+      "r4_reason_sha256": "91259b6fa6680e27ccde78aa43a07a0b2f9c9899372d72d83ea2003e56b505d4"
+    },
+    {
+      "blind_review_id": "D1BR-06BB2069DAFB",
+      "target_field": "version_claim_status",
+      "case_category": "bare_substantive",
+      "r3_value": "NOT_PRESENT",
+      "r4_value": "NOT_PRESENT",
+      "owner_semantic_overlay_value": "NOT_PRESENT",
+      "r3_r4_agree": true,
+      "both_match_owner_overlay": true,
+      "r3_reason_sha256": "1f676b5195a521234ab76e39eb33b63d12f134c24e718ac37093e86cb229b946",
+      "r4_reason_sha256": "04e884ec402c01a62d38a32f910d8a69e1ab2440b5e09a1dc99fae9d529e56ff"
+    },
+    {
+      "blind_review_id": "D1BR-C9E69F1920D5",
+      "target_field": "version_claim_status",
+      "case_category": "bare_substantive",
+      "r3_value": "NOT_PRESENT",
+      "r4_value": "NOT_PRESENT",
+      "owner_semantic_overlay_value": "NOT_PRESENT",
+      "r3_r4_agree": true,
+      "both_match_owner_overlay": true,
+      "r3_reason_sha256": "2accb5abcceb807f1cd33dff2d8b4236d0b7dd48c501b44aa5aa6f4eb9b0dcc3",
+      "r4_reason_sha256": "a670f9ca03a4448ac5f78ed7f7c34988a1d61e8a22031fb49e615c57383a872c"
+    },
+    {
+      "blind_review_id": "D1BR-EB126783B95E",
+      "target_field": "overall_fact_status",
+      "case_category": "historical_comparison",
+      "r3_value": "LEGITIMATE_VERSION_OR_HISTORY",
+      "r4_value": "LEGITIMATE_VERSION_OR_HISTORY",
+      "owner_semantic_overlay_value": "LEGITIMATE_VERSION_OR_HISTORY",
+      "r3_r4_agree": true,
+      "both_match_owner_overlay": true,
+      "r3_reason_sha256": "45a8fa7bdaded78f43fbb2ef7792a0317b5f391a3866a266f442dc6173dbc755",
+      "r4_reason_sha256": "5ebfc88af5e03aaee58340ba4d9c30e1b7f122a2dd709f00f48f4dd959813f76"
+    },
+    {
+      "blind_review_id": "D1BR-61B29673D6D7",
+      "target_field": "version_claim_status",
+      "case_category": "bare_substantive",
+      "r3_value": "NOT_PRESENT",
+      "r4_value": "NOT_PRESENT",
+      "owner_semantic_overlay_value": "NOT_PRESENT",
+      "r3_r4_agree": true,
+      "both_match_owner_overlay": true,
+      "r3_reason_sha256": "240ff2399e06366f58fdd142f5ef6d94c29db62b3ebec827291ad92402cac10c",
+      "r4_reason_sha256": "06ba7700deb60979be7b296c86231eaacf41006b741a68b73d3c18b4e9d7d3cb"
+    },
+    {
+      "blind_review_id": "D1BR-5654C8EF39A1",
+      "target_field": "version_claim_status",
+      "case_category": "bare_substantive",
+      "r3_value": "NOT_PRESENT",
+      "r4_value": "NOT_PRESENT",
+      "owner_semantic_overlay_value": "NOT_PRESENT",
+      "r3_r4_agree": true,
+      "both_match_owner_overlay": true,
+      "r3_reason_sha256": "d971053dfe6000dee1bcf1eca12afd85861f093bdb8404bae0deb9cd1b142fb4",
+      "r4_reason_sha256": "80b82da5f9505922f763814b5a3ffdbc07b5d15e63d17482801bd69c99ae78fb"
+    },
+    {
+      "blind_review_id": "D1BR-F64D9CDAF252",
+      "target_field": "overall_fact_status",
+      "case_category": "historical_comparison",
+      "r3_value": "LEGITIMATE_VERSION_OR_HISTORY",
+      "r4_value": "LEGITIMATE_VERSION_OR_HISTORY",
+      "owner_semantic_overlay_value": "LEGITIMATE_VERSION_OR_HISTORY",
+      "r3_r4_agree": true,
+      "both_match_owner_overlay": true,
+      "r3_reason_sha256": "543f19549ec4a6f4fe760e5019ff3c9fdd35ac0447ac5ae4cd4c3b61561d1d57",
+      "r4_reason_sha256": "5a006474859115d6dfecfe667c5e1ecac1fb609c06069e9a6520713a0d87253f"
+    },
+    {
+      "blind_review_id": "D1BR-80BFF76E98E3",
+      "target_field": "version_claim_status",
+      "case_category": "bare_substantive",
+      "r3_value": "NOT_PRESENT",
+      "r4_value": "NOT_PRESENT",
+      "owner_semantic_overlay_value": "NOT_PRESENT",
+      "r3_r4_agree": true,
+      "both_match_owner_overlay": true,
+      "r3_reason_sha256": "742538886e69d91d693d618cb4c695021058d48f3623e6750389cfe996f52aaa",
+      "r4_reason_sha256": "0a966b607fa95fe8690bbdca3b4dcc58e400d33a3ffe6b46d004fa2b65835b46"
+    },
+    {
+      "blind_review_id": "D1BR-CD3175E0CA7D",
+      "target_field": "version_claim_status",
+      "case_category": "bare_substantive",
+      "r3_value": "NOT_PRESENT",
+      "r4_value": "NOT_PRESENT",
+      "owner_semantic_overlay_value": "NOT_PRESENT",
+      "r3_r4_agree": true,
+      "both_match_owner_overlay": true,
+      "r3_reason_sha256": "d9af942a7963ecb52e97aa999e7e9b942152ab575671197d5d571650f0c2ff5e",
+      "r4_reason_sha256": "82b25ffeff5509ea194a3efee95481c53a2b255cdf1cd716ade00a89472dda28"
+    },
+    {
+      "blind_review_id": "D1BR-4E05742512B2",
+      "target_field": "version_claim_status",
+      "case_category": "bare_substantive",
+      "r3_value": "NOT_PRESENT",
+      "r4_value": "NOT_PRESENT",
+      "owner_semantic_overlay_value": "NOT_PRESENT",
+      "r3_r4_agree": true,
+      "both_match_owner_overlay": true,
+      "r3_reason_sha256": "ddff8bc9b190954ce4fc74c245afabbb8f83bf13a813efc728b0e605516e4ea5",
+      "r4_reason_sha256": "8874544183e209fcec758b026311aedb7a86b9992d4fc94a4e67bd60512159a1"
+    },
+    {
+      "blind_review_id": "D1BR-99CF0EB2D83F",
+      "target_field": "version_claim_status",
+      "case_category": "bare_substantive",
+      "r3_value": "NOT_PRESENT",
+      "r4_value": "NOT_PRESENT",
+      "owner_semantic_overlay_value": "NOT_PRESENT",
+      "r3_r4_agree": true,
+      "both_match_owner_overlay": true,
+      "r3_reason_sha256": "974960fb4d5b45d3d5eaa9709e417cb8f5eba6053581ece0dfc722936dc66715",
+      "r4_reason_sha256": "58a31ca39d9b8bd05639c3cd3f5b2063daca1f0baec02de46dd416101d5a2ba8"
+    },
+    {
+      "blind_review_id": "D1BR-3132012A70EC",
+      "target_field": "version_claim_status",
+      "case_category": "bare_substantive",
+      "r3_value": "NOT_PRESENT",
+      "r4_value": "NOT_PRESENT",
+      "owner_semantic_overlay_value": "NOT_PRESENT",
+      "r3_r4_agree": true,
+      "both_match_owner_overlay": true,
+      "r3_reason_sha256": "e1568632ad467e6be40d1525f52b394a8dcd144b5335d12224f12381db3485f4",
+      "r4_reason_sha256": "ef28a3795f46dbe408d3e68f8249154e8f996ed1617e2910f2bb0ef0f426e3ce"
+    }
+  ]
+}

@@ -1,5 +1,33 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current machine recovery record — 2026-09-26 V4.2 targeted R3/R4 return validation
+
+```yaml
+task: P1-FORMAL240-D1-CANARY-V4_2-TARGETED-R3R4-RAW-LOCK-AND-VALIDATION-01
+input_head: 9eb6d54ea40f3c96030c70d296fb1f2c433032e7
+private_raw_lock: E:\LLMGuard-Handoff\paper1_formal240_d1_canary_v4_2_targeted_raw_lock_20260926
+r3_raw_bytes: 4655
+r3_raw_sha256: 24bf845e98e2fae8c9193fac8c584be1e7a36130ff2b595d3a88c1ced4f9885a
+r4_raw_bytes: 5699
+r4_raw_sha256: e2eefbc4435a6cf250a3e1b67e5e337927c4d738e957bf461d9772fa14343fe8
+both_source_copy_parity: true
+both_locked_read_only: true
+both_exact_schema_id_order_enum_reason: 15/15_PASS
+r3_r4_target_value_agreement: 15/15
+both_match_owner_semantic_overlay: 15/15
+review_lineage: OWNER_ATTESTED_NOT_MACHINE_VERIFIED
+review_role: SAME_ORIGINAL_SESSIONS_TARGETED_RULE_CONFIRMATION_NOT_FRESH_INDEPENDENT_ANNOTATION
+expected_gt_mapping_loaded: false
+old_raw_and_owner_overlay_mutated: false
+targeted_gate: VERSION_SCOPE_RULE_STABILITY_PASS
+canary_owner_accepted: false
+human_ab_authorized: false
+auto_continue: false
+next_gate: OWNER_SEPARATE_CANARY_ACCEPT_OR_REPAIR_DECISION
+```
+
+[Validation JSON](../formal240/PAPER1_FORMAL_D1_CANARY_V4_2_TARGETED_R3_R4_VALIDATION_V1.json) and [bounded report](../formal240/PAPER1_FORMAL_D1_CANARY_V4_2_TARGETED_RULE_STABILITY_REPORT_V1.md) supersede only the previous `targeted_return_received: false` snapshot. R5 remains optional/non-gating.
+
 ## Current machine recovery record — 2026-09-26 Formal V4.2 Owner semantic freeze
 
 ```yaml

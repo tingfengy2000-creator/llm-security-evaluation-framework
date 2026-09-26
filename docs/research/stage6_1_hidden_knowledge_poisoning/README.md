@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> 当前 Formal240 D1 Canary（2026-09-26）：两位原盲审员已交回 V4.2 的 15 条定向复核，原件只读锁定、各 15/15 合规；双方及 Owner 语义覆盖值 15/15 一致。[复核记录](formal240/PAPER1_FORMAL_D1_CANARY_V4_2_TARGETED_RULE_STABILITY_REPORT_V1.md)。这只表明规则理解在原会话中稳定，**不等于 Canary 已验收**。下一步须 Owner 另行审阅完整质量证据并明确接受或退修；Human A/B、其余40组、split 和训练仍未授权。下方“尚无新返回”是前一时点快照。
+
 > 当前 Formal240 D1 Canary（2026-09-26）：Owner 已冻结[标注解释 V4.2](formal240/PAPER1_FORMAL_ANNOTATION_GUIDE_V4_2_VERSION_SCOPE_DECISION.md)：版本主张先只看候选，不让证据元数据“倒灌”；明确修改决定与有证据支持的双版本比较另有清晰边界。15 项原分歧通过[追加覆盖记录](formal240/PAPER1_FORMAL_D1_CANARY_PHASE2_OWNER_SEMANTIC_ADJUDICATION_OVERLAY_V1.json)逐条应用，原 R3/R4 返回未改。[无答案定向复核包](formal240/PAPER1_FORMAL_D1_CANARY_PHASE2_15ITEM_TARGETED_REREVIEW_PACKAGE_V1.json)待 Owner 分发给原两会话，尚无新返回。Canary 未验收、Human A/B 未授权；旧“等待语义决定”是此前快照。
 
 > 当前 Formal240 D1 Canary（2026-09-26）：R3-gpt 与 R4-codex Phase2 两份结构化返回已锁定、各通过 24/24 格式和顺序检查；R3 首次失格式传输也作为历史证据保留。事实总状态有 2 条、版本主张有 13 条分歧，涉及规则边界，不能自动接受 Canary。[双人 Phase2 锁定与 Owner 决策材料](formal240/PAPER1_FORMAL_D1_CANARY_R3_R4_PHASE2_RAW_LOCK_AND_DISAGREEMENT_BLOCKER_V1.md)。`HUMAN_DECISION_REQUIRED / Auto Continue=NO`；真人 A/B、其余40组、split、训练继续暂停。下一段“可以发第二阶段”是本轮交卷前的真实历史快照。
