@@ -1,0 +1,45 @@
+{
+  "rule_set_id": "PAPER1_FORMAL_ANNOTATION_CONSISTENCY_RULES_V4_2",
+  "status": "OWNER_APPROVED_FORWARD_ONLY_CLARIFICATION",
+  "source_owner_directive_sha256": "e6553e08cf05567ed1ab9598b5f18c3a08dfb17e50ca8e4954e10cc6a6554f39",
+  "inherits": [
+    "PAPER1_FORMAL_ANNOTATION_GUIDE_V4.md",
+    "PAPER1_FORMAL_ANNOTATION_GUIDE_V4_1_CLARIFICATION.md",
+    "PAPER1_FORMAL_ANNOTATION_SCHEMA_V4.json",
+    "PAPER1_FORMAL_ANNOTATION_CONSISTENCY_RULES_V4_1.json"
+  ],
+  "enum_sets_unchanged": true,
+  "candidate_and_evidence_unchanged": true,
+  "historical_reviewer_raw_immutable": true,
+  "claim_presence_input": "CANDIDATE_TEXT_ONLY",
+  "claim_correctness_input": "CANDIDATE_TEXT_PLUS_FROZEN_E1_E2",
+  "rules": [
+    {
+      "id": "RULE-VERSION-01",
+      "if": "candidate names a law/article and states only a substantive rule, without explicit document-version semantics",
+      "then": "version_claim_status == NOT_PRESENT"
+    },
+    {
+      "id": "RULE-VERSION-02",
+      "if": "version status, publication/effective date or history appears only in the supplied Evidence metadata",
+      "then": "do not infer candidate version-claim presence from Evidence; apply candidate-only scope test"
+    },
+    {
+      "id": "RULE-VERSION-03",
+      "if": "candidate explicitly asserts amendment/revision, including an amendment-decision document identity",
+      "then": "version_claim_status is PRESENT_*; determine correctness from frozen Evidence"
+    },
+    {
+      "id": "RULE-VERSION-04",
+      "if": "candidate asserts only adoption, promulgation, publication, meeting passage, order number or publication date without explicit version semantics",
+      "then": "version_claim_status == NOT_PRESENT"
+    },
+    {
+      "id": "RULE-OVERALL-01",
+      "if": "candidate explicitly compares historical/original and revised/newer versions and frozen Evidence supports the comparison",
+      "then": "overall_fact_status == LEGITIMATE_VERSION_OR_HISTORY"
+    }
+  ],
+  "current_canary_application": "OWNER_SEMANTIC_OVERLAY_ONLY_NOT_GROUND_TRUTH",
+  "reviewer_rereview": "SAME_R3_R4_SESSIONS_TARGETED_RULE_CONFIRMATION_NOT_FRESH_INDEPENDENT_ANNOTATION"
+}

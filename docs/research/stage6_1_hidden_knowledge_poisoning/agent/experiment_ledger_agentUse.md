@@ -1,5 +1,32 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current machine recovery record — 2026-09-26 Formal V4.2 Owner semantic freeze
+
+```yaml
+task: P1-FORMAL240-D1-CANARY-V4_2-OWNER-SEMANTIC-FREEZE-AND-TARGETED-REREVIEW-01
+input_head: d2825fa1179729a27c3c826ad7373b6df9d0f79c
+owner_authority: PODR-114 / OR-070
+owner_directive_sha256: e6553e08cf05567ed1ab9598b5f18c3a08dfb17e50ca8e4954e10cc6a6554f39
+phase2_packet_sha256: 2daf08286581cb8d28e70ab95ea844e5cdf41e2a6916980bf41b0a90a548ac38
+global_rules: CANDIDATE_ONLY_VERSION_PRESENCE; AMENDMENT_DECISION_PRESENT; SUPPORTED_TWO_VERSION_OVERALL_HISTORY
+disagreement_cases: 15
+bare_substantive: 12
+amendment_decision: 1
+historical_comparison: 2
+reviewer_raw_mutated: false
+candidate_or_frozen_evidence_mutated: false
+expected_gt_hidden_mapping_loaded: false
+owner_overlay_role: PREANNOTATION_SEMANTIC_QA_NOT_GT
+targeted_package_role: SAME_SESSION_RULE_CONFIRMATION_NOT_FRESH_INDEPENDENT_ANNOTATION
+targeted_return_received: false
+canary_accepted: false
+human_ab_authorized: false
+auto_continue: false
+next_gate: OWNER_DISTRIBUTES_IDENTICAL_15_ROW_PACKAGE_TO_ORIGINAL_R3_R4_AND_RETURNS_RAW_JSON
+```
+
+[V4.2 guide](../formal240/PAPER1_FORMAL_ANNOTATION_GUIDE_V4_2_VERSION_SCOPE_DECISION.md), [case overlay](../formal240/PAPER1_FORMAL_D1_CANARY_PHASE2_OWNER_SEMANTIC_ADJUDICATION_OVERLAY_V1.json), and [targeted QA report](../formal240/PAPER1_FORMAL_D1_CANARY_VERSION_SCOPE_REFINEMENT_REPORT_V1.md) are additive. Previous machine recovery records remain historical snapshots.
+
 ## Current machine recovery record — 2026-09-26 R3/R4 Phase2 comparison blocker
 
 ```yaml

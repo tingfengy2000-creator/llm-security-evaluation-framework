@@ -1,0 +1,13 @@
+# R4-codex — D1 Canary Phase2 V4.2 targeted rule confirmation
+
+Continue in your original isolated `R4-codex` review session. The coordinator supplies the accepted Formal Guide V4, V4.1 and V4.2 addendum plus `PAPER1_FORMAL_D1_CANARY_PHASE2_15ITEM_TARGETED_REREVIEW_PACKAGE_V1.json`. Do not request or use previous reviewer returns, the Owner's case-answer overlay, construction roles, mappings, Expected, GT, other repository files, other reviewers' answers or outside factual sources. Use only each row's candidate text and supplied frozen E1/E2. This is a **targeted rule-confirmation of your prior Phase2 review**, not a new independent blind annotation run.
+
+For each of the 15 records, answer **only** its `target_field` (`version_claim_status` or `overall_fact_status`). Decide whether a version claim is present from the **candidate text alone**; Evidence metadata cannot create a claim. A named law/article with only substantive content is `NOT_PRESENT`; explicit amendment-decision identity is a present version claim. A supported explicit original-versus-revised comparison is `LEGITIMATE_VERSION_OR_HISTORY` for overall status. Use frozen E1/E2 only to test an asserted claim's correctness or the comparison's support. Do not revise any other previously reviewed field. If you discover a genuinely blocking candidate/evidence problem, state it separately to the coordinator; never alter the package.
+
+Return one valid UTF-8 JSON file named `PAPER1_FORMAL_D1_R4_CODEX_PHASE2_V4_2_TARGETED_RETURN.json`. It must be a JSON array of **exactly 15 objects in the package's ID order**, with exactly these keys per object:
+
+```json
+{"blind_review_id":"D1BR-...","target_field":"version_claim_status","reviewed_value":"NOT_PRESENT","short_reviewer_reason":"Brief candidate-scope and, if relevant, frozen-Evidence explanation."}
+```
+
+The example is schematic, not an answer to any package item. `blind_review_id` and `target_field` must exactly match the corresponding package row. For `version_claim_status`, use only `NOT_PRESENT`, `PRESENT_CORRECT`, `PRESENT_INCORRECT`, `PRESENT_EVIDENCE_INSUFFICIENT`. For `overall_fact_status`, use only `CURRENTLY_CONSISTENT`, `LEGITIMATE_VERSION_OR_HISTORY`, `FACTUAL_CONFLICT`, `INSUFFICIENT_EVIDENCE`. `short_reviewer_reason` must be a nonblank concise explanation. Do not add Markdown fences, UI citation tokens, comments, trailing commas, or extra keys. Before submitting, parse the saved file as JSON, verify 15 unique IDs and exact row order, exact keys and legal values, and attach the **actual file**. If you cannot create/attach a file, say so; do not present a pseudo-file as raw bytes.

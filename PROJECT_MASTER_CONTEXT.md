@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## Formal240 D1 Canary V4.2 语义边界已冻结，等待原两位评审定向复核（2026-09-26）
+
+Owner 决定不能从 Evidence 页的“现行有效”等元数据反推候选提出了版本主张：12 条裸法条实体陈述应为 `NOT_PRESENT`；明确命名修改决定的 1 条有版本主张且冻结证据支持；明确比较 2003 原版与 2010 修订版的 2 条正确命题归合法版本/历史。这不是按 R3/R4 人头选胜者。15 条 Owner-semantic 结果在[独立覆盖记录](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_CANARY_PHASE2_OWNER_SEMANTIC_ADJUDICATION_OVERLAY_V1.json)，旧原件、候选、Evidence、V4/V4.1 不变。15 条不含既有答案的定向包和对称提示词已准备，**尚未分发**；原 R3-gpt/R4-codex 会话须各自提交真实 JSON 文件。只有复核完成并解决残余 blocker 后，才进入 Owner Canary 验收门。Human A/B、其余40组、split 和训练均未授权。下方“版本解释待 Owner 决定”是之前时点快照。
+
 ## Formal240 D1 Canary Phase2 双返回已锁定，版本解释待 Owner 决定（2026-09-26）
 
 R3-gpt 首次答卷的文本传输因引号丢失不能当作有效 JSON，但原件保留；R3 有效重导出与 R4-codex 原件各通过 24/24 结构核验。R3 重导出未改变首次答卷的题号、分类或理由正文（排除界面引用标记），但并非相同字节。Owner 人工证明两位沿用原隔离会话且仅用冻结 E1/E2；未取得机器访问日志。两人事实总状态 22/24 一致，版本主张 11/24 一致，其余六分类字段全部一致。系统性版本边界和两条历史状态差异在[决策材料](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_CANARY_R3_R4_PHASE2_RAW_LOCK_AND_DISAGREEMENT_BLOCKER_V1.md)保留原值并等待 Owner 决定。`HUMAN_DECISION_REQUIRED / Auto Continue=NO`：Canary 尚未接受，不得发 Human A/B、构造其余40组、切分或训练。下方 Phase2 可分发但未执行是之前时点的记录。

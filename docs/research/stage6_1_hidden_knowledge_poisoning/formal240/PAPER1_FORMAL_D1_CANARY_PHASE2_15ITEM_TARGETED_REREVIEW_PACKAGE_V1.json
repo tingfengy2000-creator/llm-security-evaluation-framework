@@ -1,0 +1,327 @@
+{
+  "artifact_id": "PAPER1_FORMAL_D1_CANARY_PHASE2_15ITEM_TARGETED_REREVIEW_PACKAGE_V1",
+  "status": "TARGETED_RULE_CONFIRMATION_NOT_FRESH_INDEPENDENT_ANNOTATION",
+  "source_frozen_phase2_packet_sha256": "2daf08286581cb8d28e70ab95ea844e5cdf41e2a6916980bf41b0a90a548ac38",
+  "guide_id": "PAPER1_FORMAL_ANNOTATION_GUIDE_V4_2_VERSION_SCOPE_DECISION",
+  "instruction": "Review only target_field under V4.2 using candidate text and the supplied frozen E1/E2. Return target value and a short reason; report a blocking evidence defect separately if found.",
+  "records": [
+    {
+      "blind_review_id": "D1BR-1187C884B742",
+      "candidate_text": "《女职工劳动保护特别规定》第六条规定，用人单位不得安排怀孕7个月以上的女职工从事夜班劳动。",
+      "evidence": [
+        {
+          "evidence_selection_id": "E1",
+          "title": "女职工劳动保护特别规定",
+          "official_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=343",
+          "snapshot_raw_sha256": "a8da3eb98b9a6781d46b2d93aaa6e919598da45913ca05120a44a3f9bf620fa6",
+          "bounded_official_excerpt": "其工资、予以辞退、与其解除劳动或者聘用合同。 第六条 女职工在孕期不能适应原劳动的，用人单位应当根据医疗机构的证明，予以减轻劳动量或者安排其他能够适应的劳动。 对怀孕 7 个月以上的女职工，用人单位不得延长劳动时间或者安排夜班劳动，并应当在劳动时间内安排一定的休息时间。 怀孕女职工在劳动时间内进行产前检查，所需时间计入劳动时间。 第七条 女职工生育享受 98 天产假，其中产前可以休假 15 天；难产的，增加产假 15 天；生育多胞胎的，每多生育 1 个婴儿，增加产假 15 天。 女职工怀孕未满 4 个月流产的，享受 15 天产假；怀孕"
+        },
+        {
+          "evidence_selection_id": "E2",
+          "title": "国家行政法规库现行有效标题检索：女职工劳动保护特别规定",
+          "official_url": "https://xzfg.moj.gov.cn/SearchTitleFront?QueryAll=%E5%A5%B3%E8%81%8C%E5%B7%A5%E5%8A%B3%E5%8A%A8%E4%BF%9D%E6%8A%A4%E7%89%B9%E5%88%AB%E8%A7%84%E5%AE%9A",
+          "snapshot_raw_sha256": "bbbc320b4daa4696b67553bdecf0a4e2d99e747b578e11cc246b12e6cba89c4f",
+          "bounded_official_excerpt": "文检索 高级检索 根据《行政法规制定程序条例》汇编国家正式版本并动态更新，中国政府网与中国政府法制信息网(司法部官网)同步公布 标题检索 正文检索 时 效 性 现行有效 现行有效 公布文号 公布日期 施行日期 检索 重置 取消 检索词： 女职工劳动保护特别规定 清空 现行有效 1 部 相似度 公布日期 施行日期 1. 女 职工 劳动 保护 特 别规定 2012-04-28公布 2012-04-28施行 下载 Word PDF 2012-04-28 女职工劳动保护特别规定 中华人民共和国司法部 版权所有 京ICP备0505517 司法部"
+        }
+      ],
+      "target_field": "version_claim_status"
+    },
+    {
+      "blind_review_id": "D1BR-0A533F363A06",
+      "candidate_text": "《职工带薪年休假条例》第三条规定，累计工作满1年不满10年的职工享有5天年休假，同一档职工又享有10天。",
+      "evidence": [
+        {
+          "evidence_selection_id": "E1",
+          "title": "职工带薪年休假条例",
+          "official_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=208",
+          "snapshot_raw_sha256": "9dbd0465bf87669cbef0b10270842ad5855faed2d6a1aedf6608d7a8385372e8",
+          "bounded_official_excerpt": "等单位的职工连续工作 1 年以上的，享受带薪年休假 ( 以下简称年休假 ) 。单位应当保证职工享受年休假。 职工在年休假期间享受与正常工作期间相同的工资收入。 第三条 职工累计工作已满 1 年不满 10 年的，年休假 5 天；已满 10 年不满 20 年的，年休假 10 天；已满 20 年的，年休假 15 天。 国家法定休假日、休息日不计入年休假的假期。 第四条 职工有下列情形之一的，不享受当年的年休假： ( 一 ) 职工依法享受寒暑假，其休假天数多于年休假天数的； ( 二 ) 职工请事假累计 20 天以上且单位按照规定不扣工资的； "
+        },
+        {
+          "evidence_selection_id": "E2",
+          "title": "国家行政法规库现行有效标题检索：职工带薪年休假条例",
+          "official_url": "https://xzfg.moj.gov.cn/SearchTitleFront?QueryAll=%E8%81%8C%E5%B7%A5%E5%B8%A6%E8%96%AA%E5%B9%B4%E4%BC%91%E5%81%87%E6%9D%A1%E4%BE%8B",
+          "snapshot_raw_sha256": "b004c6e9637f89874e6af0f9c150e3673f2a4838290d2d07ad565187985502b5",
+          "bounded_official_excerpt": "文检索 高级检索 根据《行政法规制定程序条例》汇编国家正式版本并动态更新，中国政府网与中国政府法制信息网(司法部官网)同步公布 标题检索 正文检索 时 效 性 现行有效 现行有效 公布文号 公布日期 施行日期 检索 重置 取消 检索词： 职工带薪年休假条例 清空 现行有效 1 部 相似度 公布日期 施行日期 1. 职工 带薪 年休假条例 2007-12-14公布 2008-01-01施行 下载 Word PDF 2007-12-14 职工带薪年休假条例 中华人民共和国司法部 版权所有 京ICP备0505517 司法部信息中心 运维保障"
+        }
+      ],
+      "target_field": "version_claim_status"
+    },
+    {
+      "blind_review_id": "D1BR-89AF72FC0DA1",
+      "candidate_text": "《国务院关于修改〈工伤保险条例〉的决定》经国务院常务会议于2010年12月8日通过，于同月20日公布。",
+      "evidence": [
+        {
+          "evidence_selection_id": "E1",
+          "title": "国务院关于修改《工伤保险条例》的决定",
+          "official_url": "https://www.ln.gov.cn/web/zwgkx/lnsrmzfgb/2011n/qk/2011n_dsq17/gwywj/8898EEA91E114E6CB69512484F33BB00/index.shtml",
+          "snapshot_raw_sha256": "7d2a49888262f84f117f7ff0325b38fd90e43a84b0e197c35f03346231891f50",
+          "bounded_official_excerpt": " -> 国务院文件 中华人民共和国国务院令 第586号 《国务院关于修改〈工伤保险条例〉的决定》已经2010年12月8日国务院第136次常务会议通过，现予公布，自2011年1月1日起施行。 总 理 温家宝 二○一○年十二月二十日 国务院关于修改《工伤保险条例》的决定 国务院决定对《工伤保险条例》作如下修改： 一、第二条修改为：“中华人民共和国境内的企业、事业单位、社会团体、民办非企业单位、基金会、律师事务所、会计师事务所等组织和有雇工的个体工商户（以下称用人单位）应当依照本条例规定参加工伤保险，为本单位全部职工或者雇工（以下称职工）缴"
+        },
+        {
+          "evidence_selection_id": "E2",
+          "title": "国家行政法规库现行有效标题检索：工伤保险条例",
+          "official_url": "https://xzfg.moj.gov.cn/SearchTitleFront?QueryAll=%E5%B7%A5%E4%BC%A4%E4%BF%9D%E9%99%A9%E6%9D%A1%E4%BE%8B",
+          "snapshot_raw_sha256": "a9c6ba751f026e6f855c01cb86fde8f1ca2361b7fbbb61bc225087f144fc16da",
+          "bounded_official_excerpt": "文检索 高级检索 根据《行政法规制定程序条例》汇编国家正式版本并动态更新，中国政府网与中国政府法制信息网(司法部官网)同步公布 标题检索 正文检索 时 效 性 现行有效 现行有效 公布文号 公布日期 施行日期 检索 重置 取消 检索词： 工伤保险条例 清空 现行有效 1 部 相似度 公布日期 施行日期 1. 工伤 保险 条例 历史沿革 2010-12-20公布 2011-01-01施行 下载 Word PDF 2003-04-27 2010-12-20 工伤保险条例 工伤保险条例 中华人民共和国司法部 版权所有 京ICP备050551"
+        }
+      ],
+      "target_field": "version_claim_status"
+    },
+    {
+      "blind_review_id": "D1BR-1EC27F82DC9B",
+      "candidate_text": "《女职工劳动保护特别规定》第六条规定，用人单位不得安排怀孕6个月以上的女职工从事夜班劳动。",
+      "evidence": [
+        {
+          "evidence_selection_id": "E1",
+          "title": "女职工劳动保护特别规定",
+          "official_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=343",
+          "snapshot_raw_sha256": "a8da3eb98b9a6781d46b2d93aaa6e919598da45913ca05120a44a3f9bf620fa6",
+          "bounded_official_excerpt": "其工资、予以辞退、与其解除劳动或者聘用合同。 第六条 女职工在孕期不能适应原劳动的，用人单位应当根据医疗机构的证明，予以减轻劳动量或者安排其他能够适应的劳动。 对怀孕 7 个月以上的女职工，用人单位不得延长劳动时间或者安排夜班劳动，并应当在劳动时间内安排一定的休息时间。 怀孕女职工在劳动时间内进行产前检查，所需时间计入劳动时间。 第七条 女职工生育享受 98 天产假，其中产前可以休假 15 天；难产的，增加产假 15 天；生育多胞胎的，每多生育 1 个婴儿，增加产假 15 天。 女职工怀孕未满 4 个月流产的，享受 15 天产假；怀孕"
+        },
+        {
+          "evidence_selection_id": "E2",
+          "title": "国家行政法规库现行有效标题检索：女职工劳动保护特别规定",
+          "official_url": "https://xzfg.moj.gov.cn/SearchTitleFront?QueryAll=%E5%A5%B3%E8%81%8C%E5%B7%A5%E5%8A%B3%E5%8A%A8%E4%BF%9D%E6%8A%A4%E7%89%B9%E5%88%AB%E8%A7%84%E5%AE%9A",
+          "snapshot_raw_sha256": "bbbc320b4daa4696b67553bdecf0a4e2d99e747b578e11cc246b12e6cba89c4f",
+          "bounded_official_excerpt": "文检索 高级检索 根据《行政法规制定程序条例》汇编国家正式版本并动态更新，中国政府网与中国政府法制信息网(司法部官网)同步公布 标题检索 正文检索 时 效 性 现行有效 现行有效 公布文号 公布日期 施行日期 检索 重置 取消 检索词： 女职工劳动保护特别规定 清空 现行有效 1 部 相似度 公布日期 施行日期 1. 女 职工 劳动 保护 特 别规定 2012-04-28公布 2012-04-28施行 下载 Word PDF 2012-04-28 女职工劳动保护特别规定 中华人民共和国司法部 版权所有 京ICP备0505517 司法部"
+        }
+      ],
+      "target_field": "version_claim_status"
+    },
+    {
+      "blind_review_id": "D1BR-06BB2069DAFB",
+      "candidate_text": "依《社会保险经办条例》第六条，社会保险经办机构收到个人的社会保险登记申请后，应当在20个工作日内办理完毕。",
+      "evidence": [
+        {
+          "evidence_selection_id": "E1",
+          "title": "社会保险经办条例",
+          "official_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=1693",
+          "snapshot_raw_sha256": "9bbc5025da6fffdac7e47a65c89bdacfd1d21ca30fbe36cc3a1e387a06d4c43a",
+          "bounded_official_excerpt": "工作。 县级以上地方人民政府应当加强对本行政区域社会保险经办工作的领导，加强社会保险经办能力建设，为社会保险经办工作提供保障。 第二章 社会保险登记和关系转移 第六条 用人单位在登记管理机关办理登记时同步办理社会保险登记。 个人申请办理社会保险登记，以公民身份号码作为社会保障号码，取得社会保障卡和医保电子凭证。社会保险经办机构应当自收到申请之日起10个工作日内办理完毕。 第七条 社会保障卡是个人参加基本养老保险、基本医疗保险、工伤保险、失业保险、生育保险等社会保险和享受各项社会保险待遇的凭证，包括实体社会保障卡和电子社会保障卡。 医保",
+          "additional_official_excerpt_article10": "第十条 用人单位和个人申请变更、注销社会保险登记，社会保险经办机构应当自收到申请之日起10个工作日内办理完毕。用人单位注销社会保险登记的，应当先结清欠缴的社会保险费、滞纳金、罚款。 第十一条 社会保险经办机构应当及时、完整、准确记录下列信息： (一)社会保险登记情况； (二)社会保险费缴纳情况； (三)社会保险待遇享受情况； (四)个人账户情况； (五)与社会保险经办相关的其他情况。 第十二条 参加职工基本养老保险的个人跨统筹地区就业，其职工基本养老保险关系随同转移。 参加职工基本养老保险的个 人在机关事业单位与企业等不同性质用人单位之间流动就业，其职工基本 养老保险关系随同转移。 参加城乡居民基本养老保险且未享受待遇的个人跨统筹地区迁移户籍，其城乡居"
+        },
+        {
+          "evidence_selection_id": "E2",
+          "title": "国家行政法规库现行有效标题检索：社会保险经办条例",
+          "official_url": "https://xzfg.moj.gov.cn/SearchTitleFront?QueryAll=%E7%A4%BE%E4%BC%9A%E4%BF%9D%E9%99%A9%E7%BB%8F%E5%8A%9E%E6%9D%A1%E4%BE%8B",
+          "snapshot_raw_sha256": "db78bc08d1b1bcca78165e2d1f62fc6c2235cc15331968f96b10a771f7f67b57",
+          "bounded_official_excerpt": "文检索 高级检索 根据《行政法规制定程序条例》汇编国家正式版本并动态更新，中国政府网与中国政府法制信息网(司法部官网)同步公布 标题检索 正文检索 时 效 性 现行有效 现行有效 公布文号 公布日期 施行日期 检索 重置 取消 检索词： 社会保险经办条例 清空 现行有效 1 部 相似度 公布日期 施行日期 1. 社会 保险 经办 条例 2023-08-16公布 2023-12-01施行 下载 Word PDF 2023-08-16 社会保险经办条例 中华人民共和国司法部 版权所有 京ICP备0505517 司法部信息中心 运维保障 C"
+        }
+      ],
+      "target_field": "version_claim_status"
+    },
+    {
+      "blind_review_id": "D1BR-C9E69F1920D5",
+      "candidate_text": "根据《职工带薪年休假条例》第四条，某职工请事假累计20天以上且单位按规定不扣工资，该职工当年既享受年休假，也不享受年休假。",
+      "evidence": [
+        {
+          "evidence_selection_id": "E1",
+          "title": "职工带薪年休假条例",
+          "official_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=208",
+          "snapshot_raw_sha256": "9dbd0465bf87669cbef0b10270842ad5855faed2d6a1aedf6608d7a8385372e8",
+          "bounded_official_excerpt": "10 年的，年休假 5 天；已满 10 年不满 20 年的，年休假 10 天；已满 20 年的，年休假 15 天。 国家法定休假日、休息日不计入年休假的假期。 第四条 职工有下列情形之一的，不享受当年的年休假： ( 一 ) 职工依法享受寒暑假，其休假天数多于年休假天数的； ( 二 ) 职工请事假累计 20 天以上且单位按照规定不扣工资的； ( 三 ) 累计工作满 1 年不满 10 年的职工，请病假累计 2 个月以上的； ( 四 ) 累计工作满 10 年不满 20 年的职工，请病假累计 3 个月以上的； ( 五 ) 累计工作满 20 年"
+        },
+        {
+          "evidence_selection_id": "E2",
+          "title": "国家行政法规库现行有效标题检索：职工带薪年休假条例",
+          "official_url": "https://xzfg.moj.gov.cn/SearchTitleFront?QueryAll=%E8%81%8C%E5%B7%A5%E5%B8%A6%E8%96%AA%E5%B9%B4%E4%BC%91%E5%81%87%E6%9D%A1%E4%BE%8B",
+          "snapshot_raw_sha256": "b004c6e9637f89874e6af0f9c150e3673f2a4838290d2d07ad565187985502b5",
+          "bounded_official_excerpt": "文检索 高级检索 根据《行政法规制定程序条例》汇编国家正式版本并动态更新，中国政府网与中国政府法制信息网(司法部官网)同步公布 标题检索 正文检索 时 效 性 现行有效 现行有效 公布文号 公布日期 施行日期 检索 重置 取消 检索词： 职工带薪年休假条例 清空 现行有效 1 部 相似度 公布日期 施行日期 1. 职工 带薪 年休假条例 2007-12-14公布 2008-01-01施行 下载 Word PDF 2007-12-14 职工带薪年休假条例 中华人民共和国司法部 版权所有 京ICP备0505517 司法部信息中心 运维保障"
+        }
+      ],
+      "target_field": "version_claim_status"
+    },
+    {
+      "blind_review_id": "D1BR-EB126783B95E",
+      "candidate_text": "对照2003年原版和2010年修订版《工伤保险条例》，八级伤残的一次性伤残补助金月数标准有所提高。",
+      "evidence": [
+        {
+          "evidence_selection_id": "E1",
+          "title": "工伤保险条例（2003原版）",
+          "official_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=950",
+          "snapshot_raw_sha256": "c2195f44462de1855b642d257e4b5490a5eb2cc5dd01f6d880d17dcd967b9162",
+          "bounded_official_excerpt": " 经工伤职工本人提出，该职工可以与用人单位解除或者终止劳动关系，由用人单位支付一次性工伤医疗补助金和伤残就业补助金。具体标准由省、自治区、直辖市人民政府规定。 第三十五条 职工因工致残被鉴定为七级至十级伤残的，享受以下待遇： (一)从工伤保险基金按伤残等级支付一次性伤残补助金，标准为：七级伤残为12个月的本人工资，八级伤残为10个月的本人工资，九级伤残为8个月的本人工资，十级伤残为6个月的本人工资； (二)劳动合同期满终止，或者职工本人提出解除劳动合同的，由用人单位支付一次性工伤医疗补助金和伤残就业补助金。具体标准由省、自治区、直辖市"
+        },
+        {
+          "evidence_selection_id": "E2",
+          "title": "工伤保险条例（2010修订）",
+          "official_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=610",
+          "snapshot_raw_sha256": "57b478ff3e49715340884798a0a41c5fcf2e1439d2ffce2142ee7733c1e27116",
+          "bounded_official_excerpt": "伤保险基金支付一次性工伤医疗补助金，由用人单位支付一次性伤残就业补助金。一次性工伤医疗补助金和一次性伤残就业补助金的具体标准由省、自治区、直辖市人民政府规定。 第三十七条 职工因工致残被鉴定为七级至十级伤残的，享受以下待遇： ( 一 ) 从工伤保险基金按伤残等级支付一次性伤残补助金，标准为：七级伤残为 13 个月的本人工资，八级伤残为 11 个月的本人工资，九级伤残为 9 个月的本人工资，十级伤残为 7 个月的本人工资； ( 二 ) 劳动、聘用合同期满终止，或者职工本人提出解除劳动、聘用合同的，由工伤保险基金支付一次性工伤医疗补助金，"
+        }
+      ],
+      "target_field": "overall_fact_status"
+    },
+    {
+      "blind_review_id": "D1BR-61B29673D6D7",
+      "candidate_text": "依《社会保险经办条例》第十条，社会保险经办机构收到社会保险登记变更或者注销申请后，应当在10个工作日内办理完毕。",
+      "evidence": [
+        {
+          "evidence_selection_id": "E1",
+          "title": "社会保险经办条例",
+          "official_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=1693",
+          "snapshot_raw_sha256": "9bbc5025da6fffdac7e47a65c89bdacfd1d21ca30fbe36cc3a1e387a06d4c43a",
+          "bounded_official_excerpt": "工作。 县级以上地方人民政府应当加强对本行政区域社会保险经办工作的领导，加强社会保险经办能力建设，为社会保险经办工作提供保障。 第二章 社会保险登记和关系转移 第六条 用人单位在登记管理机关办理登记时同步办理社会保险登记。 个人申请办理社会保险登记，以公民身份号码作为社会保障号码，取得社会保障卡和医保电子凭证。社会保险经办机构应当自收到申请之日起10个工作日内办理完毕。 第七条 社会保障卡是个人参加基本养老保险、基本医疗保险、工伤保险、失业保险、生育保险等社会保险和享受各项社会保险待遇的凭证，包括实体社会保障卡和电子社会保障卡。 医保",
+          "additional_official_excerpt_article10": "第十条 用人单位和个人申请变更、注销社会保险登记，社会保险经办机构应当自收到申请之日起10个工作日内办理完毕。用人单位注销社会保险登记的，应当先结清欠缴的社会保险费、滞纳金、罚款。 第十一条 社会保险经办机构应当及时、完整、准确记录下列信息： (一)社会保险登记情况； (二)社会保险费缴纳情况； (三)社会保险待遇享受情况； (四)个人账户情况； (五)与社会保险经办相关的其他情况。 第十二条 参加职工基本养老保险的个人跨统筹地区就业，其职工基本养老保险关系随同转移。 参加职工基本养老保险的个 人在机关事业单位与企业等不同性质用人单位之间流动就业，其职工基本 养老保险关系随同转移。 参加城乡居民基本养老保险且未享受待遇的个人跨统筹地区迁移户籍，其城乡居"
+        },
+        {
+          "evidence_selection_id": "E2",
+          "title": "国家行政法规库现行有效标题检索：社会保险经办条例",
+          "official_url": "https://xzfg.moj.gov.cn/SearchTitleFront?QueryAll=%E7%A4%BE%E4%BC%9A%E4%BF%9D%E9%99%A9%E7%BB%8F%E5%8A%9E%E6%9D%A1%E4%BE%8B",
+          "snapshot_raw_sha256": "db78bc08d1b1bcca78165e2d1f62fc6c2235cc15331968f96b10a771f7f67b57",
+          "bounded_official_excerpt": "文检索 高级检索 根据《行政法规制定程序条例》汇编国家正式版本并动态更新，中国政府网与中国政府法制信息网(司法部官网)同步公布 标题检索 正文检索 时 效 性 现行有效 现行有效 公布文号 公布日期 施行日期 检索 重置 取消 检索词： 社会保险经办条例 清空 现行有效 1 部 相似度 公布日期 施行日期 1. 社会 保险 经办 条例 2023-08-16公布 2023-12-01施行 下载 Word PDF 2023-08-16 社会保险经办条例 中华人民共和国司法部 版权所有 京ICP备0505517 司法部信息中心 运维保障 C"
+        }
+      ],
+      "target_field": "version_claim_status"
+    },
+    {
+      "blind_review_id": "D1BR-5654C8EF39A1",
+      "candidate_text": "根据《职工带薪年休假条例》第四条，职工事假累计20天以上但单位扣工资的，不能仅凭事假天数认定其不享受当年年休假。",
+      "evidence": [
+        {
+          "evidence_selection_id": "E1",
+          "title": "职工带薪年休假条例",
+          "official_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=208",
+          "snapshot_raw_sha256": "9dbd0465bf87669cbef0b10270842ad5855faed2d6a1aedf6608d7a8385372e8",
+          "bounded_official_excerpt": "10 年的，年休假 5 天；已满 10 年不满 20 年的，年休假 10 天；已满 20 年的，年休假 15 天。 国家法定休假日、休息日不计入年休假的假期。 第四条 职工有下列情形之一的，不享受当年的年休假： ( 一 ) 职工依法享受寒暑假，其休假天数多于年休假天数的； ( 二 ) 职工请事假累计 20 天以上且单位按照规定不扣工资的； ( 三 ) 累计工作满 1 年不满 10 年的职工，请病假累计 2 个月以上的； ( 四 ) 累计工作满 10 年不满 20 年的职工，请病假累计 3 个月以上的； ( 五 ) 累计工作满 20 年"
+        },
+        {
+          "evidence_selection_id": "E2",
+          "title": "国家行政法规库现行有效标题检索：职工带薪年休假条例",
+          "official_url": "https://xzfg.moj.gov.cn/SearchTitleFront?QueryAll=%E8%81%8C%E5%B7%A5%E5%B8%A6%E8%96%AA%E5%B9%B4%E4%BC%91%E5%81%87%E6%9D%A1%E4%BE%8B",
+          "snapshot_raw_sha256": "b004c6e9637f89874e6af0f9c150e3673f2a4838290d2d07ad565187985502b5",
+          "bounded_official_excerpt": "文检索 高级检索 根据《行政法规制定程序条例》汇编国家正式版本并动态更新，中国政府网与中国政府法制信息网(司法部官网)同步公布 标题检索 正文检索 时 效 性 现行有效 现行有效 公布文号 公布日期 施行日期 检索 重置 取消 检索词： 职工带薪年休假条例 清空 现行有效 1 部 相似度 公布日期 施行日期 1. 职工 带薪 年休假条例 2007-12-14公布 2008-01-01施行 下载 Word PDF 2007-12-14 职工带薪年休假条例 中华人民共和国司法部 版权所有 京ICP备0505517 司法部信息中心 运维保障"
+        }
+      ],
+      "target_field": "version_claim_status"
+    },
+    {
+      "blind_review_id": "D1BR-F64D9CDAF252",
+      "candidate_text": "对照2003年原版和2010年修订版《工伤保险条例》，七级伤残的一次性伤残补助金月数标准有所提高。",
+      "evidence": [
+        {
+          "evidence_selection_id": "E1",
+          "title": "工伤保险条例（2003原版）",
+          "official_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=950",
+          "snapshot_raw_sha256": "c2195f44462de1855b642d257e4b5490a5eb2cc5dd01f6d880d17dcd967b9162",
+          "bounded_official_excerpt": " 经工伤职工本人提出，该职工可以与用人单位解除或者终止劳动关系，由用人单位支付一次性工伤医疗补助金和伤残就业补助金。具体标准由省、自治区、直辖市人民政府规定。 第三十五条 职工因工致残被鉴定为七级至十级伤残的，享受以下待遇： (一)从工伤保险基金按伤残等级支付一次性伤残补助金，标准为：七级伤残为12个月的本人工资，八级伤残为10个月的本人工资，九级伤残为8个月的本人工资，十级伤残为6个月的本人工资； (二)劳动合同期满终止，或者职工本人提出解除劳动合同的，由用人单位支付一次性工伤医疗补助金和伤残就业补助金。具体标准由省、自治区、直辖市"
+        },
+        {
+          "evidence_selection_id": "E2",
+          "title": "工伤保险条例（2010修订）",
+          "official_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=610",
+          "snapshot_raw_sha256": "57b478ff3e49715340884798a0a41c5fcf2e1439d2ffce2142ee7733c1e27116",
+          "bounded_official_excerpt": "伤保险基金支付一次性工伤医疗补助金，由用人单位支付一次性伤残就业补助金。一次性工伤医疗补助金和一次性伤残就业补助金的具体标准由省、自治区、直辖市人民政府规定。 第三十七条 职工因工致残被鉴定为七级至十级伤残的，享受以下待遇： ( 一 ) 从工伤保险基金按伤残等级支付一次性伤残补助金，标准为：七级伤残为 13 个月的本人工资，八级伤残为 11 个月的本人工资，九级伤残为 9 个月的本人工资，十级伤残为 7 个月的本人工资； ( 二 ) 劳动、聘用合同期满终止，或者职工本人提出解除劳动、聘用合同的，由工伤保险基金支付一次性工伤医疗补助金，"
+        }
+      ],
+      "target_field": "overall_fact_status"
+    },
+    {
+      "blind_review_id": "D1BR-80BFF76E98E3",
+      "candidate_text": "《女职工劳动保护特别规定》第六条规定，孕期不能适应原劳动的女职工，凭医疗机构证明可减轻劳动量。",
+      "evidence": [
+        {
+          "evidence_selection_id": "E1",
+          "title": "女职工劳动保护特别规定",
+          "official_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=343",
+          "snapshot_raw_sha256": "a8da3eb98b9a6781d46b2d93aaa6e919598da45913ca05120a44a3f9bf620fa6",
+          "bounded_official_excerpt": "其工资、予以辞退、与其解除劳动或者聘用合同。 第六条 女职工在孕期不能适应原劳动的，用人单位应当根据医疗机构的证明，予以减轻劳动量或者安排其他能够适应的劳动。 对怀孕 7 个月以上的女职工，用人单位不得延长劳动时间或者安排夜班劳动，并应当在劳动时间内安排一定的休息时间。 怀孕女职工在劳动时间内进行产前检查，所需时间计入劳动时间。 第七条 女职工生育享受 98 天产假，其中产前可以休假 15 天；难产的，增加产假 15 天；生育多胞胎的，每多生育 1 个婴儿，增加产假 15 天。 女职工怀孕未满 4 个月流产的，享受 15 天产假；怀孕"
+        },
+        {
+          "evidence_selection_id": "E2",
+          "title": "国家行政法规库现行有效标题检索：女职工劳动保护特别规定",
+          "official_url": "https://xzfg.moj.gov.cn/SearchTitleFront?QueryAll=%E5%A5%B3%E8%81%8C%E5%B7%A5%E5%8A%B3%E5%8A%A8%E4%BF%9D%E6%8A%A4%E7%89%B9%E5%88%AB%E8%A7%84%E5%AE%9A",
+          "snapshot_raw_sha256": "bbbc320b4daa4696b67553bdecf0a4e2d99e747b578e11cc246b12e6cba89c4f",
+          "bounded_official_excerpt": "文检索 高级检索 根据《行政法规制定程序条例》汇编国家正式版本并动态更新，中国政府网与中国政府法制信息网(司法部官网)同步公布 标题检索 正文检索 时 效 性 现行有效 现行有效 公布文号 公布日期 施行日期 检索 重置 取消 检索词： 女职工劳动保护特别规定 清空 现行有效 1 部 相似度 公布日期 施行日期 1. 女 职工 劳动 保护 特 别规定 2012-04-28公布 2012-04-28施行 下载 Word PDF 2012-04-28 女职工劳动保护特别规定 中华人民共和国司法部 版权所有 京ICP备0505517 司法部"
+        }
+      ],
+      "target_field": "version_claim_status"
+    },
+    {
+      "blind_review_id": "D1BR-CD3175E0CA7D",
+      "candidate_text": "《职工带薪年休假条例》第三条规定，累计工作满1年不满10年的职工享有5天年休假，满10年不满20年的享有10天。",
+      "evidence": [
+        {
+          "evidence_selection_id": "E1",
+          "title": "职工带薪年休假条例",
+          "official_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=208",
+          "snapshot_raw_sha256": "9dbd0465bf87669cbef0b10270842ad5855faed2d6a1aedf6608d7a8385372e8",
+          "bounded_official_excerpt": "等单位的职工连续工作 1 年以上的，享受带薪年休假 ( 以下简称年休假 ) 。单位应当保证职工享受年休假。 职工在年休假期间享受与正常工作期间相同的工资收入。 第三条 职工累计工作已满 1 年不满 10 年的，年休假 5 天；已满 10 年不满 20 年的，年休假 10 天；已满 20 年的，年休假 15 天。 国家法定休假日、休息日不计入年休假的假期。 第四条 职工有下列情形之一的，不享受当年的年休假： ( 一 ) 职工依法享受寒暑假，其休假天数多于年休假天数的； ( 二 ) 职工请事假累计 20 天以上且单位按照规定不扣工资的； "
+        },
+        {
+          "evidence_selection_id": "E2",
+          "title": "国家行政法规库现行有效标题检索：职工带薪年休假条例",
+          "official_url": "https://xzfg.moj.gov.cn/SearchTitleFront?QueryAll=%E8%81%8C%E5%B7%A5%E5%B8%A6%E8%96%AA%E5%B9%B4%E4%BC%91%E5%81%87%E6%9D%A1%E4%BE%8B",
+          "snapshot_raw_sha256": "b004c6e9637f89874e6af0f9c150e3673f2a4838290d2d07ad565187985502b5",
+          "bounded_official_excerpt": "文检索 高级检索 根据《行政法规制定程序条例》汇编国家正式版本并动态更新，中国政府网与中国政府法制信息网(司法部官网)同步公布 标题检索 正文检索 时 效 性 现行有效 现行有效 公布文号 公布日期 施行日期 检索 重置 取消 检索词： 职工带薪年休假条例 清空 现行有效 1 部 相似度 公布日期 施行日期 1. 职工 带薪 年休假条例 2007-12-14公布 2008-01-01施行 下载 Word PDF 2007-12-14 职工带薪年休假条例 中华人民共和国司法部 版权所有 京ICP备0505517 司法部信息中心 运维保障"
+        }
+      ],
+      "target_field": "version_claim_status"
+    },
+    {
+      "blind_review_id": "D1BR-4E05742512B2",
+      "candidate_text": "《职工带薪年休假条例》第三条规定，累计工作满10年不满20年的职工享有10天年休假，满20年的享有15天。",
+      "evidence": [
+        {
+          "evidence_selection_id": "E1",
+          "title": "职工带薪年休假条例",
+          "official_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=208",
+          "snapshot_raw_sha256": "9dbd0465bf87669cbef0b10270842ad5855faed2d6a1aedf6608d7a8385372e8",
+          "bounded_official_excerpt": "等单位的职工连续工作 1 年以上的，享受带薪年休假 ( 以下简称年休假 ) 。单位应当保证职工享受年休假。 职工在年休假期间享受与正常工作期间相同的工资收入。 第三条 职工累计工作已满 1 年不满 10 年的，年休假 5 天；已满 10 年不满 20 年的，年休假 10 天；已满 20 年的，年休假 15 天。 国家法定休假日、休息日不计入年休假的假期。 第四条 职工有下列情形之一的，不享受当年的年休假： ( 一 ) 职工依法享受寒暑假，其休假天数多于年休假天数的； ( 二 ) 职工请事假累计 20 天以上且单位按照规定不扣工资的； "
+        },
+        {
+          "evidence_selection_id": "E2",
+          "title": "国家行政法规库现行有效标题检索：职工带薪年休假条例",
+          "official_url": "https://xzfg.moj.gov.cn/SearchTitleFront?QueryAll=%E8%81%8C%E5%B7%A5%E5%B8%A6%E8%96%AA%E5%B9%B4%E4%BC%91%E5%81%87%E6%9D%A1%E4%BE%8B",
+          "snapshot_raw_sha256": "b004c6e9637f89874e6af0f9c150e3673f2a4838290d2d07ad565187985502b5",
+          "bounded_official_excerpt": "文检索 高级检索 根据《行政法规制定程序条例》汇编国家正式版本并动态更新，中国政府网与中国政府法制信息网(司法部官网)同步公布 标题检索 正文检索 时 效 性 现行有效 现行有效 公布文号 公布日期 施行日期 检索 重置 取消 检索词： 职工带薪年休假条例 清空 现行有效 1 部 相似度 公布日期 施行日期 1. 职工 带薪 年休假条例 2007-12-14公布 2008-01-01施行 下载 Word PDF 2007-12-14 职工带薪年休假条例 中华人民共和国司法部 版权所有 京ICP备0505517 司法部信息中心 运维保障"
+        }
+      ],
+      "target_field": "version_claim_status"
+    },
+    {
+      "blind_review_id": "D1BR-99CF0EB2D83F",
+      "candidate_text": "依《社会保险经办条例》第六条，社会保险经办机构收到个人的社会保险登记申请后，应当在10个工作日内办理完毕。",
+      "evidence": [
+        {
+          "evidence_selection_id": "E1",
+          "title": "社会保险经办条例",
+          "official_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=1693",
+          "snapshot_raw_sha256": "9bbc5025da6fffdac7e47a65c89bdacfd1d21ca30fbe36cc3a1e387a06d4c43a",
+          "bounded_official_excerpt": "工作。 县级以上地方人民政府应当加强对本行政区域社会保险经办工作的领导，加强社会保险经办能力建设，为社会保险经办工作提供保障。 第二章 社会保险登记和关系转移 第六条 用人单位在登记管理机关办理登记时同步办理社会保险登记。 个人申请办理社会保险登记，以公民身份号码作为社会保障号码，取得社会保障卡和医保电子凭证。社会保险经办机构应当自收到申请之日起10个工作日内办理完毕。 第七条 社会保障卡是个人参加基本养老保险、基本医疗保险、工伤保险、失业保险、生育保险等社会保险和享受各项社会保险待遇的凭证，包括实体社会保障卡和电子社会保障卡。 医保",
+          "additional_official_excerpt_article10": "第十条 用人单位和个人申请变更、注销社会保险登记，社会保险经办机构应当自收到申请之日起10个工作日内办理完毕。用人单位注销社会保险登记的，应当先结清欠缴的社会保险费、滞纳金、罚款。 第十一条 社会保险经办机构应当及时、完整、准确记录下列信息： (一)社会保险登记情况； (二)社会保险费缴纳情况； (三)社会保险待遇享受情况； (四)个人账户情况； (五)与社会保险经办相关的其他情况。 第十二条 参加职工基本养老保险的个人跨统筹地区就业，其职工基本养老保险关系随同转移。 参加职工基本养老保险的个 人在机关事业单位与企业等不同性质用人单位之间流动就业，其职工基本 养老保险关系随同转移。 参加城乡居民基本养老保险且未享受待遇的个人跨统筹地区迁移户籍，其城乡居"
+        },
+        {
+          "evidence_selection_id": "E2",
+          "title": "国家行政法规库现行有效标题检索：社会保险经办条例",
+          "official_url": "https://xzfg.moj.gov.cn/SearchTitleFront?QueryAll=%E7%A4%BE%E4%BC%9A%E4%BF%9D%E9%99%A9%E7%BB%8F%E5%8A%9E%E6%9D%A1%E4%BE%8B",
+          "snapshot_raw_sha256": "db78bc08d1b1bcca78165e2d1f62fc6c2235cc15331968f96b10a771f7f67b57",
+          "bounded_official_excerpt": "文检索 高级检索 根据《行政法规制定程序条例》汇编国家正式版本并动态更新，中国政府网与中国政府法制信息网(司法部官网)同步公布 标题检索 正文检索 时 效 性 现行有效 现行有效 公布文号 公布日期 施行日期 检索 重置 取消 检索词： 社会保险经办条例 清空 现行有效 1 部 相似度 公布日期 施行日期 1. 社会 保险 经办 条例 2023-08-16公布 2023-12-01施行 下载 Word PDF 2023-08-16 社会保险经办条例 中华人民共和国司法部 版权所有 京ICP备0505517 司法部信息中心 运维保障 C"
+        }
+      ],
+      "target_field": "version_claim_status"
+    },
+    {
+      "blind_review_id": "D1BR-3132012A70EC",
+      "candidate_text": "《职工带薪年休假条例》第四条规定，职工请事假累计20天以上且单位按规定不扣工资的，不享受当年的年休假。",
+      "evidence": [
+        {
+          "evidence_selection_id": "E1",
+          "title": "职工带薪年休假条例",
+          "official_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=208",
+          "snapshot_raw_sha256": "9dbd0465bf87669cbef0b10270842ad5855faed2d6a1aedf6608d7a8385372e8",
+          "bounded_official_excerpt": "10 年的，年休假 5 天；已满 10 年不满 20 年的，年休假 10 天；已满 20 年的，年休假 15 天。 国家法定休假日、休息日不计入年休假的假期。 第四条 职工有下列情形之一的，不享受当年的年休假： ( 一 ) 职工依法享受寒暑假，其休假天数多于年休假天数的； ( 二 ) 职工请事假累计 20 天以上且单位按照规定不扣工资的； ( 三 ) 累计工作满 1 年不满 10 年的职工，请病假累计 2 个月以上的； ( 四 ) 累计工作满 10 年不满 20 年的职工，请病假累计 3 个月以上的； ( 五 ) 累计工作满 20 年"
+        },
+        {
+          "evidence_selection_id": "E2",
+          "title": "国家行政法规库现行有效标题检索：职工带薪年休假条例",
+          "official_url": "https://xzfg.moj.gov.cn/SearchTitleFront?QueryAll=%E8%81%8C%E5%B7%A5%E5%B8%A6%E8%96%AA%E5%B9%B4%E4%BC%91%E5%81%87%E6%9D%A1%E4%BE%8B",
+          "snapshot_raw_sha256": "b004c6e9637f89874e6af0f9c150e3673f2a4838290d2d07ad565187985502b5",
+          "bounded_official_excerpt": "文检索 高级检索 根据《行政法规制定程序条例》汇编国家正式版本并动态更新，中国政府网与中国政府法制信息网(司法部官网)同步公布 标题检索 正文检索 时 效 性 现行有效 现行有效 公布文号 公布日期 施行日期 检索 重置 取消 检索词： 职工带薪年休假条例 清空 现行有效 1 部 相似度 公布日期 施行日期 1. 职工 带薪 年休假条例 2007-12-14公布 2008-01-01施行 下载 Word PDF 2007-12-14 职工带薪年休假条例 中华人民共和国司法部 版权所有 京ICP备0505517 司法部信息中心 运维保障"
+        }
+      ],
+      "target_field": "version_claim_status"
+    }
+  ]
+}

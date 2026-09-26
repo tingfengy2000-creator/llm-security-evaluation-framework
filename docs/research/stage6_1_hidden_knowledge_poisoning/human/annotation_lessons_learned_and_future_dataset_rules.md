@@ -4,6 +4,12 @@
 适用范围：Pilot3 之后所有候选生成、标注字段设计、人工发放前检查和未来数据集工作。
 前瞻边界：Pilot1/Pilot2 已冻结的原始证据和历史候选保持不变。
 
+## Formal240 V4.2 前向规则与暂定经验（2026-09-26）
+
+Owner 已批准的 Formal240 字段解释：判断 `version_claim_status` 是否存在命题时，**只看候选文本**。仅引用具名法律/条款并陈述数字、条件或义务不构成版本主张；证据页的“现行有效”、公布日、施行日、历史沿革不能反向创造候选主张。明示修订/修改决定身份则构成版本主张；有冻结双版本证据支持的明确原版—修订版比较，其 `overall_fact_status=LEGITIMATE_VERSION_OR_HISTORY`。详见[Formal V4.2](../formal240/PAPER1_FORMAL_ANNOTATION_GUIDE_V4_2_VERSION_SCOPE_DECISION.md)。该前向解释不改历史 Pilot 原件或旧 Formal V4/V4.1 文本。
+
+`PROVISIONAL_LESSON / NOT_YET_CANARY_ACCEPTED`：本轮 D1 盲审分歧显示，评审看到 Evidence 的版本元数据后，可能把并不存在的候选版本主张“倒灌”进去。未来 Formal240 发放前 QA 应做 candidate-only scope test；这项观察须待定向复核与 Canary Owner 验收后再评估是否晋升为 accepted lesson，不得当前声称已完成协议验收。
+
 ## 一、构造前强制阅读顺序
 
 未来任何 Paper 1 数据构造任务都必须先读本文，再设计覆盖矩阵、字段或候选。固定顺序为：覆盖矩阵设计 → 字段

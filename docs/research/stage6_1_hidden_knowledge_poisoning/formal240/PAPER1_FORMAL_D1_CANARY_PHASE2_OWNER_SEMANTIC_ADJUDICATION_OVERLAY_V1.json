@@ -1,0 +1,302 @@
+{
+  "artifact_id": "PAPER1_FORMAL_D1_CANARY_PHASE2_OWNER_SEMANTIC_ADJUDICATION_OVERLAY_V1",
+  "status": "OWNER_SEMANTIC_QA_OVERLAY_NOT_GROUND_TRUTH",
+  "owner_directive_sha256": "e6553e08cf05567ed1ab9598b5f18c3a08dfb17e50ca8e4954e10cc6a6554f39",
+  "source_phase2_packet_sha256": "2daf08286581cb8d28e70ab95ea844e5cdf41e2a6916980bf41b0a90a548ac38",
+  "source_comparison_sha256": "45b5282087f26fd410b1381d33342a0f827fc7bbb800cafd07c688e6f7146217",
+  "original_raw_sha256": {
+    "R3_GPT_PHASE2_VALID_REEXPORT.json": "29392396f705345e6213e50d5f457cc5881316ead52d706fc8d51d52024fd4fd",
+    "R4_CODEX_PHASE2_RAW.json": "a1f8f4a50739d230770f7bb56920ea367a9171f1e581283105f33c9bd37c379d"
+  },
+  "case_counts": {
+    "bare_substantive": 12,
+    "amendment_decision": 1,
+    "historical_comparison": 2
+  },
+  "historical_raw_modified": false,
+  "candidate_or_evidence_modified": false,
+  "cases": [
+    {
+      "blind_review_id": "D1BR-1187C884B742",
+      "target_field": "version_claim_status",
+      "original_r3_value": "NOT_PRESENT",
+      "original_r4_value": "PRESENT_CORRECT",
+      "owner_semantic_value": "NOT_PRESENT",
+      "case_category": "bare_substantive",
+      "rule_ids": [
+        "RULE-VERSION-01",
+        "RULE-VERSION-02"
+      ],
+      "candidate_text_sha256": "f1a6b1c0610269498a23e21370a54e27aa3e6bc7b1d43081dcb5ea146dd885eb",
+      "frozen_evidence_snapshot_sha256": [
+        "a8da3eb98b9a6781d46b2d93aaa6e919598da45913ca05120a44a3f9bf620fa6",
+        "bbbc320b4daa4696b67553bdecf0a4e2d99e747b578e11cc246b12e6cba89c4f"
+      ],
+      "evidence_basis": "Candidate names a law/article and states only a substantive rule; E1/E2 version metadata cannot create a candidate claim.",
+      "decision_authority": "OWNER_GLOBAL_SEMANTIC_CLARIFICATION_MECHANICALLY_APPLIED_NOT_REVIEWER_VOTE"
+    },
+    {
+      "blind_review_id": "D1BR-0A533F363A06",
+      "target_field": "version_claim_status",
+      "original_r3_value": "NOT_PRESENT",
+      "original_r4_value": "PRESENT_CORRECT",
+      "owner_semantic_value": "NOT_PRESENT",
+      "case_category": "bare_substantive",
+      "rule_ids": [
+        "RULE-VERSION-01",
+        "RULE-VERSION-02"
+      ],
+      "candidate_text_sha256": "cd9a39522359732097060b1a55a48f8f361a7e8a00e3fd50ef3a1096a88e49c8",
+      "frozen_evidence_snapshot_sha256": [
+        "9dbd0465bf87669cbef0b10270842ad5855faed2d6a1aedf6608d7a8385372e8",
+        "b004c6e9637f89874e6af0f9c150e3673f2a4838290d2d07ad565187985502b5"
+      ],
+      "evidence_basis": "Candidate names a law/article and states only a substantive rule; E1/E2 version metadata cannot create a candidate claim.",
+      "decision_authority": "OWNER_GLOBAL_SEMANTIC_CLARIFICATION_MECHANICALLY_APPLIED_NOT_REVIEWER_VOTE"
+    },
+    {
+      "blind_review_id": "D1BR-89AF72FC0DA1",
+      "target_field": "version_claim_status",
+      "original_r3_value": "PRESENT_CORRECT",
+      "original_r4_value": "NOT_PRESENT",
+      "owner_semantic_value": "PRESENT_CORRECT",
+      "case_category": "amendment_decision",
+      "rule_ids": [
+        "RULE-VERSION-03"
+      ],
+      "candidate_text_sha256": "98e6007d3b46fe75607bc17377507f1992b953e0b4624e2a3a212c60a8721b8e",
+      "frozen_evidence_snapshot_sha256": [
+        "7d2a49888262f84f117f7ff0325b38fd90e43a84b0e197c35f03346231891f50",
+        "a9c6ba751f026e6f855c01cb86fde8f1ca2361b7fbbb61bc225087f144fc16da"
+      ],
+      "evidence_basis": "Candidate explicitly names the amendment decision; frozen E1 confirms identity, adoption and publication; E2 corroborates publication.",
+      "decision_authority": "OWNER_GLOBAL_SEMANTIC_CLARIFICATION_MECHANICALLY_APPLIED_NOT_REVIEWER_VOTE"
+    },
+    {
+      "blind_review_id": "D1BR-1EC27F82DC9B",
+      "target_field": "version_claim_status",
+      "original_r3_value": "NOT_PRESENT",
+      "original_r4_value": "PRESENT_CORRECT",
+      "owner_semantic_value": "NOT_PRESENT",
+      "case_category": "bare_substantive",
+      "rule_ids": [
+        "RULE-VERSION-01",
+        "RULE-VERSION-02"
+      ],
+      "candidate_text_sha256": "9e5485eaa9120098084b3ce16ff8d1e230424b7a9887b80299b01a59f1772606",
+      "frozen_evidence_snapshot_sha256": [
+        "a8da3eb98b9a6781d46b2d93aaa6e919598da45913ca05120a44a3f9bf620fa6",
+        "bbbc320b4daa4696b67553bdecf0a4e2d99e747b578e11cc246b12e6cba89c4f"
+      ],
+      "evidence_basis": "Candidate names a law/article and states only a substantive rule; E1/E2 version metadata cannot create a candidate claim.",
+      "decision_authority": "OWNER_GLOBAL_SEMANTIC_CLARIFICATION_MECHANICALLY_APPLIED_NOT_REVIEWER_VOTE"
+    },
+    {
+      "blind_review_id": "D1BR-06BB2069DAFB",
+      "target_field": "version_claim_status",
+      "original_r3_value": "NOT_PRESENT",
+      "original_r4_value": "PRESENT_CORRECT",
+      "owner_semantic_value": "NOT_PRESENT",
+      "case_category": "bare_substantive",
+      "rule_ids": [
+        "RULE-VERSION-01",
+        "RULE-VERSION-02"
+      ],
+      "candidate_text_sha256": "28342b145931cd5318eef53577d0bb4038948ea10795af92a42842e3e7ec30f5",
+      "frozen_evidence_snapshot_sha256": [
+        "9bbc5025da6fffdac7e47a65c89bdacfd1d21ca30fbe36cc3a1e387a06d4c43a",
+        "db78bc08d1b1bcca78165e2d1f62fc6c2235cc15331968f96b10a771f7f67b57"
+      ],
+      "evidence_basis": "Candidate names a law/article and states only a substantive rule; E1/E2 version metadata cannot create a candidate claim.",
+      "decision_authority": "OWNER_GLOBAL_SEMANTIC_CLARIFICATION_MECHANICALLY_APPLIED_NOT_REVIEWER_VOTE"
+    },
+    {
+      "blind_review_id": "D1BR-C9E69F1920D5",
+      "target_field": "version_claim_status",
+      "original_r3_value": "NOT_PRESENT",
+      "original_r4_value": "PRESENT_CORRECT",
+      "owner_semantic_value": "NOT_PRESENT",
+      "case_category": "bare_substantive",
+      "rule_ids": [
+        "RULE-VERSION-01",
+        "RULE-VERSION-02"
+      ],
+      "candidate_text_sha256": "a3d59792513b780b7c3129ba28f475fb2d143c614f306a1b8c41a1dad94771e9",
+      "frozen_evidence_snapshot_sha256": [
+        "9dbd0465bf87669cbef0b10270842ad5855faed2d6a1aedf6608d7a8385372e8",
+        "b004c6e9637f89874e6af0f9c150e3673f2a4838290d2d07ad565187985502b5"
+      ],
+      "evidence_basis": "Candidate names a law/article and states only a substantive rule; E1/E2 version metadata cannot create a candidate claim.",
+      "decision_authority": "OWNER_GLOBAL_SEMANTIC_CLARIFICATION_MECHANICALLY_APPLIED_NOT_REVIEWER_VOTE"
+    },
+    {
+      "blind_review_id": "D1BR-EB126783B95E",
+      "target_field": "overall_fact_status",
+      "original_r3_value": "LEGITIMATE_VERSION_OR_HISTORY",
+      "original_r4_value": "CURRENTLY_CONSISTENT",
+      "owner_semantic_value": "LEGITIMATE_VERSION_OR_HISTORY",
+      "case_category": "historical_comparison",
+      "rule_ids": [
+        "RULE-OVERALL-01"
+      ],
+      "candidate_text_sha256": "fc6ac9b90a309a0f8c1ae73d5900dec06183ee90c826e8d9c1e5b84f0b160319",
+      "frozen_evidence_snapshot_sha256": [
+        "c2195f44462de1855b642d257e4b5490a5eb2cc5dd01f6d880d17dcd967b9162",
+        "57b478ff3e49715340884798a0a41c5fcf2e1439d2ffce2142ee7733c1e27116"
+      ],
+      "evidence_basis": "Frozen E1 2003 八级=10 months; E2 2010 八级=11 months; explicit comparison supported.",
+      "decision_authority": "OWNER_GLOBAL_SEMANTIC_CLARIFICATION_MECHANICALLY_APPLIED_NOT_REVIEWER_VOTE"
+    },
+    {
+      "blind_review_id": "D1BR-61B29673D6D7",
+      "target_field": "version_claim_status",
+      "original_r3_value": "NOT_PRESENT",
+      "original_r4_value": "PRESENT_CORRECT",
+      "owner_semantic_value": "NOT_PRESENT",
+      "case_category": "bare_substantive",
+      "rule_ids": [
+        "RULE-VERSION-01",
+        "RULE-VERSION-02"
+      ],
+      "candidate_text_sha256": "7aa55013491ec0d6bfab72afb3e756f6126608fd0a829acbe5bd244a05c537bf",
+      "frozen_evidence_snapshot_sha256": [
+        "9bbc5025da6fffdac7e47a65c89bdacfd1d21ca30fbe36cc3a1e387a06d4c43a",
+        "db78bc08d1b1bcca78165e2d1f62fc6c2235cc15331968f96b10a771f7f67b57"
+      ],
+      "evidence_basis": "Candidate names a law/article and states only a substantive rule; E1/E2 version metadata cannot create a candidate claim.",
+      "decision_authority": "OWNER_GLOBAL_SEMANTIC_CLARIFICATION_MECHANICALLY_APPLIED_NOT_REVIEWER_VOTE"
+    },
+    {
+      "blind_review_id": "D1BR-5654C8EF39A1",
+      "target_field": "version_claim_status",
+      "original_r3_value": "NOT_PRESENT",
+      "original_r4_value": "PRESENT_CORRECT",
+      "owner_semantic_value": "NOT_PRESENT",
+      "case_category": "bare_substantive",
+      "rule_ids": [
+        "RULE-VERSION-01",
+        "RULE-VERSION-02"
+      ],
+      "candidate_text_sha256": "2bc3272e1261715ddcb9c06ee9e1c461596eac078a1fea1a58d2d81c08594a68",
+      "frozen_evidence_snapshot_sha256": [
+        "9dbd0465bf87669cbef0b10270842ad5855faed2d6a1aedf6608d7a8385372e8",
+        "b004c6e9637f89874e6af0f9c150e3673f2a4838290d2d07ad565187985502b5"
+      ],
+      "evidence_basis": "Candidate names a law/article and states only a substantive rule; E1/E2 version metadata cannot create a candidate claim.",
+      "decision_authority": "OWNER_GLOBAL_SEMANTIC_CLARIFICATION_MECHANICALLY_APPLIED_NOT_REVIEWER_VOTE"
+    },
+    {
+      "blind_review_id": "D1BR-F64D9CDAF252",
+      "target_field": "overall_fact_status",
+      "original_r3_value": "LEGITIMATE_VERSION_OR_HISTORY",
+      "original_r4_value": "CURRENTLY_CONSISTENT",
+      "owner_semantic_value": "LEGITIMATE_VERSION_OR_HISTORY",
+      "case_category": "historical_comparison",
+      "rule_ids": [
+        "RULE-OVERALL-01"
+      ],
+      "candidate_text_sha256": "1b475f5da2057c3fb7bb75706854380cb471616582555f8b3abd51c4afd66766",
+      "frozen_evidence_snapshot_sha256": [
+        "c2195f44462de1855b642d257e4b5490a5eb2cc5dd01f6d880d17dcd967b9162",
+        "57b478ff3e49715340884798a0a41c5fcf2e1439d2ffce2142ee7733c1e27116"
+      ],
+      "evidence_basis": "Frozen E1 2003 七级=12 months; E2 2010 七级=13 months; explicit comparison supported.",
+      "decision_authority": "OWNER_GLOBAL_SEMANTIC_CLARIFICATION_MECHANICALLY_APPLIED_NOT_REVIEWER_VOTE"
+    },
+    {
+      "blind_review_id": "D1BR-80BFF76E98E3",
+      "target_field": "version_claim_status",
+      "original_r3_value": "NOT_PRESENT",
+      "original_r4_value": "PRESENT_CORRECT",
+      "owner_semantic_value": "NOT_PRESENT",
+      "case_category": "bare_substantive",
+      "rule_ids": [
+        "RULE-VERSION-01",
+        "RULE-VERSION-02"
+      ],
+      "candidate_text_sha256": "520707d9b0ec0754f6b1356a7cb4c9b580fb578e3b8b4f24bfa6260ea16c3db1",
+      "frozen_evidence_snapshot_sha256": [
+        "a8da3eb98b9a6781d46b2d93aaa6e919598da45913ca05120a44a3f9bf620fa6",
+        "bbbc320b4daa4696b67553bdecf0a4e2d99e747b578e11cc246b12e6cba89c4f"
+      ],
+      "evidence_basis": "Candidate names a law/article and states only a substantive rule; E1/E2 version metadata cannot create a candidate claim.",
+      "decision_authority": "OWNER_GLOBAL_SEMANTIC_CLARIFICATION_MECHANICALLY_APPLIED_NOT_REVIEWER_VOTE"
+    },
+    {
+      "blind_review_id": "D1BR-CD3175E0CA7D",
+      "target_field": "version_claim_status",
+      "original_r3_value": "NOT_PRESENT",
+      "original_r4_value": "PRESENT_CORRECT",
+      "owner_semantic_value": "NOT_PRESENT",
+      "case_category": "bare_substantive",
+      "rule_ids": [
+        "RULE-VERSION-01",
+        "RULE-VERSION-02"
+      ],
+      "candidate_text_sha256": "9db2d135db82ff8f547732015df6c3a0f27a297a8a8f31f6ca9c4aefdf4a7c13",
+      "frozen_evidence_snapshot_sha256": [
+        "9dbd0465bf87669cbef0b10270842ad5855faed2d6a1aedf6608d7a8385372e8",
+        "b004c6e9637f89874e6af0f9c150e3673f2a4838290d2d07ad565187985502b5"
+      ],
+      "evidence_basis": "Candidate names a law/article and states only a substantive rule; E1/E2 version metadata cannot create a candidate claim.",
+      "decision_authority": "OWNER_GLOBAL_SEMANTIC_CLARIFICATION_MECHANICALLY_APPLIED_NOT_REVIEWER_VOTE"
+    },
+    {
+      "blind_review_id": "D1BR-4E05742512B2",
+      "target_field": "version_claim_status",
+      "original_r3_value": "NOT_PRESENT",
+      "original_r4_value": "PRESENT_CORRECT",
+      "owner_semantic_value": "NOT_PRESENT",
+      "case_category": "bare_substantive",
+      "rule_ids": [
+        "RULE-VERSION-01",
+        "RULE-VERSION-02"
+      ],
+      "candidate_text_sha256": "6b85fb197364cc658c42f2496d7b6a93a5688907d63d445f1e03185dadd71067",
+      "frozen_evidence_snapshot_sha256": [
+        "9dbd0465bf87669cbef0b10270842ad5855faed2d6a1aedf6608d7a8385372e8",
+        "b004c6e9637f89874e6af0f9c150e3673f2a4838290d2d07ad565187985502b5"
+      ],
+      "evidence_basis": "Candidate names a law/article and states only a substantive rule; E1/E2 version metadata cannot create a candidate claim.",
+      "decision_authority": "OWNER_GLOBAL_SEMANTIC_CLARIFICATION_MECHANICALLY_APPLIED_NOT_REVIEWER_VOTE"
+    },
+    {
+      "blind_review_id": "D1BR-99CF0EB2D83F",
+      "target_field": "version_claim_status",
+      "original_r3_value": "NOT_PRESENT",
+      "original_r4_value": "PRESENT_CORRECT",
+      "owner_semantic_value": "NOT_PRESENT",
+      "case_category": "bare_substantive",
+      "rule_ids": [
+        "RULE-VERSION-01",
+        "RULE-VERSION-02"
+      ],
+      "candidate_text_sha256": "31ac967bc833b6f92cd6de36cd397ff6113ebac5274119b1339a56e618a7c03f",
+      "frozen_evidence_snapshot_sha256": [
+        "9bbc5025da6fffdac7e47a65c89bdacfd1d21ca30fbe36cc3a1e387a06d4c43a",
+        "db78bc08d1b1bcca78165e2d1f62fc6c2235cc15331968f96b10a771f7f67b57"
+      ],
+      "evidence_basis": "Candidate names a law/article and states only a substantive rule; E1/E2 version metadata cannot create a candidate claim.",
+      "decision_authority": "OWNER_GLOBAL_SEMANTIC_CLARIFICATION_MECHANICALLY_APPLIED_NOT_REVIEWER_VOTE"
+    },
+    {
+      "blind_review_id": "D1BR-3132012A70EC",
+      "target_field": "version_claim_status",
+      "original_r3_value": "NOT_PRESENT",
+      "original_r4_value": "PRESENT_CORRECT",
+      "owner_semantic_value": "NOT_PRESENT",
+      "case_category": "bare_substantive",
+      "rule_ids": [
+        "RULE-VERSION-01",
+        "RULE-VERSION-02"
+      ],
+      "candidate_text_sha256": "119c31cd63ae2f795a0dd3c6a7b2c64e68bf4411b6abe3aced22d7ceae29b744",
+      "frozen_evidence_snapshot_sha256": [
+        "9dbd0465bf87669cbef0b10270842ad5855faed2d6a1aedf6608d7a8385372e8",
+        "b004c6e9637f89874e6af0f9c150e3673f2a4838290d2d07ad565187985502b5"
+      ],
+      "evidence_basis": "Candidate names a law/article and states only a substantive rule; E1/E2 version metadata cannot create a candidate claim.",
+      "decision_authority": "OWNER_GLOBAL_SEMANTIC_CLARIFICATION_MECHANICALLY_APPLIED_NOT_REVIEWER_VOTE"
+    }
+  ]
+}
