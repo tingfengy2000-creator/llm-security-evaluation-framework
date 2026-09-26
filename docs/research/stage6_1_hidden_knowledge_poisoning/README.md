@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> **当前 Formal240 D1（2026-09-26）：** 8组/24条 Canary 已通过[最终有界质量审计](formal240/PAPER1_FORMAL_D1_CANARY_FINAL_OWNER_ACCEPTANCE_AUDIT_V1.md)并按 Owner 条件式决定验收。只说明这套构造/预标注质检流程可以用于**另行申请**剩余40组，不代表 D1 全波次已完成，也不授权真人 A/B、Ground Truth、切分、训练或论文正式效果。[下一批计划](formal240/PAPER1_FORMAL_D1_REMAINING40_EXECUTION_PLAN_V2.md)。下方旧“待验收”描述为历史快照。
+
 > 当前 Formal240 D1 Canary（2026-09-26）：两位原盲审员已交回 V4.2 的 15 条定向复核，原件只读锁定、各 15/15 合规；双方及 Owner 语义覆盖值 15/15 一致。[复核记录](formal240/PAPER1_FORMAL_D1_CANARY_V4_2_TARGETED_RULE_STABILITY_REPORT_V1.md)。这只表明规则理解在原会话中稳定，**不等于 Canary 已验收**。下一步须 Owner 另行审阅完整质量证据并明确接受或退修；Human A/B、其余40组、split 和训练仍未授权。下方“尚无新返回”是前一时点快照。
 
 > 当前 Formal240 D1 Canary（2026-09-26）：Owner 已冻结[标注解释 V4.2](formal240/PAPER1_FORMAL_ANNOTATION_GUIDE_V4_2_VERSION_SCOPE_DECISION.md)：版本主张先只看候选，不让证据元数据“倒灌”；明确修改决定与有证据支持的双版本比较另有清晰边界。15 项原分歧通过[追加覆盖记录](formal240/PAPER1_FORMAL_D1_CANARY_PHASE2_OWNER_SEMANTIC_ADJUDICATION_OVERLAY_V1.json)逐条应用，原 R3/R4 返回未改。[无答案定向复核包](formal240/PAPER1_FORMAL_D1_CANARY_PHASE2_15ITEM_TARGETED_REREVIEW_PACKAGE_V1.json)待 Owner 分发给原两会话，尚无新返回。Canary 未验收、Human A/B 未授权；旧“等待语义决定”是此前快照。

@@ -1,5 +1,34 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current machine recovery record — 2026-09-26 D1 Canary conditional Owner acceptance
+
+```yaml
+task: P1-FORMAL240-D1-CANARY-FINAL-OWNER-ACCEPTANCE-AUDIT-01
+authority: PODR-115 / OR-071
+input_head: 01ebb4f62c78290524d2a47c331b078683d0e133
+private_authoritative_run: E:\LLMGuard-Handoff\paper1_formal240_d1_canary_final_owner_acceptance_20260926_run02
+matrix_sha256: 9847bdc5ae4b053846007a496ca779ef35a47e99a6e1db2c073e86b65afb07ee
+preliminary_run01: PRESERVED_NON_AUTHORITATIVE_HOST_AS_PUBLISHER_DEFECT
+candidate_v3_sha256: 6210a6de8f519fb4a58334ff531954b67e774375d021d099dea050f8fe47032e
+frozen_evidence_snapshots: 14/14_SHA_PASS
+final_phase1: 24/24_RESOLVED
+final_phase2: 24/24_SUFFICIENT_NO_SECONDARY_ERROR_NO_ISSUE
+targeted_v4_2: R3_15/15_R4_15/15_OWNER_MATCH
+construction_roles: 8_C_8_P_8_HN_AUDITED
+derived_target_s: 8/8_MATCH
+entity_claim_blind_extraction: 24/24
+provenance_hkp4_primary: 2/2
+temporal_hkp3_primary: 2/2
+retrieval_smoke: 8/8_ENGINEERING_ONLY
+family_clusters: ANNUAL_LEAVE; INJURY_INSURANCE_VERSION_CHAIN
+acceptance: D1_CANARY_ACCEPTED_FOR_FULL_WAVE_CONSTRUCTION
+next_gate: OWNER_APPROVAL_FOR_REMAINING40_CONSTRUCTION_REQUIRED
+forbidden: HUMAN_AB; GT; SPLIT; TRAINING; FORMAL_RESULT
+auto_continue: NO
+```
+
+Detailed [audit and bounds](../formal240/PAPER1_FORMAL_D1_CANARY_FINAL_OWNER_ACCEPTANCE_AUDIT_V1.md). R3/R4 session scope is `OWNER_ATTESTED_NOT_MACHINE_VERIFIED`. No Expected/GT or Final72 model result used as construction answer. Older `CANARY_OWNER_ACCEPTANCE_PENDING` entries below are dated historical snapshots.
+
 ## Current machine recovery record — 2026-09-26 V4.2 targeted R3/R4 return validation
 
 ```yaml

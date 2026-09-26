@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## Formal240 D1 Canary 通过有界质量验收，只待剩余40组单独审批（2026-09-26）
+
+Owner 预先批准“全部硬门通过则接受”的条件已由[完整审计](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_CANARY_FINAL_OWNER_ACCEPTANCE_AUDIT_V1.md)满足：8组/24条、14份官方原始快照、Phase1/Phase2双人最终值、8/8构造机制与派生隐蔽等级、HKP3/HKP4主机制、24条结构化主张输入及8条中性检索 smoke 均通过。`D1_CANARY_ACCEPTED_FOR_FULL_WAVE_CONSTRUCTION=TRUE` 只是验证“这套正式构造与预标注质检流程可以用于申请下一批”；D1其余40组尚未构造，真人 A/B、GT、切分、训练和论文结果仍未授权/发生。[验收记录](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_CANARY_OWNER_ACCEPTANCE_RECORD_V1.md)和[下一批计划](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING40_EXECUTION_PLAN_V2.md)明确单独 Owner 审批门。初稿 Run01 把官网托管方误写为页面发布者，保留为非权威初稿；Run02 追加修正并作为当前证据。旧“等待完整验收”章节是历史快照。
+
 ## Formal240 D1 Canary V4.2 定向复核 15/15 一致，等待完整验收（2026-09-26）
 
 原 R3-gpt/R4-codex 会话的 15 条定向 JSON 已逐字节只读锁定，结构核验各 15/15，通过 V4.2 目标值双方一致和 Owner 语义覆盖一致 15/15。[复核报告](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_CANARY_V4_2_TARGETED_RULE_STABILITY_REPORT_V1.md)。Owner 人工确认会话/材料隔离，非机器证明。此结果只关闭定向解释稳定性门，旧答卷、候选、证据和覆盖记录不改；完整 Canary 仍待 Owner 单独验收，真人 A/B、剩余40组、split、训练均未授权。下面“等待原两位评审定向复核”为历史时点快照。
