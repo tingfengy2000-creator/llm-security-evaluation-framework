@@ -29,6 +29,8 @@ Eight actual frozen D1 slots yield 24 V3 candidates: HKP1–4 each have two grou
 - Family independence: eight distinct primary factual cores; annual-leave and injury-insurance evidence/version families are reused across *different* cores. Both receive `FAMILY_CLUSTER_ID`; all same-family groups must remain in one future train/dev/test partition. No same-core paraphrase masquerades as a new chain.
 - Missingness: primary-view input readiness by C/P/H is symmetric. S/E/R are applicable to 8 per role; primary P/T mechanisms to 2 per role, with 6 legitimate N/A per role. No detected role-only metadata gap. This does not assert 42 signal values are numerically computed or demand artificial 50:50 signal outcomes.
 
+**Post-commit atom-granularity supplement:** the Run02 V1 fact-atom table summarized one primary atom/marker per candidate. The additive [V2 atom record](PAPER1_FORMAL_D1_CANARY_FACT_ATOM_V2_SUPPLEMENT_RECORD.md) decomposes the same frozen 24 candidates into 48 located assertions (40 supported, eight controlled Poison, zero detected accidental/ambiguous), each with official locator and snapshot SHA. It closes an audit-presentation shortfall without altering the Run02 matrix or any raw input.
+
 The eight Poison mechanisms are, in slot order: one tenure bracket assigned two leave-day values; 20 versus 10 working days; the same worker both enjoys and does not enjoy leave; six versus seven pregnancy months; effective date confused with publication date; injury benefit decrease instead of increase across two versions; ministry substituted for State Council Order 535; ministry substituted for State Council Order 514. Clean/HN support and source locators are itemized in the private fact-atom audit.
 
 ## Risk review and decision boundary

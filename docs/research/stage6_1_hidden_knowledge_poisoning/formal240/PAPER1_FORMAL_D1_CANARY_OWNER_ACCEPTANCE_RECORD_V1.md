@@ -8,6 +8,7 @@ Decision authority: Owner's explicit conditional directive `P1-FORMAL240-D1-CANA
 | Acceptance basis | [final audit](PAPER1_FORMAL_D1_CANARY_FINAL_OWNER_ACCEPTANCE_AUDIT_V1.md), private Run02 matrix SHA256 `9847bdc5ae4b053846007a496ca779ef35a47e99a6e1db2c073e86b65afb07ee` |
 | Population | 8 real D1 matrix slots / 24 V3 candidates; HKP1–4 = 2 groups each |
 | Hard blockers | 0 under the stated bounded gates |
+| Post-commit atom detail | [V2 additive supplement](PAPER1_FORMAL_D1_CANARY_FACT_ATOM_V2_SUPPLEMENT_RECORD.md), 48 atoms; private SHA256 `f00d10874fa581d0430b7e104f1dd6bd21c38f12f4682209029b02888762a182` |
 | Raw/Guide/Evidence | unchanged; Owner semantic overlay additive; preliminary Run01 superseded, preserved |
 | Allowed next | seek separate Owner approval for the remaining 40 D1 groups / 120 candidates, using V2 plan |
 | Not allowed | Human A/B; GT; formal split; detector training; formal result; automatic remaining40 construction |

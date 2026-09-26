@@ -29,6 +29,8 @@ auto_continue: NO
 
 Detailed [audit and bounds](../formal240/PAPER1_FORMAL_D1_CANARY_FINAL_OWNER_ACCEPTANCE_AUDIT_V1.md). R3/R4 session scope is `OWNER_ATTESTED_NOT_MACHINE_VERIFIED`. No Expected/GT or Final72 model result used as construction answer. Older `CANARY_OWNER_ACCEPTANCE_PENDING` entries below are dated historical snapshots.
 
+Additive post-commit atom detail: [V2 record](../formal240/PAPER1_FORMAL_D1_CANARY_FACT_ATOM_V2_SUPPLEMENT_RECORD.md), private Run03 SHA256 `f00d10874fa581d0430b7e104f1dd6bd21c38f12f4682209029b02888762a182`, 24 candidates / 48 atoms / 40 supported / 8 controlled Poison / 0 detected accidental or ambiguous. Run02 matrix and all raw inputs remain unchanged; approval scope remains remaining40 construction only after separate Owner authorization.
+
 ## Current machine recovery record — 2026-09-26 V4.2 targeted R3/R4 return validation
 
 ```yaml
