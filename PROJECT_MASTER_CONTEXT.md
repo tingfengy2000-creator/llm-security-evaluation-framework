@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## 当前：D1 HKP1 第一批 Phase1 有界通过，Phase2 题包待 Owner 分发（2026-09-26）
+
+第一轮 R3 自报沿用含 Canary/Phase2 历史的会话，故该原件只作过程证据。新 R3/R4 第一阶段原件已原样锁定，各 30 条结构合规，五个分类字段 30/30 相同。R4 使用新 Codex Project 而非既定 `projectless`；只读核查当前目录仅有交付的 JSON、无隐藏文件或 Git，平台历史不可机器证明。Owner **明确仅对本批这次 R4 作有界等价例外**，不改变后续批次 projectless 要求。现在[30条 Phase2 证据题包](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_PHASE2_RELEASE_RECORD_V1.md)已准备好，可按[逐人完整发件清单](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_REVIEWER_FILE_CHECKLIST_V1.md)交给**本批各自原隔离会话**；尚无 Phase2 回答。Batch-1 未验收、HKP2 不启动；真人 A/B、GT、切分、训练及论文正式结论仍关闭。下节“原件尚未收到”是历史快照。
+
 ## 当前：D1 剩余40组已获批准，HKP1 首批停在外部盲审门（2026-09-26）
 
 Owner 已批准按 HKP1→4 顺序构造剩余40组，但只有前一批所有硬门通过才可继续。HKP1 首批真实冻结槽位的10组/30条已完成 Evidence-first 本机预检，17份官方原始快照核验通过；节假日版本日期元数据缺口、4条 S3 Hard Negative 的数值外观差异及1条 S1 Hard Negative 的例外范围写宽问题均采用追加版本修复，旧稿未删除或发给评审。当前只应发送[权威 V4 Phase1 盲包](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_PREBLIND_STATUS_V1.md)给独立 R3-gpt/R4-codex。两份原始返回尚未收到，Phase2 未释放，Batch-1 未验收，更未开始 HKP2。真人 A/B、GT、正式切分、训练与论文结果继续关闭。下文 Canary 等待构造批准的章节是历史快照。

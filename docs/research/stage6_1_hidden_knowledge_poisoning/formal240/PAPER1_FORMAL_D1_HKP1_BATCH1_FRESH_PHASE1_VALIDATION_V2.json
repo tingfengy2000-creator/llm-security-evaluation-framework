@@ -1,0 +1,66 @@
+{
+  "task": "P1-FORMAL240-D1-REMAINING40-CONSTRUCTION-01",
+  "batch": "D1_HKP1_BATCH1",
+  "date": "2026-09-26",
+  "source_cohort": "FRESH_R3_R4_RUN02",
+  "prior_cohort": "RUN01_RETAINED_AS_PROCESS_EVIDENCE_NOT_PRIMARY",
+  "private_raw_lock_relative_directory": "phase1_raw_lock_fresh_r3r4_run02_20260926",
+  "packet_version": "V4",
+  "packet_sha256_each": "09dde30b0ce9aa029664107711ec32071cda8ed9363657c7c6d8251a8eef4772",
+  "expected_rows": 30,
+  "r3_gpt": {
+    "raw_filename": "PAPER1_FORMAL_D1_HKP1_BATCH1_R3_GPT_PHASE1_RAW_RETURN_V4.json",
+    "bytes": 6353,
+    "sha256": "3488273ffa7bb8a4b0d563933b878f1dced406e1577b0f8f350d52d7f3597ef5",
+    "utf8_json": "PASS",
+    "rows": 30,
+    "unique_ids": 30,
+    "id_set_and_order": "PASS",
+    "exact_keys": "PASS",
+    "canonical_enums": "PASS",
+    "source_copy_byte_parity": "PASS",
+    "run_isolation": "OWNER_ATTESTED_NOT_MACHINE_VERIFIED"
+  },
+  "r4_codex": {
+    "raw_filename": "PAPER1_FORMAL_D1_HKP1_BATCH1_R4_CODEX_PHASE1_RAW_RETURN_V4.json",
+    "bytes": 7907,
+    "sha256": "52930e9ff2e59d42565a51feda744ab92c50da6ab5e7ab0f83e9485f67c675dd",
+    "utf8_json": "PASS",
+    "rows": 30,
+    "unique_ids": 30,
+    "id_set_and_order": "PASS",
+    "exact_keys": "PASS",
+    "canonical_enums": "PASS",
+    "source_copy_byte_parity": "PASS",
+    "content_isolation": "OWNER_ATTESTED_NOT_MACHINE_VERIFIED",
+    "runtime": "NEW_CODEX_PROJECT_NOT_PROJECTLESS",
+    "projectless_contract": "FAIL_BOUNDARY_DEVIATION_PENDING_OWNER_DECISION"
+  },
+  "raw_value_comparison_diagnostic_only": {
+    "text_naturalness": "30/30",
+    "local_internal_conflict": "30/30",
+    "self_containment": "30/30",
+    "ambiguous_referent": "30/30",
+    "meta_or_template_language": "30/30",
+    "issue_note_literal_difference_count": 3,
+    "issue_note_literal_difference_ids": [
+      "D1BR-BF83B4122122",
+      "D1BR-5133E1A44A11",
+      "D1BR-DE57F4EC5FDD"
+    ],
+    "issue_note_semantics": "SAME_INTERNAL_CONFLICT_BASIS_ON_THREE_IDS",
+    "valid_independent_agreement": true
+  },
+  "r4_bounded_equivalence": {
+    "scope": "D1_HKP1_BATCH1_R4_RUN02_ONLY",
+    "owner_decision": "APPROVED",
+    "filesystem_check": "CURRENT_DIRECTORY_HAS_ONLY_RETURN_JSON_NO_HIDDEN_FILES_NO_GIT",
+    "platform_history_and_inherited_settings": "NOT_MACHINE_VERIFIED",
+    "does_not_amend_future_projectless_rule": true
+  },
+  "r3_r4_primary_phase1_gate": "PASS_WITH_OWNER_APPROVED_BOUNDED_R4_ENVIRONMENT_EXCEPTION",
+  "phase2_release_authorized": true,
+  "batch1_accepted": false,
+  "next_hkp_batch_allowed": false,
+  "owner_decision": "BOUNDED_EQUIVALENCE_APPROVED_FOR_R4_RUN02_ONLY"
+}

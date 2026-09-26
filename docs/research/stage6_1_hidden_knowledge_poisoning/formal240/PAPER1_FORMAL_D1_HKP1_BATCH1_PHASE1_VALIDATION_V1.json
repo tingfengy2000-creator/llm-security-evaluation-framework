@@ -1,0 +1,72 @@
+{
+  "task": "P1-FORMAL240-D1-REMAINING40-CONSTRUCTION-01",
+  "batch": "D1_HKP1_BATCH1",
+  "date": "2026-09-26",
+  "private_raw_lock_relative_directory": "phase1_raw_lock_20260926",
+  "packet_version": "V4",
+  "packet_sha256_each": "09dde30b0ce9aa029664107711ec32071cda8ed9363657c7c6d8251a8eef4772",
+  "expected_rows": 30,
+  "r3_gpt": {
+    "raw_filename": "PAPER1_FORMAL_D1_HKP1_BATCH1_R3_GPT_PHASE1_RAW_RETURN_V4.json",
+    "bytes": 7920,
+    "sha256": "01fb665eb225d225cd538b67d8579532d4559e028b044255212e3823240d4fe5",
+    "utf8_json": "PASS",
+    "rows": 30,
+    "unique_ids": 30,
+    "id_set_and_order": "PASS",
+    "exact_keys": "PASS",
+    "canonical_enums": "PASS",
+    "source_copy_byte_parity": "PASS",
+    "run_isolation": "FAIL_SELF_REPORTED_EXISTING_CANARY_PHASE2_CONTEXT",
+    "gate_role": "AUXILIARY_PROCESS_EVIDENCE_ONLY"
+  },
+  "r3_session_incident": {
+    "filename": "PAPER1_FORMAL_D1_HKP1_BATCH1_R3_GPT_PHASE1_SESSION_ROUTING_INCIDENT_V4.txt",
+    "bytes": 1621,
+    "sha256": "d491428970067894ab65d226bd7335b96f68fba69796bc94691f965e0ccb10f7",
+    "source_copy_byte_parity": "PASS"
+  },
+  "r4_codex": {
+    "raw_filename": "PAPER1_FORMAL_D1_HKP1_BATCH1_R4_CODEX_PHASE1_RAW_RETURN_V4.json",
+    "bytes": 7970,
+    "sha256": "5e654ecf157a47bfd6aabf53cea6a1df892b604f38d71d6b9bedac22cb4d5952",
+    "utf8_json": "PASS",
+    "rows": 30,
+    "unique_ids": 30,
+    "id_set_and_order": "PASS",
+    "exact_keys": "PASS",
+    "canonical_enums": "PASS",
+    "source_copy_byte_parity": "PASS",
+    "run_isolation": "OWNER_ATTESTATION_PENDING",
+    "gate_role": "STRUCTURALLY_VALID_RUN_PROVENANCE_PENDING"
+  },
+  "raw_value_comparison_diagnostic_only": {
+    "text_naturalness": {
+      "agreement": 26,
+      "total": 30,
+      "disagreement_ids": [
+        "D1BR-C7D610617A1C",
+        "D1BR-BF83B4122122",
+        "D1BR-33BD2836BA90",
+        "D1BR-5133E1A44A11"
+      ]
+    },
+    "local_internal_conflict": "30/30",
+    "self_containment": "30/30",
+    "ambiguous_referent": "30/30",
+    "meta_or_template_language": "30/30",
+    "issue_note_literal_difference_ids": [
+      "D1BR-C7D610617A1C",
+      "D1BR-BF83B4122122",
+      "D1BR-33BD2836BA90",
+      "D1BR-5133E1A44A11",
+      "D1BR-DE57F4EC5FDD"
+    ],
+    "valid_independent_agreement": false
+  },
+  "r3_r4_primary_phase1_gate": "BLOCKED_BY_R3_SESSION_ISOLATION",
+  "phase2_release_authorized": false,
+  "batch1_accepted": false,
+  "next_hkp_batch_allowed": false,
+  "owner_attestation_policy": "CANARY_ATTESTATION_DOES_NOT_TRANSFER_TO_NEW_BATCH"
+}

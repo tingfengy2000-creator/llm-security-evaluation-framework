@@ -1,5 +1,34 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current recovery — 2026-09-26 D1 HKP1 Batch-1 fresh Phase1 Run02
+
+```yaml
+task: P1-FORMAL240-D1-REMAINING40-CONSTRUCTION-01
+authority: PODR-116
+input_head: c2beb78c6caf2537fba2140763535dbfec3d68c6
+candidate_and_packet_version: V4_UNCHANGED
+private_root: E:\LLMGuard-Handoff\paper1_formal240_d1_remaining40_hkp1_batch1_20260926
+historical_run01: R3_SESSION_ROUTING_FAIL; R3/R4_RAW_AND_INCIDENT_PRESERVED
+fresh_run02_raw_lock: phase1_raw_lock_fresh_r3r4_run02_20260926
+fresh_r3_raw: {bytes: 6353, sha256: 3488273ffa7bb8a4b0d563933b878f1dced406e1577b0f8f350d52d7f3597ef5}
+fresh_r4_raw: {bytes: 7907, sha256: 52930e9ff2e59d42565a51feda744ab92c50da6ab5e7ab0f83e9485f67c675dd}
+mechanical_qa_each: 30_30_ID_ORDER_EXACT_KEYS_ENUM_UTF8_PASS
+categorical_agreement: 30_30_ALL_FIVE_DIAGNOSTIC_ONLY
+owner_content_isolation: OWNER_ATTESTED_NOT_MACHINE_VERIFIED
+r4_runtime: NEW_CODEX_PROJECT_NOT_PROJECTLESS
+r4_equivalence_exception: OWNER_APPROVED_ONE_RUN_ONLY_PLATFORM_HISTORY_NOT_MACHINE_VERIFIED
+phase2_release_authorized: true
+phase2_packet: phase2_release_run02_20260926/PAPER1_FORMAL_D1_HKP1_BATCH1_PHASE2_PACKAGE_V4.json
+phase2_packet_sha256: 974c9348186be7ce37fe7bd11b77900f0a4f04cdedf2dd1013c2ccba8adc6991
+phase2_packet_rows_and_sources: 30_14
+phase2_reviewer_returns: NOT_RECEIVED
+batch1_accepted: false
+next_batch_allowed: false
+status: PHASE1_PRIMARY_PAIR_PASS_WITH_BOUNDED_R4_EXCEPTION_PHASE2_OWNER_DISTRIBUTION_READY
+```
+
+Previous R3/R4 Run01 remains immutable; it is not valid primary-pair evidence. The current Run02's `30/30` value agreement cannot supersede the unresolved R4 execution-mode gate. Do not load hidden construction mapping, Expected/GT or Phase2 for reviewer evaluation. [Run02 report](../formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_FRESH_PHASE1_LOCK_AND_R4_ENVIRONMENT_GATE_V2.md); [exact future file checklist](../formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_REVIEWER_FILE_CHECKLIST_V1.md). The preblind block below is an earlier snapshot.
+
 ## Current recovery — 2026-09-26 D1 HKP1 Batch-1 preblind V4
 
 ```yaml

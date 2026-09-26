@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> **当前 Formal240 D1 HKP1 第一批（2026-09-26）：** 旧 R3 会话串位已保留但不计独立门控。新 R3/R4 Phase1 原件各 30/30 结构通过、五分类 30/30 一致。R4 新建 Codex Project 不符合原 `projectless` 字面要求；在只读核查当前目录且如实保留平台历史不可机器证实的边界后，Owner 明确批准**只限本批这一次**的有界等价例外。现在[Phase2 冻结证据包](formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_PHASE2_RELEASE_RECORD_V1.md)已准备好，请只按[逐人完整文件清单](formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_REVIEWER_FILE_CHECKLIST_V1.md)发给本批各自原会话。尚无 Phase2 回答、Batch-1 未验收、HKP2 未启动；真人 A/B、GT、切分、训练和论文结果仍未放行。下一段“等待原始返回”是早期快照。
+
 > **当前 Formal240 D1（2026-09-26）：** 剩余40组已获 Owner 顺序构造批准，但第一批 HKP1 的10组/30条目前只完成本机 Evidence-first 构造与预盲审；[权威 V4 盲包和门控](formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_PREBLIND_STATUS_V1.md)已备妥，等待独立 R3-gpt/R4-codex 第一阶段原始返回。第二阶段暂扣、第一批未验收、HKP2 尚未启动。真人 A/B、GT、切分、训练和正式结果均未获放行。下文“Canary 已验收、仍待批准剩余40组”是前一时点历史快照。
 
 > **当前 Formal240 D1（2026-09-26）：** 8组/24条 Canary 已通过[最终有界质量审计](formal240/PAPER1_FORMAL_D1_CANARY_FINAL_OWNER_ACCEPTANCE_AUDIT_V1.md)并按 Owner 条件式决定验收。只说明这套构造/预标注质检流程可以用于**另行申请**剩余40组，不代表 D1 全波次已完成，也不授权真人 A/B、Ground Truth、切分、训练或论文正式效果。[下一批计划](formal240/PAPER1_FORMAL_D1_REMAINING40_EXECUTION_PLAN_V2.md)。下方旧“待验收”描述为历史快照。
