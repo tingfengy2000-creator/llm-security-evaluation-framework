@@ -1,5 +1,33 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current recovery — 2026-09-26 D1 HKP1 Batch-1 preblind V4
+
+```yaml
+task: P1-FORMAL240-D1-REMAINING40-CONSTRUCTION-01
+authority: PODR-116
+input_head: a55561860c79ddf6a5061d312953a360a52784d1
+private_root: E:\LLMGuard-Handoff\paper1_formal240_d1_remaining40_hkp1_batch1_20260926
+authoritative_candidate_version: construction_v4
+authoritative_preblind_version: preblind_v4
+private_manifest_sha256: ccd22fbdd0da52c2adca6f8615249fec725688cc6b3423e599ac918065a4ce00
+candidate_jsonl_sha256: 9ae18121d78d491bd82f78c1971e9bfcd85679b1e3eecfe0123481d60ca69a00
+phase1_package_sha256_each: 09dde30b0ce9aa029664107711ec32071cda8ed9363657c7c6d8251a8eef4772
+slots: 10
+candidates: 30
+official_snapshots: 17_SHA_PASS
+target_s: {S1: 3, S2: 3, S3: 4}
+previous_versions: V1_V2_V3_PRESERVED_NOT_DISTRIBUTED
+preliminary_fact_atom_status: CONSTRUCTION_SIDE_ONLY
+R3_phase1: PENDING_EXTERNAL_RAW
+R4_phase1: PENDING_EXTERNAL_RAW
+phase2: NOT_RELEASED
+batch1_accepted: false
+next_batch_allowed: false
+status: STOP_EXTERNAL_REVIEW_REQUIRED
+```
+
+Do not read hidden mapping/roles into external review. V4 is the sole distribution-authoritative Phase1 cohort; V1–V3 are historical. Only the original 30-row raw files plus run-scope attestation can move the Phase1 gate. Do not begin HKP2, Human A/B, GT, split or training. [Public status](../formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_PREBLIND_STATUS_V1.md).
+
 ## Current machine recovery record — 2026-09-26 D1 Canary conditional Owner acceptance
 
 ```yaml

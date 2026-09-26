@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## 当前：D1 剩余40组已获批准，HKP1 首批停在外部盲审门（2026-09-26）
+
+Owner 已批准按 HKP1→4 顺序构造剩余40组，但只有前一批所有硬门通过才可继续。HKP1 首批真实冻结槽位的10组/30条已完成 Evidence-first 本机预检，17份官方原始快照核验通过；节假日版本日期元数据缺口、4条 S3 Hard Negative 的数值外观差异及1条 S1 Hard Negative 的例外范围写宽问题均采用追加版本修复，旧稿未删除或发给评审。当前只应发送[权威 V4 Phase1 盲包](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_PREBLIND_STATUS_V1.md)给独立 R3-gpt/R4-codex。两份原始返回尚未收到，Phase2 未释放，Batch-1 未验收，更未开始 HKP2。真人 A/B、GT、正式切分、训练与论文结果继续关闭。下文 Canary 等待构造批准的章节是历史快照。
+
 ## Formal240 D1 Canary 通过有界质量验收，只待剩余40组单独审批（2026-09-26）
 
 Owner 预先批准“全部硬门通过则接受”的条件已由[完整审计](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_CANARY_FINAL_OWNER_ACCEPTANCE_AUDIT_V1.md)满足：8组/24条、14份官方原始快照、Phase1/Phase2双人最终值、8/8构造机制与派生隐蔽等级、HKP3/HKP4主机制、24条结构化主张输入及8条中性检索 smoke 均通过。`D1_CANARY_ACCEPTED_FOR_FULL_WAVE_CONSTRUCTION=TRUE` 只是验证“这套正式构造与预标注质检流程可以用于申请下一批”；D1其余40组尚未构造，真人 A/B、GT、切分、训练和论文结果仍未授权/发生。[验收记录](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_CANARY_OWNER_ACCEPTANCE_RECORD_V1.md)和[下一批计划](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING40_EXECUTION_PLAN_V2.md)明确单独 Owner 审批门。初稿 Run01 把官网托管方误写为页面发布者，保留为非权威初稿；Run02 追加修正并作为当前证据。旧“等待完整验收”章节是历史快照。

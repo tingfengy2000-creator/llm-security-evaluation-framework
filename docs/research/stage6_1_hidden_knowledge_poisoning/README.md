@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> **当前 Formal240 D1（2026-09-26）：** 剩余40组已获 Owner 顺序构造批准，但第一批 HKP1 的10组/30条目前只完成本机 Evidence-first 构造与预盲审；[权威 V4 盲包和门控](formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_PREBLIND_STATUS_V1.md)已备妥，等待独立 R3-gpt/R4-codex 第一阶段原始返回。第二阶段暂扣、第一批未验收、HKP2 尚未启动。真人 A/B、GT、切分、训练和正式结果均未获放行。下文“Canary 已验收、仍待批准剩余40组”是前一时点历史快照。
+
 > **当前 Formal240 D1（2026-09-26）：** 8组/24条 Canary 已通过[最终有界质量审计](formal240/PAPER1_FORMAL_D1_CANARY_FINAL_OWNER_ACCEPTANCE_AUDIT_V1.md)并按 Owner 条件式决定验收。只说明这套构造/预标注质检流程可以用于**另行申请**剩余40组，不代表 D1 全波次已完成，也不授权真人 A/B、Ground Truth、切分、训练或论文正式效果。[下一批计划](formal240/PAPER1_FORMAL_D1_REMAINING40_EXECUTION_PLAN_V2.md)。下方旧“待验收”描述为历史快照。
 
 > 当前 Formal240 D1 Canary（2026-09-26）：两位原盲审员已交回 V4.2 的 15 条定向复核，原件只读锁定、各 15/15 合规；双方及 Owner 语义覆盖值 15/15 一致。[复核记录](formal240/PAPER1_FORMAL_D1_CANARY_V4_2_TARGETED_RULE_STABILITY_REPORT_V1.md)。这只表明规则理解在原会话中稳定，**不等于 Canary 已验收**。下一步须 Owner 另行审阅完整质量证据并明确接受或退修；Human A/B、其余40组、split 和训练仍未授权。下方“尚无新返回”是前一时点快照。
