@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## Formal240 D1 Canary Phase1 定向修复已通过，Phase2 可以分发（2026-09-26）
+
+正式门控对为 R3-gpt 与 R4-codex；R5-claude 只是可选辅助。两份两条定向 Phase1 原件已按附件原始 JSON 字节片段锁定，结构化判断 2/2 完全一致；V3 修复消除了“第四条下”的自然度问题而保留刻意的文本内部矛盾。24 条 Candidate V3 和先前预建的 Phase2 V4 经哈希、Evidence 不变与有界机械复核后冻结，不覆盖旧版。[Phase1 收口记录](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_CANARY_PHASE1_FINAL_CLOSEOUT_V1.md)。现在只授权 Owner 把 V4、schema、Guide V4/V4.1 和各自提示词分别发给原 R3/R4 会话；本机没有执行 Phase2。Owner 后续同步的两份 R5 文件已原样锁定并完成 24/2 条结构核验，其自然度分歧仅为辅助观察，不阻断主门。Canary 最终验收、真人 A/B、其余40组、切分和训练仍未获放行。下方“定向复核待返回”为此前真实快照。
+
 ## Formal240 D1 Canary R3/R4 Phase1 双锁与两条措辞定向修复（2026-09-23）
 
 Owner 更正附件归属为附件 1 `R4-codex`、附件 2 `R3-gpt`，并澄清此前所谓 R3 提前 Phase2 是误贴材料；未创建 R3 流程事故。两份新 Phase1 原始 JSON 已按字节锁定，各 24/24 结构合规、五字段 24/24 一致。两位独立指出两条文本“第四条下”生硬；Owner 人工确认会话隔离与未外搜，但没有系统审计证明。新 Candidate V3 仅替换两处固定短语并更新两条盲号，旧 V2、22 条其余候选与冻结 Evidence 不变。两条定向 Phase1 复核包已准备，[锁定与修复记录](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_CANARY_R3_R4_PHASE1_LOCK_AND_TARGETED_REPAIR_RECORD_V1.md)索引私有 SHA。Phase2 V4 预建但暂扣；须原两会话的定向复核均通过后才可验收 V3 和考虑释放。Canary Owner 验收、真人 A/B、其余40组、split、训练、正式结果仍未开始。下方“新评审尚未开始”为更早阶段快照。

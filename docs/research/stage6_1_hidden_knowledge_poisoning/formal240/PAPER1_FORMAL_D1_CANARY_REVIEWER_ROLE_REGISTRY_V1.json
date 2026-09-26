@@ -1,0 +1,19 @@
+{
+  "task": "P1-FORMAL240-D1-CANARY-PHASE1-FINAL-CLOSEOUT-AND-PHASE2-RELEASE-PREP-01",
+  "owner_decision": "PODR-113 / OR-069",
+  "primary_gating_pair": [
+    "R3-gpt",
+    "R4-codex"
+  ],
+  "auxiliary_non_gating": [
+    "R5-claude"
+  ],
+  "r5_absence_blocks_gate": false,
+  "r5_ground_truth_vote": false,
+  "r5_mandatory_tiebreaker": false,
+  "r5_targeted_return_phase": "TARGETED_PHASE1_REPAIR_RE_REVIEW_NOT_PHASE2",
+  "new_substantiated_candidate_or_evidence_defect_requires_escalation": true,
+  "phase2_release_authorized": true,
+  "phase2_executed_by_control_plane": false,
+  "human_ab_authorized": false
+}

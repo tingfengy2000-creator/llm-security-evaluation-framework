@@ -1,5 +1,7 @@
 # Formal240 pre-annotation QA policy V1.1 — reviewer-run lineage supplement
 
+2026-09-26 additive application note: the current **primary gating pair** is `R3-gpt` + `R4-codex`; `R5-claude` is optional, non-gating auxiliary QA. A third reviewer's absence or an unsupported preference for reviewer unanimity does not invalidate a valid primary pair. A new, substantiated candidate/evidence defect still requires escalation. R5's two-item “second” return refers to **targeted Phase1**, not Evidence Phase2. This note does not alter the previously frozen Guide V4/V4.1 or any historical raw. See [current Phase1 closeout](PAPER1_FORMAL_D1_CANARY_PHASE1_FINAL_CLOSEOUT_V1.md).
+
 This additive supplement does not rewrite [policy V1](PAPER1_FORMAL_PRE_ANNOTATION_QA_POLICY_V1.md), Formal Guide V4, Schema V4 or any reviewer raw. It records the D1 Canary lesson from the preclarification Phase2 incident: two syntactically valid returns do not establish an independent reviewer pair if session lineage crosses reviewer slots.
 
 Before a Phase2 release, the coordinator records reviewer slot and opaque session/account identity, confirms Phase1 raw from **that same session** is byte-locked, and confirms the second reviewer uses a distinct isolated session. Capture send/return/lock times, packet and raw hashes, and routing incidents as `review_run_metadata / blind_review_process_QA`, not candidate `phase2_issue`. Candidate/evidence/schema issues remain row-level; a wrong-session run is rejected for independent agreement even if all 24 values are valid.

@@ -1,5 +1,39 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current machine recovery record — 2026-09-26 primary Phase1 closeout
+
+```yaml
+task: P1-FORMAL240-D1-CANARY-PHASE1-FINAL-CLOSEOUT-AND-PHASE2-RELEASE-PREP-01
+owner_authority: PODR-113 / OR-069
+primary_gating_pair: [R3-gpt, R4-codex]
+auxiliary_non_gating: R5-claude
+private_namespace: E:\LLMGuard-Handoff\paper1_formal240_d1_canary_phase1_final_closeout_20260926
+targeted_source: OWNER_COMPOSITE_ATTACHMENT_EXACT_UTF8_BYTE_SLICES
+r3_targeted_raw_sha256: 15a4ac45d6e42f36d36e77fffb430a26963ed531922291c404bb5c80b63f80f9
+r4_targeted_raw_sha256: 8197616e4cc8a9dbb7007011d246a577463f6634133fb6fda2c1a4e1a981eedd
+targeted_validation: EACH_2_OF_2_EXACT_ID_ORDER_SCHEMA_ENUM
+primary_five_field_agreement: 2/2
+r3_note_artifact: NON_BLOCKING_REVIEWER_NOTE_ARTIFACT_REFERENCE
+phase1_final_overlay: 22_FULL_RAW_UNCHANGED_PLUS_2_TARGETED_RAW_PER_REVIEWER
+candidate_v3_sha256: 6210a6de8f519fb4a58334ff531954b67e774375d021d099dea050f8fe47032e
+phase2_v4_sha256: 2daf08286581cb8d28e70ab95ea844e5cdf41e2a6916980bf41b0a90a548ac38
+phase2_v4: PREBUILT_PROMOTED_WITHOUT_REWRITE
+mechanical_reqa: BOUNDED_PASS_NOT_FULL_FACTUAL_CERTIFICATION
+r5_auxiliary_full_raw_sha256: 68e3d3cfa782d8b42b382a61c9d5a70e67fb9f1c46796dbf69b051dfd8d897ff
+r5_auxiliary_targeted_raw_sha256: 0b9738c293d6873ee10cee7b12c0aadfa85a7c4a1d7b69183c08b71f2f53ad9b
+r5_auxiliary_validation: FULL_24_AND_TARGETED_2_EXACT_ID_ORDER_SCHEMA_ENUM_PASS
+r5_auxiliary_naturalness_vs_primary: FULL_21_OF_24_TARGETED_1_OF_2
+r5_auxiliary_gating_effect: NONE
+session_isolation: OWNER_ATTESTED_NOT_MACHINE_VERIFIED
+phase2_release_authorized: true
+phase2_executed: false
+canary_owner_accepted: false
+human_ab: NOT_AUTHORIZED
+next_gate: OWNER_SENDS_PHASE2_V4_TO_SAME_R3_R4_SESSIONS_THEN_RAW_LOCK_AND_QA
+```
+
+The [primary closeout](../formal240/PAPER1_FORMAL_D1_CANARY_PHASE1_FINAL_CLOSEOUT_V1.md) and private manifest bind exact raw bytes and release lineage. Previous `TARGETED_REVIEW_PENDING` entries below are historical snapshots.
+
 ## Current machine recovery record — 2026-09-23 R3/R4 Phase1 lock and V3 repair preparation
 
 ```yaml

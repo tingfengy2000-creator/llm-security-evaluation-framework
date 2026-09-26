@@ -1,0 +1,5 @@
+# D1 Canary Phase2 — optional R5-claude auxiliary QA
+
+`OPTIONAL / NON_GATING / BEST_EFFORT`. If this reviewer is unavailable or quota-limited, skip it. R3-gpt and R4-codex alone are the primary gating pair. R5 is neither a Ground Truth voter nor a mandatory tie-breaker.
+
+If continuing, remain in the same independent R5-claude session as its Phase1 review. Read only the supplied `PAPER1_FORMAL_D1_CANARY_PHASE2_V4.json`, `PAPER1_FORMAL_D1_BLIND_REVIEW_IMPORT_SCHEMA_V2.json`, `PAPER1_FORMAL_ANNOTATION_GUIDE_V4.md`, `PAPER1_FORMAL_ANNOTATION_GUIDE_V4_1_CLARIFICATION.md`, and this prompt. Use only frozen E1/E2 excerpts and their specified official URLs, without hidden labels, mapping, expected answers, Owner materials or other reviewers' returns. Apply version, authority, substantive, minimum-evidence and candidate-level issue boundaries independently. Return the exact 24-row Phase2 JSON schema in supplied order; report run-level defects outside candidate JSON. Any return is auxiliary construction QA only and must be byte-locked separately before analysis.
