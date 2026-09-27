@@ -1,5 +1,9 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current recovery — 2026-09-27 remaining90 Phase1 pair QA and auxiliary gate
+
+Corrected R3 raw SHA256 `36a14d40f530bd2f9566f18f36acdce07a11a43b0c56142b8bb41e6af84f1e14`, R4 raw SHA256 `d3aa0c1470b5dffab91217157a6b808f73531ae9fc3bbee21ef8626500759f04`; each strict 90-row key/order/enum/note check passes. The formerly attached R3 isolation incident is `WITHDRAWN_WRONG_ATTACHMENT`, immutable historical transport evidence only, not current R3 run evidence. Five-field agreement is `84/90,86/90,90/90,90/90,90/90`; four local-conflict disagreements are material. [Detailed QA/gate](../formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_R3_R4_RAW_LOCK_QA_AND_R5_AUXILIARY_V1.md). R3 isolation `OWNER_ATTESTED`; R4 self-attested in its return context, Owner confirmation pending. Owner suggested independent R5-claude auxiliary review; [ten-row candidate-only send checklist](../formal240/PAPER1_FORMAL_D1_REMAINING90_R5_CLAUDE_TARGETED_PHASE1_OWNER_SEND_CHECKLIST_V1.md) is ready. No hidden construction/Expected/GT load for pair comparison; `PHASE2_WITHHELD / OWNER_ADJUDICATION_PENDING / HUMAN_AB_NOT_AUTHORIZED`.
+
 ## Current correction — 2026-09-27 R4 code/provider separation
 
 Authority `PODR-119 / OR-075 / REL-2026-0088`: reviewer code `R4-codex` is retained; actual provider is Doubao by Owner attestation. Supersede prior R4 Codex Project/projectless execution attributions, not raw bytes, hashes, blind ID, Candidate, schema, Guide V4.3 or bounded Batch-1 acceptance. Remaining90 R4 uses additive prompt V2 and byte-identical V1 package/schema; R3 V1 route unchanged. Distribution authority: [V2 checklist](../formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_REVIEWER_FILE_CHECKLIST_V2.md). `OWNER_ATTESTED / STOP_EXTERNAL_REVIEW_REQUIRED / PHASE2_WITHHELD / HUMAN_AB_NOT_AUTHORIZED`. Earlier R4 Codex-mode entries below are historical and are not current instructions.

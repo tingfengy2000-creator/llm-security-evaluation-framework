@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## 当前：D1 remaining90 两份 Phase1 原答已锁；Claude 十条辅助盲审待回（2026-09-27）
+
+Owner 撤回误发的 R3 隔离事件附件，提供真正的 R3 90 条原答并人工确认其隔离。R3/R4 原件均已按字节锁定、通过题号/顺序/七字段检查；四条文本内部冲突分歧尚未裁决，故 Phase2 不放行。[QA 与状态](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_R3_R4_RAW_LOCK_QA_AND_R5_AUXILIARY_V1.md)。Owner 可按[Claude 三文件完整路径清单](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_R5_CLAUDE_TARGETED_PHASE1_OWNER_SEND_CHECKLIST_V1.md)发十条候选文字到全新独立会话；其回复只作辅助，最终由 Owner 裁决。Human A/B、GT、正式切分和训练未授权。下文“尚未收到原答”是历史状态。
+
 ## 当前来源勘误：R4-codex 是编号，实际评审由豆包运行（2026-09-27）
 
 Owner 保留 `R4-codex` 代码标号与旧文件名，但纠正所有 Codex 运行平台归因。剩余90条给 R4 时请按[新版逐人完整路径清单](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_REVIEWER_FILE_CHECKLIST_V2.md)只发 V2 提示词、原样题包及 Schema；R3 V1 不变。[历史来源勘误](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_R4_CODEX_DOUBAO_PROVIDER_PROVENANCE_ERRATUM_V1.md)不修改任何原始答卷。仍待两份外部 Phase1 原件，Phase2、真人 A/B、GT、正式切分和训练尚未授权。下方旧 Codex projectless 说法是历史状态，不再执行。

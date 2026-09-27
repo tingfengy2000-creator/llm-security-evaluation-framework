@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> **当前 D1 remaining90（2026-09-27）：** Owner 更正误发的 R3 事件附件，R3/R4 真正的90条 Phase1 原始答卷现已锁定并通过结构检查。四条“同一文件公布机关自相矛盾”的判断分歧尚未收口，因此不能放行 Phase2。[QA 与更正来源](formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_R3_R4_RAW_LOCK_QA_AND_R5_AUXILIARY_V1.md)。应按[准确文件清单](formal240/PAPER1_FORMAL_D1_REMAINING90_R5_CLAUDE_TARGETED_PHASE1_OWNER_SEND_CHECKLIST_V1.md)将十条不含旧答案的文字交给全新隔离 Claude 会话作辅助复核，原文件回传后仍由 Owner 裁决。真人 A/B、GT、切分、训练仍暂扣；下面“尚未收到答卷”是历史快照。
+
 > **当前 R4 发件更正（2026-09-27）：** `R4-codex` 是固定审核员代码，实际使用豆包，并非 Codex。Owner 的[追加来源勘误](formal240/PAPER1_FORMAL_D1_R4_CODEX_DOUBAO_PROVIDER_PROVENANCE_ERRATUM_V1.md)保留所有历史原答和既有门控。剩余90条必须按[V2 逐人完整路径清单](formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_REVIEWER_FILE_CHECKLIST_V2.md)分发：R3 沿用 V1，R4 仅换 V2 提示词、用全新隔离豆包会话。旧 Codex projectless 说法已被覆盖，不能照旧发件。Phase2、Human A/B、GT、切分、训练仍暂扣。
 
 > **当前 Formal240 D1（2026-09-27）：** HKP2/3/4 剩余90条已按先证据后文本完成构造侧质量检查，两个独立评审的九十条第一阶段盲审包已锁定，但尚未收到答卷。请按[本次完整逐人文件路径](formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_REVIEWER_FILE_CHECKLIST_V1.md)分别发给全新 R3 GPT 会话、全新 **projectless 空目录** R4 Codex 任务；不要把旧 HKP1 的新 Project 例外沿用。必须先锁两份原答并处理阻断缺陷，才能给原会话 Phase2。[有界记录](formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_MEGAWAVE_RELEASE_RECORD_V1.md)。Human A/B、GT、正式切分、训练均未开始；下方“剩余90条待构造”是历史快照。

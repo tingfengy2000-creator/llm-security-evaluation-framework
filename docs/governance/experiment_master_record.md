@@ -1,5 +1,7 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+> 2026-09-27 D1 剩余90条的 R3/R4 Phase1 原始答卷已更正后分别只读锁定，严格 90/90 结构合格；旧 R3 隔离事件是 Owner 撤回的误附件，不能据此判本次 R3 隔离失败。五字段一致数 84/86/90/90/90，其中四条文本内部冲突分歧仍属重要阻断。[锁定与 QA](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_R3_R4_RAW_LOCK_QA_AND_R5_AUXILIARY_V1.md)。Owner 建议 Claude 独立看十条分歧，[仅三件安全文件的清单](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_R5_CLAUDE_TARGETED_PHASE1_OWNER_SEND_CHECKLIST_V1.md)已就绪；不是 GT 或自动仲裁。Phase2/Human A/B/GT/split/training 仍暂扣。
+
 > 2026-09-27 R4 平台来源勘误：`R4-codex` 保留为代码标号，Owner 确认实际模型/平台为豆包。历史 Codex Project/projectless 归因由[追加勘误](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_R4_CODEX_DOUBAO_PROVIDER_PROVENANCE_ERRATUM_V1.md)覆盖，不改旧原始返回或科学门控。当前 remaining90 请以[V2 逐人发件表](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_REVIEWER_FILE_CHECKLIST_V2.md)为准；R4 题包与 Schema 原样，只有 R4 提示词换 V2。仍等外部 Phase1 原件；Phase2、人类 A/B、GT、切分、训练未放行。
 
 > 2026-09-27 D1 剩余90条已完成 HKP2/3/4 内部 Evidence-first 构造及跨批次自查，但尚未得到外部盲审。[Phase1 MegaWave 发放记录](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_MEGAWAVE_RELEASE_RECORD_V1.md)索引三批候选 SHA、90条审计/锁定 manifest 及私有九类 QA 清单；[逐人发件表](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_REVIEWER_FILE_CHECKLIST_V1.md)是当前下一操作。`STOP_EXTERNAL_REVIEW_REQUIRED`，Phase2/Human A/B/GT/split/training 均未放行。旧“剩余90条待内部构造”条目为历史快照。
