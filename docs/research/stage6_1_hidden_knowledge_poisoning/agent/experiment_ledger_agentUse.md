@@ -1,5 +1,33 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current recovery — 2026-09-27 D1 remaining90 Phase1 MegaWave release
+
+```yaml
+task: P1-FORMAL240-D1-HKP1-PHASE2-CLOSEOUT-V4_3-AND-REMAINING90-MEGAWAVE-01
+authority: PODR-118 / OR-074
+status: D1_REMAINING90_PHASE1_READY / STOP_EXTERNAL_REVIEW_REQUIRED
+population: HKP2/HKP3/HKP4 each 10 groups and 30 candidates; total 30/90
+current_candidate_sha256:
+  HKP2_V8: 49ab68b61214d0e8a14d7b102c11be75f84609035dd23d7072dcfeae9e4ba24f
+  HKP3_V4: 10695f0b529b83116b0992cda3ee36551026abba16bc573908f6b12f1c5ecc27
+  HKP4_V1: 90d1fadc7aa40dc65a6ad6e263caf3e7bafd1ff6fe38141eed4e6452adca6507
+cross_batch_audit_v2_sha256: 246ad2ab94a964fb31cb3befe0ded55d62b9e751101de985bf16679a5f1a4155
+release_lock_manifest_sha256: c0e5c428839b7968b976792100115aeba739a92b885df0f1e521596a7670bf21
+private_release_root: E:\LLMGuard-Handoff\paper1_formal240_d1_remaining90_megawave_20260927\phase1_release_v1
+reviewer_safe_subfolder: reviewer_release
+control_only_subfolder: control_only_do_not_send
+external_raw_received: false
+R4_fresh_environment: PROJECTLESS_EMPTY_DIRECTORY_REQUIRED
+reviewer_session_provenance_after_return: OWNER_ATTESTED_UNLESS_INDEPENDENTLY_LOGGED
+Phase2_released: false
+Human_AB: false
+Ground_Truth: false
+formal_split: false
+training: false
+```
+
+The current [release record](../formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_MEGAWAVE_RELEASE_RECORD_V1.md), [exact file checklist](../formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_REVIEWER_FILE_CHECKLIST_V1.md), and private nine-part control dossier supersede the preceding construction-pending **status**, not immutable earlier artifacts. HKP3 V1–V3 drafts are retained; V4 is the only blind-release candidate identity. Cross-batch reused family clusters remain one future split unit. Phase1 raw lock and independent review are pending; no construction-side result is Ground Truth.
+
 ## Current recovery — 2026-09-27 D1 HKP1 Batch-1 Phase2 acceptance and V4.3
 
 ```yaml

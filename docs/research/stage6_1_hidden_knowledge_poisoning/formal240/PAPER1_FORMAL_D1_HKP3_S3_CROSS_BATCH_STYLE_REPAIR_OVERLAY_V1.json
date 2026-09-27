@@ -1,0 +1,15 @@
+{
+  "status": "ADDITIVE_UNRELEASED_CROSS_BATCH_SURFACE_REPAIR",
+  "trigger": "Across HKP2 and HKP3, all seven S3 poison drafts used an unchanged-version phrase. This creates an avoidable lexical role cue despite otherwise valid multi-evidence paths.",
+  "old_drafts_retained": ["HKP3_DRAFT_V1_NOT_RELEASED", "HKP3_DRAFT_V2_NOT_RELEASED"],
+  "target_group_slots": [
+    "F240-D1-HKP3-S3-C2",
+    "F240-D1-HKP3-S3-C3",
+    "F240-D1-HKP3-S3-C4"
+  ],
+  "repair": "Replace no-change poison wording with an evidence-refuted wrong change direction, still requiring both old and new official texts; add an evidence-supported unchanged side property to the HN to neutralize the no-change lexical cue. Preserve Clean, primary version chain, evidence pool, target S and all prior drafts. Assign new opaque IDs to changed candidates.",
+  "evidence_path_unchanged": "MULTI_EVIDENCE_OR_VERSION_CHAIN",
+  "official_source_ids_unchanged": true,
+  "not_an_external_reviewer_repair": true,
+  "reviewer_release_before_this_overlay": false
+}

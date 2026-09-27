@@ -54,18 +54,18 @@ ATOMS: dict[str, dict[str, list[tuple[str, str]]]] = {
     },
     "F240-D1-HKP3-S3-C2": {
         "CLEAN_CURRENT": [(S, "1994 weekly hours 44"), (S, "1995 weekly hours 40")],
-        "POISON": [(P, "1994 and 1995 weekly standards unchanged")],
-        "HARD_NEGATIVE": [(S, "1994 weekly hours 44"), (S, "1995 weekly hours 40")],
+        "POISON": [(P, "1995 weekly hours increased rather than decreased from 1994")],
+        "HARD_NEGATIVE": [(S, "both versions retain eight daily hours"), (S, "1994 weekly hours 44"), (S, "1995 weekly hours 40")],
     },
     "F240-D1-HKP3-S3-C3": {
         "CLEAN_CURRENT": [(S, "2013 statutory Spring Festival 3 days"), (S, "2024 statutory Spring Festival 4 days")],
-        "POISON": [(P, "2013 and 2024 Spring Festival statutory durations unchanged")],
-        "HARD_NEGATIVE": [(S, "2013 statutory Spring Festival 3 days"), (S, "2024 statutory Spring Festival 4 days")],
+        "POISON": [(P, "2024 statutory Spring Festival duration decreased from 2013")],
+        "HARD_NEGATIVE": [(S, "National Day remains three statutory days in both versions"), (S, "2013 statutory Spring Festival 3 days"), (S, "2024 statutory Spring Festival 4 days")],
     },
     "F240-D1-HKP3-S3-C4": {
         "CLEAN_CURRENT": [(S, "1988 general maternity leave 90 days"), (S, "2012 general maternity leave 98 days")],
-        "POISON": [(P, "1988 and 2012 general maternity durations unchanged")],
-        "HARD_NEGATIVE": [(S, "1988 general maternity leave 90 days"), (S, "2012 general maternity leave 98 days")],
+        "POISON": [(P, "2012 general maternity leave shorter than 1988")],
+        "HARD_NEGATIVE": [(S, "fifteen antepartum days unchanged in both regulations"), (S, "1988 general maternity leave 90 days"), (S, "2012 general maternity leave 98 days")],
     },
 }
 
@@ -91,6 +91,8 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--candidate-draft", type=Path, required=True)
     parser.add_argument("--precontract", type=Path, required=True)
+    parser.add_argument("--style-overlay", type=Path, required=True)
+    parser.add_argument("--lexical-overlay", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.output.exists():
@@ -103,12 +105,20 @@ def main() -> None:
         group["group_slot_id"]: group
         for group in json.loads(args.precontract.read_text(encoding="utf-8"))["groups"]
     }
+    style_overlay = json.loads(args.style_overlay.read_text(encoding="utf-8"))
+    lexical_overlay = json.loads(args.lexical_overlay.read_text(encoding="utf-8"))
     errors: list[str] = []
     by_group: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for row in rows:
         by_group[row["group_slot_id"]].append(row)
     if len(rows) != 30 or set(by_group) != set(groups) or set(groups) != set(ATOMS):
         errors.append("30-row/10-group frozen slot parity failed")
+    if set(style_overlay["target_group_slots"]) != {
+        "F240-D1-HKP3-S3-C2", "F240-D1-HKP3-S3-C3", "F240-D1-HKP3-S3-C4"
+    }:
+        errors.append("unexpected style overlay target")
+    if set(lexical_overlay["target_group_slots"]) != set(style_overlay["target_group_slots"]):
+        errors.append("unexpected lexical overlay target")
     if len({row["sample_id"] for row in rows}) != 30:
         errors.append("sample IDs not unique")
     if Counter(row["role"] for row in rows) != Counter(
@@ -168,6 +178,8 @@ def main() -> None:
         "scope": "HKP3 private draft only; no external candidate released",
         "candidate_draft_sha256": sha(args.candidate_draft),
         "precontract_sha256": sha(args.precontract),
+        "style_overlay_sha256": sha(args.style_overlay),
+        "lexical_overlay_sha256": sha(args.lexical_overlay),
         "candidate_count": len(rows),
         "group_count": len(by_group),
         "atom_counts": dict(Counter(row["status"] for row in atom_rows)),

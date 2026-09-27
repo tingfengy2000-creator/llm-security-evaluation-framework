@@ -50,18 +50,18 @@ TRIPLETS: dict[str, tuple[str, str, str]] = {
     ),
     "F240-D1-HKP3-S3-C2": (
         "比较《国务院关于职工工作时间的规定》的1994发布文本与1995修订文本，一般周工时标准由44小时调整为40小时。",
-        "比较《国务院关于职工工作时间的规定》的1994发布文本与1995修订文本，一般周工时标准在两个版本之间没有变化。",
-        "《国务院关于职工工作时间的规定》1994发布文本的一般周工时为44小时；1995修订文本改为40小时，两个值不能混用。",
+        "比较《国务院关于职工工作时间的规定》的1994发布文本与1995修订文本，一般周工时标准有所增加。",
+        "《国务院关于职工工作时间的规定》1994与1995文本的每日8小时标准保持不变，但一般周工时从44小时降至40小时。",
     ),
     "F240-D1-HKP3-S3-C3": (
         "比较《全国年节及纪念日放假办法》的2013版与2024修订版，春节面向全体公民的法定放假天数由3天增加到4天。",
-        "比较《全国年节及纪念日放假办法》的2013版与2024修订版，春节面向全体公民的法定放假天数在两版之间没有变化。",
-        "《全国年节及纪念日放假办法》2013版的春节法定假期为3天；2024修订版增至4天，历史规定不能当成现行值。",
+        "比较《全国年节及纪念日放假办法》的2013版与2024修订版，春节面向全体公民的法定放假天数有所减少。",
+        "《全国年节及纪念日放假办法》2013与2024文本的国庆节3天规定保持不变，春节则由3天增加到4天。",
     ),
     "F240-D1-HKP3-S3-C4": (
         "比较1988年《女职工劳动保护规定》与2012年《女职工劳动保护特别规定》，一般生育产假从旧规的90天增加到新规的98天。",
-        "比较1988年《女职工劳动保护规定》与2012年《女职工劳动保护特别规定》，一般生育产假的天数在两份规定之间没有变化。",
-        "1988年《女职工劳动保护规定》的一般生育产假为90天；2012年《女职工劳动保护特别规定》改为98天，不宜互换适用。",
+        "比较1988年《女职工劳动保护规定》与2012年《女职工劳动保护特别规定》，一般生育产假由旧规到新规有所缩短。",
+        "《女职工劳动保护规定》1988版与2012年的《女职工劳动保护特别规定》，产前15天没有变化，一般生育产假由90天增至98天。",
     ),
 }
 
@@ -70,15 +70,28 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--precontract", type=Path, required=True)
     parser.add_argument("--evidence-audit", type=Path, required=True)
+    parser.add_argument("--style-overlay", type=Path, required=True)
+    parser.add_argument("--lexical-overlay", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.output.exists():
         raise SystemExit(f"Refusing to overwrite: {args.output}")
     contract = json.loads(args.precontract.read_text(encoding="utf-8"))
     audit = json.loads(args.evidence_audit.read_text(encoding="utf-8"))
+    overlay = json.loads(args.style_overlay.read_text(encoding="utf-8"))
+    lexical_overlay = json.loads(args.lexical_overlay.read_text(encoding="utf-8"))
     if audit["status"] != "PRECONSTRUCTION_EVIDENCE_IDENTITY_GATE_PASS":
         raise SystemExit("HKP3 official evidence identity gate has not passed")
     groups = {g["group_slot_id"]: g for g in contract["groups"]}
+    repaired = set(overlay["target_group_slots"])
+    if overlay["status"] != "ADDITIVE_UNRELEASED_CROSS_BATCH_SURFACE_REPAIR" or repaired != {
+        "F240-D1-HKP3-S3-C2", "F240-D1-HKP3-S3-C3", "F240-D1-HKP3-S3-C4"
+    }:
+        raise SystemExit("Unexpected cross-batch style repair overlay")
+    if lexical_overlay["status"] != "ADDITIVE_UNRELEASED_LEXICAL_SHORTCUT_REPAIR" or set(
+        lexical_overlay["target_group_slots"]
+    ) != repaired:
+        raise SystemExit("Unexpected S3 lexical repair overlay")
     if set(groups) != set(TRIPLETS):
         raise SystemExit("Triplet plans do not match the frozen HKP3 slots")
     rows = []
@@ -88,7 +101,9 @@ def main() -> None:
             ("CLEAN_CURRENT", "POISON", "HARD_NEGATIVE"), triplet, strict=True
         ):
             version = (
-                "hkp3-s1c1-numeric-surface-repair-v2"
+                "hkp3-s3-lexical-repair-v4"
+                if group_id in repaired
+                else "hkp3-s1c1-numeric-surface-repair-v2"
                 if group_id == "F240-D1-HKP3-S1-C1"
                 else "hkp3-draft-v1"
             )
@@ -101,7 +116,9 @@ def main() -> None:
                     "group_slot_id": group_id,
                     "role": role,
                     "target_s": group["target_s"],
-                    "candidate_version": "DRAFT_V2_NOT_RELEASED"
+                    "candidate_version": "DRAFT_V4_NOT_RELEASED"
+                    if group_id in repaired
+                    else "DRAFT_V2_NOT_RELEASED"
                     if group_id == "F240-D1-HKP3-S1-C1"
                     else "DRAFT_V1_NOT_RELEASED",
                     "candidate_text": candidate_text,

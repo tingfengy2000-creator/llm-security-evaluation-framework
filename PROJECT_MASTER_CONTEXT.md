@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## 当前：D1 剩余90条已备妥外部第一阶段盲审（2026-09-27）
+
+HKP2/3/4 共30组、90段文本通过先锁官方证据再构造候选的内部检查；跨批次发现的 HKP3 措辞捷径已追加修复，旧稿保留。现在只需按[逐人完整路径清单](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_REVIEWER_FILE_CHECKLIST_V1.md)给全新 R3 GPT 会话、全新 projectless 空目录 R4 Codex 任务分别发送第一阶段三份文件；尚未有两位评审的回答。[发放边界及审计](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_MEGAWAVE_RELEASE_RECORD_V1.md)。Phase2、Human A/B、GT、正式切分和训练都未放行。旧“剩余90条待内部构造”段落是历史状态。
+
 ## 当前：D1 HKP1 第一批通过有界构造验收，剩余90条内部构造获批（2026-09-27）
 
 R3/R4 第二阶段原始30条已分别锁定并通过结构核查；六条版本字段分歧由 Owner V4.3 追加规则处理，原答不改。HKP1 Batch-1 只对继续 D1 构造验收。HKP2/3/4 须先逐组锁官方证据、通过事实与五视角上游输入硬门，再一次性准备90条外部独立盲审。[验收记录](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_HKP1_BATCH1_PHASE2_ACCEPTANCE_RECORD_V1.md)与[大包路由](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_MEGAWAVE_ROUTING_V1.md)。不授权 Human A/B、GT、切分、训练或正式论文效果；下方旧“Phase2 待发”是历史状态。

@@ -1,0 +1,8 @@
+{
+  "status": "ADDITIVE_UNRELEASED_LEXICAL_SHORTCUT_REPAIR",
+  "trigger": "The 90-row cross-batch audit showed that the false-direction marker 反而 remained Poison-only in the HKP3 S3 drafts, while exact unchanged-version phrases remained concentrated in HKP2 Poison drafts.",
+  "target_group_slots": ["F240-D1-HKP3-S3-C2", "F240-D1-HKP3-S3-C3", "F240-D1-HKP3-S3-C4"],
+  "repair": "Remove the poison-only 反而 marker without changing the false-direction claim. Phrase independently supported unchanged side properties in HKP3 HN using overlapping unchanged wording. Preserve official Evidence and all historical drafts; assign new opaque IDs to changed candidates.",
+  "evidence_path_unchanged": "MULTI_EVIDENCE_OR_VERSION_CHAIN",
+  "old_draft_reviewer_release": false
+}

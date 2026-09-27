@@ -27,6 +27,8 @@ def main() -> None:
     parser.add_argument("--precontract", type=Path, required=True)
     parser.add_argument("--evidence-identity-audit", type=Path, required=True)
     parser.add_argument("--construction-qa", type=Path, required=True)
+    parser.add_argument("--style-overlay", type=Path, required=True)
+    parser.add_argument("--lexical-overlay", type=Path, required=True)
     parser.add_argument("--derived-1988-text", type=Path, required=True)
     parser.add_argument("--derived-1988-provenance", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
@@ -48,6 +50,10 @@ def main() -> None:
         errors.append("construction-side atom gate failed")
     if atoms["candidate_draft_sha256"] != sha(args.candidate_draft):
         errors.append("candidate/atom audit hash mismatch")
+    if atoms["style_overlay_sha256"] != sha(args.style_overlay):
+        errors.append("cross-batch style overlay lineage mismatch")
+    if atoms["lexical_overlay_sha256"] != sha(args.lexical_overlay):
+        errors.append("lexical shortcut overlay lineage mismatch")
     if provenance["source_raw_sha256"] != evidence["sources"]["ML1988_HUBEI_GAZETTE"]["sha256"]:
         errors.append("1988 derived excerpt not linked to raw official PDF")
     excerpt = args.derived_1988_text.read_text(encoding="utf-8")
@@ -170,6 +176,8 @@ def main() -> None:
         "candidate_draft_sha256": sha(args.candidate_draft),
         "evidence_identity_audit_sha256": sha(args.evidence_identity_audit),
         "construction_qa_sha256": sha(args.construction_qa),
+        "style_overlay_sha256": sha(args.style_overlay),
+        "lexical_overlay_sha256": sha(args.lexical_overlay),
         "derived_1988_excerpt_sha256": sha(args.derived_1988_text),
         "group_count": len(by_group),
         "candidate_count": len(rows),

@@ -1,0 +1,7 @@
+# D1 HKP3 additive V4 internal-construction gate
+
+Status: `HKP3_INTERNAL_MECHANICAL_QA_PASS / EXTERNAL_BLIND_QA_PENDING`.
+
+This record **supersedes only the HKP3 candidate identity** in [V1](PAPER1_FORMAL_D1_HKP3_INTERNAL_CONSTRUCTION_GATE_V1.md). It does not rewrite the V1/V2/V3 private drafts or their quality reports. After the V2 unit gate passed, the combined 90-row corpus showed a class-correlated S3 surface form. A [first](PAPER1_FORMAL_D1_HKP3_S3_CROSS_BATCH_STYLE_REPAIR_OVERLAY_V1.json) and [second](PAPER1_FORMAL_D1_HKP3_S3_LEXICAL_REPAIR_OVERLAY_V1.json) additive repair changed three S3 triplets while keeping the official source identity, factual core and frozen slot unchanged. Changed candidates received new opaque IDs.
+
+The private authoritative HKP3 draft for MegaWave Phase1 is `PAPER1_FORMAL_D1_HKP3_CANDIDATE_DRAFT_V4_NOT_RELEASED.jsonl`, SHA256 `10695f0b529b83116b0992cda3ee36551026abba16bc573908f6b12f1c5ecc27`. The construction-side atom audit V4 reports 51 `SUPPORTED`, ten `CONTROLLED_POISON`, no identified accidental or ambiguous atom; the mechanical gate V4 reports 10/10 shared-query retrieval-smoke execution, 30/30 S/E input presence, 30/30 temporal path presence and no blocking surface attention. This is not an independent factual judgment or external blind-review result. Cross-batch audit V2, not HKP3-only QA, authorizes **preparation** of the combined 90-row Phase1 package. The separate [release record](PAPER1_FORMAL_D1_REMAINING90_PHASE1_MEGAWAVE_RELEASE_RECORD_V1.md) defines the next gate.
