@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## 当前来源勘误：R4-codex 是编号，实际评审由豆包运行（2026-09-27）
+
+Owner 保留 `R4-codex` 代码标号与旧文件名，但纠正所有 Codex 运行平台归因。剩余90条给 R4 时请按[新版逐人完整路径清单](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_REVIEWER_FILE_CHECKLIST_V2.md)只发 V2 提示词、原样题包及 Schema；R3 V1 不变。[历史来源勘误](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_R4_CODEX_DOUBAO_PROVIDER_PROVENANCE_ERRATUM_V1.md)不修改任何原始答卷。仍待两份外部 Phase1 原件，Phase2、真人 A/B、GT、正式切分和训练尚未授权。下方旧 Codex projectless 说法是历史状态，不再执行。
+
 ## 当前：D1 剩余90条已备妥外部第一阶段盲审（2026-09-27）
 
 HKP2/3/4 共30组、90段文本通过先锁官方证据再构造候选的内部检查；跨批次发现的 HKP3 措辞捷径已追加修复，旧稿保留。现在只需按[逐人完整路径清单](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_REVIEWER_FILE_CHECKLIST_V1.md)给全新 R3 GPT 会话、全新 projectless 空目录 R4 Codex 任务分别发送第一阶段三份文件；尚未有两位评审的回答。[发放边界及审计](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_MEGAWAVE_RELEASE_RECORD_V1.md)。Phase2、Human A/B、GT、正式切分和训练都未放行。旧“剩余90条待内部构造”段落是历史状态。

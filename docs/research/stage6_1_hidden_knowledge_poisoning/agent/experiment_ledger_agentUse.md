@@ -1,5 +1,9 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current correction — 2026-09-27 R4 code/provider separation
+
+Authority `PODR-119 / OR-075 / REL-2026-0088`: reviewer code `R4-codex` is retained; actual provider is Doubao by Owner attestation. Supersede prior R4 Codex Project/projectless execution attributions, not raw bytes, hashes, blind ID, Candidate, schema, Guide V4.3 or bounded Batch-1 acceptance. Remaining90 R4 uses additive prompt V2 and byte-identical V1 package/schema; R3 V1 route unchanged. Distribution authority: [V2 checklist](../formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_REVIEWER_FILE_CHECKLIST_V2.md). `OWNER_ATTESTED / STOP_EXTERNAL_REVIEW_REQUIRED / PHASE2_WITHHELD / HUMAN_AB_NOT_AUTHORIZED`. Earlier R4 Codex-mode entries below are historical and are not current instructions.
+
 ## Current recovery — 2026-09-27 D1 remaining90 Phase1 MegaWave release
 
 ```yaml
