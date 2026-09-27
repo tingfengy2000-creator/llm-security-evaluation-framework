@@ -1,0 +1,23 @@
+{
+  "status": "ADDITIVE_PREBLIND_CONSTRUCTION_REPAIR",
+  "group_slot_id": "F240-D1-HKP2-S3-C4",
+  "supersedes_for_candidate_construction": "PAPER1_FORMAL_D1_HKP2_EVIDENCE_PRECONTRACT_V1.json::F240-D1-HKP2-S3-C4",
+  "finding": "The 1988 regulation's Article 8 uses medical-proof and unspecified-duration wording, but an official Shanghai Q&A about the old regime separately cites a contemporaneous notice with a four-month threshold. The old draft risked confusing these two specific regulation texts with the entire historical legal regime.",
+  "old_primary_factual_core_id": "miscarriage_leave_medical_discretion_to_gestation_threshold",
+  "new_primary_factual_core_id": "miscarriage_leave_statutory_clause_four_month_articulation",
+  "old_comparison_scope": "broad historical applicability conditions and duration",
+  "new_comparison_scope": "the express four-month threshold in Article 8 of the 1988 regulation versus Article 7 of the 2012 regulation, and no claim about all contemporaneous implementation guidance",
+  "new_canonical_fact": "The 1988 regulation's Article 8 does not itself enumerate the four-month threshold or fixed 15/42-day values; the 2012 regulation's Article 7 expressly does so. This is a comparison of the two identified normative clauses, not a claim that the entire 1988 regime lacked such guidance.",
+  "new_planned_primary_corruption": "Claim that the two identified regulation clauses did not differ in whether they expressly state a four-month gestational threshold.",
+  "frozen_reviewer_evidence_refs": ["ML1988_HUBEI_GAZETTE", "ML2012"],
+  "construction_context_only_ref": {
+    "evidence_doc_id": "ML1988",
+    "official_url": "https://fgw.sh.gov.cn/ys-laogong-1.5.2.1/20240125/3f7a1fc1e5164b798a049127adc34422.html",
+    "locator": "第13问",
+    "use": "Avoid overclaim about full historical legal regime; not an E1/E2 reviewer answer source"
+  },
+  "repair_type": "CLAIM_SCOPE_NARROWING_BEFORE_BLIND_REVIEW",
+  "candidate_id_policy": "new sample IDs for all three repaired triplet members",
+  "old_drafts": "V1-V4 retained as NOT_RELEASED",
+  "expected_guide_changed": false
+}

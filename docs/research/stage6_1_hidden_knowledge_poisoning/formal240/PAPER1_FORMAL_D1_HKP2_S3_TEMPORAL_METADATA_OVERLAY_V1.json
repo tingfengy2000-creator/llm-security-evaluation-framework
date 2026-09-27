@@ -1,0 +1,110 @@
+{
+  "status": "ADDITIVE_OFFICIAL_SOURCE_METADATA_FOR_HKP2_S3_PREBLIND_QA",
+  "does_not_modify": "PAPER1_FORMAL_D1_HKP2_EVIDENCE_PRECONTRACT_V1.json",
+  "groups": [
+    {
+      "group_slot_id": "F240-D1-HKP2-S3-C1",
+      "version_family_id": "STATE_COUNCIL_WORKHOURS_RULE_1994_1995",
+      "versions": [
+        {
+          "evidence_doc_id": "WH1994",
+          "version_role": "HISTORICAL",
+          "publication_date": "1994-02-03",
+          "effective_start": "1994-03-01",
+          "effective_end": "NOT_INDEPENDENTLY_OBSERVED",
+          "authority": "STATE_COUNCIL",
+          "source_locator": "题注、第七条、第九条"
+        },
+        {
+          "evidence_doc_id": "WH1995",
+          "version_role": "CURRENT_IN_FROZEN_REGISTRY",
+          "publication_date": "1995-03-25",
+          "effective_start": "1995-05-01",
+          "effective_end": "NOT_OBSERVED",
+          "authority": "STATE_COUNCIL",
+          "source_locator": "题注、第七条、第九条；第九条载企业事业单位延期过渡安排"
+        }
+      ],
+      "relation": "1995_AMENDS_1994",
+      "relation_source_refs": ["WH1995"]
+    },
+    {
+      "group_slot_id": "F240-D1-HKP2-S3-C2",
+      "version_family_id": "NATIONAL_HOLIDAYS_2013_2024",
+      "versions": [
+        {
+          "evidence_doc_id": "HD2013",
+          "version_role": "HISTORICAL",
+          "publication_date": "2013-12-11",
+          "effective_start": "2013-12-11",
+          "effective_end": "NOT_INDEPENDENTLY_OBSERVED",
+          "authority": "STATE_COUNCIL",
+          "source_locator": "题注、第二条、第七条"
+        },
+        {
+          "evidence_doc_id": "HD2024",
+          "version_role": "CURRENT_IN_FROZEN_REGISTRY",
+          "publication_date": "2024-11-10",
+          "effective_start": "2024-11-10",
+          "effective_end": "NOT_OBSERVED",
+          "authority": "STATE_COUNCIL",
+          "source_locator": "题注、第二条、第八条"
+        }
+      ],
+      "relation": "2024_AMENDS_2013",
+      "relation_source_refs": ["HD2024"]
+    },
+    {
+      "group_slot_id": "F240-D1-HKP2-S3-C3",
+      "version_family_id": "WORK_INJURY_REGULATION_2003_2010",
+      "versions": [
+        {
+          "evidence_doc_id": "EV-INJURY-2003",
+          "version_role": "HISTORICAL",
+          "publication_date": "2003-04-27",
+          "effective_start": "2004-01-01",
+          "effective_end": "NOT_INDEPENDENTLY_OBSERVED",
+          "authority": "STATE_COUNCIL",
+          "source_locator": "题注、第十四条第六项、附则"
+        },
+        {
+          "evidence_doc_id": "EV-INJURY-CURRENT",
+          "version_role": "CURRENT_IN_FROZEN_REGISTRY",
+          "publication_date": "2010-12-20",
+          "effective_start": "2011-01-01",
+          "effective_end": "NOT_OBSERVED",
+          "authority": "STATE_COUNCIL",
+          "source_locator": "题注、第十四条第六项；生效日期另见EV-INJURY-2010-AMENDMENT修改决定"
+        }
+      ],
+      "relation": "2010_AMENDS_2003",
+      "relation_source_refs": ["EV-INJURY-CURRENT", "EV-INJURY-2010-AMENDMENT"]
+    },
+    {
+      "group_slot_id": "F240-D1-HKP2-S3-C4",
+      "version_family_id": "MATERNITY_PROTECTION_1988_2012",
+      "versions": [
+        {
+          "evidence_doc_id": "ML1988_HUBEI_GAZETTE",
+          "version_role": "HISTORICAL_DISTINCT_DOCUMENT",
+          "publication_date": "1988-07-21",
+          "effective_start": "1988-09-01",
+          "effective_end": "2012-04-28_BY_NEW_REGULATION_REPEAL",
+          "authority": "STATE_COUNCIL",
+          "source_locator": "湖北省人民政府公报1988年第10期PDF第6页，国务院令第9号题注及第八条"
+        },
+        {
+          "evidence_doc_id": "ML2012",
+          "version_role": "CURRENT_DISTINCT_SUCCESSOR_DOCUMENT",
+          "publication_date": "2012-04-28",
+          "effective_start": "2012-04-28",
+          "effective_end": "NOT_OBSERVED",
+          "authority": "STATE_COUNCIL",
+          "source_locator": "题注、第七条、第十六条"
+        }
+      ],
+      "relation": "2012_REPLACES_AND_REPEALS_1988_DISTINCT_DOCUMENT",
+      "relation_source_refs": ["ML2012"]
+    }
+  ]
+}

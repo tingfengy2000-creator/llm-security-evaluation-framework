@@ -1,0 +1,134 @@
+{
+  "artifact_status": "EVIDENCE_FIRST_PRECONSTRUCTION_ONLY",
+  "candidate_text_created": false,
+  "batch": "D1_REMAINING40_HKP2",
+  "frozen_slot_count": 10,
+  "source_roots": {
+    "batch1": "paper1_formal240_d1_remaining40_hkp1_batch1_20260926",
+    "canary": "paper1_formal240_d1_canary_20260922",
+    "hkp2_new": "paper1_formal240_d1_remaining90_hkp2_20260927"
+  },
+  "metadata_rule": "Host, page publisher, original issuer and adopting or revising authority are independent fields. Unknown values remain NOT_OBSERVED_WITH_FROZEN_EVIDENCE.",
+  "groups": [
+    {
+      "group_slot_id": "F240-D1-HKP2-S1-C2",
+      "target_s": "S1",
+      "primary_factual_core_id": "task_or_short_contract_probation_exclusion",
+      "family_cluster_id": "LABOR_CONTRACT_LAW_2012",
+      "evidence_refs": ["LC2012"],
+      "locators": ["第十九条"],
+      "canonical_fact": "以完成一定工作任务为期限的劳动合同，或者劳动合同期限不满三个月，不得约定试用期。",
+      "condition_or_exception": "合同期限类型及三个月边界",
+      "planned_primary_corruption": "同一任务期限合同的试用期可约定与不得约定形成内部冲突。",
+      "evidence_path_precommit": "ZERO_EXTERNAL_EVIDENCE_REQUIRED"
+    },
+    {
+      "group_slot_id": "F240-D1-HKP2-S1-C3",
+      "target_s": "S1",
+      "primary_factual_core_id": "unemployment_benefit_three_conditions",
+      "family_cluster_id": "UNEMPLOYMENT_INSURANCE_1999",
+      "evidence_refs": ["UI1999"],
+      "locators": ["第十四条"],
+      "canonical_fact": "领取失业保险金须同时满足失业前单位和本人缴费满一年、非因本人意愿中断就业、已办理失业登记且有求职要求。",
+      "condition_or_exception": "三项并列必要条件",
+      "planned_primary_corruption": "同一具体失业人员的登记状态同时被说成已办理和未办理。",
+      "evidence_path_precommit": "ZERO_EXTERNAL_EVIDENCE_REQUIRED"
+    },
+    {
+      "group_slot_id": "F240-D1-HKP2-S1-C4",
+      "target_s": "S1",
+      "primary_factual_core_id": "child_labor_ordinary_employer_vs_art_sports_exception",
+      "family_cluster_id": "CHILD_LABOR_2002",
+      "evidence_refs": ["CL2002"],
+      "locators": ["第二条", "第十三条"],
+      "canonical_fact": "一般用人单位不得招用不满十六周岁的未成年人；文艺、体育单位在法定前提下可招用不满十六周岁的专业文艺工作者或运动员。",
+      "condition_or_exception": "普通用人单位与文艺体育特定例外严格区分",
+      "planned_primary_corruption": "对同一普通用人单位招用十五岁人员的许可与禁止同时断言。",
+      "evidence_path_precommit": "ZERO_EXTERNAL_EVIDENCE_REQUIRED"
+    },
+    {
+      "group_slot_id": "F240-D1-HKP2-S2-C2",
+      "target_s": "S2",
+      "primary_factual_core_id": "ongoing_wage_arrears_arbitration_limit_exception",
+      "family_cluster_id": "LABOR_ARBITRATION_2007",
+      "evidence_refs": ["LA2007"],
+      "locators": ["第二十七条"],
+      "canonical_fact": "劳动关系存续期间因拖欠劳动报酬发生争议的，不受一般一年仲裁时效限制；劳动关系终止后应自终止之日起一年内提出。",
+      "condition_or_exception": "劳动关系是否仍存续及工资拖欠例外",
+      "planned_primary_corruption": "把存续期间工资拖欠争议错误纳入一般一年时效限制。",
+      "evidence_path_precommit": "ONE_OFFICIAL_EVIDENCE"
+    },
+    {
+      "group_slot_id": "F240-D1-HKP2-S2-C3",
+      "target_s": "S2",
+      "primary_factual_core_id": "migrant_wage_holiday_payment_date_exception",
+      "family_cluster_id": "MIGRANT_WAGES_2020",
+      "evidence_refs": ["MW2020"],
+      "locators": ["第十四条"],
+      "canonical_fact": "农民工工资具体支付日期遇法定节假日或者休息日，应在节假日或者休息日前支付；因不可抗力未能支付的，应在不可抗力消除后及时支付。",
+      "condition_or_exception": "节假日提前支付与不可抗力迟延分别处理",
+      "planned_primary_corruption": "把普通法定节假日误当成可以在节后支付的例外。",
+      "evidence_path_precommit": "ONE_OFFICIAL_EVIDENCE"
+    },
+    {
+      "group_slot_id": "F240-D1-HKP2-S2-C4",
+      "target_s": "S2",
+      "primary_factual_core_id": "dispatch_auxiliary_post_consultation_publicity",
+      "family_cluster_id": "LABOR_DISPATCH_2014",
+      "evidence_refs": ["LD2014"],
+      "locators": ["第三条"],
+      "canonical_fact": "用工单位决定使用被派遣劳动者的辅助性岗位，应经职工代表大会或者全体职工讨论提出方案和意见，与工会或职工代表平等协商确定，并在用工单位内公示。",
+      "condition_or_exception": "辅助性岗位认定程序和公示要求",
+      "planned_primary_corruption": "声称辅助性岗位无需讨论协商即可由用工单位单方确定。",
+      "evidence_path_precommit": "ONE_OFFICIAL_EVIDENCE"
+    },
+    {
+      "group_slot_id": "F240-D1-HKP2-S3-C1",
+      "target_s": "S3",
+      "primary_factual_core_id": "workhours_alternating_saturday_to_weekend_transition",
+      "family_cluster_id": "WORKHOURS_1994_1995",
+      "evidence_refs": ["WH1994", "WH1995"],
+      "locators": ["1994版第七条", "1995修订版第七条"],
+      "canonical_fact": "1994年规定国家机关、事业单位第一周周六周日休息、第二周仅周日休息并循环；1995年修订版改为周六周日均为周休息日。",
+      "condition_or_exception": "机关事业单位周六休息范围的历史变化；企业另有灵活安排条款",
+      "planned_primary_corruption": "否认两个有日期限定的规则之间的周六休息范围变化。",
+      "evidence_path_precommit": "MULTI_EVIDENCE_OR_VERSION_CHAIN"
+    },
+    {
+      "group_slot_id": "F240-D1-HKP2-S3-C2",
+      "target_s": "S3",
+      "primary_factual_core_id": "labor_day_statutory_holiday_may_second_added",
+      "family_cluster_id": "NATIONAL_HOLIDAYS_2013_2024",
+      "evidence_refs": ["HD2013", "HD2024"],
+      "locators": ["2013版第二条第四项", "2024修订版第二条第四项"],
+      "canonical_fact": "2013版劳动节全体公民放假1天（5月1日）；2024修订版放假2天（5月1日、2日）。",
+      "condition_or_exception": "法定节假日日期范围变化；不把调休与法定假日混同",
+      "planned_primary_corruption": "否认5月2日被纳入劳动节法定节假日范围。",
+      "evidence_path_precommit": "MULTI_EVIDENCE_OR_VERSION_CHAIN"
+    },
+    {
+      "group_slot_id": "F240-D1-HKP2-S3-C3",
+      "target_s": "S3",
+      "primary_factual_core_id": "commute_injury_traffic_scope_expansion",
+      "family_cluster_id": "WORK_INJURY_2003_2010",
+      "evidence_refs": ["EV-INJURY-2003", "EV-INJURY-CURRENT"],
+      "locators": ["2003原版第十四条第六项", "2010修订版第十四条第六项"],
+      "canonical_fact": "2003版通勤工伤条款写机动车事故伤害；2010修订版写非本人主要责任的交通事故或者城市轨道交通、客运轮渡、火车事故伤害。",
+      "condition_or_exception": "通勤事故类型及责任条件变化；两版不能互换",
+      "planned_primary_corruption": "声称两版对通勤交通事故类型及责任条件的限定完全相同。",
+      "evidence_path_precommit": "MULTI_EVIDENCE_OR_VERSION_CHAIN"
+    },
+    {
+      "group_slot_id": "F240-D1-HKP2-S3-C4",
+      "target_s": "S3",
+      "primary_factual_core_id": "miscarriage_leave_medical_discretion_to_gestation_threshold",
+      "family_cluster_id": "MATERNITY_1988_2012",
+      "evidence_refs": ["ML1988_HUBEI_GAZETTE", "ML2012"],
+      "locators": ["湖北省人民政府公报1988年第10期PDF第6页：旧规定第八条", "2012特别规定第七条和第十六条"],
+      "canonical_fact": "1988年规定仅要求根据医务部门证明给予一定时间产假；2012年特别规定按怀孕未满四个月与满四个月分别给十五天和四十二天产假，并明定旧规定同时废止。",
+      "condition_or_exception": "流产产假条件由医务证明确定一定时间转为孕期分档明确天数",
+      "planned_primary_corruption": "声称两份规定对流产产假的条件和时长没有发生变化。",
+      "evidence_path_precommit": "MULTI_EVIDENCE_OR_VERSION_CHAIN"
+    }
+  ]
+}
