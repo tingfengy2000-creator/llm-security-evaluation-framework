@@ -1,0 +1,14 @@
+# Core144 parallel workstream state V1 — 2026-09-27
+
+The D1 remaining90 Phase2 closeout and [Full144 preannotation acceptance](PAPER1_CORE144_D1_PREANNOTATION_ACCEPTANCE_RECORD_V1.md) have passed. The [Human XLSX QA](PAPER1_CORE144_D1_HUMAN_XLSX_USABILITY_AUDIT_V1.md) passed and the two distinct 144-row Phase1 workbooks are `DISTRIBUTION_READY`, **not yet reported as distributed**. Two distinct Phase2 workbooks are prebuilt and `SEALED_WITHHELD` until each person's own Phase1 raw return is received, byte-locked and schema-validated. This activates the Owner-approved two-lane workflow without claiming that any human has started.
+
+| Lane | Current gate | Next authorized action | Explicit prohibition |
+|---|---|---|---|
+| A — D1 Human | A01/B01 Phase1 `DISTRIBUTION_READY_NOT_DISTRIBUTED` | Owner separately sends only each named Phase1 V1 XLSX to the corresponding different human; lock each raw return before considering that human's Phase2 | No Phase2 release on the other person's progress; no AI substitute, shared answers, early GT |
+| B — D2/D3 dataset construction | `CONSTRUCTION_AUTHORIZED / SLOT_PREFLIGHT_STARTED / NO_CANDIDATES_YET` | From the frozen Core144 matrix, start official Evidence discovery and raw snapshot lock for D2 Finance and D3 Information Security, 48 real slots each | No D1 Human GT/answers, D1 model outputs/coefficients, Expected, labels or Oracle evidence in Candidate selection or rewriting |
+
+Read-only frozen-matrix check: D2 = 48 and D3 = 48 slots; each domain has HKP1–4 = 12/12/12/12, S1–3 = 16/16/16, and four chain slots in each HKP×S cell. D2/D3 planned total = 96 groups/288 C/P/H candidates, **not constructed**. Slot status values in the historical matrix are not proof of candidate creation. D1 accepted family-cluster overlay remains a future split gate; family clusters are not model features.
+
+For each new group the construction lane must follow official Evidence discovery → raw snapshot hash/lock → canonical fact record → version/provenance metadata and Evidence path → shared neutral query → C/P/H triplet → fact-atom, style, five-view, missingness, retrieval-smoke and independent blind-review gates. Avoid D1's 30-row small-package cadence: prefer one 144-row Phase1 reviewer package per domain and one domain-wide Phase2 package, falling back to 96+48 only if an actual transfer/context/serialization limit requires it. R3-gpt and reviewer code R4-codex (provider Doubao) remain independent QA reviewers, not Human A/B or GT.
+
+D2/D3 may proceed in parallel with Owner's D1 Human handoff. A future D1 domain-level GT can close independently after Human A/B and Owner adjudication, but no Core144 GT, formal split, detector training, threshold tuning, risk calibration or formal result is authorized until D1+D2+D3 GT and cross-domain consistency are frozen and the Core432 dataset is accepted. `CORE_GT_NOT_FROZEN / SPLIT_NOT_EXECUTED / TRAINING_NOT_STARTED`.
