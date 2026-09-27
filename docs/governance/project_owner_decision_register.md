@@ -1,5 +1,7 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+> **Latest Owner decision (2026-09-27; PODR-122 / OR-077):** Four D1 remaining90 same-document dual-promulgating-organ contradictions are `local_internal_conflict=YES` by candidate-only semantics, not majority vote; six naturalness differences are nonblocking. A sealed shortcut audit found 4 Poison / 0 Clean / 0 HN repeated authority surfaces, so only these four get additive versioned repair and same-session R3/R4 targeted Phase1 rereview before Phase2. Stable reviewer code `R4-codex` means provider Doubao (`OWNER_ATTESTED`), without historical rename. Paper 1 current core is D1/D2/D3 Core144 (144 groups/432 planned candidates); D4/D5 deferred, old Formal240 preserved. Domain-pipelined D1 Human || D2/D3 construction is approved only after D1 machine preannotation acceptance and Human Phase1 Excel distribution readiness. [D1 gate](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_FINAL_GATE_V1.md), [scope](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_SCOPE_DECISION_V1.md). No Phase2 release, Human A/B, D2/D3 construction, GT, split or training yet.
+
 *Project Owner Confirmed Requirements and Decision Register*
 
 ## 0. 文档职责与使用规则

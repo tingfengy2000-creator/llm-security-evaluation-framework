@@ -1,5 +1,9 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0091 — D1 remaining90 semantic closeout, shortcut repair and Core144 amendment (2026-09-27)
+
+Owner four YES internal-conflict decisions and six nonblocking naturalness differences are additive; R3/R4/R5 raw unchanged. After raw locks, sealed mapping audit found the repeated authority wording in 4/30 Poison and 0/30 Clean/HN, making it a surface-shortcut blocker. Four versioned texts/new IDs are in unreleased V2 targeted packages; unreleased V1 draft and original 90 remain. Same-session R3/R4 four-row Phase1 rereview is required before one 90-row Phase2 package can be reconstructed. Separately, exact frozen Formal240 lines for D1/D2/D3 yield Core144 144 groups/432 planned candidates; D4/D5 deferred. Future domain-pipelined human/construction lane rule is approved but not triggered. [Gate](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_FINAL_GATE_V1.md); [scope](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_SCOPE_DECISION_V1.md). `PHASE2_WITHHELD / NO_HUMAN_AB / NO_D2_D3 / NO_GT / NO_SPLIT / NO_TRAINING`.
+
 ## Ledger Contract
 
 > 本文件是项目级追加式审计日志，用于保存治理和执行时间线。<br>

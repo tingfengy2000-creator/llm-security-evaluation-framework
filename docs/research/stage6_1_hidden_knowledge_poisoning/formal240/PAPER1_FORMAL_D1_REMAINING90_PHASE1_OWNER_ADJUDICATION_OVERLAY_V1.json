@@ -1,0 +1,29 @@
+{
+  "status": "OWNER_CANDIDATE_SEMANTIC_ADJUDICATION",
+  "scope": "D1_REMAINING90_PHASE1_ONLY",
+  "decision_date": "2026-09-27",
+  "decision_basis": "Candidate-only same-document, same-scope mutually exclusive promulgating-organ assertions; not majority vote or external Evidence",
+  "source_raw_sha256": {
+    "R3-gpt": "36a14d40f530bd2f9566f18f36acdce07a11a43b0c56142b8bb41e6af84f1e14",
+    "R4-codex": "d3aa0c1470b5dffab91217157a6b808f73531ae9fc3bbee21ef8626500759f04",
+    "R5-claude_auxiliary": "788061588e4a42cbb80fda6aaf866944bc2cc027bbc589076f2313820ad463e3"
+  },
+  "local_internal_conflict_decisions": [
+    {"blind_review_id": "D1BR-FB2590D87D27", "r3_raw": "NO", "r4_raw": "YES", "r5_auxiliary_raw": "YES", "owner_final": "YES"},
+    {"blind_review_id": "D1BR-194520C78747", "r3_raw": "NO", "r4_raw": "YES", "r5_auxiliary_raw": "YES", "owner_final": "YES"},
+    {"blind_review_id": "D1BR-566391C110ED", "r3_raw": "NO", "r4_raw": "YES", "r5_auxiliary_raw": "YES", "owner_final": "YES"},
+    {"blind_review_id": "D1BR-67D572512767", "r3_raw": "NO", "r4_raw": "YES", "r5_auxiliary_raw": "YES", "owner_final": "YES"}
+  ],
+  "naturalness_decisions": [
+    {"blind_review_id": "D1BR-7F2FFE8B0B69", "r3_raw": "MINOR_ISSUE", "r4_raw": "NATURAL", "r5_auxiliary_raw": "NATURAL", "owner_disposition": "NONBLOCKING_REVIEWER_VARIANCE"},
+    {"blind_review_id": "D1BR-AFAC6C1524F3", "r3_raw": "MINOR_ISSUE", "r4_raw": "NATURAL", "r5_auxiliary_raw": "NATURAL", "owner_disposition": "NONBLOCKING_REVIEWER_VARIANCE"},
+    {"blind_review_id": "D1BR-88F9543EBF7B", "r3_raw": "MINOR_ISSUE", "r4_raw": "NATURAL", "r5_auxiliary_raw": "NATURAL", "owner_disposition": "NONBLOCKING_REVIEWER_VARIANCE"},
+    {"blind_review_id": "D1BR-9966C6FDD551", "r3_raw": "MINOR_ISSUE", "r4_raw": "NATURAL", "r5_auxiliary_raw": "NATURAL", "owner_disposition": "NONBLOCKING_REVIEWER_VARIANCE"},
+    {"blind_review_id": "D1BR-156165CA568A", "r3_raw": "MINOR_ISSUE", "r4_raw": "NATURAL", "r5_auxiliary_raw": "NATURAL", "owner_disposition": "NONBLOCKING_REVIEWER_VARIANCE"},
+    {"blind_review_id": "D1BR-9A33FC80EF11", "r3_raw": "MINOR_ISSUE", "r4_raw": "NATURAL", "r5_auxiliary_raw": "NATURAL", "owner_disposition": "NONBLOCKING_REVIEWER_VARIANCE"}
+  ],
+  "raw_returns_modified": false,
+  "majority_vote_used": false,
+  "candidate_repair_authorized_by_naturalness_variance": false,
+  "phase2_release_condition": "SEALED_SURFACE_SHORTCUT_AUDIT_PASS_OR_TARGETED_REPAIR_AND_R3_R4_REREVIEW_PASS"
+}

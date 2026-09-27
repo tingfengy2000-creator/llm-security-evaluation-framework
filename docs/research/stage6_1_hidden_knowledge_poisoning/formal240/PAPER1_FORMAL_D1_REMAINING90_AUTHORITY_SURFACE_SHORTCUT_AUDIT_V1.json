@@ -1,0 +1,16 @@
+{
+  "scope": "SEALED_CONSTRUCTION_CONTROL_PLANE_NOT_REVIEWER_RELEASE",
+  "full_private_audit_file": "PAPER1_FORMAL_D1_REMAINING90_AUTHORITY_SURFACE_SHORTCUT_AUDIT_V1.json",
+  "full_private_audit_sha256": "9041ae942e8958dd92bf846a4565fe0270e564dc04d7ac2864cae06a397eb531",
+  "records": 90,
+  "denominators": {"CLEAN_CURRENT": 30, "POISON": 30, "HARD_NEGATIVE": 30},
+  "authority_exact_normalized_syntactic_comma_and_second_clause_counts": {"CLEAN_CURRENT": 0, "POISON": 4, "HARD_NEGATIVE": 0},
+  "four_ids": ["D1BR-FB2590D87D27", "D1BR-194520C78747", "D1BR-566391C110ED", "D1BR-67D572512767"],
+  "generic_ji_shi_tongshi_you_shi_counts": {"CLEAN_CURRENT": 0, "POISON": 5, "HARD_NEGATIVE": 0},
+  "generic_pattern_extra_id": "D1BR-141AFFB4EA51",
+  "surface_shortcut_blocker": true,
+  "decision_reason": "Four separate HKP4 groups share the same dual-promulgating-authority surface, exclusively Poison; this is a trivial role cue despite the legitimate semantic contradiction.",
+  "next_gate": "TARGETED_FOUR_CANDIDATE_SURFACE_REPAIR_AND_R3_R4_PHASE1_REREVIEW",
+  "r3_r4_r5_raw_locked_before_mapping_load": true,
+  "phase2_release_authorized": false
+}

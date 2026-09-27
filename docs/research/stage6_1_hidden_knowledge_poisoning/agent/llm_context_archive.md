@@ -1,5 +1,9 @@
 # Paper 1 LLM Context Archive
 
+## 2026-09-27 Core144 and D1 targeted-four current capsule
+
+Authoritative current scope: [Core144](../core144/README.md), exact D1/D2/D3 historical Formal240 slot subset, 144 planned groups/432 candidates; D4/D5 deferred external extensions. D1 remaining90 Owner semantic overlay closes four internal-conflict differences as YES and six naturalness differences as nonblocking, with all R3/R4/R5 raw immutable. A sealed role audit finds a Poison-only repeated authority surface in four candidates, requiring only four additive versioned text/ID repairs and same-session R3/R4 targeted Phase1 rereview. [Gate and Owner send checklist](../formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_FINAL_GATE_V1.md). R4-codex is a code, actual provider Doubao; isolation is OWNER_ATTESTED. Phase2 withheld; no Human A/B, D2/D3 construction, GT, split or training. Future domain-pipelined lanes begin only after D1 machine acceptance and Human Excel readiness.
+
 ## Current Context Capsule
 
 ```yaml

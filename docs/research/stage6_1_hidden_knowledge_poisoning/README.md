@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> **当前范围/门控（2026-09-27）：** 核心 Benchmark 改为[D1/D2/D3 Core144](core144/README.md)，计划144组/432条；旧 Formal240 五领域计划原样保留，D4/D5 延期。D1 剩余90条的四条文本内矛盾已由 Owner 按语义裁为 YES，但封闭审计发现四条相似句式只落在 Poison，故仅四条改写并等待原 R3/R4 做定向 Phase1 复审。[当前门控和准确发件清单](formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_FINAL_GATE_V1.md)。Phase2 暂扣；真人 A/B、D2/D3、GT、切分和训练未开始。下面旧“待裁决”描述是历史快照。
+
 > **当前 D1 remaining90（2026-09-27）：** Claude 辅助盲审的十条第一阶段原答已经原样锁定、严格校验。六条自然度、四条内部矛盾分歧上，Claude 均与 R4 豆包判断一致；但不是自动“三票定案”，R3 原答不改。[十条锁定与解释](formal240/PAPER1_FORMAL_D1_REMAINING90_R5_CLAUDE_TARGETED_PHASE1_RAW_LOCK_AND_TRIAGE_V1.md)。四条“双公布机关”仍需 Owner 最终判断，并检查重复句式是否成为外观捷径。Phase2、真人 A/B、GT、切分、训练仍暂扣。下面“待发送 Claude”的文字为历史快照。
 
 > **当前 D1 remaining90（2026-09-27）：** Owner 更正误发的 R3 事件附件，R3/R4 真正的90条 Phase1 原始答卷现已锁定并通过结构检查。四条“同一文件公布机关自相矛盾”的判断分歧尚未收口，因此不能放行 Phase2。[QA 与更正来源](formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_R3_R4_RAW_LOCK_QA_AND_R5_AUXILIARY_V1.md)。应按[准确文件清单](formal240/PAPER1_FORMAL_D1_REMAINING90_R5_CLAUDE_TARGETED_PHASE1_OWNER_SEND_CHECKLIST_V1.md)将十条不含旧答案的文字交给全新隔离 Claude 会话作辅助复核，原文件回传后仍由 Owner 裁决。真人 A/B、GT、切分、训练仍暂扣；下面“尚未收到答卷”是历史快照。

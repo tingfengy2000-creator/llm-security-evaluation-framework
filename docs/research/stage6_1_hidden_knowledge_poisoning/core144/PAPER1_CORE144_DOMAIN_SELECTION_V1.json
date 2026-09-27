@@ -1,0 +1,43 @@
+{
+  "status": "PAPER1_CORE144_SCOPE_FROZEN",
+  "decision_date": "2026-09-27",
+  "historical_formal240_matrix_sha256": "54a98bc8d8a16dfbd90cebeffbf37743f4bcc7cf96c6b60416177274ab08ac14",
+  "core144_group_matrix_view_sha256": "745a891c6cd3709247df84c1a904d1127aa7797b049a3ea780fe9ac6eadc5b76",
+  "view_semantics": "EXACT_LINE_SUBSET_OF_FROZEN_FORMAL240_MATRIX; historical slot_status values are retained, not current construction state",
+  "active_domains": [
+    "D1",
+    "D2",
+    "D3"
+  ],
+  "deferred_external_extension_domains": [
+    "D4",
+    "D5"
+  ],
+  "domain_status": {
+    "D1": "CORE_ACTIVE",
+    "D2": "CORE_ACTIVE",
+    "D3": "CORE_ACTIVE",
+    "D4": "DEFERRED_EXTERNAL_EXTENSION",
+    "D5": "DEFERRED_EXTERNAL_EXTENSION"
+  },
+  "group_count": 144,
+  "candidate_count_planned": 432,
+  "groups_per_domain": 48,
+  "candidates_per_domain_planned": 144,
+  "groups_per_domain_hkp": 12,
+  "groups_per_domain_target_s": 16,
+  "future_split_seed": 20260922,
+  "future_group_split": {
+    "train": 72,
+    "dev": 36,
+    "test": 36
+  },
+  "future_candidate_split": {
+    "train": 216,
+    "dev": 108,
+    "test": 108
+  },
+  "split_executed": false,
+  "ground_truth_created_by_scope_amendment": false,
+  "training_started": false
+}

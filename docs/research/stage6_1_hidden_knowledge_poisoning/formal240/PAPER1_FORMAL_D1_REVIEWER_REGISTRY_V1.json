@@ -1,0 +1,12 @@
+{
+  "status": "ADDITIVE_REVIEWER_IDENTITY_REGISTRY",
+  "decision_date": "2026-09-27",
+  "reviewers": [
+    {"reviewer_code": "R3-gpt", "provider": "GPT", "role": "PRIMARY_GATING", "isolation_evidence": "OWNER_ATTESTED"},
+    {"reviewer_code": "R4-codex", "provider": "Doubao", "role": "PRIMARY_GATING", "isolation_evidence": "OWNER_ATTESTED", "code_is_not_provider": true},
+    {"reviewer_code": "R5-claude", "provider": "Claude", "role": "AUXILIARY_NON_GATING", "isolation_evidence": "OWNER_ATTESTED"}
+  ],
+  "historical_raw_renamed_or_rewritten": false,
+  "provider_erratum": "PAPER1_FORMAL_D1_R4_CODEX_DOUBAO_PROVIDER_PROVENANCE_ERRATUM_V1.md",
+  "same_session_phase1_phase2_required": true
+}

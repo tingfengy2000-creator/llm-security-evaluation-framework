@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## 当前：Core144 范围冻结；D1 四条定向 Phase1 复审待回（2026-09-27）
+
+Owner 对 D1 remaining90 的四条同文件双公布机关矛盾裁为 YES、六条自然度差异列为非阻断，原 R3/R4/R5 答卷不改。封闭审计发现四条相同句式仅落在 Poison，故只对四条做追加式表述修复并生成 V2 定向包；仍待原 R3-gpt/R4-codex（豆包）会话复审，Phase2 暂扣。[准确发件清单](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_TARGETED4_OWNER_SEND_CHECKLIST_V2.md)。当前论文核心范围为 D1/D2/D3 共144组/计划432候选，D4/D5 暂缓为外部扩展，历史 Formal240 不改。[Core144 决策](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_SCOPE_DECISION_V1.md)。未来 D1 人工与 D2/D3 构造可并行，但当前 Human A/B、D2/D3、GT、切分、训练均未启动。下方旧“Claude 待回”是历史状态。
+
 ## 当前：D1 remaining90 两份 Phase1 原答已锁；Claude 十条辅助盲审待回（2026-09-27）
 
 Owner 撤回误发的 R3 隔离事件附件，提供真正的 R3 90 条原答并人工确认其隔离。R3/R4 原件均已按字节锁定、通过题号/顺序/七字段检查；四条文本内部冲突分歧尚未裁决，故 Phase2 不放行。[QA 与状态](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_R3_R4_RAW_LOCK_QA_AND_R5_AUXILIARY_V1.md)。Owner 可按[Claude 三文件完整路径清单](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_R5_CLAUDE_TARGETED_PHASE1_OWNER_SEND_CHECKLIST_V1.md)发十条候选文字到全新独立会话；其回复只作辅助，最终由 Owner 裁决。Human A/B、GT、正式切分和训练未授权。下文“尚未收到原答”是历史状态。
