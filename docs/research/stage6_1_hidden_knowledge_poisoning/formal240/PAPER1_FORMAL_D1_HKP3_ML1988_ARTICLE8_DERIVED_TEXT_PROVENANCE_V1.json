@@ -1,0 +1,12 @@
+{
+  "status": "DERIVED_MANUAL_TRANSCRIPTION_NOT_RAW_OFFICIAL_BYTES",
+  "source_official_url": "https://www.hubei.gov.cn/gbhis/1988/1988-10.pdf",
+  "source_raw_sha256": "0e019dba4f9a32c142612bd36a1051821dfd89c228cfe1092f16b30b9b22d30a",
+  "source_pdf_page_index_zero_based": 5,
+  "source_pdf_page_number_one_based": 6,
+  "source_locator": "《女职工劳动保护规定》第八条",
+  "derivation": "Visual transcription of official gazette PDF page 6, including the general ninety-day maternity clause and the separate miscarriage clause. Raw PDF remains authoritative.",
+  "scope": "Short Article 8 excerpt for engineering retrieval text only; not a new official raw artifact.",
+  "limitation": "Second-person visual verification remains pending; do not represent derived text as official raw bytes or independently adjudicated truth.",
+  "authoritative_raw_remains_unchanged": true
+}
