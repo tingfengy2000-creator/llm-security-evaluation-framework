@@ -1,0 +1,102 @@
+{
+  "status": "CONSTRUCTION_SIDE_METADATA_REVIEW_PENDING_EXTERNAL_BLIND_QA",
+  "scope": "Ten official sources in the HKP4 private preconstruction identity audit; this record adds role distinctions, not new raw evidence.",
+  "unknown_policy": "NOT_OBSERVED_WITH_FROZEN_EVIDENCE is not inferred from host, official status, or a candidate label.",
+  "documents": [
+    {
+      "evidence_doc_id": "EV-ANNUAL-REG",
+      "source_host": "xzfg.moj.gov.cn",
+      "page_publisher": "MOJ_ADMINISTRATIVE_REGULATIONS_REGISTRY",
+      "original_issuer": "STATE_COUNCIL",
+      "adoption_authority": "STATE_COUNCIL_EXECUTIVE_MEETING",
+      "promulgation_authority": "STATE_COUNCIL",
+      "authority_basis": "Official regulation header identifies State Council Order No. 514 and the State Council executive meeting; registry host is only the official display surface."
+    },
+    {
+      "evidence_doc_id": "EV-LABOR-IMPL",
+      "source_host": "xzfg.moj.gov.cn",
+      "page_publisher": "MOJ_ADMINISTRATIVE_REGULATIONS_REGISTRY",
+      "original_issuer": "STATE_COUNCIL",
+      "adoption_authority": "STATE_COUNCIL_EXECUTIVE_MEETING",
+      "promulgation_authority": "STATE_COUNCIL",
+      "authority_basis": "Official regulation header identifies State Council Order No. 535."
+    },
+    {
+      "evidence_doc_id": "EV-SOCIAL-HANDLING",
+      "source_host": "xzfg.moj.gov.cn",
+      "page_publisher": "MOJ_ADMINISTRATIVE_REGULATIONS_REGISTRY",
+      "original_issuer": "STATE_COUNCIL",
+      "adoption_authority": "STATE_COUNCIL_EXECUTIVE_MEETING",
+      "promulgation_authority": "STATE_COUNCIL",
+      "authority_basis": "Official regulation header identifies State Council Order No. 765; Article 4 describes separate HRSS and health-insurance administrative responsibilities."
+    },
+    {
+      "evidence_doc_id": "WI_RECOGNITION_2010_MINISTRY",
+      "source_host": "www.mohrss.gov.cn",
+      "page_publisher": "MOHRSS_OFFICIAL_RULES_REPOSITORY",
+      "original_issuer": "MOHRSS",
+      "adoption_authority": "NOT_OBSERVED_WITH_FROZEN_EVIDENCE",
+      "promulgation_authority": "MOHRSS",
+      "authority_basis": "Official ministry PDF first page states MOHRSS Order No. 8, dated 2010-12-31, and Article 1 cites the Work Injury Insurance Regulation as legal basis."
+    },
+    {
+      "evidence_doc_id": "LD2014",
+      "source_host": "www.mohrss.gov.cn",
+      "page_publisher": "MOHRSS_OFFICIAL_RULES_REPOSITORY",
+      "original_issuer": "MOHRSS",
+      "adoption_authority": "NOT_OBSERVED_WITH_FROZEN_EVIDENCE",
+      "promulgation_authority": "MOHRSS",
+      "authority_basis": "Official ministry PDF first page states MOHRSS Order No. 22, dated 2014-01-24."
+    },
+    {
+      "evidence_doc_id": "MW2020",
+      "source_host": "xzfg.moj.gov.cn",
+      "page_publisher": "MOJ_ADMINISTRATIVE_REGULATIONS_REGISTRY",
+      "original_issuer": "STATE_COUNCIL",
+      "adoption_authority": "STATE_COUNCIL_EXECUTIVE_MEETING",
+      "promulgation_authority": "STATE_COUNCIL",
+      "authority_basis": "Official regulation header states State Council Order No. 724; Article 7 gives HRSS an operational supervision role, not promulgation authority."
+    },
+    {
+      "evidence_doc_id": "EV-ANNUAL-IMPL",
+      "source_host": "www.gov.cn",
+      "page_publisher": "CHINESE_GOVERNMENT_PORTAL_OFFICIAL_REPOST",
+      "original_issuer": "MOHRSS",
+      "adoption_authority": "NOT_OBSERVED_WITH_FROZEN_EVIDENCE",
+      "promulgation_authority": "MOHRSS",
+      "authority_basis": "Official repost identifies MOHRSS Order No. 1. The government portal host is not the original issuing body."
+    },
+    {
+      "evidence_doc_id": "EV-LABOR-LAW",
+      "source_host": "jtyst.jl.gov.cn",
+      "page_publisher": "NOT_OBSERVED_WITH_FROZEN_EVIDENCE",
+      "original_issuer": "NPC_STANDING_COMMITTEE",
+      "adoption_authority": "NPC_STANDING_COMMITTEE",
+      "promulgation_authority": "NOT_OBSERVED_WITH_FROZEN_EVIDENCE",
+      "authority_basis": "Official provincial-government-domain legal text header states adoption and 2012 amendment by NPC Standing Committees; Jilin transport host is a repost, not legislative authority."
+    },
+    {
+      "evidence_doc_id": "SI2018_LAW_OFFICIAL_REPOST",
+      "source_host": "www.samr.gov.cn",
+      "page_publisher": "SAMR_OFFICIAL_REPOST",
+      "original_issuer": "NPC_STANDING_COMMITTEE",
+      "adoption_authority": "NPC_STANDING_COMMITTEE",
+      "promulgation_authority": "NOT_OBSERVED_WITH_FROZEN_EVIDENCE",
+      "authority_basis": "SAMR official repost header states Social Insurance Law passage in 2010 and amendment in 2018 by NPC Standing Committees; SAMR is the page host, not the lawmaker."
+    },
+    {
+      "evidence_doc_id": "EV-INJURY-CURRENT",
+      "source_host": "xzfg.moj.gov.cn",
+      "page_publisher": "MOJ_ADMINISTRATIVE_REGULATIONS_REGISTRY",
+      "original_issuer": "STATE_COUNCIL",
+      "adoption_authority": "NOT_OBSERVED_WITH_FROZEN_EVIDENCE",
+      "promulgation_authority": "STATE_COUNCIL",
+      "authority_basis": "Current Work Injury Insurance Regulation title and State Council order/amendment header identify State Council; registry host is an official display surface."
+    }
+  ],
+  "gaps": [
+    "Page publisher of the Jilin official repost is not independently established from the retained frozen evidence.",
+    "NPC law promulgation role is not inferred from the lawmaking institution when the retained source only states passage/amendment.",
+    "MOHRSS ministry PDFs establish order and promulgation, not necessarily their internal meeting adoption record."
+  ]
+}
