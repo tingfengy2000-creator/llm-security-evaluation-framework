@@ -1,5 +1,9 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+> 2026-09-27 Owner 已人工确认本轮 R3/R4 仍为各自原隔离会话（非机器证明），并仅批准两组三证据组的指定两证据呈现，第三份官方原件私有保留。90条 Phase1 视图现可作为 V5 Phase2 发放前门；[R3/R4 各90条只读题包和精确发件表](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_OWNER_SEND_CHECKLIST_V5.md)已就绪。[构造与证据审计](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_RELEASE_RECORD_V5.md)。尚未收到第二阶段返回，不等于 D1 全48验收；无 Human、D2/D3、GT、split、training。
+
+> 2026-09-27 D1 remaining90 四条改写文本的 R3/R4 第一阶段原始返回已按字节锁定，双盲结构及四条内部冲突复核通过；唯一新增自然度差异依 Owner 决策非阻断。86条旧原答加4条新原答构成最终90条 Phase1 视图；原重复机关句式消除，少量残留措辞继续记录。[锁定与门控](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_TARGETED4_PHASE1_LOCK_AND_GATE_V1.md)。23份冻结官方快照哈希通过，但有两组原为三证据、Phase2 答卷仅 E1/E2；[有界投影决定](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_EVIDENCE_PROJECTION_DECISION_V1.md)与本轮隔离确认待 Owner。Phase2 未分发；无 Human、D2/D3、GT、split、training。
+
 > 2026-09-27 Owner 四条 D1 remaining90 文本内冲突 YES 语义裁决及六条非阻断自然度差异已追加记录；封闭角色审计检出四条重复机关句式全为 Poison，现仅四条添加式改写并待原 R3/R4 定向 Phase1 复审，Phase2 暂扣。[D1 门控](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_FINAL_GATE_V1.md)。Paper 1 核心范围改为 [Core144 D1/D2/D3](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_SCOPE_DECISION_V1.md)；Formal240 原矩阵保留，D4/D5 延期。未来 D1 人工与 D2/D3 构造并行须等 D1 验收和 Excel readiness。无 Human、GT、split、training。
 
 > 2026-09-27 R5-Claude 对 D1 剩余90条中的十条 Phase1 分歧完成独立辅助复核；原件 3,563 字节、SHA256 `788061588e4a42cbb80fda6aaf866944bc2cc027bbc589076f2313820ad463e3`，已只读锁定且严格 10/10 合规。R5 在六条自然度、四条文本内冲突争议上均与 R4 一致，但不能自动代替 Owner 裁决，也不改 R3/R4 原答。[R5 有界报告](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_R5_CLAUDE_TARGETED_PHASE1_RAW_LOCK_AND_TRIAGE_V1.md)。重复的“双公布机关”句式须另查是否形成外观捷径；Phase2/Human A/B/GT/split/training 继续暂扣。

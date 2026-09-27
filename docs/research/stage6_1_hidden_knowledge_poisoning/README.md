@@ -1,5 +1,9 @@
 # Paper 1 Start Here
 
+> **当前 D1 状态（2026-09-27）：** Owner 已人工确认 R3/R4 本次定向四条仍是原隔离会话，并仅批准两组三证据组的有界 E1/E2 呈现，原第三份证据私有保留。两份各90条、保留各自题序的 V5 Phase2 盲包已只读备好；请按[逐人完整文件地址清单](formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_OWNER_SEND_CHECKLIST_V5.md)发回原 R3-gpt 和 R4-codex（实际豆包）会话。[验收与证据说明](formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_RELEASE_RECORD_V5.md)。现在仍等外部第二阶段答案，不是 D1 全48组通过；真人 A/B、D2/D3、GT、切分、训练未启动。下方“证据呈现待决定”为本日较早历史状态。
+
+> **当前 D1 门控（2026-09-27）：** 四条改写候选的 R3/R4 第一阶段返回已原样锁定，四条文本内矛盾均被两人识别，唯一新自然度分歧不阻断；最终90条第一阶段视图由86条旧值加4条新值组成。已核销原四条重复的机关句式捷径。[本轮锁定与 QA](formal240/PAPER1_FORMAL_D1_REMAINING90_TARGETED4_PHASE1_LOCK_AND_GATE_V1.md)。23份官方快照核验通过，但两组三证据组如何用 E1/E2 呈现仍需[Owner 有界决定](formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_EVIDENCE_PROJECTION_DECISION_V1.md)，本次审核员会话隔离也待确认；Phase2 暂扣。Core144 D1/D2/D3 范围不变，真人 A/B、D2/D3、GT、切分、训练未启动。下方旧“定向复审待回”是历史记录。
+
 > **当前范围/门控（2026-09-27）：** 核心 Benchmark 改为[D1/D2/D3 Core144](core144/README.md)，计划144组/432条；旧 Formal240 五领域计划原样保留，D4/D5 延期。D1 剩余90条的四条文本内矛盾已由 Owner 按语义裁为 YES，但封闭审计发现四条相似句式只落在 Poison，故仅四条改写并等待原 R3/R4 做定向 Phase1 复审。[当前门控和准确发件清单](formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_FINAL_GATE_V1.md)。Phase2 暂扣；真人 A/B、D2/D3、GT、切分和训练未开始。下面旧“待裁决”描述是历史快照。
 
 > **当前 D1 remaining90（2026-09-27）：** Claude 辅助盲审的十条第一阶段原答已经原样锁定、严格校验。六条自然度、四条内部矛盾分歧上，Claude 均与 R4 豆包判断一致；但不是自动“三票定案”，R3 原答不改。[十条锁定与解释](formal240/PAPER1_FORMAL_D1_REMAINING90_R5_CLAUDE_TARGETED_PHASE1_RAW_LOCK_AND_TRIAGE_V1.md)。四条“双公布机关”仍需 Owner 最终判断，并检查重复句式是否成为外观捷径。Phase2、真人 A/B、GT、切分、训练仍暂扣。下面“待发送 Claude”的文字为历史快照。

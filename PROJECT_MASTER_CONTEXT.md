@@ -1,5 +1,13 @@
 # LLMGuard 项目总控文档
 
+## 当前：D1 remaining90 Phase2 V5 盲包就绪，等原 R3/R4 会话作答（2026-09-27）
+
+四条定向 Phase1 原答已锁且完成90条视图合成；Owner 以人工声明确认原 R3/R4 会话隔离，并有界批准仅两组三证据组按经验证足够的 E1/E2 发给审核员，第三份仍私有锁存。[两份各90条 V5 题包、四版 Guide、Schema 与对应提示词的精确地址](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_OWNER_SEND_CHECKLIST_V5.md)已就绪，须发到各自原会话，R4-codex 实际是豆包。[技术记录](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_RELEASE_RECORD_V5.md)。尚未收到第二阶段答卷；D1 全48组、Human A/B、D2/D3、GT、切分和训练都未开启。下一节的“待决定”是当日先前状态。
+
+## 当前：D1 四条定向 Phase1 原答锁定；Phase2 证据呈现仍待 Owner 决定（2026-09-27）
+
+两份原始 JSON 已按字节只读锁定；R3/R4 均识别出四条改写候选的内部矛盾，一条自然度轻微分歧按 Owner 决定非阻断。最终90条第一阶段视图保留86条旧原答与4条新原答。封闭检查确认先前四条共用的机关句式已消除，但仍记录少量措辞观察。23份官方快照哈希核验通过；其中两组原来各有三份证据，而 Phase2 答卷只有 E1/E2，故[有界呈现决定](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_EVIDENCE_PROJECTION_DECISION_V1.md)及本次审核员隔离确认待 Owner。现在不能发送 Phase2。[锁定和门控](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_TARGETED4_PHASE1_LOCK_AND_GATE_V1.md)。Core144 范围仍是 D1/D2/D3；没有真人 A/B、D2/D3 构造、GT、切分或训练。以下“待回”是历史快照。
+
 ## 当前：Core144 范围冻结；D1 四条定向 Phase1 复审待回（2026-09-27）
 
 Owner 对 D1 remaining90 的四条同文件双公布机关矛盾裁为 YES、六条自然度差异列为非阻断，原 R3/R4/R5 答卷不改。封闭审计发现四条相同句式仅落在 Poison，故只对四条做追加式表述修复并生成 V2 定向包；仍待原 R3-gpt/R4-codex（豆包）会话复审，Phase2 暂扣。[准确发件清单](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_TARGETED4_OWNER_SEND_CHECKLIST_V2.md)。当前论文核心范围为 D1/D2/D3 共144组/计划432候选，D4/D5 暂缓为外部扩展，历史 Formal240 不改。[Core144 决策](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_SCOPE_DECISION_V1.md)。未来 D1 人工与 D2/D3 构造可并行，但当前 Human A/B、D2/D3、GT、切分、训练均未启动。下方旧“Claude 待回”是历史状态。
