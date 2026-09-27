@@ -1,0 +1,22 @@
+{
+  "status": "ADDITIVE_CONSERVATIVE_CROSS_COHORT_FAMILY_ALIAS_OVERLAY",
+  "purpose": "Keep all groups that reuse an official document family together in any future group-aware split; no split is executed here.",
+  "construction_family_ids_rewritten": false,
+  "families": {
+    "ANNUAL_LEAVE": ["F240-D1-HKP1-S1-C1", "F240-D1-HKP2-S1-C1", "F240-D1-HKP4-S2-C2", "F240-D1-HKP4-S1-C1", "F240-D1-HKP4-S3-C1"],
+    "SOCIAL_INSURANCE": ["F240-D1-HKP1-S2-C1", "F240-D1-HKP4-S1-C3", "F240-D1-HKP4-S3-C3"],
+    "FEMALE_WORKER_PROTECTION": ["F240-D1-HKP2-S2-C1", "F240-D1-HKP1-S3-C4", "F240-D1-HKP2-S3-C4", "F240-D1-HKP3-S1-C4", "F240-D1-HKP3-S2-C4", "F240-D1-HKP3-S3-C4"],
+    "WORK_INJURY": ["F240-D1-HKP3-S2-C1", "F240-D1-HKP3-S3-C1", "F240-D1-HKP2-S3-C3", "F240-D1-HKP3-S1-C3", "F240-D1-HKP4-S1-C4", "F240-D1-HKP4-S3-C4"],
+    "LABOR_CONTRACT": ["F240-D1-HKP4-S2-C1", "F240-D1-HKP1-S1-C2", "F240-D1-HKP2-S1-C2", "F240-D1-HKP4-S1-C2", "F240-D1-HKP4-S3-C2"],
+    "WORKHOURS": ["F240-D1-HKP1-S3-C1", "F240-D1-HKP2-S3-C1", "F240-D1-HKP3-S1-C1", "F240-D1-HKP3-S2-C2", "F240-D1-HKP3-S3-C2"],
+    "HOLIDAYS": ["F240-D1-HKP1-S3-C2", "F240-D1-HKP2-S3-C2", "F240-D1-HKP3-S1-C2", "F240-D1-HKP3-S2-C3", "F240-D1-HKP3-S3-C3"],
+    "UNEMPLOYMENT": ["F240-D1-HKP1-S1-C3", "F240-D1-HKP2-S1-C3"],
+    "CHILD_LABOR": ["F240-D1-HKP1-S1-C4", "F240-D1-HKP2-S1-C4"],
+    "LABOR_ARBITRATION": ["F240-D1-HKP1-S2-C2", "F240-D1-HKP2-S2-C2"],
+    "MIGRANT_WAGES": ["F240-D1-HKP1-S2-C3", "F240-D1-HKP2-S2-C3", "F240-D1-HKP4-S2-C4"],
+    "LABOR_DISPATCH": ["F240-D1-HKP1-S2-C4", "F240-D1-HKP2-S2-C4", "F240-D1-HKP4-S2-C3"],
+    "SHANGHAI_MIN_WAGE": ["F240-D1-HKP1-S3-C3"]
+  },
+  "source_basis": "The frozen candidate texts and official Evidence document identities of Canary V3, HKP1 Batch-1 V4 and remaining90 Phase1 V3; original cohort family IDs remain preserved in their source manifests.",
+  "future_split_rule": "All groups in one canonical family must stay in the same train/dev/test partition. Re-audit across D2/D3 before any split."
+}

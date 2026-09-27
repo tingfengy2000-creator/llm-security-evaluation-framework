@@ -1,0 +1,192 @@
+{
+  "status": "D1_PREANNOTATION_ACCEPTANCE_PASS",
+  "population": {
+    "candidates": 144,
+    "groups": 48,
+    "cohorts": [
+      24,
+      30,
+      90
+    ],
+    "roles": {
+      "CLEAN_CURRENT": 48,
+      "HARD_NEGATIVE": 48,
+      "POISON": 48
+    },
+    "hkp_groups": {
+      "HKP1": 12,
+      "HKP2": 12,
+      "HKP3": 12,
+      "HKP4": 12
+    },
+    "target_s_groups": {
+      "S1": 16,
+      "S2": 16,
+      "S3": 16
+    }
+  },
+  "frozen_matrix_sha256": "745a891c6cd3709247df84c1a904d1127aa7797b049a3ea780fe9ac6eadc5b76",
+  "candidate_input_sha256": {
+    "canary_v3": "6210a6de8f519fb4a58334ff531954b67e774375d021d099dea050f8fe47032e",
+    "batch1_v4": "9ae18121d78d491bd82f78c1971e9bfcd85679b1e3eecfe0123481d60ca69a00",
+    "remaining90_v3": "428548caba9d613de52f4f8d3a35260a89679ecc4c5a7c0cb8b6013543c2c44a"
+  },
+  "full_candidate_text_set_sha256": "65a567cc58c13a675e9d339730ede3a42d52b7cadcb4468544d08fcb63733e3b",
+  "prior_accepted_qc": {
+    "canary": "9847bdc5ae4b053846007a496ca779ef35a47e99a6e1db2c073e86b65afb07ee",
+    "batch1": "885a02f993146fd7a2ba4fc7e558f351b772a0fd8f00eda95974ccbf320e25d0",
+    "remaining90_phase2": "d6a05c6dffae40e38ed64d3a2d5edb8a86b35b6d99808753926068889d2ae839"
+  },
+  "fact_atoms": {
+    "canary": {
+      "supported": 40,
+      "controlled_poison": 8
+    },
+    "batch1": {
+      "controlled_poison": 10,
+      "accidental": 0,
+      "ambiguous": 0
+    },
+    "remaining90": {
+      "supported": 131,
+      "controlled_poison": 30,
+      "accidental": 0,
+      "ambiguous": 0
+    }
+  },
+  "family_cluster_overlay_sha256": "5f60a9c1a474032d1a0a2df478d822cf27556f1388c42a069e0b137baff71f0b",
+  "canonical_family_clusters": 13,
+  "family_clusters_split_safe_if_future_split_uses_overlay": true,
+  "future_split_not_executed": true,
+  "triplet_max_character_length_ratio": 1.244,
+  "query_and_retrieval_smoke_groups": 48,
+  "view_input_path_by_role": {
+    "CLEAN_CURRENT": {
+      "S": {
+        "OBSERVED": 48,
+        "NOT_APPLICABLE": 0
+      },
+      "E": {
+        "OBSERVED": 48,
+        "NOT_APPLICABLE": 0
+      },
+      "P": {
+        "NOT_APPLICABLE": 36,
+        "OBSERVED": 11,
+        "PARTIAL": 1
+      },
+      "T": {
+        "NOT_APPLICABLE": 28,
+        "OBSERVED": 20
+      },
+      "R": {
+        "OBSERVED": 48,
+        "NOT_APPLICABLE": 0
+      }
+    },
+    "HARD_NEGATIVE": {
+      "S": {
+        "OBSERVED": 48,
+        "NOT_APPLICABLE": 0
+      },
+      "E": {
+        "OBSERVED": 48,
+        "NOT_APPLICABLE": 0
+      },
+      "P": {
+        "NOT_APPLICABLE": 36,
+        "OBSERVED": 11,
+        "PARTIAL": 1
+      },
+      "T": {
+        "NOT_APPLICABLE": 28,
+        "OBSERVED": 20
+      },
+      "R": {
+        "OBSERVED": 48,
+        "NOT_APPLICABLE": 0
+      }
+    },
+    "POISON": {
+      "S": {
+        "OBSERVED": 48,
+        "NOT_APPLICABLE": 0
+      },
+      "E": {
+        "OBSERVED": 48,
+        "NOT_APPLICABLE": 0
+      },
+      "P": {
+        "NOT_APPLICABLE": 36,
+        "OBSERVED": 11,
+        "PARTIAL": 1
+      },
+      "T": {
+        "NOT_APPLICABLE": 28,
+        "OBSERVED": 20
+      },
+      "R": {
+        "OBSERVED": 48,
+        "NOT_APPLICABLE": 0
+      }
+    }
+  },
+  "view_input_missing": 3,
+  "known_symmetric_provenance_publisher_unknown": {
+    "group": "F240-D1-HKP4-S3-C2",
+    "candidates": 3,
+    "roles": [
+      "CLEAN_CURRENT",
+      "HARD_NEGATIVE",
+      "POISON"
+    ],
+    "issuer_and_host_observed": true,
+    "page_publisher": "NOT_OBSERVED_WITH_FROZEN_EVIDENCE",
+    "class_shortcut": false
+  },
+  "view_evidence_insufficient": 0,
+  "exact_duplicate_candidate_text": 0,
+  "cross_group_near_duplicates_ge_0_90": [
+    {
+      "left_blind_id": "D1BR-BBD9557C1465",
+      "right_blind_id": "D1BR-28E98C14CEE0",
+      "left_group": "F240-D1-HKP3-S1-C1",
+      "right_group": "F240-D1-HKP3-S2-C2",
+      "similarity": 0.924,
+      "same_canonical_family": true
+    }
+  ],
+  "cross_family_near_duplicate_blockers": 0,
+  "role_specific_prefix_warnings": [
+    {
+      "prefix": "1988年",
+      "count": 4,
+      "exclusive_role": "HARD_NEGATIVE"
+    },
+    {
+      "prefix": "1988年《女职",
+      "count": 4,
+      "exclusive_role": "HARD_NEGATIVE"
+    }
+  ],
+  "semantic_blockers": 0,
+  "blocking_candidate_defects": 0,
+  "evidence_insufficiency": 0,
+  "evidence_conflict": 0,
+  "unexpected_secondary_errors": 0,
+  "family_leakage_blockers_with_overlay": 0,
+  "surface_shortcut_blockers": 0,
+  "full_human_annotation_population_required": 144,
+  "human_annotation_started": false,
+  "ground_truth_created": false,
+  "split_executed": false,
+  "training_started": false,
+  "limitations": [
+    "Prior factual and naturalness QA is inherited from locked cohort audits, not re-performed as independent human fact review here.",
+    "Canonical family aliases are deliberately conservative and must be carried forward to future split planning across all domains.",
+    "Retrieval smoke establishes an executable trace, not effectiveness or absence of all surface shortcuts.",
+    "One HKP4 triplet lacks page-publisher metadata symmetrically; its issuer and host remain observed.",
+    "A same-family, same-role cross-group pair is 0.924 text-similar; its family must remain in one future split.",
+    "Short history-leading prefixes are role-skewed in a few HN rows; no exact role-wide template was found, but this remains a development warning."
+  ]
+}

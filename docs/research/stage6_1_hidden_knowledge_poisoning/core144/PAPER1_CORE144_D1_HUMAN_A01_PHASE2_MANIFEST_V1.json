@@ -1,0 +1,13 @@
+{
+  "artifact": "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_V1.xlsx",
+  "status": "SEALED_WITHHELD",
+  "release_condition": "HUMAN-A01 own Phase1 raw return received, byte-locked, and schema-validated",
+  "rows": 144,
+  "sha256": "76d43b8b48fbab4595b4d561bc09f41046a1ca5cd2f39118fd85de3875baef8a",
+  "bytes": 527949,
+  "ordered_ids_sha256": "b977dfc78a1156ebd5ce19a443af5099fafb3375cbf69aefda669a98859c8b37",
+  "candidate_texts_in_order_sha256": "2cbcf2a3c4f3cae5c2bd4a79d9cb1be36c8c000359281e48a15f3fd15c0e95ef",
+  "clickable_official_urls": 225,
+  "private_mapping_included": false,
+  "destination": "E:/LLMGuard-Handoff/paper1_core144_d1_human_phase2_sealed_20260927/HUMAN-A01/PAPER1_CORE144_D1_HUMAN_A01_PHASE2_V1.xlsx"
+}

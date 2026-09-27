@@ -1,0 +1,12 @@
+{
+  "artifact": "PAPER1_CORE144_D1_HUMAN_A01_PHASE1_V1.xlsx",
+  "status": "DISTRIBUTION_READY_NOT_DISTRIBUTED",
+  "rows": 144,
+  "sha256": "eca6265f10a4afa78c8744d500eff83d147e49cfc5123dab2c8cfa2377e4df73",
+  "bytes": 27608,
+  "ordered_ids_sha256": "b977dfc78a1156ebd5ce19a443af5099fafb3375cbf69aefda669a98859c8b37",
+  "candidate_texts_in_order_sha256": "2cbcf2a3c4f3cae5c2bd4a79d9cb1be36c8c000359281e48a15f3fd15c0e95ef",
+  "phase2_evidence_included": false,
+  "private_mapping_included": false,
+  "destination": "E:/LLMGuard-Handoff/paper1_core144_d1_human_phase1_distribution_ready_20260927/HUMAN-A01/PAPER1_CORE144_D1_HUMAN_A01_PHASE1_V1.xlsx"
+}
