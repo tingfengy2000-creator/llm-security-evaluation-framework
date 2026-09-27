@@ -1,0 +1,56 @@
+{
+  "status": "D1_REMAINING90_PHASE2_ACCEPTED_FOR_PREANNOTATION_QA",
+  "raw_lock_utc": "2026-09-27T14:26:56.813392+00:00",
+  "construction_mapping_loaded_after_raw_lock": true,
+  "reviewer_isolation_proof": "OWNER_ATTESTED",
+  "r4_reviewer_code": "R4-codex",
+  "r4_provider": "Doubao",
+  "raw_sha256": {
+    "r3": "d667c3136fea2f302b1130388d142109a53b66bfa0d86eab7fe2a60147dc8b5a",
+    "r4": "9f18bd2e27491f849764f8bb9807fc8a794a5a50134fa7c091735c15a83e9691"
+  },
+  "raw_comparison_sha256": "e519c09e8a7c3314f48a0effcb033a0a2cf8f3b9abe800b7f3378909bc09f737",
+  "semantic_overlay_sha256": "d9174619fae1a810a613666ddd75a783dfd4bbddd305ab1c316fcf81324c3830",
+  "agreement": {
+    "overall_fact_status": 88,
+    "version_claim_status": 83,
+    "authority_claim_status": 90,
+    "minimum_external_evidence_needed": 90,
+    "evidence_selection": 78,
+    "phase2_issue": 90,
+    "possible_accidental_secondary_error": 90,
+    "evidence_sufficiency": 90
+  },
+  "semantic_disagreement_fields": 9,
+  "semantic_disagreement_candidates": 7,
+  "semantic_blockers_remaining": 0,
+  "process_only_evidence_selection_difference_count": 12,
+  "process_difference_ids": [
+    "D1BR-0923C9767732",
+    "D1BR-10FAEF2B6C9D",
+    "D1BR-141AFFB4EA51",
+    "D1BR-3FDB627274FB",
+    "D1BR-4611EB11BFD1",
+    "D1BR-4FC51B18ADFD",
+    "D1BR-6E354B659D47",
+    "D1BR-992EFD03EFF0",
+    "D1BR-A6BCE977CA3B",
+    "D1BR-AFAC6C1524F3",
+    "D1BR-BBD9557C1465",
+    "D1BR-F3B25C77CA27"
+  ],
+  "process_values_preserved_per_reviewer": true,
+  "phase2_safety_gate": "PASS",
+  "factual_conflict_per_reviewer": 30,
+  "groups": 30,
+  "candidate_count": 90,
+  "derived_s": {
+    "S1": 11,
+    "S2": 8,
+    "S3": 11
+  },
+  "construction_roles_not_used_to_select_semantic_overlay": true,
+  "raw_reviewer_values_rewritten": false,
+  "human_annotation_not_started": true,
+  "ground_truth_not_created": true
+}

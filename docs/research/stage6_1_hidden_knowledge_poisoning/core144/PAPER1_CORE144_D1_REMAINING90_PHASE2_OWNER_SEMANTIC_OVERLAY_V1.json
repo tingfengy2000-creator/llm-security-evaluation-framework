@@ -1,0 +1,114 @@
+{
+  "status": "OWNER_DIRECTIVE_DETERMINISTIC_V4_X_APPLICATION_NOT_GT",
+  "scope": "D1 remaining90 Phase2 V5; nine field disagreements on seven immutable reviewer rows",
+  "rule_lineage": [
+    "PAPER1_FORMAL_ANNOTATION_GUIDE_V4.md",
+    "PAPER1_FORMAL_ANNOTATION_GUIDE_V4_1_CLARIFICATION.md",
+    "PAPER1_FORMAL_ANNOTATION_GUIDE_V4_2_VERSION_SCOPE_DECISION.md",
+    "PAPER1_FORMAL_ANNOTATION_GUIDE_V4_3_TEMPORAL_VS_VERSION_SCOPE.md"
+  ],
+  "raw_reviewer_values_rewritten": false,
+  "reviewer_selection_not_based_on_expected": true,
+  "not_ground_truth": true,
+  "records": [
+    {
+      "blind_id": "D1BR-7F2FFE8B0B69",
+      "disagreement_field": "version_claim_status",
+      "r3_value": "NOT_PRESENT",
+      "r4_value": "PRESENT_CORRECT",
+      "final_semantic_value": "NOT_PRESENT",
+      "rule_source": "Guide V4.3 candidate-only temporal-versus-document-version scope",
+      "candidate_span": "比较1988年《女职工劳动保护规定》第八条和2012年《女职工劳动保护特别规定》第七条",
+      "evidence_basis": "Not needed for claim-presence decision; both reviewers agree on the substantive conflict and frozen Evidence sufficiency.",
+      "owner_adjudication_reason": "Two differently titled dated regulations are compared for a substantive condition; the candidate asserts no revision, edition identity, replacement or other document-version relation."
+    },
+    {
+      "blind_id": "D1BR-C77DB42318F3",
+      "disagreement_field": "version_claim_status",
+      "r3_value": "NOT_PRESENT",
+      "r4_value": "PRESENT_CORRECT",
+      "final_semantic_value": "NOT_PRESENT",
+      "rule_source": "Guide V4.3 candidate-only temporal-versus-document-version scope",
+      "candidate_span": "1994与1995文本的每日8小时标准保持不变，但一般周工时从44小时降至40小时",
+      "evidence_basis": "Not needed for claim-presence decision; both reviewers agree on the supported historical comparison.",
+      "owner_adjudication_reason": "Dated texts and a substantive hours comparison do not explicitly assert revision identity, version state or a document-level transition."
+    },
+    {
+      "blind_id": "D1BR-0F989149BED9",
+      "disagreement_field": "version_claim_status",
+      "r3_value": "NOT_PRESENT",
+      "r4_value": "PRESENT_CORRECT",
+      "final_semantic_value": "NOT_PRESENT",
+      "rule_source": "Guide V4.3 candidate-only temporal-versus-document-version scope",
+      "candidate_span": "1988年《女职工劳动保护规定》第八条按医务部门证明给予一定时间产假，而2012年《女职工劳动保护特别规定》第七条直接列出",
+      "evidence_basis": "Not needed for claim-presence decision; both reviewers agree on the supported historical comparison.",
+      "owner_adjudication_reason": "The candidate compares two dated substantive rules without calling either an original/revised edition or asserting a revision event."
+    },
+    {
+      "blind_id": "D1BR-C572ECA4D355",
+      "disagreement_field": "version_claim_status",
+      "r3_value": "PRESENT_CORRECT",
+      "r4_value": "NOT_PRESENT",
+      "final_semantic_value": "PRESENT_CORRECT",
+      "rule_source": "Guide V4.2 explicit revision event; V4.3 candidate-only presence",
+      "candidate_span": "《劳动合同法》由全国人大常委会通过及修正",
+      "evidence_basis": "Frozen E1 header explicitly records 2007 NPCSC adoption and revision by the 2012 NPCSC amendment decision; source snapshot SHA256 ea15938445f3675e53e4f6385c461c3eaff0af863bc05687dc1ec4b025bd231d.",
+      "owner_adjudication_reason": "The candidate itself says 修正; absence of a year does not erase the explicit document-level revision-event claim."
+    },
+    {
+      "blind_id": "D1BR-C572ECA4D355",
+      "disagreement_field": "overall_fact_status",
+      "r3_value": "LEGITIMATE_VERSION_OR_HISTORY",
+      "r4_value": "CURRENTLY_CONSISTENT",
+      "final_semantic_value": "CURRENTLY_CONSISTENT",
+      "rule_source": "Guide V4 overall decision order; V4.2 present-time substitution test",
+      "candidate_span": "两文件的对应机关不同",
+      "evidence_basis": "Frozen E1 records NPCSC adoption/revision; frozen E2 records State Council promulgation of the separate implementing regulation (SHA256 0d2b16c9821bc368985caa8620939d379e466b383adebd5bebea6444a7359dd3).",
+      "owner_adjudication_reason": "The core proposition compares the responsible institutions of two different documents and remains true without a historical version binding. The revision event is an independently correct conjunct, not what makes the institutional comparison true."
+    },
+    {
+      "blind_id": "D1BR-9A23B42E1491",
+      "disagreement_field": "version_claim_status",
+      "r3_value": "PRESENT_CORRECT",
+      "r4_value": "NOT_PRESENT",
+      "final_semantic_value": "PRESENT_CORRECT",
+      "rule_source": "Guide V4.2 explicit revision event; V4.3 candidate-only presence",
+      "candidate_span": "《社会保险法》由全国人大常委会通过及修正",
+      "evidence_basis": "Frozen E1 header explicitly records 2010 NPCSC adoption and revision by the 2018 NPCSC amendment decision; source snapshot SHA256 e45d13eacb3989dd0e3675ceb9e5091de649baca4cddf0681a2dcc45ac3426c6.",
+      "owner_adjudication_reason": "修正 is an explicit document-level revision event even though the candidate does not state its year."
+    },
+    {
+      "blind_id": "D1BR-9A23B42E1491",
+      "disagreement_field": "overall_fact_status",
+      "r3_value": "LEGITIMATE_VERSION_OR_HISTORY",
+      "r4_value": "CURRENTLY_CONSISTENT",
+      "final_semantic_value": "CURRENTLY_CONSISTENT",
+      "rule_source": "Guide V4 overall decision order; V4.2 present-time substitution test",
+      "candidate_span": "两文件对应的机关不同",
+      "evidence_basis": "Frozen E1 records NPCSC adoption/revision; frozen E2 records State Council promulgation of the separate service regulation (SHA256 9bbc5025da6fffdac7e47a65c89bdacfd1d21ca30fbe36cc3a1e387a06d4c43a).",
+      "owner_adjudication_reason": "The institutional distinction does not depend on treating a historical edition as currently applicable; the separately asserted revision event is correct but not necessary to the core comparison."
+    },
+    {
+      "blind_id": "D1BR-4EE1B89C80DA",
+      "disagreement_field": "version_claim_status",
+      "r3_value": "NOT_PRESENT",
+      "r4_value": "PRESENT_CORRECT",
+      "final_semantic_value": "NOT_PRESENT",
+      "rule_source": "Guide V4.3 candidate-only temporal-versus-document-version scope",
+      "candidate_span": "2013与2024文本的国庆节3天规定保持不变，春节则由3天增加到4天",
+      "evidence_basis": "Not needed for claim-presence decision; both reviewers agree on the supported historical comparison.",
+      "owner_adjudication_reason": "The candidate compares two dated substantive values but does not explicitly assert 修订, 版本, repeal, replacement or version relation."
+    },
+    {
+      "blind_id": "D1BR-156165CA568A",
+      "disagreement_field": "version_claim_status",
+      "r3_value": "NOT_PRESENT",
+      "r4_value": "PRESENT_CORRECT",
+      "final_semantic_value": "NOT_PRESENT",
+      "rule_source": "Guide V4.3 candidate-only temporal-versus-document-version scope",
+      "candidate_span": "比较1988年《女职工劳动保护规定》第八条和2012年《女职工劳动保护特别规定》第七条",
+      "evidence_basis": "Not needed for claim-presence decision; both reviewers agree on the supported historical comparison.",
+      "owner_adjudication_reason": "Two time-marked substantive rules are compared without an explicit document-level version proposition."
+    }
+  ]
+}

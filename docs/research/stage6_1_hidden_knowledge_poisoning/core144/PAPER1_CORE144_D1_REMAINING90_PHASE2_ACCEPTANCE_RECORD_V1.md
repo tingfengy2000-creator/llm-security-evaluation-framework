@@ -1,0 +1,15 @@
+# D1 remaining90 Phase2 closeout (pre-annotation QA)
+
+Status: `D1_REMAINING90_PHASE2_ACCEPTED_FOR_PREANNOTATION_QA`. This is not human annotation, Ground Truth, or Full144 release approval.
+
+The two original V5 returns were byte-locked separately before construction identity or target S was loaded. The private raw-lock namespace contains the immutable copies and the full row-level comparison. R3: 90 rows, 55,153 bytes, SHA-256 `d667c3136fea2f302b1130388d142109a53b66bfa0d86eab7fe2a60147dc8b5a`. R4 (reviewer code `R4-codex`, actual provider Doubao): 90 rows, 60,907 bytes, SHA-256 `9f18bd2e27491f849764f8bb9807fc8a794a5a50134fa7c091735c15a83e9691`. Both passed strict UTF-8 JSON, exact 90 IDs and reviewer-specific order, exact schema, legal enums, and nonblank reasons. Reviewer isolation is **OWNER_ATTESTED**, not machine-proven.
+
+Agreement, computed from the locked raw bytes (out of 90): overall 88, version 83, authority 90, minimum evidence 90, evidence selection 78, issue 90, accidental secondary error 90, sufficiency 90. Both reviewers report 30 factual conflicts; both report 60 `NOT_APPLICABLE`, 11 `ZERO_EXTERNAL_EVIDENCE_REQUIRED`, 8 `ONE_OFFICIAL_EVIDENCE`, and 11 `MULTI_EVIDENCE_OR_VERSION_CHAIN`. Both have 90/90 `SUFFICIENT`, `NONE` issue, and `NO` secondary error.
+
+The seven candidates with nine semantic field disagreements are resolved only through the already-frozen V4–V4.3 rules, with exact visible candidate spans and frozen-Evidence bases in [the additive overlay](PAPER1_CORE144_D1_REMAINING90_PHASE2_OWNER_SEMANTIC_OVERLAY_V1.json). Five dated, cross-document substantive comparisons have no explicit document-version assertion; their version field is `NOT_PRESENT`. Two institution-comparison rows explicitly say `修正`, so their version field is `PRESENT_CORRECT`, while their core institution comparison remains `CURRENTLY_CONSISTENT`. No candidate or reviewer raw was changed, no Expected or GT was consulted, and no new rule was created. This is a rule-applied Owner-directive overlay, not a claim that the Owner independently hand-adjudicated all nine cells.
+
+The twelve `evidence_selection` disagreements are **annotator-process differences**, not truth-field conflicts. Each reviewer’s actual E1/E2 usage remains in its own raw return; neither value is overwritten, and these rows do not trigger re-review merely to raise agreement. The same distinction is required for future Human A/B returns.
+
+Only after that raw/semantic lock was the private construction mapping loaded. All 30 groups have one Clean, one Poison, one Hard Negative. Each Poison is a reviewer-agreed factual conflict; minimum evidence independently yields S1=11, S2=8, S3=11, exactly matching the frozen construction targets. Non-Poison rows are non-conflicts with `NOT_APPLICABLE` minimum. The machine-checkable [acceptance matrix](PAPER1_CORE144_D1_REMAINING90_PHASE2_ACCEPTANCE_MATRIX_V1.json) records zero unresolved semantic blockers.
+
+Next gate: combine this accepted 90 with accepted Canary 24 and HKP1 Batch-1 30, and pass all Full144 pre-annotation gates before any Human workbook can be distribution-ready.
