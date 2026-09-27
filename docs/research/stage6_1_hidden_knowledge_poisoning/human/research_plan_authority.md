@@ -1,5 +1,7 @@
 # Paper 1 研究方案权威文件
 
+> 2026-09-27 R5-Claude 的十条 D1 remaining90 Phase1 辅助返回已锁定并通过结构检查；它不更改 Formal240 V4/V4.3 语义或 Owner 决策权。[有界 QA 与门控](../formal240/PAPER1_FORMAL_D1_REMAINING90_R5_CLAUDE_TARGETED_PHASE1_RAW_LOCK_AND_TRIAGE_V1.md)。四条内部冲突和重复句式仍待 Owner/构造侧处理，Phase2 暂扣。
+
 Document Authority = `PAPER1_RESEARCH_PLAN_AUTHORITY`<br>
 Change Permission = `OWNER_CONFIRMATION_REQUIRED`<br>
 Current Plan Status = `ACCEPTED_CURRENT_RESEARCH_PLAN`

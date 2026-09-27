@@ -1,5 +1,9 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current R5 auxiliary lock — 2026-09-27
+
+R5-Claude targeted raw: 3,563 bytes, SHA256 `788061588e4a42cbb80fda6aaf866944bc2cc027bbc589076f2313820ad463e3`, copied byte-for-byte/read-only; Owner attests candidate-only isolation, not machine proof. Ten-row exact key/ID/order/enum/note QA passes. R5 agrees with R4 on all six disputed naturalness values and all four disputed internal-conflict values; the four latter are explicit same-document dual-promulgating-organ claims. R3 originals remain untouched and no automatic majority adjudication occurs. [R5 bounded report](../formal240/PAPER1_FORMAL_D1_REMAINING90_R5_CLAUDE_TARGETED_PHASE1_RAW_LOCK_AND_TRIAGE_V1.md). `PHASE2_WITHHELD / OWNER_ADJUDICATION_PENDING`; perform a separate construction-side repeated-surface shortcut audit before any release.
+
 ## Current recovery — 2026-09-27 remaining90 Phase1 pair QA and auxiliary gate
 
 Corrected R3 raw SHA256 `36a14d40f530bd2f9566f18f36acdce07a11a43b0c56142b8bb41e6af84f1e14`, R4 raw SHA256 `d3aa0c1470b5dffab91217157a6b808f73531ae9fc3bbee21ef8626500759f04`; each strict 90-row key/order/enum/note check passes. The formerly attached R3 isolation incident is `WITHDRAWN_WRONG_ATTACHMENT`, immutable historical transport evidence only, not current R3 run evidence. Five-field agreement is `84/90,86/90,90/90,90/90,90/90`; four local-conflict disagreements are material. [Detailed QA/gate](../formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE1_R3_R4_RAW_LOCK_QA_AND_R5_AUXILIARY_V1.md). R3 isolation `OWNER_ATTESTED`; R4 self-attested in its return context, Owner confirmation pending. Owner suggested independent R5-claude auxiliary review; [ten-row candidate-only send checklist](../formal240/PAPER1_FORMAL_D1_REMAINING90_R5_CLAUDE_TARGETED_PHASE1_OWNER_SEND_CHECKLIST_V1.md) is ready. No hidden construction/Expected/GT load for pair comparison; `PHASE2_WITHHELD / OWNER_ADJUDICATION_PENDING / HUMAN_AB_NOT_AUTHORIZED`.
