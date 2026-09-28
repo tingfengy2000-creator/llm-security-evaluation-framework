@@ -4,6 +4,7 @@
 
 | 需求 ID | 日期 | 用户明确需求 | 类型 | 影响范围 | 当前状态 | 对应阶段 | 证据来源 | 替代关系 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| OR-082 | 2026-09-28 | 只追加 Master Guide 对象缺失/指代多解独立边界、2×2表、四个虚构案例、六项禁止误判和三种 note；保留案例05/06、Excel、Candidate、ID/顺序、Phase2 和 raw | 文档边界澄清，不是 schema/protocol 修订 | Core144 Human Master Guide | `BOUNDARY_CLARIFIED / WORKBOOKS_UNCHANGED / HUMAN_AB_NOT_YET_DISTRIBUTED` | `P1-CORE144-SELF-CONTAINMENT-REFERENT-CLARIFICATION-01` | Owner 当前明确消息；`PODR-127 / REL-2026-0096`；[追加记录](../core144/PAPER1_CORE144_SELF_CONTAINMENT_REFERENT_CLARIFICATION_RECORD_V1.md) | PODR-126 基础上追加解释；历史案例和 QA 保留；不授权发放或标注 |
 | OR-081 | 2026-09-28 | 新增中文自包含真人主手册，直接核对四份当前 Excel，完整展开 V4–V4.3、字段枚举、边界、虚构案例和理由/自检；不改 Excel、ID/顺序或规则，不发放真人，Owner 先审阅 | 文档可用性，不是协议修订 | Core144 Human | `MASTER_GUIDE_READY / WORKBOOKS_UNCHANGED / HUMAN_NOT_DISTRIBUTED` | `P1-CORE144-HUMAN-ANNOTATION-MASTER-GUIDE-V1-01` | Owner 当前附件；`PODR-126 / REL-2026-0095`；[覆盖和收口](../core144/PAPER1_CORE144_HUMAN_ANNOTATION_MASTER_GUIDE_QA_RECORD_V1.md) | 历史说明保留；当前 workbook + latest clarification 控制填写；不授权 annotation、GT、split、training |
 | OR-001 | 2026-07 | Paper-first，优先形成可发表的比较证据 | 研究方向 | Paper 1 全局 | 已确认 | S6.1-LR1+ | PODR-036 | 无 |
 | OR-002 | 2026-07 | 聚焦中文版本化隐蔽知识污染 | 研究方向 | 问题、威胁模型、数据 | 已确认 | S6.1-LR1+ | Paper 1 路线与决策登记 | 无 |

@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## 当前：Core144 对象缺失与指代多解边界已补强（2026-09-28）
+
+Owner 人工预审发现两列仍可能被机械联动，本轮只在[主手册](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_HUMAN_ANNOTATION_MASTER_GUIDE_V1.md)追加解释：“自包含性看对象有没有交代；指代歧义看已有对象中指哪一个是否唯一”。补了2×2表、4个虚构案例、6条禁止误判和3种 note 写法；原30例（含05/06）原文保留，现在共34例。[审计和文档收口](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_SELF_CONTAINMENT_REFERENT_CLARIFICATION_RECORD_V1.md)绑定四份原样 Excel、旧/新手册哈希和最新 Owner 决定。未增加字段/枚举或改变 accepted protocol，未改题文、ID、顺序、证据、历史 raw，也未同步既有 PDF。真人尚未发放，Phase2 仍封存；下一步由 Owner 审阅 Markdown 澄清，后续 Excel 解释同步或发放另行处理。本轮不执行 D2/D3 构造、标注、GT、切分、训练或校准，没有实测人工返工下降的结论。以下同日条目按历史快照保留。
+
 ## 当前：Core144 真人主手册就绪，四份 Excel 原样保留（2026-09-28）
 
 D1 的48组144条已完成预标注验收，上一轮已建立真人第一阶段可发放/第二阶段封存状态；旧首页“remaining90 Phase2 尚未收到”在最新文件与 Git 中已不是现状。本轮按 Owner 要求只新增[中文真人主手册](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_HUMAN_ANNOTATION_MASTER_GUIDE_V1.md)：31章、30个虚构案例、20项高危歧义，全部实际字段和 V4–V4.3 边界展开。[只读 schema/hash 检查与文档收口](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_HUMAN_ANNOTATION_MASTER_GUIDE_QA_RECORD_V1.md)通过；题文、证据、ID、顺序、语义规则与四份 Excel 均不变。尚未真人发放，Phase2 仍封存；Owner 先审阅主手册，再决定后续同步解释或发放。本轮没有 D2/D3 构造、GT、切分、训练、校准或正式效果。以下“当前”均按各自日期保留为历史快照。

@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 import re
+import subprocess
 from collections import Counter
 from difflib import SequenceMatcher
 from pathlib import Path
@@ -102,6 +103,28 @@ def main() -> None:
     cases = re.findall(r"^### 案例 (\d+)：(.+)$", text, re.M)
     assert [int(x[0]) for x in sections] == list(range(1, 32))
     assert [int(x[0]) for x in cases] == list(range(1, 31))
+    boundary_cases = re.findall(r"^### 虚构边界案例 ([A-D])：(.+)$", text, re.M)
+    assert [x[0] for x in boundary_cases] == list("ABCD")
+    total_cases = len(cases) + len(boundary_cases)
+    boundary_pairs = [("PASS", "NO"), ("PASS", "YES"), ("FLAG", "NO"), ("FLAG", "YES")]
+    assert "2×2 决策表" in text
+    for a, b in boundary_pairs:
+        assert re.search(r"^\| .+ \| " + a + r" \| " + b + r" \|$", text, re.M)
+    motto = "self_containment 看对象有没有交代；ambiguous_referent 看已有对象中到底指哪一个是否唯一。"
+    assert text.count(motto) >= 2
+    assert "self_containment=FLAG 不强制 ambiguous_referent=YES" in text
+    assert "ambiguous_referent=YES 不强制 self_containment=FLAG" in text
+    assert "两项同时异常时" in text and "分别说明独立理由" in text
+    previous_guide = subprocess.check_output([
+        "git", "show", "4a838585b08308b8e70b172f9ccdaf2a1ed7dd2c:"
+        "docs/research/stage6_1_hidden_knowledge_poisoning/core144/"
+        "PAPER1_CORE144_HUMAN_ANNOTATION_MASTER_GUIDE_V1.md",
+    ], cwd=BASE).decode("utf-8")
+    for n in range(1, 31):
+        pattern = rf"^### 案例 {n:02}：.*?(?=^#{{2,3}} )"
+        old_case = re.search(pattern, previous_guide, re.M | re.S)
+        new_case = re.search(pattern, text, re.M | re.S)
+        assert old_case and new_case and old_case.group() == new_case.group()
     han_count = len(re.findall(r"[\u4e00-\u9fff]", text))
     assert han_count >= 8000
     obsolete = ["phase1_issue", "phase1_reason", "locally_detectable",
@@ -140,6 +163,9 @@ def main() -> None:
             for values in book["validation"].values():
                 enums.update(values)
                 assert all(v in text for v in values)
+            if phase == 1:
+                assert book["validation"]["E2:E145"] == ["PASS", "FLAG", "UNCERTAIN"]
+                assert book["validation"]["F2:F145"] == ["YES", "NO", "UNCERTAIN"]
             helpers = [v.replace(person, "PERSON") for title, cells in book["sheets"].items()
                        if title not in ("【标注表】", "【冻结证据全文】") for v in cells.values()]
             if phase in helper_cells:
@@ -155,7 +181,7 @@ def main() -> None:
             assert books[-1]["sha256_after_read"] == books[-1]["sha256"]
 
     examples = re.findall(r'^Candidate：“([^”\n]+)”', text, re.M)
-    assert len(examples) == 30
+    assert len(examples) == total_cases == 34
     max_similarity = 0.0
     near_duplicates = 0
     for example in examples:
@@ -175,6 +201,13 @@ def main() -> None:
             assert "虚构 Evidence：" in block
             assert "phase2_reason：" in block and "reviewer_note：" in block
     assert "虚构 Evidence：本阶段不提供、不使用。" in text
+    supplements = re.split(r"^### 虚构边界案例 [A-D]：.*$", text, flags=re.M)[1:]
+    for block, pair in zip(supplements, [("FLAG", "NO"), ("PASS", "YES"),
+                                       ("FLAG", "YES"), ("FLAG", "NO")], strict=True):
+        assert all(re.search(r"\| " + f + r" \| .+ \| .+ \|", block) for f in P1[2:])
+        assert f"| self_containment | {pair[0]} |" in block
+        assert f"| ambiguous_referent | {pair[1]} |" in block
+    assert "A–D 全部为**虚构教学文本**" in text
 
     sources = [{"path": name, "sha256": digest((DOC / name).read_bytes())}
                for name in SOURCE_NAMES]
@@ -216,6 +249,7 @@ def main() -> None:
         "Owner_C8_core_vs_subfield_insufficiency": [14, 23, 25, 27],
         "Owner_secondary_error_independent_atom": [22, 26, 27],
         "Owner_no_workbook_mutation_distribution": [3, 4, 11, 30],
+        "Owner_self_containment_referent_independence": [5, 6, 7, 8, 9, 26, 28, 29, 30, 31],
     }
     faq = re.findall(r"\*\*Q(\d+) ", text)
     assert len(faq) >= 12
@@ -227,11 +261,17 @@ def main() -> None:
               "no_actual_candidate_or_ID_in_guide": True, "no_mapping_expected_GT_loaded": True,
               "no_reviewer_returns_loaded": True, "no_annotation_or_distribution": True,
               "phase2_still_sealed": True, "UTF8_strict": True, "guide_links_valid": True}
-    report = {"task_id": "P1-CORE144-HUMAN-ANNOTATION-MASTER-GUIDE-V1-01",
+    checks.update({"boundary_2_by_2_table": True, "four_fictional_boundary_cases": True,
+                   "cases_05_06_verbatim_preserved": True, "all_original_30_cases_preserved": True,
+                   "two_enums_exact": True,
+                   "no_mechanical_field_coupling_author_inspection": True})
+    report = {"task_id": "P1-CORE144-SELF-CONTAINMENT-REFERENT-CLARIFICATION-01",
               "role": "DOCUMENTATION_ONLY_READ_ONLY_XLSX_INSPECTION", "status": "PASS",
               "guide_sha256": digest(GUIDE.read_bytes()), "han_characters": han_count,
-              "sections": len(sections), "fictional_cases": len(cases),
-              "phase1_cases": 9, "phase2_cases": 21,
+              "sections": len(sections), "fictional_cases": total_cases,
+              "original_numbered_cases": len(cases), "additional_boundary_cases": len(boundary_cases),
+              "phase1_cases": 13, "phase2_cases": 21,
+              "previous_guide_sha256": digest(previous_guide.encode("utf-8")),
               "high_risk_rows": len(danger_rows), "FAQ_count": len(faq),
               "field_occurrences_by_phase": Counter(x["phase"] for x in field_coverage),
               "unique_fields": len(set(P1 + P2)), "unique_enum_strings": len(enums),
@@ -245,6 +285,15 @@ def main() -> None:
               "owner_directive": {"attachment_id": "18419beb-8ffe-4b84-b423-2e37d0d829a0",
                                   "bytes": 36789,
                                   "sha256": "d03d6734a260cc28d2e1f4e5f24bbdee1735060fbc7506804311e9828d64e28e"},
+              "owner_additive_clarification": {
+                  "date": "2026-09-28", "authority": "explicit current Owner message",
+                  "scope": "Master Guide explanations only; original enum/schema/XLSX/raw unchanged",
+                  "decision_lineage": "PODR-127 / OR-082 / REL-2026-0096",
+                  "self_containment": "required object/claim/condition information supplied",
+                  "ambiguous_referent": "two or more reasonable antecedents; not bare missing object",
+                  "no_mechanical_coupling": True,
+                  "historical_QA_V1_not_overwritten": True,
+              },
               "old_conflicts_not_propagated": [
                   "old Phase1 issue/reason columns versus current five fields plus issue_note",
                   "old naturalness-only reason optional versus current nondefault note mandatory",
@@ -257,7 +306,8 @@ def main() -> None:
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"status": report["status"], "sections": len(sections),
                       "fields": [len(P1), len(P2)], "unique_fields": report["unique_fields"],
-                      "cases": len(cases), "high_risk": len(danger_rows),
+                      "cases": total_cases, "additional_cases": len(boundary_cases),
+                      "high_risk": len(danger_rows),
                       "han": han_count, "near_duplicates": near_duplicates,
                       "max_similarity": round(max_similarity, 6),
                       "sha256": report["guide_sha256"]}, ensure_ascii=False))

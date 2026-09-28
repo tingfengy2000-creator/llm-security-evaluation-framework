@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> **最新澄清（2026-09-28）：** [主手册](core144/PAPER1_CORE144_HUMAN_ANNOTATION_MASTER_GUIDE_V1.md)已将“对象有没有交代”和“已有对象到底指哪一个”分开，补充2×2表及4个虚构案例；原30例（含05/06）保留，现在共34例。[新检查/收口记录](core144/PAPER1_CORE144_SELF_CONTAINMENT_REFERENT_CLARIFICATION_RECORD_V1.md)。四份 Excel、字段枚举、题文、ID、顺序、Phase2 和历史 raw 均未改变；真人未发放，Phase2 封存，Owner 先审更新的 Markdown。既有 PDF 未同步，不作为本轮更新件。以下同日计数是历史。
+
 > **当前（2026-09-28）：** [Core144 中文真人主标注手册](core144/PAPER1_CORE144_HUMAN_ANNOTATION_MASTER_GUIDE_V1.md)已备妥，逐列展开规则、易错边界和30个虚构案例。[覆盖与只读校验](core144/PAPER1_CORE144_HUMAN_ANNOTATION_MASTER_GUIDE_QA_RECORD_V1.md)确认四份 Excel、候选、ID、题序和冻结语义均不变。两位真人尚未发放，第二阶段封存；Owner 先审主手册再决定后续解释同步或发放。本轮未做 D2/D3 构造、标注、GT、切分或训练。以下段落是先前日期状态。
 
 > **当前状态（2026-09-27）：** D1 的48组/144条已通过预人工标注验收。[两位人工 Phase1 Excel 精确地址与使用说明](core144/PAPER1_CORE144_D1_HUMAN_PHASE1_GUIDE_V1.md)现为 `DISTRIBUTION_READY_NOT_DISTRIBUTED`；Phase2 两份 Excel 分别封存，不能现在发。[XLSX 可读性与泄漏 QA](core144/PAPER1_CORE144_D1_HUMAN_XLSX_USABILITY_AUDIT_V1.md)。[并行工作流](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V1.md)允许 Owner 发 D1 人工第一阶段时同步启动 D2 财务与 D3 信息安全的 Evidence-first 施工；目前 D2/D3 只做槽位预检、没有新 Candidate。无 Core GT、正式切分、训练或论文最终结果。下方“外部 Phase2 待回”是历史。

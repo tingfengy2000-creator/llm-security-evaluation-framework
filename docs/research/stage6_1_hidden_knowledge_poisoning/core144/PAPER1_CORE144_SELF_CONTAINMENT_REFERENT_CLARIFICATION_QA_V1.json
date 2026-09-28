@@ -1,0 +1,993 @@
+{
+  "task_id": "P1-CORE144-SELF-CONTAINMENT-REFERENT-CLARIFICATION-01",
+  "role": "DOCUMENTATION_ONLY_READ_ONLY_XLSX_INSPECTION",
+  "status": "PASS",
+  "guide_sha256": "8fa295899d5d64692350ee62e574802d2917bc6161ba24ff2a050bf1b0903478",
+  "han_characters": 18021,
+  "sections": 31,
+  "fictional_cases": 34,
+  "original_numbered_cases": 30,
+  "additional_boundary_cases": 4,
+  "phase1_cases": 13,
+  "phase2_cases": 21,
+  "previous_guide_sha256": "89bf7e65dd2d600fb73f4e51419c59da688e1132ff89a3313812b6fdb71485cd",
+  "high_risk_rows": 22,
+  "FAQ_count": 19,
+  "field_occurrences_by_phase": {
+    "1": 8,
+    "2": 20
+  },
+  "unique_fields": 26,
+  "unique_enum_strings": 31,
+  "workbooks": [
+    {
+      "artifact": "PAPER1_CORE144_D1_HUMAN_A01_PHASE1_V1.xlsx",
+      "sha256": "eca6265f10a4afa78c8744d500eff83d147e49cfc5123dab2c8cfa2377e4df73",
+      "bytes": 27608,
+      "phase": 1,
+      "sheets": [
+        "【开始前必读】",
+        "【标注表】",
+        "【字段说明】",
+        "【高危歧义与易错点】",
+        "【判断流程】",
+        "【虚构示例】",
+        "【提交前自检】"
+      ],
+      "fields": [
+        "blind_id",
+        "candidate_text",
+        "text_naturalness",
+        "local_internal_conflict",
+        "self_containment",
+        "ambiguous_referent",
+        "meta_or_template_language",
+        "issue_note"
+      ],
+      "enum_validations": {
+        "C2:C145": [
+          "NATURAL",
+          "MINOR_ISSUE",
+          "UNNATURAL"
+        ],
+        "D2:D145": [
+          "YES",
+          "NO",
+          "UNCERTAIN"
+        ],
+        "E2:E145": [
+          "PASS",
+          "FLAG",
+          "UNCERTAIN"
+        ],
+        "F2:F145": [
+          "YES",
+          "NO",
+          "UNCERTAIN"
+        ],
+        "G2:G145": [
+          "YES",
+          "NO",
+          "UNCERTAIN"
+        ]
+      },
+      "rows": 144,
+      "answers_empty": true,
+      "source_manifest": "PAPER1_CORE144_D1_HUMAN_A01_PHASE1_MANIFEST_V1.json",
+      "status": "DISTRIBUTION_READY_NOT_DISTRIBUTED",
+      "sha256_after_read": "eca6265f10a4afa78c8744d500eff83d147e49cfc5123dab2c8cfa2377e4df73"
+    },
+    {
+      "artifact": "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_V1.xlsx",
+      "sha256": "76d43b8b48fbab4595b4d561bc09f41046a1ca5cd2f39118fd85de3875baef8a",
+      "bytes": 527949,
+      "phase": 2,
+      "sheets": [
+        "【开始前必读】",
+        "【标注表】",
+        "【字段说明】",
+        "【高危歧义与易错点】",
+        "【版本与历史判断】",
+        "【权威与机关判断】",
+        "【证据判断流程】",
+        "【虚构示例】",
+        "【冻结证据全文】",
+        "【提交前自检】"
+      ],
+      "fields": [
+        "blind_id",
+        "candidate_text",
+        "E1_title",
+        "E1_excerpt",
+        "E1_official_url",
+        "E1_snapshot_ref",
+        "E2_title",
+        "E2_excerpt",
+        "E2_official_url",
+        "E2_snapshot_ref",
+        "overall_fact_status",
+        "version_claim_status",
+        "authority_claim_status",
+        "minimum_external_evidence_needed",
+        "evidence_selection",
+        "phase2_issue",
+        "possible_accidental_secondary_error",
+        "evidence_sufficiency",
+        "phase2_reason",
+        "reviewer_note"
+      ],
+      "enum_validations": {
+        "K2:K145": [
+          "CURRENTLY_CONSISTENT",
+          "LEGITIMATE_VERSION_OR_HISTORY",
+          "FACTUAL_CONFLICT",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "L2:L145": [
+          "NOT_PRESENT",
+          "PRESENT_CORRECT",
+          "PRESENT_INCORRECT",
+          "PRESENT_EVIDENCE_INSUFFICIENT"
+        ],
+        "M2:M145": [
+          "NOT_PRESENT",
+          "PRESENT_CORRECT",
+          "PRESENT_INCORRECT",
+          "PRESENT_EVIDENCE_INSUFFICIENT"
+        ],
+        "N2:N145": [
+          "ZERO_EXTERNAL_EVIDENCE_REQUIRED",
+          "ONE_OFFICIAL_EVIDENCE",
+          "MULTI_EVIDENCE_OR_VERSION_CHAIN",
+          "NOT_APPLICABLE"
+        ],
+        "O2:O145": [
+          "NONE",
+          "E1",
+          "E2",
+          "E1+E2"
+        ],
+        "P2:P145": [
+          "NONE",
+          "SOURCE_UNREACHABLE",
+          "SOURCE_CONFLICT",
+          "EVIDENCE_MISSING",
+          "LATE_DISCOVERED_CANDIDATE_DEFECT",
+          "OTHER"
+        ],
+        "Q2:Q145": [
+          "YES",
+          "NO",
+          "UNCERTAIN"
+        ],
+        "R2:R145": [
+          "SUFFICIENT",
+          "INSUFFICIENT",
+          "UNCERTAIN"
+        ]
+      },
+      "rows": 144,
+      "answers_empty": true,
+      "source_manifest": "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+      "status": "SEALED_WITHHELD",
+      "sha256_after_read": "76d43b8b48fbab4595b4d561bc09f41046a1ca5cd2f39118fd85de3875baef8a"
+    },
+    {
+      "artifact": "PAPER1_CORE144_D1_HUMAN_B01_PHASE1_V1.xlsx",
+      "sha256": "7736aa431c5b5e94c0059152bc186a314f928401f03df3c00e21b8673ba5a087",
+      "bytes": 27458,
+      "phase": 1,
+      "sheets": [
+        "【开始前必读】",
+        "【标注表】",
+        "【字段说明】",
+        "【高危歧义与易错点】",
+        "【判断流程】",
+        "【虚构示例】",
+        "【提交前自检】"
+      ],
+      "fields": [
+        "blind_id",
+        "candidate_text",
+        "text_naturalness",
+        "local_internal_conflict",
+        "self_containment",
+        "ambiguous_referent",
+        "meta_or_template_language",
+        "issue_note"
+      ],
+      "enum_validations": {
+        "C2:C145": [
+          "NATURAL",
+          "MINOR_ISSUE",
+          "UNNATURAL"
+        ],
+        "D2:D145": [
+          "YES",
+          "NO",
+          "UNCERTAIN"
+        ],
+        "E2:E145": [
+          "PASS",
+          "FLAG",
+          "UNCERTAIN"
+        ],
+        "F2:F145": [
+          "YES",
+          "NO",
+          "UNCERTAIN"
+        ],
+        "G2:G145": [
+          "YES",
+          "NO",
+          "UNCERTAIN"
+        ]
+      },
+      "rows": 144,
+      "answers_empty": true,
+      "source_manifest": "PAPER1_CORE144_D1_HUMAN_B01_PHASE1_MANIFEST_V1.json",
+      "status": "DISTRIBUTION_READY_NOT_DISTRIBUTED",
+      "sha256_after_read": "7736aa431c5b5e94c0059152bc186a314f928401f03df3c00e21b8673ba5a087"
+    },
+    {
+      "artifact": "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_V1.xlsx",
+      "sha256": "bad9c6459dc163cd085517a8964deac6c950115486d15b4237d7273f8e138cdf",
+      "bytes": 523102,
+      "phase": 2,
+      "sheets": [
+        "【开始前必读】",
+        "【标注表】",
+        "【字段说明】",
+        "【高危歧义与易错点】",
+        "【版本与历史判断】",
+        "【权威与机关判断】",
+        "【证据判断流程】",
+        "【虚构示例】",
+        "【冻结证据全文】",
+        "【提交前自检】"
+      ],
+      "fields": [
+        "blind_id",
+        "candidate_text",
+        "E1_title",
+        "E1_excerpt",
+        "E1_official_url",
+        "E1_snapshot_ref",
+        "E2_title",
+        "E2_excerpt",
+        "E2_official_url",
+        "E2_snapshot_ref",
+        "overall_fact_status",
+        "version_claim_status",
+        "authority_claim_status",
+        "minimum_external_evidence_needed",
+        "evidence_selection",
+        "phase2_issue",
+        "possible_accidental_secondary_error",
+        "evidence_sufficiency",
+        "phase2_reason",
+        "reviewer_note"
+      ],
+      "enum_validations": {
+        "K2:K145": [
+          "CURRENTLY_CONSISTENT",
+          "LEGITIMATE_VERSION_OR_HISTORY",
+          "FACTUAL_CONFLICT",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "L2:L145": [
+          "NOT_PRESENT",
+          "PRESENT_CORRECT",
+          "PRESENT_INCORRECT",
+          "PRESENT_EVIDENCE_INSUFFICIENT"
+        ],
+        "M2:M145": [
+          "NOT_PRESENT",
+          "PRESENT_CORRECT",
+          "PRESENT_INCORRECT",
+          "PRESENT_EVIDENCE_INSUFFICIENT"
+        ],
+        "N2:N145": [
+          "ZERO_EXTERNAL_EVIDENCE_REQUIRED",
+          "ONE_OFFICIAL_EVIDENCE",
+          "MULTI_EVIDENCE_OR_VERSION_CHAIN",
+          "NOT_APPLICABLE"
+        ],
+        "O2:O145": [
+          "NONE",
+          "E1",
+          "E2",
+          "E1+E2"
+        ],
+        "P2:P145": [
+          "NONE",
+          "SOURCE_UNREACHABLE",
+          "SOURCE_CONFLICT",
+          "EVIDENCE_MISSING",
+          "LATE_DISCOVERED_CANDIDATE_DEFECT",
+          "OTHER"
+        ],
+        "Q2:Q145": [
+          "YES",
+          "NO",
+          "UNCERTAIN"
+        ],
+        "R2:R145": [
+          "SUFFICIENT",
+          "INSUFFICIENT",
+          "UNCERTAIN"
+        ]
+      },
+      "rows": 144,
+      "answers_empty": true,
+      "source_manifest": "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json",
+      "status": "SEALED_WITHHELD",
+      "sha256_after_read": "bad9c6459dc163cd085517a8964deac6c950115486d15b4237d7273f8e138cdf"
+    }
+  ],
+  "field_coverage": [
+    {
+      "field": "blind_id",
+      "phase": 1,
+      "dictionary_section": 6,
+      "explanation_sections": [
+        4
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE1_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE1_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive"
+      ]
+    },
+    {
+      "field": "candidate_text",
+      "phase": 1,
+      "dictionary_section": 6,
+      "explanation_sections": [
+        4
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE1_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE1_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive"
+      ]
+    },
+    {
+      "field": "text_naturalness",
+      "phase": 1,
+      "dictionary_section": 6,
+      "explanation_sections": [
+        7,
+        8,
+        9
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE1_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE1_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive"
+      ]
+    },
+    {
+      "field": "local_internal_conflict",
+      "phase": 1,
+      "dictionary_section": 6,
+      "explanation_sections": [
+        7,
+        8,
+        9,
+        19
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE1_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE1_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive"
+      ]
+    },
+    {
+      "field": "self_containment",
+      "phase": 1,
+      "dictionary_section": 6,
+      "explanation_sections": [
+        7,
+        9
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE1_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE1_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive"
+      ]
+    },
+    {
+      "field": "ambiguous_referent",
+      "phase": 1,
+      "dictionary_section": 6,
+      "explanation_sections": [
+        7,
+        9
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE1_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE1_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive"
+      ]
+    },
+    {
+      "field": "meta_or_template_language",
+      "phase": 1,
+      "dictionary_section": 6,
+      "explanation_sections": [
+        7,
+        9
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE1_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE1_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive"
+      ]
+    },
+    {
+      "field": "issue_note",
+      "phase": 1,
+      "dictionary_section": 6,
+      "explanation_sections": [
+        7,
+        9,
+        10
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE1_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE1_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive"
+      ]
+    },
+    {
+      "field": "blind_id",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        4,
+        12
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "candidate_text",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        4,
+        12
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "E1_title",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        4,
+        12
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "E1_excerpt",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        4,
+        12
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "E1_official_url",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        4,
+        12
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "E1_snapshot_ref",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        4,
+        12
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "E2_title",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        4,
+        12
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "E2_excerpt",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        4,
+        12
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "E2_official_url",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        4,
+        12
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "E2_snapshot_ref",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        4,
+        12
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "overall_fact_status",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        14,
+        15,
+        18
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "version_claim_status",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        16,
+        18
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "authority_claim_status",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        17
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "minimum_external_evidence_needed",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        19
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "evidence_selection",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        20
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "phase2_issue",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        21
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "possible_accidental_secondary_error",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        22
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "evidence_sufficiency",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        23
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "phase2_reason",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        24
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    },
+    {
+      "field": "reviewer_note",
+      "phase": 2,
+      "dictionary_section": 13,
+      "explanation_sections": [
+        24
+      ],
+      "schema_source_manifests": [
+        "PAPER1_CORE144_D1_HUMAN_A01_PHASE2_MANIFEST_V1.json",
+        "PAPER1_CORE144_D1_HUMAN_B01_PHASE2_MANIFEST_V1.json"
+      ],
+      "semantic_authority": [
+        "Current Human workbook help sheets and Owner master-guide directive",
+        "Formal Guide V4 plus V4.1/V4.2/V4.3"
+      ]
+    }
+  ],
+  "rule_coverage_reviewed": {
+    "V4_phase_separation": [
+      2,
+      3,
+      5,
+      11,
+      12
+    ],
+    "V4_overall_decision_order": [
+      14,
+      15,
+      18
+    ],
+    "V4_version_authority_substantive_independence": [
+      16,
+      17,
+      25
+    ],
+    "V4_zero_one_multi_minimum": [
+      19,
+      20,
+      25
+    ],
+    "V4_actual_evidence_not_necessity": [
+      20,
+      27
+    ],
+    "V4_issue_candidate_defect": [
+      21,
+      25
+    ],
+    "V4_1_publication_adoption_not_automatic_version": [
+      16,
+      26,
+      27
+    ],
+    "V4_1_operational_actor_not_authority": [
+      17,
+      26,
+      27
+    ],
+    "V4_1_row_issue_not_run_incident": [
+      21,
+      25
+    ],
+    "V4_2_candidate_only_no_metadata_backflow": [
+      16,
+      25,
+      26
+    ],
+    "V4_2_amendment_decision_identity": [
+      16,
+      27
+    ],
+    "V4_2_supported_version_comparison_history": [
+      18,
+      27
+    ],
+    "V4_3_history_without_version": [
+      16,
+      18,
+      25,
+      27
+    ],
+    "V4_3_year_distinct_document_and_current_value": [
+      16,
+      18,
+      26,
+      27
+    ],
+    "current_P1_five_fields_reason_rule": [
+      6,
+      7,
+      9,
+      10
+    ],
+    "current_P2_optional_E2": [
+      12,
+      13,
+      20,
+      27
+    ],
+    "Owner_C8_core_vs_subfield_insufficiency": [
+      14,
+      23,
+      25,
+      27
+    ],
+    "Owner_secondary_error_independent_atom": [
+      22,
+      26,
+      27
+    ],
+    "Owner_no_workbook_mutation_distribution": [
+      3,
+      4,
+      11,
+      30
+    ],
+    "Owner_self_containment_referent_independence": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      26,
+      28,
+      29,
+      30,
+      31
+    ]
+  },
+  "source_receipt": [
+    {
+      "path": "formal240/PAPER1_FORMAL_ANNOTATION_GUIDE_V4.md",
+      "sha256": "7a094210dbed5e9a9054a4c6f47b6229ce85b03d15c2454c0b320b7c62f37a7c"
+    },
+    {
+      "path": "formal240/PAPER1_FORMAL_ANNOTATION_GUIDE_V4_1_CLARIFICATION.md",
+      "sha256": "7032d2933248f9c9849e4be38065b17d7e327d1814788338d8df6d3aaa680ce2"
+    },
+    {
+      "path": "formal240/PAPER1_FORMAL_ANNOTATION_GUIDE_V4_2_VERSION_SCOPE_DECISION.md",
+      "sha256": "556bd57b41a4f9e7c9e160336d9089885382399691fe7f05e849d4579023e25a"
+    },
+    {
+      "path": "formal240/PAPER1_FORMAL_ANNOTATION_GUIDE_V4_3_TEMPORAL_VS_VERSION_SCOPE.md",
+      "sha256": "78c77dbf95d962359c451b84e7a2e9e018b39ddb7841f6bce03c1eb74f4d9f6d"
+    },
+    {
+      "path": "formal240/PAPER1_FORMAL_ANNOTATION_BOUNDARY_EXAMPLES_V1.json",
+      "sha256": "c672223cab314505d8913ec342d69f8fe0a5d97b1548ca81c9c6a1d30d9a2514"
+    },
+    {
+      "path": "human/annotation_lessons_learned_and_future_dataset_rules.md",
+      "sha256": "3606ad31f149352fe0a4eb01ce161936b4879166e23cbca36efa7da2d4481494"
+    },
+    {
+      "path": "core144/PAPER1_CORE144_D1_HUMAN_PHASE1_GUIDE_V1.md",
+      "sha256": "5941a67c19ef7cfe4da5c141e47b50dd7217b918be01d9a93d8c496bd457c56a"
+    },
+    {
+      "path": "core144/PAPER1_CORE144_BENCHMARK_CONTRACT_V1.md",
+      "sha256": "90c3b226fe405acb160081cc4afb8a1457744022c091274596653055a29a4da0"
+    },
+    {
+      "path": "core144/PAPER1_CORE144_SCOPE_DECISION_V1.md",
+      "sha256": "a0e993b70a3f28dae5df19b0155a972e4ed669b4783f2d102fc50acabfa22b27"
+    }
+  ],
+  "near_duplicate_check": {
+    "algorithm": "normalized SequenceMatcher ratio >= 0.72",
+    "comparison_count": 4896,
+    "max_ratio": 0.395604,
+    "near_duplicates": 0,
+    "limit": "mechanical screen plus fictional-topic semantic inspection"
+  },
+  "owner_directive": {
+    "attachment_id": "18419beb-8ffe-4b84-b423-2e37d0d829a0",
+    "bytes": 36789,
+    "sha256": "d03d6734a260cc28d2e1f4e5f24bbdee1735060fbc7506804311e9828d64e28e"
+  },
+  "owner_additive_clarification": {
+    "date": "2026-09-28",
+    "authority": "explicit current Owner message",
+    "scope": "Master Guide explanations only; original enum/schema/XLSX/raw unchanged",
+    "decision_lineage": "PODR-127 / OR-082 / REL-2026-0096",
+    "self_containment": "required object/claim/condition information supplied",
+    "ambiguous_referent": "two or more reasonable antecedents; not bare missing object",
+    "no_mechanical_coupling": true,
+    "historical_QA_V1_not_overwritten": true
+  },
+  "old_conflicts_not_propagated": [
+    "old Phase1 issue/reason columns versus current five fields plus issue_note",
+    "old naturalness-only reason optional versus current nondefault note mandatory",
+    "Pilot internal conflict NOT_APPLICABLE versus Formal ZERO",
+    "Pilot revised content or actor error merged with version versus separate scopes",
+    "old CANDIDATE_AMBIGUOUS enum versus current late-discovered candidate defect"
+  ],
+  "checks": {
+    "workbook_bytes_unchanged": true,
+    "ID_and_order_unchanged": true,
+    "A_B_help_semantic_parity": true,
+    "field_coverage_100_percent": true,
+    "enum_coverage_100_percent": true,
+    "current_contract_not_old_Pilot": true,
+    "no_actual_candidate_or_ID_in_guide": true,
+    "no_mapping_expected_GT_loaded": true,
+    "no_reviewer_returns_loaded": true,
+    "no_annotation_or_distribution": true,
+    "phase2_still_sealed": true,
+    "UTF8_strict": true,
+    "guide_links_valid": true,
+    "boundary_2_by_2_table": true,
+    "four_fictional_boundary_cases": true,
+    "cases_05_06_verbatim_preserved": true,
+    "all_original_30_cases_preserved": true,
+    "two_enums_exact": true,
+    "no_mechanical_field_coupling_author_inspection": true
+  }
+}
