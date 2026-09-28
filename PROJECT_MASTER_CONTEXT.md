@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## 当前：Core144 真人主手册就绪，四份 Excel 原样保留（2026-09-28）
+
+D1 的48组144条已完成预标注验收，上一轮已建立真人第一阶段可发放/第二阶段封存状态；旧首页“remaining90 Phase2 尚未收到”在最新文件与 Git 中已不是现状。本轮按 Owner 要求只新增[中文真人主手册](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_HUMAN_ANNOTATION_MASTER_GUIDE_V1.md)：31章、30个虚构案例、20项高危歧义，全部实际字段和 V4–V4.3 边界展开。[只读 schema/hash 检查与文档收口](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_HUMAN_ANNOTATION_MASTER_GUIDE_QA_RECORD_V1.md)通过；题文、证据、ID、顺序、语义规则与四份 Excel 均不变。尚未真人发放，Phase2 仍封存；Owner 先审阅主手册，再决定后续同步解释或发放。本轮没有 D2/D3 构造、GT、切分、训练、校准或正式效果。以下“当前”均按各自日期保留为历史快照。
+
 ## 当前：D1 remaining90 Phase2 V5 盲包就绪，等原 R3/R4 会话作答（2026-09-27）
 
 四条定向 Phase1 原答已锁且完成90条视图合成；Owner 以人工声明确认原 R3/R4 会话隔离，并有界批准仅两组三证据组按经验证足够的 E1/E2 发给审核员，第三份仍私有锁存。[两份各90条 V5 题包、四版 Guide、Schema 与对应提示词的精确地址](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_OWNER_SEND_CHECKLIST_V5.md)已就绪，须发到各自原会话，R4-codex 实际是豆包。[技术记录](docs/research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_RELEASE_RECORD_V5.md)。尚未收到第二阶段答卷；D1 全48组、Human A/B、D2/D3、GT、切分和训练都未开启。下一节的“待决定”是当日先前状态。

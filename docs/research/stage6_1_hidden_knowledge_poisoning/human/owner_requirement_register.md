@@ -4,6 +4,7 @@
 
 | 需求 ID | 日期 | 用户明确需求 | 类型 | 影响范围 | 当前状态 | 对应阶段 | 证据来源 | 替代关系 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| OR-081 | 2026-09-28 | 新增中文自包含真人主手册，直接核对四份当前 Excel，完整展开 V4–V4.3、字段枚举、边界、虚构案例和理由/自检；不改 Excel、ID/顺序或规则，不发放真人，Owner 先审阅 | 文档可用性，不是协议修订 | Core144 Human | `MASTER_GUIDE_READY / WORKBOOKS_UNCHANGED / HUMAN_NOT_DISTRIBUTED` | `P1-CORE144-HUMAN-ANNOTATION-MASTER-GUIDE-V1-01` | Owner 当前附件；`PODR-126 / REL-2026-0095`；[覆盖和收口](../core144/PAPER1_CORE144_HUMAN_ANNOTATION_MASTER_GUIDE_QA_RECORD_V1.md) | 历史说明保留；当前 workbook + latest clarification 控制填写；不授权 annotation、GT、split、training |
 | OR-001 | 2026-07 | Paper-first，优先形成可发表的比较证据 | 研究方向 | Paper 1 全局 | 已确认 | S6.1-LR1+ | PODR-036 | 无 |
 | OR-002 | 2026-07 | 聚焦中文版本化隐蔽知识污染 | 研究方向 | 问题、威胁模型、数据 | 已确认 | S6.1-LR1+ | Paper 1 路线与决策登记 | 无 |
 | OR-003 | 2026-07 | PoisonedRAG 为攻击基线、GMTP 为检测基线、SafeRAG 为 Benchmark 参考 | Baseline 选择 | Track A | 已确认 | S6.1-LR1/R0 | PODR-036 至 PODR-040 | 无 |

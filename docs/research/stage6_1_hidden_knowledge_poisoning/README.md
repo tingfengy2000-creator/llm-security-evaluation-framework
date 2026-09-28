@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> **当前（2026-09-28）：** [Core144 中文真人主标注手册](core144/PAPER1_CORE144_HUMAN_ANNOTATION_MASTER_GUIDE_V1.md)已备妥，逐列展开规则、易错边界和30个虚构案例。[覆盖与只读校验](core144/PAPER1_CORE144_HUMAN_ANNOTATION_MASTER_GUIDE_QA_RECORD_V1.md)确认四份 Excel、候选、ID、题序和冻结语义均不变。两位真人尚未发放，第二阶段封存；Owner 先审主手册再决定后续解释同步或发放。本轮未做 D2/D3 构造、标注、GT、切分或训练。以下段落是先前日期状态。
+
 > **当前状态（2026-09-27）：** D1 的48组/144条已通过预人工标注验收。[两位人工 Phase1 Excel 精确地址与使用说明](core144/PAPER1_CORE144_D1_HUMAN_PHASE1_GUIDE_V1.md)现为 `DISTRIBUTION_READY_NOT_DISTRIBUTED`；Phase2 两份 Excel 分别封存，不能现在发。[XLSX 可读性与泄漏 QA](core144/PAPER1_CORE144_D1_HUMAN_XLSX_USABILITY_AUDIT_V1.md)。[并行工作流](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V1.md)允许 Owner 发 D1 人工第一阶段时同步启动 D2 财务与 D3 信息安全的 Evidence-first 施工；目前 D2/D3 只做槽位预检、没有新 Candidate。无 Core GT、正式切分、训练或论文最终结果。下方“外部 Phase2 待回”是历史。
 
 > **当前 D1 状态（2026-09-27）：** Owner 已人工确认 R3/R4 本次定向四条仍是原隔离会话，并仅批准两组三证据组的有界 E1/E2 呈现，原第三份证据私有保留。两份各90条、保留各自题序的 V5 Phase2 盲包已只读备好；请按[逐人完整文件地址清单](formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_OWNER_SEND_CHECKLIST_V5.md)发回原 R3-gpt 和 R4-codex（实际豆包）会话。[验收与证据说明](formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_RELEASE_RECORD_V5.md)。现在仍等外部第二阶段答案，不是 D1 全48组通过；真人 A/B、D2/D3、GT、切分、训练未启动。下方“证据呈现待决定”为本日较早历史状态。
