@@ -1,5 +1,20 @@
 # Current Work State
 
+## Current — 2026-09-30 Core144 D2 internally constructed; D3 next, no external release yet
+
+The Owner-authorized D2/D3 construction task is in progress. D2 Finance has
+completed its **internal construction-only** gate: 48 frozen groups, 144
+candidates and two separate 144-row, candidate-only R3/R4 Phase1 packets.
+[D2 checkpoint and private evidence index](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_FINANCE_INTERNAL_CONSTRUCTION_RECORD_V1.md).
+No R3/R4 external D2 review has occurred. Under the same authorization, D3
+Information Security is the next evidence-first domain; the combined four-packet
+Owner send gate is still closed. D1 Human A/B workbooks remain distribution-ready
+but not recorded as distributed; Phase2 is sealed. Do not read D1 Human answers
+to construct D3. `D2_FULL144_INTERNAL_QA_ACCEPTED /
+D3_CONSTRUCTION_PENDING / EXTERNAL_PHASE1_NOT_STARTED /
+CORE_GT_NOT_FROZEN / SPLIT_NOT_EXECUTED / TRAINING_NOT_STARTED`.
+Prior "Current" headings below are dated history.
+
 ## Current — 2026-09-28 Core144 object/referent boundary clarified; XLSX unchanged
 
 `P1-CORE144-SELF-CONTAINMENT-REFERENT-CLARIFICATION-01` adds only explanation to the [Master Guide](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_HUMAN_ANNOTATION_MASTER_GUIDE_V1.md): independent object-supply versus multiple-antecedent tests, a 2×2 table, four fictional cases and three note patterns. All original 30 cases (including 05/06) remain verbatim; total cases are now 34. No field, enum, accepted protocol, Candidate, ID/order or raw changes. [New QA/closeout record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_SELF_CONTAINMENT_REFERENT_CLARIFICATION_RECORD_V1.md) verifies all four XLSX hashes unchanged. `CORE144_SELF_CONTAINMENT_REFERENT_BOUNDARY_CLARIFIED / MASTER_GUIDE_UPDATED / HUMAN_WORKBOOKS_UNCHANGED / HUMAN_AB_NOT_YET_DISTRIBUTED`. Phase2 remains sealed. Next: Owner reviews the Markdown clarification; any later workbook explanation synchronization or distribution is separate. No new annotation, GT, split, training, calibration or D2/D3 construction this turn. Existing PDF is untouched and is not certified as matching this updated Markdown. Prior current headings are dated history, not latest counts.

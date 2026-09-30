@@ -1,5 +1,7 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+> **2026-09-30 Core144 D2 checkpoint:** D2 财务48组144条已通过内部施工核对；25份官方快照、13个事实家族及私有原始证据/候选 SHA 索引见[D2 记录](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_FINANCE_INTERNAL_CONSTRUCTION_RECORD_V1.md)。R3/R4-Doubao 的两份144条 Phase1 题包仅准备好、未发放；独立盲审与 Human GT 尚无。D3 是同一 Owner 批准下的下一域，尚未完成。D1 Human 仍为可发但未记录已发，Phase2 封存。Core GT 未冻结、无正式切分或训练；下方旧“D2/D3 没有新候选”是历史状态。
+
 > **2026-09-27 最新 D1 / Core144：** D1 的 90 条外部 Phase2 原件已锁定并完成比较，7 条候选涉及的 9 个语义字段分歧依已冻结 V4–V4.3 范围规则形成附加覆盖，不改原答；12 条实际证据选择差异保留为过程记录。[D1 全144条预标注验收](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_PREANNOTATION_ACCEPTANCE_RECORD_V1.md)通过。两位真人各自144条 Phase1 Excel 已通过可读性/结构/泄漏检查，只是可发放、尚未确认发放；Phase2 各自封存。[人工使用与精确路径](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_PHASE1_GUIDE_V1.md)。[D1 Human 与 D2/D3 施工并行状态](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V1.md)已打开，D2/D3 仍没有新候选。无 Core GT、切分、训练或正式效果。以下旧“待收 Phase2”段落为历史。
 
 > 2026-09-27 Owner 已人工确认本轮 R3/R4 仍为各自原隔离会话（非机器证明），并仅批准两组三证据组的指定两证据呈现，第三份官方原件私有保留。90条 Phase1 视图现可作为 V5 Phase2 发放前门；[R3/R4 各90条只读题包和精确发件表](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_OWNER_SEND_CHECKLIST_V5.md)已就绪。[构造与证据审计](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_RELEASE_RECORD_V5.md)。尚未收到第二阶段返回，不等于 D1 全48验收；无 Human、D2/D3、GT、split、training。

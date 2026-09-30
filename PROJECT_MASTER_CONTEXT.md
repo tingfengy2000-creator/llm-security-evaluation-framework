@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## 当前：Core144 D2 内部施工完成，D3 继续（2026-09-30）
+
+Owner 批准 D2 财务、D3 信息安全各48组144条的 Evidence-first 构造，要求先 D2 内部门槛通过，再自动进入 D3；外部 R3/R4 只在两域包准备好后由 Owner 分发。D2 已形成48组144条，25份官方快照与13个事实家族，内部核对未检出意外事实原子；两份独立顺序的144条第一阶段题包已准备，尚未发放。[D2 内部记录与私有证据索引](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_FINANCE_INTERNAL_CONSTRUCTION_RECORD_V1.md)。这仅为出题方施工检查，不是独立盲审或 Human GT。D3 是当前下一步，未完成前四份跨域包不释放。D1 人工第一阶段 Excel 仍记录为可发但未发，第二阶段封存。无 Core GT、正式切分、训练或方法效果。以下“当前”标题按日期为历史快照。
+
 ## 当前：Core144 对象缺失与指代多解边界已补强（2026-09-28）
 
 Owner 人工预审发现两列仍可能被机械联动，本轮只在[主手册](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_HUMAN_ANNOTATION_MASTER_GUIDE_V1.md)追加解释：“自包含性看对象有没有交代；指代歧义看已有对象中指哪一个是否唯一”。补了2×2表、4个虚构案例、6条禁止误判和3种 note 写法；原30例（含05/06）原文保留，现在共34例。[审计和文档收口](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_SELF_CONTAINMENT_REFERENT_CLARIFICATION_RECORD_V1.md)绑定四份原样 Excel、旧/新手册哈希和最新 Owner 决定。未增加字段/枚举或改变 accepted protocol，未改题文、ID、顺序、证据、历史 raw，也未同步既有 PDF。真人尚未发放，Phase2 仍封存；下一步由 Owner 审阅 Markdown 澄清，后续 Excel 解释同步或发放另行处理。本轮不执行 D2/D3 构造、标注、GT、切分、训练或校准，没有实测人工返工下降的结论。以下同日条目按历史快照保留。
