@@ -1,5 +1,16 @@
 # Core144 navigation
 
+**Latest D1 Human checkpoint (2026-10-02):** Owner identified the `(2)`
+workbook as the actual HUMAN-A01 Phase1 return. It is now
+[byte-locked and validated](PAPER1_CORE144_D1_HUMAN_A01_PHASE1_RAW_LOCK_AND_PHASE2_RELEASE_V1.md):
+144/144 A01 rows and exact ID/order/Candidate parity; legal enums; all 15
+required notes present. The matching A01 Phase2 workbook is authorized for
+Owner distribution only through the [exact one-file checklist](PAPER1_CORE144_D1_HUMAN_A01_PHASE2_OWNER_SEND_CHECKLIST_V1.md).
+B01 is independently completing the correct B01 Phase1 workbook; B01 Phase2
+remains withheld. No A/B comparison, adjudication or GT exists. See the
+[current parallel state V3](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V3.md).
+Earlier Human-lane statements below are dated history.
+
 **Latest checkpoint (2026-10-02):** D2 Finance and D3 Information Security
 each have 48 groups / 144 candidates and have passed bounded, source-bound
 **internal construction-author QA**. See the [two-domain summary](PAPER1_CORE144_D2_D3_CONSTRUCTION_SUMMARY_V1.md),

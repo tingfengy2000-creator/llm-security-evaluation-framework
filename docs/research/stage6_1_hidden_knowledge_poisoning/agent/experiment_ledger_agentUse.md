@@ -1,5 +1,11 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current Core144 D1 HUMAN-A01 Phase1 raw lock and Phase2 release — 2026-10-02
+
+Owner designates the received `(2)` workbook as the authoritative HUMAN-A01 Phase1 return. Git-external raw lock: 36,361 bytes, SHA256 `d752d27451fcbae9ffba82b6bb33445452ef8b51e35f68877793687216f21b28`, byte-for-byte/no Excel resave/read-only. Validation passes 144 rows, 144 unique A01 IDs, exact manifest ID/order/text hashes, legal enums, 15/15 required notes, zero answer formulas/hidden sheets/macros/external links and unchanged non-answer values. [Lock/release record](../core144/PAPER1_CORE144_D1_HUMAN_A01_PHASE1_RAW_LOCK_AND_PHASE2_RELEASE_V1.md).
+
+The sealed A01 Phase2 file remains byte-identical to its manifest: 527,949 bytes, SHA256 `76d43b8b48fbab4595b4d561bc09f41046a1ca5cd2f39118fd85de3875baef8a`; 144 ID/text parity, 1,440 blank answer cells and 225 official URL formulas. Owner may send the [exact single-file A01 checklist](../core144/PAPER1_CORE144_D1_HUMAN_A01_PHASE2_OWNER_SEND_CHECKLIST_V1.md). `(3)` stays separate routing evidence. `A01_PHASE2_RELEASE_AUTHORIZED / A01_PHASE2_NOT_YET_DISTRIBUTED / B01_PHASE1_IN_PROGRESS / B01_PHASE2_WITHHELD / NO_GT`.
+
 ## Current D2 internal checkpoint, D3 pending — 2026-09-30
 
 Task `P1-CORE144-D2-D3-FULL-DOMAIN-CONSTRUCTION-AND-PHASE1-MEGAWAVE-PREP-01` remains **in progress**. D2 `domain_release_v1`: 48 frozen groups, 144 C/P/H, HKP 12 each, target S 16 each, 25 official source snapshots, 13 factual families, 11 conservative clusters. `claim_ir_audit_v3` has 282 SUPPORTED + 48 CONTROLLED_POISON / 0 UNSUPPORTED_ACCIDENTAL; derived S 48/48; `domain_acceptance_matrix.json` 15/15 internal gates. Candidate SHA256 `1435138d8227f4c09ae1c170a2c74dfddd7df89a1fe3d84312f7daa941926ad8`. Private release `experiments/core144_d2_d3_20260929/d2/domain_release_v1/`; [public index](../core144/PAPER1_CORE144_D2_FINANCE_INTERNAL_CONSTRUCTION_RECORD_V1.md). R3/R4-Doubao Phase1 packets 144/144 are prepared but not sent. No independent D2 reviewer result or Human GT. D3 construction is next under the same Owner approval. Combined external send gate stays closed; no D1 Human-answer feedback, Core GT, split, model score or training.

@@ -1,5 +1,22 @@
 # Current Work State
 
+## Current — 2026-10-02 Core144 D1 A01 Phase1 locked; A01-only Phase2 release authorized
+
+Owner identified the `(2)` workbook as the authoritative HUMAN-A01 Phase1
+return. The exact bytes are locked read-only outside Git (36,361 bytes; SHA256
+`d752d27451fcbae9ffba82b6bb33445452ef8b51e35f68877793687216f21b28`).
+The [validation/release record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_A01_PHASE1_RAW_LOCK_AND_PHASE2_RELEASE_V1.md)
+passes 144/144 A01 ID/order/Candidate parity, enums and 15/15 required notes.
+Owner may now send only the exact A01 Phase2 workbook in the
+[A01 checklist](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_A01_PHASE2_OWNER_SEND_CHECKLIST_V1.md)
+to the same A annotator. B01 is still completing the correct B01 Phase1
+workbook; B01 Phase2 remains withheld. The `(3)` workbook remains separate
+routing/history evidence. `A01_PHASE2_RELEASE_AUTHORIZED /
+A01_PHASE2_NOT_YET_DISTRIBUTED / B01_PHASE1_IN_PROGRESS /
+B01_PHASE2_WITHHELD / CORE_GT_NOT_FROZEN / SPLIT_NOT_EXECUTED /
+TRAINING_NOT_STARTED`. Prior Human-distribution statements below are dated
+history.
+
 ## Current — 2026-09-30 Core144 D2 internally constructed; D3 next, no external release yet
 
 The Owner-authorized D2/D3 construction task is in progress. D2 Finance has
