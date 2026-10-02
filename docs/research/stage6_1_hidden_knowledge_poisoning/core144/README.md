@@ -1,5 +1,16 @@
 # Core144 navigation
 
+**Latest checkpoint (2026-10-02):** D2 Finance and D3 Information Security
+each have 48 groups / 144 candidates and have passed bounded, source-bound
+**internal construction-author QA**. See the [two-domain summary](PAPER1_CORE144_D2_D3_CONSTRUCTION_SUMMARY_V1.md),
+[current parallel-lane state](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V2.md),
+and [exact Owner Phase1 reviewer send checklist](PAPER1_CORE144_D2_D3_PHASE1_REVIEWER_SEND_CHECKLIST_V1.md).
+Four 144-row R3/R4 candidate-only Phase1 packets are prepared but unsent;
+the private packet bytes live in the local ignored `experiments/` namespace.
+Independent blind review, Human D1 status beyond the last Owner record,
+Core GT, split and training are not inferred from this checkpoint. The dated
+entries below are preserved history.
+
 **Latest construction checkpoint (2026-09-30):** [D2 Finance internal QA and private artifact index](PAPER1_CORE144_D2_FINANCE_INTERNAL_CONSTRUCTION_RECORD_V1.md) records 48 groups/144 candidates and two *prepared, unsent* 144-row Phase1 packets. This is construction-author QA, not R3/R4 or Human acceptance. D3 evidence-first construction follows under the same Owner approval; no combined external release, GT, split or training. Earlier status paragraphs below are dated history.
 
 **Latest clarification (2026-09-28):** [Master Guide](PAPER1_CORE144_HUMAN_ANNOTATION_MASTER_GUIDE_V1.md) now separates object-information supply and competing referents, with a 2×2 table/four additional fictional cases. All original30, including05/06, are preserved; total34 cases. [Additive QA/closeout](PAPER1_CORE144_SELF_CONTAINMENT_REFERENT_CLARIFICATION_RECORD_V1.md). Enums/schema/four XLSX/Candidate/ID/order/Phase2/raw unchanged; Human A/B not distributed, Phase2 sealed. Owner reviews updated Markdown next; the existing PDF is untouched and not parity-certified. Earlier same-day counts below are history.
