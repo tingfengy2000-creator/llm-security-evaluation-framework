@@ -139,6 +139,15 @@ def main() -> None:
         claims = [r for r in atom_audit["records"] if r["group"] == fact_id and r["role"] == role]
         temporal = bool(re.search(r"\d{4}年|修订|修正|修改决定|施行|废止|现行|旧|原始", row["candidate_text"]))
         provenance = bool(re.search(r"机关|部门|全国人大|国务院(?:令|会议|常务|财政|税务|银行)|财政部|档案局|审计署|税务机关", row["candidate_text"]))
+        if domain == "D3":
+            # QA observability only, never a model feature: all HKP4 triplets
+            # explicitly concern authority, while other D3 texts need a
+            # candidate-visible authority-role cue (not merely a host name).
+            provenance = fact_id.startswith("HKP4") or bool(re.search(
+                r"(?:由|经|以).{0,24}(?:全国人大|国务院|网信办|公安部|工信部|密码管理局|市场监管总局).{0,18}(?:通过|公布|发布|印发|令)"
+                r"|(?:全国人大|国务院|网信办|公安部|工信部|密码管理局|市场监管总局).{0,24}(?:通过|公布|发布|印发|令)",
+                row["candidate_text"],
+            ))
         for view in "SEPTR":
             applicable = (view in "SER" or fact_id.startswith("HKP4") and view == "P"
                           or fact_id.startswith("HKP3") and view == "T")
