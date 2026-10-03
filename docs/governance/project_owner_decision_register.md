@@ -1,5 +1,22 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-130 — D2/D3 Candidate-visible triage, bounded repair and original-session rereview
+
+Date 2026-10-03. Owner's supplied task explicitly authorizes 62-case semantic
+triage plus full-domain role-conditioned surface QA after raw locks. No vote-based
+adjudication; pure NATURAL/MINOR preference without other defects is nonblocking.
+Necessary scope restoration and role-shortcut naturalization may use existing
+frozen construction evidence. CBR-81E40769899B68 must explicitly share the available
+alternative condition; no YES override of original raw is permitted. Evidence
+path, fact core, role/HKP/S and frozen contracts must not change.
+
+Execution: 43 scoped repairs / 19 nonblocking; 14 supplemental surface repairs;
+final D2 25 / D3 32. Four targeted Phase1 packages are for original domain-specific
+R3 GPT / R4_CODEX Doubao sessions only. External answers pending, Phase2 held.
+This authority does not approve Human D2/D3, Expected/GT, split, training, new
+sources, R5 or a rule change. [Result and limits](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_PHASE1_OWNER_TRIAGE_RECORD_V1.md).
+
+
 > **Latest Owner evidence declaration (2026-10-03; PODR-129):** Owner supplies
 > D2/D3 R3-GPT and R4_CODEX/Doubao Phase1 originals and confirms completely
 > fresh isolated sessions. Record OWNER_ATTESTED, not platform/machine proof.

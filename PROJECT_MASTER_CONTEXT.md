@@ -1,5 +1,20 @@
 # LLMGuard 项目总控文档
 
+## 当前：D2/D3 定向修复已准备；等原会话复审，不发第二阶段（2026-10-03）
+
+Owner 已批准逐条处理62条争议并做两个完整领域的表面风险审计，不按 Reviewer
+票数选答案。结果为43条修复、19条自然度非阻断保留；另有14条全域补充修复。
+最终 D2 改25条、D3改32条，均保留原题/原答，生成新版本与私有旧→新 lineage。
+人脸替代方式案例明确补回同一条件，不把原答直接覆盖为内部冲突 YES。
+事实核心、角色、HKP、证据路径、S、家族和 V4–V4.3 不变。
+
+[当前有界记录](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_PHASE1_OWNER_TRIAGE_RECORD_V1.md)
+和 [并行状态V5](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V5.md)。
+本机检查是构造侧证据，不是独立事实验收；须把改变过的题发回各域原 R3-GPT /
+R4_CODEX（实际豆包）隔离会话。四份定向原答未回收，两域 Phase2 继续暂扣。
+D1 Human 已有门控不变；不启动 Human D2/D3、Core GT、切分、训练或 R5。
+
+
 ## 当前：D2/D3 外部第一阶段原答已锁；两域第二阶段暂扣（2026-10-03）
 
 四份各144条原件的字节锁、题号/题序/七字段/枚举/必需注释均通过；Owner 全新隔离声明记为 OWNER_ATTESTED，R4实际模型为豆包。D2有22条/26字段分歧，D3有30条/34字段，双方一致标出的对象缺失或句间元说明也要审阅。[原件身份、独立比较和待决策项](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_PHASE1_RAW_LOCK_AND_GATE_V1.md)。私有 Owner 包62条原题和原答；未读取角色/映射/Evidence/Expected/GT/真人答案，未改题或规则。现在 Owner 逐项决定修复与非阻断保留，D2/D3 Phase2暂扣，原四个会话保留。D1人工门沿用2026-10-02记录，无 Core GT、正式切分或训练；下方旧“D3未完成/外审未发”是历史快照。

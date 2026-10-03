@@ -1,5 +1,29 @@
 # Current Work State
 
+## Current — 2026-10-03 Core144 D2/D3 authorized triage and additive targeted repairs
+
+Owner task `P1-CORE144-D2-D3-PHASE1-OWNER-TRIAGE-TARGETED-REPAIR-AND-PHASE2-GATE-01`
+supersedes the pending-triage next action below, not historical evidence.
+The original 62 cases resolve to 43 REPAIR / 19 NONBLOCKING_VARIANCE / 0 KEEP;
+full-domain QA adds 14 separately tracked surface repairs. Final changed sets:
+D2 25, D3 32. Necessary-scope repairs: five per domain; D3 includes the explicit
+same-alternative-condition repair of CBR-81E40769899B68. Original raw values are
+not overridden. Four targeted packages contain only changed new opaque IDs/text.
+
+[Bounded triage/lineage/QA record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_PHASE1_OWNER_TRIAGE_RECORD_V1.md)
+and [parallel state V5](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V5.md)
+are current. Evidence/atoms/design roles/HKP/path/S/families and frozen rules remain
+unchanged. Internal QA is construction-author/mechanical evidence, not independent
+semantic acceptance. Four external targeted replies remain pending; both Phase2
+gates are held. Use the original domain-specific R3 GPT / R4_CODEX Doubao sessions,
+not fresh sessions and not mixed domains. No Human D2/D3, GT, split or training.
+D1 person-level Human gates remain independent and unchanged.
+
+`D2_D3_PHASE1_OWNER_TRIAGE_COMPLETE / TARGETED_REPAIR_PREPARED /
+D2_D3_PHASE2_WITHHELD / STOP_EXTERNAL_TARGETED_REVIEW_REQUIRED /
+CORE_GT_NOT_FROZEN / SPLIT_NOT_EXECUTED / TRAINING_NOT_STARTED`.
+
+
 ## Current — 2026-10-03 Core144 D2/D3 Phase1 originals locked; both Phase2 gates held
 
 Owner supplies four 144-row originals and attests fresh isolated sessions

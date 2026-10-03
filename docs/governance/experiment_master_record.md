@@ -1,5 +1,22 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-084 — D2/D3 Phase1 triage and targeted repaired-version preparation
+
+2026-10-03, PODR-130 / REL-2026-0099. [Public bounded record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_PHASE1_OWNER_TRIAGE_RECORD_V1.md)
+and [parallel state V5](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V5.md)
+index the private namespace `experiments/core144_d2_d3_phase1_owner_triage_repair_20261003/`.
+Only sealed output_v3 is distribution-authoritative; earlier v1 incomplete and
+v2 superseded author-QA outputs remain preserved, undistributed. Index SHA:
+`5f0dd262b0180186b3aedde7dfc115288ef2ee54ac21efaedf731544ba71ff90`.
+62 original cases: 43 repair / 19 nonblocking; supplementary 14, final 25/32.
+Four packages/schema/prompts, 62-row overlay, lineage, source/atom/path/surface/
+readiness audits and final closeout receipt are private. Public Git excludes raw
+answers, candidate bodies, private mappings and private absolute paths.
+Both Phase2 held pending four same-session targeted returns. No final annotation
+overlay, Human D2/D3, Core GT, formal split or model run. Independent factual
+acceptance remains pending; author/mechanical checks are explicitly bounded.
+
+
 > **2026-10-03 D2/D3 Phase1:** Four originals are byte-locked; 144-row/ID/order/
 > schema/enum/note checks PASS. Fresh-session isolation is OWNER_ATTESTED,
 > R4 provider Doubao. D2 has 22 differing rows/26 cells; D3 has 30/34, plus shared

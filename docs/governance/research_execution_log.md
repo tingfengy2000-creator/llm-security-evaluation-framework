@@ -1,5 +1,24 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0099 — D2/D3 Owner triage, versioned repair and targeted-review pause
+
+2026-10-03; PODR-130 / OR-084; source HEAD 4e3389b. Unique research worktree
+bound to research/stage6-1-hidden-poisoning. Rechecked four raw locks and frozen
+inputs before control-plane QA. Read frozen Phase1 rules, private 62-case packet
+and authorized construction witnesses; no Expected/GT/Human answers/model outputs.
+Applied explicit non-voting reasons to every case: scoped 43 REPAIR / 19 NONBLOCKING.
+Full-domain surface inspection added 14 cases; final D2 25 / D3 32 new-ID repairs.
+Parser correction and residual-template review preserve intermediate outputs;
+only output_v3 may be sent. Both domains retain 144 rows, 48 groups, atoms/families,
+HKP/S/roles and evidence paths. Four candidate-only targeted packages/schema/
+prompts await original R3/R4 domain sessions; R4 provider Doubao. No external
+review simulated, no Phase2 regenerated/released, no Human D2/D3/GT/split/training.
+18 scoped tests, Ruff/MyPy and artifact/index/raw/UTF-8/leakage checks pass;
+closeout receipt records links/private-path scan/diff checks and mirror parity.
+[Bounded record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_PHASE1_OWNER_TRIAGE_RECORD_V1.md).
+Unrelated preexisting design Markdown/PDF excluded. STOP_EXTERNAL_TARGETED_REVIEW_REQUIRED.
+
+
 ## REL-2026-0098 — D2/D3 Phase1 raw locks, candidate-only comparison and held gates (2026-10-03)
 
 Owner submits four144-row originals and attests fresh isolated sessions (`PODR-129 / OR-083`, OWNER_ATTESTED; R4 provider Doubao). All originals byte-copied read-only before validation; exact reviewer ID/order, seven keys/enums/required notes/strict UTF-8 JSON PASS. Five-field agreements D2:133/144/139/144/134; D3:128/143/141/144/130 of144. Differing rows/cells:22/26 and30/34. [Raw SHA/bytes, triage and held gate](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_PHASE1_RAW_LOCK_AND_GATE_V1.md) binds the private29+33-case Owner packet. Shared context/meta flags and incomplete same-condition premise remain open; both Phase2 release flags false. No mapping/labels/Evidence/Expected/GT/Human answers loaded, no candidate/raw/rule rewrite, no new Human release/GT/split/training. Ten contract tests and scoped Ruff/MyPy plus documentation closeout checks; D1 person-level gates unchanged. Old pending-construction/unsent statements retain dated historical scope.

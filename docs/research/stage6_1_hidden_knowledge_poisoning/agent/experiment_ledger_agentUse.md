@@ -1,5 +1,27 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current D2/D3 Owner-authorized triage and targeted hold — 2026-10-03
+
+Authority PODR-130 / OR-084 / REL-2026-0099; source HEAD 4e3389b.
+Original scope D2 29 / D3 33: 43 repairs, 19 nonblocking naturalness cases,
+zero unchanged-scope dispositions. Supplemental full-domain surface cases 3/11;
+final repair sets 25/32. All old versions and four raw returns remain immutable.
+New IDs/text V3 bind author plan, 62-row overlay, 14 supplemental entries,
+old→new lineage, frozen evidence witnesses and independent path-before-target
+checks. No new fact core/evidence/path/S/design family or annotation rule.
+
+[Triage and bounded QA record](../core144/PAPER1_CORE144_D2_D3_PHASE1_OWNER_TRIAGE_RECORD_V1.md)
+binds sealed output_v3 index and 329 preserved input hashes. Atomic declarations
+330/308 remain; 96 paths retain S; primary readiness and missingness stay symmetric.
+Semantic equivalence/accidental-error assertions are explicit author review,
+not machine entailment or external acceptance. Known shortcut-family author PASS
+does not prove every shortcut absent. Four original domain-specific sessions
+must rereview only changed candidates; R4_CODEX provider Doubao. Seven return
+keys/enums fixed. No targeted answers simulated; no final Phase1 answer overlay
+or Phase2 package. STOP_EXTERNAL_TARGETED_REVIEW_REQUIRED; both Phase2 withheld,
+Core GT/split/training false. D1 Human gates unchanged. Lessons remain provisional.
+
+
 ## Current D2/D3 Phase1 raw locks and held gates — 2026-10-03
 
 Task `P1-CORE144-D2-D3-PHASE1-RAW-LOCK-AND-GATE-01`, source HEAD `79c6521`,

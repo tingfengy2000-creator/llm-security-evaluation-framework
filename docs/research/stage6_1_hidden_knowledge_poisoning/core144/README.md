@@ -1,5 +1,17 @@
 # Core144 navigation
 
+**Current targeted checkpoint (2026-10-03):** [Owner triage and additive repair](PAPER1_CORE144_D2_D3_PHASE1_OWNER_TRIAGE_RECORD_V1.md)
+and [parallel state V5](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V5.md) supersede
+only the pending-triage next action below. Original 62 cases: 43 repairs / 19
+nonblocking naturalness; full-domain audit adds 14 separate repairs. Send only
+changed new-ID texts: D2 25, D3 32, to each domain's original R3 GPT / R4_CODEX
+Doubao sessions. Both Phase2 held pending four targeted returns/byte-lock/gates.
+Private current distribution: output_v3 under the triage-repair namespace; exact
+Owner checklist is in its handoff root. Earlier drafts and Owner/control-plane
+materials must not be sent. No final annotation overlay, Human D2/D3, GT, split or
+training; D1 Human gates stay independent. Author QA is not blind acceptance.
+
+
 **Latest external checkpoint (2026-10-03):** Four D2/D3 R3-GPT and
 R4_CODEX/Doubao Phase1 originals are [locked and structurally valid](PAPER1_CORE144_D2_D3_PHASE1_RAW_LOCK_AND_GATE_V1.md).
 D2 has 22 disagreement rows/26 cells; D3 has 30/34, plus shared quality flags.
