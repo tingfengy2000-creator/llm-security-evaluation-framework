@@ -1,5 +1,19 @@
 # Current Work State
 
+## Current — 2026-10-03 Core144 D2/D3 Phase1 originals locked; both Phase2 gates held
+
+Owner supplies four 144-row originals and attests fresh isolated sessions
+(`OWNER_ATTESTED`; R4 provider Doubao). Byte locks, exact reviewer ID/order,
+seven keys/enums/required notes all pass. D2 has 22 differing rows/26 cells;
+D3 has 30/34. Shared quality flags also need review; these are not defect counts.
+[Identities, candidate-only diagnosis and Owner decision](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_PHASE1_RAW_LOCK_AND_GATE_V1.md)
+bind the private 29+33-case packet. No mapping/labels/Evidence/Expected/GT/Human
+answers loaded. `D2_D3_PHASE1_RAW_LOCK_COMPLETE / PHASE1_STRUCTURE_VALID /
+OWNER_PHASE1_TRIAGE_REQUIRED / D2_D3_PHASE2_WITHHELD / CORE_GT_NOT_FROZEN /
+SPLIT_NOT_EXECUTED / TRAINING_NOT_STARTED`. D1 person-level gates retain the
+dated entry below. Next: Owner chooses exact bounded repairs/nonblocking
+decisions; retain original sessions. Old unsent/D3-pending entries are history.
+
 ## Current — 2026-10-02 Core144 D1 A01 Phase1 locked; A01-only Phase2 release authorized
 
 Owner identified the `(2)` workbook as the authoritative HUMAN-A01 Phase1

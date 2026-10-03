@@ -1,5 +1,13 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+> **Latest Owner evidence declaration (2026-10-03; PODR-129):** Owner supplies
+> D2/D3 R3-GPT and R4_CODEX/Doubao Phase1 originals and confirms completely
+> fresh isolated sessions. Record OWNER_ATTESTED, not platform/machine proof.
+> Normal raw ingestion/validation/comparison follows the existing workflow;
+> this is not approval to rewrite candidates/rules or waive quality gates.
+> [Locked comparison and held gates](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_PHASE1_RAW_LOCK_AND_GATE_V1.md).
+> Item-level repair/nonblocking decisions remain pending.
+
 > **Latest Owner directive (2026-09-30; PODR-128):** Owner authorizes `P1-CORE144-D2-D3-FULL-DOMAIN-CONSTRUCTION-AND-PHASE1-MEGAWAVE-PREP-01`: D2 Finance then D3 Information Security, each exactly 48 frozen Core144 groups/144 C-P-H candidates, official Evidence-first construction and separate internal hard gates. On D2 PASS, proceed to D3 without waiting for D1 Human outputs or separate approval; an unresolved D2 hard blocker stops D3. Prepare one 144-row candidate-only R3-GPT and one R4-CODEX/Doubao Phase1 packet per domain, but do not perform external review or send incomplete-domain packages. No D1 Human-answer/model-result feedback, Expected, GT, formal split or training. [D2 internal checkpoint](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_FINANCE_INTERNAL_CONSTRUCTION_RECORD_V1.md) records D2 PASS only; D3 and combined release remain pending. Historical Owner decisions below retain their original scope.
 
 > **Latest Owner clarification (2026-09-28; PODR-127 / OR-082):** Supplement only the Core144 Master Guide: `self_containment` tests supplied object/claim/condition information; `ambiguous_referent` tests competing reasonable antecedents. No automatic FLAG↔YES implication. Add four fictional cases, a 2×2 table and independent note reasons; preserve cases05/06, all workbooks, Candidate/ID/order, Phase2 and raw. [New clarification QA/closeout](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_SELF_CONTAINMENT_REFERENT_CLARIFICATION_RECORD_V1.md). This is explanation-only, not a new schema/protocol, annotation or distribution approval. Human A/B remains not distributed and Phase2 sealed; Owner reviews updated Markdown next. Earlier same-day guide counts are historical.

@@ -1,5 +1,9 @@
 # LLMGuard 项目总控文档
 
+## 当前：D2/D3 外部第一阶段原答已锁；两域第二阶段暂扣（2026-10-03）
+
+四份各144条原件的字节锁、题号/题序/七字段/枚举/必需注释均通过；Owner 全新隔离声明记为 OWNER_ATTESTED，R4实际模型为豆包。D2有22条/26字段分歧，D3有30条/34字段，双方一致标出的对象缺失或句间元说明也要审阅。[原件身份、独立比较和待决策项](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_PHASE1_RAW_LOCK_AND_GATE_V1.md)。私有 Owner 包62条原题和原答；未读取角色/映射/Evidence/Expected/GT/真人答案，未改题或规则。现在 Owner 逐项决定修复与非阻断保留，D2/D3 Phase2暂扣，原四个会话保留。D1人工门沿用2026-10-02记录，无 Core GT、正式切分或训练；下方旧“D3未完成/外审未发”是历史快照。
+
 ## 当前：Core144 D2 内部施工完成，D3 继续（2026-09-30）
 
 Owner 批准 D2 财务、D3 信息安全各48组144条的 Evidence-first 构造，要求先 D2 内部门槛通过，再自动进入 D3；外部 R3/R4 只在两域包准备好后由 Owner 分发。D2 已形成48组144条，25份官方快照与13个事实家族，内部核对未检出意外事实原子；两份独立顺序的144条第一阶段题包已准备，尚未发放。[D2 内部记录与私有证据索引](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_FINANCE_INTERNAL_CONSTRUCTION_RECORD_V1.md)。这仅为出题方施工检查，不是独立盲审或 Human GT。D3 是当前下一步，未完成前四份跨域包不释放。D1 人工第一阶段 Excel 仍记录为可发但未发，第二阶段封存。无 Core GT、正式切分、训练或方法效果。以下“当前”标题按日期为历史快照。

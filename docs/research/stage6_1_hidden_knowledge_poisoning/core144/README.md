@@ -1,5 +1,13 @@
 # Core144 navigation
 
+**Latest external checkpoint (2026-10-03):** Four D2/D3 R3-GPT and
+R4_CODEX/Doubao Phase1 originals are [locked and structurally valid](PAPER1_CORE144_D2_D3_PHASE1_RAW_LOCK_AND_GATE_V1.md).
+D2 has 22 disagreement rows/26 cells; D3 has 30/34, plus shared quality flags.
+Both Phase2 gates remain withheld. [Parallel state V4](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V4.md)
+retains the independent D1 Human gates. Private Owner packet: 29+33 cases;
+contains existing answers: do not give it to blind reviewers. No candidate/
+protocol rewrite, Core GT, split or training. Earlier unsent entries are history.
+
 **Latest D1 Human checkpoint (2026-10-02):** Owner identified the `(2)`
 workbook as the actual HUMAN-A01 Phase1 return. It is now
 [byte-locked and validated](PAPER1_CORE144_D1_HUMAN_A01_PHASE1_RAW_LOCK_AND_PHASE2_RELEASE_V1.md):

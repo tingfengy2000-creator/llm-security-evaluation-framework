@@ -1,5 +1,14 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+> **2026-10-03 D2/D3 Phase1:** Four originals are byte-locked; 144-row/ID/order/
+> schema/enum/note checks PASS. Fresh-session isolation is OWNER_ATTESTED,
+> R4 provider Doubao. D2 has 22 differing rows/26 cells; D3 has 30/34, plus shared
+> text-quality flags. [Identity, private evidence index and gate](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_PHASE1_RAW_LOCK_AND_GATE_V1.md)
+> bind `experiments/core144_d2_d3_phase1_raw_lock_20261003/` and the Owner mirror.
+> Owner triage 29+33 cases; no mapping/Evidence/Expected/GT loaded; both Phase2
+> withheld. Raw/candidates unchanged, no GT/split/training/formal result.
+> Earlier unsent/D3-pending snapshots are superseded history.
+
 > **2026-09-30 Core144 D2 checkpoint:** D2 财务48组144条已通过内部施工核对；25份官方快照、13个事实家族及私有原始证据/候选 SHA 索引见[D2 记录](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_FINANCE_INTERNAL_CONSTRUCTION_RECORD_V1.md)。R3/R4-Doubao 的两份144条 Phase1 题包仅准备好、未发放；独立盲审与 Human GT 尚无。D3 是同一 Owner 批准下的下一域，尚未完成。D1 Human 仍为可发但未记录已发，Phase2 封存。Core GT 未冻结、无正式切分或训练；下方旧“D2/D3 没有新候选”是历史状态。
 
 > **2026-09-27 最新 D1 / Core144：** D1 的 90 条外部 Phase2 原件已锁定并完成比较，7 条候选涉及的 9 个语义字段分歧依已冻结 V4–V4.3 范围规则形成附加覆盖，不改原答；12 条实际证据选择差异保留为过程记录。[D1 全144条预标注验收](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_PREANNOTATION_ACCEPTANCE_RECORD_V1.md)通过。两位真人各自144条 Phase1 Excel 已通过可读性/结构/泄漏检查，只是可发放、尚未确认发放；Phase2 各自封存。[人工使用与精确路径](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_PHASE1_GUIDE_V1.md)。[D1 Human 与 D2/D3 施工并行状态](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V1.md)已打开，D2/D3 仍没有新候选。无 Core GT、切分、训练或正式效果。以下旧“待收 Phase2”段落为历史。

@@ -1,5 +1,22 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current D2/D3 Phase1 raw locks and held gates — 2026-10-03
+
+Task `P1-CORE144-D2-D3-PHASE1-RAW-LOCK-AND-GATE-01`, source HEAD `79c6521`,
+fresh-session attestation `OWNER_ATTESTED`; R4_CODEX provider Doubao. Four
+byte-identical read-only locks precede analysis. Per-return 144 rows/unique
+IDs/order/exact seven keys/enums/required notes/strict UTF-8 JSON PASS.
+Five-field agreements (naturalness/conflict/containment/referent/meta):
+D2 133/144/139/144/134; D3 128/143/141/144/130, each of 144.
+Differing rows/cells: D2 22/26; D3 30/34. Private namespace
+`experiments/core144_d2_d3_phase1_raw_lock_20261003/` plus handoff mirror
+contain locks, comparison, 29+33-case Owner-only triage/gate/index.
+[Exact identities and blocker](../core144/PAPER1_CORE144_D2_D3_PHASE1_RAW_LOCK_AND_GATE_V1.md).
+Only candidate-only packets/schema and returns loaded; no mapping/roles,
+Evidence/Expected/GT/Human answers. No normalization, repair or new rule.
+Both Phase2 release flags FALSE pending bounded Owner decisions/rereview.
+D1 lane unchanged; no GT/split/training/formal claim. Retain original sessions.
+
 ## Current Core144 D1 HUMAN-A01 Phase1 raw lock and Phase2 release — 2026-10-02
 
 Owner designates the received `(2)` workbook as the authoritative HUMAN-A01 Phase1 return. Git-external raw lock: 36,361 bytes, SHA256 `d752d27451fcbae9ffba82b6bb33445452ef8b51e35f68877793687216f21b28`, byte-for-byte/no Excel resave/read-only. Validation passes 144 rows, 144 unique A01 IDs, exact manifest ID/order/text hashes, legal enums, 15/15 required notes, zero answer formulas/hidden sheets/macros/external links and unchanged non-answer values. [Lock/release record](../core144/PAPER1_CORE144_D1_HUMAN_A01_PHASE1_RAW_LOCK_AND_PHASE2_RELEASE_V1.md).
