@@ -1,5 +1,23 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-131 — D2/D3 targeted return receipt and Owner-attested original sessions
+
+2026-10-05. Owner provided four targeted JSON originals and explicitly confirmed
+their original domain-specific isolated R3 GPT / R4_CODEX Doubao sessions,
+authorized packet/schema/prompt only, no new/mixed sessions, other reviewers,
+hidden labels/mapping, Evidence/Phase2, repository, web or other AI. Register as
+OWNER_ATTESTED, not machine proof. This authorizes normal byte-lock/validation,
+not a waiver of PODR-130's domain quality gates or approval of a new repair.
+
+[Lock, current evidence and hold](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_TARGETED_PHASE1_LOCK_AND_GATE_V1.md),
+OR-085 / REL-2026-0100. Structure passes 25/32 each; seven new naturalness-only
+variances remain nonblocking under existing defaults. Four material items are
+OPEN: D2 two referent + one residual surface, D3 one normative/descriptive scope.
+The control plane recommends bounded four-item repair/review, not yet approved.
+No vote, field override, new Candidate/rule, final accepted overlay, Phase2,
+R5, Human D2/D3, GT/split/training. D1 Human gates unaffected.
+`OWNER_DECISION_REQUIRED / D2_D3_PHASE2_WITHHELD`.
+
 ## PODR-130 — D2/D3 Candidate-visible triage, bounded repair and original-session rereview
 
 Date 2026-10-03. Owner's supplied task explicitly authorizes 62-case semantic

@@ -1,5 +1,13 @@
 # Core144 navigation
 
+**Current (2026-10-05):** Four [targeted Phase1 returns locked](PAPER1_CORE144_D2_D3_TARGETED_PHASE1_LOCK_AND_GATE_V1.md),
+D2 25 each/D3 32 each, strict checks PASS; original sessions OWNER_ATTESTED.
+Seven new minor-naturalness variances nonblocking. D2 three referent/surface items
+and D3 one logical-scope blocker keep both Phase2 withheld; Owner four-item
+repair/disposition pending. Current144 views are provisional, not final or GT.
+[State V6](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V6.md). No new repair, Human
+D2/D3, Expected, GT, split or training; D1 unchanged. Below is history.
+
 **Current targeted checkpoint (2026-10-03):** [Owner triage and additive repair](PAPER1_CORE144_D2_D3_PHASE1_OWNER_TRIAGE_RECORD_V1.md)
 and [parallel state V5](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V5.md) supersede
 only the pending-triage next action below. Original 62 cases: 43 repairs / 19

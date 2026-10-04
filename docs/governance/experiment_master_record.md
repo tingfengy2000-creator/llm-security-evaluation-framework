@@ -1,5 +1,23 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-085 — targeted Phase1 raw validation complete; semantic acceptance held
+
+2026-10-05, PODR-131 / REL-2026-0100, source HEAD cbe8e967.
+[Current record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_TARGETED_PHASE1_LOCK_AND_GATE_V1.md)
+and [state V6](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V6.md).
+Private evidence `experiments/core144_d2_d3_targeted_phase1_lock_20261005/`:
+four raw copies read-only, byte parity; manifest binds SHA/bytes/attestation;
+analysis_v2 holds strict validation, independent field/note comparison and
+four provisional current144 evidence views. First partial validation/index
+adapter failure is retained; scientific inputs/rules unchanged by its repair.
+D2/D3 targets25/32 exact, five-field agreements24/25/25/23/24 and26/31/32/32/32.
+Current144 disagreements11/19 include26 nonblocking naturalness and4 material
+items. No final accepted overlay/Phase2. Owner decision packet contains exact
+text/notes, four-item plan and12-field escalation; never send it to reviewers.
+Prior indexes/329 inputs unchanged; no Expected/GT/Human/model feedback.
+Mechanical QA PASS does not mean scientific gate PASS. D1 unaffected.
+`OWNER_DECISION_REQUIRED / D2_D3_PHASE2_WITHHELD`.
+
 ## OR-084 — D2/D3 Phase1 triage and targeted repaired-version preparation
 
 2026-10-03, PODR-130 / REL-2026-0099. [Public bounded record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_PHASE1_OWNER_TRIAGE_RECORD_V1.md)

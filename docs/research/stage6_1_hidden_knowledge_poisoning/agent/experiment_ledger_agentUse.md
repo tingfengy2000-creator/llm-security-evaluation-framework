@@ -1,5 +1,26 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current targeted raw locks and held domain gates — 2026-10-05
+
+Task P1-CORE144-D2-D3-TARGETED-PHASE1-RAW-LOCK-AND-DOMAIN-GATE-01;
+PODR-131/OR-085/REL-2026-0100; source HEAD cbe8e967. Four readonly originals,
+source/copy SHA parity; D2 each25/D3 each32 strict validation PASS; same original
+domain sessions OWNER_ATTESTED, R4_CODEX actual provider DOUBAO.
+[Lock/gate record](../core144/PAPER1_CORE144_D2_D3_TARGETED_PHASE1_LOCK_AND_GATE_V1.md)
+indexes ignored private raw/analysis_v2/Owner decision/QA lineage. No hidden
+role/HKP/S/Expected/GT/Human/evidence facts in reviewer judgment. After comparison
+identity-only join yields144 provisional rows per reviewer: D2 119+25/D3 112+32,
+no changes to any answer. Targeted disagreements4/7, nonblocking pure minor1/6.
+Material-review items3/1, both Phase1 false/Phase2 false. D3 available-alternative
+condition is repaired but norm-versus-practice scope remains open. Current144
+comparison11/19 includes26 pure naturalness differences (19 historical+7 new).
+No final accepted overlay, candidate/rule/workbook change, Phase2 package, R5,
+HumanD2/D3, GT/split/training. D1 person gates unchanged. Next Owner: decide
+four-item bounded repair/review or reasoned retention; no automatic execution.
+Adapter failure/partial analysis preserved; authoritative run analysis_v2;
+mechanical/documentation PASS and scientific HOLD are distinct. Research Plan
+Authority unchanged; new lesson provisional. Historical entries below preserved.
+
 ## Current D2/D3 Owner-authorized triage and targeted hold — 2026-10-03
 
 Authority PODR-130 / OR-084 / REL-2026-0099; source HEAD 4e3389b.

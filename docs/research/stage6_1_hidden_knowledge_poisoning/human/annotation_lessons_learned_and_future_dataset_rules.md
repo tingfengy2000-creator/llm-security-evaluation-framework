@@ -4,6 +4,15 @@
 适用范围：Pilot3 之后所有候选生成、标注字段设计、人工发放前检查和未来数据集工作。
 前瞻边界：Pilot1/Pilot2 已冻结的原始证据和历史候选保持不变。
 
+## D2/D3 定向复审暂定经验 — 2026-10-05，未提升为新规则
+
+`PROVISIONAL_LESSON / OWNER_DECISION_PENDING`，证据见[定向返回和门控](../core144/PAPER1_CORE144_D2_D3_TARGETED_PHASE1_LOCK_AND_GATE_V1.md)。
+补明“存在替代方式”只解决适用条件，仍须检查两端是否同在陈述规范要求；
+规范禁止与实际违规可以并存。self_containment=PASS不自动证明文内矛盾或唯一指代。
+若两个端点都出现，“该上限”共享的属性或许不影响比较结果，但不能自动判唯一。
+轻微表达差异不要为一致而返工，单方模板标记也不能直接证明角色捷径。
+本次4个具体项需Owner有据处理，原规则、题文和raw未改变；不新增V4.4，不升级GT。
+
 ## D2/D3 Phase1 暂定构造经验 — 2026-10-03，定向复审尚未验收
 
 Evidence: [有界修复记录](../core144/PAPER1_CORE144_D2_D3_PHASE1_OWNER_TRIAGE_RECORD_V1.md).

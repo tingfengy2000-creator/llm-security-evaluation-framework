@@ -1,5 +1,26 @@
 # Current Work State
 
+## Current — 2026-10-05 D2/D3 targeted raw locked; four material items hold Phase2
+
+Task `P1-CORE144-D2-D3-TARGETED-PHASE1-RAW-LOCK-AND-DOMAIN-GATE-01`, source
+HEAD cbe8e967; PODR-131 / OR-085 / REL-2026-0100. Four targeted returns received
+and byte-locked: D2 25 each, D3 32 each, strict count/ID/order/schema/enum/note
+checks PASS. Owner confirms same original domain-isolated sessions, authorized
+inputs only: OWNER_ATTESTED, not machine proof; R4_CODEX actual provider Doubao.
+D2 four targeted disagreement cells (one minor-naturalness nonblock, two
+referent and one surface item); D3 seven (six minor nonblocks, one local-scope
+blocker). No reviewer voting or raw normalization. No new Candidate/rule.
+
+[Current evidence and bounded decision](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_TARGETED_PHASE1_LOCK_AND_GATE_V1.md)
+and [state V6](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V6.md).
+Provisional 144-row views each retain historical119+target25 or112+32, not final
+accepted answers. D2 open items=3; D3=1 (normative prohibition versus practical
+restriction despite available alternative). Both Phase1 unaccepted / Phase2
+withheld. Next Owner: bounded four-text repair/rereview or individually reasoned
+disposition. Before decision no repair, Phase2, R5, Human D2/D3, Expected/GT,
+split or training. D1 individual Human gates unchanged. Unrelated design.md and
+untracked PDF stay excluded. Sections below are historical checkpoints.
+
 ## Current — 2026-10-03 Core144 D2/D3 authorized triage and additive targeted repairs
 
 Owner task `P1-CORE144-D2-D3-PHASE1-OWNER-TRIAGE-TARGETED-REPAIR-AND-PHASE2-GATE-01`

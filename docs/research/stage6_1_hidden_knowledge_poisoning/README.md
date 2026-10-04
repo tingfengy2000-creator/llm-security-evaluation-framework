@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> **最新（2026-10-05）：** D2/D3定向原答已[原样锁定与严格核验](core144/PAPER1_CORE144_D2_D3_TARGETED_PHASE1_LOCK_AND_GATE_V1.md)，每人25/32题，7处新增轻微自然度差异不阻断。财务3项指代/旁白与信息安全1项规范/事实范围仍需Owner决定；两域Phase2继续暂扣。合并144题视图仅provisional，不是最终接受或GT。[状态V6](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V6.md)。未改题、规则、Excel或raw；未启动Human D2/D3、Expected、GT、切分、训练；D1人工门独立。下面为历史。
+
 > **最新外审状态（2026-10-03）：** D2/D3 四份 Phase1 原答已原样锁定，各144条的结构、题序、选项和必需注释均通过；但 D2有22条、D3有30条分类分歧，另有双方共同指出的文本问题。[独立比较、私有 Owner 诊断包索引和第二阶段暂扣门](core144/PAPER1_CORE144_D2_D3_PHASE1_RAW_LOCK_AND_GATE_V1.md)。Owner逐项决定定向修复或偏好差异保留，原四个盲审会话保留；D1人工门独立不变。无 Core GT、正式切分或训练。下方旧“未开始外审/D3待施工”是历史状态。
 
 > **最新澄清（2026-09-28）：** [主手册](core144/PAPER1_CORE144_HUMAN_ANNOTATION_MASTER_GUIDE_V1.md)已将“对象有没有交代”和“已有对象到底指哪一个”分开，补充2×2表及4个虚构案例；原30例（含05/06）保留，现在共34例。[新检查/收口记录](core144/PAPER1_CORE144_SELF_CONTAINMENT_REFERENT_CLARIFICATION_RECORD_V1.md)。四份 Excel、字段枚举、题文、ID、顺序、Phase2 和历史 raw 均未改变；真人未发放，Phase2 封存，Owner 先审更新的 Markdown。既有 PDF 未同步，不作为本轮更新件。以下同日计数是历史。

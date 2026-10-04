@@ -1,5 +1,20 @@
 # LLMGuard 项目总控文档
 
+## 当前：D2/D3 定向答卷已锁定；仍有4项质量门，暂不发Phase2（2026-10-05）
+
+四份返回原字节保留，D2各25条/D3各32条，题号、题序、字段、枚举和注释全部通过。
+Owner确认四个原隔离会话，只登记OWNER_ATTESTED；R4_CODEX实际是豆包。
+7条新增轻微自然度差异不阻断，也不因共同内部矛盾YES去消除设计性矛盾。
+但D2两项“该上限”指代及一项循环比较口径待裁决；D3人脸案例虽补明替代条件，
+第二句仍可能描述实际受限而非规范要求，不能由构造意图强制YES。
+
+[最新锁定与门控](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_TARGETED_PHASE1_LOCK_AND_GATE_V1.md)
+和[并行状态V6](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V6.md)。
+仅形成各144条provisional证据视图，非最终验收overlay；两域Phase2继续暂扣。
+下一步Owner决定4条有界修复/定向复审或逐条有据保留。本轮未改题、规则、Excel或raw；
+未调用R5、读Expected/Human答案、建GT、切分或训练，D1人工个人门不变。
+PODR-131/OR-085/REL-2026-0100可从Git与私有锁定索引恢复；下方均为历史。
+
 ## 当前：D2/D3 定向修复已准备；等原会话复审，不发第二阶段（2026-10-03）
 
 Owner 已批准逐条处理62条争议并做两个完整领域的表面风险审计，不按 Reviewer

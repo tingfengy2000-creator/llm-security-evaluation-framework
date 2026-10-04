@@ -1,5 +1,28 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0100 — D2/D3 targeted raw lock, candidate-only comparison and bounded hold
+
+2026-10-05; PODR-131/OR-085; source HEAD cbe8e967. Unique research worktree,
+origin sync0/0 verified; unrelated design modification and PDF excluded.
+Native byte-copy locked four raw before parsing; D2 25 each/D3 32 each; exact
+count/IDs/order/ordered seven fields/enums/note/strict UTF8 JSON PASS. Owner
+original-session statement recorded OWNER_ATTESTED; R4_CODEX provider Doubao.
+Independent ID-keyed comparison: D2 four cells, D3 seven; seven new pure minor
+naturalness differences nonblocking, designed shared localYES not a defect.
+Four material items remain; no raw-value override or new Candidate.
+
+Sealed historical indexes verified; identity-only join after candidate-visible
+comparison forms four144 provisional views (119+25 or112+32). First analysis
+adapter failed on dictionary-versus-list index; partial output preserved and
+tested adapter rerun into analysis_v2, no contract/source change. A scoped
+MyPy synthetic-test typing error was corrected; failed check retained in QA
+history, final task-scoped checks rerun. No Expected/Human answers/GT/Evidence
+used for reviewer judgment. No final overlay, Phase2, R5, split or training.
+[Current record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_TARGETED_PHASE1_LOCK_AND_GATE_V1.md)
+indexes raw/preservation receipts, exact four-item Owner decision packet and
+commands/tests/documentation/mirror evidence. Next Owner bounded repair or
+reasoned disposition. `OWNER_DECISION_REQUIRED / D2_D3_PHASE2_WITHHELD`.
+
 ## REL-2026-0099 — D2/D3 Owner triage, versioned repair and targeted-review pause
 
 2026-10-03; PODR-130 / OR-084; source HEAD 4e3389b. Unique research worktree
