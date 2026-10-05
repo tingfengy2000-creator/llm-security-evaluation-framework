@@ -6,6 +6,12 @@
 
 ## D2/D3 定向复审暂定经验 — 2026-10-05，未提升为新规则
 
+追加进展：Owner已批准仅4条最小修复，[有界核验与原会话复审](../core144/PAPER1_CORE144_D2_D3_BOUNDED4_REPAIR_RECORD_V1.md)已准备。
+明确端点而不补两端实际数值，删除循环解释而不凑长度补事实，把规范与实际叙述
+范围分别核对。新题尚无独立返回，因此以下经验仍PROVISIONAL_PENDING_REREVIEW；
+原待决定说明保留为本次批准之前的历史，不产生新字段语义或V4.4。
+
+
 `PROVISIONAL_LESSON / OWNER_DECISION_PENDING`，证据见[定向返回和门控](../core144/PAPER1_CORE144_D2_D3_TARGETED_PHASE1_LOCK_AND_GATE_V1.md)。
 补明“存在替代方式”只解决适用条件，仍须检查两端是否同在陈述规范要求；
 规范禁止与实际违规可以并存。self_containment=PASS不自动证明文内矛盾或唯一指代。

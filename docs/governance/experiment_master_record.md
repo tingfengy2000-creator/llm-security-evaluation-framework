@@ -1,5 +1,23 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-086 — bounded four-text construction repair; targeted external gate pending
+
+2026-10-05; PODR-132 / REL-2026-0101; source HEAD efd7ed3b. Classification:
+ENGINEERING_VALIDATION / AUTHOR_CONSTRUCTION_QA, not formal result/GT.
+[Bounded record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_BOUNDED4_REPAIR_RECORD_V1.md)
+and [state V7](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V7.md).
+Private `experiments/core144_d2_d3_bounded4_repair_20261005/output_v1/`, sealed
+index857b0e0f1e088b3b83603ef15a78dbc220ae61655432c8d0e041d740639fda50:
+30 artifacts plus index; later QA/command/mirror/Git receipts additive.
+Only D2 3/D3 1 rows repaired into new V4 IDs; full144 order, facts/atoms/paths,
+roles/HKP/S/families/snapshot hashes/query/rules retained. Atom totals330/308,
+max length ratios1.346154/1.372093. Four3/1 targeted Phase1 V2 packets/schema/
+prompts for original four sessions; no answers generated, both Phase2 held.
+Historical baseline329 and prior sealed indexes unchanged; 33 tests/Ruff/MyPy
+pass. Required docs updated; lesson provisional, research authority unchanged.
+No Expected/GT/Human answers, R5, new sources, split or training; D1 unchanged.
+
+
 ## OR-085 — targeted Phase1 raw validation complete; semantic acceptance held
 
 2026-10-05, PODR-131 / REL-2026-0100, source HEAD cbe8e967.

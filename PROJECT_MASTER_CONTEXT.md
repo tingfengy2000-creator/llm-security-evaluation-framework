@@ -1,5 +1,18 @@
 # LLMGuard 项目总控文档
 
+## 当前：只修4题并准备原会话复审，第二阶段仍不发（2026-10-05）
+
+Owner明确批准财务3题、信息安全1题最小修复。两处上限指代改为明确端点，一处
+循环解释删去，人脸案例第二句明确同一办法的规范要求；不补金额、机关或新事实。
+旧题旧答保留，新题有V4身份；事实原子、证据路径、家族、查询、规则保持不变。
+[本轮有界记录](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_BOUNDED4_REPAIR_RECORD_V1.md)
+和[状态V7](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V7.md)。
+各领域原R3/原R4豆包会话只收自己的三件V2文件，D2各3题、D3各1题；不要新建或混域。
+本机核验通过不等于外部验收，四份新原答尚未收到，两域Phase2暂扣。D1人工门
+独立且不变；不生成Human D2/D3、GT，不读Expected、不切分训练。PODR-132/OR-086/
+REL-2026-0101追加覆盖旧待批准状态，未重写历史材料；下方均为历史检查点。
+
+
 ## 当前：D2/D3 定向答卷已锁定；仍有4项质量门，暂不发Phase2（2026-10-05）
 
 四份返回原字节保留，D2各25条/D3各32条，题号、题序、字段、枚举和注释全部通过。

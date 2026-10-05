@@ -1,5 +1,22 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current bounded4 repair / external targeted gate — 2026-10-05
+
+Task P1-CORE144-D2-D3-BOUNDED4-MINIMAL-REPAIR-AND-TARGETED-REREVIEW-01;
+PODR-132/OR-086/REL-2026-0101; source HEAD efd7ed3b. Owner authorizes only3/1
+minimal edits and frozen fact/path recheck. [Author evidence and handoff](../core144/PAPER1_CORE144_D2_D3_BOUNDED4_REPAIR_RECORD_V1.md)
+and [state V7](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V7.md).
+Private output_v1 has full144 V4 corpora (141/143 unchanged), new-ID lineage,
+preservation/index, atom/path/source/parity/surface/readiness records and four
+candidate-only3/1 packet/schema/prompt V2 folders. Old raw/versions unmodified;
+new-ID answers absent. Original four domain sessions only; R4_CODEX=DOUBAO;
+OWNER_ATTESTED not machine proof. No new sessions, mixed domains, Expected/GT,
+Human answers/R5/rules/sources/Phase2, split or training. D1 gates unchanged.
+Both Phase1 unaccepted, Phase2 release false; four targeted returns pending.
+33 tests/Ruff/MyPy PASS; author QA not independent acceptance. Research Plan
+Authority unchanged; logical-scope lesson provisional. Older entries historical.
+
+
 ## Current targeted raw locks and held domain gates — 2026-10-05
 
 Task P1-CORE144-D2-D3-TARGETED-PHASE1-RAW-LOCK-AND-DOMAIN-GATE-01;

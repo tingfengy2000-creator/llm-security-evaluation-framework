@@ -1,5 +1,18 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-132 — four-item minimal repair and original-session targeted rereview
+
+2026-10-05. Owner explicitly approves only D2 three / D3 one bounded minimal
+repair, fact/evidence-path parity check, then rereview in the original four
+domain sessions. This supersedes PODR-131's pending repair decision, not raw
+evidence, rules or held Phase2 gates. [Repair/QA/handoff record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_BOUNDED4_REPAIR_RECORD_V1.md),
+OR-086 / REL-2026-0101. Only3/1 changed V4 rows, new opaque IDs; remaining141/143
+rows and frozen facts/paths unchanged. Three-file targeted packages3/1 ready;
+four external returns pending. R4_CODEX actual provider Doubao. Do not start
+new/mixed sessions, Phase2, Human D2/D3, Expected/GT, R5, split or training.
+D1 individual gates unchanged. Author QA is not independent acceptance.
+
+
 ## PODR-131 — D2/D3 targeted return receipt and Owner-attested original sessions
 
 2026-10-05. Owner provided four targeted JSON originals and explicitly confirmed

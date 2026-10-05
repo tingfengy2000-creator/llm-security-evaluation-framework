@@ -1,5 +1,24 @@
 # Current Work State
 
+## Current — 2026-10-05 Owner-approved bounded4 repair prepared; external rereview next
+
+Task `P1-CORE144-D2-D3-BOUNDED4-MINIMAL-REPAIR-AND-TARGETED-REREVIEW-01`, source
+HEAD efd7ed3b; PODR-132 / OR-086 / REL-2026-0101. Owner authorizes D2 three/D3
+one only. [Current repair and physical evidence](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_BOUNDED4_REPAIR_RECORD_V1.md)
+and [state V7](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V7.md).
+Four V4 new-ID rows, old immutable; facts/atoms/paths/metadata/rules/raw unchanged.
+Both full corpora retain144 rows/48 groups; unchanged141/143. Four targeted
+candidate-only V2 packages3/1 with matching schema/prompt are ready for the
+same original D2/D3 R3 GPT and R4_CODEX/Doubao sessions, no new/mixed sessions.
+Private Owner send checklist contains exact twelve handoff file addresses.
+New-ID reviewer answers do not yet exist; previous provisional144 views are
+historical, not accepted current answers. Four returns pending; both Phase1
+unaccepted / Phase2 withheld. No Expected/GT/Human answers/R5/new rules or sources,
+Human D2/D3, split or training. D1 gates unchanged. Unrelated design Markdown
+and PDF excluded. Older current headings below are preserved history.
+`STOP_EXTERNAL_TARGETED_REVIEW_REQUIRED / D2_D3_PHASE2_WITHHELD`.
+
+
 ## Current — 2026-10-05 D2/D3 targeted raw locked; four material items hold Phase2
 
 Task `P1-CORE144-D2-D3-TARGETED-PHASE1-RAW-LOCK-AND-DOMAIN-GATE-01`, source

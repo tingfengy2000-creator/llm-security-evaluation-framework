@@ -1,5 +1,14 @@
 # Core144 navigation
 
+**Current bounded repair (2026-10-05):** Owner approves only D2 three/D3 one.
+[Minimal repair and handoff](PAPER1_CORE144_D2_D3_BOUNDED4_REPAIR_RECORD_V1.md)
+and [state V7](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V7.md): four new V4 IDs,
+old raw preserved, facts/paths unchanged. Four3/1 targeted Phase1 V2 folders
+ready for original domain sessions only; no new/mixed sessions. R4 provider Doubao.
+Four returns pending; Phase1 unaccepted / Phase2 withheld. D1 unchanged;
+no Human D2/D3, Expected/GT, R5, split or training. Older entries below historical.
+
+
 **Current (2026-10-05):** Four [targeted Phase1 returns locked](PAPER1_CORE144_D2_D3_TARGETED_PHASE1_LOCK_AND_GATE_V1.md),
 D2 25 each/D3 32 each, strict checks PASS; original sessions OWNER_ATTESTED.
 Seven new minor-naturalness variances nonblocking. D2 three referent/surface items

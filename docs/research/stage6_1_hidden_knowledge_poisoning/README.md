@@ -1,5 +1,8 @@
 # Paper 1 Start Here
 
+> **最新4条修复（2026-10-05）：** Owner批准的D2三题/D3一题已做最小表达修复，旧题旧答保留，新题用V4新ID；事实/证据路径/规则未变。[核验与逐会话发件入口](core144/PAPER1_CORE144_D2_D3_BOUNDED4_REPAIR_RECORD_V1.md)，[状态V7](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V7.md)。只向各领域原R3/原R4豆包会话发自己的三件V2文件，D2各3题、D3各1题，不新建、不混域。等四份原答；两域Phase2暂扣，D1人工门不变，不读Expected/GT/Human答案，不切分训练。下面为历史检查点。
+
+
 > **最新（2026-10-05）：** D2/D3定向原答已[原样锁定与严格核验](core144/PAPER1_CORE144_D2_D3_TARGETED_PHASE1_LOCK_AND_GATE_V1.md)，每人25/32题，7处新增轻微自然度差异不阻断。财务3项指代/旁白与信息安全1项规范/事实范围仍需Owner决定；两域Phase2继续暂扣。合并144题视图仅provisional，不是最终接受或GT。[状态V6](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V6.md)。未改题、规则、Excel或raw；未启动Human D2/D3、Expected、GT、切分、训练；D1人工门独立。下面为历史。
 
 > **最新外审状态（2026-10-03）：** D2/D3 四份 Phase1 原答已原样锁定，各144条的结构、题序、选项和必需注释均通过；但 D2有22条、D3有30条分类分歧，另有双方共同指出的文本问题。[独立比较、私有 Owner 诊断包索引和第二阶段暂扣门](core144/PAPER1_CORE144_D2_D3_PHASE1_RAW_LOCK_AND_GATE_V1.md)。Owner逐项决定定向修复或偏好差异保留，原四个盲审会话保留；D1人工门独立不变。无 Core GT、正式切分或训练。下方旧“未开始外审/D3待施工”是历史状态。

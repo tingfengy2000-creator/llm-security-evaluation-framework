@@ -1,5 +1,25 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0101 — Owner-approved four-item minimal repair and original-session handoff
+
+2026-10-05; PODR-132/OR-086; source HEAD efd7ed3b. Unique research worktree and
+origin0/0 verified. Owner approves only D2 three/D3 one; exact before-text/literal
+operation guards, new V4 IDs, unchanged remaining141/143 rows. Source hashes/
+anchors, immutable atom payloads, all48 paths per domain, group/role/HKP/S/
+families/metadata/query/rules retained. No reviewer answer rewritten or assigned
+to new IDs; no vote. Author proposition/path/surface checks are not entailment
+proof or independent semantic acceptance. TDD initial missing-module failure
+and two typing diagnostics retained; fixed scoped suite33, Ruff/MyPy pass.
+[Current evidence and handoff](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_BOUNDED4_REPAIR_RECORD_V1.md).
+Four targeted Phase1 V2 packets, schemas and downloadable-file prompts3/1 are
+for original domain R3 GPT/R4_CODEX Doubao sessions, not fresh or mixed sessions.
+Private checklist gives all twelve exact addresses. Waiting for four returns;
+both Phase1 unaccepted / Phase2 withheld. D1 independent gates unchanged.
+No Expected/GT/Human answers/new Evidence/rule/Phase2/R5/split/training. Docs
+closeout and prior-input preservation checked; unrelated design/PDF excluded.
+`STOP_EXTERNAL_TARGETED_REVIEW_REQUIRED`.
+
+
 ## REL-2026-0100 — D2/D3 targeted raw lock, candidate-only comparison and bounded hold
 
 2026-10-05; PODR-131/OR-085; source HEAD cbe8e967. Unique research worktree,
