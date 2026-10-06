@@ -1,5 +1,24 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current D1 B01 individual release — 2026-10-06
+
+Task P1-CORE144-D1-B01-PHASE1-RAW-LOCK-AND-PHASE2-RELEASE-01;
+PODR-134/OR-088/REL-2026-0103; source HEAD64e1152e. [B01 lock/gate](../core144/PAPER1_CORE144_D1_HUMAN_B01_PHASE1_RAW_LOCK_AND_PHASE2_RELEASE_V1.md),
+[state V9](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V9.md).
+Private experiments/core144_d1_b01_phase1_raw_lock_20261006/ stores immutable
+raw SHA df423484092733066cbed628dde7ced0494dcb8a024c16bd35c0f1d9edfcbc6a
+37,202 bytes, lock-before-parse receipt, command/test/index and handoff parity.
+144/144 B01 identities/order/text,720 enums,16/16 notes PASS. Original Phase2
+bad9c6459dc163cd085517a8964deac6c950115486d15b4237d7273f8e138cdf preserved;
+1,440 answer blanks,225 links and private-field scan PASS. Two-file release
+copy with unchanged detailed Chinese manual ready. B01-only gate authorized by
+existing PODR-125 conditional rule plus present Owner request; actual send false/
+not observed. Attribution is not machine-proven human independence.
+A01 existing gate unchanged; no A/B comparison, GT, Candidate/Guide/schema/
+Evidence/raw mutation. D2/D3 Phase2 still held; no split/training/calibration.
+Mandatory docs synchronized; frozen research authority/lessons/long-term needs
+unchanged. Owner exact next action: send the two B01 files, await original return.
+
 ## Current bounded4 V2 raw-lock and Phase1 QA — 2026-10-06
 
 Task P1-CORE144-D2-D3-BOUNDED4-PHASE1-V2-RAW-LOCK-AND-REVIEW-CLOSEOUT-01;

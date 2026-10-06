@@ -1,5 +1,17 @@
 # LLMGuard 项目总控文档
 
+## 当前：D1真人B第一阶段已锁定，可以给B发第二阶段（2026-10-06）
+
+B的新原件已先锁字节，再核验144行、B自己的题号/顺序/题文、五项枚举和
+16条必需注释，全部通过。第二阶段沿用原B答卷，题序一致、答格全空，不改Excel。
+[B01锁定与门控](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_B01_PHASE1_RAW_LOCK_AND_PHASE2_RELEASE_V1.md)，
+[精确两件发放清单](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_B01_PHASE2_OWNER_SEND_CHECKLIST_V1.md)，
+[状态V9](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V9.md)。
+既有个人门条件已满足，不需要等A的第二阶段；Owner发B Excel和现成中文指南即可。
+这是允许发放，不证明已发放或完成。A的原有门不变；没有比较或修改两人答案。
+D2/D3第二阶段仍待独立批准准备；本轮无GT、切分、训练或校准。
+PODR-134/OR-088/REL-2026-0103；下方旧B暂扣状态为历史。
+
 ## 当前：4项定向复核收口，Phase1质量通过；第二阶段仍待批准（2026-10-06）
 
 四份V2原件已先锁字节再核验，财务各3题、信息安全各1题，字段/题序/枚举全部通过。

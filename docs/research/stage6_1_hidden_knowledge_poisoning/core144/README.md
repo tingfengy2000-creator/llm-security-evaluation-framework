@@ -1,5 +1,15 @@
 # Core144 navigation
 
+**Latest D1 Human gate (2026-10-06):** B01's own Phase1 original is
+[byte-locked and valid](PAPER1_CORE144_D1_HUMAN_B01_PHASE1_RAW_LOCK_AND_PHASE2_RELEASE_V1.md),
+144/144 B01 IDs/order/text,720 legal enums,16/16 required notes. B01-only
+Phase2 release is authorized under the existing individual gate. [Send exactly
+two B01 files](PAPER1_CORE144_D1_HUMAN_B01_PHASE2_OWNER_SEND_CHECKLIST_V1.md):
+unchanged Excel and detailed Chinese guide. Actual delivery is not observed;
+no A/B comparison/GT. [Current state V9](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V9.md)
+preserves A01 authorization and D2/D3 Phase2 withheld. Older B01-pending entries
+below are history, not the current B01 gate.
+
 **Current V2 rereview closeout (2026-10-06):** Four originals3/1 locked and
 strictly validated; five categorical fields100%, four material text-visible
 items resolved for Phase1 quality QA. [Raw-lock and QA record](PAPER1_CORE144_D2_D3_BOUNDED4_PHASE1_V2_RAW_LOCK_AND_QA_RECORD_V1.md),

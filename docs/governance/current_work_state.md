@@ -1,5 +1,23 @@
 # Current Work State
 
+## Current — 2026-10-06 D1 B01 own Phase1 locked; B01 Phase2 release authorized
+
+Task `P1-CORE144-D1-B01-PHASE1-RAW-LOCK-AND-PHASE2-RELEASE-01`; source HEAD
+64e1152e; PODR-134/OR-088/REL-2026-0103. [B01 raw identity and individual gate](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_B01_PHASE1_RAW_LOCK_AND_PHASE2_RELEASE_V1.md),
+[state V9](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V9.md).
+Raw37,202 bytes locked before parse;144 unique B01 IDs/order/text exact,720
+legal enums,16/16 required notes; non-answer cells unchanged. Matching original
+B01 Phase2 hash/144 rows/1,440 blank answers/225 official links PASS.
+PODR-125's own-human condition is satisfied; B01-only two-file Owner send list
+includes unchanged Excel and detailed Chinese manual. Actual distribution not
+observed; no annotations generated or changed, no A/B comparison or GT.
+A01 existing authorization unchanged; no assumption of A01 delivery/return.
+D2/D3 Phase1 quality PASS still requires separate Owner Phase2 preparation
+approval; both remain withheld. No Expected, split, model or calibration.
+Private experiments/core144_d1_b01_phase1_raw_lock_20261006/ and E-drive mirror;
+unrelated design Markdown/PDF excluded. Next: Owner sends two files to same B01.
+Older current headings below are retained history, not current B01 gates.
+
 ## Current — 2026-10-06 bounded4 V2 raw locked; Phase1 quality QA PASS; Phase2 held
 
 Task `P1-CORE144-D2-D3-BOUNDED4-PHASE1-V2-RAW-LOCK-AND-REVIEW-CLOSEOUT-01`;

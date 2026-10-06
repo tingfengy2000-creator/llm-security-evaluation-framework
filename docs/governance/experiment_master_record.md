@@ -1,5 +1,21 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-088 — D1 B01 Phase1 byte lock and individual Phase2 release preflight
+
+2026-10-06; PODR-134/REL-2026-0103; source HEAD64e1152e. Classification:
+HUMAN_RETURN_MECHANICAL_VALIDATION, not annotation/adjudication or experiment.
+[Raw SHA, private index and gate](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_B01_PHASE1_RAW_LOCK_AND_PHASE2_RELEASE_V1.md).
+Private experiments/core144_d1_b01_phase1_raw_lock_20261006/ plus matching
+Owner mirror. Raw37,202 bytes SHA df423484092733066cbed628dde7ced0494dcb8a024c16bd35c0f1d9edfcbc6a
+read-only before parse;144 unique B01 IDs/order/text,720 enums,16/16 required
+notes PASS. NATURAL144; localYES16/NO128; selfPASS144; ambiguous/metaNO144.
+Original Phase2 SHA bad9c6459dc163cd085517a8964deac6c950115486d15b4237d7273f8e138cdf
+unchanged,144 matching rows,1,440 blank answer cells,225 links. Two-file release
+uses unchanged detailed Chinese manual, not a new workbook. B01 release
+authorized under existing individual gate; actual send not observed. No A/B
+comparison/GT; A01 and D2/D3 gates otherwise unchanged. Scoped tests/command
+receipts/hash index/docs closeout retained; unrelated design Markdown/PDF excluded.
+
 ## OR-087 — bounded4 V2 raw-lock and domain Phase1 quality QA closeout
 
 2026-10-06; PODR-133/REL-2026-0102; source HEAD c4e0b1af. Classification:

@@ -1,5 +1,21 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0103 — D1 B01 own-human Phase1 lock; B01-only Phase2 ready
+
+2026-10-06; PODR-134/OR-088; source HEAD64e1152e, unique research worktree,
+origin0/0 at preflight. Owner submits B01 completed Phase1 and requests Phase2.
+Byte-copy/read-only/hash manifest precedes workbook parsing; original preserved.
+144 B01 IDs/text in exact original order;720 categorical cells legal; all16
+required notes. All non-answer values/formulas unchanged, no macro/hidden/external
+parts. Existing B01 Phase2 manifest/hash/144-row parity,1,440 blanks and225
+official links pass. [Evidence and exact two-file checklist](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_B01_PHASE1_RAW_LOCK_AND_PHASE2_RELEASE_V1.md).
+Distribution-ready copy plus unchanged Chinese guide prepared; Owner sends to
+same B01 human. Ready/authorized is not actual distribution. No answer correction,
+A/B comparison, GT, Candidate/rule/Evidence/workbook authoring or calibration.
+A01 gate unchanged; D2/D3 Phase2 withheld. Input immutability, scoped tests,
+Ruff/MyPy/UTF-8/leakage/links/diff and documentation closeout receipts retained.
+Unrelated design Markdown and PDF untouched. Stop before Human execution.
+
 ## REL-2026-0102 — bounded4 V2 originals locked and text-visible Phase1 QA closed
 
 2026-10-06; PODR-133/OR-087; source HEAD c4e0b1af, unique research worktree.

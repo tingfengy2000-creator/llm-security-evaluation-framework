@@ -1,5 +1,18 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-134 — D1 B01 own Phase1 return and requested individual Phase2 entry
+
+2026-10-06. Owner submits B01's Phase1 `(1)` original and requests Phase2.
+This is processed under PODR-125's already approved own-human raw-lock/schema
+condition, not a new schema waiver or factual/GT decision. [Bounded lock/gate](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_B01_PHASE1_RAW_LOCK_AND_PHASE2_RELEASE_V1.md)
+passes144/144 B01 identities/order/text,720 enums,16 required notes and sealed
+Phase2 parity. B01-only distribution is authorized; actual send is not observed.
+Owner attribution is not machine proof of Human independence. A01 authorization
+unchanged; no A/B comparison. D2/D3 Phase2 still withheld pending separate
+preparation approval. No raw/workbook/Guide/Candidate/Evidence change, Expected,
+GT/split/training/calibration. OR-088/REL-2026-0103; older B01 pending gates
+remain historical, not rewritten.
+
 ## PODR-133 — bounded4 V2 returns received; original-session isolation Owner-attested
 
 2026-10-06. Owner supplied D2/D3 four targeted Phase1 V2 originals and explicitly
