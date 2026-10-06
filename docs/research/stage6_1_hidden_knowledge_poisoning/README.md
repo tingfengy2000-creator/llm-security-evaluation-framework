@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> **最新定向复核收口（2026-10-06）：** 四份V2原件已原样锁定，D2各3题/D3各1题，严格核验和五字段一致性通过；四项文本质量问题已收口。[原件SHA、逐项QA与门控](core144/PAPER1_CORE144_D2_D3_BOUNDED4_PHASE1_V2_RAW_LOCK_AND_QA_RECORD_V1.md)，[状态V8](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V8.md)。各144题视图保留财务8/信息安全18处历史非阻断自然度差异，不改答案。隔离仅OWNER_ATTESTED、R4实际豆包。Phase1质量PASS不等于Owner数据验收或GT，两域Phase2本轮未生成未释放，等Owner批准包预检和发放准备。D1个人门不变，无Human D2/D3、Expected/GT、切分、训练。下方均为历史。
+
 > **最新4条修复（2026-10-05）：** Owner批准的D2三题/D3一题已做最小表达修复，旧题旧答保留，新题用V4新ID；事实/证据路径/规则未变。[核验与逐会话发件入口](core144/PAPER1_CORE144_D2_D3_BOUNDED4_REPAIR_RECORD_V1.md)，[状态V7](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V7.md)。只向各领域原R3/原R4豆包会话发自己的三件V2文件，D2各3题、D3各1题，不新建、不混域。等四份原答；两域Phase2暂扣，D1人工门不变，不读Expected/GT/Human答案，不切分训练。下面为历史检查点。
 
 

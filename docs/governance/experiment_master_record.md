@@ -1,5 +1,21 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-087 — bounded4 V2 raw-lock and domain Phase1 quality QA closeout
+
+2026-10-06; PODR-133/REL-2026-0102; source HEAD c4e0b1af. Classification:
+PREANNOTATION_DOCUMENT_QUALITY_QA, not factual/Owner dataset acceptance or GT.
+[Physical evidence and gate](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_BOUNDED4_PHASE1_V2_RAW_LOCK_AND_QA_RECORD_V1.md).
+Private `experiments/core144_d2_d3_bounded4_rereview_lock_20261006/`, index
+24b4bfae1509701e37e197ade0dd51ba97e66a104d35c3250697d437fad63784 seals17 files.
+Four raw originals3/1 strictly valid, five fields100%, no targeted categorical
+disagreements. Four text-visible material issues resolved; current144 views
+retain lineage and D2 eight/D3 eighteen historical nonblocking naturalness cases.
+Raw/source parity, prior indexes399 frozen input hashes, scoped37 tests/Ruff/MyPy
+and docs closeout checked. OWNER_ATTESTED only; R4 actual Doubao; same D2 bytes
+do not establish independence. No rule/Candidate/raw/Evidence change or vote.
+Phase1 quality gate PASS, both Phase2 unprepared/withheld pending Owner approval.
+No Human D2/D3/Expected/GT/R5/split/training; D1 gates unchanged.
+
 ## OR-086 — bounded four-text construction repair; targeted external gate pending
 
 2026-10-05; PODR-132 / REL-2026-0101; source HEAD efd7ed3b. Classification:

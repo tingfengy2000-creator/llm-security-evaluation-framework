@@ -1,5 +1,21 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-133 — bounded4 V2 returns received; original-session isolation Owner-attested
+
+2026-10-06. Owner supplied D2/D3 four targeted Phase1 V2 originals and explicitly
+confirmed original domain R3 GPT/R4_CODEX Doubao sessions, only corresponding
+packet/schema/prompt, no other answers, hidden mapping/labels, Evidence/Phase2,
+repository or external sources/web/other AI. Record as OWNER_ATTESTED, not
+platform proof. This is receipt/isolation authority, not Phase2 approval.
+[Raw-lock and bounded quality record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_BOUNDED4_PHASE1_V2_RAW_LOCK_AND_QA_RECORD_V1.md),
+OR-087/REL-2026-0102. Exact3/1 validation and five-field agreement PASS; four
+material items resolved for text-visible Phase1 QA. Historical8/18 naturalness
+variances retained. No vote/answer rewrite or Owner dataset/GT acceptance.
+Both Phase2 remain withheld and unprepared; next Owner approval is package
+preflight/release preparation. No Human D2/D3/Expected/GT/split/training;
+D1 individual gates unchanged. PODR-132's pending rereview is now completed,
+without changing its boundaries. D2 byte equality is not isolation proof.
+
 ## PODR-132 — four-item minimal repair and original-session targeted rereview
 
 2026-10-05. Owner explicitly approves only D2 three / D3 one bounded minimal

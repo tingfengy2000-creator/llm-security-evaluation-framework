@@ -1,5 +1,26 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current bounded4 V2 raw-lock and Phase1 QA — 2026-10-06
+
+Task P1-CORE144-D2-D3-BOUNDED4-PHASE1-V2-RAW-LOCK-AND-REVIEW-CLOSEOUT-01;
+PODR-133/OR-087/REL-2026-0102; source HEAD c4e0b1af.
+[Lock/dispositions/gate](../core144/PAPER1_CORE144_D2_D3_BOUNDED4_PHASE1_V2_RAW_LOCK_AND_QA_RECORD_V1.md),
+[state V8](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V8.md).
+Private experiments/core144_d2_d3_bounded4_rereview_lock_20261006/ index
+24b4bfae1509701e37e197ade0dd51ba97e66a104d35c3250697d437fad63784 seals17 files.
+Raw four copies byte/read-only locked before parse; exact3/1 validation PASS,
+five-field100% agreement. Four material Candidate-visible dispositions resolved;
+current144 per-reviewer evidence views with nested prior lineage, nonblocking
+naturalness8/18 preserved without vote. Comparison consumes no construction
+labels/facts; identity-only joins after saved comparison. Preflight construction
+lineage sighting excluded from assessment. OWNER_ATTESTED only; R4=DOUBAO.
+D2 same raw bytes observed, not isolation proof. Quality gate PASS, not Owner
+dataset acceptance/GT; phase2_release_authorized=false, no preparation here.
+Next Owner approval: P1-CORE144-D2-D3-PHASE2-PACKAGE-PREFLIGHT-AND-RELEASE-PREP-01.
+37 scoped tests/Ruff/MyPy; history399 hashes retained; docs closeout updated.
+No Expected/GT/Human answers/R5/Candidate/rule/Evidence change, Human D2/D3,
+split/training; D1 individual gates unchanged. Older entries historical.
+
 ## Current bounded4 repair / external targeted gate — 2026-10-05
 
 Task P1-CORE144-D2-D3-BOUNDED4-MINIMAL-REPAIR-AND-TARGETED-REREVIEW-01;

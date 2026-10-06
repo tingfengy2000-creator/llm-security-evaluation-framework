@@ -1,5 +1,26 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0102 — bounded4 V2 originals locked and text-visible Phase1 QA closed
+
+2026-10-06; PODR-133/OR-087; source HEAD c4e0b1af, unique research worktree.
+Owner confirmed original four isolated domain sessions as OWNER_ATTESTED; R4
+provider Doubao. Copy/read-only/hash manifest precedes strict raw parsing.
+Exact3/1 records, ID/order/seven keys/enums/notes pass; five categorical fields
+agree completely. D2 raw bytes equal; D3 note wording differs semantically
+compatibly. Neither is used as proof of platform isolation. Comparison uses
+raw/candidate-only packets/schema; identity-only merge follows saved comparison.
+Provenance preflight inspected a construction-lineage excerpt, not supplied to
+assessment code; no claim that main session never saw construction metadata.
+[Disposition and immutable evidence](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_BOUNDED4_PHASE1_V2_RAW_LOCK_AND_QA_RECORD_V1.md).
+Four item checks resolve prior material Phase1 ambiguities; retain D3 normative
+conflict and historical8/18 minor naturalness variances. No vote or raw rewrite.
+New four144 views preserve order/prior source lineage. Initial test-first import
+and fixture typing issues fixed; scoped37 tests/Ruff/MyPy pass with command
+receipt. Mandatory docs appended, prior399 input hashes retained. Phase1 quality
+PASS is not Owner data acceptance; both Phase2 remain unprepared/withheld.
+Next Owner approval: Phase2 package preflight/preparation. No Expected/GT/Human
+answers/R5/Candidate/rule change, Human D2/D3/split/training; D1 gates unchanged.
+
 ## REL-2026-0101 — Owner-approved four-item minimal repair and original-session handoff
 
 2026-10-05; PODR-132/OR-086; source HEAD efd7ed3b. Unique research worktree and

@@ -1,5 +1,18 @@
 # LLMGuard 项目总控文档
 
+## 当前：4项定向复核收口，Phase1质量通过；第二阶段仍待批准（2026-10-06）
+
+四份V2原件已先锁字节再核验，财务各3题、信息安全各1题，字段/题序/枚举全部通过。
+五个分类字段全部一致；两个上限指代、循环解释和规范范围四项均完成文本内质量核查。
+人脸题保留同一条件下的规范冲突，不为统一答案而删去矛盾；没有重写题文或原答。
+[本轮原件与QA记录](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_BOUNDED4_PHASE1_V2_RAW_LOCK_AND_QA_RECORD_V1.md)，
+[状态V8](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V8.md)。
+各144题当前视图保留财务8/信息安全18处历史非阻断自然度差异，不投票。隔离仅
+OWNER_ATTESTED；R4代码仍指实际豆包。两份D2原件字节一致不证明独立或互抄。
+Phase1质量PASS不等于Owner数据验收或GT；两域Phase2本轮未生成、未释放，等Owner
+批准Phase2包预检与发放准备。D1个人门不变，不启动Human D2/D3、Expected/GT、切分、训练。
+PODR-133/OR-087/REL-2026-0102；以下当前标题均为历史检查点。
+
 ## 当前：只修4题并准备原会话复审，第二阶段仍不发（2026-10-05）
 
 Owner明确批准财务3题、信息安全1题最小修复。两处上限指代改为明确端点，一处

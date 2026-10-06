@@ -1,5 +1,14 @@
 # Core144 navigation
 
+**Current V2 rereview closeout (2026-10-06):** Four originals3/1 locked and
+strictly validated; five categorical fields100%, four material text-visible
+items resolved for Phase1 quality QA. [Raw-lock and QA record](PAPER1_CORE144_D2_D3_BOUNDED4_PHASE1_V2_RAW_LOCK_AND_QA_RECORD_V1.md),
+[state V8](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V8.md). Current144 reviewer
+views retain eight/eighteen prior nonblocking naturalness variances, no vote.
+OWNER_ATTESTED only, R4 actual Doubao. Phase1 quality PASS is not Owner dataset
+acceptance or GT; both Phase2 unprepared/withheld pending Owner preparation
+approval. D1 unchanged; no Human D2/D3, Expected/GT, split or training. Below history.
+
 **Current bounded repair (2026-10-05):** Owner approves only D2 three/D3 one.
 [Minimal repair and handoff](PAPER1_CORE144_D2_D3_BOUNDED4_REPAIR_RECORD_V1.md)
 and [state V7](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V7.md): four new V4 IDs,

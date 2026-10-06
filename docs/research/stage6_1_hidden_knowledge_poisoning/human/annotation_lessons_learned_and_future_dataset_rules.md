@@ -6,6 +6,12 @@
 
 ## D2/D3 定向复审暂定经验 — 2026-10-05，未提升为新规则
 
+追加进展（2026-10-06）：[四项V2复核原答与文本内QA](../core144/PAPER1_CORE144_D2_D3_BOUNDED4_PHASE1_V2_RAW_LOCK_AND_QA_RECORD_V1.md)已收口。
+显式端点、去循环解释及同一规范范围在新原答中均无分类分歧；D3保留规范冲突，
+不把事实真伪和语言自然度混同。该观察仅为有界工程复核，不提升为新规则、
+普遍有效性或GT；历史“尚无独立返回”的段落保留为先前检查点。
+以下PROVISIONAL经验仍不是新的annotation contract；Phase2继续暂扣。
+
 追加进展：Owner已批准仅4条最小修复，[有界核验与原会话复审](../core144/PAPER1_CORE144_D2_D3_BOUNDED4_REPAIR_RECORD_V1.md)已准备。
 明确端点而不补两端实际数值，删除循环解释而不凑长度补事实，把规范与实际叙述
 范围分别核对。新题尚无独立返回，因此以下经验仍PROVISIONAL_PENDING_REREVIEW；

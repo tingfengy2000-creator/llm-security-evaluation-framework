@@ -1,5 +1,23 @@
 # Current Work State
 
+## Current — 2026-10-06 bounded4 V2 raw locked; Phase1 quality QA PASS; Phase2 held
+
+Task `P1-CORE144-D2-D3-BOUNDED4-PHASE1-V2-RAW-LOCK-AND-REVIEW-CLOSEOUT-01`;
+source HEAD c4e0b1af; PODR-133/OR-087/REL-2026-0102.
+[Raw identities, dispositions and gate](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_BOUNDED4_PHASE1_V2_RAW_LOCK_AND_QA_RECORD_V1.md),
+[state V8](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V8.md).
+Four V2 originals byte-locked before strict parsing; exact3/1 ID/order/schema/note
+checks PASS. Five fields100% targeted agreement; four material text-visible items
+resolved for Phase1 QA. Current144 views per reviewer/domain preserve raw lineage
+and eight/eighteen prior nonblocking naturalness variances without voting.
+Both phase1_quality_gate_pass=true; no Owner dataset acceptance inferred.
+Both phase2_release_authorized=false; no Phase2 generation this turn. Next:
+Owner approve `P1-CORE144-D2-D3-PHASE2-PACKAGE-PREFLIGHT-AND-RELEASE-PREP-01`.
+Original sessions OWNER_ATTESTED only; R4 actual Doubao. D2 byte equality proves
+neither independence nor copying. No Candidate/rule/raw change, Expected/GT,
+Human D2/D3, R5, split or training. D1 gates unchanged. Unrelated design Markdown
+and pre-existing PDF excluded. Older current headings below are history.
+
 ## Current — 2026-10-05 Owner-approved bounded4 repair prepared; external rereview next
 
 Task `P1-CORE144-D2-D3-BOUNDED4-MINIMAL-REPAIR-AND-TARGETED-REREVIEW-01`, source
