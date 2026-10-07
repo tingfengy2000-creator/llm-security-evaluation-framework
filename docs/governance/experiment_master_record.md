@@ -1,5 +1,25 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-089 — Core144 Phase2 source preflight and D2-only excerpt handoff
+
+2026-10-07; PODR-135/REL-2026-0104; source HEAD33559e0d. Classification:
+CONSTRUCTION_EVIDENCE_PRESENTATION_PREFLIGHT, not GT or formal result.
+[Evidence/gates](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_PHASE2_PREFLIGHT_AND_RELEASE_RECORD_V1.md).
+Private experiments/core144_d2_d3_phase2_prep_20261007/ retains final144 lineage,
+four own QA views,25/24 used source checks, source-unit projection, commands,
+scoped witnesses, full-body drafts, D2 V2 literal excerpts and notebook/index.
+329 baseline hashes and sealed35/30/17 historical file sets unchanged; current
+atom bindings330/308. Repair path drift0; S3 independence16/16 both domains;
+necessity D2 scoped16/16, D3 14/16 plus two witnessed blockers.
+D2 packages309290/309295 bytes,25 shared sources,83232 evidence characters;
+144/order/current IDs/own local-conflict and four Guide bytes unchanged. Owner
+approved excerpts, not platform proof; output-limit incident STOP, no96+48.
+D2 fourteen Reviewer files copied/hash checked, not actually distributed.
+D3 drafts409655/409660 bytes held; no patch/crop/new source/answer. Original
+sessions GPT/Doubao, OWNER_ATTESTED. D1 Human gates and inputs untouched;
+no Expected/GT/Human D2D3/R5/split/training/calibration. Scope tests and mandatory
+docs closeout recorded; unrelated design Markdown/PDF excluded.
+
 ## OR-088 — D1 B01 Phase1 byte lock and individual Phase2 release preflight
 
 2026-10-06; PODR-134/REL-2026-0103; source HEAD64e1152e. Classification:

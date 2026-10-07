@@ -1,5 +1,24 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0104 — D2 whole144 excerpt release prep; D3 pre-release blocker saved
+
+2026-10-07; PODR-135/OR-089; source HEAD33559e0d, unique research branch,
+origin0/0 preflight. Owner approved final lineage/evidence/preparation; replayed
+119+22+3 /112+31+1 identities, own views QA-only. Full-source hash/path/support
+checks retained all original sources; no new web source. Two D3 absolute
+authority subclaims each admit one-source refutation: scoped necessity stops
+D3 release despite passing hash/repair parity. No Candidate/S/schema patch.
+[Current preflight, witnesses and gate](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_PHASE2_PREFLIGHT_AND_RELEASE_RECORD_V1.md).
+Owner authorizes traceable D2 excerpts still144; retain full relevant articles/
+context/identity and every required anchor occurrence with literal ranges and
+original/excerpt SHA. D2 V2 body reduced206952->83232 chars; strict144 JSON and
+seven-file prompt/schema/Guide parity pass. D2 handoff byte-copy/read-only;
+external execution not started. Capacity unknown, not a manufactured failure;
+no96+48. CLI module import failure preserved, module-mode invocation passes.
+D1 untouched; no Human D2D3/Expected/GT/R5/split/model/calibration. D3 Owner
+two-item disposition pending; stop before external Phase2. Required docs/tests/
+commands/index/Owner send list saved. Unrelated design Markdown/PDF untouched.
+
 ## REL-2026-0103 — D1 B01 own-human Phase1 lock; B01-only Phase2 ready
 
 2026-10-06; PODR-134/OR-088; source HEAD64e1152e, unique research worktree,

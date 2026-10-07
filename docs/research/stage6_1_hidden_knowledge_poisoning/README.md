@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> **当前Phase2（2026-10-07）：** [两域最终144身份/证据预检](core144/PAPER1_CORE144_D2_D3_PHASE2_PREFLIGHT_AND_RELEASE_RECORD_V1.md)完成；财务25/信息安全24份使用来源哈希通过，修复漂移0。D2依Owner批准生成可追溯摘录V2、仍144题，各七件文件复制核验，可按[绝对地址清单](core144/PAPER1_CORE144_D2_D3_PHASE2_OWNER_SEND_CHECKLIST_V1.md)发原D2 GPT/豆包会话；未分发，平台容量未证明，不能读写完整即停报，不拆96+48。D3两条S3比较可单证据否定，第二阶段暂扣，[待Owner两项有界决定](core144/PAPER1_CORE144_D3_PHASE2_S3_NECESSITY_BLOCKER_V1.md)，不裁证据或强改S。[状态V10](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V10.md)保留D1真人门；无Human D2/D3、Expected/GT、切分、训练。以下是历史。
+
 > **最新D1真人门（2026-10-06）：** B自己的第一阶段原件已[原字节锁定并核验](core144/PAPER1_CORE144_D1_HUMAN_B01_PHASE1_RAW_LOCK_AND_PHASE2_RELEASE_V1.md)，144行题号/顺序/题文、英文枚举及16条必需注释均PASS。B现在满足独立进入二阶段的既有门，Owner按[精确两件清单](core144/PAPER1_CORE144_D1_HUMAN_B01_PHASE2_OWNER_SEND_CHECKLIST_V1.md)只发B Excel和现有详细中文指南。允许发不等于已经发，不比较或改两人答案。[状态V9](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V9.md)保留A01授权与D2/D3第二阶段暂扣；无GT、切分或训练。下方旧B未完成状态为历史。
 
 > **最新定向复核收口（2026-10-06）：** 四份V2原件已原样锁定，D2各3题/D3各1题，严格核验和五字段一致性通过；四项文本质量问题已收口。[原件SHA、逐项QA与门控](core144/PAPER1_CORE144_D2_D3_BOUNDED4_PHASE1_V2_RAW_LOCK_AND_QA_RECORD_V1.md)，[状态V8](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V8.md)。各144题视图保留财务8/信息安全18处历史非阻断自然度差异，不改答案。隔离仅OWNER_ATTESTED、R4实际豆包。Phase1质量PASS不等于Owner数据验收或GT，两域Phase2本轮未生成未释放，等Owner批准包预检和发放准备。D1个人门不变，无Human D2/D3、Expected/GT、切分、训练。下方均为历史。

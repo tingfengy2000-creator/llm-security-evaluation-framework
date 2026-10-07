@@ -1,5 +1,21 @@
 # LLMGuard 项目总控文档
 
+## 当前：D2第二阶段整域摘录包可发，D3发现两条证据路径问题暂扣（2026-10-07）
+
+Owner已批准两域最终题号/证据预检与发放准备，并明确允许财务做可追溯摘录、仍144题。
+两域各144题/48组完整接入此前有界修复；原答、旧题、快照不改。财务25份/
+信息安全24份实际使用证据的原快照与正文哈希全部通过，修复没有改变证据路径。
+[预检与发放记录](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_PHASE2_PREFLIGHT_AND_RELEASE_RECORD_V1.md)，
+[状态V10](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V10.md)。
+财务每人七件V2材料已逐字节复制到E盘，整域144；证据约8.3万字，包约309KB。
+这是本地准备完成，不证明平台容量足够或已经发放；原会话无法完整处理就停报事件。
+信息安全两条原定多证据的机关比较包含一份证据即可否定的绝对断言，不能裁证据
+保MULTI。D3暂扣，Owner需[决定是否只修这两条](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D3_PHASE2_S3_NECESSITY_BLOCKER_V1.md)；
+未执行修复。D2按[精确清单](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_PHASE2_OWNER_SEND_CHECKLIST_V1.md)
+发回原D2 GPT/豆包会话，不能新建、混域或互换。D1真人门不变，不读其答案；未生成
+Human D2/D3、Expected/GT、切分、训练或校准。PODR-135/OR-089/REL-2026-0104。
+下方历史待批准文字保留，不代表当前D2状态。
+
 ## 当前：D1真人B第一阶段已锁定，可以给B发第二阶段（2026-10-06）
 
 B的新原件已先锁字节，再核验144行、B自己的题号/顺序/题文、五项枚举和

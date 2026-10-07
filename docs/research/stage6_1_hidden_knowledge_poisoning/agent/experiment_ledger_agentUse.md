@@ -1,5 +1,27 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current Phase2 preflight — 2026-10-07
+
+P1-CORE144-D2-D3-PHASE2-PACKAGE-PREFLIGHT-AND-RELEASE-PREP-01;
+PODR-135/OR-089/REL-2026-0104; source HEAD33559e0d.
+[Record](../core144/PAPER1_CORE144_D2_D3_PHASE2_PREFLIGHT_AND_RELEASE_RECORD_V1.md),
+[state V10](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V10.md).
+Private experiments/core144_d2_d3_phase2_prep_20261007/ contains current144
+replay/views, used official25/24 hash checks, unchanged paths, full-source drafts,
+source-bound semantic witnesses, D2 V2 literal excerpt ranges/manifest/size/audit,
+command receipts/notebook/index and Owner handoff parity.329 baseline inputs and
+prior35/30/17 sealed files retained. Atom bindings330/308, repair drift0.
+S3 units16 independent each; scoped necessity D2 16, D3 14; two D3 absolute
+authority conjuncts have single-source refutations. D3 held; no scientific patch.
+Owner D2 excerpt approval still144, no96+48. Two309290/309295-byte D2 packages,
+25 shared docs/83232 chars, ID/text/order/E refs/own Phase1 and Guide bytes exact;
+seven files each copied, release authorized NOT_DISTRIBUTED. Platform capacity
+UNKNOWN; original-session incident STOP if incomplete. R4 actual Doubao,
+OWNER_ATTESTED. Only scoped construction QA, not entailment proof/external GT.
+D1 lane unchanged/no answers read; no Human D2D3/Expected/GT/R5/split/model.
+Required docs updated; research authority/lessons/long-term needs unchanged.
+Next Owner D2 send; separate bounded D3 decision. No auto repair or review.
+
 ## Current D1 B01 individual release — 2026-10-06
 
 Task P1-CORE144-D1-B01-PHASE1-RAW-LOCK-AND-PHASE2-RELEASE-01;

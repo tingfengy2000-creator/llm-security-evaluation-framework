@@ -1,5 +1,7 @@
 # Core144 navigation
 
+**Current Phase2 preparation (2026-10-07):** [Final144 replay and source preflight](PAPER1_CORE144_D2_D3_PHASE2_PREFLIGHT_AND_RELEASE_RECORD_V1.md) retain own Phase1 QA views/8 and18 minor variances, used source hashes25/24 and repair drift0. D2 Owner-approved literal complete-article excerpts remain144; two V2 seven-file folders ready, not distributed. [Exact addresses](PAPER1_CORE144_D2_D3_PHASE2_OWNER_SEND_CHECKLIST_V1.md), original D2 sessions only (R4=Doubao), actual platform capacity unverified; incident STOP on incomplete handling, no96+48. D3 two S3 single-source counterexamples hold Phase2 despite hash PASS; [twelve-field Owner decision](PAPER1_CORE144_D3_PHASE2_S3_NECESSITY_BLOCKER_V1.md), no crop/patch executed. [State V10](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V10.md) leaves D1 Human gates unchanged. No Human D2D3, Expected/GT, split/model/R5; below is history.
+
 **Latest D1 Human gate (2026-10-06):** B01's own Phase1 original is
 [byte-locked and valid](PAPER1_CORE144_D1_HUMAN_B01_PHASE1_RAW_LOCK_AND_PHASE2_RELEASE_V1.md),
 144/144 B01 IDs/order/text,720 legal enums,16/16 required notes. B01-only

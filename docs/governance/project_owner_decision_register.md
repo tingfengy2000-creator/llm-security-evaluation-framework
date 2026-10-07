@@ -1,5 +1,21 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-135 — D2/D3 Phase2 preflight approved; D2 traceable whole144 excerpts
+
+2026-10-07. Owner approves task P1-CORE144-D2-D3-PHASE2-PACKAGE-PREFLIGHT-AND-
+RELEASE-PREP-01, final144 lineage, frozen-evidence preflight and original-domain
+R3/R4 handoff preparation, not reviewer answers/Human D2D3/GT/split/model.
+After the676KB full-source D2 draft capacity question, exact Owner answer:
+“允许可追溯摘录包，仍整域144条”。This is presentation authority, not actual
+platform capacity proof, source/candidate/rule repair or a96+48 instruction.
+[Domain preflight/release](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_PHASE2_PREFLIGHT_AND_RELEASE_RECORD_V1.md),
+OR-089/REL-2026-0104. D2 V2 sources/ranges/witnesses and seven-file folders PASS;
+authorized for Owner send, not distributed. D3 two scoped S3 single-source
+counterexamples block release; bounded two-item repair is recommended but NOT
+approved or executed. [Twelve-field escalation](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D3_PHASE2_S3_NECESSITY_BLOCKER_V1.md).
+No crop-to-MULTI or derived-S change. D1 gates unchanged. Historical views/raw/
+Guide/source/matrix preserved; R4_CODEX actual Doubao, isolation OWNER_ATTESTED.
+
 ## PODR-134 — D1 B01 own Phase1 return and requested individual Phase2 entry
 
 2026-10-06. Owner submits B01's Phase1 `(1)` original and requests Phase2.

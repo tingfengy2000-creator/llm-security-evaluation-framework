@@ -1,5 +1,24 @@
 # Current Work State
 
+## Current — 2026-10-07 D2 Phase2 excerpts ready; D3 necessity gate held
+
+Task P1-CORE144-D2-D3-PHASE2-PACKAGE-PREFLIGHT-AND-RELEASE-PREP-01;
+source HEAD33559e0d; PODR-135/OR-089/REL-2026-0104.
+[Preflight/release record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_PHASE2_PREFLIGHT_AND_RELEASE_RECORD_V1.md),
+[state V10](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V10.md).
+Replayed current144/48 per domain; source raw/text hashes50/48 PASS, repair-path
+drift0; own Phase1 views QA-only retain8/18 naturalness variance. D2 scoped16/16
+S3 necessity; two approved traceable-excerpt whole144 V2 seven-file folders
+byte-copied to Owner handoff, READY_NOT_DISTRIBUTED. Original full bodies retained.
+Actual platform capacity unverified; no96+48 fallback or manufactured limit.
+D3 two single-source counterexamples => Phase2 WITHHELD; Owner bounded repair
+decision pending, Auto Continue=NO for D3. Hash PASS is not semantic release.
+R4_CODEX actual Doubao; original domain sessions only, OWNER_ATTESTED.
+D1 individual Human gates unchanged, no human answers read. No new Candidate/
+Guide/raw/Evidence rule, Human D2/D3, Expected/GT, R5, split/model/calibration.
+Next Owner: exact D2 seven-file send list; separately decide D3 two-item repair.
+Unrelated design Markdown/PDF excluded. Older current headings remain history.
+
 ## Current — 2026-10-06 D1 B01 own Phase1 locked; B01 Phase2 release authorized
 
 Task `P1-CORE144-D1-B01-PHASE1-RAW-LOCK-AND-PHASE2-RELEASE-01`; source HEAD
