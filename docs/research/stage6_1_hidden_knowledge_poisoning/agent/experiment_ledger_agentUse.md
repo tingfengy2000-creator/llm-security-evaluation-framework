@@ -1,5 +1,20 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current D1 Human Phase2 receipt — 2026-10-16
+
+PODR-139/OR-093/REL-2026-0108; source HEAD5d66be1.
+[Record](../core144/PAPER1_CORE144_D1_HUMAN_PHASE2_RAW_LOCK_AND_RECEIPT_GATE_V1.md),[state V14](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V14.md).
+Private experiments/core144_d1_human_phase2_raw_lock_20261016/:200781/217867-byte
+originals locked before decode,own144 identity/1152 enums/144 reasons legal,
+0 mechanical flags. A01 fixed123 boundary whitespace (60 annotation/63 fulltext),
+0 substantive; B01 only315 blank storage representations. A01 exact readonly
+gate held; no waiver/raw rewrite/A/B join/comparison/consensus/GT. Separate A2/B1
+limitation rows/B24 reference leads diagnostic only. Native formula/link/visibility/
+dropdown parity and ZIP pass. Direct OWNER_ATTESTED, not machine proof. Twelve-field
+Owner packet/commands/QA/index retained. Stop for bounded123-cell Owner presentation
+decision. D2/D3 gates unchanged; no Expected/mapping/roles/new source/split/model.
+Authority/long-term/lessons unchanged: no accepted new method/rule/result.
+
 ## Current targeted6 return gate — 2026-10-16
 
 PODR-138/OR-092/REL-2026-0107; source HEAD1bd7668. [Record](../core144/PAPER1_CORE144_D2_TARGETED6_PHASE2_RAW_LOCK_AND_QA_GATE_V1.md),

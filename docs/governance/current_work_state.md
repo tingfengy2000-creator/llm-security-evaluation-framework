@@ -1,5 +1,22 @@
 # Current Work State
 
+## Current — 2026-10-16 D1 Human Phase2 locked; presentation exception pending
+
+P1-CORE144-D1-HUMAN-DUAL-PHASE2-RAW-LOCK-AND-COMPARISON-01;
+source HEAD5d66be1; PODR-139/OR-093/REL-2026-0108.
+[Receipt/gate](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_PHASE2_RAW_LOCK_AND_RECEIPT_GATE_V1.md),
+[state V14](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V14.md).
+Both144 raw locked before decode; own IDs/order/Candidate/headers/1152 enums/
+144 reasons each legal,0 mechanical crossfield flags. A01 readonly123 boundary-
+whitespace changes (60 annotation/48rows,63 fulltext),0 substantive. B01 only315
+blank-storage changes. A01 exact readonly gate held; no automatic waiver.
+Separate A2/B1 evidence-limitation rows/B24 selection-reference leads retained.
+No A/B join/comparison/consensus, Expected/GT/mapping/role load or workbook save.
+Direct Owner independence/no-resave confirmation OWNER_ATTESTED, not machine proof.
+HUMAN_DECISION_REQUIRED / Auto Continue=NO: readonly verification/evidence/context/
+Git only; Owner bounded123-cell presentation decision first. D2 source/scope and
+D3 S3/Human gates unchanged. Older D1 pending-return text is history.
+
 ## Current — 2026-10-16 D2 targeted6 locked; Owner source/scope decision required
 
 P1-CORE144-D2-TARGETED6-PHASE2-RAW-LOCK-AND-QA-GATE-01; source HEAD1bd7668;

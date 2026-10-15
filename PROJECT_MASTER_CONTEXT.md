@@ -1,5 +1,17 @@
 # LLMGuard 项目总控文档
 
+## 当前：D1真人Phase2原件已锁，A01首尾空白例外待批准（2026-10-16）
+
+两人各144条题号/题序/题文/表头精确不变，各1152枚举和144理由合法，0 minimum
+机械违规。A01只读123格仅首尾空格/换行变化，0实质文字变化；B01仅315空白
+存储差异。原Excel未重存，不静默把精确只读门判过。建议Owner仅批本次123格
+呈现等价，保留逐格审计，再比A/B；不重标144。现在没有比较/共识/GT。本人诊断
+保留A2/B1证据反馈及B24理由/选择线索，不自动判题错或改答案。隔离/未重存为
+Owner直接人工确认，非机器证明。[记录](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_PHASE2_RAW_LOCK_AND_RECEIPT_GATE_V1.md)，
+[状态V14](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V14.md)。
+D2载体/范围、D3两S3门不变；无Expected/角色加载/切分训练。
+PODR-139/OR-093/REL-2026-0108；Auto Continue=NO；文件例外尚未批准。
+
 ## 当前：D2定向6条已回收，但载体与范围问题仍须Owner决定（2026-10-16）
 
 GPT/豆包两份原件各6条已原字节锁定，题号/本人题序/11字段/枚举/reason均合法。

@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> **当前D1真人Phase2（2026-10-16）：** [两份原件与单份检查](core144/PAPER1_CORE144_D1_HUMAN_PHASE2_RAW_LOCK_AND_RECEIPT_GATE_V1.md)完成，各144条身份/题文/1152枚举/reason合法，0minimum机械违规。A01只读123格仅首尾空白，0实质变化；B01仅315空白存储差异。A01精确门暂扣，等Owner本次呈现等价例外，不重存/重标144、不比较A/B或造GT。[状态V14](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V14.md)保留D2/D3门；人工证明非机器证明，不改题/规则/证据、不切分训练。
+
 > **当前D2回收（2026-10-16）：** [定向6条原件锁定/QA](core144/PAPER1_CORE144_D2_TARGETED6_PHASE2_RAW_LOCK_AND_QA_GATE_V1.md)通过结构门，各6条/11字段/48枚举。两处条文事实与两条罚款理由已解决，3项版本执行差异旧规则已覆盖；会议记录载体和其他服务范围仍待Owner，不把一致率当验收。此前37建议未自动接受，D2 Human继续暂扣；D1/D3不变。[状态V13](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V13.md)。不改题/证据/Guide、不造GT、不训练；HUMAN_DECISION_REQUIRED。下面是历史。
 
 > **当前D2定向复核（2026-10-15）：** Owner已批准并完成[两份摘录V3及43项旧规则审查](core144/PAPER1_CORE144_D2_PHASE2_EXCERPT_V3_BOUNDED43_REVIEW_RECORD_V1.md)。原Candidate/ID/题序/E1E2、25快照/原答不变。37项本地建议不是Owner最终仲裁；6项交原D2 GPT/豆包会话。[每人七件绝对地址](core144/PAPER1_CORE144_D2_TARGETED6_PHASE2_V3_OWNER_SEND_CHECKLIST_V1.md)，只复核6条，不重跑144、不发Owner建议/对方原答。D2机器/Human未过、D1/D3门不变，[状态V12](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V12.md)。无Expected/GT、split/model；STOP_EXTERNAL_REVIEW_REQUIRED。下面是历史。

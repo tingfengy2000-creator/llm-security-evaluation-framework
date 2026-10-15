@@ -1,5 +1,18 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-139 — D1 Human Phase2 receipt/independence attested; no whitespace waiver
+
+2026-10-16. Owner supplies A01/B01 Phase2 XLSX, asks to process, directly answers
+“确认” to same-person/own Phase1/independent/approved frozen evidence/no other
+answers/new search/AI/no Owner re-save question. OWNER_ATTESTED, not machine proof.
+Normal immutable receipt/readonly checks authorized, not raw rewrite/new source/
+Guide semantics/GT/split/model or D2/D3 advancement.
+[Receipt and gate](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_PHASE2_RAW_LOCK_AND_RECEIPT_GATE_V1.md),
+OR-093/REL-2026-0108. A01 fixed123 boundary-whitespace changes,0 substantive,
+exact readonly gate held. Owner has NOT approved proposed presentation-equivalence
+exception. B01 fixed content pass; both144 identity/1152 enums/reasons legal.
+No A/B comparison/answer override; HUMAN_DECISION_REQUIRED; D2/D3 gates unchanged.
+
 ## PODR-138 — D2 targeted6 V3 originals returned; Reviewer declarations relayed
 
 2026-10-16 closeout; original lock timestamps UTC2026-10-15T15:00 (Asia/Tokyo

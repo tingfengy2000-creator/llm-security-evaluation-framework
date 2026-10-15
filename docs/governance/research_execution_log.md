@@ -1,5 +1,23 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0108 — D1 Human Phase2 byte lock; readonly presentation gate held
+
+2026-10-16; PODR-139/OR-093; source HEAD5d66be1. Unique research worktree/origin0/0
+verified; unrelated design/PDF preserved. Both originals locked before decode,
+200781/217867 bytes, SHA75b444a1...c5ca45e / b66984a7...48052. Own144 IDs/order/
+Candidate/headers/1152 enums/144 reasons legal each,0 mechanical minimum/selection
+flags. Formulas/native links/visibility/dropdowns exact,ZIP safety pass. A01 fixed
+123 boundary-whitespace cells (60 annotation/63 fulltext),0 substantive; B01 only
+315 blank-storage changes. A01 exact gate held; no silent waiver. Separate A2/B1
+limitation rows/B24 selection-reference leads retained, no A/B join/comparison/
+consensus/GT. [Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_PHASE2_RAW_LOCK_AND_RECEIPT_GATE_V1.md).
+Direct Owner isolation/no-resave OWNER_ATTESTED, not machine proof.13 synthetic
+tests plus lint/type/artifact/deterministic readonly checks support audit reliability
+only. Initial MyPy missing-list-annotations failure retained/fixed; failed docs
+patches made no partial edits. Twelve-field Owner packet proposes bounded123-cell
+equivalence, not redo144 or new rule. D2/D3 gates unchanged. No Expected/mapping/
+roles/new source/workbook save/split/model; safe governance persistence only.
+
 ## REL-2026-0107 — D2 targeted6 returned; structural PASS, Owner QA gate retained
 
 2026-10-16 closeout; PODR-138/OR-092; source HEAD1bd7668. Unique branch/worktree,

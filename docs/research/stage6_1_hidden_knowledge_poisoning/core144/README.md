@@ -1,5 +1,12 @@
 # Core144 navigation
 
+**Current D1 Human Phase2 (2026-10-16):** [Both originals locked; own144 identity/
+1152 enums/reasons legal](PAPER1_CORE144_D1_HUMAN_PHASE2_RAW_LOCK_AND_RECEIPT_GATE_V1.md). A01 fixed123 boundary-whitespace-only cells,
+zero substantive change; B01 only315 blank-storage differences. A01 exact readonly
+gate held,Owner exception pending,no A/B comparison/GT. [State V14](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V14.md)
+retains D2 source/scope and D3 S3 gates. OWNER_ATTESTED,not machine proof; no workbook/
+Guide/Candidate/Expected changes,split/model. Older D1 waiting-return text is history.
+
 **Current targeted6 returns (2026-10-16):** [Both originals locked and validated](PAPER1_CORE144_D2_TARGETED6_PHASE2_RAW_LOCK_AND_QA_GATE_V1.md),6 own IDs/order/11 fields/48 enums each. Five semantic rows/nine cells, one process-only; restored facts/fine reasons resolved, three covered version execution differences. Carrier/services need Owner bounded disposition; prior37 proposals not accepted, no effective annotation. [State V13](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V13.md) holds Human D2/D3 and preserves D1/D3 gates. No Candidate/source/Guide repair, Expected/GT/hidden roles/split/model; HUMAN_DECISION_REQUIRED. Below is history, not current waiting-for-six instruction.
 
 **Current D2 V3 bounded review (2026-10-15):** [Two full-article repairs and43 author reviews](PAPER1_CORE144_D2_PHASE2_EXCERPT_V3_BOUNDED43_REVIEW_RECORD_V1.md) complete;144 own records/25 sources/old74+18 files unchanged.37 local proposals are not Owner final adjudication,6 original-session rereviews pending. [Exact seven-file handoffs](PAPER1_CORE144_D2_TARGETED6_PHASE2_V3_OWNER_SEND_CHECKLIST_V1.md) for original D2 GPT/R4_CODEX Doubao only; no rerun144 or private proposals shared. [State V12](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V12.md): D2 machine/Human unaccepted, D1/D3 unchanged, no Expected/GT/split/model. STOP_EXTERNAL_REVIEW_REQUIRED. Older pending-repair entries below are history.

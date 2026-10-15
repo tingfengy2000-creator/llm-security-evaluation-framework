@@ -1,5 +1,21 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-093 — D1 Human Phase2 receipt; A01 readonly exception pending
+
+2026-10-16; PODR-139/REL-2026-0108; source HEAD5d66be1.
+HUMAN_RETURN_VALIDATION_AND_OWNER_PRESENTATION_GATE, not adjudication/GT/result.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_PHASE2_RAW_LOCK_AND_RECEIPT_GATE_V1.md).
+Private experiments/core144_d1_human_phase2_raw_lock_20261016/:two original XLSX,
+lock/attestation, own144 validation/answers/readonly before-after hashes/flags/
+leads, native safety,12-field Owner packet,commands/QA/index.
+A01 SHA75b444a135c9b7df01a494912047ec2a2513f8552befaecc572a91760c5ca45e;
+B01 SHAb66984a7247d7dff86492cef48549506bd743a511710fd0dfcab9c348d648052.
+Both144 identity/1152 enums/reasons legal,0 mechanical flags. A01 fixed123 boundary
+whitespace,0 substantive; B01 only315 blank storage changes. No exception approved/
+A/B comparison/consensus/GT. A2/B1 evidence limitations/B24 reference leads not
+proven dataset defects. OWNER_ATTESTED not machine proof. D2/D3 gates unchanged.
+Private Owner-only E mirror/index preserve recovery; tests do not close Owner gate.
+
 ## OR-092 — D2 targeted6 raw lock and bounded quality gate, not acceptance
 
 2026-10-16; PODR-138/REL-2026-0107; source HEAD1bd7668. Classification:
