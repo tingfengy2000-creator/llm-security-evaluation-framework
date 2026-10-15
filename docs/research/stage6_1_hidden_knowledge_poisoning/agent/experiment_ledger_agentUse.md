@@ -1,5 +1,26 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current D2 Phase2 receipt — 2026-10-15
+
+P1-CORE144-D2-PHASE2-RAW-LOCK-AND-COMPARISON-01; source HEADc741120d;
+PODR-136/OR-090/REL-2026-0105. [Record](../core144/PAPER1_CORE144_D2_PHASE2_RAW_LOCK_AND_COMPARISON_RECORD_V1.md),
+[state V11](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V11.md).
+Private experiments/core144_d2_phase2_raw_lock_20261015/ preserves97509/90977-byte
+originals,lock-before-parse manifest,strict144 own V2 ID/order/eleven-field schema/
+1152 legal categories/reasons each,comparison,43-case Owner packet,source witnesses,
+notebook/commands/index/closeout and Owner-only mirror. Own packet hashes and
+74 sealed preparation files unchanged; original source files preserved.
+Agreement overall135/version115/authority135/minimum143/selection118/issue143/
+secondary144/sufficiency143 of144.42 semantic rows/50 cells;15 process-only;
+five quality records/three IDs;semantic-quality union43. No adjudication/vote.
+Two frozen fulltext clauses omitted from V2 are directly confirmed; previous
+anchor-based completeness inference corrected additively. Carrier assertion
+separate. D2 gate held/Human unauthorized. No V3/Candidate/Guide/answer patch,
+new source, Expected/GT/R5/Human/split/model. R4 actual Doubao, OWNER_ATTESTED.
+D1 Human and D3 two blockers unchanged. Research authority/lessons unchanged;
+findings provisional. Next Owner approves bounded presentation repair/43-case
+triage or keeps held; do not promote raw agreement to scientific acceptance.
+
 ## Current Phase2 preflight — 2026-10-07
 
 P1-CORE144-D2-D3-PHASE2-PACKAGE-PREFLIGHT-AND-RELEASE-PREP-01;

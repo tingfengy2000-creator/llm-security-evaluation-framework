@@ -1,5 +1,25 @@
 # Current Work State
 
+## Current — 2026-10-15 D2 Phase2 raw locked; evidence/semantic gate held
+
+Task P1-CORE144-D2-PHASE2-RAW-LOCK-AND-COMPARISON-01;
+source HEADc741120d; PODR-136/OR-090/REL-2026-0105.
+[Raw identities/comparison](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_PHASE2_RAW_LOCK_AND_COMPARISON_RECORD_V1.md),
+[state V11](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V11.md).
+Two originals byte-locked before parse;144 each, own V2 ID/order/11 fields,
+1152 enums/reasons PASS.42 semantic rows/50 cells;15 process-only differences.
+Five quality flags/three candidates; semantic-quality union43, not43 proven defects.
+Two source articles exist in frozen fulltext but are omitted from V2:bank-law
+article2 and nonbank-payment article8. Additive correction to October7 broad
+excerpt-completeness inference; old74-file index/source/package/raw unchanged.
+Meeting-record carrier is a separate unresolved proposition-sufficiency item.
+D2 NOT machine-preannotation accepted; Human D2 NOT authorized; Owner bounded
+V3 excerpt repair/43-case triage decision pending, Auto Continue=NO. No V3 or
+Candidate/Guide/answer patch executed. Original D2 sessions OWNER_ATTESTED;
+R4 actual Doubao. D3 prior two blockers and D1 Human gates unchanged.
+No Expected/GT/R5/Human D2D3/split/model/calibration. Unrelated design/PDF excluded.
+Older ready-not-distributed entries are history; Owner now reports D2 returns.
+
 ## Current — 2026-10-07 D2 Phase2 excerpts ready; D3 necessity gate held
 
 Task P1-CORE144-D2-D3-PHASE2-PACKAGE-PREFLIGHT-AND-RELEASE-PREP-01;

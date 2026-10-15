@@ -1,5 +1,20 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-136 — D2 Phase2 V2 receipt and original-session Owner attestation
+
+2026-10-15. Owner supplies R3 GPT/R4_CODEX Phase2 V2 originals and states both
+returned. In response to the explicit original-D2 sessions/seven authorized
+files/per-row frozen Evidence/no other answers/mapping/labels/Expected/GT/
+repository/external sources/web/other-AI question, Owner answers “确认”.
+Record OWNER_ATTESTED, not machine isolation or context-ingestion proof.
+Receipt permits normal immutable locking/validation/comparison under the prior
+return workflow; it is NOT acceptance of answers, V3 repair, new rules, Human,
+GT or model approval. [Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_PHASE2_RAW_LOCK_AND_COMPARISON_RECORD_V1.md),
+OR-090/REL-2026-0105. Valid144 originals;42 semantic rows,15 process-only;
+43-case semantic/quality union, two confirmed excerpt omissions. Earlier V2
+preflight is corrected additively, not overwritten. [Repair/triage decision](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_PHASE2_EVIDENCE_AND_REVIEW_BLOCKER_V1.md)
+is PENDING_OWNER_APPROVAL. No new scientific authority inferred. D3/D1 unchanged.
+
 ## PODR-135 — D2/D3 Phase2 preflight approved; D2 traceable whole144 excerpts
 
 2026-10-07. Owner approves task P1-CORE144-D2-D3-PHASE2-PACKAGE-PREFLIGHT-AND-

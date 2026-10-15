@@ -1,5 +1,20 @@
 # LLMGuard 项目总控文档
 
+## 当前：D2第二阶段答卷有效，但发现摘录漏正文，暂不进人工（2026-10-15）
+
+财务GPT/豆包原答已分别锁原字节；各144条题号/题序、11字段、选项与理由均合法。
+42条存在事实/版本等分类分歧，另15条只差实际用了哪份证据；不是42条已判题错。
+两人共同发现两条所需正文没有发到V2：银行监管法第二条、非银行支付条例第八条。
+原冻结全文都有，问题出在摘录锚点没有覆盖全部补充命题，先前“完整性通过”的
+推断不足。旧记录/包/原答保留，追加更正；不能要求Reviewer靠常识或联网补齐。
+另有一条会议记录载体争议。合并分类分歧与质量flag后43条需有界审查。
+[原答与检查](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_PHASE2_RAW_LOCK_AND_COMPARISON_RECORD_V1.md)，
+[Owner待决定](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_PHASE2_EVIDENCE_AND_REVIEW_BLOCKER_V1.md)，
+[状态V11](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V11.md)。
+本轮没有修摘录或改题/规则/答案。建议另批准两份证据呈现V3修复及43项审查。
+D2机器预标注未验收、Human未授权；D3两项门和D1真人门不变。无Expected/GT、
+切分或训练。PODR-136/OR-090/REL-2026-0105；下方旧“待发”是历史状态。
+
 ## 当前：D2第二阶段整域摘录包可发，D3发现两条证据路径问题暂扣（2026-10-07）
 
 Owner已批准两域最终题号/证据预检与发放准备，并明确允许财务做可追溯摘录、仍144题。

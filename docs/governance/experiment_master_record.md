@@ -1,5 +1,23 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-090 — D2 Phase2 raw lock, comparison and witnessed excerpt correction
+
+2026-10-15; PODR-136/REL-2026-0105; source HEADc741120d.
+Classification REVIEW_RETURN_VALIDATION_AND_QUALITY_BLOCKER, not GT/formal result.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_PHASE2_RAW_LOCK_AND_COMPARISON_RECORD_V1.md).
+Private experiments/core144_d2_phase2_raw_lock_20261015/:two raw originals
+97509/90977 bytes; SHA72ecab7524fa041706f951b9f0b3bc079c946ae3d36f3499f6a51c76c7edc505 /
+6e24b476a6f939c560d63e68755f29e578385e0a0a749d72f93d218f32d87589;
+both locked before parse.144/own order/schema/enums/reasons PASS. Old preparation
+index74 files unchanged.42 semantic rows/50 cells,15 process-only;five quality
+flags/three IDs;43-case union retained for Owner, no vote/answer override.
+Two needed articles are absent from V2 but present in frozen fulltext. Earlier
+anchor-based PASS was insufficient for all supplementary atoms; correction is
+additive, original inputs/raw remain unchanged. Third carrier assertion disputed.
+D2 machine gate held/Human not authorized; no V3 repair. D3 two S3 blockers and
+D1 Human gates unchanged. OWNER_ATTESTED, R4 Doubao. No Expected/GT/R5/split/
+training. Notebook, command/index/closeout receipts and Owner-only mirror retained.
+
 ## OR-089 — Core144 Phase2 source preflight and D2-only excerpt handoff
 
 2026-10-07; PODR-135/REL-2026-0104; source HEAD33559e0d. Classification:

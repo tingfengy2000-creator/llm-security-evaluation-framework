@@ -1,5 +1,25 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0105 — D2 Phase2 returned; preserve raw and stop at quality gate
+
+2026-10-15; PODR-136/OR-090; source HEADc741120d. Unique research worktree,
+origin0/0 verified after permission-scoped fetch retry; existing design/PDF excluded.
+Owner confirms original D2 GPT/Doubao sessions, frozen-only isolation:
+OWNER_ATTESTED. Both originals copied/read-only/hash-manifest locked BEFORE
+parse. Exact144 own V2 IDs/order,eleven keys,1152 enums and144 reasons each PASS.
+Comparison by opaque ID yields42 semantic rows plus15 process-only, not votes.
+Five source-quality flags reference three unique rows; semantic-quality union43.
+[Raw and private case index](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_PHASE2_RAW_LOCK_AND_COMPARISON_RECORD_V1.md).
+Read-only visible-source check confirms omitted bank-law article2/payment article8
+in original frozen fulltext. Preserve old74-file index and V2, append correction
+to its earlier completeness inference; do not blame reviewers or supplement their
+raw with unseen text. Meeting-record carrier remains a separate unresolved item.
+Initial test-first missing module/fixture typing failures retained, passing reruns
+recorded. No V3/candidate/rule/answer patch; Owner repair/triage decision pending.
+D1/D3 independent gates unchanged. No Human D2D3/Expected/GT/R5/split/model.
+Mandatory docs, reproducibility notebook, tests/secret/link/ignore/index and
+Owner-only evidence mirror close the local receipt task, not scientific acceptance.
+
 ## REL-2026-0104 — D2 whole144 excerpt release prep; D3 pre-release blocker saved
 
 2026-10-07; PODR-135/OR-089; source HEAD33559e0d, unique research branch,

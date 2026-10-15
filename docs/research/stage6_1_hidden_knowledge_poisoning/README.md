@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> **当前D2返回（2026-10-15）：** [两份Phase2原答锁定](core144/PAPER1_CORE144_D2_PHASE2_RAW_LOCK_AND_COMPARISON_RECORD_V1.md)，各144条结构/题序/枚举/reason通过。42条语义分类分歧、15条仅实际证据选择差异；两项共同反馈确认为V2漏了原冻结正文条文，追加更正旧预检，不覆盖原包/原答。合并质量flag需审43题，不是43条确定题错。[Owner两份摘录修复及审查待决定](core144/PAPER1_CORE144_D2_PHASE2_EVIDENCE_AND_REVIEW_BLOCKER_V1.md)，尚未执行。D2机器验收未过/Human未授权；D3原两项暂扣与D1真人门不变。[状态V11](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V11.md)。无Expected/GT、切分或训练；下面是历史。
+
 > **当前Phase2（2026-10-07）：** [两域最终144身份/证据预检](core144/PAPER1_CORE144_D2_D3_PHASE2_PREFLIGHT_AND_RELEASE_RECORD_V1.md)完成；财务25/信息安全24份使用来源哈希通过，修复漂移0。D2依Owner批准生成可追溯摘录V2、仍144题，各七件文件复制核验，可按[绝对地址清单](core144/PAPER1_CORE144_D2_D3_PHASE2_OWNER_SEND_CHECKLIST_V1.md)发原D2 GPT/豆包会话；未分发，平台容量未证明，不能读写完整即停报，不拆96+48。D3两条S3比较可单证据否定，第二阶段暂扣，[待Owner两项有界决定](core144/PAPER1_CORE144_D3_PHASE2_S3_NECESSITY_BLOCKER_V1.md)，不裁证据或强改S。[状态V10](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V10.md)保留D1真人门；无Human D2/D3、Expected/GT、切分、训练。以下是历史。
 
 > **最新D1真人门（2026-10-06）：** B自己的第一阶段原件已[原字节锁定并核验](core144/PAPER1_CORE144_D1_HUMAN_B01_PHASE1_RAW_LOCK_AND_PHASE2_RELEASE_V1.md)，144行题号/顺序/题文、英文枚举及16条必需注释均PASS。B现在满足独立进入二阶段的既有门，Owner按[精确两件清单](core144/PAPER1_CORE144_D1_HUMAN_B01_PHASE2_OWNER_SEND_CHECKLIST_V1.md)只发B Excel和现有详细中文指南。允许发不等于已经发，不比较或改两人答案。[状态V9](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V9.md)保留A01授权与D2/D3第二阶段暂扣；无GT、切分或训练。下方旧B未完成状态为历史。
