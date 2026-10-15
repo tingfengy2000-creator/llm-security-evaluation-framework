@@ -1,5 +1,21 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-091 — D2 excerpt V3 and bounded43 author review; targeted6 pending
+
+2026-10-15; PODR-137/REL-2026-0106; source HEADa4baf3b. Classification:
+EVIDENCE_PRESENTATION_REPAIR_AND_BOUNDED_AUTHOR_QA, not GT/formal result.
+[Record and artifacts](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_PHASE2_EXCERPT_V3_BOUNDED43_REVIEW_RECORD_V1.md).
+Private experiments/core144_d2_phase2_excerpt_v3_review_20261015/:authored43 plan,
+two full-article before/after repairs,25 original hash checks, own144 exact V3
+archives,43 proposals with raw-before/rule/evidence lineage, six dependency rows,
+six-target own-order seven-file releases, readable Owner-only packet, notebook,
+command/QA/sealed-index receipts. Authoritative output_v2; preliminary output_v1
+retained unreleased; deterministic rebuild equal.37 local proposals are not
+Owner final adjudication;6 pending source/scope/reason rereviews. Effective
+annotations remain null. Old74/18 files and Guide/schema semantics unchanged.
+Stop external review; Human D2 unaccepted/unauthorized; D1/D3 unchanged. No new
+source, Expected/GT/split/model or claimed effectiveness. R4 actual Doubao.
+
 ## OR-090 — D2 Phase2 raw lock, comparison and witnessed excerpt correction
 
 2026-10-15; PODR-136/REL-2026-0105; source HEADc741120d.

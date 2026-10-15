@@ -1,5 +1,23 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0106 — D2 bounded V3 repair, rule review and original-session handoff
+
+2026-10-15; PODR-137/OR-091; source HEADa4baf3b. Unique research worktree/origin0/0
+verified; unrelated design/PDF preserved. Owner limits repair to two excerpts,
+43 old-rule cases and necessary original-session rereview. Complete article2/8
+restored with old ranges retained;25 source hashes and74/18 sealed files PASS.
+Both144 own records exact; two doc presentations change,23 equal. Six dependency
+rows inspected, four extra rows keep original anchors/no proposed judgment change.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_PHASE2_EXCERPT_V3_BOUNDED43_REVIEW_RECORD_V1.md).
+43 explicit author proposals preserve raw-before/proposed-fields/rules/hash/Owner
+lineage;37 local,6 external pending. Two reasons mix general/severe fine scope,
+not extra Candidate errors. Carrier/services unresolved. No effective annotation
+override. Six-row seven-file handoffs ready, original D2 GPT/Doubao only; no
+Reviewer impersonation. Actual delivery/returns unobserved. Initial red test kept;
+21 scoped tests/23 artifact checks/deterministic rebuild PASS. Mandatory docs and
+receipts close local preparation only. No Human D2D3/Expected/GT/split/model;
+D1/D3 and research authority unchanged. Auto Continue=NO.
+
 ## REL-2026-0105 — D2 Phase2 returned; preserve raw and stop at quality gate
 
 2026-10-15; PODR-136/OR-090; source HEADc741120d. Unique research worktree,

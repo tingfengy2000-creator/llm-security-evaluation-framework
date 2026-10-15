@@ -1,5 +1,19 @@
 # LLMGuard 项目总控文档
 
+## 当前：D2两份摘录V3已补，43项已审，等原会话定向6条（2026-10-15）
+
+Owner批准只修两份摘录、按V4–V4.3审43项。完整恢复银行监管法第二条、支付条例
+第八条，原题/ID/本人题序/E1E2、25份原快照不变；旧包/原答保留。37项形成本地
+规则建议，不是Owner最终仲裁/GT，不覆盖原答。6项交原D2 GPT/豆包会话：两条
+补证据、一条会议记录载体、一条其他服务范围、两条答卷一般/严重罚款上限错位。
+后两项不是Candidate新增错误；一致率不能使缺证据变充分。
+[记录](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_PHASE2_EXCERPT_V3_BOUNDED43_REVIEW_RECORD_V1.md)，
+[逐件地址](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_TARGETED6_PHASE2_V3_OWNER_SEND_CHECKLIST_V1.md)，
+[状态V12](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V12.md)。
+每人七件只复核6条，继续原D2会话，不新开项目；R4_CODEX实际豆包。旧隔离仅
+OWNER_ATTESTED，新外部复核未执行。D2机器/Human仍未授权，D1真人门、D3两项门
+不变。无Expected/GT、切分训练。PODR-137/OR-091/REL-2026-0106。
+
 ## 当前：D2第二阶段答卷有效，但发现摘录漏正文，暂不进人工（2026-10-15）
 
 财务GPT/豆包原答已分别锁原字节；各144条题号/题序、11字段、选项与理由均合法。

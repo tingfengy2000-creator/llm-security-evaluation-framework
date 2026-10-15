@@ -1,5 +1,23 @@
 # Current Work State
 
+## Current — 2026-10-15 D2 excerpts V3 repaired; targeted6 original-session gate
+
+P1-CORE144-D2-PHASE2-EXCERPT-V3-REPAIR-AND-BOUNDED43-REVIEW-01;
+source HEADa4baf3b; PODR-137/OR-091/REL-2026-0106.
+[Repair/review](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_PHASE2_EXCERPT_V3_BOUNDED43_REVIEW_RECORD_V1.md),
+[state V12](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V12.md).
+Owner approves only two excerpt V3 repairs and43 old-rule bounded cases.
+Full article2/8 restored from frozen texts; both144 own records and25 original
+hashes/old74/18 sealed files unchanged. Two doc presentations changed,23 equal.
+43 author proposals:37 local,6 original-session targeted pending; not Owner final
+adjudication/GT; no raw/evidence_selection override. Carrier/services and two
+general/severe reason-scope cases remain in six. [Exact seven-file addresses](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_TARGETED6_PHASE2_V3_OWNER_SEND_CHECKLIST_V1.md).
+Continue original D2 GPT/R4_CODEX Doubao sessions; unavailable => incident STOP.
+D2 machine/Human unaccepted; D1 gates/D3 two blockers unchanged. Old-run isolation
+OWNER_ATTESTED; new targeted execution unobserved. No Expected/GT/new source/
+Candidate/Guide semantics/split/model. STOP_EXTERNAL_REVIEW_REQUIRED; Auto
+Continue=NO. Older pending-repair text below is historical in that approval scope.
+
 ## Current — 2026-10-15 D2 Phase2 raw locked; evidence/semantic gate held
 
 Task P1-CORE144-D2-PHASE2-RAW-LOCK-AND-COMPARISON-01;

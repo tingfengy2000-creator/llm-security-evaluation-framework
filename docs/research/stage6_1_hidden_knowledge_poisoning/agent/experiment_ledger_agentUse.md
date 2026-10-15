@@ -1,5 +1,21 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current D2 V3 repair and bounded43 review — 2026-10-15
+
+PODR-137/OR-091/REL-2026-0106; source HEADa4baf3b. [Record](../core144/PAPER1_CORE144_D2_PHASE2_EXCERPT_V3_BOUNDED43_REVIEW_RECORD_V1.md),
+[state V12](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V12.md).
+Two full frozen articles restored; two shared doc presentations change,23 equal.
+Both144 records/own E1E2/order/Phase1 exact;25 source hashes and old74/18 files
+PASS. Six reference rows inspected; four extra rows retain original anchors/no
+proposed judgment change.43 explicit author reviews with raw-before/proposed-
+fields/rule-section-SHA/evidence/Owner lineage:37 local,6 targeted pending;
+effective annotation null, selection not rewritten. Seven-file six-row releases
+for original D2 GPT/Doubao ready, new runs/delivery unobserved. No Expected/control
+labels/GT/Human/split/model or new rule. Private output_v2 authoritative, first
+unreleased output_v1 retained; deterministic rebuild equal. Notebook/index/QA
+receipts retained. D1/D3 and research authority/long-term contracts unchanged:
+presentation QA, no method transition or result claim. Stop external review.
+
 ## Current D2 Phase2 receipt — 2026-10-15
 
 P1-CORE144-D2-PHASE2-RAW-LOCK-AND-COMPARISON-01; source HEADc741120d;

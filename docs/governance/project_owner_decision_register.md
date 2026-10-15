@@ -1,5 +1,20 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-137 — D2 two-excerpt V3 repair and bounded43 old-rule review approved
+
+2026-10-15. Exact Owner: “批准：仅修复两份证据摘录为 V3，不改 Candidate／原快照，
+并按既有 V4–V4.3 对43项做有界审查，必要时交原会话定向复核”。 This replaces
+only PODR-136's pending repair/triage gate. Authorizes literal article2/article8
+restoration from frozen sources and bounded QA, not new sources, Candidate,
+Guide/enum semantics, raw answer rewrite or final adjudication. [Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_PHASE2_EXCERPT_V3_BOUNDED43_REVIEW_RECORD_V1.md),
+OR-091/REL-2026-0106. Both144 records exact;25 source hashes and old74/18 sealed
+files retained.43 inspectable author proposals:37 local,6 original-session
+rereviews pending. No vote/Expected/GT; evidence_selection histories preserved.
+Seven-file targeted handoffs may be sent to original D2 GPT/Doubao sessions,
+not a new independent review claim. R4_CODEX is historical code, provider Doubao;
+old isolation OWNER_ATTESTED, new runs not yet attested. Human D2 remains
+unauthorized; D1 gates/D3 two blockers unchanged. No split/model/calibration.
+
 ## PODR-136 — D2 Phase2 V2 receipt and original-session Owner attestation
 
 2026-10-15. Owner supplies R3 GPT/R4_CODEX Phase2 V2 originals and states both
