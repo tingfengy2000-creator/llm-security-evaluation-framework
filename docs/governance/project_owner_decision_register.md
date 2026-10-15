@@ -1,5 +1,19 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-138 — D2 targeted6 V3 originals returned; Reviewer declarations relayed
+
+2026-10-16 closeout; original lock timestamps UTC2026-10-15T15:00 (Asia/Tokyo
+midnight). Owner supplies R3 GPT/R4_CODEX targeted6 originals and relays their
+original-D2-session/seven-files/assigned-frozen-E1E2/no-other-answer/web/AI/no-
+incident statements. Record OWNER_SUPPLIED_REVIEWER_SELF_DECLARATIONS, not
+machine proof or new direct OWNER_ATTESTED isolation. Receipt authorizes normal
+immutable locking/validation/bounded review under PODR-137, not acceptance,
+Candidate/new Evidence/Guide repair, Human or GT. [Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_TARGETED6_PHASE2_RAW_LOCK_AND_QA_GATE_V1.md),
+OR-092/REL-2026-0107. Both6 valid; source omissions/fine-reason scope resolved;
+three covered version execution differences and two material carrier/services
+Owner items remain. Prior37 proposals unchanged/unaccepted; no vote/override.
+HUMAN_DECISION_REQUIRED; D2 Human held, D1/D3 unchanged. No new approval inferred.
+
 ## PODR-137 — D2 two-excerpt V3 repair and bounded43 old-rule review approved
 
 2026-10-15. Exact Owner: “批准：仅修复两份证据摘录为 V3，不改 Candidate／原快照，

@@ -1,5 +1,22 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-092 — D2 targeted6 raw lock and bounded quality gate, not acceptance
+
+2026-10-16; PODR-138/REL-2026-0107; source HEAD1bd7668. Classification:
+REVIEW_RETURN_VALIDATION_AND_OWNER_QA_BLOCKER. [Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_TARGETED6_PHASE2_RAW_LOCK_AND_QA_GATE_V1.md).
+Private experiments/core144_d2_targeted6_phase2_raw_lock_20261015/ retains two
+originals5546/3923 bytes, SHAe83c3b0d8abbd5a3e00f18e2b47a99591cdebde399259789660838daf2e711cb /
+3085bdc7be45a061acef348d26baf0fbb0eeb1b3b9b4a7764c35cf1f12a829bf,
+both locked before parse. Each6 IDs/own order/11 string fields/48 enums/reasons
+PASS; zero mechanical cross-field flags. Five semantic rows/nine cells, one
+process-only. Comparisons, V2->V3 raw lineage, literal source witnesses, six author
+reviews, twelve-field Owner packet, declarations/notebook/commands/index retained.
+Two restored facts/two fine reasons resolved, three version execution variances
+covered by existing rules; carrier/services Owner gate remains. No Candidate/
+Evidence/Guide/raw/effective annotation change. Prior79 sealed files unchanged,
+prior37 proposals not accepted. D2 Human held; D1/D3 unchanged. No Expected/GT/
+construction-role loading/split/model. Reviewer self-declarations not machine proof.
+
 ## OR-091 — D2 excerpt V3 and bounded43 author review; targeted6 pending
 
 2026-10-15; PODR-137/REL-2026-0106; source HEADa4baf3b. Classification:

@@ -1,5 +1,23 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0107 — D2 targeted6 returned; structural PASS, Owner QA gate retained
+
+2026-10-16 closeout; PODR-138/OR-092; source HEAD1bd7668. Unique branch/worktree,
+fetch/origin0/0 verified; unrelated design/PDF retained. Both originals copied
+read-only and manifest-locked before parsing;6/own ID order/11 fields/48 enums/
+6 reasons/UTF8 noBOM PASS each. Zero minimum/evidence-selection mechanical flags.
+Five semantic rows/nine cells plus one process-only; do not harmonize actual use.
+[Bounded findings](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_TARGETED6_PHASE2_RAW_LOCK_AND_QA_GATE_V1.md).
+Restored clauses support facts; new fine reasons use general20, not severe100.
+Three version presence differences are old-rule execution, not Guide gap.
+Carrier assertion still unproved and services scope still material; separate
+Owner twelve-field gate, no repeat-review loop or agreement-as-proof. Original
+raw/proposals79-file index retained; prior37 proposals unaccepted. New isolation
+is Reviewer self-declared/Owner-relayed, not machine or direct Owner attestation.
+Initial test-first missing-module failure retained. No Candidate/source/Guide/
+raw rewrite, Expected/GT, Human D2D3, split or training. D1/D3 unchanged. Safe
+QA/Git/docs preservation only; Auto Continue=NO pending Owner bounded disposition.
+
 ## REL-2026-0106 — D2 bounded V3 repair, rule review and original-session handoff
 
 2026-10-15; PODR-137/OR-091; source HEADa4baf3b. Unique research worktree/origin0/0

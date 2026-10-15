@@ -1,5 +1,21 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current targeted6 return gate — 2026-10-16
+
+PODR-138/OR-092/REL-2026-0107; source HEAD1bd7668. [Record](../core144/PAPER1_CORE144_D2_TARGETED6_PHASE2_RAW_LOCK_AND_QA_GATE_V1.md),
+[state V13](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V13.md).
+Private experiments/core144_d2_targeted6_phase2_raw_lock_20261015/:original6 raw
+pair5546/3923 bytes, lock-before-parse SHA manifest, own6/11/48 enum validation,
+comparison and V2->V3 raw lineage, six author source/rule reviews, twelve-field
+Owner packet, declarations/notebook/commands/index. Five semantic rows/nine cells,
+one process-only, zero detected cross-field flags. Two restored facts/two reason
+scope defects resolved; three covered version execution items; two material
+carrier/services Owner items. Prior37 author proposals/effective-null unchanged;
+prior79 files match. Source/Guide/schema/Candidate/raw immutable, no Expected/GT/
+hidden construction-role loading/Human/split/model. Self-declared isolation relayed
+by Owner, not machine/new direct OWNER_ATTESTED. D1/D3 unchanged. Research authority/
+lessons unchanged: case QA, no accepted new method or Guide. Stop for Owner decision.
+
 ## Current D2 V3 repair and bounded43 review — 2026-10-15
 
 PODR-137/OR-091/REL-2026-0106; source HEADa4baf3b. [Record](../core144/PAPER1_CORE144_D2_PHASE2_EXCERPT_V3_BOUNDED43_REVIEW_RECORD_V1.md),

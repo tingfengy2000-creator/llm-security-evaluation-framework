@@ -1,5 +1,23 @@
 # Current Work State
 
+## Current — 2026-10-16 D2 targeted6 locked; Owner source/scope decision required
+
+P1-CORE144-D2-TARGETED6-PHASE2-RAW-LOCK-AND-QA-GATE-01; source HEAD1bd7668;
+PODR-138/OR-092/REL-2026-0107. [Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_TARGETED6_PHASE2_RAW_LOCK_AND_QA_GATE_V1.md),
+[state V13](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V13.md).
+Both6 original returns locked unchanged before parse; own IDs/order/11 fields/
+48 enums/reasons PASS each, zero detected cross-field flags. Five semantic rows/
+nine cells plus one process-only. Two restored-clause facts and two fine-reason
+scope defects resolved; three version presence execution differences already
+covered by V4.2/V4.3, no new rule. Carrier evidence gap and other-services scope
+remain two material Owner items. Proposed values not applied, prior37 unaccepted.
+Owner-relayed Reviewer isolation declarations, not machine proof/new direct
+OWNER_ATTESTED. Original D2 GPT/Doubao provenance; no new reviewer round.
+HUMAN_DECISION_REQUIRED / Auto Continue=NO; only read-only evidence/context/Git
+preservation pending Owner. No Candidate/Evidence/Guide/raw repair, new source,
+Human D2D3, Expected/GT, hidden role loading, split or model. D1/D3 gates unchanged.
+Older waiting-for-six-return entries are history; no Human authorization follows.
+
 ## Current — 2026-10-15 D2 excerpts V3 repaired; targeted6 original-session gate
 
 P1-CORE144-D2-PHASE2-EXCERPT-V3-REPAIR-AND-BOUNDED43-REVIEW-01;

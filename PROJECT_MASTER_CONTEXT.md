@@ -1,5 +1,18 @@
 # LLMGuard 项目总控文档
 
+## 当前：D2定向6条已回收，但载体与范围问题仍须Owner决定（2026-10-16）
+
+GPT/豆包两份原件各6条已原字节锁定，题号/本人题序/11字段/枚举/reason均合法。
+两处补正文后事实都得到支持，两条罚款理由也统一用了单位一般情形20万。
+但三项版本字段仍是旧V4.2/V4.3规则执行差异，不能因此继续改Guide。
+“会议记录”载体没被冻结证据证明；“其他服务6%”遗漏条文分类/排除，仍需
+Owner字面范围判断与必要的构造合同核查，不能未看角色就宣称两条都是构造错误。
+[原答与门](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_TARGETED6_PHASE2_RAW_LOCK_AND_QA_GATE_V1.md)，
+[状态V13](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V13.md)。
+此前37项建议仍未获最终接受，没有覆盖原答或生成GT。运行隔离声明是Reviewer
+经Owner转述，不是机器证明或新的Owner直接确认。D2仍不能发真人包，D1/D3不变。
+本轮未改Candidate/快照/规则，不补外证、不训练。PODR-138/OR-092/REL-2026-0107。
+
 ## 当前：D2两份摘录V3已补，43项已审，等原会话定向6条（2026-10-15）
 
 Owner批准只修两份摘录、按V4–V4.3审43项。完整恢复银行监管法第二条、支付条例
