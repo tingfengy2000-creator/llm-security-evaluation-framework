@@ -1,5 +1,7 @@
 # Paper 1 Start Here
 
+> **当前D1 A/B比较（2026-10-16）：** Owner已批仅本次123格呈现等价，原件未改；[144对比较完成](core144/PAPER1_CORE144_D1_HUMAN_AB_COMPARISON_RECORD_V1.md)，Phase2七语义964/1008一致（95.6349%），31条语义分歧/44格，另21条仅过程不同；54条去重待审，不是54条已判错。原答/旧记录保留，无仲裁/GT。[状态V15](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V15.md)等另批有界54条审查并保持D2/D3原门。下方“例外待批”已成为本次批准前历史。
+
 > **当前D1真人Phase2（2026-10-16）：** [两份原件与单份检查](core144/PAPER1_CORE144_D1_HUMAN_PHASE2_RAW_LOCK_AND_RECEIPT_GATE_V1.md)完成，各144条身份/题文/1152枚举/reason合法，0minimum机械违规。A01只读123格仅首尾空白，0实质变化；B01仅315空白存储差异。A01精确门暂扣，等Owner本次呈现等价例外，不重存/重标144、不比较A/B或造GT。[状态V14](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V14.md)保留D2/D3门；人工证明非机器证明，不改题/规则/证据、不切分训练。
 
 > **当前D2回收（2026-10-16）：** [定向6条原件锁定/QA](core144/PAPER1_CORE144_D2_TARGETED6_PHASE2_RAW_LOCK_AND_QA_GATE_V1.md)通过结构门，各6条/11字段/48枚举。两处条文事实与两条罚款理由已解决，3项版本执行差异旧规则已覆盖；会议记录载体和其他服务范围仍待Owner，不把一致率当验收。此前37建议未自动接受，D2 Human继续暂扣；D1/D3不变。[状态V13](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V13.md)。不改题/证据/Guide、不造GT、不训练；HUMAN_DECISION_REQUIRED。下面是历史。

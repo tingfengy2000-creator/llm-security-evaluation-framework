@@ -1,5 +1,18 @@
 # LLMGuard 项目总控文档
 
+## 当前：D1 A/B比较完成，123格例外已接受，等有界待审处理（2026-10-16）
+
+Owner仅批本次A01的123格首尾空白呈现等价，原件不改；旧精确校验失败事实保留。
+144条精确题文一对一匹配，双方E1/E2相同，旧50份证据与原件哈希不变。
+Phase2七语义字段964/1008一致（95.6349%），31条语义分歧/44格，另21条仅实际
+证据选择不同，92条八分类全同。Phase1三条分歧，其中两条local与minimum关联。
+待审去重54=31条Phase2+1条额外Phase1+22条额外质量线索，不是54条已判错。
+原答/proposed/effective均未覆盖；未仲裁或造GT。下一步建议另批有界54条审查/
+Owner仲裁准备，不全量重标、不改Guide。D2/D3原门不变，隔离仍人工确认非机器证明。
+[结果](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_AB_COMPARISON_RECORD_V1.md)，
+[状态V15](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V15.md)。
+PODR-140/OR-094/REL-2026-0109；无Expected/构造角色/切分训练，Auto Continue=NO。
+
 ## 当前：D1真人Phase2原件已锁，A01首尾空白例外待批准（2026-10-16）
 
 两人各144条题号/题序/题文/表头精确不变，各1152枚举和144理由合法，0 minimum

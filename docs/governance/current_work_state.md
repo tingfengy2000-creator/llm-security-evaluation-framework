@@ -1,5 +1,26 @@
 # Current Work State
 
+## Current — 2026-10-16 D1 presentation exception accepted; A/B comparison complete
+
+Task P1-CORE144-D1-HUMAN-PRESENTATION-EXCEPTION-AND-AB-COMPARISON-01.
+[Comparison](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_AB_COMPARISON_RECORD_V1.md),
+[state V15](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V15.md).
+PODR-140/OR-094/REL-2026-0109; source HEAD2845e8e. Owner explicitly approves only
+the123-cell A01 presentation equivalence and A/B comparison, original bytes unchanged.
+Old literal-parity failure remains a historical fact, not normalized away.
+144 exact-text pairs/assigned E1E2 bundles match; old50-file index/raw/issued/own
+Phase1 hashes unchanged. Phase2 semantic964/1008 (95.6349%),31 rows/44 cells;
+21 process-only,92 all-eight-equal. Phase1 differences3 rows,2 local/minimum-linked.
+Review union54=31 Phase2+1 extra Phase1+22 extra quality leads, not54 proven errors.
+Quality leads27 include A2/B1 insufficiency and B24 reason/selection leads;10 of
+the21 process-only rows overlap review union,11 archive-only. No answer correction,
+proposed/effective adjudication null, no consensus-as-GT. Direct OWNER_ATTESTED
+not machine proof. No Expected/mapping/roles/external Reviewer answers/new source/
+workbook save/split/model or D2/D3 advancement. Stop for separately approved
+bounded54 triage/adjudication-prep; AUTO_CONTINUE=NO / NO_GT.
+Older pending123-cell exception/comparison-withheld entries are superseded only
+within this explicitly approved scope. D2 source/scope/D3 S3/Human gates unchanged.
+
 ## Current — 2026-10-16 D1 Human Phase2 locked; presentation exception pending
 
 P1-CORE144-D1-HUMAN-DUAL-PHASE2-RAW-LOCK-AND-COMPARISON-01;

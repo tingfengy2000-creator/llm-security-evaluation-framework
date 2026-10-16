@@ -1,5 +1,17 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-140 — exactly123 A01 presentation cells accepted; comparison only approved
+
+2026-10-16. Exact Owner: “批准仅本次123格呈现等价，原件不改，继续A/B比较。”
+Supersedes PODR-139's pending presentation gate ONLY for rawSHA75b444a1...c5ca45e,
+issuedSHA76d43b8b...baef8a and diff-listSHA1e5a9747...20ec8; no general trim waiver.
+[Comparison](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_AB_COMPARISON_RECORD_V1.md).
+144 pairs complete; semantic31/44 cells,21 process-only,54 deduplicated review
+rows. Approval is not annotation correctness, answer repair, Guide change,
+Owner adjudication, GT or D2/D3 advancement. Proposed/effective values null.
+OR-094/REL-2026-0109. Existing direct isolation OWNER_ATTESTED scope unchanged.
+Next bounded54 triage/adjudication-prep not approved or executed by this decision.
+
 ## PODR-139 — D1 Human Phase2 receipt/independence attested; no whitespace waiver
 
 2026-10-16. Owner supplies A01/B01 Phase2 XLSX, asks to process, directly answers

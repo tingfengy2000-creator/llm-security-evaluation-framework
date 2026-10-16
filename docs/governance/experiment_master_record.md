@@ -1,5 +1,28 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-094 — D1 Human A/B comparison with bounded presentation overlay
+
+2026-10-16; HUMAN_ANNOTATION_COMPARISON / NOT_GT / NOT_FORMAL_RESULT.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_AB_COMPARISON_RECORD_V1.md).
+PODR-140/OR-094/REL-2026-0109; source HEAD2845e8e. Owner explicitly approves only
+the123-cell A01 presentation equivalence and A/B comparison, original bytes unchanged.
+Old literal-parity failure remains a historical fact, not normalized away.
+144 exact-text pairs/assigned E1E2 bundles match; old50-file index/raw/issued/own
+Phase1 hashes unchanged. Phase2 semantic964/1008 (95.6349%),31 rows/44 cells;
+21 process-only,92 all-eight-equal. Phase1 differences3 rows,2 local/minimum-linked.
+Review union54=31 Phase2+1 extra Phase1+22 extra quality leads, not54 proven errors.
+Quality leads27 include A2/B1 insufficiency and B24 reason/selection leads;10 of
+the21 process-only rows overlap review union,11 archive-only. No answer correction,
+proposed/effective adjudication null, no consensus-as-GT. Direct OWNER_ATTESTED
+not machine proof. No Expected/mapping/roles/external Reviewer answers/new source/
+workbook save/split/model or D2/D3 advancement. Stop for separately approved
+bounded54 triage/adjudication-prep; AUTO_CONTINUE=NO / NO_GT.
+Private experiments/core144_d1_human_ab_comparison_20261016/:Owner receipt,
+SHA-bound123-cell overlay/preflight,144 paired rows/metrics/confusion matrices,
+54-case Owner queue/packet,21 process-only records/decomposition, next twelve-field
+Owner packet, companion calculation/commands/QA/index; E mirror Owner-only.
+No consensus-value artifact. Research authority/long-term/Guide unchanged.
+
 ## OR-093 — D1 Human Phase2 receipt; A01 readonly exception pending
 
 2026-10-16; PODR-139/REL-2026-0108; source HEAD5d66be1.

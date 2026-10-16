@@ -1,5 +1,12 @@
 # Core144 navigation
 
+**Current D1 Human A/B comparison (2026-10-16):** [Exact123-cell Owner exception
+accepted;144 pairs compared](PAPER1_CORE144_D1_HUMAN_AB_COMPARISON_RECORD_V1.md). Semantic964/1008,31 rows/44 cells;
+21 process-only,54 deduplicated review leads (not54 proven defects). Originals/
+old literal-parity fact/old50-file index unchanged; no correction/GT. [State V15](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V15.md)
+holds next bounded54 Owner triage, retains D2/D3 gates. Older presentation-pending
+entries are history within this scope, not a remaining123-cell blocker.
+
 **Current D1 Human Phase2 (2026-10-16):** [Both originals locked; own144 identity/
 1152 enums/reasons legal](PAPER1_CORE144_D1_HUMAN_PHASE2_RAW_LOCK_AND_RECEIPT_GATE_V1.md). A01 fixed123 boundary-whitespace-only cells,
 zero substantive change; B01 only315 blank-storage differences. A01 exact readonly

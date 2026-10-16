@@ -1,5 +1,32 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0109 — D1 exact presentation exception and Human A/B comparison
+
+Validation boundary:24 scoped tests/Ruff/MyPy pass; broad79-test run has73 pass/
+6 failures. All6 reproduce using source-HEAD document bytes in memory (historical
+paths/language ratio/process vocabulary), not new task regressions; no rewrite.
+
+2026-10-16. Owner exact123-cell approval persisted before execution. Test-first
+missing-module failure retained;11 new synthetic tests pass, no old test/data
+rewrite. Exact text join rejects duplicates/missing/trim matches; assigned E1E2
+parity verified. [Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_HUMAN_AB_COMPARISON_RECORD_V1.md).
+PODR-140/OR-094/REL-2026-0109; source HEAD2845e8e. Owner explicitly approves only
+the123-cell A01 presentation equivalence and A/B comparison, original bytes unchanged.
+Old literal-parity failure remains a historical fact, not normalized away.
+144 exact-text pairs/assigned E1E2 bundles match; old50-file index/raw/issued/own
+Phase1 hashes unchanged. Phase2 semantic964/1008 (95.6349%),31 rows/44 cells;
+21 process-only,92 all-eight-equal. Phase1 differences3 rows,2 local/minimum-linked.
+Review union54=31 Phase2+1 extra Phase1+22 extra quality leads, not54 proven errors.
+Quality leads27 include A2/B1 insufficiency and B24 reason/selection leads;10 of
+the21 process-only rows overlap review union,11 archive-only. No answer correction,
+proposed/effective adjudication null, no consensus-as-GT. Direct OWNER_ATTESTED
+not machine proof. No Expected/mapping/roles/external Reviewer answers/new source/
+workbook save/split/model or D2/D3 advancement. Stop for separately approved
+bounded54 triage/adjudication-prep; AUTO_CONTINUE=NO / NO_GT.
+Initial MyPy executable DLL-relocation launcher failure retained; same installed
+environment's python -m mypy succeeds, no install or machine environment change.
+Only safe comparison/Owner evidence/governance closeout; no factual adjudication.
+
 ## REL-2026-0108 — D1 Human Phase2 byte lock; readonly presentation gate held
 
 2026-10-16; PODR-139/OR-093; source HEAD5d66be1. Unique research worktree/origin0/0
