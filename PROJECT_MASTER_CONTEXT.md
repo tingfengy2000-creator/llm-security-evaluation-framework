@@ -1,5 +1,16 @@
 # LLMGuard 项目总控文档
 
+## 当前：D1的54条已审，Owner仲裁材料已备好（2026-10-16）
+
+Owner批准“对54条做有界审查并准备Owner仲裁材料”，本轮逐条完成，不扩成144条重标。
+34条有47格作者分类建议；新表57项Owner最终值全空，原答/原Excel/实际阅读记录不改。
+重点四条：一条未给第十条、一条旧数字OCR不可可靠读、两条双机关公布不自动构成
+文内排他矛盾。证据修复或角色解释须Owner决定，不补搜或静默写规则。
+[审查与材料入口](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_BOUNDED54_REVIEW_AND_OWNER_PREP_RECORD_V1.md)，
+[状态V16](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V16.md)。
+PODR-141/OR-095/REL-2026-0110；仲裁待完成，无GT，D2/D3门不变，无Expected/角色/切分训练。
+以下比较后等授权审查的记录已成为历史，不能当成本轮仍未授权，也不等于批准作者建议生效。
+
 ## 当前：D1 A/B比较完成，123格例外已接受，等有界待审处理（2026-10-16）
 
 Owner仅批本次A01的123格首尾空白呈现等价，原件不改；旧精确校验失败事实保留。

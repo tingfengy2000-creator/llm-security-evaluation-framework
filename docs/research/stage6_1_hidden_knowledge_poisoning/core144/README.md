@@ -1,5 +1,11 @@
 # Core144 navigation
 
+**Current D1 bounded54 (2026-10-16):** [54 reviewed; Owner workbook and Chinese packet ready](PAPER1_CORE144_D1_BOUNDED54_REVIEW_AND_OWNER_PREP_RECORD_V1.md).
+34 cases/47 author proposals,57 blank final-field items; two issued-evidence gaps
+and two institutional-role scope cases need Owner. Originals/Guide/evidence unchanged,
+no effective values/GT or D2/D3 advance. [State V16](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V16.md).
+Earlier pending bounded-review approval is historical, not final adjudication permission.
+
 **Current D1 Human A/B comparison (2026-10-16):** [Exact123-cell Owner exception
 accepted;144 pairs compared](PAPER1_CORE144_D1_HUMAN_AB_COMPARISON_RECORD_V1.md). Semantic964/1008,31 rows/44 cells;
 21 process-only,54 deduplicated review leads (not54 proven defects). Originals/

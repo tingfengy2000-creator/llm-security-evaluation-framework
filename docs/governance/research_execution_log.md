@@ -1,5 +1,27 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0110 — D1 bounded54 review and additive Owner materials
+
+Validation:45 artifact checks/33 related tests/Ruff/MyPy pass; broad88 has82 pass/
+6 source-HEAD-reproduced inherited failures. Baseline harness initially used
+displayed subtest IDs as method names; stripped only subtest suffixes, then
+six baseline failures reproduced. No test/history semantics changed.
+
+2026-10-16; source HEADacabd50; PODR-141/OR-095. Owner approves54 review/prep only.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_BOUNDED54_REVIEW_AND_OWNER_PREP_RECORD_V1.md).
+54/54 original queue reviewed; no hidden construction/Expected/other Reviewer
+inputs. Assigned A/B fulltexts identical; original evidence/raw hashes retained.
+34 cases/47 author value proposals,57 field decisions with blank Owner values;
+new four-sheet workbook and Chinese packet, no original Excel writes.
+Evidence gaps0051/0121 and role/internal-conflict cases0078/0116 escalated with
+twelve-field records. Existing-rule proposals are not effective adjudication.
+No new Guide/source/GT/split/model or D2/D3 gate advance. Stop Owner decision.
+Test-first missing-module failure retained, then nine synthetic guardrails added.
+Missing exact witness anchors fail closed; corrected source-local aliases only,
+not evidence content. Render draft title/row-height issue corrected before release;
+old draft retained privately, final four sheets inspected. No native Excel launch.
+Task QA/commands/index/Git receipts remain separate; unrelated design/PDF excluded.
+
 ## REL-2026-0109 — D1 exact presentation exception and Human A/B comparison
 
 Validation boundary:24 scoped tests/Ruff/MyPy pass; broad79-test run has73 pass/

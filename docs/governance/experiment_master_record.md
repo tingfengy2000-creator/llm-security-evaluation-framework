@@ -1,5 +1,22 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-095 — D1 bounded54 Human review and Owner adjudication preparation
+
+2026-10-16; HUMAN_ANNOTATION_QA_PREPARATION / NOT_GT / NOT_FORMAL_RESULT.
+PODR-141/OR-095/REL-2026-0110; source HEADacabd50.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_BOUNDED54_REVIEW_AND_OWNER_PREP_RECORD_V1.md).
+54/54 original queue rows, unchanged order;34 cases/47 author proposed cells,
+57 Owner field items with blank final values. Primary classes27 rule execution,
+20 reason/process,2 evidence gaps,2 role-scope,2 shared-history,1 naturalness.
+Priority0051 lacks assigned article10;0121 old numeric OCR unreadable;0078/0116
+not automatically internal contradiction. No silent repair/new rule/final values.
+Private experiments/core144_d1_human_ab_bounded54_triage_20261016/ retains
+authorization/input hashes, assigned fulltexts, manual54 notes, exact witnesses,
+Owner workbook/Chinese packet/three twelve-field decision records, QA and index.
+Original raw/issued books and previous46+50 sealed files unchanged; no Expected/
+roles/mapping/Reviewer answers/new source/GT/split/model or D2/D3 progression.
+Owner adjudication remains pending; material repair/rereview needs explicit decision.
+
 ## OR-094 — D1 Human A/B comparison with bounded presentation overlay
 
 2026-10-16; HUMAN_ANNOTATION_COMPARISON / NOT_GT / NOT_FORMAL_RESULT.

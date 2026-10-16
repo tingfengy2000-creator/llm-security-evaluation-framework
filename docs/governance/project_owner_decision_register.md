@@ -1,5 +1,17 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-141 — D1 Human bounded54 review and Owner material preparation approved
+
+2026-10-16. Exact Owner: “对54条做有界审查并准备Owner仲裁材料”.
+Approves exactly the sealed54 queue desk review under existing V4–V4.3/assigned
+frozen evidence, and additive Owner materials. Does not approve any author
+proposal as final, original workbook/raw/evidence/Guide repair, Expected load,
+new source, GT, split/model, rereview release or D2/D3 advancement.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D1_BOUNDED54_REVIEW_AND_OWNER_PREP_RECORD_V1.md).
+OR-095/REL-2026-0110.54 complete,47 proposed cells in34 cases;57 blank Owner
+field items. Four priority cases remain Owner decisions. Supersedes PODR-140's
+pending review authorization only; no adjudication or GT acceptance inferred.
+
 ## PODR-140 — exactly123 A01 presentation cells accepted; comparison only approved
 
 2026-10-16. Exact Owner: “批准仅本次123格呈现等价，原件不改，继续A/B比较。”
