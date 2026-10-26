@@ -1,5 +1,30 @@
 # Current Work State
 
+Continuation 2026-10-27: the bounded D2 semantic/repair gate below is unchanged.
+Owner requests continuation of the interrupted closeout only. Existing55-file seal
+12cf8d94b793ed4a2ca3436be8d56217c71f281d623e77e74c0b60d6995aa10c
+and prior semantic seal reverified; delivery/Git receipts are additive post-seal.
+No new Reviewer return received; full144/Human/GT gates remain withheld.
+
+## Current — 2026-10-16 D2 semantic QA complete; two repaired HN await targeted review
+
+Task `P1-CORE144-D2-PHASE2-OWNER-SEMANTIC-ADJUDICATION-AND-CONSTRUCTION-CONTRACT-AUDIT-01`.
+Source HEAD484b04bb6f59b1c7edbe4cb488019c94b774c95c; PODR-142/OR-096/REL-2026-0111.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_OWNER_QA_AND_TWO_HN_REPAIR_RECORD_V1.md),
+[state V17](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V17.md).
+37 historical proposals independently ACCEPT/42 fields; six Owner semantic cases recorded.
+Semantic seal814c92c2...edc3e7 precedes private two-case construction read.
+Carrier overall insufficient but institutional authority correct; service scope conflict.
+Both original roles HN: conditional authorized minimal V2/new-ID repairs,142 rows unchanged.
+No raw/Guide/source/process overwrite or GT. Phase1 two-row packages ready for original
+D2 R3_GPT/R4_CODEX(actual DOUBAO), Phase2 drafts withheld pending new Phase1 raw lock.
+D2_FULL144_PREANNOTATION_ACCEPTANCE=PENDING_TARGETED_TWO_REVIEW; no Human Excel release.
+Next: two original-session Phase1 returns, then Phase2, then final144 acceptance audit.
+D1 bounded54 Owner adjudication and D3 two S3 blockers remain separate; no Expected,
+Human-label feedback, formal split, detector or threshold run. AUTO_CONTINUE=NO.
+Older D2 Owner-pending entries below are superseded only by this bounded semantic
+QA/conditional repair decision, not full domain acceptance.
+
 ## Current — 2026-10-16 D1 bounded54 review complete; Owner adjudication pending
 
 Task `P1-CORE144-D1-HUMAN-AB-BOUNDED54-TRIAGE-AND-OWNER-ADJUDICATION-PREP-01`;

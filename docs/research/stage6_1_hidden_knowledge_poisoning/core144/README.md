@@ -1,5 +1,10 @@
 # Core144 navigation
 
+**当前D2（2026-10-16）：** [37建议独立处置、两条原HN合同缺陷最小修复](PAPER1_CORE144_D2_OWNER_QA_AND_TWO_HN_REPAIR_RECORD_V1.md)。
+只需原D2两会话各做新两条Phase1/2；Phase2暂扣，全144尚未最终验收，不生成可发Human Excel。
+[状态V17](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V17.md)保留D1 Owner仲裁等待及D3两S3门。
+原题/raw/Guide/Evidence保留，QA不是GT；旧D2未接受37建议的段落是本轮之前历史。
+
 **Current D1 bounded54 (2026-10-16):** [54 reviewed; Owner workbook and Chinese packet ready](PAPER1_CORE144_D1_BOUNDED54_REVIEW_AND_OWNER_PREP_RECORD_V1.md).
 34 cases/47 author proposals,57 blank final-field items; two issued-evidence gaps
 and two institutional-role scope cases need Owner. Originals/Guide/evidence unchanged,

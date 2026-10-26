@@ -1,5 +1,28 @@
 # LLMGuard Research Execution Log
 
+Continuation 2026-10-27, same REL-2026-0111: Owner says continue. Source HEAD
+still484b04bb6f59b1c7edbe4cb488019c94b774c95c.55-file task index SHA
+12cf8d94b793ed4a2ca3436be8d56217c71f281d623e77e74c0b60d6995aa10c
+and semantic lock intact. Only remaining delivery/Git closeout resumed; no new
+independent review, source expansion or change to the external-review/Human gate.
+Original seal retained; current closeout/mirror/commit receipts additive post-seal.
+
+## REL-2026-0111 — D2 semantic-first QA, contract audit and two-HN minimal repair
+
+2026-10-16; PODR-142/OR-096; source HEAD484b04b.
+Owner directs six semantic dispositions, independent historical37 review, private role
+read only after semantic lock, and conditional minimal repair.37 ACCEPT/42 QA fields.
+Seal814c92c25b9641244efd64f475ae4260b1c57b1e8fea7afa9475ec84ceddc3e7
+precedes role read. Both two-case original roles HN; unintended scope/carrier defects.
+Two V2/new opaque IDs, unchanged142 rows/C/P/mechanism/S/source; five author-supported atoms.
+New two-row Phase1 packages ready for original D2 sessions; Phase2 drafts withheld,
+new Phase1 values null. No review fabricated, Human workbook, GT, Expected or model run.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_OWNER_QA_AND_TWO_HN_REPAIR_RECORD_V1.md).
+Task tests initially hit sandbox TEMP permissions; preserved attempt, rerun with
+task-local temporary directory (no installation/history rewrite). D1/D3 unchanged.
+Final scoped tests/UTF8/secret-private-path/immutability/link checks and Git/mirror
+receipts preserved in private namespace; no whole-repository PASS claim.
+
 ## REL-2026-0110 — D1 bounded54 review and additive Owner materials
 
 Validation:45 artifact checks/33 related tests/Ruff/MyPy pass; broad88 has82 pass/

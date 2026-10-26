@@ -1,5 +1,22 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-142 — D2 semantic-first QA, two-case construction audit and conditional minimal repair
+
+2026-10-16; OR-096/REL-2026-0111; source HEAD484b04b.
+Owner directly approves six targeted6 semantic dispositions, independent review of37
+historical proposals against frozen evidence/rules, semantic seal before role read,
+and minimal repair only for proven unintended defects without changing factual
+core/mechanism/S/triplet/source. No raw/Guide/Expected/GT/Human-label feedback or model work.
+Carrier authority checked against existing institutional-role scope, independently correct;
+overall remains insufficient. Services scope conflict confirmed independently.
+Both two-case original roles HN; two minimal versioned repairs prepared under this authority.
+37 ACCEPT/42 QA fields, no process unification.142 other rows unchanged.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_OWNER_QA_AND_TWO_HN_REPAIR_RECORD_V1.md).
+Only changed two rows enter original-session targeted Phase1/2; Phase2 withheld until
+new Phase1 locks/gate. Domain acceptance not PASS; no distributable Human workbook.
+Human construction conditional approval applies only after full144 acceptance PASS,
+not fulfilled here. D1/D3/GT/split/training gates unaffected. No new Guide rule adopted.
+
 ## PODR-141 — D1 Human bounded54 review and Owner material preparation approved
 
 2026-10-16. Exact Owner: “对54条做有界审查并准备Owner仲裁材料”.

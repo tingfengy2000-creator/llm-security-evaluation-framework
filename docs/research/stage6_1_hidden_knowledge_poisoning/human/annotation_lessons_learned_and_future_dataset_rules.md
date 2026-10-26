@@ -4,6 +4,14 @@
 适用范围：Pilot3 之后所有候选生成、标注字段设计、人工发放前检查和未来数据集工作。
 前瞻边界：Pilot1/Pilot2 已冻结的原始证据和历史候选保持不变。
 
+## D2完整句子范围与附加载体暂定经验 — 2026-10-16
+
+`PROVISIONAL_PENDING_TARGETED_REREVIEW`，不是新的字段规则或Guide V4.4。
+[本轮审计](../core144/PAPER1_CORE144_D2_OWNER_QA_AND_TWO_HN_REPAIR_RECORD_V1.md)发现：
+数值原子为真，不等于省略法定排除的完整范围概括为真；机关身份获证，不等于另一个
+独立载体存在/记载内容获证。先把可见语义封存，再看构造合同，避免把HN误当设计Poison保留。
+原原子PASS和旧题不覆盖；两条最小修复仍须外部Phase1/2复审，不提升为完整域验收或GT。
+
 ## D2/D3 定向复审暂定经验 — 2026-10-05，未提升为新规则
 
 追加进展（2026-10-06）：[四项V2复核原答与文本内QA](../core144/PAPER1_CORE144_D2_D3_BOUNDED4_PHASE1_V2_RAW_LOCK_AND_QA_RECORD_V1.md)已收口。

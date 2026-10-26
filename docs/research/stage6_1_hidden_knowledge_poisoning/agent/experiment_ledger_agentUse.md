@@ -1,5 +1,25 @@
 # Paper 1 Experiment Ledger — agentUse
 
+Continuation2026-10-27: same PODR-142/OR-096/REL-2026-0111 and external gate.
+Task55-file index12cf8d94...95aa10c/semantic seal reverified; current Git/delivery
+receipts post-seal only. No new review/acceptance authority inferred.
+
+## Current D2 semantic QA / two-HN targeted-review gate — 2026-10-16
+
+PODR-142/OR-096/REL-2026-0111; source HEAD484b04b.
+[Record](../core144/PAPER1_CORE144_D2_OWNER_QA_AND_TWO_HN_REPAIR_RECORD_V1.md),
+[state V17](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V17.md).
+37 independent ACCEPT/42 fields; six Owner decisions recorded without changing raw/process.
+Semantic lock814c92c25b9641244efd64f475ae4260b1c57b1e8fea7afa9475ec84ceddc3e7
+created before hidden two-case role read. Carrier authority correct/overall insufficient;
+other-services overall conflict, ONE, version/authority NP. Both original HN contracts fail.
+Conditional minimal two-row repairs V2/newIDs,142 unchanged, C/P and mechanism/S unchanged.
+Five repaired full-sentence atoms supported by existing25 frozen snapshots/excerpt corpus.
+Only two-row Phase1 packages ready; Phase2 drafts null Phase1 field and explicitly withheld.
+No Human workbook/GT/split/model. D2_FULL144_PREANNOTATION_ACCEPTANCE pending review.
+D1 Owner bounded54/D3 two S3 gates unaffected. R4_CODEX provider DOUBAO, not Codex;
+prior self-declarations/OWNER_ATTESTED never upgraded to machine proof.
+
 ## Current D1 bounded54 Owner preparation — 2026-10-16
 
 45 artifact checks/33 related synthetic tests/Ruff/MyPy pass; broad88 has82 pass/

@@ -1,5 +1,21 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-096 — D2 Owner semantic QA and conditional two-HN minimal repair
+
+2026-10-16; PODR-142/REL-2026-0111; source HEAD484b04b.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_OWNER_QA_AND_TWO_HN_REPAIR_RECORD_V1.md),
+[state V17](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V17.md).
+Independent historical37 ACCEPT/42 fields; six explicit Owner semantic cases are QA,
+not Human GT. Carrier authority correct/overall insufficient; service scope conflict.
+Visible-semantic seal SHA814c92c25b9641244efd64f475ae4260b1c57b1e8fea7afa9475ec84ceddc3e7
+precedes private two-case role/atom/path read. Both HN, unintended range/carrier defects;
+two authorized minimal V2 repairs,142 unchanged, original Evidence/Guide/raw retained.
+Five repaired sentence-level fact atoms supported; local QA not external acceptance.
+Private experiments/core144_d2_owner_qa_contract_audit_20261016/ holds semantic seal,
+dispositions/overlay, control audit, additive lineage, pending-review two-row packages,
+withheld Phase2 drafts, validation/closeout/index/Git receipts. No Human workbook yet.
+STOP_EXTERNAL_TARGETED_REVIEW_REQUIRED; full144 acceptance pending. D1/D3 unchanged.
+
 ## OR-095 — D1 bounded54 Human review and Owner adjudication preparation
 
 2026-10-16; HUMAN_ANNOTATION_QA_PREPARATION / NOT_GT / NOT_FORMAL_RESULT.

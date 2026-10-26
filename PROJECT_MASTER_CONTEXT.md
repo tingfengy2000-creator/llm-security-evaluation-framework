@@ -1,5 +1,21 @@
 # LLMGuard 项目总控文档
 
+2026-10-27续接补记：复验10月16日本轮D2封存材料，继续交接和Git收口；
+没有收到两条新题外部返回，以下D2定向复审门、D1仲裁等待和D3原门均未改变。
+不把继续收口理解为全144验收、Human发放或新科研授权。
+
+## 当前并行：D2既有规则QA闭合，两条HN修复后等局部复审（2026-10-16）
+
+Owner批准先可见语义、后两题构造合同审计。37旧建议逐项接受42格；六条意见按既有
+V4–V4.3处理，不改Guide/raw/实际阅读过程。语义独立封存后才确认两条原角色均HN：
+一条6%服务范围漏法定排除，一条附加会议记录载体无冻结证据。按条件授权各最小修复，
+新V2/盲号，原题保留、142条不变，Poison机制/S/三元组及Evidence不变。
+[记录](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_OWNER_QA_AND_TWO_HN_REPAIR_RECORD_V1.md)，
+[状态V17](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V17.md)。
+仅两条交原D2 GPT/豆包会话Phase1复审，Phase2草案暂扣。D2全144尚未最终验收、没有可发Human Excel。
+D1的54条Owner仲裁等待、D3两S3门独立保留。无GT、Expected、Human标签反馈、切分训练。
+PODR-142/OR-096/REL-2026-0111；STOP_EXTERNAL_TARGETED_REVIEW_REQUIRED。
+
 ## 当前：D1的54条已审，Owner仲裁材料已备好（2026-10-16）
 
 Owner批准“对54条做有界审查并准备Owner仲裁材料”，本轮逐条完成，不扩成144条重标。
