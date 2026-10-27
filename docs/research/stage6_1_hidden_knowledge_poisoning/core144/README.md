@@ -1,5 +1,11 @@
 # Core144 navigation
 
+**当前D1探索（2026-10-27）：** [可评估性NOT_EVALUABLE及五份私有产物入口](PAPER1_D1_EXPLORATORY_DETECTION_CLOSEOUT_RECORD_V1.md)。
+原件已导入、QA非GT；126条预备OOF因新增质量漏项隔离，未计算性能。
+8组24条HOLD，40组120条只是待审上限，实际有效评价0/0，检出率/误报未知。
+D1_DEV_EXPOSED，非未来untouched test；[状态V18](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V18.md)
+保留D2两题复审和D3原门。Core正式GT/划分未做，无D2/D3数据修改，等Owner质量决定。
+
 **当前D2（2026-10-16）：** [37建议独立处置、两条原HN合同缺陷最小修复](PAPER1_CORE144_D2_OWNER_QA_AND_TWO_HN_REPAIR_RECORD_V1.md)。
 只需原D2两会话各做新两条Phase1/2；Phase2暂扣，全144尚未最终验收，不生成可发Human Excel。
 [状态V17](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V17.md)保留D1 Owner仲裁等待及D3两S3门。

@@ -1,5 +1,20 @@
 # LLMGuard 项目总控文档
 
+## 当前D1：探索授权已执行可评估性诊断，但不能报检测率（2026-10-27）
+
+Owner仅批D1开发探索，D1_DEV_EXPOSED，不是Core正式训练/测试/GT。
+三份AI辅助材料原字节导入，55/57项QA建议未升级GT。144题/48组/13家族恢复；
+原五条HOLD、0038范围疑点及新增0093/0098同类机关角色风险闭包8组三元组24条。
+剩40组120条只是待审上限；有效评价0/0。预检漏项直到126条预备家族OOF锁定后才发现，
+如实隔离保留，不算性能、不重拟合。通用SEPT代码存在，但现有矩阵是Final72、D1匹配0/144；
+尚无D1可信检索/Registry/特征与Oracle同列适配。没有可靠的S级Recall、HN误报或Oracle差距。
+[诊断记录](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_EXPLORATORY_DETECTION_CLOSEOUT_RECORD_V1.md)，
+[状态V18](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V18.md)。
+当前状态NOT_EVALUABLE。下一步Owner先闭合质量与范围门，不能凭未测结果转向长上下文或扩数据。
+PODR-143/OR-097/REL-2026-0112；HUMAN_DECISION_REQUIRED / AUTO_CONTINUE=NO。
+D2两题定向复审、D3两S3原门不变；未改D2/D3、Guide、raw、真实题或正式划分承诺。
+Core正式GT/2/1/1未执行，D1暴露不得包装成未来untouched test。以下旧状态均按日期保留。
+
 2026-10-27续接补记：复验10月16日本轮D2封存材料，继续交接和Git收口；
 没有收到两条新题外部返回，以下D2定向复审门、D1仲裁等待和D3原门均未改变。
 不把继续收口理解为全144验收、Human发放或新科研授权。

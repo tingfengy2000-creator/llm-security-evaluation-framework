@@ -1,5 +1,12 @@
 # Paper 1 研究方案权威文件
 
+> **Owner有界开发授权（2026-10-27，PODR-143）：** D1-only探索诊断、`D1_DEV_EXPOSED`。
+> D1未来不得重新称为untouched test；不执行原Core2/1/1正式划分，也不冻结Core GT。
+> [诊断收口](../core144/PAPER1_D1_EXPLORATORY_DETECTION_CLOSEOUT_RECORD_V1.md)为NOT_EVALUABLE，
+> 预备126条OOF隔离，0有效评价；质量与D1特征绑定待闭合。此注只登记Owner明确批准的
+> 数据暴露边界，不改多视角研究主线或正式划分算法；若需重建封存测试承诺须另交Owner。
+> D2/D3数据和各自审批门独立保持，下面旧“无训练”是当时历史，不掩盖本次预备拟合。
+
 > **Latest gate (2026-09-27):** D1 remaining90 Phase2 is closed by byte-locked independent raw returns and additive V4–V4.3 semantic overlay; [D1 Full144 preannotation acceptance](../core144/PAPER1_CORE144_D1_PREANNOTATION_ACCEPTANCE_RECORD_V1.md) passed. The [A/B Human Phase1 XLSX](../core144/PAPER1_CORE144_D1_HUMAN_PHASE1_GUIDE_V1.md) are independently blinded, schema/visual/leakage-QA passed and `DISTRIBUTION_READY_NOT_DISTRIBUTED`; each Phase2 book is `SEALED_WITHHELD` pending that human's own Phase1 raw lock. D2/D3 evidence-first construction is separately authorized under the [parallel state](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V1.md), without D1 Human answers or detector feedback. No Core GT, split or training. Older pending-Phase2 gate text below is historical, not authority to resend the reviewer packet.
 
 > **Latest D1 gate (2026-09-27):** Owner-attested targeted R3/R4 same-session provenance and Owner-approved **two-group only** frozen E1/E2 reviewer projection close the prior conditional gate. The [one 90-row Phase2 V5 handoff](../formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_RELEASE_RECORD_V5.md) is ready for Owner distribution to the original R3/R4 sessions using the [exact checklist](../formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_OWNER_SEND_CHECKLIST_V5.md). Original third sources remain private; no new source, semantic rule, Candidate or answer precedence changed. External Phase2 returns, D1 Full48 acceptance and Human A/B remain pending; Core144 D1/D2/D3 scope persists. The pending gate below is earlier same-day history.

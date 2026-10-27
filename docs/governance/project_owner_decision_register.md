@@ -1,5 +1,22 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-143 — D1-only exploratory feasibility sprint, no formal GT/test authority
+
+2026-10-27; OR-097/REL-2026-0112; source HEAD892915a.
+Owner explicitly approved P1-D1-EXPLORATORY-DETECTION-FEASIBILITY-SPRINT-01:
+import three AI-assisted54-case QA files without promotion to GT; HOLD0028/0051/
+0121/0078/0116, close whole-group/family quality effects before valid evaluation.
+Fixed candidate-only TF-IDF/LR, legal non-Oracle SEPT and separate Oracle diagnostic
+are permitted only with valid inputs/labels and family-isolated train-only fitting.
+D1_DEV_EXPOSED is explicit; formal2/1/1 split, Core GT freeze, D2/D3 feedback edits,
+new label sources/real Candidate repair and scientific-protocol changes are not approved.
+Insufficient inputs require NOT_EVALUABLE, not invented rates or model-capacity claims.
+Observed continuation found0038 scope risk and0093/0098 analogous role-scope risks;
+these are pending quality decisions, not Owner-approved new labels/Guide rules.
+Preparatory126 OOF quarantined,0 valid evaluation and no real performance metrics.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_EXPLORATORY_DETECTION_CLOSEOUT_RECORD_V1.md).
+Next quality/materialization proposal is NOT auto-approved by this register entry.
+
 ## PODR-142 — D2 semantic-first QA, two-case construction audit and conditional minimal repair
 
 2026-10-16; OR-096/REL-2026-0111; source HEAD484b04b.

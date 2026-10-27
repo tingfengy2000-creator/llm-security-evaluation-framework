@@ -1,5 +1,28 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0112 — D1 exploratory preflight did not close; preserve and stop
+
+2026-10-27; PODR-143/OR-097; source HEAD892915a.
+Owner approved only D1 exploratory feasibility, three fixed contrasts with valid inputs,
+family isolation, config freeze, prediction lock before role/evaluation join, and
+NOT_EVALUABLE if inputs fail. Three actual attachments locked without workbook save;
+57 items align/55 QA suggestions, not approved GT.144/48/13 identities restore.
+5 fixed HOLD triplets plus0038 scope hold leave126 initial provisional rows.
+Fixed A TF-IDF/LR produced13-family OOF and deterministic repeat; labels for fit are
+Human/QA proxies, not hidden construction role. Full process stdout/stderr archive
+was not captured; configuration/model/source hashes and prediction lock preserved.
+After lock,0093/0098 expose the same unresolved role-exclusivity boundary as held0078/
+0116. Preflight had not fully closed: no metric calculation/refit, quarantine126 scores.
+8 triplets/24 rows now held; provisional40/120 not accepted, valid evaluated0/0.
+B/C not executed: generic code exists but D1 corpus/registry/retrieval/feature/Oracle
+adapter absent; existing72x21 Final72 matrix matches D1 text0/144.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_EXPLORATORY_DETECTION_CLOSEOUT_RECORD_V1.md)
+and five private outputs preserve NA rather than fabricated rates. Formal performance,
+HN-FPR, Oracle gap, S3 mechanism and long-context benefit unknown. D1_DEV_EXPOSED,
+no D2/D3 feedback edits or Core formal split/GT. Twelve-field Owner blocker persisted;
+HUMAN_DECISION_REQUIRED/AUTO_CONTINUE=NO. Continue only verification/preservation/Git,
+not new training or scientific fixes. Existing unrelated design/PDF edits excluded.
+
 Continuation 2026-10-27, same REL-2026-0111: Owner says continue. Source HEAD
 still484b04bb6f59b1c7edbe4cb488019c94b774c95c.55-file task index SHA
 12cf8d94b793ed4a2ca3436be8d56217c71f281d623e77e74c0b60d6995aa10c

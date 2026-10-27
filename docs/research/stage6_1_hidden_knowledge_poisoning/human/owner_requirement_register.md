@@ -1,5 +1,16 @@
 # Paper 1 用户确认需求登记册
 
+## OR-097 — D1开发可行性探索授权，不替代Core正式真值/测试（2026-10-27）
+
+Owner批准P1-D1-EXPLORATORY-DETECTION-FEASIBILITY-SPRINT-01，仅D1。
+原件导入且不提升AI建议为GT；五条指定HOLD需按同组三元组/family质量影响审计。
+仅合法标签/特征/证据下固定A/B/C对照、家族隔离、先锁预测后关联构造评价。
+不足即NOT_EVALUABLE，不编检测率。D1_DEV_EXPOSED，禁止声称未见测试。
+本授权不含真实Candidate修复、新标签来源、Guide/协议改变、正式GT/2/1/1划分、D2/D3反馈修改。
+[记录](../core144/PAPER1_D1_EXPLORATORY_DETECTION_CLOSEOUT_RECORD_V1.md)如实保留预检漏项及
+126条隔离预备OOF；0有效评价，新增同类质量问题等待Owner，不默认接受新语义规则。
+PODR-143/REL-2026-0112；AUTO_CONTINUE=NO，仅核验、保全、治理/Git。
+
 ## OR-096 — D2语义先行、两题合同审计及有条件最小修复（2026-10-16）
 
 Owner本轮完整任务批准六项语义意见、独立审37旧建议、先封存再看两题角色，

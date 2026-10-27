@@ -1,5 +1,32 @@
 # Current Work State
 
+## Current — 2026-10-27 D1 exploratory sprint NOT_EVALUABLE; Owner quality gate
+
+Task `P1-D1-EXPLORATORY-DETECTION-FEASIBILITY-SPRINT-01`;
+PODR-143/OR-097/REL-2026-0112; source HEAD892915a830f9762d2cf239fcfb21cb8b26f186fb.
+Unique branch-bound worktree verified on research/stage6-1-hidden-poisoning.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_EXPLORATORY_DETECTION_CLOSEOUT_RECORD_V1.md),
+[state V18](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V18.md).
+Owner approved D1-only exploratory development, not Core formal training/test/GT.
+Three AI-assisted inputs byte-locked;57 aligned field recommendations,55 nonnull,
+two0028 unresolved; no automatic QA-to-GT promotion or workbook save.
+144 identities/48 groups/13 families restored. Original five HOLD seeds plus0038
+scope precaution precede126-row preparatory A fit/13-family OOF, fixed config.
+Post-prediction-lock quality check found0093/0098 same institutional-role boundary
+outside54; preflight had not fully closed before fit. Quarantine126 OOF; no real
+performance metrics calculated, no refit. Whole-triplet holds total8 groups24 rows;
+provisional40/120 remains NOT accepted for evaluation. Valid evaluated0/0.
+B/C have generic code but no validated D1-bound corpus/registry/retrieval/SEPT matrix
+or same-column Oracle adapter; Final72 matrix72x21 matches D1 text0/144.
+D1_DEV_EXPOSED; no recall/CI/HN-FPR/Oracle gap or long-context effectiveness claim.
+HUMAN_DECISION_REQUIRED / Auto Continue=NO: verify/preserve/governance/Git only.
+Next Owner quality/scope decision, then separately bounded D1 materialization;
+recommended task P1-D1-QUALITY-HOLD-CLOSURE-AND-D1-SEPT-MATERIALIZATION-01 not started.
+D2 targeted-two external gate and D3 two S3 blockers unchanged; no D2/D3 data edits,
+Expected/formalGT, formal2/1/1 split, calibration or new source/model/AI call.
+Older D1 no-training statements below are historical before this bounded approval;
+they do not erase the quarantined preparatory fit or authorize formal results.
+
 Continuation 2026-10-27: the bounded D2 semantic/repair gate below is unchanged.
 Owner requests continuation of the interrupted closeout only. Existing55-file seal
 12cf8d94b793ed4a2ca3436be8d56217c71f281d623e77e74c0b60d6995aa10c

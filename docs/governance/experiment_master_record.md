@@ -1,5 +1,28 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-097 — D1 exploratory quality audit; preparatory OOF quarantined, NOT_EVALUABLE
+
+2026-10-27; PODR-143/REL-2026-0112; source HEAD892915a830f9762d2cf239fcfb21cb8b26f186fb.
+Classification: EXPLORATORY_DEVELOPMENT / QUALITY_GATE_INVALIDATED_PREPARATORY_RUN,
+not FORMAL_EXPERIMENT. [Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_EXPLORATORY_DETECTION_CLOSEOUT_RECORD_V1.md),
+[state V18](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V18.md).
+AI-assisted XLSX/JSON/MD exact originals locked;57 logical decisions match/55 QA-only,
+no GT.144 identity/48 groups/13 canonical families. Initial5 HOLD groups, added0038
+prefit scope risk, then126 preparatory family-OOF A scores; post-lock0093/0098
+same role-scope risks invalidate population before any performance calculation.
+Fixed run D1-A-3b72fd242a67cc3f, Python3.13.9/sklearn1.7.2/numpy2.3.5,
+prediction SHA95901034064467f56303fba96c93208219eae665ec31b7172766bd34e9c8419d.
+No construction-role feature or target;125 Human binary consensus+1 QA/evidence proxy.
+Scores quarantined, deterministic repeat preserved; original full stdout/stderr not
+independently archived, no accepted scientific-run claim. B/C not run: no validated
+D1 materialization, generic source exists, Final72 identity does not apply.
+8-group24-row quality closure leaves provisional40/120, not accepted denominators;
+valid0/0, all performance/CI null. Private experiments/core144_d1_exploratory_detection_20261027/
+holds raw lock, identity/quality/family audits, frozen config, executed source, model
+manifest, quarantine, five requested files, twelve-field blocker and verification/index.
+HUMAN_DECISION_REQUIRED; no more real fit/metric until Owner quality decision.
+D1_DEV_EXPOSED; D2/D3 source data/Stage1–5/Final72 untouched; Core split/GT not executed.
+
 ## OR-096 — D2 Owner semantic QA and conditional two-HN minimal repair
 
 2026-10-16; PODR-142/REL-2026-0111; source HEAD484b04b.

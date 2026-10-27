@@ -1,5 +1,11 @@
 # Paper 1 Start Here
 
+> **当前D1开发探索（2026-10-27）：** [NOT_EVALUABLE与下一质量决策](core144/PAPER1_D1_EXPLORATORY_DETECTION_CLOSEOUT_RECORD_V1.md)。
+> 55项AI辅助建议不是GT；126条预备OOF因锁后质量漏项隔离，0有效评价，不能报S级率/HN误报。
+> D1_DEV_EXPOSED，不再声称untouched；Core正式GT/划分未做。
+> [状态V18](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V18.md)保留D2/D3独立原门。
+> 当前只核验、保全和Git，不自动重跑模型或改变研究路线；下方按日期保留历史。
+
 > **当前并行D2（2026-10-16）：** [37建议已独立核对，两个原HN缺陷已最小修复](core144/PAPER1_CORE144_D2_OWNER_QA_AND_TWO_HN_REPAIR_RECORD_V1.md)。只交原D2 GPT/豆包会话复审两条新题，先Phase1锁定再Phase2；全144验收和Human发放继续暂扣。[状态V17](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V17.md)保持D1仲裁、D3原门独立；无GT/切分训练。
 
 > **当前D1有界审查（2026-10-16）：** [54条已审、Owner仲裁表及中文材料已备好](core144/PAPER1_CORE144_D1_BOUNDED54_REVIEW_AND_OWNER_PREP_RECORD_V1.md)。34条47格作者建议，57项Owner最终格全空。两条材料内容/可读性缺口、两条双机关公布边界须Owner决定，不能自动接受YES/ZERO或补搜证据。[状态V16](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V16.md)保持原答/原Excel/Guide不变、D2/D3门不变、无GT/切分训练。下方等批准审54条是历史；本轮只完成审查准备，未完成仲裁。

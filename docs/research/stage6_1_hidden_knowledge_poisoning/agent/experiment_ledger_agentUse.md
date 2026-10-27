@@ -1,5 +1,28 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current D1 exploratory NOT_EVALUABLE / Owner quality gate — 2026-10-27
+
+PODR-143/OR-097/REL-2026-0112; source HEAD892915a830f9762d2cf239fcfb21cb8b26f186fb.
+[Record](../core144/PAPER1_D1_EXPLORATORY_DETECTION_CLOSEOUT_RECORD_V1.md),
+[state V18](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V18.md).
+Three AI-assisted originals present/byte-locked;57 decisions align/55 nonnull; QA not GT.
+Raw XLSX SHA461e005326880deaca69ce920a0093440807d61d9d38166159dc4f67127daaa6;
+JSON3c64670f99b116e278fb728630348701e9f4e5b3f2bb596dbf900804b41be221;
+MDc6ef1bc9c16f23cd09822dd26b29c19f1cdd0d9e3f448cdeacb75fbd18d826e0.
+144/48/13 identity; fixed5 HOLD plus0038 prefit scope risk;126 A preparatory OOF,
+13 family folds, fixed C1/liblinear/char23/0.5,125 consensus+1 QA-evidence training proxy.
+No role features/targets. Post-lock0093/0098 same unresolved authority exclusivity
+invalidates preliminary eligibility; no real metric calculation or refit.
+Quarantine SHA95901034064467f56303fba96c93208219eae665ec31b7172766bd34e9c8419d;
+actual source pre-format archive retained, full original stdout/stderr not file-captured.
+8-group24-row HOLD => provisional40/120, role40/40/40, HKP11/10/11/8,
+provisional S12/15/13; none is an accepted Recall denominator. Valid evaluation0/0.
+B/C generic code exists but no validated D1 materialization; Final72 matrix72x21
+exact D1 matches0. Five outputs mark all valid scores/metrics null;432 status rows
+are not432 model predictions. Private experiments/core144_d1_exploratory_detection_20261027/.
+HUMAN_DECISION_REQUIRED/Auto Continue=NO; verify/preserve/Git only until Owner quality
+decision. D1_DEV_EXPOSED, no Core formalGT/split, no D2/D3 data or Guide/raw edits.
+
 Continuation2026-10-27: same PODR-142/OR-096/REL-2026-0111 and external gate.
 Task55-file index12cf8d94...95aa10c/semantic seal reverified; current Git/delivery
 receipts post-seal only. No new review/acceptance authority inferred.
