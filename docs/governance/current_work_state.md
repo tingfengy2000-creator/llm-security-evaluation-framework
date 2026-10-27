@@ -1,5 +1,26 @@
 # Current Work State
 
+## Current — 2026-10-27 D1 quality signature pending / SEPT materialized
+
+Task P1-D1-QUALITY-HOLD-CLOSURE-AND-D1-SEPT-MATERIALIZATION-01;
+PODR-144/OR-098/REL-2026-0113; source HEAD2ce4b1cdc0dc9d3953a0c11afc1d5961468bab4e.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_QUALITY_AND_SEPT_MATERIALIZATION_RECORD_V1.md),
+[state V19](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V19.md).
+Owner approved bounded QA/materialization, then offline isolated runtime cap4GiB; actual3,672,518,140 bytes.
+55 nonnull/2null audited;33 conformant pending signature,21 HOLD-only,1 scope-unproven;
+18 additional historical-status proposals remain QA. No automatic GT promotion.
+144 identities/48 triplets scanned; semantic lock precedes restricted construction join.
+40 groups120 rows ELIGIBLE_CANDIDATE /8 groups24 rows HOLD; effective evaluated0/0.
+New Chinese Owner workbook leaves final fields blank and permits three bounded batch confirmations.
+33 corpus docs/34 raw SHA,144 fixed queries,14,256 exact-replayed rankings; Oracle identity read after retrieval lock in engineering process.
+B/C each144x21, same Feature Set V1.1/definitions/null semantics, R excluded; no classifier fit.
+New engineering blocker: Oracle FEMALE_WORKER_PROTECTION holdout has three all-null train T columns.
+No fill0/drop-only-C or model run; quality signature and separate comparable missingness decision required.
+D1_DATA_QUALITY_GATE_PENDING / D1_SEPT_MATERIALIZED / D1_PERFORMANCE_NOT_ESTIMATED.
+AUTO_CONTINUE=NO. Old126 scores not reused; Core GT/2/1/1 not executed; D1_DEV_EXPOSED.
+D2 targeted-two and D3 two-S3 gates/data unchanged. No new source/model/Expected or Human raw overwrite.
+This section supersedes V18's not-materialized status only; no detection rate/CI/HN-FPR is known.
+
 ## Current — 2026-10-27 D1 exploratory sprint NOT_EVALUABLE; Owner quality gate
 
 Task `P1-D1-EXPLORATORY-DETECTION-FEASIBILITY-SPRINT-01`;

@@ -1,5 +1,23 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-098 — D1 quality recommendations / independent retrieval and SEPT materialization
+
+2026-10-27; PODR-144/REL-2026-0113; source HEAD2ce4b1c.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_QUALITY_AND_SEPT_MATERIALIZATION_RECORD_V1.md),
+[state V19](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V19.md).
+Classification DEVELOPMENT_ENGINEERING / OWNER_QUALIFICATION_PENDING, not FORMAL_EXPERIMENT.
+144/48/13 identities;55 QA recommendations checked,2 null preserved;33 conformant pending signature,
+21 HOLD-only,1 scope-unproven;18 historical normalization proposals, no GT. Candidate-visible semantic
+lock before restricted role consistency join. Proposed40/120 and whole8/24 HOLD; valid evaluation0/0.
+Trusted corpus33 docs/34 raw SHA, source-only Registry, fixed Q_NO_TITLE/Sparse/Dense/Hybrid;
+trace14,256 exact-replayed rows, SHA faa52ba750511171b0b2852f3f5419f2ca1c1363899b4cbcb0630b353dc94a9b.
+B/C each144x21, raw/null/status lineage; computed1991/3024 and1642/3024. No A/B/C fit or detector metrics.
+Oracle female-family holdout all-null3T is separate engineering blocker; no unilateral fallback.
+Frozen CPU MiniLM model hash exact;4GiB approved task runtime, pip check PASS, no model download.
+Private namespace experiments/core144_d1_quality_sept_20261027/; latest corpus manifest outputs_v2/.
+Old75-artifact seal and old126 OOF retained unchanged, not reused. D1_DEV_EXPOSED; Core GT/split and D2D3 unchanged.
+Next Owner quality batch signature plus separate Oracle missingness/comparability decision; AUTO_CONTINUE=NO.
+
 ## OR-097 — D1 exploratory quality audit; preparatory OOF quarantined, NOT_EVALUABLE
 
 2026-10-27; PODR-143/REL-2026-0112; source HEAD892915a830f9762d2cf239fcfb21cb8b26f186fb.

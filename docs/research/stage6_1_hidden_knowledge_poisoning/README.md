@@ -1,5 +1,11 @@
 # Paper 1 Start Here
 
+**最新D1开发工程（2026-10-27）：** [质量资格待签＋同列SEPT已物化](core144/PAPER1_D1_QUALITY_AND_SEPT_MATERIALIZATION_RECORD_V1.md)，
+[状态V19](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V19.md)。
+40组120条建议准入，8组24条HOLD；有效评价仍0/0。检索与21列B/C已接通，
+Oracle折内缺失门未解，无新训练/检测率/优越性；Owner签署表不要求54条重标。
+D1_DEV_EXPOSED、Core正式GT/split和D2D3原门不变。
+
 > **当前D1开发探索（2026-10-27）：** [NOT_EVALUABLE与下一质量决策](core144/PAPER1_D1_EXPLORATORY_DETECTION_CLOSEOUT_RECORD_V1.md)。
 > 55项AI辅助建议不是GT；126条预备OOF因锁后质量漏项隔离，0有效评价，不能报S级率/HN误报。
 > D1_DEV_EXPOSED，不再声称untouched；Core正式GT/划分未做。

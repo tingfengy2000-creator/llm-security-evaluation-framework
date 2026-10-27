@@ -1,5 +1,22 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-144 — D1 quality eligibility recommendations and SEPT engineering, signature retained
+
+2026-10-27; OR-098/REL-2026-0113; source HEAD2ce4b1c.
+Owner authorizes P1-D1-QUALITY-HOLD-CLOSURE-AND-D1-SEPT-MATERIALIZATION-01:
+audit55 QA recommendations, retain2 null and8 whole-triplet holds, independently scan remaining groups,
+seal visible semantics before restricted role consistency join, prepare minimal Chinese final-decision sheet.
+No demand for all54 to be re-adjudicated; AI/R3/R4/construction roles do not become GT.
+Owner explicitly retains D1_DEV qualification signature before performance evaluation.
+Independent official-corpus retrieval and same-column B/C materialization authorized; no new source/model,
+real Candidate/Evidence/Guide changes or D2D3 feedback. Old126 quarantined predictions must not be reused.
+Resource lineage: initial no-install superseded by explicit install approval;3GiB cap stopped execution
+on3.201GiB unpack estimate; Owner explicitly increases cap to4GiB and permits offline install.
+32 hashed wheels, task-local D environment/E cache/TEMP, no global install/model download.
+Installation approval does not approve the40-group proposed set or missingness-policy changes.
+Oracle all-null training-fold columns remain HUMAN_DECISION_REQUIRED, not silently patched.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_QUALITY_AND_SEPT_MATERIALIZATION_RECORD_V1.md).
+
 ## PODR-143 — D1-only exploratory feasibility sprint, no formal GT/test authority
 
 2026-10-27; OR-097/REL-2026-0112; source HEAD892915a.

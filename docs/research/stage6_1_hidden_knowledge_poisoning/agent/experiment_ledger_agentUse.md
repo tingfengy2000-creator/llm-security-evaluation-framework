@@ -1,5 +1,25 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current D1 quality signature pending / SEPT materialized — 2026-10-27
+
+PODR-144/OR-098/REL-2026-0113; source HEAD2ce4b1c.
+[Record](../core144/PAPER1_D1_QUALITY_AND_SEPT_MATERIALIZATION_RECORD_V1.md),
+[state V19](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V19.md).
+55 nonnull/2null checked;33 conformant pending signature,21 HOLD-only,1 scope-unproven;
+18 historical-status proposals. Semantic lock precedes role consistency join, no Expected/GT.
+Proposed40/120/13families, holds8/24; active effective0/0. Chinese Owner final cells blank.
+New private namespace experiments/core144_d1_quality_sept_20261027/, latest corpus manifest outputs_v2/.
+33 corpus docs,34 raw SHA,3 current/1 history roles,26 issuers,0 publishers; unknown retained.
+Fixed144 Q_NO_TITLE,14,256 ranks; trace SHA faa52ba750511171b0b2852f3f5419f2ca1c1363899b4cbcb0630b353dc94a9b.
+B/C same21 frozen features; computed1991/3024 vs1642/3024; R/Oracle6T/deferred2P excluded.
+Oracle female-family holdout three train T columns all null; cannot fit frozen imputer. No silent C-only column drop.
+MiniLM revision/tree exact; task runtime ST5.6.0/CPU Torch2.8.0 within Owner-approved4GiB,
+E cache/TEMP, pip check pass, no new model/global environment. Independent replay physical logs captured.
+No A/B/C classifier fit/OOF/metrics. Old126 quarantined OOF not parsed/reused, prior75-file seal unchanged.
+D1_DATA_QUALITY_GATE_PENDING / D1_SEPT_MATERIALIZED / D1_PERFORMANCE_NOT_ESTIMATED.
+Next Owner bounded quality signature plus Oracle imputation/comparability decision; AUTO_CONTINUE=NO.
+D1_DEV_EXPOSED; D2D3 data/original gates and Core formal GT/split unchanged.
+
 ## Current D1 exploratory NOT_EVALUABLE / Owner quality gate — 2026-10-27
 
 PODR-143/OR-097/REL-2026-0112; source HEAD892915a830f9762d2cf239fcfb21cb8b26f186fb.

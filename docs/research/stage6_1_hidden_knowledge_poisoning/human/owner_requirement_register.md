@@ -1,5 +1,17 @@
 # Paper 1 用户确认需求登记册
 
+## OR-098 — D1质量表与SEPT物化，签署门不取消（2026-10-27）
+
+Owner批准55项辅助建议核验、保留2空值/8组HOLD、优先全域核其余40组，
+不要求54条全部重新人工仲裁；可见语义封存后才受限核构造合同。
+另批准非Oracle自主检索与Oracle同列适配，不把角色/Expected当特征，不复用旧126分数。
+Owner明确保留D1_DEV资格签署，安装依赖批准不是数据签署。
+资源批准由3GiB在预检停止后明确调整为4GiB；仅D盘任务隔离环境、E缓存/TEMP、
+离线锁定依赖，不改全局、不下载模型。无科研语义、正式GT/split或D2D3数据变更授权。
+本轮40组只是建议，Oracle一折三T训练列全空须单独决定，不允许私自填0或改变可比列。
+[记录](../core144/PAPER1_D1_QUALITY_AND_SEPT_MATERIALIZATION_RECORD_V1.md)；
+PODR-144/REL-2026-0113，性能未估计，AUTO_CONTINUE=NO。
+
 ## OR-097 — D1开发可行性探索授权，不替代Core正式真值/测试（2026-10-27）
 
 Owner批准P1-D1-EXPLORATORY-DETECTION-FEASIBILITY-SPRINT-01，仅D1。

@@ -1,5 +1,20 @@
 # LLMGuard 项目总控文档
 
+## 当前D1：质量建议待签，非Oracle/Oracle特征已物化（2026-10-27）
+
+Owner本轮批准质量门核查和D1流水线建设，另明确批准D盘隔离环境4GiB离线恢复；
+不等于批准数据资格或正式GT。55非空建议/2空值已核：33符合待签、21仅HOLD记录、
+1范围前提未证；另18历史规范化建议。全144可见语义先锁再核构造，建议40组120条、
+8组24条HOLD；有效评价仍0/0，不要求54条全部重新人工仲裁。
+33可信文档、144条独立固定检索与精确重放完成，B/C各144×21同列，未拟合分类器或复用旧126分数。
+Oracle留出女性劳动保护家族时三项T训练列全空，完整三条件比较仍须独立工程决定。
+[物化记录](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_QUALITY_AND_SEPT_MATERIALIZATION_RECORD_V1.md)，
+[状态V19](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V19.md)。
+D1_DATA_QUALITY_GATE_PENDING / D1_SEPT_MATERIALIZED / D1_PERFORMANCE_NOT_ESTIMATED；
+PODR-144/OR-098/REL-2026-0113，AUTO_CONTINUE=NO。下一步Owner批量签质量资格，并单独闭合Oracle折内缺失。
+D1_DEV_EXPOSED；Core正式GT/2/1/1未执行，D2/D3数据及各自原审批门不变。
+以下V18“未物化”是历史，本次没有任何S级检出率/HN-FPR/检测优越性或长上下文收益结论。
+
 ## 当前D1：探索授权已执行可评估性诊断，但不能报检测率（2026-10-27）
 
 Owner仅批D1开发探索，D1_DEV_EXPOSED，不是Core正式训练/测试/GT。

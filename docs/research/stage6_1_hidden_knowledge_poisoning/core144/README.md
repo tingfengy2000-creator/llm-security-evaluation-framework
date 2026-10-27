@@ -1,5 +1,12 @@
 # Core144 navigation
 
+**当前D1（2026-10-27）：** [55建议核验、40组待签表及SEPT物化](PAPER1_D1_QUALITY_AND_SEPT_MATERIALIZATION_RECORD_V1.md)，
+[状态V19](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V19.md)。
+40组120条建议准入、8组24条HOLD；有效评价0/0，不要求54条全重标。
+B/C各144×21已物化但无分类器拟合；Oracle家族折三T训练列全空还须单独决定。
+下一步Owner签署质量资格，不是自动启动实验。D2/D3原门及正式GT/划分不变。
+下方V18“D1未物化”是历史，旧126隔离分数未复用。
+
 **当前D1探索（2026-10-27）：** [可评估性NOT_EVALUABLE及五份私有产物入口](PAPER1_D1_EXPLORATORY_DETECTION_CLOSEOUT_RECORD_V1.md)。
 原件已导入、QA非GT；126条预备OOF因新增质量漏项隔离，未计算性能。
 8组24条HOLD，40组120条只是待审上限，实际有效评价0/0，检出率/误报未知。

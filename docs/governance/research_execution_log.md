@@ -1,5 +1,27 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0113 — D1 qualification review and same-column SEPT materialization
+
+2026-10-27; PODR-144/OR-098; source HEAD2ce4b1c.
+Imported exact three AI files plus task request; reread original Human A/B Phase1/2, frozen rules and
+assigned Evidence.55 nonnull/2null align; independent dispositions33 conformant pending signature,
+21 HOLD-only,1 scope-unproven;18 additional historical normalization proposals.338 literal spans checked.
+All144 visible semantics locked before restricted role/target consistency join; proposed40 groups120 rows,
+8 groups24 rows held; no final label/signature. New three-sheet Chinese Owner workbook requires only
+bounded batch confirmation and preserves null final fields. No full54 reannotation requested.
+Source-only54 snapshot records/34 raw SHA ->33 dedup docs; fixed144 query retrieval14,256 ranks,
+deterministic replay, engineering Oracle identity read after lock. B/C same21 columns and frozen PTS V3,
+no fill0 or feature tuning. B1991/C1642 computed cells out3024, no model fit or performance scoring.
+Oracle family-fold3T empty-statistics blocker remains; dense33/33 over128-token max is an engineering
+observation, not demonstrated long-context detection benefit. Runtime restored only after Owner4GiB
+offline approval, hashed wheels, E cache/TEMP, no global install/model download.
+Old126 OOF not reused, original raw/Guide/Candidate/Evidence/D2D3 and prior75-artifact seal immutable.
+First retrieval stdout-only transcript limitation retained; independent exact replay has physical logs.
+22 scoped tests/Ruff/MyPy pass; related31 pass/1 source-HEAD historical private-path failure retained.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_QUALITY_AND_SEPT_MATERIALIZATION_RECORD_V1.md).
+D1_DATA_QUALITY_GATE_PENDING / D1_SEPT_MATERIALIZED / D1_PERFORMANCE_NOT_ESTIMATED;
+Owner quality signature and independent Oracle comparable-imputation decision next; no automatic experiment.
+
 ## REL-2026-0112 — D1 exploratory preflight did not close; preserve and stop
 
 2026-10-27; PODR-143/OR-097; source HEAD892915a.
