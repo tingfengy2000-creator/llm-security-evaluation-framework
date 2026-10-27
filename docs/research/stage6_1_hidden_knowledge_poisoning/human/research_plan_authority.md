@@ -1,5 +1,11 @@
 # Paper 1 研究方案权威文件
 
+> **独立开发消融批准（2026-10-27，PODR-145）：** V1.2-DEV-SEP18仅用于D1_DEV，
+> S3/E9/P6、不含T，非Oracle B2与Oracle C同18列/定义/处理/家族折/seed，不新增缺失指示或填0。
+> 不是V1.1或正式方法替换，原21维/Extractor/历史不改，原Oracle SEPT21继续BLOCKED。
+> [签署待办](../core144/PAPER1_D1_FIRST_RESULTS_SIGNATURE_TODO_V1.md)：三确认、署名日期尚空；
+> 当前只核验并停止拟合，无结果数值、Core正式GT/2/1/1或D2D3修改。
+
 > **Owner有界开发授权（2026-10-27，PODR-143）：** D1-only探索诊断、`D1_DEV_EXPOSED`。
 > D1未来不得重新称为untouched test；不执行原Core2/1/1正式划分，也不冻结Core GT。
 > [诊断收口](../core144/PAPER1_D1_EXPLORATORY_DETECTION_CLOSEOUT_RECORD_V1.md)为NOT_EVALUABLE，

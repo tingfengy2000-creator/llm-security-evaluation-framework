@@ -1,5 +1,16 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-099 — first D1 detection task: NOT_STARTED, unsigned qualification
+
+2026-10-27; PODR-145/REL-2026-0114; source HEAD81e91f4.
+Read-only signature check only: three confirmations/name/date blank; template SHA
+a6cbeba4d6b8ff5491d5449e318f14f4f69b69cc209e555d9348aaeddd864ec8.
+No accepted effective set, classifier fit/OOF/results or old126 reuse.40/120 proposed,8/24 HOLD.
+New Owner-approved SEP18 is a distinct prospective development ablation, not a V1.1 replacement;
+B2/C same18 only, original Oracle21 blocked. No experimental matrix generated before signature.
+[Minimal todo](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_FIRST_RESULTS_SIGNATURE_TODO_V1.md).
+Status D1_FIRST_RESULTS_BLOCKED_UNSIGNED / D1_PERFORMANCE_NOT_ESTIMATED; no formal GT/split or D2D3 change.
+
 ## OR-098 — D1 quality recommendations / independent retrieval and SEPT materialization
 
 2026-10-27; PODR-144/REL-2026-0113; source HEAD2ce4b1c.

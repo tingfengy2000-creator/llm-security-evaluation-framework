@@ -1,5 +1,18 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-145 — conditional D1 first-results task and independent SEP18 development ablation
+
+2026-10-27; OR-099/REL-2026-0114; source HEAD81e91f4.
+Owner authorizes P1-D1-DEVELOPMENT-DETECTION-FIRST-RESULTS-01 only after the three real workbook
+confirmations, Owner name/date, eligibility/labels/S/family and fold preflights pass.
+Explicit new V1.2-DEV-SEP18: S3/E9/P6, no T, same18 columns/definitions/folds/processing/seeds
+for non-Oracle B2 and Oracle C, no missing indicators or missing-as-zero. V1.1/Extractor/history unchanged.
+A text LR, B1 non-Oracle SEPT21, B2 non-Oracle SEP18 and C Oracle SEP18 are the fixed prospective conditions;
+only B2 vs C estimates same-column Oracle contrast. Original Oracle SEPT21 remains BLOCKED.
+Unsigned means minimal todo and STOP before fit. Observed C13/C14/C15/C17/G17 blank, no eligibility acceptance.
+No signature inference, Core GT/split, D2D3 edits, old126 reuse, threshold optimization or formal claims.
+[Todo](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_FIRST_RESULTS_SIGNATURE_TODO_V1.md).
+
 ## PODR-144 — D1 quality eligibility recommendations and SEPT engineering, signature retained
 
 2026-10-27; OR-098/REL-2026-0113; source HEAD2ce4b1c.

@@ -1,5 +1,20 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current D1 first-results signature check: NOT_STARTED — 2026-10-27
+
+PODR-145/OR-099/REL-2026-0114; source HEAD81e91f4.
+Delivered Owner XLSX C13/C14/C15/C17/G17 null; raw SHA
+a6cbeba4d6b8ff5491d5449e318f14f4f69b69cc209e555d9348aaeddd864ec8 (unsigned-template exact).
+No signature/qualification acceptance, A/B1/B2/C fit, OOF, metrics or old126 reuse.
+Owner approves prospective V1.2-DEV-SEP18, S3/E9/P6; same18 B2/C, no missing indicators/fill0,
+not a V1.1 replacement; original Oracle21 blocked. New Feature Set not materialized before signature.
+[Todo](../core144/PAPER1_D1_FIRST_RESULTS_SIGNATURE_TODO_V1.md).
+Next Owner real three confirmations/name/date and exact new path;40/120 proposed,8/24 HOLD, D2D3 unchanged.
+Signature/check evidence: experiments/core144_d1_first_results_20261027_signature_gate/,
+12-file index SHA7a3cf2fb83f416e712afb15ac012aa453b31aef6e79506ba2f9cf4c64f142bc1.
+102 gate/immutability/docs checks and22 synthetic gate tests PASS; scoped Ruff/MyPy PASS.
+Documentation closeout/context persistence PASS for the blocked read-only check, not model execution.
+
 ## Current D1 quality signature pending / SEPT materialized — 2026-10-27
 
 PODR-144/OR-098/REL-2026-0113; source HEAD2ce4b1c.

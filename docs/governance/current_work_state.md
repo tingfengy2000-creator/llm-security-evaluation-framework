@@ -1,5 +1,20 @@
 # Current Work State
 
+## Current — 2026-10-27 first D1 detection results stopped at unsigned Owner gate
+
+Task P1-D1-DEVELOPMENT-DETECTION-FIRST-RESULTS-01; PODR-145/OR-099/REL-2026-0114.
+Source HEAD81e91f44fe1fe1f77fbd61a3e5cfa6f927bd73ed; unique research worktree, upstream0/0 at preflight.
+[Minimal todo](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_FIRST_RESULTS_SIGNATURE_TODO_V1.md).
+Read-only signature check: C13/C14/C15/C17/G17 all blank; workbook SHA unchanged from unsigned template.
+D1_DEV eligibility NOT ACCEPTED;40 groups120 rows remain proposed,8 groups24 rows HOLD.
+Owner explicitly approves V1.2-DEV-SEP18, S3/E9/P6, no T, same18 B2/C columns and processing;
+this supersedes only the prior need for a separate SEP18 design approval, not dataset signature or fold preflight.
+V1.1/extractors/history untouched; original Oracle SEPT21 remains BLOCKED.
+A/B1/B2/C NOT_STARTED: no fit, new OOF, metrics, or old126 reuse; do not infer missing signatures.
+D1_FIRST_RESULTS_BLOCKED_UNSIGNED / D1_PERFORMANCE_NOT_ESTIMATED; AUTO_CONTINUE=NO.
+Next only Owner fills three confirmations/name/date, saves new signed file, returns exact path.
+D1_DEV_EXPOSED, no Core formal GT/split or D2D3 changes. V19 materialization remains historical evidence.
+
 ## Current — 2026-10-27 D1 quality signature pending / SEPT materialized
 
 Task P1-D1-QUALITY-HOLD-CLOSURE-AND-D1-SEPT-MATERIALIZATION-01;

@@ -1,5 +1,14 @@
 # LLMGuard 项目总控文档
 
+## 当前D1首轮结果：签署检查未通过，未拟合（2026-10-27）
+
+任务P1-D1-DEVELOPMENT-DETECTION-FIRST-RESULTS-01，PODR-145/OR-099/REL-2026-0114。
+[最简待办](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_FIRST_RESULTS_SIGNATURE_TODO_V1.md)：
+交接Owner表三项确认、署名、日期均空，SHA与未签模板相同；不能将40组120条变成有效评价集。
+Owner本轮批准SEP18开发消融，B2/C同18列，原21维V1.1及Oracle21阻断不变；
+该授权不替代质量签署。本轮A/B1/B2/C均未fit、无新预测/性能，不复用旧126。
+下一步只需Owner填三项确认、署名日期，另存返回；8组24条继续HOLD，D2D3/Core正式GT/split不变。
+
 ## 当前D1：质量建议待签，非Oracle/Oracle特征已物化（2026-10-27）
 
 Owner本轮批准质量门核查和D1流水线建设，另明确批准D盘隔离环境4GiB离线恢复；

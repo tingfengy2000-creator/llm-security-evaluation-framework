@@ -1,5 +1,17 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0114 — read-only Owner signature gate stops D1 first-results execution
+
+2026-10-27; PODR-145/OR-099; source HEAD81e91f4.
+Owner requests four fixed conditions and authorizes the independent SEP18 development ablation,
+but explicitly requires the real three workbook confirmations/name/date before accepting40/120.
+Checked delivered workbook: C13/C14/C15/C17/G17 blank and SHA equals original unsigned template;
+no matching updated filename found in handoff root/Downloads. No inferred signature, workbook save,
+label acceptance, new features/model/OOF/metrics or old126 reuse. Minimal todo only.
+New SEP18 authorization recorded; same B2/C18 columns, V1.1/Oracle21 history retained.
+[Todo](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_FIRST_RESULTS_SIGNATURE_TODO_V1.md).
+Next Owner completes signature page and supplies new saved file path; scientific execution stopped.
+
 ## REL-2026-0113 — D1 qualification review and same-column SEPT materialization
 
 2026-10-27; PODR-144/OR-098; source HEAD2ce4b1c.
