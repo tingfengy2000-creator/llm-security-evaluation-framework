@@ -1,5 +1,19 @@
 # Current Work State
 
+## Current — 2026-10-28 signed D1 development eligibility and execution preflight
+
+P1-D1-DEVELOPMENT-DETECTION-FIRST-RESULTS-01; PODR-146/OR-100/REL-2026-0115.
+Owner saved three explicit confirmations plus name/date; exact five logical cells differ from original template.
+Actual file retains unsigned-template basename; missing claimed alternate filename logged, not fabricated.
+Signed SHA35609f9ea3fa5fad2fca440dab6b16e57c2bc7954b53d0381ac9cae114049b5d.
+40 groups120 candidates13 families accepted D1_DEV_ONLY;8 groups24 HOLD. S12/15/13.
+A/B1/B2/C train-fold preflight PASS; no fit yet. Original Oracle21 remains BLOCKED by three all-null T columns.
+[Protocol](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_FIRST_DETECTION_PROTOCOL_V1.md),
+[state V20](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V20.md).
+Next freeze execution code, run four fixed new family-OOF conditions, lock predictions before evaluation role/S join.
+No tuning/old126 reuse/real-data edits/Core GT/split/calibration/Stage B; D2D3 unchanged.
+Earlier unsigned-stop entries are retained history, superseded only by verified signed qualification.
+
 ## Current — 2026-10-27 first D1 detection results stopped at unsigned Owner gate
 
 Task P1-D1-DEVELOPMENT-DETECTION-FIRST-RESULTS-01; PODR-145/OR-099/REL-2026-0114.

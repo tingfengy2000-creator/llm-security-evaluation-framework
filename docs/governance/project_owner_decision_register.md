@@ -1,5 +1,16 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-146 — signed D1 development qualification and four fixed conditions
+
+2026-10-28; OR-100/REL-2026-0115; input source HEADb559dee.
+Owner personally confirms saved C13/C14/C15=确认, C17 name, G17 date. Read-only exact-five-cell/template audit PASS.
+Accept40 groups120 rows only D1_DEV; keep8 groups24 HOLD; no Core GT promotion or full54 re-adjudication.
+Owner-approved independent SEP18 development ablation preserves V1.1/history; same18 B2/C semantics/folds/seeds.
+A/B1/B2/C preflight PASS; original Oracle21 remains blocked. Fixed protocol before any fit; no tuning/zero fill.
+Actual signed file retained original basename, alternate named path absent; privately recorded identification variance.
+[Protocol](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_FIRST_DETECTION_PROTOCOL_V1.md).
+Only authorized development execution follows; D2D3/Candidate/Evidence/raw/Core formal split unchanged.
+
 ## PODR-145 — conditional D1 first-results task and independent SEP18 development ablation
 
 2026-10-27; OR-099/REL-2026-0114; source HEAD81e91f4.
