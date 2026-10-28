@@ -1,5 +1,17 @@
 # Current Work State
 
+## Current — 2026-10-28 VACE V0.3-F5 bounded implementation and pre-prediction gate
+
+P1-VACE-LITE-V03-F5-IMPLEMENTATION-AND-D1-DIAGNOSTIC-01; PODR-149/OR-103/REL-2026-0118.
+Owner now approves bounded engineering and actual signed D1_DEV scoring; older design-only prohibition below is historical.
+[Execution protocol](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_V03_F5_EXECUTION_PROTOCOL_V1.md).
+Shared conservative six-slot/proof verifier, adaptive versus fixed nonadaptive, original frozen Hybrid Top5/Registry.
+29 synthetic boundary tests plus21 historical contract tests pass; no D1 predictions/scoring yet.
+Freeze source/config and gates before new240 prediction seal.
+Same40/120/13families;8/24 HOLD; no Oracle/label/S/role runtime routing, no A0/B1 verdict shortcut.
+No model training/download/new API/source or D2D3/Candidate/Human/Evidence/Guide/history/formal contract changes.
+Next run only after engineering gates; final STOP OWNER_REVIEW_REQUIRED. No L0/E2/D2D3 automatic start.
+
 ## Current — 2026-10-28 VACE-Lite V0.3 adaptive verification design only
 
 P1-VACE-LITE-V03-ADAPTIVE-VERIFICATION-DESIGN-01; PODR-148/OR-102/REL-2026-0117.

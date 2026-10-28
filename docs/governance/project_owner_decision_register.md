@@ -1,5 +1,17 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-149 — approve bounded VACE F5 implementation and signed D1 development diagnostic
+
+2026-10-28; OR-103/REL-2026-0118; Owner task P1-VACE-LITE-V03-F5-IMPLEMENTATION-AND-D1-DIAGNOSTIC-01.
+Supersedes PODR-148 design-only execution restriction for this bounded task, not the formal contract.
+Implement shared six-slot/span/proof rules with adaptive V03-F5 and nonadaptive V02-NA-F5.
+Same frozen official Hybrid Top5/Registry, I requires a genuine certificate, A0 cues only, no B1 fallback.
+Signed40 groups120 candidates13families only;8/24 HOLD. Freeze before prediction, seal before separate evaluator labels/S join.
+No new source/model/download/API/training, no GT/Role/HKP/S/runtime Oracle mapping, no post-result tuning.
+No D2D3/data/Human/Guide/history/formal split or GT modifications. L0 remains not run.
+[Execution protocol](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_V03_F5_EXECUTION_PROTOCOL_V1.md).
+After actual scoring and documentation/Git, STOP OWNER_REVIEW_REQUIRED; no automatic next research stage.
+
 ## PODR-148 — design-only VACE-Lite V0.3 adaptive evidence-aware verification
 
 2026-10-28; OR-102/REL-2026-0117; source HEAD9f0d42e.
