@@ -1,5 +1,9 @@
 # Paper 1 Start Here
 
+**当前L0强基线预检阻断（2026-10-28）：** [设备问题与Owner恢复选项](core144/vace_lite/VACE_L0_HARDWARE_PREFLIGHT_BLOCKER_V1.md)，
+[状态V25](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V25.md)。官方Qwen2.5-7B/5090 32GB获批，当前机仅见5060 8GB。
+未下载/安装/推理，两条件NOT_EXECUTED；等待5090执行入口，不换卡或虚构指标。下方V03实测是历史结果。
+
 **最新VACE-F5真实开发实测（2026-10-28）：** [效果与不确定性](core144/vace_lite/VACE_V03_IMPLEMENTATION_AND_TEST_RECORD.md)，
 [研究决策](core144/vace_lite/VACE_V03_NEXT_RESEARCH_DECISION.md)，[状态V24](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V24.md)。
 V03和NA同120条均S1/S2/S3=1/12、4/15、1/13，总Recall15%；HN-FPR0但95%弃权、全部80负例未决。

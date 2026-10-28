@@ -1,5 +1,20 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0119 — L0 approved; stop at visible-device mismatch before download
+
+2026-10-28; PODR-150/OR-104; source46f509a; unique research worktree, fetched upstream0/0.
+Recovered current authority/V03 source and kept unrelated design/PDF hashes intact.
+Owner approves bounded official Qwen2.5-7B F5/Oracle on5090 32GB,≤24GiB isolated additions, fail-closed CUDA/resource gate.
+Read-only nvidia-smi and GPU query twice enumerate RTX5060 8151MiB only. CUDA_VISIBLE_DEVICES not set.
+CIM supplemental probe denied access, no privilege escalation or driver change. Initial model directory inventory partial, no global absence claim.
+Stop L0-DEVICE-IDENTITY-BLOCKER-01; no model download/install/initialization, new dependency, GPU workload, remote contact or D1 prediction.
+Freeze of revision/license/weights/tokenizer/prompt/runtime not completed. Metrics unavailable, not0; no synthetic inference gate claimed.
+Persist raw command/flags/stdout/stderr/exit/UTC/SHA and twelve-field Owner issue; update current/Human/Agent and conditional ledgers.
+Next Owner identifies5090 host/project entry, no silent alternate device/precision/model or assumption of remote approval.
+D1/D2D3/Human/GT/Guide/Evidence/history unchanged; no formal GT/split/training/VACE-LM.
+Status L0_STRONG_BASELINE_PREFLIGHT_BLOCKED / HUMAN_DECISION_REQUIRED.
+[Issue](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_HARDWARE_PREFLIGHT_BLOCKER_V1.md).
+
 ## REL-2026-0118 — freeze VACE F5 rules, seal240 predictions, report low-coverage development results
 
 2026-10-28; PODR-149/OR-103; source559ff45 pushed before prediction; Run vace_v03_f5_20261028_run01.

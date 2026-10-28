@@ -1,5 +1,18 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-150 — authorize one bounded Qwen L0 F5/Oracle D1 strong baseline, stop on preflight failure
+
+2026-10-28; OR-104/REL-2026-0119; P1-VACE-L0-F5-ORACLE-STRONG-BASELINE-01.
+Owner has reviewed V03 low coverage and authorizes official Qwen/Qwen2.5-7B-Instruct on local RTX5090 32GB.
+At most24GiB new model+necessary dependencies, isolated environment only; no other model/global modification.
+Freeze official revision/tokenizer/weights/license/dtype/runtime/resource/prompt/input/parser before predictions; deterministic do_sample=False.
+F5 vsOracle same120, same model/prompt/three verdicts, all outputs/spans/cost sealed before separate evaluator label/S join.
+No runtime Role/HKP/S/Human GT/Expected, no browsing by model, no post-miss tuning, no data/Guide/Evidence/history changes or formal test.
+If budget exceeded or hardware/CUDA preflight fails STOP; no alternateGPU/CPU/quantization silently authorized.
+Observed local RTX5060 8151MiB, requested5090 absent; current attempt blocked before download/install/inference.
+[Owner decision-ready issue](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_HARDWARE_PREFLIGHT_BLOCKER_V1.md).
+Next Owner identifies5090 host/project entry; task scientific approval remains, device gate unwaived. No L0 result or VACE-LM implementation.
+
 ## PODR-149 — approve bounded VACE F5 implementation and signed D1 development diagnostic
 
 2026-10-28; OR-103/REL-2026-0118; Owner task P1-VACE-LITE-V03-F5-IMPLEMENTATION-AND-D1-DIAGNOSTIC-01.

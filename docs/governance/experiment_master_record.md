@@ -1,5 +1,25 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-104 — L0 strong baseline device preflight blocked, no inference or metrics
+
+2026-10-28; PODR-150/REL-2026-0119; task P1-VACE-L0-F5-ORACLE-STRONG-BASELINE-01.
+Preflight VACE-L0-STRONG-20261028-PREFLIGHT01; source46f509ac5f2e43da39ef1690926197bd97417e19.
+Approved Qwen/Qwen2.5-7B-Instruct, local RTX5090 32GB,≤24GiB new model/dependency disk; no global changes.
+Two independent nvidia-smi enumerations show only RTX5060 8151MiB, driver616.92; hardware identity FAIL.
+No CUDA kernel probe/model load, official revision/weights/license/runtime freeze, synthetic or D1 inference occurred.
+No download/install, no alternate device/quantization/CPU/remote/model API. No L0 predictions, metrics are unmeasured not0.
+[Blocker report](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_HARDWARE_PREFLIGHT_BLOCKER_V1.md),
+[stateV25](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V25.md).
+Private experiments/vace_l0_strong_20261028_run01/ stores exact queries, stdout/stderr/exit code, UTC and hashes.
+L0-DEVICE-IDENTITY-BLOCKER-01 / L0_STRONG_BASELINE_PREFLIGHT_BLOCKED / HUMAN_DECISION_REQUIRED.
+Next Owner specifies5090 execution entry; current facts do not prove no5090 exists elsewhere or CUDA software failure.
+D1_DEV40groups120rows13families,8/24 HOLD and all D2D3/data/Human/Guide/Evidence/GT/history remain unchanged.
+Formal split/GT/training/VACE-LM not started; this is not the requested completed strong baseline.
+Blocked-attempt preservation QA28 and static/boundary tests54 pass, scoped Ruff/MyPy/diff/UTF8/privacy and documentation closeout pass.
+Private27-file index SHA37a008c91b9bbf9cbaa500d3c6221ac264f9f811b72e43f749fb432764987891;
+blocked Manifest SHA7064f74c55b02321706233800f3c0ccd6f4f210de7fefc3c466c0f188318141a.
+Original310 indexed history files and unrelated design/PDF preserved; no synthetic/model/CUDA success claim.
+
 ## OR-103 — real VACE F5 conservative-rule D1 development diagnostic, not formal evaluation
 
 2026-10-28; PODR-149/REL-2026-0118; Run vace_v03_f5_20261028_run01; source559ff45321dcb5d28c750afc69758ee45a9c099d.

@@ -1,5 +1,17 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current L0 strong baseline preflight blocked — 2026-10-28
+
+PODR-150/OR-104/REL-2026-0119; task P1-VACE-L0-F5-ORACLE-STRONG-BASELINE-01; source46f509a.
+Owner approves official Qwen2.5-7B, RTX5090 32GB,≤24GiB new model/deps, isolated env only, freeze then seal then evaluate.
+Visible device RTX5060 8151MiB only; L0-DEVICE-IDENTITY-BLOCKER-01 / HUMAN_DECISION_REQUIRED.
+L0-F5/Oracle NOT_EXECUTED, no inference outputs/metrics, no CUDA software defect claim.
+Revision/license/tokenizer/weight/runtime/prompt freeze not completed; no download/install/global change/otherGPU/CPU/quantization/remote/API.
+Private experiments/vace_l0_strong_20261028_run01/ preserves raw device commands/stdout/stderr/exit/UTC/hash.
+[Issue](../core144/vace_lite/VACE_L0_HARDWARE_PREFLIGHT_BLOCKER_V1.md),[stateV25](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V25.md).
+Next Owner identifies5090 execution host/project entry. No self-approved fallback or VACE-LM implementation.
+D1_DEV40/120/13families,8/24 HOLD, D2D3/Human/GT/Guide/Evidence/history/V03 results preserved; no formal split/training.
+
 ## Current VACE-F5 real D1 development diagnostic complete — 2026-10-28
 
 PODR-149/OR-103/REL-2026-0118; task P1-VACE-LITE-V03-F5-IMPLEMENTATION-AND-D1-DIAGNOSTIC-01.

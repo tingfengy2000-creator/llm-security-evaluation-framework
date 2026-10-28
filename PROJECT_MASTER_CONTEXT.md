@@ -1,5 +1,15 @@
 # LLMGuard 项目总控文档
 
+## 当前：L0强模型基线已批准，停在设备身份预检（2026-10-28）
+
+PODR-150/OR-104/REL-2026-0119；[阻断记录](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_HARDWARE_PREFLIGHT_BLOCKER_V1.md)。
+Owner批准官方Qwen2.5-7B-Instruct、本地RTX5090 32GB、模型依赖新增≤24GiB、同120条F5/Oracle直接核验。
+当前执行机仅见RTX5060 8151MiB，不符合设备前提，按Owner“预检失败即停止”停门。
+这不是CUDA软件已坏或模型不会事实推理的证据；未下载/安装/冻结权重及推理配置，无合成或D1推理。
+两条件NOT_EXECUTED，不能给检出率或写完成。下一步需明确5090主机/项目入口，不静默换卡、量化、CPU或另连远端。
+D1_DEV40/120/13家族、8/24 HOLD与原V03/NA开发结果、D2D3、Guide、Human/GT/Evidence历史均不改。
+状态L0_STRONG_BASELINE_PREFLIGHT_BLOCKED / HUMAN_DECISION_REQUIRED；无正式GT/split、训练或VACE-LM实施。
+
 ## 当前：VACE-F5首次实测完成，规则覆盖不足而非已证明有效（2026-10-28）
 
 PODR-149/OR-103/REL-2026-0118；[实测报告](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_V03_IMPLEMENTATION_AND_TEST_RECORD.md)，

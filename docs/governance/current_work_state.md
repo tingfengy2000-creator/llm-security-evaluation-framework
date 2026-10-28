@@ -1,5 +1,20 @@
 # Current Work State
 
+## Current — 2026-10-28 L0 strong baseline approved, requested hardware absent
+
+P1-VACE-L0-F5-ORACLE-STRONG-BASELINE-01; PODR-150/OR-104/REL-2026-0119.
+Owner authorizes official Qwen/Qwen2.5-7B-Instruct, local RTX5090 32GB, new model/dependency≤24GiB, no global changes.
+Read-only nvidia-smi enumerates only RTX5060 8151MiB; requested device identity gate FAIL.
+[Blocker](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_HARDWARE_PREFLIGHT_BLOCKER_V1.md),
+[stateV25](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V25.md).
+L0-DEVICE-IDENTITY-BLOCKER-01 / L0_STRONG_BASELINE_PREFLIGHT_BLOCKED / HUMAN_DECISION_REQUIRED.
+No claim CUDA software is broken; no kernel/model/synthetic/D1 inference. Model revision/license/weights/runtime freeze not completed.
+L0-F5/Oracle NOT_EXECUTED; all detection metrics NOT_MEASURED, not0. No download/install/alternateGPU/CPU/quantization/remote/API.
+Current task approval supersedes old not-approved L0 status, not its fail-closed device gate or formal research contract.
+Next Owner supplies RTX5090 execution host/project entry. No new scientific approval needed for original aim, but no assumed Worker identity.
+D1_DEV40/120/13families and8/24 HOLD, D2D3/Human/Guide/GT/Evidence/history/V03 results unchanged; formal GT/split not executed.
+Only evidence/governance/Git preservation allowed before device issue resolves; no automatic new environment or experiment.
+
 ## Current — 2026-10-28 VACE-F5 development diagnostic complete, coverage inadequate
 
 P1-VACE-LITE-V03-F5-IMPLEMENTATION-AND-D1-DIAGNOSTIC-01; PODR-149/OR-103/REL-2026-0118.
