@@ -1,5 +1,19 @@
 # LLMGuard 项目总控文档
 
+## 当前D1：首轮开发检测已测，不支持当前多视角有效性主张（2026-10-28）
+
+Owner已真实填三项确认/署名日期，40组120条13家族准入D1_DEV，8组24条继续HOLD。
+四条件各13折家族隔离、120新OOF，预测锁后才关联角色/S；旧126未读/未复用。
+主报告B1：S1=2/12、S2=8/15、S3=10/13，总Recall50%，HN-FPR37.5%，AUROC0.5306。
+文本A AUROC0.6836/HN-FPR17.5%；当前浅层多视角实现未显示可信实用区分度，不挑最高Recall报喜。
+同18列B2/C AUROC0.5366→0.5872，S3反降；S3双参考12/13已召回，不支持只归因缺第二证据。
+建议先做原子/版本关系表示审计，不自动扩数据或引入长上下文；新任务未启动。
+[结果](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_FIRST_DETECTION_RESULTS_RECORD_V1.md)，
+[状态V21](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V21.md)。
+PODR-146/OR-100/REL-2026-0115；D1_DEV_EXPOSED；非正式GT/测试/泛化/可部署结论。
+D1真实题/Evidence/Human raw/D2D3不变，Core正式划分、校准、Stage B未执行；完成本轮收口后STOP。
+以下未签表/未执行状态均为历史，不能覆盖本次已核签署及新运行事实。
+
 ## 当前D1首轮结果：签署检查未通过，未拟合（2026-10-27）
 
 任务P1-D1-DEVELOPMENT-DETECTION-FIRST-RESULTS-01，PODR-145/OR-099/REL-2026-0114。

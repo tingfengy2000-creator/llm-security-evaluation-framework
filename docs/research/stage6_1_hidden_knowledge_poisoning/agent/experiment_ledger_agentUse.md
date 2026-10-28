@@ -1,5 +1,26 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current D1 first development results — 2026-10-28
+
+PODR-146/OR-100/REL-2026-0115; Run D1-FIRST-DETECTION-20261028-R01.
+40 groups120 rows13 families signed D1_DEV_ONLY,8/24 HOLD; signed raw SHA
+35609f9ea3fa5fad2fca440dab6b16e57c2bc7954b53d0381ac9cae114049b5d; actual original basename retained.
+A/B1/B2/C each13 folds120 OOF; role/S join after prediction seal
+d2894c10727b1ba7d3263c254fe63c935b5830b6fe1777bcfc339b6dc20118ef.
+Main B1 S1=2/12,S2=8/15,S3=10/13,Recall20/40,HN-FP15/40,AUROC0.530625,AUPRC0.3813912698534465.
+A AUROC0.68359375; B2/C same18 AUROC0.5365625/0.5871875; no superiority claim.
+Original Oracle21 BLOCKED; one pre-fit serialization assertion retained, fixed execution source5128429.
+52 primary models +13 A permutation models; fixed threshold/seeds, no tuning/calibration/old126 read.
+Run root experiments/core144_d1_first_detection_20261028_run01/; all private inputs/raw/models ignored.
+[Result](../core144/PAPER1_D1_FIRST_DETECTION_RESULTS_RECORD_V1.md),
+[state V21](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V21.md).
+Next STOP; proposed atom-aligned failure audit needs separate approval. D2D3/CoreGT/split unchanged.
+
+Final task QA468 + documentation/new-content301 checks PASS;41 unit tests/Ruff/MyPy PASS.
+Private149-file index SHAa18c2afaed310f02472fe16971b3c1e6a6edb6a620a6f50e1ab19afc40a64972;
+repro manifest SHA14e77c4c3f34c8000969fdd53ad8a089bfc7b61960332e7935daa07c8d9ae777.
+Delivery/Git receipts appended post-seal; unrelated design/PDF remain local, not claimed clean.
+
 ## Current D1 first-results signature check: NOT_STARTED — 2026-10-27
 
 PODR-145/OR-099/REL-2026-0114; source HEAD81e91f4.

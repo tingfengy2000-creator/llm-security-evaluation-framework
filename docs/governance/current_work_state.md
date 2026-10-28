@@ -1,5 +1,20 @@
 # Current Work State
 
+## Current — 2026-10-28 D1 first development results executed and sealed
+
+PODR-146/OR-100/REL-2026-0115; Run D1-FIRST-DETECTION-20261028-R01.
+[Results](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_FIRST_DETECTION_RESULTS_RECORD_V1.md),
+[state V21](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V21.md).
+Real five-cell Owner signature/template audit PASS;40 groups120 candidates13 families accepted D1_DEV_ONLY;8/24 HOLD.
+A/B1/B2/C each13-family-fold120 OOF,480 new predictions sealed before role/S evaluation join; old126 not read.
+Primary B1 S1 2/12,S2 8/15,S3 10/13,overall20/40,HN-FP15/40,AUROC0.530625,AUPRC0.381391.
+Same-column B2/C only: AUROC0.5365625/0.5871875; Original Oracle21 remains BLOCKED.
+No high-performance claim; shallow representations and B1 scaling instability remain limitations.
+Execution source5128429; first pre-fit JSON list/tuple assertion failure retained; no scientific tuning.
+Next STOP; recommend separately approved atom-aligned claim/version failure audit, not started.
+D1_DEV_EXPOSED; no Core formal GT/split, calibration, Stage B, real-data/D2D3 edits.
+The execution-preflight section below is historical, not a still-pending signature or unrun model gate.
+
 ## Current — 2026-10-28 signed D1 development eligibility and execution preflight
 
 P1-D1-DEVELOPMENT-DETECTION-FIRST-RESULTS-01; PODR-146/OR-100/REL-2026-0115.

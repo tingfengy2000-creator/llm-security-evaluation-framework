@@ -1,5 +1,11 @@
 # Paper 1 Start Here
 
+**最新D1开发读数（2026-10-28）：** [首轮四条件结果](core144/PAPER1_D1_FIRST_DETECTION_RESULTS_RECORD_V1.md)，
+[状态V21](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V21.md)。40组120条/13家族真实签署准入，8/24 HOLD；
+主B1 S1/S2/S3=16.67/53.33/76.92%，HN-FPR37.5%，AUROC0.5306。当前浅层实现未显示可信实用区分度。
+四条件480新OOF已锁，旧126未用；非正式GT/测试，D2D3不变，下一任务未启动。
+以下未签表等按日期保留为历史，不再是当前门。
+
 **最新D1开发工程（2026-10-27）：** [质量资格待签＋同列SEPT已物化](core144/PAPER1_D1_QUALITY_AND_SEPT_MATERIALIZATION_RECORD_V1.md)，
 [状态V19](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V19.md)。
 40组120条建议准入，8组24条HOLD；有效评价仍0/0。检索与21列B/C已接通，

@@ -1,5 +1,11 @@
 # Paper 1 研究方案权威文件
 
+> **执行状态追加（2026-10-28，PODR-146）：** 三项真实确认/署名日期已核，40组120条获D1_DEV资格，
+> 8组24条HOLD；[四条件开发结果](../core144/PAPER1_D1_FIRST_DETECTION_RESULTS_RECORD_V1.md)已新跑并锁定。
+> 这是已批准合同的执行，不改正式研究主线、V1.1、正式划分或Guide；不新增科研授权。
+> 原Oracle21仍阻断，SEP18独立消融非正式替换。D1_DEV_EXPOSED，无Core正式GT/测试或D2D3改动。
+> 下方10月27日“未签/未执行”为历史，不能据此覆盖本轮真实签署/运行。
+
 > **独立开发消融批准（2026-10-27，PODR-145）：** V1.2-DEV-SEP18仅用于D1_DEV，
 > S3/E9/P6、不含T，非Oracle B2与Oracle C同18列/定义/处理/家族折/seed，不新增缺失指示或填0。
 > 不是V1.1或正式方法替换，原21维/Extractor/历史不改，原Oracle SEPT21继续BLOCKED。

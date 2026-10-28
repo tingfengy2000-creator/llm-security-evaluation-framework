@@ -1,5 +1,24 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-100 — signed D1 development first results, four fixed family-OOF conditions
+
+2026-10-28; PODR-146/REL-2026-0115; run D1-FIRST-DETECTION-20261028-R01.
+Signed40 groups120 rows13 families;8 groups24 HOLD. Accepted only D1_DEV, not Core formal GT.
+Input originb559dee, protocol/sourcea34fa0f, fixed pre-fit JSON-list comparison5128429; first failure archived before fit.
+A/B1/B2/C all13 folds120 new OOF,480 locked before role/S join. Old126 unopened.
+Primary B1 S1=2/12,S2=8/15,S3=10/13,total20/40,HN15/40,AUROC0.530625,AUPRC0.381391.
+Same18 B2/C Recall21/40→23/40,AUROC0.5365625→0.5871875; S3 declines, no deployable/superiority claim.
+S3 both-reference Top5=12/13; Oracle still FN3. Need representation/classifier diagnosis, not assume missing second evidence.
+Wilson and2000 family-bootstrap, fixed within-triplet A control AUROC0.5625/AP0.417655, not permutation p-value.
+[Result record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_FIRST_DETECTION_RESULTS_RECORD_V1.md),
+[closeout](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_FIRST_DETECTION_DOCUMENTATION_CLOSEOUT_V1.md).
+Private namespace experiments/core144_d1_first_detection_20261028_run01/; raw/model/code/log/manifests preserved.
+Original Oracle21 blocked; D1_DEV_EXPOSED, D2D3/Stage1–5/Final72 unchanged, no Core split/GT/calibration/Stage B.
+
+Final149-file index SHAa18c2afaed310f02472fe16971b3c1e6a6edb6a620a6f50e1ab19afc40a64972;
+repro manifest SHA14e77c4c3f34c8000969fdd53ad8a089bfc7b61960332e7935daa07c8d9ae777.
+Task QA468/new-doc301 checks,41 tests, Ruff/MyPy/diff PASS; delivery/Git post-seal receipts separately preserved.
+
 ## OR-099 — first D1 detection task: NOT_STARTED, unsigned qualification
 
 2026-10-27; PODR-145/REL-2026-0114; source HEAD81e91f4.

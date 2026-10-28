@@ -1,5 +1,20 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0115 — verify Owner save, admit D1_DEV and execute sealed new family OOF
+
+2026-10-28; PODR-146/OR-100; input sourceb559dee; run D1-FIRST-DETECTION-20261028-R01.
+Claimed alternate filename absent; actual working template initially retained confirmation prompts, not accepted.
+Owner confirms explicit确认 saved; reread exact5 inputs, date2026-10-28, other three-sheet content unchanged.
+Lock actual raw SHA35609f9...49b5d; accept40/120/13family dev only,8/24 HOLD.
+Input/config preflight then protocol/source commita34fa0f before any fit; first process fails JSON list/tuple assertion before fit.
+Archive failure and original source, pure serialization/source-lock argument repair commit5128429; no data/parameter change.
+Second process executesA/B1/B2/C13-fold each, locks480 predictions; only then evaluation role/S/Oracle-reference join.
+PrimaryB1 RecallS1 2/12,S2 8/15,S3 10/13,total20/40,HN-FP15/40,AUROC0.530625.
+Independent AUC/AP counts, fixed2000-family bootstrap, one predeclared A permutation control; no tuning.
+[Results](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_D1_FIRST_DETECTION_RESULTS_RECORD_V1.md).
+Weak discrimination and B1 validation-scale extremes retained; no formal superiority/generalization/long-context claim.
+All original inputs/old126/D2D3 unchanged. Finish docs/Git then STOP, next failure-audit proposal not started.
+
 ## REL-2026-0114 — read-only Owner signature gate stops D1 first-results execution
 
 2026-10-27; PODR-145/OR-099; source HEAD81e91f4.
