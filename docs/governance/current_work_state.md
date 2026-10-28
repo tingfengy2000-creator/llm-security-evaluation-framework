@@ -1,5 +1,20 @@
 # Current Work State
 
+## Current — 2026-10-28 A0 surface diagnostic complete; VACE-Lite V0.2 candidate review
+
+P1-VACE-LITE-R1-SURFACE-BASELINE-AND-METHOD-REFINEMENT-01; PODR-147/OR-101/REL-2026-0116.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_VACE_LITE_R1_RECORD_V1.md),
+[state V22](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V22.md).
+Same signed40 groups120 rows13families;8/24 HOLD. Original/general separately frozen,240 predictions sealed before scoring.
+A0-original S1=12/12,S2=0/15,S3=4/13,total16/40,Clean-FP0/40,HN-FP3/40,Precision16/19.
+A0-general=10/12,7/15,1/13,total18/40,Clean-FP6/40,HN-FP5/40,Precision18/29.
+Binary-only flags, no fabricated AUC/AP or OOF; historical comparison same120 only, old126 unopened.
+Original S1 cue coverage100%,four only 同一; S1 HN-FP2/12. No VACE efficacy claim.
+Six-slot V0.2 method/spec and L0/L0-Oracle/slot evaluation are plans only; V0.1 full draft not located.
+No VACE/LLM/model training/new data/Guide/GT/threshold/calibration/split or D2D3 execution.
+STOP VACE_LITE_V02_OWNER_REVIEW_REQUIRED; next Owner reviews candidate design, no automatic implementation.
+Below freeze-stage snapshot and prior D1 experiments remain historical records.
+
 ## Current — 2026-10-28 VACE-Lite R1 surface baseline and candidate method refinement
 
 P1-VACE-LITE-R1-SURFACE-BASELINE-AND-METHOD-REFINEMENT-01; PODR-147/OR-101/REL-2026-0116.

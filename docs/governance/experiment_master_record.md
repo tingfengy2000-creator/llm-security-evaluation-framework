@@ -1,5 +1,23 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-101 — A0 same120 development diagnostic and VACE-Lite V0.2 candidate
+
+2026-10-28; PODR-147/REL-2026-0116; Run VACE-LITE-R1-20261028-R01.
+Sourceb5064ef before240 deterministic predictions; separate original3/general6 regex JSON/source SHA locks.
+Labels/S joined after seal, same signed120/40groups/13families,8/24 HOLD. No training/old126/VACE model execution.
+Original S1/S2/S3=12/12,0/15,4/13;total16/40,Clean-FP0/40,HN-FP3/40,Precision16/19.
+General10/12,7/15,1/13;total18/40,Clean-FP6/40,HN-FP5/40,Precision18/29.
+Binary-only AUC/AP NA, fixed points not tuned HN operating thresholds. Wilson/family-bootstrap descriptive.
+S1 all cue-bearing but four only 同一; S1 HN-FP2/12, no factual-verification claim.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_VACE_LITE_R1_RECORD_V1.md),
+[V0.2](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_LITE_V02_METHOD_SPEC.md).
+Private namespace experiments/vace_lite_r1_20261028_run01/; raw review, rules, prediction/evaluation/source/logs retained.
+No originaldata/Guide/Human/Evidence/D2D3 or Core formal GT/split changes; VACE_LITE_V02_OWNER_REVIEW_REQUIRED.
+
+Final61-file index SHA67014299e842d7768c8d82fe80df1625d86b13bc87627e10abde2370744acdf4;
+manifest SHA8698edc5e37823e072fb4c0bcc6afc330150f8797722ffee592690ad2b8ccdfa.
+QA757/tests52/Ruff/MyPy/diff and documentation closeout PASS; post-seal Git/delivery receipts separate.
+
 ## OR-100 — signed D1 development first results, four fixed family-OOF conditions
 
 2026-10-28; PODR-146/REL-2026-0115; run D1-FIRST-DETECTION-20261028-R01.

@@ -1,5 +1,10 @@
 # Paper 1 Start Here
 
+**最新VACE-Lite候选（2026-10-28）：** [A0显示S1表层捷径](core144/PAPER1_VACE_LITE_R1_RECORD_V1.md)，
+[六槽位V0.2](core144/vace_lite/VACE_LITE_V02_METHOD_SPEC.md)，[状态V22](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V22.md)。
+原三句式S1检出12/12、总Recall40%、HN-FPR7.5%；不能把S1词面检出当方法创新。
+本轮无VACE/新模型/正式评测，停Owner审阅；D1原始数据、D2/D3、正式GT/split不变。
+
 **最新D1开发读数（2026-10-28）：** [首轮四条件结果](core144/PAPER1_D1_FIRST_DETECTION_RESULTS_RECORD_V1.md)，
 [状态V21](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V21.md)。40组120条/13家族真实签署准入，8/24 HOLD；
 主B1 S1/S2/S3=16.67/53.33/76.92%，HN-FPR37.5%，AUROC0.5306。当前浅层实现未显示可信实用区分度。

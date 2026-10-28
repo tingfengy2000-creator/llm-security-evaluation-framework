@@ -1,5 +1,19 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0116 — freeze A0 rules, seal240 predictions, audit S1 shortcuts, design VACE-Lite
+
+2026-10-28; PODR-147/OR-101; initial HEADcf4d669, run VACE-LITE-R1-20261028-R01.
+Owner adopts core reviewer suggestions with simpler research scope. Locate original external opinion; no V0.1 full draft found.
+Freeze exactly3 original lexical patterns and6 one-time general cue rules; synthetic11 tests/Ruff/MyPy pass before run.
+Commit/pushb5064ef, verify prior149-file seal and same120 text bytes, preserve raw review, freeze rule JSON/source/input SHA.
+Predict240 text-only binary flags once; SHA50b5426...97a8a2. Only after seal load labels/S and historical same120 OOF.
+OriginalS1 12/12,total16/40,HN-FP3/40; generalS1 10/12,total18/40,HN-FP5/40. No post-hoc additions/reweighting.
+FullS1 pattern coverage reveals template risk, four only 同一, S1 HN-FP2/12; score is not factual truth.
+Create six-slot V0.2 candidate, L0/L0-Oracle/slot-eval/abstention/source-family plan; no model selection/download/execution.
+[Record](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_VACE_LITE_R1_RECORD_V1.md).
+No old126, VACE training/LLM/new Candidate/Human GT/Guide/D2D3/formal split; preserve raw/old reports/unrelated changes.
+Final gate VACE_LITE_V02_OWNER_REVIEW_REQUIRED, then STOP.
+
 ## REL-2026-0115 — verify Owner save, admit D1_DEV and execute sealed new family OOF
 
 2026-10-28; PODR-146/OR-100; input sourceb559dee; run D1-FIRST-DETECTION-20261028-R01.

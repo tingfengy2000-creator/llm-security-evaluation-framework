@@ -1,5 +1,13 @@
 # Paper 1 研究方案权威文件
 
+> **Owner简化方法候选（2026-10-28，PODR-147）：** 暂定“版本化困难负样本基准＋分层失败归因＋轻量命题—证据核验”，
+> 六核心槽位，保留HKP1–4/最低证据S1–3/匹配三元组。原数据/Guide/人工/证据不改。
+> [A0诊断](../core144/PAPER1_VACE_LITE_R1_RECORD_V1.md)已完成；[VACE-Lite V0.2](../core144/vace_lite/VACE_LITE_V02_METHOD_SPEC.md)
+> 及L0/slot评价仅候选设计，停VACE_LITE_V02_OWNER_REVIEW_REQUIRED，不运行新方法或正式评测。
+> 当前单元是短候选命题，长文档嵌入仅未来独立条件；不要求GNN/长上下文，不单独以中文/NLI/命题分解作创新。
+> D1已暴露；D2/D3须GT、来源家族隔离和正式协议闭合后独立验证，不能按D1结果改样本。
+> 不取消Stage6.2解毒/Stage7长期能力，不把候选规格当已验收方法。
+
 > **执行状态追加（2026-10-28，PODR-146）：** 三项真实确认/署名日期已核，40组120条获D1_DEV资格，
 > 8组24条HOLD；[四条件开发结果](../core144/PAPER1_D1_FIRST_DETECTION_RESULTS_RECORD_V1.md)已新跑并锁定。
 > 这是已批准合同的执行，不改正式研究主线、V1.1、正式划分或Guide；不新增科研授权。

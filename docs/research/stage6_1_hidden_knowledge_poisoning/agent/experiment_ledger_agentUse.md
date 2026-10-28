@@ -1,5 +1,24 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current VACE-Lite R1 A0 complete / V0.2 candidate — 2026-10-28
+
+PODR-147/OR-101/REL-2026-0116; Run VACE-LITE-R1-20261028-R01; execution sourceb5064ef.
+Same40 groups120 rows13families/S12,15,13;8/24 HOLD, old126 unopened.
+Original3/general6 frozen separately;240 predictions SHA50b5426c196d4d13f26dcaed5d140777656a38978c91ce23497dd49a6897a8a2,
+then labels/S/historical120 OOF joined. No training/OOF claim or continuous AUC for binary cues.
+Original TP S=12/0/4,total16,HN-FP3,Clean-FP0,Precision16/19; general10/7/1,total18,HN-FP5,Clean-FP6,Precision18/29.
+S1 template hits12/12,only 同一4/12,matched S1 HN-FP2/12. Original/general strict triplet wins13/40 and11/40.
+Six-slot/spec/L0/slot evaluation planned only; no VACE/L0/GT/Guide/data/D2D3/formal-split execution.
+[Record](../core144/PAPER1_VACE_LITE_R1_RECORD_V1.md),[state V22](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V22.md).
+Private experiments/vace_lite_r1_20261028_run01/; complete source/rules/raw/log/hash audit retained.
+V0.1 full draft NOT_LOCATED; review-pattern transcription not byte-identical reviewer-code reproduction.
+STOP VACE_LITE_V02_OWNER_REVIEW_REQUIRED. No automatic next method implementation.
+
+QA757/tests52/scoped Ruff/MyPy/diff PASS; documentation closeout/context persistence/staleness PASS.
+Private61-file index SHA67014299e842d7768c8d82fe80df1625d86b13bc87627e10abde2370744acdf4;
+manifest SHA8698edc5e37823e072fb4c0bcc6afc330150f8797722ffee592690ad2b8ccdfa.
+Delivery/Git receipts post-seal, unrelated design/PDF preserved; no whole-tree-clean claim.
+
 ## Current D1 first development results — 2026-10-28
 
 PODR-146/OR-100/REL-2026-0115; Run D1-FIRST-DETECTION-20261028-R01.

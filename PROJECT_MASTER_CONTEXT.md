@@ -1,5 +1,19 @@
 # LLMGuard 项目总控文档
 
+## 当前：S1表层捷径已证实，方法候选收缩为VACE-Lite（2026-10-28）
+
+Owner批准A0诊断及轻量六槽位规格，不运行VACE。原三句式在同120条D1_DEV中检出S1 12/12，
+总16/40、Clean-FP0/40、HN-FP3/40；通用六类cue总18/40但HN-FP5/40。
+这是开发暴露下的句式捷径证据，不是事实推理能力；S1组内HN-FP2/12且4条仅命中“同一”。
+不把规则可做的S1作为核心创新。暂定贡献：版本化HN基准＋分层失败归因＋轻量命题—证据核验。
+六槽位为主体/关系/数值单位/适用范围/时间版本/来源机关角色，三态含INSUFFICIENT并保留人工复核。
+L0需与VACE同Top5，Oracle独立；本轮仅设计，模型/资源/slot参考和正式协议尚待批准冻结。
+当前基础单元40–68字短候选命题，不宣称长文档能力，不强制GNN或长上下文。
+[本轮记录](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_VACE_LITE_R1_RECORD_V1.md)，
+[状态V22](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V22.md)。
+PODR-147/OR-101/REL-2026-0116；停止VACE_LITE_V02_OWNER_REVIEW_REQUIRED。
+原数据/人工/Evidence/Guide/历史/D2D3不变，无Core正式GT/split或新模型运行；长期Stage6.2/Stage7不取消。
+
 ## 当前D1：首轮开发检测已测，不支持当前多视角有效性主张（2026-10-28）
 
 Owner已真实填三项确认/署名日期，40组120条13家族准入D1_DEV，8组24条继续HOLD。

@@ -1,5 +1,14 @@
 # Paper 1 用户确认需求登记册
 
+## OR-101 — 简化VACE候选与A0表层捷径诊断（2026-10-28）
+
+Owner批准P1-VACE-LITE-R1-SURFACE-BASELINE-AND-METHOD-REFINEMENT-01，不追求所有污染极端隐蔽。
+保留HKP/S/C-P-H及冻结原始数据；先分别锁原三式和通用规则，预测后评分同120，不混旧126。
+贡献暂定版本化HN基准＋分层失败归因＋轻量命题—证据核验；六槽位，不GNN、不立即训练/长上下文。
+L0/NLI、slot参考、HN操作点/复核预算及正式评价只设计，本轮不执行或默认批准资源。
+[结果与边界](../core144/PAPER1_VACE_LITE_R1_RECORD_V1.md)；PODR-147/REL-2026-0116。
+停止VACE_LITE_V02_OWNER_REVIEW_REQUIRED，真实题/Guide/GT/D2D3不变。
+
 ## OR-100 — 真签署后执行D1四条件开发读数（2026-10-28）
 
 Owner再次确认已将三格改为明确“确认”并保存；署名/日期完整，只有五格变化。
