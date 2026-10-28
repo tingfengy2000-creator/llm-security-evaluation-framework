@@ -1,5 +1,18 @@
 # LLMGuard 项目总控文档
 
+## 当前：VACE-F5首次实测完成，规则覆盖不足而非已证明有效（2026-10-28）
+
+PODR-149/OR-103/REL-2026-0118；[实测报告](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_V03_IMPLEMENTATION_AND_TEST_RECORD.md)，
+[状态V24](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V24.md)。
+已获本轮有界实现/开发评分授权，旧“仅设计未批准实现”只保留历史，不扩展正式研究合同。
+同签署40组120条13家族、8/24 HOLD；V03与同组件NA均S1=1/12、S2=4/15、S3=1/13，总Recall15%。
+两者C/HN-FPR均0，但114/120弃权、80负例全部未决、SUPPORT为0；不能解读为已减少正常知识误杀。
+1个I内部证书＋4个机关角色反证＋1个两版方向反证；同Top5最终结论相同，仅减少少量模块/正文消费。
+30/34漏检参考已在Top5，当前瓶颈更接近闭合语法/范围/版本和关系覆盖，不宜直接扩数据或跳到长上下文。
+源码先冻559ff45，240新预测先锁后评价；不补规则追分，不使用A0/B1/标签路由，无新下载/模型API。
+建议Owner审阅后另批同证据L0/Oracle和slot coverage preflight；本轮未启动，D2D3/原数据/Guide/Human/Evidence/历史不变。
+无Core正式GT/split/方法优越性或部署有效性，STOP VACE_V03_F5_DEV_DIAGNOSTIC_COMPLETE / OWNER_REVIEW_REQUIRED。
+
 ## 当前候选：VACE-Lite V0.3证据充分性路由，仅设计（2026-10-28）
 
 Owner只批设计：文内I必须证明同主体/时间/条件互斥，A0只发现线索；否则独立官方检索，

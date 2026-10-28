@@ -1,5 +1,32 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-103 — real VACE F5 conservative-rule D1 development diagnostic, not formal evaluation
+
+2026-10-28; PODR-149/REL-2026-0118; Run vace_v03_f5_20261028_run01; source559ff45321dcb5d28c750afc69758ee45a9c099d.
+Owner approves shared six-slot/I/F/Q/T/P/J implementation, adaptive V03-F5 and fixed V02-NA-F5 only.
+Same signed40 complete groups120 candidates13families;8/24 HOLD. No old126 or new exclusion.
+50 pre-run boundary/contract tests, Ruff/MyPy; source/config frozen before240 predictions/routes, separate post-seal label evaluation.
+Frozen corpus33/Registry V2/Hybrid Top5/CPU MiniLM exact revision/tree; new Top5 identity matches old120/120, deterministic, ID invariant.
+Both conditions S1=1/12,S2=4/15,S3=1/13,total6/40,Precision6/6,Clean/HN-FP0/40.
+SUPPORT0/CONTRADICT6/INSUFFICIENT114; all80 negatives abstain; strict triplet success0/40. No continuous AUC/AP.
+V03 early I1/pure external certificates5; NA same final120 verdicts, full module execution; static external_resolved6 includesI1.
+34 missed Poison all insufficient,30 reference-complete Top5; conservative parsing/relationship coverage is major observed limit.
+Wilson and2000 fixed-seed13family bootstrap, development only; no performance superiority/production/generalization claim.
+[Report](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_V03_IMPLEMENTATION_AND_TEST_RECORD.md),
+[stateV24](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V24.md).
+Private namespace experiments/vace_v03_f5_20261028_run01/ retains240 full predictions, all ranks, certificates, slots, code/input/model/config hashes, commands/logs and postlock audit.
+Protocol SHA4f347f7b47a8cdbe6fbb7941e1dc379fb7bec84b27ed01d4cf32a1e895814c9f;
+prediction lock SHA3d868de2eb51544288a17f2cccc745c958b087156cf6191910bb59d0d06d089b.
+No raw/data/Guide/D2D3/history changes, no training/download/API/Oracle run/formal GT/split/calibration/Stage B.
+VACE_V03_F5_DEV_DIAGNOSTIC_COMPLETE / OWNER_REVIEW_REQUIRED. Next L0/Oracle slot preflight recommended but not approved or started.
+
+Final40 QA checks and50 tests/Ruff/MyPy/UTF8/scoped privacy/diff/documentation closeout PASS.
+73-file index SHA1085b0108a8b319a63f48d502f8528515f5c2ae533ad1917cbd2365d66e67646;
+manifest SHA14a9181bb4739252d2180c95a3691d8103e5480bd41599ce33c65fdadc40464d;
+private ZIP vace_v03_f5_20261028_run01.zip (807491bytes), SHAb5af84a0a8d4cc050b47c240442f346bead431111679a20c1a49de265c8b7bae.
+[Closeout](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_VACE_V03_F5_DOCUMENTATION_CLOSEOUT_V1.md).
+75 archive/delivery files rehashed; unrelated design/PDF preserved, not a wholly clean worktree claim.
+
 ## OR-102 — VACE-Lite V0.3 design review, NOT an experiment
 
 2026-10-28; PODR-148/REL-2026-0117; source HEAD9f0d42e; design ID VACE-V03-DESIGN-20261028-R01.

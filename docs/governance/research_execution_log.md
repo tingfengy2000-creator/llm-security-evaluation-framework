@@ -1,5 +1,21 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0118 — freeze VACE F5 rules, seal240 predictions, report low-coverage development results
+
+2026-10-28; PODR-149/OR-103; source559ff45 pushed before prediction; Run vace_v03_f5_20261028_run01.
+Owner authorizes bounded implementation and real D1 diagnostic, superseding prior design-only gate for this task.
+29 new fictional boundary tests +21 existing contracts passed; explicit context/units/roles/versions/ID/cache/hash gates.
+50 total, task Ruff/MyPy/diff pass. Pre-score hardening rejected weaker-upper-bound refutations and unknown currentness.
+No D1 score observed before code/protocol freeze; model/corpus/registry/input identities locked, no new dependency/source.
+240 predictions/trace locked before evaluator label/S/role join; new Hybrid Top5 matches old120/120.
+Both methods S1=1/12,S2=4/15,S3=1/13,total6/40,HN/CleanFP0/40,114/120 insufficient,0 support.
+No post-result rule changes. Independent postlock counts/spans confirm6 certificates; pure external5, static evaluator total6 includesI1 clarified additively.
+30/34 missed positives reference-present; all80 negatives unresolved. Scientific goal not met, no deployment/LLM superiority claim.
+Wilson/family-bootstrap and actual module/body/time costs retained. Six user deliverables plus raw predictions, hashes/repro evidence produced.
+Protected D1/Human/Guide/Evidence/D2D3/history unchanged, old126 not reused. No formal GT/split/training/calibration/Stage B/L0.
+STOP VACE_V03_F5_DEV_DIAGNOSTIC_COMPLETE / OWNER_REVIEW_REQUIRED; recommend separate strong same-pool verification preflight, not started.
+[Report](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_V03_IMPLEMENTATION_AND_TEST_RECORD.md).
+
 ## REL-2026-0117 — design VACE-Lite V0.3 without running a detector
 
 2026-10-28; PODR-148/OR-102; source9f0d42e, unique research worktree, upstream0/0 at preflight.

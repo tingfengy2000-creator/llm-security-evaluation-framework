@@ -1,5 +1,25 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current VACE-F5 real D1 development diagnostic complete — 2026-10-28
+
+PODR-149/OR-103/REL-2026-0118; task P1-VACE-LITE-V03-F5-IMPLEMENTATION-AND-D1-DIAGNOSTIC-01.
+Source559ff45321dcb5d28c750afc69758ee45a9c099d before prediction;50 boundary/contracts tests, Ruff/MyPy pass.
+Signed40groups120rows13families;8/24 HOLD. Protocol SHA4f347f7b47a8cdbe6fbb7941e1dc379fb7bec84b27ed01d4cf32a1e895814c9f.
+240 new predictions/routes locked before evaluator labels/S/role; prediction lock SHA3d868de2eb51544288a17f2cccc745c958b087156cf6191910bb59d0d06d089b.
+Same frozen corpus33/Registry/Hybrid Top5 and MiniLM CPU identity; deterministic and candidate-ID invariant;120/120 old Top5 identity match.
+Both V03-F5/NA S1=1/12,S2=4/15,S3=1/13,total6/40,HN/CleanFP0/40,Precision6/6.
+SUPPORT0/CONTRADICT6/INSUFFICIENT114; all80 negatives abstain; strict triplets0/40; no fabricated continuous AUC/AP.
+I proof1; pure externalP4+J1; V03 module calls reduced, final verdicts identical.30/34 missed positives reference-present.
+Static evaluator external_resolved6 includesI1; postlock additive audit clarifies pure external5, raw metrics retained.
+Private namespace experiments/vace_v03_f5_20261028_run01/; code/config/input/model hashes, full prediction/proof/route/cost and command logs.
+[Results](../core144/vace_lite/VACE_V03_IMPLEMENTATION_AND_TEST_RECORD.md), [stateV24](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V24.md).
+VACE_V03_F5_DEV_DIAGNOSTIC_COMPLETE / OWNER_REVIEW_REQUIRED; coverage inadequate, no scientific superiority acceptance.
+No post-score changes, old126, formal GT/split, data/Guide/raw/D2D3 modifications, new models/API/training/calibration/Stage B.
+Next only recommend Owner-approved L0-F5/Oracle slot preflight; not started. Below design/preflight snapshots historical.
+Final evidence73-file index SHA1085b0108a8b319a63f48d502f8528515f5c2ae533ad1917cbd2365d66e67646;
+manifest SHA14a9181bb4739252d2180c95a3691d8103e5480bd41599ce33c65fdadc40464d;
+[closeout](../core144/PAPER1_VACE_V03_F5_DOCUMENTATION_CLOSEOUT_V1.md) PASS.75 delivery/archive files verified, unrelated design/PDF excluded.
+
 ## Current VACE-Lite V0.3 adaptive verification design only — 2026-10-28
 
 PODR-148/OR-102/REL-2026-0117; task P1-VACE-LITE-V03-ADAPTIVE-VERIFICATION-DESIGN-01; source9f0d42e.

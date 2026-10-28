@@ -1,5 +1,11 @@
 # Paper 1 Start Here
 
+**最新VACE-F5真实开发实测（2026-10-28）：** [效果与不确定性](core144/vace_lite/VACE_V03_IMPLEMENTATION_AND_TEST_RECORD.md)，
+[研究决策](core144/vace_lite/VACE_V03_NEXT_RESEARCH_DECISION.md)，[状态V24](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V24.md)。
+V03和NA同120条均S1/S2/S3=1/12、4/15、1/13，总Recall15%；HN-FPR0但95%弃权、全部80负例未决。
+本轮工程/评分完成，不代表检测方法有效；同池强NLI/LLM尚未运行，等待Owner审阅，不改D2D3/正式GT/split。
+下方“仅设计”条目是历史快照，已由PODR-149本轮有界执行批准supersede。
+
 **最新V0.3候选设计（2026-10-28）：** [Owner审阅包](core144/vace_lite/VACE_V03_OWNER_REVIEW_PACKET.md)，
 [方法规格](core144/vace_lite/VACE_LITE_V03_ADAPTIVE_METHOD_SPEC.md)，[状态V23](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V23.md)。
 先文内互斥证明，再按证据充分性选择补证；无A0 OR B1、无S标签路由，75%不是实测。

@@ -1,5 +1,12 @@
 # Core144 navigation
 
+**当前VACE-F5实测完成（2026-10-28）：** [报告](vace_lite/VACE_V03_IMPLEMENTATION_AND_TEST_RECORD.md)，
+[路由证书](vace_lite/VACE_V03_D1_ROUTE_AND_PROOF_AUDIT.md)，[基线对比](vace_lite/VACE_V03_VS_BASELINES_COMPARISON.md)，
+[下一研究决策](vace_lite/VACE_V03_NEXT_RESEARCH_DECISION.md)，[状态V24](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V24.md)。
+同40组120条：两条件均总Recall15%，HN-FPR0但95%弃权；当前规则方法未达实用覆盖。
+完成D1开发评分后STOP Owner审阅；D1原数据/人工/Guide及D2D3保持，正式GT/split未执行。
+下方只设计/未批准实现为旧快照，不覆盖最新PODR-149。
+
 **当前V0.3只设计（2026-10-28）：** [Owner包](vace_lite/VACE_V03_OWNER_REVIEW_PACKET.md)，
 [完整路由](vace_lite/VACE_LITE_V03_ADAPTIVE_METHOD_SPEC.md)，[V02/V03比较](vace_lite/VACE_V02_V03_COMPARISON.md)，
 [消融/评价](vace_lite/VACE_V03_ABLATION_AND_EVALUATION_PLAN.md)，[状态V23](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V23.md)。

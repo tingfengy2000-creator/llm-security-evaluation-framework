@@ -1,5 +1,21 @@
 # Current Work State
 
+## Current — 2026-10-28 VACE-F5 development diagnostic complete, coverage inadequate
+
+P1-VACE-LITE-V03-F5-IMPLEMENTATION-AND-D1-DIAGNOSTIC-01; PODR-149/OR-103/REL-2026-0118.
+[Results](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_V03_IMPLEMENTATION_AND_TEST_RECORD.md),
+[state V24](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V24.md).
+Source559ff45 frozen/pushed before prediction; same signed40groups120rows13families;8/24 HOLD unchanged.
+240 new predictions/trace locked before evaluator label/S/role join. Same frozen Hybrid Top5, all120 identities match.
+V03-F5 and V02-NA-F5 both S1=1/12,S2=4/15,S3=1/13,total6/40,Clean/HN-FP0/40,Precision6/6.
+SUPPORT0/CONTRADICT6/INSUFFICIENT114 each; all80 negatives abstain, strict triplet success0/40.
+No continuous score/AUC/AP; no superiority or deployment claim.30/34 missed positives have frozen reference docs already inTop5.
+I early exit1; pure external certificates5; NA external_resolved6 includes1 internal certificate (additive audit clarification).
+VACE_V03_F5_DEV_DIAGNOSTIC_COMPLETE / OWNER_REVIEW_REQUIRED; scientific coverage inadequate, not an execution blocker.
+No rule tuning/refit/old126; protected data/Human/Evidence/Guide/D2D3/history unchanged. Formal GT/split not executed.
+Next recommend separately approved L0-F5/Oracle and slot-coverage preflight; DO NOT START L0/E2/D2D3/calibration/Stage B.
+Below pre-prediction/design-only records are historical, not the current approval gate.
+
 ## Current — 2026-10-28 VACE V0.3-F5 bounded implementation and pre-prediction gate
 
 P1-VACE-LITE-V03-F5-IMPLEMENTATION-AND-D1-DIAGNOSTIC-01; PODR-149/OR-103/REL-2026-0118.
