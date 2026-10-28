@@ -81,6 +81,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-root", required=True, type=Path)
     parser.add_argument("--preflight-only", action="store_true")
+    parser.add_argument("--source-lock", default="EXECUTION_SOURCE_LOCK_V1.json")
     args = parser.parse_args()
     base = args.run_root.resolve()
     config = json.loads((base / "CONFIG_FREEZE_V1.json").read_text(encoding="utf-8"))
@@ -143,8 +144,8 @@ def main() -> None:
         print(json.dumps(status))
         return
     preflight = json.loads((base / "PREFLIGHT_V1.json").read_text(encoding="utf-8"))
-    assert preflight["conditions"] == status
-    source_lock = json.loads((base / "EXECUTION_SOURCE_LOCK_V1.json").read_text(encoding="utf-8"))
+    assert preflight["conditions"] == json.loads(json.dumps(status))
+    source_lock = json.loads((base / args.source_lock).read_text(encoding="utf-8"))
     assert source_lock["runner_sha256"] == sha(Path(__file__))
     assert source_lock["executed_git_commit"] == subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
     for record in source_lock["code"]:
@@ -229,7 +230,7 @@ def main() -> None:
         "prediction_sha256": sha(prediction), "rows": len(output), "execution": execution,
         "models": model_index, "config_sha256": sha(base / "CONFIG_FREEZE_V1.json"),
         "preflight_sha256": sha(base / "PREFLIGHT_V1.json"),
-        "code_source_lock_sha256": sha(base / "EXECUTION_SOURCE_LOCK_V1.json"),
+        "code_source_lock_sha256": sha(base / args.source_lock),
         "label_roles_S_and_Oracle_mapping_loaded_in_this_process": False,
         "training_targets_from_signed_human_QA_vault": True,
         "locked_utc": datetime.now(timezone.utc).isoformat(),
