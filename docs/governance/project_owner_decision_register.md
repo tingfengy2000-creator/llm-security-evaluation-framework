@@ -1,5 +1,18 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-147 — VACE-Lite simplification and D1 A0 development diagnostic
+
+2026-10-28; OR-101/REL-2026-0116; source HEADcf4d669.
+Owner approves P1-VACE-LITE-R1-SURFACE-BASELINE-AND-METHOD-REFINEMENT-01:
+two separately frozen no-training surface rules, same signed120 D1_DEV, prediction lock before labels/S scoring.
+Original3 reviewer patterns only; general rules written once, no per-miss additions. Reviewer/author D1 exposure explicit.
+Preserve HKP1–4/S1–3/triplets/HOLD/raw/Evidence/Guide and all historical results; old126 excluded.
+Method candidate V0.2: six-slot lightweight claim–evidence verification, not GNN/long-context mandate/new model run.
+Tentative contribution benchmark with versioned HN + layered failure attribution + lightweight constrained verification.
+L0 and L0-Oracle/slot evaluation only preregistered, no implementation/model training or D2D3 evaluation.
+[Protocol](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_VACE_LITE_R1_A0_PROTOCOL_V1.md).
+Stop VACE_LITE_V02_OWNER_REVIEW_REQUIRED; no automatic method execution or formal evaluation.
+
 ## PODR-146 — signed D1 development qualification and four fixed conditions
 
 2026-10-28; OR-100/REL-2026-0115; input source HEADb559dee.

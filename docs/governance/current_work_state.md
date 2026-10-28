@@ -1,5 +1,16 @@
 # Current Work State
 
+## Current — 2026-10-28 VACE-Lite R1 surface baseline and candidate method refinement
+
+P1-VACE-LITE-R1-SURFACE-BASELINE-AND-METHOD-REFINEMENT-01; PODR-147/OR-101/REL-2026-0116.
+Source cf4d669; same signed40 groups120 rows13families;8/24 HOLD unchanged.
+External review located and to be raw-locked; V0.1 full draft unavailable, do not fabricate its details.
+[Protocol](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_VACE_LITE_R1_A0_PROTOCOL_V1.md).
+Now freeze original3 patterns/general6 cues separately before deterministic prediction; labels/S loaded after seal.
+Only A0 diagnostic, S1/legitimate-HN cue audit, six-slot V0.2 candidate and L0 plans authorized.
+No VACE/model/GT/Guide/data changes, old126, formal split, D2D3 evaluation or calibration.
+Next final gate VACE_LITE_V02_OWNER_REVIEW_REQUIRED; finish docs/Git and STOP.
+
 ## Current — 2026-10-28 D1 first development results executed and sealed
 
 PODR-146/OR-100/REL-2026-0115; Run D1-FIRST-DETECTION-20261028-R01.
