@@ -1,5 +1,17 @@
 # LLMGuard 项目总控文档
 
+## 当前候选：VACE-Lite V0.3证据充分性路由，仅设计（2026-10-28）
+
+Owner只批设计：文内I必须证明同主体/时间/条件互斥，A0只发现线索；否则独立官方检索，
+按实际证明gap补版本/机关/联合前提，预算内仍不足则复核。不用A0 OR B1、不强制SEPT、不按S/GT路由。
+六槽位/三态/原文证据继承V0.2；V0.2本来也不是SEPT分类器，新增的是显式调度和预算/错误合同。
+F5同池与扩池分开比较，需强L0/非自适应对照；所有V0.3性能和成本未知，75%只是无效事后标签拼接。
+[Owner审阅](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_V03_OWNER_REVIEW_PACKET.md)，
+[状态V23](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V23.md)。
+PODR-148/OR-102/REL-2026-0117；四份新稿不替换正式科研合同/Research Plan Authority。
+没有新检测/训练/模型/slot标签或数据变动；D1仅开发，D2D3原质量门/GT/来源家族隔离门保持。
+停VACE_LITE_V03_OWNER_REVIEW_REQUIRED，未获实现或正式评测批准，长期Stage6.2/7不变。
+
 ## 当前：S1表层捷径已证实，方法候选收缩为VACE-Lite（2026-10-28）
 
 Owner批准A0诊断及轻量六槽位规格，不运行VACE。原三句式在同120条D1_DEV中检出S1 12/12，

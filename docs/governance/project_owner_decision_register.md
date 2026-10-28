@@ -1,5 +1,17 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-148 — design-only VACE-Lite V0.3 adaptive evidence-aware verification
+
+2026-10-28; OR-102/REL-2026-0117; source HEAD9f0d42e.
+Owner authorizes P1-VACE-LITE-V03-ADAPTIVE-VERIFICATION-DESIGN-01, four design deliverables and feasibility review only.
+No universal SEPT classifier, A0 as cues only, semantic internal proof before external evidence-gap routing.
+Preserve V0.2 six slots/three verdicts/provenance; use observable sufficiency, never GT/Role/S for routing.
+Specify module contracts, bounded version/authority/joint evidence, errors/leakage and fair A0/A/B1/L0/NA evaluation.
+No simple A0 OR B1 and no75% ideal-route performance claim. D1 development only, D2D3 retain quality/source gates.
+No training/new detection/data/GT/Evidence/history/formal research contract changes.
+[Owner packet](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_V03_OWNER_REVIEW_PACKET.md).
+V0.3 is not accepted for implementation; STOP VACE_LITE_V03_OWNER_REVIEW_REQUIRED.
+
 ## PODR-147 — VACE-Lite simplification and D1 A0 development diagnostic
 
 2026-10-28; OR-101/REL-2026-0116; source HEADcf4d669.

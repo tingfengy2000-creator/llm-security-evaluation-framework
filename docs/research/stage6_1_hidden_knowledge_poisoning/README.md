@@ -1,5 +1,10 @@
 # Paper 1 Start Here
 
+**最新V0.3候选设计（2026-10-28）：** [Owner审阅包](core144/vace_lite/VACE_V03_OWNER_REVIEW_PACKET.md)，
+[方法规格](core144/vace_lite/VACE_LITE_V03_ADAPTIVE_METHOD_SPEC.md)，[状态V23](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V23.md)。
+先文内互斥证明，再按证据充分性选择补证；无A0 OR B1、无S标签路由，75%不是实测。
+本轮仅设计，无新检测/训练/正式合同变更；VACE_LITE_V03_OWNER_REVIEW_REQUIRED，等待Owner。
+
 **最新VACE-Lite候选（2026-10-28）：** [A0显示S1表层捷径](core144/PAPER1_VACE_LITE_R1_RECORD_V1.md)，
 [六槽位V0.2](core144/vace_lite/VACE_LITE_V02_METHOD_SPEC.md)，[状态V22](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V22.md)。
 原三句式S1检出12/12、总Recall40%、HN-FPR7.5%；不能把S1词面检出当方法创新。

@@ -1,5 +1,23 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current VACE-Lite V0.3 adaptive verification design only — 2026-10-28
+
+PODR-148/OR-102/REL-2026-0117; task P1-VACE-LITE-V03-ADAPTIVE-VERIFICATION-DESIGN-01; source9f0d42e.
+Design receipt ID VACE-V03-DESIGN-20261028-R01, not an inference run. Four Markdown drafts only.
+Candidate-only I proof, A0 cue-only, Q obligation/gap routing to T/P/J and bounded frozen-corpus acquisition.
+No universal SEPT, no A0 OR B1, no GT/Role/S/runtime Oracle mapping. NOT_PROVEN never implies SUPPORT.
+F5 primary same-pool and E2 secondary expansion/NA/L0 matched controls specified; all V0.3 metrics NOT_EXECUTED.
+75% posthoc S-label combination explicitly invalid, not a true score or upper bound; historical A/B/C/A0 unchanged.
+[Owner packet](../core144/vace_lite/VACE_V03_OWNER_REVIEW_PACKET.md),[state V23](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V23.md).
+Private design evidence experiments/vace_lite_v03_design_20261028_run01/; no new detector source/predictions/models.
+Research Plan Authority/long-term/Guide/formal contract untouched; data/Human/Evidence/D2D3/Stage1–5/Final72 unchanged.
+STOP VACE_LITE_V03_OWNER_REVIEW_REQUIRED. Task approval is not method/implementation acceptance.
+
+Design QA342/static tests10/scoped Ruff/MyPy/diff PASS; no functional router/model validation.
+New27-file index SHAe006b2e560c9604ca5b37db0e9dd5ee485383fc1f23fb6c983c42e63d9ada7a0;
+design manifest SHAc5e19a88885f6c97bc446e21498f9518fe67bd3a2d3569c697c3c7aec9b27f7a.
+Old149+61 sealed artifacts unchanged; RPA/long-term/formal contract unchanged. Delivery/Git receipts additive.
+
 ## Current VACE-Lite R1 A0 complete / V0.2 candidate — 2026-10-28
 
 PODR-147/OR-101/REL-2026-0116; Run VACE-LITE-R1-20261028-R01; execution sourceb5064ef.

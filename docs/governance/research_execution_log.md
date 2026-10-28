@@ -1,5 +1,17 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0117 — design VACE-Lite V0.3 without running a detector
+
+2026-10-28; PODR-148/OR-102; source9f0d42e, unique research worktree, upstream0/0 at preflight.
+Read frozen V0.2, D1 and A0 records. Owner approves design-only adaptive evidence-aware verification, not implementation.
+Write four new Markdown drafts: proof-based I, A0 cue-only, official R0, Q obligations/sufficiency, bounded T/P/J and stop conditions.
+Separate F5 same-pool causal controls from expansion; do not misrepresent V0.2 as SEPT or75% as observed performance.
+Add static document checks only; first check had two wording false failures (Owner casing / source literal), preserve initial source;
+correct validator to canonical case-insensitive status and existing source/version-family wording, not detector/data semantics.
+[Owner packet](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_V03_OWNER_REVIEW_PACKET.md).
+No real-candidate routing, new predictions, model download/training, data/Guide/Evidence/Human changes or D2D3 evaluation.
+Formal research contract/RPA and old reports remain unchanged. Finish doc/hash/Git receipt and STOP VACE_LITE_V03_OWNER_REVIEW_REQUIRED.
+
 ## REL-2026-0116 — freeze A0 rules, seal240 predictions, audit S1 shortcuts, design VACE-Lite
 
 2026-10-28; PODR-147/OR-101; initial HEADcf4d669, run VACE-LITE-R1-20261028-R01.

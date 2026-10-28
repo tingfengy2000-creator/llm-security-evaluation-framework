@@ -1,5 +1,18 @@
 # Current Work State
 
+## Current — 2026-10-28 VACE-Lite V0.3 adaptive verification design only
+
+P1-VACE-LITE-V03-ADAPTIVE-VERIFICATION-DESIGN-01; PODR-148/OR-102/REL-2026-0117.
+Source9f0d42e; [Owner packet](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_V03_OWNER_REVIEW_PACKET.md),
+[state V23](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V23.md).
+Candidate-only I needs a real same-domain contradiction certificate; A0 cue is not a verdict, B1 not a fallback.
+Otherwise independent official evidence, Q obligations/gaps then bounded T/P/J acquisition; insufficient remains review.
+F5 same-pool primary and E2 expansion/NA/L0 comparisons specified, no model or policy executed.
+V0.2 was already six-slot/tri-state, not forced SEPT. Posthoc S-based75% is not measured V0.3 performance.
+All V0.3 Recall/FPR/cost UNKNOWN/NOT_EXECUTED; old D1/A0/hold/raw/data/Guide/D2D3 unchanged.
+Formal Research Plan Authority and long-term contracts unchanged; only new candidate specs/governance authorized.
+STOP VACE_LITE_V03_OWNER_REVIEW_REQUIRED; no automatic implementation, training, new detection or formal evaluation.
+
 ## Current — 2026-10-28 A0 surface diagnostic complete; VACE-Lite V0.2 candidate review
 
 P1-VACE-LITE-R1-SURFACE-BASELINE-AND-METHOD-REFINEMENT-01; PODR-147/OR-101/REL-2026-0116.

@@ -1,5 +1,24 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-102 — VACE-Lite V0.3 design review, NOT an experiment
+
+2026-10-28; PODR-148/REL-2026-0117; source HEAD9f0d42e; design ID VACE-V03-DESIGN-20261028-R01.
+Owner authorizes specifications/feasibility only. No inference/training/threshold/split/model or new evaluation run.
+Four drafts: adaptive method, V02/V03 comparison, ablation/evaluation plan, Owner review packet.
+I certificate before early conflict; all non-proven inputs external evidence; Q sufficiency/gaps choose T/P/J within bounded pool.
+A0 cue-only, no A0 OR B1, no GT/Role/S routing. Fixed5 primary and controlled expansion secondary, strong L0/NA comparison.
+All V0.3 detection/cost metrics UNKNOWN/NOT_EXECUTED; posthoc75% is not measured performance.
+[Owner packet](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_V03_OWNER_REVIEW_PACKET.md),
+[state V23](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V23.md).
+Private design receipt experiments/vace_lite_v03_design_20261028_run01/ binds source hashes, protected history, docs and static checks.
+Formal research contract/RPA/Guide/data/Human/Evidence/D2D3 unchanged; no new scientific result.
+STOP VACE_LITE_V03_OWNER_REVIEW_REQUIRED; future implementation requires separate Owner decision.
+
+Design-only QA342/tests10/Ruff/MyPy/diff and documentation closeout PASS, no algorithm-result acceptance.
+New27-file index SHAe006b2e560c9604ca5b37db0e9dd5ee485383fc1f23fb6c983c42e63d9ada7a0;
+manifest SHAc5e19a88885f6c97bc446e21498f9518fe67bd3a2d3569c697c3c7aec9b27f7a. Old149+61 hashes reverified.
+[Closeout](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_VACE_V03_DESIGN_CLOSEOUT_V1.md).
+
 ## OR-101 — A0 same120 development diagnostic and VACE-Lite V0.2 candidate
 
 2026-10-28; PODR-147/REL-2026-0116; Run VACE-LITE-R1-20261028-R01.

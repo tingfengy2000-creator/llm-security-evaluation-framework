@@ -1,5 +1,14 @@
 # Paper 1 用户确认需求登记册
 
+## OR-102 — 自适应证据核验V0.3只做设计（2026-10-28）
+
+Owner要求先文内真实互斥证明，再按证据充分性选择版本、权威或联合补证；不统一SEPT、不作A0 OR B1。
+沿用六槽位/三态/原文证据，不读GT/构造Role/S路由；公平对照A0/A/B1/L0/非自适应，报告HN/弃权/成本。
+不得将75%理想标签分流当性能；D1仅开发，D2/D3独立质量/GT/来源门保留。
+授权仅四份规格及可行性审查，不训练/检测/改正式合同或原始资产。
+[审阅包](../core144/vace_lite/VACE_V03_OWNER_REVIEW_PACKET.md)；PODR-148/REL-2026-0117。
+VACE_LITE_V03_OWNER_REVIEW_REQUIRED，未接受方法或批准实施。
+
 ## OR-101 — 简化VACE候选与A0表层捷径诊断（2026-10-28）
 
 Owner批准P1-VACE-LITE-R1-SURFACE-BASELINE-AND-METHOD-REFINEMENT-01，不追求所有污染极端隐蔽。
