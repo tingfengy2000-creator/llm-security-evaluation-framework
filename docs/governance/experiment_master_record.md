@@ -1,5 +1,20 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-108 — R01 return independently reviewed; Owner approves R02 preparation, not an executed D1 result
+
+2026-10-29 JST; PODR-153/REL-2026-0123; P1-VACE-L0-R02-SEMANTIC-DIAGNOSTIC-EXECUTION-01; baseb8c6118.
+Return ZIP10100bytes SHAa56c8b79a0a61879629a305325a7cbf1d0188ad7c73a187e93c31e528be838e6 and10 originals exact; zero-byte stdout retained.
+Eight original source/config identities matcha83437a, all5 parser replays exact. SYN-3 rawverdictCONTRADICT with support-consistent reason;194tokens/EOS, not parser inversion/truncation.
+R01 4/5 semantics, failed gate/HARD_STOP preserved; nonempty nonabstention gap strings are recorded, not normalized or retrospectively fixed.
+R02 changes only semantic accuracy to diagnostic while keeping engineering hard gates, same model/prompt/parser/input/generation/scoring. New disjoint Run, old model/env read-only, no install/download.
+Private preparation QA/manifest in experiments/vace_l0_r02_preparation_20261029_run01/. CPU checks do not establish actual5090 or D1 success.
+Final100CPUtestsPASS; Ruff/MyPy5filesPASS; exact generate AST and prompt/parser/evaluator/R01 policy/model manifest unchanged, same signed input bytes and129 D2/D3 indexed files verified.
+R02_QA_V3 SHA6823a987374d52b234ea08ed144024110d9015eedd9a2fbd80e129e537c68afb;
+55-file EVIDENCE_INDEX_V1 SHA62b8bfb4c8c553d1141a6d88cab45f96cd615770e303737c21dfc466a0677cd1. CPU fixture outputs excluded; legacy governance debt not reclassifiedPASS.
+[R02 contract](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_R02_OWNER_APPROVAL_AND_EXECUTION_V1.md),
+[stateV29](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V29.md).
+Status R02_APPROVED_EXECUTION_PACKAGE_READY / WORKER_EXECUTION_NOT_OBSERVED. No new detection metrics, formal GT/split, D2D3 changes or training.
+
 ## OR-107 — 5090 Qwen L0 frozen load passed, fictional synthetic gate failed before D1
 
 2026-10-29 JST; PODR-151/REL-2026-0122; P1-VACE-L0-F5-ORACLE-STRONG-BASELINE-01; Run VACE-L0-D1-20261029-R01; source a83437ab0a685d69114093fd4bd0e6ab22f354aa.

@@ -1,5 +1,13 @@
 # LLMGuard 项目总控文档
 
+## 当前：Owner批准L0 R02，仅把合成语义准确率改诊断项（2026-10-29 JST）
+
+PODR-153/OR-108/REL-2026-0123；[R02合同](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_R02_OWNER_APPROVAL_AND_EXECUTION_V1.md)。
+R01真实失败和HARD_STOP保留；新R02独立目录只读复用同官方Qwen、隔离环境和签署D1输入，不下载/安装替代资源。
+模型、prompt、解析器、证据顺序、种子/解码/预算/指标不变；工程硬门仍停止，语义错题如实记录，不按理由修verdict。
+这是看到合成失败后、D1预测前的有界门控修订，不是R01原协议成功；不能把合成准确率当D1检出率。
+本机仅工程包与CPU验证，待5090实际执行并交240新raw/封存后评价结果；正式GT/split、D2/D3/Guide/Human均不变。
+
 ## 当前：5090已跑到虚构合成门并停止，D1没有分数（2026-10-29 JST）
 
 PODR-151/OR-107/REL-2026-0122；[合成门阻断](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_5090_SYNTHETIC_GATE_BLOCKER_V1.md)，

@@ -1,5 +1,16 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-153 — authorize R02 with unchanged verifier and evidence; synthetic semantic accuracy diagnostic only
+
+2026-10-29 JST; OR-108/REL-2026-0123; P1-VACE-L0-R02-SEMANTIC-DIAGNOSTIC-EXECUTION-01.
+Owner explicitly approves: keep model, prompt, parser and evidence unchanged; synthetic semantic accuracy becomes diagnostic, engineering hard gates retained; run D1; preserve all R01 failure records and HARD_STOP.
+Only prospective R02 supersedes the strict synthetic all-correct execution rule; R01 remains a valid failed attempt, never relabelled successful or resumed in place.
+New Run VACE-L0-D1-20261029-R02 and disjoint directory. Same generation/seed/context/evidence/labels/scoring, no verdict correction using rationale or altered expected answers.
+Use the same verified R01 environment/model/input bytes read-only; no new downloads/installs/global changes. Total24GiB budget and GPU hard gates remain.
+New240 predictions lock before evaluator labels/S; no D1 post-result tuning, D2/D3 change, Human/Guide/GT/split/training/calibration/VACE-LM authorization.
+Normal approved preparation/check/synthetic/predict/seal/evaluate/archive may continue on5090; genuine engineering failure stops for Owner.
+[Contract and disclosure](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_R02_OWNER_APPROVAL_AND_EXECUTION_V1.md).
+
 ## PODR-152 — separate local D2/D3 data/annotation conversation from the original experimental conversation
 
 2026-10-29 JST; OR-106/REL-2026-0121; P1-CORE144-D2-D3-DATA-THREAD-HANDOFF-01.

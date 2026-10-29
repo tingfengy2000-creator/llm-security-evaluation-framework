@@ -333,10 +333,32 @@ def setup_runtime(root: Path, repo: Path, python: Path, policy: dict[str, Any], 
     return exe
 
 
+def synthetic_assessment(records: list[dict[str, Any]], repeat: dict[str, Any], policy: dict[str, Any]) -> dict[str, Any]:
+    """Engineering remains hard; only PODR-153's R02 makes accuracy diagnostic."""
+    mode = policy.get("synthetic_semantic_requirement", "REQUIRE_ALL_CORRECT")
+    if mode not in {"REQUIRE_ALL_CORRECT", "DIAGNOSTIC_ONLY"}:
+        raise RuntimeError("UNKNOWN_SYNTHETIC_GATE_POLICY")
+    if mode == "DIAGNOSTIC_ONLY" and (policy.get("owner_approval"), policy.get("run_id")) != ("PODR-153", "VACE-L0-D1-20261029-R02"):
+        raise RuntimeError("SYNTHETIC_GATE_RELAXATION_NOT_AUTHORIZED")
+    cases = synthetic_cases()
+    ids = [r["candidate_id"] for r in records]
+    bound = len(records) == len(cases) and all(r.get("input_sha256") == sha_text(json.dumps(row, ensure_ascii=False, sort_keys=True)) and r.get("expected_fictional") == expected for r, (row, expected) in zip(records, cases))
+    parsed_exact = bound and all(isinstance(r.get("raw_output"), str) and all(r.get(k) == v for k, v in parse_output(r["raw_output"], row).items()) for r, (row, _) in zip(records, cases))
+    repeat_ok = bool(records) and repeat.get("candidate_id") == "SYN-1" and repeat.get("input_sha256") == records[0].get("input_sha256") and repeat.get("raw_output") == records[0].get("raw_output") and not repeat.get("error")
+    engineering = bound and parsed_exact and ids == [f"SYN-{i}" for i in range(1, 6)] and all(r.get("raw_output") and not r.get("error") for r in records) and repeat_ok
+    correct = sum(r["verdict"] == r["expected_fictional"] for r in records)
+    semantic = len(records) == 5 and correct == 5
+    return {"all_pass": bool(engineering and semantic), "engineering_all_pass": bool(engineering), "semantic_all_pass": semantic,
+            "semantic_correct": correct, "semantic_total": len(records), "semantic_requirement": mode,
+            "execution_gate_passed": bool(engineering and (semantic or mode == "DIAGNOSTIC_ONLY")),
+            "greedy_repeat_identical": repeat_ok, "original_verdicts_and_expectations_unchanged": True,
+            "nonempty_gap_on_nonabstention_diagnostic": sum(r["verdict"] != "INSUFFICIENT" and bool(r.get("insufficient_reason")) for r in records)}
+
+
 def infer(root: Path, repo: Path, model_path: Path) -> None:
-    policy = load(repo / BASE / "worker_policy_v1.json")
-    model_manifest = load(repo / BASE / "qwen_official_manifest_v1.json")
     freeze = load(root / "CONFIG_LOCK.json")
+    policy = freeze["policy"]
+    model_manifest = load(repo / BASE / "qwen_official_manifest_v1.json")
     for p, h in freeze["code_sha256"].items():
         if sha(repo / p) != h:
             raise RuntimeError("FROZEN_CODE_CHANGED")
@@ -348,11 +370,12 @@ def infer(root: Path, repo: Path, model_path: Path) -> None:
     # Deny evaluator-label file access in the inference process, even if an
     # accidental new helper attempts it. Not a substitute for OS sandboxing.
     evaluation = (root / "input/evaluation").resolve()
+    evaluation_roots = [evaluation, *(Path(p).resolve() for p in freeze.get("additional_evaluator_vaults_private", []))]
 
     def deny_labels(event: str, args: tuple[Any, ...]) -> None:
         if event == "open" and isinstance(args[0], (str, bytes, os.PathLike)):
             p = Path(os.fsdecode(args[0])).resolve()
-            if p.is_relative_to(evaluation):
+            if any(p.is_relative_to(vault) for vault in evaluation_roots):
                 raise PermissionError("EVALUATOR_VAULT_ACCESS_FORBIDDEN_DURING_INFERENCE")
 
     sys.addaudithook(deny_labels)
@@ -385,6 +408,8 @@ def infer(root: Path, repo: Path, model_path: Path) -> None:
         write_new(root / "ACTUAL_GENERATION_CONFIG.json", generation.to_dict())
     elif load(root / "ACTUAL_GENERATION_CONFIG.json") != generation.to_dict():
         raise RuntimeError("ACTUAL_GENERATION_CONFIG_CHANGED_ON_RESUME")
+    if freeze.get("parent_r01_generation_sha256") and sha(root / "ACTUAL_GENERATION_CONFIG.json") != freeze["parent_r01_generation_sha256"]:
+        raise RuntimeError("R02_GENERATION_CONFIG_DIFFERS_FROM_R01")
     if not (root / "GPU_LOAD_RECEIPT.json").exists():
         write_new(root / "GPU_LOAD_RECEIPT.json", {"device": torch.cuda.get_device_name(index), "device_index": index, "dtype": "bfloat16", "attention": model.config._attn_implementation, "device_map": getattr(model, "hf_device_map", None), "max_position_embeddings": model.config.max_position_embeddings, "free_total_after_load": torch.cuda.mem_get_info(index), "deterministic_algorithms": torch.are_deterministic_algorithms_enabled(), "actual_generation_config_sha256": sha(root / "ACTUAL_GENERATION_CONFIG.json"), "inference_network": "OFFLINE_LOCAL_FILES_ONLY"})
     raw_dir = root / "raw"
@@ -422,12 +447,15 @@ def infer(root: Path, repo: Path, model_path: Path) -> None:
             p = generate(row)
             records.append({**p, "expected_fictional": expected})
         repeat = generate(synthetic_cases()[0][0])
-        passed = all(r["verdict"] == r["expected_fictional"] and not r["error"] for r in records) and repeat["raw_output"] == records[0]["raw_output"]
-        write_new(root / "SYNTHETIC_GATE.json", {"records": records, "greedy_repeat": repeat, "all_pass": passed, "D1_not_loaded_yet": True})
-        if not passed:
+        assessment = synthetic_assessment(records, repeat, policy)
+        write_new(root / "SYNTHETIC_GATE.json", {"records": records, "greedy_repeat": repeat, **assessment, "D1_not_loaded_yet": True})
+        if not assessment["execution_gate_passed"]:
             raise RuntimeError("SYNTHETIC_GATE_FAIL_NO_PROMPT_TUNING")
-    elif not load(root / "SYNTHETIC_GATE.json")["all_pass"]:
-        raise RuntimeError("PRIOR_SYNTHETIC_GATE_FAILED_DO_NOT_RERUN_TO_CHASE_PASS")
+    else:
+        saved = load(root / "SYNTHETIC_GATE.json")
+        decision = synthetic_assessment(saved["records"], saved["greedy_repeat"], policy)
+        if not decision["execution_gate_passed"]:
+            raise RuntimeError("PRIOR_SYNTHETIC_GATE_FAILED_DO_NOT_RERUN_TO_CHASE_PASS")
     predictions = []
     for condition, filename in (("L0-F5", "f5.jsonl"), ("L0-Oracle", "oracle.jsonl")):
         data = rows(root / "input/runtime" / filename)

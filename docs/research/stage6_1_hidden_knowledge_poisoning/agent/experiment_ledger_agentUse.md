@@ -1,5 +1,16 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current R02 approved; engineering package, no observed execution — 2026-10-29 JST
+
+PODR-153/OR-108/REL-2026-0123; P1-VACE-L0-R02-SEMANTIC-DIAGNOSTIC-EXECUTION-01; baseb8c6118.
+Owner approves only semantic synthetic accuracy as diagnostic; model/prompt/parser/evidence/generation unchanged. [R02 contract](../core144/vace_lite/VACE_L0_R02_OWNER_APPROVAL_AND_EXECUTION_V1.md).
+R01 return10100bytes/10originals/eight source hashes/five parser replays exact. Original semantic failure/stop valid; no D1 result or rationale-based verdict repair.
+R02 VACE-L0-D1-20261029-R02 disjoint root, fixed policy, parent snapshot/HARD_STOP and generation/dependency/model/input equality, no download/install.
+Private QA namespace experiments/vace_l0_r02_preparation_20261029_run01/; new240 predictions must seal before evaluator labels/S. Fake CPU orchestration output is not D1/model evidence.
+Final100PASS/Ruff/MyPy5filesPASS; same prompt/parser/generate AST/evaluator/inputs,129 D2/D3 old files preserved.
+QA_V3 SHA6823a987374d52b234ea08ed144024110d9015eedd9a2fbd80e129e537c68afb;55-file index SHA62b8bfb4c8c553d1141a6d88cab45f96cd615770e303737c21dfc466a0677cd1; later Git/delivery receipts outside seal.
+No change to D2/D3/Human/Guide/GT/Evidence/old outcomes; no formal split/training/calibration/VACE-LM. Local5060 does not infer; await fixed-source5090 run and raw return.
+
 ## Current — 5090 synthetic semantic gate block, D1 not measured, 2026-10-29 JST
 
 PODR-151/OR-107/REL-2026-0122; P1-VACE-L0-F5-ORACLE-STRONG-BASELINE-01; Run VACE-L0-D1-20261029-R01; source a83437ab0a685d69114093fd4bd0e6ab22f354aa.

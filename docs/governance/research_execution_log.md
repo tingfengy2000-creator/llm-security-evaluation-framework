@@ -1,5 +1,17 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0123 — Owner approves R02 semantic diagnostic gate; preserve R01 and prepare bounded execution
+
+2026-10-29 JST; PODR-153/OR-108; P1-VACE-L0-R02-SEMANTIC-DIAGNOSTIC-EXECUTION-01; baseb8c6118.
+Owner approval supersedes strict synthetic semantic success only for new R02, keeps model/prompt/parser/evidence and engineering gates, preserves old failure/HARD_STOP.
+Guarded ff-only sync9831d62→b8c6118 after known unrelated design/PDF hashes/no-path-overlap checks; no stash/reset or overwrite of those changes.
+Independently validate10100byte ZIP/10 originals and replay5 frozen parses; source8hashes exacta83437a; SYN-3 rawlabel/reason inconsistency, no D1 execution.
+Add fixed R02 policy/entrypoint, read-only parent/origin/hash checks, same input byte copy, no install/download, new-generation-config equality and scoped semantic/engineering assessment.
+Original model loader/generate/prompt/parser/evaluator/input builder/R01 policy stay unchanged in meaning/identity as applicable; verdict/expected never repaired.
+CPU attempt1 had missing task basetemp parent; added namespace then fresh tmp. New orchestration fixture initially overmocked shared subprocess; restricted mock to pip freeze only, not production logic.
+Prepare exact-source5090 Cursor handoff after tests/freeze/push. No local GPU/model run or D1 metric, no source/protocol tuning from D1, data/Guide/Human/GT/D2D3/formal split change.
+[Execution/disclosure](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_R02_OWNER_APPROVAL_AND_EXECUTION_V1.md).
+
 ## REL-2026-0122 — 5090 L0 reaches the model, stops on fictional synthetic gate
 
 2026-10-29 JST; PODR-151/OR-107; execution source a83437ab0a685d69114093fd4bd0e6ab22f354aa; record branch fetched 9831d62 ahead/behind 0/0 before this commit.

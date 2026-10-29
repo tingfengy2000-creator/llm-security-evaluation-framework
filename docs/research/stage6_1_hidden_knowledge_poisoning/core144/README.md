@@ -1,5 +1,8 @@
 # Core144 navigation
 
+**当前R02：** [Owner批准与执行合同](vace_lite/VACE_L0_R02_OWNER_APPROVAL_AND_EXECUTION_V1.md)，[状态V29](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V29.md)。
+同模型/prompt/parser/证据，只将合成语义全对门改诊断；R01失败/硬停保留，R02独立目录新240预测，尚未观察实际执行。
+
 **当前5090结果（2026-10-29）：** [虚构合成门硬停](vace_lite/VACE_L0_5090_SYNTHETIC_GATE_BLOCKER_V1.md)，[双轨V28](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V28.md)。
 RTX5090与官方Qwen2.5-7B已加载；SYN-3期望SUPPORT、实得CONTRADICT。D1未跑，指标未测量。权重和标签不在Git。
 
