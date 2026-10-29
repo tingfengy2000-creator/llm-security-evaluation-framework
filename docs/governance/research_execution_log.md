@@ -1,5 +1,16 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0124 — R02 check passes; D1 stops on CUDA out of memory
+
+2026-10-29 JST; PODR-153/OR-109; source a31ade51c2e6923991b81895163060b80db6da4f; Run VACE-L0-D1-20261029-R02.
+Check-only exit passed: R02_CHECK_ONLY_PASS_NO_NEW_MODEL_OR_DEPENDENCY. Same R01 interpreter, model directory and input hashes. No download or install.
+Synthetic engineering_all_pass true, semantic 4/5, all_pass false, execution_gate_passed true, greedy repeat identical. Diagnostic only; R01 not relabelled successful.
+Infer 13:42:12Z–13:43:53Z exit 1. Saved L0-F5-000 through L0-F5-004. Next generate: torch.OutOfMemoryError, tried 12.21 GiB, 2.01 GiB free, 27.73 GiB allocated, 30.00 GiB allowed. SDPA unchanged. No PYTORCH_CUDA_ALLOC_CONF, quantization or CPU offload.
+Oracle 0. No PREDICTION_LOCK, COMPLETE.json or return ZIP. Metrics NOT_MEASURED, not 0.
+R01 HARD_STOP SHA256 unchanged 67152d26f9708b98e4ff7870897c0fe4f84a2675ff8a355e1813c1ef983d0629. R02 HARD_STOP SHA256 88c2f00fc70a81d54e72774833ac985afcd3c4c296d7987e5fd59422d4c83b71. Neither removed.
+Status L0_STRONG_BASELINE_R02_CUDA_OOM_BLOCKED / HUMAN_DECISION_REQUIRED. No D2D3, training, formal split or VACE-LM. Raw and weights not uploaded.
+[Blocker](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_R02_CUDA_OOM_BLOCKER_V1.md).
+
 ## REL-2026-0123 — Owner approves R02 semantic diagnostic gate; preserve R01 and prepare bounded execution
 
 2026-10-29 JST; PODR-153/OR-108; P1-VACE-L0-R02-SEMANTIC-DIAGNOSTIC-EXECUTION-01; baseb8c6118.

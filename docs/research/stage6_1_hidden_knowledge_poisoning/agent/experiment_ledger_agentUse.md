@@ -1,6 +1,17 @@
 # Paper 1 Experiment Ledger — agentUse
 
-## Current R02 approved; engineering package, no observed execution — 2026-10-29 JST
+## Current — R02 CUDA OOM before sealed D1, 2026-10-29 JST
+
+PODR-153/OR-109/REL-2026-0124; Run VACE-L0-D1-20261029-R02; source a31ade51c2e6923991b81895163060b80db6da4f.
+Status L0_STRONG_BASELINE_R02_CUDA_OOM_BLOCKED / HUMAN_DECISION_REQUIRED. Not D1_DEV_COMPLETE.
+Check-only pass. Synthetic engineering_all_pass true; semantic_correct 4/5; semantic_all_pass false; all_pass false; execution_gate_passed true; greedy_repeat_identical true.
+Raw saved: L0-F5-000..004. Next generate torch.OutOfMemoryError: tried 12.21 GiB; free 2.01 GiB; allocated 27.73 GiB; allowed 30.00 GiB. Oracle count 0.
+No PREDICTION_LOCK, COMPLETE.json, L0_RETURN_NO_WEIGHTS.zip. Metrics NOT_MEASURED, not 0. No AUROC/AUPRC.
+R02 HARD_STOP 88c2f00fc70a81d54e72774833ac985afcd3c4c296d7987e5fd59422d4c83b71. R01 HARD_STOP unchanged 67152d26f9708b98e4ff7870897c0fe4f84a2675ff8a355e1813c1ef983d0629.
+No prompt/parser/model/allocator/quantization change and no retry. D2/D3, Guide, Human, GT, Evidence unchanged. Raw/labels/weights not in Git.
+[Blocker](../core144/vace_lite/VACE_L0_R02_CUDA_OOM_BLOCKER_V1.md), [state V30](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V30.md).
+
+## Historical approval snapshot — R02 package before the 5090 OOM, 2026-10-29 JST
 
 PODR-153/OR-108/REL-2026-0123; P1-VACE-L0-R02-SEMANTIC-DIAGNOSTIC-EXECUTION-01; baseb8c6118.
 Owner approves only semantic synthetic accuracy as diagnostic; model/prompt/parser/evidence/generation unchanged. [R02 contract](../core144/vace_lite/VACE_L0_R02_OWNER_APPROVAL_AND_EXECUTION_V1.md).

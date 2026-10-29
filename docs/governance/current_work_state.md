@@ -1,5 +1,15 @@
 # Current Work State
 
+## Current — 2026-10-29 R02 engineering check passed, D1 inference stopped on CUDA OOM
+
+P1-VACE-L0-R02-SEMANTIC-DIAGNOSTIC-EXECUTION-01; Run VACE-L0-D1-20261029-R02; source a31ade51c2e6923991b81895163060b80db6da4f; PODR-153/OR-109/REL-2026-0124.
+[OOM blocker](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_R02_CUDA_OOM_BLOCKER_V1.md),
+[state V30](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V30.md).
+Check-only passed on the frozen R01 interpreter, model and input. No download or install. Synthetic engineering_all_pass true; semantic 4/5 and all_pass false are diagnostic only; execution_gate_passed true. Greedy repeat matched.
+Five new L0-F5 raw files were written. The next generate raised torch.OutOfMemoryError: allocate 12.21 GiB with 2.01 GiB free, 27.73 GiB already allocated, 30.00 GiB allowed. Oracle not started. No prediction lock, COMPLETE.json or return ZIP. Metrics NOT_MEASURED, not 0.
+R01 HARD_STOP unchanged. R02 HARD_STOP retained. No allocator change, quantization, CPU offload, prompt edit or retry. D2/D3 unchanged.
+Status L0_STRONG_BASELINE_R02_CUDA_OOM_BLOCKED / HUMAN_DECISION_REQUIRED.
+
 ## Current — 2026-10-29 Owner approves independent L0 R02; semantic synthetic accuracy diagnostic, engineering gates retained
 
 P1-VACE-L0-R02-SEMANTIC-DIAGNOSTIC-EXECUTION-01; PODR-153/OR-108/REL-2026-0123; baseb8c6118.
@@ -9,7 +19,7 @@ Owner explicitly permits R02 with unchanged model/prompt/parser/evidence/paramet
 R01 remains failed and immutable, including HARD_STOP and all raw/logs. New R02 directory cannot equal/nest/contain R01; read-only existing model/env/input reuse, no download/install.
 Engineering device/CUDA/hash/budget/format/citation/determinism gates remain hard. Raw model verdict and same synthetic expectations unchanged, no repair using reason.
 Run VACE-L0-D1-20261029-R02; all240 new predictions lock before separate evaluator reads labels/S. Signed40/120/13families and8/24HOLD unchanged.
-LOCAL only prepares/CPU-validates execution package; actual R02 Worker execution not observed, no D1 metrics yet.
+The 5090 execution observed after this approval is the CUDA OOM hard stop in the section above, not an unobserved package and not a D1 score.
 Next5090 Cursor pulls the exact NEW R02 commit, check-only then run to scoring/private archive; do not resume/delete R01 stop, retune, or claim formal GT/test.
 D2/D3 data conversation and gates unchanged; no data/Guide/Human/GT modifications, training, formal split, calibration or VACE-LM.
 

@@ -1,8 +1,11 @@
 # Paper 1 Start Here
 
-**当前R02已批准（2026-10-29）：** [同模型/提示/解析/证据的R02执行合同](core144/vace_lite/VACE_L0_R02_OWNER_APPROVAL_AND_EXECUTION_V1.md)，
+**当前R02结果（2026-10-29）：** [CUDA显存硬停](core144/vace_lite/VACE_L0_R02_CUDA_OOM_BLOCKER_V1.md)，
+[状态V30](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V30.md)。预检和合成工程门通过，语义4/5只是诊断。F5保存5条后OOM，Oracle未跑，D1指标未测量，不能填0。
+
+**历史：R02批准包（执行前）：** [同模型/提示/解析/证据的R02执行合同](core144/vace_lite/VACE_L0_R02_OWNER_APPROVAL_AND_EXECUTION_V1.md)，
 [状态V29](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V29.md)。仅合成语义准确率改诊断，工程门不降；R01原失败和HARD_STOP保留。
-新目录只读复用资源、不下载/安装，LOCAL只交工程包，待5090运行240新预测并封存后评价；尚无D1 L0指标，D2/D3不变。
+这是执行前合同。5090随后的真实结果是上方显存硬停，不是240条已完成。D2/D3不变。
 
 **当前5090 L0（2026-10-29）：** [合成语义门阻断](core144/vace_lite/VACE_L0_5090_SYNTHETIC_GATE_BLOCKER_V1.md)，
 [状态V28](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V28.md)。官方Qwen已在RTX5090加载，虚构SYN-3判决不符，D1的240条未执行，无Recall。不要把未测量写成0。

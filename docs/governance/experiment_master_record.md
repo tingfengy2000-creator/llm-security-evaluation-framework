@@ -1,5 +1,16 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-109 — R02 reused frozen R01 resources, then CUDA OOM before a sealed D1 score
+
+2026-10-29 JST; PODR-153/REL-2026-0124; source a31ade51c2e6923991b81895163060b80db6da4f; Run VACE-L0-D1-20261029-R02.
+Check-only passed. Synthetic engineering pass, semantic 4/5 diagnostic, execution gate passed. Five L0-F5 raw files only.
+OOM: 12.21 GiB requested, 2.01 GiB free, 27.73 GiB allocated, 30.00 GiB allowed. Oracle not started. Metrics NOT_MEASURED.
+R02 HARD_STOP SHA256 88c2f00fc70a81d54e72774833ac985afcd3c4c296d7987e5fd59422d4c83b71. R02 synthetic SHA256 c970884b79927b08d7310f74cf574260755f9efa47a30630db9bff70a7f5d627. Infer stderr SHA256 ff87900a49380477f2a7f55ef88b772fa4c6c7b180612da4f72bcbf73decadb2.
+R01 HARD_STOP unchanged. No return ZIP. Private raw not in Git.
+[Blocker](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_R02_CUDA_OOM_BLOCKER_V1.md),
+[state V30](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V30.md).
+L0_STRONG_BASELINE_R02_CUDA_OOM_BLOCKED / HUMAN_DECISION_REQUIRED.
+
 ## OR-108 — R01 return independently reviewed; Owner approves R02 preparation, not an executed D1 result
 
 2026-10-29 JST; PODR-153/REL-2026-0123; P1-VACE-L0-R02-SEMANTIC-DIAGNOSTIC-EXECUTION-01; baseb8c6118.

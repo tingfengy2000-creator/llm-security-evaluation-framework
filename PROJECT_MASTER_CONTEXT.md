@@ -1,5 +1,13 @@
 # LLMGuard 项目总控文档
 
+## 当前：R02已按批准启动，但D1推理因显存不足停止（2026-10-29 JST）
+
+PODR-153/OR-109/REL-2026-0124；[显存阻断](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_R02_CUDA_OOM_BLOCKER_V1.md)。
+预检通过，没有新下载。虚构题工程检查通过，5题里4题语义相符，这只作诊断，不能当成D1分数，也不能说R01已经成功。
+正式F5只留下5条新原始输出，下一条生成时CUDA内存不足：还要12.21 GiB，当时只剩2.01 GiB。Oracle没有开始。
+因此两个条件都没有Recall或误报率，不能填0。R01和R02的硬停文件都保留，没有改提示词、量化或改用CPU。
+状态是显存硬停，等待审阅，不是开发评分完成。
+
 ## 当前：Owner批准L0 R02，仅把合成语义准确率改诊断项（2026-10-29 JST）
 
 PODR-153/OR-108/REL-2026-0123；[R02合同](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_R02_OWNER_APPROVAL_AND_EXECUTION_V1.md)。
