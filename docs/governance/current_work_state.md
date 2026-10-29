@@ -1,5 +1,13 @@
 # Current Work State
 
+## Current — 2026-10-29 R05 explicit GQA efficient SDPA precheck is blocked
+
+Task P1-L0-R05-EXPLICIT-GQA-EFFICIENT-SDPA-PRECHECK-01. No new PODR or Owner decision id. Base commit 71b0b111591b9c2a621a78995c72bad0ed860bbd.
+[R05 disclosure](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_R05_EXPLICIT_GQA_PRECHECK_V1.md).
+Explicit contiguous KV repeat passed the pre-registered numeric window. The model ran `PyTorchMemEffAttention` on both prefill and decode, the persistent cache stayed at 4 heads, and a repeated fictional generation matched token for token. A 26493-token synthetic input plus 1024 new tokens reserved 21281898496 bytes, with 10930356224 bytes of headroom under 30 GiB. All 240 pack lengths are inside 1294–26493. That is an envelope, not 240 predictions.
+The round stops at R05_PRECHECK_BLOCKED. After a long step the CUDA reserved pool rose by 1928 MiB and stayed there on the next short step, above the pre-registered 512 MiB accumulation threshold. The threshold was not loosened and the probe was not rerun. No D1 scoring, R06, VACE-LM, or D2/D3.
+The section below still says the R03 run had started and metrics were NOT_MEASURED. That text is historical. Local R03 later wrote COMPLETE.json; this note does not reopen it or fill its scores. R04 remains local only.
+
 ## Current — 2026-10-29 R03 tightens max_input_tokens to 7200 and starts a new run
 
 Run VACE-L0-D1-20261029-R03. No new PODR id was on origin at b22a118. The only protocol change is max_input_tokens 31744 → 7200 under bf16+SDPA. No quantization, CPU offload, allocator change, or silent truncation. Over-long rows are INSUFFICIENT / INPUT_TOO_LONG_NO_SILENT_TRUNCATION and stay in the denominator.

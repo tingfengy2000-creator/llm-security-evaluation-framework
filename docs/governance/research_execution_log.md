@@ -1,5 +1,12 @@
 # LLMGuard Research Execution Log
 
+## 2026-10-29 — R05 explicit GQA precheck stops on reserved-memory retention
+
+No new PODR or Owner decision id. Task P1-L0-R05-EXPLICIT-GQA-EFFICIENT-SDPA-PRECHECK-01. Base 71b0b111591b9c2a621a78995c72bad0ed860bbd. Work directory is local and is not in Git.
+Head mapping difference was 0. Efficient-versus-math attention stayed inside the window fixed before the comparison. The launching CUDA kernel was PyTorchMemEffAttention; the first automated flag was false only because the dispatcher op has no kernel of its own. Deterministic repeat matched. Synthetic 26493 input plus 1024 output stayed inside the 30 GiB contract with more than 1 GiB headroom. All 240 lengths sit in that envelope. No per-pack prediction.
+Alternate long/short run, without empty_cache, retained 1928 MiB after the long step and did not grow again. That exceeds the pre-registered 512 MiB rule, so the status is R05_PRECHECK_BLOCKED. No tolerance change and no retry. No D1 score, R06, VACE-LM, or D2/D3. Parent HARD_STOP, COMPLETE, and R04 report hashes were unchanged.
+[Disclosure](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_R05_EXPLICIT_GQA_PRECHECK_V1.md).
+
 ## REL-2026-0124 — R02 check passes; D1 stops on CUDA out of memory
 
 2026-10-29 JST; PODR-153/OR-109; source a31ade51c2e6923991b81895163060b80db6da4f; Run VACE-L0-D1-20261029-R02.
