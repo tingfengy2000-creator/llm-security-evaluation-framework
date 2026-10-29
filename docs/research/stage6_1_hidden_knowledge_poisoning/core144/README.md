@@ -1,13 +1,16 @@
 # Core144 navigation
 
+**当前5090结果（2026-10-29）：** [虚构合成门硬停](vace_lite/VACE_L0_5090_SYNTHETIC_GATE_BLOCKER_V1.md)，[双轨V28](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V28.md)。
+RTX5090与官方Qwen2.5-7B已加载；SYN-3期望SUPPORT、实得CONTRADICT。D1未跑，指标未测量。权重和标签不在Git。
+
 **当前分工：** [D2/D3数据标注新对话交接](PAPER1_CORE144_D2_D3_DATA_THREAD_HANDOFF_V1.md)，[双轨V27](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V27.md)。
 Owner将新开本机项目Codex对话接数据，原对话继续实验；D2待两个HN定向复审，D3两S3问题仍待Owner，不自动发Human/GT。
 
-**当前5090 Cursor执行交接：** [合同、命令和粘贴指令](vace_lite/L0_5090_CURSOR_EXECUTION_PACKAGE_V1.md)，
-[状态V26](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V26.md)。输入V2私有ZIP需另传，不能只pull代码；实际GPU实验尚未执行。
+**历史：5090交接包：** [合同、命令和粘贴指令](vace_lite/L0_5090_CURSOR_EXECUTION_PACKAGE_V1.md)，
+[状态V26](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V26.md)。这是执行前快照。真实5090结果是上方V28合成门硬停。
 
-**当前L0已批准但设备门阻断：** [硬件预检及恢复条件](vace_lite/VACE_L0_HARDWARE_PREFLIGHT_BLOCKER_V1.md)，
-[状态V25](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V25.md)。仅见5060 8GB而非指定5090 32GB，无下载/推理/指标。
+**历史：5060设备门：** [硬件预检及恢复条件](vace_lite/VACE_L0_HARDWARE_PREFLIGHT_BLOCKER_V1.md)，
+[状态V25](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V25.md)。仅说明当时5060不是5090，不覆盖5090本次运行。
 
 **当前VACE-F5实测完成（2026-10-28）：** [报告](vace_lite/VACE_V03_IMPLEMENTATION_AND_TEST_RECORD.md)，
 [路由证书](vace_lite/VACE_V03_D1_ROUTE_AND_PROOF_AUDIT.md)，[基线对比](vace_lite/VACE_V03_VS_BASELINES_COMPARISON.md)，

@@ -1,5 +1,18 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — 5090 synthetic semantic gate block, D1 not measured, 2026-10-29 JST
+
+PODR-151/OR-107/REL-2026-0122; P1-VACE-L0-F5-ORACLE-STRONG-BASELINE-01; Run VACE-L0-D1-20261029-R01; source a83437ab0a685d69114093fd4bd0e6ab22f354aa.
+Status L0_STRONG_BASELINE_SYNTHETIC_GATE_BLOCKED / HUMAN_DECISION_REQUIRED. Issue L0-SYNTHETIC-SEMANTIC-GATE-BLOCKER-01.
+Device NVIDIA GeForce RTX 5090, 32607 MiB, driver 610.88, capability (12, 0). Isolated runtime CUDA_KERNEL_PASS: torch 2.8.0+cu128, transformers 4.57.1, accelerate 1.10.1, numpy 2.2.6, safetensors 0.6.2.
+Model Qwen/Qwen2.5-7B-Instruct revision a09a35458c702b33eeacc393d103063234e8bc28; four weight SHA256 equal manifest; BF16; SDPA; no CPU offload.
+Gate: SYN-1 CONTRADICT/CONTRADICT, SYN-2 CONTRADICT/CONTRADICT, SYN-3 SUPPORT/CONTRADICT, SYN-4 SUPPORT/SUPPORT, SYN-5 INSUFFICIENT/INSUFFICIENT. SYN-3 error null. SYN-1 repeat raw equal. all_pass false. D1_not_loaded_yet true. raw_count 0.
+CONFIG_LOCK b8eddcaef02b50dbab201a2ceb8d39caa6c57a9136e273c6a79f8e72be01da58. SYNTHETIC_GATE 2d625ba6d7078fd0bd59c5090a9fcf9641138731ae8f998adff0a307c921b654. HARD_STOP 67152d26f9708b98e4ff7870897c0fe4f84a2675ff8a355e1813c1ef983d0629.
+No COMPLETE.json, return ZIP, prediction lock, metric, prompt patch, D2D3, training, VACE-LM, formal GT/split. Private ZIP/weights/labels/raw excluded from Git.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master true; owner_decision evaluated and not updated (no new Owner decision; PODR-151 hard gate applied); stage_process true; lessons evaluated false (existing gate, no new accepted lesson); research_authority evaluated false; README navigation true.
+[Blocker](../core144/vace_lite/VACE_L0_5090_SYNTHETIC_GATE_BLOCKER_V1.md), [state V28](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V28.md).
+Next Owner review only. Script forbids autoretry while HARD_STOP.json remains in D:\paper1\VACE-L0-D1-20261029-R01.
+
 ## Current parallel roles — D2/D3 new local data chat; original chat experiments, 2026-10-29 JST
 
 PODR-152/OR-106/REL-2026-0121; P1-CORE144-D2-D3-DATA-THREAD-HANDOFF-01; basea83437a.
@@ -10,7 +23,7 @@ Private handoff namespace experiments/core144_d2_d3_thread_handoff_20261029_run0
 129original files/six reviewer files/L0 source lock verified. Scoped90PASS, Ruff/MyPyPASS;7legacy governance failures reproduced on basea83437a, not waived.
 Final private QA_V3 SHAd431215bd7ca030383743aa28a141e112bc9c12b693674d50154db743d5ec0da;57-file index SHAac7b76492caf9a6c18507427002d05104bd9917539fd8491d363ff8c35e07510.
 Shared checkout not isolation: serialize shared canonical/Git edits, stage explicit own files, protect original design/PDF and other lane artifacts.
-Original experimental lane retains L0 source pin a83437a; no returned new results or remote execution-state proof. No new model/run or data/Guide/Human/GT change.
+Original experimental lane kept source pin a83437a and has now returned the synthetic-gate hard stop above, not a D1 score. No data/Guide/Human/GT change.
 D2_D3_DATA_THREAD_HANDOFF_READY / WAITING_FOR_OWNER_TO_OPEN_THREAD; no scientific gate bypass or formal GT/split.
 
 ## Current5090 Cursor handoff ready, Worker not started — 2026-10-29 JST

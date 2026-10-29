@@ -1,5 +1,17 @@
 # Current Work State
 
+## Current — 2026-10-29 5090 L0 stopped at the fictional synthetic semantic gate
+
+P1-VACE-L0-F5-ORACLE-STRONG-BASELINE-01; Run VACE-L0-D1-20261029-R01; PODR-151/OR-107/REL-2026-0122.
+Execution source remains a83437ab0a685d69114093fd4bd0e6ab22f354aa. Documentation tip before this record was 9831d62; the run did not move onto it.
+[Synthetic-gate blocker](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_5090_SYNTHETIC_GATE_BLOCKER_V1.md),
+[state V28](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V28.md).
+RTX5090 32607 MiB, driver 610.88, CUDA kernel pass, Torch 2.8.0+cu128, Transformers 4.57.1. Official Qwen2.5-7B-Instruct revision a09a35458c702b33eeacc393d103063234e8bc28 weight SHA256 matched the pinned manifest. BF16/SDPA/GPU0 only.
+Synthetic gate all_pass false: SYN-3 expected SUPPORT, parsed CONTRADICT, error null. SYN-1/2/4/5 matched; SYN-1 greedy repeat matched. D1_not_loaded_yet. raw count 0. No COMPLETE.json or return ZIP.
+L0-F5 and L0-Oracle NOT_EXECUTED. Recall/FPR/Precision/triplets/intervals NOT_MEASURED, not 0. HARD_STOP.json exists; same work directory must not autoretry.
+No prompt/parser/model/data change, no D2D3/VACE-LM/training/formal GT/split. Private ZIP, weights, labels and raw stay off Git.
+Status L0_STRONG_BASELINE_SYNTHETIC_GATE_BLOCKED / HUMAN_DECISION_REQUIRED.
+
 ## Current — 2026-10-29 parallel conversation roles: experiments here, D2/D3 data in a new local Codex chat
 
 P1-CORE144-D2-D3-DATA-THREAD-HANDOFF-01; PODR-152/OR-106/REL-2026-0121; basea83437a.
@@ -8,7 +20,7 @@ Owner will open the local project data/annotation conversation; the original con
 [parallel stateV27](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V27.md).
 D2 still PENDING_TARGETED_TWO_REVIEW:37 suggestions closed as QA, two HN repairs prepared; Phase1 two-row raw not archived in checked handoff roots, Phase2 draft withheld.
 D3 still HUMAN_DECISION_REQUIRED:two S3 single-source counterexamples; no repair/Phase2/Human release under this division decision.
-L0 source remains pinned a83437a; no new Worker return received, actual remote process state unobserved. Do not infer completion or rerun from this documentation commit.
+L0 source pin a83437a was executed on the 5090. The return is the synthetic-gate hard stop above, not a D1 score and not permission to rerun. D2/D3 handoff facts in this section are unchanged.
 New chat starts recovery/inventory and existing-gate checklists only. Dataset changes, Human distribution/GT and formal experiments still require their own gates.
 Shared checkout is not isolation: distinct private namespaces/domain files; serialize shared authority/Git updates, preserve the other lane and unrelated design/PDF.
 No Candidate/Human/Evidence/Guide/Expected/model/config/old result mutations; no new experiment, training, formal split or GT freeze.

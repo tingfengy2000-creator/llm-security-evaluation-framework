@@ -1,16 +1,17 @@
 # Paper 1 Start Here
 
+**当前5090 L0（2026-10-29）：** [合成语义门阻断](core144/vace_lite/VACE_L0_5090_SYNTHETIC_GATE_BLOCKER_V1.md)，
+[状态V28](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V28.md)。官方Qwen已在RTX5090加载，虚构SYN-3判决不符，D1的240条未执行，无Recall。不要把未测量写成0。
+
 **当前双对话分工（2026-10-29）：** [D2/D3新对话数据标注交接](core144/PAPER1_CORE144_D2_D3_DATA_THREAD_HANDOFF_V1.md)，
 [状态V27](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V27.md)。原对话继续实验，新对话只接数据/标注，不新增科研授权。
-D2仍待两题原会话复审；D3两S3门待Owner；D2/D3 Human、正式GT/split均未放行。L0 Worker仍固定a83437a，不因本文档交接换源码。
+D2仍待两题原会话复审；D3两S3门待Owner；D2/D3 Human、正式GT/split均未放行。L0执行源仍是a83437a；5090回包是上方硬停，不因本文档交接换源码。
 
-**当前5090 Cursor交接（2026-10-29 JST）：** [一次性执行包/命令](core144/vace_lite/L0_5090_CURSOR_EXECUTION_PACKAGE_V1.md)，
-[状态V26](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V26.md)。代码＋独立私有V2 ZIP已准备；正常阶段可连续运行，硬门不豁免。
-仅CPU测试，尚未5090模型推理；LOCAL5060阻断仍为事实，无新L0检测数字。
+**历史：5090交接包（执行前）：** [一次性执行包/命令](core144/vace_lite/L0_5090_CURSOR_EXECUTION_PACKAGE_V1.md)，
+[状态V26](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V26.md)。当时只有CPU测试。5090随后的真实结果是上方合成门硬停，不是这份交接快照。
 
-**当前L0强基线预检阻断（2026-10-28）：** [设备问题与Owner恢复选项](core144/vace_lite/VACE_L0_HARDWARE_PREFLIGHT_BLOCKER_V1.md)，
-[状态V25](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V25.md)。官方Qwen2.5-7B/5090 32GB获批，当前机仅见5060 8GB。
-未下载/安装/推理，两条件NOT_EXECUTED；等待5090执行入口，不换卡或虚构指标。下方V03实测是历史结果。
+**历史：5060控制面设备门（2026-10-28）：** [设备问题与Owner恢复选项](core144/vace_lite/VACE_L0_HARDWARE_PREFLIGHT_BLOCKER_V1.md)，
+[状态V25](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V25.md)。当时这台5060只有8GB，没有代替5090。5090后来的运行见最上方，不要把两台机器的阻断混成一次。
 
 **最新VACE-F5真实开发实测（2026-10-28）：** [效果与不确定性](core144/vace_lite/VACE_V03_IMPLEMENTATION_AND_TEST_RECORD.md)，
 [研究决策](core144/vace_lite/VACE_V03_NEXT_RESEARCH_DECISION.md)，[状态V24](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V24.md)。

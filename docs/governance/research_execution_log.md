@@ -1,5 +1,16 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0122 — 5090 L0 reaches the model, stops on fictional synthetic gate
+
+2026-10-29 JST; PODR-151/OR-107; execution source a83437ab0a685d69114093fd4bd0e6ab22f354aa; record branch fetched 9831d62 ahead/behind 0/0 before this commit.
+Run VACE-L0-D1-20261029-R01 on DESKTOP-B5PNBNC. nvidia-smi: RTX 5090 32607 MiB, driver 610.88. Check-only exit 0, NEEDS_ISOLATED_SETUP, then one task-local venv.
+CUDA_KERNEL_PASS; Torch 2.8.0+cu128; Transformers 4.57.1; Accelerate 1.10.1; NumPy 2.2.6; Safetensors 0.6.2. Official Qwen revision a09a35458c702b33eeacc393d103063234e8bc28; four weight SHA256 matched the pinned manifest. BF16/SDPA/GPU-only load.
+Synthetic gate UTC 09:45:59–09:46:38, exit 1. SYN-3 expected SUPPORT, parsed CONTRADICT, error null. SYN-1/2/4/5 matched. SYN-1 greedy raw repeat matched. all_pass false. D1_not_loaded_yet. raw files 0.
+HARD_STOP written. No PREDICTION_LOCK, COMPLETE.json, return ZIP, prompt edit, parser edit, D2D3 run, training or VACE-LM.
+L0-F5/L0-Oracle NOT_EXECUTED; metrics NOT_MEASURED, not 0. Private ZIP/weights/labels/raw not added to Git. Local evidence hashes are in the blocker record.
+Status L0_STRONG_BASELINE_SYNTHETIC_GATE_BLOCKED / HUMAN_DECISION_REQUIRED. Same work directory must not autoretry.
+[Blocker](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_5090_SYNTHETIC_GATE_BLOCKER_V1.md).
+
 ## REL-2026-0121 — prepare a new local data/annotation conversation, retain experiments here
 
 2026-10-29 JST; PODR-152/OR-106; basea83437a fetched0/0; same research worktree, unrelated design/PDF preserved.

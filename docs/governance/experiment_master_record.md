@@ -1,5 +1,18 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-107 — 5090 Qwen L0 frozen load passed, fictional synthetic gate failed before D1
+
+2026-10-29 JST; PODR-151/REL-2026-0122; P1-VACE-L0-F5-ORACLE-STRONG-BASELINE-01; Run VACE-L0-D1-20261029-R01; source a83437ab0a685d69114093fd4bd0e6ab22f354aa.
+Device RTX5090 32607 MiB driver 610.88; isolated Torch 2.8.0+cu128 / Transformers 4.57.1 / Accelerate 1.10.1 / NumPy 2.2.6 / Safetensors 0.6.2; CUDA kernel pass.
+Official revision a09a35458c702b33eeacc393d103063234e8bc28. Weight SHA256 a1333e6293854747c481288ea83b348226af178dd565c49b6f9495ba1966aba7, f5d25a2772cb825164a2a2c0fb6d51a87e282abf21e4dd75bc5cfb3cd0ea6185, 8efdec4c1bc12317ae1a38dc42b595ce777738a64deea3fcb8a0a91381bcdfd5, 1a72d403cdf0c1ec3cb7f289f17b394a01e64394c2e9b3c0f94dbce3faf879bd, equal to the pinned manifest.
+CONFIG_LOCK SHA256 b8eddcaef02b50dbab201a2ceb8d39caa6c57a9136e273c6a79f8e72be01da58. Dependency freeze b0ef38f3b78c36eb4451aa164bcfeb19841c7e49badf1c82b63b3e5e6609f005.
+SYNTHETIC_GATE SHA256 2d625ba6d7078fd0bd59c5090a9fcf9641138731ae8f998adff0a307c921b654; HARD_STOP SHA256 67152d26f9708b98e4ff7870897c0fe4f84a2675ff8a355e1813c1ef983d0629.
+SYN-3 only mismatch: expected SUPPORT, verdict CONTRADICT, error null. Greedy repeat of SYN-1 identical. D1 not loaded. No scored metrics.
+Private evidence root D:\paper1\VACE-L0-D1-20261029-R01 is not in Git. No weights, labels, candidates or raw uploaded.
+[Blocker](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_5090_SYNTHETIC_GATE_BLOCKER_V1.md),
+[state V28](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V28.md).
+L0_STRONG_BASELINE_SYNTHETIC_GATE_BLOCKED / HUMAN_DECISION_REQUIRED. D2/D3 handoff and formal GT/split unchanged.
+
 ## OR-106 — data/annotation conversation handoff; no new experiment or acceptance
 
 2026-10-29 JST; PODR-152/REL-2026-0121; P1-CORE144-D2-D3-DATA-THREAD-HANDOFF-01; basea83437a.

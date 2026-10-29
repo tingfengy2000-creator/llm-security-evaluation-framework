@@ -1,12 +1,22 @@
 # LLMGuard 项目总控文档
 
+## 当前：5090已跑到虚构合成门并停止，D1没有分数（2026-10-29 JST）
+
+PODR-151/OR-107/REL-2026-0122；[合成门阻断](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_5090_SYNTHETIC_GATE_BLOCKER_V1.md)，
+[状态V28](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V28.md)。
+指定RTX5090 32GB已确认，官方Qwen2.5-7B按冻结revision加载，BF16/SDPA，权重hash与清单一致。
+虚构合成门SYN-3期望“支持”，模型给出“矛盾”，门失败。另外四题判决相符，重复生成也一致。
+因此120+120条D1没有开始，两个L0条件都未测量，不能写成0分或低Recall。
+同一工作目录已有硬停文件，不能删掉再跑来追通过，也不能按这道题改提示词。权重、标签和原始输出不进Git。
+D2/D3分工、HOLD、Guide、Human、Evidence和正式GT/split都不因这次失败改动。状态为合成门阻断，等待项目负责人审阅。
+
 ## 当前分工：原对话负责实验，新对话负责D2/D3标注和数据准备（2026-10-29 JST）
 
 PODR-152/OR-106/REL-2026-0121；[数据新对话交接](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_DATA_THREAD_HANDOFF_V1.md)。
 Owner将开启本机本项目新Codex对话，本次只准备交接，不创建会话或新worktree，不新增科研授权。
 D2仍需两个修复HN的原R3/R4定向Phase1→锁定→Phase2→全144验收，37项QA不重做也不冒充GT。
 D3两S3单源反例仍待Owner选择修复/重分配/HOLD，不因分工自动放行Phase2/Human。
-本对话继续D1_DEV/L0实验工作；5090实际进程未知，尚无新回包，不由数据线改动模型/实验协议或D2D3来迎合效果。
+本对话继续D1_DEV/L0实验工作；5090回包是上方的合成门硬停，不是D1分数。数据线仍不得按效果改模型、协议或D2D3。
 双线共享checkout时串行提交/共享文档更新、明确stage，保留彼此上下文；不得覆盖原design/PDF或冻结数据。
 原L0 Worker仍固定a83437a，纯交接文档新提交不要求改Worker源码/重跑；正式GT/split未执行。
 
