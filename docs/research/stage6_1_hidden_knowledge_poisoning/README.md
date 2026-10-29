@@ -1,5 +1,9 @@
 # Paper 1 Start Here
 
+**当前5090 Cursor交接（2026-10-29 JST）：** [一次性执行包/命令](core144/vace_lite/L0_5090_CURSOR_EXECUTION_PACKAGE_V1.md)，
+[状态V26](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V26.md)。代码＋独立私有V2 ZIP已准备；正常阶段可连续运行，硬门不豁免。
+仅CPU测试，尚未5090模型推理；LOCAL5060阻断仍为事实，无新L0检测数字。
+
 **当前L0强基线预检阻断（2026-10-28）：** [设备问题与Owner恢复选项](core144/vace_lite/VACE_L0_HARDWARE_PREFLIGHT_BLOCKER_V1.md)，
 [状态V25](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V25.md)。官方Qwen2.5-7B/5090 32GB获批，当前机仅见5060 8GB。
 未下载/安装/推理，两条件NOT_EXECUTED；等待5090执行入口，不换卡或虚构指标。下方V03实测是历史结果。

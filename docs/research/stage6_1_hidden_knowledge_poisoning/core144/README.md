@@ -1,5 +1,8 @@
 # Core144 navigation
 
+**当前5090 Cursor执行交接：** [合同、命令和粘贴指令](vace_lite/L0_5090_CURSOR_EXECUTION_PACKAGE_V1.md)，
+[状态V26](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V26.md)。输入V2私有ZIP需另传，不能只pull代码；实际GPU实验尚未执行。
+
 **当前L0已批准但设备门阻断：** [硬件预检及恢复条件](vace_lite/VACE_L0_HARDWARE_PREFLIGHT_BLOCKER_V1.md)，
 [状态V25](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V25.md)。仅见5060 8GB而非指定5090 32GB，无下载/推理/指标。
 

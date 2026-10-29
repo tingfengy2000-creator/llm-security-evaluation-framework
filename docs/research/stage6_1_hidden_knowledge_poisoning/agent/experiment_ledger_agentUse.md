@@ -1,5 +1,19 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current5090 Cursor handoff ready, Worker not started — 2026-10-29 JST
+
+PODR-151/OR-105/REL-2026-0120; P1-VACE-L0-5090-CURSOR-HANDOFF-01; parent L0 strong baseline unchanged.
+Owner selects Cursor on5090 and approves normal automatic phases; hard-gate and platform restrictions not waived.
+Source: llm_verification.py/l0_worker.py, scripts/research/paper1_l0_worker.py/evaluate_l0_worker.py/prepare_l0_worker_input.py; configs/research/paper1_l0/.
+Official Qwen revision a09a35458c702b33eeacc393d103063234e8bc28 pinned; actual Worker SHA/dtype/kernel/deps/generation config still to verify.
+Private V2 ZIP SHA03fae845b50d669373d3b08776caf5a1b2cf068ea7aa5b60dea89a65177e3eb2,2204548bytes; not Git.
+40/120/13families,8/24HOLD, frozenF5 and exact assignedOracle; separate label vault, seal then evaluator. Original absentE2 retained, not filled.
+CPU fictional tests only, no actual L0 prediction/metric/model download/Worker contact. LOCAL5060 blocker not falsely closed.
+Final CPU suite79PASS; Ruff/MyPy6filesPASS; historical337 files unchanged. Private HANDOFF_QA_V1 and EVIDENCE_INDEX_V1 sealed;
+evidence index SHA271ca4f5c9963d3bcbee430ca01dfe550f72f4e56c80878913803094c8b99107. Synthetic fixture outputs not delivered.
+[Contract](../core144/vace_lite/L0_5090_CURSOR_EXECUTION_PACKAGE_V1.md),[stateV26](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V26.md).
+Next Owner transfers one ZIP/prompt. Worker can run to D1_DEV score/archive then STOP Owner review; no source/protocol retuning, D2D3/VACE-LM/training/formal GT/split.
+
 ## Current L0 strong baseline preflight blocked — 2026-10-28
 
 PODR-150/OR-104/REL-2026-0119; task P1-VACE-L0-F5-ORACLE-STRONG-BASELINE-01; source46f509a.

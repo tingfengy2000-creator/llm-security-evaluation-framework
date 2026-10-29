@@ -1,5 +1,19 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0120 — prepare one-shot5090 Cursor package; no local model run
+
+2026-10-29 JST; PODR-151/OR-105; base94e29fe, fetched research upstream0/0, unrelated design/PDF preserved.
+Owner clarifies5090 Cursor should finish the existing experiment with normal phases auto-continuing while Owner asleep.
+Pin official Qwen model metadata/revision/file identities using only official small metadata, no local weight/tokenizer download.
+Implement shared direct prompt/citation parser, bounded setup/download, kernel/dtype identity, synthetic gate, atomic checkpoint/resume, independent post-seal evaluation and final no-weight archive.
+Prepare signed120 runtime/evaluation-separated private ZIP; no raw data upload to Git. F5 stays frozenHybridTop5; Oracle exact original assigned texts.
+Legitimate missingE2 caught in initial build, corrected before release without inventing another document; finalV2 adds signature/label/family/S provenance SHA.
+CPU fictional tests include complete evaluation/archive and partial transfer; synthetic test scores are NOT D1/model performance.
+Initial pytest C-temp permission error fixed by task-scoped D-temp, annotations/static code fixes before any model run; original attempts not repurposed as experiment results.
+Next transfer one private ZIP and exact-source prompt to5090 Cursor. Normal phases do not require reapproval, hard identity/budget/CUDA/synthetic/integrity failures still stop.
+No Worker contact, real Qwen load, GPU inference, D1 scoring, data/Guide/Human/Evidence/history changes, D2D3/formal GT/split/training/VACE-LM.
+[Contract](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/L0_5090_CURSOR_EXECUTION_PACKAGE_V1.md).
+
 ## REL-2026-0119 — L0 approved; stop at visible-device mismatch before download
 
 2026-10-28; PODR-150/OR-104; source46f509a; unique research worktree, fetched upstream0/0.

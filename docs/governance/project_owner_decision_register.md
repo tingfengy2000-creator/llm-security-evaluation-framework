@@ -1,5 +1,18 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-151 — approve one-shot code/private-input handoff and unattended normal phases on5090 Cursor
+
+2026-10-29 JST; OR-105/REL-2026-0120; task P1-VACE-L0-5090-CURSOR-HANDOFF-01.
+Owner asks code uploaded once, commands for5090 and run-to-completion while asleep; latest clarification selects Cursor, not Codex.
+This authorizes preparation and use of the5090 Worker with the existing bounded L0 scientific contract; LOCAL5060 still must not substitute.
+Normal inventory/setup of necessary isolated dependencies/one official model within24GiB, freeze/synthetic/predict/seal/evaluate/archive auto-continue.
+No fresh Owner question for routine engineering transitions; platform tool approvals and identity/CUDA/resource/synthetic/integrity hard stops remain.
+No global install/driver, second model, CPU/quantization fallback, post-result prompt changes, raw/labels upload to Git or unsafe dataset change.
+Official Qwen2.5-7B revision a09a35458c702b33eeacc393d103063234e8bc28 is pinned; actual weights/tokenizer/license/deps must be verified onWorker.
+Runtime/evaluation-separated signed120 input ZIP is private and separately transferred to5090, not published with source.
+[Cursor contract and commands](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/L0_5090_CURSOR_EXECUTION_PACKAGE_V1.md).
+Worker may finish the two-condition D1_DEV score then STOP OWNER_REVIEW_REQUIRED, not self-approve scientific validity or startVACE-LM/D2D3.
+
 ## PODR-150 — authorize one bounded Qwen L0 F5/Oracle D1 strong baseline, stop on preflight failure
 
 2026-10-28; OR-104/REL-2026-0119; P1-VACE-L0-F5-ORACLE-STRONG-BASELINE-01.

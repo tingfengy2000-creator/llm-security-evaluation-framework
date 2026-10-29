@@ -1,5 +1,20 @@
 # Current Work State
 
+## Current — 2026-10-29 5090 Cursor handoff ready, real L0 run not started here
+
+P1-VACE-L0-5090-CURSOR-HANDOFF-01; PODR-151/OR-105/REL-2026-0120; parent P1-VACE-L0-F5-ORACLE-STRONG-BASELINE-01.
+Owner now explicitly chooses Cursor on5090, asks one-shot code push and unattended normal-phase continuation.
+[Execution package](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/L0_5090_CURSOR_EXECUTION_PACKAGE_V1.md),
+[stateV26](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V26.md).
+LOCAL5060 blocker remains factual; this decision authorizes handoff preparation and Worker5090 execution, not local substitute inference.
+Shared Qwen official revision a09a35458c702b33eeacc393d103063234e8bc28, BF16/SDPA/greedy, same120 F5 vs assignedE1/E2 Oracle.
+Runtime/labels separated private ZIP V2 SHA03fae845b50d669373d3b08776caf5a1b2cf068ea7aa5b60dea89a65177e3eb2, not Git.
+Source implements check-only, isolated optional setup≤24GiB, hash freeze, synthetic gate, checkpointed240 raw predictions, lock then independent evaluator/archive.
+CPU/fictitious tests are not GPU/LLM acceptance. L0_5090_CURSOR_HANDOFF_READY / WORKER_NOT_STARTED; no L0 metrics yet.
+Next Owner transfers one private ZIP and prompt to Cursor; normal Worker phases need no new scientific approval.
+Stop for identity/budget/CUDA/synthetic/integrity failure; no model/protocol changes, post-result tuning or hard-gate bypass.
+Do not expose evaluation labels to inference, upload raw data to Git, run D2D3/VACE-LM/training/formal GT/split.
+
 ## Current — 2026-10-28 L0 strong baseline approved, requested hardware absent
 
 P1-VACE-L0-F5-ORACLE-STRONG-BASELINE-01; PODR-150/OR-104/REL-2026-0119.

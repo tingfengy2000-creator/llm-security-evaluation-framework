@@ -1,5 +1,15 @@
 # LLMGuard 项目总控文档
 
+## 当前：L0交给5090上的Cursor自动执行，LOCAL只交付代码和私有输入（2026-10-29 JST）
+
+PODR-151/OR-105/REL-2026-0120；[交接命令](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/L0_5090_CURSOR_EXECUTION_PACKAGE_V1.md)。
+Owner已明确使用5090 Cursor，常规准备/推理/评价可连续执行，不必逐步等确认；仍不能跳过身份、预算或质量硬门。
+已准备同Qwen骨干的直接F5/Oracle入口、实际配置/hash、原始输出/引用解析、断点续跑与锁后评价/归档代码。
+40组120条/13家族的私有runtime/evaluator分离包另传，不能靠Git获取原始标签或将它们强制上传。
+当前仅CPU虚构测试，尚无真实5090/kernel/合成模型或L0效果；LOCAL5060事实不变，旧阻断不伪改为通过。
+模型官方revision已固定，Worker新增模型依赖≤24GiB，不改全局、不换模型/量化/CPU兜底。
+完成后只回传开发性结果并等待Owner；不修改D1/D2/D3、Human/Guide/GT/Evidence，不启动正式测试或VACE-LM。
+
 ## 当前：L0强模型基线已批准，停在设备身份预检（2026-10-28）
 
 PODR-150/OR-104/REL-2026-0119；[阻断记录](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_HARDWARE_PREFLIGHT_BLOCKER_V1.md)。

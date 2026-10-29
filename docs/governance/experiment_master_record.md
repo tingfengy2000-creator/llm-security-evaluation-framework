@@ -1,5 +1,27 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-105 — 5090 Cursor L0 execution package and CPU contract checks, not model results
+
+2026-10-29 JST; PODR-151/REL-2026-0120; task P1-VACE-L0-5090-CURSOR-HANDOFF-01; base94e29fe.
+Owner chooses5090 Cursor; normal phases automatic under existing24GiB/no-global/one-official-Qwen contract.
+New shared direct-verification prompt/parser + worker check/bootstrap/model identity/synthetic/resumable prediction + postlock evaluator/archive.
+Model official revision a09a35458c702b33eeacc393d103063234e8bc28;13-file manifest,4 weight SHA256,small files official blob identity.
+Signed40groups120rows13families,8/24HOLD; independent frozenF5 full docs vs exact assignedE1/E2 text, legitimate absentE2 not fabricated.
+Private V2 input ZIP2204548bytes,SHA03fae845b50d669373d3b08776caf5a1b2cf068ea7aa5b60dea89a65177e3eb2;
+bundle manifest SHAa7e05d2ebedbc68abc21fff46a0ad1597747712020957ac30cf1445353714a60.
+Input label/source provenance recorded; runtime has no roles/S/labels and inference audit rejects evaluator-file reads.
+CPU-only fictional parser/budget/identity/zip/partial-download/evaluation/archive tests; no real model, GPU or D1 predictions executed.
+Final task-scoped CPU suite79PASS; Ruff/MyPy6filesPASS; UTF-8/privacy/diff and protected337 historical filesPASS.
+Private experiments/vace_l0_handoff_20261029_run01/: HANDOFF_QA_V1 SHA54f53307e4204ddf82d04da302cb775d209cf7de170d4573a4495d9edf6777b0;
+EVIDENCE_INDEX_V1 SHA271ca4f5c9963d3bcbee430ca01dfe550f72f4e56c80878913803094c8b99107.
+CPU fixture predictions are excluded from delivery and are not D1/Qwen results. Actual GPU/model semantic gate remains unexecuted.
+Initial packaging found lawful emptyE2 and skipped only frozen absent slot; V1 private prep retained, V2 adds provenance before release.
+[Execution package](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/L0_5090_CURSOR_EXECUTION_PACKAGE_V1.md),
+[stateV26](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V26.md).
+L0_5090_CURSOR_HANDOFF_READY / WORKER_NOT_STARTED. Old LOCAL5060 preflight remains failed, not a Worker CUDA result.
+Actual Worker must verify kernel/weights/deps, synthetic semantic gate, seal240 raw before labels; hard failure STOP not hidden or tuned away.
+No formal GT/split, new Candidate/Evidence/Guide/Human, D2D3 evaluation, model training or VACE-LM implementation.
+
 ## OR-104 — L0 strong baseline device preflight blocked, no inference or metrics
 
 2026-10-28; PODR-150/REL-2026-0119; task P1-VACE-L0-F5-ORACLE-STRONG-BASELINE-01.
