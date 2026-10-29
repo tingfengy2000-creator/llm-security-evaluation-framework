@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-10-29 R03 tightens max_input_tokens to 7200 and starts a new run
+
+Run VACE-L0-D1-20261029-R03. No new PODR id was on origin at b22a118. The only protocol change is max_input_tokens 31744 → 7200 under bf16+SDPA. No quantization, CPU offload, allocator change, or silent truncation. Over-long rows are INSUFFICIENT / INPUT_TOO_LONG_NO_SILENT_TRUNCATION and stay in the denominator.
+[Length-cap disclosure](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_R03_LENGTH_CAP_DISCLOSURE_V1.md).
+Cold probes: 7200 tokens reserved 30935089152 (1.19 GiB under the 30 GiB cap, including 256 new tokens). 7400 reserved 31784435712 and was rejected. The R02 OOM row was 10820 tokens and the failed 12.21 GiB allocation. R01 and R02 HARD_STOP files stay in place. D1 metrics remain NOT_MEASURED until this run seals. Diagnostic semantic gate continues from PODR-153; 4/5 is not relabelled as a pass.
+
 ## Current — 2026-10-29 R02 engineering check passed, D1 inference stopped on CUDA OOM
 
 P1-VACE-L0-R02-SEMANTIC-DIAGNOSTIC-EXECUTION-01; Run VACE-L0-D1-20261029-R02; source a31ade51c2e6923991b81895163060b80db6da4f; PODR-153/OR-109/REL-2026-0124.

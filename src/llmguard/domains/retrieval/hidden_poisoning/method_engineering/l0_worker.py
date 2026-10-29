@@ -334,11 +334,17 @@ def setup_runtime(root: Path, repo: Path, python: Path, policy: dict[str, Any], 
 
 
 def synthetic_assessment(records: list[dict[str, Any]], repeat: dict[str, Any], policy: dict[str, Any]) -> dict[str, Any]:
-    """Engineering remains hard; only PODR-153's R02 makes accuracy diagnostic."""
+    """Engineering remains hard. Diagnostic accuracy is only the named R02/R03 runs."""
     mode = policy.get("synthetic_semantic_requirement", "REQUIRE_ALL_CORRECT")
     if mode not in {"REQUIRE_ALL_CORRECT", "DIAGNOSTIC_ONLY"}:
         raise RuntimeError("UNKNOWN_SYNTHETIC_GATE_POLICY")
-    if mode == "DIAGNOSTIC_ONLY" and (policy.get("owner_approval"), policy.get("run_id")) != ("PODR-153", "VACE-L0-D1-20261029-R02"):
+    if policy.get("run_id") == "VACE-L0-D1-20261029-R03" and (
+        policy.get("max_input_tokens") != 7200
+        or policy.get("overflow_policy") != "INPUT_FAILURE_AS_INSUFFICIENT_FULL_DENOMINATOR_NO_TRUNCATION"
+    ):
+        raise RuntimeError("R03_LENGTH_CAP_IDENTITY")
+    authorized = {("PODR-153", "VACE-L0-D1-20261029-R02"), ("R03_LENGTH_CAP_CONTINUATION", "VACE-L0-D1-20261029-R03")}
+    if mode == "DIAGNOSTIC_ONLY" and (policy.get("owner_approval"), policy.get("run_id")) not in authorized:
         raise RuntimeError("SYNTHETIC_GATE_RELAXATION_NOT_AUTHORIZED")
     cases = synthetic_cases()
     ids = [r["candidate_id"] for r in records]
@@ -409,7 +415,7 @@ def infer(root: Path, repo: Path, model_path: Path) -> None:
     elif load(root / "ACTUAL_GENERATION_CONFIG.json") != generation.to_dict():
         raise RuntimeError("ACTUAL_GENERATION_CONFIG_CHANGED_ON_RESUME")
     if freeze.get("parent_r01_generation_sha256") and sha(root / "ACTUAL_GENERATION_CONFIG.json") != freeze["parent_r01_generation_sha256"]:
-        raise RuntimeError("R02_GENERATION_CONFIG_DIFFERS_FROM_R01")
+        raise RuntimeError("GENERATION_CONFIG_DIFFERS_FROM_R01")
     if not (root / "GPU_LOAD_RECEIPT.json").exists():
         write_new(root / "GPU_LOAD_RECEIPT.json", {"device": torch.cuda.get_device_name(index), "device_index": index, "dtype": "bfloat16", "attention": model.config._attn_implementation, "device_map": getattr(model, "hf_device_map", None), "max_position_embeddings": model.config.max_position_embeddings, "free_total_after_load": torch.cuda.mem_get_info(index), "deterministic_algorithms": torch.are_deterministic_algorithms_enabled(), "actual_generation_config_sha256": sha(root / "ACTUAL_GENERATION_CONFIG.json"), "inference_network": "OFFLINE_LOCAL_FILES_ONLY"})
     raw_dir = root / "raw"
