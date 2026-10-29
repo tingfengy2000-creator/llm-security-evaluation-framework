@@ -1,5 +1,16 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0121 — prepare a new local data/annotation conversation, retain experiments here
+
+2026-10-29 JST; PODR-152/OR-106; basea83437a fetched0/0; same research worktree, unrelated design/PDF preserved.
+Owner will create the new local project Codex conversation; only context/role handoff and private path/hash inventory prepared here.
+Recover D2 37 dispositions/two-HN repair pending original-session targeted2; D3 two S3 necessity decisions remain Owner-blocked.
+No new-two raw found in the checked D2 archive/handoff roots; not a global absence claim. Phase2 draft/Human withheld, no simulated return.
+New data lane does not use D1 detector results to alter candidates and cannot start experiments. Original lane retains D1/L0 development work.
+Shared checkout writes/commits must be serialized and stage explicit own files; current Worker keeps exact sourcea83437a despite later documentation commits.
+[Handoff](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_DATA_THREAD_HANDOFF_V1.md).
+No actual thread/worktree created or messages sent, new Candidate/Evidence/Guide/Human changes, dataset acceptance, GT, split, model download/training/detection.
+
 ## REL-2026-0120 — prepare one-shot5090 Cursor package; no local model run
 
 2026-10-29 JST; PODR-151/OR-105; base94e29fe, fetched research upstream0/0, unrelated design/PDF preserved.

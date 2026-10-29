@@ -1,5 +1,22 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-106 — data/annotation conversation handoff; no new experiment or acceptance
+
+2026-10-29 JST; PODR-152/REL-2026-0121; P1-CORE144-D2-D3-DATA-THREAD-HANDOFF-01; basea83437a.
+Original conversation experiments; Owner's future new local project conversation D2/D3 data/annotation, still under old scientific gates.
+D2 authoritative record:37 independent dispositions42fields, two prepared additive HN repairs, external targeted2 review pending, not Human GT/acceptance.
+D2 55-file original index SHA12cf8d94b793ed4a2ca3436be8d56217c71f281d623e77e74c0b60d6995aa10c.
+D3 two S3 necessity blockers/Phase2 withheld;74-file original preflight index SHA2e92f682cbba6261381388f3c5b62b6cd5aa63e7c073609a4fc2ee581a03a4f9.
+Private new inventory/checks in experiments/core144_d2_d3_thread_handoff_20261029_run01/; no raw copied/replaced or data/experiment changed.
+129 original indexed files and six distributed Phase1 files verified; L0 source/policy lock and unrelated design/PDF unchanged.
+Scoped90testsPASS; Ruff/MyPy2private QA helpersPASS; new UTF-8/path/privacy/link/diff checksPASS.
+Seven broader legacy governance tests still FAIL, reproduced identically against immutable basea83437a; not waived or falsely green. No history/test patch to hide them.
+HANDOFF_QA_V3 SHAd431215bd7ca030383743aa28a141e112bc9c12b693674d50154db743d5ec0da;
+new57-file EVIDENCE_INDEX_V1 SHAac7b76492caf9a6c18507427002d05104bd9917539fd8491d363ff8c35e07510; later Git/transfer receipts additive outside seal.
+[New-chat context](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_DATA_THREAD_HANDOFF_V1.md),
+[stateV27](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V27.md).
+Worker L0 still pinned a83437a; no new returned inference evidence, no performance claim. No formal GT/split, Human release or training.
+
 ## OR-105 — 5090 Cursor L0 execution package and CPU contract checks, not model results
 
 2026-10-29 JST; PODR-151/REL-2026-0120; task P1-VACE-L0-5090-CURSOR-HANDOFF-01; base94e29fe.

@@ -1,5 +1,15 @@
 # LLMGuard 项目总控文档
 
+## 当前分工：原对话负责实验，新对话负责D2/D3标注和数据准备（2026-10-29 JST）
+
+PODR-152/OR-106/REL-2026-0121；[数据新对话交接](docs/research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_DATA_THREAD_HANDOFF_V1.md)。
+Owner将开启本机本项目新Codex对话，本次只准备交接，不创建会话或新worktree，不新增科研授权。
+D2仍需两个修复HN的原R3/R4定向Phase1→锁定→Phase2→全144验收，37项QA不重做也不冒充GT。
+D3两S3单源反例仍待Owner选择修复/重分配/HOLD，不因分工自动放行Phase2/Human。
+本对话继续D1_DEV/L0实验工作；5090实际进程未知，尚无新回包，不由数据线改动模型/实验协议或D2D3来迎合效果。
+双线共享checkout时串行提交/共享文档更新、明确stage，保留彼此上下文；不得覆盖原design/PDF或冻结数据。
+原L0 Worker仍固定a83437a，纯交接文档新提交不要求改Worker源码/重跑；正式GT/split未执行。
+
 ## 当前：L0交给5090上的Cursor自动执行，LOCAL只交付代码和私有输入（2026-10-29 JST）
 
 PODR-151/OR-105/REL-2026-0120；[交接命令](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/L0_5090_CURSOR_EXECUTION_PACKAGE_V1.md)。

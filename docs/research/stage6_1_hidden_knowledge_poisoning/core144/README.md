@@ -1,5 +1,8 @@
 # Core144 navigation
 
+**当前分工：** [D2/D3数据标注新对话交接](PAPER1_CORE144_D2_D3_DATA_THREAD_HANDOFF_V1.md)，[双轨V27](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V27.md)。
+Owner将新开本机项目Codex对话接数据，原对话继续实验；D2待两个HN定向复审，D3两S3问题仍待Owner，不自动发Human/GT。
+
 **当前5090 Cursor执行交接：** [合同、命令和粘贴指令](vace_lite/L0_5090_CURSOR_EXECUTION_PACKAGE_V1.md)，
 [状态V26](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V26.md)。输入V2私有ZIP需另传，不能只pull代码；实际GPU实验尚未执行。
 

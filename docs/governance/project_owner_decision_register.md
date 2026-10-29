@@ -1,5 +1,16 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-152 — separate local D2/D3 data/annotation conversation from the original experimental conversation
+
+2026-10-29 JST; OR-106/REL-2026-0121; P1-CORE144-D2-D3-DATA-THREAD-HANDOFF-01.
+Owner says they will open a new local project Codex conversation for subsequent D2/D3 annotation/data preparation; original conversation handles experiments.
+Approved now: prepare recoverable handoff, verify existing artifacts/paths/gates and persist the role boundary. Do not create/message a new thread on the Owner's behalf.
+This is not new D3 repair approval, D2/D3 final acceptance, Human distribution, GT freeze or formal split/training/evaluation authorization.
+D2 original-session targeted2 gates and D3 S3 necessity Owner decision remain independent; R4_CODEX actual provider is Doubao.
+No experimental feedback may modify D2/D3. Shared checkout governance commits must preserve the other lane; no overwrite/stash/reset or unrelated staging.
+New chat first restores authority and checks receipts, then follows the existing approvals; actual conversation ID not yet available.
+[Handoff and boundaries](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_DATA_THREAD_HANDOFF_V1.md).
+
 ## PODR-151 — approve one-shot code/private-input handoff and unattended normal phases on5090 Cursor
 
 2026-10-29 JST; OR-105/REL-2026-0120; task P1-VACE-L0-5090-CURSOR-HANDOFF-01.

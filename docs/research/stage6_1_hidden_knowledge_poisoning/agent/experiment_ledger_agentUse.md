@@ -1,5 +1,18 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current parallel roles — D2/D3 new local data chat; original chat experiments, 2026-10-29 JST
+
+PODR-152/OR-106/REL-2026-0121; P1-CORE144-D2-D3-DATA-THREAD-HANDOFF-01; basea83437a.
+Owner will open the conversation; no thread/worktree or automatic cross-chat message created. [Handoff](../core144/PAPER1_CORE144_D2_D3_DATA_THREAD_HANDOFF_V1.md).
+D2 PENDING_TARGETED_TWO_REVIEW;37 ACCEPT/0REJECT/0pending42fields QA, two HN repaired pending original-session review, Phase2/Human withheld.
+D3 HUMAN_DECISION_REQUIRED for two S3 single-source counterexamples; no repair approved by this division request.
+Private handoff namespace experiments/core144_d2_d3_thread_handoff_20261029_run01/ records exact local paths/hashes/start prompt, not Reviewer material.
+129original files/six reviewer files/L0 source lock verified. Scoped90PASS, Ruff/MyPyPASS;7legacy governance failures reproduced on basea83437a, not waived.
+Final private QA_V3 SHAd431215bd7ca030383743aa28a141e112bc9c12b693674d50154db743d5ec0da;57-file index SHAac7b76492caf9a6c18507427002d05104bd9917539fd8491d363ff8c35e07510.
+Shared checkout not isolation: serialize shared canonical/Git edits, stage explicit own files, protect original design/PDF and other lane artifacts.
+Original experimental lane retains L0 source pin a83437a; no returned new results or remote execution-state proof. No new model/run or data/Guide/Human/GT change.
+D2_D3_DATA_THREAD_HANDOFF_READY / WAITING_FOR_OWNER_TO_OPEN_THREAD; no scientific gate bypass or formal GT/split.
+
 ## Current5090 Cursor handoff ready, Worker not started — 2026-10-29 JST
 
 PODR-151/OR-105/REL-2026-0120; P1-VACE-L0-5090-CURSOR-HANDOFF-01; parent L0 strong baseline unchanged.

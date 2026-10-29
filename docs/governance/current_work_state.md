@@ -1,5 +1,19 @@
 # Current Work State
 
+## Current — 2026-10-29 parallel conversation roles: experiments here, D2/D3 data in a new local Codex chat
+
+P1-CORE144-D2-D3-DATA-THREAD-HANDOFF-01; PODR-152/OR-106/REL-2026-0121; basea83437a.
+Owner will open the local project data/annotation conversation; the original conversation retains experiments. No thread/worktree created here.
+[Data handoff](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_D2_D3_DATA_THREAD_HANDOFF_V1.md),
+[parallel stateV27](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V27.md).
+D2 still PENDING_TARGETED_TWO_REVIEW:37 suggestions closed as QA, two HN repairs prepared; Phase1 two-row raw not archived in checked handoff roots, Phase2 draft withheld.
+D3 still HUMAN_DECISION_REQUIRED:two S3 single-source counterexamples; no repair/Phase2/Human release under this division decision.
+L0 source remains pinned a83437a; no new Worker return received, actual remote process state unobserved. Do not infer completion or rerun from this documentation commit.
+New chat starts recovery/inventory and existing-gate checklists only. Dataset changes, Human distribution/GT and formal experiments still require their own gates.
+Shared checkout is not isolation: distinct private namespaces/domain files; serialize shared authority/Git updates, preserve the other lane and unrelated design/PDF.
+No Candidate/Human/Evidence/Guide/Expected/model/config/old result mutations; no new experiment, training, formal split or GT freeze.
+Status D2_D3_DATA_THREAD_HANDOFF_READY / WAITING_FOR_OWNER_TO_OPEN_THREAD; domain blockers remain open.
+
 ## Current — 2026-10-29 5090 Cursor handoff ready, real L0 run not started here
 
 P1-VACE-L0-5090-CURSOR-HANDOFF-01; PODR-151/OR-105/REL-2026-0120; parent P1-VACE-L0-F5-ORACLE-STRONG-BASELINE-01.

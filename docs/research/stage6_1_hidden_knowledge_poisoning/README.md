@@ -1,5 +1,9 @@
 # Paper 1 Start Here
 
+**当前双对话分工（2026-10-29）：** [D2/D3新对话数据标注交接](core144/PAPER1_CORE144_D2_D3_DATA_THREAD_HANDOFF_V1.md)，
+[状态V27](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V27.md)。原对话继续实验，新对话只接数据/标注，不新增科研授权。
+D2仍待两题原会话复审；D3两S3门待Owner；D2/D3 Human、正式GT/split均未放行。L0 Worker仍固定a83437a，不因本文档交接换源码。
+
 **当前5090 Cursor交接（2026-10-29 JST）：** [一次性执行包/命令](core144/vace_lite/L0_5090_CURSOR_EXECUTION_PACKAGE_V1.md)，
 [状态V26](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V26.md)。代码＋独立私有V2 ZIP已准备；正常阶段可连续运行，硬门不豁免。
 仅CPU测试，尚未5090模型推理；LOCAL5060阻断仍为事实，无新L0检测数字。
