@@ -1,5 +1,7 @@
 # Oracle 逐断言对齐对照协议
 
+结果已封存。研究判断是 `TRADEOFF_FPR_INCREASED`。见 [结果](VACE_L0_ORACLE_CLAIM_ALIGNMENT_RESULT_V1.md)。下面的固定后缀没有在看到预测后修改。
+
 任务 `P1-L0-ORACLE-CLAIM-ALIGNMENT-COMPARISON-01`。Run `VACE-L0-D1-20261030-ORACLE-ALIGN01`。没有新的 PODR。
 
 Owner 批准本轮只做 120 次新的 Oracle 推理。这条批准只取代“不自动进入下一轮推理”对这一对照的限制。不重跑 F5，不追加模型，不搜索提示词。FULL01、R01–R06 和离线审计原件不改。

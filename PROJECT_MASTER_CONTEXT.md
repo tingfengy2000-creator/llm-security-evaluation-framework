@@ -1,5 +1,11 @@
 # LLMGuard 项目总控文档
 
+## 当前：Oracle 逐断言对齐对照已完成，等待 Owner 审阅（2026-10-30）
+
+任务 P1-L0-ORACLE-CLAIM-ALIGNMENT-COMPARISON-01，Run VACE-L0-D1-20261030-ORACLE-ALIGN01。状态 ORACLE_CLAIM_ALIGNMENT_DEV_COMPLETE / OWNER_REVIEW_REQUIRED。
+[结果](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_ORACLE_CLAIM_ALIGNMENT_RESULT_V1.md)。
+研究判断是 TRADEOFF_FPR_INCREASED。总体 TP 从 14/40 到 15/40，Clean 误报从 4/40 到 6/40，HN 误报从 2/40 到 5/40。预期的“无额外误报的检出改善”没有得到支持。配对 Recall 区间跨过 0。没有第二版提示，不重跑 F5，不启动 VACE-LM、D2/D3 或新模型。
+
 ## 当前：Oracle 逐断言对齐对照已获批准，分数尚未产生（2026-10-30）
 
 任务 P1-L0-ORACLE-CLAIM-ALIGNMENT-COMPARISON-01，Run VACE-L0-D1-20261030-ORACLE-ALIGN01。没有新的 PODR。

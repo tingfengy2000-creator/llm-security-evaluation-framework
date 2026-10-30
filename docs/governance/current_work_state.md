@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-10-30 Oracle claim-alignment comparison is complete
+
+Task P1-L0-ORACLE-CLAIM-ALIGNMENT-COMPARISON-01. Run VACE-L0-D1-20261030-ORACLE-ALIGN01. Status ORACLE_CLAIM_ALIGNMENT_DEV_COMPLETE / OWNER_REVIEW_REQUIRED. Execution commit 4f4ece34e434d21b9c2dc076d53efe1587470594.
+[Result](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_ORACLE_CLAIM_ALIGNMENT_RESULT_V1.md).
+Judgment TRADEOFF_FPR_INCREASED. Overall TP moved from 14/40 to 15/40, while Clean FP moved from 4/40 to 6/40 and HN FP from 2/40 to 5/40. The pre-registered “detection up without extra false positives” rule is not supported. Recall’s paired interval crosses zero. Poison SUPPORT fell from 19 to 15, and model-own INSUFFICIENT rose from 0 to 3. More abstention is not a verification gain. 120 calls, no truncation, peak reserved 21657288704. Prediction lock SHA256 09b0ea5d237158e5472b12cffe5ed3d8807c99bdbce809e9c216896f3d57fda5. FULL01 and the offline audit originals were rechecked and left unchanged. No second prompt, F5 rerun, VACE-LM, D2/D3, or new model.
+
 ## Current — 2026-10-30 Oracle claim-alignment comparison is authorized
 
 Task P1-L0-ORACLE-CLAIM-ALIGNMENT-COMPARISON-01. Run VACE-L0-D1-20261030-ORACLE-ALIGN01. No new PODR id. This approval authorizes 120 new Oracle calls and replaces the earlier “no next inference” limit only for that comparison.

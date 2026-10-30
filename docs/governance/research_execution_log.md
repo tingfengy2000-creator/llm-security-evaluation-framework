@@ -1,5 +1,10 @@
 # LLMGuard Research Execution Log
 
+## 2026-10-30 — Oracle claim-alignment comparison closed
+
+No new PODR id. Task P1-L0-ORACLE-CLAIM-ALIGNMENT-COMPARISON-01. Run VACE-L0-D1-20261030-ORACLE-ALIGN01. Status ORACLE_CLAIM_ALIGNMENT_DEV_COMPLETE / OWNER_REVIEW_REQUIRED. Execution pin 4f4ece34e434d21b9c2dc076d53efe1587470594. Judgment TRADEOFF_FPR_INCREASED: TP 15/40 versus sealed Oracle 14/40, Clean FP 6/40 versus 4/40, HN FP 5/40 versus 2/40. Paired overall-recall interval −0.103 to 0.116. Gained detections 4, lost detections 3, gained false positives 6, removed false positives 1. JSON failures 3, citation failures 16, model-own INSUFFICIENT 3, input failures 0, truncation 0. Peak reserved 21657288704. Prediction SHA256 37f2c941b585e325fbb1051c4c1f7ffd6ec2d990eb46277245ac19ea43e691a3. Private archive SHA256 62a1f7ff35ce1df39865b4280a51780636f8a21d6baf318fa2444c3d4480cce7 stays off Git. FULL01 prediction and lock hashes still match. No second prompt and no F5 rerun.
+[Result](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_ORACLE_CLAIM_ALIGNMENT_RESULT_V1.md).
+
 ## 2026-10-30 — Owner authorizes one Oracle claim-alignment comparison
 
 No new PODR id. Task P1-L0-ORACLE-CLAIM-ALIGNMENT-COMPARISON-01. Run VACE-L0-D1-20261030-ORACLE-ALIGN01. The approval covers 120 new Oracle generations and does not authorize an F5 rerun or another prompt. Metrics NOT_MEASURED until seal. The fixed suffix is in the protocol. FULL01 files stay read-only.
