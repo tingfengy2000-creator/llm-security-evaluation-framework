@@ -101,17 +101,17 @@ def require_prediction_seal(lock: dict[str, Any]) -> None:
 
 def orchestrate_full01(args: Any, repo: Path) -> None:
     r01 = args.r01_dir.resolve()
-    r02 = args.r02_dir.resolve()
+    r02_dir = args.r02_dir.resolve()
     r03 = args.r03_dir.resolve()
     r05 = args.r05_dir.resolve()
     r06 = args.r06_dir.resolve()
     root = args.work_dir.resolve()
-    priors = [r01, r02, r03, r05, r06]
+    priors = [r01, r02_dir, r03, r05, r06]
     disjoint(root, priors)
     policy = full01_policy(repo)
     if worker.sha(repo / ADAPTER) != ADAPTER_SHA:
         raise RuntimeError("ADAPTER_SHA_MISMATCH")
-    assert_parents(r01, r02, r03, r05, r06)
+    assert_parents(r01, r02_dir, r03, r05, r06)
     old, snapshot, reference = r02.parent_identity(r01, repo)
     if root.exists() and not (root / "FULL01_ORIGIN.json").exists():
         if any(p.name not in {"cache", "temp"} or not p.is_dir() or p.is_symlink() or not p.resolve().is_relative_to(root) for p in root.iterdir()):
@@ -185,10 +185,10 @@ def orchestrate_full01(args: Any, repo: Path) -> None:
         if not (root / "PREDICTION_LOCK.json").exists():
             worker.logged([str(runtime), str(repo / "scripts/research/paper1_l0_worker.py"), "--infer-phase", "--work-dir", str(root), "--model-dir", str(model)], root, "infer-" + str(time.time_ns()), env, monitoring)
         require_prediction_seal(worker.load(root / "PREDICTION_LOCK.json"))
-        assert_parents(r01, r02, r03, r05, r06)
+        assert_parents(r01, r02_dir, r03, r05, r06)
         r02.assert_parent(r01, snapshot)
         worker.logged([str(runtime), str(repo / "scripts/research/evaluate_l0_worker.py"), "--work-dir", str(root)], root, "evaluate-" + str(time.time_ns()), env, monitoring)
-        assert_parents(r01, r02, r03, r05, r06)
+        assert_parents(r01, r02_dir, r03, r05, r06)
         r02.assert_parent(r01, snapshot)
         worker.return_archive(root, STATUS)
         worker.budget(root, monitoring)

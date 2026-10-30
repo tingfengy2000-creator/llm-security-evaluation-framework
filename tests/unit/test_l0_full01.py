@@ -62,6 +62,14 @@ def test_worker_installs_the_adapter_only_behind_the_full01_flag() -> None:
     assert "empty_cache" not in text
 
 
+def test_run_directories_do_not_hide_the_parent_module() -> None:
+    text = Path(l0_full01.__file__).read_text(encoding="utf-8")
+    assert "r02_dir = args.r02_dir.resolve()" in text
+    assert "r02.parent_identity" in text
+    assert "r02.copy_frozen_inputs" in text
+    assert "r02.assert_parent" in text
+
+
 def test_prior_directories_stay_disjoint(tmp_path: Path) -> None:
     if os.name == "nt":
         with pytest.raises(RuntimeError, match="D_OR_E"):
