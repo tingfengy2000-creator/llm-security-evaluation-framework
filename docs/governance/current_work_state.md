@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-10-30 full D1 development execution is authorized
+
+Task P1-L0-D1-FULL-EXECUTION-01. Run VACE-L0-D1-20261030-FULL01. No new PODR id. Baseline fdf77cff25158c731a3fdb2dde70a5ad27b0c77d. Adapter SHA256 0cb1d1854ba90d94efa859e03a54f18b25999c4bcaf4c84ac9e43073128eb2d4.
+[Execution record](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_FULL01_D1_EXECUTION_V1.md).
+R05 stays blocked and R06 stays passed. The run uses the original 31744 input cap, not the R03 7200 cap, and does not carry the capacity-only min_new_tokens=1024 setting. Metrics are NOT_MEASURED until the private archive is sealed. This is a development result, not a formal test.
+
 ## Current — 2026-10-30 R06 separates CUDA cache warmup from continued accumulation
 
 Task P1-L0-R06-ALLOCATOR-STABILITY-REVIEW-01. No new PODR or Owner decision id.

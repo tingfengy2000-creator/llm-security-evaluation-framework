@@ -1,5 +1,11 @@
 # LLMGuard 项目总控文档
 
+## 当前：完整 D1 开发实验已获批准，分数尚未产生（2026-10-30）
+
+任务 P1-L0-D1-FULL-EXECUTION-01，Run VACE-L0-D1-20261030-FULL01。没有新的 PODR。
+[执行记录](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_FULL01_D1_EXECUTION_V1.md)。
+复用 R06 通过的显式 GQA 适配器，输入上限回到 31744，不带容量测试的 min_new_tokens。R05 仍阻断，R06 仍通过。指标在封存前是 NOT_MEASURED。这不是正式测试。
+
 ## 当前：R06 在固定合成负载下通过自己的稳定性门（2026-10-30）
 
 任务 P1-L0-R06-ALLOCATOR-STABILITY-REVIEW-01。没有新的 PODR。R05 仍是预检阻断，512 MiB 旧结论不改。

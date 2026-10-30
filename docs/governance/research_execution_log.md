@@ -1,5 +1,11 @@
 # LLMGuard Research Execution Log
 
+## 2026-10-30 — Owner authorizes the full D1 development run
+
+No new PODR id. Task P1-L0-D1-FULL-EXECUTION-01. Run VACE-L0-D1-20261030-FULL01. Baseline fdf77cff25158c731a3fdb2dde70a5ad27b0c77d. The explicit GQA adapter hash stays 0cb1d1854ba90d94efa859e03a54f18b25999c4bcaf4c84ac9e43073128eb2d4. R05 remains blocked and R06 remains passed.
+Metrics NOT_MEASURED until prediction lock, independent evaluation, and the private archive exist. No VACE-LM, D2/D3, or next run is authorized by this record.
+[Execution record](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_FULL01_D1_EXECUTION_V1.md).
+
 ## 2026-10-30 — R06 allocator stability precheck passes its own frozen gates
 
 No new PODR or Owner decision id. Task P1-L0-R06-ALLOCATOR-STABILITY-REVIEW-01. R05 remains blocked; the 512 MiB failure and FAILURE.json stay. Adapter commit b5ff81d5dd58493fc20d796ac9806f4678fb0928. Protocol locked before GPU at SHA256 55c9d4aacc7f7571c11f31b32c64d911a3c2bc22c8cdca86a5d4fa8ff95b1db7.

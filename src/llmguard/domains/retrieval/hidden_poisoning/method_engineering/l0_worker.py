@@ -343,7 +343,13 @@ def synthetic_assessment(records: list[dict[str, Any]], repeat: dict[str, Any], 
         or policy.get("overflow_policy") != "INPUT_FAILURE_AS_INSUFFICIENT_FULL_DENOMINATOR_NO_TRUNCATION"
     ):
         raise RuntimeError("R03_LENGTH_CAP_IDENTITY")
-    authorized = {("PODR-153", "VACE-L0-D1-20261029-R02"), ("R03_LENGTH_CAP_CONTINUATION", "VACE-L0-D1-20261029-R03")}
+    if policy.get("run_id") == "VACE-L0-D1-20261030-FULL01" and (
+        policy.get("max_input_tokens") != 31744
+        or policy.get("attention_adapter") != "explicit_gqa_efficient_r06"
+        or policy.get("overflow_policy") != "INPUT_FAILURE_AS_INSUFFICIENT_FULL_DENOMINATOR_NO_TRUNCATION"
+    ):
+        raise RuntimeError("FULL01_IDENTITY")
+    authorized = {("PODR-153", "VACE-L0-D1-20261029-R02"), ("R03_LENGTH_CAP_CONTINUATION", "VACE-L0-D1-20261029-R03"), ("P1-L0-D1-FULL-EXECUTION-01", "VACE-L0-D1-20261030-FULL01")}
     if mode == "DIAGNOSTIC_ONLY" and (policy.get("owner_approval"), policy.get("run_id")) not in authorized:
         raise RuntimeError("SYNTHETIC_GATE_RELAXATION_NOT_AUTHORIZED")
     cases = synthetic_cases()
@@ -381,7 +387,7 @@ def infer(root: Path, repo: Path, model_path: Path) -> None:
     def deny_labels(event: str, args: tuple[Any, ...]) -> None:
         if event == "open" and isinstance(args[0], (str, bytes, os.PathLike)):
             p = Path(os.fsdecode(args[0])).resolve()
-            if any(p.is_relative_to(vault) for vault in evaluation_roots):
+            if evaluation_vault_forbidden(p, evaluation_roots):
                 raise PermissionError("EVALUATOR_VAULT_ACCESS_FORBIDDEN_DURING_INFERENCE")
 
     sys.addaudithook(deny_labels)
@@ -393,7 +399,7 @@ def infer(root: Path, repo: Path, model_path: Path) -> None:
         raise RuntimeError("INSUFFICIENT_FREE_VRAM_DO_NOT_KILL_OTHER_PROCESSES")
     torch.cuda.set_per_process_memory_fraction(policy["max_torch_reserved_bytes"] / torch.cuda.get_device_properties(index).total_memory, index)
     torch.manual_seed(policy["seed"])
-    torch.use_deterministic_algorithms(True)
+    torch.use_deterministic_algorithms(True, warn_only=False)
     torch.backends.cuda.matmul.allow_tf32 = False
     torch.backends.cudnn.allow_tf32 = False
     torch.backends.cudnn.deterministic = True
@@ -404,20 +410,32 @@ def infer(root: Path, repo: Path, model_path: Path) -> None:
         raise RuntimeError("MODEL_DTYPE_OR_CPU_OFFLOAD_NOT_AUTHORIZED")
     if model.config.max_position_embeddings < policy["max_context_tokens"] or model.config._attn_implementation != "sdpa":
         raise RuntimeError("ACTUAL_CONTEXT_OR_ATTENTION_DOES_NOT_MATCH_POLICY")
+    adapter_installed = policy.get("attention_adapter") == "explicit_gqa_efficient_r06"
     generation = transformers.GenerationConfig.from_model_config(model.config)
     generation.do_sample = False
     generation.num_beams = 1
     generation.max_new_tokens = policy["max_new_tokens"]
     generation.use_cache = True
     generation.pad_token_id = tokenizer.pad_token_id or tokenizer.eos_token_id
+    if adapter_installed and generation.to_dict().get("min_new_tokens") not in (None, 0):
+        raise RuntimeError("CAPACITY_MIN_NEW_TOKENS_MUST_NOT_ENTER_BASELINE")
     if not (root / "ACTUAL_GENERATION_CONFIG.json").exists():
         write_new(root / "ACTUAL_GENERATION_CONFIG.json", generation.to_dict())
     elif load(root / "ACTUAL_GENERATION_CONFIG.json") != generation.to_dict():
         raise RuntimeError("ACTUAL_GENERATION_CONFIG_CHANGED_ON_RESUME")
     if freeze.get("parent_r01_generation_sha256") and sha(root / "ACTUAL_GENERATION_CONFIG.json") != freeze["parent_r01_generation_sha256"]:
         raise RuntimeError("GENERATION_CONFIG_DIFFERS_FROM_R01")
+    call_summary = None
+    if adapter_installed:
+        from .explicit_gqa_efficient_sdpa import call_summary as call_summary
+        from .explicit_gqa_efficient_sdpa import install
+
+        adapter_path = repo / "src/llmguard/domains/retrieval/hidden_poisoning/method_engineering/explicit_gqa_efficient_sdpa.py"
+        if policy.get("adapter_module_sha256") != sha(adapter_path):
+            raise RuntimeError("ADAPTER_SHA_MISMATCH")
+        install(model)
     if not (root / "GPU_LOAD_RECEIPT.json").exists():
-        write_new(root / "GPU_LOAD_RECEIPT.json", {"device": torch.cuda.get_device_name(index), "device_index": index, "dtype": "bfloat16", "attention": model.config._attn_implementation, "device_map": getattr(model, "hf_device_map", None), "max_position_embeddings": model.config.max_position_embeddings, "free_total_after_load": torch.cuda.mem_get_info(index), "deterministic_algorithms": torch.are_deterministic_algorithms_enabled(), "actual_generation_config_sha256": sha(root / "ACTUAL_GENERATION_CONFIG.json"), "inference_network": "OFFLINE_LOCAL_FILES_ONLY"})
+        write_new(root / "GPU_LOAD_RECEIPT.json", {"device": torch.cuda.get_device_name(index), "device_index": index, "dtype": "bfloat16", "attention": model.config._attn_implementation, "attention_adapter": policy.get("attention_adapter"), "device_map": getattr(model, "hf_device_map", None), "max_position_embeddings": model.config.max_position_embeddings, "free_total_after_load": torch.cuda.mem_get_info(index), "deterministic_algorithms": torch.are_deterministic_algorithms_enabled(), "deterministic_warn_only": bool(getattr(torch, "are_deterministic_algorithms_warn_only_enabled", lambda: False)()), "actual_generation_config_sha256": sha(root / "ACTUAL_GENERATION_CONFIG.json"), "inference_network": "OFFLINE_LOCAL_FILES_ONLY"})
     raw_dir = root / "raw"
     raw_dir.mkdir(exist_ok=True)
     started = time.monotonic()
@@ -431,21 +449,34 @@ def infer(root: Path, repo: Path, model_path: Path) -> None:
         if count > policy["max_input_tokens"]:
             return {**base, "raw_output": None, "verdict": "INSUFFICIENT", "citations": [], "reason": "", "insufficient_reason": "INPUT_TOO_LONG_NO_SILENT_TRUNCATION", "error": "INPUT_TOO_LONG", "elapsed_seconds": 0.0, "peak_allocated_bytes": 0, "peak_reserved_bytes": 0}
         inputs = {k: v.to(index) for k, v in encoded.items()}
+        before_calls = call_summary() if adapter_installed else None
         torch.cuda.reset_peak_memory_stats(index)
         torch.cuda.synchronize(index)
         tick = time.perf_counter()
-        with torch.inference_mode():
-            output = model.generate(**inputs, generation_config=generation)
-        torch.cuda.synchronize(index)
-        seconds = time.perf_counter() - tick
-        generated = output[0, count:]
-        raw = tokenizer.decode(generated, skip_special_tokens=True)
-        peak = torch.cuda.max_memory_reserved(index)
-        if peak > policy["max_torch_reserved_bytes"]:
-            raise RuntimeError("VRAM_BUDGET_EXCEEDED")
-        result = {**base, "raw_output": raw, **parse_output(raw, row), "output_tokens": len(generated), "model_called": True, "elapsed_seconds": seconds, "peak_allocated_bytes": torch.cuda.max_memory_allocated(index), "peak_reserved_bytes": peak, "generation_stop": "MAX_NEW_TOKENS" if len(generated) == policy["max_new_tokens"] else "EOS"}
-        del inputs, output, generated
-        return result
+        output = None
+        try:
+            with torch.inference_mode():
+                output = model.generate(**inputs, generation_config=generation)
+            torch.cuda.synchronize(index)
+            seconds = time.perf_counter() - tick
+            generated = output[0, count:]
+            raw = tokenizer.decode(generated, skip_special_tokens=True)
+            output_tokens = len(generated)
+            peak_reserved = torch.cuda.max_memory_reserved(index)
+            peak_allocated = torch.cuda.max_memory_allocated(index)
+            if peak_reserved > policy["max_torch_reserved_bytes"]:
+                raise RuntimeError("VRAM_BUDGET_EXCEEDED")
+            result = {**base, "raw_output": raw, **parse_output(raw, row), "output_tokens": output_tokens, "model_called": True, "elapsed_seconds": seconds, "peak_allocated_bytes": peak_allocated, "peak_reserved_bytes": peak_reserved, "generation_stop": "MAX_NEW_TOKENS" if output_tokens == policy["max_new_tokens"] else "EOS"}
+            if adapter_installed:
+                evidence = adapter_evidence(before_calls, call_summary())
+                if not evidence["efficient_only"] or not evidence["prefill_and_decode"]:
+                    raise RuntimeError("IDENTITY_BACKEND_FALLBACK")
+                result["adapter_evidence"] = evidence
+            return result
+        finally:
+            del inputs, output
+            if adapter_installed:
+                torch.cuda.synchronize(index)
 
     if not (root / "SYNTHETIC_GATE.json").exists():
         records = []
@@ -473,7 +504,7 @@ def infer(root: Path, repo: Path, model_path: Path) -> None:
             p = raw_dir / f"{condition}-{i:03d}.json"
             if p.exists():
                 result = load(p)
-                if result["input_sha256"] != sha_text(json.dumps(row, ensure_ascii=False, sort_keys=True)) or result["config_lock_sha256"] != sha(root / "CONFIG_LOCK.json"):
+                if not resume_identity_matches(result, sha_text(json.dumps(row, ensure_ascii=False, sort_keys=True)), sha(root / "CONFIG_LOCK.json")):
                     raise RuntimeError("RESUME_INPUT_OR_CONFIG_CHANGED")
             else:
                 result = {**generate(row), "condition": condition, "run_id": policy["run_id"], "config_lock_sha256": sha(root / "CONFIG_LOCK.json")}
@@ -490,7 +521,33 @@ def infer(root: Path, repo: Path, model_path: Path) -> None:
         write_new(root / "PREDICTION_LOCK.json", {"utc": now(), "rows": len(predictions), "prediction_sha256": sha(output), "raw": {p.name: sha(p) for p in sorted(raw_dir.glob("*.json"))}, "all_predictions_before_evaluator_label_join": True})
 
 
-def return_archive(root: Path) -> None:
+def adapter_evidence(before: dict[str, Any], after: dict[str, Any]) -> dict[str, Any]:
+    """Counts only. No tensor values and no prompt text."""
+    def keyed(summary: dict[str, Any]) -> dict[tuple[Any, ...], int]:
+        return {(item["query_len"], item["key_len"], item["kv_heads"], item["expanded_heads"], item["enable_gqa"], item["backend"]): item["count"] for item in summary["signatures"]}
+
+    old, new = keyed(before), keyed(after)
+    calls = []
+    for key, count in sorted(new.items()):
+        delta = count - old.get(key, 0)
+        if delta <= 0:
+            continue
+        query_len, key_len, kv_heads, expanded, gqa, backend = key
+        calls.append({"query_len": query_len, "key_len": key_len, "kv_heads": kv_heads, "expanded_heads": expanded, "enable_gqa": gqa, "backend": backend, "count": delta})
+    efficient = bool(calls) and all(item["backend"] == "EFFICIENT_ATTENTION" and item["kv_heads"] == 4 and item["expanded_heads"] == 28 and item["enable_gqa"] is False for item in calls)
+    return {"calls": calls, "efficient_only": efficient, "prefill_and_decode": any(item["query_len"] > 1 for item in calls) and any(item["query_len"] == 1 for item in calls)}
+
+
+def evaluation_vault_forbidden(path: Path, vaults: list[Path]) -> bool:
+    resolved = path.resolve()
+    return any(resolved.is_relative_to(vault) for vault in vaults)
+
+
+def resume_identity_matches(saved: dict[str, Any], row_sha: str, config_sha: str) -> bool:
+    return saved.get("input_sha256") == row_sha and saved.get("config_lock_sha256") == config_sha
+
+
+def return_archive(root: Path, status: str = "L0_STRONG_BASELINE_D1_DEV_COMPLETE / OWNER_REVIEW_REQUIRED") -> None:
     archive = root / "L0_RETURN_NO_WEIGHTS.zip"
     excluded = {"env", "model", "cache", "temp", "wheelhouse"}
     paths = [p for p in sorted(root.rglob("*")) if p.is_file() and not (set(p.relative_to(root).parts) & excluded) and p.name not in {"ORCHESTRATOR_LOCK.json", archive.name, "RETURN_INDEX.json", "COMPLETE.json"} and ".pending-" not in p.name]
@@ -504,7 +561,7 @@ def return_archive(root: Path) -> None:
     with zipfile.ZipFile(archive) as z:
         if z.testzip() is not None:
             raise RuntimeError("RETURN_ARCHIVE_INTEGRITY")
-    write_new(root / "COMPLETE.json", {"utc": now(), "status": "L0_STRONG_BASELINE_D1_DEV_COMPLETE / OWNER_REVIEW_REQUIRED", "prediction_sha256": sha(root / "L0_PREDICTIONS.jsonl"), "return_archive_sha256": sha(archive), "return_index_sha256": sha(root / "RETURN_INDEX.json"), "run_manifest_sha256": sha(root / "L0_RUN_MANIFEST.json"), "no_formal_test_GT_training_or_VACE_LM": True})
+    write_new(root / "COMPLETE.json", {"utc": now(), "status": status, "prediction_sha256": sha(root / "L0_PREDICTIONS.jsonl"), "return_archive_sha256": sha(archive), "return_index_sha256": sha(root / "RETURN_INDEX.json"), "run_manifest_sha256": sha(root / "L0_RUN_MANIFEST.json"), "no_formal_test_GT_training_or_VACE_LM": True})
 
 
 def orchestrate(args: Any, repo: Path) -> None:
