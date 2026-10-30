@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-10-30 Oracle claim-alignment comparison is authorized
+
+Task P1-L0-ORACLE-CLAIM-ALIGNMENT-COMPARISON-01. Run VACE-L0-D1-20261030-ORACLE-ALIGN01. No new PODR id. This approval authorizes 120 new Oracle calls and replaces the earlier “no next inference” limit only for that comparison.
+[Protocol](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_ORACLE_CLAIM_ALIGNMENT_V1.md).
+The only change is one fixed system suffix. FULL01 Oracle stays the sealed control. Metrics are NOT_MEASURED until the 120 predictions are sealed. This is a development prompt comparison, not a formal test. No F5 rerun, VACE-LM, D2/D3, or another prompt round.
+
 ## Current — 2026-10-30 sealed FULL01 output audit is complete
 
 Task P1-L0-FULL01-SEALED-OUTPUT-AUDIT-01. No new PODR id. The sealed run remains VACE-L0-D1-20261030-FULL01. Result commit bfc9685e5cdde1757643bd6825e52e34bbc85f52. Execution commit 830bb5b3eb950f30494c9e3ef6affdcc8efc7dcb.

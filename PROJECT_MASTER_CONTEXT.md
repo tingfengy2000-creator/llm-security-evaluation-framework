@@ -1,5 +1,11 @@
 # LLMGuard 项目总控文档
 
+## 当前：Oracle 逐断言对齐对照已获批准，分数尚未产生（2026-10-30）
+
+任务 P1-L0-ORACLE-CLAIM-ALIGNMENT-COMPARISON-01，Run VACE-L0-D1-20261030-ORACLE-ALIGN01。没有新的 PODR。
+[协议](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_ORACLE_CLAIM_ALIGNMENT_V1.md)。
+只追加一段固定 system 指令，对照 FULL01 已封存的 Oracle。指标在封存前是 NOT_MEASURED。这不是正式测试。不重跑 F5，不开始下一轮提示词。
+
 ## 当前：FULL01 封存输出的离线归因已完成（2026-10-30）
 
 任务 P1-L0-FULL01-SEALED-OUTPUT-AUDIT-01。没有新的 PODR。

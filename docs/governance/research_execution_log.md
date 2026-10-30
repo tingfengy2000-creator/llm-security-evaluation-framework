@@ -1,5 +1,10 @@
 # LLMGuard Research Execution Log
 
+## 2026-10-30 — Owner authorizes one Oracle claim-alignment comparison
+
+No new PODR id. Task P1-L0-ORACLE-CLAIM-ALIGNMENT-COMPARISON-01. Run VACE-L0-D1-20261030-ORACLE-ALIGN01. The approval covers 120 new Oracle generations and does not authorize an F5 rerun or another prompt. Metrics NOT_MEASURED until seal. The fixed suffix is in the protocol. FULL01 files stay read-only.
+[Protocol](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_ORACLE_CLAIM_ALIGNMENT_V1.md).
+
 ## 2026-10-30 — offline audit of the sealed FULL01 outputs
 
 No new PODR id. Task P1-L0-FULL01-SEALED-OUTPUT-AUDIT-01. The sealed counts and file hashes match. F5 output failures are 30 quote misses, 8 absent UIDs, 1 JSON syntax error, and 1 support citation with no external evidence. Oracle output failures are 12 quote misses and 5 JSON syntax errors. Validation blocked 1 poison CONTRADICT on F5 and 0 on Oracle. Passed poison SUPPORT remains 22 and 19. Status FULL01_OFFLINE_OUTPUT_AUDIT_COMPLETE / OWNER_REVIEW_REQUIRED. No rerun and no next inference stage.
