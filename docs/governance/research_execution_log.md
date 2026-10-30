@@ -1,5 +1,13 @@
 # LLMGuard Research Execution Log
 
+## 2026-10-30 — R06 allocator stability precheck passes its own frozen gates
+
+No new PODR or Owner decision id. Task P1-L0-R06-ALLOCATOR-STABILITY-REVIEW-01. R05 remains blocked; the 512 MiB failure and FAILURE.json stay. Adapter commit b5ff81d5dd58493fc20d796ac9806f4678fb0928. Protocol locked before GPU at SHA256 55c9d4aacc7f7571c11f31b32c64d911a3c2bc22c8cdca86a5d4fa8ff95b1db7.
+Same synthetic construction as the R05 capacity probe. Sequence 1294, 8192, 16384, 26493, 1294. Two warmup rounds, five measurement rounds, 1024 tokens each. Model stayed loaded. No empty_cache and no allocator change. Baseline is the checkpoint after warmup round 2.
+Allocated at every same-condition checkpoint is 15268457984. Measurement deltas are 0. Reserved climbs during warmup round 1 and then holds at 22194159616. Last-three reserved span is 0. Longest peak reserved 22194159616. Minimum headroom under 30 GiB is 10018095104. Parent R01–R05 hashes unchanged.
+Status R06_STABILITY_PRECHECK_PASS / OWNER_REVIEW_REQUIRED. Small end-to-end trial has an engineering basis and is not started. Not 240 predictions and not a general leak proof. No D1 scoring, VACE-LM, or D2/D3.
+[Disclosure](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_R06_ALLOCATOR_STABILITY_V1.md).
+
 ## 2026-10-29 — R05 explicit GQA precheck stops on reserved-memory retention
 
 No new PODR or Owner decision id. Task P1-L0-R05-EXPLICIT-GQA-EFFICIENT-SDPA-PRECHECK-01. Base 71b0b111591b9c2a621a78995c72bad0ed860bbd. Work directory is local and is not in Git.

@@ -1,5 +1,13 @@
 # Current Work State
 
+## Current — 2026-10-30 R06 separates CUDA cache warmup from continued accumulation
+
+Task P1-L0-R06-ALLOCATOR-STABILITY-REVIEW-01. No new PODR or Owner decision id.
+[R06 disclosure](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_R06_ALLOCATOR_STABILITY_V1.md).
+R05 stays R05_PRECHECK_BLOCKED. Its 512 MiB alternate failure and FAILURE.json were not rewritten. The committed adapter from b5ff81d5dd58493fc20d796ac9806f4678fb0928 was reused. Protocol SHA256 55c9d4aacc7f7571c11f31b32c64d911a3c2bc22c8cdca86a5d4fa8ff95b1db7 was locked before the GPU run.
+Synthetic lengths 1294, 8192, 16384, 26493, 1294. Two warmup rounds and five measurement rounds, 1024 new tokens each, no empty_cache. Checkpoint allocated stayed at 15268457984, so every measurement delta against the warmup-2 baseline is 0. Reserved reached 22194159616 on the first long input and then stayed there; the last three measurement checkpoints have span 0. Longest peak reserved is 22194159616, minimum contract headroom 10018095104. No OOM. Status R06_STABILITY_PRECHECK_PASS / OWNER_REVIEW_REQUIRED.
+That is a basis to request a small end-to-end trial. It does not authorize the trial, 240 predictions, D1 scoring, R07, VACE-LM, or D2/D3. It is not a proof of no leak or unbounded stability.
+
 ## Current — 2026-10-29 R05 explicit GQA efficient SDPA precheck is blocked
 
 Task P1-L0-R05-EXPLICIT-GQA-EFFICIENT-SDPA-PRECHECK-01. No new PODR or Owner decision id. Base commit 71b0b111591b9c2a621a78995c72bad0ed860bbd.

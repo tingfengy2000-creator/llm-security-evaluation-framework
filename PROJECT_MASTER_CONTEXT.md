@@ -1,5 +1,12 @@
 # LLMGuard 项目总控文档
 
+## 当前：R06 在固定合成负载下通过自己的稳定性门（2026-10-30）
+
+任务 P1-L0-R06-ALLOCATOR-STABILITY-REVIEW-01。没有新的 PODR。R05 仍是预检阻断，512 MiB 旧结论不改。
+[R06 披露](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_R06_ALLOCATOR_STABILITY_V1.md)。
+同工况 allocated 相对第 2 轮预热基线的增量是 0。reserved 在第一次 26493 输入后停在 22194159616，后五个测量轮没有再涨。最长峰值预留 22194159616，合同余量 10018095104。状态是 R06 稳定性预检通过，等待审阅。
+这只说明可以申请少量端到端试运行。试运行、D1 评分和下一 Run 都还没有批准，也不能把这次写成 240 条预测或无泄漏证明。
+
 ## 当前：R02已按批准启动，但D1推理因显存不足停止（2026-10-29 JST）
 
 PODR-153/OR-109/REL-2026-0124；[显存阻断](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_R02_CUDA_OOM_BLOCKER_V1.md)。
