@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-10-30 full D1 development run is sealed
+
+Task P1-L0-D1-FULL-EXECUTION-01. Run VACE-L0-D1-20261030-FULL01. No new PODR id. Execution commit 830bb5b3eb950f30494c9e3ef6affdcc8efc7dcb. Adapter SHA256 remains 0cb1d1854ba90d94efa859e03a54f18b25999c4bcaf4c84ac9e43073128eb2d4.
+[Execution record](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_FULL01_D1_EXECUTION_V1.md).
+Status L0_D1_DEV_FULL_COMPLETE / OWNER_REVIEW_REQUIRED. 240 new predictions, prediction lock, independent scores, and the private archive exist. R05 stays blocked and R06 stays passed. Synthetic semantics stayed diagnostic at 4/5. F5 overall recall is 5/40 and Oracle overall recall is 14/40. Peak reserved is 31249661952 bytes, under the 30 GiB cap. Input rejection count is 0. This is a development result, not a formal test. No VACE-LM, D2/D3, or next run.
+
 ## Current — 2026-10-30 full D1 development execution is authorized
 
 Task P1-L0-D1-FULL-EXECUTION-01. Run VACE-L0-D1-20261030-FULL01. No new PODR id. Baseline fdf77cff25158c731a3fdb2dde70a5ad27b0c77d. Adapter SHA256 0cb1d1854ba90d94efa859e03a54f18b25999c4bcaf4c84ac9e43073128eb2d4.

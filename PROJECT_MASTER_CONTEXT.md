@@ -1,5 +1,11 @@
 # LLMGuard 项目总控文档
 
+## 当前：完整 D1 开发实验已封存，等待审阅（2026-10-30）
+
+任务 P1-L0-D1-FULL-EXECUTION-01，Run VACE-L0-D1-20261030-FULL01。没有新的 PODR。执行提交 `830bb5b3eb950f30494c9e3ef6affdcc8efc7dcb`。
+[执行记录](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_FULL01_D1_EXECUTION_V1.md)。
+状态是 L0_D1_DEV_FULL_COMPLETE / OWNER_REVIEW_REQUIRED。F5 总体 Recall 是 5/40，Oracle 总体 Recall 是 14/40。峰值 reserved 是 31249661952 字节。R05 仍阻断，R06 仍通过。这是开发结果，不是正式测试。不启动 VACE-LM、D2/D3 或下一轮。
+
 ## 当前：完整 D1 开发实验已获批准，分数尚未产生（2026-10-30）
 
 任务 P1-L0-D1-FULL-EXECUTION-01，Run VACE-L0-D1-20261030-FULL01。没有新的 PODR。

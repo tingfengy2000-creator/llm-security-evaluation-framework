@@ -1,5 +1,11 @@
 # LLMGuard Research Execution Log
 
+## 2026-10-30 — full D1 development run completes
+
+No new PODR id. Task P1-L0-D1-FULL-EXECUTION-01. Run VACE-L0-D1-20261030-FULL01. Execution commit 830bb5b3eb950f30494c9e3ef6affdcc8efc7dcb. Baseline fdf77cff25158c731a3fdb2dde70a5ad27b0c77d remains an ancestor. Adapter SHA256 0cb1d1854ba90d94efa859e03a54f18b25999c4bcaf4c84ac9e43073128eb2d4. R05 remains blocked and R06 remains passed.
+Status L0_D1_DEV_FULL_COMPLETE / OWNER_REVIEW_REQUIRED. F5 S1/S2/S3 are 3/12, 0/15, 2/13; overall 5/40; Clean FPR 1/40; HN FPR 1/40; precision 0.714. Oracle S1/S2/S3 are 5/12, 5/15, 4/13; overall 14/40; Clean FPR 4/40; HN FPR 2/40; precision 0.700. model_called is 240. Peak reserved is 31249661952. CONFIG_LOCK SHA256 628cd01fe0a26e525b28d0ad2a70afd80ceab7708d12f2a9725ad31de065ba4d. PREDICTION_LOCK SHA256 fb848531e804eb8a21cd9c8b9540d1f7e72a2c56ce726e4febe3e834474a3026. Private return index SHA256 f1d9751ece14aa70fdd28c029958dd55d94edca802d100ca59b6635948f73fd0. No prompt, parser, data, or rerun change follows from the score. No VACE-LM, D2/D3, or next run.
+[Execution record](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_FULL01_D1_EXECUTION_V1.md).
+
 ## 2026-10-30 — Owner authorizes the full D1 development run
 
 No new PODR id. Task P1-L0-D1-FULL-EXECUTION-01. Run VACE-L0-D1-20261030-FULL01. Baseline fdf77cff25158c731a3fdb2dde70a5ad27b0c77d. The explicit GQA adapter hash stays 0cb1d1854ba90d94efa859e03a54f18b25999c4bcaf4c84ac9e43073128eb2d4. R05 remains blocked and R06 remains passed.
