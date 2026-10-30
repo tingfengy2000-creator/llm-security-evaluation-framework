@@ -191,7 +191,7 @@ RTX5090 永远仅为 `COMPUTE_WORKER / NO_SELF_APPROVAL_AUTHORITY`。任何新�
 3. 根据 closeout matrix 判断当前 Stage README、learning/canonical lessons、Experiment Master、Owner Decision Register、
    Stage Process 与 Research Plan Authority 是否需要更新；
 4. 运行任务测试、Ruff、MyPy、标签泄漏检查、secret scan 和 runtime Git-ignore 检查；
-5. 创建清晰 commit 并 push；
+5. 创建清晰 commit 并 push。5090 与 5060 只通过 Git 通信。工作结果和给控制端的脱敏状态写完后立即提交并推送，不要再等一次「提交/推送」批准。模型、私有输入、标签、正文、逐样本 raw、完整 profiler trace 和密钥不进入 Git。不 force-push，不改 git config。本地 commit 未到 origin 时，同步还没完成。
 6. 确认本地与远端同步、工作树干净；
 7. 执行 `CONTEXT_PERSISTENCE_CHECK` 和 `PAPER1_DOCUMENT_STALENESS_GATE`，确认 task/status、批准/禁止项、blocker、
    next gate、claims、Formal Experiment、Git sync、private evidence hash/index 均可从物理文件恢复；

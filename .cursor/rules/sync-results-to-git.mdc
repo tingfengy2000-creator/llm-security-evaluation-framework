@@ -1,0 +1,13 @@
+---
+description: Commit and push work results and status messages without waiting for another approval
+alwaysApply: true
+---
+
+# Sync results to Git immediately
+
+5090 与 5060 只通过 Git 通信。授权任务做完后，立刻提交并推送工作结果和给控制端的状态说明，不要再等用户说一次「提交」或「推送」，也不要停下来等额外批准。
+
+- 推送当前任务分支。包含代码、测试，以及脱敏后的状态、治理说明和执行记录。
+- 不推送模型、私有输入、标签、正文、逐样本 raw、完整 profiler trace、密钥和私有回包。
+- 不改 git config，不 force-push，不 reset，不 stash，不覆盖无关改动。
+- 本地 commit 还没到 origin 时，这次任务还没同步完成。推送失败就原样报告，不要改写成已经送达。
