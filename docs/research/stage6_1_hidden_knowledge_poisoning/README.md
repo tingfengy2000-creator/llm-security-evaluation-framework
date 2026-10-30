@@ -1,5 +1,10 @@
 # Paper 1 Start Here
 
+**当前负责人审阅包（2026-10-31）：** [D1/L0开发基线报告、PDF与证据清单](core144/l0_closeout_20261031/README.md)。
+FULL01完成240条，离线审计完成，一次Oracle提示对照完成120条；新提示净增1个检出、净增5个合法误报，未通过事前收益规则。
+建议结束本轮开发基线/提示探索，状态OWNER_REPORT_READY / OWNER_REVIEW_REQUIRED；不是方法有效或正式科学验收，不再自动加GPU任务。
+下方R02等“当前”字样均是保留的历史快照，不能覆盖此处的最新报告门。
+
 **当前R02结果（2026-10-29）：** [CUDA显存硬停](core144/vace_lite/VACE_L0_R02_CUDA_OOM_BLOCKER_V1.md)，
 [状态V30](core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V30.md)。预检和合成工程门通过，语义4/5只是诊断。F5保存5条后OOM，Oracle未跑，D1指标未测量，不能填0。
 

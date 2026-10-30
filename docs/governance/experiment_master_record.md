@@ -1,5 +1,18 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## 2026-10-31 — D1/L0 owner evidence report, no new experiment
+
+Task `P1-L0-D1-BASELINE-EVIDENCE-AND-OWNER-REPORT-01`; PODR-154; type `EVIDENCE_SYNTHESIS_AND_OWNER_REPORT`.
+[Report and evidence register](../research/stage6_1_hidden_knowledge_poisoning/core144/l0_closeout_20261031/README.md), cutoff4dc9161.
+FULL01 Run VACE-L0-D1-20261030-FULL01:240 predictions, F5 TP5/40/CleanFP1/HNFP1, OracleTP14/40/CleanFP4/HNFP2.
+ALIGN01 Run VACE-L0-D1-20261030-ORACLE-ALIGN01:120 predictions,TP15/40/CleanFP6/HNFP5; strict triplets8/40 unchanged, paired Recall95[-.103,.116].
+Offline audit blocks only1 original Poison CONTRADICT onF5,0 onOracle; passed Poison SUPPORT22/19. No parser repair or rescoring.
+Actual FULL01 peak31249661952B leaves962592768B under30GiB; does not establish a1GiB margin for all real calls.
+360 new scored predictions across two runs, not360 unique candidates; aggregate generation3381.14s excludes prechecks/R03/installation/CPU audit.
+Control-plane arithmetic and pinned Git source identity checked; private raw and family bootstrap not independently replayed locally.
+Status OWNER_REPORT_READY / OWNER_REVIEW_REQUIRED, closure recommendation only. R05blocked/R06passed and all prior raw/status remain unchanged. No new GPU/model call or next-stage approval.
+Older entries below are dated history; pending R02-era next-action text is superseded only by the completed later run records and this report.
+
 ## OR-109 — R02 reused frozen R01 resources, then CUDA OOM before a sealed D1 score
 
 2026-10-29 JST; PODR-153/REL-2026-0124; source a31ade51c2e6923991b81895163060b80db6da4f; Run VACE-L0-D1-20261029-R02.

@@ -1,5 +1,13 @@
 # LLMGuard 项目总控文档
 
+## 当前：D1/L0基线证据与负责人报告已整理，建议收口（2026-10-31）
+
+Owner要求整理证据、实验记录和结果报告；[审阅报告](docs/research/stage6_1_hidden_knowledge_poisoning/core144/l0_closeout_20261031/PAPER1_L0_D1_BASELINE_OWNER_REPORT_V1.md)以4dc9161为证据截止。
+FULL01完成240条、ALIGN01完成120条，离线审计未重新推理。新提示净增1个TP、净增5个合法误报，严格三元组仍8/40；原TRADEOFF_FPR_INCREASED不变。
+建议结束本轮开发基线/提示探索，不宣称方法有效、正式测试、泛化、部署或所有外部基线已完成。负责人最终科学验收待审阅，不写HUMAN_ACCEPTED。
+控制端只复核Git脱敏来源、代码和汇总算术；私有逐条原件及家族bootstrap未在本机独立重放。报告附来源/私有哈希分级和PDF。
+不增加GPU任务或改数据/模型/Guide/Human/历史结果，D2/D3与长期研究门保持。以下按日期保留历史进度，不能覆盖当前报告门。
+
 ## 当前：Oracle 逐断言对齐对照已完成，等待 Owner 审阅（2026-10-30）
 
 任务 P1-L0-ORACLE-CLAIM-ALIGNMENT-COMPARISON-01，Run VACE-L0-D1-20261030-ORACLE-ALIGN01。状态 ORACLE_CLAIM_ALIGNMENT_DEV_COMPLETE / OWNER_REVIEW_REQUIRED。

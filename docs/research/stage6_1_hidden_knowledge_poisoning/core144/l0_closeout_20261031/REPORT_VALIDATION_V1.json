@@ -1,0 +1,303 @@
+{
+  "report": "PAPER1_L0_D1_BASELINE_OWNER_REPORT_V1",
+  "as_of_commit": "4dc9161e79b79ece70a7c17144175a19b985770d",
+  "source_level": "COMMITTED_REDACTED_AGGREGATES_NOT_LOCAL_PRIVATE_RAW_REPLAY",
+  "checks": [
+    {
+      "check": "L0-F5 stratum TP sum",
+      "pass": true
+    },
+    {
+      "check": "L0-F5 verdict denominator",
+      "pass": true
+    },
+    {
+      "check": "L0-F5 confusion reconciliation",
+      "pass": true
+    },
+    {
+      "check": "L0-F5 insufficient components",
+      "pass": true
+    },
+    {
+      "check": "L0-F5 historical HN",
+      "pass": true
+    },
+    {
+      "check": "L0-F5 Wilson valid",
+      "pass": true
+    },
+    {
+      "check": "L0-Oracle stratum TP sum",
+      "pass": true
+    },
+    {
+      "check": "L0-Oracle verdict denominator",
+      "pass": true
+    },
+    {
+      "check": "L0-Oracle confusion reconciliation",
+      "pass": true
+    },
+    {
+      "check": "L0-Oracle insufficient components",
+      "pass": true
+    },
+    {
+      "check": "L0-Oracle historical HN",
+      "pass": true
+    },
+    {
+      "check": "L0-Oracle Wilson valid",
+      "pass": true
+    },
+    {
+      "check": "Oracle-ClaimAligned stratum TP sum",
+      "pass": true
+    },
+    {
+      "check": "Oracle-ClaimAligned verdict denominator",
+      "pass": true
+    },
+    {
+      "check": "Oracle-ClaimAligned confusion reconciliation",
+      "pass": true
+    },
+    {
+      "check": "Oracle-ClaimAligned insufficient components",
+      "pass": true
+    },
+    {
+      "check": "Oracle-ClaimAligned historical HN",
+      "pass": true
+    },
+    {
+      "check": "Oracle-ClaimAligned Wilson valid",
+      "pass": true
+    },
+    {
+      "check": "paired TP gain-loss",
+      "pass": true
+    },
+    {
+      "check": "paired FP gain-loss",
+      "pass": true
+    },
+    {
+      "check": "preregistered benefit false",
+      "pass": true
+    },
+    {
+      "check": "strict triplets unchanged",
+      "pass": true
+    },
+    {
+      "check": "audit pair partition",
+      "pass": true
+    },
+    {
+      "check": "F5 primary error sum",
+      "pass": true
+    },
+    {
+      "check": "Oracle primary error sum",
+      "pass": true
+    },
+    {
+      "check": "360 unique run predictions not 360 unique candidates",
+      "pass": true
+    },
+    {
+      "check": "FULL01 hard memory limit",
+      "pass": true
+    },
+    {
+      "check": "FULL01 headroom honestly below 1GiB",
+      "pass": true
+    },
+    {
+      "check": "unreported interval remains null",
+      "pass": true
+    },
+    {
+      "check": "SRC-FULL01 snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-AUDIT snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-ALIGN-RESULT snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-ALIGN-PROTOCOL snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-R05 snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-R06 snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-DEVICE snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-R01 snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-PARSER snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-EVAL-FULL snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-EVAL-ALIGN snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-R02 snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-D1-DEV snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-RPA snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-R03 snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-ADAPTER snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-POLICY-FULL snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-POLICY-ALIGN snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-MODEL snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "SRC-BASELINE-MATRIX snapshot integrity",
+      "pass": true
+    },
+    {
+      "check": "report link figures/detection_and_fpr_v1.png",
+      "pass": true
+    },
+    {
+      "check": "report link figures/insufficient_breakdown_v1.png",
+      "pass": true
+    },
+    {
+      "check": "report link RESULTS_REVIEWED_V1.json",
+      "pass": true
+    },
+    {
+      "check": "report link RESULTS_TABLE_V1.csv",
+      "pass": true
+    },
+    {
+      "check": "report link SOURCE_REGISTER_V1.json",
+      "pass": true
+    },
+    {
+      "check": "report link REPORT_VALIDATION_V1.json",
+      "pass": true
+    },
+    {
+      "check": "report link evidence/SRC-FULL01.md",
+      "pass": true
+    },
+    {
+      "check": "report link evidence/SRC-AUDIT.md",
+      "pass": true
+    },
+    {
+      "check": "report link evidence/SRC-ALIGN-RESULT.md",
+      "pass": true
+    },
+    {
+      "check": "report link evidence/SRC-ALIGN-PROTOCOL.md",
+      "pass": true
+    },
+    {
+      "check": "report link evidence/SRC-R05.md",
+      "pass": true
+    },
+    {
+      "check": "report link evidence/SRC-R06.md",
+      "pass": true
+    },
+    {
+      "check": "report link evidence/SRC-DEVICE.md",
+      "pass": true
+    },
+    {
+      "check": "report link evidence/SRC-R01.md",
+      "pass": true
+    },
+    {
+      "check": "report link evidence/SRC-PARSER.txt",
+      "pass": true
+    },
+    {
+      "check": "report link evidence/SRC-EVAL-FULL.txt",
+      "pass": true
+    },
+    {
+      "check": "report link evidence/SRC-EVAL-ALIGN.txt",
+      "pass": true
+    },
+    {
+      "check": "report link evidence/SRC-R02.md",
+      "pass": true
+    },
+    {
+      "check": "report link evidence/SRC-D1-DEV.md",
+      "pass": true
+    },
+    {
+      "check": "report link evidence/SRC-RPA.md",
+      "pass": true
+    },
+    {
+      "check": "report link evidence/SRC-R03.md",
+      "pass": true
+    },
+    {
+      "check": "no model imports",
+      "pass": true
+    },
+    {
+      "check": "original code and data diff empty",
+      "pass": true
+    }
+  ],
+  "all_pass": true,
+  "not_performed": [
+    "private raw replay",
+    "bootstrap reproduction",
+    "new GPU/model call",
+    "owner final scientific acceptance"
+  ],
+  "pdf_visual_review": "RECORDED_SEPARATELY_IN_DELIVERY_QA"
+}

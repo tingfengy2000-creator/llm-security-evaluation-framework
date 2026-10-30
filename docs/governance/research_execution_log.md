@@ -1,5 +1,15 @@
 # LLMGuard Research Execution Log
 
+## 2026-10-31 — prepare the D1/L0 evidence and owner report without new inference
+
+Task `P1-L0-D1-BASELINE-EVIDENCE-AND-OWNER-REPORT-01`; PODR-154. Owner requests evidence, experiment records and results for review.
+New isolated codex/l0-baseline-closeout-20261031 branch begins at4dc9161, preserving the old research checkout's unrelated design/PDF changes.
+Read pinned protocols/results/audit/code; create20 redacted Git snapshots, aggregate JSON/CSV, two figures, Chinese Markdown/PDF and graded source/private-hash register.
+Recommend closing the current D1/L0 development/prompt round: alignment netTP+1/netlegitimateFP+5, strict triplets unchanged8/40, paired Recall interval crosses0.
+No original score, prompt, parser, adapter, data, Guide, Human or Worker archive is modified; no model/GPU call is made.
+Control-plane checks cannot substitute for unavailable private raw or paired family-bootstrap replay. Final scientific acceptance remains Owner review.
+[Owner report](../research/stage6_1_hidden_knowledge_poisoning/core144/l0_closeout_20261031/PAPER1_L0_D1_BASELINE_OWNER_REPORT_V1.md).
+
 ## 2026-10-30 — Oracle claim-alignment comparison closed
 
 No new PODR id. Task P1-L0-ORACLE-CLAIM-ALIGNMENT-COMPARISON-01. Run VACE-L0-D1-20261030-ORACLE-ALIGN01. Status ORACLE_CLAIM_ALIGNMENT_DEV_COMPLETE / OWNER_REVIEW_REQUIRED. Execution pin 4f4ece34e434d21b9c2dc076d53efe1587470594. Judgment TRADEOFF_FPR_INCREASED: TP 15/40 versus sealed Oracle 14/40, Clean FP 6/40 versus 4/40, HN FP 5/40 versus 2/40. Paired overall-recall interval −0.103 to 0.116. Gained detections 4, lost detections 3, gained false positives 6, removed false positives 1. JSON failures 3, citation failures 16, model-own INSUFFICIENT 3, input failures 0, truncation 0. Peak reserved 21657288704. Prediction SHA256 37f2c941b585e325fbb1051c4c1f7ffd6ec2d990eb46277245ac19ea43e691a3. Private archive SHA256 62a1f7ff35ce1df39865b4280a51780636f8a21d6baf318fa2444c3d4480cce7 stays off Git. FULL01 prediction and lock hashes still match. No second prompt and no F5 rerun.

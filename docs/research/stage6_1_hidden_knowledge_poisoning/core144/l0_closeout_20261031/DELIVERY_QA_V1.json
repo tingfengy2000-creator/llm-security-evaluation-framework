@@ -1,0 +1,77 @@
+{
+  "task": "P1-L0-D1-BASELINE-EVIDENCE-AND-OWNER-REPORT-01",
+  "source_cutoff_commit": "4dc9161e79b79ece70a7c17144175a19b985770d",
+  "report_branch": "codex/l0-baseline-closeout-20261031",
+  "aggregate_checks_pass": true,
+  "aggregate_checks_count": 72,
+  "pdf_pages": 6,
+  "pdf_sha256": "52f01a796bedeff509e06cf51fd5d8d015897559c265f5b94f3a48172a07e03f",
+  "chinese_font_embedded": true,
+  "pdf_figures": 2,
+  "pdf_text_readback_pass": true,
+  "visual_review": {
+    "status": "PASS",
+    "reviewed_by": "control-plane assistant",
+    "all_final_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "checks": [
+      "legibility",
+      "no clipping or overlap",
+      "tables kept together",
+      "figures and source qualifications",
+      "footer/page numbers"
+    ],
+    "rendered_page_sha256": {
+      "delivery-1.png": "4d7a76215047d9404fb6a8e239efa013a7629ec01ea498944bc64c9f1eecf208",
+      "delivery-2.png": "a2ca004ba6d4220b246ff3fd7ef0ebf2971c56ace5d6667c092d2c58de4a1561",
+      "delivery-3.png": "cfea5a4d2c34bc178fa4d76045abe5a84c4079e53c2775210f32f57d2911bda7",
+      "delivery-4.png": "3db48b2a2045831b4f04c8e48e6a65a97a0342078581b1dcb19e207bc917b165",
+      "delivery-5.png": "5f33603e5ce1d65f78a83faef77df25824325066a23cefb40888a703be0ccb6c",
+      "delivery-6.png": "69b0f14ecdc6515d6b8b5f1a100f261201769a9df01c96bf87dff5585508735d"
+    }
+  },
+  "ruff": "PASS",
+  "mypy": "PASS",
+  "protected_code_and_data_diff_empty": true,
+  "task_scoped_secret_scan_pass": true,
+  "closeout_matrix": {
+    "human_ledger_checked": true,
+    "human_ledger_updated_if_required": true,
+    "agent_ledger_checked": true,
+    "agent_ledger_updated": true,
+    "current_work_state_updated": true,
+    "execution_log_appended": true,
+    "experiment_master_condition_evaluated": true,
+    "owner_decision_condition_evaluated": true,
+    "stage_process_condition_evaluated": true,
+    "lessons_condition_evaluated": true,
+    "research_authority_condition_evaluated": true,
+    "README_condition_evaluated": true,
+    "cross_document_current_task_consistent": true,
+    "cross_document_status_consistent": true,
+    "cross_document_next_action_consistent": true,
+    "cross_document_blocker_consistent": true,
+    "markdown_links_valid": true
+  },
+  "conditional_documents": {
+    "Experiment_Master": "UPDATED: evidence/report index",
+    "Owner_Register": "UPDATED: PODR-154 authorizes report, not scientific acceptance",
+    "Stage_Process": "UPDATED: report review gate",
+    "README": "UPDATED: current navigation",
+    "Canonical_Lessons": "NO_PROMOTION: no final scientific acceptance; provisional interpretation stays in report",
+    "Research_Plan_Authority": "UNCHANGED: research contract not changed",
+    "Long_Term_Requirements": "UNCHANGED"
+  },
+  "no_new_model_or_GPU_calls": true,
+  "private_raw_locally_replayed": false,
+  "paired_bootstrap_locally_replayed": false,
+  "owner_scientific_acceptance": "PENDING_OWNER_REVIEW",
+  "git_delivery": "verify actual commit, push and local/remote equality after committing; this is not a static assertion of sync",
+  "new_governance_link_count": 10
+}

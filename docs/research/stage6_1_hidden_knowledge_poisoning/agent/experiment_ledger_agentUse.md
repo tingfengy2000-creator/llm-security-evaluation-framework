@@ -1,5 +1,14 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — D1/L0 owner report ready, 2026-10-31 JST
+
+Task P1-L0-D1-BASELINE-EVIDENCE-AND-OWNER-REPORT-01; PODR-154; cutoff4dc9161.
+[Report/index](../core144/l0_closeout_20261031/README.md). Status OWNER_REPORT_READY / OWNER_REVIEW_REQUIRED.
+FULL01 240 + ALIGN01 120 new predictions already sealed; no new inference here. AlignmentTP15vs14,CleanFP6vs4,HNFP5vs2,stricttriplets8vs8;TRADEOFF_FPR_INCREASED.
+Source snapshots and aggregate calculations locally verified, private raw/locks/archive hashes remain SOURCE_REPORTED_NOT_LOCALLY_REHASHED. Bootstrap intervals quoted, not independently recreated.
+R05 historicalBLOCKED/R06PASS preserved. Recommended end current D1/L0 prompt round; no Owner final scientific acceptance or external S6.1-R0 reproduction acceptance inferred.
+No prompt/adapter/parser/data/Human/Guide/GT mutation, formal test/split, VACE-LM, D2/D3, new model or GPU run. All dated current sections below are superseded history for this reporting gate.
+
 ## Current — R02 CUDA OOM before sealed D1, 2026-10-29 JST
 
 PODR-153/OR-109/REL-2026-0124; Run VACE-L0-D1-20261029-R02; source a31ade51c2e6923991b81895163060b80db6da4f.

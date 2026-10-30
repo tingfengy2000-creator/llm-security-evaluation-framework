@@ -1,0 +1,270 @@
+# Paper 1 研究方案权威文件
+
+> **Owner简化方法候选（2026-10-28，PODR-147）：** 暂定“版本化困难负样本基准＋分层失败归因＋轻量命题—证据核验”，
+> 六核心槽位，保留HKP1–4/最低证据S1–3/匹配三元组。原数据/Guide/人工/证据不改。
+> [A0诊断](../core144/PAPER1_VACE_LITE_R1_RECORD_V1.md)已完成；[VACE-Lite V0.2](../core144/vace_lite/VACE_LITE_V02_METHOD_SPEC.md)
+> 及L0/slot评价仅候选设计，停VACE_LITE_V02_OWNER_REVIEW_REQUIRED，不运行新方法或正式评测。
+> 当前单元是短候选命题，长文档嵌入仅未来独立条件；不要求GNN/长上下文，不单独以中文/NLI/命题分解作创新。
+> D1已暴露；D2/D3须GT、来源家族隔离和正式协议闭合后独立验证，不能按D1结果改样本。
+> 不取消Stage6.2解毒/Stage7长期能力，不把候选规格当已验收方法。
+
+> **执行状态追加（2026-10-28，PODR-146）：** 三项真实确认/署名日期已核，40组120条获D1_DEV资格，
+> 8组24条HOLD；[四条件开发结果](../core144/PAPER1_D1_FIRST_DETECTION_RESULTS_RECORD_V1.md)已新跑并锁定。
+> 这是已批准合同的执行，不改正式研究主线、V1.1、正式划分或Guide；不新增科研授权。
+> 原Oracle21仍阻断，SEP18独立消融非正式替换。D1_DEV_EXPOSED，无Core正式GT/测试或D2D3改动。
+> 下方10月27日“未签/未执行”为历史，不能据此覆盖本轮真实签署/运行。
+
+> **独立开发消融批准（2026-10-27，PODR-145）：** V1.2-DEV-SEP18仅用于D1_DEV，
+> S3/E9/P6、不含T，非Oracle B2与Oracle C同18列/定义/处理/家族折/seed，不新增缺失指示或填0。
+> 不是V1.1或正式方法替换，原21维/Extractor/历史不改，原Oracle SEPT21继续BLOCKED。
+> [签署待办](../core144/PAPER1_D1_FIRST_RESULTS_SIGNATURE_TODO_V1.md)：三确认、署名日期尚空；
+> 当前只核验并停止拟合，无结果数值、Core正式GT/2/1/1或D2D3修改。
+
+> **Owner有界开发授权（2026-10-27，PODR-143）：** D1-only探索诊断、`D1_DEV_EXPOSED`。
+> D1未来不得重新称为untouched test；不执行原Core2/1/1正式划分，也不冻结Core GT。
+> [诊断收口](../core144/PAPER1_D1_EXPLORATORY_DETECTION_CLOSEOUT_RECORD_V1.md)为NOT_EVALUABLE，
+> 预备126条OOF隔离，0有效评价；质量与D1特征绑定待闭合。此注只登记Owner明确批准的
+> 数据暴露边界，不改多视角研究主线或正式划分算法；若需重建封存测试承诺须另交Owner。
+> D2/D3数据和各自审批门独立保持，下面旧“无训练”是当时历史，不掩盖本次预备拟合。
+
+> **Latest gate (2026-09-27):** D1 remaining90 Phase2 is closed by byte-locked independent raw returns and additive V4–V4.3 semantic overlay; [D1 Full144 preannotation acceptance](../core144/PAPER1_CORE144_D1_PREANNOTATION_ACCEPTANCE_RECORD_V1.md) passed. The [A/B Human Phase1 XLSX](../core144/PAPER1_CORE144_D1_HUMAN_PHASE1_GUIDE_V1.md) are independently blinded, schema/visual/leakage-QA passed and `DISTRIBUTION_READY_NOT_DISTRIBUTED`; each Phase2 book is `SEALED_WITHHELD` pending that human's own Phase1 raw lock. D2/D3 evidence-first construction is separately authorized under the [parallel state](../core144/PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V1.md), without D1 Human answers or detector feedback. No Core GT, split or training. Older pending-Phase2 gate text below is historical, not authority to resend the reviewer packet.
+
+> **Latest D1 gate (2026-09-27):** Owner-attested targeted R3/R4 same-session provenance and Owner-approved **two-group only** frozen E1/E2 reviewer projection close the prior conditional gate. The [one 90-row Phase2 V5 handoff](../formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_RELEASE_RECORD_V5.md) is ready for Owner distribution to the original R3/R4 sessions using the [exact checklist](../formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_OWNER_SEND_CHECKLIST_V5.md). Original third sources remain private; no new source, semantic rule, Candidate or answer precedence changed. External Phase2 returns, D1 Full48 acceptance and Human A/B remain pending; Core144 D1/D2/D3 scope persists. The pending gate below is earlier same-day history.
+
+> **Current gate (2026-09-27):** D1 remaining90 targeted-four Phase1 raw/structural QA and surface-template repair audit pass; seven naturalness variances remain unmodified, with the new one Owner-designated nonblocking. Official Evidence preflight finds two original three-snapshot groups; the [bounded E1/E2 presentation decision](../formal240/PAPER1_FORMAL_D1_REMAINING90_PHASE2_EVIDENCE_PROJECTION_DECISION_V1.md) and targeted-run isolation confirmation are pending, so Phase2 is withheld. This changes neither Core144's D1/D2/D3 scope nor accepted V4–V4.3 semantics, and it authorizes no Human A/B, D2/D3 construction, GT, split or training.
+
+> **Current scope (Owner, 2026-09-27):** [Core144 D1/D2/D3](../core144/PAPER1_CORE144_SCOPE_DECISION_V1.md), 144 planned groups and 432 planned candidates. Formal240 remains an immutable historical five-domain plan; D4/D5 are deferred external extensions. [Domain-pipelined workflow](../core144/PAPER1_CORE144_PARALLEL_EXECUTION_PLAN_V1.md) permits D2/D3 construction only after D1 machine acceptance and D1 Human Phase1 Excel distribution readiness. D1 remaining90 Phase2 is currently withheld for four repaired candidates' R3/R4 targeted Phase1 rereview. No GT, split or training.
+
+> 2026-09-27 R5-Claude 的十条 D1 remaining90 Phase1 辅助返回已锁定并通过结构检查；它不更改 Formal240 V4/V4.3 语义或 Owner 决策权。[有界 QA 与门控](../formal240/PAPER1_FORMAL_D1_REMAINING90_R5_CLAUDE_TARGETED_PHASE1_RAW_LOCK_AND_TRIAGE_V1.md)。四条内部冲突和重复句式仍待 Owner/构造侧处理，Phase2 暂扣。
+
+Document Authority = `PAPER1_RESEARCH_PLAN_AUTHORITY`<br>
+Change Permission = `OWNER_CONFIRMATION_REQUIRED`<br>
+Current Plan Status = `ACCEPTED_CURRENT_RESEARCH_PLAN`
+
+> 文档职责：Paper 1 当前研究方案的唯一权威入口。阶段事实以 work process 和原始证据为准；历史路线文件只作支撑材料。
+
+## 1. 论文题目与范围
+
+- 已接受英文工作题目：*Stealthy Factual Poisoning in Versioned RAG Knowledge Bases: A Benchmark and Multi-View Detection Framework*。
+- 用户最新中文题目：《面向中文检索增强生成系统的版本感知隐蔽知识污染基准与多视角解毒方法》。
+- `TITLE_INTENT = CONFIRMED`。
+- 已接受技术范围：Benchmark、Detection、Risk Score、Signals、Explanation，以及 Option B 的轻量检索干预。
+- `DETOXIFICATION_OPTION = OPTION_B`。
+- `DETOXIFICATION_TECHNICAL_SCOPE = OPTION_B_CONFIRMED`。
+- `DETOXIFICATION_TECHNICAL_SCOPE_FULL = OPTION_B_DETECTION_AND_LIGHTWEIGHT_RETRIEVAL_INTERVENTION`。
+- Option B 只允许基于校准风险的 hard filtering 或 soft downweighting，并同时报告安全与效用；不包含 trusted context package、完整上下文构造、多证据可信上下文生成、复杂端到端 Agent 防御、生产级 RAG 平台或完整可信检索链。
+- W2 工程门已以 `ENGINEERING_FEASIBILITY_ONLY` 人工验收并关闭；这不改变研究范围或建立检测有效性。
+- [P1-R1 正式实验协议强化候选](../s6_1_p1_r1_protocol_review_candidate.md)是已接受协议框架的来源文件：
+  `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`。其中样本量、阈值、重复次数等数值参数仍为
+  `PENDING_PILOT_EVIDENCE`，正式 protocol 尚未冻结；它在候选层替代但不删除[旧 P1 候选](../s6_1_p1_protocol_candidate.md)。
+
+本研究方案始终以可验证事实为边界：工程可运行只说明接口和证据链可检查，小规模标注协议通过只说明具备继续收集人工判断的条件。只有数据身份、切分、参数、统计计划和结果审计分别冻结后，才允许形成正式实验结论。任何阶段都不得用准备状态替代执行状态，也不得用局部样本现象代替总体有效性证据。
+
+## 2. 研究问题
+
+1. 如何在不依赖明显异常措辞的条件下，构建覆盖版本、时效、权威与例外关系的中文隐蔽知识污染 Benchmark？
+2. 多种相互补充的证据视角能否识别检索语义仍然相似、但事实状态已被隐蔽改变的文档？
+3. 在受控误报率下，方法能否兼顾污染检测、检索质量、跨攻击与跨领域泛化，并提供可审计解释？
+
+## 3. 威胁模型
+
+- HKP-1 数值/实体污染：改变数值、实体或关键属性。
+- HKP-2 条件/例外污染：隐去、添加或替换适用条件和例外。
+- HKP-3 时间/版本污染：混淆生效、失效、废止、替代或修订关系。
+- HKP-4 来源/权威伪装：伪造来源、权威等级或归属关系。
+- S1：轻度隐蔽，局部可察觉；S2：中度隐蔽，与上下文高度一致；S3：高度隐蔽，需要跨文档或版本证据才能判断。
+- 防御者可访问检索文档、版本元数据与运行信号，但不得把 evaluator label 暴露给 retriever 或 detector。
+
+## 4. 中文版本化 Benchmark 设计
+
+每个可评估样本绑定版本链与来源身份，显式保存 `effective`、`expiry`、`repeal`、`supersedes`、`amends`、`authority`。数据必须同时覆盖合法更新、历史版本、跨部门差异、例外条件与 hard negatives，从而区分正常版本变化和恶意隐蔽污染。正式 schema、快照、切分和标签隔离合同须在 S6.1-P1 冻结；当前 `Dataset = NOT FROZEN`。
+
+### 4.1 正式领域集合与 Scale Pilot 规划
+
+`PAPER1_FORMAL_DOMAIN_SET = OWNER_CONFIRMED`：
+
+1. D1 Enterprise Human Resources / Enterprise HR（企业人力资源）；
+2. D2 Finance（财务）；
+3. D3 Information Security（信息安全）；
+4. D4 Procurement and R&D（采购与研发）；
+5. D5 Education and Research（教育与科研）。
+
+未来 Scale Pilot 的结构规划为 `5 domains × 4 HKP × 3 stealth levels × 4 independent chains = 240 independence groups`。
+若每组含 Clean + Poison + matched Hard Negative，可派生约 720 条 candidate records。其状态严格为
+`SCALE_PILOT_STRUCTURE / NOT EXECUTED / DATASET NOT FROZEN / 720 NOT GENERATED`。Pilot4 的四领域覆盖是既有小规模
+Pilot 历史事实，不因正式五领域确认而改写。
+
+### 4.2 最低自包含性与主体唯一识别门（只向前生效）
+
+- 对 `2026-08-28` 之后新建或新引入的候选，法律、政策、制度、标准等事实主体必须能从候选文本本身唯一识别。
+- 不得单独使用“条例”、“规定”、“修订文本”、“2017年版”等依赖隐含上下文的裸指代。外部 metadata 或标注人猜测不能代替候选自包含性。
+- 若主体无法唯一恢复，必须记录 `BROKEN_CANDIDATE / MISSING_CONTEXT`，不得进入正式 Benchmark；只能在补全主体后作为新候选重新审核，或直接剔除。
+- 这是高优先级、fail-closed 的 candidate-admission gate，先于人工事实/隐蔽性标注、agreement 和 Dataset freeze。
+- 本规则不回溯：不修改、不推翻、不重新解释已冻结的 Pilot1/Pilot2 候选、raw returns 或当前定向复核结果。
+
+### 4.3 Formal240 V4 协议冻结（2026-09-22；PODR-107）
+
+Owner 已批准独立的 [Formal240 协议包](../formal240/PAPER1_FORMAL_240_GROUP_PROTOCOL_OWNER_ACCEPTANCE_PACKET.md)，把原五领域 × 四 HKP × 三目标 S × 四事实链规划冻结为 240 个**空组槽位**。未来每组三条候选合计 720 条，但目前未生成数据。V4 仅评价文件级版本事件/身份/日期/状态/关系的 `version_claim_status`；具体条款内容和修订机关分别由整体事实与 authority 字段评价。正式版新增内部冲突时的 `ZERO_EXTERNAL_EVIDENCE_REQUIRED`，Pilot4 历史 N/A 不变。S1/S2/S3 由仲裁后的证据路径派生，目标 S 只用于构造平衡。四链要事实核心、主体和证据/版本族独立；证据先于候选，难负例和统一可信语料不得让模型走年份/来源捷径。Split 仅冻结算法和 seed `20260922`，**未执行**；D1 48 组实际构建必须另获 Owner 批准，人工分发、GT、训练和正式测试分别设门。Final72 是 development-exposed，不是 formal untouched test。
+
+## 5. 外部基线角色
+
+| 外部工作 | 当前角色 | 当前可用证据 | 不得宣称 |
+| --- | --- | --- | --- |
+| PoisonedRAG | 攻击基线 | 源码身份、发布攻击文本及确定性组装关系 | artifact reuse 不是 attack generation reproduction |
+| GMTP | 检测基线 | 源码、输入 schema、检测调用链、固定模型身份及单次 detection-core 工程可行性 | W2 工程门关闭不等于论文复现或检测有效性 |
+| SafeRAG | Benchmark 参考 | 部分公开 Benchmark 工件 schema smoke | 不能视为已执行完整 pipeline |
+
+当前未形成统一严格比较；必要时只能标注 `NON_STRICT_COMPARISON`、部分可比或迁移评估。
+
+## 6. 多视角方法
+
+当前方法链由 Owner 冻结为：
+
+`Benchmark → Signals → Detection → Risk Score → Explanation → Retrieval Detoxification`
+
+Signal 是可观察证据，Detection 才利用信号进行风险判定；二者不得混写。每个 signal 必须包含 value、applicability 与
+confidence/evidence quality，`NOT_APPLICABLE` 不得编码成 safe/zero risk。
+
+| 视角 | 计划信号 | 当前状态 |
+| --- | --- | --- |
+| Semantic View | 语义一致性与局部异常 | `METHOD CONTRACT ACCEPTED / PILOT3 DIAGNOSTIC PROTOTYPE` |
+| Entity-Claim View | 实体、主张与属性关系 | `METHOD CONTRACT ACCEPTED / PILOT3 DIAGNOSTIC PROTOTYPE` |
+| Provenance View | 来源、权威与引用链 | `METHOD CONTRACT ACCEPTED / STRUCTURED PROTOTYPE PARTIALLY IMPLEMENTED` |
+| Temporal-Version View | 版本、时效与修订关系 | `METHOD CONTRACT ACCEPTED / STRUCTURED PROTOTYPE PARTIALLY IMPLEMENTED` |
+| Retrieval-Behavior View | 排名、邻域与检索扰动 | `METHOD CONTRACT ACCEPTED / DIAGNOSTIC PRIMITIVE` |
+
+五视角 `METHOD CONTRACT = ACCEPTED`；`PAPER1_FIVE_VIEW_SIGNAL_CONTRACT_V1 = OWNER_FROZEN`；
+`DIAGNOSTIC IMPLEMENTATION = PARTIALLY IMPLEMENTED / PILOT3-PILOT4 ENGINEERING ONLY`。Pilot3/Pilot4 只证明接口、结构化
+信号和失败模式可被工程验证，尤其 structured Temporal-Version / Provenance prototype 已实现；新增 method-engineering
+代码仍只是 schema/registry/interfaces。`FORMAL DETECTOR = NOT IMPLEMENTED`，`DETECTION EFFECTIVENESS = NOT ESTABLISHED`。
+MLM/PPL 是 lexical-naturalness baseline / Semantic signal；GMTP 是可复现时使用的强外部 poisoning-defense baseline，
+均不是 proposed core method。核心 proposed method 是 Version-aware Multi-view Detection。Option B effectiveness 仍未建立。
+
+## 7. Paper 1 与后续研究边界
+
+Paper 1 包括 Benchmark、Detection、Risk Score、Signals、Explanation，以及严格限于 hard filtering 或 soft downweighting 的轻量检索干预。trusted context package、完整上下文构造、多证据可信上下文生成、复杂端到端 Agent 防御、生产级 RAG 平台和完整可信检索链明确排除并保留给 Paper 2 或后续研究；不得把 Option B 扩张为这些能力。
+
+## 8. 数据设计
+
+- 数据源必须可追溯、许可状态可记录，并按不可变快照固定。
+- 文档、查询、版本链、来源、攻击关系与 hard negative 使用稳定 ID。
+- Ground Truth、evaluator labels 与私有注释不得进入 retriever 可见字段、metadata 或 fingerprint。
+- 划分应控制实体、模板、时间和来源泄漏，并保留自然更新对照组。
+- 当前只定义设计原则；未构建、未冻结数据集。
+
+## 9. 实验 Track
+
+- Track A：外部基线与公开 Benchmark；先验证身份、环境与严格可比性，再决定正式复现协议。
+- Track B：中文版本化 Benchmark；覆盖 HKP-1 至 HKP-4、S1 至 S3 和版本 hard negatives。
+- Track C：跨攻击/跨领域泛化；评估 unseen attack、跨领域与可能的 adaptive attack。
+
+## 10. 指标
+
+- 检测：AUPRC、F1、AUROC、受控 FPR 下 Recall。
+- 攻击与检索：Poisoned@K、RPR、ASR、Recall@K、MRR、nDCG、Hard Negative FPR。
+- 工程：时间、吞吐、峰值显存和存储开销。
+- 具体主指标、K、阈值和汇总方式尚待正式协议冻结。
+
+## 11. 统计协议
+
+计划固定随机种子、报告置信区间和效应量，优先使用配对比较，并保留每次 run 的数据、模型、环境、参数与代码身份。重复次数、显著性检验和多重比较处理在 S6.1-P1 冻结；当前无正式统计结果。
+
+## 12. 消融与泛化
+
+计划进行单视角/多视角、时间与来源信号、风险聚合、hard negative、跨攻击、跨领域、unseen attack 与 adaptive attack 消融或泛化评估。所有项目均为计划，尚未实现或运行。
+
+## 13. 阶段计划
+
+1. S6.1-LR1：路线与基线对齐，已人工验收。
+2. S6.1-R0：工程预检，带阻塞项验收。
+3. S6.1-R0-FU1：P0/L1/W2 已验收；仅以工程可行性范围关闭。
+4. S6.1-P1-R1：`HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；数值参数仍待 Pilot 证据，正式 protocol 未冻结。
+5. Pilot0–2 已在各自可行性范围关闭；Pilot3 只完成信号诊断；Pilot4 已完成协议、双人工两阶段标注、Owner 盲态仲裁、
+   Expected QC 与 Final72 GT。Owner 已登记 `PILOT4_FINAL72_GT_ACCEPTED /
+   ACCEPTED_WITH_KNOWN_EVIDENCE_LIMITATIONS / PILOT4_GT_CONSTRUCTION_CLOSED`。Final72 仅作为 development/method-engineering
+   集；信号可行性已在“仅限开发集、无标签提取”的合同下执行并收口为 `READY_WITH_VIEW_LIMITATIONS`。
+6. 240-group Scale Pilot、Benchmark freeze、Detector、Formal Evaluation、Ablation、Generalization、Option B effectiveness
+   和 Paper Writing 均需各自审批与证据门。
+
+## 14. 正式实验进入条件
+
+- W2 与外部基线可行性 blocker 关闭并获人工验收。
+- 数据来源、许可、schema、快照、切分和 label isolation 冻结。
+- 外部 baseline 的严格/非严格可比类别与运行配置冻结。
+- 模型 revision、环境、随机种子、指标、统计和资源预算冻结。
+- 项目需求提出人明确批准 S6.1-P1 及后续相应阶段。
+
+当前 `S6.1-P1-R1 = HUMAN_ACCEPTED_AS_PROTOCOL_FRAMEWORK`；Pilot4 Final72 真值已由项目负责人正式接受。五视角信号
+可行性已按无标签提取、原始矩阵锁定、后加载标签的顺序执行：S/E/P/T 有可计算项，R 因无冻结查询与检索运行记录
+而存在输入缺口，MLM/PPL 因无冻结模型不可用。下一推荐门是独立审批的
+`P1-RETRIEVAL-BEHAVIOR-SIGNAL-HARNESS-01`。240-group、正式 Dataset freeze、Detector evaluation/training、Retrieval
+Intervention effectiveness、5090 和 Formal Experiment 均未批准。
+
+这表示当前只确认“部分证据可提取且值得继续研究”，不表示分类器已经完成，也不表示论文效果已经得到证明。
+
+## 15. 结论边界
+
+- Published Result 仅指外部论文公开结论。
+- Reproduced Result 必须来自冻结协议下的成功复现；当前无完整严格复现。
+- Engineering Validation 可说明身份、schema、环境、固定输入、证据闭环和 smoke，不说明论文效果。
+- Our Formal Result 当前为 `NONE`；`FORMAL_EXPERIMENT = NOT STARTED`。
+- S6-T5 只证明受控检索到上下文的工程基线，不证明 RAG 安全或隐蔽污染检测。
+
+## 16. 风险与缓解
+
+| 风险 | 缓解原则 |
+| --- | --- |
+| 外部依赖与模型供应链不稳定 | 固定 commit/revision，离线包与 5090 独立验证分离 |
+| 基线任务不等价 | 明确角色和可比类别，不强行合并指标 |
+| 标签或 Ground Truth 泄漏 | 对全部 retriever 可见字符串递归扫描并设置失败关闭测试 |
+| 工程 smoke 被误写为论文结果 | 使用四类结果与 claims matrix |
+| 中文版本数据真实性与许可风险 | 建立来源、版本、权威和再分发登记 |
+| Option B 被扩张成完整可信检索或 Agent 防御 | 只允许 hard filtering / soft downweighting；超出能力保留给 Paper 2 或后续研究 |
+
+## 17. 方案变更记录
+
+| Change ID | 日期 | 原方案 | 新方案 | 变更原因 | 用户确认 | 影响阶段 | Commit |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| RPC-001 | 2026-07 | 广义 Stage 6 RAG 方向 | Paper-first 中文版本化隐蔽知识污染 | 聚焦可发表问题与可比较证据 | 是 | S6.1-LR1+ | `1294632ca0501e7b999a29383780bec49eaa6b04` |
+| RPC-002 | 2026-08-01 | `paper1_research_route.md` 同时承担当前方案入口 | 本文件成为唯一当前方案权威；原路线降级为历史与支撑材料 | 建立单一职责和 Human/LLM 分离 | 是 | Paper 1 全局 | 本次文档重构提交 |
+| RPC-003 | 2026-08-01 | 英文工作题目 | 登记最新中文题目，同时保持当前已接受技术范围 | 反映项目需求提出人题目意图 | 是；技术范围待确认 | Paper 1 全局 | 本次文档重构提交 |
+| RPC-004 | 2026-08-02 | W2 等待人工决定 | W2/FU1 以单样本 detection-core 工程可行性范围验收关闭；P1 仅形成非权威协议候选 | 前置工程门已满足，但科学结论与正式实验仍需独立协议和审批 | 是；解毒 A/B/C 待确认 | FU1 closure / P1 candidate | PODR-061；本次提交 |
+| RPC-005 | 2026-08-02 | 解毒 A/B/C 待确认、旧 P1 合同候选 | 选择 Option B；Paper 1 冻结为检测与轻量 hard filtering/soft downweighting，并形成审批级 P1-R1 强化候选 | 使题目中的“解毒”具有可证伪、可预算和不扩张的技术边界 | 是；OR-021 / PODR-062 | S6.1-P1-R1 review gate | 本次提交 |
+| RPC-006 | 2026-09-01 | 三/四领域 Pilot 历史与正式领域规划分散 | 正式 Paper 1 领域冻结为 D1–D5；未来 Scale Pilot 规划 240 independent groups，明确未执行、未生成、未冻结 | 支持正式 Benchmark 跨领域规划，同时不改写 Pilot4 四领域历史 | 是；GOV-P1-HUMAN-DOCS-INTEGRATION-01 | future Scale Pilot / Formal Benchmark | 本次提交 |
+| RPC-007 | 2026-09-03 | Pilot4 Protocol 等待 Owner 最终决定 | Owner 按冻结 Gate A–F 接受 Pilot4 annotation protocol 并关闭 calibration；Accepted Stack V1 冻结，A/B execution 保持独立待批准门 | 全部预先冻结 gate 已通过，只剩两条非系统 reviewer variance；继续 R4 无相称方法学收益 | 是；PILOT4-OWNER-PROTOCOL-ACCEPTANCE-AND-AB-EXECUTION-PREFLIGHT-01 | Pilot4 closure / A-B preflight | 本次提交 |
+| RPC-008 | 2026-09-15 | Final72 GT Candidate 等待接受；五视角仅有分散的 Pilot 诊断合同 | Owner 接受并冻结 Final72 GT 为 development/method-engineering set，冻结 `Benchmark→Signals→Detection→Risk→Explanation→Retrieval Detoxification` 方法链、五视角 Signal Contract V1、baseline/fusion/metric/ablation/scale-readiness 与接口骨架 | 关闭人工 Benchmark GT 构建并进入不产生结果的 method engineering，同时保护 untouched test 与 label isolation | 是；OR-059 / PODR-097 | Final72 GT / Signal-Detection kickoff | 本次提交 |
+| RPC-009 | 2026-09-15 | 五视角仅有合同与接口，实际信号执行未批准 | 项目负责人批准 Final72 开发集无标签可行性运行；结果 S/E/P/T 部分可用、R 存在输入缺口，进入 `READY_WITH_VIEW_LIMITATIONS`，并把检索行为信号工具链设为下一独立审批门 | 用实际可用性与可分性证据约束检测器和 240-group 元数据设计，同时不跨训练或正式结果门 | 是；OR-060 / PODR-098 | 信号可行性与检索工具链门 | 本次提交 |
+| RPC-010 | 2026-09-15 | 检索视角与文档投毒检测尚未严格分层；人工预匹配证据的部署边界尚未系统审计 | 冻结第一阶段 `S+E+P+T→document_poison_risk` 与第二阶段 `document risk+R+query→retrieval_exposure_risk`；完成四十二项信号证据访问审计，并将二十九项人工预匹配证据信号保留为仅诊断用途 | 防止把合法硬负样本的高排名误判为投毒，并让可部署性取决于推理时输入是否合法可得，而不是开发集区分度 | 是；OR-061 / PODR-099 | 检索实验台与检测器准备度 | 本次提交 |
+
+该变更不减少五视角，而是明确职责：语义、实体命题、来源和时间版本主要服务于离线文档风险；检索行为主要服务于查询条件下
+的暴露风险。版本登记表只能保存文档身份、有效区间、继承替代关系、权威机构、官方地址与冻结文档校验值，不能保存投毒类别、
+人工真值、预期答案或难度标签。没有独立版本角色时，当前版和历史版构成信号必须失败关闭为输入缺失。
+
+历史与支撑路线：[paper1_research_route.md](../paper1_research_route.md)，其 `Document Role = HISTORICAL_AND_SUPPORTING_RESEARCH_ROUTE`，不能覆盖本文件。
+
+未来任何 Paper 1 数据生成、标注字段设计或人工发放前 QA，必须先读取并遵守唯一 canonical
+[Annotation Lessons Learned and Future Dataset Rules](annotation_lessons_learned_and_future_dataset_rules.md)。该规则只向前
+约束新候选，不回写 Pilot1/Pilot2 历史证据；任何人工发放仍需项目需求提出人单独批准。
+# Trusted Evidence Retrieval authority update — 2026-09-16
+
+The deployable Paper 1 path is Candidate/Claim → unified Trusted Evidence Corpus → locked Retriever → Retrieved Evidence Bundle → S/E/P/T signals. Manually matched E1/E2 remains evaluation-only Oracle upper bound. Version and authority metadata must be independently supported; unknown values remain missing. Current readiness is limited and does not authorize Detector training.
+
+# RPC-011 — Registry/query robustness and Document Detector input boundary (2026-09-17)
+
+The first Stage-A Document Detector contract is frozen as `Q_NO_TITLE + HYBRID → 23 raw S/E/P/T features`. The choice is governance-driven and predeclared, not selected after viewing the best recall. Availability/missingness remains separate, Retrieval-Behavior remains Stage B, and six Temporal features without lawful non-Oracle inference stay excluded. Registry relations require explicit frozen Evidence; chronological order alone is not supersession. Current status is `READY_WITH_LIMITATIONS` and does not authorize model fitting, threshold selection, calibration or formal evaluation.
+
+# RPC-012 — First Detector LOGO protocol and missingness stop boundary (2026-09-21)
+
+Owner approved fixed 24-fold LOGO and fixed L2 Logistic Regression for Final72 development diagnostics, conditional on all Phase A gates. Preprocessing must be fitted per training fold; missingness indicators, tuning and calibration are forbidden. The first preflight found two globally all-missing frozen Provenance features without neutral semantics. Therefore no 23-feature conforming model can currently be fitted, and no 21-feature or constant-filled substitute may be created without a versioned Owner decision.
+
+# RPC-013 — Owner-authorized measurability-based 21-feature fallback (2026-09-22)
+
+The Owner has now provided the missing versioned decision: try frozen-source recovery of the two provenance relations first; reject constants and missingness indicators; if the original semantics cannot be observed, freeze an additive V1.1 21-feature projection. The A audit found document-level metadata but no justified candidate-level relation mapping/aggregation, so C was applied. S/E/P/T remains 3/9/6/3; R stays Stage B. The V1.1 Phase A readiness gate passes 24 LOGO folds, but no fitting or model result was produced. This supersedes only RPC-012's open decision gate, not its historical failed preflight or the fixed estimator/split contract.
+
+# RPC-014 — V1.1 development execution status, no research-contract change (2026-09-22)
+
+Owner separately authorized actual fixed-LR LOGO execution on the already frozen 21-feature V1.1. This **does not change** the accepted method semantics, Stage A/Stage B boundary, feature inventory, thresholds or formal-study plan. The development-only result is mixed: Full SEPT OOF AUROC/AUPRC `.647/.496`, while Full-P and Full-T exceed Full on some diagnostics. Therefore no multiview superiority or formal effectiveness conclusion follows. Final72 remains development-exposed; 240-group version-chain-isolated untouched testing and any method change remain future, separately approved work.
+
+# RPC-015 — Future experiment output-retention requirement (2026-09-22)
+
+Owner resolved the eight-model OOF granularity gap with a bounded search and one-time exact, separately labeled evidence reconstruction. This does not revise accepted method semantics, V1.1 inputs, Stage A/Stage B or historical results. It does add a **forward-only research evidence requirement**: every future single-view, ablation, baseline and formal model run must retain per-sample predictions, raw scores/probabilities, fold/group identities, model IDs, input hashes and per-fold traces under an immutable index. See [Experiment Output Contract V1](../method_engineering/PAPER1_EXPERIMENT_OUTPUT_CONTRACT_V1.md). Final72 diagnostic hypotheses guide separately approved 240-group planning; they are not accepted formal-effect conclusions.

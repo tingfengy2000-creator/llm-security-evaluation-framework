@@ -1,5 +1,15 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-154 — authorize D1/L0 evidence and owner-report preparation, no scientific acceptance implied
+
+2026-10-31 JST; task `P1-L0-D1-BASELINE-EVIDENCE-AND-OWNER-REPORT-01`.
+Owner says: “如果你觉得这个基线实验可以结束了 请整理证据 和实验记录实验结果报告给项目负责人”。
+This authorizes an evidence-sensitive owner report, derived tables/figures, PDF, navigation/governance closeout and verified Git delivery.
+The control-plane recommendation is close this D1/L0 development/prompt round after FULL01, offline audit and ALIGN01.
+It does not assert Owner scientific acceptance, method success, formal-test/generalization validity, all external R0 baseline completion, or approval for another run.
+Pinned source cutoff4dc9161; private raw remains on5090, so this report cannot claim local raw/paired-bootstrap replay.
+[Report](../research/stage6_1_hidden_knowledge_poisoning/core144/l0_closeout_20261031/PAPER1_L0_D1_BASELINE_OWNER_REPORT_V1.md).
+
 ## PODR-153 — authorize R02 with unchanged verifier and evidence; synthetic semantic accuracy diagnostic only
 
 2026-10-29 JST; OR-108/REL-2026-0123; P1-VACE-L0-R02-SEMANTIC-DIAGNOSTIC-EXECUTION-01.

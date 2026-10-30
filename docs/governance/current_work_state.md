@@ -1,5 +1,17 @@
 # Current Work State
 
+## Current — 2026-10-31 D1/L0 baseline owner report prepared; closure recommended, acceptance pending
+
+Task `P1-L0-D1-BASELINE-EVIDENCE-AND-OWNER-REPORT-01`; Owner request is report/evidence preparation, not new inference or scientific acceptance.
+[Owner report](../research/stage6_1_hidden_knowledge_poisoning/core144/l0_closeout_20261031/PAPER1_L0_D1_BASELINE_OWNER_REPORT_V1.md).
+Evidence cutoff `4dc9161e79b79ece70a7c17144175a19b985770d`; FULL01 240 and ALIGN01 120 new predictions remain sealed.
+Oracle alignment net TP+1, legitimate FP+5, strict triplets8/40 unchanged; `TRADEOFF_FPR_INCREASED` preserved.
+Status `OWNER_REPORT_READY / OWNER_REVIEW_REQUIRED`; recommendation is end this D1/L0 development/prompt round, not all external S6.1-R0 baselines.
+Control plane verifies pinned redacted Git sources and aggregate arithmetic; private raw/hash replay and family-bootstrap reproduction not performed here.
+FULL01 peak29.1035GiB leaves0.8965GiB under its30GiB hard cap; precheck memory values do not replace this real-run value.
+Next gate is Owner review of scope closure and evidence availability. No prompt rerun, F5 repeat, GPU precheck, VACE-LM, D2/D3, formal GT/split or model change is authorized.
+All dated sections below are historical snapshots; the current section supersedes older next-action text only within this reporting scope.
+
 ## Current — 2026-10-30 Oracle claim-alignment comparison is complete
 
 Task P1-L0-ORACLE-CLAIM-ALIGNMENT-COMPARISON-01. Run VACE-L0-D1-20261030-ORACLE-ALIGN01. Status ORACLE_CLAIM_ALIGNMENT_DEV_COMPLETE / OWNER_REVIEW_REQUIRED. Execution commit 4f4ece34e434d21b9c2dc076d53efe1587470594.

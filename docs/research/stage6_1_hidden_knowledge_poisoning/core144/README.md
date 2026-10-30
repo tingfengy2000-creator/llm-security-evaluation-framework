@@ -1,5 +1,7 @@
 # Core144 navigation
 
+**当前负责人报告（2026-10-31）：** [D1/L0基线审阅包](l0_closeout_20261031/README.md)。FULL01与固定Oracle提示对照已完成；建议收口，科学验收待负责人审阅。下方旧“当前”段落按日期保留为历史。
+
 **当前R02：** [CUDA显存硬停](vace_lite/VACE_L0_R02_CUDA_OOM_BLOCKER_V1.md)，[状态V30](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V30.md)。
 预检通过；合成工程通过、语义4/5仅诊断。F5 5条后OOM，无D1指标。R01/R02硬停都保留。
 

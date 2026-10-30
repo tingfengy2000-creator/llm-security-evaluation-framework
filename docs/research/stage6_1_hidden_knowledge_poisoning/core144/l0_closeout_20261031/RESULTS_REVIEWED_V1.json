@@ -1,0 +1,37 @@
+{
+  "report_id": "P1-L0-D1-BASELINE-OWNER-REPORT-20261031-V1",
+  "task_id": "P1-L0-D1-BASELINE-EVIDENCE-AND-OWNER-REPORT-01",
+  "prepared_date_jst": "2026-10-31",
+  "evidence_cutoff_commit": "4dc9161e79b79ece70a7c17144175a19b985770d",
+  "source_class": "COMMITTED_REDACTED_AGGREGATES_NOT_LOCAL_PRIVATE_RAW_REPLAY",
+  "scope": "D1_DEV_EXPOSED; no formal test, generalization, deployment or external S6.1-R0 reproduction acceptance",
+  "owner_acceptance": "PENDING_OWNER_REVIEW",
+  "cohort": {"groups": 40, "candidates": 120, "families": 13, "poison": 40, "clean": 40, "hard_negative": 40, "poison_strata": {"S1": 12, "S2": 15, "S3": 13}, "hold_groups": 8, "hold_candidates": 24},
+  "methods": [
+    {"id": "L0-F5", "run_id": "VACE-L0-D1-20261030-FULL01", "source_id": "SRC-FULL01", "s_tp": [3, 0, 2], "tp": 5, "clean_fp": 1, "hn_fp": 1, "support": 70, "contradict": 7, "insufficient": 43, "strict_triplets": 1, "poison_support": 22, "json_errors": 1, "citation_errors": 39, "model_insufficient_without_error": 3, "input_errors": 0, "historical_hn": {"n": 11, "support": 2, "contradict": 1, "insufficient": 8}, "reported_recall_family_ci": [0.028, 0.231]},
+    {"id": "L0-Oracle", "run_id": "VACE-L0-D1-20261030-FULL01", "source_id": "SRC-FULL01", "s_tp": [5, 5, 4], "tp": 14, "clean_fp": 4, "hn_fp": 2, "support": 83, "contradict": 20, "insufficient": 17, "strict_triplets": 8, "poison_support": 19, "json_errors": 5, "citation_errors": 12, "model_insufficient_without_error": 0, "input_errors": 0, "historical_hn": {"n": 11, "support": 10, "contradict": 1, "insufficient": 0}, "reported_recall_family_ci": [0.171, 0.542]},
+    {"id": "Oracle-ClaimAligned", "run_id": "VACE-L0-D1-20261030-ORACLE-ALIGN01", "source_id": "SRC-ALIGN-RESULT", "s_tp": [4, 6, 5], "tp": 15, "clean_fp": 6, "hn_fp": 5, "support": 72, "contradict": 26, "insufficient": 22, "strict_triplets": 8, "poison_support": 15, "json_errors": 3, "citation_errors": 16, "model_insufficient_without_error": 3, "input_errors": 0, "historical_hn": {"n": 11, "support": 7, "contradict": 3, "insufficient": 1}, "reported_recall_family_ci": null}
+  ],
+  "paired_claim_alignment": {"source_id": "SRC-ALIGN-RESULT", "gained_tp": 4, "lost_tp": 3, "gained_fp": 6, "removed_fp": 1, "recall_difference_family_ci": [-0.103, 0.116], "clean_fpr_difference_family_ci": [0.0, 0.132], "hn_fpr_difference_family_ci": [-0.059, 0.209], "s_recall_difference_family_ci": [[-0.385, 0.182], [0.0, 0.214], [-0.250, 0.300]], "precision_difference_family_ci": null, "bootstrap_families": 13, "bootstrap_resamples": 2000, "bootstrap_seed": 20261029, "reported_judgment": "TRADEOFF_FPR_INCREASED", "preregistered_benefit_rule_supported": false},
+  "paired_oracle_minus_f5": {"source_id": "SRC-FULL01", "recall_difference_family_ci": [0.100, 0.405], "clean_fpr_difference_family_ci": [-0.059, 0.209], "hn_fpr_difference_family_ci": [-0.050, 0.121], "not_pure_retrieval_effect": true},
+  "offline_audit": {"source_id": "SRC-AUDIT", "original_run_file_count_worker_reported": 272, "f5_first_error_counts": {"quote_not_in_cited_text": 30, "uid_absent": 8, "json_syntax": 1, "support_without_external_evidence": 1}, "oracle_first_error_counts": {"quote_not_in_cited_text": 12, "json_syntax": 5}, "poison_contradict_blocked_by_validation": {"L0-F5": 1, "L0-Oracle": 0}, "raw_support_blocked": {"L0-F5": {"poison": 10, "clean": 11, "hn": 17}, "L0-Oracle": {"poison": 5, "clean": 4, "hn": 2}}, "pair_partition": {"f5_only_failed": 36, "oracle_only_failed": 13, "both_failed": 4, "both_pass_different": 12, "both_pass_same": 55}, "semantic_examples_class": "WORKER_REPORTED_PRIVATE_CASE_JUDGMENT_NOT_LOCALLY_REVIEWED"},
+  "run_costs": [
+    {"run_id": "VACE-L0-D1-20261030-FULL01", "source_id": "SRC-FULL01", "model_calls": 240, "input_tokens": 2174399, "output_tokens": 45451, "generation_seconds": 2517.82, "peak_reserved_bytes": 31249661952, "memory_limit_bytes": 32212254720, "execution_commit": "830bb5b3eb950f30494c9e3ef6affdcc8efc7dcb", "result_commit": "bfc9685e5cdde1757643bd6825e52e34bbc85f52"},
+    {"run_id": "VACE-L0-D1-20261030-ORACLE-ALIGN01", "source_id": "SRC-ALIGN-RESULT", "model_calls": 120, "input_tokens": 510139, "output_tokens": 21390, "generation_seconds": 863.32, "peak_reserved_bytes": 21657288704, "memory_limit_bytes": 32212254720, "max_input_tokens": 16894, "eos_count": 120, "execution_commit": "4f4ece34e434d21b9c2dc076d53efe1587470594", "result_commit": "4dc9161e79b79ece70a7c17144175a19b985770d"}
+  ],
+  "fixed_model": {"model_id": "Qwen/Qwen2.5-7B-Instruct", "revision": "a09a35458c702b33eeacc393d103063234e8bc28", "dtype": "bfloat16", "device": "RTX5090 GPU-only", "torch": "2.8.0+cu128", "transformers": "4.57.1", "adapter_sha256": "0cb1d1854ba90d94efa859e03a54f18b25999c4bcaf4c84ac9e43073128eb2d4", "generation_config_sha256": "2e667e6e68c069bac62b13dfb7359b6b8f0e6c96c3664f9af7db27b68521d542", "parser_file_sha256": "e4e5967ee040caa44ac615a3b571f2227b0e2f3f6ac8bd1517438272bdfb4db9", "max_input_tokens": 31744, "max_new_tokens": 1024, "max_context_tokens": 32768, "do_sample": false, "num_beams": 1, "batch_size": 1, "seed": 20261029, "capacity_only_min_new_tokens_used": false, "deterministic_hard": true, "tf32": false},
+  "private_artifacts": [
+    {"run": "FULL01", "artifact": "CONFIG_LOCK.json", "sha256": "628cd01fe0a26e525b28d0ad2a70afd80ceab7708d12f2a9725ad31de065ba4d", "source_id": "SRC-FULL01"},
+    {"run": "FULL01", "artifact": "L0_PREDICTIONS.jsonl", "sha256": "be87b3fd4457ee212b43bf2f709ded476858e16beb665705c5996f4089604138", "source_id": "SRC-FULL01"},
+    {"run": "FULL01", "artifact": "PREDICTION_LOCK.json", "sha256": "fb848531e804eb8a21cd9c8b9540d1f7e72a2c56ce726e4febe3e834474a3026", "source_id": "SRC-FULL01"},
+    {"run": "FULL01", "artifact": "RETURN_INDEX.json", "sha256": "f1d9751ece14aa70fdd28c029958dd55d94edca802d100ca59b6635948f73fd0", "source_id": "SRC-FULL01"},
+    {"run": "FULL01", "artifact": "private_return_archive", "sha256": "f5fd259601e9be80e616fdf765da84dbae8f17d40838fe3cc606b869f2e62562", "source_id": "SRC-FULL01"},
+    {"run": "ORACLE-ALIGN01", "artifact": "CONFIG_LOCK.json", "sha256": "db852563b2ab24067ac815b2d52aa50200a2f13459cc1b73bba1426052266121", "source_id": "SRC-ALIGN-RESULT"},
+    {"run": "ORACLE-ALIGN01", "artifact": "sealed_predictions", "sha256": "37f2c941b585e325fbb1051c4c1f7ffd6ec2d990eb46277245ac19ea43e691a3", "source_id": "SRC-ALIGN-RESULT"},
+    {"run": "ORACLE-ALIGN01", "artifact": "prediction_lock", "sha256": "09b0ea5d237158e5472b12cffe5ed3d8807c99bdbce809e9c216896f3d57fda5", "source_id": "SRC-ALIGN-RESULT"},
+    {"run": "ORACLE-ALIGN01", "artifact": "private_archive", "sha256": "62a1f7ff35ce1df39865b4280a51780636f8a21d6baf318fa2444c3d4480cce7", "source_id": "SRC-ALIGN-RESULT"},
+    {"run": "ORACLE-ALIGN01", "artifact": "private_index", "sha256": "011e3f96ca1b624cb679929172816c6e25020dae0907e63e8b1b2eb8540111d3", "source_id": "SRC-ALIGN-RESULT"}
+  ],
+  "private_artifact_verification": "ALL_LISTED_PRIVATE_HASHES_ARE_SOURCE_REPORTED; files absent on control plane; not independently rehashed here",
+  "unknowns": ["R03 final evaluation metrics", "independent local reproduction of all per-sample labels and predictions", "independent bootstrap reproduction from family-level raw rows", "R04 original report file hash on control plane", "owner final scientific acceptance"]
+}
