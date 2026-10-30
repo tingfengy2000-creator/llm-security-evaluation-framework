@@ -1,5 +1,10 @@
 # LLMGuard Research Execution Log
 
+## 2026-10-30 — offline audit of the sealed FULL01 outputs
+
+No new PODR id. Task P1-L0-FULL01-SEALED-OUTPUT-AUDIT-01. The sealed counts and file hashes match. F5 output failures are 30 quote misses, 8 absent UIDs, 1 JSON syntax error, and 1 support citation with no external evidence. Oracle output failures are 12 quote misses and 5 JSON syntax errors. Validation blocked 1 poison CONTRADICT on F5 and 0 on Oracle. Passed poison SUPPORT remains 22 and 19. Status FULL01_OFFLINE_OUTPUT_AUDIT_COMPLETE / OWNER_REVIEW_REQUIRED. No rerun and no next inference stage.
+[Offline audit](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_FULL01_OFFLINE_AUDIT_V1.md).
+
 ## 2026-10-30 — full D1 development run completes
 
 No new PODR id. Task P1-L0-D1-FULL-EXECUTION-01. Run VACE-L0-D1-20261030-FULL01. Execution commit 830bb5b3eb950f30494c9e3ef6affdcc8efc7dcb. Baseline fdf77cff25158c731a3fdb2dde70a5ad27b0c77d remains an ancestor. Adapter SHA256 0cb1d1854ba90d94efa859e03a54f18b25999c4bcaf4c84ac9e43073128eb2d4. R05 remains blocked and R06 remains passed.

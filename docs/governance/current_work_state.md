@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-10-30 sealed FULL01 output audit is complete
+
+Task P1-L0-FULL01-SEALED-OUTPUT-AUDIT-01. No new PODR id. The sealed run remains VACE-L0-D1-20261030-FULL01. Result commit bfc9685e5cdde1757643bd6825e52e34bbc85f52. Execution commit 830bb5b3eb950f30494c9e3ef6affdcc8efc7dcb.
+[Offline audit](../research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_FULL01_OFFLINE_AUDIT_V1.md).
+Status FULL01_OFFLINE_OUTPUT_AUDIT_COMPLETE / OWNER_REVIEW_REQUIRED. File identity and the sealed verdict counts match. Output failures are mostly quotes absent from the cited text, plus eight absent UIDs and six JSON syntax failures. One poison CONTRADICT on F5 was blocked by validation; Oracle blocked none. Validation-passed poison SUPPORT remains 22 on F5 and 19 on Oracle. Raw verdicts are diagnostic only. No FULL01 rerun, VACE-LM, D2/D3, or next inference run.
+
 ## Current — 2026-10-30 full D1 development run is sealed
 
 Task P1-L0-D1-FULL-EXECUTION-01. Run VACE-L0-D1-20261030-FULL01. No new PODR id. Execution commit 830bb5b3eb950f30494c9e3ef6affdcc8efc7dcb. Adapter SHA256 remains 0cb1d1854ba90d94efa859e03a54f18b25999c4bcaf4c84ac9e43073128eb2d4.

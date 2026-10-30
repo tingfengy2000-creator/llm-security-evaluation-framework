@@ -1,5 +1,11 @@
 # LLMGuard 项目总控文档
 
+## 当前：FULL01 封存输出的离线归因已完成（2026-10-30）
+
+任务 P1-L0-FULL01-SEALED-OUTPUT-AUDIT-01。没有新的 PODR。
+[离线归因](docs/research/stage6_1_hidden_knowledge_poisoning/core144/vace_lite/VACE_L0_FULL01_OFFLINE_AUDIT_V1.md)。
+封存计数和身份一致。输出失败主要是引用不在指定正文。校验只拦住 1 条 F5 的 Poison 原 CONTRADICT。校验通过后，F5 仍有 22 条、Oracle 仍有 19 条 Poison 被判为 SUPPORT。状态是离线审计完成，等待审阅。不重跑，不进入下一轮推理。
+
 ## 当前：完整 D1 开发实验已封存，等待审阅（2026-10-30）
 
 任务 P1-L0-D1-FULL-EXECUTION-01，Run VACE-L0-D1-20261030-FULL01。没有新的 PODR。执行提交 `830bb5b3eb950f30494c9e3ef6affdcc8efc7dcb`。
