@@ -1,6 +1,6 @@
 {
   "task": "PAPER1-FEASIBILITY-SPRINT-01",
-  "status": "PAID_EXPERIMENT_BLOCKED",
+  "status": "HARD_STOP_OUTPUT_LENGTH_OWNER_REVIEW_REQUIRED",
   "dataset_class": "D1_DEV_EXPOSED",
   "cohort": {
     "groups": 40,
@@ -18,35 +18,88 @@
   },
   "conditions": {
     "E1": {
-      "status": "NOT_RUN",
-      "candidate_predictions": 0,
-      "metrics": null,
-      "actual_api_cost_usd": "0.00"
+      "status": "PARTIAL_NOT_SCORED",
+      "candidate_predictions": 52,
+      "planned_candidate_denominator": 120,
+      "metrics": null
     },
     "E2": {
-      "status": "NOT_RUN",
-      "candidate_predictions": 0,
-      "metrics": null,
-      "actual_api_cost_usd": "0.00"
+      "status": "PARTIAL_NOT_SCORED",
+      "candidate_predictions": 52,
+      "planned_candidate_denominator": 120,
+      "metrics": null
     },
     "E3": {
-      "status": "NOT_RUN",
-      "candidate_predictions": 0,
-      "metrics": null,
-      "actual_api_cost_usd": "0.00"
+      "status": "PARTIAL_NOT_SCORED",
+      "candidate_predictions": 52,
+      "planned_candidate_denominator": 120,
+      "metrics": null
     },
     "E4": {
-      "status": "NOT_RUN",
-      "candidate_predictions": 0,
-      "metrics": null,
-      "actual_api_cost_usd": "0.00"
+      "status": "PARTIAL_NOT_SCORED",
+      "candidate_predictions": 52,
+      "planned_candidate_denominator": 120,
+      "metrics": null
     }
   },
-  "execution_recommendation": "NO-GO_FOR_PAID_EXECUTION",
+  "execution_recommendation": "NO-GO_PENDING_LENGTH_POLICY_DECISION",
   "scientific_verdict": "NOT_EVALUATED",
   "method_gain_established": false,
   "adaptive_independent_gain_established": false,
   "synthetic_contract_tests_are_not_model_performance": true,
   "labels_opened_for_real_D1": false,
-  "formal_experiment_started": false
+  "formal_experiment_started": false,
+  "attempt01_result": "BEIJING_ATTEMPT01_RESULT.json",
+  "initial_preparation_snapshot_at_69899e2": {
+    "task": "PAPER1-FEASIBILITY-SPRINT-01",
+    "status": "PAID_EXPERIMENT_BLOCKED",
+    "dataset_class": "D1_DEV_EXPOSED",
+    "cohort": {
+      "groups": 40,
+      "candidates": 120,
+      "fact_families": 13,
+      "poison": 40,
+      "clean": 40,
+      "hard_negative": 40,
+      "poison_strata": [
+        12,
+        15,
+        13
+      ],
+      "hold_excluded": 24
+    },
+    "conditions": {
+      "E1": {
+        "status": "NOT_RUN",
+        "candidate_predictions": 0,
+        "metrics": null,
+        "actual_api_cost_usd": "0.00"
+      },
+      "E2": {
+        "status": "NOT_RUN",
+        "candidate_predictions": 0,
+        "metrics": null,
+        "actual_api_cost_usd": "0.00"
+      },
+      "E3": {
+        "status": "NOT_RUN",
+        "candidate_predictions": 0,
+        "metrics": null,
+        "actual_api_cost_usd": "0.00"
+      },
+      "E4": {
+        "status": "NOT_RUN",
+        "candidate_predictions": 0,
+        "metrics": null,
+        "actual_api_cost_usd": "0.00"
+      }
+    },
+    "execution_recommendation": "NO-GO_FOR_PAID_EXECUTION",
+    "scientific_verdict": "NOT_EVALUATED",
+    "method_gain_established": false,
+    "adaptive_independent_gain_established": false,
+    "synthetic_contract_tests_are_not_model_performance": true,
+    "labels_opened_for_real_D1": false,
+    "formal_experiment_started": false
+  }
 }

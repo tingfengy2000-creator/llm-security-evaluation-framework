@@ -1,5 +1,14 @@
 # LLMGuard 项目总控文档
 
+## 当前：北京接口可用，D1在输出长度门停止；未形成科学评分
+
+2026-11-03；PAPER1-FEASIBILITY-SPRINT-01；RunD1-DEV-BEIJING01；执行dbc4cc1。北京接口虚构探测通过；许可/Key/端点已闭合。
+真实D1完成52/120候选包、208条件预测，第53个候选direct返回length/1024；GENERATION_NOT_COMPLETE_NO_RETRY按冻结实现整轮退出1。没有自动重试、提高上限或修改模型/prompt/parser/路由。
+159请求含探测1，usage原价估算3.264570CNY，保守USD界约0.544095，无待结算预留。52前缀不评分、无完整预测锁，真实标签未打开；科学NOT_EVALUATED、正式实验NOT_STARTED。
+状态HARD_STOP_OUTPUT_LENGTH_OWNER_REVIEW_REQUIRED。下一门：Owner决定是否仅将length记为逐条INSUFFICIENT、不重试、复用52包及第53条已有调用，在原窗口/费用账本内完成其余调用；当前仅PROPOSED，未改源码或启动Continuation。
+原Attempt01/HARD_STOP/709文件索引及私有归档保留，归档SHA34680b4cdb7e4c90a46942f2cea7b1bebec23f73a680342270a43ee0d579481b；索引SHA9055fca39ddc455e1df7f6e6d5ff989bcc8e94e0068055c1f2c0f50f3d096ffa。原始正文/响应/工作区/Key不进Git。5090、D2D3、L0、Human/GT不改。
+[报告与下一门](docs/research/stage6_1_hidden_knowledge_poisoning/core144/feasibility_sprint_01/BEIJING_ATTEMPT01_OWNER_REPORT.md)。下方ready/未调用为此前历史。
+
 ## 当前：北京接入条件已补全，准备一次接口探测
 
 2026-11-03；PAPER1-FEASIBILITY-SPRINT-01；基线69899e2。Owner提供北京工作区Host、完成用户环境Key配置，并明确确认许可及保密要求允许D1/Top5由阿里云处理。原Global授权有效，不重复询问。

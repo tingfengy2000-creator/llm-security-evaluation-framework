@@ -1,5 +1,9 @@
 # Paper 1 Start Here
 
+## 最新实测（2026-11-03）
+
+[北京Attempt01](core144/feasibility_sprint_01/BEIJING_ATTEMPT01_OWNER_REPORT.md)：接口通过，52/120包后direct length/1024整轮硬停。159请求/估算3.264570元，未开标签、无完整评分，待Owner决定逐条截断处理规则。
+
 ## 最新研发入口（2026-11-03）
 
 [一周可行性冲刺](core144/feasibility_sprint_01/README.md)：PAPER1-FEASIBILITY-SPRINT-01，本地代码/合成合同完成，付费门尚阻断，E1-E4未实测。Owner已批准Global外传；方法仅PROPOSED/EXPERIMENTAL，旧L0收口与D2D3工作线保留。

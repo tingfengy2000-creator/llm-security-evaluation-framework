@@ -1,5 +1,7 @@
 # Paper 1 研究方案权威文件
 
+> **可行性执行状态（2026-11-03）：** 北京接入与数据许可门已闭合，首次实测D1-DEV-BEIJING01完成52包后在direct length/1024冻结门停止；标签未打开、未评分。新方法仍PROPOSED/EXPERIMENTAL。[报告与未批准继续方案](../core144/feasibility_sprint_01/BEIJING_ATTEMPT01_OWNER_REPORT.md)。不覆盖原接受方法、旧L0结果或D2D3/正式实验门。
+
 > **Owner有界可行性冲刺（2026-11-03，PODR-155）：** Paper1当前投稿/可行性目标调整为CCF C，授权一周、USD<5的LOCAL研发与条件满足后的单API实验；5090本轮不使用。
 > [新候选方案](../core144/feasibility_sprint_01/FEASIBILITY_PROTOCOL_V1.md)是内部同域矛盾证书＋官方Top5六槽条件/版本/来源关系核验，仅`PROPOSED / EXPERIMENTAL`，不是已验收正式方法或结果。
 > Owner已批准阿里云Global外传；实际账号/端点/许可保密/Key尚缺，当前只有本地工程与虚构测试，真实API/评分未执行。不得据此覆盖旧L0负结果、原接受版本、D2D3/GT/正式切分或长期Stage6.2/7边界。

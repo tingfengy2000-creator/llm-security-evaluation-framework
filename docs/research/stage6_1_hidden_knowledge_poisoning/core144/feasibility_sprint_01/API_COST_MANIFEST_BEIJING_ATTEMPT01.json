@@ -1,0 +1,30 @@
+{
+  "task": "PAPER1-FEASIBILITY-SPRINT-01",
+  "run_id": "D1-DEV-BEIJING01",
+  "status": "HARD_STOP_OUTPUT_LENGTH_OWNER_REVIEW_REQUIRED",
+  "currency": "CNY",
+  "model": "qwen3.7-plus-2026-05-26",
+  "account_region": "cn-beijing",
+  "rate_per_million": {
+    "input": "2",
+    "output": "8"
+  },
+  "paid_requests_including_probe": 159,
+  "D1_requests": 158,
+  "input_tokens": 1282165,
+  "output_tokens": 87530,
+  "thinking_tokens": null,
+  "native_usage_estimate": "3.264570",
+  "probe_native_usage_estimate": "0.000120",
+  "D1_native_usage_estimate": "3.264450",
+  "conservative_budget_USD_bound": "0.544095",
+  "conservative_conversion_CNY_per_USD": "6",
+  "this_is_not_spot_fx_or_actual_USD_invoice": true,
+  "unsettled_reserved": "0",
+  "CNY_warning": "24",
+  "CNY_hard_stop_if_projected_reaches": "27",
+  "final_invoice": null,
+  "failed_truncated_request_usage_included": true,
+  "automatic_retries": 0,
+  "no_new_API_calls_after_hard_stop": true
+}

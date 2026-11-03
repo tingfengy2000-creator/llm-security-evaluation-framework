@@ -1,5 +1,12 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## OPEN DECISION FS01-OUTPUT-LENGTH — no continuation authorization yet
+
+2026-11-03；PAPER1-FEASIBILITY-SPRINT-01。PODR-155/156的接口、许可与普通工程批准保持；它们不伪造本次失败已经成功。
+D1-DEV-BEIJING01在52完整包之后，direct length/1024触发冻结整轮硬停。LOCAL已封存原件，无重试、无标签评分。
+推荐仅把截断作逐条INSUFFICIENT、复用所有已付费响应、同模型/prompt/上限/预算继续的方案A；状态PROPOSED/OWNER_DECISION_REQUIRED，尚无Owner批准。
+[十二字段决定记录](../research/stage6_1_hidden_knowledge_poisoning/core144/feasibility_sprint_01/OUTPUT_LENGTH_OWNER_DECISION_V1.md)。
+
 ## PODR-156 — Beijing workspace and data-license confirmation supplied
 
 2026-11-03；PAPER1-FEASIBILITY-SPRINT-01。Owner选择中国区域并提供cn-beijing工作区Host；“已配置”Key已按存在性验证，User作用域存在、不打印值。

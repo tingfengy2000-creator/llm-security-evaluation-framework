@@ -1,5 +1,9 @@
 # Core144 navigation
 
+## 当前：可行性实测因输出长度停止（2026-11-03）
+
+[Attempt01报告](feasibility_sprint_01/BEIJING_ATTEMPT01_OWNER_REPORT.md)及[Owner执行决定](feasibility_sprint_01/OUTPUT_LENGTH_OWNER_DECISION_V1.md)。52完整包、无完整效能评分，原件封存，等待决定；不启动5090或D2D3实验。
+
 ## 当前研发：一周可行性冲刺（2026-11-03）
 
 [PAPER1-FEASIBILITY-SPRINT-01](feasibility_sprint_01/README.md)：独立同API骨干E1/E2/E3/E4，本地工程完成，真实API未启动，费用0；已批准Global外传，待账号/端点/许可保密/Key。不是正式测试或旧L0重跑。
