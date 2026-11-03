@@ -1,0 +1,114 @@
+{
+  "task": "PAPER1-FEASIBILITY-SPRINT-01",
+  "as_of_jst": "2026-11-03",
+  "source_base_commit": "512d928f9d79ebbde53da24adc03881dc448a52d",
+  "branch": "research/paper1-feasibility-sprint-01",
+  "engineering_status": "LOCAL_ENGINEERING_COMPLETE",
+  "paid_status": "PAID_EXPERIMENT_BLOCKED",
+  "method_status": "PROPOSED / EXPERIMENTAL",
+  "formal_experiment_started": false,
+  "tests": {
+    "passed": 90,
+    "new_sprint_tests": 60,
+    "existing_parser_worker_regressions": 30,
+    "type": "FICTIONAL_CPU_CONTRACT_AND_INTEGRATION_NOT_MODEL_ACCURACY",
+    "ruff": "PASS",
+    "mypy": "PASS",
+    "mypy_production_files": 7
+  },
+  "input_identity_audit": {
+    "runtime_sha256": "c849260e2a41fa9186e6d69ed6442cbebdaa7ff272beece9dfadc22e61cf535c",
+    "bytes": 7384615,
+    "candidates": 120,
+    "groups_manifest": 40,
+    "families_manifest": 13,
+    "evidence_counts": [
+      5
+    ],
+    "recursive_schema_and_label_marker_scan": "PASS",
+    "real_evaluation_labels_opened": false,
+    "original_manifest_sha256": "a7e05d2ebedbc68abc21fff46a0ad1597747712020957ac30cf1445353714a60",
+    "worst_initial_global_usd": {
+      "internal": "0.511118004",
+      "direct": "2.300267208",
+      "structured": "2.748566568"
+    },
+    "sum": "5.559951780"
+  },
+  "safety_audit": {
+    "protected_diff_empty": true,
+    "secret_scan_pass": true,
+    "runtime_ignore_pass": true,
+    "runtime_has_no_label_path_or_evaluator_import": true,
+    "runtime_actual_f5_schema_pass": true,
+    "report_relative_links_checked": 19,
+    "key_presence_only": {
+      "DASHSCOPE_API_KEY": false,
+      "ALIBABA_CLOUD_API_KEY": false
+    }
+  },
+  "protected_history_diff_empty": true,
+  "source_hashes": {
+    "src/llmguard/domains/retrieval/hidden_poisoning/feasibility_sprint/api.py": "72c2a7dca85f82c58ccb254bcdd13da2a42fd9b554b686c84f230825183972d5",
+    "src/llmguard/domains/retrieval/hidden_poisoning/feasibility_sprint/contracts.py": "cc2c88a344099fce9cdb505a87af49cbda6f8cad37e5ffee5890d226387f848b",
+    "src/llmguard/domains/retrieval/hidden_poisoning/feasibility_sprint/prompts.py": "4428173e6fd990d489c1f0cd52552626f1854c6bf9c76a21b15587a460024dca",
+    "src/llmguard/domains/retrieval/hidden_poisoning/feasibility_sprint/runtime.py": "fd67be24b4b4a1b88c0bfaefda94e576ca027c68a170266e78f921bc1856085b",
+    "src/llmguard/domains/retrieval/hidden_poisoning/feasibility_sprint/__init__.py": "631ef47c4a2f1eff417f723314cd152eafae01c6e51ff63848e7912e7f40693c",
+    "scripts/research/paper1_feasibility_sprint.py": "f8425393c1ba52efa9db77a02a7028bca9358dc78079bd573d17777f2b214d19",
+    "scripts/research/evaluate_paper1_feasibility.py": "a12d99416e1da39b21e21929b1a99c3116b4f9834d15d97fa9cd0c188d9afb00",
+    "tests/unit/test_paper1_feasibility_sprint.py": "2cb396249de0040a607d1af542684767450fe7fd1c779fc0b06cbe4564e9a26d"
+  },
+  "real_D1_labels_opened": false,
+  "actual_paid_requests": 0,
+  "actual_estimated_cost_usd": "0.00",
+  "pending_reserved_usd": "0.00",
+  "execution_recommendation": "NO-GO_FOR_PAID_EXECUTION",
+  "scientific_verdict": "NOT_EVALUATED",
+  "remaining_paid_gates": [
+    "actual account region and workspace endpoint",
+    "license/confidentiality confirmation",
+    "environment Key",
+    "then one live synthetic nonthinking probe"
+  ],
+  "private_evidence": {
+    "relative_location": "experiments/feasibility_engineering_20261103/",
+    "archive": "FEASIBILITY_LOCAL_ENGINEERING_EVIDENCE_V1.zip",
+    "bytes": 8850,
+    "archive_sha256": "5cb96a05d3989b25689c11fefa0b6f2ec695c3061cad9ff9cb9ec8928b8df5ff",
+    "index": "ENGINEERING_EVIDENCE_INDEX.json",
+    "index_sha256": "d5b5969f0a657155908821a38115e3e9ceed92b2217ffdc044054a1d228c9e27",
+    "entries": 30,
+    "raw_data_in_git": false,
+    "early_attempt_stdout_limit": "Early temporary-directory failures recorded as tool-return excerpts; release commands have full captured stdout/stderr/exit."
+  },
+  "documentation_closeout": {
+    "human_ledger_checked": true,
+    "human_ledger_updated_if_required": true,
+    "agent_ledger_checked": true,
+    "agent_ledger_updated": true,
+    "current_work_state_updated": true,
+    "execution_log_appended": true,
+    "experiment_master_condition_evaluated": true,
+    "owner_decision_condition_evaluated": true,
+    "stage_process_condition_evaluated": true,
+    "lessons_condition_evaluated": true,
+    "research_authority_condition_evaluated": true,
+    "README_condition_evaluated": true,
+    "cross_document_current_task_consistent": true,
+    "cross_document_status_consistent": true,
+    "cross_document_next_action_consistent": true,
+    "cross_document_blocker_consistent": true,
+    "markdown_links_valid": true
+  },
+  "new_governance_links_checked": 12,
+  "conditional_documents": {
+    "Experiment_Master": "UPDATED: new design/engineering/paid gate",
+    "Owner_Decisions": "UPDATED: PODR-155 and explicit Global transfer approval",
+    "Stage_Process": "UPDATED: bounded feasibility phase",
+    "Research_Plan_Authority": "ADDITIVE: explicit Owner scope, method remains PROPOSED/EXPERIMENTAL",
+    "Long_Term_Requirements": "ADDITIVE: Owner explicitly adjusts current Paper1 publication target to CCF C",
+    "READMEs": "UPDATED: new entry",
+    "Canonical_Lessons": "NO_PROMOTION: no empirical acceptance; provisional engineering risk stays in protocol"
+  },
+  "git_delivery": "verify actual commit/push/clean and remote equality after this record is committed; not a static sync assertion"
+}

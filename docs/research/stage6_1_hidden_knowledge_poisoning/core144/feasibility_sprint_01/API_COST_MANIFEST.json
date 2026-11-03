@@ -1,0 +1,47 @@
+{
+  "task": "PAPER1-FEASIBILITY-SPRINT-01",
+  "as_of_jst": "2026-11-03",
+  "status": "PAID_EXPERIMENT_BLOCKED",
+  "provider": "Alibaba Cloud Model Studio",
+  "exact_model": "qwen3.7-plus-2026-05-26",
+  "account_region": null,
+  "workspace_endpoint": null,
+  "authorized_deployment_scope": "Global",
+  "documented_rate_option": {
+    "region": "Japan Tokyo",
+    "deployment_scope": "Global",
+    "input_per_million_usd": "0.276",
+    "output_per_million_usd": "1.101",
+    "max_input_tokens_tier": 256000,
+    "is_actual_account_configuration": false
+  },
+  "budget": {
+    "total_must_be_less_than_usd": "5.00",
+    "warning_usd": "4.00",
+    "hard_stop_if_projected_greater_or_equal_usd": "4.50",
+    "unsettled_buffer_usd": "0.50",
+    "max_concurrent_requests": 1,
+    "automatic_retries": 0
+  },
+  "actual": {
+    "paid_requests": 0,
+    "real_D1_predictions": 0,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "thinking_tokens": null,
+    "estimated_usage_cost_usd": "0.00",
+    "pending_reserved_usd": "0.00",
+    "final_invoice_usd": null
+  },
+  "dry_run_upper_envelope_not_actual": {
+    "internal_120_usd": "0.511118004",
+    "direct_120_usd": "2.300267208",
+    "structured_120_usd": "2.748566568",
+    "sum_before_optional_followups_usd": "5.559951780",
+    "does_not_guarantee_full_matrix_admission": true,
+    "input_bound_method": "UTF8 bytes + 4096 per request",
+    "output_reservation_slack_tokens": 16
+  },
+  "official_pricing_url": "https://www.alibabacloud.com/help/en/model-studio/model-pricing",
+  "credentials_read_from": "DASHSCOPE_API_KEY only; value not recorded"
+}

@@ -1,5 +1,9 @@
 # Paper 1 Start Here
 
+## 最新研发入口（2026-11-03）
+
+[一周可行性冲刺](core144/feasibility_sprint_01/README.md)：PAPER1-FEASIBILITY-SPRINT-01，本地代码/合成合同完成，付费门尚阻断，E1-E4未实测。Owner已批准Global外传；方法仅PROPOSED/EXPERIMENTAL，旧L0收口与D2D3工作线保留。
+
 **当前负责人审阅包（2026-10-31）：** [D1/L0开发基线报告、PDF与证据清单](core144/l0_closeout_20261031/README.md)。
 FULL01完成240条，离线审计完成，一次Oracle提示对照完成120条；新提示净增1个检出、净增5个合法误报，未通过事前收益规则。
 建议结束本轮开发基线/提示探索，状态OWNER_REPORT_READY / OWNER_REVIEW_REQUIRED；不是方法有效或正式科学验收，不再自动加GPU任务。

@@ -1,5 +1,10 @@
 # Paper 1 研究方案权威文件
 
+> **Owner有界可行性冲刺（2026-11-03，PODR-155）：** Paper1当前投稿/可行性目标调整为CCF C，授权一周、USD<5的LOCAL研发与条件满足后的单API实验；5090本轮不使用。
+> [新候选方案](../core144/feasibility_sprint_01/FEASIBILITY_PROTOCOL_V1.md)是内部同域矛盾证书＋官方Top5六槽条件/版本/来源关系核验，仅`PROPOSED / EXPERIMENTAL`，不是已验收正式方法或结果。
+> Owner已批准阿里云Global外传；实际账号/端点/许可保密/Key尚缺，当前只有本地工程与虚构测试，真实API/评分未执行。不得据此覆盖旧L0负结果、原接受版本、D2D3/GT/正式切分或长期Stage6.2/7边界。
+> 本注接受的是Owner明确的目标与有界研发授权，不将方法创新或效果登记为ACCEPTED。
+
 > **Owner简化方法候选（2026-10-28，PODR-147）：** 暂定“版本化困难负样本基准＋分层失败归因＋轻量命题—证据核验”，
 > 六核心槽位，保留HKP1–4/最低证据S1–3/匹配三元组。原数据/Guide/人工/证据不改。
 > [A0诊断](../core144/PAPER1_VACE_LITE_R1_RECORD_V1.md)已完成；[VACE-Lite V0.2](../core144/vace_lite/VACE_LITE_V02_METHOD_SPEC.md)

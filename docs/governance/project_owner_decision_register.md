@@ -1,5 +1,15 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-155 — bounded Paper1 feasibility sprint and explicit Global transfer authorization
+
+2026-11-03 JST; task`PAPER1-FEASIBILITY-SPRINT-01`. Owner supplied the execution instruction and says to start now.
+Authorized: isolated local development, fictional tests, offline contracts, scoped commits/push and a single exact Alibaba API model only after paid gates; totalUSD<5, warning4/hard4.5, seven-day window, no5090.
+Owner later explicitly chose: “批准外传；允许Global范围（请注明账号地区）”. This grants transfer of the signed120D1 candidates and frozenTop5 without labels/strata/GT/answers/adjudication; no repeat transfer question is needed.
+Actual account region/workspace endpoint remains unspecified; independent data-license/confidentiality confirmation and environmentKey absent. Paid calls remain blocked pending those facts and a fictional live probe.
+CCFC is the current Paper1 feasibility target, not a publication guarantee. New mechanism PROPOSED/EXPERIMENTAL only; not accepted efficacy or replacement of the accepted formal contract.
+No oldL0 prompt continuation, second model/provider, budget expansion, D2D3 feedback edits, real-label routing or formal-test approval.
+[Contract](../research/stage6_1_hidden_knowledge_poisoning/core144/feasibility_sprint_01/FEASIBILITY_PROTOCOL_V1.md).
+
 ## PODR-154 — authorize D1/L0 evidence and owner-report preparation, no scientific acceptance implied
 
 2026-10-31 JST; task `P1-L0-D1-BASELINE-EVIDENCE-AND-OWNER-REPORT-01`.

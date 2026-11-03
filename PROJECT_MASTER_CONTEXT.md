@@ -1,5 +1,14 @@
 # LLMGuard 项目总控文档
 
+## 当前：一周可行性冲刺，本地实现完成、付费条件未闭合（2026-11-03）
+
+任务`PAPER1-FEASIBILITY-SPRINT-01`；Owner将本次Paper1目标调整为CCF C可行性，不要求本轮完成论文。
+[工作入口](docs/research/stage6_1_hidden_knowledge_poisoning/core144/feasibility_sprint_01/README.md)：同骨干E1直接核验、E2内部证书前置、E3六槽关系、预算允许的E4固定结构化。
+新方法PROPOSED/EXPERIMENTAL；不覆盖旧L0负结果或正式方案。D1已暴露；不使用真实S分层路由。
+Owner已批准阿里云Global外传。实际账号/工作区、许可保密确认和本机Key尚缺，付费探测/真实预测均0、费用0美元，不能宣称有效。
+当前LOCAL_ENGINEERING_COMPLETE/PAID_EXPERIMENT_BLOCKED；执行NO-GO、科学NOT_EVALUATED。下一门只补实际API条件，仍受七天与4.50美元硬停。
+不使用5090，不修改D2D3、Human/GT、官方快照、历史运行；长期Paper2/Stage6.2/Stage7能力不取消。
+
 ## 当前：D1/L0基线证据与负责人报告已整理，建议收口（2026-10-31）
 
 Owner要求整理证据、实验记录和结果报告；[审阅报告](docs/research/stage6_1_hidden_knowledge_poisoning/core144/l0_closeout_20261031/PAPER1_L0_D1_BASELINE_OWNER_REPORT_V1.md)以4dc9161为证据截止。

@@ -1,0 +1,52 @@
+{
+  "task": "PAPER1-FEASIBILITY-SPRINT-01",
+  "status": "PAID_EXPERIMENT_BLOCKED",
+  "dataset_class": "D1_DEV_EXPOSED",
+  "cohort": {
+    "groups": 40,
+    "candidates": 120,
+    "fact_families": 13,
+    "poison": 40,
+    "clean": 40,
+    "hard_negative": 40,
+    "poison_strata": [
+      12,
+      15,
+      13
+    ],
+    "hold_excluded": 24
+  },
+  "conditions": {
+    "E1": {
+      "status": "NOT_RUN",
+      "candidate_predictions": 0,
+      "metrics": null,
+      "actual_api_cost_usd": "0.00"
+    },
+    "E2": {
+      "status": "NOT_RUN",
+      "candidate_predictions": 0,
+      "metrics": null,
+      "actual_api_cost_usd": "0.00"
+    },
+    "E3": {
+      "status": "NOT_RUN",
+      "candidate_predictions": 0,
+      "metrics": null,
+      "actual_api_cost_usd": "0.00"
+    },
+    "E4": {
+      "status": "NOT_RUN",
+      "candidate_predictions": 0,
+      "metrics": null,
+      "actual_api_cost_usd": "0.00"
+    }
+  },
+  "execution_recommendation": "NO-GO_FOR_PAID_EXECUTION",
+  "scientific_verdict": "NOT_EVALUATED",
+  "method_gain_established": false,
+  "adaptive_independent_gain_established": false,
+  "synthetic_contract_tests_are_not_model_performance": true,
+  "labels_opened_for_real_D1": false,
+  "formal_experiment_started": false
+}

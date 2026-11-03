@@ -1,5 +1,11 @@
 # LLMGuard 长期研究需求基线
 
+## Paper 1当前投稿目标调整（Owner，2026-11-03，PODR-155）
+
+Owner明确将Paper1当前目标调整为CCF C级别；本次先以七天、USD<5的有界研发判断可行性，不要求本轮完成整篇论文。
+这调整投稿/研发目标，不降低标签隔离、许可、证据标准、正式测试/泛化要求，不取消Paper2与Stage6.2/7长期能力。新技术方案仍PROPOSED/EXPERIMENTAL，见[冲刺合同](../research/stage6_1_hidden_knowledge_poisoning/core144/feasibility_sprint_01/FEASIBILITY_PROTOCOL_V1.md)。
+下面既有高水平/CCF路线等文字为长期历史背景；Paper1当前目标以上述新Owner决定为准。
+
 ## 状态与优先级
 
 **状态：已接受，2026-07-19。** 本文来自项目负责人的长期需求确认，是后续 Stage 6、Stage 6.1、

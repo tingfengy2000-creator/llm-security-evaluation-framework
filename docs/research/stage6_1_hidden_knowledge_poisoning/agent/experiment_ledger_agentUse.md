@@ -1,5 +1,15 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## CURRENT 2026-11-03 — PAPER1-FEASIBILITY-SPRINT-01
+
+PODR-155; branchresearch/paper1-feasibility-sprint-01; base512d928. StatusLOCAL_ENGINEERING_COMPLETE/PAID_EXPERIMENT_BLOCKED.
+MethodPROPOSED/EXPERIMENTAL; noaccepted-methodreplacement; D1_DEV_EXPOSED; formalNOT_STARTED. [Protocol](../core144/feasibility_sprint_01/FEASIBILITY_PROTOCOL_V1.md).
+F5SHA c849260e2a41fa9186e6d69ed6442cbebdaa7ff272beece9dfadc22e61cf535c, signed120xTop5; evaluationlabels notopened beforeseal.
+E1-E4NOT_RUN, actualpaidrequests0/cost0/pending0, metricsnull. Fictional tests are not paid-model performance.
+Globaltransferauthorized; blockersactualaccountregion/workspace,license/confidentiality,environmentKey,thenlivesyntheticprobe. Deadline2026-11-10T00:00+09,warning4/hard4.5,total<5.
+No5090/secondprovider/secondmodel/L0promptversion/D2D3/Human/GT/historychanges. Owner suppliesmissingfacts; no automatic next research task.
+[QA and private evidence index](../core144/feasibility_sprint_01/ENGINEERING_VALIDATION_V1.json).
+
 ## Current — D1/L0 owner report ready, 2026-10-31 JST
 
 Task P1-L0-D1-BASELINE-EVIDENCE-AND-OWNER-REPORT-01; PODR-154; cutoff4dc9161.

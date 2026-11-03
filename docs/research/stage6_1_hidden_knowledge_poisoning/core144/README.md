@@ -1,5 +1,9 @@
 # Core144 navigation
 
+## 当前研发：一周可行性冲刺（2026-11-03）
+
+[PAPER1-FEASIBILITY-SPRINT-01](feasibility_sprint_01/README.md)：独立同API骨干E1/E2/E3/E4，本地工程完成，真实API未启动，费用0；已批准Global外传，待账号/端点/许可保密/Key。不是正式测试或旧L0重跑。
+
 **当前负责人报告（2026-10-31）：** [D1/L0基线审阅包](l0_closeout_20261031/README.md)。FULL01与固定Oracle提示对照已完成；建议收口，科学验收待负责人审阅。下方旧“当前”段落按日期保留为历史。
 
 **当前R02：** [CUDA显存硬停](vace_lite/VACE_L0_R02_CUDA_OOM_BLOCKER_V1.md)，[状态V30](PAPER1_CORE144_PARALLEL_WORKSTREAM_STATE_V30.md)。

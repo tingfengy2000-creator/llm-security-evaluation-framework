@@ -1,5 +1,17 @@
 # Current Work State
 
+## Current — 2026-11-03 bounded feasibility sprint; local engineering, paid gate blocked
+
+Task `PAPER1-FEASIBILITY-SPRINT-01`; branch `research/paper1-feasibility-sprint-01`, isolated from L0 report at512d928; research remote at recovery4dc9161. Dynamic HEAD/upstream must be read from Git.
+Status `LOCAL_ENGINEERING_COMPLETE / PAID_EXPERIMENT_BLOCKED`; method `PROPOSED / EXPERIMENTAL`, formal experiment NOT_STARTED.
+Owner authorizes one-week local/API feasibility underUSD5, warning4.00/hard4.50; no5090. Global data transfer approved in this chat, not pending repeat approval.
+Allowed: code, fictional tests, read-only input audit, strict API gates, separate post-seal evaluator, documentation and Git.
+Missing: actual account region/workspace endpoint, license/confidentiality confirmation, environment Key, then live synthetic nonthinking probe. Real D1 requests0/costUSD0.00; E1-E4NOT_RUN, metricsnull.
+[Protocol and report](../research/stage6_1_hidden_knowledge_poisoning/core144/feasibility_sprint_01/README.md); [decision gap](../research/stage6_1_hidden_knowledge_poisoning/core144/feasibility_sprint_01/PAID_EXECUTION_DECISION_V1.md).
+F5 original120xTop5 bytes verified; runtime no labels/Oracle; old L0/ALIGN01/R05/R06 untouched. D1 remainsD1_DEV_EXPOSED,24HOLD excluded.
+Next: Owner supplies remaining account/licensing facts and safely configuresKey; within original window and budget, probe then fixed run may proceed. No new paid provider/model, L0 prompt version,5090, D2D3/GT/Human/official snapshot changes.
+Current execution recommendation NO-GO_FOR_PAID_EXECUTION; scientific NOT_EVALUATED, not an empirical method failure. Older entries below are dated history.
+
 ## Current — 2026-10-31 D1/L0 baseline owner report prepared; closure recommended, acceptance pending
 
 Task `P1-L0-D1-BASELINE-EVIDENCE-AND-OWNER-REPORT-01`; Owner request is report/evidence preparation, not new inference or scientific acceptance.

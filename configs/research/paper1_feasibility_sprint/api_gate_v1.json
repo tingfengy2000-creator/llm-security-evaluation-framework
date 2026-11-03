@@ -1,0 +1,14 @@
+{
+  "task": "PAPER1-FEASIBILITY-SPRINT-01",
+  "model": "qwen3.7-plus-2026-05-26",
+  "owner_transfer_authorized": true,
+  "license_and_confidentiality_confirmed": null,
+  "official_terms_reviewed": true,
+  "prices_verified": true,
+  "deployment_scope": "Global",
+  "account_region": null,
+  "base_url": null,
+  "validated_on_jst": "2026-11-03",
+  "synthetic_probe_receipt_sha256": null,
+  "signed_label_file_sha256": "d904e349211ec7af648b68afadb31e46a30196ba20a53b5a40a382ec0df7afaf"
+}

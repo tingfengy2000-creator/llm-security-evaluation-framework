@@ -1,5 +1,16 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## 2026-11-03 — PAPER1-FEASIBILITY-SPRINT-01: local engineering and blocked paid preflight
+
+PODR-155; type ENGINEERING_VALIDATION_AND_EXPERIMENTAL_DESIGN; new research/paper1-feasibility-sprint-01 from512d928.
+[Contract/results/evidence](../research/stage6_1_hidden_knowledge_poisoning/core144/feasibility_sprint_01/README.md).
+SignedF5 runtimeSHA c849260e2a41fa9186e6d69ed6442cbebdaa7ff272beece9dfadc22e61cf535c;120rows5docs, originalmanifest matches; no real label file opened.
+E1-E4 NOT_RUN; actualAPIrequests0, usagecostUSD0.00, pending0.00; all performance fieldsnull. Offline synthetic outputs are fixtures, not model results.
+Internal closed certificates, six-slot relations, one gap check, shared paired component calls, task-wide durable reservations and separate post-seal evaluator implemented.
+Conservative initial full-matrix envelopeUSD5.559951780 before followups exceeds hard4.5; only single-request admission using actualusage is allowed, no promise of full coverage.
+Global transfer approved; account/endpoint, license/confidentiality and Key missing, live probe notstarted. LOCAL_ENGINEERING_COMPLETE/PAID_EXPERIMENT_BLOCKED.
+Execution NO-GO_FOR_PAID_EXECUTION; scientificNOT_EVALUATED. Evidence hashes/tests/private archive identity inENGINEERING_VALIDATION_V1.json; full history stays immutable.
+
 ## 2026-10-31 — D1/L0 owner evidence report, no new experiment
 
 Task `P1-L0-D1-BASELINE-EVIDENCE-AND-OWNER-REPORT-01`; PODR-154; type `EVIDENCE_SYNTHESIS_AND_OWNER_REPORT`.
