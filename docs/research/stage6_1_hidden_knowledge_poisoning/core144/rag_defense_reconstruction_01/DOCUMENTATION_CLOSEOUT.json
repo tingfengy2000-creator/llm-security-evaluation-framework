@@ -48,6 +48,55 @@
   "scientific_gate": "HUMAN_DECISION_REQUIRED",
   "full_task_complete": false,
   "next_gate": "OWNER_QUERY_ADJUDICATION_AND_MIGRATION_ROUTE_DECISION",
-  "git_delivery": "PENDING_EXACT_STAGING_COMMIT_PUSH_REMOTE_CHECK",
-  "new_checks_pass": true
+  "git_delivery": "PASS_AT_REVIEW_COMMIT_CUTOFF_RECEIPT_COMMIT_MUST_BE_PUSHED_TOO",
+  "new_checks_pass": true,
+  "git_delivery_cutoff_commit": "71be773ec1f830566ebd163817cf38a646851b2d",
+  "git_receipt_commands": [
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": "71be773ec1f830566ebd163817cf38a646851b2d\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-list",
+        "--left-right",
+        "--count",
+        "HEAD...origin/research/paper1-rag-defense-reconstruction-01"
+      ],
+      "exit_code": 0,
+      "stdout": "0\t0\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "ls-remote",
+        "--heads",
+        "origin",
+        "research/paper1-rag-defense-reconstruction-01"
+      ],
+      "exit_code": 0,
+      "stdout": "71be773ec1f830566ebd163817cf38a646851b2d\trefs/heads/research/paper1-rag-defense-reconstruction-01\n",
+      "stderr": ""
+    }
+  ],
+  "documentation_closeout_pass_for_review_package": true,
+  "receipt_scope": "Review commit verified clean and remote-equal; current final receipt commit verified separately at handoff."
 }
