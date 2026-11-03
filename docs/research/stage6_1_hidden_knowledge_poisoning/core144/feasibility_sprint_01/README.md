@@ -1,5 +1,13 @@
 # Paper 1 一周可行性冲刺
 
+## 当前：完整矩阵收口，CONDITIONAL
+
+[先读最终报告](FEASIBILITY_OWNER_REPORT.md)：E1/E2检出37/40、CleanFP0/HNFP1，E3/E4全部弃权，独立贡献未证；预算估算7.611826元。
+[机器结果](EXPERIMENT_RESULTS.json)、[结果CSV](RESULTS_TABLE_V3.csv)、[费用](API_COST_MANIFEST.json)、[完整封存摘要](CONTINUATION_A_RESULT_SUMMARY.json)。
+480预测/120候选/四条件已封存评分，原失败保留，私有归档不进Git。方法未验收，下一门Owner最终审阅，不再调用模型。
+
+下方为早期准备、预检与批准历史，旧阻断文字不代表当前状态。
+
 > Owner最新决定PODR-157：方案A已批准，阿里云总预算15美元，原费用累计；[Continuation V3](CONTINUATION_A_PROTOCOL_V3.md)已实现并准备冻结，尚未新调用。下方未批准/旧预算为历史。
 
 > 当前实测：[Attempt01报告](BEIJING_ATTEMPT01_OWNER_REPORT.md)。52/120包后direct达到1024输出上限，冻结硬停；159请求、估算3.264570元，标签未开，无完整指标。[仅逐条截断记未决的方案A](OUTPUT_LENGTH_OWNER_DECISION_V1.md)待Owner决定，尚未改门或续跑。下方为早期准备历史。

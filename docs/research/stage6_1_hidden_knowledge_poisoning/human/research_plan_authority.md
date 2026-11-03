@@ -1,5 +1,7 @@
 # Paper 1 研究方案权威文件
 
+> **执行事实更新（2026-11-03）：** [可行性完整结果](../core144/feasibility_sprint_01/FEASIBILITY_OWNER_REPORT.md)为CONDITIONAL：强API直接核验37/40，六槽实现100%弃权，新增机制贡献未证。PODR-157继续已完成，Owner科学验收待审阅；当前方法不升级ACCEPTED，正式方案与D2D3门不改。
+
 > **执行决定更新（2026-11-03，PODR-157）：** Owner批准截断逐条记未决且复用原件的[Continuation A](../core144/feasibility_sprint_01/CONTINUATION_A_PROTOCOL_V3.md)，阿里云任务总预算15美元；不改模型、提示、输出上限、科学判据或正式方法状态。原Attempt01失败保留，不作科学验收。
 
 > **可行性执行状态（2026-11-03）：** 北京接入与数据许可门已闭合，首次实测D1-DEV-BEIJING01完成52包后在direct length/1024冻结门停止；标签未打开、未评分。新方法仍PROPOSED/EXPERIMENTAL。[报告与未批准继续方案](../core144/feasibility_sprint_01/BEIJING_ATTEMPT01_OWNER_REPORT.md)。不覆盖原接受方法、旧L0结果或D2D3/正式实验门。

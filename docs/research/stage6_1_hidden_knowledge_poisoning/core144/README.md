@@ -1,5 +1,9 @@
 # Core144 navigation
 
+## 最新实测收口（2026-11-03）
+
+[完整可行性结果与CONDITIONAL建议](feasibility_sprint_01/FEASIBILITY_OWNER_REPORT.md)：E1/E2检出37/40、CleanFP0、HNFP1，E3/E4全弃权；480预测、361含探测请求、估算7.611826元。主分数与负结果封存，待Owner审阅，不追加调用。
+
 ## 最新决定（2026-11-03）
 
 Owner已批准[方案A继续与阿里云15美元预算](feasibility_sprint_01/CONTINUATION_A_PROTOCOL_V3.md)；前缀和已付费响应复用，不改模型/提示/上限，准备冻结后执行。旧Attempt01停止仍保留。

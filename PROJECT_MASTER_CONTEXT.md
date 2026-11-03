@@ -1,5 +1,17 @@
 # LLMGuard 项目总控文档
 
+## 当前 / CURRENT — 完整D1可行性矩阵已评分并封存，CONDITIONAL
+
+2026-11-03；PAPER1-FEASIBILITY-SPRINT-01；RunD1-DEV-BEIJING-CONT-A01；执行44594c8。状态FEASIBILITY_D1_DEV_COMPLETE/OWNER_REVIEW_REQUIRED，事前结论CONDITIONAL。
+120候选×4条件=480预测封存后独立评分；E1/E2 TP37/40，S1=12/12/S2=14/15/S3=11/13，CleanFP0/HNFP1，弃权13/120，Strict30/40。
+E3/E4 TP0/40、弃权120/120、Strict0/40；结构化118条span/slot绑定失败、2条模型未决；内部120条无有效证书。E2逐ID等于E1、E3等于E4，新增机制无独立收益。
+独立主计数/费用核验通过，13家族2000次配对区间保留。结构化原判决有38个Poison为CONTRADICT但全被合同拦住，仅RAW_VERDICT_DIAGNOSTIC，不是修复分数，不改parser或预测。
+361物理请求含探测1，D1独立call_id360；原159请求保留、新增202。原价usage估算7.611826CNY，USD保守界约1.268638，低于Owner15预算；无不明请求预留，正式账单未对账。
+原Attempt01失败、52逐字节前缀、第53条2次复用及1个物理截断保留；无重试/扩输出/改prompt/换模。预测SHA920f18fd75fa089d3f7dd2d38c54640ed861ea6a55ad7b40a7e532413c7a28e4，锁SHA41ee0bd0ee1e097f1d10ccb7576f853a90d60939fb123f4ecc1fe7bd33526000。
+私有归档SHA39fde95915f9eb4c1f7c66eb4275f12d29f7f1528b5e7f589c8a88c015ba5d43，1667文件索引SHA2f13585b98cab5343e451470fb606a84449d17d8f4c867c7eeac04deb1d605f9；原始正文/响应/逐条预测/Key不入Git。
+下一门为Owner最终审阅。建议收口本轮、保留强API基线与失败机制，当前E3不可当成功方法；不自动放宽合同、追加提示/调用或耗尽预算。D1_DEV_EXPOSED，正式实验NOT_STARTED；D2D3/Human/GT/旧L0/5090均不变。
+[负责人报告](docs/research/stage6_1_hidden_knowledge_poisoning/core144/feasibility_sprint_01/FEASIBILITY_OWNER_REPORT.md)。下方准备/待决/未评分条目为按日期保留的历史。
+
 ## 当前 / CURRENT — Owner批准A与阿里云15美元预算，恢复尚未执行
 
 2026-11-03；PAPER1-FEASIBILITY-SPRINT-01；PODR-157。Owner明确批准方案A，并将阿里云API任务总预算提高到USD15。

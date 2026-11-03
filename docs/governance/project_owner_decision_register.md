@@ -1,5 +1,12 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## RESULT AWAITING OWNER REVIEW — feasibility completed under PODR-155/156/157
+
+2026-11-03；PAPER1-FEASIBILITY-SPRINT-01。既有批准已执行为120×4封存预测和独立评价，事前建议CONDITIONAL。
+强模型E1/E2 TP37/40/CleanFP0/HNFP1/Strict30，E3/E4全部未决；方法新贡献未证。任务usage估算7.611826CNY，低于Owner阿里云15美元预算。
+原失败与Owner-A修订公开保留；没有新增Owner接受决定，不写HUMAN_ACCEPTED/方法成功，下一步是负责人最终审阅，不自动修合同/重跑。
+[报告](../research/stage6_1_hidden_knowledge_poisoning/core144/feasibility_sprint_01/FEASIBILITY_OWNER_REPORT.md)。
+
 ## PODR-157 — approve A and raise only Alibaba task budget to USD15
 
 2026-11-03；PAPER1-FEASIBILITY-SPRINT-01。Owner明确说：“批准a，如果是这个阿里云的api调用 可以提高预算到15美金”。
