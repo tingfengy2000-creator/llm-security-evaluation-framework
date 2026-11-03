@@ -1,5 +1,13 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-157 — approve A and raise only Alibaba task budget to USD15
+
+2026-11-03；PAPER1-FEASIBILITY-SPRINT-01。Owner明确说：“批准a，如果是这个阿里云的api调用 可以提高预算到15美金”。
+Accepted execution scope: length按逐条INSUFFICIENT、不重试，复用原52包及第53条已有响应，只补剩余调用；不改模型/prompt/上限/科学判据，原失败保留。
+Alibaba任务总预算15美元，LOCAL事前设14预警/14.50硬停/0.50缓冲，CNY84/87保守等价，已有费用累计，不批准其他服务商、新模型或额外实验。
+这supersedes上方待决状态及本任务旧<5美元门，只对未来Continuation生效，不改写Attempt01旧门或失败；新方法效果未接受。
+[Continuation合同](../research/stage6_1_hidden_knowledge_poisoning/core144/feasibility_sprint_01/CONTINUATION_A_PROTOCOL_V3.md)。
+
 ## OPEN DECISION FS01-OUTPUT-LENGTH — no continuation authorization yet
 
 2026-11-03；PAPER1-FEASIBILITY-SPRINT-01。PODR-155/156的接口、许可与普通工程批准保持；它们不伪造本次失败已经成功。

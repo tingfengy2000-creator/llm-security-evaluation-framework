@@ -41,6 +41,14 @@ class Engine:
                 result["conflicting_spans"] = old["citations"]
         else:
             result = parse_structured(response["content"], row, internal=kind == "internal")
+        if response.get("output_truncated"):
+            # Preserve the raw output and any strictly parsed diagnostic verdict.
+            # An incomplete generation is never a supported final decision.
+            result.update(final_verdict="INSUFFICIENT", parser_status="OUTPUT_LIMIT",
+                          missing_obligations=["OUTPUT_LIMIT_NO_RETRY"], evidence_refs=[],
+                          supporting_spans=[], conflicting_spans=[])
+            if kind == "internal":
+                result["certificate_status"] = "NO_INTERNAL_CERTIFICATE"
         result.update(raw_output=response["content"], call_records=[{k: v for k, v in response.items() if k != "content"}], route_trace=[kind])
         return result
 

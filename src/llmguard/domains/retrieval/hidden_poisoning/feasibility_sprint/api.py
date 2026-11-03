@@ -20,6 +20,24 @@ STOP = Decimal("4.50")
 WARNING = Decimal("4.00")
 RATES = {"Global": (Decimal("0.276"), Decimal("1.101")), "Japan": (Decimal("0.4"), Decimal("1.6"))}
 CNY_PER_USD_FLOOR = Decimal("6")  # Budget bound, not a claimed spot exchange rate.
+OWNER_A = "PODR-157"
+
+
+def budget_limits(config: dict[str, Any]) -> tuple[Decimal, Decimal]:
+    if "budget_total_usd" not in config:
+        return WARNING, STOP
+    if (config.get("owner_continuation_approval") == OWNER_A
+            and config.get("budget_total_usd") == "15.00"
+            and config.get("budget_warning_usd") == "14.00"
+            and config.get("budget_hard_stop_usd") == "14.50"):
+        return Decimal("14.00"), Decimal("14.50")
+    raise ValueError("BUDGET_NOT_OWNER_APPROVED")
+
+
+def request_body(messages: list[dict[str, str]], max_output: int) -> dict[str, Any]:
+    return {"model": MODEL, "messages": messages, "enable_thinking": False,
+            "temperature": 0, "stream": False, "max_completion_tokens": max_output,
+            "response_format": {"type": "json_object"}, "enable_search": False}
 
 
 def native_price(config: dict[str, Any], input_tokens: int, output_tokens: int) -> tuple[Decimal, str]:
@@ -55,6 +73,13 @@ def token_bound(messages: list[dict[str, str]]) -> int:
 
 def gate_issues(config: dict[str, Any], probe: bool = False) -> list[str]:
     issues = []
+    try:
+        budget_limits(config)
+    except ValueError:
+        issues.append("BUDGET_NOT_OWNER_APPROVED")
+    if config.get("length_policy") not in (None, "INSUFFICIENT_NO_RETRY_OWNER_A") or (
+            config.get("length_policy") is not None and config.get("owner_continuation_approval") != OWNER_A):
+        issues.append("LENGTH_POLICY_NOT_OWNER_APPROVED")
     if config.get("model") != MODEL:
         issues.append("EXACT_MODEL_NOT_FROZEN")
     for key in ("owner_transfer_authorized", "license_and_confidentiality_confirmed", "official_terms_reviewed", "prices_verified"):
@@ -138,16 +163,15 @@ class PaidClient:
             settled, pending = self.totals()
             if pending:
                 raise RuntimeError("UNSETTLED_REQUEST_REQUIRES_OWNER_RECONCILIATION")
-            if settled + pending + worst >= STOP:
+            warning, hard_stop = budget_limits(self.config)
+            if settled + pending + worst >= hard_stop:
                 raise RuntimeError("COST_HARD_STOP")
             request_id = f"{time.time_ns()}-{kind}"
             call_dir = self.events / request_id
-            body = {"model": MODEL, "messages": messages, "enable_thinking": False,
-                    "temperature": 0, "stream": False, "max_completion_tokens": max_output,
-                    "response_format": {"type": "json_object"}, "enable_search": False}
+            body = request_body(messages, max_output)
             write_new(call_dir / "reservation.json", {"kind": kind, "request_sha256": digest(body),
                        "input_token_bound": bound, "output_token_bound": max_output + 16,
-                       "reserved_usd": str(worst), "warning": settled + worst >= WARNING})
+                       "reserved_usd": str(worst), "warning": settled + worst >= warning})
             write_new(call_dir / "request.json", body)
             started = time.monotonic()
             try:
@@ -173,13 +197,16 @@ class PaidClient:
                 message = choice["message"]
                 if message.get("reasoning_content") or thinking not in (None, 0):
                     raise RuntimeError("NONTHINKING_NOT_PROVED_NO_FALLBACK")
-                if choice.get("finish_reason") != "stop":
+                truncated = choice.get("finish_reason") == "length"
+                allow_length = self.config.get("length_policy") == "INSUFFICIENT_NO_RETRY_OWNER_A"
+                if choice.get("finish_reason") != "stop" and not (truncated and allow_length):
                     raise RuntimeError("GENERATION_NOT_COMPLETE_NO_RETRY")
                 if not isinstance(message.get("content"), str):
                     raise RuntimeError("RESPONSE_CONTENT_SCHEMA")
                 return {"content": message["content"], "input_tokens": inputs, "output_tokens": outputs,
                         "thinking_tokens": thinking, "latency": latency, "estimated_cost": str(cost),
                         "native_estimated_cost": str(native_cost), "native_currency": currency,
+                        "finish_reason": choice.get("finish_reason"), "output_truncated": truncated,
                         "call_id": request_id, "response_sha256": digest(response)}
             except BaseException as exc:
                 write_new(call_dir / "incident.json", {"error_type": type(exc).__name__, "stop": True,

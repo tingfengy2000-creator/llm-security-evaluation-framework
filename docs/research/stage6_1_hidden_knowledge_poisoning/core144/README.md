@@ -1,5 +1,9 @@
 # Core144 navigation
 
+## 最新决定（2026-11-03）
+
+Owner已批准[方案A继续与阿里云15美元预算](feasibility_sprint_01/CONTINUATION_A_PROTOCOL_V3.md)；前缀和已付费响应复用，不改模型/提示/上限，准备冻结后执行。旧Attempt01停止仍保留。
+
 ## 当前：可行性实测因输出长度停止（2026-11-03）
 
 [Attempt01报告](feasibility_sprint_01/BEIJING_ATTEMPT01_OWNER_REPORT.md)及[Owner执行决定](feasibility_sprint_01/OUTPUT_LENGTH_OWNER_DECISION_V1.md)。52完整包、无完整效能评分，原件封存，等待决定；不启动5090或D2D3实验。

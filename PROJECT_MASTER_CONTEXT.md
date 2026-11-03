@@ -1,5 +1,15 @@
 # LLMGuard 项目总控文档
 
+## 当前 / CURRENT — Owner批准A与阿里云15美元预算，恢复尚未执行
+
+2026-11-03；PAPER1-FEASIBILITY-SPRINT-01；PODR-157。Owner明确批准方案A，并将阿里云API任务总预算提高到USD15。
+新RunD1-DEV-BEIJING-CONT-A01：原52包逐字节复用，第53条已付费internal/direct响应复用；length逐条INSUFFICIENT，不重试，不改prompt/模型/输出上限/判据。原Attempt01失败、HARD_STOP及归档不变。
+已有费用3.264570CNY累计；新预警USD14/硬停14.50，按原6CNY/USD保守界为84/87CNY，保留0.50USD缓冲，不扩展服务商或实验矩阵。
+当前CONT_A_APPROVED_IMPLEMENTED_PREFLIGHT_NOT_YET_EXECUTED；实际总请求仍159，完整新预测锁未形成，标签未打开。
+下一步：测试、身份预检、冻结提交/推送后，在原七天窗口内补剩余调用；全120四条件封存后独立评价，不再重复申请已批准普通阶段。新工程异常仍停止。
+科学方法PROPOSED/EXPERIMENTAL、D1_DEV_EXPOSED、正式实验NOT_STARTED；5090、D2D3、Human/GT、旧L0保持。
+[冻结补充合同](docs/research/stage6_1_hidden_knowledge_poisoning/core144/feasibility_sprint_01/CONTINUATION_A_PROTOCOL_V3.md)。下方Owner待决为已被本次批准覆盖的历史。
+
 ## 当前：北京接口可用，D1在输出长度门停止；未形成科学评分
 
 2026-11-03；PAPER1-FEASIBILITY-SPRINT-01；RunD1-DEV-BEIJING01；执行dbc4cc1。北京接口虚构探测通过；许可/Key/端点已闭合。

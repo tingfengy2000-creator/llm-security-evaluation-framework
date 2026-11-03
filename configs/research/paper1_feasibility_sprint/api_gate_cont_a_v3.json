@@ -1,0 +1,21 @@
+{
+  "task": "PAPER1-FEASIBILITY-SPRINT-01",
+  "model": "qwen3.7-plus-2026-05-26",
+  "owner_transfer_authorized": true,
+  "license_and_confidentiality_confirmed": true,
+  "official_terms_reviewed": true,
+  "prices_verified": true,
+  "deployment_scope": "ChinaMainland",
+  "account_region": "cn-beijing",
+  "base_url": null,
+  "validated_on_jst": "2026-11-03",
+  "synthetic_probe_receipt_sha256": "99e6a4d6860a6d3ad677f84336e733389f0a2df4a05114505a9379f68b42c568",
+  "signed_label_file_sha256": "d904e349211ec7af648b68afadb31e46a30196ba20a53b5a40a382ec0df7afaf",
+  "billing_currency": "CNY",
+  "budget_cny_per_usd_floor": "6",
+  "owner_continuation_approval": "PODR-157",
+  "length_policy": "INSUFFICIENT_NO_RETRY_OWNER_A",
+  "budget_total_usd": "15.00",
+  "budget_warning_usd": "14.00",
+  "budget_hard_stop_usd": "14.50"
+}

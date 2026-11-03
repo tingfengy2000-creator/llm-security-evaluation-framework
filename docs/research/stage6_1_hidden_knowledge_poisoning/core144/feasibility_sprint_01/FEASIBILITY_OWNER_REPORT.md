@@ -1,5 +1,7 @@
 # Paper 1 可行性冲刺：本地工程已交付，付费实测尚未启动
 
+> Owner最新决定PODR-157：方案A已批准，阿里云总预算15美元，原费用累计；[Continuation V3](CONTINUATION_A_PROTOCOL_V3.md)已实现并准备冻结，尚未新调用。下方未批准/旧预算为历史。
+
 > 当前实测：[Attempt01报告](BEIJING_ATTEMPT01_OWNER_REPORT.md)。52/120包后direct达到1024输出上限，冻结硬停；159请求、估算3.264570元，标签未开，无完整指标。[仅逐条截断记未决的方案A](OUTPUT_LENGTH_OWNER_DECISION_V1.md)待Owner决定，尚未改门或续跑。下方为早期准备历史。
 
 > 最新执行准备：Owner已提供北京Host/Key并确认许可；[北京V2](BEIJING_EXECUTION_ADDENDUM_V2.md)覆盖下方先前缺口历史。95项CPU测试及Ruff/MyPy通过；真实API尚未调用，下一门是单次虚构接口探测。

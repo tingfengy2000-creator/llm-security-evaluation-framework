@@ -1,5 +1,9 @@
 # Paper 1 Start Here
 
+## 最新决定（2026-11-03）
+
+Owner已批准[方案A继续与阿里云15美元预算](core144/feasibility_sprint_01/CONTINUATION_A_PROTOCOL_V3.md)；前缀和已付费响应复用，不改模型/提示/上限，准备冻结后执行。旧Attempt01停止仍保留。
+
 ## 最新实测（2026-11-03）
 
 [北京Attempt01](core144/feasibility_sprint_01/BEIJING_ATTEMPT01_OWNER_REPORT.md)：接口通过，52/120包后direct length/1024整轮硬停。159请求/估算3.264570元，未开标签、无完整评分，待Owner决定逐条截断处理规则。

@@ -1,5 +1,7 @@
 # 输出长度门：Owner有界继续决定
 
+> Owner最新决定PODR-157：方案A已批准，阿里云总预算15美元，原费用累计；[Continuation V3](CONTINUATION_A_PROTOCOL_V3.md)已实现并准备冻结，尚未新调用。下方未批准/旧预算为历史。
+
 1. **Issue ID**：FS01-OUTPUT-LENGTH-HARD-STOP。
 2. **问题名称**：冻结执行器在单条direct达到1024输出上限后停止整个D1。
 3. **发现阶段**：PAPER1-FEASIBILITY-SPRINT-01，D1-DEV-BEIJING01，第53候选；执行dbc4cc1。

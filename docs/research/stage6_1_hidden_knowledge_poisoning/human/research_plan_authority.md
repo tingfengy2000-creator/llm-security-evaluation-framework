@@ -1,5 +1,7 @@
 # Paper 1 研究方案权威文件
 
+> **执行决定更新（2026-11-03，PODR-157）：** Owner批准截断逐条记未决且复用原件的[Continuation A](../core144/feasibility_sprint_01/CONTINUATION_A_PROTOCOL_V3.md)，阿里云任务总预算15美元；不改模型、提示、输出上限、科学判据或正式方法状态。原Attempt01失败保留，不作科学验收。
+
 > **可行性执行状态（2026-11-03）：** 北京接入与数据许可门已闭合，首次实测D1-DEV-BEIJING01完成52包后在direct length/1024冻结门停止；标签未打开、未评分。新方法仍PROPOSED/EXPERIMENTAL。[报告与未批准继续方案](../core144/feasibility_sprint_01/BEIJING_ATTEMPT01_OWNER_REPORT.md)。不覆盖原接受方法、旧L0结果或D2D3/正式实验门。
 
 > **Owner有界可行性冲刺（2026-11-03，PODR-155）：** Paper1当前投稿/可行性目标调整为CCF C，授权一周、USD<5的LOCAL研发与条件满足后的单API实验；5090本轮不使用。
