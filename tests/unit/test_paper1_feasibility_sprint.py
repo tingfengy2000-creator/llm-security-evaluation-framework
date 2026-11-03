@@ -239,6 +239,37 @@ def response(*args: Any) -> dict[str, Any]:
             "choices": [{"message": {"content": '{"ok":true}'}, "finish_reason": "stop"}]}
 
 
+def beijing_config() -> dict[str, Any]:
+    return {**config(), "account_region": "cn-beijing", "deployment_scope": "ChinaMainland", "billing_currency": "CNY",
+            "budget_cny_per_usd_floor": "6", "base_url": "https://ws-fiction.cn-beijing.maas.aliyuncs.com/compatible-mode/v1"}
+
+
+def test_beijing_ws_endpoint_and_native_cny_receipt(tmp_path: Path, monkeypatch: Any) -> None:
+    monkeypatch.setenv("DASHSCOPE_API_KEY", "fictional-test-key")
+    assert api.gate_issues(beijing_config()) == []
+    assert api.native_price(beijing_config(), 1000000 // 4, 100) == (Decimal("0.5008"), "CNY")
+    client = api.PaidClient(tmp_path, beijing_config(), response)
+    result = client.call([{"role": "user", "content": "虚构"}], "probe", 64)
+    assert result["native_estimated_cost"] == "0.00036" and result["native_currency"] == "CNY"
+    assert Decimal(result["estimated_cost"]) == Decimal("0.00006")
+
+
+@pytest.mark.parametrize("base", ["https://ws-fiction.cn-beijing.maas.aliyuncs.com.evil.invalid/compatible-mode/v1", "http://ws-fiction.cn-beijing.maas.aliyuncs.com/compatible-mode/v1", "https://ws-fiction.ap-northeast-1.maas.aliyuncs.com/compatible-mode/v1"])
+def test_beijing_rejects_spoofed_or_mismatched_endpoint(base: str, monkeypatch: Any) -> None:
+    monkeypatch.setenv("DASHSCOPE_API_KEY", "fictional-test-key")
+    cfg = {**beijing_config(), "base_url": base}
+    assert "OFFICIAL_WORKSPACE_ENDPOINT_NOT_FROZEN" in api.gate_issues(cfg)
+
+
+def test_beijing_native_budget_hard_stop_at_27_yuan(tmp_path: Path, monkeypatch: Any) -> None:
+    monkeypatch.setenv("DASHSCOPE_API_KEY", "fictional-test-key")
+    api.write_new(tmp_path / "api_calls/old/reservation.json", {"reserved_usd": "4.499"})
+    api.write_new(tmp_path / "api_calls/old/receipt.json", {"charged_estimate_usd": "4.499"})
+    client = api.PaidClient(tmp_path, beijing_config(), lambda *args: pytest.fail("must not send"))
+    with pytest.raises(RuntimeError, match="COST_HARD_STOP"):
+        client.call([{"role": "user", "content": "fiction"}], "direct", 64)
+
+
 def test_paid_reservation_usage_and_safe_parameters(tmp_path: Path, monkeypatch: Any) -> None:
     monkeypatch.setenv("DASHSCOPE_API_KEY", "fictional-test-key")
     bodies = []

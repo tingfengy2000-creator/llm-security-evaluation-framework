@@ -1,5 +1,13 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-156 — Beijing workspace and data-license confirmation supplied
+
+2026-11-03；PAPER1-FEASIBILITY-SPRINT-01。Owner选择中国区域并提供cn-beijing工作区Host；“已配置”Key已按存在性验证，User作用域存在、不打印值。
+Owner明确回复“确认，许可及保密要求允许本次处理”。与PODR-155的Global外传授权共同闭合本任务数据处理门，不扩大输入或取消保密。
+LOCAL记录北京官方原币CNY计费，用1USD=6CNY保守预算界保持24预警/27硬停；模型/科学合同不变。
+原任务已授权普通工程、一次虚构API探测和条件通过后的固定D1，仍需实际探测确认精确模型/NonThinking/usage；不是已执行、科学验收或自动换模授权。
+[补充合同](../research/stage6_1_hidden_knowledge_poisoning/core144/feasibility_sprint_01/BEIJING_EXECUTION_ADDENDUM_V2.md)。
+
 ## PODR-155 — bounded Paper1 feasibility sprint and explicit Global transfer authorization
 
 2026-11-03 JST; task`PAPER1-FEASIBILITY-SPRINT-01`. Owner supplied the execution instruction and says to start now.

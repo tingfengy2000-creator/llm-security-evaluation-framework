@@ -1,5 +1,7 @@
 # Paper 1 可行性冲刺：本地工程已交付，付费实测尚未启动
 
+> 最新执行准备：Owner已提供北京Host/Key并确认许可；[北京V2](BEIJING_EXECUTION_ADDENDUM_V2.md)覆盖下方先前缺口历史。95项CPU测试及Ruff/MyPy通过；真实API尚未调用，下一门是单次虚构接口探测。
+
 2026-11-03；`PAPER1-FEASIBILITY-SPRINT-01`；方法`PROPOSED / EXPERIMENTAL`。
 
 **当前建议NO-GO（仅指暂不启动付费），科学效果NOT_EVALUATED。** 本轮并未完成120条真实预测，不能宣称GO或声称方法被实测否定。

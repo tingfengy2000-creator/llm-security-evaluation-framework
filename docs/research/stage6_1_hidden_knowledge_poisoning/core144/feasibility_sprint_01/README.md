@@ -1,5 +1,7 @@
 # Paper 1 一周可行性冲刺
 
+> 最新执行准备：Owner已提供北京Host/Key并确认许可；[北京V2](BEIJING_EXECUTION_ADDENDUM_V2.md)覆盖下方先前缺口历史。95项CPU测试及Ruff/MyPy通过；真实API尚未调用，下一门是单次虚构接口探测。
+
 Task `PAPER1-FEASIBILITY-SPRINT-01`；2026-11-03；LOCAL 5060 负责，5090不使用。
 方法状态 `PROPOSED / EXPERIMENTAL`；当前 `LOCAL_ENGINEERING_COMPLETE / PAID_EXPERIMENT_BLOCKED`。
 

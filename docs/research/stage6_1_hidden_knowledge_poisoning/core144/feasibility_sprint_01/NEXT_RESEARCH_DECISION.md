@@ -1,5 +1,7 @@
 # 下一研究决策
 
+> 最新执行准备：Owner已提供北京Host/Key并确认许可；[北京V2](BEIJING_EXECUTION_ADDENDUM_V2.md)覆盖下方先前缺口历史。95项CPU测试及Ruff/MyPy通过；真实API尚未调用，下一门是单次虚构接口探测。
+
 2026-11-03；Task PAPER1-FEASIBILITY-SPRINT-01。
 
 - **当前执行建议：NO-GO_FOR_PAID_EXECUTION**。账号/端点、数据许可/保密确认及Key门未闭合；纯虚构API探测未运行。

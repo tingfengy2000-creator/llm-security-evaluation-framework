@@ -1,5 +1,7 @@
 # FEASIBILITY_PROTOCOL_V1 — 有界研发合同
 
+> 2026-11-03执行前补充：[北京接入V2](BEIJING_EXECUTION_ADDENDUM_V2.md)按Owner实账户与许可确认覆盖下方东京候选接入/美元原价部分；科学合同、旧门和未执行历史不变。
+
 2026-11-03；Task `PAPER1-FEASIBILITY-SPRINT-01`；Owner当前粘贴指令及后续Global外传批准。
 `DESIGN_FROZEN / IMPLEMENTATION_VALIDATION / PAID_EXECUTION_GATE_PENDING`。
 研发目标CCF C级可行性，不是发表保证；新增方法仍`PROPOSED / EXPERIMENTAL`，未被验收替换正式方法。

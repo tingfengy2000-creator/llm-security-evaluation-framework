@@ -1,5 +1,13 @@
 # Current Work State
 
+## Current — Beijing paid gates supplied; live probe not yet executed
+
+2026-11-03；PAPER1-FEASIBILITY-SPRINT-01；基线69899e2。Owner提供北京工作区Host、完成用户环境Key配置，并明确确认许可及保密要求允许D1/Top5由阿里云处理。原Global授权有效，不重复询问。
+当前BEIJING_LIVE_PROBE_READY_NOT_EXECUTED；实际API0、费用0、真实D1预测0；不宣称开通或模型实测成功。
+仅适配cn-beijing的ws/llm官方工作区格式和CNY原币计费，科学机制/模型/prompt/parser/路由/数据/指标不改。CNY24预警/27硬停，按6CNY/USD保守预算界，不是即期汇率或扩预算。
+先锁定/推送后单次虚构探测；成功才同一120条E1-E4，封存后评价。HTTP/非Thinking/版本/usage/预算异常停止，不换模型、不重试。5090和D2D3/历史仍禁止。
+[补充合同](../research/stage6_1_hidden_knowledge_poisoning/core144/feasibility_sprint_01/BEIJING_EXECUTION_ADDENDUM_V2.md)。以下保留先前条件未闭合的历史。
+
 ## Current — 2026-11-03 bounded feasibility sprint; local engineering, paid gate blocked
 
 Task `PAPER1-FEASIBILITY-SPRINT-01`; branch `research/paper1-feasibility-sprint-01`, isolated from L0 report at512d928; research remote at recovery4dc9161. Dynamic HEAD/upstream must be read from Git.

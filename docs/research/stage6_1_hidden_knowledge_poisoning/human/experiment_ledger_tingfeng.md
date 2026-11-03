@@ -1,5 +1,13 @@
 # Paper 1 人类可读实验总规划与实验总账
 
+## 当前：账号与数据许可条件已补齐，下一步只测接口
+
+2026-11-03；PAPER1-FEASIBILITY-SPRINT-01；基线69899e2。Owner提供北京工作区Host、完成用户环境Key配置，并明确确认许可及保密要求允许D1/Top5由阿里云处理。原Global授权有效，不重复询问。
+当前BEIJING_LIVE_PROBE_READY_NOT_EXECUTED；实际API0、费用0、真实D1预测0；不宣称开通或模型实测成功。
+仅适配cn-beijing的ws/llm官方工作区格式和CNY原币计费，科学机制/模型/prompt/parser/路由/数据/指标不改。CNY24预警/27硬停，按6CNY/USD保守预算界，不是即期汇率或扩预算。
+先锁定/推送后单次虚构探测；成功才同一120条E1-E4，封存后评价。HTTP/非Thinking/版本/usage/预算异常停止，不换模型、不重试。5090和D2D3/历史仍禁止。
+[补充合同](../core144/feasibility_sprint_01/BEIJING_EXECUTION_ADDENDUM_V2.md)。以下保留先前条件未闭合的历史。
+
 ## 当前：一周可行性验证，本地程序已准备，API尚未调用（2026-11-03）
 
 任务`PAPER1-FEASIBILITY-SPRINT-01`。本次先判断方案是否值得继续，论文目标按Owner调整为CCF C级可行性。

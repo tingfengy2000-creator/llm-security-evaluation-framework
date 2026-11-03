@@ -1,0 +1,32 @@
+{
+  "task": "PAPER1-FEASIBILITY-SPRINT-01",
+  "status": "BEIJING_LIVE_PROBE_READY_NOT_EXECUTED",
+  "tests_passed": 95,
+  "ruff": "PASS",
+  "mypy": "PASS",
+  "owner_license_confidentiality_confirmed": true,
+  "user_environment_key_present": true,
+  "key_value_recorded": false,
+  "account_region": "cn-beijing",
+  "native_currency": "CNY",
+  "cny_warning": "24",
+  "cny_hard_stop": "27",
+  "conservative_budget_cny_per_usd": "6",
+  "spot_fx_claim": false,
+  "real_api_calls": 0,
+  "real_D1_predictions": 0,
+  "source_hashes": {
+    "src/llmguard/domains/retrieval/hidden_poisoning/feasibility_sprint/api.py": "dacdc94c442a4aafa7239a19595ceadc4e655132da95bc8abf7381808efd6485",
+    "src/llmguard/domains/retrieval/hidden_poisoning/feasibility_sprint/contracts.py": "cc2c88a344099fce9cdb505a87af49cbda6f8cad37e5ffee5890d226387f848b",
+    "src/llmguard/domains/retrieval/hidden_poisoning/feasibility_sprint/prompts.py": "4428173e6fd990d489c1f0cd52552626f1854c6bf9c76a21b15587a460024dca",
+    "src/llmguard/domains/retrieval/hidden_poisoning/feasibility_sprint/runtime.py": "c052c97e26f0a4d7786bf1a14c2baa75cdd11d9e7d56fcbe37f6a78fbafb2dd0",
+    "src/llmguard/domains/retrieval/hidden_poisoning/feasibility_sprint/__init__.py": "631ef47c4a2f1eff417f723314cd152eafae01c6e51ff63848e7912e7f40693c",
+    "scripts/research/paper1_feasibility_sprint.py": "91f872bac2b14a1125e548aaf893ae83aa52e025ba2dd233e202fd2cdfec6473",
+    "scripts/research/evaluate_paper1_feasibility.py": "a12d99416e1da39b21e21929b1a99c3116b4f9834d15d97fa9cd0c188d9afb00",
+    "tests/unit/test_paper1_feasibility_sprint.py": "a624b47efed75e69d00e52c632d816da36304806a833d01c92af71f5991a221f"
+  },
+  "private_config": "experiments/paper1_feasibility_sprint_01/BEIJING_API_CONFIG_V2.json",
+  "no_key_in_config": true,
+  "scientific_logic_changed": false,
+  "git_sync": "verify commit and remote after commit"
+}

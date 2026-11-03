@@ -19,6 +19,18 @@ MODEL = "qwen3.7-plus-2026-05-26"
 STOP = Decimal("4.50")
 WARNING = Decimal("4.00")
 RATES = {"Global": (Decimal("0.276"), Decimal("1.101")), "Japan": (Decimal("0.4"), Decimal("1.6"))}
+CNY_PER_USD_FLOOR = Decimal("6")  # Budget bound, not a claimed spot exchange rate.
+
+
+def native_price(config: dict[str, Any], input_tokens: int, output_tokens: int) -> tuple[Decimal, str]:
+    if any(type(n) is not int or n < 0 for n in (input_tokens, output_tokens)):
+        raise ValueError("INVALID_USAGE")
+    if input_tokens > 256000:
+        raise ValueError("INPUT_TIER_NOT_FROZEN")
+    if config.get("account_region") == "cn-beijing":
+        return (Decimal(2) * input_tokens + Decimal(8) * output_tokens) / Decimal(1000000), "CNY"
+    rate_in, rate_out = RATES[config["deployment_scope"]]
+    return (rate_in * input_tokens + rate_out * output_tokens) / Decimal(1000000), "USD"
 
 
 def write_new(path: Path, value: Any) -> None:
@@ -31,13 +43,8 @@ def write_new(path: Path, value: Any) -> None:
 
 
 def price(config: dict[str, Any], input_tokens: int, output_tokens: int) -> Decimal:
-    if any(type(n) is not int or n < 0 for n in (input_tokens, output_tokens)):
-        raise ValueError("INVALID_USAGE")
-    # First tier only, with a conservative bound checked before transmission.
-    if input_tokens > 256000:
-        raise ValueError("INPUT_TIER_NOT_FROZEN")
-    rate_in, rate_out = RATES[config["deployment_scope"]]
-    return (rate_in * input_tokens + rate_out * output_tokens) / Decimal(1000000)
+    amount, currency = native_price(config, input_tokens, output_tokens)
+    return amount / CNY_PER_USD_FLOOR if currency == "CNY" else amount
 
 
 def token_bound(messages: list[dict[str, str]]) -> int:
@@ -53,10 +60,14 @@ def gate_issues(config: dict[str, Any], probe: bool = False) -> list[str]:
     for key in ("owner_transfer_authorized", "license_and_confidentiality_confirmed", "official_terms_reviewed", "prices_verified"):
         if config.get(key) is not True:
             issues.append(key.upper())
-    if config.get("account_region") != "ap-northeast-1" or config.get("deployment_scope") not in RATES:
+    region = config.get("account_region")
+    if not ((region == "ap-northeast-1" and config.get("deployment_scope") in RATES)
+            or (region == "cn-beijing" and config.get("deployment_scope") == "ChinaMainland"
+                and config.get("billing_currency") == "CNY" and config.get("budget_cny_per_usd_floor") == "6")):
         issues.append("ACCOUNT_REGION_OR_SCOPE_NOT_FROZEN")
     base = config.get("base_url", "")
-    if not isinstance(base, str) or not re.fullmatch(r"https://llm-[a-zA-Z0-9-]+\.ap-northeast-1\.maas\.aliyuncs\.com/compatible-mode/v1", base):
+    pattern = rf"https://(?:llm|ws)-[a-zA-Z0-9-]+\.{re.escape(str(region))}\.maas\.aliyuncs\.com/compatible-mode/v1"
+    if not isinstance(base, str) or not re.fullmatch(pattern, base):
         issues.append("OFFICIAL_WORKSPACE_ENDPOINT_NOT_FROZEN")
     if not os.environ.get("DASHSCOPE_API_KEY", "").strip():
         issues.append("DASHSCOPE_API_KEY_MISSING")
@@ -150,8 +161,10 @@ class PaidClient:
                 if inputs > bound or outputs > max_output + 16:
                     raise RuntimeError("USAGE_BOUND_EXCEEDED_RESERVATION_RETAINED")
                 cost = price(self.config, inputs, outputs)
+                native_cost, currency = native_price(self.config, inputs, outputs)
                 thinking = usage.get("completion_tokens_details", {}).get("reasoning_tokens")
-                write_new(call_dir / "receipt.json", {"charged_estimate_usd": str(cost), "input_tokens": inputs,
+                write_new(call_dir / "receipt.json", {"charged_estimate_usd": str(cost), "native_estimated_cost": str(native_cost),
+                           "native_currency": currency, "usd_is_conservative_budget_bound": currency == "CNY", "input_tokens": inputs,
                            "output_tokens": outputs, "thinking_tokens": thinking, "latency": latency,
                            "response_sha256": hashlib.sha256((call_dir / "response.json").read_bytes()).hexdigest()})
                 if response.get("model") != MODEL:
@@ -166,6 +179,7 @@ class PaidClient:
                     raise RuntimeError("RESPONSE_CONTENT_SCHEMA")
                 return {"content": message["content"], "input_tokens": inputs, "output_tokens": outputs,
                         "thinking_tokens": thinking, "latency": latency, "estimated_cost": str(cost),
+                        "native_estimated_cost": str(native_cost), "native_currency": currency,
                         "call_id": request_id, "response_sha256": digest(response)}
             except BaseException as exc:
                 write_new(call_dir / "incident.json", {"error_type": type(exc).__name__, "stop": True,

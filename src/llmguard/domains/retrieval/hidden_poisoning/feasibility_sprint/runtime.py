@@ -28,6 +28,7 @@ class Engine:
         cap = {"direct": 1024, "internal": 2048, "structured": 4096, "followup": 4096}[kind]
         response = self.client.call(messages(row, kind, gaps), kind, cap)
         self.unique_calls.append({k: response[k] for k in ("call_id", "input_tokens", "output_tokens", "thinking_tokens", "latency", "estimated_cost")})
+        self.unique_calls[-1].update({k: response.get(k) for k in ("native_estimated_cost", "native_currency")})
         if kind == "direct":
             # Reuse the frozen citation semantics without modifying L0 or its prompt.
             old = parse_output(response["content"], row)

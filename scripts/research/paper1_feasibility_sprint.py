@@ -76,7 +76,7 @@ def main() -> int:
         source_paths += [ROOT / "src/llmguard/domains/retrieval/hidden_poisoning/method_engineering/llm_verification.py",
                          ROOT / "scripts/research/evaluate_paper1_feasibility.py"]
         doc_dir = ROOT / "docs/research/stage6_1_hidden_knowledge_poisoning/core144/feasibility_sprint_01"
-        source_paths += [doc_dir / name for name in ("FEASIBILITY_PROTOCOL_V1.md", "S1_INTERNAL_CONTRADICTION_SPEC_V1.md", "CLAIM_RELATION_VERIFICATION_SPEC_V1.md")]
+        source_paths += [doc_dir / name for name in ("FEASIBILITY_PROTOCOL_V1.md", "S1_INTERNAL_CONTRADICTION_SPEC_V1.md", "CLAIM_RELATION_VERIFICATION_SPEC_V1.md", "BEIJING_EXECUTION_ADDENDUM_V2.md")]
         frozen = {"git_head": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
                   "config": config, "prompts": prompt_contract(), "input_sha256": F5_SHA, "e4": args.e4,
                   "source_hashes": {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in source_paths}}
