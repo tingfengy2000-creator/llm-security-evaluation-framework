@@ -1,5 +1,19 @@
 # LLMGuard 项目总控文档
 
+## 当前 / CURRENT — 方法重构审阅包就绪，查询数据与迁移门待决定
+
+2026-11-04 JST；`PAPER1-RAG-DEFENSE-RECONSTRUCTION-01`；`PHASE1_2_REVIEW_READY / HUMAN_DECISION_REQUIRED`。Owner已明确续接，原暂停快照按日期保留。
+固定RAGDefender v0.2在缓存非论文多语种embedding下CPU核心API成功；作者默认示例/官方测试未全过，不是论文复现或迁移就绪。冻结12组36候选均缺独立查询/答案裁决，B0仅上下文直通，查询Pilot未执行。
+E1新检索弱点UNKNOWN，NO_CONFIRMED_IMPROVEMENT_GAP，B4未实现。新API0/费用0，累计已知旧usage估算7.611826CNY，账单未对账；15美元累计预算，10预警/14硬停/1缓冲，不自动付费。
+复用暂停前19项测试/Ruff/MyPy记录，源码哈希一致；本地检查独立原日志缺口已披露。下一门：Owner决定独立查询裁决与迁移路线；正式实验NOT_STARTED，D2D3/Human/GT/历史不改。
+[负责人报告与十二字段决定](docs/research/stage6_1_hidden_knowledge_poisoning/core144/rag_defense_reconstruction_01/OWNER_FEASIBILITY_DECISION_REPORT.md)。下方状态均为带日期的历史记录。
+
+## 当前 / CURRENT — Owner暂停方法重构任务，等待新会话续接
+
+2026-11-04；`PAPER1-RAG-DEFENSE-RECONSTRUCTION-01`；`OWNER_PAUSED_IN_PROGRESS_NOT_COMPLETE`。独立分支`research/paper1-rag-defense-reconstruction-01`，基线b235381，本任务WIP未提交未推送。
+已完成上游固定/静态审查、非论文embedding的CPU核心API执行及D1包数据门审计；本轮API0，B4未实现。查询/独立答案裁决缺失，付费Pilot不得启动。用户明确暂停，Auto Continue=NO。
+续接入口：[暂停续接记录](docs/research/stage6_1_hidden_knowledge_poisoning/core144/rag_defense_reconstruction_01/RESEARCH_CONTEXT_RECOVERY.md)。历史结果、D2D3、Human/GT及旧工作树保持；下方状态为历史。
+
 ## 当前 / CURRENT — 完整D1可行性矩阵已评分并封存，CONDITIONAL
 
 2026-11-03；PAPER1-FEASIBILITY-SPRINT-01；RunD1-DEV-BEIJING-CONT-A01；执行44594c8。状态FEASIBILITY_D1_DEV_COMPLETE/OWNER_REVIEW_REQUIRED，事前结论CONDITIONAL。

@@ -1,0 +1,158 @@
+{
+  "task": "PAPER1-RAG-DEFENSE-RECONSTRUCTION-01",
+  "scope": "SELECTIVE_PRIVATE_EVIDENCE_INDEX_NOT_ALL_ENVIRONMENT_FILES",
+  "records": [
+    {
+      "path": "experiments/rag_defense_reconstruction_01/CORE_API_AUDIT.json",
+      "bytes": 2703,
+      "sha256": "49e2baad42577a2704bd290defce90773c20d2c4e2736e12e53cdf01d4a011e8",
+      "archived": true
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/PAPER_SOURCE_MANIFEST.json",
+      "bytes": 858,
+      "sha256": "99f9d7820e36e3d862faf6728c6e118cf3de18e1b990f6e2ae706c1d25fa9979",
+      "archived": true
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/pilot_freeze/D1_QUERY_READINESS.json",
+      "bytes": 1725,
+      "sha256": "7a1ada9589f9ed22148f307c4647d7ae24b88fa8ac3d2f25d5c24fed5c5bda1e",
+      "archived": true
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/resume_closeout_tools.py",
+      "bytes": 16522,
+      "sha256": "a75866e5a7e9cb245db2df025d851d87245adcdbf6f96425f507601d7e3aa55a",
+      "archived": true
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/logs/author_example.json",
+      "bytes": 7986,
+      "sha256": "d22cb9a325220e7beb13dd605d36f118049b3637b25091e76f80b2996df198e5",
+      "archived": true
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/logs/author_tests.json",
+      "bytes": 171431,
+      "sha256": "8f9037fb0951fda03bd00f812f3928a3ffc3df8f0df0f2dccfe7c9bf7c311c94",
+      "archived": true
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/logs/core_api_audit.json",
+      "bytes": 2410,
+      "sha256": "6cb9fcc9b6f7378333836c66a7c9b5c243b90ed9be487fc8b124d0b8ea1f9a1e",
+      "archived": true
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/logs/core_api_audit_after_isolated_pandas.json",
+      "bytes": 3366,
+      "sha256": "f82f950204a71fc19d13a8717829c6d6be57a11b9fcbbdc02c35f155fc1a94fd",
+      "archived": true
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/logs/environment_setup.json",
+      "bytes": 272,
+      "sha256": "9bc418c0bb4fb007be222e5aa43bc16058b9d376ddf86d7c663804dc20157479",
+      "archived": true
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/logs/existing_env_probe.json",
+      "bytes": 505,
+      "sha256": "b7875772fb235e652956091877e0a624ffe79918bad2fe0f61f654a5759c81a4",
+      "archived": true
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/logs/Faithful-RAG_fetch.json",
+      "bytes": 1862,
+      "sha256": "0da0b454ce76dbda55862eb4e59e41031e5db70e14a3fea3e41f0fbd9e53eac5",
+      "archived": true
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/logs/GMTP_fetch.json",
+      "bytes": 1811,
+      "sha256": "ce48aebb311ee683ac09f9879f956f05557d118586d787e9f356fc7989929388",
+      "archived": true
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/logs/isolated_pandas_install.json",
+      "bytes": 1242,
+      "sha256": "8f1ac80611017e76f83c1462d5d7df0f1fb0e76b6a0747584672799b802d1bf2",
+      "archived": true
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/logs/RAGDefender_fetch.json",
+      "bytes": 1885,
+      "sha256": "f958f58b50b3e3af80eff79bab21ab862df143c614bdd8ed0e86aac9ba3c917d",
+      "archived": true
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/pilot_freeze/ADJUDICATION_TEMPLATE_EVALUATOR_ONLY.json",
+      "bytes": 9927,
+      "sha256": "5e5d6539bfa8d66c1791bd9ad3f1b9cc31428811131a6ffce1b2d12179314d64",
+      "archived": false
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/pilot_freeze/SELECTION_EVALUATOR_ONLY.json",
+      "bytes": 12597,
+      "sha256": "2c16fd6915c2dee377631d311ff33fe0ad36fdc8928a86e8fcabdcbca01cf689",
+      "archived": false
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/papers/ragdefender.pdf",
+      "bytes": 535937,
+      "sha256": "11bb7a9e24620847c54a0748be087ecde23aa7c204c32d912a1bdd7e4c09b573",
+      "archived": false
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/papers/gmtp.pdf",
+      "bytes": 1336150,
+      "sha256": "e094f8bf8f51931150b6c6e4ef16bfffdbccf5f999e779b90bbed9d085ff1374",
+      "archived": false
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/papers/faithfulrag.html",
+      "bytes": 285510,
+      "sha256": "bc4904a8044d0e7ea3ea1a9a232649d1c6bfe0690f5b487dded2854568590359",
+      "archived": false
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/papers/aliyun_pricing.html",
+      "bytes": 1531595,
+      "sha256": "d212a9b355060fc98a95f4e9151c0f7799397123d2ea896cee4b0e7a482477a9",
+      "archived": false
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/review_delivery_qa.py",
+      "bytes": 7332,
+      "sha256": "c0ebbf5d12c684192918a2abbceb984eb676324b66f61b7d0148b2116bcec72c",
+      "archived": true
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/logs/resume_delivery_qa_02.json",
+      "bytes": 2618,
+      "sha256": "c2ee4010019f9c43210690b13b5a23a7bc3a51062b72dcf39321dcb8342d3361",
+      "archived": true
+    }
+  ],
+  "archive": {
+    "path": "experiments/rag_defense_reconstruction_01/RD01_REVIEW_EVIDENCE_20261104_V2.zip",
+    "bytes": 27518,
+    "sha256": "3d129428826982e1fc2c329f97be059a217625919deb908c6b9318875d47c256"
+  },
+  "excluded_payloads": [
+    "credentials",
+    "models",
+    "env",
+    "pip-cache",
+    "upstream_worktrees",
+    "signed_source_label_vault",
+    "selection_and_adjudication_payloads"
+  ],
+  "local_validation_raw_log_gap_disclosed": true,
+  "prior_archive_preserved": {
+    "path": "experiments/rag_defense_reconstruction_01/RD01_REVIEW_EVIDENCE_20261104.zip",
+    "bytes": 23252,
+    "sha256": "b6de41c5381a5fb4d20a94e626a3abed9e07bca5b57b141cca5d14283469cfae"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "task": "PAPER1-RAG-DEFENSE-RECONSTRUCTION-01",
+  "date_jst": "2026-11-04",
+  "status": "PHASE1_2_REVIEW_READY / HUMAN_DECISION_REQUIRED",
+  "owner_pause_lifted": true,
+  "historical_pause_record": "PAUSED_HANDOFF.json",
+  "base_HEAD": "b2353813f19ad6013f700229ea8aa64c91d6a0c2",
+  "branch": "research/paper1-rag-defense-reconstruction-01",
+  "owner_decision": "PODR-158",
+  "full_task_complete": false,
+  "new_API_calls": 0,
+  "new_API_CNY": "0",
+  "rerun_completed_validations": false,
+  "next_gate": "OWNER_QUERY_ADJUDICATION_AND_MIGRATION_ROUTE_DECISION",
+  "blockers": [
+    "INDEPENDENT_QUERY_AND_QA_ADJUDICATION",
+    "STRICT_VS_TRANSFER_COMPARABILITY",
+    "B4_REAL_GAP_NOT_ESTABLISHED",
+    "INVOICE_NOT_RECONCILED",
+    "INHERITED_LOCAL_VALIDATION_RAW_LOG_UNAVAILABLE"
+  ],
+  "prohibited": [
+    "AUTOMATIC_PAID_API",
+    "B4_BEFORE_CONFIRMED_REAL_GAP",
+    "GPU_5090",
+    "MODEL_DOWNLOAD",
+    "HISTORICAL_OR_D2_D3_HUMAN_GT_MUTATION"
+  ],
+  "formal_experiment": "NOT_STARTED",
+  "git_delivery_verification": "CHECK_CURRENT_GIT_AND_COMMIT_CONTAINING_THIS_FILE"
+}

@@ -1,5 +1,9 @@
 # Paper 1 标注经验与未来数据规则
 
+## 查询级迁移准备暂定经验 — 2026-11-04
+
+`PROVISIONAL / NOT_A_NEW_ANNOTATION_RULE`。短候选与反证包不能自动变成查询QA真值；query、答案、目标时间/范围、独立支持span必须另行裁决。同组三元组必须处于互斥世界。替代embedding的核心运行与原论文复现分开记录；缺证拒答须计效用损失。[证据与限制](../core144/rag_defense_reconstruction_01/OWNER_FEASIBILITY_DECISION_REPORT.md)。不修改既有Guide或历史数据。
+
 ## D1探索可测条件暂定经验 — 2026-10-27
 
 `PROVISIONAL / NOT_A_NEW_ANNOTATION_RULE`。

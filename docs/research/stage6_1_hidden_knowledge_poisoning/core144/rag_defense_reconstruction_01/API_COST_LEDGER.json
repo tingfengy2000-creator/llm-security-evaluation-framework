@@ -1,0 +1,39 @@
+{
+  "task": "PAPER1-RAG-DEFENSE-RECONSTRUCTION-01",
+  "as_of_jst": "2026-11-04",
+  "status": "NO_NEW_PAID_CALLS_INVOICE_NOT_RECONCILED",
+  "new_paid_calls": 0,
+  "new_API_CNY": "0",
+  "prior_manifest": "docs/research/stage6_1_hidden_knowledge_poisoning/core144/feasibility_sprint_01/API_COST_MANIFEST.json",
+  "prior_manifest_sha256": "efbf00b130ef24f255c1a961a548410cfc9e05ba1f90088cc5c440d1cac020f1",
+  "prior_paid_calls_including_probe": 361,
+  "prior_known_usage_CNY_estimate": "7.611826",
+  "cumulative_known_usage_CNY_estimate": "7.611826",
+  "final_invoice_CNY": null,
+  "cumulative_approved_budget_USD": "15.00",
+  "warning_USD": "10.00",
+  "hard_stop_USD": "14.00",
+  "buffer_USD": "1.00",
+  "not_a_fresh_budget": true,
+  "provider": "Alibaba Cloud Model Studio",
+  "exact_model": "qwen3.7-plus-2026-05-26",
+  "region": "cn-beijing",
+  "last_recorded_rates_CNY_per_million": {
+    "input": "2",
+    "output": "8"
+  },
+  "last_rates_are_not_fresh_billing_verification": true,
+  "historical_conservative_budget_CNY_per_USD": "6",
+  "prospective_CNY_warning_at_historical_budget_bound": "60",
+  "prospective_CNY_hard_stop_at_historical_budget_bound": "84",
+  "remaining_spendable_budget": null,
+  "paid_execution_allowed": false,
+  "paid_gates": [
+    "OWNER_NO_AUTOMATIC_API",
+    "INDEPENDENT_QUERY_ADJUDICATION",
+    "COMPARABILITY",
+    "CURRENT_PRICE_IDENTITY_AND_INVOICE_RECONCILIATION",
+    "REQUEST_LEVEL_COST_UPPER_BOUND_AND_PENDING_CHARGES",
+    "FROZEN_PROTOCOL"
+  ]
+}

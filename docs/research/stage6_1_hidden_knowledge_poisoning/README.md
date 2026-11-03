@@ -1,5 +1,9 @@
 # Paper 1 Start Here
 
+## 当前方法重构审阅入口（2026-11-04）
+
+[PHASE1_2_REVIEW_READY / HUMAN_DECISION_REQUIRED：七个科研问题、数据门与迁移门](core144/rag_defense_reconstruction_01/OWNER_FEASIBILITY_DECISION_REPORT.md)。核心API运行成功不等于论文复现；查询Pilot/B4未执行，本任务新API费用0。下方按日期保留历史。
+
 ## 最新实测收口（2026-11-03）
 
 [完整可行性结果与CONDITIONAL建议](core144/feasibility_sprint_01/FEASIBILITY_OWNER_REPORT.md)：E1/E2检出37/40、CleanFP0、HNFP1，E3/E4全弃权；480预测、361含探测请求、估算7.611826元。主分数与负结果封存，待Owner审阅，不追加调用。

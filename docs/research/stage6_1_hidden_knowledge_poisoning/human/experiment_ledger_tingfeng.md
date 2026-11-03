@@ -1,5 +1,18 @@
 # Paper 1 人类可读实验总规划与实验总账
 
+## 当前：先补查询与答案，再判断是否值得改方法（2026-11-04）
+
+PAPER1-RAG-DEFENSE-RECONSTRUCTION-01；PHASE1_2_REVIEW_READY / HUMAN_DECISION_REQUIRED。已从暂停点续接并形成十项交付。RAGDefender的核心程序确实运行过，但使用的嵌入模型不同于论文，默认示例和作者测试也没有全部通过，所以只能说核心可运行。
+现有D1是短命题核验资料：选定12组尚无独立查询与答案裁决，不能直接当问答基准。我们还没有测出强基线在新检索场景中的弱点，也没有证据支持实现新方法B4。建议先寻找已有官方问答材料，再由独立裁决补齐；付费Pilot及B4暂不开展。
+本任务API调用和费用均为0；旧任务已知估算7.611826元仍累计，正式账单未核对。没有重跑已完成验证，暂停前测试记录对应源码未变；原始本地测试日志缺口如实保留。D2/D3、人工标注、Ground Truth和历史分数不改，正式实验未开始。
+[七个科研问题与下一决定](../core144/rag_defense_reconstruction_01/OWNER_FEASIBILITY_DECISION_REPORT.md)。下方为历史，不构成自动继续授权。
+
+## 当前 / CURRENT — Owner暂停方法重构任务，等待新会话续接
+
+2026-11-04；`PAPER1-RAG-DEFENSE-RECONSTRUCTION-01`；`OWNER_PAUSED_IN_PROGRESS_NOT_COMPLETE`。独立分支`research/paper1-rag-defense-reconstruction-01`，基线b235381，本任务WIP未提交未推送。
+已完成上游固定/静态审查、非论文embedding的CPU核心API执行及D1包数据门审计；本轮API0，B4未实现。查询/独立答案裁决缺失，付费Pilot不得启动。用户明确暂停，Auto Continue=NO。
+续接入口：[暂停续接记录](../core144/rag_defense_reconstruction_01/RESEARCH_CONTEXT_RECOVERY.md)。历史结果、D2D3、Human/GT及旧工作树保持；下方状态为历史。
+
 ## 当前：可行性实验完成，强基线可用，新增机制未证（2026-11-03）
 
 本轮问题已经有答案：同一个强API模型直接核验表现好，但我们新增的前置和六槽流程没有带来收益。

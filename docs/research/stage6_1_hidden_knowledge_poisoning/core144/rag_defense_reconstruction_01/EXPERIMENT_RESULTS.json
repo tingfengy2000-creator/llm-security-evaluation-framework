@@ -1,0 +1,169 @@
+{
+  "task": "PAPER1-RAG-DEFENSE-RECONSTRUCTION-01",
+  "as_of_jst": "2026-11-04",
+  "status": "PHASE1_2_REVIEW_READY / HUMAN_DECISION_REQUIRED",
+  "base_HEAD": "b2353813f19ad6013f700229ea8aa64c91d6a0c2",
+  "execution_mode": "REUSED_EXISTING_EVIDENCE_NO_RERUN",
+  "author_example": {
+    "status": "BLOCKED_MISSING_ALL_MINILM_CACHE_OFFLINE",
+    "exit_code": 1
+  },
+  "author_tests": {
+    "total": 55,
+    "passed": 20,
+    "failed": 13,
+    "setup_errors": 21,
+    "skipped": 1,
+    "note": "Most missing model cache; CLI help also fails with stdout None. Original log retained. No upstream patch."
+  },
+  "core_audit": {
+    "status": "CORE_ALGORITHM_VERIFIED_WITH_CACHED_NONPAPER_EMBEDDING",
+    "upstream_sha": "ba2a17efba165d45409114df2d70b030ade1e1b8",
+    "upstream_version": "0.2.0",
+    "paper_reproduction": false,
+    "author_default_example_verified": false,
+    "migration_ready": false,
+    "embedding_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "embedding_revision": "16e5344fbfc7dfbbbe0019d30cec21e2940cb4e1",
+    "embedding_files_sha256": {
+      "1_Pooling/config.json": "4be450dde3b0273bb9787637cfbd28fe04a7ba6ab9d36ac48e92b11e350ffc23",
+      "config.json": "6300193cb75e01cf80c96decef7187dfb33094d97cc1490b7ead6ff134476e4e",
+      "config_sentence_transformers.json": "b8c64b5cece00d8424b4896ea75b512b6008576088497609dfeb6bd63e6d36b8",
+      "model.safetensors": "eaa086f0ffee582aeb45b36e34cdd1fe2d6de2bef61f8a559a1bbc9bd955917b",
+      "modules.json": "8f4b264b80206c830bebbdcae377e137925650a433b689343a63bdc9b3145460",
+      "README.md": "4bcd81167dff9aa9dcd4cff0d8101f897382a9d5e31231940a50b74bf576d550",
+      "sentence_bert_config.json": "70f4448f31320443fe3557cacea5abf2dcc4915dda8c80646bec9f3bb0aa5a1f",
+      "special_tokens_map.json": "378eb3bf733eb16e65792d7e3fda5b8a4631387ca04d2015199c4d4f22ae554d",
+      "tokenizer.json": "2c3387be76557bd40970cec13153b3bbf80407865484b209e655e5e4729076b8",
+      "tokenizer_config.json": "cac868512d555e9ac37a33c28300d36931ae4b5ddff43f1ca9bdacfe6fcd9dc8"
+    },
+    "embedding_max_seq_length": 128,
+    "environment_versions": {
+      "torch": "2.12.1",
+      "transformers": "5.12.1",
+      "sentence-transformers": "5.6.0",
+      "numpy": "2.5.0",
+      "scikit-learn": "1.9.0",
+      "pandas": "2.2.3"
+    },
+    "results": {
+      "singlehop": {
+        "input_count": 6,
+        "removed_indices": [
+          2
+        ],
+        "retained_count": 5,
+        "interpretation": "cached multilingual embedding; not upstream fixture equivalence"
+      },
+      "multihop": {
+        "input_count": 5,
+        "removed_indices": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "retained_count": 1,
+        "interpretation": "cached multilingual embedding; not upstream fixture equivalence"
+      },
+      "fictional_query_time_probe": {
+        "removed_2022": [
+          0,
+          1,
+          2
+        ],
+        "removed_2024": [
+          0,
+          1,
+          2
+        ],
+        "same_removed_indices": true,
+        "not_D1_or_security_effectiveness": true
+      },
+      "single_hop_singleton": {
+        "status": "UPSTREAM_VALUE_ERROR",
+        "exception": "Found array with 1 sample(s) (shape=(1, 384)) while a minimum of 2 is required by AgglomerativeClustering."
+      }
+    },
+    "paid_calls": 0,
+    "model_downloads": 0,
+    "GPU_used": false
+  },
+  "D1_readiness": {
+    "task": "PAPER1-RAG-DEFENSE-RECONSTRUCTION-01",
+    "full_signed_bundle": {
+      "status": "NEEDS_ADJUDICATION",
+      "candidates": 120,
+      "evidence_occurrences": 600,
+      "unique_evidence_documents": 32,
+      "query_text_present": 0,
+      "independent_QA_answer_adjudication_present": 0,
+      "metadata_gaps": {
+        "effective_end_missing": 600,
+        "effective_start_missing": 423,
+        "issuer_missing": 58,
+        "publication_date_missing": 565,
+        "publisher_missing": 600,
+        "version_role_unknown": 464
+      },
+      "inference": "Candidate verification inputs do not establish unique query-level QA truth; absence applies to audited bundle, not all possible source material."
+    },
+    "selected_12_groups": {
+      "status": "NEEDS_ADJUDICATION",
+      "candidates": 36,
+      "evidence_occurrences": 180,
+      "unique_evidence_documents": 28,
+      "query_text_present": 0,
+      "independent_QA_answer_adjudication_present": 0,
+      "metadata_gaps": {
+        "effective_end_missing": 180,
+        "effective_start_missing": 126,
+        "issuer_missing": 14,
+        "publication_date_missing": 168,
+        "publisher_missing": 180,
+        "version_role_unknown": 142
+      },
+      "inference": "Candidate verification inputs do not establish unique query-level QA truth; absence applies to audited bundle, not all possible source material."
+    },
+    "selection_sha256": "2c16fd6915c2dee377631d311ff33fe0ad36fdc8928a86e8fcabdcbca01cf689",
+    "source_manifest_sha256": "a7e05d2ebedbc68abc21fff46a0ad1597747712020957ac30cf1445353714a60",
+    "source_f5_sha256": "c849260e2a41fa9186e6d69ed6442cbebdaa7ff272beece9dfadc22e61cf535c",
+    "no_prediction_files_opened_for_selection": true,
+    "paid_calls": 0
+  },
+  "local_validation": {
+    "status": "SOURCE_REPORTED_PASS_BOUND_TO_UNCHANGED_HASHES",
+    "reported": {
+      "tests": 19,
+      "pytest_command": "PYTHONPATH=src python -m pytest tests/unit/test_rag_defense_reconstruction.py -q",
+      "ruff": "PASS",
+      "mypy": "PASS_5_SOURCE_FILES",
+      "initial_pytest_collection_failure": "PYTHONPATH absent; corrected invocation passed without source changes"
+    },
+    "source_hashes_match": {
+      "src/llmguard/domains/retrieval/hidden_poisoning/rag_defense_reconstruction/contracts.py": true,
+      "src/llmguard/domains/retrieval/hidden_poisoning/rag_defense_reconstruction/evaluation_preparation.py": true,
+      "src/llmguard/domains/retrieval/hidden_poisoning/rag_defense_reconstruction/__init__.py": true,
+      "scripts/research/audit_rag_defense_pilot_inputs.py": true,
+      "scripts/research/run_ragdefender_offline_core_audit.py": true,
+      "tests/unit/test_rag_defense_reconstruction.py": true
+    },
+    "source_record": "PAUSED_HANDOFF.json",
+    "separate_raw_stdout_log_available": false,
+    "rerun_performed": false
+  },
+  "query_level_pilot_executed": false,
+  "query_level_metrics": null,
+  "B0": "CONTEXT_PASS_THROUGH_ONLY_NO_QA",
+  "B1": "NOT_IMPLEMENTED_FOR_NEW_PILOT",
+  "B2": "OFFLINE_CORE_ONLY_NONPAPER_EMBEDDING",
+  "B3": "NOT_IMPLEMENTED",
+  "B4": "NOT_IMPLEMENTED",
+  "B5": "NOT_IMPLEMENTED",
+  "E1_new_retrieval_weakness": "UNKNOWN_NOT_TESTED",
+  "improvement_gap": "NO_CONFIRMED_IMPROVEMENT_GAP",
+  "formal_experiment": "NOT_STARTED",
+  "new_paid_calls": 0,
+  "new_model_downloads": 0,
+  "GPU_used": false
+}

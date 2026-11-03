@@ -1,5 +1,7 @@
 # Paper 1 研究方案权威文件
 
+> **当前Owner方向与门（2026-11-04，PODR-158）：** 中文版本感知隐蔽污染检测与检索上下文防御，CCF C，有界方法重构；不再追超过旧E1 Recall。阶段一二审阅包就绪，查询裁决与迁移可比性待决定，付费Pilot/B4未执行，方法仍PROPOSED/EXPERIMENTAL。这只追加Owner当前候选方向，不替换已接受正式合同，不改D2D3与长期Stage6.2/7。[负责人报告](../core144/rag_defense_reconstruction_01/OWNER_FEASIBILITY_DECISION_REPORT.md)。
+
 > **执行事实更新（2026-11-03）：** [可行性完整结果](../core144/feasibility_sprint_01/FEASIBILITY_OWNER_REPORT.md)为CONDITIONAL：强API直接核验37/40，六槽实现100%弃权，新增机制贡献未证。PODR-157继续已完成，Owner科学验收待审阅；当前方法不升级ACCEPTED，正式方案与D2D3门不改。
 
 > **执行决定更新（2026-11-03，PODR-157）：** Owner批准截断逐条记未决且复用原件的[Continuation A](../core144/feasibility_sprint_01/CONTINUATION_A_PROTOCOL_V3.md)，阿里云任务总预算15美元；不改模型、提示、输出上限、科学判据或正式方法状态。原Attempt01失败保留，不作科学验收。

@@ -1,5 +1,12 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-158 — 中文版本感知检索防御重构；续接但不自动付费
+
+2026-11-04 JST；PAPER1-RAG-DEFENSE-RECONSTRUCTION-01。原Owner完整指令将当前问题调整为“面向中文RAG系统的版本感知隐蔽知识污染检测与检索上下文防御”，目标CCF C，不以超过旧E1的92.5%为主要目标；优先阶段一论文源码审计和阶段二查询Pilot准备。
+Owner本会话明确“继续”，要求先读恢复/暂停记录、核对WIP、不要重做已完成验证、不要自动调用付费API。主动暂停解除；阶段一二准备、报告与Git交付已授权。B4仍仅候选，须先有真实失效证据；新查询/答案不足必须NEEDS_ADJUDICATION，D2D3/历史/GT不改。
+原15美元为累计阿里云额度，新任务10美元预警、14美元硬停、至少1美元缓冲；不代表新额度、账单对账或新付费调用已获许可。与旧任务PODR-157不同的门只用于未来本任务，不重写旧账。
+本决定确认目标与执行范围，不接受方法效果、不批准B4/正式实验或新付费请求。[原指令可恢复摘要与报告](../research/stage6_1_hidden_knowledge_poisoning/core144/rag_defense_reconstruction_01/OWNER_FEASIBILITY_DECISION_REPORT.md)。
+
 ## RESULT AWAITING OWNER REVIEW — feasibility completed under PODR-155/156/157
 
 2026-11-03；PAPER1-FEASIBILITY-SPRINT-01。既有批准已执行为120×4封存预测和独立评价，事前建议CONDITIONAL。
