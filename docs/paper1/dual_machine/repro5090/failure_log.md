@@ -15,5 +15,7 @@ No claim command failed, because no claim command was started. The R0 rows are t
 | ENV-CUBLAS-HASH | VERIFIED | one cu128 dependency download failed sha256. The bad file was discarded. The installed wheel matches the published hash |
 | ENV-BNB-043 | VERIFIED | bitsandbytes 0.43.1 has no CUDA 12.8 library and does not import against triton 3.4. Compat env uses 0.45.5. Official env still has 0.43.1 |
 | ENV-XFORMERS | REPORTED | xformers 0.0.27.post2 does not load CUDA extensions on torch 2.8. Left installed. Artifact code does not import it |
+| SMOKE-PYTEST-ABSENT | VERIFIED | `artifact_acsac_compat` has no pytest. The invocation exited 1 with `No module named pytest`. pytest was not installed |
+| SMOKE-RUNNER-IMPORT | VERIFIED | The first direct runner imported a truncated name `Evaluato` and failed that one assertion. The library was not edited. A second import printed `Evaluator` and version 0.2.0 |
 
-No claim retry. No simulated data. No paid API. No model download.
+No claim retry. No simulated paper data. No paid API. No model download.

@@ -1,5 +1,11 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-04 — 5090 records the bounded offline smoke and stops
+
+No new PODR id and no new REL id. Supervision `W1-OD-20261104-FAST-A-03` is the 5060 file at `af68d89a870647be138cf5592ccd4a058e44a8ab`. Task P1-RAGDEFENDER-REPRO-5090-OFFLINE-SMOKE-01. Run W1-5090-OFFLINE-SMOKE-20261104. Branch `research/paper1-ragdefender-repro-5090` at parent `01554702b0bc14b7203712c83423d8245eacb3d3`.
+Upstream `ba2a17efba165d45409114df2d70b030ade1e1b8` was not changed. Content diff with CR ignored was empty before and after. pytest is absent, exit 1, and was not installed. Direct checks: 9 passed, 1 runner import line was truncated and failed; a second import printed Evaluator 0.2.0. Compat CUDA sum 1.0. Official torch stayed 2.4.0. Claim 1, 2 and 3 remain NOT_RUN. ASR and accuracy remain NOT_MEASURED. No weight download, no BEIR download, no paid API.
+[Smoke gate](../paper1/dual_machine/repro5090/W1_5090_OFFLINE_SMOKE_AND_RESOURCE_GATE.md).
+
 ## REL-2026-0125 — 5090 records the compat-env acceptance and leaves claims unapproved
 
 2026-11-04 UTC+8. No claim process. PODR-154. Supervision `W1-OD-20261104-5090-ENV-01` and `W1-OD-20261104-DUAL-GOV-02`. Task P1-RAGDEFENDER-REPRO-5090-CLAIM-GATE-01. Run W1-5090-CLAIM-GATE-20261104. Branch `research/paper1-ragdefender-repro-5090` at parent `aa85841ff83be31c86e0fa305d3a84d70f2158b5`.

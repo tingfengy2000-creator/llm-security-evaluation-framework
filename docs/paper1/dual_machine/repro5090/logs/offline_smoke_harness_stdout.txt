@@ -1,0 +1,61 @@
+FAIL import
+Traceback (most recent call last):
+  File "/mnt/d/paper1/upstream/logs/offline_smoke/harness.py", line 15, in check
+    fn()
+  File "/mnt/d/paper1/upstream/logs/offline_smoke/harness.py", line 28, in t_import
+    from ragdefender import RAGDefender, Evaluato
+ImportError: cannot import name 'Evaluato' from 'ragdefender' (/mnt/d/paper1/upstream/RAGDefender/ragdefender/__init__.py)
+
+PASS removed_stubs
+PASS fixtures
+PASS n_pairs
+PASS grouping_defaults
+TFIDF_COUNT 2
+CLUSTER_N 2
+CONCENTRATION_N 2
+SELECTED [0, 1]
+PASS fictional_stage
+PASS presets
+CLI ('info',) EXIT 0
+RAGDefender v0.2.0
+Efficient defense against knowledge corruption attacks on RAG systems
+
+Paper:    Rescuing the Unpoisoned: Efficient Defense against
+          Knowledge Corruption Attacks on RAG Systems (ACSAC 2025)
+DOI:      https://doi.org/10.1109/ACSAC67867.2025.00093
+Authors:  Minseok Kim, Hankook Lee, Hyungjoon Koo (Sungkyunkwan University)
+License:  MIT
+Repo:     https://github.com/SecAI-Lab/RAGDefender
+
+
+CLI ('--help',) EXIT 0
+usage: ragdefender [-h] [--version] [-v] {defend,evaluate,info,reproduce} ...
+
+RAGDefender — defense against knowledge corruption attacks on RAG systems
+
+positional arguments:
+  {defend,evaluate,info,reproduce}
+    defend              Defend a single query
+    evaluate            Batch-evaluate on labelled JSON
+    info                Show package info
+    reproduce           Run an ACSAC artifact reproducibility claim
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  -v, --verbose         -v for INFO, -vv for DEBUG (default: WARNING-only)
+
+Examples:
+  ragdefender info
+  ragdefender defend --query 'What is the capital?' --corpus docs.json --task-type single_hop
+  ragdefender evaluate --test-data test.json --attack poisonedrag --task-type multi_hop
+  ragdefender reproduce claim1
+
+
+CLI ('reproduce', 'claim42') EXIT 2
+
+usage: ragdefender reproduce [-h] {claim1,claim2,claim3}
+ragdefender reproduce: error: argument claim: invalid choice: 'claim42' (choose from 'claim1', 'claim2', 'claim3')
+
+PASS cli_safe
+HARNESS_FAILS 1

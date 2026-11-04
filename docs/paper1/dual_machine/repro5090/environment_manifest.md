@@ -38,3 +38,13 @@ The R0 table above is the audit snapshot. This section is the later install.
 | weights | BLOCKED | Llama-2-7B-chat and Vicuna-7B were not downloaded |
 | claims | NOT_RUN | no claim command, no ASR, no accuracy |
 | compat env acceptance | VERIFIED | PODR-154 conditionally accepts `artifact_acsac_compat` for later reproduction and keeps the official kernel failure |
+
+## Offline smoke — 2026-11-04 22:27 UTC+8
+
+| Item | Status | Value |
+| --- | --- | --- |
+| supervision | VERIFIED | `W1-OD-20261104-FAST-A-03`, shown from 5060 commit `af68d89a870647be138cf5592ccd4a058e44a8ab` |
+| official env | VERIFIED | still torch 2.4.0, triton 3.0.0, bitsandbytes 0.43.1, sympy 1.12. Not upgraded |
+| compat kernel | VERIFIED | torch 2.8.0+cu128, capability (12, 0), one-element CUDA sum 1.0 |
+| pytest | BLOCKED | module absent. Not installed |
+| offline checks | VERIFIED | direct runner exit 1 with one truncated import line. Second import printed Evaluator 0.2.0. Claims remain NOT_RUN |

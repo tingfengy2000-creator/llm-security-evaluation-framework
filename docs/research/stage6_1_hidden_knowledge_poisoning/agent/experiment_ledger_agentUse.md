@@ -1,5 +1,14 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — RAGDefender offline smoke recorded, claims not run, 2026-11-04 UTC+8
+
+No new PODR. Supervision W1-OD-20261104-FAST-A-03. Auth file af68d89a870647be138cf5592ccd4a058e44a8ab on research/paper1-chinese-defense-5060. Fetched and shown only.
+Task P1-RAGDEFENDER-REPRO-5090-OFFLINE-SMOKE-01. Run W1-5090-OFFLINE-SMOKE-20261104. Parent HEAD 01554702b0bc14b7203712c83423d8245eacb3d3.
+Upstream ba2a17efba165d45409114df2d70b030ade1e1b8. Content diff ignoring CR was empty. pytest absent, exit 1, not installed. Direct harness HARNESS_FAILS 1 from a truncated runner import line. Second import: Evaluator, version 0.2.0. Fictional stage counts are SMOKE. Pure-function checks are ALGORITHM_CHECK. claim1/claim2/claim3 NOT_RUN. ASR and accuracy NOT_MEASURED.
+Compat torch 2.8.0+cu128 CUDA sum 1.0. Official torch 2.4.0, triton 3.0.0, bitsandbytes 0.43.1, sympy 1.12. No new install.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master evaluated and not updated; owner_decision evaluated and not updated; stage_process evaluated and not updated; lessons evaluated and not updated; research_authority evaluated and not updated; README evaluated and not updated.
+[Smoke gate](../../../paper1/dual_machine/repro5090/W1_5090_OFFLINE_SMOKE_AND_RESOURCE_GATE.md).
+
 ## Current — RAGDefender compat env accepted, claims not approved, 2026-11-04 UTC+8
 
 PODR-154. REL-2026-0125. OR-112. Supervision W1-OD-20261104-5090-ENV-01 and W1-OD-20261104-DUAL-GOV-02.

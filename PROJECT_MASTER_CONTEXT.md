@@ -1,5 +1,11 @@
 # LLMGuard 项目总控文档
 
+## 当前：5090 离线 Smoke 已记录，Claim 仍未批准（2026-11-04）
+
+`W1-OD-20261104-FAST-A-03` 只批准静态确认过的本地检查。pytest 未安装。直接检查留下 1 项脚本截断失败，其余通过项是 `SMOKE` 或 `ALGORITHM_CHECK`。三条 Claim 仍是 `NOT_RUN`。攻击成功率和准确率仍是 `NOT_MEASURED`。权重和 BEIR 未下载。到此停止。
+[离线检查](docs/paper1/dual_machine/repro5090/W1_5090_OFFLINE_SMOKE_AND_RESOURCE_GATE.md)。
+下面的 L0 Oracle 结论不替换。
+
 ## 当前：5090 兼容环境已有条件接受，Claim 仍未批准（2026-11-04）
 
 `PODR-154` 接受 `artifact_acsac_compat` 作为后续复现环境，并保留 `artifact_acsac` 的 GPU 失败。该决定不下载权重、不运行 Claim、不调用商业 API、不改算法。三条 Claim 的准入材料已写好，执行状态是 NOT_APPROVED。攻击成功率和准确率仍是 NOT_MEASURED。

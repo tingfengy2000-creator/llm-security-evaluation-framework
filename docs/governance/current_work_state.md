@@ -1,5 +1,12 @@
 # Current Work State
 
+## Current — 2026-11-04 5090 offline smoke recorded, claims still not approved
+
+Task P1-RAGDEFENDER-REPRO-5090-OFFLINE-SMOKE-01. Run W1-5090-OFFLINE-SMOKE-20261104. Supervision W1-OD-20261104-FAST-A-03 at 5060 commit af68d89a870647be138cf5592ccd4a058e44a8ab. No new local PODR.
+Static audit ran first. pytest is not installed and was not added. Safe pure-function and fictional-sample checks ran in `artifact_acsac_compat`. One runner import line failed because it was truncated; the library import then printed Evaluator 0.2.0. Official `artifact_acsac` stayed torch 2.4.0. Claim 1, 2 and 3 remain NOT_RUN. ASR and accuracy remain NOT_MEASURED. Weights and BEIR were not downloaded. Stop here.
+[Smoke gate](../paper1/dual_machine/repro5090/W1_5090_OFFLINE_SMOKE_AND_RESOURCE_GATE.md).
+The L0 Oracle result below is unchanged. No D1/D2/D3 read, no paid API, no algorithm edit.
+
 ## Current — 2026-11-04 5090 compat env accepted, claims still not approved
 
 Task P1-RAGDEFENDER-REPRO-5090-CLAIM-GATE-01. Run W1-5090-CLAIM-GATE-20261104. PODR-154 / OR-112 / REL-2026-0125. Supervision W1-OD-20261104-5090-ENV-01 and W1-OD-20261104-DUAL-GOV-02.
