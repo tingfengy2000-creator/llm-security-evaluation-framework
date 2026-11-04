@@ -1,0 +1,115 @@
+{
+  "acquired_utc": "2026-11-04T13:56:37.106663+00:00",
+  "previous_pinned_handoff": "aa85841ff83be31c86e0fa305d3a84d70f2158b5",
+  "supplement_handoff_commit": "01554702b0bc14b7203712c83423d8245eacb3d3",
+  "upstream_sha": "ba2a17efba165d45409114df2d70b030ade1e1b8",
+  "baseline_unchanged": true,
+  "merge_or_cherry_pick": false,
+  "status": "COMPAT_ENV_ACCEPTED_CLAIMS_NOT_APPROVED",
+  "new_claim_or_download_authorization": false,
+  "source_level": "GIT_REDACTED_DOCS_NOT_REMOTE_RAW_REEXECUTION",
+  "number_collision": {
+    "local_branch": "research/paper1-chinese-defense-5060",
+    "local_decision_header": "## PODR-154 — authorize D1/L0 evidence and owner-report preparation, no scientific acceptance implied",
+    "remote_branch": "research/paper1-ragdefender-repro-5090",
+    "remote_local_id": "PODR-154",
+    "remote_meaning": "conditional compatibility-environment acceptance",
+    "cross_branch_canonical_ids": [
+      "W1-OD-20261104-5090-ENV-01",
+      "W1-OD-20261104-DUAL-GOV-02"
+    ],
+    "handling": "PRESERVE_BOTH_HISTORY_IDS_USE_BRANCH_QUALIFIED_IDS_AND_OWNER_W1_IDS_NO_RENUMBER_NO_MERGE"
+  },
+  "D1_preparation_rerun": false,
+  "new_API_calls": 0,
+  "captured_documents": [
+    {
+      "argv": [
+        "git",
+        "show",
+        "01554702b0bc14b7203712c83423d8245eacb3d3:docs/paper1/dual_machine/repro5090/handoff.json"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "0755ebae63a47635e5f46610ac31d81af6a7b4cc4ac0680176c5de83fc40f7bd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "docs/paper1/dual_machine/repro5090/handoff.json"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "01554702b0bc14b7203712c83423d8245eacb3d3:docs/paper1/dual_machine/repro5090/upstream_pin.md"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "09de1c52a339fe0f4a23f7d82c7872a2f215a85fb3a5ce8958e094defb68848f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "docs/paper1/dual_machine/repro5090/upstream_pin.md"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "01554702b0bc14b7203712c83423d8245eacb3d3:docs/paper1/dual_machine/repro5090/environment_manifest.md"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "ced583e3b2090befc32ae8374a15403cad710a293414fc909fd42899bac09801",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "docs/paper1/dual_machine/repro5090/environment_manifest.md"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "01554702b0bc14b7203712c83423d8245eacb3d3:docs/paper1/dual_machine/repro5090/implementation_difference_audit.md"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "2b9c460357398cdf4b71e54e7b68de6de86c6f5dafd77265de826e94f5394bc4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "docs/paper1/dual_machine/repro5090/implementation_difference_audit.md"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "01554702b0bc14b7203712c83423d8245eacb3d3:docs/paper1/dual_machine/repro5090/W1_5090_OWNER_DECISION_AND_CLAIM_GATE.md"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "c18a3a19fcc0c3267925205437dcc393ade48caf50a066b71210b5cd02686512",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "docs/paper1/dual_machine/repro5090/W1_5090_OWNER_DECISION_AND_CLAIM_GATE.md"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "01554702b0bc14b7203712c83423d8245eacb3d3:docs/paper1/dual_machine/repro5090/failure_log.md"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "7be6121a9d5c3c376424fdb7e3426f1b46bbc1837da1905ac98882173cc542c0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "docs/paper1/dual_machine/repro5090/failure_log.md"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "01554702b0bc14b7203712c83423d8245eacb3d3:docs/paper1/dual_machine/repro5090/run_manifest.json"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "21b91626dae4631a4a42cfaf4aa3e0ddf80b1c783d6b6859a3d787df16fda147",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "docs/paper1/dual_machine/repro5090/run_manifest.json"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "01554702b0bc14b7203712c83423d8245eacb3d3:docs/paper1/dual_machine/repro5090/logs/official_torch240_sm120_kernel_fail.txt"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "07f442a5e98679397b0b3131b6d2fa00dd9d70403bb0bfeb44715c18cd61f659",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "docs/paper1/dual_machine/repro5090/logs/official_torch240_sm120_kernel_fail.txt"
+    }
+  ]
+}

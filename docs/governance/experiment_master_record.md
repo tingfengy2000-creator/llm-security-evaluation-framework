@@ -1,5 +1,8 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+> P1最终只读补充：5090已前进0155470，上游不变、Claim仍未批；分支局部PODR-154重名使用Owner W1-OD跨机关联。[证据](../paper1/dual_machine/chinese5060/p1/evidence/LATEST_5090_HANDOFF_SUPPLEMENT.json)。P1 source/run/准备状态不变。
+
+
 ## 当前 / CURRENT — 双机治理已登记，P1零付费准备完成（2026-11-04）
 
 PAPER1-W1-5060-P1；P1_PREPARATION_COMPLETE / REAL_PILOT_BLOCKED。

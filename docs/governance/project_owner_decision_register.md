@@ -1,6 +1,16 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
 
+## W1双机治理编号限定补记（2026-11-04，0155470后到交接）
+
+5090后到脱敏提交01554702b0bc14b7203712c83423d8245eacb3d3已只读核验；上游/分支起点不变，未批准模型下载或Claim。
+发现其分支局部PODR-154=兼容环境接受，而5060既有PODR-154=旧D1/L0报告准备。两个历史ID均保留，不重编号、不合并。
+跨机统一关联Owner W1-OD-20261104-5090-ENV-01 / W1-OD-20261104-DUAL-GOV-02；PODR引用必须带分支与commit。
+本轮P1 source/run/数据/协议不变，后到证据不覆盖原aa85841记录，不推导任何执行批准。
+[补充收据](../paper1/dual_machine/chinese5060/p1/evidence/LATEST_5090_HANDOFF_SUPPLEMENT.json)。
+
+
+
 ## W1-OD-20261104-5090-ENV-01 — 5090独立兼容环境有条件接受
 
 Source：Owner当前会话明确监督消息（2026-11-04 JST）；Status OWNER_CONFIRMED_CONDITIONAL。

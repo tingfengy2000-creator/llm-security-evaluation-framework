@@ -1,11 +1,23 @@
 # W1 5060 Owner治理同步与P1准入
 
+### 最终只读补充：5090交接已前进（不改本轮原始pin）
+
+最终远端核对发现5090前进至 `01554702b0bc14b7203712c83423d8245eacb3d3`，已fetch并逐文件git-show补读。
+上游SHA和两机起点不变；新交接明确兼容环境有条件接受，权重/数据下载和Claim仍未批准，未产生ASR/Accuracy。
+初始aa85841交接、P1 source/run/config及其原始归档不重写，后到证据单独记录在
+[最新交接补充](p1/evidence/LATEST_5090_HANDOFF_SUPPLEMENT.json)。没有重跑D1或导入5090代码。
+
+同时发现分支内编号重名：本5060 `PODR-154` 为旧D1/L0报告准备，5090 `PODR-154` 为环境接受。
+不重编号或合并历史；跨机引用必须使用分支+commit限定的PODR，并以Owner给出的两个W1-OD ID绑定本次共同决定。
+这是编号命名空间冲突，不是两个决定内容相反；本轮未据同名编号推导新批准。
+
+
 2026-11-04 JST；`P1_PREPARATION_COMPLETE / REAL_PILOT_BLOCKED`。完成后停止，不自动进入下一阶段。
 本报告与[场景公平性报告](W1_5060_P1_SCENARIO_AND_FAIRNESS_GATE.md)共同交付；不改研究方向、正式基线或Ground Truth。
 
 ## 动态Git和Owner明确决定
 
-启动5060 HEAD `066ce0ced75c9bbf61cfec03f3d0d93aa8324f07`；5090最新ref
+启动5060 HEAD `066ce0ced75c9bbf61cfec03f3d0d93aa8324f07`；启动时取得的5090 ref
 `aa85841ff83be31c86e0fa305d3a84d70f2158b5`，fetch/git-show已核。
 共同祖先`4dc9161e79b79ece70a7c17144175a19b985770d`；启动时分支提交差异14/2。
 5060既有开发起点`8dec9453de2ebd5ea03e4cbdf753b2f0d7347177`，5090研究起点为共同祖先。

@@ -37,5 +37,7 @@
   "git_delivery": "SOURCE_COMMIT_VERIFIED_REMOTE_FINAL_DOCUMENTATION_REQUIRES_LIVE_CHECK",
   "markdown_links_valid": true,
   "secret_and_label_isolation": "PASS",
-  "local_documentation_closeout": "PASS_PENDING_LIVE_GIT_DELIVERY_CHECK"
+  "local_documentation_closeout": "PASS_PENDING_LIVE_GIT_DELIVERY_CHECK",
+  "latest_5090_supplement": "01554702b0bc14b7203712c83423d8245eacb3d3",
+  "branch_local_PODR154_collision": "NAMESPACED_BY_BRANCH_COMMIT_AND_OWNER_W1_IDS"
 }

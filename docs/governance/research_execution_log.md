@@ -3113,3 +3113,12 @@ D1仅8路径hash白名单，无D2D3/Reviewer/Oracle内容读取，P0文件名事
 精确Qwen公开北京原价已查，账户/精确token计数/账单差额仍未核，不探测；USD30/25预警/28停止新批保持。
 下一门：Owner审阅B1轨道、共同背景/可信证据权限、答案/攻击目标/C3规则及零费用真实检索预检范围；本轮交付后停止。
 [P1治理与准入报告](../paper1/dual_machine/chinese5060/W1_5060_OWNER_GOVERNANCE_AND_P1_GATE.md)。下方历史记录保留，不产生付费、模型下载或方法接受授权。
+
+
+## REL-W1-5060-P1-20261104-02 — 最终5090只读补充
+
+脱敏提交01554702b0bc14b7203712c83423d8245eacb3d3已只读核验；上游/分支起点不变，未批准模型下载或Claim。
+发现其分支局部PODR-154=兼容环境接受，而5060既有PODR-154=旧D1/L0报告准备。两个历史ID均保留，不重编号、不合并。
+跨机统一关联Owner W1-OD-20261104-5090-ENV-01 / W1-OD-20261104-DUAL-GOV-02；PODR引用必须带分支与commit。
+本轮P1 source/run/数据/协议不变，后到证据不覆盖原aa85841记录，不推导任何执行批准。
+[补充收据](../paper1/dual_machine/chinese5060/p1/evidence/LATEST_5090_HANDOFF_SUPPLEMENT.json)。

@@ -1,0 +1,10 @@
+{
+  "scope": "LATE_HANDOFF_DOCUMENT_QA_ONLY_NOT_RESEARCH_CODE_OR_DATA",
+  "observations": [
+    "Default GBK decode failed on UTF8 metadata; explicit UTF8 corrected",
+    "One shell-quoted helper repair failed to parse; apply_patch correction succeeded"
+  ],
+  "evidence_kind": "TOOL_RETURN_OBSERVATIONS_NOT_ORIGINAL_RAW_LOGS",
+  "D1_rerun": false,
+  "supplement_archive_verified": true
+}
