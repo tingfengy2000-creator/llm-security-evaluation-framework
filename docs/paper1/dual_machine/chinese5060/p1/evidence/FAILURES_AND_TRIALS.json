@@ -1,0 +1,28 @@
+{
+  "initial_checks_evidence_kind": "TOOL_RETURN_OBSERVATIONS_NOT_STANDALONE_RAW_LOGS",
+  "initial_failures": [
+    "pytest reserved parameter name request (collection); renamed",
+    "pytest C-drive default temp denied (17 fixture errors); explicit new D-drive basetemp used",
+    "Ruff four E702 in new tests; split statements",
+    "MyPy list type inference in new preparation module; explicit annotation"
+  ],
+  "captured_runs": [
+    {
+      "id": "W1-5060-P1-20261104-01",
+      "source": "8eaacda03258eeafdf2d5f6b4db25347fcf2c9c8",
+      "status": "PASS_46_TESTS",
+      "role": "initial preparation before extra body-copy checks"
+    },
+    {
+      "id": "W1-5060-P1-20261104-02",
+      "source": "fcdd848e29e3fea97b11a6352a4ff8e1665f4071",
+      "status": "PASS_48_TESTS",
+      "role": "final added body isolation guard; same selection/protocol/world corpora"
+    }
+  ],
+  "scientific_trials": 0,
+  "new_API_calls": 0,
+  "selection_or_answer_changed": false,
+  "new_confirmed_data_gap": "five of 36 legacy worlds lack at least one V2 cited source; not an attack-success or recall score",
+  "model_failures_measured": false
+}

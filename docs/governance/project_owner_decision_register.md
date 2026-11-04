@@ -1,6 +1,32 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
 
+## W1-OD-20261104-5090-ENV-01 — 5090独立兼容环境有条件接受
+
+Source：Owner当前会话明确监督消息（2026-11-04 JST）；Status OWNER_CONFIRMED_CONDITIONAL。
+Owner确认5090独立兼容环境有条件接受：保持原作者环境、独立兼容环境及差异披露。
+这接受环境兼容准备边界，不是原论文环境等价、模型许可、权重下载、Claim执行或科学结果接受。
+5090固定脱敏记录aa85841ff83be31c86e0fa305d3a84d70f2158b5；旧R0“环境未安装”是历史快照，
+后续安装事实和Owner当前决定覆盖该环境状态，权重/Claim审批仍未授予，不修改5090远端文件。
+
+## W1-OD-20261104-DUAL-GOV-02 — 保留双机分支与既有研究起点
+
+Source：Owner当前会话明确决定（2026-11-04 JST）；Status OWNER_CONFIRMED。
+保留5060 research/paper1-chinese-defense-5060与5090 research/paper1-ragdefender-repro-5090及各自既有起点。
+不重置、不变基、不跨分支合并/cherry-pick，不为统一baseline改历史。先补差异、证据和审批链。
+启动5060 066ce0ced75c9bbf61cfec03f3d0d93aa8324f07，5090 aa85841ff83be31c86e0fa305d3a84d70f2158b5；
+共同祖先4dc9161e79b79ece70a7c17144175a19b985770d；5060先前开发起点8dec9453de2ebd5ea03e4cbdf753b2f0d7347177保持。
+
+## 当前Owner P1监督范围（关联上述两决定）
+
+Owner授权本轮仅零付费治理/查询场景与公平性合同准备、V2草案审阅、固定Pilot12、D1白名单强化、本分支提交推送后停止。
+禁止付费探测/Pilot、D1-40、B5/B6实质方法实验、GT/D2D3修改或访问、换生成器和主线合并。
+完整可审阅合同已准备，不自动转为实验执行批准；HumanGold仍0，旧E1不作为查询级结果。
+[来源安全收据](../paper1/dual_machine/chinese5060/p1/evidence/OWNER_DECISIONS_RECEIPT.json)；
+[准入报告](../paper1/dual_machine/chinese5060/W1_5060_OWNER_GOVERNANCE_AND_P1_GATE.md)。
+
+
+
 ## PODR-161 — Week1双机工作线与P0优先授权（2026-11-04）
 
 Owner本会话明确授权5060独立开发/工程/合同内实验和仅本分支提交推送，分支research/paper1-chinese-defense-5060；

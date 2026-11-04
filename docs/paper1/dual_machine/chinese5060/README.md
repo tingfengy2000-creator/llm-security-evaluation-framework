@@ -1,4 +1,12 @@
-# 5060 中文RAG工作线：P0交付
+# 5060 中文RAG工作线
+
+当前：P1零付费准备与双机治理同步完成，真实Pilot仍BLOCKED。先读
+[Owner治理与P1准入](W1_5060_OWNER_GOVERNANCE_AND_P1_GATE.md)及
+[12题场景/公平性矩阵](W1_5060_P1_SCENARIO_AND_FAIRNESS_GATE.md)。
+固定候选参数见[p1机器合同](p1/P1_PROTOCOL_CANDIDATE.json)，不是运行批准。
+本轮未建真实索引、未生成TopK、未调用Qwen；完成Git交付后停止。
+
+以下保留P0导航；其中场景/成本/交接状态是P0快照，后续状态以上述P1报告为准。
 
 先读[初始状态与实际验证报告](W1_5060_P0_INITIAL_STATUS.md)。当前只完成P0与虚构基础工程检查；
 真实Pilot12、D1-40与B5/B6效果均未运行，不宣称方法成功或RAGDefender中文失效。

@@ -1,0 +1,64 @@
+{
+  "as_of_jst": "2026-11-04",
+  "source": "https://help.aliyun.com/zh/model-studio/qwen3-7-plus",
+  "section": "exact qwen3.7-plus-2026-05-26 snapshot / Beijing model price",
+  "source_evidence": "OFFICIAL_PUBLIC_WEB_OBSERVATION_NOT_PROVIDER_OR_ACCOUNT_PROBE",
+  "model": "qwen3.7-plus-2026-05-26",
+  "region": "cn-beijing",
+  "CNY_per_million": {
+    "input_le_256K": "2",
+    "output_le_256K": "8",
+    "input_above_256K": "6",
+    "output_above_256K": "24"
+  },
+  "cache_discount_assumed": false,
+  "batch_discount_assumed": false,
+  "model_documented": true,
+  "account_model_available": "UNKNOWN_NO_PROBE",
+  "other_price_table_direct_open": "TIMEOUT_NO_THIRD_PARTY_FALLBACK",
+  "historical_calls": 361,
+  "historical_input_tokens": 2984761,
+  "historical_output_tokens": 205288,
+  "historical_usage_CNY": "7.611826",
+  "owner_reported_CNY": "7.528095914",
+  "difference_CNY": "0.083730086",
+  "pending_CNY": "0_OWNER_ATTESTED",
+  "account_balance": "OWNER_ATTESTED_USABLE_NUMERIC_BALANCE_UNKNOWN",
+  "current_task_calls": 0,
+  "current_task_cost_CNY": "0",
+  "budget_USD": {
+    "cap": "30",
+    "warning": "25",
+    "stop_new_projected_batch": "28"
+  },
+  "historical_conservative_CNY_per_USD": "6_NOT_SPOT_FX",
+  "reserve_formula": "((input_cap+16)*input_rate+(output_cap+16)*output_rate)/1e6",
+  "input_cap_conditional_on_exact_token_count": 16384,
+  "generator_or_optional_judge_CNY": "0.049312",
+  "verifier_CNY": "0.04112",
+  "per_trust_stratum_ceiling_including_optional_judge_CNY": "32.555520",
+  "two_strata_T0_T1_ceiling_CNY": "65.111040",
+  "two_strata_plus_historical_conservative_usage_CNY": "72.722866",
+  "matrix_counts_per_stratum": {
+    "worlds": 36,
+    "methods": 5,
+    "generation_calls_max": 180,
+    "verification_calls_max": 360,
+    "optional_judge_calls_max": 180
+  },
+  "not_included": [
+    "C3",
+    "future methods",
+    "unknown fees",
+    "retries (prohibited)"
+  ],
+  "missing_before_admission": [
+    "exact model token counter",
+    "current account model availability",
+    "bill scope reconciliation",
+    "numeric balance or bounded reserved balance receipt",
+    "request reservation and settlement linkage",
+    "scenario and Owner execution approval"
+  ],
+  "paid_execution_enabled": false
+}

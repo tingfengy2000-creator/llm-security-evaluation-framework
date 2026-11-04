@@ -1,0 +1,80 @@
+{
+  "run_id": "W1-5060-P1-20261104-02",
+  "design_run_id": "W1-5060-P1-20261104-02-DESIGN",
+  "source_sha": "fcdd848e29e3fea97b11a6352a4ff8e1665f4071",
+  "source_file_hashes": {
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/budget.py": "d835be554dafe89817a53175131e7df6321dd221e950ae29aa64743f37e65a39",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/control_plane.py": "b500e3f3a3c0f13d28c08809b6f04f19623ed00787e157fa1796d9c9282c109c",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/d1_access.py": "dad1f0ce1c9e042de6dfc177978f56179408a33a482a1a7df043b55604ea6358",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/p1_preparation.py": "c8f6e89ed3d56ddfc5c487557795e1cc2ddd714e90cdb4adedd33b537cb10eee",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/snapshots.py": "66aa5896e522da1209c1b384679a6658540d51a97874a47b3b5393b1db14050a",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/__init__.py": "d5322dc13dd78b59c8dac4451aa9fdc6bbe8e97be5be2692e004e48769e670c0",
+    "scripts/research/prepare_chinese5060_p1.py": "4fa11d0f9e9aa3b27c394a5a63d486f6ca56fc22dac749a9d018fd727d1cea70",
+    "scripts/research/validate_chinese5060_p1.py": "fd8693a1fd741b4a2f0eec27cd24d943e714086bca3bafd8388e7eb74b6a4d91",
+    "tests/research/test_chinese5060.py": "3ff31ba0d5331f74069b7319dc5e3ab0322df71a2b7662a062bd89ce6d51950f",
+    "tests/research/test_chinese5060_p1_access.py": "df16224052b00869254c5069c61204e38c7dad340436338227d3701349d9bcc6",
+    "tests/research/test_chinese5060_p1_preparation.py": "2d3f7c818d5d408290aaeeeca57ba8a920caf73d338278358b040ee978488899",
+    "docs/paper1/dual_machine/chinese5060/p1/P1_PROTOCOL_CANDIDATE.json": "6691273c5269ce52cb2c99629e3155daef38ebb36ccca01ae4402bc0cb22692c"
+  },
+  "handoff_commit": "aa85841ff83be31c86e0fa305d3a84d70f2158b5",
+  "handoff_docs": [
+    "handoff.json",
+    "upstream_pin.md",
+    "implementation_difference_audit.md",
+    "environment_manifest.md",
+    "failure_log.md",
+    "run_manifest.json",
+    "claim1_run_report.md"
+  ],
+  "checks": [
+    {
+      "name": "tests",
+      "exit_code": 0
+    },
+    {
+      "name": "ruff",
+      "exit_code": 0
+    },
+    {
+      "name": "mypy",
+      "exit_code": 0
+    },
+    {
+      "name": "D1_preparation",
+      "exit_code": 0
+    },
+    {
+      "name": "5090_handoff_json",
+      "exit_code": 0
+    },
+    {
+      "name": "5090_upstream_pin_md",
+      "exit_code": 0
+    },
+    {
+      "name": "5090_implementation_difference_audit_md",
+      "exit_code": 0
+    },
+    {
+      "name": "5090_environment_manifest_md",
+      "exit_code": 0
+    },
+    {
+      "name": "5090_failure_log_md",
+      "exit_code": 0
+    },
+    {
+      "name": "5090_run_manifest_json",
+      "exit_code": 0
+    },
+    {
+      "name": "5090_claim1_run_report_md",
+      "exit_code": 0
+    }
+  ],
+  "status": "PASS",
+  "paid_calls": 0,
+  "cost_CNY": "0",
+  "claim_runs": 0,
+  "retrieval_or_generation_runs": 0
+}

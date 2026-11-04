@@ -1,0 +1,31 @@
+{
+  "date_jst": "2026-11-04",
+  "source": "OWNER_CURRENT_CHAT_EXPLICIT_MESSAGE",
+  "source_artifact_kind": "SAFE_OPERATIONAL_TRANSCRIPTION_NOT_ORIGINAL_MESSAGE_BYTES",
+  "decisions": [
+    {
+      "id": "W1-OD-20261104-5090-ENV-01",
+      "status": "OWNER_CONFIRMED_CONDITIONAL",
+      "accepted": "separate compatibility environment with original preserved and differences disclosed",
+      "not_authorized": [
+        "model download",
+        "Claim execution",
+        "scientific result acceptance"
+      ]
+    },
+    {
+      "id": "W1-OD-20261104-DUAL-GOV-02",
+      "status": "OWNER_CONFIRMED",
+      "accepted": "retain independent 5060/5090 branches and prior starting commits",
+      "not_authorized": [
+        "reset",
+        "rebase",
+        "merge",
+        "cherry-pick",
+        "mainline merge"
+      ]
+    }
+  ],
+  "current_P1_scope": "ZERO_PAID_GOVERNANCE_SCENARIO_FAIRNESS_PREPARATION_THEN_STOP",
+  "B5_B6_D1_40_GT_D2_D3": "PROHIBITED_THIS_TASK"
+}

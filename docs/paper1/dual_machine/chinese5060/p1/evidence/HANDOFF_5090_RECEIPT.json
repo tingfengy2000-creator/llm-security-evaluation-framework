@@ -1,0 +1,64 @@
+{
+  "observed_remote_commit": "aa85841ff83be31c86e0fa305d3a84d70f2158b5",
+  "remote_branch": "origin/research/paper1-ragdefender-repro-5090",
+  "acquisition": "git fetch then git show fixed commit and exact redacted document paths; no merge/cherry-pick",
+  "upstream_sha": "ba2a17efba165d45409114df2d70b030ade1e1b8",
+  "upstream_v020_tag_commit": "2be0bb2f84b2bf4ef4a0f6d8387ad1c0d3df847a",
+  "research_baseline_5090": "4dc9161e79b79ece70a7c17144175a19b985770d",
+  "research_baseline_5060": "8dec9453de2ebd5ea03e4cbdf753b2f0d7347177",
+  "startup_5060_head": "066ce0ced75c9bbf61cfec03f3d0d93aa8324f07",
+  "startup_divergence_commits_5060_5090": [
+    14,
+    2
+  ],
+  "owner_decisions": [
+    "W1-OD-20261104-5090-ENV-01",
+    "W1-OD-20261104-DUAL-GOV-02"
+  ],
+  "official_env": "torch2.4.0+cu121 visible GPU but no sm120 kernel; preserved",
+  "compat_env": "separate torch2.8.0+cu128 triton3.4.0 sympy1.14.0 bitsandbytes0.45.5; conditionally accepted by Owner",
+  "claims": "NOT_RUN",
+  "weights_download": "NOT_AUTHORIZED_NOT_PERFORMED_REPORTED",
+  "metrics": "NOT_MEASURED",
+  "API": "NO_PAID_API_REPORTED",
+  "evidence_level": "SOURCE_DERIVED_GIT_DOCS_NOT_REEXECUTED_REMOTE_RAW",
+  "temporal_resolution": "initial run_manifest/claim reasons predate install; later environment section plus current Owner decision govern env status; claim gate remains closed",
+  "head_sha_null_in_handoff": "bound by observed git object rather than editing source handoff",
+  "captured_documents": [
+    {
+      "git_path": "docs/paper1/dual_machine/repro5090/handoff.json",
+      "bytes": 2049,
+      "sha256": "63b85645300e9183dc3a92c5966f23b4904fe397c192c7860f38142412ed2789"
+    },
+    {
+      "git_path": "docs/paper1/dual_machine/repro5090/upstream_pin.md",
+      "bytes": 690,
+      "sha256": "09de1c52a339fe0f4a23f7d82c7872a2f215a85fb3a5ce8958e094defb68848f"
+    },
+    {
+      "git_path": "docs/paper1/dual_machine/repro5090/implementation_difference_audit.md",
+      "bytes": 1055,
+      "sha256": "2b9c460357398cdf4b71e54e7b68de6de86c6f5dafd77265de826e94f5394bc4"
+    },
+    {
+      "git_path": "docs/paper1/dual_machine/repro5090/environment_manifest.md",
+      "bytes": 3016,
+      "sha256": "7b22732716fe501784deb25ed4291bbe3f756e4877c9fba3a2bdc6fed4f9addc"
+    },
+    {
+      "git_path": "docs/paper1/dual_machine/repro5090/failure_log.md",
+      "bytes": 1692,
+      "sha256": "7be6121a9d5c3c376424fdb7e3426f1b46bbc1837da1905ac98882173cc542c0"
+    },
+    {
+      "git_path": "docs/paper1/dual_machine/repro5090/run_manifest.json",
+      "bytes": 1996,
+      "sha256": "21b91626dae4631a4a42cfaf4aa3e0ddf80b1c783d6b6859a3d787df16fda147"
+    },
+    {
+      "git_path": "docs/paper1/dual_machine/repro5090/claim1_run_report.md",
+      "bytes": 582,
+      "sha256": "856b006d834fb4a3d01844253308770363ecbc8d23e0dcc9ee3d3ff7ccc634b9"
+    }
+  ]
+}

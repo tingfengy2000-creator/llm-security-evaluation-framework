@@ -1,0 +1,90 @@
+{
+  "policy": "EXACT_RELATIVE_PATH_AND_SHA_DEFAULT_DENY_NO_DISCOVERY",
+  "workspace_root": "OWNER_WORKSPACE_ROOT_REDACTED",
+  "bindings": {
+    "queries_v2": {
+      "relative_path": ".worktrees/paper1-rag-defense-reconstruction-01/experiments/rag_defense_reconstruction_01/ai_adjudication_01/prepared_drafts_v2/QUERY_DRAFTS_WITHOUT_ANSWERS.json",
+      "sha256": "d7b4656a6985e7375df71281713b1f6b73f745c9ac37296878eb0bac6002e500"
+    },
+    "answer_proposals_v2": {
+      "relative_path": ".worktrees/paper1-rag-defense-reconstruction-01/experiments/rag_defense_reconstruction_01/ai_adjudication_01/prepared_drafts_v2/EVALUATOR_ANSWER_PROPOSALS_PRIVATE.json",
+      "sha256": "b5c7a2af6d3f30d5da68bfb553293ff9b1fe76ac7d93defba61da3cdacfeb14e"
+    },
+    "question_versions": {
+      "relative_path": ".worktrees/paper1-rag-defense-reconstruction-01/experiments/rag_defense_reconstruction_01/ai_adjudication_01/prepared_drafts_v2/QUESTION_VERSION_CHANGELOG_EVALUATOR_ONLY.json",
+      "sha256": "f3254411b8f7be6b273d7cf4f634b019aeca0e5e0606e514dab825be614a8831"
+    },
+    "sources": {
+      "relative_path": ".worktrees/paper1-rag-defense-reconstruction-01/experiments/rag_defense_reconstruction_01/ai_adjudication_01/input/SOURCES.json",
+      "sha256": "ad38ee7ca018f89e801f70a6e985b1f4194b940badeef92accd9305f7462d458"
+    },
+    "query_mapping": {
+      "relative_path": ".worktrees/paper1-rag-defense-reconstruction-01/experiments/rag_defense_reconstruction_01/adjudication_review_01/CONTROL_MAPPING_EVALUATOR_ONLY.json",
+      "sha256": "70a7d03559c5e2a20f6e8c7777ec32fc7d789559430d866a9ff4a8745283b9dc"
+    },
+    "selection": {
+      "relative_path": ".worktrees/paper1-rag-defense-reconstruction-01/experiments/rag_defense_reconstruction_01/pilot_freeze/SELECTION_EVALUATOR_ONLY.json",
+      "sha256": "2c16fd6915c2dee377631d311ff33fe0ad36fdc8928a86e8fcabdcbca01cf689"
+    },
+    "bundle_manifest": {
+      "relative_path": ".worktrees/stage6-rag/experiments/vace_l0_handoff_20261029_run01/private_input_v2/BUNDLE_MANIFEST.json",
+      "sha256": "a7e05d2ebedbc68abc21fff46a0ad1597747712020957ac30cf1445353714a60"
+    },
+    "f5": {
+      "relative_path": ".worktrees/stage6-rag/experiments/vace_l0_handoff_20261029_run01/private_input_v2/runtime/f5.jsonl",
+      "sha256": "c849260e2a41fa9186e6d69ed6442cbebdaa7ff272beece9dfadc22e61cf535c"
+    }
+  },
+  "actual_read_receipts": [
+    {
+      "request": "queries_v2",
+      "status": "PINNED_READ"
+    },
+    {
+      "request": "answer_proposals_v2",
+      "status": "PINNED_READ"
+    },
+    {
+      "request": "sources",
+      "status": "PINNED_READ"
+    },
+    {
+      "request": "query_mapping",
+      "status": "PINNED_READ"
+    },
+    {
+      "request": "question_versions",
+      "status": "PINNED_READ"
+    },
+    {
+      "request": "selection",
+      "status": "PINNED_READ"
+    },
+    {
+      "request": "bundle_manifest",
+      "status": "PINNED_READ"
+    },
+    {
+      "request": "f5",
+      "status": "PINNED_READ"
+    }
+  ],
+  "unlisted_requests": "REJECT_BEFORE_FILESYSTEM_LOOKUP",
+  "denied_test_classes": [
+    "D2",
+    "D3",
+    "Reviewer",
+    "Oracle",
+    "absolute_path",
+    "parent_traversal",
+    "wildcard",
+    "ADS",
+    "case_alias",
+    "directory",
+    "symlink",
+    "junction"
+  ],
+  "runtime_access": "NONE_PREPARATION_EVALUATOR_ONLY",
+  "OS_sandbox_claim": false,
+  "prior_P0_metadata_incident_preserved": "isolation_incident.md"
+}

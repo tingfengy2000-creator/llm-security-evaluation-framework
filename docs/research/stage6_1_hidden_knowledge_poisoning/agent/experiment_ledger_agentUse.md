@@ -1,5 +1,21 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## 当前 / CURRENT — 双机治理已登记，P1零付费准备完成（2026-11-04）
+
+PAPER1-W1-5060-P1；P1_PREPARATION_COMPLETE / REAL_PILOT_BLOCKED。
+Owner W1-OD-20261104-5090-ENV-01有条件接受5090独立兼容环境，但不授权权重下载或Claim；
+W1-OD-20261104-DUAL-GOV-02保留两机分支及既有起点，不reset/rebase/merge/cherry-pick。
+5090脱敏Git固定aa85841ff83be31c86e0fa305d3a84d70f2158b5，上游ba2a17efba165d45409114df2d70b030ade1e1b8；Claim均NOT_RUN。
+5060执行fcdd848e29e3fea97b11a6352a4ff8e1665f4071，run W1-5060-P1-20261104-02；48tests/Ruff/MyPy和11项命令检查通过。
+固定Pilot12/选择hash不变；12题38事实字段56引用/18来源hash定位通过，但HumanGold0，12题评分/target仍NEEDS_ADJUDICATION。
+36互斥世界设计各1候选+18共同低信任背景，整库身份和正文副本检查通过；实际索引0/TopK0/生成0，不能称真实RAG成绩。
+旧Top5有5/36缺V2引用来源，不能直接继承；T1独立官方根与B1库/论文轨道等仍待审批。T2禁用。
+D1仅8路径hash白名单，无D2D3/Reviewer/Oracle内容读取，P0文件名事件保留。新API0/费用0，无B5/B6/D1-40/新Claim。
+精确Qwen公开北京原价已查，账户/精确token计数/账单差额仍未核，不探测；USD30/25预警/28停止新批保持。
+下一门：Owner审阅B1轨道、共同背景/可信证据权限、答案/攻击目标/C3规则及零费用真实检索预检范围；本轮交付后停止。
+[P1治理与准入报告](../../../paper1/dual_machine/chinese5060/W1_5060_OWNER_GOVERNANCE_AND_P1_GATE.md)。下方历史记录保留，不产生付费、模型下载或方法接受授权。
+
+
 ## 当前 / CURRENT — 5060 P0审计与虚构基础工程通过（2026-11-04）
 
 PAPER1-W1-5060-P0；PODR-161；P0_ENGINEERING_PASS / REAL_PILOT_NOT_READY。

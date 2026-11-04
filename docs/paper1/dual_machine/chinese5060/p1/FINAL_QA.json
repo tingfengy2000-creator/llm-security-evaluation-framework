@@ -1,0 +1,23 @@
+{
+  "task": "PAPER1-W1-5060-P1",
+  "status": "PASS",
+  "staged_files_checked": 23,
+  "secret_or_private_absolute_path_findings": [],
+  "unsafe_staged_names": [],
+  "private_row_keys_in_public_json": [],
+  "broken_links": [],
+  "source_drift": [],
+  "prompt_or_source_blob_drift": [],
+  "public_git_blob_drift": [],
+  "archive_hash_crc_index_match": true,
+  "runtime_not_importing_evaluator": true,
+  "private_outputs_gitignored": true,
+  "captured_tests_passed": 48,
+  "Ruff": "PASS",
+  "MyPy": "PASS_8_SOURCE_FILES",
+  "new_API_calls": 0,
+  "source_sha": "fcdd848e29e3fea97b11a6352a4ff8e1665f4071",
+  "handoff_read_only_commit": "aa85841ff83be31c86e0fa305d3a84d70f2158b5",
+  "source_commit_already_remote": true,
+  "final_documentation_delivery": "LIVE_GIT_VERIFICATION_REQUIRED_AFTER_COMMIT"
+}
