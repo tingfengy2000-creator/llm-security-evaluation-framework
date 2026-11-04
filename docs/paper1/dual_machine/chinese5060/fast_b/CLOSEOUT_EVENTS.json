@@ -1,0 +1,14 @@
+{
+  "events": [
+    {
+      "stage": "staged_publication_audit",
+      "first_attempt": "VERIFIER_FAILED_BEFORE_SCAN",
+      "exception": "UnicodeDecodeError followed by AttributeError",
+      "cause": "Private QA helper used subprocess text decoding with the Windows default GBK codec on UTF-8 Git diff output.",
+      "affected_experiment": "NONE_NO_MODEL_OR_FILTER_RUN",
+      "repair": "Private QA helper decodes captured Git diff bytes explicitly as UTF-8; no experiment source, input, parameter or sealed evidence changed.",
+      "verification": "REPEATED_PUBLICATION_SCAN_PASS_17_FILES",
+      "note": "Initial tool shell continued to later Git checks and returned zero; that shell exit is not treated as a successful first scan. Scientific metrics remain NOT_RUN."
+    }
+  ]
+}

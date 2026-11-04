@@ -1,0 +1,147 @@
+{
+  "status": "PREPARED_UNSIGNED_NOT_REVIEW_COMPLETED",
+  "cards": 12,
+  "fact_atoms": 38,
+  "source_documents": 16,
+  "human_gold": 0,
+  "input_card_index_sha256": "ec18c60e6841617e3edaae9bb5b8e5af05fc7fcab49029b7b8672f85758cc908",
+  "results_consulted": false,
+  "labels_or_candidates_read": false,
+  "source_access": [
+    {
+      "request": "sources",
+      "status": "PINNED_READ"
+    }
+  ],
+  "source_files": [
+    {
+      "filename": "SOURCE-01.json",
+      "sha256": "29207c231e43a1c7a0e755ff65f37d8bef4032449b21d845f7a0cee080055f61"
+    },
+    {
+      "filename": "SOURCE-02.json",
+      "sha256": "207c3d447f13de0dbb1317ff79efa98c563fa069421129826955d171ed33f50c"
+    },
+    {
+      "filename": "SOURCE-03.json",
+      "sha256": "7fe7386f397d9e680bbb301564e12f153a6d99c69d8d77f2d3d2ccdcb5389e50"
+    },
+    {
+      "filename": "SOURCE-04.json",
+      "sha256": "9d0c41eb38aeaaec662045549e2723fe93497f3921fdf9a9a9f2a93c7bf90fa7"
+    },
+    {
+      "filename": "SOURCE-05.json",
+      "sha256": "5e317af95af1964eb1102f91658ac58733ba63b63cd841c69cf9df16cacee7c8"
+    },
+    {
+      "filename": "SOURCE-06.json",
+      "sha256": "ad1d846cda134b2459f074ea38f9eaee8b96519cb4482582e59c193f3c6ccbae"
+    },
+    {
+      "filename": "SOURCE-07.json",
+      "sha256": "90a8ecb895ab6776cf2d91225557e1593daa49a2651189604dd0d7ab778da186"
+    },
+    {
+      "filename": "SOURCE-08.json",
+      "sha256": "a1ea3d0d079855721553a77226b1bb100a5ace06fb4adf431446a9d18628bc8b"
+    },
+    {
+      "filename": "SOURCE-09.json",
+      "sha256": "6faa11aabeebad15fada883fe445fb4779b0439067e44795fb1a6fc1e39f4619"
+    },
+    {
+      "filename": "SOURCE-10.json",
+      "sha256": "b69721fa72e002eb7513c6b20b4cfe7f796af31056b42769f59c753032f30146"
+    },
+    {
+      "filename": "SOURCE-11.json",
+      "sha256": "ab11844d18bc8ef06ad4ab9777bb7a91658d8b46c40645853686dd3d00fe5dc6"
+    },
+    {
+      "filename": "SOURCE-12.json",
+      "sha256": "c4331026cbe81681e85721053d49405d34838c7e10eff63a3ca64757ed5d51a4"
+    },
+    {
+      "filename": "SOURCE-13.json",
+      "sha256": "1119987eb1ffc9897c27e8022fa18584c96aaf62822fa2da9bc8af6862460348"
+    },
+    {
+      "filename": "SOURCE-14.json",
+      "sha256": "05df107e666d940658184180c23f1f030df311d8c98142ab2c133a66e50dedc3"
+    },
+    {
+      "filename": "SOURCE-15.json",
+      "sha256": "4cd6097def44d09f497df841b86003d27ddb1be1b3e8a253509de39407d90c97"
+    },
+    {
+      "filename": "SOURCE-16.json",
+      "sha256": "87c09bb127b20d21fe4fa47f742ca7bced35f78a24e794ccef8c817f9d01e437"
+    }
+  ],
+  "cards_index": [
+    {
+      "review_id": "REVIEW-01",
+      "sha256": "b64d7f6c000bf499000543841cad18893ef1ae7f993ce66f2cfe422af10ed85a",
+      "fact_atoms": 5
+    },
+    {
+      "review_id": "REVIEW-02",
+      "sha256": "e0dcdd27662f2fc8e9a605f25eb198119966d2de0be24912bd0423246f5b6a10",
+      "fact_atoms": 5
+    },
+    {
+      "review_id": "REVIEW-03",
+      "sha256": "1a85dc01114cfb1423f72f22e1a6cf1abc165160f7b16db29f1be3295add2069",
+      "fact_atoms": 2
+    },
+    {
+      "review_id": "REVIEW-04",
+      "sha256": "7687c5be3a797d15ccf2c060cce76ab5f970f73a97cc82a34310fa8d9b743242",
+      "fact_atoms": 3
+    },
+    {
+      "review_id": "REVIEW-05",
+      "sha256": "c719c186923f24c2447c08acbcb0649c37036dabcbce9bc724b3ad4fcf212697",
+      "fact_atoms": 2
+    },
+    {
+      "review_id": "REVIEW-06",
+      "sha256": "6d13cfd56f3ac073810ed8ca287cb42dd73c05e2fbe4b92569070da9c34d2342",
+      "fact_atoms": 2
+    },
+    {
+      "review_id": "REVIEW-07",
+      "sha256": "4d02593f6a9aaf0b64aa5c05c3e596180226289eb18377fcc2125febe1a139c2",
+      "fact_atoms": 3
+    },
+    {
+      "review_id": "REVIEW-08",
+      "sha256": "fccf9be400da8deafac48a22f807c0953349c91d3d14bb10d7886f09b4641c13",
+      "fact_atoms": 4
+    },
+    {
+      "review_id": "REVIEW-09",
+      "sha256": "ebb20ac2cfa7e9fff02734a60663a0362b6b8c7260578168c47b0c4a805ab83d",
+      "fact_atoms": 2
+    },
+    {
+      "review_id": "REVIEW-10",
+      "sha256": "51d7d5e0643b7439ca96125e91afa3cea2bd4ea1fb9b4170796b9d6f4a996be6",
+      "fact_atoms": 3
+    },
+    {
+      "review_id": "REVIEW-11",
+      "sha256": "e68d88dccc53882fd6995c9eefa590669328e6bb29387bb82e445b2fdc8d726f",
+      "fact_atoms": 4
+    },
+    {
+      "review_id": "REVIEW-12",
+      "sha256": "6c4af8aeb317c7f63218080d236d3ca02465bfa6424fd3ca37d89292497a7bc0",
+      "fact_atoms": 3
+    }
+  ],
+  "instructions_sha256": "9c2d0aad2b73bb1b5533e16312b945e817f566d599ee045dc5419d52526cdf90",
+  "new_API_calls": 0,
+  "download_bytes": 0
+}

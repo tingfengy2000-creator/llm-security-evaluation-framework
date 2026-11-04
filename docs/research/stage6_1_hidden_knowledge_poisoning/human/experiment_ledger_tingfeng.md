@@ -1,5 +1,19 @@
 # Paper 1 人类可读实验总规划与实验总账
 
+## 当前 / CURRENT — 5060 Fast-Track B准入审计及盲审材料已保存，执行合同缺口待补（2026-11-05 JST）
+
+PAPER1-W1-5060-FAST-B；FAST_B_PARTIAL_PREFLIGHT_PASS / B1_B2_NOT_RUN_CONTRACT_BLOCKED；不是Fast-Track B完成。
+控制面f491c0a507e5555e9611c022cfba66980ad8cbca，W1-OD-20261105-FAST-B-04与RESOURCE-REPRO-05已核；原分支仅ff-only同步。
+官方源码ba2a17ef未改；原P2封存成员及36份TopK字节身份通过，不重新检索；29命中/7miss仅沿用P2历史输入聚合。
+本轮4tests/Ruff/MyPy1源码通过，独立待审包12题/38事实原子/16官方来源，未签署、HumanGold0，未阅读候选/标签/预测来制卡。
+Owner消息要求随附最终Prompt，但聊天附件清单和固定授权目录未找到；W1-5060-FAST-B-CONTRACT-01 / HUMAN_DECISION_REQUIRED。
+受影响下载/模型载入/B1/B2未启动；新HF请求0/下载0/API0/费用0。ASR/QA未测，不能将未运行填0或宣称RAGDefender失效。
+新项目进程TEMP/TMP/缓存/日志/归档落D；本支路64MiB峰值、20GiB安全余量；取消D/E原1GiB限不放宽250MiB下载界。
+下一Owner Gate：提供最终Prompt确切身份后核对额外门，再闭合模型/下载合同；独立人工审定范围/target/C3另待返回。
+T1/T2、付费、B3/B4/B5/B6、D1-40、D2D3/Reviewer/GT及跨分支合并仍禁止。checkpoint文档/Git交付后STOP。
+[Fast B审计和受阻交付](../../../paper1/dual_machine/chinese5060/W1_5060_FAST_B_B1_B2_OFFLINE_RESULT.md)。 下方旧状态均保留为历史，不追溯改写原BLOCKED或授权事实。
+
+
 ## 当前 / CURRENT — Fast-Track A T0/B0真实检索完成（2026-11-04）
 
 PAPER1-W1-5060-P2-FAST-A；T0_B0_DIAGNOSTIC_COMPLETE / B1_B2_BLOCKED。

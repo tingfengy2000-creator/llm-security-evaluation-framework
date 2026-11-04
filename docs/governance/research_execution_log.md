@@ -3143,3 +3143,17 @@ T1未授信/T2禁用，无B3/B4/B5/B6/D1-40/Claim；D2D3/Reviewer/GT Vault未读
 2026-11-05 JST，授权W1-OD-20261105-FAST-B-04与W1-OD-20261105-RESOURCE-REPRO-05。5060分支从3ca27c9416ea630e7f82c5b98ceed93099bd57ac继续只登记Owner治理，尚未实际下载B1资产或执行B1/B2；允许HF官方固定revision 1110a243fdf4706b3f48f1d95db1a4f5529b4d41最小白名单，网络总量仍限250MiB。Owner后续明确C盘禁止项目可控新增，D/E磁盘1GiB新增限可放宽，但须冻结具体任务峰值/临时文件/安全剩余空间；不放宽下载或数据权限。
 5090仍从独立分支只读获取本授权，不改代码/分支起点。Owner将作者三个ACSAC开源Artifact Claims的完整主要矩阵设为未来基线复现优先目标，同时仅授权5090无下载、无API、无真实Claim的静态覆盖/环境/脚本和许可资源前置审计。论文正文、官方legacy artifact、兼容环境与中文迁移结果必须分列；原torch2.4/sm_120失败及历史Smoke异常不改。
 不涉及正式PODR自动编号、D2/D3、GT、T1/T2、付费API、B3/B4/B5/B6、D1-40、BEIR或任何新权重和正式Claim执行。两个Owner十二字段记录：[Fast-Track B](../paper1/dual_machine/owner_approvals/W1_FAST_TRACK_B_OWNER_AUTHORIZATION_20261105.md)、[存储及复现路线](../paper1/dual_machine/owner_approvals/W1_STORAGE_AND_REPRO_RESEARCH_DIRECTION_20261105.md)。当前仍为新阶段AUTHORIZED_NOT_EXECUTED，后续结果必须另有Run Manifest/Git SHA。
+
+
+## REL-W1-5060-FAST-B-20261105-01 — 准入审计与未签盲审包，执行合同缺口
+
+PAPER1-W1-5060-FAST-B；FAST_B_PARTIAL_PREFLIGHT_PASS / B1_B2_NOT_RUN_CONTRACT_BLOCKED；不是Fast-Track B完成。
+控制面f491c0a507e5555e9611c022cfba66980ad8cbca，W1-OD-20261105-FAST-B-04与RESOURCE-REPRO-05已核；原分支仅ff-only同步。
+官方源码ba2a17ef未改；原P2封存成员及36份TopK字节身份通过，不重新检索；29命中/7miss仅沿用P2历史输入聚合。
+本轮4tests/Ruff/MyPy1源码通过，独立待审包12题/38事实原子/16官方来源，未签署、HumanGold0，未阅读候选/标签/预测来制卡。
+Owner消息要求随附最终Prompt，但聊天附件清单和固定授权目录未找到；W1-5060-FAST-B-CONTRACT-01 / HUMAN_DECISION_REQUIRED。
+受影响下载/模型载入/B1/B2未启动；新HF请求0/下载0/API0/费用0。ASR/QA未测，不能将未运行填0或宣称RAGDefender失效。
+新项目进程TEMP/TMP/缓存/日志/归档落D；本支路64MiB峰值、20GiB安全余量；取消D/E原1GiB限不放宽250MiB下载界。
+下一Owner Gate：提供最终Prompt确切身份后核对额外门，再闭合模型/下载合同；独立人工审定范围/target/C3另待返回。
+T1/T2、付费、B3/B4/B5/B6、D1-40、D2D3/Reviewer/GT及跨分支合并仍禁止。checkpoint文档/Git交付后STOP。
+[Fast B报告](../paper1/dual_machine/chinese5060/W1_5060_FAST_B_B1_B2_OFFLINE_RESULT.md)。 下方旧状态均保留为历史，不追溯改写原BLOCKED或授权事实。

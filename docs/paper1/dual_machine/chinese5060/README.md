@@ -1,5 +1,9 @@
 # 5060 中文RAG工作线
 
+当前Fast-Track B：准入审计及12题独立待审包已保存；因最终Prompt缺失，下载/B1/B2未运行，整体未完成。
+见[Fast B状态与下一门](W1_5060_FAST_B_B1_B2_OFFLINE_RESULT.md)；以下P2/P1/P0均为历史导航。
+
+
 
 当前：Fast-Track A零API T0/B0已完成，36世界TopK与重放均成功；B1/B2因默认模型身份前置未闭合BLOCKED。
 先读[P2真实检索诊断](W1_5060_P2_T0_RETRIEVAL_DIAGNOSTIC.md)及[56测试/命令摘要](p2/evidence/COMMAND_SUMMARY_PUBLIC.json)。
