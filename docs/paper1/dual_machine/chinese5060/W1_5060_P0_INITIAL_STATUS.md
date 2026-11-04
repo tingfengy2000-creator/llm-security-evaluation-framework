@@ -64,3 +64,6 @@ smoke输出中的unknown-billing为负向准入fixture，并非覆盖Owner同会
 
 详见[数据](authorized_data_manifest.md)、[场景](scenario_protocol.md)、[公平性](baselines_and_fairness.md)、
 [费用](cost_ledger_summary.md)、[失败/阻断](evidence/failures_and_blockers.json)、[下一门](gates_and_decisions.md)。
+
+内容交付commit `d70454f31d7ab9b438390a1b47971533c5bf5161` 已核远端一致、clean、ahead/behind=0/0；
+最终证明提交仅补Git验收记录，见[evidence/GIT_DELIVERY_VERIFICATION.json](evidence/GIT_DELIVERY_VERIFICATION.json)。

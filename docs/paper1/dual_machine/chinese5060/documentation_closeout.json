@@ -21,7 +21,8 @@
     "cross_document_status_consistent": true,
     "cross_document_next_action_consistent": true,
     "cross_document_blocker_consistent": true,
-    "markdown_links_valid": true
+    "markdown_links_valid": true,
+    "git_content_delivery_verified": true
   },
   "conditional_documents": {
     "experiment_master": "UPDATED_ENGINEERING_VALIDATION_AND_GATES",
@@ -37,12 +38,13 @@
     "private_evidence_index_sha256": "0332e0dc60177e754a28afada9a32048cdf9fa6de33faccc643dd0c10ad14f3d",
     "archive_sha256": "6a19d88de44fea033b62956fb0ee51683cf422c16b72fcd577d51ba12cf47c90",
     "source_commit_remote_verified": true,
-    "final_delivery_git_sync": "REQUIRES_LIVE_VERIFICATION_AFTER_DOCUMENTATION_COMMIT"
+    "final_delivery_git_sync": "VERIFIED_CONTENT_COMMIT_D70454F_REMOTE_CLEAN_0_0",
+    "verified_delivery_content_commit": "d70454f31d7ab9b438390a1b47971533c5bf5161"
   },
   "markdown_links_valid": true,
   "no_D2_D3_or_reviewer_payload_read": true,
   "no_private_input_predictions_keys_models_staged": true,
   "raw_command_logging": "CAPTURED_RUN_HAS_ARGV_CWD_START_END_STDOUT_STDERR_EXIT",
   "initial_tool_only_observations": "DISCLOSED_AS_NOT_STANDALONE_RAW_LOGS",
-  "local_documentation_closeout": "PASS_PENDING_FINAL_LIVE_GIT_DELIVERY_CHECK"
+  "local_documentation_closeout": "PASS"
 }
