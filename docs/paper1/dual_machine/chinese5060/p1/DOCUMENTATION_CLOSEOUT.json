@@ -18,7 +18,8 @@
     "cross_document_status_consistent": true,
     "cross_document_next_action_consistent": true,
     "cross_document_blocker_consistent": true,
-    "markdown_links_valid": true
+    "markdown_links_valid": true,
+    "git_content_delivery_verified": true
   },
   "conditional_documents": {
     "experiment_master": "UPDATED_PREPARATION_INPUT_EVIDENCE_GATES",
@@ -34,10 +35,11 @@
   "private_index_sha256": "4995030167c2e37c4174428bcfaa9776ab7dc55a185421e44e1dcab9067cf5d4",
   "formal_experiment": "NOT_STARTED",
   "new_API_calls": 0,
-  "git_delivery": "SOURCE_COMMIT_VERIFIED_REMOTE_FINAL_DOCUMENTATION_REQUIRES_LIVE_CHECK",
+  "git_delivery": "VERIFIED_CONTENT_COMMIT_BA953D8_REMOTE_CLEAN_0_0",
   "markdown_links_valid": true,
   "secret_and_label_isolation": "PASS",
-  "local_documentation_closeout": "PASS_PENDING_LIVE_GIT_DELIVERY_CHECK",
+  "local_documentation_closeout": "PASS",
   "latest_5090_supplement": "01554702b0bc14b7203712c83423d8245eacb3d3",
-  "branch_local_PODR154_collision": "NAMESPACED_BY_BRANCH_COMMIT_AND_OWNER_W1_IDS"
+  "branch_local_PODR154_collision": "NAMESPACED_BY_BRANCH_COMMIT_AND_OWNER_W1_IDS",
+  "verified_content_commit": "ba953d89ed77124f1a7d1151a926abb4fa063184"
 }

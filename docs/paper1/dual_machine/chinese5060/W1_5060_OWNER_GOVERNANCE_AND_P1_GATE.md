@@ -120,3 +120,6 @@ Owner同会话报告CNY5.903857258+1.624238656=7.528095914、无未结算、账�
 
 world索引canonical hash采用UTF-8、排序键、无空白JSON的SHA256；其余表项为文件原始字节SHA256。
 验证原始argv/cwd/stdout/stderr/exit及本地Query/答案/世界正文均留受控目录，不进入公开Git。
+
+内容交付commit `ba953d89ed77124f1a7d1151a926abb4fa063184` 已核远端一致、clean、ahead/behind=0/0；
+最终证明提交仅补Git验收，见[交付收据](p1/evidence/P1_GIT_DELIVERY.json)。
