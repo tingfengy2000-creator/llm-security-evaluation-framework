@@ -1,5 +1,9 @@
 # Paper 1 标注经验与未来数据规则
 
+## AI来源审阅暂定经验 — 2026-11-04
+
+`PROVISIONAL / NOT_A_NEW_ANNOTATION_RULE`。多个agent一致不等于人工金标准；逐字引用可定位也不证明语义支持。先隔离审阅并锁原件，再区分措辞差异、字段范围与缺源。补源使用新版本且不改变运行时证据权限，问题范围不明确时给Owner具体题干候选，避免要求Owner重做全部准备。[证据与限制](../core144/rag_defense_reconstruction_01/AI_DATA_PREPARATION_OWNER_REPORT.md)。
+
 ## 查询级迁移准备暂定经验 — 2026-11-04
 
 `PROVISIONAL / NOT_A_NEW_ANNOTATION_RULE`。短候选与反证包不能自动变成查询QA真值；query、答案、目标时间/范围、独立支持span必须另行裁决。同组三元组必须处于互斥世界。替代embedding的核心运行与原论文复现分开记录；缺证拒答须计效用损失。[证据与限制](../core144/rag_defense_reconstruction_01/OWNER_FEASIBILITY_DECISION_REPORT.md)。不修改既有Guide或历史数据。

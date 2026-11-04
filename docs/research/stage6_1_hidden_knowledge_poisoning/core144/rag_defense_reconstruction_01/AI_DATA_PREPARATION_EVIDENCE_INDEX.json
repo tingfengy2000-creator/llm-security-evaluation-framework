@@ -1,0 +1,226 @@
+{
+  "task": "PAPER1-RAG-DEFENSE-RECONSTRUCTION-01",
+  "scope": "AI_DATA_PREPARATION_NEW_NAMESPACE_ONLY",
+  "classification": "PRIVATE_AI_REVIEW_DRAFTS_NOT_HUMAN_GOLD",
+  "records": [
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/AGENT_PROVENANCE_FINAL_V1.json",
+      "bytes": 1873,
+      "sha256": "139bebd17e3e2704956f292b5b922f71e49863bd9f650c22289dafc72d9eb7c4"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/AGENT_PROVENANCE_V1.json",
+      "bytes": 1782,
+      "sha256": "0fed54e738983a5a1ff051376866b02e9da8a49f0f719fba8b25beecdca97506"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/aggregate_ai_preparation.command.json",
+      "bytes": 2249,
+      "sha256": "646e7dc67a54114071f3f5a7e7128b0a18e758f85e83ca46b132fabf3d1f798c"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/aggregate_ai_preparation.py",
+      "bytes": 9004,
+      "sha256": "04a50a458a322e257e9fe8e9fe413de96f5273f3f30ec1e86b014003f89f8885"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/AI_DATA_PREPARATION_SUMMARY_FINAL_V1.json",
+      "bytes": 3923,
+      "sha256": "64b6216a232daee4a803477b076f26acbae08e800bcf5b67c82e30d6b71e7b58"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/AI_DATA_PREPARATION_SUMMARY_V1.json",
+      "bytes": 3464,
+      "sha256": "ddb5d7b017a2ebd6dcbd006d2cc6fd6a6b690c28856edce4dd11cbc893a7c27f"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/compare_original_reviews.command.json",
+      "bytes": 808,
+      "sha256": "1dc379e07a1c95eb658db944af65e7f28c96defe261d4b46562c14be19e9e1cf"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/compare_original_reviews.py",
+      "bytes": 2227,
+      "sha256": "13436b1ca3ae9b917eb358a02e08eac5727031674fab88123d0e2a0fa3fea5fc"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/DELIVERY_QA_V1.json",
+      "bytes": 2222,
+      "sha256": "6d90ecfb17a56a4d2abde3889084e08d35f25462e2b6ceb3342254b725898cae"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/DISPATCH_AND_INPUT_QA.json",
+      "bytes": 802,
+      "sha256": "c21f043e5528440ee00a7380d38f9cf9c01d35c35a5be1b28ba4a38540b87909"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/input/QUESTIONS.json",
+      "bytes": 5942,
+      "sha256": "c52c1c7e102374fb6f34ae2b45e7d7d0eaa1587fcf7312eb4dd2b9197da1f430"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/input/SOURCES.json",
+      "bytes": 192203,
+      "sha256": "ad38ee7ca018f89e801f70a6e985b1f4194b940badeef92accd9305f7462d458"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/INPUT_MANIFEST.json",
+      "bytes": 863,
+      "sha256": "19ada5bb11db6e0aa21bf33a4c9f202057b93facde42642cb4d1ca5d4137ff47"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/ORIGINAL_REVIEW_COMPARISON_V1.json",
+      "bytes": 13992,
+      "sha256": "b2342d70f89d9bda507361d590dbe9b273b09812dce5d91adfb412478253f83c"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/ORIGINAL_REVIEW_VALIDATION_V1.json",
+      "bytes": 1103,
+      "sha256": "895d5d87747a816a963fce790e8b789b8046ec85c45f38b73aeb37c62c703556"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/OWNER_DECISION_PACKET_PRIVATE.json",
+      "bytes": 4307,
+      "sha256": "061d710c0db309b2bd510c14b17b5a4fe6298282aa0faad0503d08cf1fe60370"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/OWNER_REVIEW_SHORTLIST.md",
+      "bytes": 1756,
+      "sha256": "cc4fee58e16a19995073140d7e2a135126ccafba927e20c23be2734aad1e880c"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/prepared_drafts_v1/EVALUATOR_ANSWER_PROPOSALS_PRIVATE.json",
+      "bytes": 55411,
+      "sha256": "61eaa15293dd800c157e6ea555e5a489a62f44cdb3e149099c1c12dc50a10cee"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/prepared_drafts_v1/EXISTING_WORLD_CITED_WITNESS_COVERAGE_PRIVATE.json",
+      "bytes": 28103,
+      "sha256": "c886549ca148b44fe1affedc24310a4037bace8847941e6d7bf551e6298e6d68"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/prepared_drafts_v1/QUERY_DRAFTS_WITHOUT_ANSWERS.json",
+      "bytes": 3119,
+      "sha256": "c8579d0eb293dd6fa73e306c11ab1c8304b357581203ed3734807c235a1fe11f"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/prepared_drafts_v1/QUERY_REVIEW_ID_MAP_EVALUATOR_ONLY.json",
+      "bytes": 1205,
+      "sha256": "5f418ca317c4478fe3642d968c2f5f2b607e1930f21970de8eb22cb20782f873"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/prepared_drafts_v1/QUESTION_SCOPE_REVISION_PROPOSALS_PRIVATE.json",
+      "bytes": 1220,
+      "sha256": "0c87303a9c05dc8466d3327d39189a70d16c66f676bbac4f018c9d8b474464da"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/referee/BUILD_REFEREE_V1.py",
+      "bytes": 22234,
+      "sha256": "88229c6c6dbfb538c84a969334fbbb58b2931631a8033a1049141d1109578ac6"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/referee/PROCESS_NOTES.md",
+      "bytes": 6076,
+      "sha256": "7dfeb15d660b63ddc4ee1b4dc8f0a7b88a2736b5432417ed3335b153add8b7ac"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/referee/REFEREE_V1.json",
+      "bytes": 52299,
+      "sha256": "fab93fcdd13097d82de46aecb6df989d10b42321eb12c27b5d64dc571009a568"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/REFEREE_CITATION_QA_V1.json",
+      "bytes": 223,
+      "sha256": "ee55aa6f89806791993eac936e4a9aed1d4f6f2bb39108d21828a47c8c3ed59a"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/reviewer_a/PROCESS_NOTES.md",
+      "bytes": 2739,
+      "sha256": "045f6043ee3cbf29ce9a470dc23270cecae3f336935c6e09c94f45b6d372085f"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/reviewer_a/REVIEW_A_V1.json",
+      "bytes": 31212,
+      "sha256": "51aa933e6f664709e5be199754085376bb668ddb7554d75b32f9ad8457681330"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/reviewer_a/TARGETED_PROCESS_NOTES.md",
+      "bytes": 1738,
+      "sha256": "8d13bb7cc5e1f561435a931e67da34b31ae1799e6b688e63fc00055f1a4672d4"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/reviewer_a/TARGETED_REVIEW_A_V1.json",
+      "bytes": 2321,
+      "sha256": "3e0284ef2b5cf21d4f0502b310285ac973f5aebf0f317098b62ac793b0d46bcb"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/reviewer_b/PROCESS_NOTES.md",
+      "bytes": 2671,
+      "sha256": "fc4916ceef9dc7187a1055751f945062be3987825cee564c9247a7afdd5b8ed7"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/reviewer_b/REVIEW_B_V1.json",
+      "bytes": 31513,
+      "sha256": "ed214c34656705a3b49846e6383c4bfa17c169768b028dec6c92efd2467d6200"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/reviewer_b/TARGETED_PROCESS_NOTES.md",
+      "bytes": 2546,
+      "sha256": "0b68085275b9224a0580658fa4d14d3ff047823820a0d76fa69bcb8fcb4cc51b"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/reviewer_b/TARGETED_REVIEW_B_V1.json",
+      "bytes": 2649,
+      "sha256": "c8d97e38f7220618f6a6cd2e045d77dd5a17c9e0551f996a08513f3810f42c78"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/targeted_source_supplement_01/INPUT.json",
+      "bytes": 71867,
+      "sha256": "eec932cafb5b5e26055cc34c38fdb24c505a83863033ba61e264416d7c529a11"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/targeted_source_supplement_01/INPUT_LOCK.json",
+      "bytes": 240,
+      "sha256": "e858446602af53c0988d37d3eade2b751b3bb805bd0eef3d341c173922fd15f6"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/TARGETED_SUPPLEMENT_VALIDATION_V1.json",
+      "bytes": 958,
+      "sha256": "64af669420f9ee3744ec218dc2f9263f3d43d341c32ffb9a7bfbd22271e9c338"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/validate_ai_data_delivery.command.json",
+      "bytes": 1193,
+      "sha256": "c1a203ec29b3a38e10ec09d6857bd97cd46a611d09b529c58639dcef021842c1"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/validate_ai_data_delivery.py",
+      "bytes": 6800,
+      "sha256": "64f820ff388a28addf3cb08eb3a22462c9e26f3c97ed8d45e8ee8654361bdb31"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/validate_reviews.command.json",
+      "bytes": 1178,
+      "sha256": "bb368f7a869501323759db1b9fd7e3d01991352f6cc555439dd264fcf62b75f1"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/validate_reviews.py",
+      "bytes": 3498,
+      "sha256": "6c562971221c0ca37ceafe0bfefd85d33413c0c248fc222a621bd1dbf79ad9eb"
+    }
+  ],
+  "archive": {
+    "path": "experiments/rag_defense_reconstruction_01/AI_DATA_PREPARATION_EVIDENCE_20261104_V1.zip",
+    "bytes": 165695,
+    "sha256": "cbc32d6c51922483d6c46aeb8711a851383dba010502297868b7bf05a6dbf601"
+  },
+  "includes": "Assigned official source input, original AI outputs, targeted supplement, nonblind referee, checks and derived private drafts.",
+  "excludes": [
+    "credentials",
+    "models",
+    "environments",
+    "signed_human_GT_vault",
+    "old_prediction_payloads"
+  ],
+  "old_archives_unchanged": true
+}

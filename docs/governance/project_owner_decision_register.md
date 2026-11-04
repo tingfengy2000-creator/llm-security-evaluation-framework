@@ -1,5 +1,11 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-159 — 请求LOCAL与agent协助准备查询实验数据
+
+2026-11-04 JST；PAPER1-RAG-DEFENSE-RECONSTRUCTION-01。Owner询问“我应该做什么 怎么帮你准备实验数据…你可以直接准备数据吗 或者其他的agent帮你准备数据”。LOCAL按行动请求推进AI辅助数据准备和独立agent来源审阅，不要求Owner从零整理。
+范围：既有12题/官方归档来源的两份隔离AI审阅、引用核查、分歧分析和开发数据草案；问题/证据不足事项集中交Owner。只确认数据准备请求及agent协作范围，不把AI一致性当人工GT、科学方法接受、正式测试冻结或付费Pilot授权。先前不得自动调用付费API、不可变历史、D2D3独立线和B4真实缺口门保持。
+[流程与风险边界](../research/stage6_1_hidden_knowledge_poisoning/core144/rag_defense_reconstruction_01/AI_DATA_PREPARATION_PROTOCOL_V1.md)。
+
 ## PODR-158 — 中文版本感知检索防御重构；续接但不自动付费
 
 2026-11-04 JST；PAPER1-RAG-DEFENSE-RECONSTRUCTION-01。原Owner完整指令将当前问题调整为“面向中文RAG系统的版本感知隐蔽知识污染检测与检索上下文防御”，目标CCF C，不以超过旧E1的92.5%为主要目标；优先阶段一论文源码审计和阶段二查询Pilot准备。

@@ -175,5 +175,16 @@
     "new_paid_calls": 0,
     "query_drafts_for_review": 12,
     "approved_answers": 0
+  },
+  "ai_data_preparation": {
+    "artifact": "AI_DATA_PREPARATION_SUMMARY.json",
+    "classification": "AI_REVIEWED_DEVELOPMENT_DRAFT_NOT_HUMAN_GOLD",
+    "original_reviewers": 2,
+    "nonblind_source_referee": 1,
+    "source_qa_drafts_ready_provisionally": 11,
+    "scope_pending": 1,
+    "human_gold_answers": 0,
+    "new_paid_calls": 0,
+    "not_a_defense_effectiveness_experiment": true
   }
 }

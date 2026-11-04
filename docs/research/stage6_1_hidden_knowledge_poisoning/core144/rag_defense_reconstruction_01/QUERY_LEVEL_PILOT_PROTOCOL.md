@@ -29,3 +29,8 @@
 
 
 同日准备补充：已有12条query草稿和23次来源引用供独立审阅，全部答案null、未批准；它们不替换本协议的数据门，也不是已冻结场景。草稿作者已看候选，独立答案裁决仍必需。[具体状态](ADJUDICATION_REVIEW_PREPARATION.json)。
+
+
+## AI辅助准备扩展（PODR-159）
+
+Owner请求LOCAL/agent协助准备数据，采用独立上下文双审与来源复核。最终11题形成AI来源审阅草案，1题范围未定，全部仍非人工GT、非可执行场景；旧12题空白模板和原审阅记录保持。具体[AI准备协议](AI_DATA_PREPARATION_PROTOCOL_V1.md)及[结果](AI_DATA_PREPARATION_OWNER_REPORT.md)。原“独立人工裁决”表述不能理解为Owner必须亲手从零整理所有数据；AI可先作开发草案，需人工或更强独立验证的正式评估门不因此取消。

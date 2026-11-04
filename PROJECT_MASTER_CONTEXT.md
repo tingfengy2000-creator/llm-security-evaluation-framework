@@ -1,5 +1,11 @@
 # LLMGuard 项目总控文档
 
+## 当前 / CURRENT — AI数据草案已准备，Owner集中确认1项范围（2026-11-04）
+
+PAPER1-RAG-DEFENSE-RECONSTRUCTION-01；AI_DATA_PREPARATION_REVIEW_READY / QUESTION_SCOPE_DECISION_REQUIRED；PODR-159。12题/18源/38字段的两份隔离agent审阅及来源仲裁已完成，原始输出保留。原双审100处引用、仲裁58处引用定位通过；一题单独补源双审2字段/4处引用通过，未更改运行时Top5。最终11题有据AI草案、1题职责列举范围待定，另2项题干文字澄清建议；人工批准/金标准均0。
+这些是AI_REVIEWED_DEVELOPMENT_DRAFT_NOT_HUMAN_GOLD，不是防御效果或第三份独立盲审。新增阿里云API0/费用0，B4/正式实验未启动，D2D3/Human/GT/历史不改。下一步只需Owner明确职责题范围（建议第七条），执行端继续承担查证、数据整理与场景准备；逐世界公平预算、迁移可比性及费用门仍保留。
+[结果、Owner精简事项和十二字段决定](docs/research/stage6_1_hidden_knowledge_poisoning/core144/rag_defense_reconstruction_01/AI_DATA_PREPARATION_OWNER_REPORT.md)。下方均为按时序保留的历史。
+
 ## 当前补充 — 原始来源找到问答线索，独立裁决仍待完成（2026-11-04）
 
 PAPER1-RAG-DEFENSE-RECONSTRUCTION-01；PHASE1_2_REVIEW_READY / HUMAN_DECISION_REQUIRED。只读核查确认28份选定证据有相同上游正文，2份官方来源定位出17条问答片段线索；旧120条检索query均含完整候选，不能直接作独立QA。建议先审阅已有官方问答的题干/时间/范围/答案边界和冻结组对应，再补不足；12组仍NEEDS_ADJUDICATION。Owner明确继续后另生成12条来源审阅问题草稿、23次来源引用，答案全部null、未批准，控制映射另存评价器；尚无可执行Pilot。未重做验证，新增API0/费用0，B4/正式实验未开始，D2D3/Human/GT不改。

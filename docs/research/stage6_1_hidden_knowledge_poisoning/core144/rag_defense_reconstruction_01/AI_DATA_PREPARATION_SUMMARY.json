@@ -1,0 +1,100 @@
+{
+  "task": "PAPER1-RAG-DEFENSE-RECONSTRUCTION-01",
+  "subtask": "AI_SOURCE_ONLY_REVIEW_01",
+  "classification": "AI_REVIEWED_DEVELOPMENT_DRAFT_NOT_HUMAN_GOLD",
+  "input_questions": 12,
+  "input_sources": 18,
+  "requested_fields": 38,
+  "original_blind_reviewers": 2,
+  "parent_history_shared": false,
+  "same_backend_independence_not_claimed": true,
+  "original_review_status_counts": {
+    "A": {
+      "SUPPORTED_PROVISIONAL": 11,
+      "UNSUPPORTED_QUERY": 1
+    },
+    "B": {
+      "SUPPORTED_PROVISIONAL": 11,
+      "NEEDS_ADJUDICATION": 1
+    }
+  },
+  "original_fact_literal_comparison": {
+    "LITERAL_EQUAL": 20,
+    "DIFFERENT_REQUIRES_SEMANTIC_REVIEW": 16,
+    "BOTH_NULL": 2
+  },
+  "original_review_quote_count": 100,
+  "referee_status_counts": {
+    "SUPPORTED_PROVISIONAL": 10,
+    "UNSUPPORTED_QUERY": 1,
+    "NEEDS_ADJUDICATION": 1
+  },
+  "referee_quote_count": 58,
+  "referee_role": "SOURCE_CHECK_AND_ARBITRATION_NOT_THIRD_BLIND_REVIEW",
+  "targeted_source_supplement_questions": 1,
+  "targeted_supplement_quotes": 4,
+  "original_referee_outputs_preserved": true,
+  "source_qa_drafts_ready_provisionally": 11,
+  "final_draft_status_counts": {
+    "SUPPORTED_PROVISIONAL": 11,
+    "NEEDS_ADJUDICATION": 1
+  },
+  "question_scope_revisions_proposed": 1,
+  "human_approved_queries": 0,
+  "human_gold_answers": 0,
+  "pilot_instances_created": 0,
+  "formal_experiment": "NOT_STARTED",
+  "cited_witness_coverage_not_semantic_sufficiency": true,
+  "existing_worlds_checked": 36,
+  "existing_worlds_with_all_nonnull_fact_cited_sources_present": 31,
+  "new_alibaba_paid_calls": 0,
+  "new_API_CNY": "0",
+  "original_19_tests_rerun": false,
+  "runtime_production_code_changed": false,
+  "ready_for_paid_pilot": false,
+  "B4_implemented": false,
+  "remaining_gates": [
+    "QUESTION_SCOPE_FREEZE",
+    "PER_WORLD_SCENARIOS_AND_SHARED_EVIDENCE_BUDGET",
+    "B2_TRANSFER_COMPARABILITY",
+    "BILLING_RECONCILIATION_AND_NO_AUTO_PAID_API"
+  ],
+  "next_action": "REVIEW_ONE_CONCRETE_SCOPE_PROPOSAL_THEN_FREEZE_DEVELOPMENT_PROTOCOL_WITH_EXPLICIT_AI_LABEL_LIMITS",
+  "private_outputs": [
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/prepared_drafts_v1/EVALUATOR_ANSWER_PROPOSALS_PRIVATE.json",
+      "bytes": 55411,
+      "sha256": "61eaa15293dd800c157e6ea555e5a489a62f44cdb3e149099c1c12dc50a10cee"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/prepared_drafts_v1/EXISTING_WORLD_CITED_WITNESS_COVERAGE_PRIVATE.json",
+      "bytes": 28103,
+      "sha256": "c886549ca148b44fe1affedc24310a4037bace8847941e6d7bf551e6298e6d68"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/prepared_drafts_v1/QUERY_DRAFTS_WITHOUT_ANSWERS.json",
+      "bytes": 3119,
+      "sha256": "c8579d0eb293dd6fa73e306c11ab1c8304b357581203ed3734807c235a1fe11f"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/prepared_drafts_v1/QUERY_REVIEW_ID_MAP_EVALUATOR_ONLY.json",
+      "bytes": 1205,
+      "sha256": "5f418ca317c4478fe3642d968c2f5f2b607e1930f21970de8eb22cb20782f873"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/prepared_drafts_v1/QUESTION_SCOPE_REVISION_PROPOSALS_PRIVATE.json",
+      "bytes": 1220,
+      "sha256": "0c87303a9c05dc8466d3327d39189a70d16c66f676bbac4f018c9d8b474464da"
+    }
+  ],
+  "semantic_referee_field_findings": {
+    "semantic_equivalent": 35,
+    "both_null_in_original_source_assignment": 2,
+    "substantive_scope_difference": 1,
+    "mutually_exclusive_fact_conflicts": 0
+  },
+  "editorial_clarifications_proposed": 2,
+  "owner_scope_choice_items": 1,
+  "source_gap_supplement_evaluator_only": true,
+  "owner_private_shortlist": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/OWNER_REVIEW_SHORTLIST.md"
+}
