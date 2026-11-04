@@ -3136,3 +3136,10 @@ ASR/Answer Accuracy/生成拒答未测；12卡/38原子待Owner独立裁决、Hu
 T1未授信/T2禁用，无B3/B4/B5/B6/D1-40/Claim；D2D3/Reviewer/GT Vault未读。P0元数据事件保留。
 下一Owner Gate：精确B1资产条件（如需下载须新批）及12卡范围/target/C3；本轮文档/Git收口后STOP，不进P3。
 [P2报告](../paper1/dual_machine/chinese5060/W1_5060_P2_T0_RETRIEVAL_DIAGNOSTIC.md)。下方历史保留，不把本次工程观察升级为论文或独立泛化结论。
+
+
+## REL-W1-OWNER-FAST-B-RESOURCE-20261105 — Owner明确批Fast-Track B与存储/复现路线补充
+
+2026-11-05 JST，授权W1-OD-20261105-FAST-B-04与W1-OD-20261105-RESOURCE-REPRO-05。5060分支从3ca27c9416ea630e7f82c5b98ceed93099bd57ac继续只登记Owner治理，尚未实际下载B1资产或执行B1/B2；允许HF官方固定revision 1110a243fdf4706b3f48f1d95db1a4f5529b4d41最小白名单，网络总量仍限250MiB。Owner后续明确C盘禁止项目可控新增，D/E磁盘1GiB新增限可放宽，但须冻结具体任务峰值/临时文件/安全剩余空间；不放宽下载或数据权限。
+5090仍从独立分支只读获取本授权，不改代码/分支起点。Owner将作者三个ACSAC开源Artifact Claims的完整主要矩阵设为未来基线复现优先目标，同时仅授权5090无下载、无API、无真实Claim的静态覆盖/环境/脚本和许可资源前置审计。论文正文、官方legacy artifact、兼容环境与中文迁移结果必须分列；原torch2.4/sm_120失败及历史Smoke异常不改。
+不涉及正式PODR自动编号、D2/D3、GT、T1/T2、付费API、B3/B4/B5/B6、D1-40、BEIR或任何新权重和正式Claim执行。两个Owner十二字段记录：[Fast-Track B](../paper1/dual_machine/owner_approvals/W1_FAST_TRACK_B_OWNER_AUTHORIZATION_20261105.md)、[存储及复现路线](../paper1/dual_machine/owner_approvals/W1_STORAGE_AND_REPRO_RESEARCH_DIRECTION_20261105.md)。当前仍为新阶段AUTHORIZED_NOT_EXECUTED，后续结果必须另有Run Manifest/Git SHA。
