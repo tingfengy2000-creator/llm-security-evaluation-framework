@@ -11,3 +11,5 @@
 逐组材料已就绪：[12条问题草稿的准备与隔离检查](ADJUDICATION_REVIEW_PREPARATION.json)，标准答案全部留空；具体私有路径见来源补充报告。
 
 最新：[AI辅助数据准备结果](AI_DATA_PREPARATION_OWNER_REPORT.md)，11题有据AI草案、1项范围待定；非人工GT、非付费实验。
+
+最新：[Owner第七条选择已收口、12题第二版AI草案](AI_DATA_PREPARATION_SCOPE_CLOSURE_V2.md)。

@@ -186,5 +186,15 @@
     "human_gold_answers": 0,
     "new_paid_calls": 0,
     "not_a_defense_effectiveness_experiment": true
+  },
+  "ai_data_preparation_v2": {
+    "artifact": "AI_DATA_PREPARATION_SUMMARY_V2.json",
+    "owner_scope_decision": "PODR-160",
+    "source_qa_drafts_ready_provisionally": 12,
+    "scope_pending": 0,
+    "human_gold_answers": 0,
+    "new_paid_calls": 0,
+    "pilot_instances_created": 0,
+    "not_a_defense_effectiveness_result": true
   }
 }

@@ -37,3 +37,8 @@ RD01-QUESTION-SCOPE-AI01 的十二字段记录：
 下一步是确定该范围、定稿开发查询与逐世界场景/共同证据预算，再核对RAGDefender迁移可比性与费用门。本任务新阿里云API调用0、费用0；旧累计usage估算7.611826 CNY不变，正式账单仍未对账。Codex协作使用本产品能力，本次没有测量其额度或产品计费，不能把它说成所有计算免费。
 
 完整任务仍未完成，B0/B1/B2的查询级效果、E1新弱点、B4收益均未测试；B4未实现，正式实验NOT_STARTED。详情见[脱敏汇总](AI_DATA_PREPARATION_SUMMARY.json)、[收口检查](AI_DATA_PREPARATION_CLOSEOUT.json)、[证据索引](AI_DATA_PREPARATION_EVIDENCE_INDEX.json)及[Owner如何帮助](HOW_OWNER_CAN_HELP.md)。
+
+
+## 同日范围决定已闭合
+
+Owner在选项中明确选择限定第七条（PODR-160），修订题双审与来源仲裁均通过。第二版12题均有据AI草案，上文“1项范围待定”保留为原始历史，不再要求Owner重复选择。具体[第二版收口](AI_DATA_PREPARATION_SCOPE_CLOSURE_V2.md)。

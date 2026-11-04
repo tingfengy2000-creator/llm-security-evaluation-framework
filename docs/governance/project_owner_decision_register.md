@@ -1,5 +1,10 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-160 — 职责题限定第七条核心职责
+
+2026-11-04 JST；PAPER1-RAG-DEFENSE-RECONSTRUCTION-01。Owner在题目范围选项中明确选择“限定第七条核心职责（推荐）”。LOCAL采用新版本题干，只按第七条列人社部门总括职责，保留公布机关/令号与协调监管角色区分。原题、原双审与范围歧义不覆盖；该选择确认问题范围，不接受AI事实草案为人工GT，不批准付费、B4或正式实验。
+[AI准备报告](../research/stage6_1_hidden_knowledge_poisoning/core144/rag_defense_reconstruction_01/AI_DATA_PREPARATION_OWNER_REPORT.md)。
+
 ## PODR-159 — 请求LOCAL与agent协助准备查询实验数据
 
 2026-11-04 JST；PAPER1-RAG-DEFENSE-RECONSTRUCTION-01。Owner询问“我应该做什么 怎么帮你准备实验数据…你可以直接准备数据吗 或者其他的agent帮你准备数据”。LOCAL按行动请求推进AI辅助数据准备和独立agent来源审阅，不要求Owner从零整理。

@@ -1,5 +1,11 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## 当前 / CURRENT — 第七条范围收口，12题AI数据草案准备完成（2026-11-04）
+
+PAPER1-RAG-DEFENSE-RECONSTRUCTION-01；AI_DATA_PREPARATION_COMPLETE_PROVISIONAL / SCENARIO_CONTRACT_NEXT；PODR-160。Owner明确限定第七条核心职责；修订题的两份独立审阅和来源仲裁确认3字段等价，9处引用定位通过。第二版12题均有据AI草案，职责范围待决0；问题/评价侧答案隔离，原题/原分歧/全部原审阅保留。人工金标准仍0，非正式实验结果。
+无需Owner从零补数据。下一步由执行端准备受控检索后C0–C3场景、共同证据预算与评分合同，并闭合B2迁移可比性和费用门；本任务新阿里云API0/费用0，未自动付费，B4/正式实验未启动。
+[第二版结果与准备边界](../research/stage6_1_hidden_knowledge_poisoning/core144/rag_defense_reconstruction_01/AI_DATA_PREPARATION_SCOPE_CLOSURE_V2.md)。下方为历史状态，不能据旧“范围待定”重复请求Owner确认。
+
 ## 当前 / CURRENT — AI数据草案已准备，Owner集中确认1项范围（2026-11-04）
 
 PAPER1-RAG-DEFENSE-RECONSTRUCTION-01；AI_DATA_PREPARATION_REVIEW_READY / QUESTION_SCOPE_DECISION_REQUIRED；PODR-159。12题/18源/38字段的两份隔离agent审阅及来源仲裁已完成，原始输出保留。原双审100处引用、仲裁58处引用定位通过；一题单独补源双审2字段/4处引用通过，未更改运行时Top5。最终11题有据AI草案、1题职责列举范围待定，另2项题干文字澄清建议；人工批准/金标准均0。

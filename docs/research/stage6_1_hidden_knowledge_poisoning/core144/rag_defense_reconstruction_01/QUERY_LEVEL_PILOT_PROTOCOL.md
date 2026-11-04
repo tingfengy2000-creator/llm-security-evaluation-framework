@@ -34,3 +34,6 @@
 ## AI辅助准备扩展（PODR-159）
 
 Owner请求LOCAL/agent协助准备数据，采用独立上下文双审与来源复核。最终11题形成AI来源审阅草案，1题范围未定，全部仍非人工GT、非可执行场景；旧12题空白模板和原审阅记录保持。具体[AI准备协议](AI_DATA_PREPARATION_PROTOCOL_V1.md)及[结果](AI_DATA_PREPARATION_OWNER_REPORT.md)。原“独立人工裁决”表述不能理解为Owner必须亲手从零整理所有数据；AI可先作开发草案，需人工或更强独立验证的正式评估门不因此取消。
+
+
+同日PODR-160明确职责题限定第七条，第二版12题均有据AI草案，范围待决0，人工Gold0。两处条文/版面时点措辞以新题干明示，前后身份留痕；未构建运行场景或改变证据权限。[第二版状态](AI_DATA_PREPARATION_SCOPE_CLOSURE_V2.md)。

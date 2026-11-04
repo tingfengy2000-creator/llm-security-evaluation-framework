@@ -1,0 +1,110 @@
+{
+  "task": "PAPER1-RAG-DEFENSE-RECONSTRUCTION-01",
+  "subtask": "AI_SOURCE_ONLY_REVIEW_01",
+  "classification": "AI_REVIEWED_DEVELOPMENT_DRAFT_NOT_HUMAN_GOLD",
+  "input_questions": 12,
+  "input_sources": 18,
+  "requested_fields": 38,
+  "original_blind_reviewers": 2,
+  "parent_history_shared": false,
+  "same_backend_independence_not_claimed": true,
+  "original_review_status_counts": {
+    "A": {
+      "SUPPORTED_PROVISIONAL": 11,
+      "UNSUPPORTED_QUERY": 1
+    },
+    "B": {
+      "SUPPORTED_PROVISIONAL": 11,
+      "NEEDS_ADJUDICATION": 1
+    }
+  },
+  "original_fact_literal_comparison": {
+    "LITERAL_EQUAL": 20,
+    "DIFFERENT_REQUIRES_SEMANTIC_REVIEW": 16,
+    "BOTH_NULL": 2
+  },
+  "original_review_quote_count": 100,
+  "referee_status_counts": {
+    "SUPPORTED_PROVISIONAL": 10,
+    "UNSUPPORTED_QUERY": 1,
+    "NEEDS_ADJUDICATION": 1
+  },
+  "referee_quote_count": 58,
+  "referee_role": "SOURCE_CHECK_AND_ARBITRATION_NOT_THIRD_BLIND_REVIEW",
+  "targeted_source_supplement_questions": 1,
+  "targeted_supplement_quotes": 4,
+  "original_referee_outputs_preserved": true,
+  "source_qa_drafts_ready_provisionally": 12,
+  "final_draft_status_counts": {
+    "SUPPORTED_PROVISIONAL": 12
+  },
+  "question_scope_revisions_proposed": 0,
+  "human_approved_queries": 0,
+  "human_gold_answers": 0,
+  "pilot_instances_created": 0,
+  "formal_experiment": "NOT_STARTED",
+  "cited_witness_coverage_not_semantic_sufficiency": true,
+  "existing_worlds_checked": 36,
+  "existing_worlds_with_all_nonnull_fact_cited_sources_present": 31,
+  "new_alibaba_paid_calls": 0,
+  "new_API_CNY": "0",
+  "original_19_tests_rerun": false,
+  "runtime_production_code_changed": false,
+  "ready_for_paid_pilot": false,
+  "B4_implemented": false,
+  "remaining_gates": [
+    "DEVELOPMENT_QUERY_AND_SCENARIO_FREEZE",
+    "PER_WORLD_SHARED_EVIDENCE_BUDGET",
+    "B2_TRANSFER_COMPARABILITY",
+    "BILLING_AND_NO_AUTO_PAID_API"
+  ],
+  "next_action": "PREPARE_REVIEWABLE_CONTROLLED_POST_RETRIEVAL_SCENARIO_CONTRACT_NO_PAID_EXECUTION",
+  "private_outputs": [
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/prepared_drafts_v2/EVALUATOR_ANSWER_PROPOSALS_PRIVATE.json",
+      "bytes": 55347,
+      "sha256": "b5c7a2af6d3f30d5da68bfb553293ff9b1fe76ac7d93defba61da3cdacfeb14e"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/prepared_drafts_v2/QUERY_DRAFTS_WITHOUT_ANSWERS.json",
+      "bytes": 3203,
+      "sha256": "d7b4656a6985e7375df71281713b1f6b73f745c9ac37296878eb0bac6002e500"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/prepared_drafts_v2/QUERY_REVIEW_ID_MAP_EVALUATOR_ONLY.json",
+      "bytes": 1205,
+      "sha256": "36c037cedc0374ea45cfe99494dd9745dcd0c1168bd8d56db486b0c5ee34ef1c"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/prepared_drafts_v2/QUESTION_VERSION_CHANGELOG_EVALUATOR_ONLY.json",
+      "bytes": 1384,
+      "sha256": "f3254411b8f7be6b273d7cf4f634b019aeca0e5e0606e514dab825be614a8831"
+    }
+  ],
+  "semantic_referee_field_findings": {
+    "semantic_equivalent": 35,
+    "both_null_in_original_source_assignment": 2,
+    "substantive_scope_difference": 1,
+    "mutually_exclusive_fact_conflicts": 0
+  },
+  "editorial_clarifications_proposed": 0,
+  "owner_scope_choice_items": 0,
+  "source_gap_supplement_evaluator_only": true,
+  "owner_private_shortlist": "experiments/rag_defense_reconstruction_01/ai_adjudication_01/OWNER_REVIEW_SHORTLIST_V2.md",
+  "draft_version": "V2",
+  "previous_delivered_commit": "c94d4d40c44c3aefde68c80a12748d8739dcae1c",
+  "owner_scope_decision": "PODR-160",
+  "owner_scope_selected_questions": 1,
+  "question_scope_revision_adopted_as_draft": 1,
+  "editorial_clarifications_applied_to_new_drafts": 2,
+  "model_input_answer_leakage_allowed": false,
+  "original_review_archive_preserved": true,
+  "old_question_and_ai_reviews_preserved": true,
+  "source_witness_coverage_counts_from_v1_are_not_recomputed_semantic_sufficiency": true,
+  "scope_referee_quotes": 3,
+  "initial_editorial_clarifications_proposed": 2,
+  "metadata_correction_record": {
+    "source_summary_sha256": "84736a1dfa3ec483547e1db2151113fff9928b0ab3320b7ef09652d91ac22a98",
+    "fields": "Carry-forward V1 shortlist/proposal metadata updated; original V2 summary and all data payloads preserved."
+  }
+}

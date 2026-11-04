@@ -1,7 +1,7 @@
 {
   "task": "PAPER1-RAG-DEFENSE-RECONSTRUCTION-01",
   "date_jst": "2026-11-04",
-  "status": "AI_DATA_PREPARATION_REVIEW_READY / QUESTION_SCOPE_DECISION_REQUIRED",
+  "status": "AI_DATA_PREPARATION_COMPLETE_PROVISIONAL / SCENARIO_CONTRACT_NEXT",
   "owner_pause_lifted": true,
   "historical_pause_record": "PAUSED_HANDOFF.json",
   "base_HEAD": "b2353813f19ad6013f700229ea8aa64c91d6a0c2",
@@ -11,9 +11,9 @@
   "new_API_calls": 0,
   "new_API_CNY": "0",
   "rerun_completed_validations": false,
-  "next_gate": "OWNER_QUESTION_SCOPE_AND_DEVELOPMENT_SCENARIO_FREEZE",
+  "next_gate": "CONTROLLED_POST_RETRIEVAL_SCENARIO_AND_SHARED_BUDGET_CONTRACT",
   "blockers": [
-    "INDEPENDENT_QUERY_AND_QA_ADJUDICATION",
+    "DEVELOPMENT_SCENARIO_AND_SCORING_CONTRACT_NOT_FROZEN",
     "STRICT_VS_TRANSFER_COMPARABILITY",
     "B4_REAL_GAP_NOT_ESTABLISHED",
     "INVOICE_NOT_RECONCILED",
@@ -28,7 +28,7 @@
   ],
   "formal_experiment": "NOT_STARTED",
   "git_delivery_verification": "CHECK_CURRENT_GIT_AND_COMMIT_CONTAINING_THIS_FILE",
-  "latest_followup": "AI_DATA_PREPARATION_OWNER_REPORT.md",
+  "latest_followup": "AI_DATA_PREPARATION_SCOPE_CLOSURE_V2.md",
   "source_native_qa_leads_found": 17,
   "source_native_qa_documents": 2,
   "independently_adjudicated_groups": 0,
@@ -36,8 +36,16 @@
   "approved_queries": 0,
   "approved_answers": 0,
   "private_review_packet": "experiments/rag_defense_reconstruction_01/adjudication_review_01/REVIEWER_SOURCE_ONLY_DRAFT.json",
-  "ai_source_reviewed_provisional_drafts": 11,
-  "ai_question_scope_pending": 1,
+  "ai_source_reviewed_provisional_drafts": 12,
+  "ai_question_scope_pending": 0,
   "human_gold_answers": 0,
-  "private_ai_data_root": "experiments/rag_defense_reconstruction_01/ai_adjudication_01"
+  "private_ai_data_root": "experiments/rag_defense_reconstruction_01/ai_adjudication_01",
+  "owner_scope_decision": "PODR-160",
+  "owner_scope_selected_questions": 1,
+  "active_draft_version": "V2",
+  "data_quality_limits": [
+    "AI_REVIEWED_NOT_HUMAN_GOLD",
+    "DRAFT_AUTHOR_SAW_CANDIDATES",
+    "CORRELATED_MODEL_ERRORS_POSSIBLE"
+  ]
 }
