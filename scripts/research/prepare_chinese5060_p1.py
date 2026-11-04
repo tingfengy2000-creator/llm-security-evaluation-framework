@@ -12,7 +12,7 @@ from typing import Any
 
 from llmguard.domains.retrieval.hidden_poisoning.chinese5060.d1_access import D1_BINDINGS, D1Reader
 from llmguard.domains.retrieval.hidden_poisoning.chinese5060.p1_preparation import (
-    audit_proposal, design_world, verify_source_texts,
+    assert_no_sibling_bodies, audit_proposal, design_world, verify_source_texts,
 )
 from llmguard.domains.retrieval.hidden_poisoning.chinese5060.snapshots import digest
 
@@ -76,6 +76,7 @@ def main() -> None:
                 raise ValueError("CROSS_GROUP_CONTAMINATION")
             world = design_world(query, candidate_id=cid, candidate_text=by_candidate[cid]["candidate_text"],
                                  all_sibling_ids=siblings, sources=sources)
+            assert_no_sibling_bodies(world["documents"], [by_candidate[other]["candidate_text"] for other in siblings if other != cid])
             write(output / (world["world_id"] + ".json"), world)
             world_index.append({"world_id": world["world_id"], "query_id": query["query_id"],
                                 "corpus_hash": world["corpus_hash"], "documents": len(world["documents"]),
@@ -120,6 +121,7 @@ def main() -> None:
         "world_designs": len(world_index), "world_design_index_hash": digest(world_index),
         "world_roles_evaluator_only": dict(Counter(b["role_evaluation_only"] for b in evaluator_bindings)),
         "documents_per_world": 1 + len(sources), "backgrounds_identical_across_worlds": True,
+        "worlds_with_identity_and_normalized_body_isolation_pass": len(world_index),
         "old_worlds_missing_at_least_one_cited_source": sum(3 - r["old_worlds_with_required_sources_present"] for r in public_cases),
         "HOLD_candidates_excluded": bundle["holds_candidates"],
         "new_indices_built": 0, "TopK_snapshots_created": 0, "human_gold": 0,

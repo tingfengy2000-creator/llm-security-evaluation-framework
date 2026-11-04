@@ -6,7 +6,7 @@ import json
 import pytest
 
 from llmguard.domains.retrieval.hidden_poisoning.chinese5060.p1_preparation import (
-    audit_proposal, design_world, verify_source_texts,
+    assert_no_sibling_bodies, audit_proposal, design_world, verify_source_texts,
 )
 
 
@@ -85,3 +85,13 @@ def test_source_body_change_does_not_keep_old_identity() -> None:
     s[0]["text"] = "不同正文"
     with pytest.raises(ValueError, match="SOURCE_TEXT_HASH_MISMATCH"):
         verify_source_texts(s)
+
+
+def test_sibling_body_hidden_inside_background_is_blocked() -> None:
+    with pytest.raises(ValueError, match="SIBLING_BODY_IN_INDEX_DESIGN"):
+        assert_no_sibling_bodies([{"text": "背景段落夹带另一个候选全文，结束。"}], ["另一个候选全文"])
+
+
+def test_whitespace_and_fullwidth_do_not_hide_a_sibling_copy() -> None:
+    with pytest.raises(ValueError, match="SIBLING_BODY_IN_INDEX_DESIGN"):
+        assert_no_sibling_bodies([{"text": "前缀Ａ Ｂ Ｃ后缀"}], ["ABC"])

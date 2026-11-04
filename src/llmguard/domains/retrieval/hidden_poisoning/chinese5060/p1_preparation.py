@@ -2,10 +2,23 @@
 from __future__ import annotations
 
 import hashlib
+import unicodedata
 from typing import Any
 
 from .control_plane import validate_world_membership
 from .snapshots import digest
+
+
+def assert_no_sibling_bodies(documents: list[dict[str, Any]], forbidden_bodies: list[str]) -> None:
+    """Check corpus bodies as well as lineage; does not equate shared facts to copies."""
+    def normalize(text: str) -> str:
+        return "".join(unicodedata.normalize("NFKC", text).split())
+    for body in forbidden_bodies:
+        needle = normalize(body)
+        if not needle:
+            raise ValueError("EMPTY_SIBLING_BODY")
+        if any(needle in normalize(d["text"]) for d in documents):
+            raise ValueError("SIBLING_BODY_IN_INDEX_DESIGN")
 
 
 def audit_proposal(query: dict[str, Any], proposal: dict[str, Any],
