@@ -4,7 +4,7 @@
   "head_sha": null,
   "research_baseline_sha": "4dc9161e79b79ece70a7c17144175a19b985770d",
   "upstream_sha": "ba2a17efba165d45409114df2d70b030ade1e1b8",
-  "reproduction_level": "R0_AUDIT_ONLY",
+  "reproduction_level": "ENV_INSTALLED_CLAIMS_NOT_RUN",
   "claim_id": ["claim1_poisonedrag", "claim2_tan", "claim3_garag"],
   "dataset": ["NQ", "HotpotQA", "MS MARCO"],
   "model": ["Contriever", "meta-llama/Llama-2-7b-chat-hf", "lmsys/vicuna-7b-v1.3"],
@@ -22,13 +22,15 @@
   "logs_path": "docs/paper1/dual_machine/repro5090/logs/r0_initial_audit_commands.txt",
   "known_deviations": [
     "no claim process started",
-    "official env.yml is linux-64 and torch==2.4.0; artifact_acsac does not exist",
-    "verified CUDA kernel is the prior L0 torch 2.8.0+cu128 env, not the author env",
+    "official artifact_acsac exists and remains torch 2.4.0+cu121; its CUDA kernel does not run on sm_120",
+    "artifact_acsac_compat uses torch 2.8.0+cu128, triton 3.4.0, sympy 1.14.0, bitsandbytes 0.45.5; this is not the author env",
+    "import faiss resolves to faiss-cpu 1.8.0 even though faiss-gpu 1.7.2 is installed",
     "main is the v0.2.0 commit plus .github/workflows/codeql.yml only",
     "claim2 and claim3 expected numeric rows match; method labels differ",
     "Llama.py hardcodes load_in_8bit True while the Vicuna config says False"
   ],
   "next_steps": [
+    "weights still blocked until Llama-2 and Vicuna license access is confirmed",
     "5060 reads this branch with git fetch and git show only",
     "do not merge",
     "do not treat NOT_MEASURED as zero or as the author expected table"

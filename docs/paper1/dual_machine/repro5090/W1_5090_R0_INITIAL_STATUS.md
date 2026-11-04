@@ -135,6 +135,21 @@
 
 仍需 Owner / 控制面决定后才能做：在 WSL 创建隔离 `artifact_acsac`；确认 Llama 2 与 Vicuna 的本机使用许可；如官方 torch 2.4.0 不能在 sm_120 加载，再单开兼容环境并记录偏差；然后才运行 Claim。未批准前不调用付费 API，不读 D1/D2/D3。
 
+## 7. 环境安装补记（2026-11-04 20:01 UTC+8）
+
+第 6 节是安装前的审计快照。用户随后要求先把环境和依赖装好。Claim 仍然没有运行。
+
+| 项 | 状态 | 结果 |
+| --- | --- | --- |
+| 官方环境 `artifact_acsac` | VERIFIED | 在 WSL Ubuntu 24.04 的 Miniforge 里按 `artifacts/env.yml` 创建。第一次因 strict channel priority 失败；隔离 CONDARC 重试 EXIT 0。没有改用户 condarc |
+| 官方 torch 2.4.0+cu121 | BLOCKED | 能看到 RTX 5090，capability (12, 0)，一次 CUDA 张量运算报 no kernel image。这个环境没有升级 |
+| 兼容环境 `artifact_acsac_compat` | VERIFIED | 官方环境的副本。只在这个副本里换成 torch 2.8.0+cu128。一元素 CUDA 求和为 1.0。这不是作者环境 |
+| 兼容栈其余差异 | VERIFIED | triton 3.4.0、sympy 1.14.0、bitsandbytes 0.45.5。官方环境仍是 0.43.1 / triton 3.0.0 / sympy 1.12 |
+| faiss | VERIFIED | 两个 wheel 都在。`import faiss` 解析到 faiss-cpu 1.8.0，CPU 索引可建 |
+| xformers 0.0.27.post2 | REPORTED | 装在兼容环境里，但 CUDA 扩展对不上 torch 2.8。artifact 代码不导入它 |
+| `ragdefender` 0.2.0 | VERIFIED | 只在兼容环境做了 editable 安装，导入成功 |
+| 权重与 Claim | BLOCKED / NOT_RUN | 没有下载 Llama-2 或 Vicuna。没有 ASR，没有准确率 |
+
 ## 文档收口
 
 - human_ledger_checked = true；human_ledger_updated_if_required = true

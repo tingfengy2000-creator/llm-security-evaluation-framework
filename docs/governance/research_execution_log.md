@@ -1,5 +1,10 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-04 — 5090 installs RAGDefender environments and does not run claims
+
+No new PODR id. Task P1-RAGDEFENDER-REPRO-5090-ENV-01. Run W1-5090-ENV-20261104. Branch `research/paper1-ragdefender-repro-5090`. Official `artifact_acsac` created from the author lockfile. Its torch 2.4.0+cu121 cannot run a CUDA kernel on sm_120 and was not upgraded. `artifact_acsac_compat` is a separate clone with torch 2.8.0+cu128; one CUDA sum returned 1.0. Compat-only version changes: triton 3.4.0, sympy 1.14.0, bitsandbytes 0.45.5. Editable `ragdefender` 0.2.0 imports there. Claims NOT_RUN. Metrics NOT_MEASURED. No weight download, no D2/D3 access, no paid API.
+[Manifest](../paper1/dual_machine/repro5090/environment_manifest.md).
+
 ## 2026-11-04 — 5090 records RAGDefender R0 audit and does not run claims
 
 No new PODR id. Task P1-RAGDEFENDER-REPRO-5090-R0-AUDIT-01. Run W1-5090-R0-20261104. Branch `research/paper1-ragdefender-repro-5090` from `4dc9161e79b79ece70a7c17144175a19b985770d`. Upstream `ba2a17efba165d45409114df2d70b030ade1e1b8`, clean clone, MIT. Official env not created. Three artifact claims NOT_RUN. sample_n UNKNOWN. ASR and accuracy NOT_MEASURED. config_hash `21d6096ea60a92c0a9c4dfdebde5ae1755ad36565b7fb61de3f5948f82a305e0`. logs_hash `0f6b3de615c5d19d795b49df5ead98d1df85baa2d56229dbe1dbd2efe5b572ab`. No D2/D3 access and no paid API.

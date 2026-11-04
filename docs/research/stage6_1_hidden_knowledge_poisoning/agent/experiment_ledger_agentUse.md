@@ -1,5 +1,15 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — RAGDefender envs installed, claims not run, 2026-11-04 UTC+8
+
+No new PODR. Task P1-RAGDEFENDER-REPRO-5090-ENV-01. Run W1-5090-ENV-20261104. Branch research/paper1-ragdefender-repro-5090.
+Official artifact_acsac: Python 3.10.14, torch 2.4.0+cu121, transformers 4.41.2, bitsandbytes 0.43.1. CUDA kernel on RTX 5090 FAILED, env not upgraded.
+Compat artifact_acsac_compat: torch 2.8.0+cu128 CUDA sum 1.0, triton 3.4.0, sympy 1.14.0, bitsandbytes 0.45.5, ragdefender 0.2.0 editable import OK. Not the author env.
+faiss import is faiss-cpu 1.8.0. xformers 0.0.27.post2 CUDA extension does not load; artifact code does not import it.
+claim1/claim2/claim3 NOT_RUN. sample_n UNKNOWN. ASR and accuracy NOT_MEASURED. Weights not downloaded. No semantic patch, no paid API, no D1/D2/D3 read.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master true; owner_decision evaluated and not updated; stage_process evaluated and not updated; lessons evaluated and not updated; research_authority evaluated and not updated; README evaluated and not updated.
+[Manifest](../../../paper1/dual_machine/repro5090/environment_manifest.md).
+
 ## Current — RAGDefender R0 audit only, 2026-11-04 UTC+8
 
 No new PODR. Task P1-RAGDEFENDER-REPRO-5090-R0-AUDIT-01. Run W1-5090-R0-20261104. Branch research/paper1-ragdefender-repro-5090. Baseline 4dc9161e79b79ece70a7c17144175a19b985770d.

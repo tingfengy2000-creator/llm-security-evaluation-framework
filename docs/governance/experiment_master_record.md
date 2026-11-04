@@ -1,5 +1,12 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-111 — 5090 RAGDefender environments installed, no artifact metrics
+
+2026-11-04 UTC+8; no new PODR; Task P1-RAGDEFENDER-REPRO-5090-ENV-01; Run W1-5090-ENV-20261104.
+Official `artifact_acsac` keeps torch 2.4.0+cu121 and cannot execute sm_120. Compat env `artifact_acsac_compat` uses torch 2.8.0+cu128; CUDA sum is 1.0. Claims NOT_RUN. Metrics NOT_MEASURED, not 0.
+[Manifest](../paper1/dual_machine/repro5090/environment_manifest.md).
+ENV_INSTALLED_CLAIMS_NOT_RUN. L0 Oracle evidence below is unchanged. No D2/D3 read.
+
 ## OR-110 — 5090 RAGDefender R0 pin and device audit, no artifact metrics
 
 2026-11-04 UTC+8; no new PODR; Task P1-RAGDEFENDER-REPRO-5090-R0-AUDIT-01; Run W1-5090-R0-20261104; baseline `4dc9161e79b79ece70a7c17144175a19b985770d`.

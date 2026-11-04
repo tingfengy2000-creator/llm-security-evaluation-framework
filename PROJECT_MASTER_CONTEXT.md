@@ -1,5 +1,11 @@
 # LLMGuard 项目总控文档
 
+## 当前：5090 的 RAGDefender 环境已安装，Claim 未运行（2026-11-04）
+
+官方环境 `artifact_acsac` 已按作者锁文件创建，torch 2.4.0 不能在这张 RTX 5090 上执行 CUDA，因此没有改它。兼容环境 `artifact_acsac_compat` 使用 torch 2.8.0+cu128，一次 CUDA 求和为 1.0。这不是作者环境。三个 Claim 仍是 NOT_RUN，攻击成功率和准确率仍是 NOT_MEASURED。权重未下载。
+[环境清单](docs/paper1/dual_machine/repro5090/environment_manifest.md)。
+下面的 L0 Oracle 结论不替换。不读 D2/D3，不调用付费 API。
+
 ## 当前：5090 的 RAGDefender R0 审计已记录，Claim 未运行（2026-11-04）
 
 这条记录只存在于 `research/paper1-ragdefender-repro-5090`。它不替换下面的 L0 Oracle 结论。三个作者 Claim 都是 NOT_RUN，攻击成功率和准确率都是 NOT_MEASURED。官方环境未创建。

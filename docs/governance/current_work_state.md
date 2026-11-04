@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-11-04 5090 RAGDefender environments installed, claims not run
+
+Task P1-RAGDEFENDER-REPRO-5090-ENV-01. Run W1-5090-ENV-20261104. No new PODR. Official env `artifact_acsac` exists from `artifacts/env.yml` and stays on torch 2.4.0+cu121. That build cannot execute a CUDA kernel on this RTX 5090. Separate env `artifact_acsac_compat` uses torch 2.8.0+cu128 and completed one CUDA sum of 1.0. It also has triton 3.4.0, sympy 1.14.0, and bitsandbytes 0.45.5. Those are comparability deviations, not the author environment. `ragdefender` 0.2.0 imports in the compat env. Claims remain NOT_RUN. ASR and accuracy remain NOT_MEASURED. Weights were not downloaded.
+[Manifest](../paper1/dual_machine/repro5090/environment_manifest.md).
+The L0 Oracle result below is unchanged. No D1/D2/D3 read, no paid API, no algorithm edit.
+
 ## Current — 2026-11-04 5090 RAGDefender R0 audit recorded, claims not run
 
 Task P1-RAGDEFENDER-REPRO-5090-R0-AUDIT-01. Run W1-5090-R0-20261104. Branch `research/paper1-ragdefender-repro-5090` starts at `4dc9161e79b79ece70a7c17144175a19b985770d`. No new PODR. Status R0_AUDIT_RECORDED / CLAIM_EXECUTION_NOT_RUN.
