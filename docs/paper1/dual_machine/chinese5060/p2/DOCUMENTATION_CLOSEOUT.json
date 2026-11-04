@@ -38,5 +38,9 @@
   "private_archive_sha256": "505d3c55bf77589773b18ec500d2d83e6d0380d111d09d339adaa544a5d5aec8",
   "private_index_sha256": "355bd3a85c2eab3cac75c8571d89eb00e8c25df4bdbabf373d09a6e9e91d2be1",
   "local_QA": "PASS",
-  "git_delivery": "SOURCE_SHA_REMOTE_FINAL_DOCUMENTATION_REQUIRES_LIVE_CHECK"
+  "git_delivery": "PASS_VERIFIED_CONTENT_COMMIT",
+  "verified_content_commit": "29ac5dd828058ebd6101cd02a23db2179bf94b91",
+  "CONTEXT_PERSISTENCE_CHECK": "PASS",
+  "PAPER1_DOCUMENT_STALENESS_GATE": "PASS",
+  "DOCUMENTATION_CLOSEOUT_GATE": "PASS"
 }

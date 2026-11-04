@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-11-04T15:08:13.566501+00:00",
+  "verified_content_commit": "29ac5dd828058ebd6101cd02a23db2179bf94b91",
+  "execution_commit": "9aa21be13ae206dbbadb03b99528e362eba29378",
+  "remote": "https://github.com/tingfengy2000-creator/llm-security-evaluation-framework.git",
+  "branch": "research/paper1-chinese-defense-5060",
+  "clean": true,
+  "ahead": 0,
+  "behind": 0,
+  "records": [
+    {
+      "argv": [
+        "git",
+        "branch",
+        "--show-current"
+      ],
+      "exit_code": 0,
+      "stdout": "research/paper1-chinese-defense-5060\n",
+      "stderr": "",
+      "stdout_sha256": "94a1d78724cd0a351b2eb765299996d0f04b66d1b4fa5e5ca4bc5f0b45d54e2d"
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": "29ac5dd828058ebd6101cd02a23db2179bf94b91\n",
+      "stderr": "",
+      "stdout_sha256": "0287a4b2413606bd5bed9266404f338422bcebd1bc302249f04e66665651f0a1"
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "rev-list",
+        "--left-right",
+        "--count",
+        "HEAD...origin/research/paper1-chinese-defense-5060"
+      ],
+      "exit_code": 0,
+      "stdout": "0\t0\n",
+      "stderr": "",
+      "stdout_sha256": "4b14c7b5549e560a68e9c4daaae3fdb8a28fe32d0247050325e7c5a3b2b3271c"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-remote",
+        "--exit-code",
+        "origin",
+        "refs/heads/research/paper1-chinese-defense-5060"
+      ],
+      "exit_code": 0,
+      "stdout": "29ac5dd828058ebd6101cd02a23db2179bf94b91\trefs/heads/research/paper1-chinese-defense-5060\n",
+      "stderr": "",
+      "stdout_sha256": "c97b034acc381fa5862a01325bb412876f3b1c4fbdfa69e23e4cc290f181d746"
+    }
+  ],
+  "scope": "Content commit verified before this separate delivery-attestation commit; final HEAD is checked live in final response."
+}

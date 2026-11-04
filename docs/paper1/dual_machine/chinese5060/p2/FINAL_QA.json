@@ -22,5 +22,6 @@
   "candidate_hit_at5": "29/36",
   "new_API_calls": 0,
   "execution_commit": "9aa21be13ae206dbbadb03b99528e362eba29378",
-  "delivery_git_check": "REQUIRES_LIVE_CHECK_AFTER_DOCUMENT_COMMIT"
+  "delivery_git_check": "PASS_VERIFIED_CONTENT_COMMIT",
+  "verified_content_commit": "29ac5dd828058ebd6101cd02a23db2179bf94b91"
 }

@@ -121,3 +121,5 @@ T1未授信，T2禁用。下一Owner Gate是独立审定卡中答案范围/targe
 主要归档64,841,526字节，保留实际run、输出、索引、命令与原卡V1；后到的卡V2纯呈现补记单独归档。
 
 收口日期：2026-11-05 JST。2026-11-04授权、冻结run-id及原始日志时间均保留，不因跨日改名或重写。
+
+Git交付：结果内容提交 `29ac5dd828058ebd6101cd02a23db2179bf94b91` 已核对origin同SHA、工作树clean、ahead/behind=0/0；见[交付回执](p2/evidence/P2_GIT_DELIVERY.json)。该回执另作收口提交，最终HEAD在交付回复中实查。
