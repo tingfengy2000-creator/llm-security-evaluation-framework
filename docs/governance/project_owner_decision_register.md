@@ -1,5 +1,12 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261105-RESOURCE-REPRO-05 — Owner放宽D/E项目存储并要求完整主要基线复现准备（2026-11-05 JST）
+
+Owner明确：不在C盘新增项目可控内容，D/E存储放宽；原Fast-Track B指定B1模型的 **250MiB总下载上限保持不变**，D/E原新增1GiB硬限取消，单次任务仍须先冻结资源峰值和安全剩余空间，WSL VHDX/缓存/临时目录的宿主物理落点需要核查，不承诺OS自身绝对零C写入。
+5090不必因未获模型/Claim批准而无工作：现授权其在既有环境下开展零新增下载/零API的原论文Claim1–3图表与脚本映射、静态安全审计、资源许可及分阶段执行审批包准备，完成治理与Git交付后STOP；仍未授权真实Claim或模型/BEIR/Contriever下载。
+Owner确认基线论文主要公开可复现实验应尽量完整复现：先三个ACSAC开源Artifact Claims，再视可行性补效率/消融/检索器表格；这只是 **研究优先级和准备授权，不是实验执行授权或原论文数值一致性的承诺**。原论文正文、作者legacy artifacts、兼容环境结果和中文迁移结果必须分列。
+[完整十二字段授权与边界](../paper1/dual_machine/owner_approvals/W1_STORAGE_AND_REPRO_RESEARCH_DIRECTION_20261105.md)。须连同分支与commit引用本W1-OD，不能使用冲突PODR-154单号。
+
 ## W1-OD-20261105-FAST-B-04 — Owner批准有界 B1 模型资产与离线 B1/B2 基线（2026-11-05 JST）
 
 Owner当前明确批准 Fast-Track B，仅5060独立分支。允许从Hugging Face官方来源下载 `sentence-transformers/all-MiniLM-L6-v2` 固定revision `1110a243fdf4706b3f48f1d95db1a4f5529b4d41` 的最小必要白名单，须先确认来源、许可证、完整文件清单与预算，累计网络下载不超过250MiB、新增磁盘不超过1GiB；不可整仓下载、镜像、代理替代、自动回退或浮动main。下载后使用已封存P2的36个TopK5快照运行B1未修改v0.2公开库、B2仅替换中文embedding的零付费T0开发过滤对照。所有身份/公平性参数前置门未过即BLOCKED。
