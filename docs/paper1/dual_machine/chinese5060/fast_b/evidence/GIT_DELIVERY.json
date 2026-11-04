@@ -1,0 +1,74 @@
+{
+  "status": "PASS_BLOCKED_CHECKPOINT_DELIVERY",
+  "checked_utc": "2026-11-04T15:41:05.010630+00:00",
+  "verified_content_commit": "be79889fbbb0f47c2d14e61952dffc2af283f9fa",
+  "control_plane_commit": "f491c0a507e5555e9611c022cfba66980ad8cbca",
+  "branch": "research/paper1-chinese-defense-5060",
+  "remote": "https://github.com/tingfengy2000-creator/llm-security-evaluation-framework.git",
+  "clean": true,
+  "ahead": 0,
+  "behind": 0,
+  "full_Fast_B_completed": false,
+  "records": [
+    {
+      "argv": [
+        "git",
+        "branch",
+        "--show-current"
+      ],
+      "exit_code": 0,
+      "stdout": "research/paper1-chinese-defense-5060\n",
+      "stderr": "",
+      "stdout_sha256": "94a1d78724cd0a351b2eb765299996d0f04b66d1b4fa5e5ca4bc5f0b45d54e2d"
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": "be79889fbbb0f47c2d14e61952dffc2af283f9fa\n",
+      "stderr": "",
+      "stdout_sha256": "a9c13bacc87243d672e61765f21cb476879c98d10718f83763ede5295cc1aecd"
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "rev-list",
+        "--left-right",
+        "--count",
+        "HEAD...origin/research/paper1-chinese-defense-5060"
+      ],
+      "exit_code": 0,
+      "stdout": "0\t0\n",
+      "stderr": "",
+      "stdout_sha256": "4b14c7b5549e560a68e9c4daaae3fdb8a28fe32d0247050325e7c5a3b2b3271c"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-remote",
+        "--exit-code",
+        "origin",
+        "refs/heads/research/paper1-chinese-defense-5060"
+      ],
+      "exit_code": 0,
+      "stdout": "be79889fbbb0f47c2d14e61952dffc2af283f9fa\trefs/heads/research/paper1-chinese-defense-5060\n",
+      "stderr": "",
+      "stdout_sha256": "7ab02a9c9b3964ff556adac92a21af1d1fce27137003ca028d2dab14cd2edbb4"
+    }
+  ],
+  "scope": "Preflight/materials content commit verified before separate attestation; final delivery HEAD checked live."
+}

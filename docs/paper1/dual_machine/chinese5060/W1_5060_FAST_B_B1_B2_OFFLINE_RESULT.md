@@ -80,3 +80,5 @@ Owner提供最终Prompt路径/内容或明确完整合同身份后，首先核ha
 
 文档QA初次因Windows默认GBK解码Git UTF-8 diff失败，显式按UTF-8读取后脱敏/链接扫描通过；
 未改实验输入、源码或指标，详见[收口事件](fast_b/CLOSEOUT_EVENTS.json)与[发布检查](fast_b/STAGED_PUBLICATION_AUDIT.json)。
+
+受阻checkpoint内容提交 `be79889fbbb0f47c2d14e61952dffc2af283f9fa` 已核对origin同SHA、工作树clean、ahead/behind=0/0；见[Git交付回执](fast_b/evidence/GIT_DELIVERY.json)。最终回执提交的HEAD另在交付时实查。

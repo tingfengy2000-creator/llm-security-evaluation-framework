@@ -20,5 +20,6 @@
   "B2": "NOT_RUN",
   "ASR": "NOT_MEASURED",
   "Answer_Accuracy": "NOT_MEASURED",
-  "git_delivery": "PENDING_STAGED_SCAN_COMMIT_REMOTE_CHECK"
+  "git_delivery": "PASS_VERIFIED_CHECKPOINT_CONTENT_COMMIT",
+  "verified_content_commit": "be79889fbbb0f47c2d14e61952dffc2af283f9fa"
 }
