@@ -1,5 +1,11 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-04 — 5090 records the RAGDefender main-result plan and stops
+
+No new PODR id and no new REL id. Supervision `W1-OD-20261105-RESOURCE-REPRO-05` is the 5060 file at `f491c0a507e5555e9611c022cfba66980ad8cbca`. Task P1-RAGDEFENDER-REPRO-5090-MAIN-PLAN-01. Run W1-5090-MAIN-REPRO-PLAN-20261104. Branch `research/paper1-ragdefender-repro-5090` at parent `5def0ffc15b9fe0ea8d713c43489e5f07e965517`.
+Upstream `ba2a17efba165d45409114df2d70b030ade1e1b8`. Claim 1 would be 24 cells, Claim 2 and Claim 3 six cells each, all NOT_RUN. ASR and accuracy NOT_MEASURED. BEIR directory absent. Syntax checks exited 0. No download and no smoke rerun. Raw inventory sha256 `cf2bbc9fd241fbf2d51e9777945daf8e18766a8753116e60737062919aec2a01`.
+[Plan](../paper1/dual_machine/repro5090/W1_5090_RAGDEFENDER_MAIN_RESULTS_REPRO_PLAN.md).
+
 ## 2026-11-04 — 5090 records the bounded offline smoke and stops
 
 No new PODR id and no new REL id. Supervision `W1-OD-20261104-FAST-A-03` is the 5060 file at `af68d89a870647be138cf5592ccd4a058e44a8ab`. Task P1-RAGDEFENDER-REPRO-5090-OFFLINE-SMOKE-01. Run W1-5090-OFFLINE-SMOKE-20261104. Branch `research/paper1-ragdefender-repro-5090` at parent `01554702b0bc14b7203712c83423d8245eacb3d3`.

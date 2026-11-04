@@ -1,0 +1,119 @@
+{
+  "schema": "ragdefender_claim_coverage_v1",
+  "document_role": "PLAN_ONLY",
+  "execution_status": "NOT_RUN",
+  "undefended_targeted_asr": "NOT_MEASURED",
+  "ragdefender_targeted_asr": "NOT_MEASURED",
+  "qa_accuracy": "NOT_MEASURED",
+  "author_expected_files": "AUTHOR_EXPECTED",
+  "upstream": {
+    "repo": "SecAI-Lab/RAGDefender",
+    "sha": "ba2a17efba165d45409114df2d70b030ade1e1b8",
+    "describe": "v0.2.0-2-gba2a17e",
+    "license": "MIT",
+    "license_sha256": "2242ce2d80454d449576d7ac791c22b3ec9d3907877d68a070e4f30a7aaeab41"
+  },
+  "supervision": "W1-OD-20261105-RESOURCE-REPRO-05",
+  "control_plane_sha": "f491c0a507e5555e9611c022cfba66980ad8cbca",
+  "worker_parent_sha": "5def0ffc15b9fe0ea8d713c43489e5f07e965517",
+  "script_facts": {
+    "seed": 12,
+    "repeat_times": 10,
+    "M_target_queries_per_repeat": 10,
+    "planned_queries_per_cell": 100,
+    "planned_query_count_source": "local results/target_queries/{nq,hotpotqa,msmarco}.json each has length 100",
+    "score_function": "dot",
+    "attack_method": "LM_targeted",
+    "active_retriever": "contriever",
+    "commented_retrievers_not_run": ["dpr", "ance"],
+    "generators_in_active_loops": ["llama7b", "vicuna7b"],
+    "ratio_formula_in_eval": "(additional_adv_per_query + adv_per_query) * 100 / top_k"
+  },
+  "claims": [
+    {
+      "id": "claim1_poisonedrag",
+      "status": "NOT_RUN",
+      "classification": "AUTOMATED_ORIGINAL_ARTIFACT",
+      "paper_target": "Figure 4 column 1 and the 7B rows of Figure 5",
+      "command_not_executed": "CONDA_ENV=artifact_acsac_compat bash claims/claim1_poisonedrag/run.sh",
+      "default_conda_env_in_script": "artifact_acsac",
+      "inner_scripts": ["artifacts/run_poisonedrag.py", "artifacts/main.py", "artifacts/eval.py --method PoisonedRAG"],
+      "cells": 24,
+      "cell_definition": "3 datasets x 2 generators x 4 ratios, Contriever only",
+      "ratios_percent": [100, 200, 400, 600],
+      "author_runtime_estimate": "4-5 h on the author's single GPU",
+      "stdout_capture": "eval.py prints a table and the shell script does not redirect it",
+      "log_dir": "artifacts/logs/main_logs_PoisonedRAG_12/",
+      "json_dir": "artifacts/results/query_results/main_PoisonedRAG_12/",
+      "expected_sha256": "5124ea6f5c01e3a163f60ae57aabed42e113eb8eaaf7c18f7133a21220005864",
+      "expected_bytes": 4924
+    },
+    {
+      "id": "claim2_tan",
+      "status": "NOT_RUN",
+      "classification": "AUTOMATED_ORIGINAL_ARTIFACT",
+      "paper_target": "Figure 4 column 3, 1x cells only",
+      "command_not_executed": "CONDA_ENV=artifact_acsac_compat bash claims/claim2_tan/run.sh",
+      "inner_scripts": ["artifacts/run_tan.py", "artifacts/main_abl.py", "artifacts/eval.py --method Tan"],
+      "cells": 6,
+      "cell_definition": "3 datasets x 2 generators x additional_adv_per_query 0 only",
+      "ratios_percent": [100],
+      "ratios_not_in_script": [200, 400, 600],
+      "author_runtime_estimate": "1-2 h",
+      "static_defect": "makedirs writes logs/main_tan_12 while the log path and eval.py both use logs/main_logs_tan_12",
+      "log_dir_expected_by_eval": "artifacts/logs/main_logs_tan_12/",
+      "json_dir": "artifacts/results/query_results/main_tan_12/",
+      "expected_sha256": "56433fd30ad76f5e56fdcb46c2fd3e55fa568175757c29da26e76731c8645b94",
+      "expected_bytes": 839
+    },
+    {
+      "id": "claim3_garag",
+      "status": "NOT_RUN",
+      "classification": "AUTOMATED_ORIGINAL_ARTIFACT",
+      "paper_target": "Figure 4 column 2, 1x cells only",
+      "command_not_executed": "CONDA_ENV=artifact_acsac_compat bash claims/claim3_garag/run.sh",
+      "inner_scripts": ["artifacts/run_garag.py", "artifacts/main_abl.py", "artifacts/eval.py --method GARAG"],
+      "cells": 6,
+      "cell_definition": "3 datasets x 2 generators x additional_adv_per_query 0 only",
+      "ratios_percent": [100],
+      "ratios_not_in_script": [200, 400, 600],
+      "author_runtime_estimate": "1-2 h",
+      "log_dir": "artifacts/logs/main_logs_GARAG_12/",
+      "json_dir": "artifacts/results/query_results/main_GARAG_12/",
+      "local_passage_file_counts": {"nq": 118, "hotpotqa": 100, "msmarco": 101},
+      "expected_sha256": "7cb98b139bab9ba0fa2c9aff8a48aad76a443b045521d6fe25c0770dbd409a8d",
+      "expected_bytes": 843
+    }
+  ],
+  "figure_4": {
+    "author_statement": "ASR and accuracy across PoisonedRAG, GARAG and Tan et al., three datasets, ratios 1x 2x 4x 6x, with a GPT-4o generator in the paper figure",
+    "open_source_cells_in_active_scripts": {
+      "poisonedrag_contriever_7b_all_four_ratios": 24,
+      "garag_contriever_7b_1x_only": 6,
+      "tan_contriever_7b_1x_only": 6
+    },
+    "not_covered_by_active_scripts": [
+      "Tan and GARAG at 2x, 4x and 6x",
+      "any GPT-4o cell",
+      "DPR and ANCE"
+    ],
+    "gpt4o_classification": "COMMERCIAL_API",
+    "dpr_ance_classification": "REQUIRES_CONFIG"
+  },
+  "figure_5": {
+    "author_statement": "PoisonedRAG only, across LLaMA-7B/13B, Vicuna-7B/13B, GPT-4o and Gemini-1.5-pro",
+    "covered_by_claim1_without_edit": ["llama7b", "vicuna7b"],
+    "ratio_used_by_figure": "UNKNOWN",
+    "llama_13b_and_vicuna_13b": "REQUIRES_CONFIG",
+    "gpt4o_and_gemini": "COMMERCIAL_API"
+  },
+  "supplemental_tables": [
+    {"id": "table_2", "classification": "REQUIRES_PATCH", "reason": "timing exists inside the artifact loop but eval.py does not aggregate cost or seconds"},
+    {"id": "table_3", "classification": "REQUIRES_PATCH", "reason": "author says collect nvidia-smi manually during a claim; no script writes the table"},
+    {"id": "table_4", "classification": "EXTERNAL_REPO", "reason": "BlendedRAG, REPLUG and SELF-RAG are not in this repository"},
+    {"id": "table_5", "classification": "REQUIRES_CONFIG", "reason": "dpr and ance loops are commented out; extra retriever weights are not present"},
+    {"id": "table_6", "classification": "REQUIRES_PATCH", "reason": "author says edit ClusteringBasedGrouping; active artifact code hardcodes AgglomerativeClustering"},
+    {"id": "table_7", "classification": "REQUIRES_PATCH", "reason": "reproducing-paper.md says pass --p and --m; main_abl.py defines neither flag; m is a hard-coded slice of 5 and p is sim*sim"},
+    {"id": "table_8", "classification": "REQUIRES_PATCH", "reason": "claim runners always execute the artifact's combined path; stage-only baselines are not flags"}
+  ]
+}

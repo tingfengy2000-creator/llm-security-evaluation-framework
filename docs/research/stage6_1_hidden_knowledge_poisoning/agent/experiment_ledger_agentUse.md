@@ -1,5 +1,16 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — RAGDefender main-result reproduction plan only, 2026-11-04 UTC+8
+
+Supervision W1-OD-20261105-RESOURCE-REPRO-05. Control-plane file f491c0a507e5555e9611c022cfba66980ad8cbca. Fetched and shown only. No new local PODR.
+Task P1-RAGDEFENDER-REPRO-5090-MAIN-PLAN-01. Run W1-5090-MAIN-REPRO-PLAN-20261104. Parent HEAD 5def0ffc15b9fe0ea8d713c43489e5f07e965517.
+Upstream ba2a17efba165d45409114df2d70b030ade1e1b8. describe v0.2.0-2-gba2a17e. Porcelain 2919. Content diff ignoring CR empty. License sha256 2242ce2d80454d449576d7ac791c22b3ec9d3907877d68a070e4f30a7aaeab41.
+bash -n and py_compile exit 0. BEIR datasets directory absent. Claim1 24 cells, Claim2 6 cells, Claim3 6 cells, all NOT_RUN. ASR and accuracy NOT_MEASURED. Author expected files hashed only.
+Tan makedirs path logs/main_tan_12 does not match eval path logs/main_logs_tan_12. Table 6 is REQUIRES_PATCH. Table 7 flags --p/--m are absent in main_abl.py. No download, no pytest install, no smoke rerun.
+C free 99.3 GiB, D 739.1 GiB, E 725.7 GiB. WSL Ubuntu-24.04 base drive E. Windows TEMP and an existing HF cache are on C and were not moved.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master evaluated and not updated; owner_decision evaluated and not updated; stage_process evaluated and not updated; lessons evaluated and not updated; research_authority evaluated and not updated; README evaluated and not updated.
+[Plan](../../../paper1/dual_machine/repro5090/W1_5090_RAGDEFENDER_MAIN_RESULTS_REPRO_PLAN.md).
+
 ## Current — RAGDefender offline smoke recorded, claims not run, 2026-11-04 UTC+8
 
 No new PODR. Supervision W1-OD-20261104-FAST-A-03. Auth file af68d89a870647be138cf5592ccd4a058e44a8ab on research/paper1-chinese-defense-5060. Fetched and shown only.

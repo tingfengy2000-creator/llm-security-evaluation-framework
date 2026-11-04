@@ -1,5 +1,11 @@
 # LLMGuard 项目总控文档
 
+## 当前：5090 已写 RAGDefender 主要实验复现准备，Claim 仍未批准（2026-11-04）
+
+`W1-OD-20261105-RESOURCE-REPRO-05` 把主要公开实验定成对标目标，但不批准下载或运行。三条 Claim 仍是 `NOT_RUN`。攻击成功率和准确率仍是 `NOT_MEASURED`。图 4 的后两条攻击脚本只有一倍强度。准备结束后停止。
+[复现准备](docs/paper1/dual_machine/repro5090/W1_5090_RAGDEFENDER_MAIN_RESULTS_REPRO_PLAN.md)。
+下面的 L0 Oracle 结论不替换。
+
 ## 当前：5090 离线 Smoke 已记录，Claim 仍未批准（2026-11-04）
 
 `W1-OD-20261104-FAST-A-03` 只批准静态确认过的本地检查。pytest 未安装。直接检查留下 1 项脚本截断失败，其余通过项是 `SMOKE` 或 `ALGORITHM_CHECK`。三条 Claim 仍是 `NOT_RUN`。攻击成功率和准确率仍是 `NOT_MEASURED`。权重和 BEIR 未下载。到此停止。

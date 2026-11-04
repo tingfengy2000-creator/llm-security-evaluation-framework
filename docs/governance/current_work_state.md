@@ -1,5 +1,12 @@
 # Current Work State
 
+## Current — 2026-11-04 5090 main-result reproduction plan recorded, claims still not approved
+
+Task P1-RAGDEFENDER-REPRO-5090-MAIN-PLAN-01. Run W1-5090-MAIN-REPRO-PLAN-20261104. Supervision W1-OD-20261105-RESOURCE-REPRO-05 at 5060 commit f491c0a507e5555e9611c022cfba66980ad8cbca. No new local PODR.
+The plan maps author claims to Figure 4 and Figure 5 and classifies Tables 2–8. Claim 1, 2 and 3 remain NOT_RUN. ASR and accuracy remain NOT_MEASURED. No weights or BEIR were downloaded. New project-controlled files stay off C. Stop here.
+[Plan](../paper1/dual_machine/repro5090/W1_5090_RAGDEFENDER_MAIN_RESULTS_REPRO_PLAN.md).
+The L0 Oracle result below is unchanged. No D1/D2/D3 read, no paid API, no algorithm edit.
+
 ## Current — 2026-11-04 5090 offline smoke recorded, claims still not approved
 
 Task P1-RAGDEFENDER-REPRO-5090-OFFLINE-SMOKE-01. Run W1-5090-OFFLINE-SMOKE-20261104. Supervision W1-OD-20261104-FAST-A-03 at 5060 commit af68d89a870647be138cf5592ccd4a058e44a8ab. No new local PODR.
