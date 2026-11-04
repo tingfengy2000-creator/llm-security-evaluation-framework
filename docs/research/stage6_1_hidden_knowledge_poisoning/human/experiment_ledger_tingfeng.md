@@ -1,5 +1,10 @@
 # Paper 1 人类可读实验总规划与实验总账
 
+## 当前补充 — 原始来源找到问答线索，独立裁决仍待完成（2026-11-04）
+
+PAPER1-RAG-DEFENSE-RECONSTRUCTION-01；PHASE1_2_REVIEW_READY / HUMAN_DECISION_REQUIRED。只读核查确认28份选定证据有相同上游正文，2份官方来源定位出17条问答片段线索；旧120条检索query均含完整候选，不能直接作独立QA。建议先审阅已有官方问答的题干/时间/范围/答案边界和冻结组对应，再补不足；12组仍NEEDS_ADJUDICATION。Owner明确继续后另生成12条来源审阅问题草稿、23次来源引用，答案全部null、未批准，控制映射另存评价器；尚无可执行Pilot。未重做验证，新增API0/费用0，B4/正式实验未开始，D2D3/Human/GT不改。
+[新增证据、限制和下一门](../core144/rag_defense_reconstruction_01/SOURCE_REUSE_FOLLOWUP.md)。下方为先前审阅记录。
+
 ## 当前：先补查询与答案，再判断是否值得改方法（2026-11-04）
 
 PAPER1-RAG-DEFENSE-RECONSTRUCTION-01；PHASE1_2_REVIEW_READY / HUMAN_DECISION_REQUIRED。已从暂停点续接并形成十项交付。RAGDefender的核心程序确实运行过，但使用的嵌入模型不同于论文，默认示例和作者测试也没有全部通过，所以只能说核心可运行。

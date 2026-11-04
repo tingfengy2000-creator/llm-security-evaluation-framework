@@ -1,0 +1,38 @@
+{
+  "status": "TWELVE_DRAFTS_READY_FOR_INDEPENDENT_REVIEW_NOT_FOR_EXECUTION",
+  "query_drafts": 12,
+  "approved_queries": 0,
+  "approved_answers": 0,
+  "model_packets_created": 0,
+  "scenario_packets_created": 0,
+  "reviewer_packet_contains_candidate_text_or_mapping": false,
+  "draft_author_saw_candidate_texts": true,
+  "new_source_documents_added": 0,
+  "source_excerpts_are_locator_spans_not_adjudicated_support": true,
+  "per_world_evidence_access_not_replaced_by_union_review_pool": true,
+  "prior_tests_or_models_rerun": false,
+  "new_paid_calls": 0,
+  "source_refs_count": 23,
+  "next_gate": "INDEPENDENT_REVIEW_OF_QUERY_TIME_SCOPE_SOURCE_ROLE_ANSWER_AND_PER_WORLD_EVIDENCE",
+  "private_files": [
+    {
+      "path": "experiments/rag_defense_reconstruction_01/adjudication_review_01/CONTROL_MAPPING_EVALUATOR_ONLY.json",
+      "bytes": 10505,
+      "sha256": "70a7d03559c5e2a20f6e8c7777ec32fc7d789559430d866a9ff4a8745283b9dc"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/adjudication_review_01/REVIEWER_SOURCE_ONLY_DRAFT.json",
+      "bytes": 106213,
+      "sha256": "3022088c07ebbe0afed191f1ae9273794455d67ed258557e573becc67f5f0032"
+    }
+  ],
+  "checks": {
+    "twelve_unique_reviews": true,
+    "all_answers_null_and_unapproved": true,
+    "all_adjudication_required": true,
+    "official_excerpt_offsets_and_hashes": true,
+    "candidate_and_group_ids_absent_from_reviewer_packet": true,
+    "no_evaluator_fields_in_reviewer_items": true,
+    "private_review_packet_ignored": true
+  }
+}

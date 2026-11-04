@@ -1,0 +1,38 @@
+{
+  "task": "PAPER1-RAG-DEFENSE-RECONSTRUCTION-01",
+  "scope": "SOURCE_REUSE_SUPPLEMENT_ONLY",
+  "prior_review_commit": "4a6e76c89b39dee0f39c37ff169a5dc14e6c3081",
+  "inherited_tests_or_experiments_rerun": false,
+  "new_paid_calls": 0,
+  "checks": {
+    "supplement_evidence_hashes": true,
+    "archive_identity_crc_and_members": true,
+    "new_links_valid": true,
+    "secret_scan": true,
+    "private_sample_ids_absent": true,
+    "current_mirrors_consistent": true,
+    "no_runtime_code_changes": true,
+    "git_diff_check": true,
+    "private_payload_ignored": true
+  },
+  "broken_links": [],
+  "secret_hit_files": [],
+  "conditional_documents": {
+    "human_ledger": "UPDATED",
+    "agent_ledger": "UPDATED",
+    "current_work_state": "UPDATED",
+    "research_execution_log": "UPDATED",
+    "experiment_master": "UPDATED_NEW_SOURCE_EVIDENCE",
+    "stage_process": "UPDATED_READ_ONLY_FOLLOWUP",
+    "owner_decision": "UNCHANGED_IDENTICAL_TASK_INSTRUCTION",
+    "lessons": "UNCHANGED_EXISTING_PROVISIONAL_QUERY_ISOLATION_RULE_SUFFICIENT",
+    "research_authority": "UNCHANGED_NO_RESEARCH_OR_EXECUTION_AUTHORITY_CHANGE",
+    "README": "UPDATED_NEW_SUPPLEMENT_LINK"
+  },
+  "context_persistence_check": "SOURCE_LINEAGE_FINDINGS_AND_GATE_SAVED",
+  "full_task_complete": false,
+  "scientific_gate": "HUMAN_DECISION_REQUIRED",
+  "next_action": "REVIEW_EXISTING_SOURCE_QA_FOR_INDEPENDENT_TIME_SCOPE_AND_FROZEN_GROUP_CORRESPONDENCE",
+  "git_delivery": "VERIFY_FINAL_COMMIT_AND_REMOTE_AT_HANDOFF",
+  "documentation_closeout_pass_for_supplement": true
+}

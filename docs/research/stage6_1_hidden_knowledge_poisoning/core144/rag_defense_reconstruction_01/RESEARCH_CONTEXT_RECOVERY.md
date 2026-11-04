@@ -27,3 +27,11 @@ Owner 在新会话明确继续，解除上文主动暂停；PAUSED_HANDOFF.json 
 当前 PHASE1_2_REVIEW_READY / HUMAN_DECISION_REQUIRED；完整任务尚未完成，查询级实验、B4 与正式实验均未开始。源文件六项哈希与暂停记录全部一致。Git fetch 已完成，新分支起初 NO_UPSTREAM，未 pull。
 恢复源为原 Owner 附件 98e34866-cca4-4903-ac41-88858bcb19a5/已粘贴的文本.txt；阶段一二授权保持，最新 Owner 明确禁止自动付费。
 下一门为独立查询/答案裁决及迁移可比性决定；本地19项检查只有继承记录，独立原始日志缺口已揭示。详见[负责人报告](OWNER_FEASIBILITY_DECISION_REPORT.md)、[当前机器状态](RESUMED_CLOSEOUT_STATE.json)和[收口检查](DOCUMENTATION_CLOSEOUT.json)。
+
+
+## 同日继续：原始来源可复用性
+
+Owner再次粘贴相同任务书（附件80ecfd95-1082-4d2e-bf3e-7a1d114bdea3），哈希与原件相同；范围未扩展。完成只读上游语料/注册表/旧query核查，找到2份来源中的17条官方问答线索，未建立组映射或真值，12组仍NEEDS_ADJUDICATION。无实验/测试重跑、无付费。继续入口：[来源补充核查](SOURCE_REUSE_FOLLOWUP.md)。
+
+
+Owner随后明确“请继续”。新建adjudication_review_01来源审阅草稿12题/23次引用，答案null，全部NEEDS_ADJUDICATION；作者已见候选，不能自称独立命题。私有审阅包不含候选/组ID，映射另存Evaluator。未创建模型实例；下一门是独立裁决题干/时间范围/答案支持与逐世界足证性。

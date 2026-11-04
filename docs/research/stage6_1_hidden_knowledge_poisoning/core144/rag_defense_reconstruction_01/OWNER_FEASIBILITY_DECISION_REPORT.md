@@ -36,3 +36,11 @@ PAPER_RISK_REVIEW：几何信号≠事实真值，忠实性≠安全，旧短命
 本轮复用暂停前源码哈希及其19项检查记录，没有重跑验证。暂停包没有单独的本地 pytest/Ruff/MyPy 原 stdout 日志，因此这些列为 SOURCE_REPORTED_PASS_BOUND_TO_UNCHANGED_HASHES；不伪造原命令输出，不把继承记录说成本轮新测。原作者和核心运行有完整日志。该本地日志缺口与后续门见[收口检查](DOCUMENTATION_CLOSEOUT.json)。
 
 审阅入口：[查询协议](QUERY_LEVEL_PILOT_PROTOCOL.md)、[信任边界](THREAT_MODEL_AND_TRUST_BOUNDARY.md)、[比较矩阵](BASELINE_COMPARABILITY_MATRIX.md)、[真实结果](EXPERIMENT_RESULTS.json)。决定前不继续受影响实验；本包不是方法科学验收。
+
+
+## 同日来源扩展记录
+
+只读上游核查找到2份官方来源中的17条问答片段线索；28份选定证据正文均有相同上游快照，旧120条检索query全部含候选全文，不能作独立QA。建议优先审阅已有来源问答，再决定需要补哪些题；12组仍需独立裁决，未启动Pilot/API或B4。详见[SOURCE_REUSE_FOLLOWUP.md](SOURCE_REUSE_FOLLOWUP.md)。原十二字段决定中“未审计原始问答材料”的未知范围已缩小到本次列明的上游材料，其他未知与门保持。
+
+
+Owner明确继续后，LOCAL把冻结12组整理为来源审阅草稿，含23次官方来源引用，全部标准答案留空、未批准，题干/时间/范围/来源角色/逐世界足证性均待独立裁决。私有文件与隔离检查见[准备状态](ADJUDICATION_REVIEW_PREPARATION.json)；未将17条原生问答线索直接当作12组真值。

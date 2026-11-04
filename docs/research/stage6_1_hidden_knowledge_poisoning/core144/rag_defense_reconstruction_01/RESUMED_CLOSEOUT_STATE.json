@@ -27,5 +27,13 @@
     "HISTORICAL_OR_D2_D3_HUMAN_GT_MUTATION"
   ],
   "formal_experiment": "NOT_STARTED",
-  "git_delivery_verification": "CHECK_CURRENT_GIT_AND_COMMIT_CONTAINING_THIS_FILE"
+  "git_delivery_verification": "CHECK_CURRENT_GIT_AND_COMMIT_CONTAINING_THIS_FILE",
+  "latest_followup": "SOURCE_REUSE_FOLLOWUP.md",
+  "source_native_qa_leads_found": 17,
+  "source_native_qa_documents": 2,
+  "independently_adjudicated_groups": 0,
+  "query_review_drafts": 12,
+  "approved_queries": 0,
+  "approved_answers": 0,
+  "private_review_packet": "experiments/rag_defense_reconstruction_01/adjudication_review_01/REVIEWER_SOURCE_ONLY_DRAFT.json"
 }

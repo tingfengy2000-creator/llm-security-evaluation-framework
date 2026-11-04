@@ -1,0 +1,96 @@
+{
+  "scope": "SUPPLEMENT_ONLY_OLD_ARCHIVES_UNCHANGED",
+  "private_payloads_not_for_git": true,
+  "records": [
+    {
+      "path": "experiments/rag_defense_reconstruction_01/audit_source_reuse_01.py",
+      "bytes": 7152,
+      "sha256": "e0cc05f7524ef6b210bd4a1298019474d1b09ed892e6e7e81c5ebddea1286d5e"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/extract_source_qa_leads_01.py",
+      "bytes": 3485,
+      "sha256": "76ab580c16a6d5b9372236cf2aaa88a88a54094938ad3048d90d190717e2ae7a"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/logs/source_reuse_01.command.json",
+      "bytes": 3974,
+      "sha256": "959744e63ebed8dca9448350b1b2a6a56fdf0c53e904ef0aa6fa6a75222fad7a"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/logs/source_qa_leads_01.command.json",
+      "bytes": 853,
+      "sha256": "5afcb31b0d99a3ab687b65e73553bfda3453f9024c148c0a7711d4e53e598d37"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/source_reuse_01/SOURCE_NATIVE_QA_LEADS_PRIVATE.json",
+      "bytes": 8498,
+      "sha256": "7888026b25269cfcb7dc67f71b8b7b4e6c1dcdb570b92ec5f0293af2febba1e0"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/source_reuse_01/SOURCE_NATIVE_QA_LEADS_SUMMARY.json",
+      "bytes": 652,
+      "sha256": "2e9611f43511df8a194897b21b0b0092c04719347c251f7676810939bf21777f"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/source_reuse_01/SOURCE_REUSE_AUDIT_PRIVATE.json",
+      "bytes": 24501,
+      "sha256": "5132a604b1d64f4fc88bffcbe3078181eeabc9b8c25e6aa1f0fe8f9b0349196e"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/source_reuse_01/SOURCE_REUSE_AUDIT_PUBLIC.json",
+      "bytes": 3882,
+      "sha256": "07c1d73e7a96a7489f1a17ae06ac76f65c4047ad27396c9dd02d67a9bd533fb0"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/prepare_adjudication_review_01.py",
+      "bytes": 10558,
+      "sha256": "812b6cc1d44951f83bd1e6dd2ab3d587864b63d6af0dcf36b1cab8e3e8cba7c1"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/source_reuse_closeout_01.py",
+      "bytes": 4994,
+      "sha256": "1967f53182ff40f86fd1a67ceaec84c89a66c9d5518aa498c04d1e1b89d7e30b"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/logs/adjudication_review_01.command.json",
+      "bytes": 1375,
+      "sha256": "527ad4711156a11024b5238be8615eef18e72ae931e898c323c0a48daceeef72"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/logs/source_reuse_closeout_01.command.json",
+      "bytes": 1761,
+      "sha256": "cab76bdafd9fc3e565a879d356d06653e12c5a67179ce5b17faedf192742fe23"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/adjudication_review_01/CONTROL_MAPPING_EVALUATOR_ONLY.json",
+      "bytes": 10505,
+      "sha256": "70a7d03559c5e2a20f6e8c7777ec32fc7d789559430d866a9ff4a8745283b9dc"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/adjudication_review_01/REVIEW_PACKET_QA.json",
+      "bytes": 492,
+      "sha256": "a71d3ea0bdbc6d2fb7327d7d054157c1131f2935b64394545452da4b375fdd94"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/adjudication_review_01/REVIEW_PREPARATION_SUMMARY.json",
+      "bytes": 1208,
+      "sha256": "3ef00079bc81a8a29e64b3687fb61204a81c5bb904aa2d2d8dd7f51c131b87ff"
+    },
+    {
+      "path": "experiments/rag_defense_reconstruction_01/adjudication_review_01/REVIEWER_SOURCE_ONLY_DRAFT.json",
+      "bytes": 106213,
+      "sha256": "3022088c07ebbe0afed191f1ae9273794455d67ed258557e573becc67f5f0032"
+    }
+  ],
+  "archive": {
+    "path": "experiments/rag_defense_reconstruction_01/SOURCE_REUSE_AND_REVIEW_EVIDENCE_20261104_V2.zip",
+    "bytes": 50373,
+    "sha256": "28c9d4965029b9e4feda6c30406115e45647e2348de776455ff3e4a35daf5f36"
+  },
+  "prior_archive_preserved": {
+    "path": "experiments/rag_defense_reconstruction_01/SOURCE_REUSE_EVIDENCE_20261104.zip",
+    "bytes": 14826,
+    "sha256": "e1d28359125e79c2b3dbb14155c1e1cc10354355f26c8f893c5bc85c5ac1725a"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "source_inventory": {
+    "task": "PAPER1-RAG-DEFENSE-RECONSTRUCTION-01",
+    "date_jst": "2026-11-04",
+    "status": "SOURCE_REUSE_INVENTORIED_QA_ADJUDICATION_STILL_REQUIRED",
+    "scope": "FIXED_12_GROUP_SELECTION_UPSTREAM_CORPUS_REGISTRY_AND_LEGACY_RETRIEVAL_QUERIES",
+    "selection_changed": false,
+    "selection_sha256": "2c16fd6915c2dee377631d311ff33fe0ad36fdc8928a86e8fcabdcbca01cf689",
+    "upstream_corpus_documents": 33,
+    "selected_unique_documents": 28,
+    "selected_documents_found_in_upstream_corpus_and_registry": 28,
+    "selected_full_snapshot_texts_identical_to_bundle": 28,
+    "known_upstream_metadata_per_28_unique_documents": {
+      "issuer": 24,
+      "publisher": 0,
+      "authority_role": 3,
+      "publication_date": 4,
+      "effective_start": 9,
+      "effective_end": 0,
+      "current_history_role": 4,
+      "supersedes": 0,
+      "superseded_by": 1
+    },
+    "upstream_corpus_registry_field_mismatches": 0,
+    "upstream_authority_role_missing_from_bundle_schema": true,
+    "metadata_source_records_present_documents": 25,
+    "lexical_hints_per_28_unique_documents_not_qa_truth": {
+      "question_colon": 1,
+      "answer_colon": 2,
+      "interpretation_word": 5,
+      "effective_date_word": 19,
+      "supersession_word": 14
+    },
+    "preexisting_QA_adjudication_fields_in_checked_corpus_or_query_records": [],
+    "legacy_queries_total": 120,
+    "legacy_queries_selected": 36,
+    "legacy_queries_containing_full_candidate_total": 120,
+    "legacy_queries_containing_full_candidate_selected": 36,
+    "legacy_query_type": "CANDIDATE_CONDITIONED_RETRIEVAL_QUERY_NOT_INDEPENDENT_QA_QUESTION",
+    "new_queries_written": 0,
+    "new_answers_written": 0,
+    "new_scenarios_written": 0,
+    "ready_independently_adjudicated_groups": 0,
+    "needs_adjudication_groups": 12,
+    "source_results_or_prediction_files_opened": false,
+    "human_GT_Expected_materials_opened": false,
+    "new_paid_calls": 0,
+    "new_API_CNY": "0",
+    "model_or_retrieval_execution": false,
+    "source_identities": [
+      {
+        "path": "D:\\llmProject\\.worktrees\\paper1-rag-defense-reconstruction-01\\experiments\\rag_defense_reconstruction_01\\pilot_freeze\\SELECTION_EVALUATOR_ONLY.json",
+        "bytes": 12597,
+        "sha256": "2c16fd6915c2dee377631d311ff33fe0ad36fdc8928a86e8fcabdcbca01cf689"
+      },
+      {
+        "path": "D:\\llmProject\\.worktrees\\stage6-rag\\experiments\\vace_l0_handoff_20261029_run01\\private_input_v2\\runtime\\f5.jsonl",
+        "bytes": 7384615,
+        "sha256": "c849260e2a41fa9186e6d69ed6442cbebdaa7ff272beece9dfadc22e61cf535c"
+      },
+      {
+        "path": "D:\\llmProject\\.worktrees\\stage6-rag\\experiments\\core144_d1_quality_sept_20261027\\engineering\\CORPUS_VISIBLE_V2.jsonl",
+        "bytes": 572328,
+        "sha256": "f61c20aae199e511a9a1529248b1597c9b2ade4ea3381451f4cbc8324ed69928"
+      },
+      {
+        "path": "D:\\llmProject\\.worktrees\\stage6-rag\\experiments\\core144_d1_quality_sept_20261027\\engineering\\REGISTRY_V2.json",
+        "bytes": 95092,
+        "sha256": "41dab4a808b086a966b994e12b273315d297d194170d521c40e398c2ebcad73d"
+      },
+      {
+        "path": "D:\\llmProject\\.worktrees\\stage6-rag\\experiments\\vace_v03_f5_20261028_run01\\QUERIES_TEXT_ONLY_V1.jsonl",
+        "bytes": 36059,
+        "sha256": "6ca29e1dcd0c46bd0e7abdf5f40ac132569a5d12338bd7c7a54ceb7c015b8468"
+      },
+      {
+        "path": "D:\\llmProject\\.worktrees\\paper1-rag-defense-reconstruction-01\\scripts\\research\\run_vace_f5_diagnostic.py",
+        "bytes": 12842,
+        "sha256": "3a9163b48dd1432419aa5d17fc6d1d3cdb8c902c6439d31e5399c483db490a21"
+      }
+    ],
+    "inference": "Existing source text and some omitted metadata are reusable preparation material. Legacy candidate-containing queries are not independent QA. This inventory neither adjudicates answers nor proves no other material exists.",
+    "next_gate": "INDEPENDENT_QUERY_ANSWER_TIME_SCOPE_SOURCE_ROLE_ADJUDICATION"
+  },
+  "source_native_qa_leads": {
+    "status": "SOURCE_NATIVE_QA_LEADS_FOUND_NOT_ADJUDICATED",
+    "source_native_QA_documents": 2,
+    "source_native_QA_span_leads": 17,
+    "candidate_group_mapping_created": false,
+    "gold_answer_created": false,
+    "requires_review": [
+      "question_antecedent",
+      "target_time_and_version",
+      "scope",
+      "source_role",
+      "answer_span_boundary",
+      "relation_to_frozen_group_without_outcome_selection"
+    ],
+    "private_leads_sha256": "7888026b25269cfcb7dc67f71b8b7b4e6c1dcdb570b92ec5f0293af2febba1e0",
+    "claim_limit": "Archived source text contains source-authored QA; no claim of present legal validity or ready D1 QA truth."
+  }
+}

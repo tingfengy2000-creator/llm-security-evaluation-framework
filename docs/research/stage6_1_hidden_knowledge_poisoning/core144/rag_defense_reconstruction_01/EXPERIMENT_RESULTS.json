@@ -165,5 +165,15 @@
   "formal_experiment": "NOT_STARTED",
   "new_paid_calls": 0,
   "new_model_downloads": 0,
-  "GPU_used": false
+  "GPU_used": false,
+  "supplemental_source_reuse": {
+    "artifact": "SOURCE_REUSE_AUDIT.json",
+    "method": "READ_ONLY_NO_RETRIEVAL_OR_MODEL_RERUN",
+    "source_native_qa_documents": 2,
+    "source_native_qa_span_leads": 17,
+    "adjudicated_groups": 0,
+    "new_paid_calls": 0,
+    "query_drafts_for_review": 12,
+    "approved_answers": 0
+  }
 }
