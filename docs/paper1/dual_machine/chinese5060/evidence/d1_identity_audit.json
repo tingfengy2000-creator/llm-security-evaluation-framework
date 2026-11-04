@@ -1,0 +1,82 @@
+{
+  "status": "SIGNED_D1_BUNDLE_AND_PRIOR_PILOT_IDENTITIES_VERIFIED",
+  "data_status": "D1_DEV_EXPOSED_NOT_FORMAL_GT",
+  "input_hashes": {
+    "manifest": "a7e05d2ebedbc68abc21fff46a0ad1597747712020957ac30cf1445353714a60",
+    "f5": "c849260e2a41fa9186e6d69ed6442cbebdaa7ff272beece9dfadc22e61cf535c",
+    "evaluation_labels": "d904e349211ec7af648b68afadb31e46a30196ba20a53b5a40a382ec0df7afaf",
+    "pilot_selection": "2c16fd6915c2dee377631d311ff33fe0ad36fdc8928a86e8fcabdcbca01cf689"
+  },
+  "D1": {
+    "groups": 40,
+    "candidates": 120,
+    "families": 13,
+    "roles": {
+      "HARD_NEGATIVE": 40,
+      "CLEAN_CURRENT": 40,
+      "POISON": 40
+    },
+    "poison_S": {
+      "S1": 12,
+      "S2": 15,
+      "S3": 13
+    }
+  },
+  "HOLD": {
+    "groups_declared_in_bundle": 8,
+    "candidates_declared_in_bundle": 24,
+    "hold_payload_opened": false
+  },
+  "Pilot12": {
+    "groups": 12,
+    "candidates": 36,
+    "families": 9,
+    "poison_S": {
+      "S1": 4,
+      "S2": 4,
+      "S3": 4
+    },
+    "seed": 20261104,
+    "prior_selection_reused_not_resampled": true
+  },
+  "old_runtime_readiness": {
+    "status": "NEEDS_ADJUDICATION",
+    "candidates": 120,
+    "evidence_occurrences": 600,
+    "unique_evidence_documents": 32,
+    "query_text_present": 0,
+    "independent_QA_answer_adjudication_present": 0,
+    "metadata_gaps": {
+      "effective_end_missing": 600,
+      "effective_start_missing": 423,
+      "issuer_missing": 58,
+      "publication_date_missing": 565,
+      "publisher_missing": 600,
+      "version_role_unknown": 464
+    },
+    "inference": "Candidate verification inputs do not establish unique query-level QA truth; absence applies to audited bundle, not all possible source material."
+  },
+  "selected_old_runtime_readiness": {
+    "status": "NEEDS_ADJUDICATION",
+    "candidates": 36,
+    "evidence_occurrences": 180,
+    "unique_evidence_documents": 28,
+    "query_text_present": 0,
+    "independent_QA_answer_adjudication_present": 0,
+    "metadata_gaps": {
+      "effective_end_missing": 180,
+      "effective_start_missing": 126,
+      "issuer_missing": 14,
+      "publication_date_missing": 168,
+      "publisher_missing": 180,
+      "version_role_unknown": 142
+    },
+    "inference": "Candidate verification inputs do not establish unique query-level QA truth; absence applies to audited bundle, not all possible source material."
+  },
+  "query_drafts": "EXISTING_AI_PROVISIONAL_V2_NOT_OPENED_BY_THIS_AUDIT",
+  "signature_original_reopened": false,
+  "D2_D3_payload_opened": false,
+  "reviewer_payload_opened": false,
+  "Oracle_opened": false,
+  "paid_calls": 0
+}

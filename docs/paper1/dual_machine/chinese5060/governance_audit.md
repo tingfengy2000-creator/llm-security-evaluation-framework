@@ -31,6 +31,7 @@ Owner优先级为证据、公平对照、单核心机制和可复核失败，不
 禁改：Stage1–5/历史结果、正式基线、GT、D2/D3、Reviewer/独立答案、其他工作树；不安装/下载/新增付费服务。
 下一审批门：真实失败后B5唯一冻结；当前先闭合场景/迁移协议。正式实验NOT_STARTED。
 可宣称：真实Git、代码存在、经hash验证的D1聚合与虚构工程检查；不能宣称RAGDefender中文失效、新方法收益、ASR或泛化。
+首次文件名发现范围过宽，显露受限路径名；未读取内容，后续改固定白名单，见[范围修正](isolation_incident.md)。
 
 FORWARD_RISK_REVIEW与PAPER_RISK_REVIEW见[公平性](baselines_and_fairness.md)。
 主合同原件和编号02提示原件在核对的tracked树/指定根未见；当前消息是可用Owner指令，不伪造原件存在。

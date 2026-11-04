@@ -1,0 +1,95 @@
+{
+  "run_id": "W1-5060-20261104-P0-01",
+  "source_sha": "ca75c381546247ad3377013a75bb21133cc078ed",
+  "source_file_hashes": {
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/budget.py": "d835be554dafe89817a53175131e7df6321dd221e950ae29aa64743f37e65a39",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/control_plane.py": "b500e3f3a3c0f13d28c08809b6f04f19623ed00787e157fa1796d9c9282c109c",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/snapshots.py": "66aa5896e522da1209c1b384679a6658540d51a97874a47b3b5393b1db14050a",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/__init__.py": "d5322dc13dd78b59c8dac4451aa9fdc6bbe8e97be5be2692e004e48769e670c0",
+    "scripts/research/audit_chinese5060_inputs.py": "dfad7dd503771a584b5030c54b4e35504b788efeeabf039f40496535eda58062",
+    "scripts/research/smoke_chinese5060.py": "c71a3e72ea939efb2fec4855faf20e063b67b2455872a6a6227f9e48ed57ea45",
+    "scripts/research/validate_chinese5060.py": "d4f15ac7d64855f5fd66b987db706700f21b1d245d760bd1a13afbfdcad461dc",
+    "tests/research/test_chinese5060.py": "3ff31ba0d5331f74069b7319dc5e3ab0322df71a2b7662a062bd89ce6d51950f"
+  },
+  "classification": "ENGINEERING_VALIDATION_NOT_FORMAL_OR_PILOT",
+  "environment": {
+    "python": "3.12.14",
+    "dependencies": {
+      "chromadb": "1.5.9",
+      "scikit-learn": "1.9.0",
+      "sentence-transformers": "5.6.0"
+    },
+    "machine_role": "RTX5060_LOCAL_CONTROL_PLANE_CPU_RUN",
+    "GPU_used": false
+  },
+  "config_sha256": "e9fe008cf77950b6e051c1da595c3fa4a44a6b4accf523092e3557922efd0a07",
+  "owner_receipt_sha256": "05590bccaf85d3cd5444bb17b94c9945c146d535f24c6e715643d90a9bf16c74",
+  "input_sha256": {
+    "manifest": "a7e05d2ebedbc68abc21fff46a0ad1597747712020957ac30cf1445353714a60",
+    "f5": "c849260e2a41fa9186e6d69ed6442cbebdaa7ff272beece9dfadc22e61cf535c",
+    "evaluation_labels": "d904e349211ec7af648b68afadb31e46a30196ba20a53b5a40a382ec0df7afaf",
+    "pilot_selection": "2c16fd6915c2dee377631d311ff33fe0ad36fdc8928a86e8fcabdcbca01cf689"
+  },
+  "D1_input_policy": "IDENTITY_AUDIT_ONLY_SEPARATE_EVALUATOR_NO_D1_IN_RETRIEVAL_SMOKE",
+  "worlds": [
+    {
+      "corpus_hash": "2fc27ee3f4ee8c1e2e539a3e1a2ee00be29a8946170625f253f6de8faa8f07a6",
+      "topK_snapshot_hash": "2f561769dbd68e5d566b17f57dc5ee9aaf88377348a29cc4dc2d73324b0663e8",
+      "indexed_count": 6,
+      "retrieved_count": 3,
+      "reopened_order_identical": true
+    },
+    {
+      "corpus_hash": "2ebe943d35e3a155aa3ce635ddb41e1af1d4f9165ea5698945914825cf5caefe",
+      "topK_snapshot_hash": "739329ef3593fb63add0971963b8a8ef3871d64f15df6d6168332dc93a12a056",
+      "indexed_count": 6,
+      "retrieved_count": 3,
+      "reopened_order_identical": true
+    },
+    {
+      "corpus_hash": "ded0837b1887181539d0be55b78de527c7fdd0225ab964ce29e1765edbd26c8d",
+      "topK_snapshot_hash": "146bbef0c2fa172dd2e5dc7b9478faae3a4b60348ec95f9f93c102cab2a9d426",
+      "indexed_count": 6,
+      "retrieved_count": 3,
+      "reopened_order_identical": true
+    }
+  ],
+  "output_sha256": {
+    "validation_index": "814ac7f5d13a0b82770a9a83b521234401599744d65c68eaecaf8dd8f160115e",
+    "D1_identity_audit": "f86770cdbe5d2b99babdc3d2563664c374042c158fefa475cbaed81aaf6ff76f",
+    "fictional_smoke_summary": "54146ef9df6211e9fd174e518089bc775e9152d209fe73dc7a2a0019b843f99a",
+    "failures_and_blockers": "233980b94465a3e141da617e45955182a70257c0ee092fe926a38d07198b67c8"
+  },
+  "command_record_sha256": "026561a7cdc0e76c4536ac662a6cd02545710223f58c4e2c68d9e08601b35619",
+  "checks": [
+    {
+      "name": "tests",
+      "exit_code": 0
+    },
+    {
+      "name": "ruff",
+      "exit_code": 0
+    },
+    {
+      "name": "mypy",
+      "exit_code": 0
+    },
+    {
+      "name": "D1_identity_audit",
+      "exit_code": 0
+    },
+    {
+      "name": "fictional_chroma_smoke",
+      "exit_code": 0
+    }
+  ],
+  "generation": "NOT_RUN",
+  "real_query_Pilot12": "NOT_RUN",
+  "D1_40": "NOT_RUN",
+  "scientific_evaluation_denominator": 0,
+  "ASR": null,
+  "Answer_Accuracy": null,
+  "paid_calls": 0,
+  "cost_USD": "0",
+  "upstream_reproduction": "NOT_RUN"
+}

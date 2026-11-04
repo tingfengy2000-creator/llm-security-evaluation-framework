@@ -1,0 +1,57 @@
+{
+  "run_id": "FICTIONAL_SMOKE",
+  "classification": "ENGINEERING_VALIDATION_FICTIONAL_NOT_D1",
+  "code_sha": "ca75c381546247ad3377013a75bb21133cc078ed",
+  "status": "PASS",
+  "worlds": [
+    {
+      "corpus_hash": "2fc27ee3f4ee8c1e2e539a3e1a2ee00be29a8946170625f253f6de8faa8f07a6",
+      "topK_snapshot_hash": "2f561769dbd68e5d566b17f57dc5ee9aaf88377348a29cc4dc2d73324b0663e8",
+      "indexed_count": 6,
+      "retrieved_count": 3,
+      "reopened_order_identical": true
+    },
+    {
+      "corpus_hash": "2ebe943d35e3a155aa3ce635ddb41e1af1d4f9165ea5698945914825cf5caefe",
+      "topK_snapshot_hash": "739329ef3593fb63add0971963b8a8ef3871d64f15df6d6168332dc93a12a056",
+      "indexed_count": 6,
+      "retrieved_count": 3,
+      "reopened_order_identical": true
+    },
+    {
+      "corpus_hash": "ded0837b1887181539d0be55b78de527c7fdd0225ab964ce29e1765edbd26c8d",
+      "topK_snapshot_hash": "146bbef0c2fa172dd2e5dc7b9478faae3a4b60348ec95f9f93c102cab2a9d426",
+      "indexed_count": 6,
+      "retrieved_count": 3,
+      "reopened_order_identical": true
+    }
+  ],
+  "TopK": 3,
+  "chunking": "ONE_FIXTURE_SENTENCE_PER_DOCUMENT",
+  "python": "3.12.14",
+  "dependencies": {
+    "chromadb": "1.5.9",
+    "scikit-learn": "1.9.0",
+    "sentence-transformers": "5.6.0"
+  },
+  "default_English_stopword_Chinese_probe": {
+    "tokens_per_sentence": [
+      2,
+      2,
+      3
+    ],
+    "interpretation": "word-boundary units are not Chinese word segmentation; no defense gain measured"
+  },
+  "B0": "CONTEXT_REPLAY_PASSED_GENERATION_NOT_RUN",
+  "B1_B2_B3_B4": "NOT_RUN",
+  "B5_B6": "NOT_PROPOSED",
+  "ASR": null,
+  "Answer_Accuracy": null,
+  "paid_gate": "BLOCKED_UNVERIFIED_BILLING_OR_BALANCE",
+  "paid_calls": 0,
+  "paid_cost_USD": "0",
+  "D1_payload_opened": false,
+  "D2_D3_payload_opened": false,
+  "GPU_used": false,
+  "model_downloads": 0
+}

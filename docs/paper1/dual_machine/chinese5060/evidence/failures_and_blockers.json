@@ -1,0 +1,40 @@
+{
+  "new_scientific_failures": [],
+  "scientific_effect": "NOT_MEASURED",
+  "confirmed_input_gaps": {
+    "old_f5_query_present": 0,
+    "old_f5_independent_QA_adjudication_present": 0,
+    "old_f5_rows": 120,
+    "selected_old_f5_query_present": 0,
+    "selected_old_f5_rows": 36,
+    "scope": "OLD_SIGNED_F5_BUNDLE_ONLY_NOT_ALL_SOURCE_MATERIAL_OR_V2_DRAFTS"
+  },
+  "initial_engineering_checks": [
+    {
+      "check": "mypy",
+      "result": "FAILED_UNTYPED_SKLEARN_IMPORT",
+      "message": "Skipping analyzing sklearn.feature_extraction.text: missing library stubs or py.typed",
+      "evidence_kind": "TOOL_RETURN_OBSERVATION_NOT_STANDALONE_RAW_LOG",
+      "repair": "import-untyped annotation only; no algorithm change",
+      "final_mypy": "PASS_IN_CAPTURED_RUN"
+    },
+    {
+      "check": "git diff --cached --check",
+      "result": "NEW_BLANK_LINE_AT_EOF_IN_NEW_TEST_FILE",
+      "repair": "normalized the new file only; historical bytes unchanged",
+      "evidence_kind": "TOOL_RETURN_OBSERVATION_NOT_STANDALONE_RAW_LOG"
+    }
+  ],
+  "inherited_not_rerun": {
+    "upstream_author_tests": "20 pass / 13 fail / 21 setup error / 1 skip per prior report",
+    "classification": "INHERITED_REPORT_NOT_NEW_VALIDATION",
+    "cached_nonpaper_embedding_core": "PRIOR_ENGINEERING_ONLY_NOT_PAPER_REPRODUCTION"
+  },
+  "paid_blockers": [
+    "REAL_QUERY_SCENARIO_NOT_FROZEN",
+    "TRANSFER_COMPARABILITY_OPEN",
+    "CURRENT_MODEL_AND_PRICE_NOT_VERIFIED",
+    "EXACT_BALANCE_NOT_MACHINE_VERIFIED"
+  ],
+  "paid_authorization": "OWNER_CONDITIONAL_30_USD_AUTHORIZED_BALANCE_USABLE_NO_PENDING_ATTESTED"
+}

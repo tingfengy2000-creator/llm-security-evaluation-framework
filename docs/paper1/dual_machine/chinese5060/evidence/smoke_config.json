@@ -1,0 +1,23 @@
+{
+  "classification": "FICTIONAL_ENGINEERING_ONLY",
+  "worlds": 3,
+  "documents_per_world": 6,
+  "chunking": "ONE_FIXTURE_SENTENCE_PER_DOCUMENT",
+  "retriever": "WORLD_LOCAL_CHAR_BIGRAM_TFIDF_CHROMA_COSINE",
+  "top_k": 3,
+  "rank_tie_break": "similarity_desc_chunk_id_asc",
+  "persistence": "SEPARATE_DIRECTORY_PER_WORLD_CLOSE_REOPEN_VERIFY",
+  "trust": "T0_ALL_UNVERIFIED",
+  "trusted_registry": {},
+  "defense": "B0_KEEP_ALL_CONTEXT_ONLY",
+  "generator_model_id": null,
+  "planned_real_generator_model_id": "qwen3.7-plus-2026-05-26",
+  "generation": "NOT_RUN",
+  "judging": "NOT_RUN",
+  "context_token_budget": null,
+  "prompt_hash": null,
+  "seed": null,
+  "randomness": "NO_GENERATION_OR_RANDOM_SAMPLING",
+  "D1_in_smoke": false,
+  "API_calls": 0
+}

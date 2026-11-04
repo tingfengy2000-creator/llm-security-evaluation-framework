@@ -1,0 +1,10 @@
+{
+  "run_id": "W1-5060-20261104-P0-01",
+  "archive": "W1-5060-20261104-P0-01.zip",
+  "bytes": 60687,
+  "sha256": "6a19d88de44fea033b62956fb0ee51683cf422c16b72fcd577d51ba12cf47c90",
+  "members": 36,
+  "index_sha256": "0332e0dc60177e754a28afada9a32048cdf9fa6de33faccc643dd0c10ad14f3d",
+  "private_location": "experiments/paper1_chinese5060/archives/",
+  "raw_or_archive_committed": false
+}

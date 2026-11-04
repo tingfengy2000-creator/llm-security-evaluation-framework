@@ -1,5 +1,12 @@
 # Paper 1 研究方案权威文件
 
+
+> **执行范围补记（2026-11-04，PODR-161）：** 研究方向及已接受正式合同不变。当前独立5060工作线优先P0，
+> 真实查询Pilot/方法未运行。Owner未来条件式累计预算USD30/25预警/28停止新批覆盖旧执行额度，历史账本不改；
+> 场景、迁移、同证据强基线、模型/费用门仍保留。首次B5冻结和D1-40仍需Owner批准。
+> [P0真实证据及边界](../../../paper1/dual_machine/chinese5060/W1_5060_P0_INITIAL_STATUS.md)。
+
+
 > **当前Owner方向与门（2026-11-04，PODR-158）：** 中文版本感知隐蔽污染检测与检索上下文防御，CCF C，有界方法重构；不再追超过旧E1 Recall。阶段一二审阅包就绪，查询裁决与迁移可比性待决定，付费Pilot/B4未执行，方法仍PROPOSED/EXPERIMENTAL。这只追加Owner当前候选方向，不替换已接受正式合同，不改D2D3与长期Stage6.2/7。[负责人报告](../core144/rag_defense_reconstruction_01/OWNER_FEASIBILITY_DECISION_REPORT.md)。
 
 > **执行事实更新（2026-11-03）：** [可行性完整结果](../core144/feasibility_sprint_01/FEASIBILITY_OWNER_REPORT.md)为CONDITIONAL：强API直接核验37/40，六槽实现100%弃权，新增机制贡献未证。PODR-157继续已完成，Owner科学验收待审阅；当前方法不升级ACCEPTED，正式方案与D2D3门不改。

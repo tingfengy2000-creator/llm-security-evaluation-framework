@@ -3079,3 +3079,21 @@ The frozen corpus was not expanded. Registry V2 recovered only evidence-backed m
 
 - Owner supplied R5's original ten-row JSON and separately attested its independent candidate-only session (`OWNER_ATTESTED`, no platform-log proof). Source and byte-for-byte read-only copy match: 3,563 bytes, SHA256 `788061588e4a42cbb80fda6aaf866944bc2cc027bbc589076f2313820ad463e3`; lock UTC `2026-09-27T06:35:18.7801030Z`. The R3/R4 originals remain unchanged.
 - Task-scoped strict validator confirms 10/10 exact packet IDs and order, seven canonical ordered fields, legal enums, UTF-8/JSON, and note rule. Read-only QA output: 15,946 bytes, SHA256 `4baeff5127f29fa622258a90fd7e68379fd33956344830aa1d3aadc92fe0927c`. R5 matches R4 on all six R3/R4 naturalness disagreements and four internal-conflict disagreements; it is auxiliary evidence, not automatic adjudication. [Bounded report](../research/stage6_1_hidden_knowledge_poisoning/formal240/PAPER1_FORMAL_D1_REMAINING90_R5_CLAUDE_TARGETED_PHASE1_RAW_LOCK_AND_TRIAGE_V1.md). Four repeated authority-contradiction surfaces require a construction-side shortcut audit. `OWNER_ADJUDICATION_PENDING / PHASE2_WITHHELD / NO_HUMAN_AB_GT_SPLIT_TRAINING`.
+
+
+## REL-W1-5060-P0-20261104-01 — 独立5060 P0工程审计收口
+
+PODR-161；P0_ENGINEERING_PASS / REAL_PILOT_NOT_READY。
+独立分支research/paper1-chinese-defense-5060，开发基线8dec9453，执行SHA ca75c381546247ad3377013a75bb21133cc078ed，
+run W1-5060-20261104-P0-01。21tests/Ruff/MyPy（7源码）与D1身份审计、3虚构世界Chroma重放均通过。
+D1实际40组120条13家族、S=12/15/13；旧Pilot12身份复核12组36条9家族、S各4，8组24HOLD仍排除。
+只读白名单未打开D2D3/Reviewer/Oracle/新评价答案提案，不改GT。新API0、费用0、GPU未用。
+启动文件名发现范围过宽曾显露受限路径名，已停止全树发现；内容未读取，路径触达例外在P0报告链接中披露。
+Owner累计预算30美元/25预警/28停止新批，旧支出保守占用不清零；Owner报告当前费用7.528095914元、无未结算、可用，
+旧usage7.611826元差额保留。当前模型/价格/精确余额未机器核验，真实场景/迁移公平合同未冻结，付费不启动。
+真实Pilot/D1-40/最终QA均NOT_RUN；ASR/Answer Accuracy NOT_MEASURED；B5/B6尚未提出，首次冻结必须Owner批准。
+下一步先取得5090固定上游语义脱敏交接并闭合独立query/逐世界足证/同权限强基线/预算评分合同；不据旧E1 37/40宣称RAG效果。
+[P0报告](../paper1/dual_machine/chinese5060/W1_5060_P0_INITIAL_STATUS.md)。下方为历史状态，本条只更新本工作线执行状态，不接受新方法或替换正式研究基线。
+
+
+本条为APPEND_ONLY执行记录；初稿待运行状态由真实run覆盖，原提交保留。

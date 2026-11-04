@@ -1,0 +1,10 @@
+{
+  "master_contract_original": "NOT_FOUND_IN_CHECKED_TRACKED_TREE_AND_NAMED_ROOT",
+  "execution_prompt_02_original": "NOT_PRESENT_AS_VERIFIED_FILE",
+  "authority": "CURRENT_OWNER_MESSAGES_PLUS_REPOSITORY_GOVERNANCE",
+  "receipt_kind": "SAFE_OPERATIONAL_TRANSCRIPTION_NOT_ORIGINAL_MESSAGE_BYTES",
+  "receipt": "owner_instruction_receipt.md",
+  "sha256": "05590bccaf85d3cd5444bb17b94c9945c146d535f24c6e715643d90a9bf16c74",
+  "source_baseline_sha": "8dec9453de2ebd5ea03e4cbdf753b2f0d7347177",
+  "sync_branch": "research/paper1-chinese-defense-5060"
+}

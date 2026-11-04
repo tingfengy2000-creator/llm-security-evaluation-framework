@@ -1,5 +1,20 @@
 # LLMGuard 项目总控文档
 
+## 当前 / CURRENT — 5060 P0审计与虚构基础工程通过（2026-11-04）
+
+PAPER1-W1-5060-P0；PODR-161；P0_ENGINEERING_PASS / REAL_PILOT_NOT_READY。
+独立分支research/paper1-chinese-defense-5060，开发基线8dec9453，执行SHA ca75c381546247ad3377013a75bb21133cc078ed，
+run W1-5060-20261104-P0-01。21tests/Ruff/MyPy（7源码）与D1身份审计、3虚构世界Chroma重放均通过。
+D1实际40组120条13家族、S=12/15/13；旧Pilot12身份复核12组36条9家族、S各4，8组24HOLD仍排除。
+只读白名单未打开D2D3/Reviewer/Oracle/新评价答案提案，不改GT。新API0、费用0、GPU未用。
+启动文件名发现范围过宽曾显露受限路径名，已停止全树发现；内容未读取，路径触达例外在P0报告链接中披露。
+Owner累计预算30美元/25预警/28停止新批，旧支出保守占用不清零；Owner报告当前费用7.528095914元、无未结算、可用，
+旧usage7.611826元差额保留。当前模型/价格/精确余额未机器核验，真实场景/迁移公平合同未冻结，付费不启动。
+真实Pilot/D1-40/最终QA均NOT_RUN；ASR/Answer Accuracy NOT_MEASURED；B5/B6尚未提出，首次冻结必须Owner批准。
+下一步先取得5090固定上游语义脱敏交接并闭合独立query/逐世界足证/同权限强基线/预算评分合同；不据旧E1 37/40宣称RAG效果。
+[P0报告](docs/paper1/dual_machine/chinese5060/W1_5060_P0_INITIAL_STATUS.md)。下方为历史状态，本条只更新本工作线执行状态，不接受新方法或替换正式研究基线。
+
+
 ## 当前 / CURRENT — 第七条范围收口，12题AI数据草案准备完成（2026-11-04）
 
 PAPER1-RAG-DEFENSE-RECONSTRUCTION-01；AI_DATA_PREPARATION_COMPLETE_PROVISIONAL / SCENARIO_CONTRACT_NEXT；PODR-160。Owner明确限定第七条核心职责；修订题的两份独立审阅和来源仲裁确认3字段等价，9处引用定位通过。第二版12题均有据AI草案，职责范围待决0；问题/评价侧答案隔离，原题/原分歧/全部原审阅保留。人工金标准仍0，非正式实验结果。
