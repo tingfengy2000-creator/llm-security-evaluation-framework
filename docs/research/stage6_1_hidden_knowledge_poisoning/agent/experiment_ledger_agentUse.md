@@ -1,5 +1,15 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — RAGDefender R0 audit only, 2026-11-04 UTC+8
+
+No new PODR. Task P1-RAGDEFENDER-REPRO-5090-R0-AUDIT-01. Run W1-5090-R0-20261104. Branch research/paper1-ragdefender-repro-5090. Baseline 4dc9161e79b79ece70a7c17144175a19b985770d.
+Upstream ba2a17efba165d45409114df2d70b030ade1e1b8. v0.2.0 commit 2be0bb2f84b2bf4ef4a0f6d8387ad1c0d3df847a. Clone diff empty. Main adds only codeql workflow.
+artifact_acsac ABSENT. env.yml linux-64 torch==2.4.0. Prior L0 torch 2.8.0+cu128 CUDA kernel pass on RTX 5090; not the author env.
+claim1/claim2/claim3 NOT_RUN. sample_n UNKNOWN. ASR and accuracy NOT_MEASURED. config_hash 21d6096ea60a92c0a9c4dfdebde5ae1755ad36565b7fb61de3f5948f82a305e0. logs_hash 0f6b3de615c5d19d795b49df5ead98d1df85baa2d56229dbe1dbd2efe5b572ab.
+No semantic patch, no paid API, no D1/D2/D3 read. Claim execution remains BLOCKED pending control-plane approval, WSL env authorization, and weight-license confirmation.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master true; owner_decision evaluated and not updated; stage_process evaluated and not updated; lessons evaluated and not updated; research_authority evaluated and not updated; README evaluated and not updated.
+[Status](../../../paper1/dual_machine/repro5090/W1_5090_R0_INITIAL_STATUS.md).
+
 ## Current — R02 CUDA OOM before sealed D1, 2026-10-29 JST
 
 PODR-153/OR-109/REL-2026-0124; Run VACE-L0-D1-20261029-R02; source a31ade51c2e6923991b81895163060b80db6da4f.

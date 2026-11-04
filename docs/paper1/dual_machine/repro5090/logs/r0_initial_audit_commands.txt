@@ -1,0 +1,60 @@
+run_id: W1-5090-R0-20261104
+worker: 5090_cursor
+reproduction_level: R0_AUDIT_ONLY
+claim_execution: NOT_RUN
+paid_api: NOT_CALLED
+d1_d2_d3: NOT_READ
+
+command: git fetch --prune --tags origin
+cwd_role: research_repo
+exit_code: 0
+result: branch research/stage6-1-hidden-poisoning; HEAD 4dc9161e79b79ece70a7c17144175a19b985770d; clean; matches origin/research/stage6-1-hidden-poisoning
+
+command: nvidia-smi
+exit_code: 0
+result: GPU 0 NVIDIA GeForce RTX 5090; driver 610.88; CUDA UMD 13.3; memory 0MiB / 32607MiB; WDDM; no GPU process
+
+command: prior_l0_venv python -c import torch
+exit_code: 0
+result: python 3.13.9; torch 2.8.0+cu128; cuda_build 12.8; cuda_available true; device NVIDIA GeForce RTX 5090; capability (12, 0); device_memory_bytes 34190458880; one-element cuda sum 0.0
+note: this interpreter is the existing L0 isolated venv. It is not artifact_acsac and was not modified.
+
+command: workspace .venv python -c import torch
+exit_code: nonzero
+result: ModuleNotFoundError: No module named torch
+
+command: conda on PATH
+exit_code: command_not_found
+result: conda is not on PATH
+
+command: anaconda prefix conda --version and conda env list
+exit_code: 0
+result: conda 26.1.1; envs base and pose_openmmlab; artifact_acsac absent
+
+command: git clone https://github.com/SecAI-Lab/RAGDefender.git
+location_role: workspace_sibling_upstream_clone_not_in_research_git
+exit_code: 0
+result: origin https://github.com/SecAI-Lab/RAGDefender.git; HEAD ba2a17efba165d45409114df2d70b030ade1e1b8; branch main tracking origin/main; porcelain empty; git diff empty
+
+command: git rev-parse v0.2.0 and v0.2.0^{commit} and Release
+exit_code: 0
+result: tag_object 1f32c868ac5d17151917377c178834a569728143; tag_commit 2be0bb2f84b2bf4ef4a0f6d8387ad1c0d3df847a; Release bcc3f4f13cc39fdcb5ffd4402b950e4dcd707f1d
+
+command: git diff --stat 2be0bb2f84b2bf4ef4a0f6d8387ad1c0d3df847a ba2a17efba165d45409114df2d70b030ade1e1b8
+exit_code: 0
+result: only .github/workflows/codeql.yml added, 101 lines. No algorithm file change.
+
+command: git diff --no-index claim2 expected vs claim3 expected
+exit_code: 1
+result: numeric Accuracy and ASR rows match. Labels differ Tan versus GARAG. claim3 file has no trailing newline.
+
+not_executed:
+- conda env create -f artifacts/env.yml
+- pip install -e .
+- pytest
+- examples/basic_usage.py
+- ragdefender reproduce claim1
+- ragdefender reproduce claim2
+- ragdefender reproduce claim3
+- claims/*/run.sh
+- commercial API

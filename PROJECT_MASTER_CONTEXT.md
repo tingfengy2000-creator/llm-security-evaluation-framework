@@ -1,5 +1,11 @@
 # LLMGuard 项目总控文档
 
+## 当前：5090 的 RAGDefender R0 审计已记录，Claim 未运行（2026-11-04）
+
+这条记录只存在于 `research/paper1-ragdefender-repro-5090`。它不替换下面的 L0 Oracle 结论。三个作者 Claim 都是 NOT_RUN，攻击成功率和准确率都是 NOT_MEASURED。官方环境未创建。
+[审计](docs/paper1/dual_machine/repro5090/W1_5090_R0_INITIAL_STATUS.md)。
+下一步需要控制面批准、WSL 隔离环境授权，以及 Llama-2 / Vicuna 权重许可确认。未批准前不下载模型、不跑 Claim、不读 D2/D3、不调用付费 API。
+
 ## 当前：Oracle 逐断言对齐对照已完成，等待 Owner 审阅（2026-10-30）
 
 任务 P1-L0-ORACLE-CLAIM-ALIGNMENT-COMPARISON-01，Run VACE-L0-D1-20261030-ORACLE-ALIGN01。状态 ORACLE_CLAIM_ALIGNMENT_DEV_COMPLETE / OWNER_REVIEW_REQUIRED。

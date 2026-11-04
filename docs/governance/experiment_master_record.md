@@ -1,5 +1,14 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-110 — 5090 RAGDefender R0 pin and device audit, no artifact metrics
+
+2026-11-04 UTC+8; no new PODR; Task P1-RAGDEFENDER-REPRO-5090-R0-AUDIT-01; Run W1-5090-R0-20261104; baseline `4dc9161e79b79ece70a7c17144175a19b985770d`.
+Upstream HEAD `ba2a17efba165d45409114df2d70b030ade1e1b8`. Local upstream diff empty. Author env absent. Claims NOT_RUN. Metrics NOT_MEASURED, not 0.
+config_hash `21d6096ea60a92c0a9c4dfdebde5ae1755ad36565b7fb61de3f5948f82a305e0`. Command log SHA256 `0f6b3de615c5d19d795b49df5ead98d1df85baa2d56229dbe1dbd2efe5b572ab`.
+[Status](../paper1/dual_machine/repro5090/W1_5090_R0_INITIAL_STATUS.md),
+[Manifest](../paper1/dual_machine/repro5090/run_manifest.json).
+R0_AUDIT_RECORDED / CLAIM_EXECUTION_NOT_RUN. L0 Oracle evidence below is unchanged. No D2/D3 read.
+
 ## OR-109 — R02 reused frozen R01 resources, then CUDA OOM before a sealed D1 score
 
 2026-10-29 JST; PODR-153/REL-2026-0124; source a31ade51c2e6923991b81895163060b80db6da4f; Run VACE-L0-D1-20261029-R02.

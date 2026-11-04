@@ -1,0 +1,38 @@
+{
+  "worker": "5090_cursor",
+  "branch": "research/paper1-ragdefender-repro-5090",
+  "head_sha": null,
+  "research_baseline_sha": "4dc9161e79b79ece70a7c17144175a19b985770d",
+  "upstream_sha": "ba2a17efba165d45409114df2d70b030ade1e1b8",
+  "reproduction_level": "R0_AUDIT_ONLY",
+  "claim_id": ["claim1_poisonedrag", "claim2_tan", "claim3_garag"],
+  "dataset": ["NQ", "HotpotQA", "MS MARCO"],
+  "model": ["Contriever", "meta-llama/Llama-2-7b-chat-hf", "lmsys/vicuna-7b-v1.3"],
+  "attack": ["PoisonedRAG", "Tan et al.", "GARAG"],
+  "status": "NOT_RUN",
+  "sample_n": null,
+  "ASR_and_accuracy_aggregates": {
+    "undefended_targeted_asr": "NOT_MEASURED",
+    "ragdefender_targeted_asr": "NOT_MEASURED",
+    "qa_accuracy": "NOT_MEASURED",
+    "author_expected_files": "REPORTED_ONLY"
+  },
+  "config_hash": "21d6096ea60a92c0a9c4dfdebde5ae1755ad36565b7fb61de3f5948f82a305e0",
+  "logs_hash": "0f6b3de615c5d19d795b49df5ead98d1df85baa2d56229dbe1dbd2efe5b572ab",
+  "logs_path": "docs/paper1/dual_machine/repro5090/logs/r0_initial_audit_commands.txt",
+  "known_deviations": [
+    "no claim process started",
+    "official env.yml is linux-64 and torch==2.4.0; artifact_acsac does not exist",
+    "verified CUDA kernel is the prior L0 torch 2.8.0+cu128 env, not the author env",
+    "main is the v0.2.0 commit plus .github/workflows/codeql.yml only",
+    "claim2 and claim3 expected numeric rows match; method labels differ",
+    "Llama.py hardcodes load_in_8bit True while the Vicuna config says False"
+  ],
+  "next_steps": [
+    "5060 reads this branch with git fetch and git show only",
+    "do not merge",
+    "do not treat NOT_MEASURED as zero or as the author expected table"
+  ],
+  "owner_approval_needed": true,
+  "read_only_entry": "docs/paper1/dual_machine/repro5090/W1_5090_R0_INITIAL_STATUS.md"
+}

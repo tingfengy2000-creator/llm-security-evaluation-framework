@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-11-04 5090 RAGDefender R0 audit recorded, claims not run
+
+Task P1-RAGDEFENDER-REPRO-5090-R0-AUDIT-01. Run W1-5090-R0-20261104. Branch `research/paper1-ragdefender-repro-5090` starts at `4dc9161e79b79ece70a7c17144175a19b985770d`. No new PODR. Status R0_AUDIT_RECORDED / CLAIM_EXECUTION_NOT_RUN.
+[Status](../paper1/dual_machine/repro5090/W1_5090_R0_INITIAL_STATUS.md).
+Upstream clone HEAD `ba2a17efba165d45409114df2d70b030ade1e1b8` is clean. Tag `v0.2.0` commit `2be0bb2f84b2bf4ef4a0f6d8387ad1c0d3df847a` differs from that HEAD only by `.github/workflows/codeql.yml`. `artifact_acsac` is absent. Official `env.yml` is linux-64 with torch 2.4.0. The prior L0 torch 2.8.0+cu128 env sees the RTX 5090; it is not the author env. Claim 1, 2, and 3 are NOT_RUN. ASR and accuracy are NOT_MEASURED. No D1/D2/D3 read, no paid API, no algorithm edit. The L0 Oracle result below is unchanged.
+
 ## Current — 2026-10-30 Oracle claim-alignment comparison is complete
 
 Task P1-L0-ORACLE-CLAIM-ALIGNMENT-COMPARISON-01. Run VACE-L0-D1-20261030-ORACLE-ALIGN01. Status ORACLE_CLAIM_ALIGNMENT_DEV_COMPLETE / OWNER_REVIEW_REQUIRED. Execution commit 4f4ece34e434d21b9c2dc076d53efe1587470594.

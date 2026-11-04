@@ -1,0 +1,49 @@
+{
+  "run_id": "W1-5090-R0-20261104",
+  "worker": "5090_cursor",
+  "status": "R0_AUDIT_RECORDED",
+  "reproduction_level": "R0_AUDIT_ONLY",
+  "branch": "research/paper1-ragdefender-repro-5090",
+  "research_baseline_sha": "4dc9161e79b79ece70a7c17144175a19b985770d",
+  "upstream_remote": "https://github.com/SecAI-Lab/RAGDefender.git",
+  "upstream_sha": "ba2a17efba165d45409114df2d70b030ade1e1b8",
+  "upstream_tag_v0_2_0_commit": "2be0bb2f84b2bf4ef4a0f6d8387ad1c0d3df847a",
+  "upstream_tag_v0_2_0_object": "1f32c868ac5d17151917377c178834a569728143",
+  "upstream_tag_Release": "bcc3f4f13cc39fdcb5ffd4402b950e4dcd707f1d",
+  "upstream_worktree_diff": "EMPTY",
+  "config_hash": "21d6096ea60a92c0a9c4dfdebde5ae1755ad36565b7fb61de3f5948f82a305e0",
+  "logs_path": "docs/paper1/dual_machine/repro5090/logs/r0_initial_audit_commands.txt",
+  "logs_hash": "0f6b3de615c5d19d795b49df5ead98d1df85baa2d56229dbe1dbd2efe5b572ab",
+  "sample_n": null,
+  "metrics": {
+    "undefended_targeted_asr": "NOT_MEASURED",
+    "ragdefender_targeted_asr": "NOT_MEASURED",
+    "qa_accuracy": "NOT_MEASURED"
+  },
+  "claims": [
+    {
+      "claim_id": "claim1_poisonedrag",
+      "status": "NOT_RUN",
+      "blocked_reason": "artifact_acsac absent; generator weights not verified"
+    },
+    {
+      "claim_id": "claim2_tan",
+      "status": "NOT_RUN",
+      "blocked_reason": "artifact_acsac absent; generator weights not verified"
+    },
+    {
+      "claim_id": "claim3_garag",
+      "status": "NOT_RUN",
+      "blocked_reason": "artifact_acsac absent; generator weights not verified"
+    }
+  ],
+  "paid_api": "NOT_CALLED",
+  "d1_d2_d3": "NOT_READ",
+  "algorithm_semantic_change": false,
+  "owner_approval_needed": [
+    "record a control-plane approval commit before claim execution",
+    "authorize an isolated WSL conda env from the linux-64 lockfile",
+    "confirm Llama-2-7b-chat-hf and Vicuna-7b-v1.3 license access before download",
+    "approve a separate compatibility env only if torch 2.4.0 cannot run on sm_120"
+  ]
+}
