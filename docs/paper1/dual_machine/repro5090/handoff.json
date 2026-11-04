@@ -4,7 +4,7 @@
   "head_sha": null,
   "research_baseline_sha": "4dc9161e79b79ece70a7c17144175a19b985770d",
   "upstream_sha": "ba2a17efba165d45409114df2d70b030ade1e1b8",
-  "reproduction_level": "ENV_INSTALLED_CLAIMS_NOT_RUN",
+  "reproduction_level": "COMPAT_ENV_ACCEPTED_CLAIMS_NOT_APPROVED",
   "claim_id": ["claim1_poisonedrag", "claim2_tan", "claim3_garag"],
   "dataset": ["NQ", "HotpotQA", "MS MARCO"],
   "model": ["Contriever", "meta-llama/Llama-2-7b-chat-hf", "lmsys/vicuna-7b-v1.3"],
@@ -21,7 +21,7 @@
   "logs_hash": "0f6b3de615c5d19d795b49df5ead98d1df85baa2d56229dbe1dbd2efe5b572ab",
   "logs_path": "docs/paper1/dual_machine/repro5090/logs/r0_initial_audit_commands.txt",
   "known_deviations": [
-    "no claim process started",
+    "PODR-154 conditionally accepts artifact_acsac_compat and preserves the official sm_120 kernel failure",
     "official artifact_acsac exists and remains torch 2.4.0+cu121; its CUDA kernel does not run on sm_120",
     "artifact_acsac_compat uses torch 2.8.0+cu128, triton 3.4.0, sympy 1.14.0, bitsandbytes 0.45.5; this is not the author env",
     "import faiss resolves to faiss-cpu 1.8.0 even though faiss-gpu 1.7.2 is installed",
@@ -30,11 +30,11 @@
     "Llama.py hardcodes load_in_8bit True while the Vicuna config says False"
   ],
   "next_steps": [
-    "weights still blocked until Llama-2 and Vicuna license access is confirmed",
+    "Owner must still approve frozen Llama-2 and Vicuna downloads, BEIR zips, Contriever license, and each claim command",
     "5060 reads this branch with git fetch and git show only",
     "do not merge",
     "do not treat NOT_MEASURED as zero or as the author expected table"
   ],
   "owner_approval_needed": true,
-  "read_only_entry": "docs/paper1/dual_machine/repro5090/W1_5090_R0_INITIAL_STATUS.md"
+  "read_only_entry": "docs/paper1/dual_machine/repro5090/W1_5090_OWNER_DECISION_AND_CLAIM_GATE.md"
 }

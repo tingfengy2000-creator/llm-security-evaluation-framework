@@ -1,5 +1,11 @@
 # LLMGuard Research Execution Log
 
+## REL-2026-0125 — 5090 records the compat-env acceptance and leaves claims unapproved
+
+2026-11-04 UTC+8. No claim process. PODR-154. Supervision `W1-OD-20261104-5090-ENV-01` and `W1-OD-20261104-DUAL-GOV-02`. Task P1-RAGDEFENDER-REPRO-5090-CLAIM-GATE-01. Run W1-5090-CLAIM-GATE-20261104. Branch `research/paper1-ragdefender-repro-5090` at parent `aa85841ff83be31c86e0fa305d3a84d70f2158b5`.
+Official torch 2.4.0+cu121 again raised no kernel image on RTX 5090 sm_120. The env was not upgraded. Python package diff has 20 changed or one-sided rows; torch, triton, bitsandbytes and sympy differ. FAISS and xformers versions do not. Weights and BEIR zips were not downloaded. Claim 1, 2 and 3 are NOT_APPROVED. Metrics NOT_MEASURED.
+[Gate](../paper1/dual_machine/repro5090/W1_5090_OWNER_DECISION_AND_CLAIM_GATE.md).
+
 ## 2026-11-04 — 5090 installs RAGDefender environments and does not run claims
 
 No new PODR id. Task P1-RAGDEFENDER-REPRO-5090-ENV-01. Run W1-5090-ENV-20261104. Branch `research/paper1-ragdefender-repro-5090`. Official `artifact_acsac` created from the author lockfile. Its torch 2.4.0+cu121 cannot run a CUDA kernel on sm_120 and was not upgraded. `artifact_acsac_compat` is a separate clone with torch 2.8.0+cu128; one CUDA sum returned 1.0. Compat-only version changes: triton 3.4.0, sympy 1.14.0, bitsandbytes 0.45.5. Editable `ragdefender` 0.2.0 imports there. Claims NOT_RUN. Metrics NOT_MEASURED. No weight download, no D2/D3 access, no paid API.

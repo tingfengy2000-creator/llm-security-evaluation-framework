@@ -1,5 +1,12 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-112 — 5090 compat env conditionally accepted, claim gate prepared, no metrics
+
+2026-11-04 UTC+8; PODR-154/REL-2026-0125; supervision `W1-OD-20261104-5090-ENV-01` and `W1-OD-20261104-DUAL-GOV-02`.
+Official env kernel failure retained. Compat env accepted only as the later reproduction environment. Claims NOT_APPROVED. Metrics NOT_MEASURED, not 0.
+[Gate](../paper1/dual_machine/repro5090/W1_5090_OWNER_DECISION_AND_CLAIM_GATE.md).
+L0 Oracle evidence below is unchanged. No D2/D3 read.
+
 ## OR-111 — 5090 RAGDefender environments installed, no artifact metrics
 
 2026-11-04 UTC+8; no new PODR; Task P1-RAGDEFENDER-REPRO-5090-ENV-01; Run W1-5090-ENV-20261104.

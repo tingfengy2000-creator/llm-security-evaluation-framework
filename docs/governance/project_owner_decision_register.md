@@ -1,5 +1,15 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## PODR-154 — conditionally accept the RAGDefender compatibility env and keep the official GPU failure
+
+2026-11-04 UTC+8; OR-112/REL-2026-0125; supervision `W1-OD-20261104-5090-ENV-01` and `W1-OD-20261104-DUAL-GOV-02`; task P1-RAGDEFENDER-REPRO-5090-CLAIM-GATE-01.
+Register head before this entry is PODR-153. This is the next unused number, PODR-154.
+Owner conditionally accepts the separate env `artifact_acsac_compat` as the compatibility environment for later RAGDefender reproduction.
+The original env `artifact_acsac` stays on torch 2.4.0+cu121. Its RTX 5090 sm_120 `no kernel image` failure remains evidence and must not be upgraded or overwritten.
+This decision does not authorize model-weight download, Claim 1/2/3 execution, commercial APIs, or algorithm-semantic changes.
+Claim packets are prepared only. Status remains CLAIM_EXECUTION_NOT_APPROVED. Metrics remain NOT_MEASURED.
+[Gate](../paper1/dual_machine/repro5090/W1_5090_OWNER_DECISION_AND_CLAIM_GATE.md).
+
 ## PODR-153 — authorize R02 with unchanged verifier and evidence; synthetic semantic accuracy diagnostic only
 
 2026-10-29 JST; OR-108/REL-2026-0123; P1-VACE-L0-R02-SEMANTIC-DIAGNOSTIC-EXECUTION-01.

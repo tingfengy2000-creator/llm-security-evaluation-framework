@@ -37,3 +37,4 @@ The R0 table above is the audit snapshot. This section is the later install.
 | package | VERIFIED | `ragdefender` 0.2.0 editable install in the compat env. Import succeeds. Official env does not have the package |
 | weights | BLOCKED | Llama-2-7B-chat and Vicuna-7B were not downloaded |
 | claims | NOT_RUN | no claim command, no ASR, no accuracy |
+| compat env acceptance | VERIFIED | PODR-154 conditionally accepts `artifact_acsac_compat` for later reproduction and keeps the official kernel failure |

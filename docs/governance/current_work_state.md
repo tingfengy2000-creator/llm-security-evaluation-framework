@@ -1,5 +1,12 @@
 # Current Work State
 
+## Current — 2026-11-04 5090 compat env accepted, claims still not approved
+
+Task P1-RAGDEFENDER-REPRO-5090-CLAIM-GATE-01. Run W1-5090-CLAIM-GATE-20261104. PODR-154 / OR-112 / REL-2026-0125. Supervision W1-OD-20261104-5090-ENV-01 and W1-OD-20261104-DUAL-GOV-02.
+`artifact_acsac_compat` is conditionally accepted for later reproduction. `artifact_acsac` remains torch 2.4.0+cu121 and its sm_120 kernel failure stands. No weight download and no Claim 1/2/3 run is authorized. ASR and accuracy remain NOT_MEASURED.
+[Gate](../paper1/dual_machine/repro5090/W1_5090_OWNER_DECISION_AND_CLAIM_GATE.md).
+The L0 Oracle result below is unchanged. No D1/D2/D3 read, no paid API, no algorithm edit.
+
 ## Current — 2026-11-04 5090 RAGDefender environments installed, claims not run
 
 Task P1-RAGDEFENDER-REPRO-5090-ENV-01. Run W1-5090-ENV-20261104. No new PODR. Official env `artifact_acsac` exists from `artifacts/env.yml` and stays on torch 2.4.0+cu121. That build cannot execute a CUDA kernel on this RTX 5090. Separate env `artifact_acsac_compat` uses torch 2.8.0+cu128 and completed one CUDA sum of 1.0. It also has triton 3.4.0, sympy 1.14.0, and bitsandbytes 0.45.5. Those are comparability deviations, not the author environment. `ragdefender` 0.2.0 imports in the compat env. Claims remain NOT_RUN. ASR and accuracy remain NOT_MEASURED. Weights were not downloaded.

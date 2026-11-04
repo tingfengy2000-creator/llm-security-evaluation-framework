@@ -1,5 +1,15 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — RAGDefender compat env accepted, claims not approved, 2026-11-04 UTC+8
+
+PODR-154. REL-2026-0125. OR-112. Supervision W1-OD-20261104-5090-ENV-01 and W1-OD-20261104-DUAL-GOV-02.
+Task P1-RAGDEFENDER-REPRO-5090-CLAIM-GATE-01. Run W1-5090-CLAIM-GATE-20261104. Parent HEAD aa85841ff83be31c86e0fa305d3a84d70f2158b5.
+artifact_acsac torch 2.4.0+cu121 KERNEL_FAIL on sm_120, not upgraded. artifact_acsac_compat conditionally accepted.
+Package diff rows: 20. Numeric-risk rows: torch, CUDA 12.1 versus 12.8, triton 3.0.0 versus 3.4.0, bitsandbytes 0.43.1 versus 0.45.5 on the hardcoded LLaMA 8-bit path. FAISS and xformers versions match.
+claim1/claim2/claim3 NOT_APPROVED. Weights and BEIR zips not downloaded. ASR and accuracy NOT_MEASURED.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master true; owner_decision true; stage_process evaluated and not updated; lessons evaluated and not updated; research_authority evaluated and not updated; README evaluated and not updated.
+[Gate](../../../paper1/dual_machine/repro5090/W1_5090_OWNER_DECISION_AND_CLAIM_GATE.md).
+
 ## Current — RAGDefender envs installed, claims not run, 2026-11-04 UTC+8
 
 No new PODR. Task P1-RAGDEFENDER-REPRO-5090-ENV-01. Run W1-5090-ENV-20261104. Branch research/paper1-ragdefender-repro-5090.

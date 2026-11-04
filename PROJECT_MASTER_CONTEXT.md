@@ -1,5 +1,11 @@
 # LLMGuard 项目总控文档
 
+## 当前：5090 兼容环境已有条件接受，Claim 仍未批准（2026-11-04）
+
+`PODR-154` 接受 `artifact_acsac_compat` 作为后续复现环境，并保留 `artifact_acsac` 的 GPU 失败。该决定不下载权重、不运行 Claim、不调用商业 API、不改算法。三条 Claim 的准入材料已写好，执行状态是 NOT_APPROVED。攻击成功率和准确率仍是 NOT_MEASURED。
+[审批门](docs/paper1/dual_machine/repro5090/W1_5090_OWNER_DECISION_AND_CLAIM_GATE.md)。
+下面的 L0 Oracle 结论不替换。
+
 ## 当前：5090 的 RAGDefender 环境已安装，Claim 未运行（2026-11-04）
 
 官方环境 `artifact_acsac` 已按作者锁文件创建，torch 2.4.0 不能在这张 RTX 5090 上执行 CUDA，因此没有改它。兼容环境 `artifact_acsac_compat` 使用 torch 2.8.0+cu128，一次 CUDA 求和为 1.0。这不是作者环境。三个 Claim 仍是 NOT_RUN，攻击成功率和准确率仍是 NOT_MEASURED。权重未下载。
