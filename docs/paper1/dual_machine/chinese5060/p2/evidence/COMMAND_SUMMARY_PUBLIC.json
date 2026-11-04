@@ -1,0 +1,104 @@
+{
+  "source_sha": "9aa21be13ae206dbbadb03b99528e362eba29378",
+  "commands": [
+    {
+      "name": "tests",
+      "started_utc": "2026-11-04T14:42:24.287151+00:00",
+      "ended_utc": "2026-11-04T14:42:26.664595+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "Ruff",
+      "started_utc": "2026-11-04T14:42:26.664595+00:00",
+      "ended_utc": "2026-11-04T14:42:26.882022+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "MyPy",
+      "started_utc": "2026-11-04T14:42:26.882022+00:00",
+      "ended_utc": "2026-11-04T14:42:29.714840+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "T0_retrieval",
+      "started_utc": "2026-11-04T14:42:29.716345+00:00",
+      "ended_utc": "2026-11-04T14:44:29.294577+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "adjudication_cards",
+      "started_utc": "2026-11-04T14:42:29.716345+00:00",
+      "ended_utc": "2026-11-04T14:42:31.506542+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "post_seal_evaluator",
+      "started_utc": "2026-11-04T14:44:29.296082+00:00",
+      "ended_utc": "2026-11-04T14:44:31.708619+00:00",
+      "exit_code": 0
+    }
+  ],
+  "private_raw_command_record_sha256": "0af85127b19db5f71b250086504dba4d2791e748853853cbbedddb3e0f6141b6",
+  "stdout_stderr_index": [
+    {
+      "name": "adjudication_cards.stdout",
+      "bytes": 48,
+      "sha256": "801bad78511c1239ff4d2358e6d8557e9d0ae884cede71ece90a189c44377e8e"
+    },
+    {
+      "name": "MyPy.stdout",
+      "bytes": 45,
+      "sha256": "e522fa370334927ac2ccb7106100045b572938dd238093267de825336e6704f2"
+    },
+    {
+      "name": "post_seal_evaluator.stdout",
+      "bytes": 1443,
+      "sha256": "e1b31442adedf675492e589fc72475d488072d661791bc9661d90f86d85d0d50"
+    },
+    {
+      "name": "Ruff.stdout",
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "name": "T0_retrieval.stdout",
+      "bytes": 7427,
+      "sha256": "99c8ecf3f3a74fe5828356c59af62954ce06303a1f7d3689f45629f66817c7ea"
+    },
+    {
+      "name": "tests.stdout",
+      "bytes": 101,
+      "sha256": "49f3a40a1f5421cddead4e91953c2ae4084f11f13f5361cc1454e29703a71d27"
+    },
+    {
+      "name": "adjudication_cards.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "MyPy.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "post_seal_evaluator.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Ruff.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "T0_retrieval.stderr",
+      "bytes": 346,
+      "sha256": "aac7c1d8082f6103533790d7fdc948eb11ea605cc9a91c5bd555efbdc85f5f40"
+    },
+    {
+      "name": "tests.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

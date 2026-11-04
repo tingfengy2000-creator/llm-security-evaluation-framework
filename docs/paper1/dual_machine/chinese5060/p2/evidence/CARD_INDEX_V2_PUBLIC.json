@@ -1,0 +1,87 @@
+{
+  "cards": 12,
+  "fact_atoms": 38,
+  "human_gold": 0,
+  "source_access": [
+    {
+      "request": "answer_proposals_v2",
+      "status": "PINNED_READ"
+    },
+    {
+      "request": "queries_v2",
+      "status": "PINNED_READ"
+    },
+    {
+      "request": "sources",
+      "status": "PINNED_READ"
+    }
+  ],
+  "results_consulted": false,
+  "new_API_calls": 0,
+  "index": [
+    {
+      "card_id": "CARD-01",
+      "sha256": "b75e141b06fa9b946e6bd2cb7cea177f90998a1e141ba8c990f50a500ccf8a5d",
+      "fact_atoms": 5
+    },
+    {
+      "card_id": "CARD-02",
+      "sha256": "4cc4b3a09ce22b9e2c2df7c8aeec73777b30bfad9ee31939c1408a16783dcf54",
+      "fact_atoms": 5
+    },
+    {
+      "card_id": "CARD-03",
+      "sha256": "937cb235bfb75e22bf7579a5298ca1737f5f97e188c0e948b8f3f1125a79767d",
+      "fact_atoms": 2
+    },
+    {
+      "card_id": "CARD-04",
+      "sha256": "ae3eb4d9d760790644f8663bb4cf6c4bfccbac5677c2a2b140bfbd70d1399322",
+      "fact_atoms": 3
+    },
+    {
+      "card_id": "CARD-05",
+      "sha256": "966873b5eddc222cfd6f7d09621999fc80e994d82cea758ac74bfd2441905e65",
+      "fact_atoms": 2
+    },
+    {
+      "card_id": "CARD-06",
+      "sha256": "d1948078d5d99d4e89007e87a22f49548e0404709f00447771feb52f8e1be533",
+      "fact_atoms": 2
+    },
+    {
+      "card_id": "CARD-07",
+      "sha256": "2c8aa816a2a9a766988937b2aea57bb74eec2ba8db9a48fba9ad5dc85a1961bf",
+      "fact_atoms": 3
+    },
+    {
+      "card_id": "CARD-08",
+      "sha256": "ac62159a318fd3ad3b63fea055c9ffdc837696edacb6e1436d34355f7bdaadcd",
+      "fact_atoms": 4
+    },
+    {
+      "card_id": "CARD-09",
+      "sha256": "5657dee7c82a56786821a55658af4b027faf88424ca428b19349d1e9f2a45a58",
+      "fact_atoms": 2
+    },
+    {
+      "card_id": "CARD-10",
+      "sha256": "5869d342eeefb11137418f3d08804234365c62bc9bd1d92a277aa161690cb464",
+      "fact_atoms": 3
+    },
+    {
+      "card_id": "CARD-11",
+      "sha256": "9fb1d251b61bb4b5151b8cfb95c969ae58cfef5a3d30e1d76163ca3068eecf7b",
+      "fact_atoms": 4
+    },
+    {
+      "card_id": "CARD-12",
+      "sha256": "6e880e4bd95faf6715966a680c0de8d70c215e03dc9235b39e25ad39e9e18d41",
+      "fact_atoms": 3
+    }
+  ],
+  "presentation_version": "V2_NO_PRIOR_AI_COMPARISON_HINTS",
+  "prior_index_sha256": "7250610ebf288d76202f94b5c9de6277fb1884eb3f3ba4cb4fe21e9969a1a31b",
+  "renderer_source_sha256": "c4e4575f275c4b0c187a8b5792c23899d44e3d9d1c3bc4e81ab3ea9271c1a634",
+  "facts_queries_citations_changed": false
+}

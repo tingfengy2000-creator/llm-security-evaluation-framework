@@ -1,5 +1,11 @@
 # 5060 中文RAG工作线
 
+
+当前：Fast-Track A零API T0/B0已完成，36世界TopK与重放均成功；B1/B2因默认模型身份前置未闭合BLOCKED。
+先读[P2真实检索诊断](W1_5060_P2_T0_RETRIEVAL_DIAGNOSTIC.md)及[56测试/命令摘要](p2/evidence/COMMAND_SUMMARY_PUBLIC.json)。
+后续P1/P0为历史导航；本轮无生成、ASR/QA未测，交付后STOP不进P3。
+
+
 当前：P1零付费准备与双机治理同步完成，真实Pilot仍BLOCKED。先读
 [Owner治理与P1准入](W1_5060_OWNER_GOVERNANCE_AND_P1_GATE.md)及
 [12题场景/公平性矩阵](W1_5060_P1_SCENARIO_AND_FAIRNESS_GATE.md)。

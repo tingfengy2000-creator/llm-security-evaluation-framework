@@ -3122,3 +3122,17 @@ D1仅8路径hash白名单，无D2D3/Reviewer/Oracle内容读取，P0文件名事
 跨机统一关联Owner W1-OD-20261104-5090-ENV-01 / W1-OD-20261104-DUAL-GOV-02；PODR引用必须带分支与commit。
 本轮P1 source/run/数据/协议不变，后到证据不覆盖原aa85841记录，不推导任何执行批准。
 [补充收据](../paper1/dual_machine/chinese5060/p1/evidence/LATEST_5090_HANDOFF_SUPPLEMENT.json)。
+
+
+## REL-W1-5060-P2-20261104-01 — Fast A真实T0与B0诊断
+
+T0_B0_DIAGNOSTIC_COMPLETE / B1_B2_BLOCKED。
+授权W1-OD-20261104-FAST-A-03@af68d89a；执行9aa21be13ae206dbbadb03b99528e362eba29378；run W1-5060-P2-20261104-T0-01。
+36/36物理独立索引，27072chunk，180hits；Candidate hit@5 29/36，排名1/2/4位=25/3/1，miss7(P2/C2/HN3)。
+全部关闭重开rank/score精确重放；56tests/Ruff/MyPy10源码和6个正式命令步骤exit0；新API0/费用0/下载0/GPU0。
+B0删除0，TP0/12/CleanFP0/12/HNFP0/12；仅召回Candidate条件性分母10/10/9；7miss单列，不算防御成功。
+B1默认embedding精确revision缓存未闭合而BLOCKED，B2连带BLOCKED；RAGDefender效果未测，不填0。
+ASR/Answer Accuracy/生成拒答未测；12卡/38原子待Owner独立裁决、HumanGold0，未推断target。
+T1未授信/T2禁用，无B3/B4/B5/B6/D1-40/Claim；D2D3/Reviewer/GT Vault未读。P0元数据事件保留。
+下一Owner Gate：精确B1资产条件（如需下载须新批）及12卡范围/target/C3；本轮文档/Git收口后STOP，不进P3。
+[P2报告](../paper1/dual_machine/chinese5060/W1_5060_P2_T0_RETRIEVAL_DIAGNOSTIC.md)。下方历史保留，不把本次工程观察升级为论文或独立泛化结论。

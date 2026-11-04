@@ -1,0 +1,36 @@
+{
+  "warning": "whole-source tokenizer reported 695>128 while extracting token offsets",
+  "classification": "TOKENIZER_OFFSET_PASS_NOT_MODEL_FORWARD_OVERFLOW",
+  "evidence": {
+    "chunk_forward_input_encoder_tokens_max": 98,
+    "query_forward_input_encoder_tokens_minmax": [
+      42,
+      81
+    ],
+    "all_36_worlds_completed": true,
+    "parameter_or_truncation_limit_changed": false
+  },
+  "stderr_sha256": "aac7c1d8082f6103533790d7fdc948eb11ea605cc9a91c5bd555efbdc85f5f40",
+  "network_attempts": [],
+  "early_nonsemantic_tool_observations": [
+    "one probe interpreter path typo, corrected before running probe",
+    "initial MyPy annotations/stub boundary corrected before code freeze"
+  ],
+  "early_observations_not_original_raw_logs": true,
+  "actual_run_commands_stdout_stderr_exit_captured": true,
+  "failure_counts": {
+    "index_build": 0,
+    "candidate_omitted_from_index": 0,
+    "background_document_omitted": 0,
+    "query_or_chunk_encoder_overflow": 0,
+    "rank_score_replay": 0,
+    "candidate_not_retrieved_at5": 7
+  },
+  "candidate_miss_by_role_aggregate": {
+    "POISON": 2,
+    "CLEAN_CURRENT": 2,
+    "HARD_NEGATIVE": 3
+  },
+  "semantic_cause_of_7_misses": "UNRESOLVED_NO_QUERY_OR_CORPUS_REPAIR",
+  "B1_B2": "BLOCKED_NOT_FAILED_MODEL_PREDICTIONS"
+}

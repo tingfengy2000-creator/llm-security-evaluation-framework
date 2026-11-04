@@ -1,0 +1,99 @@
+{
+  "kind": "PRESENTATION_ONLY_NO_RETRIEVAL_RERUN",
+  "prior_V1_preserved": true,
+  "facts_queries_citations_changed": false,
+  "removed_fields": [
+    "review_comparison",
+    "reason"
+  ],
+  "human_gold": 0,
+  "target_inferred": false,
+  "renderer_file": "scripts/research/render_chinese5060_cards_v2.py",
+  "renderer_source_sha256": "c4e4575f275c4b0c187a8b5792c23899d44e3d9d1c3bc4e81ab3ea9271c1a634",
+  "raw_command_record_sha256": "6673b87a52cd71bb712d8a3836a6aaf485af2cc4f6c9e5436714615ab0f0cb39",
+  "new_index_sha256": "ec18c60e6841617e3edaae9bb5b8e5af05fc7fcab49029b7b8672f85758cc908",
+  "archive": "W1-5060-P2-CARDS-V2-20261104.zip",
+  "archive_sha256": "70cef195e238e9ed68d0721963b66b93d16e0e0f222b5017eb57b65baa383807",
+  "private_records": [
+    {
+      "path": "W1-5060-P2-20261104-CARDS02/CARD-01_PRIVATE.json",
+      "bytes": 4841,
+      "sha256": "b75e141b06fa9b946e6bd2cb7cea177f90998a1e141ba8c990f50a500ccf8a5d"
+    },
+    {
+      "path": "W1-5060-P2-20261104-CARDS02/CARD-02_PRIVATE.json",
+      "bytes": 4417,
+      "sha256": "4cc4b3a09ce22b9e2c2df7c8aeec73777b30bfad9ee31939c1408a16783dcf54"
+    },
+    {
+      "path": "W1-5060-P2-20261104-CARDS02/CARD-03_PRIVATE.json",
+      "bytes": 3387,
+      "sha256": "937cb235bfb75e22bf7579a5298ca1737f5f97e188c0e948b8f3f1125a79767d"
+    },
+    {
+      "path": "W1-5060-P2-20261104-CARDS02/CARD-04_PRIVATE.json",
+      "bytes": 5759,
+      "sha256": "ae3eb4d9d760790644f8663bb4cf6c4bfccbac5677c2a2b140bfbd70d1399322"
+    },
+    {
+      "path": "W1-5060-P2-20261104-CARDS02/CARD-05_PRIVATE.json",
+      "bytes": 3590,
+      "sha256": "966873b5eddc222cfd6f7d09621999fc80e994d82cea758ac74bfd2441905e65"
+    },
+    {
+      "path": "W1-5060-P2-20261104-CARDS02/CARD-06_PRIVATE.json",
+      "bytes": 3597,
+      "sha256": "d1948078d5d99d4e89007e87a22f49548e0404709f00447771feb52f8e1be533"
+    },
+    {
+      "path": "W1-5060-P2-20261104-CARDS02/CARD-07_PRIVATE.json",
+      "bytes": 3718,
+      "sha256": "2c8aa816a2a9a766988937b2aea57bb74eec2ba8db9a48fba9ad5dc85a1961bf"
+    },
+    {
+      "path": "W1-5060-P2-20261104-CARDS02/CARD-08_PRIVATE.json",
+      "bytes": 5196,
+      "sha256": "ac62159a318fd3ad3b63fea055c9ffdc837696edacb6e1436d34355f7bdaadcd"
+    },
+    {
+      "path": "W1-5060-P2-20261104-CARDS02/CARD-09_PRIVATE.json",
+      "bytes": 5066,
+      "sha256": "5657dee7c82a56786821a55658af4b027faf88424ca428b19349d1e9f2a45a58"
+    },
+    {
+      "path": "W1-5060-P2-20261104-CARDS02/CARD-10_PRIVATE.json",
+      "bytes": 4475,
+      "sha256": "5869d342eeefb11137418f3d08804234365c62bc9bd1d92a277aa161690cb464"
+    },
+    {
+      "path": "W1-5060-P2-20261104-CARDS02/CARD-11_PRIVATE.json",
+      "bytes": 7028,
+      "sha256": "9fb1d251b61bb4b5151b8cfb95c969ae58cfef5a3d30e1d76163ca3068eecf7b"
+    },
+    {
+      "path": "W1-5060-P2-20261104-CARDS02/CARD-12_PRIVATE.json",
+      "bytes": 5409,
+      "sha256": "6e880e4bd95faf6715966a680c0de8d70c215e03dc9235b39e25ad39e9e18d41"
+    },
+    {
+      "path": "W1-5060-P2-20261104-CARDS02/CARD_INDEX_PUBLIC.json",
+      "bytes": 2436,
+      "sha256": "ec18c60e6841617e3edaae9bb5b8e5af05fc7fcab49029b7b8672f85758cc908"
+    },
+    {
+      "path": "W1-5060-P2-20261104-CARD-RENDER-LOG/command.json",
+      "bytes": 355,
+      "sha256": "6673b87a52cd71bb712d8a3836a6aaf485af2cc4f6c9e5436714615ab0f0cb39"
+    },
+    {
+      "path": "W1-5060-P2-20261104-CARD-RENDER-LOG/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "W1-5060-P2-20261104-CARD-RENDER-LOG/stdout.txt",
+      "bytes": 79,
+      "sha256": "0c03086e83bb1b6054b6e64ded658329767aac0628236f04d47754556e942c8b"
+    }
+  ]
+}

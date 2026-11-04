@@ -1,0 +1,42 @@
+{
+  "task": "PAPER1-W1-5060-P2-FAST-A",
+  "status": "T0_B0_COMPLETE_B1_B2_BLOCKED_STOP_AFTER_DELIVERY",
+  "checks": {
+    "human_ledger_checked": true,
+    "human_ledger_updated_if_required": true,
+    "agent_ledger_checked": true,
+    "agent_ledger_updated": true,
+    "current_work_state_updated": true,
+    "execution_log_appended": true,
+    "experiment_master_condition_evaluated": true,
+    "owner_decision_condition_evaluated": true,
+    "stage_process_condition_evaluated": true,
+    "lessons_condition_evaluated": true,
+    "research_authority_condition_evaluated": true,
+    "README_condition_evaluated": true,
+    "cross_document_current_task_consistent": true,
+    "cross_document_status_consistent": true,
+    "cross_document_next_action_consistent": true,
+    "cross_document_blocker_consistent": true,
+    "markdown_links_valid": true,
+    "private_inputs_not_staged": true,
+    "source_and_evidence_verified": true
+  },
+  "conditional_documents": {
+    "experiment_master": "UPDATED_REAL_OFFLINE_DIAGNOSTIC",
+    "owner_decision": "FAST_A_REGISTERED_PRE_EXECUTION_NO_NEW_ACCEPTANCE_INFERRED",
+    "stage_process": "NEW_BOUNDED_T0_STAGE_RECORD",
+    "lessons": "PROVISIONAL_ONLY_IN_REPORT_NO_ACCEPTED_METHOD_PROMOTION",
+    "research_authority": "EXECUTION_NOTE_NO_FROZEN_METHOD_REPLACEMENT",
+    "README": "LOCAL_ENTRY_UPDATE",
+    "long_term_requirements": "UNCHANGED"
+  },
+  "execution_commit": "9aa21be13ae206dbbadb03b99528e362eba29378",
+  "new_API_calls": 0,
+  "ASR": "NOT_MEASURED",
+  "Answer_Accuracy": "NOT_MEASURED",
+  "private_archive_sha256": "505d3c55bf77589773b18ec500d2d83e6d0380d111d09d339adaa544a5d5aec8",
+  "private_index_sha256": "355bd3a85c2eab3cac75c8571d89eb00e8c25df4bdbabf373d09a6e9e91d2be1",
+  "local_QA": "PASS",
+  "git_delivery": "SOURCE_SHA_REMOTE_FINAL_DOCUMENTATION_REQUIRES_LIVE_CHECK"
+}
