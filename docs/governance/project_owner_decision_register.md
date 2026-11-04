@@ -1,5 +1,11 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261105-FAST-B-04 — Owner批准有界 B1 模型资产与离线 B1/B2 基线（2026-11-05 JST）
+
+Owner当前明确批准 Fast-Track B，仅5060独立分支。允许从Hugging Face官方来源下载 `sentence-transformers/all-MiniLM-L6-v2` 固定revision `1110a243fdf4706b3f48f1d95db1a4f5529b4d41` 的最小必要白名单，须先确认来源、许可证、完整文件清单与预算，累计网络下载不超过250MiB、新增磁盘不超过1GiB；不可整仓下载、镜像、代理替代、自动回退或浮动main。下载后使用已封存P2的36个TopK5快照运行B1未修改v0.2公开库、B2仅替换中文embedding的零付费T0开发过滤对照。所有身份/公平性参数前置门未过即BLOCKED。
+同时允许整理12题独立且盲于检索结果的事实/target/C3待人工裁决卡；AI不得接受Human Gold。保留D1开发性质、29/36 Candidate Hit@5及7漏召回独立分母，不改原TopK/问法/索引/样本/阈值。
+仍禁止商业API、B3/B4、B5/B6、D1-40、D2/D3、Reviewer/GT、T1/T2、C3正式评分、5090 Claim1–3、跨分支/主线合并及未经批准的新下载/实验。失败尝试按PO-MHEP保存证据、停止受影响工作，合规交付后STOP。
+批准的完整十二字段决策记录：[Fast-Track B Owner 授权](../paper1/dual_machine/owner_approvals/W1_FAST_TRACK_B_OWNER_AUTHORIZATION_20261105.md)。跨分支引用请使用 `W1-OD-20261105-FAST-B-04` + 分支 + 完整commit，不借用有冲突的PODR-154。
 
 ## W1-OD-20261104-FAST-A-03 — Owner已批准有界离线执行
 
