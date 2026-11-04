@@ -1,6 +1,19 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
 
+## W1-OD-20261104-FAST-A-03 — Owner已批准有界离线执行
+
+Source：已提交授权文件及Owner当前明确执行指令；授权登记commit af68d89a870647be138cf5592ccd4a058e44a8ab。
+Status OWNER_EXPLICITLY_APPROVED / BOUNDED_ZERO_PAID_API_EXECUTION。
+5060仅固定36世界T0本地真实检索、B0、满足默认精确embedding缓存/源码/参数条件时B1及只换中文embedding的B2；
+允许输出封存后D1开发过滤计数与12张待审裁决卡。不等待QA Gold或5090 Claim才做T0检索。
+不批准任何下载、商业API、B3/B4付费、B5/B6、D1-40、D2D3/Reviewer/GT、T1/T2/C3实评或跨分支操作。
+若B1前置缺失只停止B1/B2，不阻止合格B0/T0；保持ASR与Answer Accuracy NOT_MEASURED。
+[原授权](../paper1/dual_machine/owner_approvals/W1_FAST_TRACK_A_OWNER_AUTHORIZATION_20261104.md)；
+[启动风险冻结](../paper1/dual_machine/chinese5060/p2/FAST_A_STARTUP_AND_RISK_REVIEW.md)。
+
+
+
 ## W1双机治理编号限定补记（2026-11-04，0155470后到交接）
 
 5090后到脱敏提交01554702b0bc14b7203712c83423d8245eacb3d3已只读核验；上游/分支起点不变，未批准模型下载或Claim。

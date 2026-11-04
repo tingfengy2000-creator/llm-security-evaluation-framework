@@ -1,5 +1,16 @@
 # LLMGuard 项目总控文档
 
+## 当前 / CURRENT — Fast-Track A已批准，T0离线执行准备（2026-11-04）
+
+W1-OD-20261104-FAST-A-03；授权提交af68d89a870647be138cf5592ccd4a058e44a8ab。
+固定Pilot12/36独立世界：允许零API、零下载本地Embedding+Chroma TopK5、B0及符合全部缓存身份条件的B1/B2。
+B1默认embedding精确revision未闭合而BLOCKED，B2连带BLOCKED；不影响合格T0/B0。检索实际输出尚未形成，不提前填结果。
+只读固定D1/world白名单；Retriever不读答案/标签/角色，Evaluator仅在全输出封存后读批准D1开发标签。
+12张裁决卡独立材料支路，无Gold自批/目标推断；T1/T2、付费、B3/B4、B5/B6、D1-40、Claim仍禁止。
+完成真实计数、私有日志/归档、文档及本分支Git交付后停止。
+[授权](docs/paper1/dual_machine/owner_approvals/W1_FAST_TRACK_A_OWNER_AUTHORIZATION_20261104.md)。下方为历史状态，P1旧“未批准T0运行”仅在本次有限范围被覆盖。
+
+
 > P1最终只读补充：5090已前进0155470，上游不变、Claim仍未批；分支局部PODR-154重名使用Owner W1-OD跨机关联。[证据](docs/paper1/dual_machine/chinese5060/p1/evidence/LATEST_5090_HANDOFF_SUPPLEMENT.json)。P1 source/run/准备状态不变。
 
 
