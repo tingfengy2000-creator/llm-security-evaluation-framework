@@ -1,5 +1,12 @@
 # Current Work State
 
+## 当前 / CURRENT — 5060 Fast-Track B有条件批准；5090主要公开基线复现路线准备（2026-11-05 JST）
+
+授权 W1-OD-20261105-FAST-B-04 与补充 W1-OD-20261105-RESOURCE-REPRO-05。5060原分支保持；已允许从Hugging Face官方获取固定revision all-MiniLM-L6-v2最小白名单，累计网络下载上限250MiB；D/E项目可控存储放宽原1GiB新增上限、须预冻结单项峰值与安全空间，C盘不新增项目可控内容。身份/参数全部闭合后仅允许复用既有36个P2冻结TopK5进行零API B1公共v0.2库及B2仅换中文embedding开发过滤；并行准备盲于检索结果的12张独立人工裁决材料，不能自造Human Gold。**审批并非执行事实**，新B1/B2实测仍NOT_MEASURED，需等待后续run/manifest。
+5090原分支保持；Owner新增授权其做无需任何模型/数据/依赖下载、无商业API的RAGDefender主要图表-Artifact Claim映射与资源许可/脚本静态预检。明确研究目标为优先完整复现3个开源Claim，辅以可行的检索器/消融/性能表；但当前Claim1–3仍NOT_RUN，不许可加载模型下载BEIR或执行正式命令。5090上次smoke测试工具失败保留。
+P2既有36/36、hit29/36、7 miss、B0零删除等证据不可重写，D1开发集属性不变；T1/T2、B3/B4、B5/B6、D1-40、D2/D3、正式GT、额外API和主线/跨分支merge均禁止。本阶段推进必须遵守AGENTS.md/PO-MHEP、文件/输入/模型/TopK/参数/结果hash和各自分支文档Closeout。
+[Fast-Track B授权](../paper1/dual_machine/owner_approvals/W1_FAST_TRACK_B_OWNER_AUTHORIZATION_20261105.md)；[存储与复现路线补充](../paper1/dual_machine/owner_approvals/W1_STORAGE_AND_REPRO_RESEARCH_DIRECTION_20261105.md)。
+
 ## 当前 / CURRENT — Fast-Track A T0/B0真实检索完成（2026-11-04）
 
 PAPER1-W1-5060-P2-FAST-A；T0_B0_DIAGNOSTIC_COMPLETE / B1_B2_BLOCKED。
