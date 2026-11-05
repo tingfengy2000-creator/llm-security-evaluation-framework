@@ -1,5 +1,12 @@
 # Current Work State
 
+## 当前工作 — Owner批准5060 Pilot12 Fast-Unblock一次性离线解阻，真实API仍0（2026-11-05 JST）
+
+新Owner决策`W1-OD-20261105-5060-FAST-UNBLOCK-11`仅允许5060继续独立分支在本地/D-E完成剩余执行证据：A冻结D1来源允许第三方外传/敏感性/处理方地域，B百炼固定`qwen3.7-plus-2026-05-26`对应唯一官方地域端点与真实传输**正向代码及Fake模拟**，C全108格经可复核Tokenizer/chat template或严格上界证明输入4096门，D本机全工作线USD数值账本及25/28/30硬门，E独立checker、输入SHA/唯一字段diff和收口证据。**不得发任何真实HTTPS/生成API请求或在线count-tokens/探测，不下载安装新依赖/模型；真实108格继续NOT_RUN。**
+若证明原`max_tokens=256`无法控制完整计费输出，可在Owner11唯一批准范围内仅把这个字段改为`max_completion_tokens=256`并删除旧key，原V1保留，另封新V2全108请求与新proposal/预算SHA，做独立离线QA及公平性声明，需考虑官方提及最多10 token偏差；其他scientific inputs, model, prompt, TopK, temperature, scopes全不变。若无需改则V1不变；如需同时改其他字段必须另报Owner。不管所有静态Gate是否PASS，本次任务结束都只能`FAST_UNBLOCK_READY_FOR_OWNER_LIVE_APPROVAL`或`FAST_UNBLOCK_PARTIAL_BLOCKED`，**必需新Owner运行批准后才可解锁真实请求**，不能凭旧Owner10继续发送。
+前次`LIVE_GATE_BLOCKED_NO_REQUESTS` HEAD`731b48419aba2dab3b8ded310d349fcf441c3f1b`的A–E阻断与旧历史原样保留；旧P2/PAIR01、36世界/三臂108格/80唯一prompt、29Hit/7MISS、HumanGold0/target UNKNOWN/正式ASR与QA NOT_MEASURED不变，FastC因果未识别、B2 Clean误删上升仍为警示。Owner已核账户/地域/费率/余额仅为OWNER_ATTESTED，不索重复截图/密钥，但实用机器账本不能编造。5090独立分支/D2D3不受影响。C盘禁项目可控新增、D/E≥20GiB；新增真实API费用USD0。
+[Owner正式十二字段授权](../paper1/dual_machine/owner_approvals/W1_5060_PILOT12_FAST_UNBLOCK_OWNER_AUTHORIZATION_20261105.md)；[Fast-Unblock Git原生完整Prompt](../paper1/dual_machine/chinese5060/W1_5060_PILOT12_FAST_UNBLOCK_EXECUTION_PROMPT_V1.md)。唯一下一次审批入口：`docs/paper1/dual_machine/chinese5060/fast_unblock/FAST_UNBLOCK_EVIDENCE_PACKET.md`（由5060本轮完成）。此前所有当前节均是历史记录，不覆盖。
+
 ## 当前工作 — 5060 Pilot12 准入拒绝，真实请求 0（2026-11-05 JST）
 
 W1-5060-PILOTLIVE-20261105-01，LIVE_GATE_BLOCKED_NO_REQUESTS。Owner W1-OD-20261105-5060-PILOT12-CONDITIONAL-LIVE-10，合同 312f9b17dba2a20c142507ce7df5ec7ae203642d，候选源码 4826ddbf5721e748c499198af931be984807a0db。
