@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 5090官方许可与资产元数据准入已获批准，尚未执行（2026-11-05 JST）
+
+Owner ID `W1-OD-20261105-5090-ASSET-GATE-07`。只授权在`research/paper1-ragdefender-repro-5090`核官方HF、Meta、LMSYS/FastChat、Contriever与BEIR的公开小型元数据/许可、固定revision和必要文件规模，静态核查原Claim1/2/3真实调用链、隐式下载、Tan路径、D/E缓存与WSL宿主盘，并编制逐批模型/语料、最小Claim1单格以及完整三Claim审批包。Owner愿自行尝试申请所需许可，但**5090不得代为登录、提交申请、同意协议、获取token**；仅给Owner官方手动操作指南。
+禁止权重/BEIR/依赖下载、安装新包、运行任何Claim/单格/模型推理、调用商业API、改官方/兼容环境、源码或实验输入、读取D1/D2/D3/Reviewer/GT Vault、跨分支merge；C盘禁新增项目可控文件，D/E审计日志允许。兼容环境已经有条件批准但原torch2.4 sm120失败保留。Claim1/2/3仍NOT_RUN，ASR及QA Accuracy仍NOT_MEASURED。本轮授权的Git提交不是新实验结果。
+[十二字段授权](../paper1/dual_machine/repro5090/W1_5090_RESOURCE_LICENSE_GATE_OWNER_AUTHORIZATION_20261105.md)；[完整执行Prompt](../paper1/dual_machine/repro5090/W1_5090_OFFICIAL_ASSET_LICENSE_PREFLIGHT_EXECUTION_PROMPT_V1.md)。通过正式PO-MHEP审计和文档/Git closeout后STOP，任何下批下载/单格/Claim仍需新Owner明确批准。历史状态保留。
+
 ## Current — 2026-11-04 5090 main-result reproduction plan recorded, claims still not approved
 
 Task P1-RAGDEFENDER-REPRO-5090-MAIN-PLAN-01. Run W1-5090-MAIN-REPRO-PLAN-20261104. Supervision W1-OD-20261105-RESOURCE-REPRO-05 at 5060 commit f491c0a507e5555e9611c022cfba66980ad8cbca. No new local PODR.
