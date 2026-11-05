@@ -1,5 +1,14 @@
 # Current Work State
 
+## 当前 / CURRENT — Fast B人工资产核验通过，离线配对准备（2026-11-05 JST）
+
+Owner补齐固定HF权重并确认直连/无失败重试；全部10必要文件size和Git/LFS身份通过，B2既有固定10文件复制D且hash一致。
+W1-5060-FAST-B-20261105-PAIR01；原36TopK字节核验、role-free packets通过；7项输入/索引/封存回归及Ruff/MyPy3源码通过。
+下一步仅原库B1/B2离线过滤，模型/算法输出尚未运行，不提前填指标。T0/D1开发，原29命中/7miss不变。
+[事前冻结](../paper1/dual_machine/chinese5060/fast_b/B12_EXECUTION_FREEZE.md)；旧连接失败与checkpoint保留，人工资产接续不伪造机器下载日志。
+商业API/B3-B6/D1-40/D2D3/Reviewer/GT/T1/T2/Claim仍禁止，原盲审包复用；完成当前配对与Git交付后STOP。
+
+
 ## 当前 / CURRENT — Fast B合同已修复，官方HF连接失败（2026-11-05 JST）
 
 run W1-5060-FAST-B-20261105-RECOVERY01；BLOCKED_HF_DIRECT_CONNECTION_TIMEOUT，Fast B整体未完成。

@@ -1,0 +1,135 @@
+{
+  "status": "FILES_VERIFIED_OFFLINE_LOAD_PENDING",
+  "B1_model_id": "sentence-transformers/all-MiniLM-L6-v2",
+  "B1_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "B1_files": [
+    {
+      "path": "model.safetensors",
+      "bytes": 90868376,
+      "sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+      "git_blob_oid": "d49eff1e4a6f0e3ba5069f21c6d20aad156dd2c9"
+    },
+    {
+      "path": "config.json",
+      "bytes": 612,
+      "sha256": "953f9c0d463486b10a6871cc2fd59f223b2c70184f49815e7efbcab5d8908b41",
+      "git_blob_oid": "72b987fd805cfa2b58c4c8c952b274a11bfd5a00"
+    },
+    {
+      "path": "config_sentence_transformers.json",
+      "bytes": 116,
+      "sha256": "061ca9d39661d6c6d6de5ba27f79a1cd5770ea247f8d46412a68a498dc5ac9f3",
+      "git_blob_oid": "fd1b291129c607e5d49799f87cb219b27f98acdf"
+    },
+    {
+      "path": "modules.json",
+      "bytes": 349,
+      "sha256": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+      "git_blob_oid": "952a9b81c0bfd99800fabf352f69c7ccd46c5e43"
+    },
+    {
+      "path": "sentence_bert_config.json",
+      "bytes": 53,
+      "sha256": "fc1993fde0a95c24ec6c022539d41cf6e2f7c9721e5415d6fb6897472a9cd4b7",
+      "git_blob_oid": "59d594003bf59880a884c574bf88ef7555bb0202"
+    },
+    {
+      "path": "special_tokens_map.json",
+      "bytes": 112,
+      "sha256": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3",
+      "git_blob_oid": "e7b0375001f109a6b8873d756ad4f7bbb15fbaa5"
+    },
+    {
+      "path": "tokenizer.json",
+      "bytes": 466247,
+      "sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+      "git_blob_oid": "cb202bfe2e3c98645018a6d12f182a434c9d3e02"
+    },
+    {
+      "path": "tokenizer_config.json",
+      "bytes": 350,
+      "sha256": "acb92769e8195aabd29b7b2137a9e6d6e25c476a4f15aa4355c233426c61576b",
+      "git_blob_oid": "c79f2b6a0cea6f4b564fed1938984bace9d30ff0"
+    },
+    {
+      "path": "vocab.txt",
+      "bytes": 231508,
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "git_blob_oid": "fb140275c155a9c7c5a3b3e0e77a9e839594a938"
+    },
+    {
+      "path": "1_Pooling/config.json",
+      "bytes": 190,
+      "sha256": "4be450dde3b0273bb9787637cfbd28fe04a7ba6ab9d36ac48e92b11e350ffc23",
+      "git_blob_oid": "d1514c3162bbe87b343f565fadc62e6c06f04f03"
+    }
+  ],
+  "B2_model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "B2_revision": "16e5344fbfc7dfbbbe0019d30cec21e2940cb4e1",
+  "B2_files": [
+    {
+      "path": "1_Pooling/config.json",
+      "bytes": 190,
+      "sha256": "4be450dde3b0273bb9787637cfbd28fe04a7ba6ab9d36ac48e92b11e350ffc23"
+    },
+    {
+      "path": "config.json",
+      "bytes": 645,
+      "sha256": "6300193cb75e01cf80c96decef7187dfb33094d97cc1490b7ead6ff134476e4e"
+    },
+    {
+      "path": "config_sentence_transformers.json",
+      "bytes": 122,
+      "sha256": "b8c64b5cece00d8424b4896ea75b512b6008576088497609dfeb6bd63e6d36b8"
+    },
+    {
+      "path": "model.safetensors",
+      "bytes": 470641600,
+      "sha256": "eaa086f0ffee582aeb45b36e34cdd1fe2d6de2bef61f8a559a1bbc9bd955917b"
+    },
+    {
+      "path": "modules.json",
+      "bytes": 229,
+      "sha256": "8f4b264b80206c830bebbdcae377e137925650a433b689343a63bdc9b3145460"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4118,
+      "sha256": "4bcd81167dff9aa9dcd4cff0d8101f897382a9d5e31231940a50b74bf576d550"
+    },
+    {
+      "path": "sentence_bert_config.json",
+      "bytes": 53,
+      "sha256": "70f4448f31320443fe3557cacea5abf2dcc4915dda8c80646bec9f3bb0aa5a1f"
+    },
+    {
+      "path": "special_tokens_map.json",
+      "bytes": 239,
+      "sha256": "378eb3bf733eb16e65792d7e3fda5b8a4631387ca04d2015199c4d4f22ae554d"
+    },
+    {
+      "path": "tokenizer.json",
+      "bytes": 9081518,
+      "sha256": "2c3387be76557bd40970cec13153b3bbf80407865484b209e655e5e4729076b8"
+    },
+    {
+      "path": "tokenizer_config.json",
+      "bytes": 480,
+      "sha256": "cac868512d555e9ac37a33c28300d36931ae4b5ddff43f1ca9bdacfe6fcd9dc8"
+    }
+  ],
+  "origin": "HF_FIXED_REVISION_MANUALLY_OBTAINED_OWNER_ATTESTED_DIRECT_SUCCESS_NO_RETRIES",
+  "manual_metadata_body_bytes": 16967,
+  "manual_model_and_configs_body_bytes": 91567913,
+  "conservative_budget_bytes": 108362402,
+  "budget_note": "91567913 required asset bytes + 16967 metadata bytes + 306 observed small duplicate bytes + 16MiB reserve including prior failed direct request and manual transfers/redirect overhead. Actual manual wire overhead not machine-measured; Owner attests official direct/no retries.",
+  "owner_missing_weight_corrected": true,
+  "misnamed_190_byte_file": "EXCLUDED_POOLING_CONFIG_DUPLICATE_NOT_WEIGHT",
+  "new_paid_API_calls": 0,
+  "B2_copy_from_existing_cache": true,
+  "C_cache_not_modified": true,
+  "manual_raw_sources_preserved": true,
+  "new_downloads_by_agent": 0,
+  "model_card_license": "Apache-2.0 declaration; README Git blob matches fixed official tree",
+  "README_sha256": "dcd602d2fd35c203a247304a06fec6654a12f7941b739f9221a064fe8dc3b7f0"
+}
