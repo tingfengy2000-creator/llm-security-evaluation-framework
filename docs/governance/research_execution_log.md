@@ -3336,3 +3336,9 @@ Owner13原件`docs/paper1/dual_machine/owner_approvals/W1_5060_VESA_GUARD_V01_FA
 `W1-5060-VESA-V01-OWNER13-G3-01` 已在 Owner13 范围内完成 VESA v0.1 与唯一离线 G3。36/36 请求体与 G2 相同，0 变化、0 恢复、0 真实请求。原包无可核生产来源，81 个原隔离片段保留隔离。终态 `VESA_V01_OFFLINE_NO_SAFE_G3_DIFF`。G3 答案、正式 ASR/QA/C3 未测，Human Gold 0。下一步方法若继续，需可靠的来源沿革与版本元数据及独立语法覆盖验证。本轮停止。
 
 [方法结果与复核](../paper1/dual_machine/chinese5060/vesa_guard_v01/VESA_V01_OWNER13_RESULT.md)。
+
+
+## REL-W1-5060-VESA-V02-OWNER14-20261105 — Owner14批准VESA-Guard v0.2单套算法修订与条件G3-v0.2 36次真实Pilot；本条不代表已执行
+
+2026-11-05 JST，Owner阅读5060最新`VESA_V01_OFFLINE_NO_SAFE_G3_DIFF`（HEAD `bfcfaa6490de96b97b12b3304297049dfa627910`），明确批准`W1-OD-20261105-5060-VESA-V02-FAST-14`，替换v0.1不适用的中文整段`fullmatch`及无来源签章永不恢复的机械门：仅从36原世界角色盲TopK、B2筛选及文本中抽取多句事实、scope/time/version、指令风险、明确冲突/未决、必要事实覆盖；每世界最多受控恢复一条B2删项，必须具有可审具体相关事实、缺失覆盖补足、无明确高风险/时间不适用，恢复trace标记“RISK_ACCEPTED_NOT_PROVEN_TRUSTED”，不能把无显式风险当来源可信。规则只冻结一版、逐世界只离线生成一套36格，不用Poison/Clean/HN/Gold/旧逐格Qwen输出作为算法输入。若有非零合规上下文差异，独立QA及真实北京Workspace D1数据外传权限和当前账户/全线USD25/28/30账本验收通过，则在同一Owner14合同中最多36次Qwen新G3生成，首3通过继续33，0额外API/重试/改模型，首错停止。旧Owner12单批资金豁免不可继承。
+并行12题/38原子/16独立证据的人工裁决**仅组织真实Reviewers进行**，Agent不可签HumanGold/泄漏标签至算法，尚未有已完成HumanGold的事实。D2/D3与5090隔离。Owner授权原件`docs/paper1/dual_machine/owner_approvals/W1_5060_VESA_GUARD_V02_FAST_REVISION_AND_G3_AUTH_20261105.md`，可由5060直接读取完整Prompt`docs/paper1/dual_machine/chinese5060/W1_5060_VESA_GUARD_V02_FAST_G3_EXECUTION_PROMPT_V1.md`。**本日志仅证明Owner授权文稿已发布，不声称算法已开发/已运行新API。** 任务结束需真实源码/冻结36请求/QA/模型费用和风险报告后本分支提交STOP。
