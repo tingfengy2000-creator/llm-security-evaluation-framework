@@ -107,7 +107,7 @@ def _details(value: Any, allowed: set[str]) -> dict[str, Any]:
     return value
 
 
-def parse_usage(response: Any, expected_input: int) -> Usage:
+def parse_usage(response: Any, expected_input: int, *, output_cap: int = OUTPUT_CAP) -> Usage:
     if not isinstance(response, dict) or response.get("model") != MODEL:
         raise Stop("RETURNED_MODEL_MISMATCH")
     if response.get("error") is not None:
@@ -120,7 +120,7 @@ def parse_usage(response: Any, expected_input: int) -> Usage:
         raise Stop("USAGE_UNKNOWN_BILLABLE_FIELD")
     prompt = token_int(usage["prompt_tokens"])
     output = token_int(usage["completion_tokens"])
-    if not 0 < prompt <= INPUT_CAP or not 0 < output <= OUTPUT_CAP:
+    if not 0 < prompt <= INPUT_CAP or not 0 < output <= output_cap:
         raise Stop("USAGE_TOKEN_CAP_EXCEEDED")
     if prompt != expected_input or token_int(usage["total_tokens"]) != prompt + output:
         raise Stop("USAGE_TOKEN_DRIFT")
