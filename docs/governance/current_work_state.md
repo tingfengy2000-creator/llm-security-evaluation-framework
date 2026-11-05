@@ -1,5 +1,12 @@
 # Current Work State
 
+## 当前 / CURRENT — Owner接受D1 Pilot12 AI暂定答案，仅授权最小RAG Pilot设计/预算（2026-11-05 JST）
+
+Owner ID `W1-OD-20261105-5060-PROVISIONAL-PILOTDESIGN-08`：原独立12题/38事实原子/16来源的AI辅助暂定参考已批准用于D1可行性设计，不是HumanGold、target或T1证据；HumanGold仍0，target未知，C3未裁决。私有JSON/MD不进公开Git，文件SHA及交接条件记录在Owner授权；5060本机若缺文件则标AWAITING_PRIVATE_ARTIFACT_TRANSFER，不影响只读/零模型调用的方案设计。
+新阶段`DESIGN_ONLY_NOT_RUN`：以原P2冻结36世界（29 candidate hit/7 miss）、旧PAIRO1封存B0/B1/B2上下文，设计最小三臂生成与独立后封存评分，候选108次请求只是待审方案，并且token、价格、成本上限及硬停需另作实际账户核算。任何Qwen/其他模型/API调用（包括免费探测）、检索/Guard重跑、参数/样本/答案改动、D1-40/D2D3/Reviewer/GT/B5B6/5090Claim和正式ASR都未授权。
+Fast C`PARTIAL_DIAGNOSTIC_UNRESOLVED`及Fast B Clean误删上升保留，原2.5pp质量约束和累计USD30上限仍生效；n=12时单例8.33pp不能证实符合2.5pp保护门。完成脱敏设计与预算、PO-MHEP文档/Git收口后STOP。
+[Owner十二字段授权](../paper1/dual_machine/owner_approvals/W1_D1_PROVISIONAL_REFERENCE_AND_RAG_PILOT_DESIGN_OWNER_AUTHORIZATION_20261105.md)；[简化完整执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_PILOT12_MINIMAL_RAG_DESIGN_EXECUTION_PROMPT_V1.md)。此前Fast-C与交接计划均历史不可修改。
+
 ## 当前 / CURRENT — Fast C只读统计完成，阶段因果仍未识别（2026-11-05 JST）
 
 W1-5060-FAST-C-20261105-ATTRIB01；PARTIAL_DIAGNOSTIC_UNRESOLVED，W1-OD-20261105-FAST-C-06。
