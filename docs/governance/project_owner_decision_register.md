@@ -1,5 +1,12 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261105-5060-RAPID-LIVE-12 — Owner加速真实V2 Pilot12、接受逐格后置Token风险并授权一次3+105（2026-11-05 JST）
+
+Owner明确要求“不要反复准备工作，我们没有时间，请快点推进真实实验，验证方法的可能性”；决定**直接条件批准**唯一5060分支固定D1 Pilot12 V2真实生成108格，前3格协议/usage/费用封存通过后立即按冻结顺序执行余105，禁止再重复准备轮次。新授权只要求不可省的A数据外传权限与敏感性、B已恢复北京Workspace真实host/账号区域、D全线费用+在途+整批预留可承担（USD25警戒/28不启新批/30累计硬限）；原自设C 4096-token“发送前形式严格证明”正式改为**实际发送后读取provider真实usage逐格验证**，首次越界请求可能已外传/计费是Owner12接受的**单个且有预算上界的科研探索风险**，第一次超界或缺usage立即停发，不能重试/补样。为了覆盖最多一个超界费用，预算按107个<=4096加最多一个达到官方模型最大输入991808且按高价档、输出最大266候选、≥20%预留，资金未知不得强跑。保留最小独立checker、SHA源锁与单发send_intent、评测隔离。
+原V2 proposal`e5bd219b7812b8ef97ef916226ac221e177f227808cd0dbc0bbe280920d1b70e`、wire plan`0920add3e5b5383a9b685207cabeb539bb3d414ee1db30c6f7a313d37469bbcc`、grid`78708759e0965e816d9d5b7aaa0bca92d2a6b92562930cd028dc87875d09468c`、原P2/PAIR01封存保持；固定模型`qwen3.7-plus-2026-05-26`、system/query、G0/G1/G2、V2仅`max_completion_tokens=256`、原顺序108/80 prompt不变。46来源已有字节身份，29为旧签D1开发候选，不能将其身份溯源视为第三方产权已获证，但可在本Owner12范围内核Owner控制/许可的D1科研素材是否适用于向北京Workspace外传，不必46份新签；明确无权或敏感信息则STOP。**不根据Owner身份替未知第三方授予权利**。
+真实Runner旧`LIVE_AUTHORITY_SHA256=None`需用本Owner12 Git原件字节SHA及独立最小Checker修复，条件全PASS后本次单次实际运行即获许可，无需首3之后新Owner签字；若数据权限或真实资金证据缺失只报一项精准阻断，不要再写无限制Prepared报告。原HumanGold0、target/C3/正式ASR与QA未测、2.5pp统计无法由Pilot证明、D2D3/GT/5090禁碰、C盘项目受控零写+D/E安全余量及仅5060分支commit/push均维持。
+[正式Owner12十二字段风险接受与执行许可](../paper1/dual_machine/owner_approvals/W1_5060_PILOT12_RAPID_LIVE_OWNER_AUTHORIZATION_20261105.md)；[立即执行的完整Git Prompt](../paper1/dual_machine/chinese5060/W1_5060_PILOT12_RAPID_V2_LIVE_EXECUTION_PROMPT_V1.md)。本登记仅证明Owner许可发生，**不表示108次已经调用**。
+
 ## Owner 11 范围内的执行结果索引（2026-11-05 JST）
 
 本轮在已记录的条件许可内冻结 V2 唯一字段，真实执行仍未批准。保留下方授权原件和历史决定。 [唯一审批入口](../paper1/dual_machine/chinese5060/fast_unblock/FAST_UNBLOCK_EVIDENCE_PACKET.md)
