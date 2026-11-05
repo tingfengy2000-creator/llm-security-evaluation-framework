@@ -1,5 +1,12 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261105-5090-ASSET-GATE-07 — Owner批准5090公开官方元数据和许可准入核验（2026-11-05 JST）
+
+Owner允许5090在本分支开展官方HF/Meta/LMSYS/Contriever/BEIR模型和数据许可、固定版本、小型公开元数据、必要文件大小、解压资源边界及作者Claim1-3脚本静态副作用核验；可制作分批下载/单格预检/Claim完整矩阵的审批包。**不批准**登录、接受门禁协议、发送模型访问申请、使用账号token、下载任何权重/BEIR或依赖、运行Claim/单格、改官方源码和环境、商业API。需明确每一下一批都为`NOT_APPROVED`，未有官方许可/解压上界写UNKNOWN并按PO-MHEP升级。
+Owner随后表示愿**自行**尝试申请必要许可；只能准备官方申请入口、步骤与需要Owner填写的类别，不能由Agent代办或获取私密账户信息；Owner获得访问资格也不是自动批准下载/Claim。
+D/E审计目录准许写入，C盘禁新增项目可控内容，保留>=20GiB；不读取D1/D2/D3、Reviewer、GT Vault或5060资料；不修改另一个分支。既有Claim1=24/Claim2=6/Claim3=6均NOT_RUN，ASR/QA_NOT_MEASURED。完成脱敏日志、许可证明、资源审批建议与本分支Git收口后STOP。
+[十二字段授权](../paper1/dual_machine/repro5090/W1_5090_RESOURCE_LICENSE_GATE_OWNER_AUTHORIZATION_20261105.md)；[Git内完整执行Prompt](../paper1/dual_machine/repro5090/W1_5090_OFFICIAL_ASSET_LICENSE_PREFLIGHT_EXECUTION_PROMPT_V1.md)。跨分支引用本`W1-OD`、branch及commit，不借用冲突`PODR-154`单号。
+
 ## PODR-154 — conditionally accept the RAGDefender compatibility env and keep the official GPU failure
 
 2026-11-04 UTC+8; OR-112/REL-2026-0125; supervision `W1-OD-20261104-5090-ENV-01` and `W1-OD-20261104-DUAL-GOV-02`; task P1-RAGDEFENDER-REPRO-5090-CLAIM-GATE-01.
