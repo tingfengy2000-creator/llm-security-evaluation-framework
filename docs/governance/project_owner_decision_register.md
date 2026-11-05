@@ -1,5 +1,12 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261105-5060-FAST-UNBLOCK-11 — Owner批准Pilot12一次性Fast-Unblock零调用解阻（2026-11-05 JST）
+
+`OWNER_APPROVED_FAST_UNBLOCK_OFFLINE_ONLY / LIVE_API_NOT_AUTHORIZED_BY_THIS_DECISION`。Owner明确允许5060仅在`research/paper1-chinese-defense-5060`完成既有D1来源使用权/敏感信息/处理方地域合法外传核验、百炼唯一地域端点绑定与受审真实Transport正向放行**代码和离线Fake测试**、固定108格可信聊天模板严格Token上界、全工作线可计算USD私有账本及独立checker；最后仅用**一个**A–E证据包请求下一次真实Pilot审批。账户/模型/地域/费率/余额仍为Owner本人已核实`OWNER_ATTESTED`，不索重复截图/密钥，但未提供的机器数值/许可不得自行猜测或判PASS。
+**唯一有条件参数修订**：可先审议原`max_tokens=256`是否无法给出完整计费输出上界；若有必要且官方证据支持固定`qwen3.7-plus-2026-05-26`，只将字段名改成`max_completion_tokens=256`（旧key删除，新旧不可同时存在），其他模型、max值、全部system/query/chunk/TopK/排序/temperature/禁thinking/search/tools及三臂不变。必须保留旧V1与旧SHA只读，另封V2新proposal和108完整wire输入SHA、逐格唯一字段diff、Token/预算重算、独立离线QA、公平性说明；如证据不足则NO_CHANGE或BLOCKED，不擅自兼容试探。官方文档提及后者覆盖thinking+answer且可能偏差10 token，这只是输出上界预算候选，实际账号行为未经过真实调用验证。
+**明确禁止**真实API调用（包括免费试探、token counting、账号探测）、模型/依赖下载和安装、其他实验/模型/参数变化、D1-40、D2/D3、Reviewer/GT、B5/B6、5090 Claims与跨分支/主线merge。此前Owner10属于旧V1有条件真实执行合同，本次Fast-Unblock只放行**离线解阻**，**不自动继承或解除live锁**；即使A–E全PASS也STOP并请求Owner新的绑定运行审批，若变为V2原旧SHA不可复用。C盘项目可控零新写、D/E最少20GiB、USD30上限/25预警/28禁止新批、HumanGold0与正式ASR/QA未测持续保持；禁止把静态模拟或AI临时事实答案当成正式Gold。
+[十二字段Owner正式授权](../paper1/dual_machine/owner_approvals/W1_5060_PILOT12_FAST_UNBLOCK_OWNER_AUTHORIZATION_20261105.md)；[5060独立分支完整Fast-Unblock执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_PILOT12_FAST_UNBLOCK_EXECUTION_PROMPT_V1.md)。授权前HEAD`731b48419aba2dab3b8ded310d349fcf441c3f1b`；跨机引用本W1-OD+branch+完整SHA，不借用冲突的PODR-154。交付唯一证据包/脱敏Git治理后STOP，真实108格仍NOT_RUN。
+
 ## W1-OD-20261105-5060-PILOT12-CONDITIONAL-LIVE-10 — Owner批准固定D1 Pilot12有条件真实执行：首3格通过后继续最多105格（2026-11-05 JST）
 
 `OWNER_EXPLICIT_CONDITIONAL_LIVE_AUTHORIZATION / PRE_ADMISSION_BLOCKED`。Owner明确只在5060 `research/paper1-chinese-defense-5060` 分支准许实现、审查百炼真实Transport及固定36世界G0/G1/G2=108个请求的**一次性**受限真实Pilot；本轮批准覆盖原冻结序列前3个工程校验请求，以及3个全部满足HTTP/模型/用量/JSON/费用/证据封存审计后的剩余最多105个；3个必须计入原108，不得额外探测、Judge、重复请求或随结果调整样本。任何硬门未通过：`LIVE_GATE_BLOCKED_NO_REQUESTS`、真实调用0；首个故障立即停止、保持108槽状态/已发送未结算费用预留、不重试也不启动新批。此决议不代表真实Run已完成。
