@@ -22,5 +22,17 @@
     "chinese_transfer": "OUT_OF_SCOPE"
   },
   "batches_approved_for_execution": [],
+  "worker_login_or_accept_click": 0,
+  "license_return_20261105": {
+    "llama2": "APPLICATION_SUBMITTED",
+    "vicuna": "OWNER_ACCEPTED",
+    "contriever": "OWNER_ACCEPTED",
+    "minilm": "OWNER_ACCEPTED_TRUST_REMOTE_CODE_FORBIDDEN",
+    "hotpotqa": "OWNER_ACCEPTED",
+    "nq": "OWNER_ACCEPTED_OWNER_STATED_LICENSE",
+    "msmarco": "OWNER_ACCEPTED_OWNER_STATED_LICENSE",
+    "download_approved": false,
+    "unpack_cap_frozen": false
+  },
   "auto_continue": false
 }

@@ -1,5 +1,9 @@
 # W1 5090 官方资产与许可准入
 
+## 2026-11-05 许可回传
+
+Owner 回传已记入 [手动操作](official_asset_gate/OWNER_MANUAL_LICENSE_ACTIONS.md)。Llama 2 是申请已提交，不是获批。Vicuna、Contriever、MiniLM 和三个 BEIR 子集的研究使用已接受。NQ 的 CC BY-SA 3.0 与 MS MARCO 条款按 Owner 陈述记录，此前 README 没有这些句子。`trust_remote_code` 不允许。解压硬停未冻结，所以仍然不能下载。Claim 仍是 `NOT_RUN`。
+
 状态：`PARTIAL_METADATA_BLOCKED`。任务 `P1-RAGDEFENDER-5090-OFFICIAL-METADATA-GATE-01`，活动 `W1-5090-OFFICIAL-METADATA-20261105-01`。
 Owner 授权 `W1-OD-20261105-5090-ASSET-GATE-07`。这是元数据核验，不是实验。三个 Claim 都是 `NOT_RUN`。无防御 ASR、有防御 ASR 和问答准确率都是 `NOT_MEASURED`。新增模型和 BEIR 下载为 0。付费 API 为 0。
 
@@ -35,7 +39,7 @@ Claim 1 仍是 24 格，Claim 2 和 Claim 3 仍是各 6 格且只有 100%。Tan 
 - current_work_state_updated = true
 - execution_log_appended = true
 - experiment_master_condition_evaluated = true；没有实测，不追加 OR
-- owner_decision_condition_evaluated = true；授权已在 `W1-OD-20261105-5090-ASSET-GATE-07`，本轮不新编 PODR 编号
+- owner_decision_condition_evaluated = true；2026-11-05 回传已追加 `W1-OD-20261105-5090-ASSET-GATE-07-RETURN`，不新编 PODR 编号
 - stage_process_condition_evaluated = true；不是新的 Stage 6.1 试点，不改
 - lessons_condition_evaluated = true；许可缺口留在本报告，不单独立成跨论文方法学
 - research_authority_condition_evaluated = true；冻结合同未改

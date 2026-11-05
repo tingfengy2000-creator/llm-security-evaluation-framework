@@ -1,5 +1,21 @@
 # Owner 本人要完成的许可操作
 
+## 2026-11-05 回传
+
+Owner 本人确认了下面的状态。回传不含 token、账号或表单正文。5090 没有代为登录或再次申请。接受许可不等于批准下载或 Claim。解压硬停仍未冻结，三个 BEIR zip 仍不能下载。
+
+| 资产 | 回传状态 | 条款与修订 | 仍未批准 |
+| --- | --- | --- | --- |
+| Llama 2 7B chat | `APPLICATION_SUBMITTED` | Llama 2 Community License Agreement，2023-07-18；修订 `f5db02db724555f92da89c216ac04704f23d4590` | Meta 尚未在本记录中标成获批。即使以后获批，下一条状态只是 `待审批`，不是下载许可 |
+| Vicuna 7B v1.3 | `OWNER_ACCEPTED` | 模型卡 Non-commercial license；修订 `236eeeab96f0dc2e463f2bebb7bb49809279c6d6` | 只限非商业研究复现。FastChat Apache-2.0 不是权重许可。下载仍要另批 |
+| Contriever | `OWNER_ACCEPTED` | Owner 认定代码仓库 CC BY-NC 4.0 覆盖 `facebook/contriever` 权重。文本 SHA-256 `c1ff5b40378d5dc3126d708bc9291a4c0c4101002f7bab9e344ec01e18b6e957`。修订 `2bd46a25019aeea091fd42d1f0fd4801675cf699` | 模型卡仍然没有 license 字段。这次没有联系作者。非商业研究用途。下载仍要另批 |
+| paraphrase-MiniLM-L6-v2 | `OWNER_ACCEPTED` | Apache-2.0；修订 `c9a2bfebc254878aee8c3aca9e6844d5bbb102d1` | `trust_remote_code` 不允许。标准加载失败就停，等 Owner 再决定 |
+| HotpotQA | `OWNER_ACCEPTED` | CC BY-SA 4.0。与此前读到的数据集 README 一致 | 解压硬停未冻结，不能下载 |
+| NQ | `OWNER_ACCEPTED` | Owner 给出的依据是原始 Natural Questions 数据集许可 CC BY-SA 3.0，用于非商业研究 | 此前读到的 NQ README 没有写出这个许可。这里记的是 Owner 陈述，不是本轮新的网页核验。解压硬停未冻结，不能下载 |
+| MS MARCO | `OWNER_ACCEPTED` | Owner 给出的依据是 MS MARCO 官方条款，非商业研究用途 | 此前读到的 README 没有写出数据许可。这里记的是 Owner 陈述。解压硬停未冻结，不能下载 |
+
+下面各节是回传之前写的操作说明，保留原样。
+
 本文件只给项目负责人自己用。5090 没有登录、没有点同意、没有提交申请、没有保存 token。Owner 愿意申请，也不等于已经获准，更不等于可以下载或跑 Claim。
 
 每项只需回传：`已提交`、`获批`、`未获批` 或 `需补充信息`，以及确认适用的条款名称。不要把 token、密码、邮箱正文或申请表全文发回仓库。

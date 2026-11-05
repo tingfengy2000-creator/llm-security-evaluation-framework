@@ -22,9 +22,10 @@
       "body_downloaded": false,
       "origin_repo": "google-research-datasets/natural-questions",
       "origin_repo_spdx": "Apache-2.0",
-      "dataset_content_license": "UNKNOWN",
-      "reason": "The fetched Natural Questions README does not state a dataset license. The GitHub repository SPDX is Apache-2.0 and does not by itself license the BEIR copy.",
-      "batch_status": "BLOCKED / OWNER_DECISION_REQUIRED"
+      "dataset_content_license": "OWNER_STATED CC BY-SA 3.0 for non-commercial research. The fetched Natural Questions README did not state this.",
+      "owner_acceptance_status": "OWNER_ACCEPTED",
+      "reason": "The fetched Natural Questions README does not state a dataset license. The GitHub repository SPDX is Apache-2.0 and does not by itself license the BEIR copy. Owner later accepted use under a stated CC BY-SA 3.0 basis.",
+      "batch_status": "LICENSE_ACCEPTED_DOWNLOAD_BLOCKED_UNPACK_CAP_NOT_FROZEN"
     },
     {
       "name": "hotpotqa",
@@ -38,8 +39,8 @@
       "origin_statement": "HotpotQA README says the dataset is distributed under CC BY-SA 4.0 and the code under Apache-2.0.",
       "origin_readme_sha256": "2a0a1758bb9a2e52b52e6a6528bbf72d46a5a01e0318cdea0473d0660d555998",
       "dataset_content_license": "CC BY-SA 4.0 for the HotpotQA dataset, as stated by that README",
-      "owner_acceptance_status": "NOT_ACCEPTED/UNKNOWN",
-      "batch_status": "BLOCKED / OWNER_DECISION_REQUIRED",
+      "owner_acceptance_status": "OWNER_ACCEPTED",
+      "batch_status": "LICENSE_ACCEPTED_DOWNLOAD_BLOCKED_UNPACK_CAP_NOT_FROZEN",
       "note": "Share-alike applies if a derivative dataset is redistributed. This plan does not put the corpus in Git."
     },
     {
@@ -52,9 +53,10 @@
       "last_modified": "Mon, 12 Apr 2021 13:50:21 GMT",
       "body_downloaded": false,
       "origin_readme_sha256": "32560b024c58a91855810606db0bc2873ec458540e9ec25d17f8f347d0aaef3e",
-      "dataset_content_license": "UNKNOWN",
-      "reason": "The fetched MSMARCO question-answering README points at the official site and does not state a data license.",
-      "batch_status": "BLOCKED / OWNER_DECISION_REQUIRED"
+      "dataset_content_license": "OWNER_STATED official MS MARCO terms for non-commercial research. The fetched README did not state this.",
+      "owner_acceptance_status": "OWNER_ACCEPTED",
+      "reason": "The fetched MSMARCO question-answering README points at the official site and does not state a data license. Owner later accepted non-commercial research use under the official terms.",
+      "batch_status": "LICENSE_ACCEPTED_DOWNLOAD_BLOCKED_UNPACK_CAP_NOT_FROZEN"
     }
   ],
   "compressed_sum_bytes": 2234591908,

@@ -1,5 +1,17 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — Owner license return recorded, download still not approved, 2026-11-05 UTC+8
+
+No new PODR integer. Return id W1-OD-20261105-5090-ASSET-GATE-07-RETURN. Parent HEAD ae6c5e583ec5769e0e7f3ba7763ae93690dd0318.
+Llama 2 APPLICATION_SUBMITTED at f5db02db724555f92da89c216ac04704f23d4590. A later Meta grant stays pending download approval.
+Vicuna OWNER_ACCEPTED non-commercial research at 236eeeab96f0dc2e463f2bebb7bb49809279c6d6. FastChat Apache-2.0 is not the weight license.
+Contriever OWNER_ACCEPTED: Owner determines CC BY-NC 4.0 sha256 c1ff5b40378d5dc3126d708bc9291a4c0c4101002f7bab9e344ec01e18b6e957 covers facebook/contriever at 2bd46a25019aeea091fd42d1f0fd4801675cf699. Authors not contacted. HF card license field remains absent.
+MiniLM OWNER_ACCEPTED Apache-2.0 at c9a2bfebc254878aee8c3aca9e6844d5bbb102d1. trust_remote_code forbidden. Standard-load failure stops.
+HotpotQA OWNER_ACCEPTED CC BY-SA 4.0. NQ OWNER_ACCEPTED on Owner-stated CC BY-SA 3.0; fetched README did not state it. MS MARCO OWNER_ACCEPTED on Owner-stated official non-commercial terms; fetched README did not state them.
+Unpack cap not frozen. Downloads, claims and the single cell remain NOT_APPROVED. Claim1/2/3 NOT_RUN. ASR and accuracy NOT_MEASURED.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master evaluated and not updated; owner_decision true; stage_process evaluated and not updated; lessons evaluated and not updated; research_authority evaluated and not updated; README evaluated and not updated.
+[Return](../../../paper1/dual_machine/repro5090/official_asset_gate/OWNER_MANUAL_LICENSE_ACTIONS.md).
+
 ## Current — official asset metadata gate partial, claims not run, 2026-11-05 UTC+8
 
 Owner W1-OD-20261105-5090-ASSET-GATE-07. Task P1-RAGDEFENDER-5090-OFFICIAL-METADATA-GATE-01. Activity W1-5090-OFFICIAL-METADATA-20261105-01. Start SHA 1cb3445d2815815684e839e9f7564656c05dae82.

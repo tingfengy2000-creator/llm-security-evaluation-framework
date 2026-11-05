@@ -1,5 +1,11 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-05 — Owner license return recorded and download stays closed
+
+No new PODR integer. Return `W1-OD-20261105-5090-ASSET-GATE-07-RETURN` on `research/paper1-ragdefender-repro-5090` at parent `ae6c5e583ec5769e0e7f3ba7763ae93690dd0318`.
+Llama 2 application submitted for `f5db02db724555f92da89c216ac04704f23d4590`. Vicuna, Contriever and paraphrase-MiniLM-L6-v2 accepted for the stated research terms. Three BEIR subsets accepted, with NQ and MS MARCO bases Owner-stated. Unpack cap not frozen. No download, no claim, no paid API. Claim 1, 2 and 3 remain NOT_RUN. ASR and accuracy remain NOT_MEASURED.
+[Return](../paper1/dual_machine/repro5090/official_asset_gate/OWNER_MANUAL_LICENSE_ACTIONS.md).
+
 ## 2026-11-05 — 5090 official metadata gate returned partial and stopped
 
 No new PODR id. Owner `W1-OD-20261105-5090-ASSET-GATE-07`. Task P1-RAGDEFENDER-5090-OFFICIAL-METADATA-GATE-01. Activity W1-5090-OFFICIAL-METADATA-20261105-01. Branch `research/paper1-ragdefender-repro-5090` started at `1cb3445d2815815684e839e9f7564656c05dae82`.

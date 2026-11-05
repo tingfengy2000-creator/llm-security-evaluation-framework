@@ -1,5 +1,11 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261105-5090-ASSET-GATE-07-RETURN — Owner回传许可状态，不批准下载（2026-11-05 UTC+8）
+
+同一授权 `W1-OD-20261105-5090-ASSET-GATE-07` 下的回传，不新编 PODR 编号。Owner 确认：Llama 2 申请已提交，修订 `f5db02db724555f92da89c216ac04704f23d4590`，Meta 获批后只改为待审批，不自动下载。Vicuna、Contriever、paraphrase-MiniLM-L6-v2，以及 HotpotQA、NQ、MS MARCO 的研究使用由 Owner 接受。Contriever 的覆盖依据是 Owner 认定代码仓库 CC BY-NC 4.0 适用于该权重，作者未联系。MiniLM 禁止 `trust_remote_code`。NQ 的 CC BY-SA 3.0 和 MS MARCO 的官方非商业条款是 Owner 陈述；此前 README 核验没有这些句子。
+不批准权重或 BEIR 下载、Claim、单格、商业 API、源码修改。BEIR 解压硬停仍未冻结。Claim1/2/3 仍 NOT_RUN，ASR/QA 仍 NOT_MEASURED。
+[回传记录](../paper1/dual_machine/repro5090/official_asset_gate/OWNER_MANUAL_LICENSE_ACTIONS.md)。
+
 ## W1-OD-20261105-5090-ASSET-GATE-07 — Owner批准5090公开官方元数据和许可准入核验（2026-11-05 JST）
 
 Owner允许5090在本分支开展官方HF/Meta/LMSYS/Contriever/BEIR模型和数据许可、固定版本、小型公开元数据、必要文件大小、解压资源边界及作者Claim1-3脚本静态副作用核验；可制作分批下载/单格预检/Claim完整矩阵的审批包。**不批准**登录、接受门禁协议、发送模型访问申请、使用账号token、下载任何权重/BEIR或依赖、运行Claim/单格、改官方源码和环境、商业API。需明确每一下一批都为`NOT_APPROVED`，未有官方许可/解压上界写UNKNOWN并按PO-MHEP升级。

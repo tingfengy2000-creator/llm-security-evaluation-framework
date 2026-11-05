@@ -23,19 +23,19 @@
       "what": "Unpacked size is not published in the HEAD response. It is not estimated from the compression ratio."
     },
     {
+      "id": "CONTRIEVER-WEIGHT-LICENSE",
+      "status": "OWNER_ACCEPTED",
+      "what": "The model card still has no license field. Owner accepts the code repository CC BY-NC 4.0 as covering the facebook/contriever weights for non-commercial research. Authors were not contacted."
+    },
+    {
       "id": "NQ-DATASET-LICENSE",
-      "status": "UNKNOWN",
-      "what": "Natural Questions README does not state a dataset license. Repository SPDX Apache-2.0 is not treated as the BEIR subset license."
+      "status": "OWNER_STATED",
+      "what": "Owner accepts NQ for non-commercial research under CC BY-SA 3.0. The fetched Natural Questions README did not state that license."
     },
     {
       "id": "MSMARCO-DATASET-LICENSE",
-      "status": "UNKNOWN",
-      "what": "Fetched MSMARCO README does not state a data license."
-    },
-    {
-      "id": "CONTRIEVER-WEIGHT-LICENSE",
-      "status": "UNKNOWN",
-      "what": "HF card has no license field. Code LICENSE is CC BY-NC 4.0. That does not automatically cover the weight snapshot."
+      "status": "OWNER_STATED",
+      "what": "Owner accepts MS MARCO for non-commercial research under its official terms. The fetched README did not state a data license."
     },
     {
       "id": "VICUNA-STORAGE-GAP",

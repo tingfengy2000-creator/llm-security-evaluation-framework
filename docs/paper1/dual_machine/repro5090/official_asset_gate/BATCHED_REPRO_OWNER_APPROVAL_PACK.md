@@ -1,13 +1,17 @@
 # 分批复现审批包
 
+2026-11-05 许可回传之后：Vicuna、Contriever、MiniLM 和三个 BEIR 子集的研究使用已被 Owner 接受。Llama 2 只是申请已提交。每一批的执行状态仍然不是下载或 Claim 许可。BEIR 在解压硬停冻结前不能下载。
+
 每一批的执行状态都是 `NOT_APPROVED`。本文件不启动下载、解压或 Claim。结果层级保持分开：论文发表数字 `NOT_MEASURED`，作者 `expected/result.txt` 是 `AUTHOR_EXPECTED`，未来兼容环境复现是 `NOT_RUN`，中文迁移是 `OUT_OF_SCOPE`。
 
 ## A — 许可与身份
 
-前置：Owner 阅读 `OWNER_MANUAL_LICENSE_ACTIONS.md`。
-状态：`NOT_APPROVED`。证据已齐的部分可以供 Owner 操作；没有任何一项被记成已接受。
-Contriever 权重许可单独列在该文件里，不能由代码仓库的 CC BY-NC 自动通过。
-停止条件：Owner 未回传某一项之前，该项不能进入 B 或 C。
+前置：Owner 已于 2026-11-05 回传。
+状态：许可回传已记录。下载和 Claim 仍是 `NOT_APPROVED`。
+Llama 2 为 `APPLICATION_SUBMITTED`。Meta 若获批，下一条只记 `待审批`。
+Vicuna、Contriever、MiniLM、HotpotQA、NQ、MS MARCO 为 `OWNER_ACCEPTED`。Contriever 的权重覆盖是 Owner 认定，模型卡字段仍为空。NQ 的 CC BY-SA 3.0 和 MS MARCO 条款是 Owner 陈述，不是本轮新的网页摘录。
+MiniLM 禁止 `trust_remote_code`。标准加载失败必须停下。
+停止条件：解压硬停未冻结时不得下载 BEIR。Llama 未获批且分片大小未知时不得下载 Llama。其余模型即使许可已接受，也要等单独的下载批。
 
 ## B — 模型固定修订下载
 

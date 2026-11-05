@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-11-05 Owner returned license status, downloads still not approved
+
+Return `W1-OD-20261105-5090-ASSET-GATE-07-RETURN`. Llama 2 access application is submitted, not granted. Vicuna, Contriever, paraphrase-MiniLM-L6-v2, HotpotQA, NQ and MS MARCO research use are Owner-accepted. NQ CC BY-SA 3.0 and the MS MARCO terms are Owner-stated. `trust_remote_code` is forbidden. BEIR unpack cap is not frozen, so no download. Claim 1, 2 and 3 remain NOT_RUN. ASR and accuracy remain NOT_MEASURED. Stop here.
+[Return](../paper1/dual_machine/repro5090/official_asset_gate/OWNER_MANUAL_LICENSE_ACTIONS.md).
+The L0 Oracle result below is unchanged. No D1/D2/D3 read, no paid API, no algorithm edit.
+
 ## Current — 2026-11-05 5090 official asset metadata is partial and claims stay unapproved
 
 Task P1-RAGDEFENDER-5090-OFFICIAL-METADATA-GATE-01. Activity W1-5090-OFFICIAL-METADATA-20261105-01. Owner W1-OD-20261105-5090-ASSET-GATE-07. Status PARTIAL_METADATA_BLOCKED.

@@ -1,5 +1,11 @@
 # Paper 1 人类可读实验总规划与实验总账
 
+## 2026-11-05：Owner 回传了许可，下载和实验仍未批准
+
+Llama 2 的访问申请已经由负责人本人提交，Meta 还没在这条记录里标成获批；以后即使获批，也只是待审批，不会自动下载。Vicuna、Contriever 和 paraphrase-MiniLM 的研究使用已经接受。三个语料的研究使用也已接受，但解压上限还没冻结，所以不能下载。MiniLM 不允许执行仓库自带代码。
+三个攻击实验仍未运行，没有攻击成功率和准确率。
+[许可回传](../../../paper1/dual_machine/repro5090/official_asset_gate/OWNER_MANUAL_LICENSE_ACTIONS.md)。
+
 ## 2026-11-05：5090 核对了官方许可和文件规模，仍然不能下载或跑实验
 
 项目负责人允许只查公开的许可和文件信息，并愿意自己去申请模型访问。这次没有代为登录或点同意。Llama 2 仍要本人在 Hugging Face 上申请。Vicuna 是非商业条款。Contriever 的权重许可页面没有写明。MiniLM 用的是 paraphrase 那个版本，不是另一台机器用的 all-MiniLM。三个语料包只核对了压缩大小，解压后有多大还不知道。
