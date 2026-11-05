@@ -14,5 +14,6 @@
   "new_commercial_API_calls": 0,
   "HTTP_response_bytes": 0,
   "transport_budget_reserved": 1048576,
-  "git_delivery": "PENDING_LIVE_CHECK"
+  "git_delivery": "PASS_VERIFIED_CHECKPOINT_CONTENT_COMMIT",
+  "verified_content_commit": "a511501d26fbd6fa35f88c36d2603daf0ba8cce0"
 }

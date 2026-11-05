@@ -66,3 +66,5 @@ Run Manifest列出的原源码/配置hash一致；selection逐字节为 `2c16fd6
 10. 理由/置信度：本次失败日志高置信；无法由单次超时推断全局服务或网络成因。
 11. 待Owner：确认官方直连可用条件并指示何时恢复同源预检；不是重新申请已批准的B1/B2算法范围。
 12. 决定前：仅证据/治理/Git交付后STOP；禁止重试/替代源/模型、付费、B3–B6、D1-40、D2D3、T1/T2、GT或5090 Claim。
+
+受阻checkpoint内容提交 `a511501d26fbd6fa35f88c36d2603daf0ba8cce0` 已核对origin同SHA、工作树clean、ahead/behind=0/0；见[Git交付回执](fast_b/recovery01/GIT_DELIVERY.json)。最终回执提交的HEAD另在交付时实查。
