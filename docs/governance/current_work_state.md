@@ -1,5 +1,12 @@
 # Current Work State
 
+## 当前 / CURRENT — Owner原则授权Pilot12单次3+105有条件真实RAG生成，所有准入证据未闭合前0 API（2026-11-05 JST）
+
+Owner批准`W1-OD-20261105-5060-PILOT12-CONDITIONAL-LIVE-10`：5060可在原分支完成经审计的百炼HTTPS真实Transport、完整108条严格输入Token上界、真正`max_tokens=256`输出及计费上界、私有USD全工作线预算与D1数据合法外传范围，冻结最终源/manifest SHA并由独立本地Checker验证。**只有全部ABCDE硬门PASS**才允许按照原108槽顺序真正发送第1–3格，三个工程协议检查全部成功后可继续第4–108格；首3格计入108，不另加探测，不得retry或按回答正确率筛样。任何硬门UNKNOWN/BLOCKED或第一个请求/用量/费用/网络/数据错误STOP，留108状态与已承诺费用，不自动补跑。此前Owner已核账号/地域/费率/余额属于OWNER_ATTESTED，仍须在D/E账本数值闭合，USD30总限、25预警、28不启新批保持。
+本Owner10授权与旧Runner实现隔离不同：**授权存在但前置门仍未过**，未有真实调用时仍`NOT_RUN`，不能把有条件批准记成真实模型成功。固定`qwen3.7-plus-2026-05-26`、36世界×G0/G1/G2、原108私有计划/System、无额外Judge/搜索/思考/重试/改参数。原`max_tokens`与`max_completion_tokens`不同，若旧字段不足以证明计费封顶须停报Owner而非换字段试跑。来源真实性/许可证或外传范围不清，或C盘写入/答案角色泄漏一律阻断。
+FastC`PARTIAL_DIAGNOSTIC_UNRESOLVED`、B2误删、29 hit/7 miss与HumanGold0/target未知继续；针对D1暂定答案只在生成结果完整封存后独立评估，正式ASR/Accuracy/C3不得宣布。5090另分支任务不变。禁止B5/B6、D1-40、D2D3/Reviewer/GT Vault、5090 Claims和跨分支并入。
+[Owner十二字段条件授权](../paper1/dual_machine/owner_approvals/W1_5060_PILOT12_CONDITIONAL_LIVE_RUN_AUTHORIZATION_20261105.md)；[5060完整3+105执行合同](../paper1/dual_machine/chinese5060/W1_5060_PILOT12_CONDITIONAL_LIVE_3PLUS105_EXECUTION_PROMPT_V1.md)。执行前状态`CONDITIONAL_APPROVAL_GATES_PENDING`；任何结论需实际真请求封存佐证。仅5060分支提交脱敏证据与治理收口后STOP。后续历史状态不覆盖。
+
 ## 当前工作 — 5060 Runner 离线验收完成，真实 Pilot 待独立执行审批（2026-11-05 JST）
 
 W1-5060-RUNNER-20261105-01，RUNNER_IMPLEMENTED_LIVE_NOT_AUTHORIZED。Owner W1-OD-20261105-5060-RUNNER-PREFLIGHT-09，控制提交 e378f04835709a0753ab27f913638642714351bb，源码 1a11fd2ef4802d5029619acb3e65c5ad09a4a57e。
