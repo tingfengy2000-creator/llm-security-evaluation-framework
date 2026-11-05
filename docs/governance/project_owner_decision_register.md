@@ -1,5 +1,12 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261105-5060-VESA-GUARD-V01-FAST-13 — 5060开启VESA-Guard v0.1方法实现并受限G3一次36格验证（2026-11-05 JST）
+
+Owner在读取Pilot12真实生成108格与AI暂定评价后明确“好的开始，越快越好”，批准唯一5060分支开展**第一版新方法研发与其必要的单次G3配对开发Pilot**。此前G0/G1/G2原108真实回包、过滤结果、原查询/TopK/P2/PAIR01、Qwen固定快照和System/Wire V2全部保持不可变，G3只从原36世界角色盲TopK5+B2过滤结果生成每世界一份新上下文；不得重跑B1/B2、原108模型调用，不能从Poison/Clean/HN角色、攻击target、Evaluator/暂定答案、原108逐格生成回复或数据集特有source映射学习过滤规则。设计方法为`VESA-Guard v0.1`：保守的版本/适用条件核验+多证据独立性/冲突判定+必要证据覆盖受限恢复，B2删掉的chunk只有受可信、可复现的独立事实支持且不存在未解高风险冲突时才可恢复；无真实生产可用元数据不能创造信任或偷看D1标签。必须在读取任何逐格评分前一次性固定算法及全部36 G3消息，不得为提高D1结果反复调规则/阈值。
+**单次新API许可仅在合规前置门通过后启动**：G3与G2至少1世界内容不同且每一变化能独立审计，36世界G3 plan/算法源码/Owner原件SHA锁且离线QA合格、D1原地域北京Workspace和处理权未变、当前账户本批预算与原全线USD25/28/30限制闭合，独立Checker拒绝自行放行/标签泄漏。满足后一次性顺序最多36次`qwen3.7-plus-2026-05-26`新推理，前3工程正常继续33，串行1、零额外probe/重试、首错STOP、按真实usage逐格检查4096/输出266候选；旧Owner12的预算豁免**不能继承**。若G3全部等于G2或方法无法在不泄漏/不增加风险条件下作出差异，**0新增API**并报告`NO_SAFE_G3_DIFF`，不是伪造成功。
+评价仅后封存独立read-only原36×G3对照旧三臂，按12个事实组报告配对拒答/答案覆盖、候选删留、Poison/Clean/HN、耗时/费用；无HumanGold、target仍未知，正式ASR、AnswerAccuracy、C3不可宣称，拒答降低可能换来Poison漏放也必须原样报告。D2/D3、5090、B5/B6、D1-40、正式研究等均不授权。对SOTA/创新性要特别核TRIS和SAFER-RAG等重叠，不得把多证据一致性组合直接宣称新颖性。
+[Owner13 PO-MHEP十二字段正式授权](../paper1/dual_machine/owner_approvals/W1_5060_VESA_GUARD_V01_FAST_METHOD_AND_G3_PILOT_AUTH_20261105.md)；[5060直接执行完整方法与G3 Prompt](../paper1/dual_machine/chinese5060/W1_5060_VESA_GUARD_V01_FAST_G3_EXECUTION_PROMPT_V1.md)。此登记说明**授权发布，不表示已有G3代码或实测结果**。仅5060分支独立提交并核实Git后STOP。
+
 ## W1-OD-20261105-5060-RAPID-LIVE-12-WAIVER — 冻结 Pilot12 V2 单批费用豁免
 
 Owner 在本会话确认“本次 108 格豁免 28/30 硬限”。此更新仅覆盖原 Owner12 同一轮 108 格的启动预算条件，真实用量与费用照常记录。数据外传、北京 Workspace、首 3 格工程检查、逐格用量门、异常首错停止和证据隔离仍按原合同执行。[Owner 转录回执](../paper1/dual_machine/owner_approvals/W1_5060_PILOT12_RAPID_LIVE_BUDGET_WAIVER.md)。
