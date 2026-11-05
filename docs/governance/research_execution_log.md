@@ -3280,3 +3280,9 @@ V2原108格独立逐格核验，仅输出上限字段名改为max_completion_tok
 A缺46个实发源的外传范围和敏感性裁决，B缺账户唯一地域端点和实际计费证明，C严格输入证明0/108，D缺统一数值账本，E合成正向和拒绝验收通过但真实许可尚缺。待全部证据闭合后由新Owner真实执行批准绑定V2及源码。
 
 受控归档 SHA256 a5e4e30015a843a1c864dcbf642fecdaeb0547bbe3d992d77b7588666e7ca375。 [唯一证据包](../paper1/dual_machine/chinese5060/fast_unblock/FAST_UNBLOCK_EVIDENCE_PACKET.md)。收口后STOP。
+
+
+## REL-W1-5060-OWNER11-EVIDENCE-RECOVERY-CONTINUATION-20261105 — 5060证据恢复续行（Owner11原范围，尚未实际执行）
+
+2026-11-05 JST，Owner接收5060在`dde903470c877de92df46d8dd2c8348df6d39600`收口的`FAST_UNBLOCK_PARTIAL_BLOCKED`后指示“那继续”。监督端已核其Git证据包和源脚本，发现46个真正拟发送来源hash只有17个在旧`SOURCES.json`匹配，剩余29需从P2/原D1构建链追溯，不可把来源hash未匹配误称无使用权；已核百炼官方公开区域端点/模型输入context资料及Qwen byte-level BPE描述，仍不能无同源证据把UTF8估计直接升级为`<=4096`严格token证明。任务在既有`W1-OD-20261105-5060-FAST-UNBLOCK-11`已批范围内继续，只开展三项**本地/只读证据恢复**：A来源合法外传根证、B/D现有账号已核配置与数值账本复用、C严格Token证明可得性与不自动实施的有风险替代方案。单一短路径指令`docs/paper1/dual_machine/chinese5060/W1_5060_PILOT12_EVIDENCE_RECOVERY_SHORT_PATH_PROMPT_V1.md`，不重做Runner/方法、无真实API、无在线count-tokens、无额外下载、无新的Owner Live Gate、无D2D3/5090。
+本条只记录**工作指令已提交**，不代表5060执行/证据闭合。V1/V2科学源SHA维持，真实Pilot108 NOT_RUN、ASR/正式QA未测；执行者须记录最后最多三个待Owner事项，Git合法自分支交付后STOP。
