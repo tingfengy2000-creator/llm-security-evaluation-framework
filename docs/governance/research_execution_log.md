@@ -1,5 +1,12 @@
 # LLMGuard Research Execution Log
 
+
+## REL-W1-5090-OFFICIAL-ASSET-GATE-AUTHORIZATION-20261105 — Owner批准只读官方资产/许可元数据核验（非真实Claim）
+
+2026-11-05 JST，Owner ID `W1-OD-20261105-5090-ASSET-GATE-07`。仅5090原研究分支允许公开官方模型/BEIR小型元数据及许可证核验、精确revision/体积/风险审计、静态三Claim代码副作用检查、D/E缓存资源计划和分批审批包编制；禁止模型/数据/依赖下载、接受Meta门禁、账号登录或token、模型运行或单格试次、商业API、源码修改和读取D1D2D3/GT。Owner主动提出可**由本人**尝试申请许可；Worker不得代办。此信息应作为交接清单而非授权下载或推理。上游`ba2a17efba165d45409114df2d70b030ade1e1b8`冻结，Claim1/2/3仍NOT_RUN，ASR/QA_NOT_MEASURED，公开文档核验不得混作科学试验结果。
+Owner十二字段批准 `docs/paper1/dual_machine/repro5090/W1_5090_RESOURCE_LICENSE_GATE_OWNER_AUTHORIZATION_20261105.md`；执行合同 `docs/paper1/dual_machine/repro5090/W1_5090_OFFICIAL_ASSET_LICENSE_PREFLIGHT_EXECUTION_PROMPT_V1.md`。治理登记/指令提交并非Worker已执行，后续证据和Claim运行必须另立报告与独立Owner审批。完成本次预检后仅自分支Git收口、STOP。
+
+
 ## 2026-11-04 — 5090 records the RAGDefender main-result plan and stops
 
 No new PODR id and no new REL id. Supervision `W1-OD-20261105-RESOURCE-REPRO-05` is the 5060 file at `f491c0a507e5555e9611c022cfba66980ad8cbca`. Task P1-RAGDEFENDER-REPRO-5090-MAIN-PLAN-01. Run W1-5090-MAIN-REPRO-PLAN-20261104. Branch `research/paper1-ragdefender-repro-5090` at parent `5def0ffc15b9fe0ea8d713c43489e5f07e965517`.
