@@ -1,5 +1,11 @@
 # Current Work State
 
+## 当前 / CURRENT — Fast-Track C已获批、等待5060只读归因执行（2026-11-05 JST）
+
+Owner授权`W1-OD-20261105-FAST-C-06`：仅对已封存P2/PAIR01作只读失败归因及已有12题独立盲审交接整理。可验证原seal后用无副作用统计复算配对翻转、Stage1/Stage2旧trace和频率同分、Clean/HN误删及Poison漏报；Role-Free Analyst只读旧输出不看标签，Post-Seal Evaluator才可读获准D1开发标签，盲审交接不得读预测和角色。禁止所有科学试次重跑、改模型/参数/阈值/索引/样本、下载/商业API、B3/B4/B5/B6、D1-40、D2/D3/Reviewer/GT、T1/T2、5090 Claim、主线/跨分支合并。
+仍保留原P2 hit29/36、MISS7及B1/B2各36/36、Poison TP1→2、Clean FP1→4、HN FP2→2；这些是已完成D1开发历史结果，本轮尚无新归因结论，不可编造统计显著或正式ASR/Accuracy。独立Gold仍0，target UNKNOWN。受限执行Prompt直接入Git，需先读取它、原Owner授权与AGENTS/PO-MHEP；如原raw/profile缺失，局部STOP并报告UNRESOLVED，不得重跑。
+[Owner十二字段授权](../paper1/dual_machine/owner_approvals/W1_FAST_TRACK_C_OWNER_AUTHORIZATION_20261105.md)；[5060完整执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_FAST_TRACK_C_READONLY_EXECUTION_PROMPT_V1.md)。本阶段授权已登记，实际执行/结果/归档/Git交付尚待5060独立完成；完成后STOP。历史状态不覆盖。
+
 ## 当前 / CURRENT — Fast B离线B1/B2配对完成（2026-11-05 JST）
 
 W1-5060-FAST-B-20261105-PAIR01；B1_B2_PAIRED_OFFLINE_DEVELOPMENT_COMPLETE，非正式论文实验。
