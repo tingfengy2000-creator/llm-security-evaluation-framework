@@ -1,5 +1,14 @@
 # Current Work State
 
+## 当前工作 — 5060 Pilot12 准入拒绝，真实请求 0（2026-11-05 JST）
+
+W1-5060-PILOTLIVE-20261105-01，LIVE_GATE_BLOCKED_NO_REQUESTS。Owner W1-OD-20261105-5060-PILOT12-CONDITIONAL-LIVE-10，合同 312f9b17dba2a20c142507ce7df5ec7ae203642d，候选源码 4826ddbf5721e748c499198af931be984807a0db。
+108格投影逐字通过，A–E整体未过。真实POST 0、成功0、失败0、未运行108，首3 NOT_RUN，新增费用USD0。无可签发的全PASS manifest。缺逐源外传范围、获准唯一地域端点和256计费上界、严格输入Token、全线预算证据及相应机器放行链。
+46项离线测试、Ruff/MyPy通过。Human Gold 0，target未知，独立暂定评价NOT_RUN，C3/ASR/正式QA NOT_MEASURED。下一步仅在证据闭合且经授权恢复时复核，首3与余105的条件权限仍为同一合同。
+
+[本轮准入和封存](../paper1/dual_machine/chinese5060/W1_5060_PILOT12_CONDITIONAL_LIVE_RUN_REPORT.md)。以下旧当前标题均为当时历史快照。
+
+
 ## 当前 / CURRENT — Owner原则授权Pilot12单次3+105有条件真实RAG生成，所有准入证据未闭合前0 API（2026-11-05 JST）
 
 Owner批准`W1-OD-20261105-5060-PILOT12-CONDITIONAL-LIVE-10`：5060可在原分支完成经审计的百炼HTTPS真实Transport、完整108条严格输入Token上界、真正`max_tokens=256`输出及计费上界、私有USD全工作线预算与D1数据合法外传范围，冻结最终源/manifest SHA并由独立本地Checker验证。**只有全部ABCDE硬门PASS**才允许按照原108槽顺序真正发送第1–3格，三个工程协议检查全部成功后可继续第4–108格；首3格计入108，不另加探测，不得retry或按回答正确率筛样。任何硬门UNKNOWN/BLOCKED或第一个请求/用量/费用/网络/数据错误STOP，留108状态与已承诺费用，不自动补跑。此前Owner已核账号/地域/费率/余额属于OWNER_ATTESTED，仍须在D/E账本数值闭合，USD30总限、25预警、28不启新批保持。

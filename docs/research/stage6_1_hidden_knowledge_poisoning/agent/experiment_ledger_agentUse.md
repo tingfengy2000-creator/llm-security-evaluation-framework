@@ -1,5 +1,14 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## 当前工作 — 5060 Pilot12 准入拒绝，真实请求 0（2026-11-05 JST）
+
+W1-5060-PILOTLIVE-20261105-01，LIVE_GATE_BLOCKED_NO_REQUESTS。Owner W1-OD-20261105-5060-PILOT12-CONDITIONAL-LIVE-10，合同 312f9b17dba2a20c142507ce7df5ec7ae203642d，候选源码 4826ddbf5721e748c499198af931be984807a0db。
+108格投影逐字通过，A–E整体未过。真实POST 0、成功0、失败0、未运行108，首3 NOT_RUN，新增费用USD0。无可签发的全PASS manifest。缺逐源外传范围、获准唯一地域端点和256计费上界、严格输入Token、全线预算证据及相应机器放行链。
+46项离线测试、Ruff/MyPy通过。Human Gold 0，target未知，独立暂定评价NOT_RUN，C3/ASR/正式QA NOT_MEASURED。下一步仅在证据闭合且经授权恢复时复核，首3与余105的条件权限仍为同一合同。
+
+[本轮准入和封存](../../../paper1/dual_machine/chinese5060/W1_5060_PILOT12_CONDITIONAL_LIVE_RUN_REPORT.md)。以下旧当前标题均为当时历史快照。
+
+
 ## 当前工作 — 5060 Runner 离线验收完成，真实 Pilot 待独立执行审批（2026-11-05 JST）
 
 W1-5060-RUNNER-20261105-01，RUNNER_IMPLEMENTED_LIVE_NOT_AUTHORIZED。Owner W1-OD-20261105-5060-RUNNER-PREFLIGHT-09，控制提交 e378f04835709a0753ab27f913638642714351bb，源码 1a11fd2ef4802d5029619acb3e65c5ad09a4a57e。

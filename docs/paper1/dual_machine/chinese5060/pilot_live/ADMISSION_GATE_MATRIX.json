@@ -1,0 +1,72 @@
+{
+  "status": "LIVE_GATE_BLOCKED_NO_REQUESTS",
+  "gates": {
+    "A": {
+      "local_projection": "PASS_108",
+      "patterns_flagged_cells": {
+        "citizen_id_shape": 0,
+        "credential_shape": 0,
+        "email": 0,
+        "mobile_cn": 0
+      },
+      "reason": "NO_VERIFIED_PER_SOURCE_PROCESSOR_TRANSFER_RIGHTS_AND_SENSITIVITY_CLEARANCE",
+      "status": "BLOCKED"
+    },
+    "B": {
+      "reason": "NO_BOUND_ACCOUNT_REGION_HOST_OR_256_TOTAL_BILLABLE_TOKEN_PROOF",
+      "status": "BLOCKED"
+    },
+    "C": {
+      "reason": "NO_VERIFIABLE_MODEL_CHAT_TOKENIZER_OR_STRICT_BOUND",
+      "status": "BLOCKED"
+    },
+    "D": {
+      "reason": "NO_VERIFIED_ALL_STREAM_BUDGET_FX_BALANCE_AND_WIRE_BOUND",
+      "status": "BLOCKED"
+    },
+    "E": {
+      "reason": "NO_INDEPENDENTLY_VERIFIED_ALL_PASS_IMMUTABLE_ADMISSION",
+      "status": "BLOCKED"
+    }
+  },
+  "all_pass": false,
+  "artifacts_present_in_fixed_locations": {
+    "budget": false,
+    "manifest": false,
+    "token": false,
+    "transfer": false,
+    "wire": false
+  },
+  "identity_sources_sha256": {
+    "docs/paper1/dual_machine/chinese5060/pilot_design/PILOT_EXECUTION_PROPOSAL.json": "0aaf4cfb28dc1e7d9fea8fcdc8f7143afd56857fa300f8b6e3f8f9d0ff081cb6",
+    "experiments/paper1_chinese5060/W1-5060-FAST-B-20261105-PAIR01/B1_RESULTS_PRIVATE.json": "5831dcacb3132c4e6a65344f45dc18f1b85e1b9605815f5d9adb87897239fb74",
+    "experiments/paper1_chinese5060/W1-5060-FAST-B-20261105-PAIR01/B2_RESULTS_PRIVATE.json": "9b65b5d7c412aea78a5d66f4d5402743afd029802eb0af981ebdd929376feb4f",
+    "experiments/paper1_chinese5060/W1-5060-FAST-B-20261105-PAIR01/PACKETS_PRIVATE.json": "d0f196ab994a94bfd0804c37c08b81d41f582aaf2d74e143c26560ffa7043525",
+    "experiments/paper1_chinese5060/W1-5060-FAST-B-20261105-PAIR01/PAIR_OUTPUT_SEAL.json": "bb775ead3d330f5e83516f8dfa871a3e2581c305e5ae7baf104500f781ac79fb",
+    "experiments/paper1_chinese5060/W1-5060-P2-20261104-T0-01/OUTPUT_SEAL.json": "4e11d89cb6f03291c124aab28f7181622b6766cc63d55be45126023147988c52",
+    "experiments/paper1_chinese5060/W1-5060-PILOTDESIGN-20261105-01/runtime_plan/GENERATOR_REQUEST_PLAN_PRIVATE.json": "7db82812f893fc0384b2896c98bb5c779504e19a5c45a097945962e840999c96",
+    "experiments/paper1_chinese5060/archives/W1-5060-FAST-C-ATTRIB01-20261105.zip": "73b3f66a5b410e61cc8b9772885c77e026de502b3b9d78b295fa2e52b4a9fdb4"
+  },
+  "token_static_audit": {
+    "cells": 108,
+    "exact_input_tokens": null,
+    "max_proxy": 2956,
+    "method": "INEXACT_UTF8_CONTENT_BYTES_PLUS_512_NOT_A_CERTIFIED_UPPER_BOUND",
+    "proxy_over_4096": 0,
+    "status": "TOKEN_GATE_BLOCKED",
+    "sum_proxy": 254723,
+    "tokenizer": "NO_VERIFIED_MODEL_AND_CHAT_TEMPLATE_IDENTITY"
+  },
+  "official_wire_reference": "https://www.alibabacloud.com/help/en/model-studio/qwen-api-via-openai-chat-completions",
+  "owner_attestation": "OWNER_ATTESTED",
+  "budget_thresholds_usd": {
+    "warn": 25,
+    "stop_new": 28,
+    "total_cap": 30
+  },
+  "disk": {
+    "volume": "D:",
+    "free_bytes_at_closeout": 357284241408,
+    "reserve_bytes": 21474836480
+  }
+}

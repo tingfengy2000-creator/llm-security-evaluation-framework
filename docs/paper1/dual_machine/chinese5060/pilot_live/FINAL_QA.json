@@ -1,0 +1,123 @@
+{
+  "status": "OFFLINE_QA_PASS_LIVE_GATE_BLOCKED",
+  "source_commit": "4826ddbf5721e748c499198af931be984807a0db",
+  "tests_passed": 46,
+  "old_regressions_included": 29,
+  "new_tests_passed": 17,
+  "ruff": "PASS",
+  "mypy": "PASS_4_SOURCES",
+  "private_archive": {
+    "name": "W1-5060-PILOTLIVE-20261105-01-PREFLIGHT.zip",
+    "sha256": "f0be558ace3258cc14ef017e57fc8102cc03b946854fd02cd18b6c3b97fba831",
+    "bytes": 54112,
+    "members": 34,
+    "index_sha256": "c9fb64fa2590a37dbdbb46ebf9654bb00d6e10c1793d6cda1acf3c1b3900d25a",
+    "verification": "PASS"
+  },
+  "commands": [
+    {
+      "name": "pytest",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "$PRIVATE_QA/pytest",
+        "tests/research/test_chinese5060_pilot_live.py",
+        "tests/research/test_chinese5060_pilot_runner.py",
+        "tests/research/test_chinese5060_pilot_design.py",
+        "tests/research/test_chinese5060_readonly_analysis.py"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "e18e60e4f93fa7d3771ae005bd2cdcba3732379b0a2d523db898484d0ae33dcd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ruff",
+      "command": [
+        "ruff",
+        "check",
+        "--no-cache",
+        "scripts/research/check_chinese5060_pilot12_live.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_live_admission.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_live_transport.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_live_stage.py",
+        "tests/research/test_chinese5060_pilot_live.py"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "mypy",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "mypy",
+        "--cache-dir",
+        "$PRIVATE_QA/mypy",
+        "--check-untyped-defs",
+        "--follow-imports=skip",
+        "--ignore-missing-imports",
+        "scripts/research/check_chinese5060_pilot12_live.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_live_admission.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_live_transport.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_live_stage.py"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "d9a5631f7d87a741fbecc3236286d1792d22d349ff13846d71cdc9217307bb76",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "preflight",
+      "command": [
+        "python",
+        "-I",
+        "-S",
+        "-B",
+        "scripts/research/check_chinese5060_pilot12_live.py",
+        "--output-dir",
+        "experiments/paper1_chinese5060/W1-5060-PILOTLIVE-20261105-01/runs/PREFLIGHT_FROZEN01"
+      ],
+      "exit_code": 3,
+      "expected_exit": 3,
+      "stdout_sha256": "c9a2fa922ec8b725872c239323112ab06ab252fef7315e819b604eda8b06e753",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "prior_qa_issue": "Timeout-at-first fixture compared missing Counter key with explicit zero; assertion fixed; final replay all pass",
+  "network_validation": "Synthetic peer only; independent preflight process socket egress denied",
+  "no_real_requests": true,
+  "no_existing_frozen_source_changed": true,
+  "execution_gate": "BLOCKED",
+  "governance_qa": {
+    "status": "PREEXISTING_PORTABILITY_FAILURE_ONLY",
+    "tests_passed": 8,
+    "tests_failed": 1,
+    "existing_matching_lines": 5,
+    "new_matching_lines": 0,
+    "historical_bytes_unchanged": true,
+    "command": [
+      "python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "tests/architecture/test_experiment_master_record.py",
+      "tests/architecture/test_dependency_direction.py"
+    ],
+    "exit_code": 1,
+    "stdout_sha256": "158918ee2967a8428ee712e2a4ee519c7bd3964b00293ef2484d6483b0d41fc2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

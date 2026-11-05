@@ -1,0 +1,50 @@
+{
+  "status": "LIVE_GATE_BLOCKED_NO_REQUESTS",
+  "decision_required": "HUMAN_DECISION_REQUIRED",
+  "auto_continue": false,
+  "issue_id": "W1-5060-PILOTLIVE-ADMISSION-01",
+  "issue_name": "五项硬门缺少可验证外传、端点计费、输入Token、账本及全PASS签发证据",
+  "discovery_stage": "Owner 10 conditional Pilot12 preflight",
+  "facts": {
+    "OBSERVED_FACT": "108 role-blind projections byte equal; four lexical scans zero hits; 0 POST; five fixed evidence paths absent",
+    "SOURCE_DERIVED_FACT": "Owner 10 covers one 3+105 batch after A–E pass; official max_tokens documentation describes answer tokens",
+    "INFERENCE": "The official general field description cannot prove all billable output and hidden tokens <=256 for the bound endpoint",
+    "UNKNOWN": "External transfer rights by source, exact account endpoint and wire cap, strict token bound, current complete budget"
+  },
+  "constraints": "Fixed 108 cells, max_tokens 256, 4096 input, model, D1 transfer boundary, no probe/retry, USD25/28/30, D/E",
+  "why_now": "These facts must be checked before irreversible transmission and any potential billing.",
+  "downstream_risks": "Unauthorized transfer, hidden or excessive charges, incorrect model/region, partial-run retransmit and invalid science claims.",
+  "options": [
+    {
+      "action": "Close out blocked and preserve current inputs",
+      "cost": "USD 0 new",
+      "risk": "No trial evidence",
+      "later_stage": "Leaves the gate open for review without scope change",
+      "reversibility": "Preparation preserved"
+    },
+    {
+      "action": "Bind missing evidence and independently review activation under the contract",
+      "cost": "One bounded run after funded admission",
+      "risk": "External transfer and fees only after pass",
+      "later_stage": "D1 exploration only",
+      "reversibility": "Posts cannot be undone"
+    },
+    {
+      "action": "Change wire field or proof approach outside approved scope",
+      "cost": "Requires separately scoped work",
+      "risk": "May change budget and semantics",
+      "later_stage": "Needs Owner decision and refreeze",
+      "reversibility": "No change made in this task"
+    }
+  ],
+  "local_recommendation": "STOP before the first POST and close out the refusal evidence.",
+  "confidence": "High for unchanged inputs and zero network execution. No account-specific wire measurement.",
+  "owner_decision_items": [
+    "Resolve source rights and allowed processor/region; bind approved local endpoint proof",
+    "Resolve strict total billed output proof for the existing field; separately decide any field or parameter change",
+    "Make a verified exact/strict token proof and reconciled private ledger available through controlled local paths"
+  ],
+  "allowed_and_prohibited": "Offline evidence review and scoped authorization binding only before a later release. No POST, probes, retries or scoring.",
+  "actual_call_failures": 0,
+  "new_fees_usd": "0"
+}

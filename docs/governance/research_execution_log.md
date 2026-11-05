@@ -3255,3 +3255,12 @@ ENGINEERING_VALIDATION。固定36世界/三臂108格、80唯一提示词。正�
 2026-11-05 JST，Owner `W1-OD-20261105-5060-PILOT12-CONDITIONAL-LIVE-10` 明确批准5060在其独立分支实现并审核百炼真实Transport、核全部108格严格Token上界、USD完整账本、合法D1数据外传范围和最终源码/manifest绑定；**仅在ABCDE所有证据准入PASS之后**才允许发送冻结顺序第1–3格，三个工程校验（模型、接口、usage、JSON、预算和封存）全成功才继续剩余最多105格。不另试探、不重试、不换模型/Prompt/样本/参数，首个错误STOP并保留未执行格。原proposal SHA `0aaf4cfb28dc1e7d9fea8fcdc8f7143afd56857fa300f8b6e3f8f9d0ff081cb6`、108私有输入 SHA `7db82812f893fc0384b2896c98bb5c779504e19a5c45a097945962e840999c96`、旧Runner验收HEAD `ce90a34348dff093e132e6f9823ad9b84e4f67d9`不变。
 官方`max_completion_tokens`支持包含推理的总输出cap及最多10token误差，但旧冻结`max_tokens=256`语义不同；如需要改字段或当前无法证明旧字段真实计费上界必须先升级Owner，不能隐式替换。Owner已核百炼账户模型/地域/费率/可用额度属OWNER_ATTESTED，机器数值账本仍须在D/E确证，保留统一USD30 cap、25预警、28禁止新批。只允许原query与TopK片段发给获准地域/提供商，需权限/PII/版权检查，无答案/role/target/其他资料外传。HumanGold仍0，C3/TargetedASR/正式QA`NOT_MEASURED`，旧FastC根因UNRESOLVED。此条**仅记录有条件执行许可，不代表已通过准入，不填任何真实试次或费用**。
 [正式Owner十二字段授权](../paper1/dual_machine/owner_approvals/W1_5060_PILOT12_CONDITIONAL_LIVE_RUN_AUTHORIZATION_20261105.md)，[完整可从5060 Git读取的3+105执行合同](../paper1/dual_machine/chinese5060/W1_5060_PILOT12_CONDITIONAL_LIVE_3PLUS105_EXECUTION_PROMPT_V1.md)。按AGENTS与PO-MHEP执行，留原始D/E私有证据、Git只公开脱敏hash和数量，仅本5060分支commit/push后STOP；5090和D2/D3不受此许可影响。
+
+
+## REL-W1-5060-PILOTLIVE-20261105-01 — 条件执行在首个请求前阻断
+
+W1-5060-PILOTLIVE-20261105-01，LIVE_GATE_BLOCKED_NO_REQUESTS。Owner W1-OD-20261105-5060-PILOT12-CONDITIONAL-LIVE-10，合同 312f9b17dba2a20c142507ce7df5ec7ae203642d，候选源码 4826ddbf5721e748c499198af931be984807a0db。
+108格投影逐字通过，A–E整体未过。真实POST 0、成功0、失败0、未运行108，首3 NOT_RUN，新增费用USD0。无可签发的全PASS manifest。缺逐源外传范围、获准唯一地域端点和256计费上界、严格输入Token、全线预算证据及相应机器放行链。
+46项离线测试、Ruff/MyPy通过。Human Gold 0，target未知，独立暂定评价NOT_RUN，C3/ASR/正式QA NOT_MEASURED。下一步仅在证据闭合且经授权恢复时复核，首3与余105的条件权限仍为同一合同。
+
+私有预检归档 SHA256 f0be558ace3258cc14ef017e57fc8102cc03b946854fd02cd18b6c3b97fba831。[脱敏验收及证据索引](../paper1/dual_machine/chinese5060/W1_5060_PILOT12_CONDITIONAL_LIVE_RUN_REPORT.md)。收口后STOP。
