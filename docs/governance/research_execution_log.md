@@ -3239,3 +3239,12 @@ HumanGold0、target UNKNOWN、C3未裁决，正式ASR/Accuracy未测；私有参
 2026-11-05 JST，唯一Owner决定`W1-OD-20261105-5060-RUNNER-PREFLIGHT-09`，原设计交付`bbfda7ddd9fe820b908639c7943daef6c87cec6d`。Owner声明已亲自核实百炼账户、地域、当前费率和余额；按`OWNER_ATTESTED`保留，不虚构具体数值或免除USD预算。
 目前只放行5060实现查询级生成Runner、离线FakeTransport/本地已安装Tokenizer条件检查、108格固化、全账本成本门、严格无重试、序列化/异常/封存、测试与下一步真实执行审批包；不允许任何百炼网络请求、一次性免费smoke、任何真实生成API、下载/安装、目标/参考泄漏、G0/G1/G2改动及D2/D3访问。正式ASR/QA未测，HumanGold0。Owner执行授权尚未给予，不将本治理记录当作Runner已完成。
 [十二字段授权](../paper1/dual_machine/owner_approvals/W1_5060_RAG_PILOT_RUNNER_IMPLEMENTATION_AUTHORIZATION_20261105.md)；[完整实施Prompt](../paper1/dual_machine/chinese5060/W1_5060_PILOT12_RUNNER_AND_ADMISSION_IMPLEMENTATION_PROMPT_V1.md)；本任务完成后按AGENTS/PO-MHEP维护治理并仅本5060分支commit/push，随后STOP，真实108格需新Owner显式执行许可。
+
+
+## REL-W1-5060-RUNNER-20261105-01 — 108格离线Runner验收完成
+
+W1-5060-RUNNER-20261105-01，RUNNER_IMPLEMENTED_LIVE_NOT_AUTHORIZED。Owner W1-OD-20261105-5060-RUNNER-PREFLIGHT-09，控制提交 e378f04835709a0753ab27f913638642714351bb，源码 1a11fd2ef4802d5029619acb3e65c5ad09a4a57e。
+ENGINEERING_VALIDATION。固定36世界/三臂108格、80唯一提示词。正常 Fake 108/108；超时 3成功/1失败/104未运行；缺usage 1成功/1失败/106未运行；live拦截退出2。29 tests、Ruff、MyPy 6源码通过。真实生成 NOT_RUN，实际API 0，新增费用 USD0，HumanGold 0，target未知，targeted ASR / 正式QA NOT_MEASURED。
+当前实跑门为 LIVE_NOT_AUTHORIZED、TOKEN_GATE_BLOCKED、WIRE_UNVERIFIED、BUDGET_GATE_BLOCKED。账户和地域等已由Owner核验，OWNER_ATTESTED。下次绑定新执行授权、审核后真实传输、精确chat计数、256输出硬上限及全线预算账本和数据外传范围。物理证据只存D/E。
+
+私有证据归档 W1-5060-RUNNER-20261105-01.zip，SHA256 b63be8be37668f8db63a403c9803732ae10f5b06dfee052ffafc60da4d4face7。封存与命令证据见[工程报告](../paper1/dual_machine/chinese5060/W1_5060_PILOT_RUNNER_IMPLEMENTATION_AND_ADMISSION_REPORT.md)。本阶段仅Git收口后STOP。

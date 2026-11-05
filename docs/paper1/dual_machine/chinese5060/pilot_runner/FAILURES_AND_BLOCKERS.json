@@ -1,0 +1,78 @@
+{
+  "issue_id": "W1-5060-RUNNER-LIVE-GATE-01",
+  "task_status": "RUNNER_IMPLEMENTED_LIVE_NOT_AUTHORIZED",
+  "execution_status": "HUMAN_DECISION_REQUIRED",
+  "auto_continue": false,
+  "recovered_engineering_issues": [
+    {
+      "cause": "tempfile Windows lazy import denied in isolated test",
+      "result": "fixed with explicit tempfile.tempdir in controlled scratch; test passed"
+    },
+    {
+      "cause": "direct mypy.exe launch WinError 623",
+      "result": "used existing Python module entrypoint"
+    },
+    {
+      "cause": "MyPy inferred heterogeneous response and untyped cell collection",
+      "result": "annotated containers; final six sources pass"
+    }
+  ],
+  "expected_injected_failures": {
+    "MOCK_TIMEOUT_FINAL01": {
+      "outcomes": {
+        "MOCK_FAILURE": 1,
+        "MOCK_SUCCESS": 3,
+        "NOT_RUN": 104
+      },
+      "mock_calls": 4,
+      "stop_code": "TRANSPORT_TIMEOUT",
+      "mock_cost_usd": "0.000510000",
+      "mock_whole_batch_reservation_usd": "0.630374400",
+      "mock_failed_unsettled_reservation_usd": "0.005836800",
+      "output_seal_sha256": "581b87096da3c8fe6f8e7b6a303efd4041c5313f2c6a2419c3ab634f2a2aeb8a",
+      "manifest_sha256": "243d4f372824bd26600b5a33940642132251888cf73bbe8efda7b962a72f41be",
+      "sealed_artifacts": 7
+    },
+    "MOCK_MISSING_USAGE_FINAL01": {
+      "outcomes": {
+        "MOCK_FAILURE": 1,
+        "MOCK_SUCCESS": 1,
+        "NOT_RUN": 106
+      },
+      "mock_calls": 2,
+      "stop_code": "USAGE_MISSING",
+      "mock_cost_usd": "0.000170000",
+      "mock_whole_batch_reservation_usd": "0.630374400",
+      "mock_failed_unsettled_reservation_usd": "0.005836800",
+      "output_seal_sha256": "358c98dc7c579c8f7d3aec21b39ca366f9284a995f0bc4e62f954cfcce9a1cf5",
+      "manifest_sha256": "a4c9d0922beceaa1bb2411edeaf7a4cd093ab60cc33c08fcb7c219f95b9640c8",
+      "sealed_artifacts": 6
+    }
+  },
+  "remaining_live_blockers": [
+    "New independently approved live run and approved D1 transfer scope; bind execution source, signer or immutable approval anchor, inputs and settings",
+    "Activate and review actual live transport after approval; enforce HTTPS endpoint identity, total timeout, no retries and single-send ledger",
+    "Verify exact model tokenizer and full chat counts, or new Owner-approved validated counting evidence",
+    "Verify region/model-specific wire behavior and actual 256 output-token/billing bound including hidden usage",
+    "Bind full all-stream reconciled settled/pending ledger, balance, verified rate/FX and USD ceiling",
+    "Seal complete real outcomes before independent evaluator access"
+  ],
+  "account_status": "OWNER_ATTESTED",
+  "actual_model_or_api_failures": 0,
+  "real_calls": 0,
+  "real_cost_usd": 0,
+  "real_108": "NOT_RUN",
+  "preexisting_governance_check": {
+    "tests_passed": 8,
+    "tests_failed": 1,
+    "exit_code": 1,
+    "failure": "test_master_record_is_portable_and_secret_free",
+    "classification": "PREEXISTING_FAILURE_VERIFIED_AT_CONTROL_SHA",
+    "existing_matching_lines": 5,
+    "new_matching_lines": 0,
+    "history_bytes_preserved": true,
+    "stdout_sha256": "ac379295d2ea11e22823f1c483a417b419250f2682786f3c4695c8bce9c2a207",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "command_record_sha256": "204f822d04e15f10a4d77611328abd708670033e7eaf29b8e5d8dc96c3d6da9e"
+  }
+}

@@ -1,0 +1,296 @@
+{
+  "status": "RUNNER_IMPLEMENTED_LIVE_NOT_AUTHORIZED",
+  "classification": "ENGINEERING_VALIDATION_FAKE_ONLY",
+  "source_commit": "1a11fd2ef4802d5029619acb3e65c5ad09a4a57e",
+  "control_commit": "e378f04835709a0753ab27f913638642714351bb",
+  "environment": {
+    "python": "3.13.9",
+    "os": "Windows",
+    "worktree_volume": "D:",
+    "free_bytes_after_runs": 357409742848,
+    "reserve_bytes": 21474836480
+  },
+  "runs": {
+    "PREFLIGHT_FINAL01": {
+      "budget": "BUDGET_GATE_BLOCKED",
+      "token": {
+        "cells": 108,
+        "exact_input_tokens": null,
+        "max_proxy": 2956,
+        "method": "INEXACT_UTF8_CONTENT_BYTES_PLUS_512_NOT_A_CERTIFIED_UPPER_BOUND",
+        "proxy_over_4096": 0,
+        "status": "TOKEN_GATE_BLOCKED",
+        "sum_proxy": 254723,
+        "tokenizer": "NO_VERIFIED_MODEL_AND_CHAT_TEMPLATE_IDENTITY"
+      },
+      "wire": "WIRE_UNVERIFIED",
+      "live": "LIVE_NOT_AUTHORIZED",
+      "owner_account_model_region_rates_balance": "OWNER_ATTESTED",
+      "process_socket_barrier": "DENIED_BEFORE_SOCKET_CREATION"
+    },
+    "MOCK108_FINAL01": {
+      "outcomes": {
+        "MOCK_SUCCESS": 108
+      },
+      "mock_calls": 108,
+      "stop_code": null,
+      "mock_cost_usd": "0.018360000",
+      "mock_whole_batch_reservation_usd": "0.630374400",
+      "mock_failed_unsettled_reservation_usd": "0E-9",
+      "output_seal_sha256": "0e95ede7c54cf0e0439e22e25a94d4b222477c1ebb2f16b513d084d588020de1",
+      "manifest_sha256": "68b21cf1f948f0f9cb4d316b234882c23d043edec437e809734f6d4f9ba86a48",
+      "sealed_artifacts": 112,
+      "synthetic_token_totals": {
+        "input_tokens": 13824,
+        "output_tokens": 1944,
+        "cached_input_tokens": 1728,
+        "hidden_reasoning_tokens": 0
+      },
+      "source_file_sha256": {
+        "scripts/research/run_chinese5060_minimal_rag_pilot.py": "393672e9c35094980523f7fdce2be7b46db989daea6839194a321f9b602eca59",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/budget.py": "d835be554dafe89817a53175131e7df6321dd221e950ae29aa64743f37e65a39",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_admission.py": "5034289b383898c9934f426a3e885809adb73bc4284bb20cce9f23b38f1753d7",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_design.py": "bba3e7e26d38f90a0b91d7147134b282aa02b56f42a1fddb37eb5795b3e26195",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_inputs.py": "8ab62f8170afb0bc02ed3c313f000caf14703df979b6f89c73cc637ac2a7885e",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_offline.py": "b9534bc78b808d5899f7aef11765c5f540f145c87a6aba6d464290078e73f5d5",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_runner.py": "52ba6fcfe956ded851d1c412d1cac407dfcff3ea5763d0981c48c896477116e3",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_transport.py": "0b1cbfb1edf0c8ec3d7b81b9ce02941f925e2cb3a790c4b28932aee9feb8a863"
+      }
+    },
+    "MOCK_TIMEOUT_FINAL01": {
+      "outcomes": {
+        "MOCK_FAILURE": 1,
+        "MOCK_SUCCESS": 3,
+        "NOT_RUN": 104
+      },
+      "mock_calls": 4,
+      "stop_code": "TRANSPORT_TIMEOUT",
+      "mock_cost_usd": "0.000510000",
+      "mock_whole_batch_reservation_usd": "0.630374400",
+      "mock_failed_unsettled_reservation_usd": "0.005836800",
+      "output_seal_sha256": "581b87096da3c8fe6f8e7b6a303efd4041c5313f2c6a2419c3ab634f2a2aeb8a",
+      "manifest_sha256": "243d4f372824bd26600b5a33940642132251888cf73bbe8efda7b962a72f41be",
+      "sealed_artifacts": 7
+    },
+    "MOCK_MISSING_USAGE_FINAL01": {
+      "outcomes": {
+        "MOCK_FAILURE": 1,
+        "MOCK_SUCCESS": 1,
+        "NOT_RUN": 106
+      },
+      "mock_calls": 2,
+      "stop_code": "USAGE_MISSING",
+      "mock_cost_usd": "0.000170000",
+      "mock_whole_batch_reservation_usd": "0.630374400",
+      "mock_failed_unsettled_reservation_usd": "0.005836800",
+      "output_seal_sha256": "358c98dc7c579c8f7d3aec21b39ca366f9284a995f0bc4e62f954cfcce9a1cf5",
+      "manifest_sha256": "a4c9d0922beceaa1bb2411edeaf7a4cd093ab60cc33c08fcb7c219f95b9640c8",
+      "sealed_artifacts": 6
+    },
+    "LIVE_DENIAL_FINAL01": {
+      "exit_code": 2,
+      "status": "LIVE_NOT_AUTHORIZED",
+      "output_created": false
+    }
+  },
+  "run_commands": [
+    {
+      "name": "PREFLIGHT_FINAL01",
+      "command": [
+        "python",
+        "-I",
+        "-S",
+        "-B",
+        "scripts/research/run_chinese5060_minimal_rag_pilot.py",
+        "--preflight",
+        "--output-dir",
+        "experiments/paper1_chinese5060/W1-5060-RUNNER-20261105-01/runs/PREFLIGHT_FINAL01"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout_sha256": "c16ac45efa42b9fb5261aaefbf2c11097f62a9b1be1d2f67f26aaf262113d8b3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "MOCK108_FINAL01",
+      "command": [
+        "python",
+        "-I",
+        "-S",
+        "-B",
+        "scripts/research/run_chinese5060_minimal_rag_pilot.py",
+        "--dry-run",
+        "--output-dir",
+        "experiments/paper1_chinese5060/W1-5060-RUNNER-20261105-01/runs/MOCK108_FINAL01"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout_sha256": "305b3b76dda86d9e801ab1d339ecb42bdcc5415653436845ec0f8c4d828b0cf9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "MOCK_TIMEOUT_FINAL01",
+      "command": [
+        "python",
+        "-I",
+        "-S",
+        "-B",
+        "scripts/research/run_chinese5060_minimal_rag_pilot.py",
+        "--dry-run",
+        "--fake-failure",
+        "4:timeout",
+        "--output-dir",
+        "experiments/paper1_chinese5060/W1-5060-RUNNER-20261105-01/runs/MOCK_TIMEOUT_FINAL01"
+      ],
+      "exit_code": 3,
+      "expected_exit_code": 3,
+      "stdout_sha256": "951203c0060dcac73ff3df26a298e785d8eee29dc57b7e0dbc7104d9624f3cec",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "MOCK_MISSING_USAGE_FINAL01",
+      "command": [
+        "python",
+        "-I",
+        "-S",
+        "-B",
+        "scripts/research/run_chinese5060_minimal_rag_pilot.py",
+        "--dry-run",
+        "--fake-failure",
+        "2:missing_usage",
+        "--output-dir",
+        "experiments/paper1_chinese5060/W1-5060-RUNNER-20261105-01/runs/MOCK_MISSING_USAGE_FINAL01"
+      ],
+      "exit_code": 3,
+      "expected_exit_code": 3,
+      "stdout_sha256": "f8a51bb9175a2340249cb52a0a6454d29569081a731f547a2bada0f5d4dad65c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "LIVE_DENIAL_FINAL01",
+      "command": [
+        "python",
+        "-I",
+        "-S",
+        "-B",
+        "scripts/research/run_chinese5060_minimal_rag_pilot.py",
+        "--live",
+        "--owner-execution-approval",
+        "SYNTHETIC_TEST_VALUE",
+        "--output-dir",
+        "experiments/paper1_chinese5060/W1-5060-RUNNER-20261105-01/runs/LIVE_DENIAL_FINAL01"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c0d0dd6d92d411ecba21e9d50e37f2f4c70f5020f4b4331d9cafafac657194ab"
+    }
+  ],
+  "quality_commands": [
+    {
+      "name": "tests",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "$QA_PRIVATE/pytest",
+        "tests/research/test_chinese5060_pilot_runner.py",
+        "tests/research/test_chinese5060_pilot_design.py",
+        "tests/research/test_chinese5060_readonly_analysis.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "34698c049c6243e6a15690f840ade16611def88cfb85fde9b1d84de7444c4904",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ruff",
+      "command": [
+        "ruff",
+        "check",
+        "--no-cache",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_admission.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_inputs.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_offline.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_runner.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_transport.py",
+        "scripts/research/run_chinese5060_minimal_rag_pilot.py",
+        "tests/research/test_chinese5060_pilot_runner.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "mypy",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "mypy",
+        "--cache-dir",
+        "$QA_PRIVATE/scratch/mypy",
+        "--check-untyped-defs",
+        "--follow-imports=skip",
+        "--ignore-missing-imports",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_admission.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_inputs.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_offline.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_runner.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_transport.py",
+        "scripts/research/run_chinese5060_minimal_rag_pilot.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "90377c8fd97127580c93ac5740d596c9ebc9db94dafa6560ee11fe16b4460c62",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "tests_passed": 29,
+  "ruff": "PASS",
+  "mypy": "PASS_6_SOURCES",
+  "failed_qa_attempts_preserved": [
+    "initial tempfile lazy import denied by allowlist; explicit scratch path fixed",
+    "mypy.exe launch WinError 623; switched to installed Python module entrypoint",
+    "initial mypy module run found 13 inference errors; explicit list/dict types fixed"
+  ],
+  "isolation_checks": [
+    "socket creation and DNS denied before network",
+    "subprocess denied",
+    "synthetic private evaluator read denied",
+    "synthetic C write denied",
+    "D/E cache and tempfile paths verified",
+    "mock seal cannot release evaluation",
+    "no provider SDK loaded"
+  ],
+  "archive": {
+    "name": "W1-5060-RUNNER-20261105-01.zip",
+    "sha256": "b63be8be37668f8db63a403c9803732ae10f5b06dfee052ffafc60da4d4face7",
+    "bytes": 159008,
+    "members": 160,
+    "evidence_index_sha256": "c7b61b6b70deeb11d1fc5dfd65acde427b45da6bb5564125b94b0fcfe6314e7a",
+    "zip_crc_and_index_hashes": "PASS"
+  },
+  "real_api_calls": 0,
+  "new_cost_usd": 0,
+  "real_108": "NOT_RUN",
+  "HumanGold": 0,
+  "Targeted_ASR": "NOT_MEASURED",
+  "Formal_Answer_Accuracy": "NOT_MEASURED",
+  "governance_tests": {
+    "tests_passed": 8,
+    "tests_failed": 1,
+    "exit_code": 1,
+    "failure": "test_master_record_is_portable_and_secret_free",
+    "classification": "PREEXISTING_FAILURE_VERIFIED_AT_CONTROL_SHA",
+    "existing_matching_lines": 5,
+    "new_matching_lines": 0,
+    "history_bytes_preserved": true,
+    "stdout_sha256": "ac379295d2ea11e22823f1c483a417b419250f2682786f3c4695c8bce9c2a207",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "command_record_sha256": "204f822d04e15f10a4d77611328abd708670033e7eaf29b8e5d8dc96c3d6da9e"
+  }
+}

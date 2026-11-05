@@ -1,5 +1,8 @@
 # 5060 中文RAG工作线
 
+当前工作 W1-5060-RUNNER-20261105-01。108格离线运行器验收完成，真实API 0，真实Pilot NOT_RUN。 [报告和下一审批门](W1_5060_PILOT_RUNNER_IMPLEMENTATION_AND_ADMISSION_REPORT.md)。下方均为历史导航。
+
+
 当前：最小RAG Pilot仅设计/预算完成，108格全部NOT_RUN，参考JSON已核、未进入Generator。[候选方案和下一门](W1_5060_MINIMAL_RAG_PILOT_DESIGN_AND_BUDGET.md)；以下为历史。
 
 

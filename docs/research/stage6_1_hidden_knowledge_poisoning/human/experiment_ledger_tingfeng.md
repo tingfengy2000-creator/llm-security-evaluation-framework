@@ -1,5 +1,14 @@
 # Paper 1 人类可读实验总规划与实验总账
 
+## 5060 最小 RAG 运行器已通过本地验收（2026-11-05 JST）
+
+固定108格已在 FakeTransport 中逐格演练。正常批108格全通过，超时及缺用量分别在第4和第2格停发，并保留其余104和106格的状态。29项测试、Ruff和MyPy通过。真实API 0次、新增费用0，真实生成及正式评分未启动。
+
+Owner已经核验账户模型、地域、费率和余额。真实运行仍待一次新审批，需绑定受控费用账本、精确Token计数、接口硬上限和最终执行代码。当前工作 W1-5060-RUNNER-20261105-01，状态 RUNNER_IMPLEMENTED_LIVE_NOT_AUTHORIZED。Human Gold 为0。
+
+[工程报告与准入包](../../../paper1/dual_machine/chinese5060/W1_5060_PILOT_RUNNER_IMPLEMENTATION_AND_ADMISSION_REPORT.md)。下方为历史记录。
+
+
 ## 当前 / CURRENT — Pilot12最小RAG设计/预算完成，真实执行未授权（2026-11-05 JST）
 
 W1-5060-PILOTDESIGN-20261105-01；DESIGN_ONLY_NOT_RUN；W1-OD-20261105-5060-PROVISIONAL-PILOTDESIGN-08。

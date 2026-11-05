@@ -1,0 +1,106 @@
+{
+  "status": "IMPLEMENTATION_READY_EXECUTION_BLOCKED",
+  "owner_attestation": {
+    "status": "OWNER_ATTESTED",
+    "scope": [
+      "model",
+      "region",
+      "actual_rates",
+      "available_balance"
+    ],
+    "authority": "W1-OD-20261105-5060-RUNNER-PREFLIGHT-09"
+  },
+  "frozen": {
+    "model": "qwen3.7-plus-2026-05-26",
+    "worlds": 36,
+    "cells": 108,
+    "unique_prompts": 80,
+    "conditional_hit": 29,
+    "miss": 7,
+    "max_calls": 108,
+    "input_cap": 4096,
+    "output_cap": 256,
+    "batch_input_cap": 442368,
+    "batch_output_cap": 27648,
+    "concurrency": 1,
+    "retries": 0,
+    "judge": 0,
+    "probe": 0
+  },
+  "wire": {
+    "status": "WIRE_UNVERIFIED",
+    "protocol": "OpenAI-compatible Chat Completions",
+    "official_reference": "https://www.alibabacloud.com/help/en/model-studio/qwen-api-via-openai-chat-completions",
+    "path": "/compatible-mode/v1/chat/completions",
+    "candidate_output_field": "max_tokens",
+    "candidate_output_value": 256,
+    "response_format": "json_object",
+    "SDK": "NONE_IN_OFFLINE_BUILD",
+    "max_completion_tokens_documented_possible_delta_tokens": 10,
+    "account_specific_output_cap_and_billing_semantics": null,
+    "actual_provider_requests": 0
+  },
+  "token": {
+    "cells": 108,
+    "exact_input_tokens": null,
+    "max_proxy": 2956,
+    "method": "INEXACT_UTF8_CONTENT_BYTES_PLUS_512_NOT_A_CERTIFIED_UPPER_BOUND",
+    "proxy_over_4096": 0,
+    "status": "TOKEN_GATE_BLOCKED",
+    "sum_proxy": 254723,
+    "tokenizer": "NO_VERIFIED_MODEL_AND_CHAT_TEMPLATE_IDENTITY"
+  },
+  "budget": {
+    "status": "BUDGET_GATE_BLOCKED",
+    "numeric_snapshot_bound": false,
+    "historical_usage_cny": "7.611826",
+    "historical_owner_cny": "7.528095914",
+    "historical_difference_cny": "0.083730086",
+    "historical_logged_calls": 361,
+    "settled_all_streams_usd": null,
+    "pending_all_streams_usd": null,
+    "available_usd_before_pending": null,
+    "whole_batch_reservation_usd": null,
+    "input_rate": null,
+    "output_rate": null,
+    "fx": null,
+    "usd_cap": 30,
+    "usd_warn": 25,
+    "usd_stop_new": 28,
+    "formula": "base = 0.442368 * uncached_input_per_million + 0.027648 * output_per_million",
+    "reservation_factor": "1.20",
+    "cache_rule": "Rate must not exceed uncached rate; absent cache breakdown costed at uncached upper bound",
+    "mock_amounts_not_real_tariff": true
+  },
+  "local_numeric_template": {
+    "manifest_path": "experiments/paper1_chinese5060/W1-5060-RUNNER-20261105-01/admission/BUDGET_PRIVATE.json",
+    "required_flag": "--preflight --budget-sha256 <SHA256>",
+    "amount_encoding": "Nonnegative decimal strings; tariff per one million billing-currency tokens; USD ceilings in USD",
+    "approval_and_authenticity": "Separate future approval binds provenance, freshness and numeric manifest hash",
+    "fields": {
+      "model": "qwen3.7-plus-2026-05-26",
+      "currency": null,
+      "usd_per_billing_unit": null,
+      "historical_usd_per_cny": null,
+      "uncached_input_per_million": null,
+      "cached_input_per_million": null,
+      "output_per_million": null,
+      "settled_all_streams_usd": null,
+      "pending_all_streams_usd": null,
+      "available_usd_before_pending": null,
+      "batch_ceiling_usd": null,
+      "includes_all_streams": null,
+      "price_version": null,
+      "as_of_utc": null,
+      "evidence_sha256": {
+        "price": null,
+        "fx": null,
+        "ledger": null,
+        "balance": null
+      }
+    }
+  },
+  "execution_approval": "LIVE_NOT_AUTHORIZED",
+  "real_calls": 0,
+  "real_cost_usd": 0
+}
