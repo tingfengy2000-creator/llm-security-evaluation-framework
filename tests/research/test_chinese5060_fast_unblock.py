@@ -20,6 +20,8 @@ from llmguard.domains.retrieval.hidden_poisoning.chinese5060.fast_unblock_admiss
 )
 from llmguard.domains.retrieval.hidden_poisoning.chinese5060.fast_unblock_runner import (
     LiveInputs,
+    RapidRun,
+    _run,
     run_live,
     run_synthetic,
 )
@@ -212,3 +214,40 @@ def test_cli_live_flag_denied(tmp_path: Path) -> None:
     ], cwd=ROOT, capture_output=True, check=False)
     assert result.returncode == 2 and result.stderr.strip() == b"NEW_OWNER_LIVE_APPROVAL_REQUIRED"
     assert not out.exists()
+
+
+@pytest.mark.parametrize("oversize_at", [None, 2, 4])
+def test_owner12_post_usage_and_initial_checkpoint(fixture: LiveInputs, oversize_at: int | None) -> None:
+    raw = b"independent synthetic test admission"
+    checked = RapidRun(fixture.output, grid_digest(fixture.candidate), sha256(raw))
+    fake = FakeTransport({})
+
+    def send(cell: Cell, bound: int, record_post: Any) -> Reply:
+        ordinal = fake.attempts + 1
+        assert bound == 4096
+        assert (fixture.output / f"INTENT_{ordinal:03d}.json").is_file()
+        assert (fixture.output / "INITIAL3_CHECKPOINT.json").is_file() == (ordinal > 3)
+        record_post("STARTED")
+        record_post("SENT")
+        reply = fake.send(cell.body, 128)
+        response = strict_json(reply.body)
+        response["id"] = f"FAKE-{ordinal}"
+        if ordinal == oversize_at:
+            response["usage"]["prompt_tokens"] = 4097
+        return Reply(200, json_bytes(response), None)
+
+    with pytest.raises(Stop, match="RAPID_ADMISSION_RECEIPT_MISMATCH"):
+        _run(checked, fixture.candidate, send, "SYNTHETIC", admission_raw=b"wrong")
+    assert not fixture.output.exists()
+    result = _run(checked, fixture.candidate, send, "SYNTHETIC", admission_raw=raw)
+    if oversize_at is None:
+        assert result["outcomes"] == {"SUCCESS": 108, "FAIL": 0, "NOT_RUN": 0}
+        assert result["stop_code"] is None and result["initial3_passed"]
+    else:
+        assert result["outcomes"] == {"SUCCESS": oversize_at - 1, "FAIL": 1, "NOT_RUN": 108 - oversize_at}
+        assert result["stop_code"] == "LIVE_INPUT_PROOF_VIOLATION"
+        assert result["initial3_passed"] == (oversize_at > 3)
+        assert result["unsettled_reservation_cny"] == "7.1486784"
+    assert fake.attempts == (oversize_at or 108)
+    assert (fixture.output / "OUTPUT_SEAL.json").is_file()
+    assert (fixture.output / "RAPID_LIVE_ADMISSION_MANIFEST.json").read_bytes() == raw

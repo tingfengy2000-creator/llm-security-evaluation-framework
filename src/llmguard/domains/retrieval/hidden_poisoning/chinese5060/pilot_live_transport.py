@@ -10,7 +10,7 @@ import socket
 import ssl
 import sys
 import threading
-from collections.abc import Iterator
+from collections.abc import Callable, Iterator
 from contextlib import contextmanager
 from contextvars import ContextVar
 from dataclasses import dataclass
@@ -157,7 +157,9 @@ class InterruptedResponse(Stop):
         self.partial = partial
 
 
-def _exchange(region: str, host: str, body: bytes, key: str) -> Reply:
+def _exchange(
+    region: str, host: str, body: bytes, key: str, *, post_phase: Callable[[str], None] | None = None,
+) -> Reply:
     """Internal wire primitive. Caller must hold a checked lease and a durable send intent."""
     verify_host(region, host)
     if not re.fullmatch(r"[A-Za-z0-9._-]{1,256}", key):
@@ -179,7 +181,11 @@ def _exchange(region: str, host: str, body: bytes, key: str) -> Reply:
             tls.settimeout(_left(connect_by))
             tls.do_handshake()
             tls.settimeout(min(READ_SECONDS, _left(total_by)))
+            if post_phase is not None:
+                post_phase("STARTED")
             tls.sendall(head + body)
+            if post_phase is not None:
+                post_phase("SENT")
             with http.client.HTTPResponse(_ResponseSocket(tls, total_by)) as response:  # type: ignore[arg-type]
                 data = bytearray()
                 try:

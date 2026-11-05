@@ -6,7 +6,9 @@ import re
 from collections import Counter
 from collections.abc import Callable
 from dataclasses import dataclass
+from decimal import Decimal
 from pathlib import Path
+from time import monotonic
 from typing import Any
 
 from .fast_unblock_admission import (
@@ -19,7 +21,7 @@ from .fast_unblock_admission import (
     grid_digest,
     utc_now,
 )
-from .pilot_admission import MAX_CALLS, Stop, json_bytes, sha256, strict_json
+from .pilot_admission import INPUT_CAP, MAX_CALLS, Stop, json_bytes, sha256, strict_json
 from .pilot_inputs import Cell, load_cells
 from .pilot_live_admission import verify_projection
 from .pilot_live_stage import StageProgress
@@ -28,7 +30,55 @@ from .pilot_offline import require_space
 from .pilot_runner import Evidence, now
 from .pilot_transport import FakeTransport, Reply, parse_answer, parse_usage
 
-Send = Callable[[Cell, int], Reply]
+Send = Callable[[Cell, int, Callable[[str], None]], Reply]
+
+
+@dataclass(frozen=True)
+class RapidRun:
+    output: Path
+    request_grid_sha256: str
+    evidence_manifest_sha256: str
+    input_bounds: tuple[int, ...] = (INPUT_CAP,) * MAX_CALLS
+
+
+class WaivedBatchCosts:
+    """CNY list-price accounting for the one batch with an explicit USD waiver."""
+
+    cell_max = Decimal("7.1486784")
+    initial_reserve = Decimal("8.4737664")
+
+    def __init__(self) -> None:
+        self.remaining = MAX_CALLS
+        self.spent = Decimal(0)
+        self.unsettled = Decimal(0)
+
+    def check(self) -> str:
+        if self.unsettled or self.spent > self.initial_reserve:
+            raise Stop("RAPID_CNY_ESTIMATE_OR_INFLIGHT_ANOMALY")
+        return "SCOPED_OWNER_WAIVER_USAGE_METERED"
+
+    def release_cell(self) -> None:
+        if self.remaining <= 0:
+            raise Stop("MAX_CALLS_EXHAUSTED")
+        self.remaining -= 1
+
+    def start(self) -> str:
+        status = self.check()
+        self.release_cell()
+        self.unsettled = self.cell_max
+        return status
+
+    @staticmethod
+    def charge(prompt: int, output: int) -> Decimal:
+        # Full input list price is conservative even when usage includes cached tokens.
+        return Decimal(2 * prompt + 8 * output) / 1_000_000
+
+    def settle(self, cost: Decimal) -> None:
+        if self.unsettled != self.cell_max or not 0 < cost <= self.charge(INPUT_CAP, V2_BILLABLE_CAP):
+            raise Stop("RAPID_CNY_ESTIMATE_OR_INFLIGHT_ANOMALY")
+        self.spent += cost
+        self.unsettled = Decimal(0)
+        self.check()
 
 
 def _verify_reply(reply: Reply, cell: Cell, bound: int) -> tuple[dict[str, Any], int, int, int]:
@@ -52,10 +102,18 @@ def _verify_reply(reply: Reply, cell: Cell, bound: int) -> tuple[dict[str, Any],
     return result, usage.prompt, usage.cached or 0, usage.output
 
 
-def _run(checked: CheckedAdmission, cells: list[Cell], send: Send, mode: str) -> dict[str, Any]:
+def _run(
+    checked: CheckedAdmission | RapidRun, cells: list[Cell], send: Send, mode: str,
+    *, admission_raw: bytes | None = None,
+) -> dict[str, Any]:
     if len(cells) != MAX_CALLS or grid_digest(cells) != checked.request_grid_sha256:
         raise Stop("BATCH_GRID_DRIFT")
-    budget = ReservedBudget(checked.budget, max(checked.input_bounds), V2_BILLABLE_CAP)
+    rapid = isinstance(checked, RapidRun)
+    if rapid and (admission_raw is None or sha256(admission_raw) != checked.evidence_manifest_sha256):
+        raise Stop("RAPID_ADMISSION_RECEIPT_MISMATCH")
+    budget = (ReservedBudget(checked.budget, max(checked.input_bounds), V2_BILLABLE_CAP)
+              if isinstance(checked, CheckedAdmission) else WaivedBatchCosts())
+    currency = "cny" if rapid else "usd"
     budget.check()
     require_space(Path(checked.output.anchor))
     checked.output.parent.mkdir(parents=True, exist_ok=True)
@@ -65,6 +123,8 @@ def _run(checked: CheckedAdmission, cells: list[Cell], send: Send, mode: str) ->
     except FileExistsError:
         raise Stop("DUPLICATE_RUN_OR_SEND_INTENT") from None
     evidence = Evidence(checked.output)
+    if admission_raw is not None:
+        evidence.write("RAPID_LIVE_ADMISSION_MANIFEST.json", admission_raw)
     evidence.record("RUN_CLAIM.json", {
         "mode": mode, "admission_sha256": checked.evidence_manifest_sha256,
         "request_grid_sha256": checked.request_grid_sha256, "created_at_utc": now(),
@@ -90,20 +150,32 @@ def _run(checked: CheckedAdmission, cells: list[Cell], send: Send, mode: str) ->
                 row["budget_decision"] = budget.start()
                 # Exclusive file plus append-only journal. A failed write prevents transmission.
                 intent = {"event": "send_intent", "ordinal": ordinal, "request_id": cell.request_id,
-                          "request_body_sha256": row["request_body_sha256"], "reserved_usd": str(budget.cell_max),
+                          "request_body_sha256": row["request_body_sha256"],
+                          f"reserved_{currency}": str(budget.cell_max),
                           "mode": mode, "time_utc": now()}
                 evidence.record(f"INTENT_{ordinal:03d}.json", intent)
                 evidence.append(intent)
                 row["attempted"] = True
                 attempted += 1
-                reply = send(cell, bound)
+
+                def record_post(phase: str) -> None:
+                    evidence.record(f"POST_{ordinal:03d}_{phase}.json", {"ordinal": ordinal, "phase": phase})
+                    row["post_phase"] = phase
+
+                started = monotonic()
+                try:
+                    reply = send(cell, bound, record_post)
+                finally:
+                    row["elapsed_ms"] = round(1000 * (monotonic() - started), 3)
                 row["http_status"] = reply.status_code
+                row["provider_request_id"] = reply.provider_request_id
                 row["raw_response_sha256"] = evidence.write(f"RESPONSE_{ordinal:03d}.bin", reply.body)
                 result, prompt, cached, output = _verify_reply(reply, cell, bound)
                 row.update(result)
-                cost = budget.config.tariff.charge(prompt, cached, output)
+                cost = (budget.charge(prompt, output) if isinstance(budget, WaivedBatchCosts)
+                        else budget.config.tariff.charge(prompt, cached, output))
                 budget.settle(cost)
-                row["accounted_usage_charge_usd"] = str(cost)
+                row[f"accounted_usage_charge_{currency}"] = str(cost)
             row["status"] = "SUCCESS"
             stage.finish(ordinal, engineering_success=True)
             evidence.append({"event": "cell_outcome", **row})
@@ -127,11 +199,19 @@ def _run(checked: CheckedAdmission, cells: list[Cell], send: Send, mode: str) ->
         "outcomes": {k: counts[k] for k in ("SUCCESS", "FAIL", "NOT_RUN")}, "slots": MAX_CALLS,
         "attempts": attempted, "real_posts_upper_by_send_intent": attempted if mode == "LIVE" else 0,
         "initial3_passed": "INITIAL3_CHECKPOINT.json" in evidence.files,
-        "new_charge_usd": str(budget.spent) if mode == "LIVE" else "0",
-        "unsettled_reservation_usd": str(budget.unsettled), "charge_estimate_usd": str(budget.spent),
-        "initial_batch_reservation_usd": str(budget.cell_max * MAX_CALLS),
+        "new_charge_usd": None if rapid else str(budget.spent) if mode == "LIVE" else "0",
+        f"unsettled_reservation_{currency}": str(budget.unsettled),
+        f"charge_estimate_{currency}": str(budget.spent),
+        f"initial_batch_reservation_{currency}": str(
+            budget.initial_reserve if isinstance(budget, WaivedBatchCosts) else budget.cell_max * MAX_CALLS
+        ),
         "transport_retries": 0, "evaluation": "NOT_RUN", "completed_at_utc": now(),
     }
+    if rapid and mode == "LIVE":
+        summary.update(
+            real_posts_sent=sum(row.get("post_phase") == "SENT" for row in rows),
+            real_posts_delivery_uncertain=sum(row.get("post_phase") == "STARTED" for row in rows),
+        )
     evidence.record("RUN_MANIFEST.json", summary)
     if evidence.journal.is_file():
         evidence.files[evidence.journal.name] = sha256(evidence.journal.read_bytes())
@@ -144,7 +224,7 @@ def run_synthetic(checked: CheckedAdmission, cells: list[Cell], transport: FakeT
     if type(transport) is not FakeTransport or transport.attempts != 0 or transport.automatic_retries != 0:
         raise Stop("PRISTINE_FAKE_TRANSPORT_ONLY")
 
-    def send(cell: Cell, bound: int) -> Reply:
+    def send(cell: Cell, bound: int, _: Callable[[str], None]) -> Reply:
         reply = transport.send(cell.body, min(bound, 128))
         if reply.status_code != 200:
             return reply
@@ -195,7 +275,7 @@ def run_live(data: LiveInputs, authority_raw: bytes) -> dict[str, Any]:
         raise Stop("LIVE_CREDENTIAL_UNAVAILABLE")
     _install_socket_policy()
 
-    def send(cell: Cell, _: int) -> Reply:
+    def send(cell: Cell, _: int, _post_phase: Callable[[str], None]) -> Reply:
         return _exchange(checked.region, checked.host, cell.body, key)
 
     return _run(checked, data.candidate, send, "LIVE")
