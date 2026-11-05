@@ -1,5 +1,11 @@
 # Current Work State
 
+## 当前工作 — 5060基于Owner11继续有限离线证据恢复，不重新批准真实调用（2026-11-05 JST）
+
+Owner在`FAST_UNBLOCK_PARTIAL_BLOCKED`回报后指示“那继续”。此为已有`W1-OD-20261105-5060-FAST-UNBLOCK-11`许可内的继续调查，**不新增真实API或调整科学安全门的批准**。执行范围仅：从冻结D1/P2片段追溯46个拟外传`source_document_hash`（17已匹配原source snapshot、29尚未匹配），清楚区分来源无法匹配与没有使用权；按既存本机资料核百炼唯一region/workspace/已核费率和私有USD账本；利用官方Qwen3.7 Plus 991808 token最大输入长度/byte-BPE文献检查自设4096严格门的可证明性，若不能证明，只提交需Owner另行明确批准的有风险替代方案，不得把猜测上界升格为PASS。
+V1/V2全部SHA、模型/原108格/科学参数、旧封存不变；真实0调用、全部108 NOT_RUN、未解D1外传权限不能伪造、C盘禁新项目可控写入、D/E>=20GiB、USD25/28/30合同保留；D2D3、5090不触碰。终点仅简短Evidence Recovery Addendum与最多3项待Owner裁决；完成后STOP。
+[从Git直接执行的短路径指令](../paper1/dual_machine/chinese5060/W1_5060_PILOT12_EVIDENCE_RECOVERY_SHORT_PATH_PROMPT_V1.md)。此条只登记新任务指令，**未宣称执行完成**，以前快照不覆盖。
+
 ## 当前工作 — 5060 Fast-Unblock 离线验收完成，真实准入仍阻断（2026-11-05 JST）
 
 W1-5060-FAST-UNBLOCK-20261105-01，FAST_UNBLOCK_PARTIAL_BLOCKED。Owner W1-OD-20261105-5060-FAST-UNBLOCK-11，控制合同 ea7e7d6a585ac96dddf3d1c2dcc37113ee460612，离线源码 43be925d57ef6fbe9cbb27d22c7f1495373c6204。
