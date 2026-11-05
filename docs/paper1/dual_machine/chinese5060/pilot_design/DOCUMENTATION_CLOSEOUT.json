@@ -34,5 +34,7 @@
   "CONTEXT_PERSISTENCE_CHECK": "PASS",
   "PAPER1_DOCUMENT_STALENESS_GATE": "PASS_HISTORY_PRESERVED_NEW_NO_RUN_STATUS_EXPLICIT",
   "local_QA": "PASS",
-  "git_delivery": "PENDING"
+  "git_delivery": "PASS_VERIFIED_CONTENT_COMMIT",
+  "verified_content_commit": "abda9c8e4eaa04602c06fae9bfeee17bb9f16258",
+  "documentation_closeout": "PASS_DESIGN_ONLY_EXECUTION_STILL_BLOCKED"
 }

@@ -1,0 +1,82 @@
+{
+  "status": "PASS_DESIGN_ONLY_DELIVERY",
+  "verified_at_UTC": "2026-11-05T05:10:25.858843+00:00",
+  "verified_content_commit": "abda9c8e4eaa04602c06fae9bfeee17bb9f16258",
+  "receipt_scope": "Verified published content commit before receipt commit; receipt descendant final HEAD checked after push and returned to Owner",
+  "branch": "research/paper1-chinese-defense-5060",
+  "remote_equals_content_commit": true,
+  "content_worktree_clean": true,
+  "ahead": 0,
+  "behind": 0,
+  "control_commit": "8881406b00c8f066b96a8e7c4cf2bc42006c4425",
+  "new_model_API_tokenizer_calls": 0,
+  "new_paid_cost": 0,
+  "pilot_execution": "NOT_RUN_NOT_AUTHORIZED",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "branch",
+        "--show-current"
+      ],
+      "exit_code": 0,
+      "stdout": "research/paper1-chinese-defense-5060\n",
+      "stderr": "",
+      "stdout_sha256": "94a1d78724cd0a351b2eb765299996d0f04b66d1b4fa5e5ca4bc5f0b45d54e2d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": "abda9c8e4eaa04602c06fae9bfeee17bb9f16258\n",
+      "stderr": "",
+      "stdout_sha256": "cdbc3c634410846a9e93b2104fe1e0106c4d80ac3d248ffd5fb4c6aafecb134e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "git",
+        "rev-list",
+        "--left-right",
+        "--count",
+        "HEAD...@{upstream}"
+      ],
+      "exit_code": 0,
+      "stdout": "0\t0\n",
+      "stderr": "",
+      "stdout_sha256": "4b14c7b5549e560a68e9c4daaae3fdb8a28fe32d0247050325e7c5a3b2b3271c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "git",
+        "ls-remote",
+        "origin",
+        "refs/heads/research/paper1-chinese-defense-5060"
+      ],
+      "exit_code": 0,
+      "stdout": "abda9c8e4eaa04602c06fae9bfeee17bb9f16258\trefs/heads/research/paper1-chinese-defense-5060\n",
+      "stderr": "",
+      "stdout_sha256": "b9c089e7c4c986ffb8494522c5f5461ab668a13fbd646d97ea15d8d6ef165390",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence": "observed tool result d9c856 on this turn; remote checked before receipt write"
+    }
+  ],
+  "proposal_sha256": "0aaf4cfb28dc1e7d9fea8fcdc8f7143afd56857fa300f8b6e3f8f9d0ff081cb6"
+}

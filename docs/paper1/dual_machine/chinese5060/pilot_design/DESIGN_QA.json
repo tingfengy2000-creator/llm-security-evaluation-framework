@@ -21,7 +21,7 @@
   "MyPy": "PASS_3_SOURCE_CHECK_UNTYPED_DEFS",
   "private_archive_crc_hash_index": "PASS",
   "secret_and_publication_scan": "PASS_EXACT_PLACEHOLDER_COMMAND_EXCEPTION_ONLY",
-  "git_delivery": "PENDING",
+  "git_delivery": "PASS_VERIFIED_CONTENT_COMMIT",
   "old_runtime_and_inputs_preserved": true,
   "all_108_messages_exactly_project_frozen_context_no_reference": true,
   "complete_metadata_only_QA": "PASS",
@@ -31,5 +31,6 @@
   "private_inputs_archive_gitignored": true,
   "unique_prompt_hashes": 80,
   "fixed_cells_not_extra_sampling": 108,
-  "known_runtime_cache_bytes": 2496318
+  "known_runtime_cache_bytes": 2496318,
+  "verified_content_commit": "abda9c8e4eaa04602c06fae9bfeee17bb9f16258"
 }

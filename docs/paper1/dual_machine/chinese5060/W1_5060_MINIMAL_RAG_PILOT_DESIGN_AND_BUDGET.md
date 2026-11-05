@@ -50,3 +50,5 @@ API runner未实现；[完整预算与硬停](pilot_design/BUDGET_AND_STOP_GATES
 静态验证源码提交 `cfae485a0ebc39ab28f3d4577580a968f27a6044`；私有设计证据归档SHA256 `daa610d717e6675abc4a66bf90e59bfdec89e57191fea92c2107d619e58137fe`，含参考/消息原文，仅受控本地。见[设计证据Manifest](pilot_design/DESIGN_EVIDENCE_MANIFEST.json)及[设计QA](pilot_design/DESIGN_QA.json)。
 
 同输入审计：108个预登记world×arm格只有80个唯一prompt_hash。仍每格最多一次、总上限108，不动态去重/跨世界借用答案，也不对某格额外重复采样。相同prompt_hash若产生不同输出，标记GENERATOR_NONDETERMINISM_AUDIT，不归因于过滤器或挑最好结果；temperature0不保证后端确定性，108格不是108独立问题。
+
+交付收口：设计内容提交 `abda9c8e4eaa04602c06fae9bfeee17bb9f16258` 已核验远程一致、工作树干净且ahead/behind=0/0；[Git交付收据](pilot_design/GIT_DELIVERY.json)绑定该内容提交，收据后继提交最终SHA在Owner回复中给出。设计文档收口PASS，执行准入仍BLOCKED。
