@@ -3322,3 +3322,10 @@ W1-5060-RAPID-LIVE-20261105-01，`RAPID_LIVE_BLOCKED_MINIMAL_ACTION_REQUIRED`。
 `OWNER12_LIVE_108 / D1_AI_PROVISIONAL_EVALUATION_01` 已完成零 API 后封存确定性评价。108 格原始响应及 36 世界、12 题映射通过核验，18 格暂定合理拒答，51 格拒答和 39 格回答整体未决。两过滤配置降低 Token，G2 较 G0 净少 4 格回答，其中 Clean 净少 2 格。当前基线效果证据不足，Human Gold 0、target 未知、正式 ASR/QA/C3 未测。待独立人工裁决语义及证据充分性，本轮停止。
 
 [暂定评价和逐格归档索引](../paper1/dual_machine/chinese5060/pilot_rapid_live/PILOT12_D1_AI_PROVISIONAL_EFFECT_REPORT.md)。
+
+
+## REL-W1-5060-VESA-V01-OWNER13-G3-FAST-20261105 — Owner13授权5060首版VESA-Guard与一次G3 36格探索运行（仅授权，尚未实施）
+
+2026-11-05 JST，Owner已阅读`c6e36685cd948700f2d65e53031f82d8d13d2f51`真实108格及`59ceb4ff2267299aa7ed1c6fb0819f952098fcd5`的只读AI暂定评价，明确“好的开始，越快越好”，同意将5060研究进展转为新防御方法开发。PO-MHEP登记`W1-OD-20261105-5060-VESA-GUARD-V01-FAST-13`，授权只在5060分支实现首版轻量版本感知/证据冲突与可靠性核查/证据充分性受限恢复，原36世界TopK角色盲、B2保留列表作为输入，不新增Retriever/Embedding/model judge，不读角色映射/暂定Gold/攻击target/旧每格模型结果来调方法，不改旧G0/G1/G2、固定Qwen和generator wire。预注册规则离线验证36个G3；若无安全上可解释的非零G3差异则0真实请求并结案，若有且来源权限、预算额度、最小独立checker、算法与G3输入全部SHA封存PASS，则本Owner13同批允许最多36次G3新Qwen真实调用，串行1、无额外probe/重试/出错即STOP、首3通过继续33。Owner12临时预算豁免不可继承，仍守全线USD25/28/30及D/E隔离，5090/D2D3禁止操作。
+执行终点为一种：`VESA_V01_OFFLINE_NO_SAFE_G3_DIFF`/`VESA_V01_G3_GATE_BLOCKED`/`VESA_V01_G3_36_COMPLETED`/`VESA_V01_G3_PARTIAL_STOPPED`。真实G3结果如果有，后封存独立评价按12组分析并公开Poison漏放风险，HumanGold0且正式ASR/Accuracy未测；严禁把G3在开发D1上的表现称独立泛化/创新证明。本条仅证明Owner任务许可，不代表已经运行。
+Owner13原件`docs/paper1/dual_machine/owner_approvals/W1_5060_VESA_GUARD_V01_FAST_METHOD_AND_G3_PILOT_AUTH_20261105.md`；完整`docs/paper1/dual_machine/chinese5060/W1_5060_VESA_GUARD_V01_FAST_G3_EXECUTION_PROMPT_V1.md`。执行者应Context Recovery/PO-MHEP/Git预检、跑最小QA和合法自分支推送后STOP。
