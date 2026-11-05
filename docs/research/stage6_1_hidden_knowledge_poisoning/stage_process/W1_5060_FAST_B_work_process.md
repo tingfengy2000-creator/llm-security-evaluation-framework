@@ -6,3 +6,5 @@ Task Type=ENGINEERING_VALIDATION_AND_REVIEW_MATERIAL_PREPARATION。
 [事实/证据与十二字段门](../../../paper1/dual_machine/chinese5060/W1_5060_FAST_B_B1_B2_OFFLINE_RESULT.md)。
 
 恢复01：合同交付门已闭合，唯一HF直连元数据失败；不重做盲审包，不启动模型/B1/B2。[恢复记录](../../../paper1/dual_machine/chinese5060/W1_5060_FAST_B_RECOVERY01_RESULT.md)。
+
+Pair01：人工资产核验闭合，原样库B1/B2各36/36真实离线完成；无新方法或生成级评分。[配对结果与边界](../../../paper1/dual_machine/chinese5060/W1_5060_FAST_B_PAIR01_RESULT.md)。交付后STOP。

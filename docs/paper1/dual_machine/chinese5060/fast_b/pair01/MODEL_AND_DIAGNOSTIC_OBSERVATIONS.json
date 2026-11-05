@@ -1,0 +1,74 @@
+{
+  "B1": {
+    "load_seconds": 0.197520600000189,
+    "max_seq_length": 256,
+    "dimension": 384,
+    "tokenizer_class": "BertTokenizer",
+    "tokenizer_is_fast": true,
+    "modules": [
+      "Transformer",
+      "Pooling",
+      "Normalize"
+    ],
+    "encoder_input_tokens_total": 16396,
+    "encoder_input_tokens_minmax": [
+      47,
+      101
+    ],
+    "token_count_meaning": "UNTRUNCATED_TEXT_TOKENIZER_LENGTHS_ALL_180_CHUNKS_NO_QUERY_ENCODING_NO_LLM_TOKENS",
+    "inputs_over_model_max_length": 0,
+    "first_call_seconds": 1.2735646999999517,
+    "latency_minmax": [
+      0.10382290000006833,
+      1.2735646999999517
+    ],
+    "n_adv_distribution": {
+      "1": 6,
+      "2": 18,
+      "3": 12
+    },
+    "n_tfidf_distribution": {
+      "0": 3,
+      "1": 18,
+      "2": 3,
+      "3": 7,
+      "4": 5
+    }
+  },
+  "B2": {
+    "load_seconds": 1.4246189000000413,
+    "max_seq_length": 128,
+    "dimension": 384,
+    "tokenizer_class": "BertTokenizer",
+    "tokenizer_is_fast": true,
+    "modules": [
+      "Transformer",
+      "Pooling"
+    ],
+    "encoder_input_tokens_total": 16360,
+    "encoder_input_tokens_minmax": [
+      45,
+      98
+    ],
+    "token_count_meaning": "UNTRUNCATED_TEXT_TOKENIZER_LENGTHS_ALL_180_CHUNKS_NO_QUERY_ENCODING_NO_LLM_TOKENS",
+    "inputs_over_model_max_length": 0,
+    "first_call_seconds": 0.2522575000002689,
+    "latency_minmax": [
+      0.20245220000015252,
+      0.2522575000002689
+    ],
+    "n_adv_distribution": {
+      "1": 6,
+      "2": 18,
+      "3": 9,
+      "4": 3
+    },
+    "n_tfidf_distribution": {
+      "0": 3,
+      "1": 18,
+      "2": 3,
+      "3": 7,
+      "4": 5
+    }
+  }
+}

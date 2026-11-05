@@ -1,5 +1,8 @@
 # 5060 中文RAG工作线
 
+当前Fast B实际完成：B1/B2各36世界离线过滤及独立计数。见[Pair01实测](W1_5060_FAST_B_PAIR01_RESULT.md)，ASR/QA未测；以下为历史导航。
+
+
 当前Fast B：合同已修复，唯一HF直连请求超时，模型/B1/B2未执行。见[恢复01结果](W1_5060_FAST_B_RECOVERY01_RESULT.md)；以下旧当前均为历史快照。
 
 

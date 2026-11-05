@@ -1,0 +1,11 @@
+{
+  "cards": 12,
+  "fact_atoms": 38,
+  "source_documents": 16,
+  "human_gold": 0,
+  "status": "REUSED_UNCHANGED_NEEDS_ADJUDICATION",
+  "packet_index_sha256": "061c11297acd0d12295e8bb3e8ca3caed83f6993723e5f278336c770f249c88e",
+  "target": "UNKNOWN",
+  "C3": "NEEDS_ADJUDICATION",
+  "new_packet_generated": false
+}

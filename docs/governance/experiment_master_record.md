@@ -1,5 +1,19 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## 当前 / CURRENT — Fast B离线B1/B2配对完成（2026-11-05 JST）
+
+W1-5060-FAST-B-20261105-PAIR01；B1_B2_PAIRED_OFFLINE_DEVELOPMENT_COMPLETE，非正式论文实验。
+执行源码17897075bfdbc325979b29e75b7209877bc5bebb；原库ba2a17ef未改、只换embedding，固定原36TopK，未重检索/重跑B0。
+B1/B2各36/36 PASS、失败0/空集合0/联网0；原输入29命中(P10/C10/HN9)、7miss(P2/C2/HN3)单列。
+Poison TP B1=1/12、B2=2/12（条件1/10、2/10）；Clean FP=1/12、4/12（1/10、4/10）；HN FP均2/12（2/9）。
+B1/B2删chunk78/180、81/180；每个召回Candidate恰好1chunk，any与all-retrieved计数相同，partial0不证明多chunk清除能力。
+仅换中文embedding未获得整体安全质量改善，不能称新算法/GO；真实ASR/Answer Accuracy/生成拒答未测，商业API0/费用0。
+7tests/Ruff/MyPy3源码通过；输出全封存后独立Evaluator读批准D1开发标签，raw仅本地；原盲审包12题38原子复用、Gold0。
+Owner人工官方直连取得固定模型，Git/LFS/hash核验通过；新模型和临时/缓存全D，B2从既有C缓存只读复制，旧下载/失败账本保留。
+下一Owner Gate：审阅本轮结果及独立答案范围/target/C3裁决，决定后续；本轮Git交付后STOP，不进入P3/付费/新机制。
+禁止B3-B6、D1-40、D2D3/Reviewer/GT Vault、T1/T2/Claim和跨分支合并。[实际结果与证据](../paper1/dual_machine/chinese5060/W1_5060_FAST_B_PAIR01_RESULT.md)。 下方旧状态保留为历史。
+
+
 ## 当前 / CURRENT — Fast B合同已修复，官方HF连接失败（2026-11-05 JST）
 
 run W1-5060-FAST-B-20261105-RECOVERY01；BLOCKED_HF_DIRECT_CONNECTION_TIMEOUT，Fast B整体未完成。

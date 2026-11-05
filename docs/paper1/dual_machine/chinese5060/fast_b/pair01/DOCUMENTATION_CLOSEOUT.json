@@ -1,0 +1,36 @@
+{
+  "task": "FAST_B_PAIR01",
+  "status": "EXECUTED_AWAITING_FINAL_QA_AND_GIT",
+  "checks": {
+    "human_ledger_checked": true,
+    "human_ledger_updated_if_required": true,
+    "agent_ledger_checked": true,
+    "agent_ledger_updated": true,
+    "current_work_state_updated": true,
+    "execution_log_appended": true,
+    "experiment_master_condition_evaluated": true,
+    "owner_decision_condition_evaluated": true,
+    "stage_process_condition_evaluated": true,
+    "lessons_condition_evaluated": true,
+    "research_authority_condition_evaluated": true,
+    "README_condition_evaluated": true,
+    "cross_document_current_task_consistent": true,
+    "cross_document_status_consistent": true,
+    "cross_document_next_action_consistent": true,
+    "cross_document_blocker_consistent": true,
+    "markdown_links_valid": true,
+    "private_inputs_not_staged": true,
+    "source_and_evidence_verified": true
+  },
+  "conditional_documents": {
+    "owner_decision": "ORIGINAL_AUTHORIZATIONS_REUSED_NO_NEW_ACCEPTANCE_INFERRED",
+    "lessons": "PROVISIONAL_ONLY_NO_METHOD_PROMOTION",
+    "research_authority": "NO_FROZEN_METHOD_OR_METRIC_CHANGE",
+    "stage_process": "RESULT_APPENDED",
+    "long_term_requirements": "UNCHANGED"
+  },
+  "CONTEXT_PERSISTENCE_CHECK": "PASS_TASK_RESULTS_NEXT_GATE_RECOVERABLE",
+  "PAPER1_DOCUMENT_STALENESS_GATE": "PASS_NEW_CURRENT_PREPENDED_HISTORY_PRESERVED",
+  "local_QA": "PASS",
+  "git_delivery": "PENDING"
+}

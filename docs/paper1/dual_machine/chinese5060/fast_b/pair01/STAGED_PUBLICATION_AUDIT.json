@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "files_checked": 17,
+  "secret_or_user_absolute_path_findings": [],
+  "broken_new_markdown_links": [],
+  "public_raw_row_keys": 0,
+  "git_blob_and_worktree_bytes_equal": true,
+  "raw_models_inputs_or_predictions_staged": false,
+  "staged_files": [
+    {
+      "path": "PROJECT_MASTER_CONTEXT.md",
+      "sha256": "75728650a00f10b7bf4d1287ecfa97ad3db75ab4617e66cb2329fb39c0ff8ef2"
+    },
+    {
+      "path": "docs/governance/current_work_state.md",
+      "sha256": "9e341bee8752b98578b5f5e8fc8c6e155b7ecfe278a2670d679fa9bc0f8c00d9"
+    },
+    {
+      "path": "docs/governance/experiment_master_record.md",
+      "sha256": "74953d8632187aa2c8bf23d649d8933349340c1fab33f206f8394d0cc459335d"
+    },
+    {
+      "path": "docs/governance/research_execution_log.md",
+      "sha256": "751b635a9ccdf3d17b9acb10f2ad0de0d16169eebcdb4d0f18d67dcd3852a385"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/README.md",
+      "sha256": "786eaf15646b3b0ba562a01b07f0b5641c0506aaebfbfb5ae8ed6266a87a8fbd"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/W1_5060_FAST_B_B1_B2_OFFLINE_RESULT.md",
+      "sha256": "fa3fe184a22622603f465b4a18e131ede97f249e9501e6a4a0a02cf602991feb"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/W1_5060_FAST_B_PAIR01_RESULT.md",
+      "sha256": "22d97be4d00f86e3ea9382167b5c209861e3d16e2ebbf439675b727d6bdfca4e"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/fast_b/pair01/ADJUDICATION_PENDING_INDEX.json",
+      "sha256": "d95e6255cb02a2efe0dc15c697caf7ef8cb17245fb5ae2393f8c5b0826d93b82"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/fast_b/pair01/DOCUMENTATION_CLOSEOUT.json",
+      "sha256": "aeb982d6dc608a81dad1a6d7a8f5ef2aed5d0d626d132ec49cf0daa4fd94bd99"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/fast_b/pair01/FAILURES_AND_EVENTS.json",
+      "sha256": "b5822fea6203627e0cf68ccce22fdfaeb366553256697aaf9b0cc60b61561113"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/fast_b/pair01/FINAL_QA.json",
+      "sha256": "09083da734cbf888f929c59b5c03554eb7fe906aedd1a7e4cf02301f107bd8bc"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/fast_b/pair01/MODEL_AND_DIAGNOSTIC_OBSERVATIONS.json",
+      "sha256": "043cf7fa1587fe916713449b6d3e1da7b34a724e1b9de856524ed533b26b9b2a"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/fast_b/pair01/PAIRWISE_B1_B2_METRICS.json",
+      "sha256": "a474e2024898a57b84ebed8c32eeb5965574b67238c333619baf59dbef8879ef"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/fast_b/pair01/RUN_MANIFEST.json",
+      "sha256": "7dd4821e92236687c1413572c84a4ecd952649f65679c155b4f3f8519d11bdfb"
+    },
+    {
+      "path": "docs/research/stage6_1_hidden_knowledge_poisoning/agent/experiment_ledger_agentUse.md",
+      "sha256": "1e1c4e2f8a25a42d2b5cb2c58acbeed736bbba3c69fa184c86355941bafcbbe5"
+    },
+    {
+      "path": "docs/research/stage6_1_hidden_knowledge_poisoning/human/experiment_ledger_tingfeng.md",
+      "sha256": "d9f61045e5b56e1d779b32eaf0c2da432694d81d2e1a1974cef130a78554e429"
+    },
+    {
+      "path": "docs/research/stage6_1_hidden_knowledge_poisoning/stage_process/W1_5060_FAST_B_work_process.md",
+      "sha256": "de2e7414a25e4cab573fc64881bde1a5041def8b34cf83b183feea6b6220cf9e"
+    }
+  ]
+}

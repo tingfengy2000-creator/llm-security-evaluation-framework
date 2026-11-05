@@ -1,0 +1,24 @@
+{
+  "scientific_pair_attempts": 1,
+  "filter_failures": 0,
+  "failed_or_skipped_worlds": 0,
+  "network_attempts": 0,
+  "automatic_retries": 0,
+  "earlier_checkpoint_failures_retained": [
+    "CONTRACT_ATTACHMENT_MISSING_THEN_RECOVERED",
+    "HF_METADATA_WINERROR10060",
+    "MANUAL_WEIGHT_NOT_YET_DOWNLOADED_THEN_SUPPLIED"
+  ],
+  "pre_freeze_QA_events": [
+    "Initial Ruff closure-name checks failed; observer defaults made explicit before freeze.",
+    "Initial MyPy Counter generic annotations missing; supplied before freeze.",
+    "Freeze commit Git diff check warned of a new trailing blank line in appended governance log; next append preserves history and closes EOF formatting."
+  ],
+  "partial_removal_coverage": "EVERY_RETRIEVED_CANDIDATE_HAS_ONE_CHUNK_SO_PARTIAL_REMOVAL_NOT_EXERCISED",
+  "unsupported_metrics": [
+    "targeted_ASR",
+    "Answer_Accuracy",
+    "generation_Abstain",
+    "Unsupported_QA"
+  ]
+}
