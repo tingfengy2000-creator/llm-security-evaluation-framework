@@ -1,5 +1,13 @@
 # Current Work State
 
+## 当前 / CURRENT — Owner已批准5060 Pilot12 Runner实现/本地Mock验收，真实百炼调用仍需独立执行审批（2026-11-05 JST）
+
+Owner授权`W1-OD-20261105-5060-RUNNER-PREFLIGHT-09`。仅在5060独立研究分支允许实现108固定世界×臂的生成API Runner、FakeTransport干跑、离线准确Token门（若现成身份明确）、价格/统一USD账本硬停、wire契约校验、输入/输出封存及Owner一次性真实运行审批包。可本地离线QA、Ruff/MyPy与D/E受控证据写入；旧G0/G1/G2消息/模型字面`qwen3.7-plus-2026-05-26`/Prompt/Seal保持不变。
+Owner已本人核实百炼模型/地域/费率/可用余额，不要求再次提交账号截图或凭证；其信息等级`OWNER_ATTESTED`，实际数值预算/SDK wire/精确token不能自动判PASS；若缺则可交代码，但真实生成始终BLOCKED。
+禁止百炼或其它任何真实API/免费probe/模型调用（包含token-count、余额查询）、新依赖/权重下载、实际单格或108次、Retriever/Guard重跑、数据/样本/参数变化、参考或role泄漏、D1-40/D2D3/Reviewer/GT Vault、B5/B6、5090Claims和跨分支操作。继续USD30总限、25预警、28不启新批、2.5pp约束、C禁新增受控项目数据。
+原Pilot设计完成但真实生成`NOT_RUN`，HumanGold0，target/C3未知，正式ASR/QA未测；本轮实际模型/API/费用仍0。实施归档脱敏Git收口后STOP，不能自动实际执行。
+[十二字段Owner许可](../paper1/dual_machine/owner_approvals/W1_5060_RAG_PILOT_RUNNER_IMPLEMENTATION_AUTHORIZATION_20261105.md)；[完整从Git读取的Runner实施Prompt](../paper1/dual_machine/chinese5060/W1_5060_PILOT12_RUNNER_AND_ADMISSION_IMPLEMENTATION_PROMPT_V1.md)。下方历史记录不覆盖。
+
 ## 当前 / CURRENT — Pilot12最小RAG设计/预算完成，真实执行未授权（2026-11-05 JST）
 
 W1-5060-PILOTDESIGN-20261105-01；DESIGN_ONLY_NOT_RUN；W1-OD-20261105-5060-PROVISIONAL-PILOTDESIGN-08。
