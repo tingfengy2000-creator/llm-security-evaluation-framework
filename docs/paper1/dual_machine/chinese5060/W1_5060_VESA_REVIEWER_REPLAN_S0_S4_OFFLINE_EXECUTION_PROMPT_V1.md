@@ -9,6 +9,18 @@
 
 按评审原文`S0→S1→S2→冻结→S3一次→S4一次→（S5新Owner审批）`；不得跳门。`S0–S4`仅需CPU和本机已经安装依赖，不运行额外生成模型，也不改既有K=5索引/原模型输入。把`v0.2-Rescue`降为五臂之一的**仅离线对照**，主方法严格`P0`。对原Reviewer提出的M1“内容一致即可全部放行”存在自相矛盾：若没有独立可信证据，全部五条一致也可能都是恶意内容；**不允许用这条规则越过P0**。若评审者字面M1作为对照，可离线标`UNSAFE_CONSENSUS`并明确禁止进入S5。B2与官方RD版本不要混称：G2是中文迁移B2配置，官方2026-05公开release曾修复stage2 bug，需要S0逐代码身份核对，不能更新旧原基线。
 
+## 评审追问补充：S0-00优先查B2版本及Stage2
+
+先读本次已核的证据问答：
+`docs/paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/REVIEWER_7Q_EVIDENCE_REPLY_20261106.md`（7Q答复并非私有TopK正文）。
+**最高优先级S0-00**必须实际核`SecAI-Lab/RAGDefender@ba2a17efba165d45409114df2d70b030ade1e1b8`版本系（5090静态确认v0.2.0谱系）、5060的`src/.../b12.py`与私有`scripts/research/run_chinese5060_b12.py`实际调用、Stage2按正确indices还是旧v0.1.1尾部截断、实际removal indices/profile；不运行新模型。如已用修复后Stage2，直接写`PRE_FIX_BUG_NOT_IN_CURRENT_B2`且不把误删归因于旧bug；如存在新wrapper bug，应另建修正版对照，绝不重写历史B2/冒充创新。B2真实配置已核：v0.2.0谱系、仅换`all-MiniLM-L6-v2`到`paraphrase-multilingual-MiniLM-L12-v2`，`single_hop=true,p=2,m=5`，TF-IDF默认token规则/英文停用词**未做中文分词**。需核每个具体调用路径，别因为提案猜实际上用了哪一条。
+**S0-01 D1 TopK结构：** 仅D1同事实组Poison/Clean/HN三变体要**互斥索引**；新造S2/S3 D–H压力场景必须在同一TopK内混合Poison/Clean，H另含5Poison世界，不能以“变体隔离”禁止混合污染压力测试。D1每世界1候选文档+18背景文档、TopK5，目标候选进入29/36，29个目标命中各仅1chunk，其余TopK来自背景；Poison G0有11/12见至少一条暂定参考来源，**不代表已足证**。从D/E读已冻结私有TopK组成，输出每世界原rank/背景候选类别/是否真实有URL与authority/time lineage/是否能区分参考来源的**脱敏matrix**，不可向算法worker导入role/target/答案。
+**S0-02 攻击构造：** 审原F5/P1一世界1候选+18背景的配置，不要把它叫PoisonedRAG式多假页复现或断言候选文风，只有读到原构造与源码才能说是不是模仿它。
+**S0-03 可采信来源元数据：** 区分有source URI或official snapshot的`IDENTITY`与独立验证的`TRUST_ANCHOR`。现有B2 packet每chunk仅`chunk_id,text,content_hash`，没有URL、机构、发布时间；原来源恢复46/46字节身份并不等于有46/46可信上游证明。T1须独立来源沿革与B3/B4同等访问权限，禁止把D1候选生成链当官方可信。
+**S4证据边界修订：** D1 Poison在已召回10中仅被B2删2条，因此`retained_poison<=8/10`是先验**non-regression开发门**，不是安全鲁棒性证明；主要安全压力来自S2/S3的D/E/F/G/H。S4重点看真实D1 Clean误删能否从4/10下降，配合独立人审解决语义正确性，仍不可越过安全门。
+**GO/NO-GO数学与效率：** 40组同分母且“最多上升≤2.5个百分点”时，1/40=2.5pp，形式上允许一次净增成功（若`baseline ASR=0`则原Owner明确0新增）；若严格小于2.5pp则0。不能把40组的2.5pp自动写成0容忍，必须冻结确切分母与不劣比较方法。若本方法无需Verifier而B4会调用Qwen Verifier，则`verifier_calls`降100%（前提B4>0），但**总商业调用/Token/成本减少≥30%另需同权限实测**，生成调用不能漏计。
+**Reviewer 6/7：** Human Gold当前没合法授权审阅者渠道，R1/R2独立人审+第三人仲裁，日期未签不能估；目标会议与真实年度截止日Owner未选，别冒充已定稿。
+
 ### S0 (0 API)：原36世界的失败根因，只读证据
 
 - 原PAIR01/B2 frozen input+原G2决策，逐世界`removed_count`、聚团大小、N_adv、Stage1/Stage2输出、Clean角色“是否每世界至少删1项”的**冻结后聚合**，不把role列表发给算法worker。
