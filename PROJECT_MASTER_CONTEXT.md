@@ -1,5 +1,19 @@
 # LLMGuard 项目总控文档
 
+## 当前 / CURRENT — Pilot12最小RAG设计/预算完成，真实执行未授权（2026-11-05 JST）
+
+W1-5060-PILOTDESIGN-20261105-01；DESIGN_ONLY_NOT_RUN；W1-OD-20261105-5060-PROVISIONAL-PILOTDESIGN-08。
+原12事实组/36世界、旧TopK及B0/B1/B2上下文静态编排108格，全部NOT_RUN，不重检索/重跑过滤器；本次模型/API/Tokenizer调用0、费用0。
+暂定参考JSON原SHA5c5f212b…已收到并复制D隔离，12 REVIEW-ID/38原子、12题逐字匹配，每题对应3世界9格；参考不进入Generator白名单。
+HumanGold0、target UNKNOWN、C3未裁决，正式ASR/Accuracy未测；私有参考/映射/消息不进Git。MD未定位不阻断完整JSON设计。
+候选4096输入/256输出、最多108请求：输入442368、输出27648 tokens；静态字节+512代理最大2956/2541/2603，非精确Qwen计数。
+执行仍DESIGN_GATE_BLOCKED：当前provider/型号/账户/价格/余额/FX/累计账单、精确token和wire adapter待核，需新的Owner执行SHA。
+预算仅条件式0.442368*P_in+0.027648*P_out及20%候选预留，不给未核实美元报价；USD30/25/28门及历史费用差额保留。
+旧B2 Clean误删上升、FastC根因未识别和2.5pp安全边界保留；单类12例不能证明保护门满足。暂定评分UNKNOWN/拒答/故障统一，不添加judge API。
+5tests/Ruff/增强MyPy3源码通过；所有新项目内容D，本次无模型/资产下载，用户C附件只读。下一Owner Gate审核本包及补齐预算/计数/adapter证据后另批执行。
+禁止真实/免费API探测、生成、B3-B6/D1-40/D2D3/Reviewer/GT/T1/T2/Claim和跨分支合并；本轮Git交付后STOP。[最小设计及待审包](docs/paper1/dual_machine/chinese5060/W1_5060_MINIMAL_RAG_PILOT_DESIGN_AND_BUDGET.md)。 下方历史不改。
+
+
 ## 当前 / CURRENT — Fast C只读统计完成，阶段因果仍未识别（2026-11-05 JST）
 
 W1-5060-FAST-C-20261105-ATTRIB01；PARTIAL_DIAGNOSTIC_UNRESOLVED，W1-OD-20261105-FAST-C-06。

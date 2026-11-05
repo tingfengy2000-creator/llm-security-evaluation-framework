@@ -1,0 +1,338 @@
+{
+  "design_id": "W1-5060-PILOTDESIGN-20261105-01",
+  "status": "DESIGN_ONLY_NOT_RUN",
+  "execution_admission": "DESIGN_GATE_BLOCKED_NEXT_OWNER_APPROVAL_REQUIRED",
+  "control_plane_commit": "8881406b00c8f066b96a8e7c4cf2bc42006c4425",
+  "static_validation_source_commit": "cfae485a0ebc39ab28f3d4577580a968f27a6044",
+  "source_sha256": {
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_design.py": "bba3e7e26d38f90a0b91d7147134b282aa02b56f42a1fddb37eb5795b3e26195",
+    "scripts/research/design_chinese5060_minimal_rag.py": "48e35aca26fc95953e24dd6b6583f16c0849a1b5203e3cddcc44a65ba3c510dc",
+    "scripts/research/audit_chinese5060_provisional_reference.py": "5dc5e002c0b2a504c4894f1ebb7d85359633bfcb4c7002daeef9a55e1b213e19",
+    "tests/research/test_chinese5060_pilot_design.py": "c0d41797892f47660b6250aa8b97acabca7b8b136e9436408fe17a1b3704fdd2",
+    "docs/paper1/dual_machine/chinese5060/pilot_design/STARTUP_AND_RISK_REVIEW.md": "a88ed2cd06f68196274571d4bd871585293abdf4857021fd09008a3c6f3b713d"
+  },
+  "contract_identities": [
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/W1_5060_PILOT12_MINIMAL_RAG_DESIGN_EXECUTION_PROMPT_V1.md",
+      "sha256": "7c57b0bb0e3f1b2d504e472c492bfc5a47740fe1cc520c5e6993ba9df3ac52a0",
+      "control_blob_oid": "f2461f005ae8fd96d4cbd51b1a62832d68008dac"
+    },
+    {
+      "path": "docs/paper1/dual_machine/owner_approvals/W1_D1_PROVISIONAL_REFERENCE_AND_RAG_PILOT_DESIGN_OWNER_AUTHORIZATION_20261105.md",
+      "sha256": "223159467e5897143632040a6005fdfedaabe014cdd6a899b76f991a719bc945",
+      "control_blob_oid": "df0763d28f5a6a5fe1557cc6ab129f9d830ac0b0"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "a926e0708d3244a91577b1a179634ab4b4250ff72a7122b2d8b26193b5ddac2e",
+      "control_blob_oid": "9629222b71fed3fcda405fd73fca77034929d3c7"
+    },
+    {
+      "path": "docs/governance/project_owner_sovereignty_and_mandatory_escalation_principle.md",
+      "sha256": "66069cc3154d6d7c4c24e7f9deb9a34610514fe7b3b10aec3eb2dd27190753c7",
+      "control_blob_oid": "8d2a4ec90e2ad0843d4b0cb4bf6ad21576dc9546"
+    }
+  ],
+  "proposal_sha256": "0aaf4cfb28dc1e7d9fea8fcdc8f7143afd56857fa300f8b6e3f8f9d0ff081cb6",
+  "private_message_plan_sha256": "7db82812f893fc0384b2896c98bb5c779504e19a5c45a097945962e840999c96",
+  "runtime_design_seal_sha256": "a945123e6a66b340bae48de4411665068c92221ffaa81d515cac1d2c12084c79",
+  "evaluation_design_seal_sha256": "a09dec60eda78f91f1746ee4788c73b75ac07e7d4dede1f6633182e84e881dfe",
+  "reference_sha256": "5c5f212ba16da97b114d897de910ab383a47d96db4cb7cd9b54e638f7f03cf31",
+  "reference_identity": "USER_SUPPLIED_ARTIFACT_RAW_HASH_MATCH_NOT_HUMAN_GOLD",
+  "generator_design_access_log": [
+    {
+      "path": "experiments/paper1_chinese5060/W1-5060-FAST-B-20261105-PAIR01/PACKETS_PRIVATE.json",
+      "sha256": "d0f196ab994a94bfd0804c37c08b81d41f582aaf2d74e143c26560ffa7043525",
+      "status": "LOCAL_PRIVATE_EVIDENCE_VERIFIED"
+    },
+    {
+      "path": "experiments/paper1_chinese5060/W1-5060-FAST-B-20261105-PAIR01/B1_RESULTS_PRIVATE.json",
+      "sha256": "5831dcacb3132c4e6a65344f45dc18f1b85e1b9605815f5d9adb87897239fb74",
+      "status": "LOCAL_PRIVATE_EVIDENCE_VERIFIED"
+    },
+    {
+      "path": "experiments/paper1_chinese5060/W1-5060-FAST-B-20261105-PAIR01/B2_RESULTS_PRIVATE.json",
+      "sha256": "9b65b5d7c412aea78a5d66f4d5402743afd029802eb0af981ebdd929376feb4f",
+      "status": "LOCAL_PRIVATE_EVIDENCE_VERIFIED"
+    }
+  ],
+  "new_model_API_tokenizer_guard_retrieval_calls": 0,
+  "new_provider_network_or_asset_downloads": 0,
+  "actual_new_cost_USD": 0,
+  "HumanGold": 0,
+  "targeted_ASR": "NOT_MEASURED",
+  "formal_Answer_Accuracy": "NOT_MEASURED",
+  "command_summary": [
+    {
+      "name": "tests",
+      "started_utc": "2026-11-05T04:43:47.789198+00:00",
+      "ended_utc": "2026-11-05T04:43:55.168327+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "85a484b2d714c5f87aaea940f8760a724ca3458d7e271faa7c485ef12e66b083",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Ruff",
+      "started_utc": "2026-11-05T04:43:55.168826+00:00",
+      "ended_utc": "2026-11-05T04:43:56.288731+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "MyPy",
+      "started_utc": "2026-11-05T04:43:56.289230+00:00",
+      "ended_utc": "2026-11-05T04:43:59.631979+00:00",
+      "exit_code": 1,
+      "stdout_sha256": "d7b32ed1252a37f74f1b16463b0466b1ff14956a8a4e7977e770d43374bf8ed5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "FINAL_Ruff",
+      "started_utc": "2026-11-05T04:44:46.002093+00:00",
+      "ended_utc": "2026-11-05T04:44:46.160859+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "FINAL_MyPy",
+      "started_utc": "2026-11-05T04:44:46.161867+00:00",
+      "ended_utc": "2026-11-05T04:44:46.910864+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "0c37c4158c91ef55c724ba017bf6465f26018199badb08e3ff13f98acdf056c2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "STATIC_GENERATOR_DESIGN",
+      "started_utc": "2026-11-05T04:44:46.911364+00:00",
+      "ended_utc": "2026-11-05T04:44:48.826334+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "73d1172c5e9238030c034544633366e60ac9ccfcc92926554989a03ccb863659",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Ruff_ALL_FINAL",
+      "started_utc": "2026-11-05T04:51:47.777618+00:00",
+      "ended_utc": "2026-11-05T04:51:47.937538+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "MyPy_ALL_FINAL",
+      "started_utc": "2026-11-05T04:51:47.937538+00:00",
+      "ended_utc": "2026-11-05T04:51:48.494267+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "281a094c39385b4d7b53e5db635f52158036861433c2a4975b9039e77a627a24",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "REFERENCE_DESIGN_RECHECK",
+      "started_utc": "2026-11-05T04:51:48.494267+00:00",
+      "ended_utc": "2026-11-05T04:51:50.108318+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "f3945597fc7641cb42d95d0dcb21d01d682648e954080d6850cb4885bc946695",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "pre_design_QA_failure": "One MyPy heterogeneous plan-row inference error fixed by explicit Any row annotations; original logs retained, no model/scientific attempt occurred.",
+  "resource_cap_new_disk_bytes": 33554432,
+  "known_private_run_archive_bytes": 694600,
+  "free_bytes": 357051949056,
+  "all_new_project_content_drive": "D",
+  "source_C_files_read_only_no_agent_C_write": true,
+  "archive": {
+    "filename": "W1-5060-PILOTDESIGN-20261105-01.zip",
+    "bytes": 98134,
+    "sha256": "daa610d717e6675abc4a66bf90e59bfdec89e57191fea92c2107d619e58137fe",
+    "contains_private_reference_and_messages": true,
+    "never_publicly_commit": true,
+    "index": [
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/ADDITIONAL_FINAL_COMMANDS_PRIVATE.json",
+        "bytes": 3065,
+        "sha256": "ad0dd141f27ff4b589bcdb13bad6ddee3fc6c729cec3d353c9aa4e87fc639003"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/COMMANDS_PRIVATE.json",
+        "bytes": 2500,
+        "sha256": "985bd68cc47c36a612038a937efca3c9687d378572e9f5760a2ba40768958241"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/evaluation_design/REFERENCE_SCHEMA_HANDOFF_PUBLIC.json",
+        "bytes": 985,
+        "sha256": "d8cfbd538a8d2109808bc63cdfa50cac9f9abb9fac83dcc5a41ca28fdf0980fb"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/evaluation_design/REFERENCE_TO_REQUEST_BINDING_PRIVATE.json",
+        "bytes": 8955,
+        "sha256": "6f0a7896fed4aa0e66e92e8f9b095f0b59177da8e75cbeefde7639439690be54"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/EVALUATION_DESIGN_FILE_SEAL.json",
+        "bytes": 432,
+        "sha256": "a09dec60eda78f91f1746ee4788c73b75ac07e7d4dede1f6633182e84e881dfe"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/evaluation_design_verified/REFERENCE_SCHEMA_HANDOFF_PUBLIC.json",
+        "bytes": 985,
+        "sha256": "d8cfbd538a8d2109808bc63cdfa50cac9f9abb9fac83dcc5a41ca28fdf0980fb"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/evaluation_design_verified/REFERENCE_TO_REQUEST_BINDING_PRIVATE.json",
+        "bytes": 8955,
+        "sha256": "6f0a7896fed4aa0e66e92e8f9b095f0b59177da8e75cbeefde7639439690be54"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/FINAL_COMMANDS_PRIVATE.json",
+        "bytes": 2715,
+        "sha256": "aa6997091e5116fafa5a4eb731d6826637482d5828caed9ab50ca433ee38ffd1"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/FINAL_MyPy.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/FINAL_MyPy.stdout",
+        "bytes": 44,
+        "sha256": "0c37c4158c91ef55c724ba017bf6465f26018199badb08e3ff13f98acdf056c2"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/FINAL_Ruff.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/FINAL_Ruff.stdout",
+        "bytes": 19,
+        "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/GENERATOR_DESIGN_ALLOWLIST.json",
+        "bytes": 477,
+        "sha256": "f7a01235b99da6ab752a4042b0764f36921ea1f85809ac2297a8b0f78c6cbcaf"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/MyPy.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/MyPy.stdout",
+        "bytes": 162,
+        "sha256": "d7b32ed1252a37f74f1b16463b0466b1ff14956a8a4e7977e770d43374bf8ed5"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/MyPy_ALL_FINAL.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/MyPy_ALL_FINAL.stdout",
+        "bytes": 44,
+        "sha256": "281a094c39385b4d7b53e5db635f52158036861433c2a4975b9039e77a627a24"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/PILOT_DESIGN_CAPTURE.py",
+        "bytes": 3292,
+        "sha256": "9e3238d4f8422e2ba7df3146395fc1cc0b75a66a3f1c4438ea2167c9c9497423"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/PILOT_DESIGN_CLOSEOUT.py",
+        "bytes": 13438,
+        "sha256": "fc60333cbd585a09b44b354b1a45c89205df5b7aeac63264ff9e88f8975b141e"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/PILOT_DESIGN_REPORT.py",
+        "bytes": 26704,
+        "sha256": "6b61679eb77c81dd128c2532ac01ab72bf4a1c17e127896f64c1c6910534bf69"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/private_reference/PAPER1_PILOT12_AI_PROVISIONAL_REFERENCE_V1.json",
+        "bytes": 19434,
+        "sha256": "5c5f212ba16da97b114d897de910ab383a47d96db4cb7cd9b54e638f7f03cf31"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/REFERENCE_DESIGN_RECHECK.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/REFERENCE_DESIGN_RECHECK.stdout",
+        "bytes": 898,
+        "sha256": "f3945597fc7641cb42d95d0dcb21d01d682648e954080d6850cb4885bc946695"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/Ruff.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/Ruff.stdout",
+        "bytes": 19,
+        "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/Ruff_ALL_FINAL.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/Ruff_ALL_FINAL.stdout",
+        "bytes": 19,
+        "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/RUNTIME_DESIGN_FILE_SEAL.json",
+        "bytes": 682,
+        "sha256": "a945123e6a66b340bae48de4411665068c92221ffaa81d515cac1d2c12084c79"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/runtime_plan/GENERATOR_DESIGN_ACCESS_LOG.json",
+        "bytes": 720,
+        "sha256": "9c5efb70206e2882f500a186079bf9827026386f518e3be46f31f54143b65b34"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/runtime_plan/GENERATOR_DESIGN_LOCK.json",
+        "bytes": 281,
+        "sha256": "cc719dbdeb4903a4602a693e95694d3882de8d2fd19de977ebc92a0cc0b158ea"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/runtime_plan/GENERATOR_REQUEST_PLAN_PRIVATE.json",
+        "bytes": 389633,
+        "sha256": "7db82812f893fc0384b2896c98bb5c779504e19a5c45a097945962e840999c96"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/runtime_plan/REQUEST_PLAN_PUBLIC.json",
+        "bytes": 111788,
+        "sha256": "01ea8c5c2a2149f71054c1a7ef37d435076add06fc8d5a51fd6aa357469efd9b"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/STATIC_GENERATOR_DESIGN.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/STATIC_GENERATOR_DESIGN.stdout",
+        "bytes": 120,
+        "sha256": "73d1172c5e9238030c034544633366e60ac9ccfcc92926554989a03ccb863659"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/tests.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-PILOTDESIGN-20261105-01/tests.stdout",
+        "bytes": 100,
+        "sha256": "85a484b2d714c5f87aaea940f8760a724ca3458d7e271faa7c485ef12e66b083"
+      }
+    ]
+  },
+  "design_revision_note": {
+    "previous_unapproved_proposal_sha256": "175f4a09de501c3d4d598afa52cbbb2c72bc1cb0363686edb77b92d964bee1a1",
+    "change": "Add same-input nondeterminism audit after detecting80 unique prompts among108 fixed cells; no message/query/context/cell count/caps changed."
+  }
+}

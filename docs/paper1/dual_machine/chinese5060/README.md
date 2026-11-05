@@ -1,5 +1,8 @@
 # 5060 中文RAG工作线
 
+当前：最小RAG Pilot仅设计/预算完成，108格全部NOT_RUN，参考JSON已核、未进入Generator。[候选方案和下一门](W1_5060_MINIMAL_RAG_PILOT_DESIGN_AND_BUDGET.md)；以下为历史。
+
+
 当前Fast C：只读归因统计/独立盲审交接已完成，根因仍PARTIAL_DIAGNOSTIC_UNRESOLVED。[报告](W1_5060_FAST_C_READONLY_FAILURE_ATTRIBUTION_REPORT.md)，本轮不重跑模型；下方历史。
 
 

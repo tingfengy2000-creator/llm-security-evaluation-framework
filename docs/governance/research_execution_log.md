@@ -3218,3 +3218,17 @@ n_adv变13/36、删除集合变21/36（其中8同count变选择）；候选flip1
 日期2026-11-05 JST。Owner授权`W1-OD-20261105-5060-PROVISIONAL-PILOTDESIGN-08`，将原独立包SHA2e289f68c8adee54187a4520d116182e20171a3dca3cd05daf3312a98a37f8c7上的12题AI辅助参考答案仅作为D1 feasibility provisional reference（参考JSON SHA5c5f212ba16da97b114d897de910ab383a47d96db4cb7cd9b54e638f7f03cf31、MD SHA7b0c8303ccb9976648fbd02efdcf2c4cc2d1d8f470bdc92c7c36097f12107092）。这些参考文件没有提交公开Git；如5060本地缺私有字节只做方案设计并标AWAITING_PRIVATE_ARTIFACT_TRANSFER，严禁暗中重建或将其误认正式HumanGold。
 批准5060只制作固定Pilot12/36个旧封存世界、原B0/B1/B2输出的查询级最小生成对照设计、108次候选请求的Token/费用/停止门审批包。**真实新增模型/API/生成/计费=0且不得启动**。保留P2/PAIR01/FASTC历史、HumanGold0、目标/C3未裁决、targetedASR和正式QA NOT_MEASURED。不得重选样本、读D2/D3、改检索/过滤/模型、开发B5/B6或推进5090 Claims；5090自己的资产许可任务独立不受此决定影响。
 授权源`docs/paper1/dual_machine/owner_approvals/W1_D1_PROVISIONAL_REFERENCE_AND_RAG_PILOT_DESIGN_OWNER_AUTHORIZATION_20261105.md`，可从Git直接读`docs/paper1/dual_machine/chinese5060/W1_5060_PILOT12_MINIMAL_RAG_DESIGN_EXECUTION_PROMPT_V1.md`。本次治理文件不等于执行结果；Owner下批另审真实账号、价格、输入字节、API限额与独立评分规则，按PO-MHEP stop。
+
+
+## REL-W1-5060-PILOTDESIGN-01 — 暂定参考接收与108格零调用设计完成
+
+W1-5060-PILOTDESIGN-20261105-01；DESIGN_ONLY_NOT_RUN；W1-OD-20261105-5060-PROVISIONAL-PILOTDESIGN-08。
+原12事实组/36世界、旧TopK及B0/B1/B2上下文静态编排108格，全部NOT_RUN，不重检索/重跑过滤器；本次模型/API/Tokenizer调用0、费用0。
+暂定参考JSON原SHA5c5f212b…已收到并复制D隔离，12 REVIEW-ID/38原子、12题逐字匹配，每题对应3世界9格；参考不进入Generator白名单。
+HumanGold0、target UNKNOWN、C3未裁决，正式ASR/Accuracy未测；私有参考/映射/消息不进Git。MD未定位不阻断完整JSON设计。
+候选4096输入/256输出、最多108请求：输入442368、输出27648 tokens；静态字节+512代理最大2956/2541/2603，非精确Qwen计数。
+执行仍DESIGN_GATE_BLOCKED：当前provider/型号/账户/价格/余额/FX/累计账单、精确token和wire adapter待核，需新的Owner执行SHA。
+预算仅条件式0.442368*P_in+0.027648*P_out及20%候选预留，不给未核实美元报价；USD30/25/28门及历史费用差额保留。
+旧B2 Clean误删上升、FastC根因未识别和2.5pp安全边界保留；单类12例不能证明保护门满足。暂定评分UNKNOWN/拒答/故障统一，不添加judge API。
+5tests/Ruff/增强MyPy3源码通过；所有新项目内容D，本次无模型/资产下载，用户C附件只读。下一Owner Gate审核本包及补齐预算/计数/adapter证据后另批执行。
+禁止真实/免费API探测、生成、B3-B6/D1-40/D2D3/Reviewer/GT/T1/T2/Claim和跨分支合并；本轮Git交付后STOP。[设计及预算](../paper1/dual_machine/chinese5060/W1_5060_MINIMAL_RAG_PILOT_DESIGN_AND_BUDGET.md)。 下方历史不改。

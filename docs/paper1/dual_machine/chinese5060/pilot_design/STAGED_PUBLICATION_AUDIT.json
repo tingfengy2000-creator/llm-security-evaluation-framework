@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "files_checked": 17,
+  "secret_or_user_absolute_path_findings": [],
+  "broken_new_markdown_links": [],
+  "public_raw_row_keys": 0,
+  "git_blob_and_worktree_bytes_equal": true,
+  "raw_models_inputs_or_predictions_staged": false,
+  "staged_files": [
+    {
+      "path": "PROJECT_MASTER_CONTEXT.md",
+      "sha256": "89981a7221a3e9f48a2cd4694baae2029637e0727b93d7ad00c0f8275b601c4d"
+    },
+    {
+      "path": "docs/governance/current_work_state.md",
+      "sha256": "56924889c79498186f84fb1f11c487a98ce9f9fe89861672a7c7db05beebf01c"
+    },
+    {
+      "path": "docs/governance/experiment_master_record.md",
+      "sha256": "23344fb0547fb4955b63bb350ac157164a7912b0b064451becc5d6b8c8e03735"
+    },
+    {
+      "path": "docs/governance/research_execution_log.md",
+      "sha256": "e3d830aec0da57bdda4fecf9cec3709081ebb2b347d5773ee1edf5a24f27d271"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/README.md",
+      "sha256": "52f32ff9f03922d850e019eab38f09010110996cbde42850a07a51930abb95a0"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/W1_5060_MINIMAL_RAG_PILOT_DESIGN_AND_BUDGET.md",
+      "sha256": "822a716a1195140c8e24740a219f3a9cd0202a213976a95403cf92ca719a7433"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/pilot_design/BUDGET_AND_STOP_GATES.md",
+      "sha256": "4a061ac2a6e1c45b969126d7b0c19a1f87f08b7082741e643375f08d1d42384b"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/pilot_design/DESIGN_EVIDENCE_MANIFEST.json",
+      "sha256": "b6b350e81dd779506270fcf007d57083a6358b6eece13a59a623b428923d1218"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/pilot_design/DESIGN_QA.json",
+      "sha256": "ba6ed7a19ba36005a86b5a1529919ed9c6448cf64ec1dce90f26def26656080d"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/pilot_design/DOCUMENTATION_CLOSEOUT.json",
+      "sha256": "c0b850f41c3a95c4683529297f0446d09f1432c83697e18cc475fadf635192e8"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/pilot_design/OWNER_APPROVAL_PACKAGE.md",
+      "sha256": "eae9fbab0c4b331a554bad8d35de6f9930bd972fe55c361b6387d2ec0c56f453"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/pilot_design/PILOT_EVALUATION_BOUNDARY.md",
+      "sha256": "70725d997e60776b7565646f8791a241a4dc3803378dc665fe99118afe914fe1"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/pilot_design/PILOT_EXECUTION_PROPOSAL.json",
+      "sha256": "0aaf4cfb28dc1e7d9fea8fcdc8f7143afd56857fa300f8b6e3f8f9d0ff081cb6"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/pilot_design/PROVISIONAL_REFERENCE_SHA_HANDOFF.json",
+      "sha256": "3acea914ef63cdccdb72a65c083fe45e257feceb3226011c58034921e64c98cd"
+    },
+    {
+      "path": "docs/research/stage6_1_hidden_knowledge_poisoning/agent/experiment_ledger_agentUse.md",
+      "sha256": "9ee3cd7b8075fedd1a39af10e3303c53d895ca8e77f23a2143144a755f38840e"
+    },
+    {
+      "path": "docs/research/stage6_1_hidden_knowledge_poisoning/human/experiment_ledger_tingfeng.md",
+      "sha256": "c09c85c20e44a4f81cacf927155d24baf5dceee62fcfa9b28d2b8b4e9531bf2e"
+    },
+    {
+      "path": "docs/research/stage6_1_hidden_knowledge_poisoning/stage_process/W1_5060_MINIMAL_RAG_PILOT_DESIGN_work_process.md",
+      "sha256": "204411cee6a8104c5f497b5b91a090fbc0e4b5fefcd2ab41290f3eb1ba87cd85"
+    }
+  ],
+  "schema_exception": "future_candidate_command.text is an exact fixed placeholder command, not source or sample text; all other raw-key checks retained",
+  "prior_strict_scan": "STOPPED_ON_COMMAND_TEXT_KEY_NO_RAW_CONTENT_FOUND"
+}
