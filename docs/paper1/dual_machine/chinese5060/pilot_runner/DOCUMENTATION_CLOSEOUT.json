@@ -35,5 +35,8 @@
   "quality": "29 scoped tests, Ruff and MyPy pass; additional 8 pass and 1 unchanged historical portability failure",
   "formal_experiment": "NOT_STARTED",
   "real_108": "NOT_RUN",
-  "git_delivery": "PENDING_REMOTE_VERIFICATION"
+  "git_delivery": "PASS_VERIFIED_CONTENT_COMMIT",
+  "verified_content_commit": "013d660c6d7378e7d4f5d84bd52161c36b34bd7a",
+  "documentation_closeout": "PASS_OFFLINE_SCOPE",
+  "staged_publication": "PASS_NO_NEW_PRIVATE_CONTENT_OR_PROTECTED_HISTORY_CHANGE"
 }

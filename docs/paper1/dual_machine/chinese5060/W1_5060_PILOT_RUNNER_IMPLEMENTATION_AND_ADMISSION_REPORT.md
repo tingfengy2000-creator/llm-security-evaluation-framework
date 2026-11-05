@@ -35,3 +35,5 @@ Owner 09 的本地工程范围已验收。固定计划的 36 世界 × G0/G1/G2 
 源码提交 `1a11fd2ef4802d5029619acb3e65c5ad09a4a57e`。私有归档 `W1-5060-RUNNER-20261105-01.zip` SHA256 `b63be8be37668f8db63a403c9803732ae10f5b06dfee052ffafc60da4d4face7`，共 160 项，CRC 和成员哈希均通过。审批包汇集剩余硬门，本轮收口后停止。[一次性执行审批包](pilot_runner/OWNER_LIVE_RUN_APPROVAL_PACKET.md) · [安全审计](pilot_runner/SECURITY_PRIVACY_RESOURCE_AUDIT.md)
 
 额外架构与治理检查 8 通过、1 失败。实验总表的历史便携性检查在实施前已匹配同样 5 行 Windows 绝对路径，本轮新匹配 0 行，历史记录字节已保全。失败证据见 [QA](pilot_runner/DRY_RUN_AND_QA.json)。
+
+离线交付内容提交 013d660c6d7378e7d4f5d84bd52161c36b34bd7a 已核验远程一致、工作树干净且 ahead/behind 0/0。最终收据提交的 SHA 在 Owner 回复登记。 [Git 交付收据](pilot_runner/FINAL_GIT_DELIVERY.json)
