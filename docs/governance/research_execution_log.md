@@ -3211,3 +3211,10 @@ n_adv变13/36、删除集合变21/36（其中8同count变选择）；候选flip1
 5tests/Ruff/增强MyPy4源码通过；纯JSON复核8文件字节一致，非新模型试次；ASR/QA未测。
 下一Owner Gate：审阅归因边界及独立人工范围/target/C3，必要旧trace须另指明授权路径；不自动补采或重跑。
 禁止B5/B6、付费/下载、D1-40/D2D3/Reviewer/GT/T1/T2/Claim和跨分支操作；本次Git收口后STOP。[Fast C报告](../paper1/dual_machine/chinese5060/W1_5060_FAST_C_READONLY_FAILURE_ATTRIBUTION_REPORT.md)。 下方均历史。
+
+
+## REL-W1-5060-PROVISIONAL-PILOTDESIGN-20261105 — Owner批准D1暂定答案/最小RAG Pilot方案与预算，不含实验调用
+
+日期2026-11-05 JST。Owner授权`W1-OD-20261105-5060-PROVISIONAL-PILOTDESIGN-08`，将原独立包SHA2e289f68c8adee54187a4520d116182e20171a3dca3cd05daf3312a98a37f8c7上的12题AI辅助参考答案仅作为D1 feasibility provisional reference（参考JSON SHA5c5f212ba16da97b114d897de910ab383a47d96db4cb7cd9b54e638f7f03cf31、MD SHA7b0c8303ccb9976648fbd02efdcf2c4cc2d1d8f470bdc92c7c36097f12107092）。这些参考文件没有提交公开Git；如5060本地缺私有字节只做方案设计并标AWAITING_PRIVATE_ARTIFACT_TRANSFER，严禁暗中重建或将其误认正式HumanGold。
+批准5060只制作固定Pilot12/36个旧封存世界、原B0/B1/B2输出的查询级最小生成对照设计、108次候选请求的Token/费用/停止门审批包。**真实新增模型/API/生成/计费=0且不得启动**。保留P2/PAIR01/FASTC历史、HumanGold0、目标/C3未裁决、targetedASR和正式QA NOT_MEASURED。不得重选样本、读D2/D3、改检索/过滤/模型、开发B5/B6或推进5090 Claims；5090自己的资产许可任务独立不受此决定影响。
+授权源`docs/paper1/dual_machine/owner_approvals/W1_D1_PROVISIONAL_REFERENCE_AND_RAG_PILOT_DESIGN_OWNER_AUTHORIZATION_20261105.md`，可从Git直接读`docs/paper1/dual_machine/chinese5060/W1_5060_PILOT12_MINIMAL_RAG_DESIGN_EXECUTION_PROMPT_V1.md`。本次治理文件不等于执行结果；Owner下批另审真实账号、价格、输入字节、API限额与独立评分规则，按PO-MHEP stop。
