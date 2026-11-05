@@ -1,5 +1,12 @@
 # Current Work State
 
+## 当前工作 — 5060 Owner12直接加速真实Pilot12 V2：风险受限后置usage、首3成功继续105（2026-11-05 JST）
+
+Owner `W1-OD-20261105-5060-RAPID-LIVE-12`批准不再循环证据准备，而是优先真实D1开发生成：唯一5060分支36固定世界×G0/G1/G2、108格、80唯一prompt，V2固定Qwen3.7 Plus快照，首3格工程通过后即继续余105，不另审批。Owner明确接受因当前闭源chat模板不可验证而将项目4096 Token门从事前严格证明改为**逐格回包后真实`usage.prompt_tokens`检查**，最多一个超界请求可能产生外传/费用并立即停发；不能静默放宽数值或重试。预算同时按107正常+单个最大991808超界、高费率、输出266候选/格+>=20% reserve，并持续守USD25警戒/28不新发/30累计硬限。
+准入最小剩余：原D1 46来源已有身份（15法规、2官方网页、29候选），需要一次核实Owner控制及第三方外传有权、无明知禁传/PII；复用已封存北京Workspace region/host+适用现有账户，不猜授权地域；本地实际历史费用/余额/在途和保守资金硬门需可数值计算。Runner旧live编译锚应仅受控改为验证Owner12 Git原件+独立Checker事实证据，允许门全PASS即**一次**实际运行；门未过则首格前STOP且最多报告一个精准缺项，不再建新Fast-Unblock。用户本次许可**不代替**无法归Owner控制的第三方材料权利。
+当前仅授权刚写入Git：**不能声称已开始真实API**，此前实跑仍0/108、费用USD0、HumanGold0、正式ASR/QA NOT_MEASURED。旧V1/新V2/source/filter SHA不可改、不做D2D3或5090、B5/B6。执行结果应报告真实108格及开发暂定一致性，不能把暂定参考当正式GT或ASR。
+[Owner12授权](../paper1/dual_machine/owner_approvals/W1_5060_PILOT12_RAPID_LIVE_OWNER_AUTHORIZATION_20261105.md)；[直接执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_PILOT12_RAPID_V2_LIVE_EXECUTION_PROMPT_V1.md)。以前快照不覆盖。
+
 ## 当前工作 — 5060 Pilot12 来源与历史账本已恢复，真实准入仍阻断（2026-11-05 JST）
 
 W1-5060-EVIDENCE-RECOVERY-20261105-01，EVIDENCE_RECOVERY_PARTIAL_BLOCKED。沿用Owner W1-OD-20261105-5060-FAST-UNBLOCK-11，控制合同 f0036bdb6877aca9946e9d048e9d7aa285ef515b。
