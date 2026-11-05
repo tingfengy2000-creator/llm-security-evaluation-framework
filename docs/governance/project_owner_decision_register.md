@@ -1,5 +1,11 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261105-5060-RUNNER-PREFLIGHT-09 — Owner批准5060最小RAG Pilot Runner实现及离线准入测试（2026-11-05 JST）
+
+Owner已明确“百炼账户的模型、地域、实际费率与剩余额度我已经核实过了，不用太担心费用问题，你的方案我批准”。该确认被记录为`OWNER_ATTESTED`（Owner自己核实），不杜撰具体费率、余额或自动视为整批预算数字通过。按此前“两次审批门”要求，本轮**允许**5060在独立分支实现`API Runner`、固定12事实组/36世界/108格（G0/G1/G2）的Role-Free输入编排、独立Transport、strict dry-run FakeTransport模拟、离线Token计算入口、统一账本/成本/超限熔断、失败封存/原108格留分母、静态QA及未来真实执行Owner申请包；不得借机改任何原P2/PAIR01/FastC/答案/样本/过滤/embedding。
+**仍不允许**任何真实百炼/其他生成API调用，包括免费/连接/Token/余额探测、单格smoke及全部108次；不下载安装依赖/模型或改环境、不访问D2/D3/Reviewer/GT Vault、不把参考送入Generator、不增加Judge、重试、B5/B6和5090Claim。现有USD30总限/25预警/28不开新批、2.5pp安全约束、D/E写入+C盘禁新项目可控内容均保留；真实预算证据/Provider wire/准确Token若未闭合，不妨碍合格离线Runner交付，但真实执行必须BLOCKED。
+新PO-MHEP十二字段授权：[Runner实施Owner授权](../paper1/dual_machine/owner_approvals/W1_5060_RAG_PILOT_RUNNER_IMPLEMENTATION_AUTHORIZATION_20261105.md)；[5060本分支完整实施Prompt](../paper1/dual_machine/chinese5060/W1_5060_PILOT12_RUNNER_AND_ADMISSION_IMPLEMENTATION_PROMPT_V1.md)。仅本5060分支合法提交推送且closeout后STOP，真实执行须后续独立明确批准并绑定输入/代码/预算 SHA。此任务非新实验Run，所有ASR/QA仍NOT_MEASURED。
+
 ## W1-OD-20261105-5060-PROVISIONAL-PILOTDESIGN-08 — D1暂定参考答案获批，仅准最小RAG Pilot设计与预算（2026-11-05 JST）
 
 Owner在监督会话明确接受Pilot12的AI辅助暂定参考答案，仅用于D1可行性，不是正式HumanGold。参考文件 `PAPER1_PILOT12_AI_PROVISIONAL_REFERENCE_V1.json` SHA256 `5c5f212ba16da97b114d897de910ab383a47d96db4cb7cd9b54e638f7f03cf31`，同名MD SHA256 `7b0c8303ccb9976648fbd02efdcf2c4cc2d1d8f470bdc92c7c36097f12107092`，原12题独立包SHA256 `2e289f68c8adee54187a4520d116182e20171a3dca3cd05daf3312a98a37f8c7`。私有原文不提交Git；Owner需在将来正式评估前安全转交D/E，若缺文件仍可完成方案设计。
