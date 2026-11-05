@@ -1,5 +1,14 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — non-Llama paper assets downloaded, claims not run, 2026-11-05 UTC+8
+
+No new PODR integer. Parent HEAD eef08cdf08fee67169149b71d25fa9c4a14d9043.
+Vicuna 236eeeab96f0dc2e463f2bebb7bb49809279c6d6 bytes 13477478468. Contriever 2bd46a25019aeea091fd42d1f0fd4801675cf699 bytes 438706178. paraphrase-MiniLM-L6-v2 c9a2bfebc254878aee8c3aca9e6844d5bbb102d1 bytes 91567611. safetensors only; onnx, openvino and tf not downloaded. trust_remote_code not used. Model not loaded.
+BEIR extracted bytes nq 1504181461, hotpotqa 2183814339, msmarco 3618904334. Each under 8x Content-Length. Llama 2 NOT_DOWNLOADED.
+Claim1/2/3 NOT_RUN. ASR and accuracy NOT_MEASURED. D free after 769336549376 bytes.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master evaluated and not updated; owner_decision true; stage_process evaluated and not updated; lessons evaluated and not updated; research_authority evaluated and not updated; README evaluated and not updated.
+[Download](../../../paper1/dual_machine/repro5090/official_asset_gate/W1_5090_NON_LLAMA_ASSET_DOWNLOAD.md).
+
 ## Current — Owner license return recorded, download still not approved, 2026-11-05 UTC+8
 
 No new PODR integer. Return id W1-OD-20261105-5090-ASSET-GATE-07-RETURN. Parent HEAD ae6c5e583ec5769e0e7f3ba7763ae93690dd0318.

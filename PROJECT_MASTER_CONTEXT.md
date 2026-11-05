@@ -1,5 +1,11 @@
 # LLMGuard 项目总控文档
 
+## 当前：除 Llama 2 外的论文版本资产已在 D 盘，Claim 仍未跑（2026-11-05）
+
+Vicuna、Contriever、paraphrase-MiniLM、NQ、HotpotQA 和 MS MARCO 已按冻结修订下载。Llama 2 7B chat 没有下载。三条 Claim 仍是 `NOT_RUN`，攻击成功率和准确率仍是 `NOT_MEASURED`。
+[下载记录](docs/paper1/dual_machine/repro5090/official_asset_gate/W1_5090_NON_LLAMA_ASSET_DOWNLOAD.md)。
+下面的 L0 Oracle 结论不替换。
+
 ## 当前：Owner 已回传许可，下载和 Claim 仍未批准（2026-11-05）
 
 Llama 2 申请已提交，尚未获批。Vicuna、Contriever、paraphrase-MiniLM 和三个 BEIR 子集的研究使用已接受。解压硬停未冻结，因此不能下载。三条 Claim 仍是 `NOT_RUN`，攻击成功率和准确率仍是 `NOT_MEASURED`。

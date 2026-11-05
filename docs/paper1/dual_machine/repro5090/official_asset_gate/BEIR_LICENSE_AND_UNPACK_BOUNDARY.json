@@ -9,6 +9,11 @@
     "readme_statement": "BEIR says it distributes prepared public datasets in a format and does not claim that the user has a license to use the dataset."
   },
   "unpack_bytes": "UNKNOWN",
+  "download_20261105": {
+    "extracted_bytes": {"nq": 1504181461, "hotpotqa": 2183814339, "msmarco": 3618904334},
+    "rule": "8x Content-Length, path-escape abort, 20 GiB free floor",
+    "all_under_cap": true
+  },
   "proposed_hard_stop_not_a_measurement": "Abort a future unpack if extracted bytes exceed 8 times Content-Length, if a path escapes the destination, or if free space on the target drive would fall below 20 GiB.",
   "datasets": [
     {

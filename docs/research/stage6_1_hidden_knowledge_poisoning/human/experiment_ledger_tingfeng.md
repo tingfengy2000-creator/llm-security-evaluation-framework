@@ -1,5 +1,10 @@
 # Paper 1 人类可读实验总规划与实验总账
 
+## 2026-11-05：除 Llama 2 以外的论文版本模型和语料已经放在 D 盘，实验还没跑
+
+Vicuna 7B、Contriever 和 paraphrase-MiniLM 已按冻结版本下载。NQ、HotpotQA 和 MS MARCO 已解压，并且都没有超过事先设定的解压上限。Llama 2 没有下载。三个攻击实验仍未运行，没有攻击成功率和准确率。模型也没有加载。
+[下载记录](../../../paper1/dual_machine/repro5090/official_asset_gate/W1_5090_NON_LLAMA_ASSET_DOWNLOAD.md)。
+
 ## 2026-11-05：Owner 回传了许可，下载和实验仍未批准
 
 Llama 2 的访问申请已经由负责人本人提交，Meta 还没在这条记录里标成获批；以后即使获批，也只是待审批，不会自动下载。Vicuna、Contriever 和 paraphrase-MiniLM 的研究使用已经接受。三个语料的研究使用也已接受，但解压上限还没冻结，所以不能下载。MiniLM 不允许执行仓库自带代码。

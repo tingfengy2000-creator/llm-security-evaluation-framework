@@ -1,0 +1,44 @@
+{
+  "schema": "non_llama_download_manifest_v1",
+  "status": "ASSETS_ON_D_CLAIMS_NOT_RUN",
+  "llama2": "NOT_DOWNLOADED",
+  "claim1": "NOT_RUN",
+  "claim2": "NOT_RUN",
+  "claim3": "NOT_RUN",
+  "undefended_targeted_asr": "NOT_MEASURED",
+  "ragdefender_targeted_asr": "NOT_MEASURED",
+  "qa_accuracy": "NOT_MEASURED",
+  "trust_remote_code_used": false,
+  "model_loaded": false,
+  "paid_api_calls": 0,
+  "unpack_rule": "8x official Content-Length, path-escape abort, 20 GiB free floor",
+  "d_free_bytes_after": 769336549376,
+  "models": [
+    {
+      "repo": "lmsys/vicuna-7b-v1.3",
+      "revision": "236eeeab96f0dc2e463f2bebb7bb49809279c6d6",
+      "bytes": 13477478468,
+      "file_count": 8
+    },
+    {
+      "repo": "facebook/contriever",
+      "revision": "2bd46a25019aeea091fd42d1f0fd4801675cf699",
+      "bytes": 438706178,
+      "file_count": 6
+    },
+    {
+      "repo": "sentence-transformers/paraphrase-MiniLM-L6-v2",
+      "revision": "c9a2bfebc254878aee8c3aca9e6844d5bbb102d1",
+      "bytes": 91567611,
+      "file_count": 10,
+      "excluded": ["onnx", "openvino", "tf_model.h5", "pytorch_model.bin"]
+    }
+  ],
+  "beir": [
+    {"name": "nq", "zip_bytes": 498307926, "extracted_bytes": 1504181461, "etag": "6075b282-1db39356"},
+    {"name": "hotpotqa", "zip_bytes": 654025350, "extracted_bytes": 2183814339, "etag": "60019b87-26fba286"},
+    {"name": "msmarco", "zip_bytes": 1082258632, "extracted_bytes": 3618904334, "etag": "6074501d-4081f4c8"}
+  ],
+  "status_sha256": "274142eed7e3819b40a26dc8a5ad167ccecd49e7d5d7852f525c97143785c829",
+  "log_sha256": "4833e2b7204434c4fbc20131b2b0b49f0c9c0d76a446f6577076435bb3b4f051"
+}

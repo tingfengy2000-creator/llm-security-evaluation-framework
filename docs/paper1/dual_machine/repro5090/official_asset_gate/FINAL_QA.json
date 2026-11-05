@@ -23,6 +23,14 @@
   },
   "batches_approved_for_execution": [],
   "worker_login_or_accept_click": 0,
+  "non_llama_download_20261105": {
+    "status": "ASSETS_ON_D_CLAIMS_NOT_RUN",
+    "llama2": "NOT_DOWNLOADED",
+    "models_downloaded": ["vicuna-7b-v1.3", "contriever", "paraphrase-MiniLM-L6-v2"],
+    "beir_extracted": ["nq", "hotpotqa", "msmarco"],
+    "claims_run": false,
+    "model_loaded": false
+  },
   "license_return_20261105": {
     "llama2": "APPLICATION_SUBMITTED",
     "vicuna": "OWNER_ACCEPTED",

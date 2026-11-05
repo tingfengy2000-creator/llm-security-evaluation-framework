@@ -1,5 +1,7 @@
 # 分批复现审批包
 
+2026-11-05 下载执行：除 Llama 2 7B chat 外，批次 B 的 Vicuna、Contriever、paraphrase-MiniLM 和批次 C 的三个 BEIR zip 已按冻结修订落到 D 盘。解压使用 8 倍 Content-Length 硬停，三份都低于上限。批次 D、E、F 和 Llama 仍然不是 Claim 许可。
+
 2026-11-05 许可回传之后：Vicuna、Contriever、MiniLM 和三个 BEIR 子集的研究使用已被 Owner 接受。Llama 2 只是申请已提交。每一批的执行状态仍然不是下载或 Claim 许可。BEIR 在解压硬停冻结前不能下载。
 
 每一批的执行状态都是 `NOT_APPROVED`。本文件不启动下载、解压或 Claim。结果层级保持分开：论文发表数字 `NOT_MEASURED`，作者 `expected/result.txt` 是 `AUTHOR_EXPECTED`，未来兼容环境复现是 `NOT_RUN`，中文迁移是 `OUT_OF_SCOPE`。

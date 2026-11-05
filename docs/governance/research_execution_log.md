@@ -1,5 +1,11 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-05 — non-Llama paper assets downloaded, claims not run
+
+No new PODR integer. Branch `research/paper1-ragdefender-repro-5090` at parent `eef08cdf08fee67169149b71d25fa9c4a14d9043`.
+Downloaded `lmsys/vicuna-7b-v1.3` `236eeeab96f0dc2e463f2bebb7bb49809279c6d6` (13477478468 bytes), `facebook/contriever` `2bd46a25019aeea091fd42d1f0fd4801675cf699` (438706178), and `sentence-transformers/paraphrase-MiniLM-L6-v2` `c9a2bfebc254878aee8c3aca9e6844d5bbb102d1` (91567611). Llama 2 was not downloaded. BEIR extracted bytes: nq 1504181461, hotpotqa 2183814339, msmarco 3618904334, each under 8x Content-Length. D free after 769336549376 bytes. Claim 1, 2 and 3 remain NOT_RUN. ASR and accuracy remain NOT_MEASURED. No paid API. Raw log sha256 `4833e2b7204434c4fbc20131b2b0b49f0c9c0d76a446f6577076435bb3b4f051`.
+[Download](../paper1/dual_machine/repro5090/official_asset_gate/W1_5090_NON_LLAMA_ASSET_DOWNLOAD.md).
+
 ## 2026-11-05 — Owner license return recorded and download stays closed
 
 No new PODR integer. Return `W1-OD-20261105-5090-ASSET-GATE-07-RETURN` on `research/paper1-ragdefender-repro-5090` at parent `ae6c5e583ec5769e0e7f3ba7763ae93690dd0318`.

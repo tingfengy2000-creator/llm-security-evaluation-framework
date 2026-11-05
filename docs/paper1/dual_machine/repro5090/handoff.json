@@ -4,7 +4,7 @@
   "head_sha": null,
   "research_baseline_sha": "4dc9161e79b79ece70a7c17144175a19b985770d",
   "upstream_sha": "ba2a17efba165d45409114df2d70b030ade1e1b8",
-  "reproduction_level": "LICENSE_RETURN_RECORDED_DOWNLOAD_NOT_APPROVED",
+  "reproduction_level": "NON_LLAMA_ASSETS_ON_D_CLAIMS_NOT_RUN",
   "claim_id": ["claim1_poisonedrag", "claim2_tan", "claim3_garag"],
   "dataset": ["NQ", "HotpotQA", "MS MARCO"],
   "model": ["Contriever", "meta-llama/Llama-2-7b-chat-hf", "lmsys/vicuna-7b-v1.3"],
@@ -34,12 +34,12 @@
     "W1-OD-20261105-RESOURCE-REPRO-05 requests a main-result plan only; claims remain unapproved"
   ],
   "next_steps": [
-    "Llama 2 access is submitted, not granted; other listed research licenses are Owner-accepted; unpack cap is not frozen",
-    "do not download or run claims until a later Owner batch approval",
+    "Llama 2 remains not downloaded; set HF_HOME to the D cache before any later approved run",
+    "do not run claims until a later approval; claim2 log directory is still unpatched",
     "5060 reads this branch with git fetch and git show only",
     "do not merge",
     "do not treat NOT_MEASURED as zero or as the author expected table"
   ],
   "owner_approval_needed": true,
-  "read_only_entry": "docs/paper1/dual_machine/repro5090/W1_5090_OFFICIAL_ASSET_LICENSE_METADATA_GATE_REPORT.md"
+  "read_only_entry": "docs/paper1/dual_machine/repro5090/official_asset_gate/W1_5090_NON_LLAMA_ASSET_DOWNLOAD.md"
 }
