@@ -1,5 +1,11 @@
 # Current Work State
 
+## 当前工作 — 外部评审驱动的VESA方法重构：P0/M1–M3、S0–S4零API验证设计（2026-11-05 JST）
+
+Owner已上传并要求按外部评审修订方法（附件SHA256`a54e39cddc96ff922b537e91fa8c287ad175f6761feb65f98a5586d599db0885`），登记`REVIEWER-REPLAN-REQUEST-20261105`。方案由v0.2“风险受限恢复”**转为严格P0可信性单调下的M1一致性风险门、M2按事实答案聚组、M3作用域/版本核验**；v0.2恢复仅供S2离线安全消融。明确纠正评审字面M1的多数/同值投毒漏洞：来源无独立可信锚时不能因内容一致就放行，否则P0自相矛盾。主方法生产数据没有可信锚时可能退化RD，须如实报告，不能制造D1 source证明。
+**顺序**：S0只读查原RD/B2“必删1条”和中文迁移/上游可信锚；S1独立60+中文解析样例；S2独立开发A–H含H全毒场景/五消融臂；S2后冻结；S3独立事实测试仅一次；S4原36D1离线仅一次（Poison保留≤8/10、Clean误删<4/10为评审默认门）；S5真实Qwen是**未来独立Owner新授权**，旧Owner14已执行完且本次不允许0门硬跑。0新API、0模型Judge、0重跑旧108、保留D2D3/5090/金标准隔离。S0–S4各步`DEV_EXPLORATORY`，不把研发摘要写成实验结果。缺可信锚而无法改善D1应STOP说明结构限制。
+[修订后方法完整规范](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/VESA_REVIEW_RESPONSE_P0_M1M2M3_S0S5_DESIGN_V1.md)；[5060离线执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_VESA_REVIEWER_REPLAN_S0_S4_OFFLINE_EXECUTION_PROMPT_V1.md)。**当前仅交付新方案与执行指令，未实施新算法或新小规模验证；下方v0.2原始状态保留为历史。**
+
 ## 当前工作 — Owner14 VESA v0.2 无实质 G3 差异（2026-11-05 JST）
 
 `W1-5060-VESA-V02-OWNER14-G3-01` 完成 Owner14 唯一离线运行。24/36 查询、102/180 片段有解析，49/180 有具体值；81 个 B2 隔离片段均无范围合格的具体值，36 个 G3 请求体与 G2 一致。终态 `VESA_V02_NO_MEANINGFUL_DIFF`，0 变化、0 API、费用 0。真实资金和外传门未进入，未测 G3 生成效果。12 题独立包已核，未分发，Human Gold 0。正式 ASR/QA/C3 未测。本轮停止。
