@@ -1,0 +1,131 @@
+{
+  "task_id": "W1-5060-RAPID-LIVE-20261105-01",
+  "status": "RAPID_LIVE_BLOCKED_MINIMAL_ACTION_REQUIRED",
+  "scope": "OWNER12_PREFLIGHT_ONLY",
+  "python_version": "3.13.9",
+  "control_commit": "223ea98c1f72cd24c0a4ded35e7b9af42816ad9f",
+  "authority_commit": "d0737d3e6f43b322586df9ead88f9e8faecd5969",
+  "authority_sha256": "dcdd24fc93229c3f6f2d3f6eb46f45345222251ea918da2dc34fe4ee43b96602",
+  "contract_sha256": "a1481f57c64427a02cd53113437266ed29847dad81b7725cdfea2223fbbe7d01",
+  "source_commit_unchanged": "43be925d57ef6fbe9cbb27d22c7f1495373c6204",
+  "grid_sha256_reference": "78708759e0965e816d9d5b7aaa0bca92d2a6b92562930cd028dc87875d09468c",
+  "hashes": {
+    "v1_proposal": "0aaf4cfb28dc1e7d9fea8fcdc8f7143afd56857fa300f8b6e3f8f9d0ff081cb6",
+    "v2_proposal": "e5bd219b7812b8ef97ef916226ac221e177f227808cd0dbc0bbe280920d1b70e",
+    "v2_wire_plan": "0920add3e5b5383a9b685207cabeb539bb3d414ee1db30c6f7a313d37469bbcc",
+    "p2_seal": "4e11d89cb6f03291c124aab28f7181622b6766cc63d55be45126023147988c52",
+    "pair01_seal": "bb775ead3d330f5e83516f8dfa871a3e2581c305e5ae7baf104500f781ac79fb",
+    "source_reconciliation": "21db4e4feebf39df6410ae4b2954542b5c2e30d3bf176f9b8c8e105122e05a26",
+    "endpoint_recovery": "3e84064dbfdcbb13e4d3d5213c3d85158898073bc01e8b41b8067370ddb31882",
+    "ledger_recovery": "63511193ce83635db8a53fb3b5d98361db793969de4aed29a8217a206f57c9b1",
+    "budget_template": "60387094de0cb45d61640493d9001f129b04eab72f767630fd9eee2e0fed272b",
+    "fast_unblock_admission.py": "1cc14042bbdca5f012010a56f94af9e48e2af767c08e8fff0eaf474db28a3d4b",
+    "fast_unblock_runner.py": "31af9561a619f55e82000a6e65518cb2ff861a5ffaa5fe89d30d8ce4ca0610c8",
+    "pilot_live_transport.py": "0488f6b5971b176d2414d3788c6c8c74e6fe43f45bb36d8d6378721c937e8d33"
+  },
+  "gates": {
+    "A": "46_IDENTITIES_REVERIFIED_OUTBOUND_AUDIT_NOT_COMPLETED",
+    "B": "SEALED_BEIJING_HOST_FORMAT_VERIFIED_CREDENTIAL_NOT_USED",
+    "C": "C_RISK_ACCEPTED_OWNER12_NO_RUNTIME_CHECK",
+    "D": "BLOCKED_CURRENT_NUMERIC_LEDGER",
+    "E": "STOPPED_AT_HARD_GATE_EXISTING_LIVE_LOCK_RETAINED"
+  },
+  "missing_ledger_fields": [
+    "current_all_streams",
+    "current_balance_or_funded_ceiling",
+    "current_fx",
+    "current_pending_including_failed",
+    "current_reservation",
+    "current_settled"
+  ],
+  "actual": {
+    "post": 0,
+    "success": 0,
+    "fail": 0,
+    "not_run": 108,
+    "initial_three_not_run": 3,
+    "cost_usd": "0",
+    "cost_cny": "0",
+    "response_usage_and_latency": null
+  },
+  "formal_experiment": "NOT_STARTED",
+  "owner_decision": "W1-OD-20261105-5060-RAPID-LIVE-12",
+  "human_decision_required": true,
+  "auto_continue": false,
+  "next_owner_evidence": "Dated USD snapshot with all-stream settled and pending upper bounds (failed and in-flight included) and available funds lower bound for the Beijing account",
+  "price_scenario_only": {
+    "cny": "8.4737664",
+    "normal_requests_max": 107,
+    "oversize_requests_max": 1,
+    "normal_input_token_limit": 4096,
+    "oversize_input_model_max": 991808,
+    "candidate_output_limit": 266,
+    "reserve_factor": "1.2",
+    "current_account_charge_verified": false
+  },
+  "run_admission_manifest": null,
+  "run_output_seal": null,
+  "formal_scores": {
+    "HumanGold": 0,
+    "target": "UNKNOWN",
+    "ASR": "NOT_MEASURED",
+    "AnswerAccuracy": "NOT_MEASURED",
+    "C3": "NOT_MEASURED",
+    "provisional": "NOT_RUN"
+  },
+  "private_preflight_archive": {
+    "name": "OWNER12_PREFLIGHT_EVIDENCE.zip",
+    "sha256": "621390eb7230068a54bdad8ae72134470c5195aeb996bde977f4550f74035aab",
+    "members_sha256": {
+      "PREFLIGHT.json": "3dc24d82cbdf6463ecad4cc79244cc753a29cb0ec3c4f99f61765f6c2891c143",
+      "preflight.py": "411434aa801a502fc198fafc82b17eb08159b00954be5720c01fe1f03ed70022",
+      "pytest.log": "0b9ab7db45ebe4c66efc8b5fa68a5b2932372d637e1c6adab821c55026bb9728",
+      "ruff.log": "a4443afdcfb6d7363adb285762515ccf7cf50473b1a05c20c1a50f6bed4d26b0",
+      "mypy.log": "281a094c39385b4d7b53e5db635f52158036861433c2a4975b9039e77a627a24",
+      "governance.log": "8ee4024cd017d7fc0476fd91bbc9dab3fd5035b30016d23bb2c576f2bb5a3352",
+      "TEST_EXIT.json": "7a5701cd162cfdb2dc498c398aa2d48e8f944b46ee6a8f7595d29061afe5cb0e",
+      "GOVERNANCE_EXIT.txt": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    }
+  },
+  "validation": {
+    "commands": [
+      {
+        "command": "git fetch --prune --tags origin",
+        "exit_code": 0
+      },
+      {
+        "command": "git pull --ff-only",
+        "exit_code": 0
+      },
+      {
+        "command": "python -I -S -B $EVIDENCE/preflight.py $EVIDENCE/PREFLIGHT.json",
+        "exit_code": 0
+      },
+      {
+        "command": "python -B -m pytest -q -p no:cacheprovider --basetemp $EVIDENCE/pytest tests/research/test_chinese5060_{fast_unblock,pilot_live,pilot_runner,pilot_design,readonly_analysis}.py",
+        "exit_code": 0,
+        "passed": 64
+      },
+      {
+        "command": "ruff check --no-cache $SOURCE/{fast_unblock_admission,fast_unblock_runner,pilot_live_transport}.py and the 5 test files above",
+        "exit_code": 0
+      },
+      {
+        "command": "python -B -m mypy --cache-dir $EVIDENCE/mypy --check-untyped-defs --follow-imports=skip --ignore-missing-imports $SOURCE/{fast_unblock_admission,fast_unblock_runner,pilot_live_transport}.py",
+        "exit_code": 0
+      },
+      {
+        "command": "python -B -m pytest -q -p no:cacheprovider --basetemp $EVIDENCE/governance_pytest tests/architecture/test_experiment_master_record.py tests/architecture/test_dependency_direction.py",
+        "exit_code": 1,
+        "passed": 8,
+        "failed": 1,
+        "preexisting_matching_lines_unchanged": 5
+      }
+    ],
+    "relative_links_added_valid": true,
+    "added_lines_secrets_and_private_paths_scan": "PASS",
+    "historical_content_preserved": true,
+    "private_runtime_ignored": true,
+    "protected_files_changed": false
+  }
+}

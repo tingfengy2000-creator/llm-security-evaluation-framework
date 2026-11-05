@@ -1,5 +1,11 @@
 # Current Work State
 
+## 当前工作 — 5060 Owner12 V2 首发前资金核验阻断（2026-11-05 JST）
+
+W1-5060-RAPID-LIVE-20261105-01，`RAPID_LIVE_BLOCKED_MINIMAL_ACTION_REQUIRED`。按 Owner12 固定合同 `223ea98c1f72cd24c0a4ded35e7b9af42816ad9f` 完成首发前只读核验。缺当前全线资金数值快照，`HUMAN_DECISION_REQUIRED / Auto Continue = NO`。真实 POST 0，108 格未运行，新增费用 USD 0，Human Gold 0，正式 ASR/QA 未测。4096 后置 usage 已授权。实发文本权利裁决和运行放行改动在硬门后停止。下一项仅需带时间的 USD 全线结算/在途上界及北京账户可用资金下界。
+
+[准入证据与下一项](../paper1/dual_machine/chinese5060/pilot_rapid_live/RAPID_LIVE_OWNER12_RESULT.md)。以下为历史快照。
+
 ## 当前工作 — 5060 Owner12直接加速真实Pilot12 V2：风险受限后置usage、首3成功继续105（2026-11-05 JST）
 
 Owner `W1-OD-20261105-5060-RAPID-LIVE-12`批准不再循环证据准备，而是优先真实D1开发生成：唯一5060分支36固定世界×G0/G1/G2、108格、80唯一prompt，V2固定Qwen3.7 Plus快照，首3格工程通过后即继续余105，不另审批。Owner明确接受因当前闭源chat模板不可验证而将项目4096 Token门从事前严格证明改为**逐格回包后真实`usage.prompt_tokens`检查**，最多一个超界请求可能产生外传/费用并立即停发；不能静默放宽数值或重试。预算同时按107正常+单个最大991808超界、高费率、输出266候选/格+>=20% reserve，并持续守USD25警戒/28不新发/30累计硬限。

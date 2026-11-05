@@ -3301,3 +3301,10 @@ W1-5060-EVIDENCE-RECOVERY-20261105-01，EVIDENCE_RECOVERY_PARTIAL_BLOCKED。沿�
 
 Owner明确要求不要继续自造准备障碍，优先取得G0/G1/G2真实生成以判断防御方法可行性。2026-11-05 JST通过`W1-OD-20261105-5060-RAPID-LIVE-12`（PO-MHEP十二字段原件`docs/paper1/dual_machine/owner_approvals/W1_5060_PILOT12_RAPID_LIVE_OWNER_AUTHORIZATION_20261105.md`）直接许可：5060在原分支完成一次D1 V2冻结108格真实生成，首3工程通过后无须再签余105；只允许北京已复原Workspace、已核研究处理权的system/query/retainedTopK、项目Owner控制的数据和无明示禁止第三方外传的合规文本。仍须在发前独立核数据敏感/外传范围、Workspace账号与数值USD预算；缺法律权利/资金不得发。Owner已明确接受项目自设4096阈值的后置真实usage检查及最多1个首次越界请求不可逆外传/计费的受限风险，不再等待108个逐格闭源Token严格证明；并发1、零探测/重试，超限/缺usage/模型计费异常立刻停发、全108状态留证。账本按107正常+最多一格991808最大输入、高档计费、输出266候选和至少20% buffer，继续原USD25/28/30硬门；源码需以Owner12既有Git文档hash和独立最小Checker合规启用真实传输，保持V2 SHA/内容/模型/参数和评价隔离。
 原`EVIDENCE_RECOVERY_PARTIAL_BLOCKED` HEAD`c03dd74507ad1a09fd5118933732562fa244cac2`、V2 SHA和旧评价独立限制均历史保留。**此记载只说明授权，真实模型调用、费用及生成结果仍应以5060本机后续RunManifest为准，不得预填成功。** 当前HumanGold0、target未知、正式ASR/Accuracy NOT_MEASURED，D2/D3/5090不触碰。完整即时执行Prompt `docs/paper1/dual_machine/chinese5060/W1_5060_PILOT12_RAPID_V2_LIVE_EXECUTION_PROMPT_V1.md`。5060完成受控执行/脱敏Git证据提交后STOP。
+
+
+## REL-W1-5060-OWNER12-RAPID-LIVE-20261105 — 首发前费用硬门停止
+
+W1-5060-RAPID-LIVE-20261105-01，`RAPID_LIVE_BLOCKED_MINIMAL_ACTION_REQUIRED`。按 Owner12 固定合同 `223ea98c1f72cd24c0a4ded35e7b9af42816ad9f` 完成首发前只读核验。缺当前全线资金数值快照，`HUMAN_DECISION_REQUIRED / Auto Continue = NO`。真实 POST 0，108 格未运行，新增费用 USD 0，Human Gold 0，正式 ASR/QA 未测。4096 后置 usage 已授权。实发文本权利裁决和运行放行改动在硬门后停止。下一项仅需带时间的 USD 全线结算/在途上界及北京账户可用资金下界。
+
+[准入封存](../paper1/dual_machine/chinese5060/pilot_rapid_live/RAPID_LIVE_OWNER12_RESULT.md)。

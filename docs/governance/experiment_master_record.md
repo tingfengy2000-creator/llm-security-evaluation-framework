@@ -1,5 +1,11 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## 当前工作 — 5060 Owner12 V2 首发前资金核验阻断（2026-11-05 JST）
+
+W1-5060-RAPID-LIVE-20261105-01，`RAPID_LIVE_BLOCKED_MINIMAL_ACTION_REQUIRED`。按 Owner12 固定合同 `223ea98c1f72cd24c0a4ded35e7b9af42816ad9f` 完成首发前只读核验。缺当前全线资金数值快照，`HUMAN_DECISION_REQUIRED / Auto Continue = NO`。真实 POST 0，108 格未运行，新增费用 USD 0，Human Gold 0，正式 ASR/QA 未测。4096 后置 usage 已授权。实发文本权利裁决和运行放行改动在硬门后停止。下一项仅需带时间的 USD 全线结算/在途上界及北京账户可用资金下界。
+
+[准入证据与下一项](../paper1/dual_machine/chinese5060/pilot_rapid_live/RAPID_LIVE_OWNER12_RESULT.md)。以下为历史快照。
+
 ## 当前工作 — 5060 Pilot12 来源与历史账本已恢复，真实准入仍阻断（2026-11-05 JST）
 
 W1-5060-EVIDENCE-RECOVERY-20261105-01，EVIDENCE_RECOVERY_PARTIAL_BLOCKED。沿用Owner W1-OD-20261105-5060-FAST-UNBLOCK-11，控制合同 f0036bdb6877aca9946e9d048e9d7aa285ef515b。
