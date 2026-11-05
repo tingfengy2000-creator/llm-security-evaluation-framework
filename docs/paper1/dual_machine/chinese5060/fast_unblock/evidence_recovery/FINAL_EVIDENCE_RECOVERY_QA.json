@@ -198,5 +198,19 @@
   },
   "context_persistence": "PASS_BLOCKED_SCOPE",
   "paper1_document_staleness": "PASS_HISTORICAL_SNAPSHOTS_RETAINED",
-  "git_delivery": "PENDING_REMOTE_VERIFICATION"
+  "git_delivery": {
+    "status": "PASS_VERIFIED_CONTENT_COMMIT",
+    "branch": "research/paper1-chinese-defense-5060",
+    "verified_content_commit": "aa1824e82884d7666e7303e5eb67c92a084a77a0",
+    "ahead_behind": [
+      0,
+      0
+    ],
+    "worktree_clean": true,
+    "observed_remote_sha": "aa1824e82884d7666e7303e5eb67c92a084a77a0",
+    "observed_git_ls_remote_tool_result": "7e5beb",
+    "publication_audit_sha256": "709314412c76ad83d9d41c5140f5270c0f794629b76386c056cf05e0211c1bd6",
+    "checked_utc": "2026-11-05T09:38:21.846512+00:00",
+    "receipt_descendant_sha": "Verified after push and returned to Owner"
+  }
 }
