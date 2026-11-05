@@ -3232,3 +3232,10 @@ HumanGold0、target UNKNOWN、C3未裁决，正式ASR/Accuracy未测；私有参
 旧B2 Clean误删上升、FastC根因未识别和2.5pp安全边界保留；单类12例不能证明保护门满足。暂定评分UNKNOWN/拒答/故障统一，不添加judge API。
 5tests/Ruff/增强MyPy3源码通过；所有新项目内容D，本次无模型/资产下载，用户C附件只读。下一Owner Gate审核本包及补齐预算/计数/adapter证据后另批执行。
 禁止真实/免费API探测、生成、B3-B6/D1-40/D2D3/Reviewer/GT/T1/T2/Claim和跨分支合并；本轮Git交付后STOP。[设计及预算](../paper1/dual_machine/chinese5060/W1_5060_MINIMAL_RAG_PILOT_DESIGN_AND_BUDGET.md)。 下方历史不改。
+
+
+## REL-W1-5060-RUNNER-PREFLIGHT-OWNER-20261105 — Owner授权Runner实现和离线Mock，不是科学试次
+
+2026-11-05 JST，唯一Owner决定`W1-OD-20261105-5060-RUNNER-PREFLIGHT-09`，原设计交付`bbfda7ddd9fe820b908639c7943daef6c87cec6d`。Owner声明已亲自核实百炼账户、地域、当前费率和余额；按`OWNER_ATTESTED`保留，不虚构具体数值或免除USD预算。
+目前只放行5060实现查询级生成Runner、离线FakeTransport/本地已安装Tokenizer条件检查、108格固化、全账本成本门、严格无重试、序列化/异常/封存、测试与下一步真实执行审批包；不允许任何百炼网络请求、一次性免费smoke、任何真实生成API、下载/安装、目标/参考泄漏、G0/G1/G2改动及D2/D3访问。正式ASR/QA未测，HumanGold0。Owner执行授权尚未给予，不将本治理记录当作Runner已完成。
+[十二字段授权](../paper1/dual_machine/owner_approvals/W1_5060_RAG_PILOT_RUNNER_IMPLEMENTATION_AUTHORIZATION_20261105.md)；[完整实施Prompt](../paper1/dual_machine/chinese5060/W1_5060_PILOT12_RUNNER_AND_ADMISSION_IMPLEMENTATION_PROMPT_V1.md)；本任务完成后按AGENTS/PO-MHEP维护治理并仅本5060分支commit/push，随后STOP，真实108格需新Owner显式执行许可。
