@@ -24,3 +24,10 @@ W1-5060-PILOTLIVE-20261105-01，LIVE_GATE_BLOCKED_NO_REQUESTS。Owner W1-OD-2026
 `OWNER12_LIVE_108 / D1_AI_PROVISIONAL_EVALUATION_01` 已完成零 API 后封存确定性评价。108 格原始响应及 36 世界、12 题映射通过核验，18 格暂定合理拒答，51 格拒答和 39 格回答整体未决。两过滤配置降低 Token，G2 较 G0 净少 4 格回答，其中 Clean 净少 2 格。当前基线效果证据不足，Human Gold 0、target 未知、正式 ASR/QA/C3 未测。待独立人工裁决语义及证据充分性，本轮停止。
 
 [暂定评价和逐格归档索引](../../../paper1/dual_machine/chinese5060/pilot_rapid_live/PILOT12_D1_AI_PROVISIONAL_EFFECT_REPORT.md)。
+
+
+## Owner13 VESA v0.1 离线分支收口
+
+`W1-5060-VESA-V01-OWNER13-G3-01` 已在 Owner13 范围内完成 VESA v0.1 与唯一离线 G3。36/36 请求体与 G2 相同，0 变化、0 恢复、0 真实请求。原包无可核生产来源，81 个原隔离片段保留隔离。终态 `VESA_V01_OFFLINE_NO_SAFE_G3_DIFF`。G3 答案、正式 ASR/QA/C3 未测，Human Gold 0。下一步方法若继续，需可靠的来源沿革与版本元数据及独立语法覆盖验证。本轮停止。
+
+[方法结果与复核](../../../paper1/dual_machine/chinese5060/vesa_guard_v01/VESA_V01_OWNER13_RESULT.md)。

@@ -1,5 +1,11 @@
 # Current Work State
 
+## 当前工作 — Owner13 VESA v0.1 离线无安全差异（2026-11-05 JST）
+
+`W1-5060-VESA-V01-OWNER13-G3-01` 已在 Owner13 范围内完成 VESA v0.1 与唯一离线 G3。36/36 请求体与 G2 相同，0 变化、0 恢复、0 真实请求。原包无可核生产来源，81 个原隔离片段保留隔离。终态 `VESA_V01_OFFLINE_NO_SAFE_G3_DIFF`。G3 答案、正式 ASR/QA/C3 未测，Human Gold 0。下一步方法若继续，需可靠的来源沿革与版本元数据及独立语法覆盖验证。本轮停止。
+
+[离线结果与证据](../paper1/dual_machine/chinese5060/vesa_guard_v01/VESA_V01_OWNER13_RESULT.md)。以下为历史快照。
+
 ## 当前工作 — Owner13批准5060 VESA-Guard v0.1首版方法实现与单次G3受限配对Pilot（2026-11-05 JST）
 
 **Owner13新授权`W1-OD-20261105-5060-VESA-GUARD-V01-FAST-13`**。收到`OWNER12_LIVE_108` 108/108真实结果与`D1_AI_PROVISIONAL_EVALUATION_01`（G0/G1/G2回答15/13/11、拒答21/23/25，G2较G0净少4个回答、Clean删除4/10已召回候选、5格回答转拒答均少参考片段）后，Owner明确“好的开始，越快越好”，允许5060原研究分支立刻开发`VESA-Guard v0.1`和离线36个角色盲G3上下文。方法为保守版本适用性/独立事实支持/证据充分性保护的检索后证据选择，不能读逐格参考、Poison/Clean/HN或生成结论调规则。原封存世界/TopK/原3臂108响应/Qwen模型/系统提示/输出参数均不变。

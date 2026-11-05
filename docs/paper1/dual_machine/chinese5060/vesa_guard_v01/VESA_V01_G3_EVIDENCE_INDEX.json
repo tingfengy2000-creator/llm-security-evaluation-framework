@@ -1,0 +1,160 @@
+{
+  "output_seal_sha256": "089b0c3fc13e9f84693452371d5b5c8a31f65c1dcb59e7cfcf7de69a15cb3df1",
+  "status": "VESA_V01_OFFLINE_NO_SAFE_G3_DIFF",
+  "source_commit": "394a9c1d75b6d90d8903d798ce18c029c5f3c5e6",
+  "worlds": 36,
+  "changed_worlds": 0,
+  "restored_chunks": 0,
+  "newly_removed_chunks": 0,
+  "role_blind_packets": 36,
+  "topk_chunks": 180,
+  "production_source_attestations": 0,
+  "reasons_for_b2_removed_chunks": {
+    "NO_VERIFIED_SOURCE_ATTESTATION": 81
+  },
+  "real_api_requests": 0,
+  "python": "3.13.9",
+  "third_party_algorithm_dependencies": [],
+  "algorithm_version_sha256": "ff34130b3c26a288dc4ad26420c1188e9f9f17940108475a003e260748f72ab1",
+  "source_sha256": {
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/vesa_guard_v01.py": "72ac366c447b58c513591ff4f4e9e236e1ac44f8f642b5effebaabf80c310a38",
+    "scripts/research/freeze_chinese5060_vesa_g3.py": "31c61207d122cef60fee02e11c9144a78eb64e39b399d2c41a245caa1176b467"
+  },
+  "files_sha256": {
+    "G3_OFFLINE_GRID_PRIVATE.json": "95e37ca826ea84af365edb6f255e50ff35cd215f58d47d76ab7bf3cedba2eff0",
+    "G3_DECISION_TRACE_PRIVATE.json": "f1e8402fd9d91ba1b6c8b01b503e355b547bd255366ef2d16be1f52287f7596e"
+  },
+  "role_blind_input_sha256": {
+    "PAIR_OUTPUT_SEAL.json": "bb775ead3d330f5e83516f8dfa871a3e2581c305e5ae7baf104500f781ac79fb",
+    "PACKETS_PRIVATE.json": "d0f196ab994a94bfd0804c37c08b81d41f582aaf2d74e143c26560ffa7043525",
+    "B2_RESULTS_PRIVATE.json": "9b65b5d7c412aea78a5d66f4d5402743afd029802eb0af981ebdd929376feb4f",
+    "OUTPUT_SEAL.json": "4e11d89cb6f03291c124aab28f7181622b6766cc63d55be45126023147988c52"
+  },
+  "authority_sha256": "59854a2a04e5799f79128e62206bad4daee1eb982c10aac877f74595ee325ee5",
+  "contract_sha256": "b3b23da428f0fb574510c5fb84ca8b97d53bb58d43e6a63168cdb4e2c448033f",
+  "next_gate": "NO_SAFE_CONTEXT_CHANGE_PAID_BRANCH_NOT_ENTERED",
+  "run_id": "W1-5060-VESA-V01-OWNER13-G3-01",
+  "owner_decision": "W1-OD-20261105-5060-VESA-GUARD-V01-FAST-13",
+  "authority_commit": "1b2bdec85805ab691e7c7670a43ead0069ed56a3",
+  "control_commit": "768c5f2742fd9161592fb66d70b62e0a578d2433",
+  "guard_latency": {
+    "n": 36,
+    "median_ms": 0.1175,
+    "p95_nearest_rank_ms": 0.1786
+  },
+  "independent_audit": {
+    "audit": "PASS",
+    "worlds": 36,
+    "g2_wire_identical": 36,
+    "original_query_and_system": 36,
+    "identical_subset_order_rank": 36,
+    "unique_request_ids": 36,
+    "metadata_coverage": 0,
+    "counters": {
+      "parsed_query_scopes": 0,
+      "parsed_chunk_claims": 0,
+      "unresolved_chunk_scopes": 180,
+      "visible_query_scope_spans": 84,
+      "removal_preserved_for_missing_provenance": 81
+    },
+    "offline_seal_sha256": "089b0c3fc13e9f84693452371d5b5c8a31f65c1dcb59e7cfcf7de69a15cb3df1",
+    "label_reads": 0,
+    "old_response_reads": 0,
+    "new_api_requests": 0
+  },
+  "post_lock": {
+    "offline_seal_sha256": "089b0c3fc13e9f84693452371d5b5c8a31f65c1dcb59e7cfcf7de69a15cb3df1",
+    "independent_audit_sha256": "9a6f456462cdebe7babc8cc21eda9f006e02feac81edf8e379ce290f758e1a98",
+    "role_label_sha256": "0b75212782f4495037e27d56a2e480b01839e44b2143a8fe5845a1688c8a8ca3",
+    "roles": {
+      "POISON": {
+        "worlds": 12,
+        "retrieval_hit": 10,
+        "g3_candidate_retained": 8,
+        "g3_candidate_removed": 2,
+        "g3_candidate_restored": 0
+      },
+      "HARD_NEGATIVE": {
+        "worlds": 12,
+        "retrieval_hit": 9,
+        "g3_candidate_retained": 7,
+        "g3_candidate_removed": 2,
+        "g3_candidate_restored": 0
+      },
+      "CLEAN_CURRENT": {
+        "worlds": 12,
+        "retrieval_hit": 10,
+        "g3_candidate_retained": 6,
+        "g3_candidate_removed": 4,
+        "g3_candidate_restored": 0
+      }
+    },
+    "g3_changes_against_g2": 0,
+    "old_raw_generation_reads": 0,
+    "g3_generation_status": "NOT_RUN"
+  },
+  "archive": {
+    "name": "VESA_V01_OWNER13_OFFLINE_EVIDENCE.zip",
+    "sha256": "466a1580e45eb1808a59d2a8b93118ae536fee6ed14dcf934d3c2eff42906da3",
+    "members_sha256": {
+      "frozen/G3_OFFLINE_GRID_PRIVATE.json": "95e37ca826ea84af365edb6f255e50ff35cd215f58d47d76ab7bf3cedba2eff0",
+      "frozen/G3_DECISION_TRACE_PRIVATE.json": "f1e8402fd9d91ba1b6c8b01b503e355b547bd255366ef2d16be1f52287f7596e",
+      "frozen/G3_OFFLINE_SEAL.json": "089b0c3fc13e9f84693452371d5b5c8a31f65c1dcb59e7cfcf7de69a15cb3df1",
+      "audit/INDEPENDENT_G3_AUDIT.py": "8274bd3041c7362426aaf76e572cf912b1a62195bb63333badf8696eb70d8d0b",
+      "audit/INDEPENDENT_G3_QA.json": "9a6f456462cdebe7babc8cc21eda9f006e02feac81edf8e379ce290f758e1a98",
+      "audit/POST_LOCK_FILTER_COUNTS.json": "4f13763703586712ab33dfbc8b2605990a58b7ea883f198cb67999757dc475a7",
+      "audit/G3_FILTER_STAGE_REPORT.md": "7f16e3c7369f7aad742b7d4e13ed33ce58f609aea47bba8ef071c15a01b7524a",
+      "audit/RUFF_LOCK.log": "a4443afdcfb6d7363adb285762515ccf7cf50473b1a05c20c1a50f6bed4d26b0",
+      "audit/MYPY_LOCK.log": "0c37c4158c91ef55c724ba017bf6465f26018199badb08e3ff13f98acdf056c2",
+      "audit/PYTEST_LOCK.log": "ebfd5b674d71b41957fdf6a36671e99a18e9a6ba69e44c491a997bdb9f644527",
+      "audit/LOCK_TEST_EXIT.json": "e1b8438791e856326e21705075697b500cc1e093c9468655e3e458ed6fab4fe6",
+      "audit/OFFLINE.stdout": "bc3b418d0099828dae9b37b368e415a6deca71073b7ddf27154ccc444cf015da",
+      "audit/OFFLINE.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit/AUDIT.stdout": "a0b10ad822a589528484f0421b1e86faec06e4a371c2d25170c6deacbb8cac46",
+      "audit/AUDIT.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit/EVALUATION.stdout": "8347dc95388f841a54f86f9f89b7d82a9d8a09ec41be1efdffbdc5fa5ab50cfe",
+      "audit/EVALUATION.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit/OFFLINE_EXIT.txt": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "audit/AUDIT_EXIT.txt": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "audit/EVALUATION_EXIT.txt": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    }
+  },
+  "generation": {
+    "planned": 36,
+    "posts": 0,
+    "not_run": 36,
+    "new_cost_cny": "0",
+    "model_tokens_and_latency": null,
+    "live_admission": "NOT_ENTERED_NO_CONTEXT_DIFF",
+    "four_arm_answer_comparison": "NOT_RUN",
+    "historical_generation": "READ_PUBLIC_AGGREGATE_ONLY"
+  },
+  "qa": {
+    "pytest_passed": 40,
+    "ruff_exit": 0,
+    "mypy_exit": 0,
+    "known_governance_portability_failure": 1,
+    "commands": [
+      {
+        "command": "python -I -S -B scripts/research/freeze_chinese5060_vesa_g3.py",
+        "exit_code": 0
+      },
+      {
+        "command": "python -I -S -B $PRIVATE_QA/INDEPENDENT_G3_AUDIT.py --audit",
+        "exit_code": 0
+      },
+      {
+        "command": "python -I -S -B $PRIVATE_QA/INDEPENDENT_G3_AUDIT.py --evaluate",
+        "exit_code": 0
+      }
+    ]
+  },
+  "claims": {
+    "human_gold": 0,
+    "attack_target": "UNKNOWN",
+    "ASR": "NOT_MEASURED",
+    "accuracy": "NOT_MEASURED",
+    "C3": "NOT_MEASURED",
+    "formal_experiment": "NOT_STARTED"
+  }
+}
