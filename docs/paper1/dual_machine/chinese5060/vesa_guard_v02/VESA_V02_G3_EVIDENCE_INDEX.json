@@ -1,0 +1,204 @@
+{
+  "offline_seal_sha256": "e056eeb6b3a9787cac81894a17d166c24c1ff3a297254c60148455a2c3976173",
+  "status": "VESA_V02_NO_MEANINGFUL_DIFF",
+  "source_commit": "a13200a675dc391bba12646a2d81a37bf2facc3f",
+  "rule_sha256": "3bac86e08182541c061d88f62b97dd53d8b22babedd1920c1471cf5130d9d9cf",
+  "source_sha256": {
+    "scripts/research/freeze_chinese5060_vesa_v02_g3.py": "5b8c4a5a372a48c8648ff817831ad4d90b51c86d94ca47a2b6c1ba33a71f9551",
+    "scripts/research/freeze_chinese5060_vesa_g3.py": "31c61207d122cef60fee02e11c9144a78eb64e39b399d2c41a245caa1176b467",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/vesa_guard_v02.py": "84e61dc1615ea003cd02956760e7c02f3fd20671579c73319f9241801da8de09",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/vesa_guard_v01.py": "72ac366c447b58c513591ff4f4e9e236e1ac44f8f642b5effebaabf80c310a38",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_admission.py": "5034289b383898c9934f426a3e885809adb73bc4284bb20cce9f23b38f1753d7",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_design.py": "bba3e7e26d38f90a0b91d7147134b282aa02b56f42a1fddb37eb5795b3e26195",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_transport.py": "d2787b2e630802e64431600dae492b8ded4c848be79a05b82bb752445102e0c5"
+  },
+  "worlds": 36,
+  "topk_fragments": 180,
+  "counts": {
+    "parsed_query_worlds": 24,
+    "parsed_chunk_count": 102,
+    "concrete_value_chunk_count": 49,
+    "changed_worlds": 0,
+    "restored_count": 0,
+    "newly_isolated_count": 0,
+    "empty_contexts": 0,
+    "covered_slots_before": 1,
+    "covered_slots_after": 1
+  },
+  "fragment_risk_counts": {
+    "INSUFFICIENT_OR_AMBIGUOUS": 179,
+    "CAUTIOUS_RESCUE_CANDIDATE": 1
+  },
+  "b2_removed_reasons": {
+    "NO_SCOPED_CONCRETE_QUERY_VALUE": 81
+  },
+  "files_sha256": {
+    "G3_V02_OFFLINE_GRID_PRIVATE.json": "18f72e3793978358830fb4063016bdc47822f6cc050d8774be02c7985e6261c4",
+    "G3_V02_DECISIONS_PRIVATE.json": "c8dd1deee3b59e63094d15ba57c39100fc3ffac8f3def534eca411a11101ad03"
+  },
+  "role_blind_inputs": {
+    "PAIR_OUTPUT_SEAL.json": "bb775ead3d330f5e83516f8dfa871a3e2581c305e5ae7baf104500f781ac79fb",
+    "PACKETS_PRIVATE.json": "d0f196ab994a94bfd0804c37c08b81d41f582aaf2d74e143c26560ffa7043525",
+    "B2_RESULTS_PRIVATE.json": "9b65b5d7c412aea78a5d66f4d5402743afd029802eb0af981ebdd929376feb4f",
+    "OUTPUT_SEAL.json": "4e11d89cb6f03291c124aab28f7181622b6766cc63d55be45126023147988c52"
+  },
+  "owner_sha256": "64a0255c8d2cc5c94e25590f2cc0c8560f981c6de5abb38bc905f136ed318dc4",
+  "contract_sha256": "74c05e3206f2d1d7fe7d446d8a1d61829208f7d77312b159bc24a697312b6bb8",
+  "python": "3.13.9",
+  "third_party_algorithm_dependencies": [],
+  "new_api_calls": 0,
+  "run_id": "W1-5060-VESA-V02-OWNER14-G3-01",
+  "owner_decision": "W1-OD-20261105-5060-VESA-V02-FAST-14",
+  "authority_commit": "4fa4662caa108ef028cf9f1b7a092df9d3a85819",
+  "control_commit": "f634bc369c862cf070ddefe81f3b184d1c79ac13",
+  "qa": {
+    "pytest_passed": 50,
+    "ruff_exit": 0,
+    "mypy_exit": 0,
+    "governance_preexisting_portability_failure": 1,
+    "commands": [
+      {
+        "command": "python -I -S -B scripts/research/freeze_chinese5060_vesa_v02_g3.py",
+        "exit_code": 0
+      },
+      {
+        "command": "python -I -S -B $PRIVATE_QA/INDEPENDENT_V02_QA.py --audit",
+        "exit_code": 0
+      },
+      {
+        "command": "python -I -S -B $PRIVATE_QA/INDEPENDENT_V02_QA.py --roles",
+        "exit_code": 0
+      },
+      {
+        "command": "python -I -S -B $PRIVATE_QA/INDEPENDENT_V02_QA.py --human",
+        "exit_code": 0
+      }
+    ]
+  },
+  "independent_audit": {
+    "status": "PASS",
+    "seal_sha256": "e056eeb6b3a9787cac81894a17d166c24c1ff3a297254c60148455a2c3976173",
+    "worlds": 36,
+    "unchanged_wires": 36,
+    "changed_context_certificates_verified": 0,
+    "fixed_system_query_and_rank": 36,
+    "counts": {
+      "changed_worlds": 0,
+      "restored_count": 0,
+      "newly_isolated_count": 0,
+      "parsed_query_worlds": 24,
+      "parsed_chunk_count": 102,
+      "concrete_value_chunk_count": 49,
+      "empty_contexts": 0,
+      "covered_slots_before": 1,
+      "covered_slots_after": 1
+    },
+    "label_reads": 0,
+    "reference_reads": 0,
+    "old_response_reads": 0,
+    "api_requests": 0
+  },
+  "post_lock_d1": {
+    "roles": {
+      "POISON": {
+        "worlds": 12,
+        "topk_hit": 10,
+        "g2_retained": 8,
+        "g3_retained": 8,
+        "candidate_restored": 0,
+        "candidate_newly_isolated": 0,
+        "changed_worlds": 0
+      },
+      "HARD_NEGATIVE": {
+        "worlds": 12,
+        "topk_hit": 9,
+        "g2_retained": 7,
+        "g3_retained": 7,
+        "candidate_restored": 0,
+        "candidate_newly_isolated": 0,
+        "changed_worlds": 0
+      },
+      "CLEAN_CURRENT": {
+        "worlds": 12,
+        "topk_hit": 10,
+        "g2_retained": 6,
+        "g3_retained": 6,
+        "candidate_restored": 0,
+        "candidate_newly_isolated": 0,
+        "changed_worlds": 0
+      }
+    },
+    "seal_sha256": "e056eeb6b3a9787cac81894a17d166c24c1ff3a297254c60148455a2c3976173",
+    "old_raw_response_reads": 0,
+    "four_arm_generation_comparison": "NOT_RUN"
+  },
+  "human_review": {
+    "status": "HUMAN_REVIEW_NOT_DISTRIBUTED",
+    "authorized_reviewer_channel_verified": false,
+    "cards": 12,
+    "declared_atoms": 38,
+    "declared_sources": 16,
+    "pinned_package_sha256": "2e289f68c8adee54187a4520d116182e20171a3dca3cd05daf3312a98a37f8c7",
+    "real_review_returns": 0,
+    "human_gold": 0
+  },
+  "removed_fragment_diagnostic": {
+    "query_slot_or_title_unparsed": 23,
+    "no_concrete_value_parsed": 38,
+    "other_scope_requirements_not_satisfied": 2,
+    "no_requested_value_attribute": 12,
+    "no_bound_query_subject": 6
+  },
+  "selection_latency": {
+    "n": 36,
+    "median_ms": 0.4033,
+    "p95_nearest_rank_ms": 0.6591
+  },
+  "archive": {
+    "name": "VESA_V02_OWNER14_OFFLINE_EVIDENCE.zip",
+    "sha256": "ed75d09f4340ba3e7adac2bd786fd43856feb960ca02a75db0fea7eaa71c4385",
+    "members_sha256": {
+      "frozen/G3_V02_OFFLINE_GRID_PRIVATE.json": "18f72e3793978358830fb4063016bdc47822f6cc050d8774be02c7985e6261c4",
+      "frozen/G3_V02_DECISIONS_PRIVATE.json": "c8dd1deee3b59e63094d15ba57c39100fc3ffac8f3def534eca411a11101ad03",
+      "frozen/G3_V02_OFFLINE_SEAL.json": "e056eeb6b3a9787cac81894a17d166c24c1ff3a297254c60148455a2c3976173",
+      "audit/INDEPENDENT_V02_QA.py": "27c12af880f43f12584e64d731a8dc8c3344b12beea97c3d321982d1c2fc5a2a",
+      "audit/G3_V02_ROLE_BLIND_AUDIT.json": "4b484d113e83263245ce0aa2499a2a65390441094dcb44bb3ff5711ae82587e4",
+      "audit/POST_LOCK_D1_FILTER_COUNTS.json": "07dab0942743a9488d4e976071024ea40a316d0a8509f5e5138d1646cb914df3",
+      "audit/REMOVED_FRAGMENT_DIAGNOSTIC.json": "6046748c3b7cf49416b072ccf22b9014cd9be7064c7ebd49f5d6cb72df9c694c",
+      "audit/HUMAN_REVIEW_HANDOFF_STATUS.json": "43e0642cb8c312f0d041130cc9d752db69d08e71d656a32ad9dd3e6454f7d435",
+      "audit/RUFF_LOCK.log": "a4443afdcfb6d7363adb285762515ccf7cf50473b1a05c20c1a50f6bed4d26b0",
+      "audit/MYPY_LOCK.log": "0c37c4158c91ef55c724ba017bf6465f26018199badb08e3ff13f98acdf056c2",
+      "audit/PYTEST_LOCK.log": "4d2750de6ef904332858a8dcc62efa34d90b0b1fa89487b22d852c95fb30b5ff",
+      "audit/TEST_LOCK_EXIT.json": "e1b8438791e856326e21705075697b500cc1e093c9468655e3e458ed6fab4fe6",
+      "audit/OFFLINE.stdout": "1c7d98fe258bdee12dbb1ccb9b677e3b929d2df5df88025ca7fcfd31aa0d0a85",
+      "audit/OFFLINE.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit/AUDIT.stdout": "9356f4b7c28dfd6924d431aca7c27096d3af69345e05627c7d844e29609982f7",
+      "audit/AUDIT.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit/ROLES.stdout": "dc11c0a3ae8fa18574d484c4f383615971c5bc03656ee608676b7f1db3a31a03",
+      "audit/ROLES.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit/OFFLINE_EXIT.txt": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "audit/AUDIT_EXIT.txt": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "audit/ROLES_EXIT.txt": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    }
+  },
+  "generation": {
+    "planned": 36,
+    "success": 0,
+    "fail": 0,
+    "not_run": 36,
+    "posts": 0,
+    "new_cost_cny": "0",
+    "new_usage_and_latency": null,
+    "egress_gate": "NOT_ENTERED_NO_CONTEXT_DIFF",
+    "funding_gate": "NOT_ENTERED_NO_CONTEXT_DIFF",
+    "owner12_waiver_reused": false
+  },
+  "claims": {
+    "human_gold": 0,
+    "attack_target": "UNKNOWN",
+    "targeted_asr": "NOT_MEASURED",
+    "formal_accuracy": "NOT_MEASURED",
+    "C3": "NOT_MEASURED",
+    "formal_experiment": "NOT_STARTED"
+  }
+}

@@ -31,3 +31,10 @@ W1-5060-PILOTLIVE-20261105-01，LIVE_GATE_BLOCKED_NO_REQUESTS。Owner W1-OD-2026
 `W1-5060-VESA-V01-OWNER13-G3-01` 已在 Owner13 范围内完成 VESA v0.1 与唯一离线 G3。36/36 请求体与 G2 相同，0 变化、0 恢复、0 真实请求。原包无可核生产来源，81 个原隔离片段保留隔离。终态 `VESA_V01_OFFLINE_NO_SAFE_G3_DIFF`。G3 答案、正式 ASR/QA/C3 未测，Human Gold 0。下一步方法若继续，需可靠的来源沿革与版本元数据及独立语法覆盖验证。本轮停止。
 
 [方法结果与复核](../../../paper1/dual_machine/chinese5060/vesa_guard_v01/VESA_V01_OWNER13_RESULT.md)。
+
+
+## Owner14 VESA v0.2 离线收口
+
+`W1-5060-VESA-V02-OWNER14-G3-01` 完成 Owner14 唯一离线运行。24/36 查询、102/180 片段有解析，49/180 有具体值；81 个 B2 隔离片段均无范围合格的具体值，36 个 G3 请求体与 G2 一致。终态 `VESA_V02_NO_MEANINGFUL_DIFF`，0 变化、0 API、费用 0。真实资金和外传门未进入，未测 G3 生成效果。12 题独立包已核，未分发，Human Gold 0。正式 ASR/QA/C3 未测。本轮停止。
+
+[方法结果与复核](../../../paper1/dual_machine/chinese5060/vesa_guard_v02/VESA_V02_OWNER14_RESULT.md)。
