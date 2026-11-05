@@ -3264,3 +3264,10 @@ W1-5060-PILOTLIVE-20261105-01，LIVE_GATE_BLOCKED_NO_REQUESTS。Owner W1-OD-2026
 46项离线测试、Ruff/MyPy通过。Human Gold 0，target未知，独立暂定评价NOT_RUN，C3/ASR/正式QA NOT_MEASURED。下一步仅在证据闭合且经授权恢复时复核，首3与余105的条件权限仍为同一合同。
 
 私有预检归档 SHA256 f0be558ace3258cc14ef017e57fc8102cc03b946854fd02cd18b6c3b97fba831。[脱敏验收及证据索引](../paper1/dual_machine/chinese5060/W1_5060_PILOT12_CONDITIONAL_LIVE_RUN_REPORT.md)。收口后STOP。
+
+
+## REL-W1-5060-FAST-UNBLOCK-OWNER-20261105 — Owner批准5060一次性Fast-Unblock零API解阻，非新实验
+
+2026-11-05 JST，Owner `W1-OD-20261105-5060-FAST-UNBLOCK-11`：仅在`research/paper1-chinese-defense-5060`、上次已核真实0请求/108未运行HEAD`731b48419aba2dab3b8ded310d349fcf441c3f1b`基础上，允许一次性审查D1冻结来源第三方外传、百炼唯一地域host/真实Transport正向代码、严格108输入Token界、全工作线真实USD预算和独立本地Gate checker。允许在必要且官方支持时只将`max_tokens=256`字段名改成`max_completion_tokens=256`且删除旧字段，其余模型/参数/system/query/TopK/各臂不变；原V1只读保留、V2新proposal/108请求SHA/预算重新冻结与离线QA、证明每条仅这一字段有差异。若条件不足，如实PARTIAL_BLOCKED而不虚构PASS。
+**本轮真实API/付费/外传请求0，禁止线上Token/免费探测、下载或安装新模型依赖**；Owner10旧V1条件执行许可不能自动放行本次V1或V2，最终即使静态全PASS也只出单一Fast-Unblock Evidence Packet请求下一次明确真实执行审批。HumanGold0、target未知、正式ASR/QA NOT_MEASURED，D2/D3/5090均隔离；原 USD30 cap/25warn/28not_new、C禁新增受控数据/D/E≥20GiB维持。
+正式授权 `docs/paper1/dual_machine/owner_approvals/W1_5060_PILOT12_FAST_UNBLOCK_OWNER_AUTHORIZATION_20261105.md`；完整Git执行Prompt `docs/paper1/dual_machine/chinese5060/W1_5060_PILOT12_FAST_UNBLOCK_EXECUTION_PROMPT_V1.md`。本条只记录授权发生，不冒称5060任务已执行/已修复；完成自身分支合法push与证据归档后STOP。
