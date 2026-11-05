@@ -14,7 +14,7 @@
 2. 使用 `git show` / 只读方式核对两份 Owner 授权原件，绝不根据本消息扩大其内容：
    - `docs/paper1/dual_machine/owner_approvals/W1_FAST_TRACK_B_OWNER_AUTHORIZATION_20261105.md`
    - `docs/paper1/dual_machine/owner_approvals/W1_STORAGE_AND_REPRO_RESEARCH_DIRECTION_20261105.md`
-3. 必须复核原 P2 执行源码 `9aa21be13ae206dbbadb03b99528e362eba29378`、原最终报告 `3ca27c9416ea630e7f82c5b98ceed93099bd57ac`、输出 seal SHA256 `4e11d89cb6f03291c124aab28f7181622b6766cc63d55be45126023147988c52`、Pilot12选择hash `2c16fd6915c2dee377631d311ff33fe0ad36fdc8928a86e8fcabdcbca01ae4402bc46de0dc95586de0101e71e0e562dad4bab3ee` **注意此处为防止人工抄录错误须以P2原manifest中的选择hash为准，绝不可用本行不匹配文本代替原值**。已封存36份TopK原始字节与完整成员逐项校验；原P2 TOPK seal和历史结果保持不可变。
+3. 必须复核原 P2 执行源码 `9aa21be13ae206dbbadb03b99528e362eba29378`、原最终报告 `3ca27c9416ea630e7f82c5b98ceed93099bd57ac`、输出 seal SHA256 `4e11d89cb6f03291c124aab28f7181622b6766cc63d55be45126023147988c52`、Pilot12选择hash `2c16fd6915c2dee377631d311ff33fe0ad36fdc8928a86e8fcabdcbca01cf689`；选择hash必须与 P2 Run Manifest 逐字节核对。已封存36份TopK原始字节与完整成员逐项校验；原P2 TOPK seal和历史结果保持不可变。
 4. 修订前记录新的 run_id、输入源hash、模型/源码身份、运行计划与失败保留机制；即使此轮受阻也必须保留原有 checkpoint 不覆盖。
 
 ## 1. 模型资产获取、空间与网络硬门
