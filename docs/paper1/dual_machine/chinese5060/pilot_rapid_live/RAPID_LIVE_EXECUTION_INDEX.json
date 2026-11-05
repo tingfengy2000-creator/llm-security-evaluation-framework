@@ -1,0 +1,162 @@
+{
+  "status": "RAPID_LIVE108_COMPLETED",
+  "task": "W1-5060-RAPID-LIVE-20261105-01",
+  "run_id": "OWNER12_LIVE_108",
+  "owner_decision": "W1-OD-20261105-5060-RAPID-LIVE-12",
+  "owner_waiver": "W1-OD-20261105-5060-RAPID-LIVE-12-WAIVER",
+  "source_commit": "8b0af037a15b7a718d968879e848c0cd3c5eab77",
+  "authority_sha256": "dcdd24fc93229c3f6f2d3f6eb46f45345222251ea918da2dc34fe4ee43b96602",
+  "waiver_sha256": "f85070e6b71c4a82f2e5af215e160a743a9a888685806f949ca0981cde9f8525",
+  "admission_sha256": "908d38a26d7589c1964ced1feada4e70b3884103d191ee17bda107159b01e60f",
+  "run_manifest_sha256": "5b8dc3b58d4c374565c3ccec1baadd470ccb20d55b1ebaf22be5ec35d24b788f",
+  "output_seal_sha256": "ca8aa84c7485149c887abe7b60e8890f4c01e81b21e8ac46f19cf83866ff5da4",
+  "archive": "OWNER12_LIVE_108_PRIVATE_EVIDENCE.zip",
+  "archive_sha256": "a1a5eb07c74d2513bd8f14ac626799cfdc10f422341bae2cbd7c5c5feb029647",
+  "input_artifact_sha256": {
+    "endpoint": "3e84064dbfdcbb13e4d3d5213c3d85158898073bc01e8b41b8067370ddb31882",
+    "historical_ledger": "63511193ce83635db8a53fb3b5d98361db793969de4aed29a8217a206f57c9b1",
+    "outbound_scope": "d3ed97f90d227816849c4d0b5122f3dd64105d4eb4260afbdbf434d459236f8c",
+    "plan": "0920add3e5b5383a9b685207cabeb539bb3d414ee1db30c6f7a313d37469bbcc",
+    "proposal": "e5bd219b7812b8ef97ef916226ac221e177f227808cd0dbc0bbe280920d1b70e",
+    "sources": "21db4e4feebf39df6410ae4b2954542b5c2e30d3bf176f9b8c8e105122e05a26"
+  },
+  "grid_sha256": "78708759e0965e816d9d5b7aaa0bca92d2a6b92562930cd028dc87875d09468c",
+  "model": "qwen3.7-plus-2026-05-26",
+  "region": "cn-beijing",
+  "initial3_passed": true,
+  "first_three_outcomes": [
+    "SUCCESS",
+    "SUCCESS",
+    "SUCCESS"
+  ],
+  "send_intents": 108,
+  "posts_sent": 108,
+  "delivery_uncertain": 0,
+  "provider_http_status": {
+    "200": 108
+  },
+  "failures": [],
+  "unsettled_reservation_cny": "0",
+  "actual_billed_amount": null,
+  "list_price_no_cache_discount": true,
+  "provider_public_price_url": "https://help.aliyun.com/zh/model-studio/qwen3-7-plus",
+  "usd_amount": null,
+  "overall": {
+    "slots": 108,
+    "sent": 108,
+    "success": 108,
+    "failed": 0,
+    "not_run": 0,
+    "answer": 39,
+    "abstain": 69,
+    "usage_verified": 108,
+    "input_tokens": 44426,
+    "output_tokens": 5154,
+    "max_input_tokens": 574,
+    "max_output_tokens": 126,
+    "cached_input_tokens_known_sum": 0,
+    "cached_input_tokens_reported_calls": 108,
+    "elapsed_ms": {
+      "n": 108,
+      "median": 1556.9405000000002,
+      "p95_nearest_rank": 3028.958,
+      "max": 43064.99
+    },
+    "charge_estimate_cny": "0.130084"
+  },
+  "by_arm": {
+    "G0": {
+      "slots": 36,
+      "sent": 36,
+      "success": 36,
+      "failed": 0,
+      "not_run": 0,
+      "answer": 15,
+      "abstain": 21,
+      "usage_verified": 36,
+      "input_tokens": 18447,
+      "output_tokens": 1905,
+      "max_input_tokens": 574,
+      "max_output_tokens": 122,
+      "cached_input_tokens_known_sum": 0,
+      "cached_input_tokens_reported_calls": 36,
+      "elapsed_ms": {
+        "n": 36,
+        "median": 1587.8654999999999,
+        "p95_nearest_rank": 4223.176,
+        "max": 43064.99
+      },
+      "charge_estimate_cny": "0.052134"
+    },
+    "G1": {
+      "slots": 36,
+      "sent": 36,
+      "success": 36,
+      "failed": 0,
+      "not_run": 0,
+      "answer": 13,
+      "abstain": 23,
+      "usage_verified": 36,
+      "input_tokens": 13003,
+      "output_tokens": 1779,
+      "max_input_tokens": 435,
+      "max_output_tokens": 126,
+      "cached_input_tokens_known_sum": 0,
+      "cached_input_tokens_reported_calls": 36,
+      "elapsed_ms": {
+        "n": 36,
+        "median": 1563.0305,
+        "p95_nearest_rank": 8459.4,
+        "max": 8953.921
+      },
+      "charge_estimate_cny": "0.040238"
+    },
+    "G2": {
+      "slots": 36,
+      "sent": 36,
+      "success": 36,
+      "failed": 0,
+      "not_run": 0,
+      "answer": 11,
+      "abstain": 25,
+      "usage_verified": 36,
+      "input_tokens": 12976,
+      "output_tokens": 1470,
+      "max_input_tokens": 448,
+      "max_output_tokens": 91,
+      "cached_input_tokens_known_sum": 0,
+      "cached_input_tokens_reported_calls": 36,
+      "elapsed_ms": {
+        "n": 36,
+        "median": 1470.4009999999998,
+        "p95_nearest_rank": 2584.639,
+        "max": 2820.533
+      },
+      "charge_estimate_cny": "0.037712"
+    }
+  },
+  "transport_retries": 0,
+  "formal_experiment": "NOT_STARTED",
+  "evaluation": {
+    "human_gold": 0,
+    "attack_target": "UNKNOWN",
+    "ASR": "NOT_MEASURED",
+    "AnswerAccuracy": "NOT_MEASURED",
+    "C3": "NOT_MEASURED",
+    "provisional": "NOT_RUN"
+  },
+  "verification": {
+    "sealed_files": 439,
+    "runner_tests_passed": 67,
+    "ruff_exit": 0,
+    "mypy_exit": 0,
+    "governance_passed": 8,
+    "governance_preexisting_portability_failure": 1,
+    "commands": [
+      "python -I -S -B scripts/research/run_chinese5060_rapid_live.py --check-only",
+      "python -I -S -B scripts/research/run_chinese5060_rapid_live.py --live",
+      "python -I -S -B $PRIVATE_EVIDENCE/aggregate_owner12.py"
+    ],
+    "live_exit": 0
+  }
+}
