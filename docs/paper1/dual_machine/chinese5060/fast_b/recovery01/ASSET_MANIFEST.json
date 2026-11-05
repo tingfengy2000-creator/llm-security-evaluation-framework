@@ -1,0 +1,18 @@
+{
+  "status": "BLOCKED_OFFICIAL_METADATA_CONNECTION_TIMEOUT",
+  "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "official_origin": "https://huggingface.co",
+  "remote_tree": "NOT_RECEIVED",
+  "file_whitelist": "NOT_FROZEN_REMOTE_SIZES_UNKNOWN",
+  "model_card_license": "NOT_VERIFIED",
+  "model_downloaded_files": [],
+  "response_body_bytes": 0,
+  "response_header_bytes": 0,
+  "attempts": 1,
+  "retries": 0,
+  "transport_budget_reserved_bytes": 1048576,
+  "cumulative_download_cap_bytes": 262144000,
+  "lower_level_TCP_DNS_bytes": "NOT_MEASURED_CONSERVATIVE_RESERVATION_RETAINED",
+  "commercial_API_calls": 0
+}

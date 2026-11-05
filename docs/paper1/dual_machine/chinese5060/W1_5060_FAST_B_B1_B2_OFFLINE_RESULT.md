@@ -82,3 +82,8 @@ Owner提供最终Prompt路径/内容或明确完整合同身份后，首先核ha
 未改实验输入、源码或指标，详见[收口事件](fast_b/CLOSEOUT_EVENTS.json)与[发布检查](fast_b/STAGED_PUBLICATION_AUDIT.json)。
 
 受阻checkpoint内容提交 `be79889fbbb0f47c2d14e61952dffc2af283f9fa` 已核对origin同SHA、工作树clean、ahead/behind=0/0；见[Git交付回执](fast_b/evidence/GIT_DELIVERY.json)。最终回执提交的HEAD另在交付时实查。
+
+
+## 2026-11-05恢复执行追加记录（保留前文checkpoint）
+
+98228e2已补齐合同；本次唯一HF官方直连元数据请求WinError10060，资产门未过，B1/B2仍NOT_RUN。不再以附件缺失作当前阻断。见[恢复01实际失败与证据](W1_5060_FAST_B_RECOVERY01_RESULT.md)。

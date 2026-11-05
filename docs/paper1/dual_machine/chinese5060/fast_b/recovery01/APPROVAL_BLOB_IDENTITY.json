@@ -1,0 +1,30 @@
+{
+  "control_plane_commit": "98228e202062b1216094acac90f83be29cc63074",
+  "blobs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "a926e0708d3244a91577b1a179634ab4b4250ff72a7122b2d8b26193b5ddac2e",
+      "git_blob_oid": "9629222b71fed3fcda405fd73fca77034929d3c7"
+    },
+    {
+      "path": "docs/governance/project_owner_sovereignty_and_mandatory_escalation_principle.md",
+      "sha256": "66069cc3154d6d7c4c24e7f9deb9a34610514fe7b3b10aec3eb2dd27190753c7",
+      "git_blob_oid": "8d2a4ec90e2ad0843d4b0cb4bf6ad21576dc9546"
+    },
+    {
+      "path": "docs/paper1/dual_machine/owner_approvals/W1_FAST_TRACK_B_OWNER_AUTHORIZATION_20261105.md",
+      "sha256": "867f2cfda245053fabf9ae4a764c8c7f36d053a92d4c3ef0e749dd2aa9eeb1ee",
+      "git_blob_oid": "9170ce78ccfefec45a3e7ef12b1293685b0124a7"
+    },
+    {
+      "path": "docs/paper1/dual_machine/owner_approvals/W1_STORAGE_AND_REPRO_RESEARCH_DIRECTION_20261105.md",
+      "sha256": "f2dee980bff772697c221fcf4321d52bc48141e7dc63b28d7212ae9e61ba18a7",
+      "git_blob_oid": "78b993c51189a3bf95968613e2d5e4ea90868de4"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/W1_5060_FAST_TRACK_B_EXECUTION_PROMPT_RECOVERY_V1.md",
+      "sha256": "1aa8c016b6d0112c683633e5ec02a8ff471207eb9667ce385a12cf2f8ce55f8b",
+      "git_blob_oid": "2730027e7fc900601f232fb658a52c584f25165f"
+    }
+  ]
+}

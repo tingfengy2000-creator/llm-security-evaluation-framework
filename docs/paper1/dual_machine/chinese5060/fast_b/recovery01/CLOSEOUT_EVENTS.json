@@ -1,0 +1,5 @@
+{
+  "event": "Private documentation helper NameError: write was not defined after narrative documents had been written.",
+  "repair": "Executed only the unwritten JSON-tail with the missing serialization helper; narrative documents were not duplicated and no scientific artifact changed.",
+  "experiment_affected": false
+}

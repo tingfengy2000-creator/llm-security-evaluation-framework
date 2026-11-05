@@ -1,0 +1,234 @@
+{
+  "run_id": "W1-5060-FAST-B-20261105-RECOVERY01",
+  "status": "BLOCKED_HF_DIRECT_CONNECTION_TIMEOUT",
+  "control_plane_commit": "98228e202062b1216094acac90f83be29cc63074",
+  "contract_file_sha256": {
+    "AGENTS.md": "a926e0708d3244a91577b1a179634ab4b4250ff72a7122b2d8b26193b5ddac2e",
+    "docs/governance/project_owner_sovereignty_and_mandatory_escalation_principle.md": "66069cc3154d6d7c4c24e7f9deb9a34610514fe7b3b10aec3eb2dd27190753c7",
+    "docs/paper1/dual_machine/owner_approvals/W1_FAST_TRACK_B_OWNER_AUTHORIZATION_20261105.md": "867f2cfda245053fabf9ae4a764c8c7f36d053a92d4c3ef0e749dd2aa9eeb1ee",
+    "docs/paper1/dual_machine/owner_approvals/W1_STORAGE_AND_REPRO_RESEARCH_DIRECTION_20261105.md": "f2dee980bff772697c221fcf4321d52bc48141e7dc63b28d7212ae9e61ba18a7",
+    "docs/paper1/dual_machine/chinese5060/W1_5060_FAST_TRACK_B_EXECUTION_PROMPT_RECOVERY_V1.md": "1aa8c016b6d0112c683633e5ec02a8ff471207eb9667ce385a12cf2f8ce55f8b",
+    "docs/paper1/dual_machine/chinese5060/fast_b/RECOVERY_RUN_PLAN.md": "36573497b9e186e83688895a102ed313e978ff0cdaaf88940e068f71dccb53fb"
+  },
+  "input_seal_sha256": "4e11d89cb6f03291c124aab28f7181622b6766cc63d55be45126023147988c52",
+  "P2_source_commit": "9aa21be13ae206dbbadb03b99528e362eba29378",
+  "selection_sha256": "2c16fd6915c2dee377631d311ff33fe0ad36fdc8928a86e8fcabdcbca01cf689",
+  "seal_members_verified": 292,
+  "TopK_files_verified": 36,
+  "source_file_hashes_verified": true,
+  "P2_model_and_retrieval_not_run_again": true,
+  "B0_not_rerun": true,
+  "blind_packet_reused_unchanged": true,
+  "new_API_calls": 0,
+  "HTTP_response_body_bytes": 0,
+  "transport_budget_reserved_bytes": 1048576,
+  "download_cap_bytes": 262144000,
+  "D_disk_new_peak_cap_bytes": 2147483648,
+  "D_disk_free_bytes": 333938688000,
+  "safety_free_bytes": 21474836480,
+  "native_Windows_no_WSL_VHDX": true,
+  "all_project_new_content_on_D": true,
+  "python_bytecode_disabled": true,
+  "tests": "4_PASS_REVIEW_TOOL_REGRESSION_NOT_BASELINE_EXECUTION",
+  "Ruff": "PASS",
+  "MyPy": "PASS_1_SOURCE",
+  "fetch_helper_syntax": "PASS_COMPILE_ONLY_NOT_NETWORK_SUCCESS",
+  "command_summary": [
+    {
+      "name": "HEAD",
+      "started_utc": "2026-11-05T01:18:33.754443+00:00",
+      "ended_utc": "2026-11-05T01:18:33.793637+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "6252508ec2fd49f08e44038e5a66a1b54f1e7957c5f0f85aff7a83a19d2da5da",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "upstream_HEAD",
+      "started_utc": "2026-11-05T01:18:33.793637+00:00",
+      "ended_utc": "2026-11-05T01:18:33.836776+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "d0e34d797f1b979bd578a3fd6c67acabc84288062df81f106950d0126893aa59",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "upstream_status",
+      "started_utc": "2026-11-05T01:18:33.836776+00:00",
+      "ended_utc": "2026-11-05T01:18:33.891940+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "commit_9aa21be",
+      "started_utc": "2026-11-05T01:18:33.891940+00:00",
+      "ended_utc": "2026-11-05T01:18:33.933586+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "50836eee574ecff79dea3b4fd40673d7d000f7a5f177d8a6a3000b59c78383b8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "commit_3ca27c9",
+      "started_utc": "2026-11-05T01:18:33.934585+00:00",
+      "ended_utc": "2026-11-05T01:18:33.973805+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "50836eee574ecff79dea3b4fd40673d7d000f7a5f177d8a6a3000b59c78383b8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "tests",
+      "started_utc": "2026-11-05T01:18:35.446260+00:00",
+      "ended_utc": "2026-11-05T01:18:39.411169+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "4d6ac773251b5ddb7b50d34bfbf0d6d3dcd18b396d88da3b7b86d5d62baa0402",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Ruff",
+      "started_utc": "2026-11-05T01:18:39.411169+00:00",
+      "ended_utc": "2026-11-05T01:18:40.063346+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "MyPy",
+      "started_utc": "2026-11-05T01:18:40.064346+00:00",
+      "ended_utc": "2026-11-05T01:18:40.718918+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "8e63ae22e8213e327a5e9cbd584067681681bd8ef7f25c869877887ccdcfc4ff",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "fetch_exit_code": 1,
+  "archive": {
+    "filename": "W1-5060-FAST-B-RECOVERY01-20261105.zip",
+    "bytes": 13104,
+    "sha256": "f5a608a948b54aa6e7c63108733f2357395cea30be4e0cd34fbdb82f4a4cb7ff",
+    "index": [
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/commit_3ca27c9.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/commit_3ca27c9.stdout",
+        "bytes": 7,
+        "sha256": "50836eee574ecff79dea3b4fd40673d7d000f7a5f177d8a6a3000b59c78383b8"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/commit_9aa21be.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/commit_9aa21be.stdout",
+        "bytes": 7,
+        "sha256": "50836eee574ecff79dea3b4fd40673d7d000f7a5f177d8a6a3000b59c78383b8"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/FAST_B_RECOVERY_CLOSEOUT.py",
+        "bytes": 10338,
+        "sha256": "e5461397ebd829c6dce485d08bd1583b93eef7a163d5b376aa208ee02779a7fb"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/FAST_B_RECOVERY_FETCH.py",
+        "bytes": 2806,
+        "sha256": "911381725587520dd19ea297b7fe0c6cbe1d8dc2164e61b14de92640a5e0c7d3"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/fetch.stderr",
+        "bytes": 2465,
+        "sha256": "7582fcd7abdd49a693ed736126e23a148c3c66b8b08a36c84769e0775dd0918a"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/fetch.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/FETCH_COMMAND_PRIVATE.json",
+        "bytes": 916,
+        "sha256": "fa5292ba83c593acc737bf79bc52bc50e897ddbb6d96441b7940beafe37faff7"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/HEAD.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/HEAD.stdout",
+        "bytes": 41,
+        "sha256": "6252508ec2fd49f08e44038e5a66a1b54f1e7957c5f0f85aff7a83a19d2da5da"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/MyPy.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/MyPy.stdout",
+        "bytes": 43,
+        "sha256": "8e63ae22e8213e327a5e9cbd584067681681bd8ef7f25c869877887ccdcfc4ff"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/NETWORK_LEDGER_PRIVATE.json",
+        "bytes": 738,
+        "sha256": "c68bb14d523f598c65dec8576cda82f02654b08aef1696d3e92f7afcbe4ea942"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/Ruff.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/Ruff.stdout",
+        "bytes": 19,
+        "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/STOP.json",
+        "bytes": 367,
+        "sha256": "edc3dde1154ca5d3a1f13ed1d5e3cd0e95f99af302b4f370918a77535fe54d7a"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/tests.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/tests.stdout",
+        "bytes": 100,
+        "sha256": "4d6ac773251b5ddb7b50d34bfbf0d6d3dcd18b396d88da3b7b86d5d62baa0402"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/upstream_HEAD.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/upstream_HEAD.stdout",
+        "bytes": 41,
+        "sha256": "d0e34d797f1b979bd578a3fd6c67acabc84288062df81f106950d0126893aa59"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/upstream_status.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/upstream_status.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "W1-5060-FAST-B-20261105-RECOVERY01/VALIDATION_COMMANDS_PRIVATE.json",
+        "bytes": 5108,
+        "sha256": "595657362a9e9bcbe503695daaab7cd599056251755d36cd9ee851502137b554"
+      }
+    ]
+  },
+  "B1": "NOT_RUN",
+  "B2": "NOT_RUN",
+  "ASR": "NOT_MEASURED",
+  "Answer_Accuracy": "NOT_MEASURED"
+}

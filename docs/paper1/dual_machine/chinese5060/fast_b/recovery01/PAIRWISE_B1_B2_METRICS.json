@@ -1,0 +1,261 @@
+{
+  "status": "NOT_RUN_ASSET_GATE_BLOCKED",
+  "world_denominator": 36,
+  "roles_each": 12,
+  "candidate_retrieved_denominator": 29,
+  "retrieved_by_role": {
+    "Poison": 10,
+    "Clean": 10,
+    "HN": 9
+  },
+  "retrieval_miss_by_role": {
+    "Poison": 2,
+    "Clean": 2,
+    "HN": 3
+  },
+  "historical_denominators_source": "P2_FROZEN_PUBLIC_AGGREGATE_NOT_NEW_MEASUREMENT",
+  "B1": {
+    "worlds_run": 0,
+    "worlds_not_run": 36,
+    "filter_recall": "NOT_RUN",
+    "Clean_FPR": "NOT_RUN",
+    "HN_FPR": "NOT_RUN",
+    "partial_deletion_residual": "NOT_RUN",
+    "full_removal": "NOT_RUN",
+    "empty_context": "NOT_RUN",
+    "latency": "NOT_RUN"
+  },
+  "B2": {
+    "worlds_run": 0,
+    "worlds_not_run": 36,
+    "filter_recall": "NOT_RUN",
+    "Clean_FPR": "NOT_RUN",
+    "HN_FPR": "NOT_RUN",
+    "partial_deletion_residual": "NOT_RUN",
+    "full_removal": "NOT_RUN",
+    "empty_context": "NOT_RUN",
+    "latency": "NOT_RUN"
+  },
+  "worlds": [
+    {
+      "world_id": "w-03236f6d5cbe9aafcb354122",
+      "sha256": "aff2980ef458bc2ba96b50f79f71c6b8f1450b9693d2df1b3c0218f92863562d",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-0abaf565699c1bc821151236",
+      "sha256": "e505865e026708d4c2748384109b4db304ece3c102c7cc7a4d6493c87978785c",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-162e2af18831cdcc54a7bc29",
+      "sha256": "24081f54f3652f664e5379a28de8664daf981fdd4ce3dcc5637bd8a27957aa13",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-1946bda4598700df74351e43",
+      "sha256": "8c78974b3ace163f3af2ee416db7f0c034185425462bcbe4b239e82fcdc0cff0",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-28a3e20af4823012d8d866f3",
+      "sha256": "c8793dfada1da7477cbffb7e7dfa60061f68aa9bf8eff40a02563f902a94f0f0",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-2c975c5478fcde221194f5fc",
+      "sha256": "ad561db97e5b90d91c8fc1b07a1a31c7f44786055f7788dca65c390170aecb2e",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-2ce9113a65831aec194c5060",
+      "sha256": "29c18662100ab242e5c073311b041724016d6b3b1c3d2c0a796121fc2d3bccfc",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-2f6631fa677807936700b7fc",
+      "sha256": "f19b2e3209861da1ff24a2d76ca972568450cda2af7f3d5fddb39a1ad95ddb8d",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-392c7fb7726cf23692f38bb1",
+      "sha256": "d2181dd23a957e0f064d1fde66fa170bd3c6854c917632f03bb1d691a3fa08be",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-3a2068a13d803130991fcad7",
+      "sha256": "d9cb70ec2c579803371441e17177c866d7e90c19d22efbbc4eff14ca15a923b1",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-3b23327e6182436caa6d6db3",
+      "sha256": "d8f4539a7266bdc31c8bf21e81e4fa4f93df3aaedbda3d53382a7e84f152a243",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-4d038ed4c72b495739b3836a",
+      "sha256": "85e0f769a1e8c7631184012d826f22f1f31d0929a40911070539cc11888b64c1",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-5474d3c29a01682d8dc25b1e",
+      "sha256": "d6f978b68d19465676927ebbb7cb0be6c61ab63c95c7f9d9a1ce4bf43b39cdec",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-569fd42dcad28dcb7226bab5",
+      "sha256": "ba1d226f33bf810c65c8a8cc74700652702eeb66117842948cfe6c68c204b470",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-65c7b81213b65647a181874d",
+      "sha256": "03b0abe4b11057a5d4e68b6a8ddedae9556a568493b09a3ecc9030d1a9c29222",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-7693d4317c37e32de2f7a67f",
+      "sha256": "84c31ee61010866d0cbe74538826d37325dd6c0e6026e961bc3dc6d16b0ee9f0",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-7966433ece373fe20efd70aa",
+      "sha256": "02f4b63d71398434678fe968a608958ae658835b00726cd7c7389f712b8b8160",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-7ab5a26c98db0b99cde98f6a",
+      "sha256": "84be4eeddd74982aa10201e7d35da2ee025bb70a69937dad842b054e5c21a057",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-7d79792afbef898815288da1",
+      "sha256": "bf7ea0cb412df6a7deeab478c60dbc59bd5fd3c65843c50ec5ba156922888c67",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-832ea1c19e5274ed3e548672",
+      "sha256": "0e2be8e405c6a5a6f2212ef1447266c8c1fcaae536c1945da8e35b3311dac8c7",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-8cdc0b89fdc831e0aba6e3fb",
+      "sha256": "a4bd2cc92e85d8eaf7314f3f2491554f8674d16823a1363bb0fb7ef9b1cfdf55",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-94bccfc618e9d3689f306064",
+      "sha256": "357f1d993f8371946770a2d4f383639d75207927465fce74a616a97c77beffbe",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-9e17453e6443c9b23decb022",
+      "sha256": "2e61544955ca861d936051f243af55389094c042be213e785f6c5a3e7ca1df93",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-a1a2abe62a60f334d1ff0df6",
+      "sha256": "38fb467f69133ba39fc0649dc29f2af1001c1b7fe285d72503e3762f1374780f",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-a482f7b25b2958cd51f4fdec",
+      "sha256": "59891236f069ff1fcb1ddcf27661166683b58cf40f947aa25ff57d92bb7dadf4",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-a7533429e1ec03863bdd10c7",
+      "sha256": "8686620a471e60e841bcc8f40acd168ff91f0ffea6ea8293aaefc695369ab42c",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-b1e470913bf8e247af7e41e1",
+      "sha256": "5766a983d9870dd4193e4714acda6454b34404ea8c62a112246f1eb050e8213b",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-ba0aebde9c0d938e03a64c45",
+      "sha256": "93c524f444a42deae0b6e799df46d22a85ee44840b192fa2ed44f68dc002ce40",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-bb2d8aaf2e9a1f9e5169f203",
+      "sha256": "b0a35c65eb3f1947dfc4b45f942324142dc517d9491497d407165745764302fc",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-bc6c204ace4e795bc005a252",
+      "sha256": "cc2eebf016f0fb7f37794fdef61fe30e74f92bd88af81ba72146795c33609d66",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-cc425844f59d8ac28c2c4580",
+      "sha256": "7705fbc2a8e2639fabedb5286ac597c6147f1bf91c1ecc5f28b810e8525ad9c1",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-cf3d58d2089127da462199e0",
+      "sha256": "9ff3f99acbd64edf4ecd1d477147c5c760cba012cfe4db644dc04b164f689e30",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-d02defa15df09c11cddc88b3",
+      "sha256": "0b6ab75dc27a18b3d32e3d1eec87e1989e9c16e849515a1a1f403b46b200391c",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-d1d21a7c23263ed37e04812c",
+      "sha256": "ed9eeb2dbd8bdab272ea304eb293049816d17fab800b2774ef8e4098b58f8c3f",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-e7b60f39fc82f7e4adf42d24",
+      "sha256": "df84e921085f809e374685f4e1a770a332e09d148c74d288f07de19afeca3343",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    },
+    {
+      "world_id": "w-edfab7761577354a5e15c02a",
+      "sha256": "794204b874afc7f528735cbd9b2bb9f2a770856c5b00e8773f7e3599449343fc",
+      "B1": "NOT_RUN",
+      "B2": "NOT_RUN"
+    }
+  ],
+  "ASR": "NOT_MEASURED",
+  "Answer_Accuracy": "NOT_MEASURED",
+  "generation_refusal": "NOT_MEASURED",
+  "Unsupported_QA": "NOT_MEASURED"
+}

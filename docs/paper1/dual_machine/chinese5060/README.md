@@ -1,5 +1,8 @@
 # 5060 中文RAG工作线
 
+当前Fast B：合同已修复，唯一HF直连请求超时，模型/B1/B2未执行。见[恢复01结果](W1_5060_FAST_B_RECOVERY01_RESULT.md)；以下旧当前均为历史快照。
+
+
 当前Fast-Track B：准入审计及12题独立待审包已保存；因最终Prompt缺失，下载/B1/B2未运行，整体未完成。
 见[Fast B状态与下一门](W1_5060_FAST_B_B1_B2_OFFLINE_RESULT.md)；以下P2/P1/P0均为历史导航。
 

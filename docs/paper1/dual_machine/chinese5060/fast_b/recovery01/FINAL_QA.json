@@ -1,0 +1,18 @@
+{
+  "status": "PASS_BLOCKED_CHECKPOINT_NOT_BASELINE_RESULT",
+  "source_and_TopK_identity": "PASS",
+  "private_archive_crc_hash_index": "PASS",
+  "append_only_old_checkpoint_and_log": "PASS",
+  "publication_audit": "19_FILES_PASS",
+  "private_archive_gitignored": true,
+  "tests": "4_REVIEW_TOOL_REGRESSIONS_PASS",
+  "Ruff": "PASS",
+  "MyPy": "PASS_1_SOURCE",
+  "fetch_exit": 1,
+  "B1": "NOT_RUN",
+  "B2": "NOT_RUN",
+  "new_commercial_API_calls": 0,
+  "HTTP_response_bytes": 0,
+  "transport_budget_reserved": 1048576,
+  "git_delivery": "PENDING_LIVE_CHECK"
+}

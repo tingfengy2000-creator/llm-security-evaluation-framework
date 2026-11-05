@@ -1,0 +1,15 @@
+{
+  "issue_id": "W1-5060-FAST-B-HF-CONNECT-01",
+  "stage": "OFFICIAL_METADATA_PREFLIGHT",
+  "exception": "TimeoutError / WinError 10060",
+  "attempts": 1,
+  "request_duration_seconds": 42.15365767478943,
+  "HTTP_status": "NOT_RECEIVED",
+  "asset_validation": "BLOCKED",
+  "B1": "NOT_RUN",
+  "B2": "NOT_RUN",
+  "automatic_retry": false,
+  "old_contract_gap": "RESOLVED_BY_98228e202062b1216094acac90f83be29cc63074",
+  "new_API_calls": 0,
+  "cost_USD": 0
+}

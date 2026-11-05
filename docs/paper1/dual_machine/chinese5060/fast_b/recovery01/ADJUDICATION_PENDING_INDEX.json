@@ -1,0 +1,13 @@
+{
+  "status": "REUSED_UNCHANGED_NEEDS_ADJUDICATION",
+  "cards": 12,
+  "fact_atoms": 38,
+  "source_documents": 16,
+  "human_gold": 0,
+  "packet_index_sha256": "061c11297acd0d12295e8bb3e8ca3caed83f6993723e5f278336c770f249c88e",
+  "private_cards_hashes_verified": true,
+  "new_packet_generated": false,
+  "review_completed": false,
+  "target": "UNKNOWN",
+  "C3": "NEEDS_ADJUDICATION"
+}

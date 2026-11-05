@@ -1,5 +1,19 @@
 # Current Work State
 
+## 当前 / CURRENT — Fast B合同已修复，官方HF连接失败（2026-11-05 JST）
+
+run W1-5060-FAST-B-20261105-RECOVERY01；BLOCKED_HF_DIRECT_CONNECTION_TIMEOUT，Fast B整体未完成。
+98228e202062b1216094acac90f83be29cc63074已补齐合同，旧14d718f checkpoint保留；不再寻找聊天附件。
+唯一HF固定revision元数据直连WinError10060/exit1，未获HTTP状态/正文、无重试/代理/模型下载；B1/B2各0/36运行，指标NOT_RUN。
+HTTP响应0字节但保留1MiB保守网络预算占用，不称TCP/DNS网络绝对0；商业API0/费用0，无模型载入或生成。
+原seal全部成员/36TopK/原源码hash及selection复核通过；不重检索，B0未重跑；29命中与7miss仅历史输入分母。
+原12题38原子16来源盲审包hash不变，直接复用；HumanGold0、target UNKNOWN、C3待裁决，ASR/QA未测。
+4项盲审工具回归/Ruff/MyPy1源码通过，不代表模型或基线实跑；新项目内容全D，既有C环境只读。
+下一门：Owner确认可用官方直连条件并明确恢复同源预检；资产门仍未通过。受影响任务停止，Git交付后STOP。
+禁止自动重试/替代源/模型/商业API、B3-B6、D1-40、D2D3/Reviewer/GT、T1/T2、5090 Claim及跨分支合并。
+[实际失败和下一门](../paper1/dual_machine/chinese5060/W1_5060_FAST_B_RECOVERY01_RESULT.md)。 下方是不可变历史状态；新运行及新失败不追溯改写旧结果。
+
+
 ## 当前 / CURRENT — 5060 Fast-Track B准入审计及盲审材料已保存，执行合同缺口待补（2026-11-05 JST）
 
 PAPER1-W1-5060-FAST-B；FAST_B_PARTIAL_PREFLIGHT_PASS / B1_B2_NOT_RUN_CONTRACT_BLOCKED；不是Fast-Track B完成。
