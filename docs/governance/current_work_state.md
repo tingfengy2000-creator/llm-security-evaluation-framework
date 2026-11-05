@@ -1,5 +1,12 @@
 # Current Work State
 
+## 当前工作 — Owner13批准5060 VESA-Guard v0.1首版方法实现与单次G3受限配对Pilot（2026-11-05 JST）
+
+**Owner13新授权`W1-OD-20261105-5060-VESA-GUARD-V01-FAST-13`**。收到`OWNER12_LIVE_108` 108/108真实结果与`D1_AI_PROVISIONAL_EVALUATION_01`（G0/G1/G2回答15/13/11、拒答21/23/25，G2较G0净少4个回答、Clean删除4/10已召回候选、5格回答转拒答均少参考片段）后，Owner明确“好的开始，越快越好”，允许5060原研究分支立刻开发`VESA-Guard v0.1`和离线36个角色盲G3上下文。方法为保守版本适用性/独立事实支持/证据充分性保护的检索后证据选择，不能读逐格参考、Poison/Clean/HN或生成结论调规则。原封存世界/TopK/原3臂108响应/Qwen模型/系统提示/输出参数均不变。
+一次预注册一套方法，若36格G3与G2至少1格有独立可审安全差异且离线审计、当前北京Workspace可处理的已有D1数据权限/账户额度/独立checker PASS，**同本次Owner13批准下最多36次G3真实API**，按原世界序列首3工程通过即继续剩33；零探测/重试/改样本，故障首错STOP、封存。既有Owner12预算豁免不自动适用于本批，原全线USD25/28/30限制继续。若无法安全恢复被B2误删证据，离线NO_SAFE_G3_DIFF、真实新增0请求，不能人为强制出结果。只读评价侧按12个相关事实组报告回答/拒答、Poison/Clean/HN候选删留和效率，正式ASR/AnswerAccuracy/C3保持NOT_MEASURED、HumanGold0、target UNKNOWN。禁止D2D3、5090、B5/B6和不获准实验。
+此条只登记已发布任务，当前并**未**完成新算法或G3实跑，旧正式基线仍开发阶段未正式验证。前次`59ceb4ff2267299aa7ed1c6fb0819f952098fcd5`为旧暂定评价HEAD；旧108原证据保持不可变。
+[Owner13正式PO-MHEP许可](../paper1/dual_machine/owner_approvals/W1_5060_VESA_GUARD_V01_FAST_METHOD_AND_G3_PILOT_AUTH_20261105.md)；[5060直接执行完整Prompt](../paper1/dual_machine/chinese5060/W1_5060_VESA_GUARD_V01_FAST_G3_EXECUTION_PROMPT_V1.md)。以下旧状态保留历史。
+
 ## 当前工作 — 5060 Pilot12 D1 暂定评价完成（2026-11-05 JST）
 
 `OWNER12_LIVE_108 / D1_AI_PROVISIONAL_EVALUATION_01` 已完成零 API 后封存确定性评价。108 格原始响应及 36 世界、12 题映射通过核验，18 格暂定合理拒答，51 格拒答和 39 格回答整体未决。两过滤配置降低 Token，G2 较 G0 净少 4 格回答，其中 Clean 净少 2 格。当前基线效果证据不足，Human Gold 0、target 未知、正式 ASR/QA/C3 未测。待独立人工裁决语义及证据充分性，本轮停止。
