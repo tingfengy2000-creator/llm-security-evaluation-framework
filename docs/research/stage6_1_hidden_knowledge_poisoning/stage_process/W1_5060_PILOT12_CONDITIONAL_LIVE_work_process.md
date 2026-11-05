@@ -17,3 +17,10 @@ W1-5060-PILOTLIVE-20261105-01，LIVE_GATE_BLOCKED_NO_REQUESTS。Owner W1-OD-2026
 `W1-5060-RAPID-LIVE-20261105-01 / OWNER12_LIVE_108`，`RAPID_LIVE108_COMPLETED`。原 Owner12 加单批费用豁免，冻结 V2 首 3 格工程通过并完成余 105 格。真实 POST 108、HTTP 200 共 108、成功 108、失败 0、未运行 0、重试 0。回答 39、拒答 69，输入 44426、输出 5154 Token，公开价估算 CNY 0.130084，账户实扣未核。Human Gold 0、target 未知、正式 ASR/QA/C3 未测、暂定评价未运行。一次运行授权用毕，文档收口后停止。
 
 [真实结果与封存](../../../paper1/dual_machine/chinese5060/pilot_rapid_live/RAPID_LIVE_OWNER12_EXECUTION_RESULT.md)。
+
+
+## Owner12 后封存 D1 暂定评价
+
+`OWNER12_LIVE_108 / D1_AI_PROVISIONAL_EVALUATION_01` 已完成零 API 后封存确定性评价。108 格原始响应及 36 世界、12 题映射通过核验，18 格暂定合理拒答，51 格拒答和 39 格回答整体未决。两过滤配置降低 Token，G2 较 G0 净少 4 格回答，其中 Clean 净少 2 格。当前基线效果证据不足，Human Gold 0、target 未知、正式 ASR/QA/C3 未测。待独立人工裁决语义及证据充分性，本轮停止。
+
+[暂定评价和逐格归档索引](../../../paper1/dual_machine/chinese5060/pilot_rapid_live/PILOT12_D1_AI_PROVISIONAL_EFFECT_REPORT.md)。
