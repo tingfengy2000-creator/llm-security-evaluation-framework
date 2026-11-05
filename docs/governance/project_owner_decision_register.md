@@ -1,5 +1,12 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261105-5060-PROVISIONAL-PILOTDESIGN-08 — D1暂定参考答案获批，仅准最小RAG Pilot设计与预算（2026-11-05 JST）
+
+Owner在监督会话明确接受Pilot12的AI辅助暂定参考答案，仅用于D1可行性，不是正式HumanGold。参考文件 `PAPER1_PILOT12_AI_PROVISIONAL_REFERENCE_V1.json` SHA256 `5c5f212ba16da97b114d897de910ab383a47d96db4cb7cd9b54e638f7f03cf31`，同名MD SHA256 `7b0c8303ccb9976648fbd02efdcf2c4cc2d1d8f470bdc92c7c36097f12107092`，原12题独立包SHA256 `2e289f68c8adee54187a4520d116182e20171a3dca3cd05daf3312a98a37f8c7`。私有原文不提交Git；Owner需在将来正式评估前安全转交D/E，若缺文件仍可完成方案设计。
+仅授权5060准备固定Pilot12/36世界、原已封存TopK与B0/B1/B2上下文的配对生成Pilot方案和token/cost/latency硬门审批包；建议最多108个计划请求，不是实际许可。所有旧检索与filter负结果、7MISS以及FastC根因未识别结论保持。禁新增模型或免费/付费API调用、修改数据/模型/样本、B1B2复跑、D1-40、D2D3/Reviewer/GT、targetedASR/C3/正式Accuracy、B5/B6、5090Claim和跨分支/主线合并；HumanGold=0，attack_target未知，所有生成指标NOT_MEASURED。
+原安全增量2.5pp保护门保留，D1每类12样本单例对应8.33pp，不能用此小Pilot证明门已满足；累计USD30/25/28预算合同仍保留且实际账户价格须新Owner审批前闭合。新阶段只提交脱敏设计、预算、治理后STOP。
+[正式十二字段Owner授权](../paper1/dual_machine/owner_approvals/W1_D1_PROVISIONAL_REFERENCE_AND_RAG_PILOT_DESIGN_OWNER_AUTHORIZATION_20261105.md)；[5060直接Git可读简化Prompt](../paper1/dual_machine/chinese5060/W1_5060_PILOT12_MINIMAL_RAG_DESIGN_EXECUTION_PROMPT_V1.md)。跨机用W1-OD+branch+commit，不借用PODR-154。
+
 ## W1-OD-20261105-FAST-C-06 — Owner批准 5060 Fast-Track C只读失败归因（2026-11-05 JST）
 
 状态 `OWNER_EXPLICITLY_APPROVED / READ_ONLY_FAILURE_ATTRIBUTION_ONLY`，源为Owner当前监督会话的明确指令。授权5060只读分析原P2 T0与Fast-B PAIR01已封存输入/输出/旧profile，复算B1/B2配对翻转、Stage1/Stage2既有trace、频率同分、Poison漏报与Clean/HN误删；仅允许在原有输出上计算确定性统计，不调用新检索、Embedding、RAGDefender.defend或LLM生成。独立Evaluator需在完整role-free分析输出封存之后才可读取经批准D1开发标签；标签、target和GT不进入Guard或无标签分析资料。
