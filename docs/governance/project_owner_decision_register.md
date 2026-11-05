@@ -1,5 +1,11 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261105-FAST-C-06 — Owner批准 5060 Fast-Track C只读失败归因（2026-11-05 JST）
+
+状态 `OWNER_EXPLICITLY_APPROVED / READ_ONLY_FAILURE_ATTRIBUTION_ONLY`，源为Owner当前监督会话的明确指令。授权5060只读分析原P2 T0与Fast-B PAIR01已封存输入/输出/旧profile，复算B1/B2配对翻转、Stage1/Stage2既有trace、频率同分、Poison漏报与Clean/HN误删；仅允许在原有输出上计算确定性统计，不调用新检索、Embedding、RAGDefender.defend或LLM生成。独立Evaluator需在完整role-free分析输出封存之后才可读取经批准D1开发标签；标签、target和GT不进入Guard或无标签分析资料。
+可以仅整理已有12题/38事实原子/16来源的独立盲审交接包，不能从已看过的结果猜target、签署HumanGold或直接读取Reviewer/GT Vault。依然禁止改样本、模型、阈值、TopK/索引、重跑B1/B2、B3/B4付费Pilot、B5/B6、D1-40、D2/D3、T1/T2、5090 Claims、额外下载、商业API、跨机或main合并。原P2和PAIR01冻结sha不得覆盖；D/E写新项目文件，C禁新增项目可控数据。执行完成脱敏日志/私有哈希/Git收口后STOP，不将开发诊断说成科研创新结果。
+[完整十二字段决策记录](../paper1/dual_machine/owner_approvals/W1_FAST_TRACK_C_OWNER_AUTHORIZATION_20261105.md)；[完整可直接执行的5060 Prompt](../paper1/dual_machine/chinese5060/W1_5060_FAST_TRACK_C_READONLY_EXECUTION_PROMPT_V1.md)。跨机引用此W1-OD、独立分支和完整提交SHA，不用冲突PODR-154编号。
+
 ## W1-OD-20261105-RESOURCE-REPRO-05 — Owner放宽D/E项目存储并要求完整主要基线复现准备（2026-11-05 JST）
 
 Owner明确：不在C盘新增项目可控内容，D/E存储放宽；原Fast-Track B指定B1模型的 **250MiB总下载上限保持不变**，D/E原新增1GiB硬限取消，单次任务仍须先冻结资源峰值和安全剩余空间，WSL VHDX/缓存/临时目录的宿主物理落点需要核查，不承诺OS自身绝对零C写入。
