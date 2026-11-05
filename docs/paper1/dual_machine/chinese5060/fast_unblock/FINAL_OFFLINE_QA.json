@@ -1,0 +1,264 @@
+{
+  "status": "E_OFFLINE_IMPLEMENTATION_PASS",
+  "tests_passed": 64,
+  "old_passed": 46,
+  "new_passed": 18,
+  "ruff": "PASS",
+  "mypy": "PASS_5_SOURCES",
+  "source_commit": "43be925d57ef6fbe9cbb27d22c7f1495373c6204",
+  "source_file_sha256": {
+    "scripts/research/prepare_chinese5060_fast_unblock.py": "4716ad1aba10e7eaf71894f4c6d210e95d79fb6845db195b7c3a5359f2f3d4db",
+    "tests/research/test_chinese5060_fast_unblock.py": "dae95a4fff9de2b6b4fb60fc7131e90c88b7269b1ac073f68c15d6fba9d86d19",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_transport.py": "d2787b2e630802e64431600dae492b8ded4c848be79a05b82bb752445102e0c5",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/fast_unblock_admission.py": "1cc14042bbdca5f012010a56f94af9e48e2af767c08e8fff0eaf474db28a3d4b",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/fast_unblock_runner.py": "31af9561a619f55e82000a6e65518cb2ff861a5ffaa5fe89d30d8ce4ca0610c8",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/fast_unblock_evidence.py": "a1dcf994e8d2fd9adf178c81c23f64013c603d08a94088822861da488724a038"
+  },
+  "commands": [
+    {
+      "name": "pytest",
+      "command": [
+        "python",
+        "-B",
+        "-c",
+        "import sys,pytest\n\ndef audit(e,a):\n if e.startswith(\"socket.\"):\n  raise PermissionError(\"QA_NETWORK_DENIED\")\nsys.addaudithook(audit)\nraise SystemExit(pytest.main(sys.argv[1:]))",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "$PRIVATE_QA/pytest",
+        "tests/research/test_chinese5060_fast_unblock.py",
+        "tests/research/test_chinese5060_pilot_live.py",
+        "tests/research/test_chinese5060_pilot_runner.py",
+        "tests/research/test_chinese5060_pilot_design.py",
+        "tests/research/test_chinese5060_readonly_analysis.py"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "0a05269d135c0a9c50a503d99791fc4d0f699214501fab1bd6abebf23393aef5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ruff",
+      "command": [
+        "ruff",
+        "check",
+        "--no-cache",
+        "scripts/research/prepare_chinese5060_fast_unblock.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_transport.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/fast_unblock_admission.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/fast_unblock_runner.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/fast_unblock_evidence.py",
+        "tests/research/test_chinese5060_fast_unblock.py"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "mypy",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "mypy",
+        "--cache-dir",
+        "$PRIVATE_QA/mypy",
+        "--check-untyped-defs",
+        "--follow-imports=skip",
+        "--ignore-missing-imports",
+        "scripts/research/prepare_chinese5060_fast_unblock.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/pilot_transport.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/fast_unblock_admission.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/fast_unblock_runner.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/fast_unblock_evidence.py"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "718df785efbbd4b57e63b5f64aff2c5b5592e433447681f759b307f97a3ec96a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "preflight",
+      "command": [
+        "python",
+        "-I",
+        "-S",
+        "-B",
+        "scripts/research/prepare_chinese5060_fast_unblock.py",
+        "--output-dir",
+        "experiments/paper1_chinese5060/W1-5060-FAST-UNBLOCK-20261105-01/runs/QA_EVIDENCE_FINAL01"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "038c14b160921a9ef1e0af605721b4eb392d7ff9f0b5c5c07c0f6982a957ee88",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "synthetic_cases": [
+    {
+      "outcomes": {
+        "FAIL": 0,
+        "NOT_RUN": 0,
+        "SUCCESS": 108
+      },
+      "attempts": 108,
+      "initial3_passed": true,
+      "stop_code": null,
+      "new_charge_usd": "0",
+      "charge_estimate_usd": "0.019104000",
+      "initial_batch_reservation_usd": "0.120009600",
+      "unsettled_reservation_usd": "0E-9",
+      "output_seal_sha256": "d77d09e5ea1414fdb168826b35cc364a4e1913fa16d0bae7beae9c3c6a741c61"
+    },
+    {
+      "outcomes": {
+        "FAIL": 0,
+        "NOT_RUN": 0,
+        "SUCCESS": 108
+      },
+      "attempts": 108,
+      "initial3_passed": true,
+      "stop_code": null,
+      "new_charge_usd": "0",
+      "charge_estimate_usd": "0.019104000",
+      "initial_batch_reservation_usd": "0.120009600",
+      "unsettled_reservation_usd": "0E-9",
+      "output_seal_sha256": "a72505c3d91da041c6753413fe38b3392b855eff3c4ea6056ca9c6241c299fcf"
+    },
+    {
+      "outcomes": {
+        "FAIL": 1,
+        "NOT_RUN": 107,
+        "SUCCESS": 0
+      },
+      "attempts": 1,
+      "initial3_passed": false,
+      "stop_code": "TRANSPORT_TIMEOUT",
+      "new_charge_usd": "0",
+      "charge_estimate_usd": "0",
+      "initial_batch_reservation_usd": "0.120009600",
+      "unsettled_reservation_usd": "0.001111200",
+      "output_seal_sha256": "fc7faf90ac5a250f334b157e6963191213448e91265d32873206aa930190e439"
+    },
+    {
+      "outcomes": {
+        "FAIL": 1,
+        "NOT_RUN": 105,
+        "SUCCESS": 2
+      },
+      "attempts": 3,
+      "initial3_passed": false,
+      "stop_code": "LIVE_HTTP_NOT_200",
+      "new_charge_usd": "0",
+      "charge_estimate_usd": "0.000340000",
+      "initial_batch_reservation_usd": "0.120009600",
+      "unsettled_reservation_usd": "0.001111200",
+      "output_seal_sha256": "ba146a1b6d03ba4a707671bd9e9c7b4daf5e3dd2a89d28c64553f91512394bde"
+    },
+    {
+      "outcomes": {
+        "FAIL": 1,
+        "NOT_RUN": 104,
+        "SUCCESS": 3
+      },
+      "attempts": 4,
+      "initial3_passed": true,
+      "stop_code": "USAGE_MISSING",
+      "new_charge_usd": "0",
+      "charge_estimate_usd": "0.000510000",
+      "initial_batch_reservation_usd": "0.120009600",
+      "unsettled_reservation_usd": "0.001111200",
+      "output_seal_sha256": "f14710068c82b0e823b8d4a5f96853cdca7a7efbd836b9cf334c21562d98cd35"
+    },
+    {
+      "outcomes": {
+        "FAIL": 1,
+        "NOT_RUN": 103,
+        "SUCCESS": 4
+      },
+      "attempts": 5,
+      "initial3_passed": true,
+      "stop_code": "USAGE_TOKEN_CAP_EXCEEDED",
+      "new_charge_usd": "0",
+      "charge_estimate_usd": "0.000680000",
+      "initial_batch_reservation_usd": "0.120009600",
+      "unsettled_reservation_usd": "0.001111200",
+      "output_seal_sha256": "af803bb80ce60e3cd65f14c46d5ce4a941095d30719ba07e06d22c49b84f3300"
+    }
+  ],
+  "synthetic_budget_check": {
+    "classification": "SYNTHETIC_ONLY",
+    "input_cap": 4096,
+    "output_bound_candidate": 266,
+    "formula_108_uncached": "1.20 * (0.442368 * input_rate + 0.028728 * output_rate) before per-cell upward rounding",
+    "fixture_full_caps_usd": "0.6342624",
+    "fixture_measured_on_proven_128_input_usd": "0.120009600",
+    "actual_reservation_usd": null,
+    "actual_cost_usd": "0",
+    "tested_thresholds_usd": [
+      25,
+      28,
+      30
+    ]
+  },
+  "fixture_stage_only": true,
+  "known_initial_qa_repairs": [
+    "Correct missing-host assertion",
+    "Remove unused import",
+    "Annotate chunk index"
+  ],
+  "socket_audit_qa": true,
+  "real_posts": 0,
+  "real_model_cost_usd": "0",
+  "governance_qa": {
+    "command": [
+      "python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "tests/architecture/test_experiment_master_record.py",
+      "tests/architecture/test_dependency_direction.py"
+    ],
+    "exit_code": 1,
+    "passed": 8,
+    "failed": 1,
+    "classification": "PREEXISTING_PORTABILITY_ONLY",
+    "existing_matching_lines": 5,
+    "new_matching_lines": 0,
+    "stdout_sha256": "1d7f5794f6904986d733df928d68f4f9e3a8539777fab8367ab6c69e9885efaa",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "documentation_closeout": {
+    "human_ledger_checked": true,
+    "human_ledger_updated_if_required": true,
+    "agent_ledger_checked": true,
+    "agent_ledger_updated": true,
+    "current_work_state_updated": true,
+    "execution_log_appended": true,
+    "experiment_master_condition_evaluated": true,
+    "owner_decision_condition_evaluated": true,
+    "stage_process_condition_evaluated": true,
+    "lessons_condition_evaluated": true,
+    "research_authority_condition_evaluated": true,
+    "README_condition_evaluated": true,
+    "cross_document_current_task_consistent": true,
+    "cross_document_status_consistent": true,
+    "cross_document_next_action_consistent": true,
+    "cross_document_blocker_consistent": true,
+    "markdown_links_valid": true
+  },
+  "conditional_records": {
+    "owner_register": "existing approval retained with V2 outcome index",
+    "stage_process": "V2 outcome indexed",
+    "research_authority": "no accepted formal method change",
+    "lessons": "no formal lesson promotion"
+  },
+  "context_persistence": "PASS_BLOCKED_SCOPE",
+  "paper1_document_staleness": "PASS_HISTORICAL_SNAPSHOTS_PRESERVED",
+  "git_delivery": "PENDING_REMOTE_VERIFICATION"
+}

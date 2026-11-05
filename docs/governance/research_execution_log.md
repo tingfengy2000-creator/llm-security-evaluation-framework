@@ -3271,3 +3271,12 @@ W1-5060-PILOTLIVE-20261105-01，LIVE_GATE_BLOCKED_NO_REQUESTS。Owner W1-OD-2026
 2026-11-05 JST，Owner `W1-OD-20261105-5060-FAST-UNBLOCK-11`：仅在`research/paper1-chinese-defense-5060`、上次已核真实0请求/108未运行HEAD`731b48419aba2dab3b8ded310d349fcf441c3f1b`基础上，允许一次性审查D1冻结来源第三方外传、百炼唯一地域host/真实Transport正向代码、严格108输入Token界、全工作线真实USD预算和独立本地Gate checker。允许在必要且官方支持时只将`max_tokens=256`字段名改成`max_completion_tokens=256`且删除旧字段，其余模型/参数/system/query/TopK/各臂不变；原V1只读保留、V2新proposal/108请求SHA/预算重新冻结与离线QA、证明每条仅这一字段有差异。若条件不足，如实PARTIAL_BLOCKED而不虚构PASS。
 **本轮真实API/付费/外传请求0，禁止线上Token/免费探测、下载或安装新模型依赖**；Owner10旧V1条件执行许可不能自动放行本次V1或V2，最终即使静态全PASS也只出单一Fast-Unblock Evidence Packet请求下一次明确真实执行审批。HumanGold0、target未知、正式ASR/QA NOT_MEASURED，D2/D3/5090均隔离；原 USD30 cap/25warn/28not_new、C禁新增受控数据/D/E≥20GiB维持。
 正式授权 `docs/paper1/dual_machine/owner_approvals/W1_5060_PILOT12_FAST_UNBLOCK_OWNER_AUTHORIZATION_20261105.md`；完整Git执行Prompt `docs/paper1/dual_machine/chinese5060/W1_5060_PILOT12_FAST_UNBLOCK_EXECUTION_PROMPT_V1.md`。本条只记录授权发生，不冒称5060任务已执行/已修复；完成自身分支合法push与证据归档后STOP。
+
+
+## REL-W1-5060-FAST-UNBLOCK-20261105-01 — V2 单字段冻结，零调用解阻收口
+
+W1-5060-FAST-UNBLOCK-20261105-01，FAST_UNBLOCK_PARTIAL_BLOCKED。Owner W1-OD-20261105-5060-FAST-UNBLOCK-11，控制合同 ea7e7d6a585ac96dddf3d1c2dcc37113ee460612，离线源码 43be925d57ef6fbe9cbb27d22c7f1495373c6204。
+V2原108格独立逐格核验，仅输出上限字段名改为max_completion_tokens，值256。V1字节保全。候选输出账本以266预留。64项离线测试，合成108/108，真实API 0、费用USD0、108 NOT_RUN。Human Gold 0，target未知，C3/正式ASR/QA NOT_MEASURED。
+A缺46个实发源的外传范围和敏感性裁决，B缺账户唯一地域端点和实际计费证明，C严格输入证明0/108，D缺统一数值账本，E合成正向和拒绝验收通过但真实许可尚缺。待全部证据闭合后由新Owner真实执行批准绑定V2及源码。
+
+受控归档 SHA256 a5e4e30015a843a1c864dcbf642fecdaeb0547bbe3d992d77b7588666e7ca375。 [唯一证据包](../paper1/dual_machine/chinese5060/fast_unblock/FAST_UNBLOCK_EVIDENCE_PACKET.md)。收口后STOP。

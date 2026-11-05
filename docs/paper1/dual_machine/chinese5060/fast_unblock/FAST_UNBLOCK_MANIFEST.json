@@ -1,0 +1,89 @@
+{
+  "status": "FAST_UNBLOCK_PARTIAL_BLOCKED",
+  "control_commit": "ea7e7d6a585ac96dddf3d1c2dcc37113ee460612",
+  "source_commit": "43be925d57ef6fbe9cbb27d22c7f1495373c6204",
+  "authority_commit": "82dcd7c77854dc7b85eac5074db5669cd04ad0e0",
+  "authority_document_sha256": "0891ae9db6563ee86f41501d5d3ff98608a3ac33e0e7ea0ea4a240af2837b603",
+  "model": "qwen3.7-plus-2026-05-26",
+  "config_sha256": "e5bd219b7812b8ef97ef916226ac221e177f227808cd0dbc0bbe280920d1b70e",
+  "plan_sha256": "0920add3e5b5383a9b685207cabeb539bb3d414ee1db30c6f7a313d37469bbcc",
+  "request_grid_sha256": "78708759e0965e816d9d5b7aaa0bca92d2a6b92562930cd028dc87875d09468c",
+  "immutable_input_sha256": {
+    "docs/paper1/dual_machine/chinese5060/pilot_design/PILOT_EXECUTION_PROPOSAL.json": "0aaf4cfb28dc1e7d9fea8fcdc8f7143afd56857fa300f8b6e3f8f9d0ff081cb6",
+    "experiments/paper1_chinese5060/W1-5060-FAST-B-20261105-PAIR01/B1_RESULTS_PRIVATE.json": "5831dcacb3132c4e6a65344f45dc18f1b85e1b9605815f5d9adb87897239fb74",
+    "experiments/paper1_chinese5060/W1-5060-FAST-B-20261105-PAIR01/B2_RESULTS_PRIVATE.json": "9b65b5d7c412aea78a5d66f4d5402743afd029802eb0af981ebdd929376feb4f",
+    "experiments/paper1_chinese5060/W1-5060-FAST-B-20261105-PAIR01/PACKETS_PRIVATE.json": "d0f196ab994a94bfd0804c37c08b81d41f582aaf2d74e143c26560ffa7043525",
+    "experiments/paper1_chinese5060/W1-5060-FAST-B-20261105-PAIR01/PAIR_OUTPUT_SEAL.json": "bb775ead3d330f5e83516f8dfa871a3e2581c305e5ae7baf104500f781ac79fb",
+    "experiments/paper1_chinese5060/W1-5060-P2-20261104-T0-01/OUTPUT_SEAL.json": "4e11d89cb6f03291c124aab28f7181622b6766cc63d55be45126023147988c52",
+    "experiments/paper1_chinese5060/W1-5060-PILOTDESIGN-20261105-01/runtime_plan/GENERATOR_REQUEST_PLAN_PRIVATE.json": "7db82812f893fc0384b2896c98bb5c779504e19a5c45a097945962e840999c96",
+    "experiments/paper1_chinese5060/archives/W1-5060-FAST-C-ATTRIB01-20261105.zip": "73b3f66a5b410e61cc8b9772885c77e026de502b3b9d78b295fa2e52b4a9fdb4"
+  },
+  "gates": {
+    "A": "OWNER_INPUT_REQUIRED",
+    "B": "OWNER_INPUT_REQUIRED",
+    "C": "STRICT_TOKEN_BOUND_UNAVAILABLE",
+    "D": "OWNER_INPUT_REQUIRED",
+    "E": "E_OFFLINE_IMPLEMENTATION_PASS__LIVE_BLOCKED"
+  },
+  "gate_A": {
+    "sent_source_hashes": 46,
+    "official_snapshot_matches": 17,
+    "pii_screen_counts": {
+      "citizen_id_shape": 0,
+      "context_field_marker": 0,
+      "credential_shape": 0,
+      "email": 0,
+      "landline_shape": 0,
+      "mobile_cn": 0
+    },
+    "review_pointer_count": 0,
+    "source_matrix_sha256": "5165c451ca338bb9cd40b01907bdd946fcbb9e8bd1c4400f4b45c7c8d64591f2"
+  },
+  "gate_C": {
+    "diagnostic_max_message_utf8_bytes": 2444,
+    "diagnostic_sum_message_utf8_bytes": 199427,
+    "status": "STRICT_TOKEN_BOUND_UNAVAILABLE",
+    "strict_max": null,
+    "strict_proven_cells": 0,
+    "strict_total": null,
+    "total_cells": 108,
+    "version": "V2_SINGLE_FIELD_OUTPUT_CAP"
+  },
+  "gate_D": {
+    "owner": "OWNER_ATTESTED",
+    "numeric_snapshot": null,
+    "reservation_usd": null,
+    "private_template_sha256": "60387094de0cb45d61640493d9001f129b04eab72f767630fd9eee2e0fed272b",
+    "new_cost_usd": "0",
+    "warn": 25,
+    "stop_new": 28,
+    "total_cap": 30
+  },
+  "actual_disk_free_bytes": 357222322176,
+  "minimum_disk_reserve_bytes": 21474836480,
+  "private_seal_sha256": "607867a66d6b36cfbad85f65b38c4f609024d576e1edbb84928673ade9a1c77e",
+  "private_file_sha256": {
+    "BUDGET_PRIVATE.json": "60387094de0cb45d61640493d9001f129b04eab72f767630fd9eee2e0fed272b",
+    "ENDPOINT_PRIVATE.json": "f2bd2c7169b5ea0d744d74d078150a81b57209623f728dc5e5a6b5ea923943d2",
+    "FIELD_DIFF_PRIVATE.json": "e67f50a2be87fee1c86fe5bcfa371f417a21a66278bf7a09e9f11c55dda04356",
+    "REAL_OUTCOMES_PRIVATE.json": "1dfc931f75092b7fb30f25b16ff3abc49f914d6908a5e3be0ea1528955e0ae05",
+    "SOURCE_TRANSFER_RIGHTS_MATRIX.json": "5165c451ca338bb9cd40b01907bdd946fcbb9e8bd1c4400f4b45c7c8d64591f2",
+    "TOKEN_GRID_PRIVATE.json": "20ffc12a001b50c821ba418d678cf73b6cc2a42df76ac53cf3bc446d2f13649e",
+    "V2_REQUEST_PLAN_PRIVATE.json": "0920add3e5b5383a9b685207cabeb539bb3d414ee1db30c6f7a313d37469bbcc",
+    "V2_SINGLE_FIELD_OUTPUT_CAP_PROPOSAL.json": "e5bd219b7812b8ef97ef916226ac221e177f227808cd0dbc0bbe280920d1b70e"
+  },
+  "archive": {
+    "name": "W1-5060-FAST-UNBLOCK-20261105-01.zip",
+    "bytes": 517143,
+    "members": 527,
+    "sha256": "a5e4e30015a843a1c864dcbf642fecdaeb0547bbe3d992d77b7588666e7ca375",
+    "index_sha256": "e6b4011207b48ab7a74bedae2ffdf3ef86787f588b157318d77f38b563695fc5",
+    "verification": "PASS"
+  },
+  "real_posts": 0,
+  "real_not_run": 108,
+  "HumanGold": 0,
+  "ASR": "NOT_MEASURED",
+  "formal_QA": "NOT_MEASURED",
+  "real_approval": "NEW_OWNER_LIVE_APPROVAL_REQUIRED"
+}

@@ -1,0 +1,21 @@
+{
+  "version": "V2_SINGLE_FIELD_OUTPUT_CAP",
+  "decision": "APPROVED_SINGLE_FIELD_V2",
+  "v1_proposal_sha256": "0aaf4cfb28dc1e7d9fea8fcdc8f7143afd56857fa300f8b6e3f8f9d0ff081cb6",
+  "v2_proposal_sha256": "e5bd219b7812b8ef97ef916226ac221e177f227808cd0dbc0bbe280920d1b70e",
+  "v2_private_plan_sha256": "0920add3e5b5383a9b685207cabeb539bb3d414ee1db30c6f7a313d37469bbcc",
+  "v1_wire_grid_sha256": "575bb40c4460057fa76ec625ad858bab155d2c95ca7ad6fdc4aa9e831ba26320",
+  "v2_wire_grid_sha256": "78708759e0965e816d9d5b7aaa0bca92d2a6b92562930cd028dc87875d09468c",
+  "per_cell_diff_private_sha256": "e67f50a2be87fee1c86fe5bcfa371f417a21a66278bf7a09e9f11c55dda04356",
+  "independently_checked_cells": 108,
+  "exact_only_rename": 108,
+  "removed": "max_tokens",
+  "added": "max_completion_tokens",
+  "field_value": 256,
+  "other_changes": 0,
+  "preserved": "Exact messages, model, parameters, order, per-cell IDs and 80 unique prompt digests",
+  "documented_tolerance_candidate": 10,
+  "budget_output_tokens_per_call_candidate": 266,
+  "comparison_boundary": "All V2 arms use one wire. V1/V2 output length and truncation may differ; do not pool generated outcomes.",
+  "real_posts": 0
+}

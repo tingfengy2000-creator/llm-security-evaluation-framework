@@ -1,5 +1,14 @@
 # Current Work State
 
+## 当前工作 — 5060 Fast-Unblock 离线验收完成，真实准入仍阻断（2026-11-05 JST）
+
+W1-5060-FAST-UNBLOCK-20261105-01，FAST_UNBLOCK_PARTIAL_BLOCKED。Owner W1-OD-20261105-5060-FAST-UNBLOCK-11，控制合同 ea7e7d6a585ac96dddf3d1c2dcc37113ee460612，离线源码 43be925d57ef6fbe9cbb27d22c7f1495373c6204。
+V2原108格独立逐格核验，仅输出上限字段名改为max_completion_tokens，值256。V1字节保全。候选输出账本以266预留。64项离线测试，合成108/108，真实API 0、费用USD0、108 NOT_RUN。Human Gold 0，target未知，C3/正式ASR/QA NOT_MEASURED。
+A缺46个实发源的外传范围和敏感性裁决，B缺账户唯一地域端点和实际计费证明，C严格输入证明0/108，D缺统一数值账本，E合成正向和拒绝验收通过但真实许可尚缺。待全部证据闭合后由新Owner真实执行批准绑定V2及源码。
+
+[唯一审批入口](../paper1/dual_machine/chinese5060/fast_unblock/FAST_UNBLOCK_EVIDENCE_PACKET.md)。以下旧当前标题均为当时历史快照。
+
+
 ## 当前工作 — Owner批准5060 Pilot12 Fast-Unblock一次性离线解阻，真实API仍0（2026-11-05 JST）
 
 新Owner决策`W1-OD-20261105-5060-FAST-UNBLOCK-11`仅允许5060继续独立分支在本地/D-E完成剩余执行证据：A冻结D1来源允许第三方外传/敏感性/处理方地域，B百炼固定`qwen3.7-plus-2026-05-26`对应唯一官方地域端点与真实传输**正向代码及Fake模拟**，C全108格经可复核Tokenizer/chat template或严格上界证明输入4096门，D本机全工作线USD数值账本及25/28/30硬门，E独立checker、输入SHA/唯一字段diff和收口证据。**不得发任何真实HTTPS/生成API请求或在线count-tokens/探测，不下载安装新依赖/模型；真实108格继续NOT_RUN。**

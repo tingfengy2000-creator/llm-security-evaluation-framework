@@ -1,5 +1,10 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## Owner 11 范围内的执行结果索引（2026-11-05 JST）
+
+本轮在已记录的条件许可内冻结 V2 唯一字段，真实执行仍未批准。保留下方授权原件和历史决定。 [唯一审批入口](../paper1/dual_machine/chinese5060/fast_unblock/FAST_UNBLOCK_EVIDENCE_PACKET.md)
+
+
 ## W1-OD-20261105-5060-FAST-UNBLOCK-11 — Owner批准Pilot12一次性Fast-Unblock零调用解阻（2026-11-05 JST）
 
 `OWNER_APPROVED_FAST_UNBLOCK_OFFLINE_ONLY / LIVE_API_NOT_AUTHORIZED_BY_THIS_DECISION`。Owner明确允许5060仅在`research/paper1-chinese-defense-5060`完成既有D1来源使用权/敏感信息/处理方地域合法外传核验、百炼唯一地域端点绑定与受审真实Transport正向放行**代码和离线Fake测试**、固定108格可信聊天模板严格Token上界、全工作线可计算USD私有账本及独立checker；最后仅用**一个**A–E证据包请求下一次真实Pilot审批。账户/模型/地域/费率/余额仍为Owner本人已核实`OWNER_ATTESTED`，不索重复截图/密钥，但未提供的机器数值/许可不得自行猜测或判PASS。
