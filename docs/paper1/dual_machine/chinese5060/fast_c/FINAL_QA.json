@@ -17,5 +17,6 @@
   "MyPy": "PASS_4_SOURCE_CHECK_UNTYPED_DEFS",
   "private_outputs_gitignored": true,
   "causal_questions": "UNRESOLVED_NOT_INFERRED",
-  "git_delivery": "PENDING"
+  "git_delivery": "PASS_VERIFIED_CONTENT_COMMIT",
+  "verified_content_commit": "852e6388e1dbf57d65a789e906489db3e6698117"
 }

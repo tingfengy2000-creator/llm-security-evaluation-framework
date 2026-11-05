@@ -1,0 +1,95 @@
+{
+  "status": "PASS_PARTIAL_DIAGNOSTIC_DELIVERY",
+  "verified_content_commit": "852e6388e1dbf57d65a789e906489db3e6698117",
+  "control_plane_commit": "4ba1ad732987be4a5c84b5808da210705e72739e",
+  "checked_utc": "2026-11-05T02:43:15.409201+00:00",
+  "branch": "research/paper1-chinese-defense-5060",
+  "remote": "https://github.com/tingfengy2000-creator/llm-security-evaluation-framework.git",
+  "clean": true,
+  "ahead": 0,
+  "behind": 0,
+  "authorization_identities": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "a926e0708d3244a91577b1a179634ab4b4250ff72a7122b2d8b26193b5ddac2e",
+      "control_plane_blob_oid": "9629222b71fed3fcda405fd73fca77034929d3c7"
+    },
+    {
+      "path": "docs/governance/project_owner_sovereignty_and_mandatory_escalation_principle.md",
+      "sha256": "66069cc3154d6d7c4c24e7f9deb9a34610514fe7b3b10aec3eb2dd27190753c7",
+      "control_plane_blob_oid": "8d2a4ec90e2ad0843d4b0cb4bf6ad21576dc9546"
+    },
+    {
+      "path": "docs/paper1/dual_machine/owner_approvals/W1_FAST_TRACK_C_OWNER_AUTHORIZATION_20261105.md",
+      "sha256": "66e9fa74832aa105627effecca7e8c027a5c825d92e31b9cd84f1e461a1988ca",
+      "control_plane_blob_oid": "3a97b19ec720ee9934b5df5da0339c73357a0a0d"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/W1_5060_FAST_TRACK_C_READONLY_EXECUTION_PROMPT_V1.md",
+      "sha256": "1a43dca81c1da4d17f7a833654d47f8b475396932c996e8918bdd6f48232ad94",
+      "control_plane_blob_oid": "439f973a1a2c79a2c9f108b624287ffe30959a1d"
+    }
+  ],
+  "records": [
+    {
+      "argv": [
+        "git",
+        "branch",
+        "--show-current"
+      ],
+      "exit_code": 0,
+      "stdout": "research/paper1-chinese-defense-5060\n",
+      "stderr": "",
+      "stdout_sha256": "94a1d78724cd0a351b2eb765299996d0f04b66d1b4fa5e5ca4bc5f0b45d54e2d"
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": "852e6388e1dbf57d65a789e906489db3e6698117\n",
+      "stderr": "",
+      "stdout_sha256": "866cc3bdd13aa9dd312630814b3003d074f936fc24f7fc096bbdcf44a77188d4"
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "rev-list",
+        "--left-right",
+        "--count",
+        "HEAD...origin/research/paper1-chinese-defense-5060"
+      ],
+      "exit_code": 0,
+      "stdout": "0\t0\n",
+      "stderr": "",
+      "stdout_sha256": "4b14c7b5549e560a68e9c4daaae3fdb8a28fe32d0247050325e7c5a3b2b3271c"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-remote",
+        "--exit-code",
+        "origin",
+        "refs/heads/research/paper1-chinese-defense-5060"
+      ],
+      "exit_code": 0,
+      "stdout": "852e6388e1dbf57d65a789e906489db3e6698117\trefs/heads/research/paper1-chinese-defense-5060\n",
+      "stderr": "",
+      "stdout_sha256": "9d056bfd457d902cf102f9611ac2c2f3c63d064fc4bf8f5fd7e1d57df8b4e571"
+    }
+  ],
+  "scope": "Content commit verified before separate receipt commit; final delivery HEAD verified live. No claim of complete causal identification."
+}

@@ -99,3 +99,5 @@ ZIP SHA256 `2e289f68c8adee54187a4520d116182e20171a3dca3cd05daf3312a98a37f8c7`；
 10. 理由/置信度：字节/统计高置信；根因、HN合法性/来源信任与无同分反事实未知。
 11. 待Owner：是否存在可另行明确授权的旧trace；何时组织独立人工范围/target/C3裁决；本轮不要求批准新方法或实验。
 12. 决定前：因果补证支路STOP，仅本次脱敏证据/文档/Git收口；禁止模型/检索/Guard重跑、B5/B6、D2D3/GT、付费、T1/T2/Claim。
+
+只读诊断内容提交 `852e6388e1dbf57d65a789e906489db3e6698117` 已核对origin同SHA、工作树clean及ahead/behind=0/0；见[Git交付回执](fast_c/GIT_DELIVERY.json)。最终回执提交HEAD在交付时另实查；根因仍UNRESOLVED。
