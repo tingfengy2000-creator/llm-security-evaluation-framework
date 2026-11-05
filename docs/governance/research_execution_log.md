@@ -1,5 +1,10 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-05 — 5090 official metadata gate returned partial and stopped
+
+No new PODR id. Owner `W1-OD-20261105-5090-ASSET-GATE-07`. Task P1-RAGDEFENDER-5090-OFFICIAL-METADATA-GATE-01. Activity W1-5090-OFFICIAL-METADATA-20261105-01. Branch `research/paper1-ragdefender-repro-5090` started at `1cb3445d2815815684e839e9f7564656c05dae82`.
+Status PARTIAL_METADATA_BLOCKED. Llama revision rechecked and still gated. Vicuna card is non-commercial. Contriever weight license is UNKNOWN. MiniLM is `paraphrase-MiniLM-L6-v2` at `c9a2bfebc254878aee8c3aca9e6844d5bbb102d1`. BEIR zip lengths were rechecked by HEAD only. Unpack size UNKNOWN. Claim 1, 2 and 3 remain NOT_RUN. ASR and accuracy remain NOT_MEASURED. No download and no paid API. Raw access log sha256 `5d99fc412406e8dcb90815008f78eb2cb1302f8f1fbc59fac20242b1952c473c`.
+[Report](../paper1/dual_machine/repro5090/W1_5090_OFFICIAL_ASSET_LICENSE_METADATA_GATE_REPORT.md).
 
 ## REL-W1-5090-OFFICIAL-ASSET-GATE-AUTHORIZATION-20261105 — Owner批准只读官方资产/许可元数据核验（非真实Claim）
 

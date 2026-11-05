@@ -1,0 +1,20 @@
+{
+  "schema": "read_only_audit_manifest_v1",
+  "branch": "research/paper1-ragdefender-repro-5090",
+  "start_sha": "1cb3445d2815815684e839e9f7564656c05dae82",
+  "upstream_sha": "ba2a17efba165d45409114df2d70b030ade1e1b8",
+  "raw_outside_git": {
+    "access_log_raw_sha256": "5d99fc412406e8dcb90815008f78eb2cb1302f8f1fbc59fac20242b1952c473c",
+    "access_log_raw_bytes": 17287,
+    "beir_head_sha256": "7ecacc191f59e6b00b5ae970318d59ae4a079d70a29600a4ca55702dab4f81ff",
+    "beir_head_bytes": 482
+  },
+  "commands": [
+    {"cwd": "research repo", "argv": "git fetch --prune --tags origin && git pull --ff-only", "exit": 0, "note": "fast-forward c3e1660 to 1cb3445, clean tree"},
+    {"cwd": "D audit dir", "argv": "python fetch_meta.py", "exit": 0, "note": "metadata GET and refused zip GET; Windows HEAD to BEIR failed TLS"},
+    {"cwd": "D audit dir", "argv": "python fetch_more.py", "exit": 0, "note": "trees, READMEs, Llama LICENSE.txt 401, Llama tree TLS fail"},
+    {"cwd": "WSL", "argv": "curl -I --max-redirs 0 three BEIR zip URLs", "exit": 0, "note": "headers only"},
+    {"cwd": "D audit dir", "argv": "python ast_check.py", "exit": 0, "note": "ast.parse of six artifact files, no pyc"}
+  ],
+  "not_run": ["claim scripts", "main.py", "model load", "pip install", "conda install", "snapshot_download"]
+}

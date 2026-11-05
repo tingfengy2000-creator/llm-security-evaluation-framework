@@ -1,5 +1,11 @@
 # LLMGuard 项目总控文档
 
+## 当前：5090 官方资产核验只完成到阻断，Claim 仍未跑（2026-11-05）
+
+`W1-OD-20261105-5090-ASSET-GATE-07` 的只读核验已经做完，状态是 `PARTIAL_METADATA_BLOCKED`。Llama 2 仍须本人申请。Contriever 权重许可、NQ 和 MS MARCO 的数据许可、BEIR 解压体积都还未定。三条 Claim 仍是 `NOT_RUN`，攻击成功率和准确率仍是 `NOT_MEASURED`。没有下载。到此停止。
+[准入报告](docs/paper1/dual_machine/repro5090/W1_5090_OFFICIAL_ASSET_LICENSE_METADATA_GATE_REPORT.md)。
+下面的 L0 Oracle 结论不替换。
+
 ## 当前：5090 已写 RAGDefender 主要实验复现准备，Claim 仍未批准（2026-11-04）
 
 `W1-OD-20261105-RESOURCE-REPRO-05` 把主要公开实验定成对标目标，但不批准下载或运行。三条 Claim 仍是 `NOT_RUN`。攻击成功率和准确率仍是 `NOT_MEASURED`。图 4 的后两条攻击脚本只有一倍强度。准备结束后停止。

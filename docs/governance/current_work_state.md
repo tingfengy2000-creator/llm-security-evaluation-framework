@@ -1,5 +1,12 @@
 # Current Work State
 
+## Current — 2026-11-05 5090 official asset metadata is partial and claims stay unapproved
+
+Task P1-RAGDEFENDER-5090-OFFICIAL-METADATA-GATE-01. Activity W1-5090-OFFICIAL-METADATA-20261105-01. Owner W1-OD-20261105-5090-ASSET-GATE-07. Status PARTIAL_METADATA_BLOCKED.
+Public license and size metadata were checked. No login, no acceptance click, no download, and no Claim run. Llama shard sizes, Contriever weight license, NQ and MS MARCO dataset licenses, and BEIR unpacked size remain UNKNOWN. Every later batch is NOT_APPROVED. ASR and accuracy remain NOT_MEASURED. Stop here.
+[Report](../paper1/dual_machine/repro5090/W1_5090_OFFICIAL_ASSET_LICENSE_METADATA_GATE_REPORT.md).
+The L0 Oracle result below is unchanged. No D1/D2/D3 read, no paid API, no algorithm edit.
+
 ## Current — 5090官方许可与资产元数据准入已获批准，尚未执行（2026-11-05 JST）
 
 Owner ID `W1-OD-20261105-5090-ASSET-GATE-07`。只授权在`research/paper1-ragdefender-repro-5090`核官方HF、Meta、LMSYS/FastChat、Contriever与BEIR的公开小型元数据/许可、固定revision和必要文件规模，静态核查原Claim1/2/3真实调用链、隐式下载、Tan路径、D/E缓存与WSL宿主盘，并编制逐批模型/语料、最小Claim1单格以及完整三Claim审批包。Owner愿自行尝试申请所需许可，但**5090不得代为登录、提交申请、同意协议、获取token**；仅给Owner官方手动操作指南。

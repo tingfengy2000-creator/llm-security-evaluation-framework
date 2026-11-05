@@ -1,0 +1,26 @@
+{
+  "schema": "final_qa_v1",
+  "status": "PARTIAL_METADATA_BLOCKED",
+  "task_id": "P1-RAGDEFENDER-5090-OFFICIAL-METADATA-GATE-01",
+  "activity_id": "W1-5090-OFFICIAL-METADATA-20261105-01",
+  "owner_id": "W1-OD-20261105-5090-ASSET-GATE-07",
+  "claim1": "NOT_RUN",
+  "claim2": "NOT_RUN",
+  "claim3": "NOT_RUN",
+  "undefended_targeted_asr": "NOT_MEASURED",
+  "ragdefender_targeted_asr": "NOT_MEASURED",
+  "qa_accuracy": "NOT_MEASURED",
+  "new_model_or_beir_downloads": 0,
+  "paid_api_calls": 0,
+  "login_or_license_acceptance": 0,
+  "author_source_modified": false,
+  "fast_track_c_modified": false,
+  "result_layers": {
+    "published": "NOT_MEASURED",
+    "artifact_expected": "AUTHOR_EXPECTED",
+    "future_compatibility_reproduction": "NOT_RUN",
+    "chinese_transfer": "OUT_OF_SCOPE"
+  },
+  "batches_approved_for_execution": [],
+  "auto_continue": false
+}

@@ -1,5 +1,16 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — official asset metadata gate partial, claims not run, 2026-11-05 UTC+8
+
+Owner W1-OD-20261105-5090-ASSET-GATE-07. Task P1-RAGDEFENDER-5090-OFFICIAL-METADATA-GATE-01. Activity W1-5090-OFFICIAL-METADATA-20261105-01. Start SHA 1cb3445d2815815684e839e9f7564656c05dae82.
+Status PARTIAL_METADATA_BLOCKED. No login, no license click, no token, no weight or BEIR body, no claim, no paid API.
+Llama revision f5db02db724555f92da89c216ac04704f23d4590 rechecked, gated manual, usedStorage 53908103645, per-file sizes FAILED. LICENSE.txt HTTP 401. Public Llama 2 license sha256 e30d9339da533205f88140009e32d62c1d73911b8a0bef0d0b252f549ed8e9c4.
+Vicuna 236eeeab96f0dc2e463f2bebb7bb49809279c6d6 non-commercial card, tree sum 13477481966, usedStorage 26954326092. Contriever 2bd46a25019aeea091fd42d1f0fd4801675cf699 card license absent, code LICENSE is CC BY-NC 4.0, weight license UNKNOWN. MiniLM paraphrase-MiniLM-L6-v2 revision c9a2bfebc254878aee8c3aca9e6844d5bbb102d1 apache-2.0. Not all-MiniLM-L6-v2.
+BEIR HEAD content-length nq 498307926, hotpotqa 654025350, msmarco 1082258632. Unpack UNKNOWN. HotpotQA dataset README states CC BY-SA 4.0. NQ and MS MARCO dataset licenses UNKNOWN. BEIR Apache-2.0 does not cover them.
+Claim1 24, Claim2 6, Claim3 6, all NOT_RUN. ASR and accuracy NOT_MEASURED. All download and cell batches NOT_APPROVED.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master evaluated and not updated; owner_decision evaluated and not updated; stage_process evaluated and not updated; lessons evaluated and not updated; research_authority evaluated and not updated; README evaluated and not updated.
+[Report](../../../paper1/dual_machine/repro5090/W1_5090_OFFICIAL_ASSET_LICENSE_METADATA_GATE_REPORT.md).
+
 ## Current — RAGDefender main-result reproduction plan only, 2026-11-04 UTC+8
 
 Supervision W1-OD-20261105-RESOURCE-REPRO-05. Control-plane file f491c0a507e5555e9611c022cfba66980ad8cbca. Fetched and shown only. No new local PODR.

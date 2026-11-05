@@ -19,5 +19,8 @@ No claim command failed, because no claim command was started. The R0 rows are t
 | SMOKE-RUNNER-IMPORT | VERIFIED | The first direct runner imported a truncated name `Evaluato` and failed that one assertion. The library was not edited. A second import printed `Evaluator` and version 0.2.0 |
 | PLAN-TAN-LOG-DIR | VERIFIED | `run_tan.py` creates `logs/main_tan_<seed>` but writes and `eval.py` reads `logs/main_logs_tan_<seed>`. Source was not patched |
 | PLAN-TABLE7-FLAGS | VERIFIED | `reproducing-paper.md` tells the user to pass `--p` and `--m` to `main_abl.py`. That argparse does not define either flag |
+| META-LLAMA-SHARD-SIZE | FAILED | The official per-file tree request failed TLS. Shard bytes stay UNKNOWN. usedStorage 53908103645 stands. No mirror was used |
+| META-CONTRIEVER-WEIGHT-LICENSE | UNKNOWN | The model card has no license field. The code repository LICENSE is CC BY-NC 4.0 and does not by itself license the weights |
+| META-BEIR-UNPACK | UNKNOWN | HEAD returned zip lengths and ETags. Unpacked size was not measured and was not inferred |
 
 No claim retry. No simulated paper data. No paid API. No model download.

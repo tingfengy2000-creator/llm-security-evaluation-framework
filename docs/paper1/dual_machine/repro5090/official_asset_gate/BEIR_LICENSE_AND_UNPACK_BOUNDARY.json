@@ -1,0 +1,62 @@
+{
+  "schema": "beir_license_and_unpack_boundary_v1",
+  "code_license": {
+    "repo": "beir-cellar/beir",
+    "name": "Apache-2.0",
+    "sha256": "d4c454f2506fb94fd17f71498fd66177546a570676cbe85b48a64a9e98596794",
+    "does_not_cover_child_datasets": true,
+    "readme_sha256": "d030c5374d29194e6c23ded13314dc6964b253c137cbcf606765a4222f4bc4e1",
+    "readme_statement": "BEIR says it distributes prepared public datasets in a format and does not claim that the user has a license to use the dataset."
+  },
+  "unpack_bytes": "UNKNOWN",
+  "proposed_hard_stop_not_a_measurement": "Abort a future unpack if extracted bytes exceed 8 times Content-Length, if a path escapes the destination, or if free space on the target drive would fall below 20 GiB.",
+  "datasets": [
+    {
+      "name": "nq",
+      "split_in_claim_script": "test",
+      "zip_url": "https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/nq.zip",
+      "head_status": 200,
+      "content_length": 498307926,
+      "etag": "6075b282-1db39356",
+      "last_modified": "Tue, 13 Apr 2021 15:02:26 GMT",
+      "body_downloaded": false,
+      "origin_repo": "google-research-datasets/natural-questions",
+      "origin_repo_spdx": "Apache-2.0",
+      "dataset_content_license": "UNKNOWN",
+      "reason": "The fetched Natural Questions README does not state a dataset license. The GitHub repository SPDX is Apache-2.0 and does not by itself license the BEIR copy.",
+      "batch_status": "BLOCKED / OWNER_DECISION_REQUIRED"
+    },
+    {
+      "name": "hotpotqa",
+      "split_in_claim_script": "test",
+      "zip_url": "https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/hotpotqa.zip",
+      "head_status": 200,
+      "content_length": 654025350,
+      "etag": "60019b87-26fba286",
+      "last_modified": "Fri, 15 Jan 2021 13:41:27 GMT",
+      "body_downloaded": false,
+      "origin_statement": "HotpotQA README says the dataset is distributed under CC BY-SA 4.0 and the code under Apache-2.0.",
+      "origin_readme_sha256": "2a0a1758bb9a2e52b52e6a6528bbf72d46a5a01e0318cdea0473d0660d555998",
+      "dataset_content_license": "CC BY-SA 4.0 for the HotpotQA dataset, as stated by that README",
+      "owner_acceptance_status": "NOT_ACCEPTED/UNKNOWN",
+      "batch_status": "BLOCKED / OWNER_DECISION_REQUIRED",
+      "note": "Share-alike applies if a derivative dataset is redistributed. This plan does not put the corpus in Git."
+    },
+    {
+      "name": "msmarco",
+      "split_in_claim_script": "train",
+      "zip_url": "https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/msmarco.zip",
+      "head_status": 200,
+      "content_length": 1082258632,
+      "etag": "6074501d-4081f4c8",
+      "last_modified": "Mon, 12 Apr 2021 13:50:21 GMT",
+      "body_downloaded": false,
+      "origin_readme_sha256": "32560b024c58a91855810606db0bc2873ec458540e9ec25d17f8f347d0aaef3e",
+      "dataset_content_license": "UNKNOWN",
+      "reason": "The fetched MSMARCO question-answering README points at the official site and does not state a data license.",
+      "batch_status": "BLOCKED / OWNER_DECISION_REQUIRED"
+    }
+  ],
+  "compressed_sum_bytes": 2234591908,
+  "local_artifacts_datasets_dir": "ABSENT"
+}

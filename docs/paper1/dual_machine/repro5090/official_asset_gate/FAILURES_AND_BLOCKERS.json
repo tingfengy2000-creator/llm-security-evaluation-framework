@@ -1,0 +1,61 @@
+{
+  "schema": "failures_and_blockers_v1",
+  "task_status": "PARTIAL_METADATA_BLOCKED",
+  "items": [
+    {
+      "id": "LLAMA-TREE-TLS",
+      "status": "FAILED",
+      "what": "The per-file tree request for Llama 2 ended with a TLS unexpected EOF. Shard sizes stay UNKNOWN. usedStorage 53908103645 remains the only official total."
+    },
+    {
+      "id": "LLAMA-LICENSE-TXT-401",
+      "status": "VERIFIED",
+      "what": "GET of LICENSE.txt at revision f5db02 returned HTTP 401. No token was sent. The public llama-models copy of the Llama 2 Community License was read instead."
+    },
+    {
+      "id": "BEIR-HEAD-WINDOWS-TLS",
+      "status": "FAILED_THEN_HEAD_ONLY",
+      "what": "Windows Python HEAD failed certificate verification. A later WSL HEAD of the same official URLs returned 200 and Content-Length. No zip body was stored."
+    },
+    {
+      "id": "BEIR-UNPACK",
+      "status": "UNKNOWN",
+      "what": "Unpacked size is not published in the HEAD response. It is not estimated from the compression ratio."
+    },
+    {
+      "id": "NQ-DATASET-LICENSE",
+      "status": "UNKNOWN",
+      "what": "Natural Questions README does not state a dataset license. Repository SPDX Apache-2.0 is not treated as the BEIR subset license."
+    },
+    {
+      "id": "MSMARCO-DATASET-LICENSE",
+      "status": "UNKNOWN",
+      "what": "Fetched MSMARCO README does not state a data license."
+    },
+    {
+      "id": "CONTRIEVER-WEIGHT-LICENSE",
+      "status": "UNKNOWN",
+      "what": "HF card has no license field. Code LICENSE is CC BY-NC 4.0. That does not automatically cover the weight snapshot."
+    },
+    {
+      "id": "VICUNA-STORAGE-GAP",
+      "status": "UNKNOWN",
+      "what": "Tree sum 13477481966 and usedStorage 26954326092 disagree. The larger number is the safe cap until the gap is explained."
+    },
+    {
+      "id": "MINILM-TREE-NOT-RECURSIVE",
+      "status": "UNKNOWN",
+      "what": "onnx, openvino and 1_Pooling directory contents were not sized."
+    },
+    {
+      "id": "TAN-LOG-DIR",
+      "status": "VERIFIED",
+      "what": "run_tan.py creates logs/main_tan_12 and writes logs/main_logs_tan_12. Source was not patched."
+    },
+    {
+      "id": "TABLE7-FLAGS",
+      "status": "VERIFIED",
+      "what": "main_abl.py has no --p or --m flag. The paper page says to pass them."
+    }
+  ]
+}
