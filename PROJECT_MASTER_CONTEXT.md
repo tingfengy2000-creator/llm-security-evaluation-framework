@@ -1,5 +1,19 @@
 # LLMGuard 项目总控文档
 
+## 当前 / CURRENT — Fast C只读统计完成，阶段因果仍未识别（2026-11-05 JST）
+
+W1-5060-FAST-C-20261105-ATTRIB01；PARTIAL_DIAGNOSTIC_UNRESOLVED，W1-OD-20261105-FAST-C-06。
+原P2/PAIR01/评价seals及私有ZIP身份通过，原字节未改；0模型/Guard/检索/LLM调用、0新安全试次/下载/商业API。
+全36/条件29/7MISS和TP/FP/残留复算一致；Poison四格全9/2/1/0，Clean7/4/1/0，HN9/1/1/1。
+72/72保存分数+count能复算原选择；任意同分29/36与33/36，cutoff同分6/36与8/36，不混为因果。
+n_adv变13/36、删除集合变21/36（其中8同count变选择）；候选flip10中4变count、6同count、4两侧均无cutoff tie。
+聚类成员/embeddings/pair-set/逐词TF-IDF均缺，背景GT/HN合法历史时效缺裁决；INSUFFICIENT_TRACE/SOURCE_UNVERIFIED，因果子问题STOP。
+三进程白名单隔离，role-free锁后旧Evaluator对齐；独立未签12卡38原子16源、56引用定位及29文件盲审ZIP准备，Gold0/target UNKNOWN。
+5tests/Ruff/增强MyPy4源码通过；纯JSON复核8文件字节一致，非新模型试次；ASR/QA未测。
+下一Owner Gate：审阅归因边界及独立人工范围/target/C3，必要旧trace须另指明授权路径；不自动补采或重跑。
+禁止B5/B6、付费/下载、D1-40/D2D3/Reviewer/GT/T1/T2/Claim和跨分支操作；本次Git收口后STOP。[Fast C证据与局限](docs/paper1/dual_machine/chinese5060/W1_5060_FAST_C_READONLY_FAILURE_ATTRIBUTION_REPORT.md)。 下方均历史。
+
+
 ## 当前 / CURRENT — Fast B离线B1/B2配对完成（2026-11-05 JST）
 
 W1-5060-FAST-B-20261105-PAIR01；B1_B2_PAIRED_OFFLINE_DEVELOPMENT_COMPLETE，非正式论文实验。

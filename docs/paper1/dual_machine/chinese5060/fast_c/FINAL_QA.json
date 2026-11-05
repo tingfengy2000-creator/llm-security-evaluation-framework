@@ -1,0 +1,21 @@
+{
+  "status": "PASS_PARTIAL_DIAGNOSTIC_UNRESOLVED",
+  "all_old_anchors_and_new_source_and_archive_hashes_verified": true,
+  "three_final_stream_locks_verified": true,
+  "exact_path_access_logs_match_disjoint_allowlists": true,
+  "post_seal_evaluator_order_verified": true,
+  "old_guard_retrieval_runtime_source_unchanged": true,
+  "raw_world_order_and_chunk_index_binding_verified": true,
+  "no_scientific_imports_in_new_analysis_code": true,
+  "new_model_scientific_trials": 0,
+  "new_commercial_API_calls": 0,
+  "new_model_or_data_downloads": 0,
+  "review_zip_29_members_hashes_and_unsigned_blindness_verified": true,
+  "deterministic_recheck": "8_FILES_BYTE_IDENTICAL",
+  "tests": "5_PASS",
+  "Ruff": "PASS",
+  "MyPy": "PASS_4_SOURCE_CHECK_UNTYPED_DEFS",
+  "private_outputs_gitignored": true,
+  "causal_questions": "UNRESOLVED_NOT_INFERRED",
+  "git_delivery": "PENDING"
+}

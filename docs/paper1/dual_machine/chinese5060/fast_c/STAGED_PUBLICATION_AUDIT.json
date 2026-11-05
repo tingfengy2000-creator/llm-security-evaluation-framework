@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "files_checked": 20,
+  "secret_or_user_absolute_path_findings": [],
+  "broken_new_markdown_links": [],
+  "public_raw_row_keys": 0,
+  "git_blob_and_worktree_bytes_equal": true,
+  "raw_models_inputs_or_predictions_staged": false,
+  "staged_files": [
+    {
+      "path": "PROJECT_MASTER_CONTEXT.md",
+      "sha256": "cc818b292feb0e2816cc967a855a021e59bc20b72df808c1155d03d2d691f1ff"
+    },
+    {
+      "path": "docs/governance/current_work_state.md",
+      "sha256": "fdb87ee5c9d682cf05085516666db4ef29a82a4c97575aa00d2d3231eb10ae40"
+    },
+    {
+      "path": "docs/governance/experiment_master_record.md",
+      "sha256": "64e2d647532323b035395e3082f1295efc7df13649e35bb2fa30084011b3fe12"
+    },
+    {
+      "path": "docs/governance/research_execution_log.md",
+      "sha256": "eb1a10317f996417b681ec8f86f8ccc78a6b71fd2c9206409de5835a137f3589"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/README.md",
+      "sha256": "f8aee9766a1fd2df7e58711e8138111c7573f4919bc235f3f986c51abf9d1c36"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/W1_5060_FAST_C_READONLY_FAILURE_ATTRIBUTION_REPORT.md",
+      "sha256": "b53c67ab94da46b9e70e04ab556d34a5201a66fe5ef60ea5950a42f08f8dd315"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/fast_c/ADJUDICATION_HANDOFF_INDEX.json",
+      "sha256": "99f9d89b6f82eebd8db0dca4f0c48fae30207c27eadb6aeb3eb501ca51b8ca6d"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/fast_c/ATTRIBUTION_EVIDENCE_MATRIX.json",
+      "sha256": "a23d3b5cef78043b74f7b7ffc14dc0431bff5f0fb4e75bf71e98f8f7e4f2c876"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/fast_c/DOCUMENTATION_CLOSEOUT.json",
+      "sha256": "d23e93f5351cd36345df736b88679b531ccb64f72c4ce5f6268a1d0f090b0440"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/fast_c/EVIDENCE_CLAIM_INDEX.json",
+      "sha256": "b5e1b086266fae24980df22cab6fdcd707643229675dfb292191be57689cbed0"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/fast_c/FAILURES_AND_LIMITS.json",
+      "sha256": "2867cbfe2254fe117716d13f8121ba073fb084188ef65f3187ae1fb8686d6df2"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/fast_c/FAST_C_ANALYSIS_MANIFEST.json",
+      "sha256": "b2dcfb7327f5eed8905e11b6044345060dbe34ee870b7e4b8de3ad2c87d2b66f"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/fast_c/FINAL_QA.json",
+      "sha256": "d3959b70f102e6cc5aa05425930816c57131a6979bf254e34e6d58e18014410d"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/fast_c/PAIR_FLIP_AGGREGATE.json",
+      "sha256": "43a6e4fcf576f519d8a9f46092399364bfdd47c0581708cb367308357f1f0d73"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/fast_c/READ_ONLY_INPUT_AUDIT.json",
+      "sha256": "672383f9fdc3b96642257f48a28d5e4d1e90d52c68db3672119dbfaef2a9c78f"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/fast_c/STAGE_TRACE_COVERAGE.json",
+      "sha256": "8ddc66ac2f084fa36da3e315d17b594790ea1888c0829f78a81db4d4afc7aee6"
+    },
+    {
+      "path": "docs/paper1/dual_machine/chinese5060/fast_c/TIE_ASSOCIATION_SUMMARY.json",
+      "sha256": "2cb153d6b3f73a92fdfb7b00406bde5f1d21d9667a220e7ba7d348ad2788074d"
+    },
+    {
+      "path": "docs/research/stage6_1_hidden_knowledge_poisoning/agent/experiment_ledger_agentUse.md",
+      "sha256": "8554ba0e0eff344bb06419606992617003e36d69c1c551885d9c3a30899be361"
+    },
+    {
+      "path": "docs/research/stage6_1_hidden_knowledge_poisoning/human/experiment_ledger_tingfeng.md",
+      "sha256": "ebc83876121b75e1143dacd90b8b4a6115d45adeef194c32b5e98353f5bc79bb"
+    },
+    {
+      "path": "docs/research/stage6_1_hidden_knowledge_poisoning/stage_process/W1_5060_FAST_C_work_process.md",
+      "sha256": "ebee12418f82d489b6c6171403d3d4a0143442fce4589d7ccdb1e082a43417e6"
+    }
+  ]
+}

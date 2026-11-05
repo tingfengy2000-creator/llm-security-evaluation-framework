@@ -1,0 +1,245 @@
+{
+  "status": "UNSIGNED_HANDOFF_PREPARED_NOT_REVIEW_COMPLETED",
+  "cards": 12,
+  "atoms": 38,
+  "sources": 16,
+  "citations_offset_verified": 56,
+  "human_gold": 0,
+  "target": "UNKNOWN",
+  "C3": "NEEDS_ADJUDICATION",
+  "source_provenance": "SOURCE_UNVERIFIED_OFFICIAL_URL_CANDIDATES_EXISTING_SNAPSHOT_IDENTITY_VERIFIED_ONLY",
+  "license_evidence": "NO_SEPARATE_LICENSE_STATEMENT_IN_EXISTING_PACKET_NO_EXTERNAL_REVALIDATION_NO_PUBLIC_RAW_REDISTRIBUTION",
+  "card_index": [
+    {
+      "review_id": "REVIEW-01",
+      "sha256": "b64d7f6c000bf499000543841cad18893ef1ae7f993ce66f2cfe422af10ed85a",
+      "atoms": 5,
+      "reviewer_signed": false
+    },
+    {
+      "review_id": "REVIEW-02",
+      "sha256": "e0dcdd27662f2fc8e9a605f25eb198119966d2de0be24912bd0423246f5b6a10",
+      "atoms": 5,
+      "reviewer_signed": false
+    },
+    {
+      "review_id": "REVIEW-03",
+      "sha256": "1a85dc01114cfb1423f72f22e1a6cf1abc165160f7b16db29f1be3295add2069",
+      "atoms": 2,
+      "reviewer_signed": false
+    },
+    {
+      "review_id": "REVIEW-04",
+      "sha256": "7687c5be3a797d15ccf2c060cce76ab5f970f73a97cc82a34310fa8d9b743242",
+      "atoms": 3,
+      "reviewer_signed": false
+    },
+    {
+      "review_id": "REVIEW-05",
+      "sha256": "c719c186923f24c2447c08acbcb0649c37036dabcbce9bc724b3ad4fcf212697",
+      "atoms": 2,
+      "reviewer_signed": false
+    },
+    {
+      "review_id": "REVIEW-06",
+      "sha256": "6d13cfd56f3ac073810ed8ca287cb42dd73c05e2fbe4b92569070da9c34d2342",
+      "atoms": 2,
+      "reviewer_signed": false
+    },
+    {
+      "review_id": "REVIEW-07",
+      "sha256": "4d02593f6a9aaf0b64aa5c05c3e596180226289eb18377fcc2125febe1a139c2",
+      "atoms": 3,
+      "reviewer_signed": false
+    },
+    {
+      "review_id": "REVIEW-08",
+      "sha256": "fccf9be400da8deafac48a22f807c0953349c91d3d14bb10d7886f09b4641c13",
+      "atoms": 4,
+      "reviewer_signed": false
+    },
+    {
+      "review_id": "REVIEW-09",
+      "sha256": "ebb20ac2cfa7e9fff02734a60663a0362b6b8c7260578168c47b0c4a805ab83d",
+      "atoms": 2,
+      "reviewer_signed": false
+    },
+    {
+      "review_id": "REVIEW-10",
+      "sha256": "51d7d5e0643b7439ca96125e91afa3cea2bd4ea1fb9b4170796b9d6f4a996be6",
+      "atoms": 3,
+      "reviewer_signed": false
+    },
+    {
+      "review_id": "REVIEW-11",
+      "sha256": "e68d88dccc53882fd6995c9eefa590669328e6bb29387bb82e445b2fdc8d726f",
+      "atoms": 4,
+      "reviewer_signed": false
+    },
+    {
+      "review_id": "REVIEW-12",
+      "sha256": "6c4af8aeb317c7f63218080d236d3ca02465bfa6424fd3ca37d89292497a7bc0",
+      "atoms": 3,
+      "reviewer_signed": false
+    }
+  ],
+  "checklist_sha256": "c309b5c73ac7e8a677f83d39840fbc48f8b8f49dc853204ed29cbe3f22c3253f",
+  "model_or_retrieval_outputs_read": false,
+  "new_API_calls": 0,
+  "reviewer_zip": {
+    "filename": "INDEPENDENT_UNSIGNED_REVIEW_PACKAGE.zip",
+    "sha256": "2e289f68c8adee54187a4520d116182e20171a3dca3cd05daf3312a98a37f8c7",
+    "bytes": 83739,
+    "contains_experiment_results_or_role_mapping": false,
+    "cards_signed": 0,
+    "sent_to_reviewer": false
+  },
+  "original_card_and_source_files": [
+    {
+      "path": "cards/REVIEW-01.json",
+      "bytes": 4242,
+      "sha256": "b64d7f6c000bf499000543841cad18893ef1ae7f993ce66f2cfe422af10ed85a"
+    },
+    {
+      "path": "cards/REVIEW-02.json",
+      "bytes": 4063,
+      "sha256": "e0dcdd27662f2fc8e9a605f25eb198119966d2de0be24912bd0423246f5b6a10"
+    },
+    {
+      "path": "cards/REVIEW-03.json",
+      "bytes": 2993,
+      "sha256": "1a85dc01114cfb1423f72f22e1a6cf1abc165160f7b16db29f1be3295add2069"
+    },
+    {
+      "path": "cards/REVIEW-04.json",
+      "bytes": 5160,
+      "sha256": "7687c5be3a797d15ccf2c060cce76ab5f970f73a97cc82a34310fa8d9b743242"
+    },
+    {
+      "path": "cards/REVIEW-05.json",
+      "bytes": 3236,
+      "sha256": "c719c186923f24c2447c08acbcb0649c37036dabcbce9bc724b3ad4fcf212697"
+    },
+    {
+      "path": "cards/REVIEW-06.json",
+      "bytes": 3230,
+      "sha256": "6d13cfd56f3ac073810ed8ca287cb42dd73c05e2fbe4b92569070da9c34d2342"
+    },
+    {
+      "path": "cards/REVIEW-07.json",
+      "bytes": 3351,
+      "sha256": "4d02593f6a9aaf0b64aa5c05c3e596180226289eb18377fcc2125febe1a139c2"
+    },
+    {
+      "path": "cards/REVIEW-08.json",
+      "bytes": 4569,
+      "sha256": "fccf9be400da8deafac48a22f807c0953349c91d3d14bb10d7886f09b4641c13"
+    },
+    {
+      "path": "cards/REVIEW-09.json",
+      "bytes": 4699,
+      "sha256": "ebb20ac2cfa7e9fff02734a60663a0362b6b8c7260578168c47b0c4a805ab83d"
+    },
+    {
+      "path": "cards/REVIEW-10.json",
+      "bytes": 4108,
+      "sha256": "51d7d5e0643b7439ca96125e91afa3cea2bd4ea1fb9b4170796b9d6f4a996be6"
+    },
+    {
+      "path": "cards/REVIEW-11.json",
+      "bytes": 6104,
+      "sha256": "e68d88dccc53882fd6995c9eefa590669328e6bb29387bb82e445b2fdc8d726f"
+    },
+    {
+      "path": "cards/REVIEW-12.json",
+      "bytes": 4793,
+      "sha256": "6c4af8aeb317c7f63218080d236d3ca02465bfa6424fd3ca37d89292497a7bc0"
+    },
+    {
+      "path": "official_sources/SOURCE-01.json",
+      "bytes": 2388,
+      "sha256": "29207c231e43a1c7a0e755ff65f37d8bef4032449b21d845f7a0cee080055f61"
+    },
+    {
+      "path": "official_sources/SOURCE-02.json",
+      "bytes": 2984,
+      "sha256": "207c3d447f13de0dbb1317ff79efa98c563fa069421129826955d171ed33f50c"
+    },
+    {
+      "path": "official_sources/SOURCE-03.json",
+      "bytes": 24789,
+      "sha256": "7fe7386f397d9e680bbb301564e12f153a6d99c69d8d77f2d3d2ccdcb5389e50"
+    },
+    {
+      "path": "official_sources/SOURCE-04.json",
+      "bytes": 1839,
+      "sha256": "9d0c41eb38aeaaec662045549e2723fe93497f3921fdf9a9a9f2a93c7bf90fa7"
+    },
+    {
+      "path": "official_sources/SOURCE-05.json",
+      "bytes": 28897,
+      "sha256": "5e317af95af1964eb1102f91658ac58733ba63b63cd841c69cf9df16cacee7c8"
+    },
+    {
+      "path": "official_sources/SOURCE-06.json",
+      "bytes": 1842,
+      "sha256": "ad1d846cda134b2459f074ea38f9eaee8b96519cb4482582e59c193f3c6ccbae"
+    },
+    {
+      "path": "official_sources/SOURCE-07.json",
+      "bytes": 1718,
+      "sha256": "90a8ecb895ab6776cf2d91225557e1593daa49a2651189604dd0d7ab778da186"
+    },
+    {
+      "path": "official_sources/SOURCE-08.json",
+      "bytes": 2160,
+      "sha256": "a1ea3d0d079855721553a77226b1bb100a5ace06fb4adf431446a9d18628bc8b"
+    },
+    {
+      "path": "official_sources/SOURCE-09.json",
+      "bytes": 41385,
+      "sha256": "6faa11aabeebad15fada883fe445fb4779b0439067e44795fb1a6fc1e39f4619"
+    },
+    {
+      "path": "official_sources/SOURCE-10.json",
+      "bytes": 5785,
+      "sha256": "b69721fa72e002eb7513c6b20b4cfe7f796af31056b42769f59c753032f30146"
+    },
+    {
+      "path": "official_sources/SOURCE-11.json",
+      "bytes": 3617,
+      "sha256": "ab11844d18bc8ef06ad4ab9777bb7a91658d8b46c40645853686dd3d00fe5dc6"
+    },
+    {
+      "path": "official_sources/SOURCE-12.json",
+      "bytes": 5828,
+      "sha256": "c4331026cbe81681e85721053d49405d34838c7e10eff63a3ca64757ed5d51a4"
+    },
+    {
+      "path": "official_sources/SOURCE-13.json",
+      "bytes": 7506,
+      "sha256": "1119987eb1ffc9897c27e8022fa18584c96aaf62822fa2da9bc8af6862460348"
+    },
+    {
+      "path": "official_sources/SOURCE-14.json",
+      "bytes": 27471,
+      "sha256": "05df107e666d940658184180c23f1f030df311d8c98142ab2c133a66e50dedc3"
+    },
+    {
+      "path": "official_sources/SOURCE-15.json",
+      "bytes": 11900,
+      "sha256": "4cd6097def44d09f497df841b86003d27ddb1be1b3e8a253509de39407d90c97"
+    },
+    {
+      "path": "official_sources/SOURCE-16.json",
+      "bytes": 10228,
+      "sha256": "87c09bb127b20d21fe4fa47f742ca7bced35f78a24e794ccef8c817f9d01e437"
+    },
+    {
+      "path": "REVIEW_CHECKLIST.md",
+      "bytes": 986,
+      "sha256": "c309b5c73ac7e8a677f83d39840fbc48f8b8f49dc853204ed29cbe3f22c3253f"
+    }
+  ],
+  "source_exposure_note": "Packet author previously exposed; no independent reviewer has yet attested. No results or role map included in reviewer ZIP."
+}

@@ -1,0 +1,96 @@
+[
+  {
+    "id": "E1",
+    "evidence_ref": "experiments/paper1_chinese5060/W1-5060-FAST-C-20261105-ATTRIB01/evaluation/PAIR_FLIP_AGGREGATE.json",
+    "sha256": "43a6e4fcf576f519d8a9f46092399364bfdd47c0581708cb367308357f1f0d73",
+    "field": "full; conditional; misses; remaining_candidate_chunks",
+    "basis": "LOCAL_PRIVATE_EVIDENCE_VERIFIED",
+    "confidence": "EXACT_IDENTITY_AND_DETERMINISTIC_COUNTS",
+    "claim": "All cohort/conditional denominators, any/all, residuals and paired flips independently recomputed."
+  },
+  {
+    "id": "E2",
+    "evidence_ref": "experiments/paper1_chinese5060/W1-5060-FAST-C-20261105-ATTRIB01/role_free/ROLE_FREE_SUMMARY.json",
+    "sha256": "192fa858b532214d885535542f5b386aa3e7b8d8f2a5fbfcf33e0c632134edd5",
+    "field": "trace_coverage; tie_counts; n_adv_changed; removed_indices_changed",
+    "basis": "LOCAL_PRIVATE_EVIDENCE_VERIFIED",
+    "confidence": "EXACT_IDENTITY_AND_DETERMINISTIC_COUNTS",
+    "claim": "72 saved score/count selections reproduced; partial trace coverage and 13 count changes/21 selection changes."
+  },
+  {
+    "id": "E3",
+    "evidence_ref": "experiments/paper1_chinese5060/W1-5060-FAST-C-20261105-ATTRIB01/evaluation/ATTRIBUTION_EVIDENCE_MATRIX.json",
+    "sha256": "a23d3b5cef78043b74f7b7ffc14dc0431bff5f0fb4e75bf71e98f8f7e4f2c876",
+    "field": "observed_error_rule_categories; candidate_flip_stage_association",
+    "basis": "LOCAL_PRIVATE_EVIDENCE_VERIFIED",
+    "confidence": "EXACT_IDENTITY_AND_DETERMINISTIC_COUNTS",
+    "claim": "10 candidate flips; 4 with changed counts, 6 same count; error decisions and boundary ties associated, not causal."
+  },
+  {
+    "id": "E4",
+    "evidence_ref": "experiments/paper1_chinese5060/W1-5060-FAST-C-20261105-ATTRIB01/evaluation/TIE_ASSOCIATION_SUMMARY.json",
+    "sha256": "2cb153d6b3f73a92fdfb7b00406bde5f1d21d9667a220e7ba7d348ad2788074d",
+    "field": "cross_table; candidate_flip_contexts",
+    "basis": "LOCAL_PRIVATE_EVIDENCE_VERIFIED",
+    "confidence": "EXACT_IDENTITY_AND_DETERMINISTIC_COUNTS",
+    "claim": "Any-score ties and cutoff ties are distinct, no counterfactual causal claim."
+  },
+  {
+    "id": "E5",
+    "evidence_ref": "experiments/paper1_chinese5060/W1-5060-FAST-C-20261105-ATTRIB01/handoff/ADJUDICATION_HANDOFF_INDEX.json",
+    "sha256": "62188f3ba0177137b656254a8e15e19fa375056d1658bb4f7ce23c686bea4939",
+    "field": "citations_offset_verified; human_gold; source_provenance",
+    "basis": "LOCAL_PRIVATE_EVIDENCE_VERIFIED",
+    "confidence": "EXACT_IDENTITY_AND_DETERMINISTIC_COUNTS",
+    "claim": "12 unsigned cards,38 atoms,16 source identities and56 citation offsets verified; no independent provenance/Gold acceptance."
+  },
+  {
+    "id": "E6",
+    "evidence_ref": "docs/paper1/dual_machine/chinese5060/fast_b/pair01/MODEL_AND_DIAGNOSTIC_OBSERVATIONS.json",
+    "sha256": "043cf7fa1587fe916713449b6d3e1da7b34a724e1b9de856524ed533b26b9b2a",
+    "field": "B1/B2.modules; max_seq_length; inputs_over_model_max_length",
+    "basis": "GIT_SOURCE",
+    "confidence": "COMMITTED_PRIOR_OBSERVATION_NOT_INDEPENDENTLY_RECOUNTED",
+    "claim": "Model packages differ in Normalize and max length; prior committed observation says no actual overlength inputs; not newly inferred."
+  },
+  {
+    "id": "S1",
+    "evidence_ref": "ragdefender/defender.py",
+    "sha256": "ebafa3c44020a8f11efd273f24672ca1ae7842f48725be84e7b30c9f4c61f554",
+    "field": "RAGDefender.defend",
+    "basis": "GIT_SOURCE",
+    "git_commit": "ba2a17efba165d45409114df2d70b030ade1e1b8",
+    "confidence": "STATIC_SOURCE_ONLY",
+    "claim": "query unused by detectors; shared embeddings across stages"
+  },
+  {
+    "id": "S2",
+    "evidence_ref": "ragdefender/grouping/clustering.py",
+    "sha256": "2daadad505f95f682cd311d03b2119201fcf8dbca30e9948b1bdf968c95d1658",
+    "field": "ClusteringBasedGrouping.estimate_n_adv/_n_tfidf",
+    "basis": "GIT_SOURCE",
+    "git_commit": "ba2a17efba165d45409114df2d70b030ade1e1b8",
+    "confidence": "STATIC_SOURCE_ONLY",
+    "claim": "clustering-derived count and English TF-IDF vote"
+  },
+  {
+    "id": "S3",
+    "evidence_ref": "ragdefender/identification/topk.py",
+    "sha256": "b537b82ff91510f690c68e89d9a7535dceaa0a102d6aaf0f826fb111c5601b72",
+    "field": "IdentifyAdversarial.select",
+    "basis": "GIT_SOURCE",
+    "git_commit": "ba2a17efba165d45409114df2d70b030ade1e1b8",
+    "confidence": "STATIC_SOURCE_ONLY",
+    "claim": "rank by frequency descending and lower index on equal score"
+  },
+  {
+    "id": "S4",
+    "evidence_ref": "ragdefender/similarity.py",
+    "sha256": "978ea4418bfffb5096ee0d5efe093fd46b3c5fd025c54d2ba7fb64c1db0c09d2",
+    "field": "top_similar_pairs/n_pairs_for",
+    "basis": "GIT_SOURCE",
+    "git_commit": "ba2a17efba165d45409114df2d70b030ade1e1b8",
+    "confidence": "STATIC_SOURCE_ONLY",
+    "claim": "pair set depends on n_adv and embeddings; raw pair set absent in old trace"
+  }
+]

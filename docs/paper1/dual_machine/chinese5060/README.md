@@ -1,5 +1,8 @@
 # 5060 中文RAG工作线
 
+当前Fast C：只读归因统计/独立盲审交接已完成，根因仍PARTIAL_DIAGNOSTIC_UNRESOLVED。[报告](W1_5060_FAST_C_READONLY_FAILURE_ATTRIBUTION_REPORT.md)，本轮不重跑模型；下方历史。
+
+
 当前Fast B实际完成：B1/B2各36世界离线过滤及独立计数。见[Pair01实测](W1_5060_FAST_B_PAIR01_RESULT.md)，ASR/QA未测；以下为历史导航。
 
 

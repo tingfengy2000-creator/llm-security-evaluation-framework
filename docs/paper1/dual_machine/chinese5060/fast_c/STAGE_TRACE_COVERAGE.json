@@ -1,0 +1,80 @@
+{
+  "status": "PARTIAL_TRACE_NO_NEW_MODEL_CALLS",
+  "worlds_per_method": 36,
+  "coverage": {
+    "B1": {
+      "cluster_assignments": 0,
+      "embeddings": 0,
+      "top_similar_pairs": 0,
+      "per_term_tfidf_weights": 0,
+      "frequency_scores": 36,
+      "n_adv": 36,
+      "n_tfidf": 36,
+      "removed_indices": 36
+    },
+    "B2": {
+      "cluster_assignments": 0,
+      "embeddings": 0,
+      "top_similar_pairs": 0,
+      "per_term_tfidf_weights": 0,
+      "frequency_scores": 36,
+      "n_adv": 36,
+      "n_tfidf": 36,
+      "removed_indices": 36
+    }
+  },
+  "role_free_summary": {
+    "worlds": 36,
+    "role_free": true,
+    "tie_counts": {
+      "B1": {
+        "any_score_tie": 29,
+        "boundary_tie": 6,
+        "saved_selection_recomputed": 36
+      },
+      "B2": {
+        "any_score_tie": 33,
+        "boundary_tie": 8,
+        "saved_selection_recomputed": 36
+      }
+    },
+    "n_adv_changed": 13,
+    "n_tfidf_changed": 0,
+    "removed_indices_changed": 21,
+    "stage1_and_selection_change_table": {
+      "00": 15,
+      "11": 13,
+      "01": 8
+    },
+    "model_inference_calls": 0,
+    "new_API_calls": 0
+  },
+  "missing_fields_are_not_zero_values": true,
+  "static_source_map": [
+    {
+      "path": "ragdefender/defender.py",
+      "git_commit": "ba2a17efba165d45409114df2d70b030ade1e1b8",
+      "sha256": "ebafa3c44020a8f11efd273f24672ca1ae7842f48725be84e7b30c9f4c61f554",
+      "provenance": "GIT_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "ragdefender/grouping/clustering.py",
+      "git_commit": "ba2a17efba165d45409114df2d70b030ade1e1b8",
+      "sha256": "2daadad505f95f682cd311d03b2119201fcf8dbca30e9948b1bdf968c95d1658",
+      "provenance": "GIT_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "ragdefender/identification/topk.py",
+      "git_commit": "ba2a17efba165d45409114df2d70b030ade1e1b8",
+      "sha256": "b537b82ff91510f690c68e89d9a7535dceaa0a102d6aaf0f826fb111c5601b72",
+      "provenance": "GIT_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "ragdefender/similarity.py",
+      "git_commit": "ba2a17efba165d45409114df2d70b030ade1e1b8",
+      "sha256": "978ea4418bfffb5096ee0d5efe093fd46b3c5fd025c54d2ba7fb64c1db0c09d2",
+      "provenance": "GIT_SOURCE_NOT_EXECUTED"
+    }
+  ],
+  "scope": "Final score/count/selection reproducible; embeddings, clustering membership, pair construction and TFIDF term weights not identifiable."
+}

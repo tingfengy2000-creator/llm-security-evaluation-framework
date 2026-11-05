@@ -1,5 +1,19 @@
 # Current Work State
 
+## 当前 / CURRENT — Fast C只读统计完成，阶段因果仍未识别（2026-11-05 JST）
+
+W1-5060-FAST-C-20261105-ATTRIB01；PARTIAL_DIAGNOSTIC_UNRESOLVED，W1-OD-20261105-FAST-C-06。
+原P2/PAIR01/评价seals及私有ZIP身份通过，原字节未改；0模型/Guard/检索/LLM调用、0新安全试次/下载/商业API。
+全36/条件29/7MISS和TP/FP/残留复算一致；Poison四格全9/2/1/0，Clean7/4/1/0，HN9/1/1/1。
+72/72保存分数+count能复算原选择；任意同分29/36与33/36，cutoff同分6/36与8/36，不混为因果。
+n_adv变13/36、删除集合变21/36（其中8同count变选择）；候选flip10中4变count、6同count、4两侧均无cutoff tie。
+聚类成员/embeddings/pair-set/逐词TF-IDF均缺，背景GT/HN合法历史时效缺裁决；INSUFFICIENT_TRACE/SOURCE_UNVERIFIED，因果子问题STOP。
+三进程白名单隔离，role-free锁后旧Evaluator对齐；独立未签12卡38原子16源、56引用定位及29文件盲审ZIP准备，Gold0/target UNKNOWN。
+5tests/Ruff/增强MyPy4源码通过；纯JSON复核8文件字节一致，非新模型试次；ASR/QA未测。
+下一Owner Gate：审阅归因边界及独立人工范围/target/C3，必要旧trace须另指明授权路径；不自动补采或重跑。
+禁止B5/B6、付费/下载、D1-40/D2D3/Reviewer/GT/T1/T2/Claim和跨分支操作；本次Git收口后STOP。[Fast C证据与局限](../paper1/dual_machine/chinese5060/W1_5060_FAST_C_READONLY_FAILURE_ATTRIBUTION_REPORT.md)。 下方均历史。
+
+
 ## 当前 / CURRENT — Fast-Track C已获批、等待5060只读归因执行（2026-11-05 JST）
 
 Owner授权`W1-OD-20261105-FAST-C-06`：仅对已封存P2/PAIR01作只读失败归因及已有12题独立盲审交接整理。可验证原seal后用无副作用统计复算配对翻转、Stage1/Stage2旧trace和频率同分、Clean/HN误删及Poison漏报；Role-Free Analyst只读旧输出不看标签，Post-Seal Evaluator才可读获准D1开发标签，盲审交接不得读预测和角色。禁止所有科学试次重跑、改模型/参数/阈值/索引/样本、下载/商业API、B3/B4/B5/B6、D1-40、D2/D3/Reviewer/GT、T1/T2、5090 Claim、主线/跨分支合并。

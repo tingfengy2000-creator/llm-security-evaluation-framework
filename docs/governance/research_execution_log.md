@@ -3197,3 +3197,17 @@ Owner人工官方直连取得固定模型，Git/LFS/hash核验通过；新模型
 Owner在2026-11-05 JST批准`W1-OD-20261105-FAST-C-06`。5060原分支保留此前Fast-B正式配对开发结果：P2/T0 TopK seal 4e11d89cb6f03291c124aab28f7181622b6766cc63d55be45126023147988c52、PAIR01输出seal bb775ead3d330f5e83516f8dfa871a3e2581c305e5ae7baf104500f781ac79fb、独立评价seal 0027a03c490f80d98327fbdd8f787830affde3bcfbf9e6c02bd805bf260c79a1，历史完整保留。
 已批准的下一步仅为确定性只读分析封存输出、独立后封存Evaluator按批准D1标签计数、配对/Stage1 Stage2/同分归因及独立盲审交接包整理；不重跑检索或RAGDefender，不能改参数/模型/数据，不付费、不读取D2/D3或GT Vault，不开发B5/B6、不启动5090 Claim。独立人工Gold仍0，目标、C3需裁决。新授权的登记和合同写入Git仅证明工作许可，不代表执行或产生新指标。
 授权文件 `docs/paper1/dual_machine/owner_approvals/W1_FAST_TRACK_C_OWNER_AUTHORIZATION_20261105.md`；可执行合同 `docs/paper1/dual_machine/chinese5060/W1_5060_FAST_TRACK_C_READONLY_EXECUTION_PROMPT_V1.md`。执行完成须归档失败、证据哈希、PO-MHEP及文档closeout，只推5060分支并STOP。
+
+
+## REL-W1-5060-FAST-C-ATTRIB01 — 只读统计与独立交接、因果缺口保留
+
+W1-5060-FAST-C-20261105-ATTRIB01；PARTIAL_DIAGNOSTIC_UNRESOLVED，W1-OD-20261105-FAST-C-06。
+原P2/PAIR01/评价seals及私有ZIP身份通过，原字节未改；0模型/Guard/检索/LLM调用、0新安全试次/下载/商业API。
+全36/条件29/7MISS和TP/FP/残留复算一致；Poison四格全9/2/1/0，Clean7/4/1/0，HN9/1/1/1。
+72/72保存分数+count能复算原选择；任意同分29/36与33/36，cutoff同分6/36与8/36，不混为因果。
+n_adv变13/36、删除集合变21/36（其中8同count变选择）；候选flip10中4变count、6同count、4两侧均无cutoff tie。
+聚类成员/embeddings/pair-set/逐词TF-IDF均缺，背景GT/HN合法历史时效缺裁决；INSUFFICIENT_TRACE/SOURCE_UNVERIFIED，因果子问题STOP。
+三进程白名单隔离，role-free锁后旧Evaluator对齐；独立未签12卡38原子16源、56引用定位及29文件盲审ZIP准备，Gold0/target UNKNOWN。
+5tests/Ruff/增强MyPy4源码通过；纯JSON复核8文件字节一致，非新模型试次；ASR/QA未测。
+下一Owner Gate：审阅归因边界及独立人工范围/target/C3，必要旧trace须另指明授权路径；不自动补采或重跑。
+禁止B5/B6、付费/下载、D1-40/D2D3/Reviewer/GT/T1/T2/Claim和跨分支操作；本次Git收口后STOP。[Fast C报告](../paper1/dual_machine/chinese5060/W1_5060_FAST_C_READONLY_FAILURE_ATTRIBUTION_REPORT.md)。 下方均历史。

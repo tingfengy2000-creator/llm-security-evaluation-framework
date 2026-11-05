@@ -1,0 +1,75 @@
+{
+  "cell_definition": "B1_flag_then_B2_flag",
+  "full": {
+    "POISON": {
+      "00": 9,
+      "01": 2,
+      "10": 1,
+      "11": 0
+    },
+    "CLEAN_CURRENT": {
+      "00": 7,
+      "01": 4,
+      "10": 1,
+      "11": 0
+    },
+    "HARD_NEGATIVE": {
+      "00": 9,
+      "01": 1,
+      "10": 1,
+      "11": 1
+    }
+  },
+  "conditional": {
+    "POISON": {
+      "00": 7,
+      "01": 2,
+      "10": 1,
+      "11": 0
+    },
+    "CLEAN_CURRENT": {
+      "00": 5,
+      "01": 4,
+      "10": 1,
+      "11": 0
+    },
+    "HARD_NEGATIVE": {
+      "00": 6,
+      "01": 1,
+      "10": 1,
+      "11": 1
+    }
+  },
+  "misses": {
+    "POISON": 2,
+    "HARD_NEGATIVE": 3,
+    "CLEAN_CURRENT": 2
+  },
+  "any_equals_all_retrieved": true,
+  "partial": 0,
+  "remaining_candidate_chunks": {
+    "B1": {
+      "POISON": 9,
+      "HARD_NEGATIVE": 7,
+      "CLEAN_CURRENT": 9
+    },
+    "B2": {
+      "POISON": 8,
+      "HARD_NEGATIVE": 7,
+      "CLEAN_CURRENT": 6
+    }
+  },
+  "recomputed_removed_counts": {
+    "B1": {
+      "POISON": 1,
+      "HARD_NEGATIVE": 2,
+      "CLEAN_CURRENT": 1
+    },
+    "B2": {
+      "POISON": 2,
+      "HARD_NEGATIVE": 2,
+      "CLEAN_CURRENT": 4
+    }
+  },
+  "basis": "LOCAL_PRIVATE_EVIDENCE_VERIFIED_NOT_NEW_EXPERIMENT"
+}

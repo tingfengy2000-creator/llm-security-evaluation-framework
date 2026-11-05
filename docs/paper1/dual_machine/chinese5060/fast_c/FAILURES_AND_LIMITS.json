@@ -1,0 +1,33 @@
+{
+  "status": "PARTIAL_DIAGNOSTIC_UNRESOLVED",
+  "new_scientific_trials": 0,
+  "model_calls": 0,
+  "new_API_calls": 0,
+  "new_download_bytes": 0,
+  "unresolved": [
+    "Cluster assignments/centroids or equivalent grouping membership not recorded",
+    "Embeddings and Stage2 most-similar pair identities/weights not recorded",
+    "Per-term TF-IDF weights/top terms not recorded",
+    "Correct Stage1 adversarial count unknown because background GT absent",
+    "HN legitimate historical/expiry/time-condition/text-consistency subtype not independently adjudicated",
+    "Source provenance and separate redistribution/license statements not independently revalidated",
+    "Gold/target/C3 absent"
+  ],
+  "not_inferred": [
+    "Any tie caused an error",
+    "A tie-free algorithm would avoid a false deletion",
+    "Chinese language alone caused B1/B2 differences",
+    "Candidate text proves intent or target",
+    "Background deletion count is background FPR",
+    "36 worlds are 36 independent queries"
+  ],
+  "QA_events": [
+    "Initial MyPy normal check passed; stronger check-untyped-defs found five missing Counter annotations. Original script preserved; only annotations changed; stricter check passed and eight deterministic output files matched byte-for-byte after recheck."
+  ],
+  "sensitive_rows_public": false,
+  "HumanGold": 0,
+  "targeted_ASR": "NOT_MEASURED",
+  "AnswerAccuracy": "NOT_MEASURED",
+  "causal_completion_branch": "HUMAN_DECISION_REQUIRED",
+  "Auto_Continue": false
+}

@@ -1,0 +1,58 @@
+{
+  "status": "LOCAL_PRIVATE_EVIDENCE_VERIFIED",
+  "observed_error_rule_categories": {
+    "B1|POISON|present=0|error=0|rule=RETRIEVAL_MISS_NOT_FILTER_DECISION": 2,
+    "B2|POISON|present=0|error=0|rule=RETRIEVAL_MISS_NOT_FILTER_DECISION": 2,
+    "B1|POISON|present=1|error=1|rule=SAVED_SCORE_RETAINED": 9,
+    "ERROR_TOTAL:B1": 12,
+    "B2|POISON|present=1|error=1|rule=SAVED_SCORE_RETAINED": 8,
+    "ERROR_TOTAL:B2": 14,
+    "B2|POISON|present=1|error=0|rule=CUTOFF_TIE_SELECTED": 1,
+    "B1|HARD_NEGATIVE|present=0|error=0|rule=RETRIEVAL_MISS_NOT_FILTER_DECISION": 3,
+    "B2|HARD_NEGATIVE|present=0|error=0|rule=RETRIEVAL_MISS_NOT_FILTER_DECISION": 3,
+    "B1|CLEAN_CURRENT|present=1|error=0|rule=SAVED_SCORE_RETAINED": 9,
+    "B2|CLEAN_CURRENT|present=1|error=0|rule=SAVED_SCORE_RETAINED": 6,
+    "B1|HARD_NEGATIVE|present=1|error=0|rule=SAVED_SCORE_RETAINED": 7,
+    "B2|HARD_NEGATIVE|present=1|error=1|rule=SAVED_SCORE_SELECTED": 2,
+    "B2|HARD_NEGATIVE|present=1|error=0|rule=SAVED_SCORE_RETAINED": 7,
+    "B2|CLEAN_CURRENT|present=1|error=1|rule=SAVED_SCORE_SELECTED": 3,
+    "B1|CLEAN_CURRENT|present=1|error=1|rule=SAVED_SCORE_SELECTED": 1,
+    "B2|CLEAN_CURRENT|present=1|error=1|rule=CUTOFF_TIE_SELECTED": 1,
+    "ERROR_CANDIDATE_BOUNDARY_TIE:B2": 1,
+    "B1|HARD_NEGATIVE|present=1|error=1|rule=SAVED_SCORE_SELECTED": 1,
+    "B1|CLEAN_CURRENT|present=0|error=0|rule=RETRIEVAL_MISS_NOT_FILTER_DECISION": 2,
+    "B2|CLEAN_CURRENT|present=0|error=0|rule=RETRIEVAL_MISS_NOT_FILTER_DECISION": 2,
+    "B2|POISON|present=1|error=0|rule=SAVED_SCORE_SELECTED": 1,
+    "B1|POISON|present=1|error=0|rule=SAVED_SCORE_SELECTED": 1,
+    "B1|HARD_NEGATIVE|present=1|error=1|rule=CUTOFF_TIE_SELECTED": 1,
+    "ERROR_CANDIDATE_BOUNDARY_TIE:B1": 1
+  },
+  "candidate_flip_stage_association": {
+    "candidate_flips_total": 10,
+    "n_adv_changed": 4,
+    "n_adv_same": 6,
+    "either_boundary_tie": 6,
+    "neither_boundary_tie": 4
+  },
+  "scope": "CONDITIONAL_29_FOR_ERRORS_ALL_36_FOR_PAIRED_IDENTITY_NO_NEW_MODEL_CALLS",
+  "evidence_refs": [
+    {
+      "path": "role_free/ROLE_FREE_FEATURES_PRIVATE.json",
+      "sha256": "603c6b49efa8764000b5c49ac0b87b64ddd10771620786ede8115edf11e18d9e",
+      "field": "n_adv_changed; B1/B2.boundary_tie",
+      "confidence": "DIRECT_DETERMINISTIC_STATISTIC"
+    },
+    {
+      "path": "evaluation/EVALUATOR_CASES_PRIVATE.json",
+      "sha256": "0951ae64d4ad4bad9337e0741c1c53091c0e1172e4d5691a6b0bb50ddba3a06d",
+      "field": "role; candidate_indices; candidate_flag; observed_rule_category",
+      "confidence": "POST_SEAL_APPROVED_D1_DEVELOPMENT_LABEL_JOIN"
+    }
+  ],
+  "inferences_not_claimed": [
+    "Stage1 count incorrectness",
+    "Semantic source/expiry correctness",
+    "Changing tie rule would improve safety",
+    "Chinese language alone caused the flip"
+  ]
+}
