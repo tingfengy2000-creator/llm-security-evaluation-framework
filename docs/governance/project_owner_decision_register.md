@@ -1,5 +1,13 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261105-5060-PILOT12-CONDITIONAL-LIVE-10 — Owner批准固定D1 Pilot12有条件真实执行：首3格通过后继续最多105格（2026-11-05 JST）
+
+`OWNER_EXPLICIT_CONDITIONAL_LIVE_AUTHORIZATION / PRE_ADMISSION_BLOCKED`。Owner明确只在5060 `research/paper1-chinese-defense-5060` 分支准许实现、审查百炼真实Transport及固定36世界G0/G1/G2=108个请求的**一次性**受限真实Pilot；本轮批准覆盖原冻结序列前3个工程校验请求，以及3个全部满足HTTP/模型/用量/JSON/费用/证据封存审计后的剩余最多105个；3个必须计入原108，不得额外探测、Judge、重复请求或随结果调整样本。任何硬门未通过：`LIVE_GATE_BLOCKED_NO_REQUESTS`、真实调用0；首个故障立即停止、保持108槽状态/已发送未结算费用预留、不重试也不启动新批。此决议不代表真实Run已完成。
+冻结资料：前一离线Runner最终HEAD`ce90a34348dff093e132e6f9823ad9b84e4f67d9`、方案SHA`0aaf4cfb28dc1e7d9fea8fcdc8f7143afd56857fa300f8b6e3f8f9d0ff081cb6`、108输入SHA`7db82812f893fc0384b2896c98bb5c779504e19a5c45a097945962e840999c96`、system SHA`b3c74613bc3700eacdce7dfedc382043013f452e321a13d8639b27817edbd1f1`。固定百炼`qwen3.7-plus-2026-05-26`、温度0、输出256、原Prompt/TopK/三臂和36世界；不得改动模型/参数或调用别的模型。百炼官方说`max_tokens`将弃用，`max_completion_tokens`含thinking输出并可能偏差10：这不等价于对原`max_tokens=256`的认证上界；要改字段必须停报Owner，不可静默切换。
+前置独立机器证据门ABCDE：原SHA/角色标签与答案隔离+D1实际允许外传范围；单host/region受审TLS单发HTTP和本模型API wire/输出计费上界；全108条经同模型Tokenizer或可验证严格保守上界证明输入<=4096，不能用旧UTF8+512代理数替代；全工作线已结算+待结算+整批费用预留<USD28且余额覆盖，>=USD25警戒、USD30总硬限（Owner已核账号/费率/余额但机器账本数字仍需绑定）；最终源码/运行manifest SHA+独立checker/回归检查PASS并锁定D/E储存/C盘受控零新增。无任何探测或实际请求用于关闭执行前的未知门。首3格如果答案本身有错不得作为调参/选样依据；工程成功才继续。
+保留D1临时AI参考`HumanGold=0`、目标/C3未知、TargetedASR与正式QA`NOT_MEASURED`；所有生成输出封存后才能由隔离Evaluator评估暂定一致性。禁止新B5/B6、D1-40、D2/D3/Reviewer/GT、5090 Claim、额外商业API试次和跨机/主线合并。
+[正式Owner十二字段条件授权](../paper1/dual_machine/owner_approvals/W1_5060_PILOT12_CONDITIONAL_LIVE_RUN_AUTHORIZATION_20261105.md)；[5060完整3+105执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_PILOT12_CONDITIONAL_LIVE_3PLUS105_EXECUTION_PROMPT_V1.md)。此项跨机引用本OwnerID、Branch、完整SHA，不借用PODR-154。满足所有硬门后本条件许可允许单次最多108请求；不满足则合法完成阻断报告与STOP，无自动续期。
+
 ## W1-OD-20261105-5060-RUNNER-PREFLIGHT-09 — Owner批准5060最小RAG Pilot Runner实现及离线准入测试（2026-11-05 JST）
 
 Owner已明确“百炼账户的模型、地域、实际费率与剩余额度我已经核实过了，不用太担心费用问题，你的方案我批准”。该确认被记录为`OWNER_ATTESTED`（Owner自己核实），不杜撰具体费率、余额或自动视为整批预算数字通过。按此前“两次审批门”要求，本轮**允许**5060在独立分支实现`API Runner`、固定12事实组/36世界/108格（G0/G1/G2）的Role-Free输入编排、独立Transport、strict dry-run FakeTransport模拟、离线Token计算入口、统一账本/成本/超限熔断、失败封存/原108格留分母、静态QA及未来真实执行Owner申请包；不得借机改任何原P2/PAIR01/FastC/答案/样本/过滤/embedding。
