@@ -1,0 +1,202 @@
+{
+  "status": "EVIDENCE_RECOVERY_PARTIAL_BLOCKED",
+  "authority": "W1-OD-20261105-5060-FAST-UNBLOCK-11",
+  "control_commit": "f0036bdb6877aca9946e9d048e9d7aa285ef515b",
+  "frozen_runner_commit": "43be925d57ef6fbe9cbb27d22c7f1495373c6204",
+  "inputs_sha256": {
+    "p2_seal": "4e11d89cb6f03291c124aab28f7181622b6766cc63d55be45126023147988c52",
+    "pair01_seal": "bb775ead3d330f5e83516f8dfa871a3e2581c305e5ae7baf104500f781ac79fb",
+    "role_free_source_bundle": "ad38ee7ca018f89e801f70a6e985b1f4194b940badeef92accd9305f7462d458",
+    "signed_D1_manifest": "a7e05d2ebedbc68abc21fff46a0ad1597747712020957ac30cf1445353714a60",
+    "signed_D1_f5": "c849260e2a41fa9186e6d69ed6442cbebdaa7ff272beece9dfadc22e61cf535c",
+    "original_candidate_only": "6be97906cb9de7587491e84e4c13131a22f93e07b87336772c913534dc7e79e2",
+    "historical_beijing_config": "c5cc22414245107ff9d321a0290952e3e3fe478146e02c8cb5099aa9f7f05239",
+    "historical_cost_evidence_index": "2f13585b98cab5343e451470fb606a84449d17d8f4c867c7eeac04deb1d605f9",
+    "v1_proposal": "0aaf4cfb28dc1e7d9fea8fcdc8f7143afd56857fa300f8b6e3f8f9d0ff081cb6",
+    "v2_proposal": "e5bd219b7812b8ef97ef916226ac221e177f227808cd0dbc0bbe280920d1b70e",
+    "v2_wire_plan": "0920add3e5b5383a9b685207cabeb539bb3d414ee1db30c6f7a313d37469bbcc",
+    "v2_wire_grid": "78708759e0965e816d9d5b7aaa0bca92d2a6b92562930cd028dc87875d09468c"
+  },
+  "private_recovery_outputs_sha256": {
+    "SOURCE_ORIGIN_RECONCILIATION_PRIVATE.json": "21db4e4feebf39df6410ae4b2954542b5c2e30d3bf176f9b8c8e105122e05a26",
+    "ACCOUNT_AND_LEDGER_RECOVERY_PRIVATE.json": "63511193ce83635db8a53fb3b5d98361db793969de4aed29a8217a206f57c9b1",
+    "ENDPOINT_PRIVATE.json": "3e84064dbfdcbb13e4d3d5213c3d85158898073bc01e8b41b8067370ddb31882",
+    "TOKEN_RECOVERY_PRIVATE.json": "9607427327265e14d8d6d5ffcc7687d6947c2f539b420144271529191737ccae",
+    "RECOVERY_SUMMARY.json": "427b1a1397716cd94664f96f9b5685e4fa59a56ceb1fc4b395536edf75c4795c",
+    "PINNED_READS_PRIVATE.json": "735707864d729941c7abdf330fe7a9ba4db060e524869d65c69c6c4754582af6"
+  },
+  "private_archive": {
+    "name": "W1-5060-EVIDENCE-RECOVERY-20261105-01.zip",
+    "sha256": "37934121700ea2d7da422746a2f35755aead281ab4cc9fd9397719b5ccfe6dcc",
+    "members": 18,
+    "bytes": 83827,
+    "index_sha256": "fdb763551f5e51ebdaccc200431ca968c88594be9221b8c2b4acb7153cb2f127",
+    "verification": "CRC_AND_SHA_PASS"
+  },
+  "summary": {
+    "categories": {
+      "OFFICIAL_EXPLANATORY_OR_OTHER_WEB": 2,
+      "OFFICIAL_LEGAL_NORM_TEXT": 15,
+      "UNKNOWN_OR_RESTRICTED": 29
+    },
+    "cells": 108,
+    "chunk_occurrences": 381,
+    "current_endpoint_scope_bound": false,
+    "heuristic_above": 84,
+    "heuristic_max": 5912,
+    "historic_background_exact_f5_snapshot_overlap": 17,
+    "historical_endpoint_recovered": true,
+    "history_input": 2984761,
+    "history_output": 205288,
+    "history_pending_events": 0,
+    "history_receipts": 361,
+    "max_bytes": 2444,
+    "old_snapshot": 17,
+    "read_count": 812,
+    "recovered_29": 29,
+    "source_identities": 46,
+    "status": "EVIDENCE_RECOVERY_PARTIAL_BLOCKED",
+    "strict_proven": 0,
+    "sum_bytes": 199427,
+    "unknown_document_identity": 0,
+    "v2_grid_sha256": "78708759e0965e816d9d5b7aaa0bca92d2a6b92562930cd028dc87875d09468c",
+    "v2_preserved": true,
+    "zero_provider_calls": true
+  },
+  "commands": [
+    {
+      "name": "recovery_recheck",
+      "command": [
+        "python",
+        "-I",
+        "-S",
+        "-B",
+        "$PRIVATE_EVIDENCE/RECHECK/RECOVER_EVIDENCE.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "0015a8fbba19f5a45fcf28e41c8078a7f98c5540924268120eaca33ea15dca1b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "pytest",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "$PRIVATE_EVIDENCE/QA/pytest",
+        "tests/research/test_chinese5060_p1_access.py",
+        "tests/research/test_chinese5060_pilot_design.py",
+        "tests/research/test_chinese5060_readonly_analysis.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "709f9aa1ec0ec4d4ba5fa09a4f93d1cad3ba816e21b7f7264b8ae7748cd7df53",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ruff",
+      "command": [
+        "ruff",
+        "check",
+        "--no-cache",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/d1_access.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/fast_unblock_evidence.py",
+        "tests/research/test_chinese5060_p1_access.py",
+        "tests/research/test_chinese5060_pilot_design.py",
+        "tests/research/test_chinese5060_readonly_analysis.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "mypy",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "mypy",
+        "--cache-dir",
+        "$PRIVATE_EVIDENCE/QA/mypy",
+        "--check-untyped-defs",
+        "--follow-imports=skip",
+        "--ignore-missing-imports",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/d1_access.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/fast_unblock_evidence.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "0c37c4158c91ef55c724ba017bf6465f26018199badb08e3ff13f98acdf056c2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "read_only_recheck": "6 output files byte identical; 812 exact allowlist file identities verified",
+  "tests_passed": 28,
+  "ruff": "PASS_2_UNCHANGED_SOURCE_3_TEST_FILES",
+  "mypy": "PASS_2_UNCHANGED_SOURCES",
+  "role_free_input_only": true,
+  "unlisted_read_denied_before_io": true,
+  "synthetic_socket_audit_event_denied": true,
+  "no_evaluation_data_or_model_calls": true,
+  "new_paid_cost_usd": "0",
+  "actual_api_calls": 0,
+  "real_generation_not_run": 108,
+  "HumanGold": 0,
+  "targeted_ASR": "NOT_MEASURED",
+  "formal_Answer_Accuracy": "NOT_MEASURED",
+  "governance_qa": {
+    "command": [
+      "python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "tests/architecture/test_experiment_master_record.py",
+      "tests/architecture/test_dependency_direction.py"
+    ],
+    "passed": 8,
+    "failed": 1,
+    "exit_code": 1,
+    "status": "PREEXISTING_PORTABILITY_CHECK_ONLY",
+    "existing_matching_lines": 5,
+    "new_matching_lines": 0,
+    "stdout_sha256": "6b28fcd4d7853c631a07ea55a37d1acaa73cfe95c7972815a5f690437708dcf3",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "documentation_closeout": {
+    "human_ledger_checked": true,
+    "human_ledger_updated_if_required": true,
+    "agent_ledger_checked": true,
+    "agent_ledger_updated": true,
+    "current_work_state_updated": true,
+    "execution_log_appended": true,
+    "experiment_master_condition_evaluated": true,
+    "owner_decision_condition_evaluated": true,
+    "stage_process_condition_evaluated": true,
+    "lessons_condition_evaluated": true,
+    "research_authority_condition_evaluated": true,
+    "README_condition_evaluated": true,
+    "cross_document_current_task_consistent": true,
+    "cross_document_status_consistent": true,
+    "cross_document_next_action_consistent": true,
+    "cross_document_blocker_consistent": true,
+    "markdown_links_valid": true
+  },
+  "conditional_record_dispositions": {
+    "owner_register": "no new decision; retained as-is",
+    "stage_process": "continuation appended",
+    "experiment_master": "recovered source and historical billing anchors indexed",
+    "README": "current single entry refreshed",
+    "lessons": "no formal promotion",
+    "research_authority": "no contract change",
+    "long_term_requirements": "no scope change"
+  },
+  "context_persistence": "PASS_BLOCKED_SCOPE",
+  "paper1_document_staleness": "PASS_HISTORICAL_SNAPSHOTS_RETAINED",
+  "git_delivery": "PENDING_REMOTE_VERIFICATION"
+}

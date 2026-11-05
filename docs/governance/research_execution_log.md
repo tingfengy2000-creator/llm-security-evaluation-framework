@@ -3286,3 +3286,12 @@ A缺46个实发源的外传范围和敏感性裁决，B缺账户唯一地域端�
 
 2026-11-05 JST，Owner接收5060在`dde903470c877de92df46d8dd2c8348df6d39600`收口的`FAST_UNBLOCK_PARTIAL_BLOCKED`后指示“那继续”。监督端已核其Git证据包和源脚本，发现46个真正拟发送来源hash只有17个在旧`SOURCES.json`匹配，剩余29需从P2/原D1构建链追溯，不可把来源hash未匹配误称无使用权；已核百炼官方公开区域端点/模型输入context资料及Qwen byte-level BPE描述，仍不能无同源证据把UTF8估计直接升级为`<=4096`严格token证明。任务在既有`W1-OD-20261105-5060-FAST-UNBLOCK-11`已批范围内继续，只开展三项**本地/只读证据恢复**：A来源合法外传根证、B/D现有账号已核配置与数值账本复用、C严格Token证明可得性与不自动实施的有风险替代方案。单一短路径指令`docs/paper1/dual_machine/chinese5060/W1_5060_PILOT12_EVIDENCE_RECOVERY_SHORT_PATH_PROMPT_V1.md`，不重做Runner/方法、无真实API、无在线count-tokens、无额外下载、无新的Owner Live Gate、无D2D3/5090。
 本条只记录**工作指令已提交**，不代表5060执行/证据闭合。V1/V2科学源SHA维持，真实Pilot108 NOT_RUN、ASR/正式QA未测；执行者须记录最后最多三个待Owner事项，Git合法自分支交付后STOP。
+
+
+## REL-W1-5060-EVIDENCE-RECOVERY-20261105-01 — 既有证据恢复和风险提案
+
+W1-5060-EVIDENCE-RECOVERY-20261105-01，EVIDENCE_RECOVERY_PARTIAL_BLOCKED。沿用Owner W1-OD-20261105-5060-FAST-UNBLOCK-11，控制合同 f0036bdb6877aca9946e9d048e9d7aa285ef515b。
+46/46文档字节身份核验，29/29未匹配项追到签署D1候选，381片段出现核对。恢复旧北京Workspace及361份历史收据，估算CNY7.611826，历史未配对预留0。当前外传/敏感性、账号/计费/统一账本及严格Token证明仍缺。
+严格证明0/108；后置usage风险路径仅提案，原4,096门和V2不变。真实API0、费用USD0、108 NOT_RUN、HumanGold0、target未知、正式ASR/QA未测。下一步合并三个证据或裁决项，真正执行另批。
+
+私有归档SHA256 37934121700ea2d7da422746a2f35755aead281ab4cc9fd9397719b5ccfe6dcc。 [Evidence Recovery Addendum](../paper1/dual_machine/chinese5060/fast_unblock/FAST_UNBLOCK_EVIDENCE_PACKET.md)。收口后STOP。

@@ -1,5 +1,8 @@
 # 5060 中文RAG工作线
 
+当前工作 W1-5060-EVIDENCE-RECOVERY-20261105-01。46 个文档身份及历史北京账本已恢复，真实 108 格仍未运行。 [Evidence Recovery Addendum](fast_unblock/FAST_UNBLOCK_EVIDENCE_PACKET.md)。下方为历史导航。
+
+
 当前工作 W1-5060-FAST-UNBLOCK-20261105-01。V2 冻结及离线验收完成，真实准入仍阻断，0 调用。 [唯一审批入口](fast_unblock/FAST_UNBLOCK_EVIDENCE_PACKET.md)。下方为历史导航。
 
 

@@ -1,5 +1,14 @@
 # Current Work State
 
+## 当前工作 — 5060 Pilot12 来源与历史账本已恢复，真实准入仍阻断（2026-11-05 JST）
+
+W1-5060-EVIDENCE-RECOVERY-20261105-01，EVIDENCE_RECOVERY_PARTIAL_BLOCKED。沿用Owner W1-OD-20261105-5060-FAST-UNBLOCK-11，控制合同 f0036bdb6877aca9946e9d048e9d7aa285ef515b。
+46/46文档字节身份核验，29/29未匹配项追到签署D1候选，381片段出现核对。恢复旧北京Workspace及361份历史收据，估算CNY7.611826，历史未配对预留0。当前外传/敏感性、账号/计费/统一账本及严格Token证明仍缺。
+严格证明0/108；后置usage风险路径仅提案，原4,096门和V2不变。真实API0、费用USD0、108 NOT_RUN、HumanGold0、target未知、正式ASR/QA未测。下一步合并三个证据或裁决项，真正执行另批。
+
+[Evidence Recovery Addendum](../paper1/dual_machine/chinese5060/fast_unblock/FAST_UNBLOCK_EVIDENCE_PACKET.md)。以下为历史快照。
+
+
 ## 当前工作 — 5060基于Owner11继续有限离线证据恢复，不重新批准真实调用（2026-11-05 JST）
 
 Owner在`FAST_UNBLOCK_PARTIAL_BLOCKED`回报后指示“那继续”。此为已有`W1-OD-20261105-5060-FAST-UNBLOCK-11`许可内的继续调查，**不新增真实API或调整科学安全门的批准**。执行范围仅：从冻结D1/P2片段追溯46个拟外传`source_document_hash`（17已匹配原source snapshot、29尚未匹配），清楚区分来源无法匹配与没有使用权；按既存本机资料核百炼唯一region/workspace/已核费率和私有USD账本；利用官方Qwen3.7 Plus 991808 token最大输入长度/byte-BPE文献检查自设4096严格门的可证明性，若不能证明，只提交需Owner另行明确批准的有风险替代方案，不得把猜测上界升格为PASS。

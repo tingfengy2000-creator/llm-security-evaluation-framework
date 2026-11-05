@@ -59,3 +59,21 @@ Context Recovery 核对 AGENTS、PO-MHEP、权威映射、Owner 记录、当前�
 12. 决定前限于离线证据核对，真实 Pilot、评价和其他阶段保持停止。
 
 </details>
+
+
+## Evidence Recovery Addendum（2026-11-05 JST）
+
+**EVIDENCE_RECOVERY_PARTIAL_BLOCKED**，W1-5060-EVIDENCE-RECOVERY-20261105-01。真实 API 0、费用 USD 0、108 格 NOT_RUN。原 V1/V2、Runner、数据、阈值保持冻结。Human Gold 0，target 未知，正式 ASR/QA 未测。
+
+- **来源**。46/46 个文档身份闭合。29 个旧未匹配项均逐字连接到签署 D1 候选，覆盖 29 个世界和 75 个请求格。17 个原快照也全与历史 F5 evidence 正文吻合。当前第三方处理权和语境敏感性尚未放行。 [来源附录](evidence_recovery/SOURCE_ORIGIN_RECONCILIATION_SUMMARY.md)
+- **账户和账本**。从旧 seal 恢复完整北京 Workspace，仅私有保存。历史 361 份收据和预留逐份核验，CNY 7.611826，历史未配对预留 0。Owner 数与差额保留。当前适用账号、账单与余额待绑定，公开价情景预留 CNY 1.337472。 [账本附录](evidence_recovery/ACCOUNT_AND_LEDGER_RECOVERY.md)
+- **Token**。108 格最大 2,444 UTF-8 bytes，严格 4,096 证明 0/108。后置 usage 检查提案已留档，首次越界请求已经发送且可能收费。现有门继续有效。 [C 门证据和风险提案](evidence_recovery/C_GATE_STRICT_PROOF_OR_RISK_OPTION.md)
+
+Owner 待决仅三项：
+1. 按本地矩阵一次确认冻结 query/TopK 的当前处理权和敏感性，优先补 29 个项目候选的权利依据及 2 个官方网页的使用范围。
+2. 确认沿用已恢复的北京 Workspace，并绑定当前计费界、已结算/在途、可用资金和 FX 的受控汇总。
+3. 保持事前严格 Token 门，或待其他门闭合后单独接受后置逐格检查风险。另有真实运行仍须新授权。
+
+两次只读重算的 6 项输出逐字一致，28 项隔离相关测试、Ruff、MyPy 通过。私有归档 SHA256 `37934121700ea2d7da422746a2f35755aead281ab4cc9fd9397719b5ccfe6dcc`，18 项成员校验通过。 [QA 与哈希](evidence_recovery/FINAL_EVIDENCE_RECOVERY_QA.json)
+
+上下文恢复核对 AGENTS、PO-MHEP、Owner 11、当前状态、账本与治理记录。阶段 6.1 D1 开发，优先 RAG 安全及可复现验证。5060 工作树从 `dde903470c877de92df46d8dd2c8348df6d39600` 安全快进至合同 `f0036bdb6877aca9946e9d048e9d7aa285ef515b`，启动时与上游一致且无未提交或未推送修改。Forward/Paper Risk Review 分别将历史授权、文件字节身份、当前可外传性、公开报价和实际计费分开，防止把历史或诊断代理升为准入与科学结论。完成本轮 Git 收口后停止。
