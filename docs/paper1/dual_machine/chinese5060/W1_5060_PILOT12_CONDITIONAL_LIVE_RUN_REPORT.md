@@ -33,3 +33,5 @@ Owner 10 已批准证据齐备后的一次性 3+105 Pilot。独立离线预检�
 独立暂定评价 `NOT_RUN`，Human Gold 0，攻击目标未知。C3、Targeted ASR 和正式问答准确率均 `NOT_MEASURED`。本轮完成阻断收口并停止。
 
 额外治理与架构测试 8 项通过、1 项历史便携性失败。实施前后均匹配同样 5 行历史 Windows 绝对路径，本轮新匹配 0 行。 [QA](pilot_live/FINAL_QA.json)
+
+交付内容提交 6787e244ea721ffbdcb59e4ecc406ec77e550ea5 已实查远程一致，工作树干净且 ahead/behind 0/0。最终收据提交 SHA 在 Owner 回复登记。 [Git 交付回执](pilot_live/FINAL_GIT_DELIVERY.json)

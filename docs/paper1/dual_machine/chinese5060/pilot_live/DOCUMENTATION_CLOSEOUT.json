@@ -30,5 +30,10 @@
     "long_term_requirements": "unchanged"
   },
   "formal_experiment": "NOT_STARTED",
-  "git_delivery": "PENDING"
+  "git_delivery": "PASS_VERIFIED_CONTENT_COMMIT",
+  "verified_content_commit": "6787e244ea721ffbdcb59e4ecc406ec77e550ea5",
+  "context_persistence": "PASS_BLOCKED_SCOPE",
+  "paper1_document_staleness": "PASS_HISTORICAL_SNAPSHOTS_RETAINED",
+  "publication_audit": "PASS",
+  "live_status": "LIVE_GATE_BLOCKED_NO_REQUESTS"
 }
