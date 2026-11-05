@@ -55,3 +55,7 @@ RAGDefender的“保留正常段落”本来就是主题，故这不是新颖性
 ## 7. 下一行动与Owner边界
 
 Owner最新指令同意按评审重构**方法方案**并优先推进离线小规模验证工作；PO-MHEP要求算法语义修改、冻结基线外新模型调用均须Owner明确决策。故本文件允许5060在旧分支先读证据并为S0–S4准备单一**可执行离线Prompt**，但不声称Owner已经签署新`Owner15`真实S5许可。实际代码修改/启动S0–S4如果代理将其识别为`HUMAN_DECISION_REQUIRED`，应引用最新Owner明确指令并在原分支做一次Decision-ready登记；材料权限/攻击标签/成本有新冲突则STOP而不是静默豁免。
+
+## 附注：原论文与2026公开实现的版本边界（外部来源核实，不是评审附件原文）
+
+已核RAGDefender原作者公开`docs/algorithm.md`（https://github.com/SecAI-Lab/RAGDefender/blob/main/docs/algorithm.md ）：其单跳Stage1强制聚成两组时，较小簇至少1，因此“单跳类型在有效5条检索结果下无删除选项”是可以检验的机制性担忧；**但不能概括为所有task都必然删1条**，多跳count可能0，`max(1, binom(N_adv,2))`限定pair计算量并不证明最终删除>=1。官方公开文档还明确`RAGDefender v0.2.0 (2026-05-12)`修复了历史v0.1.1 Stage2“按位置截断”问题；其多跳公开实现对论文式AND判据使用OR等差异，且默认embedder `minilm-all`，原论文采用Stella。**S0必须记录真实版本、task类型、使用的embedder和Stage2是否运行**，不能把迁移/版本差异当成原论文天然弱点。上述为公开源码资料的二次核查，原论文VI-E/VII/附录C仍未在本次完成全章验证，W3仍标待核。
