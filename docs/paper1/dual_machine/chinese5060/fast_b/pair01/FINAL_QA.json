@@ -16,5 +16,6 @@
   "pre_freeze_errors_disclosed": true,
   "append_only_history_verified": true,
   "new_API_calls": 0,
-  "git_delivery": "PENDING_LIVE_CHECK"
+  "git_delivery": "PASS_VERIFIED_CONTENT_COMMIT",
+  "verified_content_commit": "d57d7833203c538ae0156770743fd777c6bed73b"
 }

@@ -1,0 +1,74 @@
+{
+  "status": "PASS_COMPLETE_EXECUTION_DELIVERY",
+  "checked_utc": "2026-11-05T01:54:39.158968+00:00",
+  "verified_content_commit": "d57d7833203c538ae0156770743fd777c6bed73b",
+  "control_plane_commit": "98228e202062b1216094acac90f83be29cc63074",
+  "branch": "research/paper1-chinese-defense-5060",
+  "remote": "https://github.com/tingfengy2000-creator/llm-security-evaluation-framework.git",
+  "clean": true,
+  "ahead": 0,
+  "behind": 0,
+  "full_Fast_B_completed": true,
+  "records": [
+    {
+      "argv": [
+        "git",
+        "branch",
+        "--show-current"
+      ],
+      "exit_code": 0,
+      "stdout": "research/paper1-chinese-defense-5060\n",
+      "stderr": "",
+      "stdout_sha256": "94a1d78724cd0a351b2eb765299996d0f04b66d1b4fa5e5ca4bc5f0b45d54e2d"
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": "d57d7833203c538ae0156770743fd777c6bed73b\n",
+      "stderr": "",
+      "stdout_sha256": "7d7236b69db2b1263c73001752f02c066810a3ae506a800dede5aaf722cef2e2"
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "rev-list",
+        "--left-right",
+        "--count",
+        "HEAD...origin/research/paper1-chinese-defense-5060"
+      ],
+      "exit_code": 0,
+      "stdout": "0\t0\n",
+      "stderr": "",
+      "stdout_sha256": "4b14c7b5549e560a68e9c4daaae3fdb8a28fe32d0247050325e7c5a3b2b3271c"
+    },
+    {
+      "argv": [
+        "git",
+        "ls-remote",
+        "--exit-code",
+        "origin",
+        "refs/heads/research/paper1-chinese-defense-5060"
+      ],
+      "exit_code": 0,
+      "stdout": "d57d7833203c538ae0156770743fd777c6bed73b\trefs/heads/research/paper1-chinese-defense-5060\n",
+      "stderr": "",
+      "stdout_sha256": "5ac7ef3ae1486cf0e1094a2da8525c327fdf13716b531fbe161b6786f7ed5120"
+    }
+  ],
+  "scope": "Paired offline development results verified before separate attestation; final HEAD checked live."
+}

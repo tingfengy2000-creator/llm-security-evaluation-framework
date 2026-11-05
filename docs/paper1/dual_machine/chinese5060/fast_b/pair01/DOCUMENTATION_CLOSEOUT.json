@@ -1,6 +1,6 @@
 {
   "task": "FAST_B_PAIR01",
-  "status": "EXECUTED_AWAITING_FINAL_QA_AND_GIT",
+  "status": "COMPLETE_APPROVED_OFFLINE_B1_B2_TASK_STOP",
   "checks": {
     "human_ledger_checked": true,
     "human_ledger_updated_if_required": true,
@@ -32,5 +32,8 @@
   "CONTEXT_PERSISTENCE_CHECK": "PASS_TASK_RESULTS_NEXT_GATE_RECOVERABLE",
   "PAPER1_DOCUMENT_STALENESS_GATE": "PASS_NEW_CURRENT_PREPENDED_HISTORY_PRESERVED",
   "local_QA": "PASS",
-  "git_delivery": "PENDING"
+  "git_delivery": "PASS_VERIFIED_CONTENT_COMMIT",
+  "verified_content_commit": "d57d7833203c538ae0156770743fd777c6bed73b",
+  "DOCUMENTATION_CLOSEOUT_GATE": "PASS",
+  "full_Paper1_or_formal_experiment_complete": false
 }
