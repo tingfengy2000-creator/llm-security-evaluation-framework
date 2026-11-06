@@ -3361,3 +3361,8 @@ Owner13原件`docs/paper1/dual_machine/owner_approvals/W1_5060_VESA_GUARD_V01_FA
 W1-5060-REVIEWER-REPLAN-S0-20261106-01，S0_COMPLETE / OWNER_CHECKPOINT_PENDING。封存的 36 个世界、180 个片段复核完成。B2 在 36/36 世界有删除，已召回候选 Poison 删除 2/10、Clean 误删 4/10、HN 删除 2/9。生产侧可信来源覆盖 0/180。严格 P0 下当前 D1 无法达到 S4 的 Clean 误删 <4/10 门。S1–S4 未运行，S5 无授权，新增 API 0、费用 0。正式实验未启动，Human Gold 0、正式 ASR/QA 未测。下一个门是 S0_CHECKPOINT_RELEASE。RD-zh 本地编码与独立 S3 留出方须按 R1-10 决定。原历史证据保留，Auto Continue = NO。
 
 [S0 结果、证据与十二字段决策](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/REVIEWER_S0_S4_SUMMARY.md)。
+
+## W1-5060-R1-RDZH-STATIC-20261106-01
+
+S0-04 RD-zh 适配器与静态验证已完成，4 项测试通过。真实 D1 编码、过滤和 S1–S4 未运行，S0 检查点继续等待 Owner 放行。
+[S0 证据](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/REVIEWER_S0_S4_SUMMARY.md)

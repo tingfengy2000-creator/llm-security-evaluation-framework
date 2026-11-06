@@ -1,5 +1,11 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## REVIEWER-REPLAN-R1-OWNER-NOTICE-20261106
+
+Owner 在本会话明确批准将评审跟踪 #1 纳入设计，并要求 S0 内完成 RD-zh 适配器和静态测试。以固定 R1 修订和 S0 硬停止为准。真实 D1 编码、后续 S1–S4 与独立 S3 构造者仍待明确决定。
+[R1 合同](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/REVIEWER_R1_TRACKING_AMENDMENT_20261106.md)。
+
+
 ## REVIEWER-REPLAN-REQUEST-20261105 — Owner请求按照外部评审修改研究方案，当前仅设计和离线小规模验证指令（2026-11-05 JST）
 
 Owner上传《VESA-Guard 方案评审意见与小规模验证计划》（SHA256`a54e39cddc96ff922b537e91fa8c287ad175f6761feb65f98a5586d599db0885`，附件只在Owner会话，不自动进入公开Git），明确“请你详细阅读和理解附件，按照评审人生成的文档 改进现在的方案”。该请求用作**评审采纳和方案重构的Owner输入**，不虚构已签署新的Owner15付费API许可。当前v0.1、v0.2各36世界无变化，旧Owner14 v0.2一次授权已经按0变STOP；旧108真实结果不改。

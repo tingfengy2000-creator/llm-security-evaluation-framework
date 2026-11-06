@@ -228,5 +228,31 @@
       "topk_metadata_effective_time_fields_present": 0,
       "topk_metadata_uri_fields_present": 0
     }
+  },
+  "rd_zh_adapter_static": {
+    "run_id": "W1-5060-R1-RDZH-STATIC-20261106-01",
+    "status": "STATIC_ADAPTER_PASS",
+    "approval": "Owner R1 in-turn clarification; S0-04 adapter and static tests",
+    "source_sha256": {
+      "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/rd_zh_tfidf.py": "148e240e29c1d82990ea03abb4fbfd79844052563c1944553dfda548e1c74abf",
+      "tests/research/test_chinese5060_rd_zh_tfidf.py": "d16915aac0e9c3576783b1122b14188b5d41b63bfb0c34ae92b506f101569729"
+    },
+    "overlay_source_lf_sha256": "8d8ef89e62cb2bf5ecbe23aaff2167a5da0c20896b3e63d9e3e0f53d7ef38c63",
+    "private_archive_sha256": "9339dd9d5f9d0936c14e69d25a02da791a46bc9dd3d6b051151e5969b714e518",
+    "private_manifest_sha256": "3cc1629175788b5690430ce82c2aaded008bee0f7b36e08a25396c366026f908",
+    "unit_tests_passed": 4,
+    "ruff_exit": 0,
+    "mypy_exit": 0,
+    "static_pin_check_exit": 0,
+    "synthetic_lexical_vote": {
+      "b2": 0,
+      "passages": 5,
+      "rd_zh": 5
+    },
+    "encoder_calls": 0,
+    "api_calls": 0,
+    "rd_zh_d1": "NOT_RUN",
+    "regression_tests_passed": 16,
+    "regression_log_sha256": "22109169ac09b5deebea9dddfac57cfa999ac43482582f7181de01919f780ffc"
   }
 }
