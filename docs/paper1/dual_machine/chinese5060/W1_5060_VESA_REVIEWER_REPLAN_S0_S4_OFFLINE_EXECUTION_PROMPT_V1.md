@@ -1,3 +1,14 @@
+## [2026-11-06 外部评审#2：S0已完成，必须先控模板/分词混杂]
+
+**最新事实：** S0在本分支`25936c71f96d775cca9a7603d27164e952f3a0af`完成并按R1停机，`S1–S4=NOT_RUN`。此历史Prompt不可直接重启连续S0–S4；Owner尚未签署下一步`S0_CHECKPOINT_RELEASE`或真实D1 RD-zh encoder运行。先读新增完整评审约束：
+`docs/paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/REVIEWER_R2_S0_CHECKPOINT_TEMPLATE_TFIDF_ROUTE_20261106.md`。
+
+在原S0基础上补**网页模板TopK覆盖诊断**（不改源数据、不运行新模型），并冻结但不实跑`B2_RAW, RD_ZH_ONLY, RD_TEMPLATE_ONLY, RD_ZH_TEMPLATE`的2×2单变量/交互设计。网页模板只在TF-IDF Stage1词面视图中高精度屏蔽，原TopK、chunk正文/原rank、Embedding、Stage2、后续生成上下文均保持原文，不许合并成两项同时改的“RD-zh单变量”结果。约100/189是上游文档的评审估计，不能视为TopK180覆盖；必须实际报告世界数/片段数/模板词占比。
+`X-MADAM-RAG` arXiv:2606.12903 与候选抽取/确定性分组的M2高度重叠，已列为论文必引；S1/S3须独立测答案模板移除造成的抽取退化，区别于网页导航模板清洗。后续D1定位依据新文件**预注册K1-A/B/C分支**，不能看到清洗后结果才挑目标。
+**仍需Owner明确签名后**才能本地编码器完成36世界真实RD-zh四臂比较、选择S3独立造题方或放行S1–S4；任何旧Owner14预算/方法审批不能挪用，S5商业API仍禁。当前只完成对照设计与只读诊断，不得把S0原已完成报告改为新的实验已完成。
+
+---
+
 ## [2026-11-06 Reviewer R1-01~R1-10 运行中补充约束——优先级最高]
 
 **5060已在执行旧版Prompt，Owner刚上传《VESA-Guard 评审跟踪 #1.md》并明确要求按评审修正。请立即读取本分支新增补充合同：**
