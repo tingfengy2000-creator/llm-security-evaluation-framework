@@ -1,3 +1,13 @@
+## [2026-11-06 Reviewer R1-01~R1-10 运行中补充约束——优先级最高]
+
+**5060已在执行旧版Prompt，Owner刚上传《VESA-Guard 评审跟踪 #1.md》并明确要求按评审修正。请立即读取本分支新增补充合同：**
+`docs/paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/REVIEWER_R1_TRACKING_AMENDMENT_20261106.md`
+原评审文件SHA256 `e11fdc69eccf1d1b6ea3abcf26ad7720da9127a890635432bb11036bc30460a8`。**该合同优先于下文旧Prompt中“连续S0–S4”、“禁止任何RD-zh基线”、“P0禁止全部受限恢复”、S2仅A–H等过时条款；但不修改科学冻结数据、已执行的试次和原Owner付费授权。**
+
+**当前执行门：在S0完成后硬STOP，Git提交`REVIEWER_S0_S4_SUMMARY.md`的S0部分和原有脱敏证据索引，报告分支HEAD给Owner/独立评审；不得自动进入S1/S2/S3/S4。** 已开始的S1/S2应记录真实执行事实并立即停止新增试次，不能删除或掩饰。新增S0任务包括原TF-IDF top5/n_tfidf 36/36确定性重放、当前抽取器可作用池、Stage2真实indices及相似度/归一化、RD-zh fair baseline的零下载设计；其中180片段的本地模型编码与5090独立S3构造需Owner另外明确R1-10决定，不得私自继承旧v0.2/Qwen许可。字符2-gram与普通stop_words不可直接并用；主论文比较须相对RD-zh而非只相对历史B2。详见补充合同R1-01至R1-10逐条处置。
+
+---
+
 # 5060 Codex｜RAGDefender改进研究：按独立评审执行P0+M1/M2/M3，离线S0–S4严格防泄漏与独立测试
 
 **Owner最新任务：** “请你详细阅读和理解附件，按照评审人生成的文档 改进现在的方案。”本Prompt仅推动**方案重构和无需商业API的独立小规模研究**，不允许自行新增真实模型请求；正式S5新算法真实生成须新的Owner明确许可，旧Owner14 v0.2任务已结束不能挪用。主规范（已完整转录用户审阅文档各硬门并纠正P0矛盾）：
