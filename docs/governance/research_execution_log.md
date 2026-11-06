@@ -3366,3 +3366,7 @@ W1-5060-REVIEWER-REPLAN-S0-20261106-01，S0_COMPLETE / OWNER_CHECKPOINT_PENDING�
 
 S0-04 RD-zh 适配器与静态验证已完成，4 项测试通过。真实 D1 编码、过滤和 S1–S4 未运行，S0 检查点继续等待 Owner 放行。
 [S0 证据](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/REVIEWER_S0_S4_SUMMARY.md)
+
+## 2026-11-06 JST — 建立 Paper 1 Week 1 双机 Tracker
+
+[Week 1 Tracker](../paper1/dual_machine/PAPER1_WEEK1_TRACKER.md) 基于 5060 `fa70d97f86d0bf21364907e15447ced80f0e284e` 和 5090 `dbd91f3667964baca69aeb82a6292c4fe193c965` 汇总已提交的脱敏证据。旧名 `PAPER1_WEEK1_TRACKER_INIT` 在本次核对的公开分支、标签及其可达文件历史中无匹配。此条记录为文档维护，无新试次、新授权或新阶段。

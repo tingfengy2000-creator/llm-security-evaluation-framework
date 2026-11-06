@@ -1,5 +1,7 @@
 # Current Work State
 
+> Paper 1 双机进展与证据导航见 [Week 1 Tracker](../paper1/dual_machine/PAPER1_WEEK1_TRACKER.md)。当前阶段、阻断及放行门见下方动态记录。
+
 ## S0-REVIEWER-R2-20261106 — S0核验完成，下一步先控制网页模板/中文分词混杂（Owner放行待决）
 
 截至5060提交`25936c71f96d775cca9a7603d27164e952f3a0af`，S0_COMPLETE且S1–S4 NOT_RUN：B2 81/180删除、Poison删2/10、Clean误删4/10；历史TF-IDF投票重放36/36，Stage2修复后indices且余弦先L2归一；B2未做中文分词；旧抽取器被删片段0/81范围绑定，可信源锚0/180。真实D1 RD-zh新编码0次、商业API0次。外部评审新指出上游约100/189份含“首页/历史沿革/下载”等页面模板，**该比例不是D1 TopK180的实测覆盖**。

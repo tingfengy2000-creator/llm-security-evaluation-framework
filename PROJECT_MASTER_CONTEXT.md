@@ -1,5 +1,7 @@
 # LLMGuard 项目总控文档
 
+> Paper 1 双机远端快照、实验状态与评审证据汇总见 [Week 1 Tracker](docs/paper1/dual_machine/PAPER1_WEEK1_TRACKER.md)。
+
 ## 当前工作 — 5060 VESA 评审重构 S0 完成，D1 来源证据门阻断（2026-11-06 JST）
 
 W1-5060-REVIEWER-REPLAN-S0-20261106-01，S0_COMPLETE / OWNER_CHECKPOINT_PENDING。封存的 36 个世界、180 个片段复核完成。B2 在 36/36 世界有删除，已召回候选 Poison 删除 2/10、Clean 误删 4/10、HN 删除 2/9。生产侧可信来源覆盖 0/180。严格 P0 下当前 D1 无法达到 S4 的 Clean 误删 <4/10 门。S1–S4 未运行，S5 无授权，新增 API 0、费用 0。正式实验未启动，Human Gold 0、正式 ASR/QA 未测。下一个门是 S0_CHECKPOINT_RELEASE。RD-zh 本地编码与独立 S3 留出方须按 R1-10 决定。原历史证据保留，Auto Continue = NO。
