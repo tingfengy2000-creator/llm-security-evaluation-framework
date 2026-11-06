@@ -1,6 +1,13 @@
 # Current Work State
 
-## 当前工作 — 外部评审驱动的VESA方法重构：P0/M1–M3、S0–S4零API验证设计（2026-11-05 JST）
+## 当前工作 — 5060 VESA 评审重构 S0 完成，D1 来源证据门阻断（2026-11-06 JST）
+
+W1-5060-REVIEWER-REPLAN-S0-20261106-01，S0_COMPLETE / OWNER_CHECKPOINT_PENDING。封存的 36 个世界、180 个片段复核完成。B2 在 36/36 世界有删除，已召回候选 Poison 删除 2/10、Clean 误删 4/10、HN 删除 2/9。生产侧可信来源覆盖 0/180。严格 P0 下当前 D1 无法达到 S4 的 Clean 误删 <4/10 门。S1–S4 未运行，S5 无授权，新增 API 0、费用 0。正式实验未启动，Human Gold 0、正式 ASR/QA 未测。下一个门是 S0_CHECKPOINT_RELEASE。RD-zh 本地编码与独立 S3 留出方须按 R1-10 决定。原历史证据保留，Auto Continue = NO。
+
+[S0 结果、证据与十二字段决策](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/REVIEWER_S0_S4_SUMMARY.md)。
+
+
+## 历史快照 — 外部评审驱动的VESA方法重构：P0/M1–M3、S0–S4零API验证设计（2026-11-05 JST）
 
 Owner已上传并要求按外部评审修订方法（附件SHA256`a54e39cddc96ff922b537e91fa8c287ad175f6761feb65f98a5586d599db0885`），登记`REVIEWER-REPLAN-REQUEST-20261105`。方案由v0.2“风险受限恢复”**转为严格P0可信性单调下的M1一致性风险门、M2按事实答案聚组、M3作用域/版本核验**；v0.2恢复仅供S2离线安全消融。明确纠正评审字面M1的多数/同值投毒漏洞：来源无独立可信锚时不能因内容一致就放行，否则P0自相矛盾。主方法生产数据没有可信锚时可能退化RD，须如实报告，不能制造D1 source证明。
 **顺序**：S0只读查原RD/B2“必删1条”和中文迁移/上游可信锚；S1独立60+中文解析样例；S2独立开发A–H含H全毒场景/五消融臂；S2后冻结；S3独立事实测试仅一次；S4原36D1离线仅一次（Poison保留≤8/10、Clean误删<4/10为评审默认门）；S5真实Qwen是**未来独立Owner新授权**，旧Owner14已执行完且本次不允许0门硬跑。0新API、0模型Judge、0重跑旧108、保留D2D3/5090/金标准隔离。S0–S4各步`DEV_EXPLORATORY`，不把研发摘要写成实验结果。缺可信锚而无法改善D1应STOP说明结构限制。

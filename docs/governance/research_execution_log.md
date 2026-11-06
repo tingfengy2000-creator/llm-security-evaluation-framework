@@ -3355,3 +3355,9 @@ Owner13原件`docs/paper1/dual_machine/owner_approvals/W1_5060_VESA_GUARD_V01_FA
 
 2026-11-05 JST，Owner上传20,382字节/245行外部评审Markdown（SHA256`a54e39cddc96ff922b537e91fa8c287ad175f6761feb65f98a5586d599db0885`）并提出“按照评审人生成的文档 改进现在的方案”。监督端完整审阅评审第1–10节，核5060原v0.2零变化`8db8d9f8b48f86dae9f8f9211e1092fbe4ae534d`及旧2026 RAGDefender官方算法文档，确定应停止把v0.2有限恢复视为主方法，改为P0信任不可由攻击者可控内容直接提升、M1同值一致性风险门、M2 scoped-answer group与去重/聚团告警、M3版本条件与未证伪修订分级。**评审原“M1答案一致就不删”与P0相冲突，故修正为需不可伪造的独立可信锚，否则保留原B2结果。** 无来源证明的真实D1可能因此无法兼顾安全与减少误删，禁止伪称成功。原Reviewer建议的S0–S5阶段、60+抽取例、A–H含H4+1和H5+0、S2/S3独立开发测试、S4原D1只跑一次、五消融臂与50%误删改善/不增Poison等小样本门已整理为可直接执行规范；S5真实Qwen**未获新算法API授权**，旧Owner14单次v0.2执行完毕；Owner最新请求是研究方案修订而非已发生的新模型试验。历史旧108数据、两次v0.1/v0.2无变化、人工Gold0、D2D3及5090限制均未动。
 归档设计：`docs/paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/VESA_REVIEW_RESPONSE_P0_M1M2M3_S0S5_DESIGN_V1.md`、离线执行路径`docs/paper1/dual_machine/chinese5060/W1_5060_VESA_REVIEWER_REPLAN_S0_S4_OFFLINE_EXECUTION_PROMPT_V1.md`。**本日志仅证实已形成设计和Git交付，不宣称S0–S4运行、vNext代码实现、任何G3真实生成或HumanGold签发。**
+
+## REL-W1-5060-VESA-REVIEWER-S0-20261106 — 评审重构只读审计与 P0 证据门
+
+W1-5060-REVIEWER-REPLAN-S0-20261106-01，S0_COMPLETE / OWNER_CHECKPOINT_PENDING。封存的 36 个世界、180 个片段复核完成。B2 在 36/36 世界有删除，已召回候选 Poison 删除 2/10、Clean 误删 4/10、HN 删除 2/9。生产侧可信来源覆盖 0/180。严格 P0 下当前 D1 无法达到 S4 的 Clean 误删 <4/10 门。S1–S4 未运行，S5 无授权，新增 API 0、费用 0。正式实验未启动，Human Gold 0、正式 ASR/QA 未测。下一个门是 S0_CHECKPOINT_RELEASE。RD-zh 本地编码与独立 S3 留出方须按 R1-10 决定。原历史证据保留，Auto Continue = NO。
+
+[S0 结果、证据与十二字段决策](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/REVIEWER_S0_S4_SUMMARY.md)。

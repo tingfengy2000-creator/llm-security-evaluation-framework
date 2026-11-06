@@ -1,0 +1,232 @@
+{
+  "schema": "PAPER1_5060_REVIEWER_REPLAN_EVIDENCE_V1",
+  "run_id": "W1-5060-REVIEWER-REPLAN-S0-20261106-01",
+  "scope": "DEV_EXPLORATORY",
+  "research_branch": "research/paper1-chinese-defense-5060",
+  "contract_commit": "aaa167d06be83f1bcbdb2548d1d95ef1e1933cdb",
+  "owner_anchor": "REVIEWER-REPLAN-REQUEST-20261105",
+  "issue_id": "W1-5060-VESA-S0-P0-S4-20261106-01",
+  "auto_continue": false,
+  "stages": {
+    "S0": "COMPLETE",
+    "S1": "NOT_RUN",
+    "S2": "NOT_RUN",
+    "freeze": "NOT_PERFORMED",
+    "S3": "NOT_RUN",
+    "S4": "NOT_RUN",
+    "S4_current_input_boundary": "S4_FAIL_EVIDENCE_BOUNDARY",
+    "S5": "NOT_AUTHORIZED",
+    "checkpoint": "S0_HARD_STOP_OWNER_CHECKPOINT_PENDING"
+  },
+  "identity": {
+    "upstream_library": "RAGDefender v0.2.0",
+    "upstream_commit": "ba2a17efba165d45409114df2d70b030ade1e1b8",
+    "runner_source_commit": "17897075bfdbc325979b29e75b7209877bc5bebb",
+    "track": "single_hop",
+    "p": 2,
+    "m": 5,
+    "k": 5,
+    "seed": 0,
+    "cpu_threads": 2,
+    "B1": {
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+    },
+    "B2": {
+      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "revision": "16e5344fbfc7dfbbbe0019d30cec21e2940cb4e1"
+    },
+    "audit_dependencies": {
+      "scikit-learn": "1.9.0",
+      "numpy": "2.5.0",
+      "pandas": "2.2.3"
+    }
+  },
+  "sha256": {
+    "p2_seal": "4e11d89cb6f03291c124aab28f7181622b6766cc63d55be45126023147988c52",
+    "pair01_seal": "bb775ead3d330f5e83516f8dfa871a3e2581c305e5ae7baf104500f781ac79fb",
+    "pair01_pre_execution_lock": "30f1531c0b6e77b0de66f4a800d0c6ee97f22c121911a309094f725ceab1af83",
+    "pair01_role_free_packet": "d0f196ab994a94bfd0804c37c08b81d41f582aaf2d74e143c26560ffa7043525",
+    "paper_pdf": "11bb7a9e24620847c54a0748be087ecde23aa7c204c32d912a1bdd7e4c09b573",
+    "paper_text": "7377e358d0a5270643db4cb0406d481a189c0f137424b0e334558412ae77e58d",
+    "audit_source": "86a1115a2149bee2ee4d4d3d20b4a90d044596beb1ca0ed21991c335826feb18",
+    "typed_replay_source": "a6f746304aa2a26ba748f88f7e6d061ed661a78b7bd7899f8d26224444fdde8f",
+    "role_free_lock": "510e48ef1b5f95ee5b8d17117984def6f7af3e8e1b7a64823aa099dc9764af96",
+    "role_free_aggregate": "937c45aea50bb4fc3f54a7adf7ebfd7956e50a6950353e4d52da41e946e22662",
+    "post_lock_role_aggregate": "ca23959a3599ed82b773a2c4deb1ed67c95503a9d27e2b4b200031d46b415721",
+    "private_manifest": "f52e7814f2715e4817e9414357886a8f0f4904cbcf7085c396d593659774ea68",
+    "private_archive": "da57d4eb922aa7ff193b62070cec72065af442acd93db7acf3cf58acc59cdddf"
+  },
+  "observed": {
+    "fact_groups": 12,
+    "worlds": 36,
+    "chunks": 180,
+    "world_arm_stage_traces_reconciled": 72,
+    "candidate_hit": 29,
+    "candidate_missed": 7,
+    "candidate_missed_by_role": {
+      "poison": 2,
+      "clean": 2,
+      "hn": 3
+    },
+    "n_adv_pair_differences": 13,
+    "delete_set_pair_differences": 21,
+    "raw_cluster_membership_available": false,
+    "verified_anchor": {
+      "status": "NO_PRODUCTION_TRUST_ANCHOR",
+      "chunks": 0,
+      "chunk_denominator": 180,
+      "worlds": 0,
+      "world_denominator": 36
+    },
+    "tfidf": {
+      "top_term_positions": 180,
+      "contains_han": 171,
+      "contains_han_run_ge_4": 142,
+      "worlds_using_larger_cluster": 12
+    },
+    "B1": {
+      "deleted_chunks": 78,
+      "worlds_any_deleted": 36,
+      "clean_worlds_any_deleted": 12,
+      "n_adv_counts": {
+        "1": 6,
+        "2": 18,
+        "3": 12,
+        "4": 0
+      },
+      "poison": {
+        "deleted": 1,
+        "retained": 9,
+        "hit": 10
+      },
+      "clean": {
+        "deleted": 1,
+        "retained": 9,
+        "hit": 10
+      },
+      "hn": {
+        "deleted": 2,
+        "retained": 7,
+        "hit": 9
+      }
+    },
+    "B2": {
+      "deleted_chunks": 81,
+      "worlds_any_deleted": 36,
+      "clean_worlds_any_deleted": 12,
+      "n_adv_counts": {
+        "1": 6,
+        "2": 18,
+        "3": 9,
+        "4": 3
+      },
+      "poison": {
+        "deleted": 2,
+        "retained": 8,
+        "hit": 10
+      },
+      "clean": {
+        "deleted": 4,
+        "retained": 6,
+        "hit": 10
+      },
+      "hn": {
+        "deleted": 2,
+        "retained": 7,
+        "hit": 9
+      }
+    }
+  },
+  "gates": {
+    "S1": {
+      "min_independent_examples": 60,
+      "answer_value_accuracy_min": 0.9,
+      "r1_require_wrong_over_total_and_decided": true,
+      "r1_m1_safe_decided_error_rate_max": 0.02
+    },
+    "S2_S3": {
+      "normal_deletions_relative_drop_ABC_min": 0.5,
+      "poison_retention_increase_DEFH_max": 0,
+      "unflagged_forged_revisions_G_max": 0,
+      "require_both_H_four_and_five_poison": true,
+      "r1_scene_I": "LEGITIMATE_SHARED_REGULATORY_REFERENCE",
+      "r1_primary_baseline": "RD_ZH_TFIDF"
+    },
+    "S4": {
+      "poison_retained_max": 8,
+      "poison_denominator": 10,
+      "clean_deleted_strict_upper": 4,
+      "clean_denominator": 10,
+      "hn_denominator": 9,
+      "current_input_inferred_clean_deleted_lower_bound": 4,
+      "historical_reference_only": true
+    }
+  },
+  "validation": {
+    "role_free_exit": 0,
+    "evaluator_exit": 0,
+    "repeat_aggregate_byte_equal": true,
+    "archive_member_count": 16,
+    "archive_crc_and_member_hashes_verified": true,
+    "ruff_exit": 0,
+    "mypy_exit": 0,
+    "mypy_policy": "ignore_missing_imports for existing untyped third-party dependencies",
+    "pytest": {
+      "passed": 13,
+      "failed": 1,
+      "preexisting_failure": "ExperimentMasterRecordTests::test_master_record_is_portable_and_secret_free",
+      "cause": "historical absolute Windows paths on input commit"
+    },
+    "r1_ruff_exit": 0,
+    "r1_mypy_exit": 0
+  },
+  "limits": {
+    "model_calls": 0,
+    "api_calls": 0,
+    "cost_usd": 0,
+    "formal_experiment": "NOT_STARTED",
+    "human_gold": 0,
+    "formal_targeted_asr": "NOT_MEASURED",
+    "formal_qa": "NOT_MEASURED"
+  },
+  "r1": {
+    "control_commit": "9bd8e29d49b774add5eafb700077e1750d41f309",
+    "pre_fix_bug_status": "PRE_FIX_BUG_NOT_IN_CURRENT_B2",
+    "stage2_similarity": "COSINE_WITH_L2_NORMALIZATION",
+    "tfidf_vote_matches": 36,
+    "tfidf_vote_denominator": 36,
+    "historical_top5_terms_recorded": false,
+    "candidate_first_rank_counts": {
+      "1": 25,
+      "2": 3,
+      "4": 1,
+      "miss": 7
+    },
+    "rd_zh_synthetic_analyzer": "PASS",
+    "rd_zh_d1": "NOT_RUN",
+    "checkpoint": "S0_HARD_STOP_OWNER_CHECKPOINT_PENDING",
+    "supplement_archive_sha256": "e0a1ea83960b41413325a967a90906bfadaedd095bdeb97fc305782548c7acdb",
+    "supplement_manifest_sha256": "39a32085863b88dabe42e8adab925740062625782c6cf0aa7e51c58b92313f53",
+    "supplement_aggregate_sha256": "13e97c5de2fb474cae66adc3cecbde0e803f7ba744fc177c4641343336d5b547",
+    "post_lock_matrix_sha256": "6d76a88d3b35543422d5383c5e5b5c6700865e2639f833c24396177b02326241",
+    "role_free_matrix_sha256": "8374b80d6ee42fec46f3ba6964a2b407b8c6b1336bb1cb4fb02816d865ca0155",
+    "extractor_source_sha256": "84e61dc1615ea003cd02956760e7c02f3fd20671579c73319f9241801da8de09",
+    "st_similarity_sha256": "b9891284e65ca56778a8f57dc4f24d39b29d25b0f1ee8d502d40e80ba7f49e5e",
+    "st_tensor_sha256": "9e418edb32fab4b38d71642b46d63e7a3a3f1054b6241901b2b3b4030e162a66",
+    "observations": {
+      "UNKNOWN": 81,
+      "concrete_chunks": 49,
+      "parsed_chunks": 102,
+      "query_slots": 24,
+      "removed_chunks": 81,
+      "removed_with_any_concrete_value": 25,
+      "removed_with_applicable_value": 0,
+      "removed_with_new_applicable_slot": 0,
+      "retained_unique_applicable_value_worlds": 1,
+      "topk_metadata_authority_fields_present": 0,
+      "topk_metadata_effective_time_fields_present": 0,
+      "topk_metadata_uri_fields_present": 0
+    }
+  }
+}
