@@ -1,5 +1,12 @@
 # Current Work State
 
+## S0-REVIEWER-R2-20261106 — S0核验完成，下一步先控制网页模板/中文分词混杂（Owner放行待决）
+
+截至5060提交`25936c71f96d775cca9a7603d27164e952f3a0af`，S0_COMPLETE且S1–S4 NOT_RUN：B2 81/180删除、Poison删2/10、Clean误删4/10；历史TF-IDF投票重放36/36，Stage2修复后indices且余弦先L2归一；B2未做中文分词；旧抽取器被删片段0/81范围绑定，可信源锚0/180。真实D1 RD-zh新编码0次、商业API0次。外部评审新指出上游约100/189份含“首页/历史沿革/下载”等页面模板，**该比例不是D1 TopK180的实测覆盖**。
+已发布`REVIEWER_R2_S0_CHECKPOINT_TEMPLATE_TFIDF_ROUTE_20261106.md`，预先锁定D1 TopK网页模板覆盖**只读诊断**与`B2_RAW / RD_ZH_ONLY / RD_TEMPLATE_ONLY / RD_ZH_TEMPLATE` Stage1词面2×2对照（原检索、Embedding、Stage2、生成正文仍一致）。历史B2不覆盖；网页模板清洗和中文迁移修正只属于基线/预处理，不计VESA贡献；X-MADAM-RAG arXiv:2606.12903高度重合M2，已加入方法规范第6节并提出自然化抗模板评价。
+**Owner尚未发出`S0_CHECKPOINT_RELEASE`、R1-10(A)本地encoder实跑许可或S3独立造题方安排**。因此新对照仅计划/静态审计，禁止擅自跑36世界新filter、S1–S4、S5、5090或D2/D3。S0结果保留，按预注册K1-A/B/C路标待真实公平臂结果后确定D1定位，数据无可信锚与 HumanGold0的边界保持。下方记录为先前状态。
+[评审R2与决策路标](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/REVIEWER_R2_S0_CHECKPOINT_TEMPLATE_TFIDF_ROUTE_20261106.md)。
+
 ## 当前工作 — 5060 VESA 评审重构 S0 完成，D1 来源证据门阻断（2026-11-06 JST）
 
 W1-5060-REVIEWER-REPLAN-S0-20261106-01，S0_COMPLETE / OWNER_CHECKPOINT_PENDING。封存的 36 个世界、180 个片段复核完成。B2 在 36/36 世界有删除，已召回候选 Poison 删除 2/10、Clean 误删 4/10、HN 删除 2/9。生产侧可信来源覆盖 0/180。严格 P0 下当前 D1 无法达到 S4 的 Clean 误删 <4/10 门。S1–S4 未运行，S5 无授权，新增 API 0、费用 0。正式实验未启动，Human Gold 0、正式 ASR/QA 未测。下一个门是 S0_CHECKPOINT_RELEASE。RD-zh 本地编码与独立 S3 留出方须按 R1-10 决定。原历史证据保留，Auto Continue = NO。
