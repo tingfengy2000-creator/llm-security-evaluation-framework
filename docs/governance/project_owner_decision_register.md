@@ -1,5 +1,13 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261108-5060-S1-OFFLINE-16 — Owner批准S1独立中文事实抽取验证（2026-11-08 JST）
+
+`OWNER_EXPLICITLY_APPROVED / BOUNDED_S1_OFFLINE_ONLY`。Owner明确批准5060单独进入S1，S2–S5继续保持新审批门；5090正在等待Meta Llama2模型访问权限，未获授权下载Llama2或运行Claim。接受R2/K1-C封存事实，原D1开发数据不作后验调整。仅在5060独立分支，使用既有本地依赖与D/E存储，创建与D1/D2/D3/旧108隔离的≥60条独立中文手写标注S1验证样本，覆盖自然表达、真实source span、主体/属性、金额比例单位、日期/版本/生效期/作用域、否定/例外、伪造修订、无答案/UNKNOWN；开发样本与验收样本不得混用。允许S1本地抽取器规则开发、先封存Gold再role-free预测和独立Evaluator；如仅AI构造标注，须明确`NOT_HUMAN_INDEPENDENT`，不能认Human Gold。
+
+沿用冻结S1门：准确率≥90%、M1-safe启用前的已决定样本错误抽取率点估计≤2%、不能all-UNKNOWN；同时报告wrong/total、wrong/decided、coverage/abstention、错误分型、自然化分层与Wilson 95%区间，禁止用60例的点估计宣传普遍错误上界≤2%。任何 S1 FAIL/INSUFFICIENT 保留负结果后 STOP；PASS 仅开放未来 S2申请，不自动进入。严禁新增API/联网/下载、旧B2/R2/108重跑、D2/D3/GT、5090 Claims、S2–S5、主线merge。
+
+[正式十二字段Owner授权](../paper1/dual_machine/owner_approvals/W1_5060_S1_INDEPENDENT_CHINESE_EXTRACTION_OFFLINE_AUTHORIZATION_20261108.md)。[5060执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_S1_INDEPENDENT_CHINESE_EXTRACTION_EXECUTION_PROMPT_V1.md)。本登记为执行批准，**不是S1已开始或验收通过**。
+
 ## W1-OD-20261108-5060-R2-OFFLINE-15 — Owner批准 R2 网页模板覆盖诊断与 RD-zh 四臂离线公平对照（2026-11-08 JST）
 
 状态 `OWNER_EXPLICITLY_APPROVED / BOUNDED_OFFLINE_R2_EXECUTION`。Owner 本轮明确要求继续最新 R2 方向，推进冻结 D1 TopK 的网页模板覆盖诊断及 `B2_RAW / RD_ZH_ONLY / RD_TEMPLATE_ONLY / RD_ZH_TEMPLATE` 四臂公平对照，同时明确不扩大为商业 API、5090 Claim、D2/D3 或正式测试许可。由此仅在该有界任务内解除 `S0_CHECKPOINT_RELEASE`，并批准 R1-10(A)：可使用历史 B2 固定 revision 的本地已缓存 encoder/既有 embedding 身份，对原 36 世界/180 TopK 做零下载、零新检索、零外部 API 的离线过滤对照。R1-10(B) 的 S3 独立构造/保管方仍未决定；S1–S5 均不自动放行。
