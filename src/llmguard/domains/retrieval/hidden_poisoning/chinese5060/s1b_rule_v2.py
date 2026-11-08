@@ -13,7 +13,7 @@ from typing import Any
 from . import vesa_guard_v02 as v02
 
 SCHEMA = "chinese_scalar_candidates_v1"
-POLICY = "S1B_RULE_V2_CLAUSE_SCOPE_02"
+POLICY = "S1B_RULE_V2_CLAUSE_SCOPE_03"
 _DIGITS = "零〇一二两三四五六七八九"
 _CN = _DIGITS + "十百千万"
 _NUM = rf"(?:[0-9]+(?:\.[0-9]+)?|[{_CN}]+|半)"
@@ -66,7 +66,7 @@ _METADATA = re.compile(r"页脚|页尾|网页(?:时间|更新时间)|历史沿�
 _EDGE = re.compile(r"^(?:(?:里|的|在|中|规定|记载|说明|要求|写明|把|将|注明|载明|明确)\s*)+")
 _FORMER = re.compile(r"从(?:过去|此前|先前|原先|原来)的?$")
 _REPLACEMENT = re.compile(r"^(?:改为|调整为|变更为)(?:现在|目前|现行)?的?$")
-_NAMED_ROLE = re.compile(r"([\u4e00-\u9fff]{0,12}(?:主持|人员|访客|者|人))的")
+_NAMED_ROLE = re.compile(r"([\u4e00-\u9fff]{0,12}?(?:主持|人员|访客|者|人))(?=的|最低|最高|至少|至多)")
 _QUANTITY_OBJECT = re.compile(r"(?:多少|几)(?:个|枚|件|台|套|人|卷)([\u4e00-\u9fff]{1,12})$")
 _NAME = re.compile(r"[\u4e00-\u9fff]{2,}")
 _UNIT_ALIASES = {"昼夜": "天", "个昼夜": "天", "个工作日": "工作日", "％": "%"}

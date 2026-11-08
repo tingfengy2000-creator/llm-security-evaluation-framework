@@ -93,6 +93,10 @@ def test_group_and_weather_scope_are_not_inferred() -> None:
         "《库房条目》归还期限为9天。",  # no visitor-specific evidence
     )["status"] == "UNKNOWN"
     assert rule.extract_one(
+        "《库房条目》预约人员最低领取期限是多少？",
+        "《库房条目》领取期限至少9天，但工作组可以提前领取。",
+    )["status"] == "UNKNOWN"
+    assert rule.extract_one(
         "《巡查规定》雨天的巡查期限是多少？",
         "《巡查规定》一般巡查期限为9天，遇连续降雨则限3天。",
     )["status"] == "UNKNOWN"
