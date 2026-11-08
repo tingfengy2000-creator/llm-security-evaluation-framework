@@ -1,5 +1,15 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261108-5060-R2-OFFLINE-15 — Owner批准 R2 网页模板覆盖诊断与 RD-zh 四臂离线公平对照（2026-11-08 JST）
+
+状态 `OWNER_EXPLICITLY_APPROVED / BOUNDED_OFFLINE_R2_EXECUTION`。Owner 本轮明确要求继续最新 R2 方向，推进冻结 D1 TopK 的网页模板覆盖诊断及 `B2_RAW / RD_ZH_ONLY / RD_TEMPLATE_ONLY / RD_ZH_TEMPLATE` 四臂公平对照，同时明确不扩大为商业 API、5090 Claim、D2/D3 或正式测试许可。由此仅在该有界任务内解除 `S0_CHECKPOINT_RELEASE`，并批准 R1-10(A)：可使用历史 B2 固定 revision 的本地已缓存 encoder/既有 embedding 身份，对原 36 世界/180 TopK 做零下载、零新检索、零外部 API 的离线过滤对照。R1-10(B) 的 S3 独立构造/保管方仍未决定；S1–S5 均不自动放行。
+
+网页模板清洗只允许改变 Stage1 TF-IDF 的 `lexical_view`，原 TopK、chunk 原文、embedding/Stage2 输入、生成上下文、参数与历史 B2 证据不可改写；role-free 规则、mask 与四臂结果须先封存，再由独立 Evaluator 只读揭盲汇总。完成后按 R2 已预注册 K1-A/B/C 判定路线并 STOP 返回 Owner。分词/网页清洗收益只属于迁移与预处理对照，不得写成 VESA 创新。
+
+[PO-MHEP 十二字段正式授权](../paper1/dual_machine/owner_approvals/W1_5060_R2_OFFLINE_FAIR_CONTROL_AUTHORIZATION_20261108.md)。授权原件首次提交 `d89e2431a5c7a84e9a66d06c758ef45f47745f43`。禁止商业/免费在线模型调用、新下载/安装、D2/D3、5090 Claim1–3、S3/S4一次性测试、S5、正式实验、主线合并或用角色/target/Gold 后验调整规则。
+
+
+
 ## REVIEWER-REPLAN-R1-OWNER-NOTICE-20261106
 
 Owner 在本会话明确批准将评审跟踪 #1 纳入设计，并要求 S0 内完成 RD-zh 适配器和静态测试。以固定 R1 修订和 S0 硬停止为准。真实 D1 编码、后续 S1–S4 与独立 S3 构造者仍待明确决定。
