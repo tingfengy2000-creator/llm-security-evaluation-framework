@@ -1,6 +1,13 @@
 # Current Work State
 
-## Current — 2026-11-08 Owner16 放行 5060 S1，结果未运行
+## W1-5060-S1-CHINESE-EXTRACTION-20261108-01 — S1 封存失败与停止
+
+Owner16 S1 单次封存验证结束，S1_FAIL_STOP。73 条合成样本，30 正确、4 错误、39 UNKNOWN；答案值 31/61、已决定错抽 4/34。自然中文可用 scope-bound 事实 25/49。模型、API、下载与费用为 0。Human Gold 0，正式 ASR/Accuracy 未测。S2–S5 未授权，Auto Continue = NO。
+
+[S1 结果与证据](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1_INDEPENDENT_CHINESE_EXTRACTION_RESULT.md)。
+
+
+## 历史授权快照 — 2026-11-08 Owner16 放行 5060 S1
 
 Owner `W1-OD-20261108-5060-S1-OFFLINE-16` 明确批准5060 **仅执行 S1 独立中文事实抽取离线验证**：至少60个独立手写中文标注样本（与D1/D2/D3/旧108隔离），自然化/显式答案模板配对、subject/attribute/value/unit/time/version/scope/negation/exception/source span和UNKNOWN。先冻结独立标注/合法输入、再 role-free 运行、最后隔离Evaluator。现有S1验收保持准确率≥90%、M1-safe决定样本错抽率≤2%（点估计）、不能all-UNKNOWN，同时报告wrong/total、wrong/decided、coverage/abstain、自然化分层及Wilson区间。不可将AI构造 Gold 认作独立Human Gold。仅用本地已有依赖、零联网、零下载、零API、零费用。**S1目前 APPROVED_NOT_RUN**；即使通过也须STOP并另申请S2。
 

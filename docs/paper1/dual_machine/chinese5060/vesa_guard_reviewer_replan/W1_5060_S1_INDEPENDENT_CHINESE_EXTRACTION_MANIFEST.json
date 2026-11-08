@@ -1,0 +1,4334 @@
+{
+  "annotation_sha256": "2dcf3009d18b3cb09e1962b1517132cafe8fb992b25734923c58b57ea0e4dd24",
+  "answerable_miss_reasons": {
+    "MULTIPLE_SCOPED_FACTS": 6,
+    "NO_QUERY_SCOPE_MATCH": 1,
+    "NO_SCALAR_EXTRACTED": 9,
+    "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 13
+  },
+  "api_calls": 0,
+  "archive_sha256": "cea33c257ffb071bff6596f54eb85d51de0a58a9ae5ffa8ad138527570a0fbc6",
+  "audit_receipt_sha256": "979fe860d2f93b8a9514c49f60c69996418724d56267d7fb552dd0db90557e15",
+  "auto_continue": false,
+  "branch": "research/paper1-chinese-defense-5060",
+  "by_category": {
+    "同名异主体": {
+      "abstention": {
+        "d": 3,
+        "estimate": 0.3333333333333333,
+        "n": 1,
+        "wilson95": [
+          0.06149194472039621,
+          0.7923403991979522
+        ]
+      },
+      "answerable": 3,
+      "appropriate_unknown": 0,
+      "correct": 2,
+      "coverage": {
+        "d": 3,
+        "estimate": 0.6666666666666666,
+        "n": 2,
+        "wilson95": [
+          0.2076596008020477,
+          0.9385080552796037
+        ]
+      },
+      "decided": 2,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          },
+          "per_total": {
+            "d": 3,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          },
+          "per_total": {
+            "d": 3,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          },
+          "per_total": {
+            "d": 3,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          },
+          "per_total": {
+            "d": 3,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          },
+          "per_total": {
+            "d": 3,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          }
+        }
+      },
+      "expected_unknown": 0,
+      "missed_answerable": 1,
+      "strict_correct_decided": {
+        "d": 2,
+        "estimate": 1.0,
+        "n": 2,
+        "wilson95": [
+          0.34238022750665303,
+          1.0
+        ]
+      },
+      "strict_correct_total": {
+        "d": 3,
+        "estimate": 0.6666666666666666,
+        "n": 2,
+        "wilson95": [
+          0.2076596008020477,
+          0.9385080552796037
+        ]
+      },
+      "total": 3,
+      "unknown": 1,
+      "unknown_reasons": {
+        "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 1
+      },
+      "value_accuracy_answerable": {
+        "d": 3,
+        "estimate": 0.6666666666666666,
+        "n": 2,
+        "wilson95": [
+          0.2076596008020477,
+          0.9385080552796037
+        ]
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 2,
+        "estimate": 1.0,
+        "n": 2,
+        "wilson95": [
+          0.34238022750665303,
+          1.0
+        ]
+      },
+      "value_accuracy_total": {
+        "d": 3,
+        "estimate": 0.6666666666666666,
+        "n": 2,
+        "wilson95": [
+          0.2076596008020477,
+          0.9385080552796037
+        ]
+      },
+      "wrong": 0,
+      "wrong_decided": {
+        "d": 2,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.6576197724933469
+        ]
+      },
+      "wrong_total": {
+        "d": 3,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      }
+    },
+    "否定例外": {
+      "abstention": {
+        "d": 2,
+        "estimate": 1.0,
+        "n": 2,
+        "wilson95": [
+          0.34238022750665303,
+          1.0
+        ]
+      },
+      "answerable": 0,
+      "appropriate_unknown": 2,
+      "correct": 0,
+      "coverage": {
+        "d": 2,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.6576197724933469
+        ]
+      },
+      "decided": 0,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        }
+      },
+      "expected_unknown": 2,
+      "missed_answerable": 0,
+      "strict_correct_decided": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "strict_correct_total": {
+        "d": 2,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.6576197724933469
+        ]
+      },
+      "total": 2,
+      "unknown": 2,
+      "unknown_reasons": {
+        "NO_QUERY_SCOPE_MATCH": 1,
+        "NO_SCALAR_EXTRACTED": 1
+      },
+      "value_accuracy_answerable": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "value_accuracy_total": {
+        "d": 2,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.6576197724933469
+        ]
+      },
+      "wrong": 0,
+      "wrong_decided": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "wrong_total": {
+        "d": 2,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.6576197724933469
+        ]
+      }
+    },
+    "数量与单位": {
+      "abstention": {
+        "d": 8,
+        "estimate": 0.875,
+        "n": 7,
+        "wilson95": [
+          0.5291118177871464,
+          0.9775825085499433
+        ]
+      },
+      "answerable": 8,
+      "appropriate_unknown": 0,
+      "correct": 1,
+      "coverage": {
+        "d": 8,
+        "estimate": 0.125,
+        "n": 1,
+        "wilson95": [
+          0.02241749145005667,
+          0.4708881822128535
+        ]
+      },
+      "decided": 1,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        }
+      },
+      "expected_unknown": 0,
+      "missed_answerable": 7,
+      "strict_correct_decided": {
+        "d": 1,
+        "estimate": 1.0,
+        "n": 1,
+        "wilson95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      "strict_correct_total": {
+        "d": 8,
+        "estimate": 0.125,
+        "n": 1,
+        "wilson95": [
+          0.02241749145005667,
+          0.4708881822128535
+        ]
+      },
+      "total": 8,
+      "unknown": 7,
+      "unknown_reasons": {
+        "MULTIPLE_SCOPED_FACTS": 1,
+        "NO_SCALAR_EXTRACTED": 3,
+        "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 3
+      },
+      "value_accuracy_answerable": {
+        "d": 8,
+        "estimate": 0.125,
+        "n": 1,
+        "wilson95": [
+          0.02241749145005667,
+          0.4708881822128535
+        ]
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 1,
+        "estimate": 1.0,
+        "n": 1,
+        "wilson95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      "value_accuracy_total": {
+        "d": 8,
+        "estimate": 0.125,
+        "n": 1,
+        "wilson95": [
+          0.02241749145005667,
+          0.4708881822128535
+        ]
+      },
+      "wrong": 0,
+      "wrong_decided": {
+        "d": 1,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.7934506856227626
+        ]
+      },
+      "wrong_total": {
+        "d": 8,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.32440756488388023
+        ]
+      }
+    },
+    "日期": {
+      "abstention": {
+        "d": 8,
+        "estimate": 0.625,
+        "n": 5,
+        "wilson95": [
+          0.30574239460262737,
+          0.8631557141764026
+        ]
+      },
+      "answerable": 8,
+      "appropriate_unknown": 0,
+      "correct": 3,
+      "coverage": {
+        "d": 8,
+        "estimate": 0.375,
+        "n": 3,
+        "wilson95": [
+          0.13684428582359742,
+          0.6942576053973727
+        ]
+      },
+      "decided": 3,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 3,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 3,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 3,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 3,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 3,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        }
+      },
+      "expected_unknown": 0,
+      "missed_answerable": 5,
+      "strict_correct_decided": {
+        "d": 3,
+        "estimate": 1.0,
+        "n": 3,
+        "wilson95": [
+          0.4385029682449546,
+          1.0
+        ]
+      },
+      "strict_correct_total": {
+        "d": 8,
+        "estimate": 0.375,
+        "n": 3,
+        "wilson95": [
+          0.13684428582359742,
+          0.6942576053973727
+        ]
+      },
+      "total": 8,
+      "unknown": 5,
+      "unknown_reasons": {
+        "NO_SCALAR_EXTRACTED": 3,
+        "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 2
+      },
+      "value_accuracy_answerable": {
+        "d": 8,
+        "estimate": 0.375,
+        "n": 3,
+        "wilson95": [
+          0.13684428582359742,
+          0.6942576053973727
+        ]
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 3,
+        "estimate": 1.0,
+        "n": 3,
+        "wilson95": [
+          0.4385029682449546,
+          1.0
+        ]
+      },
+      "value_accuracy_total": {
+        "d": 8,
+        "estimate": 0.375,
+        "n": 3,
+        "wilson95": [
+          0.13684428582359742,
+          0.6942576053973727
+        ]
+      },
+      "wrong": 0,
+      "wrong_decided": {
+        "d": 3,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "wrong_total": {
+        "d": 8,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.32440756488388023
+        ]
+      }
+    },
+    "未证修订": {
+      "abstention": {
+        "d": 2,
+        "estimate": 0.5,
+        "n": 1,
+        "wilson95": [
+          0.09453120573423074,
+          0.9054687942657693
+        ]
+      },
+      "answerable": 0,
+      "appropriate_unknown": 1,
+      "correct": 0,
+      "coverage": {
+        "d": 2,
+        "estimate": 0.5,
+        "n": 1,
+        "wilson95": [
+          0.09453120573423074,
+          0.9054687942657693
+        ]
+      },
+      "decided": 1,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 1.0,
+            "n": 1,
+            "wilson95": [
+              0.20654931437723745,
+              1.0
+            ]
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.5,
+            "n": 1,
+            "wilson95": [
+              0.09453120573423074,
+              0.9054687942657693
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        }
+      },
+      "expected_unknown": 2,
+      "missed_answerable": 0,
+      "strict_correct_decided": {
+        "d": 1,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.7934506856227626
+        ]
+      },
+      "strict_correct_total": {
+        "d": 2,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.6576197724933469
+        ]
+      },
+      "total": 2,
+      "unknown": 1,
+      "unknown_reasons": {
+        "NO_QUERY_SCOPE_MATCH": 1
+      },
+      "value_accuracy_answerable": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "value_accuracy_total": {
+        "d": 2,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.6576197724933469
+        ]
+      },
+      "wrong": 1,
+      "wrong_decided": {
+        "d": 1,
+        "estimate": 1.0,
+        "n": 1,
+        "wilson95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      "wrong_total": {
+        "d": 2,
+        "estimate": 0.5,
+        "n": 1,
+        "wilson95": [
+          0.09453120573423074,
+          0.9054687942657693
+        ]
+      }
+    },
+    "条件与例外": {
+      "abstention": {
+        "d": 6,
+        "estimate": 0.16666666666666666,
+        "n": 1,
+        "wilson95": [
+          0.030053369748306635,
+          0.5635028221864702
+        ]
+      },
+      "answerable": 6,
+      "appropriate_unknown": 0,
+      "correct": 4,
+      "coverage": {
+        "d": 6,
+        "estimate": 0.8333333333333334,
+        "n": 5,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "decided": 5,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.2,
+            "n": 1,
+            "wilson95": [
+              0.03622410863243014,
+              0.6244653702374747
+            ]
+          },
+          "per_total": {
+            "d": 6,
+            "estimate": 0.16666666666666666,
+            "n": 1,
+            "wilson95": [
+              0.030053369748306635,
+              0.5635028221864702
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          }
+        }
+      },
+      "expected_unknown": 0,
+      "missed_answerable": 1,
+      "strict_correct_decided": {
+        "d": 5,
+        "estimate": 0.8,
+        "n": 4,
+        "wilson95": [
+          0.37553462976252533,
+          0.9637758913675698
+        ]
+      },
+      "strict_correct_total": {
+        "d": 6,
+        "estimate": 0.6666666666666666,
+        "n": 4,
+        "wilson95": [
+          0.299993315138392,
+          0.9032285888942195
+        ]
+      },
+      "total": 6,
+      "unknown": 1,
+      "unknown_reasons": {
+        "NO_SCALAR_EXTRACTED": 1
+      },
+      "value_accuracy_answerable": {
+        "d": 6,
+        "estimate": 0.8333333333333334,
+        "n": 5,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 5,
+        "estimate": 1.0,
+        "n": 5,
+        "wilson95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "value_accuracy_total": {
+        "d": 6,
+        "estimate": 0.8333333333333334,
+        "n": 5,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "wrong": 1,
+      "wrong_decided": {
+        "d": 5,
+        "estimate": 0.2,
+        "n": 1,
+        "wilson95": [
+          0.03622410863243014,
+          0.6244653702374747
+        ]
+      },
+      "wrong_total": {
+        "d": 6,
+        "estimate": 0.16666666666666666,
+        "n": 1,
+        "wilson95": [
+          0.030053369748306635,
+          0.5635028221864702
+        ]
+      }
+    },
+    "比例": {
+      "abstention": {
+        "d": 8,
+        "estimate": 0.625,
+        "n": 5,
+        "wilson95": [
+          0.30574239460262737,
+          0.8631557141764026
+        ]
+      },
+      "answerable": 8,
+      "appropriate_unknown": 0,
+      "correct": 3,
+      "coverage": {
+        "d": 8,
+        "estimate": 0.375,
+        "n": 3,
+        "wilson95": [
+          0.13684428582359742,
+          0.6942576053973727
+        ]
+      },
+      "decided": 3,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 3,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 3,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 3,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 3,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 3,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        }
+      },
+      "expected_unknown": 0,
+      "missed_answerable": 5,
+      "strict_correct_decided": {
+        "d": 3,
+        "estimate": 1.0,
+        "n": 3,
+        "wilson95": [
+          0.4385029682449546,
+          1.0
+        ]
+      },
+      "strict_correct_total": {
+        "d": 8,
+        "estimate": 0.375,
+        "n": 3,
+        "wilson95": [
+          0.13684428582359742,
+          0.6942576053973727
+        ]
+      },
+      "total": 8,
+      "unknown": 5,
+      "unknown_reasons": {
+        "NO_QUERY_SCOPE_MATCH": 1,
+        "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 4
+      },
+      "value_accuracy_answerable": {
+        "d": 8,
+        "estimate": 0.375,
+        "n": 3,
+        "wilson95": [
+          0.13684428582359742,
+          0.6942576053973727
+        ]
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 3,
+        "estimate": 1.0,
+        "n": 3,
+        "wilson95": [
+          0.4385029682449546,
+          1.0
+        ]
+      },
+      "value_accuracy_total": {
+        "d": 8,
+        "estimate": 0.375,
+        "n": 3,
+        "wilson95": [
+          0.13684428582359742,
+          0.6942576053973727
+        ]
+      },
+      "wrong": 0,
+      "wrong_decided": {
+        "d": 3,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "wrong_total": {
+        "d": 8,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.32440756488388023
+        ]
+      }
+    },
+    "版本": {
+      "abstention": {
+        "d": 6,
+        "estimate": 0.16666666666666666,
+        "n": 1,
+        "wilson95": [
+          0.030053369748306635,
+          0.5635028221864702
+        ]
+      },
+      "answerable": 6,
+      "appropriate_unknown": 0,
+      "correct": 5,
+      "coverage": {
+        "d": 6,
+        "estimate": 0.8333333333333334,
+        "n": 5,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "decided": 5,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          }
+        }
+      },
+      "expected_unknown": 0,
+      "missed_answerable": 1,
+      "strict_correct_decided": {
+        "d": 5,
+        "estimate": 1.0,
+        "n": 5,
+        "wilson95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "strict_correct_total": {
+        "d": 6,
+        "estimate": 0.8333333333333334,
+        "n": 5,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "total": 6,
+      "unknown": 1,
+      "unknown_reasons": {
+        "NO_SCALAR_EXTRACTED": 1
+      },
+      "value_accuracy_answerable": {
+        "d": 6,
+        "estimate": 0.8333333333333334,
+        "n": 5,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 5,
+        "estimate": 1.0,
+        "n": 5,
+        "wilson95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "value_accuracy_total": {
+        "d": 6,
+        "estimate": 0.8333333333333334,
+        "n": 5,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "wrong": 0,
+      "wrong_decided": {
+        "d": 5,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.43448246478317476
+        ]
+      },
+      "wrong_total": {
+        "d": 6,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      }
+    },
+    "网页正文混排": {
+      "abstention": {
+        "d": 6,
+        "estimate": 0.16666666666666666,
+        "n": 1,
+        "wilson95": [
+          0.030053369748306635,
+          0.5635028221864702
+        ]
+      },
+      "answerable": 5,
+      "appropriate_unknown": 1,
+      "correct": 5,
+      "coverage": {
+        "d": 6,
+        "estimate": 0.8333333333333334,
+        "n": 5,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "decided": 5,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          }
+        }
+      },
+      "expected_unknown": 1,
+      "missed_answerable": 0,
+      "strict_correct_decided": {
+        "d": 5,
+        "estimate": 1.0,
+        "n": 5,
+        "wilson95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "strict_correct_total": {
+        "d": 6,
+        "estimate": 0.8333333333333334,
+        "n": 5,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "total": 6,
+      "unknown": 1,
+      "unknown_reasons": {
+        "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 1
+      },
+      "value_accuracy_answerable": {
+        "d": 5,
+        "estimate": 1.0,
+        "n": 5,
+        "wilson95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 5,
+        "estimate": 1.0,
+        "n": 5,
+        "wilson95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "value_accuracy_total": {
+        "d": 6,
+        "estimate": 0.8333333333333334,
+        "n": 5,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "wrong": 0,
+      "wrong_decided": {
+        "d": 5,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.43448246478317476
+        ]
+      },
+      "wrong_total": {
+        "d": 6,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      }
+    },
+    "自然多事实": {
+      "abstention": {
+        "d": 5,
+        "estimate": 0.8,
+        "n": 4,
+        "wilson95": [
+          0.37553462976252533,
+          0.9637758913675698
+        ]
+      },
+      "answerable": 5,
+      "appropriate_unknown": 0,
+      "correct": 1,
+      "coverage": {
+        "d": 5,
+        "estimate": 0.2,
+        "n": 1,
+        "wilson95": [
+          0.03622410863243014,
+          0.6244653702374747
+        ]
+      },
+      "decided": 1,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          }
+        }
+      },
+      "expected_unknown": 0,
+      "missed_answerable": 4,
+      "strict_correct_decided": {
+        "d": 1,
+        "estimate": 1.0,
+        "n": 1,
+        "wilson95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      "strict_correct_total": {
+        "d": 5,
+        "estimate": 0.2,
+        "n": 1,
+        "wilson95": [
+          0.03622410863243014,
+          0.6244653702374747
+        ]
+      },
+      "total": 5,
+      "unknown": 4,
+      "unknown_reasons": {
+        "MULTIPLE_SCOPED_FACTS": 3,
+        "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 1
+      },
+      "value_accuracy_answerable": {
+        "d": 5,
+        "estimate": 0.2,
+        "n": 1,
+        "wilson95": [
+          0.03622410863243014,
+          0.6244653702374747
+        ]
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 1,
+        "estimate": 1.0,
+        "n": 1,
+        "wilson95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      "value_accuracy_total": {
+        "d": 5,
+        "estimate": 0.2,
+        "n": 1,
+        "wilson95": [
+          0.03622410863243014,
+          0.6244653702374747
+        ]
+      },
+      "wrong": 0,
+      "wrong_decided": {
+        "d": 1,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.7934506856227626
+        ]
+      },
+      "wrong_total": {
+        "d": 5,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.43448246478317476
+        ]
+      }
+    },
+    "证据不足": {
+      "abstention": {
+        "d": 2,
+        "estimate": 1.0,
+        "n": 2,
+        "wilson95": [
+          0.34238022750665303,
+          1.0
+        ]
+      },
+      "answerable": 0,
+      "appropriate_unknown": 2,
+      "correct": 0,
+      "coverage": {
+        "d": 2,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.6576197724933469
+        ]
+      },
+      "decided": 0,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        }
+      },
+      "expected_unknown": 2,
+      "missed_answerable": 0,
+      "strict_correct_decided": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "strict_correct_total": {
+        "d": 2,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.6576197724933469
+        ]
+      },
+      "total": 2,
+      "unknown": 2,
+      "unknown_reasons": {
+        "NO_SCALAR_EXTRACTED": 2
+      },
+      "value_accuracy_answerable": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "value_accuracy_total": {
+        "d": 2,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.6576197724933469
+        ]
+      },
+      "wrong": 0,
+      "wrong_decided": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "wrong_total": {
+        "d": 2,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.6576197724933469
+        ]
+      }
+    },
+    "跨范围": {
+      "abstention": {
+        "d": 3,
+        "estimate": 0.3333333333333333,
+        "n": 1,
+        "wilson95": [
+          0.06149194472039621,
+          0.7923403991979522
+        ]
+      },
+      "answerable": 3,
+      "appropriate_unknown": 0,
+      "correct": 1,
+      "coverage": {
+        "d": 3,
+        "estimate": 0.6666666666666666,
+        "n": 2,
+        "wilson95": [
+          0.2076596008020477,
+          0.9385080552796037
+        ]
+      },
+      "decided": 2,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 2,
+            "estimate": 0.5,
+            "n": 1,
+            "wilson95": [
+              0.09453120573423074,
+              0.9054687942657693
+            ]
+          },
+          "per_total": {
+            "d": 3,
+            "estimate": 0.3333333333333333,
+            "n": 1,
+            "wilson95": [
+              0.06149194472039621,
+              0.7923403991979522
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          },
+          "per_total": {
+            "d": 3,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 2,
+            "estimate": 0.5,
+            "n": 1,
+            "wilson95": [
+              0.09453120573423074,
+              0.9054687942657693
+            ]
+          },
+          "per_total": {
+            "d": 3,
+            "estimate": 0.3333333333333333,
+            "n": 1,
+            "wilson95": [
+              0.06149194472039621,
+              0.7923403991979522
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          },
+          "per_total": {
+            "d": 3,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 2,
+            "estimate": 0.5,
+            "n": 1,
+            "wilson95": [
+              0.09453120573423074,
+              0.9054687942657693
+            ]
+          },
+          "per_total": {
+            "d": 3,
+            "estimate": 0.3333333333333333,
+            "n": 1,
+            "wilson95": [
+              0.06149194472039621,
+              0.7923403991979522
+            ]
+          }
+        }
+      },
+      "expected_unknown": 0,
+      "missed_answerable": 1,
+      "strict_correct_decided": {
+        "d": 2,
+        "estimate": 0.5,
+        "n": 1,
+        "wilson95": [
+          0.09453120573423074,
+          0.9054687942657693
+        ]
+      },
+      "strict_correct_total": {
+        "d": 3,
+        "estimate": 0.3333333333333333,
+        "n": 1,
+        "wilson95": [
+          0.06149194472039621,
+          0.7923403991979522
+        ]
+      },
+      "total": 3,
+      "unknown": 1,
+      "unknown_reasons": {
+        "MULTIPLE_SCOPED_FACTS": 1
+      },
+      "value_accuracy_answerable": {
+        "d": 3,
+        "estimate": 0.3333333333333333,
+        "n": 1,
+        "wilson95": [
+          0.06149194472039621,
+          0.7923403991979522
+        ]
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 2,
+        "estimate": 0.5,
+        "n": 1,
+        "wilson95": [
+          0.09453120573423074,
+          0.9054687942657693
+        ]
+      },
+      "value_accuracy_total": {
+        "d": 3,
+        "estimate": 0.3333333333333333,
+        "n": 1,
+        "wilson95": [
+          0.06149194472039621,
+          0.7923403991979522
+        ]
+      },
+      "wrong": 1,
+      "wrong_decided": {
+        "d": 2,
+        "estimate": 0.5,
+        "n": 1,
+        "wilson95": [
+          0.09453120573423074,
+          0.9054687942657693
+        ]
+      },
+      "wrong_total": {
+        "d": 3,
+        "estimate": 0.3333333333333333,
+        "n": 1,
+        "wilson95": [
+          0.06149194472039621,
+          0.7923403991979522
+        ]
+      }
+    },
+    "跨范围冲突": {
+      "abstention": {
+        "d": 2,
+        "estimate": 0.5,
+        "n": 1,
+        "wilson95": [
+          0.09453120573423074,
+          0.9054687942657693
+        ]
+      },
+      "answerable": 0,
+      "appropriate_unknown": 1,
+      "correct": 0,
+      "coverage": {
+        "d": 2,
+        "estimate": 0.5,
+        "n": 1,
+        "wilson95": [
+          0.09453120573423074,
+          0.9054687942657693
+        ]
+      },
+      "decided": 1,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 1.0,
+            "n": 1,
+            "wilson95": [
+              0.20654931437723745,
+              1.0
+            ]
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.5,
+            "n": 1,
+            "wilson95": [
+              0.09453120573423074,
+              0.9054687942657693
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        }
+      },
+      "expected_unknown": 2,
+      "missed_answerable": 0,
+      "strict_correct_decided": {
+        "d": 1,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.7934506856227626
+        ]
+      },
+      "strict_correct_total": {
+        "d": 2,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.6576197724933469
+        ]
+      },
+      "total": 2,
+      "unknown": 1,
+      "unknown_reasons": {
+        "MULTIPLE_SCOPED_FACTS": 1
+      },
+      "value_accuracy_answerable": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "value_accuracy_total": {
+        "d": 2,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.6576197724933469
+        ]
+      },
+      "wrong": 1,
+      "wrong_decided": {
+        "d": 1,
+        "estimate": 1.0,
+        "n": 1,
+        "wilson95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      "wrong_total": {
+        "d": 2,
+        "estimate": 0.5,
+        "n": 1,
+        "wilson95": [
+          0.09453120573423074,
+          0.9054687942657693
+        ]
+      }
+    },
+    "金额": {
+      "abstention": {
+        "d": 8,
+        "estimate": 0.5,
+        "n": 4,
+        "wilson95": [
+          0.21521606221387757,
+          0.7847839377861224
+        ]
+      },
+      "answerable": 8,
+      "appropriate_unknown": 0,
+      "correct": 4,
+      "coverage": {
+        "d": 8,
+        "estimate": 0.5,
+        "n": 4,
+        "wilson95": [
+          0.21521606221387757,
+          0.7847839377861224
+        ]
+      },
+      "decided": 4,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 4,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.4898908364545973
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 4,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.4898908364545973
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 4,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.4898908364545973
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 4,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.4898908364545973
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 4,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.4898908364545973
+            ]
+          },
+          "per_total": {
+            "d": 8,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          }
+        }
+      },
+      "expected_unknown": 0,
+      "missed_answerable": 4,
+      "strict_correct_decided": {
+        "d": 4,
+        "estimate": 1.0,
+        "n": 4,
+        "wilson95": [
+          0.5101091635454027,
+          1.0
+        ]
+      },
+      "strict_correct_total": {
+        "d": 8,
+        "estimate": 0.5,
+        "n": 4,
+        "wilson95": [
+          0.21521606221387757,
+          0.7847839377861224
+        ]
+      },
+      "total": 8,
+      "unknown": 4,
+      "unknown_reasons": {
+        "MULTIPLE_SCOPED_FACTS": 1,
+        "NO_SCALAR_EXTRACTED": 1,
+        "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 2
+      },
+      "value_accuracy_answerable": {
+        "d": 8,
+        "estimate": 0.5,
+        "n": 4,
+        "wilson95": [
+          0.21521606221387757,
+          0.7847839377861224
+        ]
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 4,
+        "estimate": 1.0,
+        "n": 4,
+        "wilson95": [
+          0.5101091635454027,
+          1.0
+        ]
+      },
+      "value_accuracy_total": {
+        "d": 8,
+        "estimate": 0.5,
+        "n": 4,
+        "wilson95": [
+          0.21521606221387757,
+          0.7847839377861224
+        ]
+      },
+      "wrong": 0,
+      "wrong_decided": {
+        "d": 4,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.4898908364545973
+        ]
+      },
+      "wrong_total": {
+        "d": 8,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.32440756488388023
+        ]
+      }
+    },
+    "错误单位": {
+      "abstention": {
+        "d": 1,
+        "estimate": 1.0,
+        "n": 1,
+        "wilson95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      "answerable": 0,
+      "appropriate_unknown": 1,
+      "correct": 0,
+      "coverage": {
+        "d": 1,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.7934506856227626
+        ]
+      },
+      "decided": 0,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          }
+        }
+      },
+      "expected_unknown": 1,
+      "missed_answerable": 0,
+      "strict_correct_decided": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "strict_correct_total": {
+        "d": 1,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.7934506856227626
+        ]
+      },
+      "total": 1,
+      "unknown": 1,
+      "unknown_reasons": {
+        "NO_SCALAR_EXTRACTED": 1
+      },
+      "value_accuracy_answerable": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "value_accuracy_total": {
+        "d": 1,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.7934506856227626
+        ]
+      },
+      "wrong": 0,
+      "wrong_decided": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "wrong_total": {
+        "d": 1,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.7934506856227626
+        ]
+      }
+    },
+    "错误单位干扰": {
+      "abstention": {
+        "d": 1,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.7934506856227626
+        ]
+      },
+      "answerable": 1,
+      "appropriate_unknown": 0,
+      "correct": 1,
+      "coverage": {
+        "d": 1,
+        "estimate": 1.0,
+        "n": 1,
+        "wilson95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      "decided": 1,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          },
+          "per_total": {
+            "d": 1,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.7934506856227626
+            ]
+          }
+        }
+      },
+      "expected_unknown": 0,
+      "missed_answerable": 0,
+      "strict_correct_decided": {
+        "d": 1,
+        "estimate": 1.0,
+        "n": 1,
+        "wilson95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      "strict_correct_total": {
+        "d": 1,
+        "estimate": 1.0,
+        "n": 1,
+        "wilson95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      "total": 1,
+      "unknown": 0,
+      "unknown_reasons": {},
+      "value_accuracy_answerable": {
+        "d": 1,
+        "estimate": 1.0,
+        "n": 1,
+        "wilson95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 1,
+        "estimate": 1.0,
+        "n": 1,
+        "wilson95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      "value_accuracy_total": {
+        "d": 1,
+        "estimate": 1.0,
+        "n": 1,
+        "wilson95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      "wrong": 0,
+      "wrong_decided": {
+        "d": 1,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.7934506856227626
+        ]
+      },
+      "wrong_total": {
+        "d": 1,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.7934506856227626
+        ]
+      }
+    },
+    "非法日期": {
+      "abstention": {
+        "d": 2,
+        "estimate": 1.0,
+        "n": 2,
+        "wilson95": [
+          0.34238022750665303,
+          1.0
+        ]
+      },
+      "answerable": 0,
+      "appropriate_unknown": 2,
+      "correct": 0,
+      "coverage": {
+        "d": 2,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.6576197724933469
+        ]
+      },
+      "decided": 0,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 0,
+            "estimate": null,
+            "n": 0,
+            "wilson95": null
+          },
+          "per_total": {
+            "d": 2,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.6576197724933469
+            ]
+          }
+        }
+      },
+      "expected_unknown": 2,
+      "missed_answerable": 0,
+      "strict_correct_decided": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "strict_correct_total": {
+        "d": 2,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.6576197724933469
+        ]
+      },
+      "total": 2,
+      "unknown": 2,
+      "unknown_reasons": {
+        "NO_SCALAR_EXTRACTED": 2
+      },
+      "value_accuracy_answerable": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "value_accuracy_total": {
+        "d": 2,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.6576197724933469
+        ]
+      },
+      "wrong": 0,
+      "wrong_decided": {
+        "d": 0,
+        "estimate": null,
+        "n": 0,
+        "wilson95": null
+      },
+      "wrong_total": {
+        "d": 2,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.6576197724933469
+        ]
+      }
+    }
+  },
+  "by_form": {
+    "explicit": {
+      "abstention": {
+        "d": 12,
+        "estimate": 0.5833333333333334,
+        "n": 7,
+        "wilson95": [
+          0.31951131254954973,
+          0.8067396863412435
+        ]
+      },
+      "answerable": 12,
+      "appropriate_unknown": 0,
+      "correct": 5,
+      "coverage": {
+        "d": 12,
+        "estimate": 0.4166666666666667,
+        "n": 5,
+        "wilson95": [
+          0.19326031365875665,
+          0.6804886874504503
+        ]
+      },
+      "decided": 5,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 12,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 12,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 12,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 12,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 12,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        }
+      },
+      "expected_unknown": 0,
+      "missed_answerable": 7,
+      "strict_correct_decided": {
+        "d": 5,
+        "estimate": 1.0,
+        "n": 5,
+        "wilson95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "strict_correct_total": {
+        "d": 12,
+        "estimate": 0.4166666666666667,
+        "n": 5,
+        "wilson95": [
+          0.19326031365875665,
+          0.6804886874504503
+        ]
+      },
+      "total": 12,
+      "unknown": 7,
+      "unknown_reasons": {
+        "MULTIPLE_SCOPED_FACTS": 1,
+        "NO_SCALAR_EXTRACTED": 2,
+        "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 4
+      },
+      "value_accuracy_answerable": {
+        "d": 12,
+        "estimate": 0.4166666666666667,
+        "n": 5,
+        "wilson95": [
+          0.19326031365875665,
+          0.6804886874504503
+        ]
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 5,
+        "estimate": 1.0,
+        "n": 5,
+        "wilson95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "value_accuracy_total": {
+        "d": 12,
+        "estimate": 0.4166666666666667,
+        "n": 5,
+        "wilson95": [
+          0.19326031365875665,
+          0.6804886874504503
+        ]
+      },
+      "wrong": 0,
+      "wrong_decided": {
+        "d": 5,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.43448246478317476
+        ]
+      },
+      "wrong_total": {
+        "d": 12,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.24249400665524085
+        ]
+      }
+    },
+    "natural": {
+      "abstention": {
+        "d": 61,
+        "estimate": 0.5245901639344263,
+        "n": 32,
+        "wilson95": [
+          0.40157156924985693,
+          0.6446951257715474
+        ]
+      },
+      "answerable": 49,
+      "appropriate_unknown": 10,
+      "correct": 25,
+      "coverage": {
+        "d": 61,
+        "estimate": 0.47540983606557374,
+        "n": 29,
+        "wilson95": [
+          0.3553048742284526,
+          0.5984284307501431
+        ]
+      },
+      "decided": 29,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 29,
+            "estimate": 0.034482758620689655,
+            "n": 1,
+            "wilson95": [
+              0.006113214292762653,
+              0.17175521879320288
+            ]
+          },
+          "per_total": {
+            "d": 61,
+            "estimate": 0.01639344262295082,
+            "n": 1,
+            "wilson95": [
+              0.002899730799299824,
+              0.08718860044641587
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 29,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.11696979849974075
+            ]
+          },
+          "per_total": {
+            "d": 61,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.05924386789811283
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 29,
+            "estimate": 0.06896551724137931,
+            "n": 2,
+            "wilson95": [
+              0.019121266169433354,
+              0.21964580150275695
+            ]
+          },
+          "per_total": {
+            "d": 61,
+            "estimate": 0.03278688524590164,
+            "n": 2,
+            "wilson95": [
+              0.009037890398362391,
+              0.11189490419495614
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 29,
+            "estimate": 0.06896551724137931,
+            "n": 2,
+            "wilson95": [
+              0.019121266169433354,
+              0.21964580150275695
+            ]
+          },
+          "per_total": {
+            "d": 61,
+            "estimate": 0.03278688524590164,
+            "n": 2,
+            "wilson95": [
+              0.009037890398362391,
+              0.11189490419495614
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 29,
+            "estimate": 0.034482758620689655,
+            "n": 1,
+            "wilson95": [
+              0.006113214292762653,
+              0.17175521879320288
+            ]
+          },
+          "per_total": {
+            "d": 61,
+            "estimate": 0.01639344262295082,
+            "n": 1,
+            "wilson95": [
+              0.002899730799299824,
+              0.08718860044641587
+            ]
+          }
+        }
+      },
+      "expected_unknown": 12,
+      "missed_answerable": 22,
+      "strict_correct_decided": {
+        "d": 29,
+        "estimate": 0.8620689655172413,
+        "n": 25,
+        "wilson95": [
+          0.6944100627964798,
+          0.9450256003588804
+        ]
+      },
+      "strict_correct_total": {
+        "d": 61,
+        "estimate": 0.4098360655737705,
+        "n": 25,
+        "wilson95": [
+          0.2953533743182536,
+          0.5350020772699307
+        ]
+      },
+      "total": 61,
+      "unknown": 32,
+      "unknown_reasons": {
+        "MULTIPLE_SCOPED_FACTS": 6,
+        "NO_QUERY_SCOPE_MATCH": 3,
+        "NO_SCALAR_EXTRACTED": 13,
+        "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 10
+      },
+      "value_accuracy_answerable": {
+        "d": 49,
+        "estimate": 0.5306122448979592,
+        "n": 26,
+        "wilson95": [
+          0.39380863983661896,
+          0.6629649630682484
+        ]
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 27,
+        "estimate": 0.9629629629629629,
+        "n": 26,
+        "wilson95": [
+          0.8171653406642414,
+          0.9934318540192149
+        ]
+      },
+      "value_accuracy_total": {
+        "d": 61,
+        "estimate": 0.4262295081967213,
+        "n": 26,
+        "wilson95": [
+          0.3101522193852527,
+          0.5510476955505343
+        ]
+      },
+      "wrong": 4,
+      "wrong_decided": {
+        "d": 29,
+        "estimate": 0.13793103448275862,
+        "n": 4,
+        "wilson95": [
+          0.05497439964111964,
+          0.30558993720352023
+        ]
+      },
+      "wrong_total": {
+        "d": 61,
+        "estimate": 0.06557377049180328,
+        "n": 4,
+        "wilson95": [
+          0.02579370448956657,
+          0.1568280167989577
+        ]
+      }
+    }
+  },
+  "code": {
+    "extractor_policy": "S1_V02_STRICT_SINGLE_SCOPE_V1",
+    "owner_commit": "71867628683592ee5b879e655ed4a063484a53c6",
+    "source_commit": "68d34a5d877206f4e6d7d9e2bdda16784145a76a",
+    "sources": {
+      "run_chinese5060_s1_extraction.py": "5cedc9f3d11fba87d292961e37370439f6c3c58f78265b0ee2a515665e1d3fe1",
+      "s1_extraction.py": "67568081a0fa0465bf195f5220667689e84585b7d1fb9bdfcfedc605b594a897",
+      "vesa_guard_v02.py": "84e61dc1615ea003cd02956760e7c02f3fd20671579c73319f9241801da8de09"
+    },
+    "underlying_rule_sha256": "3bac86e08182541c061d88f62b97dd53d8b22babedd1920c1471cf5130d9d9cf"
+  },
+  "complete_private_archive_sha256": "708c06264fdc2dd3678ad6ad5535d10c9e341646d335d646bfcb399d28d12d49",
+  "cost_usd": 0,
+  "data_class": [
+    "AI_AUTHORED",
+    "NOT_HUMAN_INDEPENDENT",
+    "SEALED_SYNTHETIC_DEVELOPMENT",
+    "PROVISIONAL"
+  ],
+  "downloads": 0,
+  "formal_accuracy": "NOT_MEASURED",
+  "formal_asr": "NOT_MEASURED",
+  "human_gold": 0,
+  "inference_sha256": "8245af9a1241fe966f0dbc05e52ed7744b041e13685a743a81aebd818b9a8481",
+  "members_sha256": {
+    "ANNOTATION_PRIVATE.json": "2dcf3009d18b3cb09e1962b1517132cafe8fb992b25734923c58b57ea0e4dd24",
+    "EVALUATION_AGGREGATE.json": "a4cf0a6fbcff07fce3456788ae6726025811786614bfa6ada5ac786f036eabc6",
+    "EVALUATION_PRIVATE.json": "b67b66398d8674c81664d3d160ea66889f3ce1c30f8960ee7b2405168b9be789",
+    "EVALUATOR_SEAL.json": "267eeb65ccc32312ac1ee597844e3e2df0e93d48d727bfd88dd4a7aa115565e3",
+    "INFERENCE_PRIVATE.json": "8245af9a1241fe966f0dbc05e52ed7744b041e13685a743a81aebd818b9a8481",
+    "INPUT_LOCK.json": "2fabdbb6801458638f429c5911425900817dca5734374a255fdc221aad3c9c24",
+    "PREDICTIONS_PRIVATE.json": "2a2dda408a0ae914dc619c81f7bd738f11e9e7f1c427dd6493a677302ed1bbd7",
+    "PREDICTION_SEAL.json": "981a350763c80d30e57a65a3f21d7819d86107349e0db774184442e1d92593b6"
+  },
+  "model_calls": 0,
+  "natural_answerable_miss_reasons": {
+    "MULTIPLE_SCOPED_FACTS": 5,
+    "NO_QUERY_SCOPE_MATCH": 1,
+    "NO_SCALAR_EXTRACTED": 7,
+    "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 9
+  },
+  "overall": {
+    "abstention": {
+      "d": 73,
+      "estimate": 0.5342465753424658,
+      "n": 39,
+      "wilson95": [
+        0.42098945719045805,
+        0.6440795833605193
+      ]
+    },
+    "answerable": 61,
+    "appropriate_unknown": 10,
+    "correct": 30,
+    "coverage": {
+      "d": 73,
+      "estimate": 0.4657534246575342,
+      "n": 34,
+      "wilson95": [
+        0.35592041663948065,
+        0.5790105428095418
+      ]
+    },
+    "decided": 34,
+    "error_types": {
+      "SOURCE_SPAN": {
+        "per_decided": {
+          "d": 34,
+          "estimate": 0.029411764705882353,
+          "n": 1,
+          "wilson95": [
+            0.0052109062762689395,
+            0.1491557329268593
+          ]
+        },
+        "per_total": {
+          "d": 73,
+          "estimate": 0.0136986301369863,
+          "n": 1,
+          "wilson95": [
+            0.0024222514664838588,
+            0.07359737270963818
+          ]
+        }
+      },
+      "SUBJECT_ATTRIBUTE": {
+        "per_decided": {
+          "d": 34,
+          "estimate": 0.0,
+          "n": 0,
+          "wilson95": [
+            0.0,
+            0.10151455415332376
+          ]
+        },
+        "per_total": {
+          "d": 73,
+          "estimate": 0.0,
+          "n": 0,
+          "wilson95": [
+            0.0,
+            0.0499920079557311
+          ]
+        }
+      },
+      "TIME_VERSION_SCOPE": {
+        "per_decided": {
+          "d": 34,
+          "estimate": 0.058823529411764705,
+          "n": 2,
+          "wilson95": [
+            0.016282655210122746,
+            0.19093606904280996
+          ]
+        },
+        "per_total": {
+          "d": 73,
+          "estimate": 0.0273972602739726,
+          "n": 2,
+          "wilson95": [
+            0.007545758679607641,
+            0.09450148171690531
+          ]
+        }
+      },
+      "UNSUPPORTED_ANSWER": {
+        "per_decided": {
+          "d": 34,
+          "estimate": 0.058823529411764705,
+          "n": 2,
+          "wilson95": [
+            0.016282655210122746,
+            0.19093606904280996
+          ]
+        },
+        "per_total": {
+          "d": 73,
+          "estimate": 0.0273972602739726,
+          "n": 2,
+          "wilson95": [
+            0.007545758679607641,
+            0.09450148171690531
+          ]
+        }
+      },
+      "VALUE_UNIT": {
+        "per_decided": {
+          "d": 34,
+          "estimate": 0.029411764705882353,
+          "n": 1,
+          "wilson95": [
+            0.0052109062762689395,
+            0.1491557329268593
+          ]
+        },
+        "per_total": {
+          "d": 73,
+          "estimate": 0.0136986301369863,
+          "n": 1,
+          "wilson95": [
+            0.0024222514664838588,
+            0.07359737270963818
+          ]
+        }
+      }
+    },
+    "expected_unknown": 12,
+    "missed_answerable": 29,
+    "strict_correct_decided": {
+      "d": 34,
+      "estimate": 0.8823529411764706,
+      "n": 30,
+      "wilson95": [
+        0.7337915722962817,
+        0.9532855333511766
+      ]
+    },
+    "strict_correct_total": {
+      "d": 73,
+      "estimate": 0.410958904109589,
+      "n": 30,
+      "wilson95": [
+        0.30531272700930645,
+        0.5255077675581524
+      ]
+    },
+    "total": 73,
+    "unknown": 39,
+    "unknown_reasons": {
+      "MULTIPLE_SCOPED_FACTS": 7,
+      "NO_QUERY_SCOPE_MATCH": 3,
+      "NO_SCALAR_EXTRACTED": 15,
+      "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 14
+    },
+    "value_accuracy_answerable": {
+      "d": 61,
+      "estimate": 0.5081967213114754,
+      "n": 31,
+      "wilson95": [
+        0.3860261849109117,
+        0.6293960467628898
+      ]
+    },
+    "value_accuracy_decided_answerable": {
+      "d": 32,
+      "estimate": 0.96875,
+      "n": 31,
+      "wilson95": [
+        0.8425573617998744,
+        0.9944621398359969
+      ]
+    },
+    "value_accuracy_total": {
+      "d": 73,
+      "estimate": 0.4246575342465753,
+      "n": 31,
+      "wilson95": [
+        0.31784191542578866,
+        0.5390061953620611
+      ]
+    },
+    "wrong": 4,
+    "wrong_decided": {
+      "d": 34,
+      "estimate": 0.11764705882352941,
+      "n": 4,
+      "wilson95": [
+        0.04671446664882335,
+        0.26620842770371833
+      ]
+    },
+    "wrong_total": {
+      "d": 73,
+      "estimate": 0.0547945205479452,
+      "n": 4,
+      "wilson95": [
+        0.02151249741569728,
+        0.1325899754215975
+      ]
+    }
+  },
+  "owner": "W1-OD-20261108-5060-S1-OFFLINE-16",
+  "paired_forms": {
+    "explicit": {
+      "abstention": {
+        "d": 12,
+        "estimate": 0.5833333333333334,
+        "n": 7,
+        "wilson95": [
+          0.31951131254954973,
+          0.8067396863412435
+        ]
+      },
+      "answerable": 12,
+      "appropriate_unknown": 0,
+      "correct": 5,
+      "coverage": {
+        "d": 12,
+        "estimate": 0.4166666666666667,
+        "n": 5,
+        "wilson95": [
+          0.19326031365875665,
+          0.6804886874504503
+        ]
+      },
+      "decided": 5,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 12,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 12,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 12,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 12,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 5,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              0.0,
+              0.43448246478317476
+            ]
+          },
+          "per_total": {
+            "d": 12,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        }
+      },
+      "expected_unknown": 0,
+      "missed_answerable": 7,
+      "strict_correct_decided": {
+        "d": 5,
+        "estimate": 1.0,
+        "n": 5,
+        "wilson95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "strict_correct_total": {
+        "d": 12,
+        "estimate": 0.4166666666666667,
+        "n": 5,
+        "wilson95": [
+          0.19326031365875665,
+          0.6804886874504503
+        ]
+      },
+      "total": 12,
+      "unknown": 7,
+      "unknown_reasons": {
+        "MULTIPLE_SCOPED_FACTS": 1,
+        "NO_SCALAR_EXTRACTED": 2,
+        "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 4
+      },
+      "value_accuracy_answerable": {
+        "d": 12,
+        "estimate": 0.4166666666666667,
+        "n": 5,
+        "wilson95": [
+          0.19326031365875665,
+          0.6804886874504503
+        ]
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 5,
+        "estimate": 1.0,
+        "n": 5,
+        "wilson95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "value_accuracy_total": {
+        "d": 12,
+        "estimate": 0.4166666666666667,
+        "n": 5,
+        "wilson95": [
+          0.19326031365875665,
+          0.6804886874504503
+        ]
+      },
+      "wrong": 0,
+      "wrong_decided": {
+        "d": 5,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          0.0,
+          0.43448246478317476
+        ]
+      },
+      "wrong_total": {
+        "d": 12,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.24249400665524085
+        ]
+      }
+    },
+    "natural": {
+      "abstention": {
+        "d": 12,
+        "estimate": 0.5,
+        "n": 6,
+        "wilson95": [
+          0.2537815976337061,
+          0.7462184023662939
+        ]
+      },
+      "answerable": 12,
+      "appropriate_unknown": 0,
+      "correct": 6,
+      "coverage": {
+        "d": 12,
+        "estimate": 0.5,
+        "n": 6,
+        "wilson95": [
+          0.2537815976337061,
+          0.7462184023662939
+        ]
+      },
+      "decided": 6,
+      "error_types": {
+        "SOURCE_SPAN": {
+          "per_decided": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          },
+          "per_total": {
+            "d": 12,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "SUBJECT_ATTRIBUTE": {
+          "per_decided": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          },
+          "per_total": {
+            "d": 12,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "TIME_VERSION_SCOPE": {
+          "per_decided": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          },
+          "per_total": {
+            "d": 12,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "UNSUPPORTED_ANSWER": {
+          "per_decided": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          },
+          "per_total": {
+            "d": 12,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        },
+        "VALUE_UNIT": {
+          "per_decided": {
+            "d": 6,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.3903342879021653
+            ]
+          },
+          "per_total": {
+            "d": 12,
+            "estimate": 0.0,
+            "n": 0,
+            "wilson95": [
+              2.7755575615628914e-17,
+              0.24249400665524085
+            ]
+          }
+        }
+      },
+      "expected_unknown": 0,
+      "missed_answerable": 6,
+      "strict_correct_decided": {
+        "d": 6,
+        "estimate": 1.0,
+        "n": 6,
+        "wilson95": [
+          0.6096657120978346,
+          1.0
+        ]
+      },
+      "strict_correct_total": {
+        "d": 12,
+        "estimate": 0.5,
+        "n": 6,
+        "wilson95": [
+          0.2537815976337061,
+          0.7462184023662939
+        ]
+      },
+      "total": 12,
+      "unknown": 6,
+      "unknown_reasons": {
+        "MULTIPLE_SCOPED_FACTS": 1,
+        "NO_SCALAR_EXTRACTED": 1,
+        "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 4
+      },
+      "value_accuracy_answerable": {
+        "d": 12,
+        "estimate": 0.5,
+        "n": 6,
+        "wilson95": [
+          0.2537815976337061,
+          0.7462184023662939
+        ]
+      },
+      "value_accuracy_decided_answerable": {
+        "d": 6,
+        "estimate": 1.0,
+        "n": 6,
+        "wilson95": [
+          0.6096657120978346,
+          1.0
+        ]
+      },
+      "value_accuracy_total": {
+        "d": 12,
+        "estimate": 0.5,
+        "n": 6,
+        "wilson95": [
+          0.2537815976337061,
+          0.7462184023662939
+        ]
+      },
+      "wrong": 0,
+      "wrong_decided": {
+        "d": 6,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "wrong_total": {
+        "d": 12,
+        "estimate": 0.0,
+        "n": 0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.24249400665524085
+        ]
+      }
+    }
+  },
+  "paired_transitions": {
+    "CORRECT->CORRECT": 5,
+    "UNKNOWN->CORRECT": 1,
+    "UNKNOWN->UNKNOWN": 6
+  },
+  "pairs": 12,
+  "phase_boundaries": {
+    "S1": "FAIL",
+    "S2": "NOT_AUTHORIZED",
+    "S3": "NOT_AUTHORIZED",
+    "S4": "NOT_AUTHORIZED",
+    "S5": "NOT_AUTHORIZED"
+  },
+  "policy": {
+    "answerable_value_accuracy": 0.9,
+    "max_wrong_decided": 0.02,
+    "min_total": 60,
+    "offset": "zero-based Unicode code points, end exclusive",
+    "unknown_counts_as_value_correct": false
+  },
+  "policy_sha256": "7f6455777d09c98bcec7c095ff6fd6603278315e47357aa829b42bcebe6efe22",
+  "private_manifest_sha256": "9ba6097f448950c31ccdf4dbcf757d41c560c185033f7ea0b3e290cc5962249d",
+  "risk_review": {
+    "forward": "role-free view, isolated labels, fail-closed, prior assets untouched",
+    "paper": "synthetic development only; abstention separate; pair dependence explicit"
+  },
+  "run_id": "W1-5060-S1-CHINESE-EXTRACTION-20261108-01",
+  "source": "LOCALLY_FICTIONAL",
+  "status": "S1_FAIL_STOP",
+  "testing": {
+    "development_fixtures": 6,
+    "evaluate_exit": 0,
+    "lock_exit": 0,
+    "mypy": "PASS",
+    "predict_exit": 0,
+    "ruff": "PASS",
+    "targeted_pytest": 22
+  },
+  "total": 73,
+  "validation_execution": "ONE_SEALED_RUN"
+}

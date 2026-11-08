@@ -1,5 +1,12 @@
 # LLMGuard 项目总控文档
 
+## W1-5060-S1-CHINESE-EXTRACTION-20261108-01 — S1 封存失败与停止
+
+Owner16 S1 单次封存验证结束，S1_FAIL_STOP。73 条合成样本，30 正确、4 错误、39 UNKNOWN；答案值 31/61、已决定错抽 4/34。自然中文可用 scope-bound 事实 25/49。模型、API、下载与费用为 0。Human Gold 0，正式 ASR/Accuracy 未测。S2–S5 未授权，Auto Continue = NO。
+
+[S1 结果与证据](docs/paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1_INDEPENDENT_CHINESE_EXTRACTION_RESULT.md)。
+
+
 ## 2026-11-08｜Owner16 5060 S1 有界离线验证获批（尚未运行）
 
 Owner `W1-OD-20261108-5060-S1-OFFLINE-16` 已批准5060在既有独立分支执行至少60例与D1/D2/D3/旧108隔离的中文事实抽取验证，重点是值、主体属性、时间版本/适用范围、否定例外、原文span及自然化/UNKNOWN；保持正确率≥90%、决定样本错抽率≤2%点估计以及覆盖率与Wilson区间披露。当前 `S1_APPROVED_NOT_RUN`，未有新实验结果；S2–S5继续须Owner另批，S3独立造题方未定。历史R2 K1-C和B2/R2结果原样保留。5090 Llama2访问申请仍等待Meta批准，Llama2未下载，Claim1–3仍未运行；本授权不涉及5090。

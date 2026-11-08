@@ -1,6 +1,13 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
-## S1-5060-CHINESE-EXTRACTION-20261108｜批准但未执行
+## W1-5060-S1-CHINESE-EXTRACTION-20261108-01 — S1 封存失败与停止
+
+Owner16 S1 单次封存验证结束，S1_FAIL_STOP。73 条合成样本，30 正确、4 错误、39 UNKNOWN；答案值 31/61、已决定错抽 4/34。自然中文可用 scope-bound 事实 25/49。模型、API、下载与费用为 0。Human Gold 0，正式 ASR/Accuracy 未测。S2–S5 未授权，Auto Continue = NO。
+
+[S1 结果与证据](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1_INDEPENDENT_CHINESE_EXTRACTION_RESULT.md)。
+
+
+## S1-5060-CHINESE-EXTRACTION-20261108｜历史授权快照
 
 状态 `DESIGN_AND_EXECUTION_AUTHORIZATION / NOT_STARTED / DEV_EXPLORATORY`，Owner决策 `W1-OD-20261108-5060-S1-OFFLINE-16`。批准范围仅为5060在D1/D2/D3/旧108隔离下对≥60例独立中文自然化事实/span/time/version/scope抽取开展零API离线验证。源与标签必须先分离封存，后 role-free 输出与隔离Evaluator；正式S1 Run ID/样本SHA/规则SHA/评估指标均为 `NOT_YET_CREATED / NOT_MEASURED`。原 B2/R2/S0证据不改。开发指标门与限定见[授权原件](../paper1/dual_machine/owner_approvals/W1_5060_S1_INDEPENDENT_CHINESE_EXTRACTION_OFFLINE_AUTHORIZATION_20261108.md)，不是正式Gold、不是实际实验结果。S2–S5/5090 Claim 未授权，执行后必须STOP返回Owner。
 

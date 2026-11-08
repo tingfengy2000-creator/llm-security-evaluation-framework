@@ -1,8 +1,15 @@
 # Paper 1｜Week 1 双机 Tracker
 
-**更新于 2026-11-08 JST · 版本 4 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-08 JST · 版本 5 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
-当前研究状态为 **5060 R2 四臂完成并停在 K1-C**。5090 已完成离线 Smoke 和非 Llama 资产下载，Claim 1–3 均未运行。Paper 1 正式实验仍未启动。
+## W1-5060-S1-CHINESE-EXTRACTION-20261108-01 — S1 封存失败与停止
+
+Owner16 S1 单次封存验证结束，S1_FAIL_STOP。73 条合成样本，30 正确、4 错误、39 UNKNOWN；答案值 31/61、已决定错抽 4/34。自然中文可用 scope-bound 事实 25/49。模型、API、下载与费用为 0。Human Gold 0，正式 ASR/Accuracy 未测。S2–S5 未授权，Auto Continue = NO。
+
+[S1 结果与证据](chinese5060/vesa_guard_reviewer_replan/W1_5060_S1_INDEPENDENT_CHINESE_EXTRACTION_RESULT.md)。
+
+
+当前研究状态为 **5060 S1 未通过并停止，S2–S5 未授权**。5090 已完成离线 Smoke 和非 Llama 资产下载，Claim 1–3 均未运行。Paper 1 正式实验仍未启动。
 
 旧名 `PAPER1_WEEK1_TRACKER_INIT` 可在旧对话中定位到一次提及。2026-11-06 检查 GitHub 的 9 条公开分支、1 个标签及其可达文件历史，未找到对应文件，原稿的仓库路径、最后修改时间及全文均为 **UNKNOWN**。本页是从已提交证据建立的第一个可维护版本。
 
@@ -12,7 +19,7 @@
 
 [四臂结果与封存证据](chinese5060/vesa_guard_reviewer_replan/W1_5060_R2_FAIR_CONTROL_RESULT.md)。
 
-## 2026-11-08 Owner16：5060 S1 获批、5090 Llama2 等待
+## 2026-11-08 历史授权：5060 S1 获批、5090 Llama2 等待
 
 Owner `W1-OD-20261108-5060-S1-OFFLINE-16` 已授予5060唯一有界新任务：S1 ≥60例独立中文可见证据事实抽取离线验证（D1/D2/D3/旧108隔离），原错抽率、自然化/span/scope/Wilson门不变，0新下载/0联网/0商业API。**S1 APPROVED_NOT_RUN**，未有S1结果、Run Manifest或通过结论。S2–S5仍锁，R1-10(B)独立S3构造方未定。
 
@@ -117,3 +124,4 @@ R1 源附件由 Owner 提供，公开记录含原件摘要与 SHA-256。[R1 修�
 | 2026-11-08 | 2 | 新会话按交接包恢复并动态核对双机远端；5060/5090 均与交接 SHA 一致。登记 Owner R2 有界离线授权，释放模板覆盖诊断与四臂公平对照；无新实验结果。 |
 | 2026-11-06 | 1 | 建立双机维护页。记录 5060 的旧 G3 零变化、S0 完成、R1/R2 与待放行状态，以及 5090 非 Llama 资产下载后 Claim 未运行。整理前 5060 `fa70d97`，5090 `dbd91f3`。 |
 | 2026-11-08 | 3 | 5060 实测四臂、封存、K1-C，保持 5090 历史快照。 |
+| 2026-11-08 | 5 | 5060 S1 单次合成开发验证失败，S2–S5 仍未授权。 |
