@@ -1,0 +1,842 @@
+{
+  "status": "RULE_V2_DEV_COMPLETED",
+  "owner": "W1-OD-20261108-5060-S1B-RULEV2-DEV-18",
+  "owner_commit": "6561568584c05d12a7c9000933a46282ed0a565c",
+  "branch": "research/paper1-chinese-defense-5060",
+  "preflight_remote": "0084a70021b1573e41c5d46a730540d86254331b",
+  "data_class": [
+    "EXPOSED_DEV_FIXTURES",
+    "DEVELOPMENT_REUSE",
+    "NOT_INDEPENDENT",
+    "NOT_HUMAN_GOLD"
+  ],
+  "rows": 73,
+  "semantic_cases": 61,
+  "extra_explicit_views": 12,
+  "old_run_id": "W1-5060-S1-CHINESE-EXTRACTION-20261108-01",
+  "historical_preserved_sha256": {
+    "ANNOTATION_PRIVATE.json": "2dcf3009d18b3cb09e1962b1517132cafe8fb992b25734923c58b57ea0e4dd24",
+    "EVALUATION_PRIVATE.json": "b67b66398d8674c81664d3d160ea66889f3ce1c30f8960ee7b2405168b9be789",
+    "INFERENCE_PRIVATE.json": "8245af9a1241fe966f0dbc05e52ed7744b041e13685a743a81aebd818b9a8481",
+    "PREDICTIONS_PRIVATE.json": "2a2dda408a0ae914dc619c81f7bd738f11e9e7f1c427dd6493a677302ed1bbd7",
+    "RUN_MANIFEST.json": "9ba6097f448950c31ccdf4dbcf757d41c560c185033f7ea0b3e290cc5962249d",
+    "S1_COMPLETE_AUDIT_PRIVATE.zip": "708c06264fdc2dd3678ad6ad5535d10c9e341646d335d646bfcb399d28d12d49"
+  },
+  "final_code": {
+    "rule_config_sha256": "4352bbcc97ccc5b42861611d1f6a952718af7f195acf02c6c2507f3269232b38",
+    "rule_policy": "S1B_RULE_V2_CLAUSE_SCOPE_03",
+    "schema": "chinese_scalar_candidates_v1",
+    "scorer_sha256": "5cedc9f3d11fba87d292961e37370439f6c3c58f78265b0ee2a515665e1d3fe1",
+    "source_commit": "da3cbd9f16ea70ae3ba0ef2aa2408227ecfc0b4f",
+    "sources": {
+      "scripts/research/run_chinese5060_s1b_rule_v2.py": "866103a8ab67d154e3e1f6c31090f13eb5a142f5fd61d2a8718c4d6336f8b5fd",
+      "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/s1_extraction.py": "67568081a0fa0465bf195f5220667689e84585b7d1fb9bdfcfedc605b594a897",
+      "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/s1b_rule_v2.py": "b56df6a7c0e1edc1dff70e95af16b9a6d6e71018ae453b8a0d71640a4a1dddda",
+      "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/vesa_guard_v01.py": "72ac366c447b58c513591ff4f4e9e236e1ac44f8f642b5effebaabf80c310a38",
+      "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/vesa_guard_v02.py": "84e61dc1615ea003cd02956760e7c02f3fd20671579c73319f9241801da8de09"
+    },
+    "worktree_sources": {
+      "scripts/research/run_chinese5060_s1b_rule_v2.py": "866103a8ab67d154e3e1f6c31090f13eb5a142f5fd61d2a8718c4d6336f8b5fd",
+      "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/s1_extraction.py": "67568081a0fa0465bf195f5220667689e84585b7d1fb9bdfcfedc605b594a897",
+      "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/s1b_rule_v2.py": "b56df6a7c0e1edc1dff70e95af16b9a6d6e71018ae453b8a0d71640a4a1dddda",
+      "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/vesa_guard_v01.py": "72ac366c447b58c513591ff4f4e9e236e1ac44f8f642b5effebaabf80c310a38",
+      "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/vesa_guard_v02.py": "84e61dc1615ea003cd02956760e7c02f3fd20671579c73319f9241801da8de09"
+    }
+  },
+  "history_metrics": {
+    "abstention": {
+      "d": 73,
+      "estimate": 0.5342465753424658,
+      "n": 39,
+      "wilson95": [
+        0.42098945719045805,
+        0.6440795833605193
+      ]
+    },
+    "answerable": 61,
+    "appropriate_unknown": 10,
+    "correct": 30,
+    "coverage": {
+      "d": 73,
+      "estimate": 0.4657534246575342,
+      "n": 34,
+      "wilson95": [
+        0.35592041663948065,
+        0.5790105428095418
+      ]
+    },
+    "decided": 34,
+    "expected_unknown": 12,
+    "missed_answerable": 29,
+    "strict_correct_total": {
+      "d": 73,
+      "estimate": 0.410958904109589,
+      "n": 30,
+      "wilson95": [
+        0.30531272700930645,
+        0.5255077675581524
+      ]
+    },
+    "total": 73,
+    "unknown": 39,
+    "value_accuracy_answerable": {
+      "d": 61,
+      "estimate": 0.5081967213114754,
+      "n": 31,
+      "wilson95": [
+        0.3860261849109117,
+        0.6293960467628898
+      ]
+    },
+    "wrong": 4,
+    "wrong_decided": {
+      "d": 34,
+      "estimate": 0.11764705882352941,
+      "n": 4,
+      "wilson95": [
+        0.04671446664882335,
+        0.26620842770371833
+      ]
+    },
+    "wrong_total": {
+      "d": 73,
+      "estimate": 0.0547945205479452,
+      "n": 4,
+      "wilson95": [
+        0.02151249741569728,
+        0.1325899754215975
+      ]
+    }
+  },
+  "attempts": [
+    {
+      "run_id": "W1-5060-S1B-RULEV2-DEV-20261109-01",
+      "source": "a46175fe329953b848e9eea6aab1f5bccafe8168",
+      "config_sha256": "25934cff73157dde8358f7307a5dd27d9d2aa80c778cb58ebfc09241c3420969",
+      "manifest_sha256": "9d237443325babedc013c78d11c793a6edbf37f55c3ee04ef256cb7a5d87de22",
+      "archive_sha256": "fd35974487a6154a6d6acf5b95f461ee06fb760a00e58e88027c080aa79dd1b6",
+      "predictions_sha256": "ff15cfc4270a18b51fe25118d097b4907d82f68438328e8f680ec30ef73959c9",
+      "evaluation_sha256": "1bd1adb7c16e18174ea966e2928af7b3195621837064981e817d82ee57485783",
+      "metrics": {
+        "abstention": {
+          "d": 73,
+          "estimate": 0.1917808219178082,
+          "n": 14,
+          "wilson95": [
+            0.11782360890987197,
+            0.29655502613133206
+          ]
+        },
+        "answerable": 61,
+        "appropriate_unknown": 12,
+        "correct": 57,
+        "coverage": {
+          "d": 73,
+          "estimate": 0.8082191780821918,
+          "n": 59,
+          "wilson95": [
+            0.7034449738686679,
+            0.8821763910901279
+          ]
+        },
+        "decided": 59,
+        "expected_unknown": 12,
+        "missed_answerable": 2,
+        "strict_correct_total": {
+          "d": 73,
+          "estimate": 0.7808219178082192,
+          "n": 57,
+          "wilson95": [
+            0.673227338877521,
+            0.8603387936404931
+          ]
+        },
+        "total": 73,
+        "unknown": 14,
+        "value_accuracy_answerable": {
+          "d": 61,
+          "estimate": 0.9508196721311475,
+          "n": 58,
+          "wilson95": [
+            0.8650887247278409,
+            0.9831340173312375
+          ]
+        },
+        "wrong": 2,
+        "wrong_decided": {
+          "d": 59,
+          "estimate": 0.03389830508474576,
+          "n": 2,
+          "wilson95": [
+            0.00934590909166131,
+            0.11543570750110752
+          ]
+        },
+        "wrong_total": {
+          "d": 73,
+          "estimate": 0.0273972602739726,
+          "n": 2,
+          "wilson95": [
+            0.007545758679607641,
+            0.09450148171690531
+          ]
+        }
+      },
+      "paired_transitions": {
+        "CORRECT->CORRECT": 30,
+        "INCORRECT->CORRECT": 1,
+        "INCORRECT->INCORRECT": 1,
+        "INCORRECT->UNKNOWN": 2,
+        "UNKNOWN->CORRECT": 26,
+        "UNKNOWN->INCORRECT": 1,
+        "UNKNOWN->UNKNOWN": 12
+      }
+    },
+    {
+      "run_id": "W1-5060-S1B-RULEV2-DEV-20261109-02",
+      "source": "00b274c60dd4b2afcaa9b105aa45b374028e9319",
+      "config_sha256": "ff86a170178188a3c7dce7a8f1e804e78432b47b4fb15474eaec1b9bf60d4291",
+      "manifest_sha256": "fc8afb56bcfafee1450829c6e9943cfc73dd76f7976a99b7b2d9af3b20b783f3",
+      "archive_sha256": "f0958f67f3bb1ebbe35e328fdb4849efee15dd055a0c5233f39143edc4e3ebcb",
+      "predictions_sha256": "f6ef73d0ea23a7d45efd13ebfbc81885b075a681afbfbc0a5a0a3dcf40ac17e6",
+      "evaluation_sha256": "f0e675a594cf7503de9b0d0546eee5a6b5fd46841b5f179a9829bbbb95524783",
+      "metrics": {
+        "abstention": {
+          "d": 73,
+          "estimate": 0.1780821917808219,
+          "n": 13,
+          "wilson95": [
+            0.10713373022955273,
+            0.2812172885912604
+          ]
+        },
+        "answerable": 61,
+        "appropriate_unknown": 12,
+        "correct": 58,
+        "coverage": {
+          "d": 73,
+          "estimate": 0.821917808219178,
+          "n": 60,
+          "wilson95": [
+            0.7187827114087395,
+            0.8928662697704473
+          ]
+        },
+        "decided": 60,
+        "expected_unknown": 12,
+        "missed_answerable": 1,
+        "strict_correct_total": {
+          "d": 73,
+          "estimate": 0.7945205479452054,
+          "n": 58,
+          "wilson95": [
+            0.6882634698485864,
+            0.8713302788898184
+          ]
+        },
+        "total": 73,
+        "unknown": 13,
+        "value_accuracy_answerable": {
+          "d": 61,
+          "estimate": 0.9836065573770492,
+          "n": 60,
+          "wilson95": [
+            0.9128113995535841,
+            0.9971002692007002
+          ]
+        },
+        "wrong": 2,
+        "wrong_decided": {
+          "d": 60,
+          "estimate": 0.03333333333333333,
+          "n": 2,
+          "wilson95": [
+            0.009189319256197877,
+            0.113637742743086
+          ]
+        },
+        "wrong_total": {
+          "d": 73,
+          "estimate": 0.0273972602739726,
+          "n": 2,
+          "wilson95": [
+            0.007545758679607641,
+            0.09450148171690531
+          ]
+        }
+      },
+      "paired_transitions": {
+        "CORRECT->CORRECT": 30,
+        "INCORRECT->CORRECT": 1,
+        "INCORRECT->INCORRECT": 1,
+        "INCORRECT->UNKNOWN": 2,
+        "UNKNOWN->CORRECT": 27,
+        "UNKNOWN->INCORRECT": 1,
+        "UNKNOWN->UNKNOWN": 11
+      }
+    },
+    {
+      "run_id": "W1-5060-S1B-RULEV2-DEV-20261109-03",
+      "source": "da3cbd9f16ea70ae3ba0ef2aa2408227ecfc0b4f",
+      "config_sha256": "4352bbcc97ccc5b42861611d1f6a952718af7f195acf02c6c2507f3269232b38",
+      "manifest_sha256": "c8e6258e73cd6076e1ea25b3cdd35c0c68167d5e44122c1725da260f359d09ee",
+      "archive_sha256": "894e6032ecd4ba136c708a6834122a358670e9ca02de52065f7d99ed08348270",
+      "predictions_sha256": "fe21080c83ff871cfa0c22d12c6d717ac2941aaed28bea93ed494d7afbca03fa",
+      "evaluation_sha256": "70cf147e0b603bf3a718b29997adeba1f2bcf50e18fd85c56141c5f7d49b2c90",
+      "prediction_seal_sha256": "08a3e67d333aa31f13ecc0f63a825766da3b4326680e809dc7ffed0a0c277b57",
+      "metrics": {
+        "abstention": {
+          "d": 73,
+          "estimate": 0.1917808219178082,
+          "n": 14,
+          "wilson95": [
+            0.11782360890987197,
+            0.29655502613133206
+          ]
+        },
+        "answerable": 61,
+        "appropriate_unknown": 12,
+        "correct": 58,
+        "coverage": {
+          "d": 73,
+          "estimate": 0.8082191780821918,
+          "n": 59,
+          "wilson95": [
+            0.7034449738686679,
+            0.8821763910901279
+          ]
+        },
+        "decided": 59,
+        "expected_unknown": 12,
+        "missed_answerable": 2,
+        "strict_correct_total": {
+          "d": 73,
+          "estimate": 0.7945205479452054,
+          "n": 58,
+          "wilson95": [
+            0.6882634698485864,
+            0.8713302788898184
+          ]
+        },
+        "total": 73,
+        "unknown": 14,
+        "value_accuracy_answerable": {
+          "d": 61,
+          "estimate": 0.9672131147540983,
+          "n": 59,
+          "wilson95": [
+            0.8881050958050438,
+            0.9909621096016377
+          ]
+        },
+        "wrong": 1,
+        "wrong_decided": {
+          "d": 59,
+          "estimate": 0.01694915254237288,
+          "n": 1,
+          "wilson95": [
+            0.0029982339183556445,
+            0.08995725964142297
+          ]
+        },
+        "wrong_total": {
+          "d": 73,
+          "estimate": 0.0136986301369863,
+          "n": 1,
+          "wilson95": [
+            0.0024222514664838588,
+            0.07359737270963818
+          ]
+        }
+      },
+      "paired_transitions": {
+        "CORRECT->CORRECT": 30,
+        "INCORRECT->CORRECT": 1,
+        "INCORRECT->UNKNOWN": 3,
+        "UNKNOWN->CORRECT": 27,
+        "UNKNOWN->INCORRECT": 1,
+        "UNKNOWN->UNKNOWN": 11
+      }
+    }
+  ],
+  "final_error_types": {
+    "SOURCE_SPAN": {
+      "per_decided": {
+        "d": 59,
+        "estimate": 0.01694915254237288,
+        "n": 1,
+        "wilson95": [
+          0.0029982339183556445,
+          0.08995725964142297
+        ]
+      },
+      "per_total": {
+        "d": 73,
+        "estimate": 0.0136986301369863,
+        "n": 1,
+        "wilson95": [
+          0.0024222514664838588,
+          0.07359737270963818
+        ]
+      }
+    },
+    "SUBJECT_ATTRIBUTE": {
+      "per_decided": {
+        "d": 59,
+        "estimate": 0,
+        "n": 0,
+        "wilson95": [
+          0,
+          0.061129370526788386
+        ]
+      },
+      "per_total": {
+        "d": 73,
+        "estimate": 0,
+        "n": 0,
+        "wilson95": [
+          0,
+          0.0499920079557311
+        ]
+      }
+    },
+    "TIME_VERSION_SCOPE": {
+      "per_decided": {
+        "d": 59,
+        "estimate": 0,
+        "n": 0,
+        "wilson95": [
+          0,
+          0.061129370526788386
+        ]
+      },
+      "per_total": {
+        "d": 73,
+        "estimate": 0,
+        "n": 0,
+        "wilson95": [
+          0,
+          0.0499920079557311
+        ]
+      }
+    },
+    "UNSUPPORTED_ANSWER": {
+      "per_decided": {
+        "d": 59,
+        "estimate": 0,
+        "n": 0,
+        "wilson95": [
+          0,
+          0.061129370526788386
+        ]
+      },
+      "per_total": {
+        "d": 73,
+        "estimate": 0,
+        "n": 0,
+        "wilson95": [
+          0,
+          0.0499920079557311
+        ]
+      }
+    },
+    "VALUE_UNIT": {
+      "per_decided": {
+        "d": 59,
+        "estimate": 0,
+        "n": 0,
+        "wilson95": [
+          0,
+          0.061129370526788386
+        ]
+      },
+      "per_total": {
+        "d": 73,
+        "estimate": 0,
+        "n": 0,
+        "wilson95": [
+          0,
+          0.0499920079557311
+        ]
+      }
+    }
+  },
+  "final_form_counts": {
+    "explicit": {
+      "v1": [
+        5,
+        0,
+        7
+      ],
+      "v2": [
+        12,
+        0,
+        0
+      ]
+    },
+    "natural": {
+      "v1": [
+        25,
+        4,
+        32
+      ],
+      "v2": [
+        46,
+        1,
+        14
+      ]
+    }
+  },
+  "final_category_counts": {
+    "同名异主体": {
+      "v1": [
+        2,
+        0,
+        1
+      ],
+      "v2": [
+        3,
+        0,
+        0
+      ]
+    },
+    "否定例外": {
+      "v1": [
+        0,
+        0,
+        2
+      ],
+      "v2": [
+        0,
+        0,
+        2
+      ]
+    },
+    "数量与单位": {
+      "v1": [
+        1,
+        0,
+        7
+      ],
+      "v2": [
+        7,
+        1,
+        0
+      ]
+    },
+    "日期": {
+      "v1": [
+        3,
+        0,
+        5
+      ],
+      "v2": [
+        8,
+        0,
+        0
+      ]
+    },
+    "未证修订": {
+      "v1": [
+        0,
+        1,
+        1
+      ],
+      "v2": [
+        0,
+        0,
+        2
+      ]
+    },
+    "条件与例外": {
+      "v1": [
+        4,
+        1,
+        1
+      ],
+      "v2": [
+        4,
+        0,
+        2
+      ]
+    },
+    "比例": {
+      "v1": [
+        3,
+        0,
+        5
+      ],
+      "v2": [
+        8,
+        0,
+        0
+      ]
+    },
+    "版本": {
+      "v1": [
+        5,
+        0,
+        1
+      ],
+      "v2": [
+        6,
+        0,
+        0
+      ]
+    },
+    "网页正文混排": {
+      "v1": [
+        5,
+        0,
+        1
+      ],
+      "v2": [
+        5,
+        0,
+        1
+      ]
+    },
+    "自然多事实": {
+      "v1": [
+        1,
+        0,
+        4
+      ],
+      "v2": [
+        5,
+        0,
+        0
+      ]
+    },
+    "证据不足": {
+      "v1": [
+        0,
+        0,
+        2
+      ],
+      "v2": [
+        0,
+        0,
+        2
+      ]
+    },
+    "跨范围": {
+      "v1": [
+        1,
+        1,
+        1
+      ],
+      "v2": [
+        3,
+        0,
+        0
+      ]
+    },
+    "跨范围冲突": {
+      "v1": [
+        0,
+        1,
+        1
+      ],
+      "v2": [
+        0,
+        0,
+        2
+      ]
+    },
+    "金额": {
+      "v1": [
+        4,
+        0,
+        4
+      ],
+      "v2": [
+        8,
+        0,
+        0
+      ]
+    },
+    "错误单位": {
+      "v1": [
+        0,
+        0,
+        1
+      ],
+      "v2": [
+        0,
+        0,
+        1
+      ]
+    },
+    "错误单位干扰": {
+      "v1": [
+        1,
+        0,
+        0
+      ],
+      "v2": [
+        1,
+        0,
+        0
+      ]
+    },
+    "非法日期": {
+      "v1": [
+        0,
+        0,
+        2
+      ],
+      "v2": [
+        0,
+        0,
+        2
+      ]
+    }
+  },
+  "count_vector": [
+    "correct",
+    "wrong",
+    "unknown"
+  ],
+  "explicit_to_natural": {
+    "v1": {
+      "CORRECT->CORRECT": 5,
+      "UNKNOWN->CORRECT": 1,
+      "UNKNOWN->UNKNOWN": 6
+    },
+    "v2": {
+      "CORRECT->CORRECT": 12
+    }
+  },
+  "expected_unknown_by_category": {
+    "否定例外": {
+      "v1": {
+        "UNKNOWN": 2
+      },
+      "v2": {
+        "UNKNOWN": 2
+      }
+    },
+    "未证修订": {
+      "v1": {
+        "INCORRECT": 1,
+        "UNKNOWN": 1
+      },
+      "v2": {
+        "UNKNOWN": 2
+      }
+    },
+    "网页正文混排": {
+      "v1": {
+        "UNKNOWN": 1
+      },
+      "v2": {
+        "UNKNOWN": 1
+      }
+    },
+    "证据不足": {
+      "v1": {
+        "UNKNOWN": 2
+      },
+      "v2": {
+        "UNKNOWN": 2
+      }
+    },
+    "跨范围冲突": {
+      "v1": {
+        "INCORRECT": 1,
+        "UNKNOWN": 1
+      },
+      "v2": {
+        "UNKNOWN": 2
+      }
+    },
+    "错误单位": {
+      "v1": {
+        "UNKNOWN": 1
+      },
+      "v2": {
+        "UNKNOWN": 1
+      }
+    },
+    "非法日期": {
+      "v1": {
+        "UNKNOWN": 2
+      },
+      "v2": {
+        "UNKNOWN": 2
+      }
+    }
+  },
+  "old_wrong_followup": {
+    "CORRECT": 1,
+    "UNKNOWN": 3
+  },
+  "old_answerable_unknown": {
+    "MULTIPLE_SCOPED_FACTS": {
+      "CORRECT": 5,
+      "INCORRECT": 1
+    },
+    "NO_QUERY_SCOPE_MATCH": {
+      "CORRECT": 1
+    },
+    "NO_SCALAR_EXTRACTED": {
+      "CORRECT": 8,
+      "UNKNOWN": 1
+    },
+    "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": {
+      "CORRECT": 13
+    }
+  },
+  "qa": {
+    "tests_passed": 23,
+    "ruff_exit": 0,
+    "mypy_exit": 0,
+    "predict_and_evaluate_exit_by_attempt": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "private_archive_sha256": "fb3f943e73d8aae96f90e1db76a71c1951d53c6e1325a726b8c84762a5dfaa69",
+    "entries": 33
+  },
+  "effects": {
+    "independent_validation": "NOT_RUN",
+    "human_gold": 0,
+    "formal_asr": "NOT_MEASURED",
+    "formal_accuracy": "NOT_MEASURED",
+    "model_downloads": 0,
+    "wheel_downloads": 0,
+    "installs": 0,
+    "model_loads": 0,
+    "model_calls": 0,
+    "api_calls": 0,
+    "cost_usd": 0,
+    "network_events": []
+  },
+  "uie": {
+    "code_revision": "fd2bed541ff929f6f8b350001694e553b29d4e9a",
+    "checkpoint": "uie_nano_v1.1",
+    "head_bytes": 71847290,
+    "code_license": "Apache-2.0",
+    "weight_and_tokenizer_license": "UNKNOWN",
+    "publisher_sha256": "UNKNOWN",
+    "immutable_release_id": "UNKNOWN",
+    "win_x64_cp312_numpy2_lock": "UNKNOWN",
+    "existing_protobuf": "7.35.1",
+    "required_protobuf": "3.20.2"
+  },
+  "model_asset": "NOT_AUTHORIZED",
+  "model_inference": "NOT_AUTHORIZED",
+  "s2_s5": "LOCKED",
+  "auto_continue": false
+}

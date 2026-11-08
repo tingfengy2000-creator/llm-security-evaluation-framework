@@ -1,5 +1,15 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## 2026-11-09｜5060 Owner18 旧73开发完成，后续门关闭
+
+`RULE_V2_DEV_COMPLETED / S1B_INDEPENDENT_TEST_NOT_RUN / MODEL_ASSET_NOT_AUTHORIZED / S2_S5_LOCKED / AUTO_CONTINUE=NO`。Owner18 批准的三轮旧73开发及 UIE 官方材料只读审计已完成。最终 58 正确、1 错误、14 UNKNOWN（73 条），值命中 59/61，决定后错抽 1/59，应拒识误答 0/12。旧 Rule-V1、S1 失败、R2 K1-C 保留。Human Gold 0，正式 ASR/Accuracy 未测。
+
+最终 Run `W1-5060-S1B-RULEV2-DEV-20261109-03`，执行 SHA `da3cbd9f16ea70ae3ba0ef2aa2408227ecfc0b4f`，私有 Run Manifest SHA256 `c8e6258e73cd6076e1ea25b3cdd35c0c68167d5e44122c1725da260f359d09ee`。
+
+UIE 权重/分词器条款、不可变身份、发布者 SHA256 和 Windows CPU 依赖锁待证。模型资产、推理和独立验证均须另批。新增模型下载、安装、加载、推理、API 与费用为 0。
+
+[结果与失败](../../../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_RULEV2_OLD73_DEV_UIE_READONLY_RESULT.md) · [证据清单](../../../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_RULEV2_OLD73_DEV_MANIFEST.json)
+
 ## 2026-11-08｜5060 S1-B 只读审批包完成
 
 `S1B_DESIGN_ONLY / MODEL_DOWNLOAD_NOT_AUTHORIZED / MODEL_INFERENCE_NOT_AUTHORIZED / VALIDATION_NOT_AUTHORIZED / S2_S5_LOCKED`。Owner B 只读审批包已完成，UIE Nano 权重条款和强身份待核，Qwen2.5-1.5B 已核固定 revision 与权重许可。独立验证保管人未指定。新增模型、推理、下载、安装、科学试次和费用均为 0。Auto Continue = NO。

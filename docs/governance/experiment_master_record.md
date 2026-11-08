@@ -1,5 +1,15 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## 2026-11-09｜5060 Owner18 旧73开发完成，后续门关闭
+
+`RULE_V2_DEV_COMPLETED / S1B_INDEPENDENT_TEST_NOT_RUN / MODEL_ASSET_NOT_AUTHORIZED / S2_S5_LOCKED / AUTO_CONTINUE=NO`。Owner18 批准的三轮旧73开发及 UIE 官方材料只读审计已完成。最终 58 正确、1 错误、14 UNKNOWN（73 条），值命中 59/61，决定后错抽 1/59，应拒识误答 0/12。旧 Rule-V1、S1 失败、R2 K1-C 保留。Human Gold 0，正式 ASR/Accuracy 未测。
+
+最终 Run `W1-5060-S1B-RULEV2-DEV-20261109-03`，执行 SHA `da3cbd9f16ea70ae3ba0ef2aa2408227ecfc0b4f`，私有 Run Manifest SHA256 `c8e6258e73cd6076e1ea25b3cdd35c0c68167d5e44122c1725da260f359d09ee`。
+
+UIE 权重/分词器条款、不可变身份、发布者 SHA256 和 Windows CPU 依赖锁待证。模型资产、推理和独立验证均须另批。新增模型下载、安装、加载、推理、API 与费用为 0。
+
+[结果与失败](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_RULEV2_OLD73_DEV_UIE_READONLY_RESULT.md) · [证据清单](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_RULEV2_OLD73_DEV_MANIFEST.json)
+
 ## W1-OD-20261108-5060-S1B-RULEV2-DEV-18 — 受限 Rule-V2 开发与 UIE 只读核查获批（2026-11-08 JST）
 
 状态 `OWNER_EXPLICITLY_APPROVED / RULE_V2_DEVELOPMENT_ONLY / UIE_READONLY_AUDIT_ONLY`。Owner 对唯一在前提议“允许5060使用已暴露的旧73条S1样本及普通本地单测开发Rule-V2，并只读核实UIE许可与依赖，不下载/加载/调用新模型，不碰新独立验证集、不运行S2–S5”明确回复“批准”。授权只修改 Owner17 中“不运行Rule-V2开发”的禁止范围，不修改其模型资产、模型推理和新独立验证未批准状态。旧S1 `S1_FAIL_STOP` 和 R2 K1-C、D1/D2/D3隔离、历史108等完全不变，旧73即使重复开发跑出高分仍属于 `EXPOSED_DEVELOPMENT` 不是独立验证或正式论文结果。所有Rule-V2迭代与失败须留存，保留未证修订/跨scope误答。UIE 权重/分词器使用许可、不可变发行revision及发布者SHA256如无证据记UNKNOWN；不可pip安装、下载权重或使用在线接口。5090 Meta Llama2申请及Claim1–3维持原门。完工提交开发证据后STOP，不自动申请/开始下一步。
