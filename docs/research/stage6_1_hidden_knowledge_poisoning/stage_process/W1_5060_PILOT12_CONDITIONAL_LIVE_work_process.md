@@ -49,3 +49,11 @@ W1-5060-REVIEWER-REPLAN-S0-20261106-01，S0_COMPLETE / OWNER_CHECKPOINT_PENDING�
 
 S0-04 RD-zh 适配器与静态验证已完成，4 项测试通过。真实 D1 编码、过滤和 S1–S4 未运行，S0 检查点继续等待 Owner 放行。
 [S0 证据](../../../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/REVIEWER_S0_S4_SUMMARY.md)
+
+## W1-5060-R2-FAIRCTRL-20261108-02 — 离线公平对照收口
+
+R2 有界离线四臂已完成。B2 重放 36/36，网页模板高置信 6/180、3/36 世界，蒙版对两种分词的删除集合均无影响。char2 额外删除 31/180 片段，Poison 删除 2/10→4/10，Clean 误删 4/10→5/10，HN 删除 2/9→4/9。可比被删候选为 0，预注册判定 K1-C / INSUFFICIENT_OR_MIXED。真实 API、下载、重新检索及费用均为 0。S1–S5 未放行，Auto Continue = NO。
+
+[R2 实测与证据](
+../../../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_R2_FAIR_CONTROL_RESULT.md
+)。

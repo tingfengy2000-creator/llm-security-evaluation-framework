@@ -3377,3 +3377,11 @@ S0-04 RD-zh 适配器与静态验证已完成，4 项测试通过。真实 D1 �
 ## 2026-11-06 JST — 建立 Paper 1 Week 1 双机 Tracker
 
 [Week 1 Tracker](../paper1/dual_machine/PAPER1_WEEK1_TRACKER.md) 基于 5060 `fa70d97f86d0bf21364907e15447ced80f0e284e` 和 5090 `dbd91f3667964baca69aeb82a6292c4fe193c965` 汇总已提交的脱敏证据。旧名 `PAPER1_WEEK1_TRACKER_INIT` 在本次核对的公开分支、标签及其可达文件历史中无匹配。此条记录为文档维护，无新试次、新授权或新阶段。
+
+## W1-5060-R2-FAIRCTRL-20261108-02 — 离线公平对照收口
+
+R2 有界离线四臂已完成。B2 重放 36/36，网页模板高置信 6/180、3/36 世界，蒙版对两种分词的删除集合均无影响。char2 额外删除 31/180 片段，Poison 删除 2/10→4/10，Clean 误删 4/10→5/10，HN 删除 2/9→4/9。可比被删候选为 0，预注册判定 K1-C / INSUFFICIENT_OR_MIXED。真实 API、下载、重新检索及费用均为 0。S1–S5 未放行，Auto Continue = NO。
+
+[R2 实测与证据](
+../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_R2_FAIR_CONTROL_RESULT.md
+)。

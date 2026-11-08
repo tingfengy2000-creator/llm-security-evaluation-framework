@@ -1,5 +1,14 @@
 # Current Work State
 
+## W1-5060-R2-FAIRCTRL-20261108-02 — 离线公平对照收口
+
+R2 有界离线四臂已完成。B2 重放 36/36，网页模板高置信 6/180、3/36 世界，蒙版对两种分词的删除集合均无影响。char2 额外删除 31/180 片段，Poison 删除 2/10→4/10，Clean 误删 4/10→5/10，HN 删除 2/9→4/9。可比被删候选为 0，预注册判定 K1-C / INSUFFICIENT_OR_MIXED。真实 API、下载、重新检索及费用均为 0。S1–S5 未放行，Auto Continue = NO。
+
+[R2 实测与证据](
+../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_R2_FAIR_CONTROL_RESULT.md
+)。
+
+
 ## Current — 2026-11-08 R2 离线公平对照已获 Owner 放行，尚未产生新实验结果
 
 Owner 决策 `W1-OD-20261108-5060-R2-OFFLINE-15` 已按 PO-MHEP 落库。仅限 5060 分支继续执行：先对冻结 12 事实组 / 36 世界 / 180 TopK 做 `S0-TEMPLATE-COVERAGE_READONLY`，再运行预注册 `B2_RAW / RD_ZH_ONLY / RD_TEMPLATE_ONLY / RD_ZH_TEMPLATE` 四臂离线公平对照。R1-10(A) 已批准，但仅可使用历史 B2 固定 revision 的本地已缓存 encoder；零下载、零新检索、零商业 API。原 TopK、原文、embedding/Stage2 输入、生成上下文、参数、历史 B2 结果与标签隔离不得改变。四臂 role-free 结果先封存，之后独立 Evaluator 才可揭盲统计 Poison/Clean/HN。

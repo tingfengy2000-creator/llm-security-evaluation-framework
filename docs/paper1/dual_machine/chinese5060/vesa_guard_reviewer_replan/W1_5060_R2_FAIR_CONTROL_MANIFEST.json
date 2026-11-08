@@ -1,0 +1,483 @@
+{
+  "K1": "K1-C / INSUFFICIENT_OR_MIXED",
+  "api_calls": 0,
+  "arm_config": {
+    "B2_RAW": {
+      "lexical_view": "raw",
+      "tokenizer": "upstream_english_default"
+    },
+    "RD_TEMPLATE_ONLY": {
+      "lexical_view": "frozen_web_chrome_mask",
+      "tokenizer": "upstream_english_default"
+    },
+    "RD_ZH_ONLY": {
+      "lexical_view": "raw",
+      "tokenizer": "char2_none"
+    },
+    "RD_ZH_TEMPLATE": {
+      "lexical_view": "frozen_web_chrome_mask",
+      "tokenizer": "char2_none"
+    }
+  },
+  "arm_config_sha256": "8c40e325bd3d32d12315a86f3b5e09a01c3a716dc0d9621ffcf6a2a52c65a8af",
+  "authorization": "W1-OD-20261108-5060-R2-OFFLINE-15",
+  "authorization_commit": "d89e2431a5c7a84e9a66d06c758ef45f47745f43",
+  "auto_continue": false,
+  "b2_replay_worlds": 36,
+  "branch": "research/paper1-chinese-defense-5060",
+  "chunks": 180,
+  "cost_usd": 0,
+  "coverage_sha256": "9c3a10ed5526199993bbf2d4807107f8f963d3b88b139dc49e2cd3a835170c70",
+  "cpu_threads": 2,
+  "denied_local_hostname_calls": 1,
+  "deterministic_repeat_outcomes": 144,
+  "downloads": 0,
+  "encoder_calls": 36,
+  "evaluator_output_sha256": "148cf482bcd0ef217fedb48696ff3630cd0fdb32ede80aa84336142f927766b4",
+  "evaluator_source_commit": "c959509d32ac7430d89a8f29146ab589516cebc9",
+  "formal_accuracy": "NOT_MEASURED",
+  "formal_asr": "NOT_MEASURED",
+  "human_gold": 0,
+  "identity": {
+    "cache_files": 10,
+    "cache_identity_sha256": "53a3935d8d35d377fb90f839604f42062c944641dd15f7ad081b0ca557f638e5",
+    "dependency_sha256": "25ceec7b87f616eea4295108827671e90d78ce64627c1323012e9c38cd9ccef7",
+    "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "revision": "16e5344fbfc7dfbbbe0019d30cec21e2940cb4e1",
+    "upstream": "ba2a17efba165d45409114df2d70b030ade1e1b8"
+  },
+  "input": {
+    "historical_b2_sha256": "9b65b5d7c412aea78a5d66f4d5402743afd029802eb0af981ebdd929376feb4f",
+    "packets_sha256": "d0f196ab994a94bfd0804c37c08b81d41f582aaf2d74e143c26560ffa7043525",
+    "pair_output_seal_sha256": "bb775ead3d330f5e83516f8dfa871a3e2581c305e5ae7baf104500f781ac79fb",
+    "topk_output_seal_sha256": "4e11d89cb6f03291c124aab28f7181622b6766cc63d55be45126023147988c52"
+  },
+  "m": 5,
+  "mask_sha256": "b8288ddc6b2b479049693cbc36137f05f30b0f6f5289d4912f58df4984290a96",
+  "new_network_assets": 0,
+  "new_retrieval": 0,
+  "p": 2,
+  "role_free_archive_sha256": "f72501fe7d19a2b11ad697d594561ecab7039eafdd24377dc461eb1e4e4e7661",
+  "role_free_output_sha256": "7240a44a6a8b5acbbc4628b48b49d69df80905567a6147128eaf9923d852177a",
+  "run_id": "W1-5060-R2-FAIRCTRL-20261108-02",
+  "seed": 0,
+  "source_commit": "666ac21abee8605ce871caec379e1523a178b48a",
+  "status": "R2_BOUNDED_OFFLINE_COMPLETE",
+  "task": "single_hop",
+  "template_detector": "R2_GROUPED_TOOLBAR_V1",
+  "tie_order": "PINNED_UPSTREAM_STABLE_PAIR_AND_LOW_INDEX_TIE",
+  "top_k": 5,
+  "worlds": 36,
+  "complete_private_archive_sha256": "91801b7efe8914144a1d9bb9b247df553a8dffbffc8da3e6442facf4908a3f55",
+  "private_manifest_sha256": "0a54d16fe8e651051e1b0ba748f6db9b198a82a7c747b2df162592fbe4aeda43",
+  "audit_receipt_sha256": "d065a41d1cfb1e3fa03fe4f91afa7513edb8b667c52b4e66727a36dbf7841d0f",
+  "coverage": {
+    "by_rank": {
+      "1": {
+        "AMBIGUOUS": 14,
+        "NONE": 22
+      },
+      "2": {
+        "AMBIGUOUS": 10,
+        "NONE": 26
+      },
+      "3": {
+        "AMBIGUOUS": 2,
+        "NONE": 34
+      },
+      "4": {
+        "AMBIGUOUS": 9,
+        "NONE": 24,
+        "WEB_CHROME_CONFIDENT": 3
+      },
+      "5": {
+        "NONE": 33,
+        "WEB_CHROME_CONFIDENT": 3
+      }
+    },
+    "chunks": 180,
+    "cross": [
+      {
+        "deleted": 1,
+        "larger_cluster": false,
+        "n_adv": 1,
+        "n_tfidf": 0,
+        "template_positions": 0,
+        "worlds": 1
+      },
+      {
+        "deleted": 2,
+        "larger_cluster": false,
+        "n_adv": 2,
+        "n_tfidf": 0,
+        "template_positions": 0,
+        "worlds": 2
+      },
+      {
+        "deleted": 1,
+        "larger_cluster": false,
+        "n_adv": 1,
+        "n_tfidf": 1,
+        "template_positions": 0,
+        "worlds": 5
+      },
+      {
+        "deleted": 2,
+        "larger_cluster": false,
+        "n_adv": 2,
+        "n_tfidf": 1,
+        "template_positions": 0,
+        "worlds": 13
+      },
+      {
+        "deleted": 2,
+        "larger_cluster": false,
+        "n_adv": 2,
+        "n_tfidf": 2,
+        "template_positions": 0,
+        "worlds": 3
+      },
+      {
+        "deleted": 3,
+        "larger_cluster": true,
+        "n_adv": 3,
+        "n_tfidf": 3,
+        "template_positions": 0,
+        "worlds": 6
+      },
+      {
+        "deleted": 4,
+        "larger_cluster": true,
+        "n_adv": 4,
+        "n_tfidf": 4,
+        "template_positions": 0,
+        "worlds": 3
+      },
+      {
+        "deleted": 3,
+        "larger_cluster": true,
+        "n_adv": 3,
+        "n_tfidf": 3,
+        "template_positions": 1,
+        "worlds": 1
+      },
+      {
+        "deleted": 3,
+        "larger_cluster": true,
+        "n_adv": 3,
+        "n_tfidf": 4,
+        "template_positions": 1,
+        "worlds": 2
+      }
+    ],
+    "identity": {
+      "cache_files": 10,
+      "cache_identity_sha256": "53a3935d8d35d377fb90f839604f42062c944641dd15f7ad081b0ca557f638e5",
+      "dependency_sha256": "25ceec7b87f616eea4295108827671e90d78ce64627c1323012e9c38cd9ccef7",
+      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "revision": "16e5344fbfc7dfbbbe0019d30cec21e2940cb4e1",
+      "upstream": "ba2a17efba165d45409114df2d70b030ade1e1b8"
+    },
+    "input": {
+      "historical_b2_sha256": "9b65b5d7c412aea78a5d66f4d5402743afd029802eb0af981ebdd929376feb4f",
+      "packets_sha256": "d0f196ab994a94bfd0804c37c08b81d41f582aaf2d74e143c26560ffa7043525",
+      "pair_output_seal_sha256": "bb775ead3d330f5e83516f8dfa871a3e2581c305e5ae7baf104500f781ac79fb",
+      "topk_output_seal_sha256": "4e11d89cb6f03291c124aab28f7181622b6766cc63d55be45126023147988c52"
+    },
+    "mask_sha256": "b8288ddc6b2b479049693cbc36137f05f30b0f6f5289d4912f58df4984290a96",
+    "span_rule_sha256": "d27f74e744752036d1cd4438995a19baa06adfe6c552596a0b553eb0f7f91605",
+    "template_detector": "R2_GROUPED_TOOLBAR_V1",
+    "totals": {
+      "AMBIGUOUS": 35,
+      "NONE": 139,
+      "WEB_CHROME_CONFIDENT": 6,
+      "confident_worlds": 3,
+      "deleted_chunks": 81,
+      "deleted_confident": 6,
+      "mask_spans": 6,
+      "retained_chunks": 99,
+      "retained_confident": 0
+    },
+    "unsafe": 0,
+    "worlds": 36
+  },
+  "evaluation": {
+    "status": "EVALUATED_SEALED_OUTPUTS",
+    "run_id": "W1-5060-R2-FAIRCTRL-20261108-02",
+    "worlds": 36,
+    "chunks": 180,
+    "candidate_hit": 29,
+    "candidate_miss": 7,
+    "arms": {
+      "B2_RAW": {
+        "roles": {
+          "POISON": {
+            "scope_comparable_deleted_candidate": 0,
+            "worlds": 12,
+            "hit": 10,
+            "miss": 2,
+            "deleted": 2,
+            "retained": 8,
+            "newly_retained_vs_b2": 0,
+            "newly_deleted_vs_b2": 0,
+            "hit_with_confident_template": 0
+          },
+          "CLEAN_CURRENT": {
+            "scope_comparable_deleted_candidate": 0,
+            "worlds": 12,
+            "hit": 10,
+            "miss": 2,
+            "deleted": 4,
+            "retained": 6,
+            "newly_retained_vs_b2": 0,
+            "newly_deleted_vs_b2": 0,
+            "hit_with_confident_template": 0
+          },
+          "HARD_NEGATIVE": {
+            "scope_comparable_deleted_candidate": 0,
+            "worlds": 12,
+            "hit": 9,
+            "miss": 3,
+            "deleted": 2,
+            "retained": 7,
+            "newly_retained_vs_b2": 0,
+            "newly_deleted_vs_b2": 0,
+            "hit_with_confident_template": 0
+          }
+        },
+        "totals": {
+          "unique_scope_retained_worlds": 1,
+          "scope_bound_deleted_chunks": 0,
+          "scope_comparable_deleted_candidates": 0,
+          "deleted_chunks": 81,
+          "any_deletion_worlds": 36,
+          "changed_vs_b2": 0
+        },
+        "n_adv": {
+          "1": 6,
+          "2": 18,
+          "3": 9,
+          "4": 3
+        },
+        "n_tfidf": {
+          "0": 3,
+          "1": 18,
+          "2": 3,
+          "3": 7,
+          "4": 5
+        },
+        "paired": {
+          "vs_rd_zh_only_changed_worlds": 21,
+          "vs_b2_chunks_restored": 0,
+          "vs_b2_chunks_newly_deleted": 0
+        }
+      },
+      "RD_ZH_ONLY": {
+        "roles": {
+          "POISON": {
+            "scope_comparable_deleted_candidate": 0,
+            "worlds": 12,
+            "hit": 10,
+            "miss": 2,
+            "deleted": 4,
+            "retained": 6,
+            "newly_retained_vs_b2": 0,
+            "newly_deleted_vs_b2": 2,
+            "hit_with_confident_template": 0
+          },
+          "CLEAN_CURRENT": {
+            "scope_comparable_deleted_candidate": 0,
+            "worlds": 12,
+            "hit": 10,
+            "miss": 2,
+            "deleted": 5,
+            "retained": 5,
+            "newly_retained_vs_b2": 0,
+            "newly_deleted_vs_b2": 1,
+            "hit_with_confident_template": 0
+          },
+          "HARD_NEGATIVE": {
+            "scope_comparable_deleted_candidate": 0,
+            "worlds": 12,
+            "hit": 9,
+            "miss": 3,
+            "deleted": 4,
+            "retained": 5,
+            "newly_retained_vs_b2": 0,
+            "newly_deleted_vs_b2": 2,
+            "hit_with_confident_template": 0
+          }
+        },
+        "totals": {
+          "unique_scope_retained_worlds": 1,
+          "scope_bound_deleted_chunks": 0,
+          "scope_comparable_deleted_candidates": 0,
+          "deleted_chunks": 112,
+          "any_deletion_worlds": 36,
+          "changed_vs_b2": 21
+        },
+        "n_adv": {
+          "1": 1,
+          "2": 2,
+          "3": 25,
+          "4": 8
+        },
+        "n_tfidf": {
+          "2": 3,
+          "3": 10,
+          "4": 5,
+          "5": 18
+        },
+        "paired": {
+          "vs_rd_zh_only_changed_worlds": 0,
+          "vs_b2_chunks_restored": 0,
+          "vs_b2_chunks_newly_deleted": 31
+        }
+      },
+      "RD_TEMPLATE_ONLY": {
+        "roles": {
+          "POISON": {
+            "scope_comparable_deleted_candidate": 0,
+            "worlds": 12,
+            "hit": 10,
+            "miss": 2,
+            "deleted": 2,
+            "retained": 8,
+            "newly_retained_vs_b2": 0,
+            "newly_deleted_vs_b2": 0,
+            "hit_with_confident_template": 0
+          },
+          "CLEAN_CURRENT": {
+            "scope_comparable_deleted_candidate": 0,
+            "worlds": 12,
+            "hit": 10,
+            "miss": 2,
+            "deleted": 4,
+            "retained": 6,
+            "newly_retained_vs_b2": 0,
+            "newly_deleted_vs_b2": 0,
+            "hit_with_confident_template": 0
+          },
+          "HARD_NEGATIVE": {
+            "scope_comparable_deleted_candidate": 0,
+            "worlds": 12,
+            "hit": 9,
+            "miss": 3,
+            "deleted": 2,
+            "retained": 7,
+            "newly_retained_vs_b2": 0,
+            "newly_deleted_vs_b2": 0,
+            "hit_with_confident_template": 0
+          }
+        },
+        "totals": {
+          "unique_scope_retained_worlds": 1,
+          "scope_bound_deleted_chunks": 0,
+          "scope_comparable_deleted_candidates": 0,
+          "deleted_chunks": 81,
+          "any_deletion_worlds": 36,
+          "changed_vs_b2": 0
+        },
+        "n_adv": {
+          "1": 6,
+          "2": 18,
+          "3": 9,
+          "4": 3
+        },
+        "n_tfidf": {
+          "0": 3,
+          "1": 18,
+          "2": 3,
+          "3": 7,
+          "4": 5
+        },
+        "paired": {
+          "vs_rd_zh_only_changed_worlds": 21,
+          "vs_b2_chunks_restored": 0,
+          "vs_b2_chunks_newly_deleted": 0
+        }
+      },
+      "RD_ZH_TEMPLATE": {
+        "roles": {
+          "POISON": {
+            "scope_comparable_deleted_candidate": 0,
+            "worlds": 12,
+            "hit": 10,
+            "miss": 2,
+            "deleted": 4,
+            "retained": 6,
+            "newly_retained_vs_b2": 0,
+            "newly_deleted_vs_b2": 2,
+            "hit_with_confident_template": 0
+          },
+          "CLEAN_CURRENT": {
+            "scope_comparable_deleted_candidate": 0,
+            "worlds": 12,
+            "hit": 10,
+            "miss": 2,
+            "deleted": 5,
+            "retained": 5,
+            "newly_retained_vs_b2": 0,
+            "newly_deleted_vs_b2": 1,
+            "hit_with_confident_template": 0
+          },
+          "HARD_NEGATIVE": {
+            "scope_comparable_deleted_candidate": 0,
+            "worlds": 12,
+            "hit": 9,
+            "miss": 3,
+            "deleted": 4,
+            "retained": 5,
+            "newly_retained_vs_b2": 0,
+            "newly_deleted_vs_b2": 2,
+            "hit_with_confident_template": 0
+          }
+        },
+        "totals": {
+          "unique_scope_retained_worlds": 1,
+          "scope_bound_deleted_chunks": 0,
+          "scope_comparable_deleted_candidates": 0,
+          "deleted_chunks": 112,
+          "any_deletion_worlds": 36,
+          "changed_vs_b2": 21
+        },
+        "n_adv": {
+          "1": 1,
+          "2": 2,
+          "3": 25,
+          "4": 8
+        },
+        "n_tfidf": {
+          "2": 3,
+          "3": 10,
+          "4": 5,
+          "5": 18
+        },
+        "paired": {
+          "vs_rd_zh_only_changed_worlds": 0,
+          "vs_b2_chunks_restored": 0,
+          "vs_b2_chunks_newly_deleted": 31
+        }
+      }
+    },
+    "k1": "K1-C / INSUFFICIENT_OR_MIXED",
+    "role_free_archive_sha256": "f72501fe7d19a2b11ad697d594561ecab7039eafdd24377dc461eb1e4e4e7661",
+    "candidate_labels_sha256": "0b75212782f4495037e27d56a2e480b01839e44b2143a8fe5845a1688c8a8ca3"
+  },
+  "attempts": {
+    "first_filter_exit": 1,
+    "first_local_encoder_calls": 36,
+    "final_filter_exit": 0,
+    "final_local_encoder_calls": 36,
+    "total_local_encoder_calls": 72,
+    "first_evaluator_exit": 1,
+    "final_evaluator_exit": 0
+  },
+  "qa": {
+    "targeted_pytest_passed": 24,
+    "ruff": "PASS",
+    "mypy": "PASS",
+    "deterministic_repeat_outcomes": 144,
+    "scope_leak_and_secret_scan": "PASS"
+  }
+}
