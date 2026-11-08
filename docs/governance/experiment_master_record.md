@@ -1,5 +1,10 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## S1-B 2026-11-08 — 设计路线记录，尚无实验
+
+`W1-OD-20261108-5060-S1B-B-DESIGN-17`：仅确认Rule-V1/V2与本地UIE/Qwen候选抽取的公平对照**设计**，S1-B正式Run `NOT_CREATED`、候选模型revision/权重/依赖批准`NOT_APPROVED`、新增模型调用/下载为0、模型对照与独立验证`NOT_RUN`。旧S1 FAIL保留，S2–S5禁运行。见[审批提案](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_LITERATURE_MODEL_RESOURCE_INDEPENDENT_VALIDATION_PROPOSAL_20261108.md)。
+
+
 ## W1-5060-S1-CHINESE-EXTRACTION-20261108-01 — S1 封存失败与停止
 
 Owner16 S1 单次封存验证结束，S1_FAIL_STOP。73 条合成样本，30 正确、4 错误、39 UNKNOWN；答案值 31/61、已决定错抽 4/34。自然中文可用 scope-bound 事实 25/49。模型、API、下载与费用为 0。Human Gold 0，正式 ASR/Accuracy 未测。S2–S5 未授权，Auto Continue = NO。
