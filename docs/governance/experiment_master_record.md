@@ -1,5 +1,13 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## W1-OD-20261108-5060-S1B-RULEV2-DEV-18 — 受限 Rule-V2 开发与 UIE 只读核查获批（2026-11-08 JST）
+
+状态 `OWNER_EXPLICITLY_APPROVED / RULE_V2_DEVELOPMENT_ONLY / UIE_READONLY_AUDIT_ONLY`。Owner 对唯一在前提议“允许5060使用已暴露的旧73条S1样本及普通本地单测开发Rule-V2，并只读核实UIE许可与依赖，不下载/加载/调用新模型，不碰新独立验证集、不运行S2–S5”明确回复“批准”。授权只修改 Owner17 中“不运行Rule-V2开发”的禁止范围，不修改其模型资产、模型推理和新独立验证未批准状态。旧S1 `S1_FAIL_STOP` 和 R2 K1-C、D1/D2/D3隔离、历史108等完全不变，旧73即使重复开发跑出高分仍属于 `EXPOSED_DEVELOPMENT` 不是独立验证或正式论文结果。所有Rule-V2迭代与失败须留存，保留未证修订/跨scope误答。UIE 权重/分词器使用许可、不可变发行revision及发布者SHA256如无证据记UNKNOWN；不可pip安装、下载权重或使用在线接口。5090 Meta Llama2申请及Claim1–3维持原门。完工提交开发证据后STOP，不自动申请/开始下一步。
+
+[PO-MHEP十二字段授权](../paper1/dual_machine/owner_approvals/W1_5060_S1B_RULEV2_DEV_AND_UIE_READONLY_AUTH_20261108.md)；[5060直接执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_S1B_RULEV2_OLD73_DEV_UIE_READONLY_EXECUTION_PROMPT_V1.md)。授权登记不是Rule-V2已开发或已通过结果。
+
+
+
 ## 2026-11-08｜5060 S1-B 只读审批包完成
 
 `S1B_DESIGN_ONLY / MODEL_DOWNLOAD_NOT_AUTHORIZED / MODEL_INFERENCE_NOT_AUTHORIZED / VALIDATION_NOT_AUTHORIZED / S2_S5_LOCKED`。Owner B 只读审批包已完成，UIE Nano 权重条款和强身份待核，Qwen2.5-1.5B 已核固定 revision 与权重许可。独立验证保管人未指定。新增模型、推理、下载、安装、科学试次和费用均为 0。Auto Continue = NO。
