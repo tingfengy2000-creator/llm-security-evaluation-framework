@@ -1,6 +1,14 @@
 # Paper 1｜Week 1 双机 Tracker
 
-**更新于 2026-11-08 JST · 版本 7 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-08 JST · 版本 8 · 维护位置 `research/paper1-chinese-defense-5060`。**
+
+## 2026-11-08｜Owner18：仅 Rule-V2 旧73开发 + UIE官方材料只读核查
+
+Owner `W1-OD-20261108-5060-S1B-RULEV2-DEV-18` 明确放行5060在原独立分支使用已暴露的73条S1合成案例与普通本地unit fixtures开发/调试Rule-V2，保留所有迭代、负结果、错抽与原版Rule-V1封存；可以只读核实官方UIE权重/分词器条款、不可变revision/发布者强身份和CPU依赖。不授权模型下载、依赖安装、模型加载/推理、任何新模型调用、S1-B独立验证数据的构造/打开/评价或S2–S5。旧S1 `S1_FAIL_STOP`，原R2 K1-C、HumanGold0、正式ASR/Accuracy未测全部不变。5090仍等待Meta Llama2许可，Claim1–3未运行。
+
+**当前状态：`RULE_V2_DEV_APPROVED_NOT_RUN / UIE_READONLY_APPROVED / MODEL_ASSET_AND_INFERENCE_NOT_AUTHORIZED / NEW_VALIDATION_NOT_AUTHORIZED / Auto Continue=NO`**。新Rule-V2数据与性能以未来真实Run Manifest为准，不得将此批准写成实验完成。
+
+[Owner18十二字段授权](owner_approvals/W1_5060_S1B_RULEV2_DEV_AND_UIE_READONLY_AUTH_20261108.md) · [5060执行Prompt](chinese5060/W1_5060_S1B_RULEV2_OLD73_DEV_UIE_READONLY_EXECUTION_PROMPT_V1.md)。
 
 ## 2026-11-08｜5060 S1-B 只读审批包完成
 
@@ -132,6 +140,7 @@ R1 源附件由 Owner 提供，公开记录含原件摘要与 SHA-256。[R1 修�
 
 | 日期（JST） | 版本 | 变更与核验基点 |
 | --- | --- | --- |
+| 2026-11-08 | 8 | Owner18单独允许 Rule-V2 使用旧73开发及UIE只读许可/依赖核查；新模型资产/推理和独立测试仍未授权，S2–S5保持停止。 |
 | 2026-11-08 | 4 | Owner16批准5060单独S1离线验证，状态APPROVED_NOT_RUN，5090 Llama2访问仍待审批；S2–S5继续关闭。 |
 | 2026-11-08 | 2 | 新会话按交接包恢复并动态核对双机远端；5060/5090 均与交接 SHA 一致。登记 Owner R2 有界离线授权，释放模板覆盖诊断与四臂公平对照；无新实验结果。 |
 | 2026-11-06 | 1 | 建立双机维护页。记录 5060 的旧 G3 零变化、S0 完成、R1/R2 与待放行状态，以及 5090 非 Llama 资产下载后 Claim 未运行。整理前 5060 `fa70d97`，5090 `dbd91f3`。 |
