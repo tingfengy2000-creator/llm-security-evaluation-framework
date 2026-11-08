@@ -1,5 +1,10 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## S1-5060-CHINESE-EXTRACTION-20261108｜批准但未执行
+
+状态 `DESIGN_AND_EXECUTION_AUTHORIZATION / NOT_STARTED / DEV_EXPLORATORY`，Owner决策 `W1-OD-20261108-5060-S1-OFFLINE-16`。批准范围仅为5060在D1/D2/D3/旧108隔离下对≥60例独立中文自然化事实/span/time/version/scope抽取开展零API离线验证。源与标签必须先分离封存，后 role-free 输出与隔离Evaluator；正式S1 Run ID/样本SHA/规则SHA/评估指标均为 `NOT_YET_CREATED / NOT_MEASURED`。原 B2/R2/S0证据不改。开发指标门与限定见[授权原件](../paper1/dual_machine/owner_approvals/W1_5060_S1_INDEPENDENT_CHINESE_EXTRACTION_OFFLINE_AUTHORIZATION_20261108.md)，不是正式Gold、不是实际实验结果。S2–S5/5090 Claim 未授权，执行后必须STOP返回Owner。
+
+
 ## W1-5060-R2-FAIRCTRL-20261108-02 — 离线公平对照收口
 
 R2 有界离线四臂已完成。B2 重放 36/36，网页模板高置信 6/180、3/36 世界，蒙版对两种分词的删除集合均无影响。char2 额外删除 31/180 片段，Poison 删除 2/10→4/10，Clean 误删 4/10→5/10，HN 删除 2/9→4/9。可比被删候选为 0，预注册判定 K1-C / INSUFFICIENT_OR_MIXED。真实 API、下载、重新检索及费用均为 0。S1–S5 未放行，Auto Continue = NO。
