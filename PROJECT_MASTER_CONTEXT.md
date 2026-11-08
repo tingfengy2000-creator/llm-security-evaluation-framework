@@ -1,5 +1,10 @@
 # LLMGuard 项目总控文档
 
+## 2026-11-08 S1-B：Owner选B但不授予模型下载或运行
+
+Owner `W1-OD-20261108-5060-S1B-B-DESIGN-17` 选择借鉴RAGDefender与相关抽取论文，以规则和本地开源模型比较改进S1-B。现为文献、资源、许可证和独立评价门设计，**不得下载/加载/推理新模型或开展新科学试次**。原S1失败、R2 K1-C及全部历史不动，S2–S5/5090 Claims仍未批准。见[PO-MHEP方案](docs/paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_LITERATURE_MODEL_RESOURCE_INDEPENDENT_VALIDATION_PROPOSAL_20261108.md)。
+
+
 ## W1-5060-S1-CHINESE-EXTRACTION-20261108-01 — S1 封存失败与停止
 
 Owner16 S1 单次封存验证结束，S1_FAIL_STOP。73 条合成样本，30 正确、4 错误、39 UNKNOWN；答案值 31/61、已决定错抽 4/34。自然中文可用 scope-bound 事实 25/49。模型、API、下载与费用为 0。Human Gold 0，正式 ASR/Accuracy 未测。S2–S5 未授权，Auto Continue = NO。
