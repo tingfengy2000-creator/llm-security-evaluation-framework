@@ -1,5 +1,14 @@
 # Current Work State
 
+## Current — 2026-11-08 R2 离线公平对照已获 Owner 放行，尚未产生新实验结果
+
+Owner 决策 `W1-OD-20261108-5060-R2-OFFLINE-15` 已按 PO-MHEP 落库。仅限 5060 分支继续执行：先对冻结 12 事实组 / 36 世界 / 180 TopK 做 `S0-TEMPLATE-COVERAGE_READONLY`，再运行预注册 `B2_RAW / RD_ZH_ONLY / RD_TEMPLATE_ONLY / RD_ZH_TEMPLATE` 四臂离线公平对照。R1-10(A) 已批准，但仅可使用历史 B2 固定 revision 的本地已缓存 encoder；零下载、零新检索、零商业 API。原 TopK、原文、embedding/Stage2 输入、生成上下文、参数、历史 B2 结果与标签隔离不得改变。四臂 role-free 结果先封存，之后独立 Evaluator 才可揭盲统计 Poison/Clean/HN。
+
+当前 **尚未**观察到模板覆盖计数、四臂删除结果或 K1 路线结论；这些均保持 `NOT_RUN / NOT_MEASURED`，直到 5060 提交实际 Run Manifest 和证据。R1-10(B) 未决定，S1–S5 不自动放行。5090 Claim1–3、D2/D3、正式测试、任何新在线模型调用和主线合并继续禁止。完成本有界任务后按 R2 预注册 K1-A/B/C 给出路线判定并 STOP 返回 Owner。
+[正式授权](../paper1/dual_machine/owner_approvals/W1_5060_R2_OFFLINE_FAIR_CONTROL_AUTHORIZATION_20261108.md)。
+
+
+
 > Paper 1 双机进展与证据导航见 [Week 1 Tracker](../paper1/dual_machine/PAPER1_WEEK1_TRACKER.md)。当前阶段、阻断及放行门见下方动态记录。
 
 ## S0-REVIEWER-R2-20261106 — S0核验完成，下一步先控制网页模板/中文分词混杂（Owner放行待决）
