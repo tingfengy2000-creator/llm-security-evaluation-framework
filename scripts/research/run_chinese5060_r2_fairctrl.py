@@ -20,7 +20,7 @@ from llmguard.domains.retrieval.hidden_poisoning.chinese5060.b12 import validate
 from llmguard.domains.retrieval.hidden_poisoning.chinese5060.r2_lexical import TOOLBAR, lexical_view
 from llmguard.domains.retrieval.hidden_poisoning.chinese5060.rd_zh_tfidf import adapt_clustering_source
 
-RUN = "W1-5060-R2-FAIRCTRL-20261108-01"
+RUN = "W1-5060-R2-FAIRCTRL-20261108-02"
 OWNER = "W1-OD-20261108-5060-R2-OFFLINE-15"
 AUTH = "d89e2431a5c7a84e9a66d06c758ef45f47745f43"
 UPSTREAM = "ba2a17efba165d45409114df2d70b030ade1e1b8"
@@ -32,9 +32,14 @@ ARMS = {"B2_RAW": (False, False), "RD_ZH_ONLY": (True, False),
         "RD_TEMPLATE_ONLY": (False, True), "RD_ZH_TEMPLATE": (True, True)}
 TIE = "PINNED_UPSTREAM_STABLE_PAIR_AND_LOW_INDEX_TIE"
 NETWORK: list[str] = []
+DENIED_LOCAL_HOSTNAME: list[str] = []
 
 
 def guard(event: str, _args: tuple[Any, ...]) -> None:
+    if event == "socket.gethostname":
+        # A local lookup triggered by an imported dependency is not an outbound operation.
+        DENIED_LOCAL_HOSTNAME.append(event)
+        raise PermissionError("OWNER15_LOCAL_HOSTNAME_DENIED")
     if event.startswith("socket."):
         NETWORK.append(event)
         raise PermissionError("OWNER15_OFFLINE")
@@ -306,7 +311,7 @@ def execute(base: Path, out: Path, upstream: Path) -> None:
     run = {**frozen, "status": "ROLE_FREE_SEALED", "role_free_output_sha256": output_hash,
            "b2_replay_worlds": len(replay), "deterministic_repeat_outcomes": len(rows) * 4,
            "encoder_calls": len(worlds), "new_retrieval": 0, "api_calls": 0, "downloads": 0, "new_network_assets": 0,
-           "cost_usd": 0, "human_gold": 0, "formal_asr": "NOT_MEASURED", "formal_accuracy": "NOT_MEASURED"}
+           "cost_usd": 0, "denied_local_hostname_calls": len(DENIED_LOCAL_HOSTNAME), "human_gold": 0, "formal_asr": "NOT_MEASURED", "formal_accuracy": "NOT_MEASURED"}
     write(out / "ROLE_FREE_MANIFEST.json", run)
     names = ("FOUR_ARM_ROLE_FREE_PRIVATE.json", "ROLE_FREE_MANIFEST.json", "B2_REPLAY_PRIVATE.json",
              "PRE_EXECUTION_LOCK.json", "MASK_ROLE_FREE_PRIVATE.json", "COVERAGE_AGGREGATE.json")
