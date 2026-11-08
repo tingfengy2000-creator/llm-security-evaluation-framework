@@ -1,5 +1,13 @@
 # Current Work State
 
+## Current — 2026-11-08 Owner16 放行 5060 S1，结果未运行
+
+Owner `W1-OD-20261108-5060-S1-OFFLINE-16` 明确批准5060 **仅执行 S1 独立中文事实抽取离线验证**：至少60个独立手写中文标注样本（与D1/D2/D3/旧108隔离），自然化/显式答案模板配对、subject/attribute/value/unit/time/version/scope/negation/exception/source span和UNKNOWN。先冻结独立标注/合法输入、再 role-free 运行、最后隔离Evaluator。现有S1验收保持准确率≥90%、M1-safe决定样本错抽率≤2%（点估计）、不能all-UNKNOWN，同时报告wrong/total、wrong/decided、coverage/abstain、自然化分层及Wilson区间。不可将AI构造 Gold 认作独立Human Gold。仅用本地已有依赖、零联网、零下载、零API、零费用。**S1目前 APPROVED_NOT_RUN**；即使通过也须STOP并另申请S2。
+
+S2–S5均未授权，R1-10(B) S3独立造题方未指定，D2/D3、旧D1/R2封存和5090不动。5090 Meta Llama2权限状态为 `APPLICATION_SUBMITTED / APPROVAL_UNVERIFIED`；Llama2未下载，Claim1–3 未运行。未授权模型下载、Claim或跨分支操作。
+[Owner16授权](../paper1/dual_machine/owner_approvals/W1_5060_S1_INDEPENDENT_CHINESE_EXTRACTION_OFFLINE_AUTHORIZATION_20261108.md) · [S1 Codex Prompt](../paper1/dual_machine/chinese5060/W1_5060_S1_INDEPENDENT_CHINESE_EXTRACTION_EXECUTION_PROMPT_V1.md)。
+
+
 ## W1-5060-R2-FAIRCTRL-20261108-02 — 离线公平对照收口
 
 R2 有界离线四臂已完成。B2 重放 36/36，网页模板高置信 6/180、3/36 世界，蒙版对两种分词的删除集合均无影响。char2 额外删除 31/180 片段，Poison 删除 2/10→4/10，Clean 误删 4/10→5/10，HN 删除 2/9→4/9。可比被删候选为 0，预注册判定 K1-C / INSUFFICIENT_OR_MIXED。真实 API、下载、重新检索及费用均为 0。S1–S5 未放行，Auto Continue = NO。
