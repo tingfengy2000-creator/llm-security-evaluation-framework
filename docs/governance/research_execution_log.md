@@ -1,5 +1,12 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-08 — Owner16 批准有界 S1 离线验证，5090继续等待 Meta Llama2 权限
+
+`W1-OD-20261108-5060-S1-OFFLINE-16`。Owner明确批准5060独立进行≥60例自然中文可见证据事实抽取与scope/time/version/span的本地开发验证（source/Gold/算法/评价隔离，D1/D2/D3/旧108隔离），保留90%准确率、决定样本错误率≤2%、UNKNOWN与wrong/total/wrong/decided/Wilson区间的既有门；0新API、0新下载、0跨机Claim。此刻S1没有新的 Run 或结果，`APPROVED_NOT_RUN`。S2–S5不随S1自动批准。5090分支仍在Meta Llama2访问申请等待中，Llama2未下载、Claim1–3 NOT_RUN。控制端仅登记授权和Codex执行Prompt，不称实验完成。
+
+[Owner16授权](../paper1/dual_machine/owner_approvals/W1_5060_S1_INDEPENDENT_CHINESE_EXTRACTION_OFFLINE_AUTHORIZATION_20261108.md)；[执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_S1_INDEPENDENT_CHINESE_EXTRACTION_EXECUTION_PROMPT_V1.md)。
+
+
 ## 2026-11-08 — Owner releases bounded R2 offline fair-control task
 
 5060 Week 1；Owner `W1-OD-20261108-5060-R2-OFFLINE-15`。控制面核对交接包、5060/5090 远端分支及 S0/R2 治理后，Owner 本轮明确批准继续最新 R2 方向：冻结 D1 TopK 网页模板覆盖只读诊断 + RD-zh 四臂 Stage1 词面对照。仅此范围解除 S0 checkpoint，并批准 R1-10(A) 使用历史 B2 固定 revision 的本地已缓存 encoder；0 下载、0 新检索、0 商业 API。R1-10(B) 仍未决定；S1–S5、5090 Claims、D2/D3、正式测试和主线合并不获授权。当前没有新四臂结果，实验仍待 5060 实际 Run Manifest。完成后须按已预注册 K1-A/B/C 判定并 STOP。
