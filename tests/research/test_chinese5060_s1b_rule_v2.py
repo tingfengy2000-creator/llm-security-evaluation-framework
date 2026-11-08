@@ -66,3 +66,33 @@ def test_schema_and_unverified_current_edition_fail_closed() -> None:
         "《开放办法》现行版本的登记期限是多少？", "《开放办法》2091年版的登记期限为12天。"
     )
     assert result["reason"] == "VERSION_APPLICABILITY_UNBOUND"
+
+
+def test_explicit_local_replacement_preserves_both_values() -> None:
+    result = rule.extract_one(
+        "《设施规定》的调试期限是多少？",
+        "《设施规定》把调试期限从原先的4天调整为现在的11天。",
+    )
+    assert (result["status"], result["value"]) == ("DECIDED", "11")
+    assert "SUPERSEDED_VALUE" in result["candidates"][0]["rejections"]
+
+
+def test_requested_quantity_object_must_match() -> None:
+    result = rule.extract_one(
+        "《设备守则》中每盒配多少个螺栓？",
+        "《设备守则》每盒放8枚螺栓，另备一卷胶带。",
+    )
+    assert (result["status"], result["value"]) == ("DECIDED", "8")
+    assert rule.extract_one("《设备守则》中每盒配多少个垫片？",
+                            "《设备守则》每盒放8枚螺栓。")["status"] == "UNKNOWN"
+
+
+def test_group_and_weather_scope_are_not_inferred() -> None:
+    assert rule.extract_one(
+        "《库房条目》访客的归还期限是多少？",
+        "《库房条目》归还期限为9天。",  # no visitor-specific evidence
+    )["status"] == "UNKNOWN"
+    assert rule.extract_one(
+        "《巡查规定》雨天的巡查期限是多少？",
+        "《巡查规定》一般巡查期限为9天，遇连续降雨则限3天。",
+    )["status"] == "UNKNOWN"

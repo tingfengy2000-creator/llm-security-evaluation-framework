@@ -13,7 +13,7 @@ from typing import Any
 from . import vesa_guard_v02 as v02
 
 SCHEMA = "chinese_scalar_candidates_v1"
-POLICY = "S1B_RULE_V2_CLAUSE_SCOPE_01"
+POLICY = "S1B_RULE_V2_CLAUSE_SCOPE_02"
 _DIGITS = "零〇一二两三四五六七八九"
 _CN = _DIGITS + "十百千万"
 _NUM = rf"(?:[0-9]+(?:\.[0-9]+)?|[{_CN}]+|半)"
@@ -64,6 +64,10 @@ _BOUND = re.compile(r"上限|不超过|不得超过|至多|最高|下限|不低�
 _EXCEPTION = re.compile(r"^(?:但(.+)|(.+时另议))$")
 _METADATA = re.compile(r"页脚|页尾|网页(?:时间|更新时间)|历史沿革")
 _EDGE = re.compile(r"^(?:(?:里|的|在|中|规定|记载|说明|要求|写明|把|将|注明|载明|明确)\s*)+")
+_FORMER = re.compile(r"从(?:过去|此前|先前|原先|原来)的?$")
+_REPLACEMENT = re.compile(r"^(?:改为|调整为|变更为)(?:现在|目前|现行)?的?$")
+_NAMED_ROLE = re.compile(r"([\u4e00-\u9fff]{0,12}(?:主持|人员|访客|者|人))的")
+_QUANTITY_OBJECT = re.compile(r"(?:多少|几)(?:个|枚|件|台|套|人|卷)([\u4e00-\u9fff]{1,12})$")
 _NAME = re.compile(r"[\u4e00-\u9fff]{2,}")
 _UNIT_ALIASES = {"昼夜": "天", "个昼夜": "天", "个工作日": "工作日", "％": "%"}
 _CONFIG = {
@@ -245,7 +249,9 @@ def extract_one(query: str, source_original: str, public_schema: str = SCHEMA) -
         return unknown("INVALID_QUERY_DATE")
     places = _place(outside)
     query_condition = _condition(outside)
-    requested_context = re.search(r"([\u4e00-\u9fff]{1,12}(?:主持|借用者|使用者))的", _EDGE.sub("", outside))
+    requested_context = _NAMED_ROLE.search(_EDGE.sub("", outside))
+    object_match = _QUANTITY_OBJECT.search(outside.rstrip("？?"))
+    requested_object = object_match[1] if object_match else None
     if requested_context and not query_condition:
         query_condition = requested_context[1]
     article = v02._ARTICLE.search(outside)
@@ -306,6 +312,7 @@ def extract_one(query: str, source_original: str, public_schema: str = SCHEMA) -
             pending_condition = local_condition
             continue
         previous_end = 0
+        previous_fields: set[str] = set()
         for start, end, value, unit in tokens:
             span = _span(source_original, base + start, base + end)
             observations.append({"kind": "scalar", "value": value, "unit": unit, "span": span})
@@ -317,18 +324,23 @@ def extract_one(query: str, source_original: str, public_schema: str = SCHEMA) -
             prefix = v02._TITLE.sub("", clause[previous_end:start])
             previous_end = end
             stated_fields = _attributes(prefix)
+            local_text = re.sub(r"[()（）]|答案是", "", prefix).strip()
+            if _REPLACEMENT.fullmatch(local_text):
+                stated_fields = previous_fields
+            previous_fields = stated_fields
             own_places = _place(prefix)
             own_place = next(iter(own_places)) if len(own_places) == 1 else None
             condition = local_condition or pending_condition
             cue = _EDGE.sub("", prefix)
-            group = re.match(r"(.{1,14}?)(?:组|主持|人员|借用者|使用者)(?=应|可|必须|需|的)", cue)
+            group = re.match(r"(.{1,14}?)(?:组|主持|人员|者|人)(?=应|可|必须|需|的)", cue)
             if group:
                 condition = group[0]
             specificity = _specificity(outside, prefix, field)
             if field.startswith("date:"):
                 event = _EVENTS[field.removeprefix("date:")]
                 relevant = bool(re.search(event, prefix + clause[end:]))
-                compatible = unit == "DATE" and relevant and not interval
+                date_count = sum(token[3] == "DATE" for token in tokens)
+                compatible = unit == "DATE" and relevant and interval is None and date_count == 1
             else:
                 implicit = _IMPLICIT.get(field)
                 observed_field = (field in stated_fields or
@@ -337,13 +349,17 @@ def extract_one(query: str, source_original: str, public_schema: str = SCHEMA) -
                                       or (implicit is not None and implicit.search(prefix))
                                       or (field == "term" and bool(local_condition or pending_condition))
                                   )))
-                compatible = unit in _UNITS[field] and observed_field
+                compatible = bool(unit in _UNITS[field] and observed_field)
             qualifier = _bound(prefix)
             reasons = []
             if subject != title or not compatible or _METADATA.search(prefix):
                 reasons.append("SUBJECT_OR_ATTRIBUTE_MISMATCH")
             if value is None:
                 reasons.append("INVALID_SCALAR")
+            if _FORMER.search(local_text):
+                reasons.append("SUPERSEDED_VALUE")
+            if field == "quantity" and requested_object and not clause[end:].lstrip(" )）").startswith(requested_object):
+                reasons.append("OBJECT_MISMATCH")
             if _NEGATION.search(prefix):
                 reasons.append("NEGATED")
             if qualifier == "CONFLICT" or (bound != "ASSERTED" and qualifier != bound):

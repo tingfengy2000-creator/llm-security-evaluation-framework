@@ -18,7 +18,7 @@ from llmguard.domains.retrieval.hidden_poisoning.chinese5060 import s1b_rule_v2 
 BRANCH = "research/paper1-chinese-defense-5060"
 OWNER = "W1-OD-20261108-5060-S1B-RULEV2-DEV-18"
 OWNER_COMMIT = "6561568584c05d12a7c9000933a46282ed0a565c"
-RUN = "W1-5060-S1B-RULEV2-DEV-20261109-01"
+RUN = "W1-5060-S1B-RULEV2-DEV-20261109-02"
 OLD_RUN = "W1-5060-S1-CHINESE-EXTRACTION-20261108-01"
 OLD_SOURCE = "68d34a5d877206f4e6d7d9e2bdda16784145a76a"
 OLD_FILES = {
@@ -176,7 +176,7 @@ def evaluate(old: Path, out: Path) -> None:
             raise ValueError("HISTORICAL_PAIR_COUNT")
         return dict(Counter(p["explicit"] + "->" + p["natural"] for p in grouped.values()))
 
-    checks = {}
+    checks: dict[str, list[dict[str, Any]]] = {}
     for before, after in zip(historical, rows, strict=True):
         if before["answerable"] and before["status"] == "UNKNOWN":
             checks.setdefault(before["unknown_reason"], []).append(after)
