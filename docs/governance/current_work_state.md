@@ -1,5 +1,12 @@
 # Current Work State
 
+## Current — S1-B Option B 文献/模型资源与独立验证审批设计（2026-11-08 JST）
+
+Owner `W1-OD-20261108-5060-S1B-B-DESIGN-17` 已明确选择 `B_RULE_VS_OFFLINE_OPEN_MODEL` **作为设计方向**，要求优先参考RAGDefender、X-MADAM-RAG、UIE等已有方法，且明确“未经另行批准不得下载或调用新模型”。5060仅可提交只读文献/公开模型许可与资源清单、Rule-V1/V2对比及UIE/Qwen1.5B候选方案、独立Gold与新验证审批包；`NO_NEW_MODEL_DOWNLOAD / NO_NEW_MODEL_LOAD / NO_NEW_MODEL_INFERENCE / NO_NEW_SCIENTIFIC_RUN`。原S1 `S1_FAIL_STOP`、R2 K1-C、D1/D2/D3隔离及旧历史保持，S2–S5继续关闭。5090仍等待Meta Llama2访问授权、Claim1–3未运行。
+[PO-MHEP提案](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_LITERATURE_MODEL_RESOURCE_INDEPENDENT_VALIDATION_PROPOSAL_20261108.md) · [5060 DESIGN-ONLY Prompt](../paper1/dual_machine/chinese5060/W1_5060_S1B_LITERATURE_MODEL_ADMISSION_DESIGN_ONLY_PROMPT_V1.md)。
+
+
+
 ## W1-5060-S1-CHINESE-EXTRACTION-20261108-01 — S1 封存失败与停止
 
 Owner16 S1 单次封存验证结束，S1_FAIL_STOP。73 条合成样本，30 正确、4 错误、39 UNKNOWN；答案值 31/61、已决定错抽 4/34。自然中文可用 scope-bound 事实 25/49。模型、API、下载与费用为 0。Human Gold 0，正式 ASR/Accuracy 未测。S2–S5 未授权，Auto Continue = NO。
