@@ -1,5 +1,12 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-08 — Owner releases bounded R2 offline fair-control task
+
+5060 Week 1；Owner `W1-OD-20261108-5060-R2-OFFLINE-15`。控制面核对交接包、5060/5090 远端分支及 S0/R2 治理后，Owner 本轮明确批准继续最新 R2 方向：冻结 D1 TopK 网页模板覆盖只读诊断 + RD-zh 四臂 Stage1 词面对照。仅此范围解除 S0 checkpoint，并批准 R1-10(A) 使用历史 B2 固定 revision 的本地已缓存 encoder；0 下载、0 新检索、0 商业 API。R1-10(B) 仍未决定；S1–S5、5090 Claims、D2/D3、正式测试和主线合并不获授权。当前没有新四臂结果，实验仍待 5060 实际 Run Manifest。完成后须按已预注册 K1-A/B/C 判定并 STOP。
+[Owner 授权](../paper1/dual_machine/owner_approvals/W1_5060_R2_OFFLINE_FAIR_CONTROL_AUTHORIZATION_20261108.md)。
+
+
+
 ## 当前 / CURRENT — 第七条范围收口，12题AI数据草案准备完成（2026-11-04）
 
 PAPER1-RAG-DEFENSE-RECONSTRUCTION-01；AI_DATA_PREPARATION_COMPLETE_PROVISIONAL / SCENARIO_CONTRACT_NEXT；PODR-160。Owner明确限定第七条核心职责；修订题的两份独立审阅和来源仲裁确认3字段等价，9处引用定位通过。第二版12题均有据AI草案，职责范围待决0；问题/评价侧答案隔离，原题/原分歧/全部原审阅保留。人工金标准仍0，非正式实验结果。
