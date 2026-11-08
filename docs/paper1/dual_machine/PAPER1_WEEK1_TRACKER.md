@@ -1,6 +1,6 @@
 # Paper 1｜Week 1 双机 Tracker
 
-**更新于 2026-11-08 JST · 版本 3 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-08 JST · 版本 4 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 当前研究状态为 **5060 R2 四臂完成并停在 K1-C**。5090 已完成离线 Smoke 和非 Llama 资产下载，Claim 1–3 均未运行。Paper 1 正式实验仍未启动。
 
@@ -11,6 +11,14 @@
 本批仅为 D1 开发诊断。高置信模板 6/180、3/36 世界，蒙版对两个分词臂均为零变化。char2 使 Clean 误删 4/10→5/10、HN 隔离 2/9→4/9、Poison 删除 2/10→4/10。可比被删候选 0。S1–S5 未放行。
 
 [四臂结果与封存证据](chinese5060/vesa_guard_reviewer_replan/W1_5060_R2_FAIR_CONTROL_RESULT.md)。
+
+## 2026-11-08 Owner16：5060 S1 获批、5090 Llama2 等待
+
+Owner `W1-OD-20261108-5060-S1-OFFLINE-16` 已授予5060唯一有界新任务：S1 ≥60例独立中文可见证据事实抽取离线验证（D1/D2/D3/旧108隔离），原错抽率、自然化/span/scope/Wilson门不变，0新下载/0联网/0商业API。**S1 APPROVED_NOT_RUN**，未有S1结果、Run Manifest或通过结论。S2–S5仍锁，R1-10(B)独立S3构造方未定。
+
+5090远端 `dbd91f3667964baca69aeb82a6292c4fe193c965` 未变。Meta Llama2访问 `APPLICATION_SUBMITTED / APPROVAL_UNVERIFIED`，模型 `NOT_DOWNLOADED`、Claim1–3 `NOT_RUN`。不能据申请状态推定已获许可或暗示模型下载。
+
+[Owner16授权](owner_approvals/W1_5060_S1_INDEPENDENT_CHINESE_EXTRACTION_OFFLINE_AUTHORIZATION_20261108.md) · [完整Codex Prompt](chinese5060/W1_5060_S1_INDEPENDENT_CHINESE_EXTRACTION_EXECUTION_PROMPT_V1.md)。
 
 ## 2026-11-08 R2 完成后的监督核验与下一审批门
 
@@ -105,6 +113,7 @@ R1 源附件由 Owner 提供，公开记录含原件摘要与 SHA-256。[R1 修�
 
 | 日期（JST） | 版本 | 变更与核验基点 |
 | --- | --- | --- |
+| 2026-11-08 | 4 | Owner16批准5060单独S1离线验证，状态APPROVED_NOT_RUN，5090 Llama2访问仍待审批；S2–S5继续关闭。 |
 | 2026-11-08 | 2 | 新会话按交接包恢复并动态核对双机远端；5060/5090 均与交接 SHA 一致。登记 Owner R2 有界离线授权，释放模板覆盖诊断与四臂公平对照；无新实验结果。 |
 | 2026-11-06 | 1 | 建立双机维护页。记录 5060 的旧 G3 零变化、S0 完成、R1/R2 与待放行状态，以及 5090 非 Llama 资产下载后 Claim 未运行。整理前 5060 `fa70d97`，5090 `dbd91f3`。 |
 | 2026-11-08 | 3 | 5060 实测四臂、封存、K1-C，保持 5090 历史快照。 |
