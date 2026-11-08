@@ -1,6 +1,12 @@
 # Paper 1｜Week 1 双机 Tracker
 
-**更新于 2026-11-08 JST · 版本 6 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-08 JST · 版本 7 · 维护位置 `research/paper1-chinese-defense-5060`。**
+
+## 2026-11-08｜5060 S1-B 只读审批包完成
+
+`S1B_DESIGN_ONLY / MODEL_DOWNLOAD_NOT_AUTHORIZED / MODEL_INFERENCE_NOT_AUTHORIZED / VALIDATION_NOT_AUTHORIZED / S2_S5_LOCKED`。Owner B 只读审批包已完成，UIE Nano 权重条款和强身份待核，Qwen2.5-1.5B 已核固定 revision 与权重许可。独立验证保管人未指定。新增模型、推理、下载、安装、科学试次和费用均为 0。Auto Continue = NO。
+
+[Owner 审批包](chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_OWNER_ADMISSION_PACKET_20261108.md)。SHA256 `f3204df649a34f500cd7ad751f0e4952a595879eb79b2315e3b8b19fd4b5b9c7`。
 
 ## 2026-11-08｜S1-B 选择 B：文献复用 + 规则/本地模型对照（设计而非实验许可）
 
@@ -132,3 +138,4 @@ R1 源附件由 Owner 提供，公开记录含原件摘要与 SHA-256。[R1 修�
 | 2026-11-08 | 3 | 5060 实测四臂、封存、K1-C，保持 5090 历史快照。 |
 | 2026-11-08 | 5 | 5060 S1 单次合成开发验证失败，S2–S5 仍未授权。 |
 | 2026-11-08 | 6 | Owner选B作为S1-B设计方向，新增文献对照、候选资源与独立验证审批提案；不准新模型下载、推理或科学试次。 |
+| 2026-11-08 | 7 | 5060 S1-B 只读资源与独立验证审批包收口，执行门仍关闭。 |

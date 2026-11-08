@@ -1,5 +1,11 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## 2026-11-08｜5060 S1-B 只读审批包完成
+
+`S1B_DESIGN_ONLY / MODEL_DOWNLOAD_NOT_AUTHORIZED / MODEL_INFERENCE_NOT_AUTHORIZED / VALIDATION_NOT_AUTHORIZED / S2_S5_LOCKED`。Owner B 只读审批包已完成，UIE Nano 权重条款和强身份待核，Qwen2.5-1.5B 已核固定 revision 与权重许可。独立验证保管人未指定。新增模型、推理、下载、安装、科学试次和费用均为 0。Auto Continue = NO。
+
+[Owner 审批包](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_OWNER_ADMISSION_PACKET_20261108.md)。SHA256 `f3204df649a34f500cd7ad751f0e4952a595879eb79b2315e3b8b19fd4b5b9c7`。
+
 ## S1-B 2026-11-08 — 设计路线记录，尚无实验
 
 `W1-OD-20261108-5060-S1B-B-DESIGN-17`：仅确认Rule-V1/V2与本地UIE/Qwen候选抽取的公平对照**设计**，S1-B正式Run `NOT_CREATED`、候选模型revision/权重/依赖批准`NOT_APPROVED`、新增模型调用/下载为0、模型对照与独立验证`NOT_RUN`。旧S1 FAIL保留，S2–S5禁运行。见[审批提案](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_LITERATURE_MODEL_RESOURCE_INDEPENDENT_VALIDATION_PROPOSAL_20261108.md)。
