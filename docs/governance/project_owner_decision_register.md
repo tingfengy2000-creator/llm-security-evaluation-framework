@@ -1,5 +1,12 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261108-5060-S1B-B-DESIGN-17 — Owner确认 S1-B 文献复用与规则/本地模型比较路线（设计授权，2026-11-08 JST）
+
+状态 `OWNER_B_DESIGN_PREFERENCE_CONFIRMED / DESIGN_ONLY / NO_MODEL_EXECUTION_AUTHORIZATION`。Owner 选择 B（规则与本地开源模型辅助抽取公平比较），并明确要求参考 RAGDefender/已有论文以避免重复开发；同时明确**未经另行批准不得下载或调用新模型**。这只是方法设计/资源/许可/独立验证门梳理权限，不授权任何新权重/依赖下载、模型加载或推理，也不授权新的 S1-B 真实科学试次、S2–S5、D2/D3或5090 Claim。Owner16 S1 `S1_FAIL_STOP`、R2 K1-C及旧108/历史失败不可覆盖。建议比较 Rule-V1/Rule-V2、PaddleNLP中文UIE与本地Qwen2.5-1.5B-Instruct（均为候选，具体revision与权重许可待核），共享原文span/scope确定性验证；新独立验证集必须由与开发方隔离的审阅方锁定。Meta Llama2申请仍待官方通过，不自动给5090许可。
+
+[PO-MHEP十二字段提案](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_LITERATURE_MODEL_RESOURCE_INDEPENDENT_VALIDATION_PROPOSAL_20261108.md)；[5060只读设计与资源核验Prompt](../paper1/dual_machine/chinese5060/W1_5060_S1B_LITERATURE_MODEL_ADMISSION_DESIGN_ONLY_PROMPT_V1.md)。本记录不表示审批了具体模型/成本/独立测试、不表示开始运行新实验。
+
+
 ## W1-OD-20261108-5060-S1-OFFLINE-16 — Owner批准S1独立中文事实抽取验证（2026-11-08 JST）
 
 `OWNER_EXPLICITLY_APPROVED / BOUNDED_S1_OFFLINE_ONLY`。Owner明确批准5060单独进入S1，S2–S5继续保持新审批门；5090正在等待Meta Llama2模型访问权限，未获授权下载Llama2或运行Claim。接受R2/K1-C封存事实，原D1开发数据不作后验调整。仅在5060独立分支，使用既有本地依赖与D/E存储，创建与D1/D2/D3/旧108隔离的≥60条独立中文手写标注S1验证样本，覆盖自然表达、真实source span、主体/属性、金额比例单位、日期/版本/生效期/作用域、否定/例外、伪造修订、无答案/UNKNOWN；开发样本与验收样本不得混用。允许S1本地抽取器规则开发、先封存Gold再role-free预测和独立Evaluator；如仅AI构造标注，须明确`NOT_HUMAN_INDEPENDENT`，不能认Human Gold。
