@@ -385,9 +385,9 @@ def evaluate(base: Path, out: Path) -> None:
             raise ValueError("ROLE_FREE_SEAL_FAILED")
     packets, _, _ = inputs(base)
     rows = read(out / "FOUR_ARM_ROLE_FREE_PRIVATE.json", seal["members"]["FOUR_ARM_ROLE_FREE_PRIVATE.json"])
-    _, p2 = receipts(base)
-    labels_path = "EVALUATOR_ROWS_PRIVATE.json"
-    labels = read(base / P2 / labels_path, p2[labels_path])
+    # The independent evaluator receipt is pinned separately from the role-free P2 output seal.
+    labels_sha = "0b75212782f4495037e27d56a2e480b01839e44b2143a8fe5845a1688c8a8ca3"
+    labels = read(base / P2 / "EVALUATOR_ROWS_PRIVATE.json", labels_sha)
     label_by_world = {r["world_id"]: r for r in labels}
     arm_counts: dict[str, Any] = {}
     paired = {name: Counter[str]() for name in ARMS}
@@ -448,12 +448,12 @@ def evaluate(base: Path, out: Path) -> None:
         k1 = "K1-C / INSUFFICIENT_OR_MIXED"
     summary = {"status": "EVALUATED_SEALED_OUTPUTS", "run_id": RUN, "worlds": 36, "chunks": 180,
                "candidate_hit": 29, "candidate_miss": 7, "arms": arm_counts, "k1": k1,
-               "role_free_archive_sha256": seal["archive_sha256"], "candidate_labels_sha256": p2[labels_path]}
+               "role_free_archive_sha256": seal["archive_sha256"], "candidate_labels_sha256": labels_sha}
     ev_sha = write(out / "EVALUATOR_AGGREGATE.json", summary)
     run = read(out / "ROLE_FREE_MANIFEST.json", seal["members"]["ROLE_FREE_MANIFEST.json"])
     write(out / "RUN_MANIFEST.json", {**run, "status": "R2_BOUNDED_OFFLINE_COMPLETE",
           "role_free_archive_sha256": seal["archive_sha256"], "evaluator_output_sha256": ev_sha,
-          "K1": k1, "auto_continue": False})
+          "K1": k1, "evaluator_source_commit": git(Path.cwd(), "rev-parse", "HEAD"), "auto_continue": False})
     print(json.dumps(summary, ensure_ascii=False))
 
 
