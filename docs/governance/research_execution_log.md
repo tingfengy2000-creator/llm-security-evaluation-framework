@@ -1,5 +1,11 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-08 S1-B 仅设计：Owner选择规则 + 本地模型公平对照
+
+`W1-OD-20261108-5060-S1B-B-DESIGN-17`。Owner选择B并要求参考RAGDefender/X-MADAM-RAG/中文抽取论文，严格禁止未经另批批准的新模型下载或调用。本次仅新增文献/候选资源/许可证/独立验证审批方案与5060设计-only提示；无新增S1-B科学试次、模型加载、推理或费用，旧S1 FAIL与R2 K1-C保持。S2–S5/5090Claim不授权。
+[方案](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_LITERATURE_MODEL_RESOURCE_INDEPENDENT_VALIDATION_PROPOSAL_20261108.md)。
+
+
 ## 2026-11-08 — Owner16 批准有界 S1 离线验证，5090继续等待 Meta Llama2 权限
 
 `W1-OD-20261108-5060-S1-OFFLINE-16`。Owner明确批准5060独立进行≥60例自然中文可见证据事实抽取与scope/time/version/span的本地开发验证（source/Gold/算法/评价隔离，D1/D2/D3/旧108隔离），保留90%准确率、决定样本错误率≤2%、UNKNOWN与wrong/total/wrong/decided/Wilson区间的既有门；0新API、0新下载、0跨机Claim。此刻S1没有新的 Run 或结果，`APPROVED_NOT_RUN`。S2–S5不随S1自动批准。5090分支仍在Meta Llama2访问申请等待中，Llama2未下载、Claim1–3 NOT_RUN。控制端仅登记授权和Codex执行Prompt，不称实验完成。
