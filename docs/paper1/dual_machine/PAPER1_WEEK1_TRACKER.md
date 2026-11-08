@@ -1,6 +1,12 @@
 # Paper 1｜Week 1 双机 Tracker
 
-**更新于 2026-11-08 JST · 版本 5 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-08 JST · 版本 6 · 维护位置 `research/paper1-chinese-defense-5060`。**
+
+## 2026-11-08｜S1-B 选择 B：文献复用 + 规则/本地模型对照（设计而非实验许可）
+
+Owner `W1-OD-20261108-5060-S1B-B-DESIGN-17` 确定采用规则与本地开源模型辅助抽取的**研究设计**，特别要求借鉴RAGDefender及相关论文。已拟定`Rule-V1`（旧锁定）/`Rule-V2`（开发）/PaddleNLP UIE轻量中文候选/Qwen2.5-1.5B-Instruct候选；S1-B仍须分别经过模型资产、离线开发推理、独立验证三个新的Owner许可门。资源/许可/具体revision目前待核，不能默认批准。**新增模型下载=0，新增模型调用=0，S1-B科学试次=NOT_RUN**。旧S1 `S1_FAIL_STOP`，S2–S5仍锁。5090仍在Meta Llama2访问审批等待中，Claim1–3未运行。
+
+[PO-MHEP设计提案](chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_LITERATURE_MODEL_RESOURCE_INDEPENDENT_VALIDATION_PROPOSAL_20261108.md) · [仅设计核验执行Prompt](chinese5060/W1_5060_S1B_LITERATURE_MODEL_ADMISSION_DESIGN_ONLY_PROMPT_V1.md)。
 
 ## W1-5060-S1-CHINESE-EXTRACTION-20261108-01 — S1 封存失败与停止
 
@@ -125,3 +131,4 @@ R1 源附件由 Owner 提供，公开记录含原件摘要与 SHA-256。[R1 修�
 | 2026-11-06 | 1 | 建立双机维护页。记录 5060 的旧 G3 零变化、S0 完成、R1/R2 与待放行状态，以及 5090 非 Llama 资产下载后 Claim 未运行。整理前 5060 `fa70d97`，5090 `dbd91f3`。 |
 | 2026-11-08 | 3 | 5060 实测四臂、封存、K1-C，保持 5090 历史快照。 |
 | 2026-11-08 | 5 | 5060 S1 单次合成开发验证失败，S2–S5 仍未授权。 |
+| 2026-11-08 | 6 | Owner选B作为S1-B设计方向，新增文献对照、候选资源与独立验证审批提案；不准新模型下载、推理或科学试次。 |
