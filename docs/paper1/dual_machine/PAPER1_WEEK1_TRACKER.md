@@ -1,16 +1,24 @@
 # Paper 1｜Week 1 双机 Tracker
 
-**更新于 2026-11-06 16:12 JST · 版本 1 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-08 JST · 版本 2 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 当前研究状态为 **5060 S0 已完成并停在 Owner 检查点**。R2 已记录后续对照，真实 D1 RD-zh 未跑。5090 已完成离线 Smoke 和非 Llama 资产下载，Claim 1–3 均未运行。Paper 1 正式实验仍未启动。
 
 旧名 `PAPER1_WEEK1_TRACKER_INIT` 可在旧对话中定位到一次提及。2026-11-06 检查 GitHub 的 9 条公开分支、1 个标签及其可达文件历史，未找到对应文件，原稿的仓库路径、最后修改时间及全文均为 **UNKNOWN**。本页是从已提交证据建立的第一个可维护版本。
 
+## 2026-11-08 控制面恢复与 R2 放行
+
+GitHub 远端实查确认：交接包记录的 5060 HEAD `533a6efed519f9251f4b4848306e232c9710a497` 与检查时远端完全一致；5090 HEAD `dbd91f3667964baca69aeb82a6292c4fe193c965` 亦完全一致，说明新会话恢复前没有遗漏的远端实验提交。随后控制面仅写入治理授权，不伪造实验结果。Owner 本轮 `W1-OD-20261108-5060-R2-OFFLINE-15` 已释放有界 R2 离线任务：`S0-TEMPLATE-COVERAGE_READONLY` + `B2_RAW / RD_ZH_ONLY / RD_TEMPLATE_ONLY / RD_ZH_TEMPLATE` 四臂，并批准 R1-10(A) 仅使用历史 B2 固定 revision 的本地已缓存 encoder。网页模板 mask 只可作用于 Stage1 lexical view；原 TopK、原文、embedding/Stage2、生成上下文、参数和历史结果保持不变。role-free 结果须先封存，再独立揭盲。
+
+截至本 Tracker 更新前，**尚无新的模板覆盖计数、四臂结果或 K1 判定**，所以这些仍为 `NOT_RUN / NOT_MEASURED`。R1-10(B)、S1–S5、5090 Claim1–3、D2/D3、正式测试、商业/免费在线模型调用及主线合并均未放行。完成本批后必须按已预注册 K1-A/B/C 选择路线并 STOP 返回 Owner。
+
+[2026-11-08 PO-MHEP 授权](owner_approvals/W1_5060_R2_OFFLINE_FAIR_CONTROL_AUTHORIZATION_20261108.md)。
+
 ## 双机 Git 快照
 
 | 工作线 | 分支与本次整理前的远端 HEAD | 该提交时间（JST） | 机器端观测 |
 | --- | --- | --- | --- |
-| 5060 Codex · 中文检索后防御 | `research/paper1-chinese-defense-5060` · [fa70d97f86d0bf21364907e15447ced80f0e284e](https://github.com/tingfengy2000-creator/llm-security-evaluation-framework/commit/fa70d97f86d0bf21364907e15447ced80f0e284e) | 2026-11-06 15:15:26 | Git 已封存 S0 停止点，R2 已入库。本地 HEAD、未提交改动、会话实时状态及是否已读到 R2 为 UNKNOWN。 |
+| 5060 Codex · 中文检索后防御 | `research/paper1-chinese-defense-5060` · 2026-11-08 恢复前远端核验 `533a6efed519f9251f4b4848306e232c9710a497`；随后仅新增治理授权提交 | 2026-11-08 | R2 有界离线任务已放行；机器本地 HEAD、未提交改动和实时进程仍 UNKNOWN，实验结果须以之后 Run Manifest 为准。 |
 | 5090 Cursor · RAGDefender 复现 | `research/paper1-ragdefender-repro-5090` · [dbd91f3667964baca69aeb82a6292c4fe193c965](https://github.com/tingfengy2000-creator/llm-security-evaluation-framework/commit/dbd91f3667964baca69aeb82a6292c4fe193c965) | 2026-11-06 02:58:38 | Git 下载清单可查，机器本地 HEAD、工作树及实时进程为 UNKNOWN。 |
 
 分支 HEAD、控制合同和实验执行 SHA 分开记录。5060 S0 证据收口提交为 [25936c71f96d775cca9a7603d27164e952f3a0af](https://github.com/tingfengy2000-creator/llm-security-evaluation-framework/commit/25936c71f96d775cca9a7603d27164e952f3a0af)，R1 追加只读核验的控制提交为 [9bd8e29](https://github.com/tingfengy2000-creator/llm-security-evaluation-framework/commit/9bd8e29d49b774add5eafb700077e1750d41f309)。RAGDefender 固定上游为 [ba2a17e](https://github.com/SecAI-Lab/RAGDefender/commit/ba2a17efba165d45409114df2d70b030ade1e1b8)。
@@ -83,4 +91,5 @@ R1 源附件由 Owner 提供，公开记录含原件摘要与 SHA-256。[R1 修�
 
 | 日期（JST） | 版本 | 变更与核验基点 |
 | --- | --- | --- |
+| 2026-11-08 | 2 | 新会话按交接包恢复并动态核对双机远端；5060/5090 均与交接 SHA 一致。登记 Owner R2 有界离线授权，释放模板覆盖诊断与四臂公平对照；无新实验结果。 |
 | 2026-11-06 | 1 | 建立双机维护页。记录 5060 的旧 G3 零变化、S0 完成、R1/R2 与待放行状态，以及 5090 非 Llama 资产下载后 Claim 未运行。整理前 5060 `fa70d97`，5090 `dbd91f3`。 |
