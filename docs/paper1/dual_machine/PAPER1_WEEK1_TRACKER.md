@@ -12,6 +12,14 @@
 
 [四臂结果与封存证据](chinese5060/vesa_guard_reviewer_replan/W1_5060_R2_FAIR_CONTROL_RESULT.md)。
 
+## 2026-11-08 R2 完成后的监督核验与下一审批门
+
+5060 最新已封存 R2 Run `W1-5060-R2-FAIRCTRL-20261108-02`、结果提交 `5968369eaa1b3f8d1af2d9262ef5f3f145c4a83c`。36 世界四臂完成并复算，历史 B2 deleted 81/180、Poison 2/10、Clean 4/10、HN 2/9；char2 deleted 112/180、Poison 4/10、Clean 5/10、HN 4/9；网页模板高置信 6/180、mask 删除差异 0/36。既有抽取器可比较的被删候选 0，可信来源锚 0/180。预注册 `K1-C / INSUFFICIENT_OR_MIXED` 接受为该开发任务的路线分支，S1–S4 仍 NOT_RUN，S5 NOT_AUTHORIZED。5090 Claim1–3 未运行。
+
+控制面 2026-11-08 建议：停止在旧 D1 上后验微调 tokenizer、mask、阈值和 VESA 规则，保留 D1_DEV_EXPOSED；若 Owner 新批准，**先 S1 ≥60 个独立自然中文抽取/作用域测试**核准可信抽取门，再按既有 R1/R2 预注册 S2 A–I、H4+1/H5+0 和可信锚有/无层推进。S3 独立方、S4、S5 均需新 Owner 授权。
+
+[正式监督建议](chinese5060/vesa_guard_reviewer_replan/W1_5060_K1C_SUPERVISOR_ROUTE_RECOMMENDATION_20261108.md)，状态 `SUPERVISOR_RECOMMENDATION / PENDING_OWNER_CONFIRMATION`，**不是新执行批准**；不得据此打开 S1/S2/S3/S4/S5。
+
 ## 2026-11-08 控制面恢复与 R2 放行
 
 GitHub 远端实查确认：交接包记录的 5060 HEAD `533a6efed519f9251f4b4848306e232c9710a497` 与检查时远端完全一致；5090 HEAD `dbd91f3667964baca69aeb82a6292c4fe193c965` 亦完全一致，说明新会话恢复前没有遗漏的远端实验提交。随后控制面仅写入治理授权，不伪造实验结果。Owner 本轮 `W1-OD-20261108-5060-R2-OFFLINE-15` 已释放有界 R2 离线任务：`S0-TEMPLATE-COVERAGE_READONLY` + `B2_RAW / RD_ZH_ONLY / RD_TEMPLATE_ONLY / RD_ZH_TEMPLATE` 四臂，并批准 R1-10(A) 仅使用历史 B2 固定 revision 的本地已缓存 encoder。网页模板 mask 只可作用于 Stage1 lexical view；原 TopK、原文、embedding/Stage2、生成上下文、参数和历史结果保持不变。role-free 结果须先封存，再独立揭盲。
