@@ -1,5 +1,15 @@
 # Current Work State
 
+## W1-OD-20261109-5060-S1B-FEAS-DATA-19 — Owner批准低成本数据准备，规则新样本评价须另批（2026-11-09 JST）
+
+`OWNER_EXPLICITLY_APPROVED / FEASIBILITY_DATA_PREPARATION_ONLY`。Owner选路线A规则先行，并要求可行性分析阶段使用 D1、公开数据或LLM生成的合规数据，**通过可行性后才投入正式人工标注**。本授权允许：D1仅做`DEV_EXPOSED`回归诊断；以当前Codex会话写作构造100个全新不同语义中文事实/拒识案例（建议70有答案/30应UNKNOWN）及20个从属改写视图，采用source-truth先定、query/evidence/accepted spans派生、输入/暂定Gold分隔封存；可选CMRC2018官方CC-BY-SA4.0公开子集作补充span/领域外压力测试，必须冻结来源/许可/下载白名单/大小SHA并限D/E盘，不能给无版本标注的数据擅自填“真实版本可信”Gold。D1/旧73不得混入新100语义分母。AI暂定评估标签不是Human Gold，若Codex同为数据作者和方法开发者必须标`NOT_INDEPENDENT_AUTHOR`，不得自称人类独立盲审。
+
+**新的Rule-V1/Rule-V2一次性100例评价、解锁Gold、修正测试数据或对预测结果调参均不在本次放行；测试前须另报Owner按PO-MHEP批准。** 仍禁止新模型/依赖下载、UIE/Qwen加载/推理、额外LLM API、D2/D3/旧108和S3留出、S2–S5、5090 Claims或主分支合并。原S1_FAIL_STOP/R2 K1-C、冻结Rule-V1和Rule-V2执行SHA及Human Gold=0不变。未证新版/跨scope误答零新增只是建议额外guard，未经Owner新批准不得改旧验收门。
+
+[正式PO-MHEP十二字段授权](../paper1/dual_machine/owner_approvals/W1_5060_S1B_FEASIBILITY_DATA_PREP_AUTHORIZATION_20261109.md) · [5060数据准备执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_S1B_FEASIBILITY_DATA_PREP_EXECUTION_PROMPT_V1.md)。登记是准备许可，不是完成数据封存或新验证通过。
+
+
+
 ## 2026-11-09｜5060 Owner18 旧73开发完成，后续门关闭
 
 `RULE_V2_DEV_COMPLETED / S1B_INDEPENDENT_TEST_NOT_RUN / MODEL_ASSET_NOT_AUTHORIZED / S2_S5_LOCKED / AUTO_CONTINUE=NO`。Owner18 批准的三轮旧73开发及 UIE 官方材料只读审计已完成。最终 58 正确、1 错误、14 UNKNOWN（73 条），值命中 59/61，决定后错抽 1/59，应拒识误答 0/12。旧 Rule-V1、S1 失败、R2 K1-C 保留。Human Gold 0，正式 ASR/Accuracy 未测。
