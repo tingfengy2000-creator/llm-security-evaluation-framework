@@ -1,5 +1,12 @@
 # LLMGuard 项目总控文档
 
+## 2026-11-09｜Owner19：低成本 S1-B 可行性数据准备许可（尚未测试）
+
+`W1-OD-20261109-5060-S1B-FEAS-DATA-19`：Owner批准先行规则可行性验证路线，数据准备可用D1只读回归、公开CMRC2018经许可证/版本/哈希条件性受限获取，以及当前Codex会话自身生成的新中文合成案例。100个不同语义主案例（建议70有答案/30应拒识）+20从属改写，源事实表先定并与输入/暂定Gold分隔seal；不得将D1/旧73作为独立100，不得把agent Gold叫HumanGold。**本轮仅DATA_PREP_ONLY，Rule-V1/V2的新样本一次性预测评分和揭盲仍需Owner独立批准**，不得调用新模型/API，S2–S5仍锁，5090继续等待Meta Llama2。旧S1 FAIL、R2 K1-C与所有历史保持。
+[授权](docs/paper1/dual_machine/owner_approvals/W1_5060_S1B_FEASIBILITY_DATA_PREP_AUTHORIZATION_20261109.md) · [5060指令](docs/paper1/dual_machine/chinese5060/W1_5060_S1B_FEASIBILITY_DATA_PREP_EXECUTION_PROMPT_V1.md)。
+
+
+
 ## 2026-11-09｜5060 Owner18 旧73开发完成，后续门关闭
 
 `RULE_V2_DEV_COMPLETED / S1B_INDEPENDENT_TEST_NOT_RUN / MODEL_ASSET_NOT_AUTHORIZED / S2_S5_LOCKED / AUTO_CONTINUE=NO`。Owner18 批准的三轮旧73开发及 UIE 官方材料只读审计已完成。最终 58 正确、1 错误、14 UNKNOWN（73 条），值命中 59/61，决定后错抽 1/59，应拒识误答 0/12。旧 Rule-V1、S1 失败、R2 K1-C 保留。Human Gold 0，正式 ASR/Accuracy 未测。
