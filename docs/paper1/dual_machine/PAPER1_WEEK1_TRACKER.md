@@ -1,6 +1,6 @@
 # Paper 1｜Week 1 双机 Tracker
 
-**更新于 2026-11-09 JST · 版本 12 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-09 JST · 版本 13 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
@@ -13,6 +13,15 @@ Rule-V1/V2 新集零预测、零评分。D1 仅沿用历史开发诊断，CMRC20
 [结果与下一审批卡](chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_FEASIBILITY_DATA_PREP_RESULT.md) · [脱敏 Manifest](chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_FEASIBILITY_DATA_PREP_MANIFEST.json)
 
 本条仅更新 5060，5090 保留上次已核快照。
+
+## 2026-11-09｜Owner19 数据封存审查：一次性规则评价待新Owner明确批准
+
+监督端核实 5060 数据提交 `20402e94ed3da6be155a605daba272ec0a7c2cf1` 与远端一致；报告100个主语义案例（70可答、30应拒识）、20从属问句、4域/10家族，角色盲输入/暂定Gold/source truth/配对/评分协议分件封存，seal SHA `531ac4e6421f6486b8165d443af2cf9d892a7bc3c740483950d03240d35a7c58`；实际 Rule-V1/V2 新样本预测/评分仍为0。来源同Agent合成，`NOT_INDEPENDENT_AUTHOR`，Human Gold0；D1/旧73/CMRC未纳入主分母。
+
+公开源码显示30/100不带标题头，其中21/70可回答例不带标题头；Rule-V2使用`《...》`提取主体，缺可识别标题时易拒识，属于**预注册压力测试与性能风险**而非已知实测错误。另有多span支持集的共同Adapter输出与评分一致性问题，必须在**仅旧开发样本或普通unit fixture**中完成静态预检，严禁用新120例试预测/调参。
+
+[监督Gate复核](chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_FEASIBILITY_ONE_SHOT_SUPERVISOR_GATE_REVIEW_20261109.md)；[一次性执行Prompt草案（Owner未批不得运行）](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_PROMPT_DRAFT_OWNER_APPROVAL_REQUIRED.md)。
+当前`DATA_PREP_COMPLETE / ONE_SHOT_OWNER_APPROVAL_REQUIRED / NO_NEW_MODEL_OR_API / S2_S5_LOCKED / AUTO_CONTINUE=NO`。该监督记录不是Owner20决定；5090仍无新Claim许可。
 
 ## 2026-11-09｜Owner19：规则先行可行性数据准备获批，测试仍须另批
 
