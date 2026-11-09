@@ -1,5 +1,15 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
+
+`FEAS_DATA_READY / PROVISIONAL_GOLD / EVALUATION_NOT_RUN / S2_S5_LOCKED / AUTO_CONTINUE=NO`。100 个全新虚构主案例（70 可答、30 应 UNKNOWN），另有 20 条从属问句改写。证据跨度、暂定标签、真值与配对、输入及协议已分件封存。标签是同一 Agent 的暂定标注，Human Gold 0。
+
+Run `W1-5060-S1B-FEAS-DATA-PREP-20261109-01`，总封存 SHA256 `531ac4e6421f6486b8165d443af2cf9d892a7bc3c740483950d03240d35a7c58`。
+
+Rule-V1/V2 新集零预测、零评分。D1 仅沿用历史开发诊断，CMRC2018 仅核元数据。模型下载／加载／推理和模型 API 调用为 0。下一门为 Owner 审批一次性规则可行性评价；正式 ASR/Accuracy 未测。
+
+[结果与下一审批卡](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_FEASIBILITY_DATA_PREP_RESULT.md) · [脱敏 Manifest](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_FEASIBILITY_DATA_PREP_MANIFEST.json)
+
 ## W1-OD-20261109-5060-S1B-FEAS-DATA-19 — Owner批准低成本数据准备，规则新样本评价须另批（2026-11-09 JST）
 
 `OWNER_EXPLICITLY_APPROVED / FEASIBILITY_DATA_PREPARATION_ONLY`。Owner选路线A规则先行，并要求可行性分析阶段使用 D1、公开数据或LLM生成的合规数据，**通过可行性后才投入正式人工标注**。本授权允许：D1仅做`DEV_EXPOSED`回归诊断；以当前Codex会话写作构造100个全新不同语义中文事实/拒识案例（建议70有答案/30应UNKNOWN）及20个从属改写视图，采用source-truth先定、query/evidence/accepted spans派生、输入/暂定Gold分隔封存；可选CMRC2018官方CC-BY-SA4.0公开子集作补充span/领域外压力测试，必须冻结来源/许可/下载白名单/大小SHA并限D/E盘，不能给无版本标注的数据擅自填“真实版本可信”Gold。D1/旧73不得混入新100语义分母。AI暂定评估标签不是Human Gold，若Codex同为数据作者和方法开发者必须标`NOT_INDEPENDENT_AUTHOR`，不得自称人类独立盲审。

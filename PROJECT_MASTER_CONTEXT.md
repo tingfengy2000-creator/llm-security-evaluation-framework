@@ -1,5 +1,13 @@
 # LLMGuard 项目总控文档
 
+## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
+
+`FEAS_DATA_READY / PROVISIONAL_GOLD / EVALUATION_NOT_RUN / S2_S5_LOCKED / AUTO_CONTINUE=NO`。100 个全新虚构主案例（70 可答、30 应 UNKNOWN），另有 20 条从属问句改写。证据跨度、暂定标签、真值与配对、输入及协议已分件封存。标签是同一 Agent 的暂定标注，Human Gold 0。
+
+Rule-V1/V2 新集零预测、零评分。D1 仅沿用历史开发诊断，CMRC2018 仅核元数据。模型下载／加载／推理和模型 API 调用为 0。下一门为 Owner 审批一次性规则可行性评价；正式 ASR/Accuracy 未测。
+
+[结果与下一审批卡](docs/paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_FEASIBILITY_DATA_PREP_RESULT.md) · [脱敏 Manifest](docs/paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_FEASIBILITY_DATA_PREP_MANIFEST.json)
+
 ## 2026-11-09｜Owner19：低成本 S1-B 可行性数据准备许可（尚未测试）
 
 `W1-OD-20261109-5060-S1B-FEAS-DATA-19`：Owner批准先行规则可行性验证路线，数据准备可用D1只读回归、公开CMRC2018经许可证/版本/哈希条件性受限获取，以及当前Codex会话自身生成的新中文合成案例。100个不同语义主案例（建议70有答案/30应拒识）+20从属改写，源事实表先定并与输入/暂定Gold分隔seal；不得将D1/旧73作为独立100，不得把agent Gold叫HumanGold。**本轮仅DATA_PREP_ONLY，Rule-V1/V2的新样本一次性预测评分和揭盲仍需Owner独立批准**，不得调用新模型/API，S2–S5仍锁，5090继续等待Meta Llama2。旧S1 FAIL、R2 K1-C与所有历史保持。
