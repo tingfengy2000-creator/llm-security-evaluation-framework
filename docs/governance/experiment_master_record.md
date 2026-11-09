@@ -1,5 +1,15 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## W1-OD-20261110-5060-S1B-ONE-SHOT-20｜Owner20 放行一次性 Rule-V1/Rule-V2 合成数据离线可行性评价（2026-11-10 JST）
+
+状态 `OWNER_EXPLICITLY_APPROVED / ONE_SHOT_FEASIBILITY_APPROVED_NOT_RUN`。Owner 于上一轮单一明确的“是否批准一次性规则可行性验证”待决提案后回复“请继续 我们要加快速度”。本授权仅允许5060在原冻结规则、原封存`100主语义(70可答/30应拒识)+20从属改写`数据上完成一次离线Rule-V1与Rule-V2公平对照：先仅用旧73/普通unit测试完成公共adapter静态预检与哈希冻结；原输入/Gold/协议/源码逐字节身份闭合后，各臂120条一次性角色盲完整预测及封存；之后Evaluator单次只读揭盲按预注册的`value_hit/70>=63/70`、`wrong/decided<=2%`点估计/非all-UNKNOWN及固定source span/scope协议评分。须报告100主与20从属、10类/标题有无、30应拒识误答、Wilson区间、异常和全部负结果。未证新版/跨scope误答0仍为观察项，不追认旧合同新门。
+
+输入Seal `531ac4e6421f6486b8165d443af2cf9d892a7bc3c740483950d03240d35a7c58`；Rule-V1冻结 `68d34a5d877206f4e6d7d9e2bdda16784145a76a`、Rule-V2冻结`da3cbd9f16ea70ae3ba0ef2aa2408227ecfc0b4f`。数据为Agent合成暂定Gold，`NOT_INDEPENDENT_AUTHOR / HumanGold=0`，即便GO也不能声称正式防御或泛化证据。绝对禁止预试新120、Gold/数据/适配器后验改变、重试/第二轮科学试次、新模型/API/下载、D2/D3、原B2/R2/108重跑、5090 Claim、S2–S5或主线merge；任一身份/隔离异常STOP，`Auto Continue=NO`。本条为**授权登记，不是试验已经运行或验收通过**。
+
+[PO-MHEP十二字段授权](../paper1/dual_machine/owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [Owner20生效Codex Prompt](../paper1/dual_machine/chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。
+
+
+
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
 `FEAS_DATA_READY / PROVISIONAL_GOLD / EVALUATION_NOT_RUN / S2_S5_LOCKED / AUTO_CONTINUE=NO`。100 个全新虚构主案例（70 可答、30 应 UNKNOWN），另有 20 条从属问句改写。证据跨度、暂定标签、真值与配对、输入及协议已分件封存。标签是同一 Agent 的暂定标注，Human Gold 0。
