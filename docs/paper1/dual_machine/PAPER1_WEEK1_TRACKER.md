@@ -1,6 +1,12 @@
 # Paper 1｜Week 1 双机 Tracker
 
-**更新于 2026-11-09 JST · 版本 13 · 维护位置 `research/paper1-chinese-defense-5060`。**
+## 2026-11-10｜Owner20 放行有界S1-B一次性Rule-V1/V2离线可行性对照
+
+Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的“批准一次性规则可行性验证”明确要求继续、加快速度。**本条仅登记新许可，Run尚未执行：`ONE_SHOT_FEASIBILITY_APPROVED_NOT_RUN`。** 5060被允许先以旧73/普通无标签unit测试进行公平公共适配器静态预检与冻结，然后对已封存100主案例(70 ANSWER/30 UNKNOWN)+20从属视图仅进行Rule-V1和Rule-V2各一次120/120离线预测，两臂role-free先seal，后单次揭盲汇总。保留每类/标题有无/多span/scope和改写分层、所有失败、95% Wilson与冻结门值命中≥63/70、wrong/decided≤2%。Agent生成的Gold不是Human Gold。封存数据SHA`531ac4e6421f6486b8165d443af2cf9d892a7bc3c740483950d03240d35a7c58`。禁新模型/API下载及推理、D2/D3、5090Claim、正式ASR、S2–S5、主线合并。任一预检/隔离/哈希失败STOP，结果无论正负全量保留并STOP。
+
+[Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
+
+**更新于 2026-11-10 JST · 版本 14 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
