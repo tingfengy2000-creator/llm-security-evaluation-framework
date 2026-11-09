@@ -217,7 +217,7 @@ def build(root: Path, old: Path) -> tuple[dict[str, Any], dict[str, Any]]:
             else:
                 reason = None
             value, unit = next(iter(values)) if decision == "ANSWER" else (None, None)
-            ids = []
+            view_ids = []
             for form, prompt in (("primary", query), ("companion", rewrite)) if has_pair else (("primary", query),):
                 need(all(cue in prompt for cue in key.split("/")) and (as_of is None or as_of in prompt),
                      "QUERY_SELECTOR_OR_TIME_NOT_VISIBLE")
@@ -227,10 +227,10 @@ def build(root: Path, old: Path) -> tuple[dict[str, Any], dict[str, Any]]:
                 labels.append({"id": uid, "status": decision, "value": value, "unit": unit, "selector": key,
                                "as_of": as_of, "document_title": title, "accepted_span_sets": supports,
                                "reason": reason, "evidence_sha256": sha(evidence.encode())})
-                ids.append(uid)
+                view_ids.append(uid)
             need(not has_pair or profile(query) != profile(rewrite), "REWRITE_NOT_DISTINCT")
-            groups.append({"group": group, "primary": ids[0], "companion": ids[1] if has_pair else None})
-            cases.append({"query": query, "evidence": evidence, "id": ids[0]})
+            groups.append({"group": group, "primary": view_ids[0], "companion": view_ids[1] if has_pair else None})
+            cases.append({"query": query, "evidence": evidence, "id": view_ids[0]})
             stat.update({"primary": 1, decision: 1, "paired": int(has_pair), "titled": int(bool(title))})
         except (IndexError, ValueError) as exc:
             raise ValueError(f"QA {category} slot {index + 1}: {exc}") from exc
@@ -301,6 +301,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("stage", choices=("seal", "verify"))
     parser.add_argument("--root", type=Path, required=True)
+    parser.add_argument("--seal-sha256", help="required expected receipt hash for verify")
     args = parser.parse_args()
     root = args.root.resolve(strict=True)
     need(root == args.root and root.name == RUN and root.drive.upper() in {"D:", "E:"}
@@ -308,8 +309,16 @@ def main() -> None:
          "EXACT_PRIVATE_ROOT_REQUIRED")
     old = root.parent / OLD / "INFERENCE_PRIVATE.json"
     verify = args.stage == "verify"
-    items, summary = build(root, old)
     sealed = root / "seals"
+    destination = sealed / "DATA_SEAL.json"
+    recorded = None
+    if verify:
+        receipt = read(destination)
+        need(sha(receipt) == args.seal_sha256, "EXPECTED_RECEIPT_HASH_REQUIRED_OR_MISMATCH")
+        recorded = json.loads(receipt)
+    else:
+        need(args.seal_sha256 is None, "SEAL_DOES_NOT_TAKE_A_RECEIPT_HASH")
+    items, summary = build(root, old)
     if not verify:
         sealed.mkdir(exist_ok=False)
     members = {}
@@ -334,8 +343,10 @@ def main() -> None:
                 "counts": summary, "data_class": "AGENT_GENERATED_PROVISIONAL_FEASIBILITY",
                 "authorship": "NOT_INDEPENDENT_AUTHOR", "human_gold": 0, "evaluation": "NOT_RUN",
                 "stage": "DATA_PREP_NOT_SCIENTIFIC_TRIAL", "auto_continue": False}
+    if recorded is not None:
+        # Preserve the authenticated sealing program identity during cross-version read-only replay.
+        manifest["validator_sha256"] = recorded["validator_sha256"]
     payload = canonical(manifest)
-    destination = sealed / "DATA_SEAL.json"
     if verify:
         need(read(destination) == payload, "DATA_SEAL_DRIFT")
     else:
