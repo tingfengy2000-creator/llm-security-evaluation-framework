@@ -1,6 +1,14 @@
 # Paper 1｜Week 1 双机 Tracker
 
-**更新于 2026-11-09 JST · 版本 10 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-09 JST · 版本 11 · 维护位置 `research/paper1-chinese-defense-5060`。**
+
+## 2026-11-09｜Owner19：规则先行可行性数据准备获批，测试仍须另批
+
+`W1-OD-20261109-5060-S1B-FEAS-DATA-19`。Owner明确选路线A快速验证规则，暂不消耗人工标注成本：允许D1只读开发回归，公开CMRC2018在许可证/固定来源/大小/哈希门下作为补充，主批准备100个新生成的不同语义中文事实/拒识案例（建议70/30）+20从属改写视图。Source-truth在先，文本/问法/accepted span随后，私有输入/暂定Gold隔离封存；AI标签=`PROVISIONAL_NOT_HUMAN_GOLD`，若同一Codex生成，则`NOT_INDEPENDENT_AUTHOR`。D1/旧73绝不能算独立100，CMRC缺版本/scope标注不能冒用VESA人工Gold。
+
+Owner19仅放行**数据准备与预注册封存**；新数据上的Rule-V1/Rule-V2一次性预测/揭盲/评分仍要另批Owner批准。新模型下载/推理、额外LLM API、D2/D3、正式HumanGold、S2–S5、5090 Claims仍禁止。当前数据准备`APPROVED_NOT_RUN`，新规则性能`NOT_MEASURED`，旧S1 FAIL/R2 K1-C均不变。
+
+[Owner19正式授权](owner_approvals/W1_5060_S1B_FEASIBILITY_DATA_PREP_AUTHORIZATION_20261109.md) · [可直接执行的Codex指令](chinese5060/W1_5060_S1B_FEASIBILITY_DATA_PREP_EXECUTION_PROMPT_V1.md)。
 
 ## 2026-11-09｜Owner18 Rule-V2 完成后的监督评审（只读评价，非新授权）
 
@@ -158,6 +166,7 @@ R1 源附件由 Owner 提供，公开记录含原件摘要与 SHA-256。[R1 修�
 
 | 日期（JST） | 版本 | 变更与核验基点 |
 | --- | --- | --- |
+| 2026-11-09 | 11 | Owner19认可先可行性后人工标注，以新合成/公开数据准备为主、D1仅回归；未放行新数据一次性评分、模型/API和S2–S5。 |
 | 2026-11-09 | 10 | 监督端只读审核Owner18开发完成结果，保留span与领域外风险，提出A先规则盲评/B等待多模型四臂的待Owner决策；不扩大科研许可。 |
 | 2026-11-09 | 9 | 5060 完成 Owner18 的旧73开发与 UIE 只读核验，三轮封存，模型及独立验证仍关闭。 |
 | 2026-11-08 | 8 | Owner18单独允许 Rule-V2 使用旧73开发及UIE只读许可/依赖核查；新模型资产/推理和独立测试仍未授权，S2–S5保持停止。 |
