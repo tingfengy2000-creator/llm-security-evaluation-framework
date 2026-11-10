@@ -1,6 +1,7 @@
 """Owner22 offline byte inspection. PE modules and GGUF tensors are never loaded."""
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import re
@@ -267,7 +268,9 @@ def inspect_pe(rows: list[dict[str, Any]]) -> dict[str, Any]:
         name = queue.popleft()
         if name in closure:
             continue
-        need(len(closure) < 512, "PE_CLOSURE_NODE_BUDGET")
+        if len(closure) >= 512:
+            queue.appendleft(name)
+            break
         if name in package:
             closure[name] = {"classification": "PACKAGE", "relative_path": package[name]["relative_path"]}
         elif name.startswith(("api-ms-win-", "ext-ms-win-")):
@@ -282,7 +285,9 @@ def inspect_pe(rows: list[dict[str, Any]]) -> dict[str, Any]:
             closure[name] = {"classification": "SYSTEM32", "size": path.stat().st_size,
                              "sha256": sha_file(path), **info}
             queue.extend(info["direct_imports"] + info["delay_imports"])
-    return {"package": package, "static_closure": closure, "runtime_minimum_vc": "UNKNOWN",
+    return {"package": package, "static_closure": closure,
+            "unvisited_closure_frontier": sorted(set(queue) - set(closure)),
+            "closure_node_cap": 512, "runtime_minimum_vc": "UNKNOWN",
             "dynamic_backend_coverage": "UNKNOWN_NO_EXECUTION", "resolved_api_set_hosts": "NOT_CHECKED"}
 
 
@@ -309,11 +314,27 @@ def deny_execution_and_network(event: str, _args: tuple[Any, ...]) -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--pe-only", action="store_true", help="record bounded PE evidence after prior static extraction")
+    args = parser.parse_args()
     sys.addaudithook(deny_execution_and_network)
     checked_environment()
     transfer = json.loads((ROOT / "logs/transfer_complete.json").read_bytes())
     need(transfer["body_bytes"] == CAP and transfer["asset_count"] == 2 and transfer["retries"] == 0,
          "UNSEALED_TRANSFER")
+    if args.pe_only:
+        archive = ROOT / "download" / RUNTIME.filename
+        need(sha_file(archive) == RUNTIME.sha256, "STATIC_INPUT_HASH")
+        rows = json.loads((ROOT / "logs/zip_members_sha256.json").read_bytes())
+        with ZipFile(archive) as bundle:
+            listed = [member_info(i) for i in validated_zip(bundle)]
+        need(len(rows) == len(listed) and all(
+            {k: row[k] for k in item} == item and (item["is_dir"] or
+                 sha_file(ROOT / "unpacked" / Path(item["path"])) == row["sha256"])
+            for row, item in zip(rows, listed, strict=True)
+        ), "STATIC_EXTRACTED_MEMBER_DRIFT")
+        write_json("pe_static.json", inspect_pe(rows))
+        return
     for asset in ASSETS:
         path = ROOT / "download" / asset.filename
         need(path.stat().st_size == asset.size and sha_file(path) == asset.sha256, "STATIC_INPUT_HASH")
@@ -322,9 +343,12 @@ def main() -> None:
     rows = unpack(ROOT / "download" / RUNTIME.filename)
     write_json("zip_members_sha256.json", rows)
     write_json("notice_static.json", notices(rows))
-    write_json("pe_static.json", inspect_pe(rows))
+    dependency = inspect_pe(rows)
+    write_json("pe_static.json", dependency)
     check_disk(CHUNK)
-    write_json("static_complete.json", {"gguf": "PASS", "zip": "PASS", "pe_inventory": "COMPLETE_STATIC",
+    write_json("static_complete.json", {"gguf": "PASS", "zip": "PASS",
+                                       "pe_inventory": "BOUNDED_PARTIAL" if dependency["unvisited_closure_frontier"]
+                                       else "COMPLETE_STATIC",
                                        "executable_runs": 0, "model_loads": 0, "inference": 0})
 
 
