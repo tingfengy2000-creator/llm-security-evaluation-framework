@@ -1,0 +1,6332 @@
+{
+  "audit": {
+    "incorrect_by_expected_reason": {
+      "Rule-V1": {
+        "companion": {},
+        "primary": {
+          "NO_SUPPORTED_VALUE": 1,
+          "TEMPORAL_SCOPE_UNBOUND": 1
+        }
+      },
+      "Rule-V2": {
+        "companion": {
+          "ANSWERABLE": 1
+        },
+        "primary": {
+          "ANSWERABLE": 5,
+          "NO_SUPPORTED_VALUE": 3,
+          "TEMPORAL_SCOPE_UNBOUND": 1,
+          "UNVERIFIED_REVISION": 1
+        }
+      }
+    },
+    "role_free_gold_reads": 0,
+    "timestamps_utc": [
+      "2026-11-10T01:23:08.885044+00:00",
+      "2026-11-10T01:25:15.806948+00:00",
+      "2026-11-10T01:25:16.041219+00:00",
+      "2026-11-10T01:25:16.592585+00:00",
+      "2026-11-10T01:25:16.842713+00:00",
+      "2026-11-10T01:25:17.506968+00:00",
+      "2026-11-10T01:25:17.507969+00:00",
+      "2026-11-10T01:25:17.538062+00:00"
+    ]
+  },
+  "auto_continue": false,
+  "branch": "research/paper1-chinese-defense-5060",
+  "command_receipts": {
+    "confirm": {
+      "argv": [
+        "-I",
+        "-S",
+        "-B",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/s1b_oneshot_run.py",
+        "confirm",
+        "--release-sha",
+        "e78fb0a495458ad3180e4e1bc696a306a01b946d01d499e6ca7726b89e00ace4",
+        "--prediction-sha",
+        "a6b84efd8dff172732e4503ffb3c93aca64ec2ed034060a883017e14056ca4e7"
+      ],
+      "exit_code": 0,
+      "finished_utc": "2026-11-10T01:25:16.8593214+00:00",
+      "started_utc": "2026-11-10T01:25:16.6369319+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "dedfc49d36a6fb6f9d882956faee9eeb16430b11764d5c548e78ada0dc181ff8"
+    },
+    "evaluate": {
+      "argv": [
+        "-I",
+        "-S",
+        "-B",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/s1b_oneshot_run.py",
+        "evaluate",
+        "--release-sha",
+        "e78fb0a495458ad3180e4e1bc696a306a01b946d01d499e6ca7726b89e00ace4",
+        "--prediction-sha",
+        "a6b84efd8dff172732e4503ffb3c93aca64ec2ed034060a883017e14056ca4e7",
+        "--confirmation-sha",
+        "d2ae9349e1d01efd08883856b398b44be98f733840faf17860e2cb282393ef30"
+      ],
+      "exit_code": 0,
+      "finished_utc": "2026-11-10T01:25:17.5758134+00:00",
+      "started_utc": "2026-11-10T01:25:16.8750045+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "02c5b754739fd61fed3f307d6a39cff793f9f618437977d51b1e0aa66fce7b62"
+    },
+    "predict": {
+      "argv": [
+        "-I",
+        "-S",
+        "-B",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/s1b_oneshot_run.py",
+        "predict",
+        "--release-sha",
+        "e78fb0a495458ad3180e4e1bc696a306a01b946d01d499e6ca7726b89e00ace4"
+      ],
+      "exit_code": 0,
+      "finished_utc": "2026-11-10T01:25:16.6194754+00:00",
+      "started_utc": "2026-11-10T01:25:15.8727198+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "6a3774d057e457ab5077a291550540fac6284cca39390e5e21dd21bac35fb592"
+    },
+    "release": {
+      "argv": [
+        "-I",
+        "-S",
+        "-B",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/s1b_oneshot_run.py",
+        "release"
+      ],
+      "exit_code": 0,
+      "finished_utc": "2026-11-10T01:25:15.8207135+00:00",
+      "started_utc": "2026-11-10T01:25:14.3340962+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "f727e5646a0293569fcb63a3a34e9c27a2937a70f02eed2beb1d1068075ca16d"
+    }
+  },
+  "confirmation_sha256": "d2ae9349e1d01efd08883856b398b44be98f733840faf17860e2cb282393ef30",
+  "cost_usd": 0,
+  "data_class": [
+    "AGENT_GENERATED_PROVISIONAL_FEASIBILITY",
+    "NOT_INDEPENDENT_AUTHOR",
+    "NOT_HUMAN_GOLD"
+  ],
+  "dependency_installs": 0,
+  "evaluation_sha256": "088acae7498b87aab203fd940b544ca52f191e66109b8b28cc5c7d1739136dd7",
+  "experiment_network_events": 0,
+  "formal_answer_accuracy": "NOT_MEASURED",
+  "formal_asr": "NOT_MEASURED",
+  "human_gold": 0,
+  "metrics": {
+    "arms": {
+      "Rule-V1": {
+        "companion": {
+          "abstention": {
+            "d": 20,
+            "n": 20,
+            "point": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "answerable": 20,
+          "counts": {
+            "CORRECT": 0,
+            "ERROR": 0,
+            "UNKNOWN": 20,
+            "WRONG": 0
+          },
+          "coverage": {
+            "d": 20,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "expected_unknown_wrong": {
+            "d": 0,
+            "n": 0,
+            "point": null,
+            "wilson95": null
+          },
+          "failure_types": {},
+          "missed_answerable": {
+            "d": 20,
+            "n": 20,
+            "point": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "refusal_and_error_reasons": {
+            "NO_SCALAR_EXTRACTED": 1,
+            "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 19
+          },
+          "scope_proven": {
+            "d": 20,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "span_supported": {
+            "d": 20,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "strict_correct": {
+            "d": 20,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "total": 20,
+          "value_hit": {
+            "d": 20,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_decided": {
+            "d": 0,
+            "n": 0,
+            "point": null,
+            "wilson95": null
+          },
+          "wrong_total": {
+            "d": 20,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        "gate": {
+          "no_technical_failure": true,
+          "value_gate": false,
+          "wrong_gate": false
+        },
+        "main": {
+          "abstention": {
+            "d": 100,
+            "n": 98,
+            "point": 0.98,
+            "wilson95": [
+              0.929988209271456,
+              0.9944980324498376
+            ]
+          },
+          "answerable": 70,
+          "counts": {
+            "CORRECT": 0,
+            "ERROR": 0,
+            "UNKNOWN": 98,
+            "WRONG": 2
+          },
+          "coverage": {
+            "d": 100,
+            "n": 2,
+            "point": 0.02,
+            "wilson95": [
+              0.00550196755016235,
+              0.07001179072854388
+            ]
+          },
+          "expected_unknown_wrong": {
+            "d": 30,
+            "n": 2,
+            "point": 0.06666666666666667,
+            "wilson95": [
+              0.018477023791270378,
+              0.2132345836261692
+            ]
+          },
+          "failure_types": {
+            "CROSS_SCOPE_DECISION": 1,
+            "EXPECTED_UNKNOWN_ANSWERED": 2
+          },
+          "missed_answerable": {
+            "d": 70,
+            "n": 70,
+            "point": 1.0,
+            "wilson95": [
+              0.9479769375897331,
+              1.0
+            ]
+          },
+          "refusal_and_error_reasons": {
+            "MULTIPLE_SCOPED_FACTS": 4,
+            "NO_SCALAR_EXTRACTED": 1,
+            "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 93
+          },
+          "scope_proven": {
+            "d": 100,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              3.469446951953614e-18,
+              0.03699349820698568
+            ]
+          },
+          "span_supported": {
+            "d": 100,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              3.469446951953614e-18,
+              0.03699349820698568
+            ]
+          },
+          "strict_correct": {
+            "d": 100,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              3.469446951953614e-18,
+              0.03699349820698568
+            ]
+          },
+          "total": 100,
+          "value_hit": {
+            "d": 70,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.05202306241026692
+            ]
+          },
+          "wrong_decided": {
+            "d": 2,
+            "n": 2,
+            "point": 1.0,
+            "wilson95": [
+              0.34238022750665303,
+              1.0
+            ]
+          },
+          "wrong_total": {
+            "d": 100,
+            "n": 2,
+            "point": 0.02,
+            "wilson95": [
+              0.00550196755016235,
+              0.07001179072854388
+            ]
+          }
+        },
+        "paired_status": {
+          "UNKNOWN->UNKNOWN": 20
+        },
+        "paired_value": {
+          "False->False": 20
+        },
+        "primary_with_companion": {
+          "abstention": {
+            "d": 20,
+            "n": 20,
+            "point": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "answerable": 20,
+          "counts": {
+            "CORRECT": 0,
+            "ERROR": 0,
+            "UNKNOWN": 20,
+            "WRONG": 0
+          },
+          "coverage": {
+            "d": 20,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "expected_unknown_wrong": {
+            "d": 0,
+            "n": 0,
+            "point": null,
+            "wilson95": null
+          },
+          "failure_types": {},
+          "missed_answerable": {
+            "d": 20,
+            "n": 20,
+            "point": 1.0,
+            "wilson95": [
+              0.8388748419471806,
+              1.0
+            ]
+          },
+          "refusal_and_error_reasons": {
+            "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 20
+          },
+          "scope_proven": {
+            "d": 20,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "span_supported": {
+            "d": 20,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "strict_correct": {
+            "d": 20,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "total": 20,
+          "value_hit": {
+            "d": 20,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "wrong_decided": {
+            "d": 0,
+            "n": 0,
+            "point": null,
+            "wilson95": null
+          },
+          "wrong_total": {
+            "d": 20,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          }
+        },
+        "strata": {
+          "category": {
+            "as_of": {
+              "abstention": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 9,
+                "WRONG": 1
+              },
+              "coverage": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 1,
+                "point": 0.3333333333333333,
+                "wilson95": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ]
+              },
+              "failure_types": {
+                "EXPECTED_UNKNOWN_ANSWERED": 1
+              },
+              "missed_answerable": {
+                "d": 7,
+                "n": 7,
+                "point": 1.0,
+                "wilson95": [
+                  0.6456695649333126,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_SCOPED_FACTS": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 8
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.35433043506668743
+                ]
+              },
+              "wrong_decided": {
+                "d": 1,
+                "n": 1,
+                "point": 1.0,
+                "wilson95": [
+                  0.20654931437723745,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              }
+            },
+            "cross_scope_same_value": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 7,
+                "n": 7,
+                "point": 1.0,
+                "wilson95": [
+                  0.6456695649333126,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 10
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.35433043506668743
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "equivalent_spans": {
+              "abstention": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 9,
+                "WRONG": 1
+              },
+              "coverage": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 1,
+                "point": 0.3333333333333333,
+                "wilson95": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ]
+              },
+              "failure_types": {
+                "CROSS_SCOPE_DECISION": 1,
+                "EXPECTED_UNKNOWN_ANSWERED": 1
+              },
+              "missed_answerable": {
+                "d": 7,
+                "n": 7,
+                "point": 1.0,
+                "wilson95": [
+                  0.6456695649333126,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 9
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.35433043506668743
+                ]
+              },
+              "wrong_decided": {
+                "d": 1,
+                "n": 1,
+                "point": 1.0,
+                "wilson95": [
+                  0.20654931437723745,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              }
+            },
+            "linked_passages": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 7,
+                "n": 7,
+                "point": 1.0,
+                "wilson95": [
+                  0.6456695649333126,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 10
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.35433043506668743
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "navigation": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 7,
+                "n": 7,
+                "point": 1.0,
+                "wilson95": [
+                  0.6456695649333126,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_SCOPED_FACTS": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 9
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.35433043506668743
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "negation_exception": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 7,
+                "n": 7,
+                "point": 1.0,
+                "wilson95": [
+                  0.6456695649333126,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 10
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.35433043506668743
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "repeat_conflict": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 7,
+                "n": 7,
+                "point": 1.0,
+                "wilson95": [
+                  0.6456695649333126,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 10
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.35433043506668743
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "scalar": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 7,
+                "n": 7,
+                "point": 1.0,
+                "wilson95": [
+                  0.6456695649333126,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 10
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.35433043506668743
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "scope": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 7,
+                "n": 7,
+                "point": 1.0,
+                "wilson95": [
+                  0.6456695649333126,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_SCOPED_FACTS": 2,
+                "NO_SCALAR_EXTRACTED": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 7
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.35433043506668743
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "unverified_revision": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 7,
+                "n": 7,
+                "point": 1.0,
+                "wilson95": [
+                  0.6456695649333126,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 10
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.35433043506668743
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            }
+          },
+          "domain": {
+            "场地与运营": {
+              "abstention": {
+                "d": 30,
+                "n": 29,
+                "point": 0.9666666666666667,
+                "wilson95": [
+                  0.8332960900859082,
+                  0.9940914096183874
+                ]
+              },
+              "answerable": 10,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 29,
+                "WRONG": 1
+              },
+              "coverage": {
+                "d": 30,
+                "n": 1,
+                "point": 0.03333333333333333,
+                "wilson95": [
+                  0.005908590381612455,
+                  0.16670390991409173
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 20,
+                "n": 1,
+                "point": 0.05,
+                "wilson95": [
+                  0.008881448800795402,
+                  0.23613119344674205
+                ]
+              },
+              "failure_types": {
+                "EXPECTED_UNKNOWN_ANSWERED": 1
+              },
+              "missed_answerable": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_SCOPED_FACTS": 1,
+                "NO_SCALAR_EXTRACTED": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 27
+              },
+              "scope_proven": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              },
+              "span_supported": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              },
+              "strict_correct": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              },
+              "total": 30,
+              "value_hit": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "wrong_decided": {
+                "d": 1,
+                "n": 1,
+                "point": 1.0,
+                "wilson95": [
+                  0.20654931437723745,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 30,
+                "n": 1,
+                "point": 0.03333333333333333,
+                "wilson95": [
+                  0.005908590381612455,
+                  0.16670390991409173
+                ]
+              }
+            },
+            "实验与观察": {
+              "abstention": {
+                "d": 20,
+                "n": 20,
+                "point": 1.0,
+                "wilson95": [
+                  0.8388748419471806,
+                  1.0
+                ]
+              },
+              "answerable": 20,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 20,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 20,
+                "n": 20,
+                "point": 1.0,
+                "wilson95": [
+                  0.8388748419471806,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_SCOPED_FACTS": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 19
+              },
+              "scope_proven": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              },
+              "span_supported": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              },
+              "strict_correct": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              },
+              "total": 20,
+              "value_hit": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              }
+            },
+            "展陈与物流": {
+              "abstention": {
+                "d": 30,
+                "n": 29,
+                "point": 0.9666666666666667,
+                "wilson95": [
+                  0.8332960900859082,
+                  0.9940914096183874
+                ]
+              },
+              "answerable": 20,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 29,
+                "WRONG": 1
+              },
+              "coverage": {
+                "d": 30,
+                "n": 1,
+                "point": 0.03333333333333333,
+                "wilson95": [
+                  0.005908590381612455,
+                  0.16670390991409173
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "failure_types": {
+                "CROSS_SCOPE_DECISION": 1,
+                "EXPECTED_UNKNOWN_ANSWERED": 1
+              },
+              "missed_answerable": {
+                "d": 20,
+                "n": 20,
+                "point": 1.0,
+                "wilson95": [
+                  0.8388748419471806,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_SCOPED_FACTS": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 28
+              },
+              "scope_proven": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              },
+              "span_supported": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              },
+              "strict_correct": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              },
+              "total": 30,
+              "value_hit": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              },
+              "wrong_decided": {
+                "d": 1,
+                "n": 1,
+                "point": 1.0,
+                "wilson95": [
+                  0.20654931437723745,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 30,
+                "n": 1,
+                "point": 0.03333333333333333,
+                "wilson95": [
+                  0.005908590381612455,
+                  0.16670390991409173
+                ]
+              }
+            },
+            "工坊与设备": {
+              "abstention": {
+                "d": 20,
+                "n": 20,
+                "point": 1.0,
+                "wilson95": [
+                  0.8388748419471806,
+                  1.0
+                ]
+              },
+              "answerable": 20,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 20,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 20,
+                "n": 20,
+                "point": 1.0,
+                "wilson95": [
+                  0.8388748419471806,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_SCOPED_FACTS": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 19
+              },
+              "scope_proven": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              },
+              "span_supported": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              },
+              "strict_correct": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              },
+              "total": 20,
+              "value_hit": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              }
+            }
+          },
+          "family": {
+            "F01": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 10,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 10
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "F02": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 10,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_SCOPED_FACTS": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 9
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "F03": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 10,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 10
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "F04": {
+              "abstention": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "answerable": 0,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 9,
+                "WRONG": 1
+              },
+              "coverage": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "failure_types": {
+                "CROSS_SCOPE_DECISION": 1,
+                "EXPECTED_UNKNOWN_ANSWERED": 1
+              },
+              "missed_answerable": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "refusal_and_error_reasons": {
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 9
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_decided": {
+                "d": 1,
+                "n": 1,
+                "point": 1.0,
+                "wilson95": [
+                  0.20654931437723745,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              }
+            },
+            "F05": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 10,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 10
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "F06": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 10,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_SCOPED_FACTS": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 9
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "F07": {
+              "abstention": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "answerable": 0,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 9,
+                "WRONG": 1
+              },
+              "coverage": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "failure_types": {
+                "EXPECTED_UNKNOWN_ANSWERED": 1
+              },
+              "missed_answerable": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "refusal_and_error_reasons": {
+                "NO_SCALAR_EXTRACTED": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 8
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_decided": {
+                "d": 1,
+                "n": 1,
+                "point": 1.0,
+                "wilson95": [
+                  0.20654931437723745,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              }
+            },
+            "F08": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 10,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_SCOPED_FACTS": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 9
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "F09": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 0,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "refusal_and_error_reasons": {
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 10
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "F10": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 10,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_SCOPED_FACTS": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 9
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            }
+          },
+          "title": {
+            "ABSENT": {
+              "abstention": {
+                "d": 30,
+                "n": 30,
+                "point": 1.0,
+                "wilson95": [
+                  0.8864866068260312,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 21,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 30,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 9,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2991450484195441
+                ]
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 21,
+                "n": 21,
+                "point": 1.0,
+                "wilson95": [
+                  0.8453609810751531,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 30
+              },
+              "scope_proven": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              },
+              "span_supported": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              },
+              "strict_correct": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              },
+              "total": 30,
+              "value_hit": {
+                "d": 21,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.154639018924847
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              }
+            },
+            "PRESENT": {
+              "abstention": {
+                "d": 70,
+                "n": 68,
+                "point": 0.9714285714285714,
+                "wilson95": [
+                  0.9016774388157609,
+                  0.9921293880545587
+                ]
+              },
+              "answerable": 49,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 68,
+                "WRONG": 2
+              },
+              "coverage": {
+                "d": 70,
+                "n": 2,
+                "point": 0.02857142857142857,
+                "wilson95": [
+                  0.007870611945441225,
+                  0.09832256118423902
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 21,
+                "n": 2,
+                "point": 0.09523809523809523,
+                "wilson95": [
+                  0.02651876743807452,
+                  0.2891413907391826
+                ]
+              },
+              "failure_types": {
+                "CROSS_SCOPE_DECISION": 1,
+                "EXPECTED_UNKNOWN_ANSWERED": 2
+              },
+              "missed_answerable": {
+                "d": 49,
+                "n": 49,
+                "point": 1.0,
+                "wilson95": [
+                  0.9273021807795035,
+                  0.9999999999999999
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_SCOPED_FACTS": 4,
+                "NO_SCALAR_EXTRACTED": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_NOT_RECOGNIZED": 63
+              },
+              "scope_proven": {
+                "d": 70,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.05202306241026692
+                ]
+              },
+              "span_supported": {
+                "d": 70,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.05202306241026692
+                ]
+              },
+              "strict_correct": {
+                "d": 70,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.05202306241026692
+                ]
+              },
+              "total": 70,
+              "value_hit": {
+                "d": 49,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  6.938893903907228e-18,
+                  0.07269781922049637
+                ]
+              },
+              "wrong_decided": {
+                "d": 2,
+                "n": 2,
+                "point": 1.0,
+                "wilson95": [
+                  0.34238022750665303,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 70,
+                "n": 2,
+                "point": 0.02857142857142857,
+                "wilson95": [
+                  0.007870611945441225,
+                  0.09832256118423902
+                ]
+              }
+            }
+          }
+        },
+        "worst_categories_by_value_hit": [
+          "as_of",
+          "cross_scope_same_value",
+          "equivalent_spans",
+          "linked_passages",
+          "navigation",
+          "negation_exception",
+          "repeat_conflict",
+          "scalar",
+          "scope",
+          "unverified_revision"
+        ]
+      },
+      "Rule-V2": {
+        "companion": {
+          "abstention": {
+            "d": 20,
+            "n": 19,
+            "point": 0.95,
+            "wilson95": [
+              0.763868806553258,
+              0.9911185511992047
+            ]
+          },
+          "answerable": 20,
+          "counts": {
+            "CORRECT": 0,
+            "ERROR": 0,
+            "UNKNOWN": 19,
+            "WRONG": 1
+          },
+          "coverage": {
+            "d": 20,
+            "n": 1,
+            "point": 0.05,
+            "wilson95": [
+              0.008881448800795402,
+              0.23613119344674205
+            ]
+          },
+          "expected_unknown_wrong": {
+            "d": 0,
+            "n": 0,
+            "point": null,
+            "wilson95": null
+          },
+          "failure_types": {
+            "SCOPE_BINDING_UNPROVEN": 1,
+            "SPAN_NOT_IN_ACCEPTED_SUPPORT_SET": 1
+          },
+          "missed_answerable": {
+            "d": 20,
+            "n": 19,
+            "point": 0.95,
+            "wilson95": [
+              0.763868806553258,
+              0.9911185511992047
+            ]
+          },
+          "refusal_and_error_reasons": {
+            "MULTIPLE_INCOMPARABLE_CANDIDATES": 2,
+            "NO_BOUND_VALID_CANDIDATE": 3,
+            "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 14
+          },
+          "scope_proven": {
+            "d": 20,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "span_supported": {
+            "d": 20,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "strict_correct": {
+            "d": 20,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "total": 20,
+          "value_hit": {
+            "d": 20,
+            "n": 1,
+            "point": 0.05,
+            "wilson95": [
+              0.008881448800795402,
+              0.23613119344674205
+            ]
+          },
+          "wrong_decided": {
+            "d": 1,
+            "n": 1,
+            "point": 1.0,
+            "wilson95": [
+              0.20654931437723745,
+              1.0
+            ]
+          },
+          "wrong_total": {
+            "d": 20,
+            "n": 1,
+            "point": 0.05,
+            "wilson95": [
+              0.008881448800795402,
+              0.23613119344674205
+            ]
+          }
+        },
+        "gate": {
+          "no_technical_failure": true,
+          "value_gate": false,
+          "wrong_gate": false
+        },
+        "main": {
+          "abstention": {
+            "d": 100,
+            "n": 89,
+            "point": 0.89,
+            "wilson95": [
+              0.8136870349691969,
+              0.9374580364293543
+            ]
+          },
+          "answerable": 70,
+          "counts": {
+            "CORRECT": 1,
+            "ERROR": 0,
+            "UNKNOWN": 89,
+            "WRONG": 10
+          },
+          "coverage": {
+            "d": 100,
+            "n": 11,
+            "point": 0.11,
+            "wilson95": [
+              0.06254196357064568,
+              0.18631296503080313
+            ]
+          },
+          "expected_unknown_wrong": {
+            "d": 30,
+            "n": 5,
+            "point": 0.16666666666666666,
+            "wilson95": [
+              0.0733654237184855,
+              0.3356435050641603
+            ]
+          },
+          "failure_types": {
+            "CROSS_SCOPE_DECISION": 5,
+            "EXPECTED_UNKNOWN_ANSWERED": 5,
+            "SCOPE_BINDING_UNPROVEN": 5,
+            "SPAN_NOT_IN_ACCEPTED_SUPPORT_SET": 5,
+            "UNVERIFIED_REVISION_DECISION": 1,
+            "VALUE_OR_UNIT": 1
+          },
+          "missed_answerable": {
+            "d": 70,
+            "n": 64,
+            "point": 0.9142857142857143,
+            "wilson95": [
+              0.8253432750766051,
+              0.9601233303548878
+            ]
+          },
+          "refusal_and_error_reasons": {
+            "MULTIPLE_INCOMPARABLE_CANDIDATES": 11,
+            "NO_BOUND_VALID_CANDIDATE": 8,
+            "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 70
+          },
+          "scope_proven": {
+            "d": 100,
+            "n": 1,
+            "point": 0.01,
+            "wilson95": [
+              0.0017674320641406505,
+              0.054486196178705315
+            ]
+          },
+          "span_supported": {
+            "d": 100,
+            "n": 1,
+            "point": 0.01,
+            "wilson95": [
+              0.0017674320641406505,
+              0.054486196178705315
+            ]
+          },
+          "strict_correct": {
+            "d": 100,
+            "n": 1,
+            "point": 0.01,
+            "wilson95": [
+              0.0017674320641406505,
+              0.054486196178705315
+            ]
+          },
+          "total": 100,
+          "value_hit": {
+            "d": 70,
+            "n": 5,
+            "point": 0.07142857142857142,
+            "wilson95": [
+              0.03089421703784702,
+              0.1565541221709532
+            ]
+          },
+          "wrong_decided": {
+            "d": 11,
+            "n": 10,
+            "point": 0.9090909090909091,
+            "wilson95": [
+              0.6226415635484043,
+              0.9837678271141151
+            ]
+          },
+          "wrong_total": {
+            "d": 100,
+            "n": 10,
+            "point": 0.1,
+            "wilson95": [
+              0.0552291370606751,
+              0.17436566150491345
+            ]
+          }
+        },
+        "paired_status": {
+          "UNKNOWN->UNKNOWN": 19,
+          "WRONG->WRONG": 1
+        },
+        "paired_value": {
+          "False->False": 19,
+          "True->True": 1
+        },
+        "primary_with_companion": {
+          "abstention": {
+            "d": 20,
+            "n": 19,
+            "point": 0.95,
+            "wilson95": [
+              0.763868806553258,
+              0.9911185511992047
+            ]
+          },
+          "answerable": 20,
+          "counts": {
+            "CORRECT": 0,
+            "ERROR": 0,
+            "UNKNOWN": 19,
+            "WRONG": 1
+          },
+          "coverage": {
+            "d": 20,
+            "n": 1,
+            "point": 0.05,
+            "wilson95": [
+              0.008881448800795402,
+              0.23613119344674205
+            ]
+          },
+          "expected_unknown_wrong": {
+            "d": 0,
+            "n": 0,
+            "point": null,
+            "wilson95": null
+          },
+          "failure_types": {
+            "SCOPE_BINDING_UNPROVEN": 1,
+            "SPAN_NOT_IN_ACCEPTED_SUPPORT_SET": 1
+          },
+          "missed_answerable": {
+            "d": 20,
+            "n": 19,
+            "point": 0.95,
+            "wilson95": [
+              0.763868806553258,
+              0.9911185511992047
+            ]
+          },
+          "refusal_and_error_reasons": {
+            "MULTIPLE_INCOMPARABLE_CANDIDATES": 2,
+            "NO_BOUND_VALID_CANDIDATE": 6,
+            "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 11
+          },
+          "scope_proven": {
+            "d": 20,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "span_supported": {
+            "d": 20,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "strict_correct": {
+            "d": 20,
+            "n": 0,
+            "point": 0.0,
+            "wilson95": [
+              0.0,
+              0.16112515805281938
+            ]
+          },
+          "total": 20,
+          "value_hit": {
+            "d": 20,
+            "n": 1,
+            "point": 0.05,
+            "wilson95": [
+              0.008881448800795402,
+              0.23613119344674205
+            ]
+          },
+          "wrong_decided": {
+            "d": 1,
+            "n": 1,
+            "point": 1.0,
+            "wilson95": [
+              0.20654931437723745,
+              1.0
+            ]
+          },
+          "wrong_total": {
+            "d": 20,
+            "n": 1,
+            "point": 0.05,
+            "wilson95": [
+              0.008881448800795402,
+              0.23613119344674205
+            ]
+          }
+        },
+        "strata": {
+          "category": {
+            "as_of": {
+              "abstention": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 9,
+                "WRONG": 1
+              },
+              "coverage": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 1,
+                "point": 0.3333333333333333,
+                "wilson95": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ]
+              },
+              "failure_types": {
+                "EXPECTED_UNKNOWN_ANSWERED": 1
+              },
+              "missed_answerable": {
+                "d": 7,
+                "n": 7,
+                "point": 1.0,
+                "wilson95": [
+                  0.6456695649333126,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_INCOMPARABLE_CANDIDATES": 2,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 7
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.35433043506668743
+                ]
+              },
+              "wrong_decided": {
+                "d": 1,
+                "n": 1,
+                "point": 1.0,
+                "wilson95": [
+                  0.20654931437723745,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              }
+            },
+            "cross_scope_same_value": {
+              "abstention": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 9,
+                "WRONG": 1
+              },
+              "coverage": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "failure_types": {
+                "CROSS_SCOPE_DECISION": 1,
+                "SCOPE_BINDING_UNPROVEN": 1,
+                "SPAN_NOT_IN_ACCEPTED_SUPPORT_SET": 1
+              },
+              "missed_answerable": {
+                "d": 7,
+                "n": 6,
+                "point": 0.8571428571428571,
+                "wilson95": [
+                  0.4868721707256811,
+                  0.9743203756552565
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 9
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 1,
+                "point": 0.14285714285714285,
+                "wilson95": [
+                  0.02567962434474355,
+                  0.5131278292743189
+                ]
+              },
+              "wrong_decided": {
+                "d": 1,
+                "n": 1,
+                "point": 1.0,
+                "wilson95": [
+                  0.20654931437723745,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              }
+            },
+            "equivalent_spans": {
+              "abstention": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 9,
+                "WRONG": 1
+              },
+              "coverage": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 1,
+                "point": 0.3333333333333333,
+                "wilson95": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ]
+              },
+              "failure_types": {
+                "CROSS_SCOPE_DECISION": 1,
+                "EXPECTED_UNKNOWN_ANSWERED": 1
+              },
+              "missed_answerable": {
+                "d": 7,
+                "n": 7,
+                "point": 1.0,
+                "wilson95": [
+                  0.6456695649333126,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "NO_BOUND_VALID_CANDIDATE": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 8
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.35433043506668743
+                ]
+              },
+              "wrong_decided": {
+                "d": 1,
+                "n": 1,
+                "point": 1.0,
+                "wilson95": [
+                  0.20654931437723745,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              }
+            },
+            "linked_passages": {
+              "abstention": {
+                "d": 10,
+                "n": 7,
+                "point": 0.7,
+                "wilson95": [
+                  0.39677814746114537,
+                  0.8922087325936989
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 7,
+                "WRONG": 3
+              },
+              "coverage": {
+                "d": 10,
+                "n": 3,
+                "point": 0.3,
+                "wilson95": [
+                  0.10779126740630099,
+                  0.6032218525388546
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "failure_types": {
+                "SCOPE_BINDING_UNPROVEN": 3,
+                "SPAN_NOT_IN_ACCEPTED_SUPPORT_SET": 3
+              },
+              "missed_answerable": {
+                "d": 7,
+                "n": 4,
+                "point": 0.5714285714285714,
+                "wilson95": [
+                  0.2504583645276572,
+                  0.8417801447485302
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_INCOMPARABLE_CANDIDATES": 1,
+                "NO_BOUND_VALID_CANDIDATE": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 5
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 3,
+                "point": 0.42857142857142855,
+                "wilson95": [
+                  0.15821985525146975,
+                  0.7495416354723428
+                ]
+              },
+              "wrong_decided": {
+                "d": 3,
+                "n": 3,
+                "point": 1.0,
+                "wilson95": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 3,
+                "point": 0.3,
+                "wilson95": [
+                  0.10779126740630099,
+                  0.6032218525388546
+                ]
+              }
+            },
+            "navigation": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 7,
+                "n": 7,
+                "point": 1.0,
+                "wilson95": [
+                  0.6456695649333126,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_INCOMPARABLE_CANDIDATES": 2,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 8
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.35433043506668743
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "negation_exception": {
+              "abstention": {
+                "d": 10,
+                "n": 8,
+                "point": 0.8,
+                "wilson95": [
+                  0.49016247153664183,
+                  0.9433178485456247
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 1,
+                "ERROR": 0,
+                "UNKNOWN": 8,
+                "WRONG": 1
+              },
+              "coverage": {
+                "d": 10,
+                "n": 2,
+                "point": 0.2,
+                "wilson95": [
+                  0.05668215145437519,
+                  0.5098375284633583
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 1,
+                "point": 0.3333333333333333,
+                "wilson95": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ]
+              },
+              "failure_types": {
+                "CROSS_SCOPE_DECISION": 1,
+                "EXPECTED_UNKNOWN_ANSWERED": 1
+              },
+              "missed_answerable": {
+                "d": 7,
+                "n": 6,
+                "point": 0.8571428571428571,
+                "wilson95": [
+                  0.4868721707256811,
+                  0.9743203756552565
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "NO_BOUND_VALID_CANDIDATE": 2,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 6
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 1,
+                "point": 0.14285714285714285,
+                "wilson95": [
+                  0.02567962434474355,
+                  0.5131278292743189
+                ]
+              },
+              "wrong_decided": {
+                "d": 2,
+                "n": 1,
+                "point": 0.5,
+                "wilson95": [
+                  0.09453120573423074,
+                  0.9054687942657693
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              }
+            },
+            "repeat_conflict": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 7,
+                "n": 7,
+                "point": 1.0,
+                "wilson95": [
+                  0.6456695649333126,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_INCOMPARABLE_CANDIDATES": 2,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 8
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.35433043506668743
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "scalar": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 7,
+                "n": 7,
+                "point": 1.0,
+                "wilson95": [
+                  0.6456695649333126,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "NO_BOUND_VALID_CANDIDATE": 2,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 8
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.35433043506668743
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "scope": {
+              "abstention": {
+                "d": 10,
+                "n": 8,
+                "point": 0.8,
+                "wilson95": [
+                  0.49016247153664183,
+                  0.9433178485456247
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 8,
+                "WRONG": 2
+              },
+              "coverage": {
+                "d": 10,
+                "n": 2,
+                "point": 0.2,
+                "wilson95": [
+                  0.05668215145437519,
+                  0.5098375284633583
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 1,
+                "point": 0.3333333333333333,
+                "wilson95": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ]
+              },
+              "failure_types": {
+                "CROSS_SCOPE_DECISION": 2,
+                "EXPECTED_UNKNOWN_ANSWERED": 1,
+                "SCOPE_BINDING_UNPROVEN": 1,
+                "SPAN_NOT_IN_ACCEPTED_SUPPORT_SET": 1,
+                "VALUE_OR_UNIT": 1
+              },
+              "missed_answerable": {
+                "d": 7,
+                "n": 6,
+                "point": 0.8571428571428571,
+                "wilson95": [
+                  0.4868721707256811,
+                  0.9743203756552565
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_INCOMPARABLE_CANDIDATES": 2,
+                "NO_BOUND_VALID_CANDIDATE": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 5
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.35433043506668743
+                ]
+              },
+              "wrong_decided": {
+                "d": 2,
+                "n": 2,
+                "point": 1.0,
+                "wilson95": [
+                  0.34238022750665303,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 2,
+                "point": 0.2,
+                "wilson95": [
+                  0.05668215145437519,
+                  0.5098375284633583
+                ]
+              }
+            },
+            "unverified_revision": {
+              "abstention": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "answerable": 7,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 9,
+                "WRONG": 1
+              },
+              "coverage": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 3,
+                "n": 1,
+                "point": 0.3333333333333333,
+                "wilson95": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ]
+              },
+              "failure_types": {
+                "EXPECTED_UNKNOWN_ANSWERED": 1,
+                "UNVERIFIED_REVISION_DECISION": 1
+              },
+              "missed_answerable": {
+                "d": 7,
+                "n": 7,
+                "point": 1.0,
+                "wilson95": [
+                  0.6456695649333126,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_INCOMPARABLE_CANDIDATES": 2,
+                "NO_BOUND_VALID_CANDIDATE": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 6
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 7,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  5.551115123125783e-17,
+                  0.35433043506668743
+                ]
+              },
+              "wrong_decided": {
+                "d": 1,
+                "n": 1,
+                "point": 1.0,
+                "wilson95": [
+                  0.20654931437723745,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              }
+            }
+          },
+          "domain": {
+            "场地与运营": {
+              "abstention": {
+                "d": 30,
+                "n": 26,
+                "point": 0.8666666666666667,
+                "wilson95": [
+                  0.703186733179637,
+                  0.9469034451594526
+                ]
+              },
+              "answerable": 10,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 26,
+                "WRONG": 4
+              },
+              "coverage": {
+                "d": 30,
+                "n": 4,
+                "point": 0.13333333333333333,
+                "wilson95": [
+                  0.053096554840547455,
+                  0.296813266820363
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 20,
+                "n": 3,
+                "point": 0.15,
+                "wilson95": [
+                  0.052368745896216595,
+                  0.36041886474075696
+                ]
+              },
+              "failure_types": {
+                "CROSS_SCOPE_DECISION": 1,
+                "EXPECTED_UNKNOWN_ANSWERED": 3,
+                "SCOPE_BINDING_UNPROVEN": 1,
+                "SPAN_NOT_IN_ACCEPTED_SUPPORT_SET": 1,
+                "UNVERIFIED_REVISION_DECISION": 1
+              },
+              "missed_answerable": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_INCOMPARABLE_CANDIDATES": 3,
+                "NO_BOUND_VALID_CANDIDATE": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 22
+              },
+              "scope_proven": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              },
+              "span_supported": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              },
+              "strict_correct": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              },
+              "total": 30,
+              "value_hit": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "wrong_decided": {
+                "d": 4,
+                "n": 4,
+                "point": 1.0,
+                "wilson95": [
+                  0.5101091635454027,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 30,
+                "n": 4,
+                "point": 0.13333333333333333,
+                "wilson95": [
+                  0.053096554840547455,
+                  0.296813266820363
+                ]
+              }
+            },
+            "实验与观察": {
+              "abstention": {
+                "d": 20,
+                "n": 18,
+                "point": 0.9,
+                "wilson95": [
+                  0.6989663547715128,
+                  0.9721335187862319
+                ]
+              },
+              "answerable": 20,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 18,
+                "WRONG": 2
+              },
+              "coverage": {
+                "d": 20,
+                "n": 2,
+                "point": 0.1,
+                "wilson95": [
+                  0.027866481213768224,
+                  0.3010336452284873
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "failure_types": {
+                "CROSS_SCOPE_DECISION": 1,
+                "SCOPE_BINDING_UNPROVEN": 2,
+                "SPAN_NOT_IN_ACCEPTED_SUPPORT_SET": 2
+              },
+              "missed_answerable": {
+                "d": 20,
+                "n": 18,
+                "point": 0.9,
+                "wilson95": [
+                  0.6989663547715128,
+                  0.9721335187862319
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_INCOMPARABLE_CANDIDATES": 3,
+                "NO_BOUND_VALID_CANDIDATE": 2,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 13
+              },
+              "scope_proven": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              },
+              "span_supported": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              },
+              "strict_correct": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              },
+              "total": 20,
+              "value_hit": {
+                "d": 20,
+                "n": 2,
+                "point": 0.1,
+                "wilson95": [
+                  0.027866481213768224,
+                  0.3010336452284873
+                ]
+              },
+              "wrong_decided": {
+                "d": 2,
+                "n": 2,
+                "point": 1.0,
+                "wilson95": [
+                  0.34238022750665303,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 20,
+                "n": 2,
+                "point": 0.1,
+                "wilson95": [
+                  0.027866481213768224,
+                  0.3010336452284873
+                ]
+              }
+            },
+            "展陈与物流": {
+              "abstention": {
+                "d": 30,
+                "n": 26,
+                "point": 0.8666666666666667,
+                "wilson95": [
+                  0.703186733179637,
+                  0.9469034451594526
+                ]
+              },
+              "answerable": 20,
+              "counts": {
+                "CORRECT": 1,
+                "ERROR": 0,
+                "UNKNOWN": 26,
+                "WRONG": 3
+              },
+              "coverage": {
+                "d": 30,
+                "n": 4,
+                "point": 0.13333333333333333,
+                "wilson95": [
+                  0.053096554840547455,
+                  0.296813266820363
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 10,
+                "n": 2,
+                "point": 0.2,
+                "wilson95": [
+                  0.05668215145437519,
+                  0.5098375284633583
+                ]
+              },
+              "failure_types": {
+                "CROSS_SCOPE_DECISION": 2,
+                "EXPECTED_UNKNOWN_ANSWERED": 2,
+                "SCOPE_BINDING_UNPROVEN": 1,
+                "SPAN_NOT_IN_ACCEPTED_SUPPORT_SET": 1
+              },
+              "missed_answerable": {
+                "d": 20,
+                "n": 18,
+                "point": 0.9,
+                "wilson95": [
+                  0.6989663547715128,
+                  0.9721335187862319
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_INCOMPARABLE_CANDIDATES": 5,
+                "NO_BOUND_VALID_CANDIDATE": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 20
+              },
+              "scope_proven": {
+                "d": 30,
+                "n": 1,
+                "point": 0.03333333333333333,
+                "wilson95": [
+                  0.005908590381612455,
+                  0.16670390991409173
+                ]
+              },
+              "span_supported": {
+                "d": 30,
+                "n": 1,
+                "point": 0.03333333333333333,
+                "wilson95": [
+                  0.005908590381612455,
+                  0.16670390991409173
+                ]
+              },
+              "strict_correct": {
+                "d": 30,
+                "n": 1,
+                "point": 0.03333333333333333,
+                "wilson95": [
+                  0.005908590381612455,
+                  0.16670390991409173
+                ]
+              },
+              "total": 30,
+              "value_hit": {
+                "d": 20,
+                "n": 2,
+                "point": 0.1,
+                "wilson95": [
+                  0.027866481213768224,
+                  0.3010336452284873
+                ]
+              },
+              "wrong_decided": {
+                "d": 4,
+                "n": 3,
+                "point": 0.75,
+                "wilson95": [
+                  0.30064184258240184,
+                  0.9544127391902995
+                ]
+              },
+              "wrong_total": {
+                "d": 30,
+                "n": 3,
+                "point": 0.1,
+                "wilson95": [
+                  0.03459988874733419,
+                  0.25621082579184085
+                ]
+              }
+            },
+            "工坊与设备": {
+              "abstention": {
+                "d": 20,
+                "n": 19,
+                "point": 0.95,
+                "wilson95": [
+                  0.763868806553258,
+                  0.9911185511992047
+                ]
+              },
+              "answerable": 20,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 19,
+                "WRONG": 1
+              },
+              "coverage": {
+                "d": 20,
+                "n": 1,
+                "point": 0.05,
+                "wilson95": [
+                  0.008881448800795402,
+                  0.23613119344674205
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "failure_types": {
+                "CROSS_SCOPE_DECISION": 1,
+                "SCOPE_BINDING_UNPROVEN": 1,
+                "SPAN_NOT_IN_ACCEPTED_SUPPORT_SET": 1,
+                "VALUE_OR_UNIT": 1
+              },
+              "missed_answerable": {
+                "d": 20,
+                "n": 19,
+                "point": 0.95,
+                "wilson95": [
+                  0.763868806553258,
+                  0.9911185511992047
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "NO_BOUND_VALID_CANDIDATE": 4,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 15
+              },
+              "scope_proven": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              },
+              "span_supported": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              },
+              "strict_correct": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              },
+              "total": 20,
+              "value_hit": {
+                "d": 20,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.16112515805281938
+                ]
+              },
+              "wrong_decided": {
+                "d": 1,
+                "n": 1,
+                "point": 1.0,
+                "wilson95": [
+                  0.20654931437723745,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 20,
+                "n": 1,
+                "point": 0.05,
+                "wilson95": [
+                  0.008881448800795402,
+                  0.23613119344674205
+                ]
+              }
+            }
+          },
+          "family": {
+            "F01": {
+              "abstention": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "answerable": 10,
+              "counts": {
+                "CORRECT": 1,
+                "ERROR": 0,
+                "UNKNOWN": 9,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_INCOMPARABLE_CANDIDATES": 2,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 7
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "wrong_decided": {
+                "d": 1,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.7934506856227626
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "F02": {
+              "abstention": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "answerable": 10,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 9,
+                "WRONG": 1
+              },
+              "coverage": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "failure_types": {
+                "SCOPE_BINDING_UNPROVEN": 1,
+                "SPAN_NOT_IN_ACCEPTED_SUPPORT_SET": 1
+              },
+              "missed_answerable": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_INCOMPARABLE_CANDIDATES": 2,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 7
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "wrong_decided": {
+                "d": 1,
+                "n": 1,
+                "point": 1.0,
+                "wilson95": [
+                  0.20654931437723745,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              }
+            },
+            "F03": {
+              "abstention": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "answerable": 10,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 9,
+                "WRONG": 1
+              },
+              "coverage": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "failure_types": {
+                "SCOPE_BINDING_UNPROVEN": 1,
+                "SPAN_NOT_IN_ACCEPTED_SUPPORT_SET": 1
+              },
+              "missed_answerable": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_INCOMPARABLE_CANDIDATES": 2,
+                "NO_BOUND_VALID_CANDIDATE": 2,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 5
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "wrong_decided": {
+                "d": 1,
+                "n": 1,
+                "point": 1.0,
+                "wilson95": [
+                  0.20654931437723745,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              }
+            },
+            "F04": {
+              "abstention": {
+                "d": 10,
+                "n": 8,
+                "point": 0.8,
+                "wilson95": [
+                  0.49016247153664183,
+                  0.9433178485456247
+                ]
+              },
+              "answerable": 0,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 8,
+                "WRONG": 2
+              },
+              "coverage": {
+                "d": 10,
+                "n": 2,
+                "point": 0.2,
+                "wilson95": [
+                  0.05668215145437519,
+                  0.5098375284633583
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 10,
+                "n": 2,
+                "point": 0.2,
+                "wilson95": [
+                  0.05668215145437519,
+                  0.5098375284633583
+                ]
+              },
+              "failure_types": {
+                "CROSS_SCOPE_DECISION": 2,
+                "EXPECTED_UNKNOWN_ANSWERED": 2
+              },
+              "missed_answerable": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_INCOMPARABLE_CANDIDATES": 1,
+                "NO_BOUND_VALID_CANDIDATE": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 6
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_decided": {
+                "d": 2,
+                "n": 2,
+                "point": 1.0,
+                "wilson95": [
+                  0.34238022750665303,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 2,
+                "point": 0.2,
+                "wilson95": [
+                  0.05668215145437519,
+                  0.5098375284633583
+                ]
+              }
+            },
+            "F05": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 10,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "NO_BOUND_VALID_CANDIDATE": 4,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 6
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "F06": {
+              "abstention": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "answerable": 10,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 9,
+                "WRONG": 1
+              },
+              "coverage": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "failure_types": {
+                "CROSS_SCOPE_DECISION": 1,
+                "SCOPE_BINDING_UNPROVEN": 1,
+                "SPAN_NOT_IN_ACCEPTED_SUPPORT_SET": 1,
+                "VALUE_OR_UNIT": 1
+              },
+              "missed_answerable": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 9
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "wrong_decided": {
+                "d": 1,
+                "n": 1,
+                "point": 1.0,
+                "wilson95": [
+                  0.20654931437723745,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              }
+            },
+            "F07": {
+              "abstention": {
+                "d": 10,
+                "n": 7,
+                "point": 0.7,
+                "wilson95": [
+                  0.39677814746114537,
+                  0.8922087325936989
+                ]
+              },
+              "answerable": 0,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 7,
+                "WRONG": 3
+              },
+              "coverage": {
+                "d": 10,
+                "n": 3,
+                "point": 0.3,
+                "wilson95": [
+                  0.10779126740630099,
+                  0.6032218525388546
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 10,
+                "n": 3,
+                "point": 0.3,
+                "wilson95": [
+                  0.10779126740630099,
+                  0.6032218525388546
+                ]
+              },
+              "failure_types": {
+                "CROSS_SCOPE_DECISION": 1,
+                "EXPECTED_UNKNOWN_ANSWERED": 3,
+                "UNVERIFIED_REVISION_DECISION": 1
+              },
+              "missed_answerable": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_INCOMPARABLE_CANDIDATES": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 6
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_decided": {
+                "d": 3,
+                "n": 3,
+                "point": 1.0,
+                "wilson95": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 3,
+                "point": 0.3,
+                "wilson95": [
+                  0.10779126740630099,
+                  0.6032218525388546
+                ]
+              }
+            },
+            "F08": {
+              "abstention": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "answerable": 10,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 9,
+                "WRONG": 1
+              },
+              "coverage": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "failure_types": {
+                "SCOPE_BINDING_UNPROVEN": 1,
+                "SPAN_NOT_IN_ACCEPTED_SUPPORT_SET": 1
+              },
+              "missed_answerable": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_INCOMPARABLE_CANDIDATES": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 8
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "wrong_decided": {
+                "d": 1,
+                "n": 1,
+                "point": 1.0,
+                "wilson95": [
+                  0.20654931437723745,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              }
+            },
+            "F09": {
+              "abstention": {
+                "d": 10,
+                "n": 10,
+                "point": 1.0,
+                "wilson95": [
+                  0.7224672001371107,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 0,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 10,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_INCOMPARABLE_CANDIDATES": 1,
+                "NO_BOUND_VALID_CANDIDATE": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 8
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              }
+            },
+            "F10": {
+              "abstention": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "answerable": 10,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 9,
+                "WRONG": 1
+              },
+              "coverage": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "failure_types": {
+                "CROSS_SCOPE_DECISION": 1,
+                "SCOPE_BINDING_UNPROVEN": 1,
+                "SPAN_NOT_IN_ACCEPTED_SUPPORT_SET": 1
+              },
+              "missed_answerable": {
+                "d": 10,
+                "n": 9,
+                "point": 0.9,
+                "wilson95": [
+                  0.5958499732047615,
+                  0.9821237869049271
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_INCOMPARABLE_CANDIDATES": 1,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 8
+              },
+              "scope_proven": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "span_supported": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "strict_correct": {
+                "d": 10,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2775327998628892
+                ]
+              },
+              "total": 10,
+              "value_hit": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              },
+              "wrong_decided": {
+                "d": 1,
+                "n": 1,
+                "point": 1.0,
+                "wilson95": [
+                  0.20654931437723745,
+                  1.0
+                ]
+              },
+              "wrong_total": {
+                "d": 10,
+                "n": 1,
+                "point": 0.1,
+                "wilson95": [
+                  0.017876213095072896,
+                  0.4041500267952385
+                ]
+              }
+            }
+          },
+          "title": {
+            "ABSENT": {
+              "abstention": {
+                "d": 30,
+                "n": 30,
+                "point": 1.0,
+                "wilson95": [
+                  0.8864866068260312,
+                  0.9999999999999999
+                ]
+              },
+              "answerable": 21,
+              "counts": {
+                "CORRECT": 0,
+                "ERROR": 0,
+                "UNKNOWN": 30,
+                "WRONG": 0
+              },
+              "coverage": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 9,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.2991450484195441
+                ]
+              },
+              "failure_types": {},
+              "missed_answerable": {
+                "d": 21,
+                "n": 21,
+                "point": 1.0,
+                "wilson95": [
+                  0.8453609810751531,
+                  1.0
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 30
+              },
+              "scope_proven": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              },
+              "span_supported": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              },
+              "strict_correct": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              },
+              "total": 30,
+              "value_hit": {
+                "d": 21,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.154639018924847
+                ]
+              },
+              "wrong_decided": {
+                "d": 0,
+                "n": 0,
+                "point": null,
+                "wilson95": null
+              },
+              "wrong_total": {
+                "d": 30,
+                "n": 0,
+                "point": 0.0,
+                "wilson95": [
+                  0.0,
+                  0.11351339317396876
+                ]
+              }
+            },
+            "PRESENT": {
+              "abstention": {
+                "d": 70,
+                "n": 59,
+                "point": 0.8428571428571429,
+                "wilson95": [
+                  0.7401175342315778,
+                  0.909923794401382
+                ]
+              },
+              "answerable": 49,
+              "counts": {
+                "CORRECT": 1,
+                "ERROR": 0,
+                "UNKNOWN": 59,
+                "WRONG": 10
+              },
+              "coverage": {
+                "d": 70,
+                "n": 11,
+                "point": 0.15714285714285714,
+                "wilson95": [
+                  0.09007620559861788,
+                  0.2598824657684222
+                ]
+              },
+              "expected_unknown_wrong": {
+                "d": 21,
+                "n": 5,
+                "point": 0.23809523809523808,
+                "wilson95": [
+                  0.10628013022636468,
+                  0.4509117368295075
+                ]
+              },
+              "failure_types": {
+                "CROSS_SCOPE_DECISION": 5,
+                "EXPECTED_UNKNOWN_ANSWERED": 5,
+                "SCOPE_BINDING_UNPROVEN": 5,
+                "SPAN_NOT_IN_ACCEPTED_SUPPORT_SET": 5,
+                "UNVERIFIED_REVISION_DECISION": 1,
+                "VALUE_OR_UNIT": 1
+              },
+              "missed_answerable": {
+                "d": 49,
+                "n": 43,
+                "point": 0.8775510204081632,
+                "wilson95": [
+                  0.7575560270624347,
+                  0.9426517420975983
+                ]
+              },
+              "refusal_and_error_reasons": {
+                "MULTIPLE_INCOMPARABLE_CANDIDATES": 11,
+                "NO_BOUND_VALID_CANDIDATE": 8,
+                "QUERY_SUBJECT_OR_ATTRIBUTE_AMBIGUOUS": 40
+              },
+              "scope_proven": {
+                "d": 70,
+                "n": 1,
+                "point": 0.014285714285714285,
+                "wilson95": [
+                  0.002526246457890312,
+                  0.07658187131208327
+                ]
+              },
+              "span_supported": {
+                "d": 70,
+                "n": 1,
+                "point": 0.014285714285714285,
+                "wilson95": [
+                  0.002526246457890312,
+                  0.07658187131208327
+                ]
+              },
+              "strict_correct": {
+                "d": 70,
+                "n": 1,
+                "point": 0.014285714285714285,
+                "wilson95": [
+                  0.002526246457890312,
+                  0.07658187131208327
+                ]
+              },
+              "total": 70,
+              "value_hit": {
+                "d": 49,
+                "n": 5,
+                "point": 0.10204081632653061,
+                "wilson95": [
+                  0.04437954674476266,
+                  0.21756361549195893
+                ]
+              },
+              "wrong_decided": {
+                "d": 11,
+                "n": 10,
+                "point": 0.9090909090909091,
+                "wilson95": [
+                  0.6226415635484043,
+                  0.9837678271141151
+                ]
+              },
+              "wrong_total": {
+                "d": 70,
+                "n": 10,
+                "point": 0.14285714285714285,
+                "wilson95": [
+                  0.07948941717066599,
+                  0.2433841988366675
+                ]
+              }
+            }
+          }
+        },
+        "worst_categories_by_value_hit": [
+          "as_of",
+          "equivalent_spans",
+          "navigation",
+          "repeat_conflict",
+          "scalar",
+          "scope",
+          "unverified_revision"
+        ]
+      }
+    },
+    "auto_continue": false,
+    "confirmation_sha256": "d2ae9349e1d01efd08883856b398b44be98f733840faf17860e2cb282393ef30",
+    "cost_usd": 0,
+    "gold_opened_at": "2026-11-10T01:25:17.507969+00:00",
+    "human_gold": 0,
+    "model_api_calls": 0,
+    "model_calls": 0,
+    "new_downloads": 0,
+    "primary_v1_to_v2": {
+      "UNKNOWN->CORRECT": 1,
+      "UNKNOWN->UNKNOWN": 89,
+      "UNKNOWN->WRONG": 8,
+      "WRONG->WRONG": 2
+    },
+    "private_sha256": "8f25afcfb5954c5459e1d1edb9cc9a32d30472f36bf0f847248e65ea6dbc930a",
+    "scored_at": "2026-11-10T01:25:17.538062+00:00",
+    "status": "FEASIBILITY_NO_GO"
+  },
+  "model_inference": 0,
+  "network_model_api": 0,
+  "new_model_loads": 0,
+  "new_models_downloaded": 0,
+  "owner": "W1-OD-20261110-5060-S1B-ONE-SHOT-20",
+  "prediction_receipt": {
+    "archive_sha256": "25d75f485805faa2acbe271e50b5c6ccfd4e70f9a7b3091bbb8ca3a741a27455",
+    "attempts": 1,
+    "elapsed_seconds": 0.5470000000000255,
+    "finished_at": "2026-11-10T01:25:16.592585+00:00",
+    "gold_reads": 0,
+    "input_sha256": "bd2bc5e6586789070c20dde123bfe72843181aa861aca229fdb0c23091328dee",
+    "members": {
+      "Rule-V1_PRIVATE.json": "5b91881ec05cc6dd8da7d336206328fe56a888b0146c6ede5fc97ad445f44cc7",
+      "Rule-V2_PRIVATE.json": "7fa51067f6b5f842d95e52adcefe31259f8bc1466b802af4591be97658a7a1e4"
+    },
+    "network_events": 0,
+    "release_sha256": "e78fb0a495458ad3180e4e1bc696a306a01b946d01d499e6ca7726b89e00ace4",
+    "role_free_counts": {
+      "Rule-V1": 120,
+      "Rule-V2": 120
+    },
+    "run_id": "W1-5060-S1B-RULE-ONESHOT-20261110-01"
+  },
+  "prediction_seal_sha256": "a6b84efd8dff172732e4503ffb3c93aca64ec2ed034060a883017e14056ca4e7",
+  "preflight_remote": "1d6b1ab89dbc3e3f9e902259b7451167fea5950a",
+  "private_archive_members": 47,
+  "private_archive_sha256": "f991e6e2fd3379c66412b061a2f9377b92f720783041c2253bd8374b59d65110",
+  "private_run_manifest_sha256": "c0f8e7e6d806177dbab9d8ab01cde488f36598d773dcfe0f28a8b2d36586f17c",
+  "qa": {
+    "mypy_exit": 0,
+    "new_scientific_attempts": 1,
+    "old73_each_arm": 73,
+    "old73_technical_errors": 0,
+    "ruff_exit": 0,
+    "unit_tests": 4
+  },
+  "release": {
+    "code_commit": "c31e696f1a9432f6264f4fb8e4b26cab8e933ac5",
+    "custody_sha256": "14ec10f0e963224d1fe141a8673e1d9e84a202692b74810696f2ccd5b70da581",
+    "data_commit": "20402e94ed3da6be155a605daba272ec0a7c2cf1",
+    "env": {
+      "isolated": 1,
+      "no_bytecode": true,
+      "no_site": 1,
+      "platform": "win32",
+      "pointer_bits": 64,
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "python_base_exe_sha256": "1da8f2782fd63cdfca8b0da1a46778f48c28aa9eda3ddcd852957ec60813157b",
+      "python_exe_sha256": "9f29b8965d6bf169315bbc20946f33b23c9dacb4587c3cccaf1f536b844b2dc2"
+    },
+    "gold_hash_only": "8f745f921424c6e61357ec19800bc4a1f198e92a26d36377a3a238d634598371",
+    "input": "bd2bc5e6586789070c20dde123bfe72843181aa861aca229fdb0c23091328dee",
+    "old73_preflight_sha256": "4ef2f77975210cf3e10158e7a62b9a993cd5ba851d7557f6d1c53fab6c9a8e13",
+    "owner": "W1-OD-20261110-5060-S1B-ONE-SHOT-20",
+    "owner_sha": "7a18411dff1a12f7b0e59297db816308280a0966",
+    "parameters": {
+      "arms": [
+        "Rule-V1",
+        "Rule-V2"
+      ],
+      "cpu_time_cap_seconds": 120,
+      "max_arm_bytes": 10485760,
+      "network": "DENY",
+      "retry": 0,
+      "runs": 1,
+      "views_per_arm": 120
+    },
+    "protocol": "43d4d22770f5887058fabfc0162368e77cd36bd6c7d85d846417789515f5341e",
+    "qa_sha256": {
+      "mypy.log": "d9a5631f7d87a741fbecc3236286d1792d22d349ff13846d71cdc9217307bb76",
+      "pytest.log": "fcdbfa84d0fd6ae851f6491b9c89b638922b59436775018b736e14811aabf805",
+      "ruff.log": "a4443afdcfb6d7363adb285762515ccf7cf50473b1a05c20c1a50f6bed4d26b0"
+    },
+    "released_at": "2026-11-10T01:25:15.806948+00:00",
+    "rule_commits": {
+      "Rule-V1": "68d34a5d877206f4e6d7d9e2bdda16784145a76a",
+      "Rule-V2": "da3cbd9f16ea70ae3ba0ef2aa2408227ecfc0b4f"
+    },
+    "rule_v2_config": "4352bbcc97ccc5b42861611d1f6a952718af7f195acf02c6c2507f3269232b38",
+    "run_id": "W1-5060-S1B-RULE-ONESHOT-20261110-01",
+    "seal": "531ac4e6421f6486b8165d443af2cf9d892a7bc3c740483950d03240d35a7c58",
+    "sequence": [
+      "custody_hash_only",
+      "old73_preflight",
+      "release",
+      "predict",
+      "confirm",
+      "evaluate"
+    ],
+    "source_sha256": {
+      "s1_extraction.py": "67568081a0fa0465bf195f5220667689e84585b7d1fb9bdfcfedc605b594a897",
+      "s1b_feasibility_data.py": "ca64d90ff62efd83b0558ed63870328e1485f8ab9a39d52f1e6e28ed5c328f07",
+      "s1b_oneshot_adapter.py": "c864f34eec2cd15e2f7b36755388652b99472c34414a9a6a70dfd884592257f9",
+      "s1b_oneshot_run.py": "530501387b3594e5d108b485a3687fb74119567282ba3dee854bc459fec619a3",
+      "s1b_oneshot_scoring.py": "28939d362b8686248014b4fea97d88e21bdc7261e2ffd35d611deb24beebda37",
+      "s1b_rule_v2.py": "b56df6a7c0e1edc1dff70e95af16b9a6d6e71018ae453b8a0d71640a4a1dddda",
+      "vesa_guard_v01.py": "72ac366c447b58c513591ff4f4e9e236e1ac44f8f642b5effebaabf80c310a38",
+      "vesa_guard_v02.py": "84e61dc1615ea003cd02956760e7c02f3fd20671579c73319f9241801da8de09"
+    }
+  },
+  "release_sha256": "e78fb0a495458ad3180e4e1bc696a306a01b946d01d499e6ca7726b89e00ace4",
+  "run_id": "W1-5060-S1B-RULE-ONESHOT-20261110-01",
+  "s2_s5": "LOCKED",
+  "status": "FEASIBILITY_NO_GO"
+}

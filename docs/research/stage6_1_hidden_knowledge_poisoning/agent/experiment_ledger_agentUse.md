@@ -1,5 +1,15 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## 2026-11-10｜5060 Owner20 单次规则可行性验证完成
+
+`FEASIBILITY_NO_GO / S2_S5_LOCKED / AUTO_CONTINUE=NO`。两臂各 120/120，先封存后一次性评分，主 100 个语义案例另报 20 条改写。Rule-V1 值命中 0/70、已决定错抽 2/2，Rule-V2 值命中 5/70、已决定错抽 10/11，均未达冻结门。两臂在 30 个无标题主例均 UNKNOWN。Human Gold 0。
+
+Run `W1-5060-S1B-RULE-ONESHOT-20261110-01`，执行代码 `c31e696f1a9432f6264f4fb8e4b26cab8e933ac5`，私有归档 SHA256 `f991e6e2fd3379c66412b061a2f9377b92f720783041c2253bd8374b59d65110`。
+
+旧 S1 失败、R2 K1-C 及 Owner19 原封存保留。正式 ASR/Accuracy 未测，模型下载、推理、模型 API 和费用均为 0。当前批次已消耗一次科学试次，停止等待 Owner 决策。
+
+[真实结果与失败归因](../../../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_RESULT.md) · [脱敏 Run Manifest](../../../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_RUN_MANIFEST.json)
+
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
 `FEAS_DATA_READY / PROVISIONAL_GOLD / EVALUATION_NOT_RUN / S2_S5_LOCKED / AUTO_CONTINUE=NO`。100 个全新虚构主案例（70 可答、30 应 UNKNOWN），另有 20 条从属问句改写。证据跨度、暂定标签、真值与配对、输入及协议已分件封存。标签是同一 Agent 的暂定标注，Human Gold 0。

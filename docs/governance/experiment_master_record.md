@@ -1,5 +1,15 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## 2026-11-10｜5060 Owner20 单次规则可行性验证完成
+
+`FEASIBILITY_NO_GO / S2_S5_LOCKED / AUTO_CONTINUE=NO`。两臂各 120/120，先封存后一次性评分，主 100 个语义案例另报 20 条改写。Rule-V1 值命中 0/70、已决定错抽 2/2，Rule-V2 值命中 5/70、已决定错抽 10/11，均未达冻结门。两臂在 30 个无标题主例均 UNKNOWN。Human Gold 0。
+
+Run `W1-5060-S1B-RULE-ONESHOT-20261110-01`，执行代码 `c31e696f1a9432f6264f4fb8e4b26cab8e933ac5`，私有归档 SHA256 `f991e6e2fd3379c66412b061a2f9377b92f720783041c2253bd8374b59d65110`。
+
+旧 S1 失败、R2 K1-C 及 Owner19 原封存保留。正式 ASR/Accuracy 未测，模型下载、推理、模型 API 和费用均为 0。当前批次已消耗一次科学试次，停止等待 Owner 决策。
+
+[真实结果与失败归因](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_RESULT.md) · [脱敏 Run Manifest](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_RUN_MANIFEST.json)
+
 ## W1-OD-20261110-5060-S1B-ONE-SHOT-20｜Owner20 放行一次性 Rule-V1/Rule-V2 合成数据离线可行性评价（2026-11-10 JST）
 
 状态 `OWNER_EXPLICITLY_APPROVED / ONE_SHOT_FEASIBILITY_APPROVED_NOT_RUN`。Owner 于上一轮单一明确的“是否批准一次性规则可行性验证”待决提案后回复“请继续 我们要加快速度”。本授权仅允许5060在原冻结规则、原封存`100主语义(70可答/30应拒识)+20从属改写`数据上完成一次离线Rule-V1与Rule-V2公平对照：先仅用旧73/普通unit测试完成公共adapter静态预检与哈希冻结；原输入/Gold/协议/源码逐字节身份闭合后，各臂120条一次性角色盲完整预测及封存；之后Evaluator单次只读揭盲按预注册的`value_hit/70>=63/70`、`wrong/decided<=2%`点估计/非all-UNKNOWN及固定source span/scope协议评分。须报告100主与20从属、10类/标题有无、30应拒识误答、Wilson区间、异常和全部负结果。未证新版/跨scope误答0仍为观察项，不追认旧合同新门。
