@@ -1,5 +1,14 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261110-5060-SCIENCE-FIRST-OFFLINE-PILOT-25｜Owner25科研结果优先：离线来源-版本-范围机制可证伪小试（2026-11-10 JST）
+
+Owner明确要求尽快取得可行性论文路线与方法结果，取代反复Windows网络门讨论。新增独立、受限、**零模型零外部API**试验：复核已有D1脱敏证据（真实可信来源链覆盖0/180，B2 Clean误删4/10，P0下不可无锚恢复），用8 DEV+4 HOLDOUT全新合成事实组×8情境，独立source-truth签发与role-free输入封存，DEV可迭代至多2版，HOLDOUT32世界一次盲评，比较模拟外部可信receipt/版本有效期/适用范围、无锚回退、伪造自称、重复来源与多数投毒。Oracle抽取只算上界而非可部署方案；若无公平同世界RD baseline，必须标`BASELINE_INCOMPLETE`不得宣称比较PASS。目标是给Owner一个真诚的机制`GO/NO_GO/ANCHOR_LIMITED`结论以及下一步真实公开数据方法，而非假称论文已有效。
+
+**Owner24 F0出站隔离仍BLOCKED，F1–F4保持NOT_RUN**；不批准Windows系统配置、防火墙、模型加载、推理、商业API、D1新科学运行、D2/D3、5090 Claims、正式S2–S5、主线合并、HumanGold签署。已揭盲73/100和现有R2记录保留。执行普通无模型Python阶段，Git封存新输出后STOP；Owner25本身不代表已得新实验结果。
+
+[Owner25正式授权](../paper1/dual_machine/owner_approvals/W1_5060_OWNER25_SCIENCE_FIRST_OFFLINE_MECHANISM_PILOT_20261110.md) · [5060完整执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_OWNER25_SCIENCE_FIRST_MECHANISM_FEASIBILITY_EXECUTION_PROMPT_V1.md)。
+
+
 ## W1-OD-20261110-5060-FASTTRACK-CONDITIONAL-24｜Owner24 一次授权、条件自动推进本地 Qwen 可行性（2026-11-10 JST）
 
 Owner在已获Owner23A静态报告、未出现新模型运行结果时明确要求：“能不能一次让5060多做点任务 放宽限制，我现在真的很急，很急我这个论文的研究路线”。本决策接受**有界阶段包**，避免每个工程小任务反复请求。一次性许可F0无模型资产/入口/数据封存、F1固定llama-completion CPU/1 token工程smoke（180s/6GiB private cap/出站外网禁止）、F2仅已暴露旧73+100+20模型抽取有界调试与193条开发回放、F3开发门通过后在提前封存的新60主(40答/20拒识)+10从属上做单次`AGENT_PROVISIONAL`评估、F4前置性能/安全门通过后在原D1既有TopK快照中最多12或36世界做离线过滤代理诊断。阶段间可自动继续，普通工程QA/静态调试在定量限额内自主修复，无需Owner逐项重新审批。
