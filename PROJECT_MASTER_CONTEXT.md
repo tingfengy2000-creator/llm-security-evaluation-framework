@@ -1,5 +1,14 @@
 # LLMGuard 项目总控文档
 
+## W1-OD-20261110-5060-QWEN-GGUF-READONLY-21｜Owner21 路线裁决：Rule-only退为基线，Qwen GGUF仅准许只读准入（2026-11-10 JST）
+
+`OWNER_EXPLICITLY_APPROVED / STOP_RULE_ONLY_PRIMARY / QWEN_GGUF_READONLY_ADMISSION_APPROVED_NOT_RUN`。Owner对上一轮具体提议回复“批准”：停止Rule-V2作为主要开放中文事实候选抽取器，保留冻结Rule-V1/V2作对照与确定性原文span/scope校验；将此前Owner选择的规则+本地模型Route B作为下一候选研究方向。5060可**只读**核查唯一官方`Qwen/Qwen2.5-1.5B-Instruct-GGUF` Q4_K_M（官方模型卡Apache-2.0、约1.12GB文件）及固定`llama.cpp` Windows x64 CPU运行时的具体权重revision/SHA、许可、CPU/RAM/D/E与C盘缓存边界、估算峰值和离线停止门。官方模型及运行时具体固定资产身份、许可和资源兼容性仍待审计，**不表示已经准入**。旧Owner20单次Rule-V1/V2 100主+20从属 `FEASIBILITY_NO_GO`、旧S1 FAIL和R2 K1-C不可覆盖；旧73、已评100+20均变为已暴露开发诊断、HumanGold0、正式ASR/AnswerAccuracy未测。
+
+**下载/安装/加载/推理新模型=NOT_APPROVED；单模型资产许可=NOT_APPROVED；未来新验证=NOT_APPROVED；S2–S5=LOCKED；D2/D3不得访问；5090仍等待Meta Llama2权限/Claims1–3未运行。** 本次只是路线批准与只读工作授权，`AUTO_CONTINUE=NO`；5060审计完必须交资产清单、阻断项和下一Owner许可申请后STOP，不能自行进入资产和模型开发阶段。
+
+[Owner21十二字段授权](docs/paper1/dual_machine/owner_approvals/W1_5060_OWNER21_QWEN_GGUF_READONLY_ADMISSION_AUTHORIZATION_20261110.md) · [5060生效执行Prompt](docs/paper1/dual_machine/chinese5060/W1_5060_OWNER21_QWEN_GGUF_READONLY_ADMISSION_EXECUTION_PROMPT_V1.md)。
+
+
 ## 2026-11-10｜5060 Owner20 单次规则可行性验证完成
 
 `FEASIBILITY_NO_GO / S2_S5_LOCKED / AUTO_CONTINUE=NO`。两臂各 120/120，先封存后一次性评分，主 100 个语义案例另报 20 条改写。Rule-V1 值命中 0/70、已决定错抽 2/2，Rule-V2 值命中 5/70、已决定错抽 10/11，均未达冻结门。两臂在 30 个无标题主例均 UNKNOWN。Human Gold 0。
