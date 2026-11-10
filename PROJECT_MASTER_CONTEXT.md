@@ -1,5 +1,13 @@
 # LLMGuard 项目总控文档
 
+## 2026-11-10｜5060 Owner21 单模型只读审计完成
+
+`READONLY_AUDIT_COMPLETE / HUMAN_DECISION_REQUIRED / AUTO_CONTINUE=NO`。Qwen 官方 Q4_K_M 与 llama.cpp b12242 Windows x64 CPU 发布身份和固定摘要均已核对。Qwen Apache-2.0、llama.cpp 源码 MIT，运行时整包第三方声明、PE 依赖和峰值仍未闭合。主机约 12.80 GiB 可用 RAM，规划峰值最高约 4.51 GiB，资源门仍阻断。
+
+模型与运行时正文下载、安装、加载、推理、模型 API、费用和新试次均为 0。下一门仅为两项固定资产的获取与静态验包，尚未获批。Owner20 NO_GO、旧 S1 FAIL、R2 K1-C 保留，Human Gold 0，正式 ASR/Accuracy 未测，S2–S5 锁定。
+
+[单模型审批包](docs/paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_OWNER21_QWEN_GGUF_SINGLE_MODEL_ADMISSION_PACKET.md) · [脱敏 Manifest](docs/paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_OWNER21_QWEN_GGUF_READONLY_MANIFEST.json)
+
 ## W1-OD-20261110-5060-QWEN-GGUF-READONLY-21｜Owner21 路线裁决：Rule-only退为基线，Qwen GGUF仅准许只读准入（2026-11-10 JST）
 
 `OWNER_EXPLICITLY_APPROVED / STOP_RULE_ONLY_PRIMARY / QWEN_GGUF_READONLY_ADMISSION_APPROVED_NOT_RUN`。Owner对上一轮具体提议回复“批准”：停止Rule-V2作为主要开放中文事实候选抽取器，保留冻结Rule-V1/V2作对照与确定性原文span/scope校验；将此前Owner选择的规则+本地模型Route B作为下一候选研究方向。5060可**只读**核查唯一官方`Qwen/Qwen2.5-1.5B-Instruct-GGUF` Q4_K_M（官方模型卡Apache-2.0、约1.12GB文件）及固定`llama.cpp` Windows x64 CPU运行时的具体权重revision/SHA、许可、CPU/RAM/D/E与C盘缓存边界、估算峰值和离线停止门。官方模型及运行时具体固定资产身份、许可和资源兼容性仍待审计，**不表示已经准入**。旧Owner20单次Rule-V1/V2 100主+20从属 `FEASIBILITY_NO_GO`、旧S1 FAIL和R2 K1-C不可覆盖；旧73、已评100+20均变为已暴露开发诊断、HumanGold0、正式ASR/AnswerAccuracy未测。

@@ -1,8 +1,20 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-10｜5060 Owner21 单模型只读审计完成
+
+`READONLY_AUDIT_COMPLETE / HUMAN_DECISION_REQUIRED / AUTO_CONTINUE=NO`。Qwen 官方 Q4_K_M 与 llama.cpp b12242 Windows x64 CPU 发布身份和固定摘要均已核对。Qwen Apache-2.0、llama.cpp 源码 MIT，运行时整包第三方声明、PE 依赖和峰值仍未闭合。主机约 12.80 GiB 可用 RAM，规划峰值最高约 4.51 GiB，资源门仍阻断。
+
+Task `W1-5060-OWNER21-QWEN-GGUF-ADMISSION-20261110-01`，私有元数据 ZIP SHA256 `7895f7ef2c28e6b7411112bf71140b17cd6b1160b614fc6662b4b132ebf4a816`。
+
+模型与运行时正文下载、安装、加载、推理、模型 API、费用和新试次均为 0。下一门仅为两项固定资产的获取与静态验包，尚未获批。Owner20 NO_GO、旧 S1 FAIL、R2 K1-C 保留，Human Gold 0，正式 ASR/Accuracy 未测，S2–S5 锁定。
+
+[单模型审批包](chinese5060/vesa_guard_reviewer_replan/W1_5060_OWNER21_QWEN_GGUF_SINGLE_MODEL_ADMISSION_PACKET.md) · [脱敏 Manifest](chinese5060/vesa_guard_reviewer_replan/W1_5060_OWNER21_QWEN_GGUF_READONLY_MANIFEST.json)
+
+本条仅更新 5060，5090 保留历史快照。
+
 ## 2026-11-10｜Owner21 批准路线转向和 Qwen GGUF 只读准入审计（待执行）
 
-`W1-OD-20261110-5060-QWEN-GGUF-READONLY-21`。Owner已接受终止Rule-only作为主抽取器，原Rule-V1/V2冻结保留为基线和确定性原文span/scope核验；沿用之前选择的“规则约束+本地模型抽取”方向。5060**只被允许**对官方Qwen2.5-1.5B-Instruct-GGUF Q4_K_M和`llama.cpp` Windows x64 CPU候选做只读模型/运行时revision、文件大小/SHA、许可、RAM/D/E磁盘/CPU/无C盘缓存与离线控制审计，提交精确单模型资产审批包后STOP。**审计本身尚未运行**；任何下载/安装/加载/推理/API/新独立测试均未获许可，S2–S5/5090 Claims仍锁定。此前Owner20 `FEASIBILITY_NO_GO`、R2 K1-C、旧S1 FAIL保持真实，旧73与新100+20均已暴露，Human Gold0、正式ASR/回答准确率未测。
+`W1-OD-20261110-5060-QWEN-GGUF-READONLY-21`。Owner已接受终止Rule-only作为主抽取器，原Rule-V1/V2冻结保留为基线和确定性原文span/scope核验；沿用之前选择的“规则约束+本地模型抽取”方向。5060**只被允许**对官方Qwen2.5-1.5B-Instruct-GGUF Q4_K_M和`llama.cpp` Windows x64 CPU候选做只读模型/运行时revision、文件大小/SHA、许可、RAM/D/E磁盘/CPU/无C盘缓存与离线控制审计，提交精确单模型资产审批包后STOP。**授权登记时审计尚未运行**；任何下载/安装/加载/推理/API/新独立测试均未获许可，S2–S5/5090 Claims仍锁定。此前Owner20 `FEASIBILITY_NO_GO`、R2 K1-C、旧S1 FAIL保持真实，旧73与新100+20均已暴露，Human Gold0、正式ASR/回答准确率未测。
 
 [Owner21正式授权](owner_approvals/W1_5060_OWNER21_QWEN_GGUF_READONLY_ADMISSION_AUTHORIZATION_20261110.md) · [5060执行Prompt](chinese5060/W1_5060_OWNER21_QWEN_GGUF_READONLY_ADMISSION_EXECUTION_PROMPT_V1.md)。
 
@@ -32,7 +44,7 @@ Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的�
 
 [Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
 
-**更新于 2026-11-10 JST · 版本 17 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-10 JST · 版本 18 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
@@ -219,6 +231,7 @@ R1 源附件由 Owner 提供，公开记录含原件摘要与 SHA-256。[R1 修�
 
 | 日期（JST） | 版本 | 变更与核验基点 |
 | --- | --- | --- |
+| 2026-11-10 | 18 | 5060 完成 Owner21 单模型只读审计，资产身份闭合，运行时与资源准入待证。 |
 | 2026-11-10 | 15 | 5060 Owner20 单次评价已完成，两臂均未达可行性门，锁定后续阶段。 |
 | 2026-11-09 | 12 | 5060 封存 100 个可行性主案例和 20 条改写，Owner19 仅数据准备收口，预测与评分均未运行。 |
 | 2026-11-09 | 11 | Owner19认可先可行性后人工标注，以新合成/公开数据准备为主、D1仅回归；未放行新数据一次性评分、模型/API和S2–S5。 |

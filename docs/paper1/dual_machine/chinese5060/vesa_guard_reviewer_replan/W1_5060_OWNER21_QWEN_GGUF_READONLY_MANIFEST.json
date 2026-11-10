@@ -1,0 +1,278 @@
+{
+  "asset_identity": "PASS_PUBLISHER_METADATA_ONLY",
+  "auto_continue": false,
+  "cache_environment_drive_only": [
+    {
+      "drive": null,
+      "key": "HF_HOME",
+      "set": false
+    },
+    {
+      "drive": "E:\\",
+      "key": "HF_HUB_CACHE",
+      "set": true
+    },
+    {
+      "drive": null,
+      "key": "HUGGINGFACE_HUB_CACHE",
+      "set": false
+    },
+    {
+      "drive": null,
+      "key": "LLAMA_CACHE",
+      "set": false
+    },
+    {
+      "drive": null,
+      "key": "XDG_CACHE_HOME",
+      "set": false
+    },
+    {
+      "drive": "C:\\",
+      "key": "LOCALAPPDATA",
+      "set": true
+    },
+    {
+      "drive": "C:\\",
+      "key": "USERPROFILE",
+      "set": true
+    },
+    {
+      "drive": "C:\\",
+      "key": "TEMP",
+      "set": true
+    },
+    {
+      "drive": "C:\\",
+      "key": "TMP",
+      "set": true
+    }
+  ],
+  "context_budgets": [
+    {
+      "context": 512,
+      "kv_budget_bytes": 16777216,
+      "max_input_including_template": 384,
+      "max_output": 128,
+      "planning_peak_bytes": 4398902336,
+      "planning_peak_gib": 4.097,
+      "raw_f16_kv_bytes": 14680064,
+      "scratch_budget_mib": 512
+    },
+    {
+      "context": 1024,
+      "kv_budget_bytes": 29360128,
+      "max_input_including_template": 896,
+      "max_output": 128,
+      "planning_peak_bytes": 4545702976,
+      "planning_peak_gib": 4.234,
+      "raw_f16_kv_bytes": 29360128,
+      "scratch_budget_mib": 640
+    },
+    {
+      "context": 2048,
+      "kv_budget_bytes": 58720256,
+      "max_input_including_template": 1920,
+      "max_output": 128,
+      "planning_peak_bytes": 4843498560,
+      "planning_peak_gib": 4.511,
+      "raw_f16_kv_bytes": 58720256,
+      "scratch_budget_mib": 896
+    }
+  ],
+  "cost_usd": 0,
+  "downloads": 0,
+  "exact_hf_cached_model_found": false,
+  "existing_host_dlls": [
+    {
+      "FileVersion": "14.50.35719.0",
+      "Length": 123472,
+      "Name": "vcruntime140.dll"
+    },
+    {
+      "FileVersion": "14.50.35719.0",
+      "Length": 47264,
+      "Name": "vcruntime140_1.dll"
+    },
+    {
+      "FileVersion": "14.50.35719.0",
+      "Length": 553552,
+      "Name": "msvcp140.dll"
+    },
+    {
+      "FileVersion": "10.0.26100.9711 (WinBuild.160101.0800)",
+      "Length": 1399656,
+      "Name": "ucrtbase.dll"
+    },
+    {
+      "FileVersion": "14.50.35719.0",
+      "Length": 213064,
+      "Name": "vcomp140.dll"
+    }
+  ],
+  "formal_answer_accuracy": "NOT_MEASURED",
+  "formal_asr": "NOT_MEASURED",
+  "host": {
+    "cpu": [
+      {
+        "Architecture": 9,
+        "Name": "AMD Ryzen 7 5700X 8-Core Processor             ",
+        "NumberOfCores": 8,
+        "NumberOfLogicalProcessors": 16
+      }
+    ],
+    "features": {
+      "AVX": true,
+      "AVX2": true,
+      "AVX512F": false,
+      "BMI1": true,
+      "BMI2": true,
+      "F16C": true,
+      "FMA": true,
+      "SSE42": true
+    },
+    "os": {
+      "BuildNumber": "26200",
+      "Caption": "Microsoft Windows 11 专业版",
+      "FreePhysicalMemory": 13456304,
+      "FreeVirtualMemory": 23254124,
+      "OSArchitecture": "64 位",
+      "TotalVirtualMemorySize": 49204104,
+      "TotalVisibleMemorySize": 33475464,
+      "Version": "10.0.26200"
+    },
+    "ram": {
+      "AvailableBytes": 13747617792,
+      "CommitLimit": 50385002496,
+      "CommittedBytes": 26610159616
+    },
+    "utc": "2026-11-10T03:08:05.6070122Z",
+    "volumes": [
+      {
+        "DeviceID": "C:",
+        "FileSystem": "NTFS",
+        "FreeSpace": 71349084160,
+        "Size": 321147367424
+      },
+      {
+        "DeviceID": "D:",
+        "FileSystem": "NTFS",
+        "FreeSpace": 357295796224,
+        "Size": 839667150848
+      },
+      {
+        "DeviceID": "E:",
+        "FileSystem": "NTFS",
+        "FreeSpace": 361388318720,
+        "Size": 838272618496
+      }
+    ]
+  },
+  "human_gold": 0,
+  "inference": 0,
+  "installs": 0,
+  "license": "UNKNOWN_PACKAGE_COMPLETE",
+  "loads": 0,
+  "model": {
+    "actual_embedded_tokenizer_metadata": "UNKNOWN_ASSET_BODY_UNREAD",
+    "asset_signature": "UNKNOWN",
+    "bytes": 1117320736,
+    "filename": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+    "lfs_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+    "license": "Apache-2.0",
+    "license_bytes": 11343,
+    "license_sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+    "pointer_git_blob_sha1": "eca68f83004d8b86fa1742ee507ddee8f4b2abce",
+    "repo": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+    "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+    "sidecar_files_required_by_official_recipe": 0,
+    "xet_hash": "6ca5463cf24c16cd56d7ad7461524d813b07b3f29889b2fbdbb8286a7e97a14a"
+  },
+  "model_api_calls": 0,
+  "new_scientific_runs": 0,
+  "owner": "W1-OD-20261110-5060-QWEN-GGUF-READONLY-21",
+  "owner_commit": "abd37eb72169168ea7ff9b2934f10334ce489dcf",
+  "path_cpu_runtime_found": false,
+  "preflight_head": "169d0df261dff6031dacc4b0f2d97b59ea574f94",
+  "private_evidence": {
+    "members_sha256": {
+      "boringssl_license.json": "9c9de9ab86916efe20ba5e7f024778034b91609d33679507b08a946e2527fb56",
+      "build_entry.json": "e3d0bc726d918b3283e2a02c7ad317922d078325ad222970319d2b4d7586b3ab",
+      "cache_probe.json": "77bffcc98ca2612f60f5cae561de4cfa223e915fa7df794962b73a83668b68fa",
+      "cli_build.json": "610516ea2f3b823f06dd16e40534b2a8bb17351bb356283edb5621dd6c389b1a",
+      "cli_docs.json": "657ea86d5f05801e3052533e6192d8feadabe0110b969e8218d0a5e43ff9010e",
+      "cli_flags.json": "385c5a767b9d377a260d1b5b6c6ba9add177cd5fde6252c96ee7586a83c67302",
+      "commands_and_observations.json": "f5a0f76d22061855d3e069564785b123a3852b6c16a5c849eb1d340f1875a646",
+      "cpu_cmake.json": "13a358f80cabf59aede0af7346edf4292c157f44e4dba060f3c08dec69132bd9",
+      "cpu_docs.json": "782fa321b3a3466907abcae0e96b4acf76ac2bf0ef73424e4e4969322a915bb0",
+      "cpu_workflow.json": "6ace381bf5c40b4877c69dcf60df69fb557ea925058d83764eab53093462588d",
+      "ggml_build.json": "ad4e11fec9da975ef84f2e65655da3959d78892f14425033c7f56023c94d4493",
+      "ggml_options.json": "5ad359b4aa7c03bf8c2c56ec6276dfb46e8fdbe59e77663bdbff6b74d1c281d4",
+      "hf_card_fixed.json": "fe5aa07859fc8bb1ec8bf8ade2fd23d793c236d258a7499606b044224cda889c",
+      "hf_gguf_hub_head.json": "048ed1d0f0b8a19fc5c203f1f0adf4d72bbc02a6db9fbc18a06facc9e48a2726",
+      "hf_license_metadata.json": "05dd78fabf2a494977b4650dd85d8d9fb5148f69911bf655db31f270fa908402",
+      "hf_model_revision.json": "a4c5b2f8179c0a7f6ef57968831ff6b94430f6fc105a18c958aae78f0d19bbc3",
+      "hf_model_tree.json": "3a591170a2f3a1437d7b4ce555d0d087fa4defa977e565fbc805ccbec9aa501c",
+      "host_cache_and_dll_metadata.json": "73fe71462ad721813fb6798efb03ff71ff725a40bf2c582108672b3fbc208741",
+      "kv_source.json": "b5501842fd63d258262bbbb91bc362fff8681e7168c08e176aae693348b625d5",
+      "legacy_release.json": "29526f76a4d46a7b4e676513c6592f6fedf630366f022238996bf129eb423b9a",
+      "llama_commit.json": "3287a5aef034a4241c4c08ec8b9a436dbb3ad7f6fe4d4f7ea3015e2d150b5ea8",
+      "llama_cpu_asset.json": "6966e15d90ac30d5b7c8626b654d347fef530b8e313da5b8cb5c1c27a48e6503",
+      "llama_cpu_attestations.json": "78c2a476cc4914d5c4b633f0b34833b722d92156eb537b19b064df06a14c7ee0",
+      "llama_release.json": "a295fc3b67393d16acd06a3e0e27eb5bb945be74beb13b5ea74ecc04493cccda",
+      "llama_source_index.json": "b6b92147b1c506d38a92b6de6bbf3857d6892d2d3139e56e4714234f5dfe6cc2",
+      "llama_tag.json": "dc374cb4f86391b8f058fe3d6b10a1b969f7b6b57ef6fd021fa59785cb2f2fef",
+      "llvm_openmp_license.json": "dc6ec47fac53fb1787cbbd72132ddbe2ecdb0c897e7b075f6be8ffa09d282bfe",
+      "make_release.json": "cb990034c31b94e775cc636978a6883ead1742a4329aee0b84259092b1c0cb0c",
+      "publish_workflow.json": "46767ceddc0018d24fae1bf90877911b0e3542d2a9518526089a102c1102002d",
+      "qwen_base_architecture_reference.json": "7c286c286eb13774ee8b4386f49e03fe18ab911463841f9a71915dafb9ba5bbf",
+      "runtime_common_cmake.json": "90aee4ca52af3167b142e471f74d85f64dba314d3f294003e87ae86fc7d892ac",
+      "runtime_http_vendor_cmake.json": "a1c6916c4b790a8a5628be50537b745c77ef8e12757f4dede2ee1fa04c38c393",
+      "runtime_license.json": "f548956caef17b769a3aba0f4369e0de364d0383220f5c9d86c2494be5ba3486",
+      "top_cmake.json": "8b6354f13820d235fa3940e87660c1fc7312d67d5d7af11956bdc28a35de1f05",
+      "win_toolchain.json": "53e9242303fdaafcda080c927a6e7f900a0a17be360638889c47b3155f3cbf21",
+      "windows_host.json": "61b15ba84eeafb95e2aedf8511f9a9cb6a780a05e5d9fbce766deb1087975df2"
+    },
+    "zip_sha256": "7895f7ef2c28e6b7411112bf71140b17cd6b1160b614fc6662b4b132ebf4a816"
+  },
+  "proposed_limits": {
+    "asset_transfer_max_bytes": 1142252137,
+    "disk_free_reserve_gib": 10,
+    "host_available_start_gib": 9,
+    "host_commit_headroom_start_gib": 9,
+    "host_remaining_stop_gib": 4,
+    "logical_batch": 64,
+    "max_output": 128,
+    "new_disk_peak_gib": 4,
+    "parallel_sequences": 1,
+    "physical_ubatch": 32,
+    "process_ram_cap_gib": 5,
+    "threads": 6,
+    "unpacked_zip_limit_mib": 512
+  },
+  "resource": "BLOCKED_PEAK_UNPROVEN",
+  "runtime": "BLOCKED_MEMBER_AND_PE_DEPENDENCY_PROOF",
+  "runtime_asset": {
+    "asset_id": 729746535,
+    "attestation_metadata_subject_and_commit": "MATCH",
+    "boringssl_build_tag": "0.20261105.0",
+    "bytes": 24931401,
+    "commit": "3b4d6ab3f79651935fba1dd93732f29022a7f5f5",
+    "filename": "llama-b12242-bin-win-cpu-x64.zip",
+    "openmp": "LLVM 20.1.8",
+    "openmp_license_sha256": "fdad1758a9e1f9d5a81e18879b3406772115edc92c24bfa36b70c654f325e8e4",
+    "pe_import_and_vc_minimum": "UNKNOWN",
+    "per_member_inventory": "UNKNOWN",
+    "prerelease": true,
+    "release_id": 439859799,
+    "release_immutable": false,
+    "sha256": "4723cd1f1b10169b6ca681f787ea37238e449b1c56538b4b90c71a82fad949a0",
+    "signature_verified_against_local_asset": false,
+    "source_license": "MIT",
+    "source_license_sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d",
+    "tag": "b12242"
+  },
+  "s2_s5": "LOCKED",
+  "status": "READONLY_AUDIT_COMPLETE / HUMAN_DECISION_REQUIRED",
+  "task_id": "W1-5060-OWNER21-QWEN-GGUF-ADMISSION-20261110-01"
+}
