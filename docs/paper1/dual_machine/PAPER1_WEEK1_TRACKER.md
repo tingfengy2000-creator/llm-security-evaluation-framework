@@ -1,5 +1,13 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-10｜Owner22：Qwen GGUF两件固定资产受限下载+静态验包（获批未执行）
+
+Owner22 `W1-OD-20261110-5060-QWEN-GGUF-ASSET-22` 承接Owner21单模型只读审计的唯一待批事项，**仅准入两件固定字节资产并进行非执行性检查**。Qwen`Q4_K_M@91cad51170dc346986eccefdc2dd33a9da36ead9`文件1,117,320,736字节、sha256`6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e`；llama.cpp Windows x64 CPU `b12242` ZIP24,931,401字节、sha256`4723cd1f1b10169b6ca681f787ea37238e449b1c56538b4b90c71a82fad949a0`。两件正文传输硬上限1,142,252,137字节；D盘新增≤4GiB、解压≤512MiB、D盘余量≥10GiB，静态核GGUF头/tokenizer、ZIP成员与安全、第三方notice、PE/DLL依赖，不允许额外权重/依赖、自动重试、更换资产、运行任何EXE、加载模型或推理。Release预发布且immutable=false，下载本地sha必核。
+
+**当前授权登记时：`OWNER22_ASSET_DOWNLOAD_STATIC_ONLY_APPROVED_NOT_RUN / MODEL_RUNTIME_BLOCKED / RESOURCE_PEAK_UNPROVEN / MODEL_LOAD_INFERENCE_NOT_AUTHORIZED`。** 保留Owner20 NO_GO、R2 K1-C、旧S1失败、HumanGold0，正式ASR/Accuracy未测、S2–S5及5090 Claims继续锁。执行结束后STOP另报下一道smoke审批，不能自动继续。
+
+[Owner22 PO-MHEP授权](owner_approvals/W1_5060_OWNER22_FIXED_QWEN_GGUF_ASSET_ACQUISITION_STATIC_INSPECTION_AUTH_20261110.md) · [5060生效执行Prompt](chinese5060/W1_5060_OWNER22_QWEN_GGUF_ASSET_STATIC_ACQUISITION_EXECUTION_PROMPT_V1.md)。
+
 ## 2026-11-10｜5060 Owner21 单模型只读审计完成
 
 `READONLY_AUDIT_COMPLETE / HUMAN_DECISION_REQUIRED / AUTO_CONTINUE=NO`。Qwen 官方 Q4_K_M 与 llama.cpp b12242 Windows x64 CPU 发布身份和固定摘要均已核对。Qwen Apache-2.0、llama.cpp 源码 MIT，运行时整包第三方声明、PE 依赖和峰值仍未闭合。主机约 12.80 GiB 可用 RAM，规划峰值最高约 4.51 GiB，资源门仍阻断。
@@ -44,7 +52,7 @@ Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的�
 
 [Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
 
-**更新于 2026-11-10 JST · 版本 18 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-10 JST · 版本 19 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
