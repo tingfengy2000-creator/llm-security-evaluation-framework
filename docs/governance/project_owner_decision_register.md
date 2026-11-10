@@ -1,5 +1,15 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261110-5060-QWEN-GGUF-ASSET-22｜Owner22两项固定资产下载及静态验包（2026-11-10 JST）
+
+`OWNER_EXPLICITLY_APPROVED / TWO_ASSET_DOWNLOAD_AND_STATIC_INSPECTION_ONLY / EXECUTION_APPROVED_NOT_RUN`。Owner明确“请继续”，承接Owner21完成只读准入后唯一待决事项——只获取两项固定模型资产并静态验包。允许5060仅在独立分支下载固定`Qwen/Qwen2.5-1.5B-Instruct-GGUF@91cad51170dc346986eccefdc2dd33a9da36ead9`的`qwen2.5-1.5b-instruct-q4_k_m.gguf`（1,117,320,736字节、sha256`6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e`）及`ggml-org/llama.cpp b12242`固定Windows CPU ZIP`llama-b12242-bin-win-cpu-x64.zip`（24,931,401字节、sha256`4723cd1f1b10169b6ca681f787ea37238e449b1c56538b4b90c71a82fad949a0`）。**两文件正文传输合计硬上限1,142,252,137字节**，各一次，D盘受控目录新增峰值≤4GiB、ZIP解包≤512MiB、余量≥10GiB，仅静态哈希、ZIP/第三方notice/PE导入/GGUF头检查。不得超额下载、自动重试、额外模型/依赖、安装、加载、执行exe（包含--help）、内存smoke或推理。运行时`immutable=false`须实际字节哈希核实；授权并不代表License整包或Runtime/RAM已通过。
+
+保留Owner20 Rule-V1/V2 `FEASIBILITY_NO_GO`、旧S1 FAIL、R2 K1-C，D1开发定位、D2/D3、5090 Meta Llama2/Claims门与S2–S5均不变。HumanGold=0、正式ASR/AnswerAccuracy未测。**此项仅授权，未声称已下载、已验包或已开展科学试次。** 下载/静态验包结束须独立审计封存、Git commit/push、STOP `Auto Continue=NO`，后续受控smoke另需Owner批准。
+
+[Owner22十二字段授权](../paper1/dual_machine/owner_approvals/W1_5060_OWNER22_FIXED_QWEN_GGUF_ASSET_ACQUISITION_STATIC_INSPECTION_AUTH_20261110.md) · [5060可执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_OWNER22_QWEN_GGUF_ASSET_STATIC_ACQUISITION_EXECUTION_PROMPT_V1.md)。
+
+
+
 ## W1-OD-20261110-5060-QWEN-GGUF-READONLY-21｜Owner21 路线裁决：Rule-only退为基线，Qwen GGUF仅准许只读准入（2026-11-10 JST）
 
 `OWNER_EXPLICITLY_APPROVED / STOP_RULE_ONLY_PRIMARY / QWEN_GGUF_READONLY_ADMISSION_APPROVED_NOT_RUN`。Owner对上一轮具体提议回复“批准”：停止Rule-V2作为主要开放中文事实候选抽取器，保留冻结Rule-V1/V2作对照与确定性原文span/scope校验；将此前Owner选择的规则+本地模型Route B作为下一候选研究方向。5060可**只读**核查唯一官方`Qwen/Qwen2.5-1.5B-Instruct-GGUF` Q4_K_M（官方模型卡Apache-2.0、约1.12GB文件）及固定`llama.cpp` Windows x64 CPU运行时的具体权重revision/SHA、许可、CPU/RAM/D/E与C盘缓存边界、估算峰值和离线停止门。官方模型及运行时具体固定资产身份、许可和资源兼容性仍待审计，**不表示已经准入**。旧Owner20单次Rule-V1/V2 100主+20从属 `FEASIBILITY_NO_GO`、旧S1 FAIL和R2 K1-C不可覆盖；旧73、已评100+20均变为已暴露开发诊断、HumanGold0、正式ASR/AnswerAccuracy未测。
