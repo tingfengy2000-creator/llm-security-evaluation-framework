@@ -1,5 +1,14 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## 2026-11-11｜Owner27公开中文版本化证据同TopK离线试次（授权登记，无新实测）
+
+`PROTOCOL_AUTHORIZED / NO_RUN_ID_YET / METRICS_NOT_MEASURED`。
+
+Owner27有界批准已登记，**登记时科学新试次仍为0，执行由5060 Codex另行启动**。先按固定源事实DEV 4组×8情境(计划32世界)运行离线同TopK5 T0/T1七臂；EVAL 4个未暴露事实组×8情境(计划32世界)必须来源谱系、角色隔离和来源使用权闭合才允许一次性运行。若无人类双评，评分仅AGENT_PROVISIONAL，HumanGold0。新增商业API/下载/费用0；旧Owner26 D1-28仍0/84、D2/D3/HOLD8/5090封锁。方法必须优于获得同样来源凭据的简单规则，才有新方法候选资格。
+
+[Owner27正式有界授权](../paper1/dual_machine/owner_approvals/W1_5060_OWNER27_PUBLIC_VERSION_OFFLINE_FASTTRACK_20261111.md) · [5060执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_OWNER27_PUBLIC_VERSION_OFFLINE_FASTTRACK_EXECUTION_PROMPT_V1.md)
+
+
 ## 2026-11-11｜5060 公开中文版本来源预检完成
 
 `PREFLIGHT_ONLY / SCIENCE_NOT_RUN / HUMAN_GOLD=0 / NEXT_OWNER_APPROVAL_REQUIRED / AUTO_CONTINUE=NO`。
