@@ -1,5 +1,17 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-10｜5060 Owner23A 静态复核完成，受控加载待批
+
+`OWNER23A_STATIC_COMPLETE / OWNER23B_SMOKE_PENDING_OWNER / MODEL_LOAD_INFERENCE_NOT_AUTHORIZED / S2_S5_LOCKED / AUTO_CONTINUE=NO`。
+
+Run W1-5060-OWNER23A-SCOPED-STATIC-20261110-01。CLI 静态 2,911/2,911 个符号、73/73 个 API-set 配对均解析，前沿 0。Owner22 两件资产、52 个解包成员及原证据哈希复核通过。整包许可、VC 最低版本、实际 CPU 后端仍为 UNKNOWN，峰值内存未测。历史迁移 QA 的 ACL 偏差已登记并保留。
+
+新增下载、安装、发行 EXE/DLL 启动、模型加载、推理、API 与科学试次均为 0。Owner20 NO_GO、旧 S1 FAIL、R2 K1-C、Human Gold 0、正式 ASR/Accuracy 未测保留。下一门是单独批准 Owner23B 本机 load-only smoke，当前停止。 仅更新 5060，5090 沿用历史快照。
+
+私有审计 ZIP 73 件，SHA256 fcde11120eecca20a1ea8398f22db35175853b4a5c9f200314cb46befa0bc589。
+
+[静态报告](chinese5060/vesa_guard_reviewer_replan/W1_5060_OWNER23A_SCOPED_STATIC_AUDIT_RESULT.md) · [Run Manifest](chinese5060/vesa_guard_reviewer_replan/W1_5060_OWNER23A_SCOPED_STATIC_RUN_MANIFEST.json)
+
 ## 2026-11-10｜Owner23A 批准收敛式静态PE/API-set/许可复核（授权未执行）
 
 Owner决策`W1-OD-20261110-5060-OWNER23A-SCOPED-STATIC-23A`。明确批准仅针对已下载且哈希锁定的Qwen GGUF和llama.cpp b12242资产执行**静态审计工程修正**，以`llama-cli.exe`与必要CPU后端为实际范围、只读核API-set/PE DLL、VC与第三方许可、D盘QA残留。Owner允许5060自主修复本任务内静态检查脚本/普通单测，无需微观审批；旧Owner22 512节点预算、29前沿、43件审计私有档案、两个固定SHA不覆盖。模型可执行文件启动、模型加载、RAM Smoke、推理、科学试次、模型/运行时/依赖下载均未获批准，Owner23B单独决策。旧Owner20规则`FEASIBILITY_NO_GO`、S1 FAIL、R2 K1-C、HumanGold0、正式ASR/AnswerAccuracy未测、S2–S5及5090 Claims仍锁。
@@ -80,7 +92,7 @@ Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的�
 
 [Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
 
-**更新于 2026-11-10 JST · 版本 22 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-10 JST · 版本 23 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
@@ -267,6 +279,7 @@ R1 源附件由 Owner 提供，公开记录含原件摘要与 SHA-256。[R1 修�
 
 | 日期（JST） | 版本 | 变更与核验基点 |
 | --- | --- | --- |
+| 2026-11-10 | 23 | 5060 完成 Owner23A 静态审计，CLI 和 API-set 通过，Owner23B 实际加载待批。 |
 | 2026-11-10 | 20 | 5060 两件固定资产字节核验、GGUF 与 ZIP 安全检查通过；许可及 PE 依赖未闭合，运行仍锁定。 |
 | 2026-11-10 | 18 | 5060 完成 Owner21 单模型只读审计，资产身份闭合，运行时与资源准入待证。 |
 | 2026-11-10 | 15 | 5060 Owner20 单次评价已完成，两臂均未达可行性门，锁定后续阶段。 |

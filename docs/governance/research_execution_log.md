@@ -1,5 +1,17 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-10｜5060 Owner23A 静态复核完成，受控加载待批
+
+`OWNER23A_STATIC_COMPLETE / OWNER23B_SMOKE_PENDING_OWNER / MODEL_LOAD_INFERENCE_NOT_AUTHORIZED / S2_S5_LOCKED / AUTO_CONTINUE=NO`。
+
+Run W1-5060-OWNER23A-SCOPED-STATIC-20261110-01。CLI 静态 2,911/2,911 个符号、73/73 个 API-set 配对均解析，前沿 0。Owner22 两件资产、52 个解包成员及原证据哈希复核通过。整包许可、VC 最低版本、实际 CPU 后端仍为 UNKNOWN，峰值内存未测。历史迁移 QA 的 ACL 偏差已登记并保留。
+
+新增下载、安装、发行 EXE/DLL 启动、模型加载、推理、API 与科学试次均为 0。Owner20 NO_GO、旧 S1 FAIL、R2 K1-C、Human Gold 0、正式 ASR/Accuracy 未测保留。下一门是单独批准 Owner23B 本机 load-only smoke，当前停止。
+
+私有审计 ZIP 73 件，SHA256 fcde11120eecca20a1ea8398f22db35175853b4a5c9f200314cb46befa0bc589。
+
+[静态报告](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_OWNER23A_SCOPED_STATIC_AUDIT_RESULT.md) · [Run Manifest](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_OWNER23A_SCOPED_STATIC_RUN_MANIFEST.json)
+
 ## W1-OD-20261110-5060-OWNER23A-SCOPED-STATIC-23A｜Owner23A 收敛式静态PE/API-set及整包许可复核获批（2026-11-10 JST）
 
 `OWNER_EXPLICITLY_APPROVED / GATE23A_SCOPED_STATIC_APPROVED_NOT_RUN`。Owner明确“我这次批准Owner23A”，同时要求减少确定性高的普通工程修复审批往返。5060只准在已取得并封存的Qwen GGUF Q4_K_M与llama.cpp b12242 Windows CPU资产上，使用已有工具/系统文件执行**非执行性**静态检查：以`llama-cli.exe`及必要CPU后端为根收敛PE导入闭包、API-set映射、Windows DLL/VC版本条件、第三方许可逐组件覆盖、D盘残留核对，保留Owner22原512节点/29前沿/PE未知项证据；独立新脚本与普通单测可自主修复和反复运行，不必微观审批，任何未知必须明确标`UNKNOWN`。

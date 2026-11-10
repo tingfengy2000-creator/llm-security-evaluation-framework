@@ -1,5 +1,17 @@
 # Paper 1 人类可读实验总规划与实验总账
 
+## 2026-11-10｜5060 Owner23A 静态复核完成，受控加载待批
+
+`OWNER23A_STATIC_COMPLETE / OWNER23B_SMOKE_PENDING_OWNER / MODEL_LOAD_INFERENCE_NOT_AUTHORIZED / S2_S5_LOCKED / AUTO_CONTINUE=NO`。
+
+Run W1-5060-OWNER23A-SCOPED-STATIC-20261110-01。CLI 静态 2,911/2,911 个符号、73/73 个 API-set 配对均解析，前沿 0。Owner22 两件资产、52 个解包成员及原证据哈希复核通过。整包许可、VC 最低版本、实际 CPU 后端仍为 UNKNOWN，峰值内存未测。历史迁移 QA 的 ACL 偏差已登记并保留。
+
+新增下载、安装、发行 EXE/DLL 启动、模型加载、推理、API 与科学试次均为 0。Owner20 NO_GO、旧 S1 FAIL、R2 K1-C、Human Gold 0、正式 ASR/Accuracy 未测保留。下一门是单独批准 Owner23B 本机 load-only smoke，当前停止。
+
+私有审计 ZIP 73 件，SHA256 fcde11120eecca20a1ea8398f22db35175853b4a5c9f200314cb46befa0bc589。
+
+[静态报告](../../../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_OWNER23A_SCOPED_STATIC_AUDIT_RESULT.md) · [Run Manifest](../../../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_OWNER23A_SCOPED_STATIC_RUN_MANIFEST.json)
+
 ## 2026-11-10｜5060 Owner22 固定资产已获取，运行准入继续阻断
 
 `OWNER22_ASSET_STATIC_INSPECTION_BLOCKED / MODEL_EXECUTION_NOT_AUTHORIZED / PEAK_MEMORY_NOT_PROVEN / AUTO_CONTINUE=NO`。两件固定资产各一次，实际正文 1,142,252,137 字节，SHA256 和长度均通过。GGUF 头和 52 件 ZIP 安全验包通过；整包许可与 Windows PE 运行闭包仍待证。

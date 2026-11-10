@@ -1,0 +1,888 @@
+{
+  "run_id": "W1-5060-OWNER23A-SCOPED-STATIC-20261110-01",
+  "branch": "research/paper1-chinese-defense-5060",
+  "pre_run_remote_head": "777f207877b10b85c2e558b26e715a8e575e3f10",
+  "authority": "W1-OD-20261110-5060-OWNER23A-SCOPED-STATIC-23A",
+  "authority_commit": "17f8e622209ea77afa58d82ea813a4f179eb35f3",
+  "state": "OWNER23A_STATIC_COMPLETE",
+  "static_cli_dependencies": "PASS",
+  "api_set": "PASS",
+  "package_license": "UNKNOWN",
+  "vc_compat": "UNKNOWN",
+  "dynamic_cpu_backend": "UNKNOWN",
+  "actual_runtime_memory": "NOT_MEASURED",
+  "smoke": "OWNER23B_SMOKE_PENDING_OWNER",
+  "auto_continue": false,
+  "assets": [
+    {
+      "bytes": 1117320736,
+      "file": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+      "sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e"
+    },
+    {
+      "bytes": 24931401,
+      "file": "llama-b12242-bin-win-cpu-x64.zip",
+      "sha256": "4723cd1f1b10169b6ca681f787ea37238e449b1c56538b4b90c71a82fad949a0"
+    }
+  ],
+  "owner22_manifest_sha256": "e333ee648ecb655a3e4ea5b5a9ff93bddd5442f4ab6cc554f2444fd48aaa7ea0",
+  "owner22_archive_sha256": "faa281e7e4a14f2bc11a292b6e42e94f42421c7a4152ec55f4212ad01a708247",
+  "verified_zip_members": 52,
+  "historical_package_pe_inventory": 51,
+  "windows": {
+    "CurrentBuildNumber": "26200",
+    "DisplayVersion": "25H2",
+    "InstallationType": "Client",
+    "UBR": "9711"
+  },
+  "api_schema": {
+    "bytes": 204152,
+    "contracts": 985,
+    "machine": "AMD64",
+    "sha256": "568c72f6216d83a716d6fa9bec59ae8d93e6728062d969ac362013f3910c0007",
+    "subsystem_version": [
+      10,
+      0
+    ],
+    "version": 6
+  },
+  "cli_scope": {
+    "depth_cap": 20,
+    "entity_cap": 2048,
+    "file_size_cap": 134217728,
+    "scope": "package imports and necessary named OS exports/forwarders",
+    "wall_seconds": 120
+  },
+  "cli": {
+    "root": "llama-cli.exe",
+    "package_entities": [
+      "ggml-base.dll",
+      "ggml.dll",
+      "libomp.dll",
+      "llama-cli-impl.dll",
+      "llama-cli.exe",
+      "llama-common.dll",
+      "llama-server-impl.dll",
+      "llama.dll",
+      "mtmd.dll"
+    ],
+    "direct_descriptors": 122,
+    "delay_descriptors": 0,
+    "binding_counts": {
+      "RESOLVED": 2911
+    },
+    "bindings_with_forwarders": 78,
+    "package_frontier": [],
+    "api_set_importer_contract_pairs": 73,
+    "api_set_mapping": [
+      {
+        "contract": "api-ms-win-core-memory-l1-1-1.dll",
+        "host": "kernelbase.dll",
+        "schema_entry": "api-ms-win-core-memory-l1-1-9",
+        "importer_count": 1
+      },
+      {
+        "contract": "api-ms-win-core-processthreads-l1-1-0.dll",
+        "host": "kernelbase.dll",
+        "schema_entry": "api-ms-win-core-processthreads-l1-1-8",
+        "importer_count": 1
+      },
+      {
+        "contract": "api-ms-win-core-synch-l1-2-0.dll",
+        "host": "kernelbase.dll",
+        "schema_entry": "api-ms-win-core-synch-l1-2-1",
+        "importer_count": 1
+      },
+      {
+        "contract": "api-ms-win-core-sysinfo-l1-1-0.dll",
+        "host": "kernelbase.dll",
+        "schema_entry": "api-ms-win-core-sysinfo-l1-1-1",
+        "importer_count": 1
+      },
+      {
+        "contract": "api-ms-win-crt-convert-l1-1-0.dll",
+        "host": "ucrtbase.dll",
+        "schema_entry": "api-ms-win-crt-convert-l1-1-0",
+        "importer_count": 6
+      },
+      {
+        "contract": "api-ms-win-crt-environment-l1-1-0.dll",
+        "host": "ucrtbase.dll",
+        "schema_entry": "api-ms-win-crt-environment-l1-1-0",
+        "importer_count": 7
+      },
+      {
+        "contract": "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "host": "ucrtbase.dll",
+        "schema_entry": "api-ms-win-crt-filesystem-l1-1-0",
+        "importer_count": 5
+      },
+      {
+        "contract": "api-ms-win-crt-heap-l1-1-0.dll",
+        "host": "ucrtbase.dll",
+        "schema_entry": "api-ms-win-crt-heap-l1-1-0",
+        "importer_count": 8
+      },
+      {
+        "contract": "api-ms-win-crt-locale-l1-1-0.dll",
+        "host": "ucrtbase.dll",
+        "schema_entry": "api-ms-win-crt-locale-l1-1-0",
+        "importer_count": 6
+      },
+      {
+        "contract": "api-ms-win-crt-math-l1-1-0.dll",
+        "host": "ucrtbase.dll",
+        "schema_entry": "api-ms-win-crt-math-l1-1-0",
+        "importer_count": 7
+      },
+      {
+        "contract": "api-ms-win-crt-runtime-l1-1-0.dll",
+        "host": "ucrtbase.dll",
+        "schema_entry": "api-ms-win-crt-runtime-l1-1-0",
+        "importer_count": 8
+      },
+      {
+        "contract": "api-ms-win-crt-stdio-l1-1-0.dll",
+        "host": "ucrtbase.dll",
+        "schema_entry": "api-ms-win-crt-stdio-l1-1-0",
+        "importer_count": 7
+      },
+      {
+        "contract": "api-ms-win-crt-string-l1-1-0.dll",
+        "host": "ucrtbase.dll",
+        "schema_entry": "api-ms-win-crt-string-l1-1-0",
+        "importer_count": 7
+      },
+      {
+        "contract": "api-ms-win-crt-time-l1-1-0.dll",
+        "host": "ucrtbase.dll",
+        "schema_entry": "api-ms-win-crt-time-l1-1-0",
+        "importer_count": 4
+      },
+      {
+        "contract": "api-ms-win-crt-utility-l1-1-0.dll",
+        "host": "ucrtbase.dll",
+        "schema_entry": "api-ms-win-crt-utility-l1-1-0",
+        "importer_count": 4
+      }
+    ],
+    "import_summary": [
+      {
+        "importer": "ggml-base.dll",
+        "package": [
+          "libomp.dll"
+        ],
+        "system32": [
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "known_dll": [
+          "kernel32.dll"
+        ],
+        "api_set_descriptors": 9,
+        "bindings": 94
+      },
+      {
+        "importer": "ggml.dll",
+        "package": [
+          "ggml-base.dll"
+        ],
+        "system32": [
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "known_dll": [
+          "kernel32.dll"
+        ],
+        "api_set_descriptors": 5,
+        "bindings": 74
+      },
+      {
+        "importer": "libomp.dll",
+        "package": [],
+        "system32": [],
+        "known_dll": [
+          "kernel32.dll",
+          "psapi.dll"
+        ],
+        "api_set_descriptors": 0,
+        "bindings": 117
+      },
+      {
+        "importer": "llama-cli-impl.dll",
+        "package": [
+          "llama-server-impl.dll",
+          "llama-common.dll",
+          "llama.dll"
+        ],
+        "system32": [
+          "msvcp140.dll",
+          "crypt32.dll",
+          "vcruntime140.dll"
+        ],
+        "known_dll": [
+          "ws2_32.dll",
+          "kernel32.dll"
+        ],
+        "api_set_descriptors": 11,
+        "bindings": 329
+      },
+      {
+        "importer": "llama-cli.exe",
+        "package": [
+          "llama-cli-impl.dll"
+        ],
+        "system32": [
+          "vcruntime140.dll"
+        ],
+        "known_dll": [
+          "kernel32.dll"
+        ],
+        "api_set_descriptors": 5,
+        "bindings": 35
+      },
+      {
+        "importer": "llama-common.dll",
+        "package": [
+          "llama.dll",
+          "ggml.dll",
+          "ggml-base.dll"
+        ],
+        "system32": [
+          "msvcp140.dll",
+          "crypt32.dll",
+          "vcruntime140.dll",
+          "vcruntime140_1.dll"
+        ],
+        "known_dll": [
+          "kernel32.dll",
+          "ws2_32.dll"
+        ],
+        "api_set_descriptors": 11,
+        "bindings": 595
+      },
+      {
+        "importer": "llama-server-impl.dll",
+        "package": [
+          "llama-common.dll",
+          "mtmd.dll",
+          "llama.dll",
+          "ggml-base.dll",
+          "ggml.dll"
+        ],
+        "system32": [
+          "msvcp140.dll",
+          "crypt32.dll",
+          "vcruntime140.dll",
+          "vcruntime140_1.dll"
+        ],
+        "known_dll": [
+          "ws2_32.dll",
+          "kernel32.dll"
+        ],
+        "api_set_descriptors": 11,
+        "bindings": 739
+      },
+      {
+        "importer": "llama.dll",
+        "package": [
+          "ggml.dll",
+          "ggml-base.dll"
+        ],
+        "system32": [
+          "msvcp140.dll",
+          "vcruntime140.dll",
+          "vcruntime140_1.dll"
+        ],
+        "known_dll": [
+          "kernel32.dll"
+        ],
+        "api_set_descriptors": 9,
+        "bindings": 533
+      },
+      {
+        "importer": "mtmd.dll",
+        "package": [
+          "llama.dll",
+          "ggml.dll",
+          "ggml-base.dll"
+        ],
+        "system32": [
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "known_dll": [
+          "kernel32.dll"
+        ],
+        "api_set_descriptors": 8,
+        "bindings": 395
+      }
+    ]
+  },
+  "named_entities_including_backend_and_vc_inventory": 23,
+  "cpu_backend_package_inventory": [
+    "ggml-cpu-alderlake.dll",
+    "ggml-cpu-cannonlake.dll",
+    "ggml-cpu-cascadelake.dll",
+    "ggml-cpu-cooperlake.dll",
+    "ggml-cpu-haswell.dll",
+    "ggml-cpu-icelake.dll",
+    "ggml-cpu-ivybridge.dll",
+    "ggml-cpu-piledriver.dll",
+    "ggml-cpu-sandybridge.dll",
+    "ggml-cpu-sapphirerapids.dll",
+    "ggml-cpu-skylakex.dll",
+    "ggml-cpu-sse42.dll",
+    "ggml-cpu-x64.dll",
+    "ggml-cpu-zen4.dll"
+  ],
+  "cpu_candidates": [
+    {
+      "module": "ggml-cpu-haswell.dll",
+      "status": "PASS",
+      "import_descriptors": 28,
+      "binding_counts": {
+        "RESOLVED": 356
+      },
+      "package_frontier": []
+    },
+    {
+      "module": "ggml-cpu-x64.dll",
+      "status": "PASS",
+      "import_descriptors": 28,
+      "binding_counts": {
+        "RESOLVED": 358
+      },
+      "package_frontier": []
+    }
+  ],
+  "vc_inventory": [
+    {
+      "module": "vcruntime140.dll",
+      "version": "14.50.35719.0",
+      "sha256": "184146852727a9db4eea06178716bec3cdbb1015c911f6b0f915b184ad7775b2",
+      "bytes": 123472,
+      "declared_cli_bindings": 111,
+      "load_or_min_version_proven": false
+    },
+    {
+      "module": "vcruntime140_1.dll",
+      "version": "14.50.35719.0",
+      "sha256": "e6bfb3662ab4b1969a73441dbe35c96d51441b6bff8cf1fe7430bd5b246ca605",
+      "bytes": 47264,
+      "declared_cli_bindings": 3,
+      "load_or_min_version_proven": false
+    },
+    {
+      "module": "msvcp140.dll",
+      "version": "14.50.35719.0",
+      "sha256": "def46aa6a8f72f27bafac0c43334419486a4d1dcdb6c479a8ef7034b3e1fa4cb",
+      "bytes": 553552,
+      "declared_cli_bindings": 488,
+      "load_or_min_version_proven": false
+    },
+    {
+      "module": "ucrtbase.dll",
+      "version": "10.0.26100.9711 (WinBuild.160101.0800)",
+      "sha256": "dedb7611e1abc1ff3852dcac3d4c93a048d729e25b061973b9969f22698f14ca",
+      "bytes": 1399656,
+      "declared_cli_bindings": 550,
+      "load_or_min_version_proven": false
+    },
+    {
+      "module": "msvcrt.dll",
+      "version": "7.0.26100.9711 (WinBuild.160101.0800)",
+      "sha256": "fc1447db4e4814cbcb002179a8003a41f383fc417879f628727043cab8c25093",
+      "bytes": 716104,
+      "declared_cli_bindings": 0,
+      "load_or_min_version_proven": false
+    }
+  ],
+  "host_cpu": {
+    "name": "AMD Ryzen 7 5700X 8-Core Processor",
+    "avx2": true,
+    "avx512f": false,
+    "fma": true,
+    "bmi2": true,
+    "f16c": true,
+    "avx_vnni": false
+  },
+  "notices": {
+    "limits": [
+      "Component-to-binary and redistributed notice coverage not closed for whole archive",
+      "Absence of a whole plaintext notice is not proof of component absence"
+    ],
+    "llvm_notice_matches_shipped_file": true,
+    "notice_text_pins": {
+      "boringssl_license.json": "827c8d8fc207c2392794eef9e00fe246f9f61fdcc132556c275be3dd8c3cd97f",
+      "llvm_openmp_license.json": "fdad1758a9e1f9d5a81e18879b3406772115edc92c24bfa36b70c654f325e8e4",
+      "runtime_license.json": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d"
+    },
+    "owner21_metadata_archive_sha256": "7895f7ef2c28e6b7411112bf71140b17cd6b1160b614fc6662b4b132ebf4a816",
+    "package_license": "UNKNOWN",
+    "source_links": {
+      "boringssl_license.json": "https://boringssl.googlesource.com/boringssl/+/refs/tags/0.20261105.0/LICENSE?format=TEXT",
+      "llvm_openmp_license.json": "https://raw.githubusercontent.com/llvm/llvm-project/llvmorg-20.1.8/openmp/LICENSE.TXT",
+      "runtime_license.json": "https://raw.githubusercontent.com/ggml-org/llama.cpp/3b4d6ab3f79651935fba1dd93732f29022a7f5f5/LICENSE"
+    },
+    "whole_trimmed_notice_bytes_present": {
+      "ggml-base.dll": [],
+      "ggml-cpu-haswell.dll": [],
+      "ggml.dll": [],
+      "libomp.dll": [],
+      "llama-cli-impl.dll": [],
+      "llama-cli.exe": [],
+      "llama-common.dll": [],
+      "llama-connect.exe": [
+        "runtime_license.json",
+        "boringssl_license.json"
+      ],
+      "llama-server-impl.dll": [],
+      "llama.exe": [
+        "runtime_license.json",
+        "boringssl_license.json",
+        "llvm_openmp_license.json"
+      ]
+    }
+  },
+  "host_path_audit": {
+    "drive": "D",
+    "private_acl_allowlist": "SYSTEM, administrators, current user",
+    "disk_free_before": 355960549376,
+    "disk_free_after": 355845980160,
+    "disk_reserve_bytes": 10737418240,
+    "new_audit_unpacked_evidence_cap_bytes": 104857600,
+    "historical_old_path_present": false,
+    "historical_migrated_qa_acl": "BROADER_THAN_ASSET_ROOT, PRESERVED",
+    "historical_staging_entries": 0
+  },
+  "execution": {
+    "argv": [
+      "python",
+      "-I",
+      "-S",
+      "-B",
+      "owner23a_scoped_static.py",
+      "--owner22-manifest",
+      "<PRIVATE_D>/owner22-public-manifest.json",
+      "--attempt",
+      "<PRIVATE_D>/attempt05"
+    ],
+    "started_utc": "2026-11-10T06:31:15.7124359Z",
+    "finished_utc": "2026-11-10T06:31:17.3516065Z",
+    "exit_code": 0,
+    "parser_sha256": "4fc56330bf7481e189f90892d0a0be55af33526a7c1f070faf4f0dac25ce8424",
+    "audit_script_sha256": "8c6ff396ef664bdfe7bbf75ba3c373176ccc02e1ecbd7955f52f44a366f983c8",
+    "result": {
+      "auto_continue": false,
+      "downloads": 0,
+      "elapsed_seconds": 1.266,
+      "inference_calls": 0,
+      "model_loads": 0,
+      "network_requests": 0,
+      "owner22_archive_unchanged": true,
+      "runtime_executions": 0,
+      "scientific_trials": 0
+    }
+  },
+  "seal_preflight": "First packaging preflight stopped before archive creation because of PowerShell path list grouping; corrected and revalidated",
+  "engineering_rounds": [
+    "01 audit UNKNOWN: 1024-byte symbol cap and exact-only API-set keys; retained",
+    "02 fixed export string cap and API-set schema revision matching; scoped PASS",
+    "03 fail-closed API host/package collision handling and deadline tightening; scoped PASS",
+    "04 streaming ZIP member digests and typed binding records; scoped PASS",
+    "05 annotated aggregated import records; final scoped PASS"
+  ],
+  "qa": [
+    {
+      "tool": "pytest",
+      "exit_code": 0,
+      "result": ".....                                                                    [100%]\n5 passed in 1.81s"
+    },
+    {
+      "tool": "ruff",
+      "exit_code": 0,
+      "result": "All checks passed!"
+    },
+    {
+      "tool": "mypy",
+      "exit_code": 0,
+      "result": "Success: no issues found in 3 source files"
+    }
+  ],
+  "private_archive": {
+    "file": "OWNER23A_PRIVATE_AUDIT.zip",
+    "sha256": "fcde11120eecca20a1ea8398f22db35175853b4a5c9f200314cb46befa0bc589",
+    "bytes": 322419,
+    "members": 73,
+    "unpacked_bytes": 7543950.0,
+    "contents_rehashed": true
+  },
+  "evidence_files": [
+    {
+      "file": "host-preflight.json",
+      "bytes": 2607,
+      "sha256": "37177d2055f493b349b13bafef6c95c361308a9ad2ab5bc23628320e7224daef"
+    },
+    {
+      "file": "owner22-public-manifest.json",
+      "bytes": 86932,
+      "sha256": "e333ee648ecb655a3e4ea5b5a9ff93bddd5442f4ab6cc554f2444fd48aaa7ea0"
+    },
+    {
+      "file": "attempt01/command.json",
+      "bytes": 899,
+      "sha256": "80dc46d4603e3a967c7f7476b5172e83e3e3a40d841694d02a5d2d0b44cb97ff"
+    },
+    {
+      "file": "attempt01/completion.json",
+      "bytes": 234,
+      "sha256": "e22b44567da9f603ee23a8cbb7f739a65d0716aa5166dbad89f9b4cccea376da"
+    },
+    {
+      "file": "attempt01/dependencies.json",
+      "bytes": 846004,
+      "sha256": "e510e5768a4bf7fc92806d18c2c0ae4e7765c8aaf1bfac48e283995a374df843"
+    },
+    {
+      "file": "attempt01/license.json",
+      "bytes": 1569,
+      "sha256": "d94a834e7dd3e75f5b9a635bd0f3063854e047cc99a803b88f2de48b4ab87f8c"
+    },
+    {
+      "file": "attempt01/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "attempt01/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "attempt01/verified_inputs.json",
+      "bytes": 16064,
+      "sha256": "1127975e5385d73f13ac33be242eb4775ed02b92cea699a42beece7030442a75"
+    },
+    {
+      "file": "attempt02/command.json",
+      "bytes": 899,
+      "sha256": "f78909e13f0789ff91268ce59658f47d00778fcbba0c75eb45e5cfa2b45173ca"
+    },
+    {
+      "file": "attempt02/completion.json",
+      "bytes": 234,
+      "sha256": "44a3cedfb1e0d32facaee9f41fbc880b380a9526026b388b7552246288e4fb79"
+    },
+    {
+      "file": "attempt02/dependencies.json",
+      "bytes": 1626222,
+      "sha256": "90cb0c6a1c304c1333de69ebbb9bb2e5f136ec0ae49a22338b344cd3f3746fb9"
+    },
+    {
+      "file": "attempt02/license.json",
+      "bytes": 1569,
+      "sha256": "d94a834e7dd3e75f5b9a635bd0f3063854e047cc99a803b88f2de48b4ab87f8c"
+    },
+    {
+      "file": "attempt02/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "attempt02/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "attempt02/verified_inputs.json",
+      "bytes": 16064,
+      "sha256": "1127975e5385d73f13ac33be242eb4775ed02b92cea699a42beece7030442a75"
+    },
+    {
+      "file": "attempt03/command.json",
+      "bytes": 899,
+      "sha256": "f60acd1c1f1fe6c194ef661625783a1463352aec3b7dfa3cb9e31e7025e4be6f"
+    },
+    {
+      "file": "attempt03/completion.json",
+      "bytes": 233,
+      "sha256": "5e68575e1548dbbe760c403f51da4b5eca1d14a5dfa9d5deca753429c390d46d"
+    },
+    {
+      "file": "attempt03/dependencies.json",
+      "bytes": 1626222,
+      "sha256": "90cb0c6a1c304c1333de69ebbb9bb2e5f136ec0ae49a22338b344cd3f3746fb9"
+    },
+    {
+      "file": "attempt03/license.json",
+      "bytes": 1569,
+      "sha256": "d94a834e7dd3e75f5b9a635bd0f3063854e047cc99a803b88f2de48b4ab87f8c"
+    },
+    {
+      "file": "attempt03/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "attempt03/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "attempt03/verified_inputs.json",
+      "bytes": 16064,
+      "sha256": "1127975e5385d73f13ac33be242eb4775ed02b92cea699a42beece7030442a75"
+    },
+    {
+      "file": "attempt04/command.json",
+      "bytes": 899,
+      "sha256": "d7a707dde7df5af4f333f5ad7992dfd7f600bd6dfc7cc6180b74cd9b5a6b2d14"
+    },
+    {
+      "file": "attempt04/completion.json",
+      "bytes": 234,
+      "sha256": "9c829fbd4f4ad327fb5c2fb6393d4b8a1801ab684261907b4a37fda10ced4889"
+    },
+    {
+      "file": "attempt04/dependencies.json",
+      "bytes": 1626222,
+      "sha256": "90cb0c6a1c304c1333de69ebbb9bb2e5f136ec0ae49a22338b344cd3f3746fb9"
+    },
+    {
+      "file": "attempt04/license.json",
+      "bytes": 1569,
+      "sha256": "d94a834e7dd3e75f5b9a635bd0f3063854e047cc99a803b88f2de48b4ab87f8c"
+    },
+    {
+      "file": "attempt04/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "attempt04/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "attempt04/verified_inputs.json",
+      "bytes": 16064,
+      "sha256": "1127975e5385d73f13ac33be242eb4775ed02b92cea699a42beece7030442a75"
+    },
+    {
+      "file": "attempt05/command.json",
+      "bytes": 899,
+      "sha256": "1d7ae3721ae9c7ed9fadf1b0f0c840acb1e01506f49c107a6cacb5f6eccbf27f"
+    },
+    {
+      "file": "attempt05/completion.json",
+      "bytes": 234,
+      "sha256": "09e4847e7c2f4f81611bcd40f361af8a865a3c3921cd0670372d7a6b54a311d0"
+    },
+    {
+      "file": "attempt05/dependencies.json",
+      "bytes": 1626222,
+      "sha256": "90cb0c6a1c304c1333de69ebbb9bb2e5f136ec0ae49a22338b344cd3f3746fb9"
+    },
+    {
+      "file": "attempt05/license.json",
+      "bytes": 1569,
+      "sha256": "d94a834e7dd3e75f5b9a635bd0f3063854e047cc99a803b88f2de48b4ab87f8c"
+    },
+    {
+      "file": "attempt05/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "attempt05/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "attempt05/verified_inputs.json",
+      "bytes": 16064,
+      "sha256": "1127975e5385d73f13ac33be242eb4775ed02b92cea699a42beece7030442a75"
+    },
+    {
+      "file": "qa/01-mypy.json",
+      "bytes": 686,
+      "sha256": "764370220b960a24091c312795c28a0a5d91dd84ca14d6b6e92ab2bb0fc17594"
+    },
+    {
+      "file": "qa/01-mypy.stdout.txt",
+      "bytes": 998,
+      "sha256": "87ffbb3f7712f6470a3f54f902c8edbd75ff86e74d21d602ca16f97bf60d9d90"
+    },
+    {
+      "file": "qa/01-mypy.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "qa/01-pytest.json",
+      "bytes": 435,
+      "sha256": "7c361649cd0ae06be282541b45bd588d559c5f413f56a34bd19a81295e50a372"
+    },
+    {
+      "file": "qa/01-pytest.stdout.txt",
+      "bytes": 25,
+      "sha256": "ba9e2444dc3c22074044f39b39e0c8c9d178a82c6f41baec35502b9c47eec178"
+    },
+    {
+      "file": "qa/01-pytest.stderr.txt",
+      "bytes": 88,
+      "sha256": "fccbb0c0b615f24ef05b937a04c28c416a3224a07727eb8118b2cf62c23d117b"
+    },
+    {
+      "file": "qa/01-ruff.json",
+      "bytes": 587,
+      "sha256": "e78cd6750feb64e42bba44b853670536b4209b78715fda82894149d26081428f"
+    },
+    {
+      "file": "qa/01-ruff.stdout.txt",
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "file": "qa/01-ruff.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "qa/02-mypy.json",
+      "bytes": 684,
+      "sha256": "8d30d9867cef14225a8e16ae4e6ba4b2043a5c03352d5deed2c33cc16df17b18"
+    },
+    {
+      "file": "qa/02-mypy.stdout.txt",
+      "bytes": 998,
+      "sha256": "e068ef95416c5df7dc572960cc7fb79ab307114b5b9149b7a7535852a442ab85"
+    },
+    {
+      "file": "qa/02-mypy.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "qa/02-pytest.json",
+      "bytes": 378,
+      "sha256": "da7859719a8f7857eb4a5aeda0c79151ac1d3fca4d8ee1f99c1c24334bf083fb"
+    },
+    {
+      "file": "qa/02-pytest.stdout.txt",
+      "bytes": 100,
+      "sha256": "26c62c44e48c061ebc62634561beb8ee09106017c812c1eab0c07e7832c7bcce"
+    },
+    {
+      "file": "qa/02-pytest.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "qa/02-ruff.json",
+      "bytes": 587,
+      "sha256": "e78cd6750feb64e42bba44b853670536b4209b78715fda82894149d26081428f"
+    },
+    {
+      "file": "qa/02-ruff.stdout.txt",
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "file": "qa/02-ruff.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "qa/03-mypy.json",
+      "bytes": 684,
+      "sha256": "8d30d9867cef14225a8e16ae4e6ba4b2043a5c03352d5deed2c33cc16df17b18"
+    },
+    {
+      "file": "qa/03-mypy.stdout.txt",
+      "bytes": 506,
+      "sha256": "b3864fb311eca6f3fbb96934e64e1aa6b69c959c1d4fddd4f0b4bb8c245dd314"
+    },
+    {
+      "file": "qa/03-mypy.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "qa/03-pytest.json",
+      "bytes": 378,
+      "sha256": "2779051042cc18d3bde783b2cf315f670bdc4269e27015217345cd51d870763c"
+    },
+    {
+      "file": "qa/03-pytest.stdout.txt",
+      "bytes": 100,
+      "sha256": "6aa2d592d08adf17c0504e52d2202dabed2ce62bc38cd911239f73db3b72086c"
+    },
+    {
+      "file": "qa/03-pytest.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "qa/03-ruff.json",
+      "bytes": 587,
+      "sha256": "e78cd6750feb64e42bba44b853670536b4209b78715fda82894149d26081428f"
+    },
+    {
+      "file": "qa/03-ruff.stdout.txt",
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "file": "qa/03-ruff.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "qa/04-mypy.json",
+      "bytes": 684,
+      "sha256": "757ec90fac333c78f1cb38d1c1848a591577148d38c6725082e4758644b09c23"
+    },
+    {
+      "file": "qa/04-mypy.stdout.txt",
+      "bytes": 44,
+      "sha256": "281a094c39385b4d7b53e5db635f52158036861433c2a4975b9039e77a627a24"
+    },
+    {
+      "file": "qa/04-mypy.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "qa/04-pytest.json",
+      "bytes": 378,
+      "sha256": "eb02cc938a8ab301d731862b5729e836e0f159c9fa14773ff6f53d790848cc8a"
+    },
+    {
+      "file": "qa/04-pytest.stdout.txt",
+      "bytes": 100,
+      "sha256": "54af0b53bf8007572073ebfc14b6fd765ede24a2c05905e8ee19f7aa1f2e7b35"
+    },
+    {
+      "file": "qa/04-pytest.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "qa/04-ruff.json",
+      "bytes": 587,
+      "sha256": "e78cd6750feb64e42bba44b853670536b4209b78715fda82894149d26081428f"
+    },
+    {
+      "file": "qa/04-ruff.stdout.txt",
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "file": "qa/04-ruff.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
