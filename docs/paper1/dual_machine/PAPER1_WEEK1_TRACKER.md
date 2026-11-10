@@ -1,5 +1,13 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-10｜Owner23A 批准收敛式静态PE/API-set/许可复核（授权未执行）
+
+Owner决策`W1-OD-20261110-5060-OWNER23A-SCOPED-STATIC-23A`。明确批准仅针对已下载且哈希锁定的Qwen GGUF和llama.cpp b12242资产执行**静态审计工程修正**，以`llama-cli.exe`与必要CPU后端为实际范围、只读核API-set/PE DLL、VC与第三方许可、D盘QA残留。Owner允许5060自主修复本任务内静态检查脚本/普通单测，无需微观审批；旧Owner22 512节点预算、29前沿、43件审计私有档案、两个固定SHA不覆盖。模型可执行文件启动、模型加载、RAM Smoke、推理、科学试次、模型/运行时/依赖下载均未获批准，Owner23B单独决策。旧Owner20规则`FEASIBILITY_NO_GO`、S1 FAIL、R2 K1-C、HumanGold0、正式ASR/AnswerAccuracy未测、S2–S5及5090 Claims仍锁。
+
+当前仅`OWNER23A_STATIC_APPROVED_NOT_RUN / MODEL_EXECUTION_NOT_AUTHORIZED / AUTO_CONTINUE=NO`。执行完成后交CLI最小依赖闭包、API-set映射状态、许可矩阵、新只读静态证据封存并STOP。
+
+[Owner23A正式授权](owner_approvals/W1_5060_OWNER23A_SCOPED_PE_APISET_LICENSE_STATIC_AUTH_20261110.md) · [5060可直接执行Prompt](chinese5060/W1_5060_OWNER23A_SCOPED_PE_APISET_LICENSE_STATIC_EXECUTION_PROMPT_V1.md)。
+
 ## 2026-11-10｜监督端复核Owner22静态阻断：512节点为分析预算，非依赖缺失（Owner23A待决）
 
 监督端通过GitHub核对Owner22结果HEAD `34b83aefcc3b6fa59482843403a9c85d59cdbc4e`，两项完整字节与HASH、GGUF、52个ZIP成员安全检查均PASS；模型加载/推理仍0、运行时整体BLOCKED。独立审阅`owner22_static_inspection.py`发现PE分析从**所有**包内PE的导入集合出发递归展开System32，遇512节点预算停止；其中387为未映射API-set，29为**未遍历前沿**，不是29个已确认缺失DLL。Windows官方定义API-set为逻辑契约，并非要求有同名物理DLL。第三方notice和最低VC依赖仍待进一步核对，旧报告及所有失败不覆盖。
@@ -72,7 +80,7 @@ Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的�
 
 [Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
 
-**更新于 2026-11-10 JST · 版本 21 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-10 JST · 版本 22 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
