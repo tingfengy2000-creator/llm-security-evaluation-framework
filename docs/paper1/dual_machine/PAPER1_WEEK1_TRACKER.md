@@ -1,5 +1,17 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-10｜5060 Owner24 F0 停止，出站隔离未验证
+
+`OWNER24_FASTTRACK_F0_BLOCKED / HUMAN_DECISION_REQUIRED / F1_F4_NOT_RUN / FORMAL_S2_S5_LOCKED / AUTO_CONTINUE=NO`。
+
+Run W1-5060-OWNER24-F0-20261110-01。固定资产与 52 个包成员通过身份核验，llama-completion.exe 的 1,601/1,601 个静态符号和 50/50 条 API-set 映射解析，前沿为 0。现有出站策略未证明默认拒绝，已触发硬停。
+
+NEW60+10 与暂定 Gold 未生成。F1 启动 0/1，F2 开发回放 0/193，F3 与 F4 未运行，新增费用 USD 0。下一门是核验 Owner 提供的隔离边界后完成原 F0。历史结论保留，正式 ASR/Accuracy 未测。 仅更新 5060，5090 沿用历史快照。
+
+私有证据 ZIP 6 件，SHA256 a656251ca9704f77d9acf477c53883f2643f5e53d0a2f7621cd7e78567518980。
+
+[停止报告](chinese5060/W1_5060_OWNER24_FASTTRACK_F0_STOP_REPORT.md) · [Run Manifest](chinese5060/W1_5060_OWNER24_FASTTRACK_RUN_MANIFEST.json)
+
 ## 2026-11-10｜Owner24 研究加速：一次授权F0–F4自动阶段推进（尚未执行）
 
 `W1-OD-20261110-5060-FASTTRACK-CONDITIONAL-24`。Owner明确希望减少审批往返、扩大5060本机研究任务，但不是任意绕过D2/D3与正式科学审批。控制面提供一次性有界执行包：`F0`固定资产/入口核验及新60+10合成暂定Gold提前封存；`F1`已下载Qwen GGUF + llama-completion Windows CPU受控1-token工程Smoke（禁止外网/内存private commit≤6GiB/180s）；`F2`仅在旧73+Owner20已揭盲100主+20从属上进行有限prompt/schema研发+最多一次193视图DEV回放；`F3`安全开发门过后一次评估新60不同语义主案例+10从属（40可答/20未知、HumanGold0/Agent provisional）；`F4`安全与暂定成绩达预注册条件后做D1已暴露TopK冻结快照最多12或36世界的离线投毒过滤/误删诊断，正式ASR仍未测。每一阶段通过硬门才自动进入下一项；失败立即停，不能调科学阈值或隐蔽重试。普通QA修复不必微观审批。
@@ -100,7 +112,7 @@ Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的�
 
 [Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
 
-**更新于 2026-11-10 JST · 版本 24 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-10 JST · 版本 25 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
@@ -287,6 +299,7 @@ R1 源附件由 Owner 提供，公开记录含原件摘要与 SHA-256。[R1 修�
 
 | 日期（JST） | 版本 | 变更与核验基点 |
 | --- | --- | --- |
+| 2026-11-10 | 25 | Owner24 F0 固定资产与 completion 静态依赖通过，网络隔离未验证，F1–F4 未运行。 |
 | 2026-11-10 | 23 | 5060 完成 Owner23A 静态审计，CLI 和 API-set 通过，Owner23B 实际加载待批。 |
 | 2026-11-10 | 20 | 5060 两件固定资产字节核验、GGUF 与 ZIP 安全检查通过；许可及 PE 依赖未闭合，运行仍锁定。 |
 | 2026-11-10 | 18 | 5060 完成 Owner21 单模型只读审计，资产身份闭合，运行时与资源准入待证。 |

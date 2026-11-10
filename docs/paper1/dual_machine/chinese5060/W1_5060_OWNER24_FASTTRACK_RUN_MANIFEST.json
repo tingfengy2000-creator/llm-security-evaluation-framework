@@ -1,0 +1,219 @@
+{
+  "run_id": "W1-5060-OWNER24-F0-20261110-01",
+  "machine_role": "5060 / LOCAL",
+  "git_branch": "research/paper1-chinese-defense-5060",
+  "execution_head": "ed9aa4bb101158c87bf4def77bf7441bf7c47b03",
+  "owner_decision": "W1-OD-20261110-5060-FASTTRACK-CONDITIONAL-24",
+  "authorization_commit": "bcbdc711b3ba63dc805b11ea0d299f790c7cec42",
+  "prompt_commit": "4ff5fd9736e13821e1ca872ee6df4dd66943d142",
+  "source_blobs": {
+    "owner23a_pe": "d7869a7b2d75d25585508d42a0ff8857d25e0ed6",
+    "owner23a_static": "e7c516b78b32480eff0e0ad41ae471b88b10882a",
+    "prompt": "26011498a347da694f5fc313532bb7b3a5531e6f"
+  },
+  "status": "HUMAN_DECISION_REQUIRED",
+  "stop_reason": "F0_OUTBOUND_ISOLATION_NOT_VERIFIED",
+  "auto_continue": false,
+  "stages": {
+    "F0": {
+      "status": "BLOCKED",
+      "run_id": "W1-5060-OWNER24-F0-20261110-01",
+      "assets": "PASS",
+      "completion_pe": "PASS",
+      "outbound_isolation": "BLOCKED",
+      "model_launch_wrapper": "NOT_RUN",
+      "new60_plus10_seal": "NOT_CREATED_STOP",
+      "prompt_and_execution_freeze": "NOT_COMPLETE_STOP"
+    },
+    "F1": {
+      "status": "NOT_RUN",
+      "attempts": 0,
+      "run_id": null
+    },
+    "F2": {
+      "status": "NOT_RUN",
+      "views_evaluated": 0,
+      "run_id": null
+    },
+    "F3": {
+      "status": "NOT_RUN",
+      "views_evaluated": 0,
+      "run_id": null
+    },
+    "F4": {
+      "status": "NOT_RUN",
+      "worlds_evaluated": 0,
+      "run_id": null
+    }
+  },
+  "isolation": {
+    "domain": "ON / BlockInbound,AllowOutbound",
+    "private": "ON / BlockInbound,AllowOutbound",
+    "public": "OFF / configured AllowOutbound",
+    "process_rule_search_matches": 0,
+    "current_administrator_token": false,
+    "windows_sandbox_executable_observed": false,
+    "dns_egress_deny": "NOT_VERIFIED",
+    "isolated_zone": "NOT_VERIFIED",
+    "policy_modified": false,
+    "active_probe_count": 0,
+    "system_read_only_exit_codes": {
+      "firewall_profiles": 0,
+      "firewall_rules": 0,
+      "loopback_exemptions": 0
+    }
+  },
+  "assets": [
+    {
+      "bytes": 1117320736,
+      "file": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+      "sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e"
+    },
+    {
+      "bytes": 24931401,
+      "file": "llama-b12242-bin-win-cpu-x64.zip",
+      "sha256": "4723cd1f1b10169b6ca681f787ea37238e449b1c56538b4b90c71a82fad949a0"
+    }
+  ],
+  "weights_revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+  "runtime": "llama.cpp b12242 Windows CPU x64",
+  "owner22_public_manifest_sha256": "e333ee648ecb655a3e4ea5b5a9ff93bddd5442f4ab6cc554f2444fd48aaa7ea0",
+  "owner22_private_archive_sha256": "faa281e7e4a14f2bc11a292b6e42e94f42421c7a4152ec55f4212ad01a708247",
+  "owner23a_private_archive_sha256": "fcde11120eecca20a1ea8398f22db35175853b4a5c9f200314cb46befa0bc589",
+  "static": {
+    "entry": "llama-completion.exe",
+    "entry_sha256": "b1f64db0d032dfb5c78ce016ff4e922d47c333be7691a510e6cfb41efd8ba034",
+    "architecture": "AMD64",
+    "dependencies": [
+      "ggml-base.dll",
+      "ggml.dll",
+      "libomp.dll",
+      "llama-common.dll",
+      "llama-completion-impl.dll",
+      "llama-completion.exe",
+      "llama.dll"
+    ],
+    "api_set_pairs": 50,
+    "api_set_mapped": 50,
+    "package_import_descriptors": 80,
+    "delay_import_descriptors": 0,
+    "resolved_bindings": 1601,
+    "named_entities": 17,
+    "package_frontier": [],
+    "verified_zip_members": 52,
+    "windows": {
+      "CurrentBuildNumber": "26200",
+      "DisplayVersion": "25H2",
+      "InstallationType": "Client",
+      "UBR": "9711"
+    },
+    "schema": {
+      "bytes": 204152,
+      "machine": "AMD64",
+      "sha256": "568c72f6216d83a716d6fa9bec59ae8d93e6728062d969ac362013f3910c0007",
+      "subsystem_version": [
+        10,
+        0
+      ]
+    }
+  },
+  "resources": {
+    "disk_available_bytes": 355844206592,
+    "available_ram_bytes": 9478918144,
+    "available_commit_bytes": 17855447040,
+    "f0_ram_min_gib": 8,
+    "f0_commit_min_gib": 8,
+    "f0_d_min_gib": 10,
+    "f1_process_commit_max_gib": 6,
+    "f1_wall_max_seconds": 180,
+    "storage_drive": "D",
+    "evidence_acl": "current owner, local Administrators, SYSTEM",
+    "runtime_peak_memory": "NOT_MEASURED"
+  },
+  "commands": {
+    "static": [
+      "python",
+      "-I",
+      "-S",
+      "-B",
+      "verify_fixed_entry.py",
+      "<5060_CHECKOUT>"
+    ],
+    "static_exit": 0,
+    "started_utc": "2026-11-10T11:36:10.0576211Z",
+    "finished_utc": "2026-11-10T11:36:12.3492042Z",
+    "system_queries": [
+      "netsh advfirewall show allprofiles",
+      "netsh advfirewall firewall show rule name=all dir=out verbose",
+      "CheckNetIsolation LoopbackExempt -s"
+    ]
+  },
+  "zero_counters": {
+    "release_executable_starts": 0,
+    "model_loads": 0,
+    "local_inferences": 0,
+    "generated_tokens": 0,
+    "downloads": 0,
+    "installations": 0,
+    "external_api_calls": 0,
+    "paid_api_calls": 0,
+    "incremental_usd": 0,
+    "new_scientific_trials": 0
+  },
+  "claims": {
+    "human_gold": 0,
+    "formal_asr": "NOT_MEASURED",
+    "formal_accuracy": "NOT_MEASURED",
+    "formal_s2_to_s5": "LOCKED",
+    "D2_D3": "UNACCESSED",
+    "extension_to_5090": "NO",
+    "d1_runtime_reads": 0
+  },
+  "private_archive": {
+    "name": "OWNER24_F0_PRIVATE_EVIDENCE.zip",
+    "bytes": 34216,
+    "sha256": "a656251ca9704f77d9acf477c53883f2643f5e53d0a2f7621cd7e78567518980",
+    "members": 6,
+    "all_entries_rehashed": true
+  },
+  "private_evidence_index": [
+    {
+      "file": "commands.json",
+      "bytes": 1497,
+      "sha256": "b2a0c9533c71e6fac1e777e859f3093b09795af567e0a1b0ad993530dcf18469"
+    },
+    {
+      "file": "isolation_stdout.txt",
+      "bytes": 2899,
+      "sha256": "f63327ce7feba2fb0029178c59d56590ab08f59b28a49c11b31d1b718f467108"
+    },
+    {
+      "file": "read_isolation_state.ps1",
+      "bytes": 1116,
+      "sha256": "fff829b57c98540d2a65ca67628d0b71195f5b7b8a485f161d17ae10fcf90ef1"
+    },
+    {
+      "file": "static_stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "static_stdout.json",
+      "bytes": 722338,
+      "sha256": "8ebaa29f90f38ff5585e0d9bad9b2126b8d3516e15a7c77d8b7880a0c80711a3"
+    },
+    {
+      "file": "verify_fixed_entry.py",
+      "bytes": 5366,
+      "sha256": "7383031d25373a77eab74bd6aa2c8675adab3751b15a195e920732a2e36b4097"
+    }
+  ],
+  "qa": {
+    "log": "QA_VERIFICATION.json",
+    "log_sha256": "74986f3e990cc6566d70207ca3f5ac83d17e8557c0a9cbbb96b668ba9b7ba5fd",
+    "pytest_passed": 5,
+    "ruff": "PASS",
+    "mypy": "PASS",
+    "scope": "reused static parser and resolver, no model executable"
+  }
+}
