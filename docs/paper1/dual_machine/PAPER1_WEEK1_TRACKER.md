@@ -1,5 +1,11 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-10｜Owner21 批准路线转向和 Qwen GGUF 只读准入审计（待执行）
+
+`W1-OD-20261110-5060-QWEN-GGUF-READONLY-21`。Owner已接受终止Rule-only作为主抽取器，原Rule-V1/V2冻结保留为基线和确定性原文span/scope核验；沿用之前选择的“规则约束+本地模型抽取”方向。5060**只被允许**对官方Qwen2.5-1.5B-Instruct-GGUF Q4_K_M和`llama.cpp` Windows x64 CPU候选做只读模型/运行时revision、文件大小/SHA、许可、RAM/D/E磁盘/CPU/无C盘缓存与离线控制审计，提交精确单模型资产审批包后STOP。**审计本身尚未运行**；任何下载/安装/加载/推理/API/新独立测试均未获许可，S2–S5/5090 Claims仍锁定。此前Owner20 `FEASIBILITY_NO_GO`、R2 K1-C、旧S1 FAIL保持真实，旧73与新100+20均已暴露，Human Gold0、正式ASR/回答准确率未测。
+
+[Owner21正式授权](owner_approvals/W1_5060_OWNER21_QWEN_GGUF_READONLY_ADMISSION_AUTHORIZATION_20261110.md) · [5060执行Prompt](chinese5060/W1_5060_OWNER21_QWEN_GGUF_READONLY_ADMISSION_EXECUTION_PROMPT_V1.md)。
+
 ## 2026-11-10｜Owner20 NO_GO 监督审查与下一路线待决（不是新授权）
 
 监督端核对实验HEAD `d69359081c49272c3cbf4f7f8f13427709c5ac62`、Run `W1-5060-S1B-RULE-ONESHOT-20261110-01` 及脱敏清单，证实Rule-V1/V2均单次120/120，预测先seal后Gold，主100上V1值0/70、错抽2/2，V2值5/70、错抽10/11，双臂均`FEASIBILITY_NO_GO`。无标题21个可答全拒识，且V2另有40个有标题主例在主体/属性识别阶段拒识；这是规则抽取脆弱的证据，不能解读为所有规则/神经方案无效。原旧73高分归类为暴露开发拟合，已曝光的100+20今后也不得作为未见测试重复使用。Human Gold0，正式ASR/Accuracy未测。
@@ -26,7 +32,7 @@ Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的�
 
 [Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
 
-**更新于 2026-11-10 JST · 版本 16 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-10 JST · 版本 17 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
