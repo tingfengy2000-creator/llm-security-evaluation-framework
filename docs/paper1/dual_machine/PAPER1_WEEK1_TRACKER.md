@@ -1,5 +1,13 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-10｜Owner20 NO_GO 监督审查与下一路线待决（不是新授权）
+
+监督端核对实验HEAD `d69359081c49272c3cbf4f7f8f13427709c5ac62`、Run `W1-5060-S1B-RULE-ONESHOT-20261110-01` 及脱敏清单，证实Rule-V1/V2均单次120/120，预测先seal后Gold，主100上V1值0/70、错抽2/2，V2值5/70、错抽10/11，双臂均`FEASIBILITY_NO_GO`。无标题21个可答全拒识，且V2另有40个有标题主例在主体/属性识别阶段拒识；这是规则抽取脆弱的证据，不能解读为所有规则/神经方案无效。原旧73高分归类为暴露开发拟合，已曝光的100+20今后也不得作为未见测试重复使用。Human Gold0，正式ASR/Accuracy未测。
+
+监督建议 `STOP_RULE_ONLY_AS_MAIN_EXTRACTOR`，转回Owner此前选择的规则+本地模型Route B；优先对**Qwen官方1.5B GGUF Q4_K_M**进行固定revision/官方SHA、Apache-2.0、Windows CPU runtime与D/E/RAM资源**只读审计**（官方GGUF单权重约1.12 GB，暂未许可下载）。UIE Nano 权重/分词器许可证仍未闭合。**目前只是监督建议，Owner尚未批准任何新模型、运行时安装、开发推理或新的盲评。** S2–S5、5090 Claims、D2/D3一律锁定。5090远端`dbd91f3667964baca69aeb82a6292c4fe193c965`核验无变化。
+
+[完整研究裁决卡与PO-MHEP待决项](chinese5060/vesa_guard_reviewer_replan/W1_5060_OWNER20_NOGO_SUPERVISOR_ROUTE_CARD_20261110.md)。
+
 ## 2026-11-10｜5060 Owner20 单次规则可行性验证完成
 
 `FEASIBILITY_NO_GO / S2_S5_LOCKED / AUTO_CONTINUE=NO`。两臂各 120/120，先封存后一次性评分，主 100 个语义案例另报 20 条改写。Rule-V1 值命中 0/70、已决定错抽 2/2，Rule-V2 值命中 5/70、已决定错抽 10/11，均未达冻结门。两臂在 30 个无标题主例均 UNKNOWN。Human Gold 0。
@@ -18,7 +26,7 @@ Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的�
 
 [Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
 
-**更新于 2026-11-10 JST · 版本 15 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-10 JST · 版本 16 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
