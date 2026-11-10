@@ -1,5 +1,15 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## W1-OD-20261110-5060-QWEN-GGUF-ASSET-22｜Owner22两项固定资产下载及静态验包（2026-11-10 JST）
+
+`OWNER_EXPLICITLY_APPROVED / TWO_ASSET_DOWNLOAD_AND_STATIC_INSPECTION_ONLY / EXECUTION_APPROVED_NOT_RUN`。Owner明确“请继续”，承接Owner21完成只读准入后唯一待决事项——只获取两项固定模型资产并静态验包。允许5060仅在独立分支下载固定`Qwen/Qwen2.5-1.5B-Instruct-GGUF@91cad51170dc346986eccefdc2dd33a9da36ead9`的`qwen2.5-1.5b-instruct-q4_k_m.gguf`（1,117,320,736字节、sha256`6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e`）及`ggml-org/llama.cpp b12242`固定Windows CPU ZIP`llama-b12242-bin-win-cpu-x64.zip`（24,931,401字节、sha256`4723cd1f1b10169b6ca681f787ea37238e449b1c56538b4b90c71a82fad949a0`）。**两文件正文传输合计硬上限1,142,252,137字节**，各一次，D盘受控目录新增峰值≤4GiB、ZIP解包≤512MiB、余量≥10GiB，仅静态哈希、ZIP/第三方notice/PE导入/GGUF头检查。不得超额下载、自动重试、额外模型/依赖、安装、加载、执行exe（包含--help）、内存smoke或推理。运行时`immutable=false`须实际字节哈希核实；授权并不代表License整包或Runtime/RAM已通过。
+
+保留Owner20 Rule-V1/V2 `FEASIBILITY_NO_GO`、旧S1 FAIL、R2 K1-C，D1开发定位、D2/D3、5090 Meta Llama2/Claims门与S2–S5均不变。HumanGold=0、正式ASR/AnswerAccuracy未测。**此项仅授权，未声称已下载、已验包或已开展科学试次。** 下载/静态验包结束须独立审计封存、Git commit/push、STOP `Auto Continue=NO`，后续受控smoke另需Owner批准。
+
+[Owner22十二字段授权](../paper1/dual_machine/owner_approvals/W1_5060_OWNER22_FIXED_QWEN_GGUF_ASSET_ACQUISITION_STATIC_INSPECTION_AUTH_20261110.md) · [5060可执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_OWNER22_QWEN_GGUF_ASSET_STATIC_ACQUISITION_EXECUTION_PROMPT_V1.md)。
+
+
+
 ## 2026-11-10｜5060 Owner21 单模型只读审计完成
 
 `READONLY_AUDIT_COMPLETE / HUMAN_DECISION_REQUIRED / AUTO_CONTINUE=NO`。Qwen 官方 Q4_K_M 与 llama.cpp b12242 Windows x64 CPU 发布身份和固定摘要均已核对。Qwen Apache-2.0、llama.cpp 源码 MIT，运行时整包第三方声明、PE 依赖和峰值仍未闭合。主机约 12.80 GiB 可用 RAM，规划峰值最高约 4.51 GiB，资源门仍阻断。
