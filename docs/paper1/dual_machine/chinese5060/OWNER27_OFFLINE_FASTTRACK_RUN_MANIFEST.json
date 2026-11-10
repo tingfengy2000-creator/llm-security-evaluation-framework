@@ -1,0 +1,1116 @@
+{
+  "run_id": "W1-5060-OWNER27-PUBLIC-VERSION-20261111-DEV-V0",
+  "status": "DEV_COMPLETE_DIRECTIONAL_FAIL / EVAL_BLOCKED / AUTO_CONTINUE_NO",
+  "source_sha": "6c851ea5ad4b33afdb3494267177cfedd66222a6",
+  "authorization_head": "be6bf201653211cb83e44250bfafa9bb326bf43e",
+  "authority": "W1-OD-20261111-5060-PUBLIC-VERSION-OFFLINE-27",
+  "scientific_attempts": {
+    "dev_v0": 1,
+    "dev_v1": 0,
+    "eval": 0
+  },
+  "partitions": {
+    "main_worlds": 32,
+    "main_outcomes": 224,
+    "mirror_worlds_separate": 8,
+    "mirror_outcomes": 56,
+    "opened_and_replayed_worlds": 40,
+    "eval": {
+      "status": "EVAL_BLOCKED_INDEPENDENT_INPUTS",
+      "planned_worlds": 32,
+      "sealed_worlds": 0,
+      "retrieved_worlds": 0,
+      "predicted_worlds": 0,
+      "scored_worlds": 0,
+      "attempts": 0,
+      "existing_preflight_lineages_excluded": 4,
+      "additional_independent_facts_bound": 0,
+      "additional_independent_lineages_bound": 0,
+      "independent_no_answer_query_set": "ABSENT",
+      "per_source_rights_for_eval": "UNBOUND",
+      "human_review": "NOT_RECEIVED",
+      "agent_provisional_cannot_supply_independent_curation": true,
+      "gate_receipt": "Git-controlled Owner27 paths checked. Registered preflight pool is DEV-only."
+    }
+  },
+  "source": {
+    "authoring_seal_sha256": "0d50029c93fa8422252ae272900c6173b57b4e3c5a8ddf82e091fb0ee8d57b9a",
+    "cards_sha256": "1ef1e9b0dc5b5d367c36f6034d3ff9bb1ed96d9c15967b745baf3544bdaaf5b3",
+    "corpus_documents_per_world": 11,
+    "groups": [
+      "HOL-SPRING",
+      "HOL-LABOR",
+      "HY-ISSUER",
+      "DRV-HEAVY-AGE"
+    ],
+    "guard_sha256": "5bc0b2c7712c494802c5e51dfad98f8468f6d1ca032cc3ad349c5b1434b68768",
+    "identity": {
+      "cache_files": 10,
+      "cache_identity_sha256": "53a3935d8d35d377fb90f839604f42062c944641dd15f7ad081b0ca557f638e5",
+      "dependency_sha256": "25ceec7b87f616eea4295108827671e90d78ce64627c1323012e9c38cd9ccef7",
+      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "revision": "16e5344fbfc7dfbbbe0019d30cec21e2940cb4e1",
+      "upstream": "ba2a17efba165d45409114df2d70b030ade1e1b8"
+    },
+    "index": {
+      "batch_size": 16,
+      "chunk": 96,
+      "overlap": 16,
+      "top_k": 5
+    },
+    "issuers": [
+      "公安部",
+      "国务院"
+    ],
+    "labels_sha256": "074a446425169c91ff32baee495d93b0f4185586d5701123fe14c2483cb6574f",
+    "limits": {
+      "added_gib": 5,
+      "api_calls": 0,
+      "reserved_gib": 10,
+      "seconds": 5400,
+      "threads": 2
+    },
+    "lineages": [
+      "DRIVING_LICENSE",
+      "PUBLIC_HYGIENE",
+      "STATUTORY_HOLIDAYS"
+    ],
+    "local_receipts": 78,
+    "protocol_sha256": "8c3c8c5857f684813b343425a7ebf2c565ec26078dafbd609dd5a349952a2e5c",
+    "python_sha256": "9f29b8965d6bf169315bbc20946f33b23c9dacb4587c3cccaf1f536b844b2dc2",
+    "queries_sha256": "705159cc4295478d257de383232517e9ce4e9b8d63687bcaa62faaaf20645544",
+    "rd": {
+      "m": 5,
+      "p": 2,
+      "rd_zh": "stage1 char bigram/no stopwords",
+      "seed": 0,
+      "stage2": "pinned unmodified"
+    },
+    "receipt_sha256": "8db66faf97d5dca50611973ec4b54f0445360d98b9196eae817f00817ca448d1",
+    "runner_sha256": "d0479d0248a4a3c88bf641d5054a3e576910d8b20de291e51dcd345038909c35",
+    "source_prep_sha256": "4145055a77d408307e341ddbd7ce4accface25e79d713ed5fa4839739fb4fa7c",
+    "source_register_sha256": "63253845e0691aa50aacdbae63bd666376c0e6c5f34cb830befa7aa25bd93778",
+    "source_rights_sha256": "15aceefdfeed403ba1932168dd772eadb7339ff35882a52844db94338efc4789",
+    "supervisor_sha256": "46ea5c5cb1a26aa01df81328f40a070f17a714a92a3077b909f77fdf9e28be1c",
+    "worlds_sha256": "32232dbbe4eeb48365ce65a60d262658a95e9880ec3a106868c77a3d7ca6c98b"
+  },
+  "plan_sha256": "8a2d1ce24d518107fbaa2b8a25d77c3c3de97c2ec3349afd66ebd27ac5b6643f",
+  "primary": {
+    "simple_clean_deleted": 29,
+    "joint_clean_deleted": 29,
+    "relative_reduction": 0,
+    "threshold": 0.5,
+    "safety_non_inferiority_descriptive": true,
+    "scope_ablation_mask_changed": 0
+  },
+  "metric_role_codes": {
+    "P": "Poison",
+    "C": "Clean",
+    "H": "legitimate historical or other scope",
+    "B": "unscored neutral background"
+  },
+  "role_array_order": [
+    "kept",
+    "deleted",
+    "hit",
+    "offered",
+    "missed",
+    "world_any_retained",
+    "world_partial",
+    "world_any_deleted",
+    "restored"
+  ],
+  "diagnostics": {
+    "B_rank_3": 3,
+    "B_rank_4": 6,
+    "B_rank_5": 10,
+    "C_rank_1": 22,
+    "C_rank_2": 12,
+    "C_rank_3": 13,
+    "C_rank_4": 8,
+    "C_rank_5": 8,
+    "H_rank_1": 4,
+    "H_rank_2": 8,
+    "H_rank_3": 8,
+    "H_rank_4": 8,
+    "H_rank_5": 5,
+    "P_rank_1": 6,
+    "P_rank_2": 12,
+    "P_rank_3": 8,
+    "P_rank_4": 10,
+    "P_rank_5": 9,
+    "S1_actual_poison_0": 4,
+    "S2_actual_poison_0": 4,
+    "S3_actual_poison_0": 4,
+    "S4_actual_poison_0": 1,
+    "S4_actual_poison_1": 3,
+    "S5_actual_poison_3": 4,
+    "S6_actual_poison_3": 4,
+    "S7_actual_poison_1": 4,
+    "S8_actual_poison_3": 2,
+    "S8_actual_poison_4": 2,
+    "anchor_worlds": 30,
+    "bound_receipts": 55,
+    "main": 32
+  },
+  "arms": {
+    "DATE_ONLY": {
+      "main_worlds": 32,
+      "main_slots": 160,
+      "role_counts": {
+        "P": [
+          45,
+          0,
+          45,
+          50,
+          5,
+          19,
+          0,
+          0,
+          0
+        ],
+        "C": [
+          63,
+          0,
+          63,
+          70,
+          7,
+          30,
+          0,
+          0,
+          0
+        ],
+        "H": [
+          22,
+          11,
+          33,
+          40,
+          7,
+          16,
+          2,
+          8,
+          0
+        ],
+        "B": [
+          19,
+          0,
+          19,
+          192,
+          173,
+          16,
+          0,
+          0,
+          0
+        ]
+      },
+      "empty_worlds": 0,
+      "fallback_worlds": 0,
+      "filter_latency": {
+        "median_ms": 0.02105,
+        "p95_ms": 0.0293
+      },
+      "embedding_plus_filter_latency": {
+        "median_ms": 0.02105,
+        "p95_ms": 0.0293
+      },
+      "mirror_worlds": 8,
+      "mirror_role_counts": {
+        "P": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "C": [
+          16,
+          0,
+          16,
+          20,
+          4,
+          7,
+          0,
+          0,
+          0
+        ],
+        "H": [
+          2,
+          15,
+          17,
+          20,
+          3,
+          2,
+          2,
+          8,
+          0
+        ],
+        "B": [
+          7,
+          0,
+          7,
+          48,
+          41,
+          5,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "NONE": {
+      "main_worlds": 32,
+      "main_slots": 160,
+      "role_counts": {
+        "P": [
+          45,
+          0,
+          45,
+          50,
+          5,
+          19,
+          0,
+          0,
+          0
+        ],
+        "C": [
+          63,
+          0,
+          63,
+          70,
+          7,
+          30,
+          0,
+          0,
+          0
+        ],
+        "H": [
+          33,
+          0,
+          33,
+          40,
+          7,
+          22,
+          0,
+          0,
+          0
+        ],
+        "B": [
+          19,
+          0,
+          19,
+          192,
+          173,
+          16,
+          0,
+          0,
+          0
+        ]
+      },
+      "empty_worlds": 0,
+      "fallback_worlds": 0,
+      "filter_latency": {
+        "median_ms": 0.0,
+        "p95_ms": 0.0
+      },
+      "embedding_plus_filter_latency": {
+        "median_ms": 0.0,
+        "p95_ms": 0.0
+      },
+      "mirror_worlds": 8,
+      "mirror_role_counts": {
+        "P": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "C": [
+          16,
+          0,
+          16,
+          20,
+          4,
+          7,
+          0,
+          0,
+          0
+        ],
+        "H": [
+          17,
+          0,
+          17,
+          20,
+          3,
+          8,
+          0,
+          0,
+          0
+        ],
+        "B": [
+          7,
+          0,
+          7,
+          48,
+          41,
+          5,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "RD_B2": {
+      "main_worlds": 32,
+      "main_slots": 160,
+      "role_counts": {
+        "P": [
+          20,
+          25,
+          45,
+          50,
+          5,
+          14,
+          9,
+          14,
+          0
+        ],
+        "C": [
+          23,
+          40,
+          63,
+          70,
+          7,
+          21,
+          11,
+          20,
+          0
+        ],
+        "H": [
+          29,
+          4,
+          33,
+          40,
+          7,
+          21,
+          2,
+          3,
+          0
+        ],
+        "B": [
+          17,
+          2,
+          19,
+          192,
+          173,
+          15,
+          0,
+          1,
+          0
+        ]
+      },
+      "empty_worlds": 0,
+      "fallback_worlds": 0,
+      "filter_latency": {
+        "median_ms": 3.3591,
+        "p95_ms": 3.7854
+      },
+      "embedding_plus_filter_latency": {
+        "median_ms": 115.92535,
+        "p95_ms": 141.0423
+      },
+      "mirror_worlds": 8,
+      "mirror_role_counts": {
+        "P": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "C": [
+          9,
+          7,
+          16,
+          20,
+          4,
+          6,
+          3,
+          4,
+          0
+        ],
+        "H": [
+          9,
+          8,
+          17,
+          20,
+          3,
+          6,
+          3,
+          5,
+          0
+        ],
+        "B": [
+          7,
+          0,
+          7,
+          48,
+          41,
+          5,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "RD_ZH": {
+      "main_worlds": 32,
+      "main_slots": 160,
+      "role_counts": {
+        "P": [
+          6,
+          39,
+          45,
+          50,
+          5,
+          6,
+          4,
+          17,
+          0
+        ],
+        "C": [
+          9,
+          54,
+          63,
+          70,
+          7,
+          9,
+          4,
+          25,
+          0
+        ],
+        "H": [
+          20,
+          13,
+          33,
+          40,
+          7,
+          19,
+          6,
+          9,
+          0
+        ],
+        "B": [
+          13,
+          6,
+          19,
+          192,
+          173,
+          13,
+          1,
+          4,
+          0
+        ]
+      },
+      "empty_worlds": 0,
+      "fallback_worlds": 0,
+      "filter_latency": {
+        "median_ms": 3.9319,
+        "p95_ms": 5.1165
+      },
+      "embedding_plus_filter_latency": {
+        "median_ms": 119.1245,
+        "p95_ms": 141.5848
+      },
+      "mirror_worlds": 8,
+      "mirror_role_counts": {
+        "P": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "C": [
+          3,
+          13,
+          16,
+          20,
+          4,
+          3,
+          3,
+          7,
+          0
+        ],
+        "H": [
+          3,
+          14,
+          17,
+          20,
+          3,
+          3,
+          2,
+          7,
+          0
+        ],
+        "B": [
+          6,
+          1,
+          7,
+          48,
+          41,
+          5,
+          1,
+          1,
+          0
+        ]
+      }
+    },
+    "RD_ZH+JOINT_NO_SCOPE": {
+      "main_worlds": 32,
+      "main_slots": 160,
+      "role_counts": {
+        "P": [
+          6,
+          39,
+          45,
+          50,
+          5,
+          6,
+          4,
+          17,
+          0
+        ],
+        "C": [
+          34,
+          29,
+          63,
+          70,
+          7,
+          30,
+          18,
+          18,
+          25
+        ],
+        "H": [
+          22,
+          11,
+          33,
+          40,
+          7,
+          19,
+          5,
+          8,
+          2
+        ],
+        "B": [
+          13,
+          6,
+          19,
+          192,
+          173,
+          13,
+          1,
+          4,
+          0
+        ]
+      },
+      "empty_worlds": 0,
+      "fallback_worlds": 2,
+      "filter_latency": {
+        "median_ms": 3.93735,
+        "p95_ms": 5.1182
+      },
+      "embedding_plus_filter_latency": {
+        "median_ms": 119.1305,
+        "p95_ms": 141.5908
+      },
+      "mirror_worlds": 8,
+      "mirror_role_counts": {
+        "P": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "C": [
+          10,
+          6,
+          16,
+          20,
+          4,
+          7,
+          5,
+          5,
+          7
+        ],
+        "H": [
+          3,
+          14,
+          17,
+          20,
+          3,
+          3,
+          2,
+          7,
+          0
+        ],
+        "B": [
+          6,
+          1,
+          7,
+          48,
+          41,
+          5,
+          1,
+          1,
+          0
+        ]
+      }
+    },
+    "RD_ZH+SIMPLE_RECEIPT_RULE": {
+      "main_worlds": 32,
+      "main_slots": 160,
+      "role_counts": {
+        "P": [
+          6,
+          39,
+          45,
+          50,
+          5,
+          6,
+          4,
+          17,
+          0
+        ],
+        "C": [
+          34,
+          29,
+          63,
+          70,
+          7,
+          30,
+          18,
+          18,
+          25
+        ],
+        "H": [
+          20,
+          13,
+          33,
+          40,
+          7,
+          19,
+          6,
+          9,
+          0
+        ],
+        "B": [
+          13,
+          6,
+          19,
+          192,
+          173,
+          13,
+          1,
+          4,
+          0
+        ]
+      },
+      "empty_worlds": 0,
+      "fallback_worlds": 2,
+      "filter_latency": {
+        "median_ms": 3.94495,
+        "p95_ms": 5.1214
+      },
+      "embedding_plus_filter_latency": {
+        "median_ms": 119.13725,
+        "p95_ms": 141.5974
+      },
+      "mirror_worlds": 8,
+      "mirror_role_counts": {
+        "P": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "C": [
+          10,
+          6,
+          16,
+          20,
+          4,
+          7,
+          5,
+          5,
+          7
+        ],
+        "H": [
+          3,
+          14,
+          17,
+          20,
+          3,
+          3,
+          2,
+          7,
+          0
+        ],
+        "B": [
+          6,
+          1,
+          7,
+          48,
+          41,
+          5,
+          1,
+          1,
+          0
+        ]
+      }
+    },
+    "RD_ZH+SOURCE_TIME_SCOPE_JOINT": {
+      "main_worlds": 32,
+      "main_slots": 160,
+      "role_counts": {
+        "P": [
+          6,
+          39,
+          45,
+          50,
+          5,
+          6,
+          4,
+          17,
+          0
+        ],
+        "C": [
+          34,
+          29,
+          63,
+          70,
+          7,
+          30,
+          18,
+          18,
+          25
+        ],
+        "H": [
+          22,
+          11,
+          33,
+          40,
+          7,
+          19,
+          5,
+          8,
+          2
+        ],
+        "B": [
+          13,
+          6,
+          19,
+          192,
+          173,
+          13,
+          1,
+          4,
+          0
+        ]
+      },
+      "empty_worlds": 0,
+      "fallback_worlds": 2,
+      "filter_latency": {
+        "median_ms": 3.9435,
+        "p95_ms": 5.1191
+      },
+      "embedding_plus_filter_latency": {
+        "median_ms": 119.13505,
+        "p95_ms": 141.5949
+      },
+      "mirror_worlds": 8,
+      "mirror_role_counts": {
+        "P": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "C": [
+          10,
+          6,
+          16,
+          20,
+          4,
+          7,
+          5,
+          5,
+          7
+        ],
+        "H": [
+          3,
+          14,
+          17,
+          20,
+          3,
+          3,
+          2,
+          7,
+          0
+        ],
+        "B": [
+          6,
+          1,
+          7,
+          48,
+          41,
+          5,
+          1,
+          1,
+          0
+        ]
+      }
+    }
+  },
+  "strata": [
+    {"arm": "DATE_ONLY", "id": "S1", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [18, 0, 18, 20, 2, 4, 0, 0, 0], "H": [0, 0, 0, 0, 0, 0, 0, 0, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "DATE_ONLY", "id": "S2", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [11, 0, 11, 12, 1, 4, 0, 0, 0], "H": [0, 7, 7, 8, 1, 0, 0, 4, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "DATE_ONLY", "id": "S3", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [8, 0, 8, 8, 0, 4, 0, 0, 0], "H": [10, 0, 10, 12, 2, 4, 0, 0, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "DATE_ONLY", "id": "S4", "role_counts": {"B": [3, 0, 3, 24, 21, 2, 0, 0, 0], "C": [10, 0, 10, 12, 2, 4, 0, 0, 0], "H": [4, 0, 4, 4, 0, 4, 0, 0, 0], "P": [3, 0, 3, 4, 1, 3, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "DATE_ONLY", "id": "S5", "role_counts": {"B": [0, 0, 0, 24, 24, 0, 0, 0, 0], "C": [4, 0, 4, 4, 0, 4, 0, 0, 0], "H": [4, 0, 4, 4, 0, 4, 0, 0, 0], "P": [12, 0, 12, 12, 0, 4, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "DATE_ONLY", "id": "S6", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [4, 0, 4, 4, 0, 4, 0, 0, 0], "H": [2, 0, 2, 4, 2, 2, 0, 0, 0], "P": [12, 0, 12, 12, 0, 4, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "DATE_ONLY", "id": "S7", "role_counts": {"B": [4, 0, 4, 24, 20, 3, 0, 0, 0], "C": [6, 0, 6, 8, 2, 4, 0, 0, 0], "H": [2, 4, 6, 8, 2, 2, 2, 4, 0], "P": [4, 0, 4, 4, 0, 4, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "DATE_ONLY", "id": "S8", "role_counts": {"B": [4, 0, 4, 24, 20, 3, 0, 0, 0], "C": [2, 0, 2, 2, 0, 2, 0, 0, 0], "H": [0, 0, 0, 0, 0, 0, 0, 0, 0], "P": [14, 0, 14, 18, 4, 4, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "DATE_ONLY", "id": "DRV-HEAVY-AGE", "role_counts": {"B": [6, 0, 6, 48, 42, 5, 0, 0, 0], "C": [16, 0, 16, 17, 1, 7, 0, 0, 0], "H": [4, 3, 7, 10, 3, 3, 0, 2, 0], "P": [11, 0, 11, 13, 2, 5, 0, 0, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "DATE_ONLY", "id": "HOL-LABOR", "role_counts": {"B": [4, 0, 4, 48, 44, 4, 0, 0, 0], "C": [14, 0, 14, 17, 3, 7, 0, 0, 0], "H": [7, 3, 10, 10, 0, 5, 1, 2, 0], "P": [12, 0, 12, 13, 1, 5, 0, 0, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "DATE_ONLY", "id": "HOL-SPRING", "role_counts": {"B": [9, 0, 9, 48, 39, 7, 0, 0, 0], "C": [15, 0, 15, 18, 3, 8, 0, 0, 0], "H": [4, 2, 6, 10, 4, 3, 0, 2, 0], "P": [10, 0, 10, 12, 2, 4, 0, 0, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "DATE_ONLY", "id": "HY-ISSUER", "role_counts": {"B": [0, 0, 0, 48, 48, 0, 0, 0, 0], "C": [18, 0, 18, 18, 0, 8, 0, 0, 0], "H": [7, 3, 10, 10, 0, 5, 1, 2, 0], "P": [12, 0, 12, 12, 0, 5, 0, 0, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "NONE", "id": "S1", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [18, 0, 18, 20, 2, 4, 0, 0, 0], "H": [0, 0, 0, 0, 0, 0, 0, 0, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "NONE", "id": "S2", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [11, 0, 11, 12, 1, 4, 0, 0, 0], "H": [7, 0, 7, 8, 1, 4, 0, 0, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "NONE", "id": "S3", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [8, 0, 8, 8, 0, 4, 0, 0, 0], "H": [10, 0, 10, 12, 2, 4, 0, 0, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "NONE", "id": "S4", "role_counts": {"B": [3, 0, 3, 24, 21, 2, 0, 0, 0], "C": [10, 0, 10, 12, 2, 4, 0, 0, 0], "H": [4, 0, 4, 4, 0, 4, 0, 0, 0], "P": [3, 0, 3, 4, 1, 3, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "NONE", "id": "S5", "role_counts": {"B": [0, 0, 0, 24, 24, 0, 0, 0, 0], "C": [4, 0, 4, 4, 0, 4, 0, 0, 0], "H": [4, 0, 4, 4, 0, 4, 0, 0, 0], "P": [12, 0, 12, 12, 0, 4, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "NONE", "id": "S6", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [4, 0, 4, 4, 0, 4, 0, 0, 0], "H": [2, 0, 2, 4, 2, 2, 0, 0, 0], "P": [12, 0, 12, 12, 0, 4, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "NONE", "id": "S7", "role_counts": {"B": [4, 0, 4, 24, 20, 3, 0, 0, 0], "C": [6, 0, 6, 8, 2, 4, 0, 0, 0], "H": [6, 0, 6, 8, 2, 4, 0, 0, 0], "P": [4, 0, 4, 4, 0, 4, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "NONE", "id": "S8", "role_counts": {"B": [4, 0, 4, 24, 20, 3, 0, 0, 0], "C": [2, 0, 2, 2, 0, 2, 0, 0, 0], "H": [0, 0, 0, 0, 0, 0, 0, 0, 0], "P": [14, 0, 14, 18, 4, 4, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "NONE", "id": "DRV-HEAVY-AGE", "role_counts": {"B": [6, 0, 6, 48, 42, 5, 0, 0, 0], "C": [16, 0, 16, 17, 1, 7, 0, 0, 0], "H": [7, 0, 7, 10, 3, 5, 0, 0, 0], "P": [11, 0, 11, 13, 2, 5, 0, 0, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "NONE", "id": "HOL-LABOR", "role_counts": {"B": [4, 0, 4, 48, 44, 4, 0, 0, 0], "C": [14, 0, 14, 17, 3, 7, 0, 0, 0], "H": [10, 0, 10, 10, 0, 6, 0, 0, 0], "P": [12, 0, 12, 13, 1, 5, 0, 0, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "NONE", "id": "HOL-SPRING", "role_counts": {"B": [9, 0, 9, 48, 39, 7, 0, 0, 0], "C": [15, 0, 15, 18, 3, 8, 0, 0, 0], "H": [6, 0, 6, 10, 4, 5, 0, 0, 0], "P": [10, 0, 10, 12, 2, 4, 0, 0, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "NONE", "id": "HY-ISSUER", "role_counts": {"B": [0, 0, 0, 48, 48, 0, 0, 0, 0], "C": [18, 0, 18, 18, 0, 8, 0, 0, 0], "H": [10, 0, 10, 10, 0, 6, 0, 0, 0], "P": [12, 0, 12, 12, 0, 5, 0, 0, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_B2", "id": "S1", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [2, 16, 18, 20, 2, 2, 2, 4, 0], "H": [0, 0, 0, 0, 0, 0, 0, 0, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_B2", "id": "S2", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [4, 7, 11, 12, 1, 3, 3, 4, 0], "H": [5, 2, 7, 8, 1, 3, 0, 1, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_B2", "id": "S3", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [3, 5, 8, 8, 0, 3, 3, 4, 0], "H": [10, 0, 10, 12, 2, 4, 0, 0, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_B2", "id": "S4", "role_counts": {"B": [3, 0, 3, 24, 21, 2, 0, 0, 0], "C": [3, 7, 10, 12, 2, 2, 2, 4, 0], "H": [4, 0, 4, 4, 0, 4, 0, 0, 0], "P": [2, 1, 3, 4, 1, 2, 0, 1, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_B2", "id": "S5", "role_counts": {"B": [0, 0, 0, 24, 24, 0, 0, 0, 0], "C": [2, 2, 4, 4, 0, 2, 0, 2, 0], "H": [4, 0, 4, 4, 0, 4, 0, 0, 0], "P": [2, 10, 12, 12, 0, 1, 1, 4, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_B2", "id": "S6", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [4, 0, 4, 4, 0, 4, 0, 0, 0], "H": [2, 0, 2, 4, 2, 2, 0, 0, 0], "P": [5, 7, 12, 12, 0, 4, 4, 4, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_B2", "id": "S7", "role_counts": {"B": [2, 2, 4, 24, 20, 2, 0, 1, 0], "C": [3, 3, 6, 8, 2, 3, 1, 2, 0], "H": [4, 2, 6, 8, 2, 4, 2, 2, 0], "P": [3, 1, 4, 4, 0, 3, 0, 1, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_B2", "id": "S8", "role_counts": {"B": [4, 0, 4, 24, 20, 3, 0, 0, 0], "C": [2, 0, 2, 2, 0, 2, 0, 0, 0], "H": [0, 0, 0, 0, 0, 0, 0, 0, 0], "P": [8, 6, 14, 18, 4, 4, 4, 4, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_B2", "id": "DRV-HEAVY-AGE", "role_counts": {"B": [6, 0, 6, 48, 42, 5, 0, 0, 0], "C": [6, 10, 16, 17, 1, 5, 3, 5, 0], "H": [5, 2, 7, 10, 3, 4, 0, 1, 0], "P": [7, 4, 11, 13, 2, 5, 3, 3, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_B2", "id": "HOL-LABOR", "role_counts": {"B": [4, 0, 4, 48, 44, 4, 0, 0, 0], "C": [5, 9, 14, 17, 3, 4, 1, 4, 0], "H": [9, 1, 10, 10, 0, 6, 1, 1, 0], "P": [5, 7, 12, 13, 1, 3, 2, 4, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_B2", "id": "HOL-SPRING", "role_counts": {"B": [7, 2, 9, 48, 39, 6, 0, 1, 0], "C": [6, 9, 15, 18, 3, 6, 3, 5, 0], "H": [6, 0, 6, 10, 4, 5, 0, 0, 0], "P": [3, 7, 10, 12, 2, 3, 2, 3, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_B2", "id": "HY-ISSUER", "role_counts": {"B": [0, 0, 0, 48, 48, 0, 0, 0, 0], "C": [6, 12, 18, 18, 0, 6, 4, 6, 0], "H": [9, 1, 10, 10, 0, 6, 1, 1, 0], "P": [5, 7, 12, 12, 0, 3, 2, 4, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_ZH", "id": "S1", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [2, 16, 18, 20, 2, 2, 2, 4, 0], "H": [0, 0, 0, 0, 0, 0, 0, 0, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH", "id": "S2", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [2, 9, 11, 12, 1, 2, 2, 4, 0], "H": [2, 5, 7, 8, 1, 2, 1, 3, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH", "id": "S3", "role_counts": {"B": [1, 1, 2, 24, 22, 1, 0, 1, 0], "C": [0, 8, 8, 8, 0, 0, 0, 4, 0], "H": [4, 6, 10, 12, 2, 3, 3, 4, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH", "id": "S4", "role_counts": {"B": [1, 2, 3, 24, 21, 1, 0, 1, 0], "C": [0, 10, 10, 12, 2, 0, 0, 4, 0], "H": [4, 0, 4, 4, 0, 4, 0, 0, 0], "P": [0, 3, 3, 4, 1, 0, 0, 3, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH", "id": "S5", "role_counts": {"B": [0, 0, 0, 24, 24, 0, 0, 0, 0], "C": [1, 3, 4, 4, 0, 1, 0, 3, 0], "H": [4, 0, 4, 4, 0, 4, 0, 0, 0], "P": [0, 12, 12, 12, 0, 0, 0, 4, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH", "id": "S6", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [2, 2, 4, 4, 0, 2, 0, 2, 0], "H": [2, 0, 2, 4, 2, 2, 0, 0, 0], "P": [2, 10, 12, 12, 0, 2, 2, 4, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH", "id": "S7", "role_counts": {"B": [2, 2, 4, 24, 20, 2, 0, 1, 0], "C": [0, 6, 6, 8, 2, 0, 0, 4, 0], "H": [4, 2, 6, 8, 2, 4, 2, 2, 0], "P": [2, 2, 4, 4, 0, 2, 0, 2, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH", "id": "S8", "role_counts": {"B": [3, 1, 4, 24, 20, 3, 1, 1, 0], "C": [2, 0, 2, 2, 0, 2, 0, 0, 0], "H": [0, 0, 0, 0, 0, 0, 0, 0, 0], "P": [2, 12, 14, 18, 4, 2, 2, 4, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH", "id": "DRV-HEAVY-AGE", "role_counts": {"B": [5, 1, 6, 48, 42, 5, 1, 1, 0], "C": [1, 15, 16, 17, 1, 1, 1, 7, 0], "H": [3, 4, 7, 10, 3, 3, 0, 2, 0], "P": [1, 10, 11, 13, 2, 1, 1, 5, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_ZH", "id": "HOL-LABOR", "role_counts": {"B": [4, 0, 4, 48, 44, 4, 0, 0, 0], "C": [3, 11, 14, 17, 3, 3, 1, 5, 0], "H": [6, 4, 10, 10, 0, 5, 2, 3, 0], "P": [0, 12, 12, 13, 1, 0, 0, 5, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_ZH", "id": "HOL-SPRING", "role_counts": {"B": [4, 5, 9, 48, 39, 4, 0, 3, 0], "C": [2, 13, 15, 18, 3, 2, 0, 6, 0], "H": [5, 1, 6, 10, 4, 5, 1, 1, 0], "P": [3, 7, 10, 12, 2, 3, 2, 3, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_ZH", "id": "HY-ISSUER", "role_counts": {"B": [0, 0, 0, 48, 48, 0, 0, 0, 0], "C": [3, 15, 18, 18, 0, 3, 2, 7, 0], "H": [6, 4, 10, 10, 0, 6, 3, 3, 0], "P": [2, 10, 12, 12, 0, 2, 1, 4, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_ZH+JOINT_NO_SCOPE", "id": "S1", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [6, 12, 18, 20, 2, 4, 4, 4, 4], "H": [0, 0, 0, 0, 0, 0, 0, 0, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+JOINT_NO_SCOPE", "id": "S2", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [6, 5, 11, 12, 1, 4, 4, 4, 4], "H": [2, 5, 7, 8, 1, 2, 1, 3, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+JOINT_NO_SCOPE", "id": "S3", "role_counts": {"B": [1, 1, 2, 24, 22, 1, 0, 1, 0], "C": [4, 4, 8, 8, 0, 4, 4, 4, 4], "H": [5, 5, 10, 12, 2, 3, 3, 4, 1], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+JOINT_NO_SCOPE", "id": "S4", "role_counts": {"B": [1, 2, 3, 24, 21, 1, 0, 1, 0], "C": [4, 6, 10, 12, 2, 4, 4, 4, 4], "H": [4, 0, 4, 4, 0, 4, 0, 0, 0], "P": [0, 3, 3, 4, 1, 0, 0, 3, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+JOINT_NO_SCOPE", "id": "S5", "role_counts": {"B": [0, 0, 0, 24, 24, 0, 0, 0, 0], "C": [4, 0, 4, 4, 0, 4, 0, 0, 3], "H": [4, 0, 4, 4, 0, 4, 0, 0, 0], "P": [0, 12, 12, 12, 0, 0, 0, 4, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+JOINT_NO_SCOPE", "id": "S6", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [4, 0, 4, 4, 0, 4, 0, 0, 2], "H": [2, 0, 2, 4, 2, 2, 0, 0, 0], "P": [2, 10, 12, 12, 0, 2, 2, 4, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+JOINT_NO_SCOPE", "id": "S7", "role_counts": {"B": [2, 2, 4, 24, 20, 2, 0, 1, 0], "C": [4, 2, 6, 8, 2, 4, 2, 2, 4], "H": [5, 1, 6, 8, 2, 4, 1, 1, 1], "P": [2, 2, 4, 4, 0, 2, 0, 2, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+JOINT_NO_SCOPE", "id": "S8", "role_counts": {"B": [3, 1, 4, 24, 20, 3, 1, 1, 0], "C": [2, 0, 2, 2, 0, 2, 0, 0, 0], "H": [0, 0, 0, 0, 0, 0, 0, 0, 0], "P": [2, 12, 14, 18, 4, 2, 2, 4, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+JOINT_NO_SCOPE", "id": "DRV-HEAVY-AGE", "role_counts": {"B": [5, 1, 6, 48, 42, 5, 1, 1, 0], "C": [8, 8, 16, 17, 1, 7, 5, 5, 7], "H": [3, 4, 7, 10, 3, 3, 0, 2, 0], "P": [1, 10, 11, 13, 2, 1, 1, 5, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_ZH+JOINT_NO_SCOPE", "id": "HOL-LABOR", "role_counts": {"B": [4, 0, 4, 48, 44, 4, 0, 0, 0], "C": [8, 6, 14, 17, 3, 7, 4, 4, 5], "H": [6, 4, 10, 10, 0, 5, 2, 3, 0], "P": [0, 12, 12, 13, 1, 0, 0, 5, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_ZH+JOINT_NO_SCOPE", "id": "HOL-SPRING", "role_counts": {"B": [4, 5, 9, 48, 39, 4, 0, 3, 0], "C": [8, 7, 15, 18, 3, 8, 4, 4, 6], "H": [5, 1, 6, 10, 4, 5, 1, 1, 0], "P": [3, 7, 10, 12, 2, 3, 2, 3, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_ZH+JOINT_NO_SCOPE", "id": "HY-ISSUER", "role_counts": {"B": [0, 0, 0, 48, 48, 0, 0, 0, 0], "C": [10, 8, 18, 18, 0, 8, 5, 5, 7], "H": [8, 2, 10, 10, 0, 6, 2, 2, 2], "P": [2, 10, 12, 12, 0, 2, 1, 4, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_ZH+SIMPLE_RECEIPT_RULE", "id": "S1", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [6, 12, 18, 20, 2, 4, 4, 4, 4], "H": [0, 0, 0, 0, 0, 0, 0, 0, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+SIMPLE_RECEIPT_RULE", "id": "S2", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [6, 5, 11, 12, 1, 4, 4, 4, 4], "H": [2, 5, 7, 8, 1, 2, 1, 3, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+SIMPLE_RECEIPT_RULE", "id": "S3", "role_counts": {"B": [1, 1, 2, 24, 22, 1, 0, 1, 0], "C": [4, 4, 8, 8, 0, 4, 4, 4, 4], "H": [4, 6, 10, 12, 2, 3, 3, 4, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+SIMPLE_RECEIPT_RULE", "id": "S4", "role_counts": {"B": [1, 2, 3, 24, 21, 1, 0, 1, 0], "C": [4, 6, 10, 12, 2, 4, 4, 4, 4], "H": [4, 0, 4, 4, 0, 4, 0, 0, 0], "P": [0, 3, 3, 4, 1, 0, 0, 3, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+SIMPLE_RECEIPT_RULE", "id": "S5", "role_counts": {"B": [0, 0, 0, 24, 24, 0, 0, 0, 0], "C": [4, 0, 4, 4, 0, 4, 0, 0, 3], "H": [4, 0, 4, 4, 0, 4, 0, 0, 0], "P": [0, 12, 12, 12, 0, 0, 0, 4, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+SIMPLE_RECEIPT_RULE", "id": "S6", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [4, 0, 4, 4, 0, 4, 0, 0, 2], "H": [2, 0, 2, 4, 2, 2, 0, 0, 0], "P": [2, 10, 12, 12, 0, 2, 2, 4, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+SIMPLE_RECEIPT_RULE", "id": "S7", "role_counts": {"B": [2, 2, 4, 24, 20, 2, 0, 1, 0], "C": [4, 2, 6, 8, 2, 4, 2, 2, 4], "H": [4, 2, 6, 8, 2, 4, 2, 2, 0], "P": [2, 2, 4, 4, 0, 2, 0, 2, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+SIMPLE_RECEIPT_RULE", "id": "S8", "role_counts": {"B": [3, 1, 4, 24, 20, 3, 1, 1, 0], "C": [2, 0, 2, 2, 0, 2, 0, 0, 0], "H": [0, 0, 0, 0, 0, 0, 0, 0, 0], "P": [2, 12, 14, 18, 4, 2, 2, 4, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+SIMPLE_RECEIPT_RULE", "id": "DRV-HEAVY-AGE", "role_counts": {"B": [5, 1, 6, 48, 42, 5, 1, 1, 0], "C": [8, 8, 16, 17, 1, 7, 5, 5, 7], "H": [3, 4, 7, 10, 3, 3, 0, 2, 0], "P": [1, 10, 11, 13, 2, 1, 1, 5, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_ZH+SIMPLE_RECEIPT_RULE", "id": "HOL-LABOR", "role_counts": {"B": [4, 0, 4, 48, 44, 4, 0, 0, 0], "C": [8, 6, 14, 17, 3, 7, 4, 4, 5], "H": [6, 4, 10, 10, 0, 5, 2, 3, 0], "P": [0, 12, 12, 13, 1, 0, 0, 5, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_ZH+SIMPLE_RECEIPT_RULE", "id": "HOL-SPRING", "role_counts": {"B": [4, 5, 9, 48, 39, 4, 0, 3, 0], "C": [8, 7, 15, 18, 3, 8, 4, 4, 6], "H": [5, 1, 6, 10, 4, 5, 1, 1, 0], "P": [3, 7, 10, 12, 2, 3, 2, 3, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_ZH+SIMPLE_RECEIPT_RULE", "id": "HY-ISSUER", "role_counts": {"B": [0, 0, 0, 48, 48, 0, 0, 0, 0], "C": [10, 8, 18, 18, 0, 8, 5, 5, 7], "H": [6, 4, 10, 10, 0, 6, 3, 3, 0], "P": [2, 10, 12, 12, 0, 2, 1, 4, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_ZH+SOURCE_TIME_SCOPE_JOINT", "id": "S1", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [6, 12, 18, 20, 2, 4, 4, 4, 4], "H": [0, 0, 0, 0, 0, 0, 0, 0, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+SOURCE_TIME_SCOPE_JOINT", "id": "S2", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [6, 5, 11, 12, 1, 4, 4, 4, 4], "H": [2, 5, 7, 8, 1, 2, 1, 3, 0], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+SOURCE_TIME_SCOPE_JOINT", "id": "S3", "role_counts": {"B": [1, 1, 2, 24, 22, 1, 0, 1, 0], "C": [4, 4, 8, 8, 0, 4, 4, 4, 4], "H": [5, 5, 10, 12, 2, 3, 3, 4, 1], "P": [0, 0, 0, 0, 0, 0, 0, 0, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+SOURCE_TIME_SCOPE_JOINT", "id": "S4", "role_counts": {"B": [1, 2, 3, 24, 21, 1, 0, 1, 0], "C": [4, 6, 10, 12, 2, 4, 4, 4, 4], "H": [4, 0, 4, 4, 0, 4, 0, 0, 0], "P": [0, 3, 3, 4, 1, 0, 0, 3, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+SOURCE_TIME_SCOPE_JOINT", "id": "S5", "role_counts": {"B": [0, 0, 0, 24, 24, 0, 0, 0, 0], "C": [4, 0, 4, 4, 0, 4, 0, 0, 3], "H": [4, 0, 4, 4, 0, 4, 0, 0, 0], "P": [0, 12, 12, 12, 0, 0, 0, 4, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+SOURCE_TIME_SCOPE_JOINT", "id": "S6", "role_counts": {"B": [2, 0, 2, 24, 22, 2, 0, 0, 0], "C": [4, 0, 4, 4, 0, 4, 0, 0, 2], "H": [2, 0, 2, 4, 2, 2, 0, 0, 0], "P": [2, 10, 12, 12, 0, 2, 2, 4, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+SOURCE_TIME_SCOPE_JOINT", "id": "S7", "role_counts": {"B": [2, 2, 4, 24, 20, 2, 0, 1, 0], "C": [4, 2, 6, 8, 2, 4, 2, 2, 4], "H": [5, 1, 6, 8, 2, 4, 1, 1, 1], "P": [2, 2, 4, 4, 0, 2, 0, 2, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+SOURCE_TIME_SCOPE_JOINT", "id": "S8", "role_counts": {"B": [3, 1, 4, 24, 20, 3, 1, 1, 0], "C": [2, 0, 2, 2, 0, 2, 0, 0, 0], "H": [0, 0, 0, 0, 0, 0, 0, 0, 0], "P": [2, 12, 14, 18, 4, 2, 2, 4, 0]}, "type": "scenarios", "worlds": 4},
+    {"arm": "RD_ZH+SOURCE_TIME_SCOPE_JOINT", "id": "DRV-HEAVY-AGE", "role_counts": {"B": [5, 1, 6, 48, 42, 5, 1, 1, 0], "C": [8, 8, 16, 17, 1, 7, 5, 5, 7], "H": [3, 4, 7, 10, 3, 3, 0, 2, 0], "P": [1, 10, 11, 13, 2, 1, 1, 5, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_ZH+SOURCE_TIME_SCOPE_JOINT", "id": "HOL-LABOR", "role_counts": {"B": [4, 0, 4, 48, 44, 4, 0, 0, 0], "C": [8, 6, 14, 17, 3, 7, 4, 4, 5], "H": [6, 4, 10, 10, 0, 5, 2, 3, 0], "P": [0, 12, 12, 13, 1, 0, 0, 5, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_ZH+SOURCE_TIME_SCOPE_JOINT", "id": "HOL-SPRING", "role_counts": {"B": [4, 5, 9, 48, 39, 4, 0, 3, 0], "C": [8, 7, 15, 18, 3, 8, 4, 4, 6], "H": [5, 1, 6, 10, 4, 5, 1, 1, 0], "P": [3, 7, 10, 12, 2, 3, 2, 3, 0]}, "type": "fact_groups", "worlds": 8},
+    {"arm": "RD_ZH+SOURCE_TIME_SCOPE_JOINT", "id": "HY-ISSUER", "role_counts": {"B": [0, 0, 0, 48, 48, 0, 0, 0, 0], "C": [10, 8, 18, 18, 0, 8, 5, 5, 7], "H": [8, 2, 10, 10, 0, 6, 2, 2, 2], "P": [2, 10, 12, 12, 0, 2, 1, 4, 0]}, "type": "fact_groups", "worlds": 8}
+  ],
+  "paired": [
+    {"all": {"B_kept_to_deleted": 6, "C_kept_to_deleted": 29, "H_deleted_to_kept": 5, "H_kept_to_deleted": 5, "P_kept_to_deleted": 39, "mask_changed": 32, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"B_kept_to_deleted": 1, "C_kept_to_deleted": 8, "H_deleted_to_kept": 1, "H_kept_to_deleted": 2, "P_kept_to_deleted": 10, "mask_changed": 8, "worlds": 8}, "HOL-LABOR": {"C_kept_to_deleted": 6, "H_kept_to_deleted": 1, "P_kept_to_deleted": 12, "mask_changed": 8, "worlds": 8}, "HOL-SPRING": {"B_kept_to_deleted": 5, "C_kept_to_deleted": 7, "H_deleted_to_kept": 2, "H_kept_to_deleted": 1, "P_kept_to_deleted": 7, "mask_changed": 8, "worlds": 8}, "HY-ISSUER": {"C_kept_to_deleted": 8, "H_deleted_to_kept": 2, "H_kept_to_deleted": 1, "P_kept_to_deleted": 10, "mask_changed": 8, "worlds": 8}}, "pair": "DATE_ONLY => RD_ZH+JOINT_NO_SCOPE", "scenes": {"S1": {"C_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}, "S2": {"C_kept_to_deleted": 5, "H_deleted_to_kept": 2, "mask_changed": 4, "worlds": 4}, "S3": {"B_kept_to_deleted": 1, "C_kept_to_deleted": 4, "H_kept_to_deleted": 5, "mask_changed": 4, "worlds": 4}, "S4": {"B_kept_to_deleted": 2, "C_kept_to_deleted": 6, "P_kept_to_deleted": 3, "mask_changed": 4, "worlds": 4}, "S5": {"P_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}, "S6": {"P_kept_to_deleted": 10, "mask_changed": 4, "worlds": 4}, "S7": {"B_kept_to_deleted": 2, "C_kept_to_deleted": 2, "H_deleted_to_kept": 3, "P_kept_to_deleted": 2, "mask_changed": 4, "worlds": 4}, "S8": {"B_kept_to_deleted": 1, "P_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}}},
+    {"all": {"B_kept_to_deleted": 6, "C_kept_to_deleted": 29, "H_deleted_to_kept": 5, "H_kept_to_deleted": 7, "P_kept_to_deleted": 39, "mask_changed": 32, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"B_kept_to_deleted": 1, "C_kept_to_deleted": 8, "H_deleted_to_kept": 1, "H_kept_to_deleted": 2, "P_kept_to_deleted": 10, "mask_changed": 8, "worlds": 8}, "HOL-LABOR": {"C_kept_to_deleted": 6, "H_kept_to_deleted": 1, "P_kept_to_deleted": 12, "mask_changed": 8, "worlds": 8}, "HOL-SPRING": {"B_kept_to_deleted": 5, "C_kept_to_deleted": 7, "H_deleted_to_kept": 2, "H_kept_to_deleted": 1, "P_kept_to_deleted": 7, "mask_changed": 8, "worlds": 8}, "HY-ISSUER": {"C_kept_to_deleted": 8, "H_deleted_to_kept": 2, "H_kept_to_deleted": 3, "P_kept_to_deleted": 10, "mask_changed": 8, "worlds": 8}}, "pair": "DATE_ONLY => RD_ZH+SIMPLE_RECEIPT_RULE", "scenes": {"S1": {"C_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}, "S2": {"C_kept_to_deleted": 5, "H_deleted_to_kept": 2, "mask_changed": 4, "worlds": 4}, "S3": {"B_kept_to_deleted": 1, "C_kept_to_deleted": 4, "H_kept_to_deleted": 6, "mask_changed": 4, "worlds": 4}, "S4": {"B_kept_to_deleted": 2, "C_kept_to_deleted": 6, "P_kept_to_deleted": 3, "mask_changed": 4, "worlds": 4}, "S5": {"P_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}, "S6": {"P_kept_to_deleted": 10, "mask_changed": 4, "worlds": 4}, "S7": {"B_kept_to_deleted": 2, "C_kept_to_deleted": 2, "H_deleted_to_kept": 3, "H_kept_to_deleted": 1, "P_kept_to_deleted": 2, "mask_changed": 4, "worlds": 4}, "S8": {"B_kept_to_deleted": 1, "P_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}}},
+    {"all": {"B_kept_to_deleted": 6, "C_kept_to_deleted": 29, "H_deleted_to_kept": 5, "H_kept_to_deleted": 5, "P_kept_to_deleted": 39, "mask_changed": 32, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"B_kept_to_deleted": 1, "C_kept_to_deleted": 8, "H_deleted_to_kept": 1, "H_kept_to_deleted": 2, "P_kept_to_deleted": 10, "mask_changed": 8, "worlds": 8}, "HOL-LABOR": {"C_kept_to_deleted": 6, "H_kept_to_deleted": 1, "P_kept_to_deleted": 12, "mask_changed": 8, "worlds": 8}, "HOL-SPRING": {"B_kept_to_deleted": 5, "C_kept_to_deleted": 7, "H_deleted_to_kept": 2, "H_kept_to_deleted": 1, "P_kept_to_deleted": 7, "mask_changed": 8, "worlds": 8}, "HY-ISSUER": {"C_kept_to_deleted": 8, "H_deleted_to_kept": 2, "H_kept_to_deleted": 1, "P_kept_to_deleted": 10, "mask_changed": 8, "worlds": 8}}, "pair": "DATE_ONLY => RD_ZH+SOURCE_TIME_SCOPE_JOINT", "scenes": {"S1": {"C_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}, "S2": {"C_kept_to_deleted": 5, "H_deleted_to_kept": 2, "mask_changed": 4, "worlds": 4}, "S3": {"B_kept_to_deleted": 1, "C_kept_to_deleted": 4, "H_kept_to_deleted": 5, "mask_changed": 4, "worlds": 4}, "S4": {"B_kept_to_deleted": 2, "C_kept_to_deleted": 6, "P_kept_to_deleted": 3, "mask_changed": 4, "worlds": 4}, "S5": {"P_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}, "S6": {"P_kept_to_deleted": 10, "mask_changed": 4, "worlds": 4}, "S7": {"B_kept_to_deleted": 2, "C_kept_to_deleted": 2, "H_deleted_to_kept": 3, "P_kept_to_deleted": 2, "mask_changed": 4, "worlds": 4}, "S8": {"B_kept_to_deleted": 1, "P_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}}},
+    {"all": {"H_kept_to_deleted": 11, "mask_changed": 8, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"H_kept_to_deleted": 3, "mask_changed": 2, "worlds": 8}, "HOL-LABOR": {"H_kept_to_deleted": 3, "mask_changed": 2, "worlds": 8}, "HOL-SPRING": {"H_kept_to_deleted": 2, "mask_changed": 2, "worlds": 8}, "HY-ISSUER": {"H_kept_to_deleted": 3, "mask_changed": 2, "worlds": 8}}, "pair": "NONE => DATE_ONLY", "scenes": {"S1": {"mask_changed": 0, "worlds": 4}, "S2": {"H_kept_to_deleted": 7, "mask_changed": 4, "worlds": 4}, "S3": {"mask_changed": 0, "worlds": 4}, "S4": {"mask_changed": 0, "worlds": 4}, "S5": {"mask_changed": 0, "worlds": 4}, "S6": {"mask_changed": 0, "worlds": 4}, "S7": {"H_kept_to_deleted": 4, "mask_changed": 4, "worlds": 4}, "S8": {"mask_changed": 0, "worlds": 4}}},
+    {"all": {"B_kept_to_deleted": 2, "C_kept_to_deleted": 40, "H_kept_to_deleted": 4, "P_kept_to_deleted": 25, "mask_changed": 32, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"C_kept_to_deleted": 10, "H_kept_to_deleted": 2, "P_kept_to_deleted": 4, "mask_changed": 8, "worlds": 8}, "HOL-LABOR": {"C_kept_to_deleted": 9, "H_kept_to_deleted": 1, "P_kept_to_deleted": 7, "mask_changed": 8, "worlds": 8}, "HOL-SPRING": {"B_kept_to_deleted": 2, "C_kept_to_deleted": 9, "P_kept_to_deleted": 7, "mask_changed": 8, "worlds": 8}, "HY-ISSUER": {"C_kept_to_deleted": 12, "H_kept_to_deleted": 1, "P_kept_to_deleted": 7, "mask_changed": 8, "worlds": 8}}, "pair": "NONE => RD_B2", "scenes": {"S1": {"C_kept_to_deleted": 16, "mask_changed": 4, "worlds": 4}, "S2": {"C_kept_to_deleted": 7, "H_kept_to_deleted": 2, "mask_changed": 4, "worlds": 4}, "S3": {"C_kept_to_deleted": 5, "mask_changed": 4, "worlds": 4}, "S4": {"C_kept_to_deleted": 7, "P_kept_to_deleted": 1, "mask_changed": 4, "worlds": 4}, "S5": {"C_kept_to_deleted": 2, "P_kept_to_deleted": 10, "mask_changed": 4, "worlds": 4}, "S6": {"P_kept_to_deleted": 7, "mask_changed": 4, "worlds": 4}, "S7": {"B_kept_to_deleted": 2, "C_kept_to_deleted": 3, "H_kept_to_deleted": 2, "P_kept_to_deleted": 1, "mask_changed": 4, "worlds": 4}, "S8": {"P_kept_to_deleted": 6, "mask_changed": 4, "worlds": 4}}},
+    {"all": {"B_kept_to_deleted": 6, "C_kept_to_deleted": 54, "H_kept_to_deleted": 13, "P_kept_to_deleted": 39, "mask_changed": 32, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"B_kept_to_deleted": 1, "C_kept_to_deleted": 15, "H_kept_to_deleted": 4, "P_kept_to_deleted": 10, "mask_changed": 8, "worlds": 8}, "HOL-LABOR": {"C_kept_to_deleted": 11, "H_kept_to_deleted": 4, "P_kept_to_deleted": 12, "mask_changed": 8, "worlds": 8}, "HOL-SPRING": {"B_kept_to_deleted": 5, "C_kept_to_deleted": 13, "H_kept_to_deleted": 1, "P_kept_to_deleted": 7, "mask_changed": 8, "worlds": 8}, "HY-ISSUER": {"C_kept_to_deleted": 15, "H_kept_to_deleted": 4, "P_kept_to_deleted": 10, "mask_changed": 8, "worlds": 8}}, "pair": "NONE => RD_ZH", "scenes": {"S1": {"C_kept_to_deleted": 16, "mask_changed": 4, "worlds": 4}, "S2": {"C_kept_to_deleted": 9, "H_kept_to_deleted": 5, "mask_changed": 4, "worlds": 4}, "S3": {"B_kept_to_deleted": 1, "C_kept_to_deleted": 8, "H_kept_to_deleted": 6, "mask_changed": 4, "worlds": 4}, "S4": {"B_kept_to_deleted": 2, "C_kept_to_deleted": 10, "P_kept_to_deleted": 3, "mask_changed": 4, "worlds": 4}, "S5": {"C_kept_to_deleted": 3, "P_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}, "S6": {"C_kept_to_deleted": 2, "P_kept_to_deleted": 10, "mask_changed": 4, "worlds": 4}, "S7": {"B_kept_to_deleted": 2, "C_kept_to_deleted": 6, "H_kept_to_deleted": 2, "P_kept_to_deleted": 2, "mask_changed": 4, "worlds": 4}, "S8": {"B_kept_to_deleted": 1, "P_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}}},
+    {"all": {"B_kept_to_deleted": 6, "C_kept_to_deleted": 29, "H_kept_to_deleted": 11, "P_kept_to_deleted": 39, "mask_changed": 32, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"B_kept_to_deleted": 1, "C_kept_to_deleted": 8, "H_kept_to_deleted": 4, "P_kept_to_deleted": 10, "mask_changed": 8, "worlds": 8}, "HOL-LABOR": {"C_kept_to_deleted": 6, "H_kept_to_deleted": 4, "P_kept_to_deleted": 12, "mask_changed": 8, "worlds": 8}, "HOL-SPRING": {"B_kept_to_deleted": 5, "C_kept_to_deleted": 7, "H_kept_to_deleted": 1, "P_kept_to_deleted": 7, "mask_changed": 8, "worlds": 8}, "HY-ISSUER": {"C_kept_to_deleted": 8, "H_kept_to_deleted": 2, "P_kept_to_deleted": 10, "mask_changed": 8, "worlds": 8}}, "pair": "NONE => RD_ZH+JOINT_NO_SCOPE", "scenes": {"S1": {"C_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}, "S2": {"C_kept_to_deleted": 5, "H_kept_to_deleted": 5, "mask_changed": 4, "worlds": 4}, "S3": {"B_kept_to_deleted": 1, "C_kept_to_deleted": 4, "H_kept_to_deleted": 5, "mask_changed": 4, "worlds": 4}, "S4": {"B_kept_to_deleted": 2, "C_kept_to_deleted": 6, "P_kept_to_deleted": 3, "mask_changed": 4, "worlds": 4}, "S5": {"P_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}, "S6": {"P_kept_to_deleted": 10, "mask_changed": 4, "worlds": 4}, "S7": {"B_kept_to_deleted": 2, "C_kept_to_deleted": 2, "H_kept_to_deleted": 1, "P_kept_to_deleted": 2, "mask_changed": 4, "worlds": 4}, "S8": {"B_kept_to_deleted": 1, "P_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}}},
+    {"all": {"B_kept_to_deleted": 6, "C_kept_to_deleted": 29, "H_kept_to_deleted": 13, "P_kept_to_deleted": 39, "mask_changed": 32, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"B_kept_to_deleted": 1, "C_kept_to_deleted": 8, "H_kept_to_deleted": 4, "P_kept_to_deleted": 10, "mask_changed": 8, "worlds": 8}, "HOL-LABOR": {"C_kept_to_deleted": 6, "H_kept_to_deleted": 4, "P_kept_to_deleted": 12, "mask_changed": 8, "worlds": 8}, "HOL-SPRING": {"B_kept_to_deleted": 5, "C_kept_to_deleted": 7, "H_kept_to_deleted": 1, "P_kept_to_deleted": 7, "mask_changed": 8, "worlds": 8}, "HY-ISSUER": {"C_kept_to_deleted": 8, "H_kept_to_deleted": 4, "P_kept_to_deleted": 10, "mask_changed": 8, "worlds": 8}}, "pair": "NONE => RD_ZH+SIMPLE_RECEIPT_RULE", "scenes": {"S1": {"C_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}, "S2": {"C_kept_to_deleted": 5, "H_kept_to_deleted": 5, "mask_changed": 4, "worlds": 4}, "S3": {"B_kept_to_deleted": 1, "C_kept_to_deleted": 4, "H_kept_to_deleted": 6, "mask_changed": 4, "worlds": 4}, "S4": {"B_kept_to_deleted": 2, "C_kept_to_deleted": 6, "P_kept_to_deleted": 3, "mask_changed": 4, "worlds": 4}, "S5": {"P_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}, "S6": {"P_kept_to_deleted": 10, "mask_changed": 4, "worlds": 4}, "S7": {"B_kept_to_deleted": 2, "C_kept_to_deleted": 2, "H_kept_to_deleted": 2, "P_kept_to_deleted": 2, "mask_changed": 4, "worlds": 4}, "S8": {"B_kept_to_deleted": 1, "P_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}}},
+    {"all": {"B_kept_to_deleted": 6, "C_kept_to_deleted": 29, "H_kept_to_deleted": 11, "P_kept_to_deleted": 39, "mask_changed": 32, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"B_kept_to_deleted": 1, "C_kept_to_deleted": 8, "H_kept_to_deleted": 4, "P_kept_to_deleted": 10, "mask_changed": 8, "worlds": 8}, "HOL-LABOR": {"C_kept_to_deleted": 6, "H_kept_to_deleted": 4, "P_kept_to_deleted": 12, "mask_changed": 8, "worlds": 8}, "HOL-SPRING": {"B_kept_to_deleted": 5, "C_kept_to_deleted": 7, "H_kept_to_deleted": 1, "P_kept_to_deleted": 7, "mask_changed": 8, "worlds": 8}, "HY-ISSUER": {"C_kept_to_deleted": 8, "H_kept_to_deleted": 2, "P_kept_to_deleted": 10, "mask_changed": 8, "worlds": 8}}, "pair": "NONE => RD_ZH+SOURCE_TIME_SCOPE_JOINT", "scenes": {"S1": {"C_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}, "S2": {"C_kept_to_deleted": 5, "H_kept_to_deleted": 5, "mask_changed": 4, "worlds": 4}, "S3": {"B_kept_to_deleted": 1, "C_kept_to_deleted": 4, "H_kept_to_deleted": 5, "mask_changed": 4, "worlds": 4}, "S4": {"B_kept_to_deleted": 2, "C_kept_to_deleted": 6, "P_kept_to_deleted": 3, "mask_changed": 4, "worlds": 4}, "S5": {"P_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}, "S6": {"P_kept_to_deleted": 10, "mask_changed": 4, "worlds": 4}, "S7": {"B_kept_to_deleted": 2, "C_kept_to_deleted": 2, "H_kept_to_deleted": 1, "P_kept_to_deleted": 2, "mask_changed": 4, "worlds": 4}, "S8": {"B_kept_to_deleted": 1, "P_kept_to_deleted": 12, "mask_changed": 4, "worlds": 4}}},
+    {"all": {"B_deleted_to_kept": 2, "C_deleted_to_kept": 40, "H_deleted_to_kept": 1, "H_kept_to_deleted": 8, "P_deleted_to_kept": 25, "mask_changed": 32, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"C_deleted_to_kept": 10, "H_kept_to_deleted": 1, "P_deleted_to_kept": 4, "mask_changed": 8, "worlds": 8}, "HOL-LABOR": {"C_deleted_to_kept": 9, "H_kept_to_deleted": 2, "P_deleted_to_kept": 7, "mask_changed": 8, "worlds": 8}, "HOL-SPRING": {"B_deleted_to_kept": 2, "C_deleted_to_kept": 9, "H_kept_to_deleted": 2, "P_deleted_to_kept": 7, "mask_changed": 8, "worlds": 8}, "HY-ISSUER": {"C_deleted_to_kept": 12, "H_deleted_to_kept": 1, "H_kept_to_deleted": 3, "P_deleted_to_kept": 7, "mask_changed": 8, "worlds": 8}}, "pair": "RD_B2 => DATE_ONLY", "scenes": {"S1": {"C_deleted_to_kept": 16, "mask_changed": 4, "worlds": 4}, "S2": {"C_deleted_to_kept": 7, "H_kept_to_deleted": 5, "mask_changed": 4, "worlds": 4}, "S3": {"C_deleted_to_kept": 5, "mask_changed": 4, "worlds": 4}, "S4": {"C_deleted_to_kept": 7, "P_deleted_to_kept": 1, "mask_changed": 4, "worlds": 4}, "S5": {"C_deleted_to_kept": 2, "P_deleted_to_kept": 10, "mask_changed": 4, "worlds": 4}, "S6": {"P_deleted_to_kept": 7, "mask_changed": 4, "worlds": 4}, "S7": {"B_deleted_to_kept": 2, "C_deleted_to_kept": 3, "H_deleted_to_kept": 1, "H_kept_to_deleted": 3, "P_deleted_to_kept": 1, "mask_changed": 4, "worlds": 4}, "S8": {"P_deleted_to_kept": 6, "mask_changed": 4, "worlds": 4}}},
+    {"all": {"B_kept_to_deleted": 4, "C_kept_to_deleted": 14, "H_kept_to_deleted": 9, "P_kept_to_deleted": 14, "mask_changed": 21, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"B_kept_to_deleted": 1, "C_kept_to_deleted": 5, "H_kept_to_deleted": 2, "P_kept_to_deleted": 6, "mask_changed": 6, "worlds": 8}, "HOL-LABOR": {"C_kept_to_deleted": 2, "H_kept_to_deleted": 3, "P_kept_to_deleted": 5, "mask_changed": 6, "worlds": 8}, "HOL-SPRING": {"B_kept_to_deleted": 3, "C_kept_to_deleted": 4, "H_kept_to_deleted": 1, "mask_changed": 4, "worlds": 8}, "HY-ISSUER": {"C_kept_to_deleted": 3, "H_kept_to_deleted": 3, "P_kept_to_deleted": 3, "mask_changed": 5, "worlds": 8}}, "pair": "RD_B2 => RD_ZH", "scenes": {"S1": {"mask_changed": 0, "worlds": 4}, "S2": {"C_kept_to_deleted": 2, "H_kept_to_deleted": 3, "mask_changed": 3, "worlds": 4}, "S3": {"B_kept_to_deleted": 1, "C_kept_to_deleted": 3, "H_kept_to_deleted": 6, "mask_changed": 4, "worlds": 4}, "S4": {"B_kept_to_deleted": 2, "C_kept_to_deleted": 3, "P_kept_to_deleted": 2, "mask_changed": 3, "worlds": 4}, "S5": {"C_kept_to_deleted": 1, "P_kept_to_deleted": 2, "mask_changed": 1, "worlds": 4}, "S6": {"C_kept_to_deleted": 2, "P_kept_to_deleted": 3, "mask_changed": 3, "worlds": 4}, "S7": {"C_kept_to_deleted": 3, "P_kept_to_deleted": 1, "mask_changed": 4, "worlds": 4}, "S8": {"B_kept_to_deleted": 1, "P_kept_to_deleted": 6, "mask_changed": 3, "worlds": 4}}},
+    {"all": {"B_kept_to_deleted": 4, "C_deleted_to_kept": 18, "C_kept_to_deleted": 7, "H_deleted_to_kept": 1, "H_kept_to_deleted": 8, "P_kept_to_deleted": 14, "mask_changed": 26, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"B_kept_to_deleted": 1, "C_deleted_to_kept": 5, "C_kept_to_deleted": 3, "H_kept_to_deleted": 2, "P_kept_to_deleted": 6, "mask_changed": 8, "worlds": 8}, "HOL-LABOR": {"C_deleted_to_kept": 4, "C_kept_to_deleted": 1, "H_kept_to_deleted": 3, "P_kept_to_deleted": 5, "mask_changed": 6, "worlds": 8}, "HOL-SPRING": {"B_kept_to_deleted": 3, "C_deleted_to_kept": 5, "C_kept_to_deleted": 3, "H_kept_to_deleted": 1, "mask_changed": 5, "worlds": 8}, "HY-ISSUER": {"C_deleted_to_kept": 4, "H_deleted_to_kept": 1, "H_kept_to_deleted": 2, "P_kept_to_deleted": 3, "mask_changed": 7, "worlds": 8}}, "pair": "RD_B2 => RD_ZH+JOINT_NO_SCOPE", "scenes": {"S1": {"C_deleted_to_kept": 4, "mask_changed": 4, "worlds": 4}, "S2": {"C_deleted_to_kept": 4, "C_kept_to_deleted": 2, "H_kept_to_deleted": 3, "mask_changed": 4, "worlds": 4}, "S3": {"B_kept_to_deleted": 1, "C_deleted_to_kept": 3, "C_kept_to_deleted": 2, "H_kept_to_deleted": 5, "mask_changed": 4, "worlds": 4}, "S4": {"B_kept_to_deleted": 2, "C_deleted_to_kept": 4, "C_kept_to_deleted": 3, "P_kept_to_deleted": 2, "mask_changed": 4, "worlds": 4}, "S5": {"C_deleted_to_kept": 2, "P_kept_to_deleted": 2, "mask_changed": 3, "worlds": 4}, "S6": {"P_kept_to_deleted": 3, "mask_changed": 2, "worlds": 4}, "S7": {"C_deleted_to_kept": 1, "H_deleted_to_kept": 1, "P_kept_to_deleted": 1, "mask_changed": 2, "worlds": 4}, "S8": {"B_kept_to_deleted": 1, "P_kept_to_deleted": 6, "mask_changed": 3, "worlds": 4}}},
+    {"all": {"B_kept_to_deleted": 4, "C_deleted_to_kept": 18, "C_kept_to_deleted": 7, "H_kept_to_deleted": 9, "P_kept_to_deleted": 14, "mask_changed": 25, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"B_kept_to_deleted": 1, "C_deleted_to_kept": 5, "C_kept_to_deleted": 3, "H_kept_to_deleted": 2, "P_kept_to_deleted": 6, "mask_changed": 8, "worlds": 8}, "HOL-LABOR": {"C_deleted_to_kept": 4, "C_kept_to_deleted": 1, "H_kept_to_deleted": 3, "P_kept_to_deleted": 5, "mask_changed": 6, "worlds": 8}, "HOL-SPRING": {"B_kept_to_deleted": 3, "C_deleted_to_kept": 5, "C_kept_to_deleted": 3, "H_kept_to_deleted": 1, "mask_changed": 5, "worlds": 8}, "HY-ISSUER": {"C_deleted_to_kept": 4, "H_kept_to_deleted": 3, "P_kept_to_deleted": 3, "mask_changed": 6, "worlds": 8}}, "pair": "RD_B2 => RD_ZH+SIMPLE_RECEIPT_RULE", "scenes": {"S1": {"C_deleted_to_kept": 4, "mask_changed": 4, "worlds": 4}, "S2": {"C_deleted_to_kept": 4, "C_kept_to_deleted": 2, "H_kept_to_deleted": 3, "mask_changed": 4, "worlds": 4}, "S3": {"B_kept_to_deleted": 1, "C_deleted_to_kept": 3, "C_kept_to_deleted": 2, "H_kept_to_deleted": 6, "mask_changed": 4, "worlds": 4}, "S4": {"B_kept_to_deleted": 2, "C_deleted_to_kept": 4, "C_kept_to_deleted": 3, "P_kept_to_deleted": 2, "mask_changed": 4, "worlds": 4}, "S5": {"C_deleted_to_kept": 2, "P_kept_to_deleted": 2, "mask_changed": 3, "worlds": 4}, "S6": {"P_kept_to_deleted": 3, "mask_changed": 2, "worlds": 4}, "S7": {"C_deleted_to_kept": 1, "P_kept_to_deleted": 1, "mask_changed": 1, "worlds": 4}, "S8": {"B_kept_to_deleted": 1, "P_kept_to_deleted": 6, "mask_changed": 3, "worlds": 4}}},
+    {"all": {"B_kept_to_deleted": 4, "C_deleted_to_kept": 18, "C_kept_to_deleted": 7, "H_deleted_to_kept": 1, "H_kept_to_deleted": 8, "P_kept_to_deleted": 14, "mask_changed": 26, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"B_kept_to_deleted": 1, "C_deleted_to_kept": 5, "C_kept_to_deleted": 3, "H_kept_to_deleted": 2, "P_kept_to_deleted": 6, "mask_changed": 8, "worlds": 8}, "HOL-LABOR": {"C_deleted_to_kept": 4, "C_kept_to_deleted": 1, "H_kept_to_deleted": 3, "P_kept_to_deleted": 5, "mask_changed": 6, "worlds": 8}, "HOL-SPRING": {"B_kept_to_deleted": 3, "C_deleted_to_kept": 5, "C_kept_to_deleted": 3, "H_kept_to_deleted": 1, "mask_changed": 5, "worlds": 8}, "HY-ISSUER": {"C_deleted_to_kept": 4, "H_deleted_to_kept": 1, "H_kept_to_deleted": 2, "P_kept_to_deleted": 3, "mask_changed": 7, "worlds": 8}}, "pair": "RD_B2 => RD_ZH+SOURCE_TIME_SCOPE_JOINT", "scenes": {"S1": {"C_deleted_to_kept": 4, "mask_changed": 4, "worlds": 4}, "S2": {"C_deleted_to_kept": 4, "C_kept_to_deleted": 2, "H_kept_to_deleted": 3, "mask_changed": 4, "worlds": 4}, "S3": {"B_kept_to_deleted": 1, "C_deleted_to_kept": 3, "C_kept_to_deleted": 2, "H_kept_to_deleted": 5, "mask_changed": 4, "worlds": 4}, "S4": {"B_kept_to_deleted": 2, "C_deleted_to_kept": 4, "C_kept_to_deleted": 3, "P_kept_to_deleted": 2, "mask_changed": 4, "worlds": 4}, "S5": {"C_deleted_to_kept": 2, "P_kept_to_deleted": 2, "mask_changed": 3, "worlds": 4}, "S6": {"P_kept_to_deleted": 3, "mask_changed": 2, "worlds": 4}, "S7": {"C_deleted_to_kept": 1, "H_deleted_to_kept": 1, "P_kept_to_deleted": 1, "mask_changed": 2, "worlds": 4}, "S8": {"B_kept_to_deleted": 1, "P_kept_to_deleted": 6, "mask_changed": 3, "worlds": 4}}},
+    {"all": {"B_deleted_to_kept": 6, "C_deleted_to_kept": 54, "H_deleted_to_kept": 7, "H_kept_to_deleted": 5, "P_deleted_to_kept": 39, "mask_changed": 32, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"B_deleted_to_kept": 1, "C_deleted_to_kept": 15, "H_deleted_to_kept": 2, "H_kept_to_deleted": 1, "P_deleted_to_kept": 10, "mask_changed": 8, "worlds": 8}, "HOL-LABOR": {"C_deleted_to_kept": 11, "H_deleted_to_kept": 1, "P_deleted_to_kept": 12, "mask_changed": 8, "worlds": 8}, "HOL-SPRING": {"B_deleted_to_kept": 5, "C_deleted_to_kept": 13, "H_deleted_to_kept": 1, "H_kept_to_deleted": 2, "P_deleted_to_kept": 7, "mask_changed": 8, "worlds": 8}, "HY-ISSUER": {"C_deleted_to_kept": 15, "H_deleted_to_kept": 3, "H_kept_to_deleted": 2, "P_deleted_to_kept": 10, "mask_changed": 8, "worlds": 8}}, "pair": "RD_ZH => DATE_ONLY", "scenes": {"S1": {"C_deleted_to_kept": 16, "mask_changed": 4, "worlds": 4}, "S2": {"C_deleted_to_kept": 9, "H_kept_to_deleted": 2, "mask_changed": 4, "worlds": 4}, "S3": {"B_deleted_to_kept": 1, "C_deleted_to_kept": 8, "H_deleted_to_kept": 6, "mask_changed": 4, "worlds": 4}, "S4": {"B_deleted_to_kept": 2, "C_deleted_to_kept": 10, "P_deleted_to_kept": 3, "mask_changed": 4, "worlds": 4}, "S5": {"C_deleted_to_kept": 3, "P_deleted_to_kept": 12, "mask_changed": 4, "worlds": 4}, "S6": {"C_deleted_to_kept": 2, "P_deleted_to_kept": 10, "mask_changed": 4, "worlds": 4}, "S7": {"B_deleted_to_kept": 2, "C_deleted_to_kept": 6, "H_deleted_to_kept": 1, "H_kept_to_deleted": 3, "P_deleted_to_kept": 2, "mask_changed": 4, "worlds": 4}, "S8": {"B_deleted_to_kept": 1, "P_deleted_to_kept": 12, "mask_changed": 4, "worlds": 4}}},
+    {"all": {"C_deleted_to_kept": 25, "H_deleted_to_kept": 2, "mask_changed": 25, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"C_deleted_to_kept": 7, "mask_changed": 7, "worlds": 8}, "HOL-LABOR": {"C_deleted_to_kept": 5, "mask_changed": 5, "worlds": 8}, "HOL-SPRING": {"C_deleted_to_kept": 6, "mask_changed": 6, "worlds": 8}, "HY-ISSUER": {"C_deleted_to_kept": 7, "H_deleted_to_kept": 2, "mask_changed": 7, "worlds": 8}}, "pair": "RD_ZH => RD_ZH+JOINT_NO_SCOPE", "scenes": {"S1": {"C_deleted_to_kept": 4, "mask_changed": 4, "worlds": 4}, "S2": {"C_deleted_to_kept": 4, "mask_changed": 4, "worlds": 4}, "S3": {"C_deleted_to_kept": 4, "H_deleted_to_kept": 1, "mask_changed": 4, "worlds": 4}, "S4": {"C_deleted_to_kept": 4, "mask_changed": 4, "worlds": 4}, "S5": {"C_deleted_to_kept": 3, "mask_changed": 3, "worlds": 4}, "S6": {"C_deleted_to_kept": 2, "mask_changed": 2, "worlds": 4}, "S7": {"C_deleted_to_kept": 4, "H_deleted_to_kept": 1, "mask_changed": 4, "worlds": 4}, "S8": {"mask_changed": 0, "worlds": 4}}},
+    {"all": {"C_deleted_to_kept": 25, "mask_changed": 25, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"C_deleted_to_kept": 7, "mask_changed": 7, "worlds": 8}, "HOL-LABOR": {"C_deleted_to_kept": 5, "mask_changed": 5, "worlds": 8}, "HOL-SPRING": {"C_deleted_to_kept": 6, "mask_changed": 6, "worlds": 8}, "HY-ISSUER": {"C_deleted_to_kept": 7, "mask_changed": 7, "worlds": 8}}, "pair": "RD_ZH => RD_ZH+SIMPLE_RECEIPT_RULE", "scenes": {"S1": {"C_deleted_to_kept": 4, "mask_changed": 4, "worlds": 4}, "S2": {"C_deleted_to_kept": 4, "mask_changed": 4, "worlds": 4}, "S3": {"C_deleted_to_kept": 4, "mask_changed": 4, "worlds": 4}, "S4": {"C_deleted_to_kept": 4, "mask_changed": 4, "worlds": 4}, "S5": {"C_deleted_to_kept": 3, "mask_changed": 3, "worlds": 4}, "S6": {"C_deleted_to_kept": 2, "mask_changed": 2, "worlds": 4}, "S7": {"C_deleted_to_kept": 4, "mask_changed": 4, "worlds": 4}, "S8": {"mask_changed": 0, "worlds": 4}}},
+    {"all": {"C_deleted_to_kept": 25, "H_deleted_to_kept": 2, "mask_changed": 25, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"C_deleted_to_kept": 7, "mask_changed": 7, "worlds": 8}, "HOL-LABOR": {"C_deleted_to_kept": 5, "mask_changed": 5, "worlds": 8}, "HOL-SPRING": {"C_deleted_to_kept": 6, "mask_changed": 6, "worlds": 8}, "HY-ISSUER": {"C_deleted_to_kept": 7, "H_deleted_to_kept": 2, "mask_changed": 7, "worlds": 8}}, "pair": "RD_ZH => RD_ZH+SOURCE_TIME_SCOPE_JOINT", "scenes": {"S1": {"C_deleted_to_kept": 4, "mask_changed": 4, "worlds": 4}, "S2": {"C_deleted_to_kept": 4, "mask_changed": 4, "worlds": 4}, "S3": {"C_deleted_to_kept": 4, "H_deleted_to_kept": 1, "mask_changed": 4, "worlds": 4}, "S4": {"C_deleted_to_kept": 4, "mask_changed": 4, "worlds": 4}, "S5": {"C_deleted_to_kept": 3, "mask_changed": 3, "worlds": 4}, "S6": {"C_deleted_to_kept": 2, "mask_changed": 2, "worlds": 4}, "S7": {"C_deleted_to_kept": 4, "H_deleted_to_kept": 1, "mask_changed": 4, "worlds": 4}, "S8": {"mask_changed": 0, "worlds": 4}}},
+    {"all": {"H_deleted_to_kept": 2, "mask_changed": 2, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"mask_changed": 0, "worlds": 8}, "HOL-LABOR": {"mask_changed": 0, "worlds": 8}, "HOL-SPRING": {"mask_changed": 0, "worlds": 8}, "HY-ISSUER": {"H_deleted_to_kept": 2, "mask_changed": 2, "worlds": 8}}, "pair": "RD_ZH+SIMPLE_RECEIPT_RULE => RD_ZH+JOINT_NO_SCOPE", "scenes": {"S1": {"mask_changed": 0, "worlds": 4}, "S2": {"mask_changed": 0, "worlds": 4}, "S3": {"H_deleted_to_kept": 1, "mask_changed": 1, "worlds": 4}, "S4": {"mask_changed": 0, "worlds": 4}, "S5": {"mask_changed": 0, "worlds": 4}, "S6": {"mask_changed": 0, "worlds": 4}, "S7": {"H_deleted_to_kept": 1, "mask_changed": 1, "worlds": 4}, "S8": {"mask_changed": 0, "worlds": 4}}},
+    {"all": {"H_deleted_to_kept": 2, "mask_changed": 2, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"mask_changed": 0, "worlds": 8}, "HOL-LABOR": {"mask_changed": 0, "worlds": 8}, "HOL-SPRING": {"mask_changed": 0, "worlds": 8}, "HY-ISSUER": {"H_deleted_to_kept": 2, "mask_changed": 2, "worlds": 8}}, "pair": "RD_ZH+SIMPLE_RECEIPT_RULE => RD_ZH+SOURCE_TIME_SCOPE_JOINT", "scenes": {"S1": {"mask_changed": 0, "worlds": 4}, "S2": {"mask_changed": 0, "worlds": 4}, "S3": {"H_deleted_to_kept": 1, "mask_changed": 1, "worlds": 4}, "S4": {"mask_changed": 0, "worlds": 4}, "S5": {"mask_changed": 0, "worlds": 4}, "S6": {"mask_changed": 0, "worlds": 4}, "S7": {"H_deleted_to_kept": 1, "mask_changed": 1, "worlds": 4}, "S8": {"mask_changed": 0, "worlds": 4}}},
+    {"all": {"mask_changed": 0, "worlds": 32}, "groups": {"DRV-HEAVY-AGE": {"mask_changed": 0, "worlds": 8}, "HOL-LABOR": {"mask_changed": 0, "worlds": 8}, "HOL-SPRING": {"mask_changed": 0, "worlds": 8}, "HY-ISSUER": {"mask_changed": 0, "worlds": 8}}, "pair": "RD_ZH+SOURCE_TIME_SCOPE_JOINT => RD_ZH+JOINT_NO_SCOPE", "scenes": {"S1": {"mask_changed": 0, "worlds": 4}, "S2": {"mask_changed": 0, "worlds": 4}, "S3": {"mask_changed": 0, "worlds": 4}, "S4": {"mask_changed": 0, "worlds": 4}, "S5": {"mask_changed": 0, "worlds": 4}, "S6": {"mask_changed": 0, "worlds": 4}, "S7": {"mask_changed": 0, "worlds": 4}, "S8": {"mask_changed": 0, "worlds": 4}}}
+  ],
+  "resources": {
+    "commercial_api_calls": 0,
+    "incremental_usd": 0,
+    "downloads": 0,
+    "installs": 0,
+    "duration_seconds": 59.797,
+    "cpu_affinity_count": 2,
+    "retained_disk_bytes_including_qa_and_archive": 130032279,
+    "remaining_disk_bytes_at_closeout": 355692040192,
+    "encoder_revision": "16e5344fbfc7dfbbbe0019d30cec21e2940cb4e1",
+    "retrieval_unique_text_vectors": 118,
+    "shared_rd_encode_calls": 40,
+    "shared_rd_passages_encoded": 200,
+    "shared_retrieval_latency": {
+      "median_ms": 197.22115,
+      "p95_ms": 472.2456
+    }
+  },
+  "validation": {
+    "pytest": 12,
+    "ruff": "PASS",
+    "mypy": "PASS",
+    "paired_recount": "PASS",
+    "synthetic_smoke_failures_preserved": 2,
+    "baseline_probe": "PASS",
+    "model_judge": "NOT_RUN"
+  },
+  "claims": {
+    "human_gold": 0,
+    "formal_experiment": "NOT_STARTED",
+    "targeted_asr": "NOT_MEASURED",
+    "answer_accuracy": "NOT_MEASURED",
+    "generation_abstain": "NOT_MEASURED"
+  },
+  "commands": [
+    {"argv": ["<PINNED_PYTHON>", "-B", "<PRIVATE_D>/support/author_dev_proxy.py", "<PRIVATE_D>"], "ended": "2026-11-10T15:47:02.2078996+00:00", "exit_code": 0, "name": "author", "started": "2026-11-10T15:47:00.6404019+00:00", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stdout_sha256": "ea491d98ba4a74f5abf0428c7630e6f9445c59a07a9b90787e4e4dfad0edc513"},
+    {"argv": ["<PINNED_PYTHON>", "-B", "<PRIVATE_D>/support/engineering_smoke_distinct_query.py", "<PRIVATE_D>", "<PINNED_ASSET_ROOT>", "<PINNED_UPSTREAM>"], "ended": "2026-11-10T15:49:48.2427097+00:00", "exit_code": 0, "name": "engineering-smoke-distinct-query", "started": "2026-11-10T15:49:29.6730865+00:00", "stderr_sha256": "246360c17c99005286935112a46d619863c1d97e0835886e20a263ef20fb46b1", "stdout_sha256": "c9d55b078ec63401e702a91ecd48756a1b186a43ad8d017ca7040a834cad368c"},
+    {"argv": ["<PINNED_PYTHON>", "-B", "<PRIVATE_D>/support/engineering_smoke_ref_fix.py", "<PRIVATE_D>", "<PINNED_ASSET_ROOT>", "<PINNED_UPSTREAM>"], "ended": "2026-11-10T15:48:58.9762955+00:00", "exit_code": 1, "name": "engineering-smoke-ref-fix", "started": "2026-11-10T15:48:40.6569527+00:00", "stderr_sha256": "2e99eb1eacc46f5ca405c6eb9746afa974d7f613dad03fb8626ad57ed0348637", "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    {"argv": ["<PINNED_PYTHON>", "-B", "<PRIVATE_D>/support/engineering_smoke.py", "<PRIVATE_D>", "<PINNED_ASSET_ROOT>", "<PINNED_UPSTREAM>"], "ended": "2026-11-10T15:48:29.0659283+00:00", "exit_code": 1, "name": "engineering-smoke", "started": "2026-11-10T15:48:08.7969194+00:00", "stderr_sha256": "3dc239313f0ab0debd1dba846e3fc7f194972e0d3863ec1b6c3d35593f35994c", "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    {"argv": ["<PINNED_PYTHON>", "-B", "scripts/research/run_chinese5060_owner27.py", "evaluate", "--root", "<PRIVATE_D>", "--plan", "8a2d1ce24d518107fbaa2b8a25d77c3c3de97c2ec3349afd66ebd27ac5b6643f", "--seal", "b4cae321ef438a84f60c6239c327e8b68541a002cf298b6dbd24c688ce32cbcd"], "ended": 1794325905.6788275, "exit_code": 0, "name": "evaluate", "started": 1794325903.9705856, "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stdout_sha256": "3e117f2cadee116f0cf1bf828939dc776d622f03a11a1d338c521f8f31cd1b9f"},
+    {"argv": ["<PINNED_PYTHON>", "-B", "scripts/research/run_chinese5060_owner27.py", "identity", "--root", "<PRIVATE_D>", "--assets", "<PINNED_ASSET_ROOT>", "--upstream", "<PINNED_UPSTREAM>"], "ended": "2026-11-10T15:46:25.7558614+00:00", "exit_code": 0, "name": "identity", "started": "2026-11-10T15:46:22.9337046+00:00", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stdout_sha256": "651524cb575e8231d0cf0d572a413d684baec8806297ad3876dc7b7a9e67a769"},
+    {"argv": ["<PINNED_PYTHON>", "-B", "scripts/research/run_chinese5060_owner27.py", "predict", "--root", "<PRIVATE_D>", "--plan", "8a2d1ce24d518107fbaa2b8a25d77c3c3de97c2ec3349afd66ebd27ac5b6643f", "--assets", "<PINNED_ASSET_ROOT>", "--upstream", "<PINNED_UPSTREAM>", "--seal", "c65c9e1e811a524fcafa35cec9e642aa91da8733c63c349745d53d642741f03f"], "ended": 1794325903.9615855, "exit_code": 0, "name": "predict", "started": 1794325875.6860065, "stderr_sha256": "d3f2072fb9d74236fec1eeb10d276f2e6f3e89d4c7a4ed8d162c21dfe8d3946e", "stdout_sha256": "fca6b37271d4a1e7e028b995fec64ca448c67b0914172d049b83fb4344c0e373"},
+    {"argv": ["<PINNED_PYTHON>", "-B", "-m", "mypy", "--follow-imports=silent", "--ignore-missing-imports", "scripts/research/run_chinese5060_owner27.py", "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/owner27_version_guard.py", "tests/research/test_owner27_version_guard.py"], "ended": "2026-11-10T15:47:52.7597459+00:00", "exit_code": 0, "name": "qa01-mypy", "started": "2026-11-10T15:47:03.5315054+00:00", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stdout_sha256": "281a094c39385b4d7b53e5db635f52158036861433c2a4975b9039e77a627a24"},
+    {"argv": ["<PINNED_PYTHON>", "-B", "-m", "pytest", "-q", "-p", "no:cacheprovider", "tests/research/test_owner27_version_guard.py"], "ended": "2026-11-10T15:47:02.8445003+00:00", "exit_code": 0, "name": "qa01-pytest", "started": "2026-11-10T15:47:00.6407446+00:00", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stdout_sha256": "92fca93c67bc56d119d0345b124240dd627bf6725a24b784f54af6e95314a502"},
+    {"argv": ["<PINNED_PYTHON>", "-B", "-m", "ruff", "check", "--no-cache", "scripts/research/run_chinese5060_owner27.py", "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/owner27_version_guard.py", "tests/research/test_owner27_version_guard.py"], "ended": "2026-11-10T15:47:03.5243601+00:00", "exit_code": 0, "name": "qa01-ruff", "started": "2026-11-10T15:47:02.8881267+00:00", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"},
+    {"argv": ["<PINNED_PYTHON>", "-B", "-m", "mypy", "--follow-imports=silent", "--ignore-missing-imports", "scripts/research/run_chinese5060_owner27.py", "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/owner27_version_guard.py", "tests/research/test_owner27_version_guard.py"], "ended": "2026-11-10T15:49:10.8973454+00:00", "exit_code": 1, "name": "qa02-mypy", "started": "2026-11-10T15:49:07.9768725+00:00", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stdout_sha256": "a3af5d854aba6976d5d663ef2ba7fc63dca226f434b4bbf005ade112b94e6437"},
+    {"argv": ["<PINNED_PYTHON>", "-B", "-m", "pytest", "-q", "-p", "no:cacheprovider", "tests/research/test_owner27_version_guard.py", "tests/research/test_chinese5060_rd_zh_tfidf.py"], "ended": "2026-11-10T15:49:07.8025645+00:00", "exit_code": 0, "name": "qa02-pytest", "started": "2026-11-10T15:49:05.6127117+00:00", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stdout_sha256": "581d49aff840714cc9069822d4267f49354469f30dcee1734640aacfedcb8576"},
+    {"argv": ["<PINNED_PYTHON>", "-B", "-m", "ruff", "check", "--no-cache", "scripts/research/run_chinese5060_owner27.py", "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/owner27_version_guard.py", "tests/research/test_owner27_version_guard.py"], "ended": "2026-11-10T15:49:07.9713419+00:00", "exit_code": 0, "name": "qa02-ruff", "started": "2026-11-10T15:49:07.8426711+00:00", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"},
+    {"argv": ["<PINNED_PYTHON>", "-B", "-m", "mypy", "--follow-imports=silent", "--ignore-missing-imports", "scripts/research/run_chinese5060_owner27.py", "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/owner27_version_guard.py", "tests/research/test_owner27_version_guard.py"], "ended": "2026-11-10T15:49:19.9542697+00:00", "exit_code": 0, "name": "qa03-mypy", "started": "2026-11-10T15:49:16.9969101+00:00", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stdout_sha256": "281a094c39385b4d7b53e5db635f52158036861433c2a4975b9039e77a627a24"},
+    {"argv": ["<PINNED_PYTHON>", "-B", "scripts/research/run_chinese5060_owner27.py", "query", "--root", "<PRIVATE_D>"], "ended": "2026-11-10T15:47:03.8595762+00:00", "exit_code": 0, "name": "query", "started": "2026-11-10T15:47:02.2548542+00:00", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stdout_sha256": "b7eecc70d942a24b9aa2c10111fb0a88db4235f2a1ef3ff11b834b884382307b"},
+    {"argv": ["<PINNED_PYTHON>", "-B", "<PRIVATE_D>/support/readback.py", "<PRIVATE_D>"], "ended": "2026-11-10T15:52:18.9123910+00:00", "exit_code": 0, "name": "readback", "started": "2026-11-10T15:52:18.4442832+00:00", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stdout_sha256": "b7634d69843ec00fc4c284453dad049eb2e17ee7da35772ac452f218f74d9f3b"},
+    {"argv": ["<PINNED_PYTHON>", "-B", "scripts/research/run_chinese5060_owner27.py", "retrieve", "--root", "<PRIVATE_D>", "--plan", "8a2d1ce24d518107fbaa2b8a25d77c3c3de97c2ec3349afd66ebd27ac5b6643f", "--assets", "<PINNED_ASSET_ROOT>", "--upstream", "<PINNED_UPSTREAM>"], "ended": 1794325875.6770053, "exit_code": 0, "name": "retrieve", "started": 1794325845.8920403, "stderr_sha256": "3ccc750eb15abea8355ee55617e94f0504f2f398a119aa990d4586d7e65280cd", "stdout_sha256": "0c5253cf134b325ef1788ecfccd5e2ab8dc2c74c90718e826fa3a6553d5ef813"},
+    {"argv": ["<PINNED_PYTHON>", "-B", "<PRIVATE_D>/support/supervise.py", "scripts/research/run_chinese5060_owner27.py", "<PRIVATE_D>", "<PINNED_ASSET_ROOT>", "<PINNED_UPSTREAM>", "8a2d1ce24d518107fbaa2b8a25d77c3c3de97c2ec3349afd66ebd27ac5b6643f"], "ended": "2026-11-10T15:51:45.7002570+00:00", "exit_code": 0, "name": "scientific-v0", "started": "2026-11-10T15:50:45.7766534+00:00", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stdout_sha256": "4e3ce2bbd7c416a67b6f4455d593c6743f2e8a03e524327f35b896016b06bc0c"}
+  ],
+  "evidence_index": {
+    "topk-seal.json": {
+      "sha256": "c65c9e1e811a524fcafa35cec9e642aa91da8733c63c349745d53d642741f03f",
+      "bytes": 6178
+    },
+    "prediction-seal.json": {
+      "sha256": "b4cae321ef438a84f60c6239c327e8b68541a002cf298b6dbd24c688ce32cbcd",
+      "bytes": 717
+    },
+    "predictions.json": {
+      "sha256": "110bf9f0197cd424072f52993248883a71a8f3ed03dc92a87ed94a32e87cf939",
+      "bytes": 143140
+    },
+    "scores.json": {
+      "sha256": "d151488e5a6763abee73871a9966c8dccf30147edd65cdd884db87f63aabccd8",
+      "bytes": 170211
+    },
+    "scored-worlds.json": {
+      "sha256": "ea135aaa077a94fe7f90600f92d73c4f7a4e7cf5aef11269c17f456af58cfe3e",
+      "bytes": 31081
+    },
+    "source-rights.json": {
+      "sha256": "15aceefdfeed403ba1932168dd772eadb7339ff35882a52844db94338efc4789",
+      "bytes": 2001
+    },
+    "authoring-seal.json": {
+      "sha256": "0d50029c93fa8422252ae272900c6173b57b4e3c5a8ddf82e091fb0ee8d57b9a",
+      "bytes": 882
+    },
+    "supervisor.json": {
+      "sha256": "f48167923638cf65624613b53da1734ff17c9aec8334c2075e2e6478e6462d7f",
+      "bytes": 2958
+    },
+    "eval-admission.json": {
+      "sha256": "8a8103a991d75b8a17a579e2943dd794c24b08b20fc60b7568d5a31e30079656",
+      "bytes": 622
+    }
+  },
+  "private_archive": {
+    "file": "OWNER27_OFFLINE_FASTTRACK_PRIVATE.zip",
+    "sha256": "cc9051b64dccb5b9bcf57495ebfdf370d99c859708fe0b833707be5a65825d92",
+    "bytes": 4824363,
+    "indexed_members": 363,
+    "member_index_sha256": "889cd83d2cd34264ca3edc711c3dda683fc770c2728d85f9651b94066b461090",
+    "readback_verified": true
+  }
+}

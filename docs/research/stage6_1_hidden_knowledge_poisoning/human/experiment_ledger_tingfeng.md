@@ -1,5 +1,13 @@
 # Paper 1 人类可读实验总规划与实验总账
 
+## 2026-11-11｜Owner27 同来源凭据的简单规则保留，联合方法未达到开发门
+
+`DEV_COMPLETE_DIRECTIONAL_FAIL / EVAL_BLOCKED_INDEPENDENT_INPUTS / HUMAN_GOLD=0 / AUTO_CONTINUE=NO`。
+
+Owner27 v0 已实测 32/32 主世界、七臂 224 个掩码，另有 8 个单列镜像。联合臂与同凭据简单规则 Clean 误删均 29/63，Poison 保留均 6/45，联合多保留 2 段 HN，去 scope 与联合掩码相同。EVAL 0/32，新独立事实和谱系、无答案查询及逐源权利未绑定。仅保留版本敏感污染基准与 RD 中文迁移失效分析。Owner26 D1‑28 仍 0/84。新增商业 API 及费用 0。正式实验、ASR、答案准确率均未启动或未测。
+
+[结果与停止决定](../../../paper1/dual_machine/chinese5060/OWNER27_OFFLINE_FASTTRACK_RESULT.md) · [Run Manifest](../../../paper1/dual_machine/chinese5060/OWNER27_OFFLINE_FASTTRACK_RUN_MANIFEST.json)
+
 ## 2026-11-11｜5060 公开中文版本来源预检完成
 
 `PREFLIGHT_ONLY / SCIENCE_NOT_RUN / HUMAN_GOLD=0 / NEXT_OWNER_APPROVAL_REQUIRED / AUTO_CONTINUE=NO`。

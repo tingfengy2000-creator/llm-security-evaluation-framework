@@ -1,5 +1,13 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-11｜Owner27 32 个 DEV 世界七臂完成，EVAL 未准入
+
+`DEV_COMPLETE_DIRECTIONAL_FAIL / EVAL_BLOCKED_INDEPENDENT_INPUTS / HUMAN_GOLD=0 / AUTO_CONTINUE=NO`。
+
+Owner27 v0 已实测 32/32 主世界、七臂 224 个掩码，另有 8 个单列镜像。联合臂与同凭据简单规则 Clean 误删均 29/63，Poison 保留均 6/45，联合多保留 2 段 HN，去 scope 与联合掩码相同。EVAL 0/32，新独立事实和谱系、无答案查询及逐源权利未绑定。仅保留版本敏感污染基准与 RD 中文迁移失效分析。Owner26 D1‑28 仍 0/84。新增商业 API 及费用 0。正式实验、ASR、答案准确率均未启动或未测。
+
+[结果与停止决定](chinese5060/OWNER27_OFFLINE_FASTTRACK_RESULT.md) · [Run Manifest](chinese5060/OWNER27_OFFLINE_FASTTRACK_RUN_MANIFEST.json)
+
 ## 2026-11-11｜Owner27启动公开版本化来源离线快速验证批次（仅授权，还未运行）
 
 `OWNER27_APPROVED_NOT_RUN / DEV32_PLANNED / EVAL32_CONDITIONAL / OWNER26_UNCHANGED`。
@@ -171,7 +179,7 @@ Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的�
 
 [Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
 
-**更新于 2026-11-11 JST · 版本 30 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-11 JST · 版本 31 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
@@ -358,6 +366,7 @@ R1 源附件由 Owner 提供，公开记录含原件摘要与 SHA-256。[R1 修�
 
 | 日期（JST） | 版本 | 变更与核验基点 |
 | --- | --- | --- |
+| 2026-11-11 | 31 | Owner27 32 主世界七臂完成，联合主门失败，EVAL 独立输入阻断。 |
 | 2026-11-11 | 30 | 5060 核公开中文版本来源和研究邻近工作，形成独立查询预注册草案，科学试验未批准。 |
 | 2026-11-10 | 29 | Owner26 两条 RD DEV 复跑，七臂未达到数据与预算准入。 |
 | 2026-11-10 | 27 | Owner25 合成机制 64 DEV 与 32 HOLDOUT 完成。原 D1 与 Rule‑V2 路线 NO_GO，公平 RD 基线缺失。 |
