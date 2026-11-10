@@ -1,5 +1,16 @@
 # Current Work State
 
+## W1-OD-20261110-5060-D1-QWEN-NOANCHOR-26｜Owner26 1–2日目标：中文D1无锚M1/M2与RD/Qwen七臂对照（2026-11-10 JST）
+
+`OWNER_EXPLICIT_APPROVAL / D1_INTERNAL_QWEN7_USD3_AUTHORIZED_NOT_EXECUTED`。Owner明确批准固定`qwen3.7-plus-2026-05-26` temperature0作为逐片段抽取器与每世界一次`QWEN_VERIFY`强基线，本轮新增费用硬限**USD3**，原25/28/30费用门不放宽；本地已有embedding可在**不下载**前提下执行真正同世界`RD_B2`、`RD_ZH`。本轮7臂固定：B2、RD-zh、QWEN_VERIFY、RD_ZH+M1_SAFE、RD_ZH+M2_VOTE、M2_VOTE_ALONE、RD_ZH+M1_SAFE+M2_VOTE；模型与源文输出须严格quote+char/UTF8位置校验，来源/新版自称不赋予独立可信权；M1无锚放回作为**有风险的P0放松科研候选**而不是既证明安全。
+
+签署D1包40事实组×C/P/H三变体=120候选；Pilot12固定12组×3=36世界/180片段作为DEV（最多一版修订），**28组×3=84世界必须先按原查询/检索协议建立并封存同一有序TopK5后、再一次性role-free预测/评分**；它是D1开发集内部held-group，非正式独立测试。额外HOLD8、D2/D3、5090和正式S2–S5仍锁。对比全部7臂同TopK、各臂完整逻辑Qwen tokens/费用不可忽略，QWEN_VERIFY单world使用费与VESA五段抽取调用必须严格核。结果按已召回候选报告Poison保留、Clean/HN误删、未证版本、同一/多数污染、时间与作用域、Qwen调用/token/USD、延迟和完整分母；DEV选一主臂后不得用28组再挑最佳。
+
+本次数据访问`EXFIL_GATE`仍须证明具体第三方D1来源向百炼API传输的权利/隐私/地域条件，Owner批准使用API不等于所有原文具有任意外传许可证；单次接口区域、价格、Token上界、账户余额/在途与USD3严格预留必须闭合。不能闭合则本地RD/纯虚构探针可以做，但D1 API发包禁，记录`BLOCKED`不伪造通过。GO：预选VESA臂相对RD_ZH Poison不增、Clean误删至少减半，且Poison/Clean/HN均不劣于QWEN_VERIFY、完整逻辑Token更少；PARTIAL满足RD门但不满足Qwen门；不满足RD门NO_GO；无法完整实验BLOCKED/INCONCLUSIVE。所有结论仅是D1候选级内检，正式ASR/AnswerAccuracy/HumanGold0保持，原Owner25的模拟Oracle及Owner20规则NO_GO不能覆盖。
+
+[PO-MHEP授权](../paper1/dual_machine/owner_approvals/W1_5060_OWNER26_D1_QWEN_NOANCHOR_CHINESE_DEFENSE_COMPARE_20261110.md) · [生效5060执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_OWNER26_D1_QWEN_RD7_FASTTRACK_EXECUTION_PROMPT_V1.md)。`AUTO_CONTINUE=NO_OUTSIDE_BATCH`。
+
+
 ## 2026-11-10｜5060 Owner25 机制小试完成，裁决为调整
 
 `OWNER25_SYNTHETIC_COMPLETE / BASELINE_INCOMPLETE / D1_ANCHOR_COVERAGE_LIMITED / CURRENT_D1_AND_RULEV2_NO_GO / AUTO_CONTINUE=NO`。
