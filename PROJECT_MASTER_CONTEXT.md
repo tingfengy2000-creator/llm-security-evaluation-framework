@@ -1,5 +1,17 @@
 # LLMGuard 项目总控文档
 
+## 2026-11-10｜5060 Owner25 机制小试完成，裁决为调整
+
+`OWNER25_SYNTHETIC_COMPLETE / BASELINE_INCOMPLETE / D1_ANCHOR_COVERAGE_LIMITED / CURRENT_D1_AND_RULEV2_NO_GO / AUTO_CONTINUE=NO`。
+
+Run W1-5060-OWNER25-SYNTHETIC-P0-20261110-01。DEV 64 世界、HOLDOUT 32 世界一次性预测后评分。Oracle 联合臂相对固定父掩码，HOLDOUT Poison 保留 32/54→7/54、Clean 误删 30/78→15/78、HN 误删 12/28→12/28。真实签发者失陷错锚 1/1，Rule‑V2 严格绑定 0/160。无同世界 RD 基线，禁止比较性 PASS。
+
+D1 真实收据覆盖 0/180，严格 P0 下原恢复门不可达。下一裁决是批准真实公共来源的独立采集与同世界 RD 对照。D1 未重跑、正式 ASR/Accuracy 未测、Human Gold 0。Owner24 F0 仍 BLOCKED，本轮模型、API、下载与新增费用均为 0。
+
+私有证据 ZIP 60 件，SHA256 d8125e1f6f008c8dc6437c4f2326f4a4558aebe21915aac62d593bb00d0e3651。
+
+[结果与裁决](docs/paper1/dual_machine/chinese5060/OWNER25_SCIENCE_FIRST_RESULT.md) · [Run Manifest](docs/paper1/dual_machine/chinese5060/W1_5060_OWNER25_SCIENCE_FIRST_RUN_MANIFEST.json)
+
 ## W1-OD-20261110-5060-SCIENCE-FIRST-OFFLINE-PILOT-25｜Owner25科研结果优先：离线来源-版本-范围机制可证伪小试（2026-11-10 JST）
 
 Owner明确要求尽快取得可行性论文路线与方法结果，取代反复Windows网络门讨论。新增独立、受限、**零模型零外部API**试验：复核已有D1脱敏证据（真实可信来源链覆盖0/180，B2 Clean误删4/10，P0下不可无锚恢复），用8 DEV+4 HOLDOUT全新合成事实组×8情境，独立source-truth签发与role-free输入封存，DEV可迭代至多2版，HOLDOUT32世界一次盲评，比较模拟外部可信receipt/版本有效期/适用范围、无锚回退、伪造自称、重复来源与多数投毒。Oracle抽取只算上界而非可部署方案；若无公平同世界RD baseline，必须标`BASELINE_INCOMPLETE`不得宣称比较PASS。目标是给Owner一个真诚的机制`GO/NO_GO/ANCHOR_LIMITED`结论以及下一步真实公开数据方法，而非假称论文已有效。

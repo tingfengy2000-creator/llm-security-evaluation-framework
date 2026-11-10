@@ -1,5 +1,17 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-10｜5060 Owner25 机制小试完成，裁决为调整
+
+`OWNER25_SYNTHETIC_COMPLETE / BASELINE_INCOMPLETE / D1_ANCHOR_COVERAGE_LIMITED / CURRENT_D1_AND_RULEV2_NO_GO / AUTO_CONTINUE=NO`。
+
+Run W1-5060-OWNER25-SYNTHETIC-P0-20261110-01。DEV 64 世界、HOLDOUT 32 世界一次性预测后评分。Oracle 联合臂相对固定父掩码，HOLDOUT Poison 保留 32/54→7/54、Clean 误删 30/78→15/78、HN 误删 12/28→12/28。真实签发者失陷错锚 1/1，Rule‑V2 严格绑定 0/160。无同世界 RD 基线，禁止比较性 PASS。
+
+D1 真实收据覆盖 0/180，严格 P0 下原恢复门不可达。下一裁决是批准真实公共来源的独立采集与同世界 RD 对照。D1 未重跑、正式 ASR/Accuracy 未测、Human Gold 0。Owner24 F0 仍 BLOCKED，本轮模型、API、下载与新增费用均为 0。仅更新 5060，5090 沿用历史快照。
+
+私有证据 ZIP 60 件，SHA256 d8125e1f6f008c8dc6437c4f2326f4a4558aebe21915aac62d593bb00d0e3651。
+
+[结果与裁决](chinese5060/OWNER25_SCIENCE_FIRST_RESULT.md) · [Run Manifest](chinese5060/W1_5060_OWNER25_SCIENCE_FIRST_RUN_MANIFEST.json)
+
 ## 2026-11-10｜Owner25 科研结果优先：绕开Owner24 F0工程阻断的独立无模型机制快试（授权未执行）
 
 `W1-OD-20261110-5060-SCIENCE-FIRST-OFFLINE-PILOT-25`。Owner要求优先取得科研假设的可证伪结果，而非重复等待 Windows 出站隔离。已准一条**独立的、零模型/零API本地小试**：旧D1只引用已有报告与聚合事实，真实独立可信来源登记0/180导致严格P0在D1恢复误删不可达（B2 Clean误删4/10）；新建8 DEV+4 HOLDOUT的不同合成事实组×8情境共96个TopK5世界，先封存模拟独立来源签发/版本/适用范围与隐匿角色Gold，DEV两版限额，HOLDOUT32世界一次性封存预测再评估。分层比较无过滤、公平同世界RD（若已安装编码器存在）、独立来源、版本scope、联合P0和伪造来源负对照；oracle事实槽位仅为理论上界，不属于真实独立Gold/抽取器/最终ASR。若无法公平运行RD不得宣称比较性PASS。开发+执行按本次唯一批准的低风险离线范围自动进行，普通脚本QA自主修复。
@@ -120,7 +132,7 @@ Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的�
 
 [Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
 
-**更新于 2026-11-10 JST · 版本 26 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-10 JST · 版本 27 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
@@ -307,6 +319,7 @@ R1 源附件由 Owner 提供，公开记录含原件摘要与 SHA-256。[R1 修�
 
 | 日期（JST） | 版本 | 变更与核验基点 |
 | --- | --- | --- |
+| 2026-11-10 | 27 | Owner25 合成机制 64 DEV 与 32 HOLDOUT 完成。原 D1 与 Rule‑V2 路线 NO_GO，公平 RD 基线缺失。 |
 | 2026-11-10 | 25 | Owner24 F0 固定资产与 completion 静态依赖通过，网络隔离未验证，F1–F4 未运行。 |
 | 2026-11-10 | 23 | 5060 完成 Owner23A 静态审计，CLI 和 API-set 通过，Owner23B 实际加载待批。 |
 | 2026-11-10 | 20 | 5060 两件固定资产字节核验、GGUF 与 ZIP 安全检查通过；许可及 PE 依赖未闭合，运行仍锁定。 |
