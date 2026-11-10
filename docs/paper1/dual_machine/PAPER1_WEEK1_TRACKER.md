@@ -1,5 +1,17 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-10｜5060 Owner22 固定资产已获取，运行准入继续阻断
+
+`OWNER22_ASSET_STATIC_INSPECTION_BLOCKED / MODEL_EXECUTION_NOT_AUTHORIZED / PEAK_MEMORY_NOT_PROVEN / AUTO_CONTINUE=NO`。两件固定资产各一次，实际正文 1,142,252,137 字节，SHA256 和长度均通过。GGUF 头和 52 件 ZIP 安全验包通过；整包许可与 Windows PE 运行闭包仍待证。
+
+Run `W1-5060-OWNER22-QWEN-GGUF-ASSET-STATIC-20261110-01`，私有审计 ZIP SHA256 `faa281e7e4a14f2bc11a292b6e42e94f42421c7a4152ec55f4212ad01a708247`。
+
+执行、加载、推理、安装、额外资产下载、新实验、模型 API 和费用均为 0。后续受控 smoke 尚未批准，且静态前置仍未闭合。Owner20 NO_GO、旧 S1 FAIL、R2 K1-C、Human Gold 0 和正式 ASR/Accuracy 未测均保留。S2–S5 锁定。
+
+[静态验包报告](chinese5060/vesa_guard_reviewer_replan/W1_5060_OWNER22_QWEN_GGUF_ASSET_STATIC_INSPECTION_RESULT.md) · [完整脱敏 Manifest](chinese5060/vesa_guard_reviewer_replan/W1_5060_OWNER22_QWEN_GGUF_ASSET_STATIC_RUN_MANIFEST.json)
+
+本条仅更新 5060，5090 保留历史快照。
+
 ## 2026-11-10｜Owner22：Qwen GGUF两件固定资产受限下载+静态验包（获批未执行）
 
 Owner22 `W1-OD-20261110-5060-QWEN-GGUF-ASSET-22` 承接Owner21单模型只读审计的唯一待批事项，**仅准入两件固定字节资产并进行非执行性检查**。Qwen`Q4_K_M@91cad51170dc346986eccefdc2dd33a9da36ead9`文件1,117,320,736字节、sha256`6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e`；llama.cpp Windows x64 CPU `b12242` ZIP24,931,401字节、sha256`4723cd1f1b10169b6ca681f787ea37238e449b1c56538b4b90c71a82fad949a0`。两件正文传输硬上限1,142,252,137字节；D盘新增≤4GiB、解压≤512MiB、D盘余量≥10GiB，静态核GGUF头/tokenizer、ZIP成员与安全、第三方notice、PE/DLL依赖，不允许额外权重/依赖、自动重试、更换资产、运行任何EXE、加载模型或推理。Release预发布且immutable=false，下载本地sha必核。
@@ -52,7 +64,7 @@ Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的�
 
 [Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
 
-**更新于 2026-11-10 JST · 版本 19 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-10 JST · 版本 20 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
@@ -239,6 +251,7 @@ R1 源附件由 Owner 提供，公开记录含原件摘要与 SHA-256。[R1 修�
 
 | 日期（JST） | 版本 | 变更与核验基点 |
 | --- | --- | --- |
+| 2026-11-10 | 20 | 5060 两件固定资产字节核验、GGUF 与 ZIP 安全检查通过；许可及 PE 依赖未闭合，运行仍锁定。 |
 | 2026-11-10 | 18 | 5060 完成 Owner21 单模型只读审计，资产身份闭合，运行时与资源准入待证。 |
 | 2026-11-10 | 15 | 5060 Owner20 单次评价已完成，两臂均未达可行性门，锁定后续阶段。 |
 | 2026-11-09 | 12 | 5060 封存 100 个可行性主案例和 20 条改写，Owner19 仅数据准备收口，预测与评分均未运行。 |

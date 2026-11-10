@@ -1,0 +1,2854 @@
+{
+  "acquisition_and_initial_static_code": "6e31dbdbaf9bd537f27b409882bfbdc18d84fe8f",
+  "actual_runtime_memory": "NOT_MEASURED",
+  "asset_bytes": "PASS",
+  "assets": [
+    {
+      "body_bytes": 1117320736,
+      "cumulative_body_bytes": 1117320736,
+      "file": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+      "finished_utc": "2026-11-10T04:03:22.067240+00:00",
+      "get_chain": [
+        {
+          "host": "huggingface.co",
+          "peer_certificate_der_sha256": "0eca454b46a3617cd2e8c234dcb9e9e215c71c3e161424cae505c876250c38f1",
+          "ssl_default_verify": true,
+          "status": 302,
+          "tls_version": "TLSv1.3"
+        },
+        {
+          "content_length": "1117320736",
+          "content_type": "application/octet-stream",
+          "host": "us.aws.cdn.hf.co",
+          "peer_certificate_der_sha256": "6ad36c8de8405403687b9bf994de491675acec7bdb9ce9cefa9cb40fa37c5cf9",
+          "ssl_default_verify": true,
+          "status": 200,
+          "tls_version": "TLSv1.3"
+        }
+      ],
+      "sha256_actual": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+      "sha256_expected": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+      "size_expected": 1117320736,
+      "started_utc": "2026-11-10T03:58:13.524481+00:00",
+      "status": "PASS"
+    },
+    {
+      "body_bytes": 24931401,
+      "cumulative_body_bytes": 1142252137,
+      "file": "llama-b12242-bin-win-cpu-x64.zip",
+      "finished_utc": "2026-11-10T04:03:29.614934+00:00",
+      "get_chain": [
+        {
+          "host": "github.com",
+          "peer_certificate_der_sha256": "7dc4d85cf1e310971225bc9a9257679043a243d70a3cc2a91cc5d389892c2776",
+          "ssl_default_verify": true,
+          "status": 302,
+          "tls_version": "TLSv1.3"
+        },
+        {
+          "content_length": "24931401",
+          "content_type": "application/octet-stream",
+          "host": "release-assets.githubusercontent.com",
+          "peer_certificate_der_sha256": "f2f9a159ce50a0a168b3eaeaf2fced5addd49ba38e2bf63248f057a139fc7856",
+          "ssl_default_verify": true,
+          "status": 200,
+          "tls_version": "TLSv1.3"
+        }
+      ],
+      "sha256_actual": "4723cd1f1b10169b6ca681f787ea37238e449b1c56538b4b90c71a82fad949a0",
+      "sha256_expected": "4723cd1f1b10169b6ca681f787ea37238e449b1c56538b4b90c71a82fad949a0",
+      "size_expected": 24931401,
+      "started_utc": "2026-11-10T04:03:22.068243+00:00",
+      "status": "PASS"
+    }
+  ],
+  "auto_continue": false,
+  "commands": {
+    "pe_followup": {
+      "argv": [
+        "-I",
+        "-S",
+        "-B",
+        "owner22_static_inspection.py",
+        "--pe-only"
+      ],
+      "exit_code": 0,
+      "finished_utc": "2026-11-10T04:04:44.9709700Z",
+      "source_sha256": "f6e444bb3d0759a88f88cfef4f072530b97654ab30af9880c56293ad07af2ee6",
+      "started_utc": "2026-11-10T04:04:44.3271727Z"
+    },
+    "static": {
+      "argv": [
+        "-I",
+        "-S",
+        "-B",
+        "owner22_static_inspection.py"
+      ],
+      "exit_code": 1,
+      "finished_utc": "2026-11-10T04:03:34.5705644Z",
+      "source_sha256": "b7aafc5bfcdce20e251e3f1ae4cde329fe8378e34d0040ad274aa0ebd9132670",
+      "started_utc": "2026-11-10T04:03:31.2723980Z"
+    },
+    "transfer": {
+      "argv": [
+        "-I",
+        "-S",
+        "-B",
+        "owner22_acquisition.py",
+        "acquire"
+      ],
+      "exit_code": 0,
+      "finished_utc": "2026-11-10T04:03:29.6350927Z",
+      "source_sha256": "7ba0caad0fc7f4e8f67bd1f617dc2587ec8a3392d3110ee4d50fb2825f83247a",
+      "started_utc": "2026-11-10T03:58:13.3405273Z"
+    }
+  },
+  "compatible_load_inference": "NOT_TESTED",
+  "cost_usd": 0,
+  "disk": {
+    "cap": 4294967296,
+    "file_count_after": 116,
+    "filesystem": "NTFS",
+    "free_bytes_after": 355978899456,
+    "logical_root_bytes_after": 1313540345,
+    "minimum_free_reserve": 10737418240,
+    "peak_hard_gate_checks": true,
+    "private_acl_protected": true,
+    "root": "D:\\experiments\\paper1_chinese5060\\owner22-assets",
+    "zip_unpacked_cap": 536870912
+  },
+  "exe_runs": 0,
+  "execution": "NOT_AUTHORIZED",
+  "extra_asset_body_bytes": 0,
+  "formal_answer_accuracy": "NOT_MEASURED",
+  "formal_asr": "NOT_MEASURED",
+  "gguf": {
+    "alignment": 32,
+    "architecture": {
+      "general.architecture": "qwen2",
+      "general.file_type": 15,
+      "general.finetune": "qwen2.5-1.5b-instruct",
+      "general.name": "qwen2.5-1.5b-instruct",
+      "general.quantization_version": 2,
+      "general.size_label": "1.8B",
+      "general.type": "model",
+      "general.version": "v0.1",
+      "qwen2.attention.head_count": 12,
+      "qwen2.attention.head_count_kv": 2,
+      "qwen2.attention.layer_norm_rms_epsilon": 9.999999974752427e-07,
+      "qwen2.block_count": 28,
+      "qwen2.context_length": 32768,
+      "qwen2.embedding_length": 1536,
+      "qwen2.feed_forward_length": 8960,
+      "qwen2.rope.freq_base": 1000000.0
+    },
+    "chat_template_bytes": 2509,
+    "chat_template_sha256": "d5495a1e5db0611132a97e46a65dbb64a642a499421228b9c8b93229097fa9a4",
+    "gguf_version": 3,
+    "metadata_count": 26,
+    "metadata_keys": [
+      "general.architecture",
+      "general.file_type",
+      "general.finetune",
+      "general.name",
+      "general.quantization_version",
+      "general.size_label",
+      "general.type",
+      "general.version",
+      "qwen2.attention.head_count",
+      "qwen2.attention.head_count_kv",
+      "qwen2.attention.layer_norm_rms_epsilon",
+      "qwen2.block_count",
+      "qwen2.context_length",
+      "qwen2.embedding_length",
+      "qwen2.feed_forward_length",
+      "qwen2.rope.freq_base",
+      "tokenizer.chat_template",
+      "tokenizer.ggml.add_bos_token",
+      "tokenizer.ggml.bos_token_id",
+      "tokenizer.ggml.eos_token_id",
+      "tokenizer.ggml.merges",
+      "tokenizer.ggml.model",
+      "tokenizer.ggml.padding_token_id",
+      "tokenizer.ggml.pre",
+      "tokenizer.ggml.token_type",
+      "tokenizer.ggml.tokens"
+    ],
+    "status": "PASS",
+    "tensor_count": 339,
+    "tensor_data_start": 5950496,
+    "tensor_payload_parsed": false,
+    "tokenizer": {
+      "tokenizer.ggml.add_bos_token": false,
+      "tokenizer.ggml.bos_token_id": 151643,
+      "tokenizer.ggml.eos_token_id": 151645,
+      "tokenizer.ggml.merges": {
+        "count": 151387,
+        "element_type": 8,
+        "encoded_elements_sha256": "907981a313a6e78ef2223229042674a39cd4995ee4c4ed40a31b58754e82c26c"
+      },
+      "tokenizer.ggml.model": "gpt2",
+      "tokenizer.ggml.padding_token_id": 151643,
+      "tokenizer.ggml.pre": "qwen2",
+      "tokenizer.ggml.token_type": {
+        "count": 151936,
+        "element_type": 5,
+        "encoded_elements_sha256": "11d9d8fcd61acad985aa2726a61e97441cc53aae7b42c61ef36461983769f826"
+      },
+      "tokenizer.ggml.tokens": {
+        "count": 151936,
+        "element_type": 8,
+        "encoded_elements_sha256": "8656e079473b857729cf444f772368cd6428dcd64513d46aac3f694b2f695282"
+      }
+    }
+  },
+  "gguf_metadata": "PASS",
+  "head_preflight": {
+    "actual_body_bytes": 0,
+    "assets": [
+      {
+        "filename": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+        "head_chain": [
+          {
+            "host": "huggingface.co",
+            "peer_certificate_der_sha256": "0eca454b46a3617cd2e8c234dcb9e9e215c71c3e161424cae505c876250c38f1",
+            "ssl_default_verify": true,
+            "status": 302,
+            "tls_version": "TLSv1.3"
+          },
+          {
+            "content_length": "1117320736",
+            "content_type": "application/octet-stream",
+            "host": "us.aws.cdn.hf.co",
+            "peer_certificate_der_sha256": "6ad36c8de8405403687b9bf994de491675acec7bdb9ce9cefa9cb40fa37c5cf9",
+            "ssl_default_verify": true,
+            "status": 200,
+            "tls_version": "TLSv1.3"
+          }
+        ]
+      },
+      {
+        "filename": "llama-b12242-bin-win-cpu-x64.zip",
+        "head_chain": [
+          {
+            "host": "github.com",
+            "peer_certificate_der_sha256": "7dc4d85cf1e310971225bc9a9257679043a243d70a3cc2a91cc5d389892c2776",
+            "ssl_default_verify": true,
+            "status": 302,
+            "tls_version": "TLSv1.3"
+          },
+          {
+            "content_length": "24931401",
+            "content_type": "application/octet-stream",
+            "host": "release-assets.githubusercontent.com",
+            "peer_certificate_der_sha256": "f2f9a159ce50a0a168b3eaeaf2fced5addd49ba38e2bf63248f057a139fc7856",
+            "ssl_default_verify": true,
+            "status": 200,
+            "tls_version": "TLSv1.3"
+          }
+        ]
+      }
+    ],
+    "run_id": "W1-5060-OWNER22-QWEN-GGUF-ASSET-STATIC-20261110-01",
+    "status": "PASS",
+    "time_utc": "2026-11-10T03:57:39.538591+00:00"
+  },
+  "human_gold": 0,
+  "inference": 0,
+  "installs": 0,
+  "license": {
+    "embedded_verified_text": {
+      "boringssl": {
+        "owner21_reference_sha256": "827c8d8fc207c2392794eef9e00fe246f9f61fdcc132556c275be3dd8c3cd97f",
+        "proof_scope": "STATIC_TEXT_ONLY",
+        "trimmed_full_text_occurrence": [
+          "llama-connect.exe",
+          "llama.exe"
+        ]
+      },
+      "llama_cpp_mit": {
+        "owner21_reference_sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d",
+        "proof_scope": "STATIC_TEXT_ONLY",
+        "trimmed_full_text_occurrence": [
+          "llama-connect.exe",
+          "llama.exe"
+        ]
+      }
+    },
+    "zip_notice": {
+      "documents": [
+        {
+          "bytes": 19741,
+          "matches_pinned_llvm_notice": true,
+          "mentions_boringssl": false,
+          "mentions_openmp_or_llvm": true,
+          "path": "LICENSE-LLVM-OpenMP",
+          "sha256": "fdad1758a9e1f9d5a81e18879b3406772115edc92c24bfa36b70c654f325e8e4"
+        }
+      ],
+      "entire_package_license": "UNKNOWN_PENDING_COMPONENT_NOTICE_CLOSURE"
+    }
+  },
+  "model_api_calls": 0,
+  "model_loads": 0,
+  "mypy_exit": 0,
+  "owner": "W1-OD-20261110-5060-QWEN-GGUF-ASSET-22",
+  "owner_commit": "1d510e3649e436c7947ac1fe106788a79cc9f308",
+  "package_license": "UNKNOWN",
+  "pe": {
+    "cli_static_names": [
+      "api-ms-win-crt-convert-l1-1-0.dll",
+      "api-ms-win-crt-environment-l1-1-0.dll",
+      "api-ms-win-crt-filesystem-l1-1-0.dll",
+      "api-ms-win-crt-heap-l1-1-0.dll",
+      "api-ms-win-crt-locale-l1-1-0.dll",
+      "api-ms-win-crt-math-l1-1-0.dll",
+      "api-ms-win-crt-runtime-l1-1-0.dll",
+      "api-ms-win-crt-stdio-l1-1-0.dll",
+      "api-ms-win-crt-string-l1-1-0.dll",
+      "api-ms-win-crt-time-l1-1-0.dll",
+      "api-ms-win-crt-utility-l1-1-0.dll",
+      "crypt32.dll",
+      "ggml-base.dll",
+      "ggml.dll",
+      "kernel32.dll",
+      "libomp.dll",
+      "llama-cli-impl.dll",
+      "llama-cli.exe",
+      "llama-common.dll",
+      "llama-server-impl.dll",
+      "llama.dll",
+      "msvcp140.dll",
+      "mtmd.dll",
+      "psapi.dll",
+      "vcruntime140.dll",
+      "vcruntime140_1.dll",
+      "ws2_32.dll"
+    ],
+    "closure_counts": {
+      "NOT_FOUND_IN_PACKAGE_OR_SYSTEM32": 10,
+      "PACKAGE": 14,
+      "SYSTEM32": 101,
+      "WINDOWS_API_SET_CONTRACT_NOT_MAPPED": 387
+    },
+    "direct_dependencies": {
+      "advapi32.dll": "SYSTEM32",
+      "api-ms-win-core-synch-l1-2-0.dll": "WINDOWS_API_SET_CONTRACT_NOT_MAPPED",
+      "api-ms-win-crt-convert-l1-1-0.dll": "WINDOWS_API_SET_CONTRACT_NOT_MAPPED",
+      "api-ms-win-crt-environment-l1-1-0.dll": "WINDOWS_API_SET_CONTRACT_NOT_MAPPED",
+      "api-ms-win-crt-filesystem-l1-1-0.dll": "WINDOWS_API_SET_CONTRACT_NOT_MAPPED",
+      "api-ms-win-crt-heap-l1-1-0.dll": "WINDOWS_API_SET_CONTRACT_NOT_MAPPED",
+      "api-ms-win-crt-locale-l1-1-0.dll": "WINDOWS_API_SET_CONTRACT_NOT_MAPPED",
+      "api-ms-win-crt-math-l1-1-0.dll": "WINDOWS_API_SET_CONTRACT_NOT_MAPPED",
+      "api-ms-win-crt-runtime-l1-1-0.dll": "WINDOWS_API_SET_CONTRACT_NOT_MAPPED",
+      "api-ms-win-crt-stdio-l1-1-0.dll": "WINDOWS_API_SET_CONTRACT_NOT_MAPPED",
+      "api-ms-win-crt-string-l1-1-0.dll": "WINDOWS_API_SET_CONTRACT_NOT_MAPPED",
+      "api-ms-win-crt-time-l1-1-0.dll": "WINDOWS_API_SET_CONTRACT_NOT_MAPPED",
+      "api-ms-win-crt-utility-l1-1-0.dll": "WINDOWS_API_SET_CONTRACT_NOT_MAPPED",
+      "bcrypt.dll": "SYSTEM32",
+      "bcryptprimitives.dll": "SYSTEM32",
+      "crypt32.dll": "SYSTEM32",
+      "ggml-base.dll": "PACKAGE",
+      "ggml.dll": "PACKAGE",
+      "iphlpapi.dll": "SYSTEM32",
+      "kernel32.dll": "SYSTEM32",
+      "libomp.dll": "PACKAGE",
+      "llama-batched-bench-impl.dll": "PACKAGE",
+      "llama-bench-impl.dll": "PACKAGE",
+      "llama-cli-impl.dll": "PACKAGE",
+      "llama-common.dll": "PACKAGE",
+      "llama-completion-impl.dll": "PACKAGE",
+      "llama-fit-params-impl.dll": "PACKAGE",
+      "llama-perplexity-impl.dll": "PACKAGE",
+      "llama-quantize-impl.dll": "PACKAGE",
+      "llama-server-impl.dll": "PACKAGE",
+      "llama.dll": "PACKAGE",
+      "msvcp140.dll": "SYSTEM32",
+      "mtmd.dll": "PACKAGE",
+      "ntdll.dll": "SYSTEM32",
+      "psapi.dll": "SYSTEM32",
+      "vcruntime140.dll": "SYSTEM32",
+      "vcruntime140_1.dll": "SYSTEM32",
+      "ws2_32.dll": "SYSTEM32"
+    },
+    "direct_os_versions": [
+      {
+        "file_version": "10.0.26100.9949 (WinBuild.160101.0800)",
+        "name": "advapi32.dll",
+        "product_version": "10.0.26100.9949",
+        "sha256": "b864e1468a01a44f1901e03c05c1029e71655dd9abddd6d840bcfff5e7227d44"
+      },
+      {
+        "file_version": "10.0.26100.9949 (WinBuild.160101.0800)",
+        "name": "bcrypt.dll",
+        "product_version": "10.0.26100.9949",
+        "sha256": "d0fc7863d7b034da33f34dc82b96a8604572598a217668a43fc9eca3a8e2a8e1"
+      },
+      {
+        "file_version": "10.0.26100.9711 (WinBuild.160101.0800)",
+        "name": "bcryptprimitives.dll",
+        "product_version": "10.0.26100.9711",
+        "sha256": "f0dba794068893c9616b0b54bef1be8f904be89eb2cb09b575d3d7fb1b5000f8"
+      },
+      {
+        "file_version": "10.0.26100.9949 (WinBuild.160101.0800)",
+        "name": "crypt32.dll",
+        "product_version": "10.0.26100.9949",
+        "sha256": "71da5f9806f7aaf9e081c1df28b13182d2643b7f3534173f868ba65287612bbb"
+      },
+      {
+        "file_version": "10.0.26100.9949 (WinBuild.160101.0800)",
+        "name": "iphlpapi.dll",
+        "product_version": "10.0.26100.9949",
+        "sha256": "8521026d021cc5193a7cd7c0256bd14c7ab39738d22c019e6d544b37deee12c0"
+      },
+      {
+        "file_version": "10.0.26100.9949 (WinBuild.160101.0800)",
+        "name": "kernel32.dll",
+        "product_version": "10.0.26100.9949",
+        "sha256": "e132eba4166256e2f414b91fe7d5386590bc5ea8626aee5af9c9738383cf2ae1"
+      },
+      {
+        "file_version": "14.50.35719.0",
+        "name": "msvcp140.dll",
+        "product_version": "14.50.35719.0",
+        "sha256": "def46aa6a8f72f27bafac0c43334419486a4d1dcdb6c479a8ef7034b3e1fa4cb"
+      },
+      {
+        "file_version": "10.0.26100.9949 (WinBuild.160101.0800)",
+        "name": "ntdll.dll",
+        "product_version": "10.0.26100.9949",
+        "sha256": "651ac9041af8e6b5ebd331d53163244c0a27d36d1433f0f15cac1f28c5f2e82c"
+      },
+      {
+        "file_version": "10.0.26100.8521 (WinBuild.160101.0800)",
+        "name": "psapi.dll",
+        "product_version": "10.0.26100.8521",
+        "sha256": "6c8ebe6621224d11ded0c920873d67b5255fd515e8c4ea803cd587c8232bee5c"
+      },
+      {
+        "file_version": "14.50.35719.0",
+        "name": "vcruntime140_1.dll",
+        "product_version": "14.50.35719.0",
+        "sha256": "e6bfb3662ab4b1969a73441dbe35c96d51441b6bff8cf1fe7430bd5b246ca605"
+      },
+      {
+        "file_version": "14.50.35719.0",
+        "name": "vcruntime140.dll",
+        "product_version": "14.50.35719.0",
+        "sha256": "184146852727a9db4eea06178716bec3cdbb1015c911f6b0f915b184ad7775b2"
+      },
+      {
+        "file_version": "10.0.26100.9949 (WinBuild.160101.0800)",
+        "name": "ws2_32.dll",
+        "product_version": "10.0.26100.9949",
+        "sha256": "b123b00c46c415d7baeaada58c29c3e6920895db836ee4c0cfee49d738af60ad"
+      }
+    ],
+    "dynamic_backend_dispatch": "NOT_TESTED",
+    "package_images": {
+      "ggml-base.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "api-ms-win-crt-utility-l1-1-0.dll",
+          "kernel32.dll",
+          "libomp.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "ggml-base.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "ggml-cpu-alderlake.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "advapi32.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "libomp.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "ggml-cpu-alderlake.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "ggml-cpu-cannonlake.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "advapi32.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "libomp.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "ggml-cpu-cannonlake.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "ggml-cpu-cascadelake.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "advapi32.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "libomp.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "ggml-cpu-cascadelake.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "ggml-cpu-cooperlake.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "advapi32.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "libomp.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "ggml-cpu-cooperlake.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "ggml-cpu-haswell.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "advapi32.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "libomp.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "ggml-cpu-haswell.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "ggml-cpu-icelake.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "advapi32.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "libomp.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "ggml-cpu-icelake.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "ggml-cpu-ivybridge.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "advapi32.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "libomp.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "ggml-cpu-ivybridge.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "ggml-cpu-piledriver.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "advapi32.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "libomp.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "ggml-cpu-piledriver.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "ggml-cpu-sandybridge.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "advapi32.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "libomp.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "ggml-cpu-sandybridge.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "ggml-cpu-sapphirerapids.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "advapi32.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "libomp.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "ggml-cpu-sapphirerapids.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "ggml-cpu-skylakex.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "advapi32.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "libomp.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "ggml-cpu-skylakex.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "ggml-cpu-sse42.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "advapi32.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "libomp.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "ggml-cpu-sse42.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "ggml-cpu-x64.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "advapi32.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "libomp.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "ggml-cpu-x64.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "ggml-cpu-zen4.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "advapi32.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "libomp.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "ggml-cpu-zen4.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "ggml-rpc-server.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "ggml.dll",
+          "kernel32.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "ggml-rpc-server.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "ggml-rpc.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll",
+          "ws2_32.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "ggml-rpc.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "ggml.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "ggml.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "libomp.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "kernel32.dll",
+          "psapi.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "libomp.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-batched-bench-impl.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "api-ms-win-crt-utility-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "llama-common.dll",
+          "llama.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-batched-bench-impl.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-batched-bench.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "kernel32.dll",
+          "llama-batched-bench-impl.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-batched-bench.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-bench-impl.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "api-ms-win-crt-utility-l1-1-0.dll",
+          "ggml-base.dll",
+          "ggml.dll",
+          "kernel32.dll",
+          "llama-common.dll",
+          "llama.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-bench-impl.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-bench.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "kernel32.dll",
+          "llama-bench-impl.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-bench.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-cli-impl.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "api-ms-win-crt-utility-l1-1-0.dll",
+          "crypt32.dll",
+          "kernel32.dll",
+          "llama-common.dll",
+          "llama-server-impl.dll",
+          "llama.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll",
+          "ws2_32.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-cli-impl.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-cli.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "kernel32.dll",
+          "llama-cli-impl.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-cli.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-common.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "api-ms-win-crt-utility-l1-1-0.dll",
+          "crypt32.dll",
+          "ggml-base.dll",
+          "ggml.dll",
+          "kernel32.dll",
+          "llama.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll",
+          "vcruntime140_1.dll",
+          "ws2_32.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-common.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-completion-impl.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "llama-common.dll",
+          "llama.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-completion-impl.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-completion.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "kernel32.dll",
+          "llama-completion-impl.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-completion.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-connect.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "advapi32.dll",
+          "api-ms-win-core-synch-l1-2-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "bcrypt.dll",
+          "bcryptprimitives.dll",
+          "iphlpapi.dll",
+          "kernel32.dll",
+          "ntdll.dll",
+          "vcruntime140.dll",
+          "ws2_32.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          44
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-connect.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-fit-params-impl.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "llama-common.dll",
+          "llama.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-fit-params-impl.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-fit-params.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "kernel32.dll",
+          "llama-fit-params-impl.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-fit-params.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-gemma3-cli.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "kernel32.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-gemma3-cli.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-gguf-split.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "llama.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-gguf-split.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-imatrix.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "llama-common.dll",
+          "llama.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-imatrix.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-llava-cli.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "kernel32.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-llava-cli.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-minicpmv-cli.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "kernel32.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-minicpmv-cli.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-mtmd-cli.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "ggml.dll",
+          "kernel32.dll",
+          "llama-common.dll",
+          "llama.dll",
+          "msvcp140.dll",
+          "mtmd.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-mtmd-cli.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-mtmd-debug.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "ggml.dll",
+          "kernel32.dll",
+          "llama-common.dll",
+          "llama.dll",
+          "msvcp140.dll",
+          "mtmd.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-mtmd-debug.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-perplexity-impl.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "llama-common.dll",
+          "llama.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-perplexity-impl.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-perplexity.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "kernel32.dll",
+          "llama-perplexity-impl.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-perplexity.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-quantize-impl.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "llama-common.dll",
+          "llama.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-quantize-impl.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-quantize.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "kernel32.dll",
+          "llama-quantize-impl.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-quantize.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-qwen2vl-cli.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "kernel32.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-qwen2vl-cli.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-results.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "llama-common.dll",
+          "llama.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-results.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-server-impl.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "api-ms-win-crt-utility-l1-1-0.dll",
+          "crypt32.dll",
+          "ggml-base.dll",
+          "ggml.dll",
+          "kernel32.dll",
+          "llama-common.dll",
+          "llama.dll",
+          "msvcp140.dll",
+          "mtmd.dll",
+          "vcruntime140.dll",
+          "vcruntime140_1.dll",
+          "ws2_32.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-server-impl.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-server.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "kernel32.dll",
+          "llama-server-impl.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-server.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-tokenize.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "llama-common.dll",
+          "llama.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-tokenize.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama-tts.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "kernel32.dll",
+          "llama-common.dll",
+          "llama.dll",
+          "msvcp140.dll",
+          "mtmd.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama-tts.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "ggml.dll",
+          "kernel32.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll",
+          "vcruntime140_1.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "llama.exe": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "kernel32.dll",
+          "llama-batched-bench-impl.dll",
+          "llama-bench-impl.dll",
+          "llama-cli-impl.dll",
+          "llama-common.dll",
+          "llama-completion-impl.dll",
+          "llama-fit-params-impl.dll",
+          "llama-perplexity-impl.dll",
+          "llama-quantize-impl.dll",
+          "llama-server-impl.dll",
+          "llama.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": false,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "llama.exe",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      },
+      "mtmd.dll": {
+        "authenticode_verified": false,
+        "delay_imports": [],
+        "direct_imports": [
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "ggml-base.dll",
+          "ggml.dll",
+          "kernel32.dll",
+          "llama.dll",
+          "msvcp140.dll",
+          "vcruntime140.dll"
+        ],
+        "is_dll": true,
+        "linker_version": [
+          14,
+          0
+        ],
+        "machine": "AMD64",
+        "os_version": [
+          6,
+          0
+        ],
+        "pe": "PE32+",
+        "relative_path": "mtmd.dll",
+        "security_directory_bytes": 0,
+        "subsystem_version": [
+          6,
+          0
+        ]
+      }
+    },
+    "runtime_minimum_vc": "UNKNOWN",
+    "unvisited_closure_frontier": [
+      "api-ms-win-appmodel-unlock-l1-1-0.dll",
+      "api-ms-win-devices-query-l1-1-0.dll",
+      "api-ms-win-downlevel-advapi32-l1-1-0.dll",
+      "api-ms-win-ntuser-sysparams-l1-1-0.dll",
+      "api-ms-win-rtcore-ntuser-synch-l1-1-0.dll",
+      "api-ms-win-rtcore-ntuser-window-l1-1-0.dll",
+      "certenroll.dll",
+      "cryptxml.dll",
+      "devrtl.dll",
+      "dmcmnutils.dll",
+      "dmxmlhelputils.dll",
+      "drvstore.dll",
+      "ext-ms-win-branding-winbrand-l1-1-0.dll",
+      "ext-ms-win-devmgmt-dm-l1-1-0.dll",
+      "ext-ms-win-devmgmt-dm-l1-1-2.dll",
+      "ext-ms-win-mpr-multipleproviderrouter-l1-1-0.dll",
+      "ext-ms-win-rtcore-ntuser-cursor-l1-1-0.dll",
+      "ext-ms-win-session-wtsapi32-l1-1-0.dll",
+      "ext-ms-win-shell-embeddedmode-l1-1-0.dll",
+      "ext-ms-win-shell-shell32-l1-2-0.dll",
+      "ext-ms-win-wevtapi-eventlog-l1-1-2.dll",
+      "gmsaclient.dll",
+      "kerb3961.dll",
+      "ngcrecovery.dll",
+      "omadmapi.dll",
+      "policymanager.dll",
+      "propsys.dll",
+      "sspisrv.dll",
+      "webauthn.dll"
+    ]
+  },
+  "pe_dependency": "UNKNOWN",
+  "pe_followup_code": "160e9194948ecd27ad037fa1483e6b973bfe9957",
+  "private_evidence": {
+    "members": {
+      "logs/embedded_notice_check.json": "4ec78a106482c39b71f099c4a3f98e0016d9c8976b9995b20773459c2fd4bc6a",
+      "logs/gguf_static.json": "d93b954ecb94a67002ba88e631e2326f7dcc3bd54664147c55ee11543b9f34a2",
+      "logs/llama-b12242-bin-win-cpu-x64.zip.receipt.json": "6a7edc3fb8f5da438444f6ed05b5f89d1de13ce88c336d487675f5efc00f4ce1",
+      "logs/network_preflight.json": "85b5bfe15ad7f551cc8c35d31b2c0a796b3a576df89570756eb3e200ab4ab82f",
+      "logs/network_preflight_initial.json": "1fd1a367e48aff49c68ea19902b329bd1e92af0c65bcd95a634bc642278d7f77",
+      "logs/notice_static.json": "51e5c3ef9dc9c8c10cda6788cc921a29ff644c1e6898a65d55cdc775db169726",
+      "logs/pe_followup.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logs/pe_followup.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logs/pe_followup_command.json": "d90cc699b925891e75c1e40650c7811512fe52b0d96b50a630d7a3597e9fba5d",
+      "logs/pe_static.json": "c3b68f1d5d9b56d649394d42878d117dad898f953ec6f1ecfdf31019ecb59870",
+      "logs/publisher_metadata.json": "f56185d657225ed977c0b5f656987a629e936e79a51c7ebdcc17cbf4034e7793",
+      "logs/publisher_metadata_initial.json": "2fbc53b45e7ed7f926ed7ad7f2074f173dddb5d84393e551f28e5dbb577d4c0d",
+      "logs/qa/mypy.exit": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "logs/qa/mypy.log": "281a094c39385b4d7b53e5db635f52158036861433c2a4975b9039e77a627a24",
+      "logs/qa/mypy_after_pe.exit": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "logs/qa/mypy_after_pe.log": "281a094c39385b4d7b53e5db635f52158036861433c2a4975b9039e77a627a24",
+      "logs/qa/mypy_initial.exit": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "logs/qa/mypy_initial.log": "968fe329059ffc9ef30af8e8c18f2b36192d6771483bde4f2b37b7c786bbb3e5",
+      "logs/qa/pytest.exit": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "logs/qa/pytest.log": "374956ea7d59c0b1b05aa6dbeb6a79baf58c37661c16233712bc7a78b822fca0",
+      "logs/qa/pytest_after_pe.exit": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "logs/qa/pytest_after_pe.log": "323f02fb789cae51d9f0c3bfb98367d05d271f24755e3428919e2769b49e9900",
+      "logs/qa/pytest_initial.exit": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "logs/qa/pytest_initial.log": "eaa636c0dfe776ad260934d8d8d134a0df55f6a836fea736ef5c6ddf1c69b961",
+      "logs/qa/ruff.exit": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "logs/qa/ruff.log": "a4443afdcfb6d7363adb285762515ccf7cf50473b1a05c20c1a50f6bed4d26b0",
+      "logs/qa/ruff_after_pe.exit": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "logs/qa/ruff_after_pe.log": "a4443afdcfb6d7363adb285762515ccf7cf50473b1a05c20c1a50f6bed4d26b0",
+      "logs/qa/ruff_initial.exit": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "logs/qa/ruff_initial.log": "a4443afdcfb6d7363adb285762515ccf7cf50473b1a05c20c1a50f6bed4d26b0",
+      "logs/qwen2.5-1.5b-instruct-q4_k_m.gguf.receipt.json": "658d151858939126af8734878893bda99ca43b3b3dffca7e88919d0df839ab36",
+      "logs/static.stderr": "2d432e9409a7c0a08146ff8d5c1a36a15dd95bfafde4240467b38f4ef3ebcb17",
+      "logs/static.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logs/static_command.json": "593a9270ded4542fe5497cb3f79c5059343d3078f7328fa1ad424f82b8ee5c63",
+      "logs/storage_preflight.json": "c95b556bb6e8828736e95295c6b0cb4e8071b1c527df661d8ae5f54e9ef5a804",
+      "logs/system_dll_versions.json": "3cf7ad66183af25e6c5275a64ac5e6d07800c2b46593f9c87374d20277267e99",
+      "logs/transfer.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logs/transfer.stdout": "1188db05c80699d5c46e96fe283d845270425a73a4c4b3cd4d820ab60787a667",
+      "logs/transfer_command.json": "8af91007e22ef2e131649a1a14488eb9f19a21455b158df4f90ed10a5b4c72c8",
+      "logs/transfer_complete.json": "fc0793bd50cb9467c21421d7c671a2530ff7b56a266459b27c0dcbf93951b7ac",
+      "logs/transfer_started.json": "fe58c48004c43511d7a191be103781fe6833fd78ba8c29c9d8afaa93a0f7fe5c",
+      "logs/zip_members_sha256.json": "db227e93172a5e31b418da995ce89e6a64a586f6bf49f0d492bc593279ce8fc5",
+      "logs/zip_validated_listing.json": "45342d66de3719623601acc655e1c775c5d64c784def65b9612955c123f4b520"
+    },
+    "sha256": "faa281e7e4a14f2bc11a292b6e42e94f42421c7a4152ec55f4212ad01a708247"
+  },
+  "publisher": {
+    "checked_utc": "2026-11-10T03:57:39.537923+00:00",
+    "github": {
+      "asset_id": 729746535,
+      "commit": "3b4d6ab3f79651935fba1dd93732f29022a7f5f5",
+      "digest": "sha256:4723cd1f1b10169b6ca681f787ea37238e449b1c56538b4b90c71a82fad949a0",
+      "immutable": false,
+      "prerelease": true,
+      "release_id": 439859799,
+      "size": 24931401,
+      "source_license_from_owner21": "MIT",
+      "tag": "b12242"
+    },
+    "hf": {
+      "file": {
+        "blobId": "eca68f83004d8b86fa1742ee507ddee8f4b2abce",
+        "lfs": {
+          "pointerSize": 135,
+          "sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+          "size": 1117320736
+        },
+        "rfilename": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+        "size": 1117320736
+      },
+      "license": "Apache-2.0",
+      "repo": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+      "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9"
+    }
+  },
+  "pytest_passed": 9,
+  "retries": 0,
+  "ruff_exit": 0,
+  "run_id": "W1-5060-OWNER22-QWEN-GGUF-ASSET-STATIC-20261110-01",
+  "s2_s5": "LOCKED",
+  "scientific_runs": 0,
+  "source_and_preflight_head": "04df96e617fa0fc575dc8c0a0062690f14fe7ed5",
+  "static_zip_safety": "PASS",
+  "status": "OWNER22_ASSET_STATIC_INSPECTION_BLOCKED",
+  "transfer_bytes": 1142252137,
+  "transfer_cap_bytes": 1142252137,
+  "zip_members": [
+    {
+      "bytes": 834560,
+      "compressed_bytes": 320711,
+      "compression_ratio": 2.602,
+      "crc32": "ebba5972",
+      "is_dir": false,
+      "path": "ggml-base.dll",
+      "sha256": "483a6a30474cb5db7b9633b70a27d1d29aa33dfc2ff298b8073d7188ecc2e957"
+    },
+    {
+      "bytes": 1460736,
+      "compressed_bytes": 533541,
+      "compression_ratio": 2.738,
+      "crc32": "7ec5da8b",
+      "is_dir": false,
+      "path": "ggml-cpu-alderlake.dll",
+      "sha256": "12d1df0392fd59745281788bbe74941f35237c88fea3d3b72303ae45413bc0c3"
+    },
+    {
+      "bytes": 1694208,
+      "compressed_bytes": 597579,
+      "compression_ratio": 2.835,
+      "crc32": "34677e2c",
+      "is_dir": false,
+      "path": "ggml-cpu-cannonlake.dll",
+      "sha256": "817fa507eaa1b7801aa912099e4e826d423499d5e5dbc8be3fbc3e04bfbf2384"
+    },
+    {
+      "bytes": 1667072,
+      "compressed_bytes": 590121,
+      "compression_ratio": 2.825,
+      "crc32": "f25fae57",
+      "is_dir": false,
+      "path": "ggml-cpu-cascadelake.dll",
+      "sha256": "4b6a42eeca146b73c5d5d4988de82cdd56eaa558d84e65f3244a323217c62d3d"
+    },
+    {
+      "bytes": 1676800,
+      "compressed_bytes": 593705,
+      "compression_ratio": 2.824,
+      "crc32": "c86e2a1a",
+      "is_dir": false,
+      "path": "ggml-cpu-cooperlake.dll",
+      "sha256": "71963b339dc3458f87088f60ec3488017ed58b40d497daadf9df151d72ad55ac"
+    },
+    {
+      "bytes": 1465856,
+      "compressed_bytes": 535457,
+      "compression_ratio": 2.738,
+      "crc32": "164ade28",
+      "is_dir": false,
+      "path": "ggml-cpu-haswell.dll",
+      "sha256": "3056ac98eb4f456f46165c1b730b852685f5404653e8a18ee8ef7640ac5fb761"
+    },
+    {
+      "bytes": 1673728,
+      "compressed_bytes": 593796,
+      "compression_ratio": 2.819,
+      "crc32": "306e9416",
+      "is_dir": false,
+      "path": "ggml-cpu-icelake.dll",
+      "sha256": "6e8cc7af36fa4e40863d2d684011990f924d7abc5d096dfe7aba8420847ada35"
+    },
+    {
+      "bytes": 1347072,
+      "compressed_bytes": 470350,
+      "compression_ratio": 2.864,
+      "crc32": "ef8d67be",
+      "is_dir": false,
+      "path": "ggml-cpu-ivybridge.dll",
+      "sha256": "ab0f9d9106dc12c20423af66142de20b172073c2990a3d18f8b4da1f9b597e7f"
+    },
+    {
+      "bytes": 1340416,
+      "compressed_bytes": 468679,
+      "compression_ratio": 2.86,
+      "crc32": "a4cedfdd",
+      "is_dir": false,
+      "path": "ggml-cpu-piledriver.dll",
+      "sha256": "e71a826b742db513d8c18d2c87aa41b5d4612baa80cb47b0038f460af701d865"
+    },
+    {
+      "bytes": 1317376,
+      "compressed_bytes": 462444,
+      "compression_ratio": 2.849,
+      "crc32": "866d3c7c",
+      "is_dir": false,
+      "path": "ggml-cpu-sandybridge.dll",
+      "sha256": "cfa9b2c45637047b3b3cce82476a3d8438d0b4bd2c9d19f5dc0fe21c126aba74"
+    },
+    {
+      "bytes": 1953280,
+      "compressed_bytes": 679350,
+      "compression_ratio": 2.875,
+      "crc32": "4682c8b9",
+      "is_dir": false,
+      "path": "ggml-cpu-sapphirerapids.dll",
+      "sha256": "72e8a85aeda986c860eea3c2ed8fd15bf312804fd240cc75fa7856f8aacc878a"
+    },
+    {
+      "bytes": 1687552,
+      "compressed_bytes": 594252,
+      "compression_ratio": 2.84,
+      "crc32": "5b5d31f0",
+      "is_dir": false,
+      "path": "ggml-cpu-skylakex.dll",
+      "sha256": "2a999125e6348dc6d17935205ba8327d250d11a22012c39a2fb9e471237079a7"
+    },
+    {
+      "bytes": 941568,
+      "compressed_bytes": 346488,
+      "compression_ratio": 2.717,
+      "crc32": "d8fa774c",
+      "is_dir": false,
+      "path": "ggml-cpu-sse42.dll",
+      "sha256": "8c366cdcf05d215ff6dea945a650e06f84d03a35bfb89e3f17d11de920822dc8"
+    },
+    {
+      "bytes": 932352,
+      "compressed_bytes": 341932,
+      "compression_ratio": 2.727,
+      "crc32": "a8bd2f6c",
+      "is_dir": false,
+      "path": "ggml-cpu-x64.dll",
+      "sha256": "a52a8b086a85e7b0061b34032e950c0cff7d2509c032b33289b86e351116b4fd"
+    },
+    {
+      "bytes": 1683456,
+      "compressed_bytes": 597423,
+      "compression_ratio": 2.818,
+      "crc32": "60cfbbfe",
+      "is_dir": false,
+      "path": "ggml-cpu-zen4.dll",
+      "sha256": "4b674fcf42378ed1f874939150540b65d03bbd997556b16c9638252b3196e07e"
+    },
+    {
+      "bytes": 117248,
+      "compressed_bytes": 49099,
+      "compression_ratio": 2.388,
+      "crc32": "07c16adf",
+      "is_dir": false,
+      "path": "ggml-rpc-server.exe",
+      "sha256": "847768ee827c3c38ab27cd2d524d7cc7de9bee73cc9b345ac987ff6220d4b5e6"
+    },
+    {
+      "bytes": 234496,
+      "compressed_bytes": 88529,
+      "compression_ratio": 2.649,
+      "crc32": "0f081f7a",
+      "is_dir": false,
+      "path": "ggml-rpc.dll",
+      "sha256": "167dec031883e050d688037219d1f0503ee214d84845f89da34cbd94a52c5ffa"
+    },
+    {
+      "bytes": 78848,
+      "compressed_bytes": 30513,
+      "compression_ratio": 2.584,
+      "crc32": "07b58b52",
+      "is_dir": false,
+      "path": "ggml.dll",
+      "sha256": "8ff28d7f3c8c6cde5da4c150e4d0ac860f40eafb39c0e095fa6ca4fc60357cd2"
+    },
+    {
+      "bytes": 768000,
+      "compressed_bytes": 343771,
+      "compression_ratio": 2.234,
+      "crc32": "260566ba",
+      "is_dir": false,
+      "path": "libomp.dll",
+      "sha256": "a12116ba72d1d6820407cf30be23da04ce79d6bb8a71a5ee71759c5a1faa6f1c"
+    },
+    {
+      "bytes": 19741,
+      "compressed_bytes": 5804,
+      "compression_ratio": 3.401,
+      "crc32": "4595d731",
+      "is_dir": false,
+      "path": "LICENSE-LLVM-OpenMP",
+      "sha256": "fdad1758a9e1f9d5a81e18879b3406772115edc92c24bfa36b70c654f325e8e4"
+    },
+    {
+      "bytes": 62464,
+      "compressed_bytes": 20378,
+      "compression_ratio": 3.065,
+      "crc32": "aa5a51da",
+      "is_dir": false,
+      "path": "llama-batched-bench-impl.dll",
+      "sha256": "d6626428f2d3626f500073091a8a039d49a0a322c68903d733493b620d26899a"
+    },
+    {
+      "bytes": 9728,
+      "compressed_bytes": 3639,
+      "compression_ratio": 2.673,
+      "crc32": "3f28a724",
+      "is_dir": false,
+      "path": "llama-batched-bench.exe",
+      "sha256": "adeaf628b3a87316dbc8c042547836a6132cdf22a50a5433424ccd686781ddd4"
+    },
+    {
+      "bytes": 406016,
+      "compressed_bytes": 127971,
+      "compression_ratio": 3.173,
+      "crc32": "caa4fac5",
+      "is_dir": false,
+      "path": "llama-bench-impl.dll",
+      "sha256": "c77c7e2a9423bdc1925848414a415bcc961bb46cbb251f5791120fd11f865e18"
+    },
+    {
+      "bytes": 9728,
+      "compressed_bytes": 3630,
+      "compression_ratio": 2.68,
+      "crc32": "ed0e5053",
+      "is_dir": false,
+      "path": "llama-bench.exe",
+      "sha256": "b2bf9b3280a7b1a8084bcea66a7846ba643c765bc680d1dbe10a98b68b84b636"
+    },
+    {
+      "bytes": 3397632,
+      "compressed_bytes": 1312137,
+      "compression_ratio": 2.589,
+      "crc32": "48cc931e",
+      "is_dir": false,
+      "path": "llama-cli-impl.dll",
+      "sha256": "999441997cd9ff38d446a86e3b3a57f1dc83a5e9143734977eb0da43e7095cf3"
+    },
+    {
+      "bytes": 9728,
+      "compressed_bytes": 3627,
+      "compression_ratio": 2.682,
+      "crc32": "f28bf2be",
+      "is_dir": false,
+      "path": "llama-cli.exe",
+      "sha256": "5ad81c94fc7c8b3b45d2f11d193e60c68871e608741098209bab5c5528b2388f"
+    },
+    {
+      "bytes": 8393728,
+      "compressed_bytes": 2698671,
+      "compression_ratio": 3.11,
+      "crc32": "fc19dc21",
+      "is_dir": false,
+      "path": "llama-common.dll",
+      "sha256": "8db6431fe296486cfdaab959c6fcb27cc4e763871d21c2f603332667a2d79698"
+    },
+    {
+      "bytes": 139264,
+      "compressed_bytes": 46798,
+      "compression_ratio": 2.976,
+      "crc32": "43bcfe1c",
+      "is_dir": false,
+      "path": "llama-completion-impl.dll",
+      "sha256": "8ae52054d5beb039711d8dbd72092d5291c72954939d574d474d391ea2503abf"
+    },
+    {
+      "bytes": 9728,
+      "compressed_bytes": 3633,
+      "compression_ratio": 2.678,
+      "crc32": "bc1ac63d",
+      "is_dir": false,
+      "path": "llama-completion.exe",
+      "sha256": "b1f64db0d032dfb5c78ce016ff4e922d47c333be7691a510e6cfb41efd8ba034"
+    },
+    {
+      "bytes": 11473920,
+      "compressed_bytes": 4237199,
+      "compression_ratio": 2.708,
+      "crc32": "6df21caf",
+      "is_dir": false,
+      "path": "llama-connect.exe",
+      "sha256": "9f2bdd778f96971995a80add8d6b2478c156f799933337a19dbf80cdaad21b1d"
+    },
+    {
+      "bytes": 48128,
+      "compressed_bytes": 16618,
+      "compression_ratio": 2.896,
+      "crc32": "30c69649",
+      "is_dir": false,
+      "path": "llama-fit-params-impl.dll",
+      "sha256": "f0e8ccf6696e606a0b26ef9fc2b7fc3bd7051f3c4718ac1dc95fe9f9f6fc3300"
+    },
+    {
+      "bytes": 9728,
+      "compressed_bytes": 3639,
+      "compression_ratio": 2.673,
+      "crc32": "e0006cde",
+      "is_dir": false,
+      "path": "llama-fit-params.exe",
+      "sha256": "1da18e07746053607045cd7e85543cbe18009792be8d0e1dedfcd5c4ca35a8f6"
+    },
+    {
+      "bytes": 27648,
+      "compressed_bytes": 9099,
+      "compression_ratio": 3.039,
+      "crc32": "e4241d79",
+      "is_dir": false,
+      "path": "llama-gemma3-cli.exe",
+      "sha256": "c2d2e144634b044c3dbd042a4d49ad8219dd8db0b4ac54b7e861859021c9e4d1"
+    },
+    {
+      "bytes": 61952,
+      "compressed_bytes": 24085,
+      "compression_ratio": 2.572,
+      "crc32": "752fe29a",
+      "is_dir": false,
+      "path": "llama-gguf-split.exe",
+      "sha256": "f8d38bfa7093aebe0240fb7bcc9d58e8eaaaa787579ef5e9bdbbbb82f17a6574"
+    },
+    {
+      "bytes": 254976,
+      "compressed_bytes": 98332,
+      "compression_ratio": 2.593,
+      "crc32": "009c132d",
+      "is_dir": false,
+      "path": "llama-imatrix.exe",
+      "sha256": "f6c4bde295ee0978a09bd233e76b035f4ba4d0f3b593a8a74c6e47e84823a505"
+    },
+    {
+      "bytes": 27648,
+      "compressed_bytes": 9099,
+      "compression_ratio": 3.039,
+      "crc32": "e4241d79",
+      "is_dir": false,
+      "path": "llama-llava-cli.exe",
+      "sha256": "c2d2e144634b044c3dbd042a4d49ad8219dd8db0b4ac54b7e861859021c9e4d1"
+    },
+    {
+      "bytes": 27648,
+      "compressed_bytes": 9099,
+      "compression_ratio": 3.039,
+      "crc32": "e4241d79",
+      "is_dir": false,
+      "path": "llama-minicpmv-cli.exe",
+      "sha256": "c2d2e144634b044c3dbd042a4d49ad8219dd8db0b4ac54b7e861859021c9e4d1"
+    },
+    {
+      "bytes": 97792,
+      "compressed_bytes": 34175,
+      "compression_ratio": 2.862,
+      "crc32": "41078772",
+      "is_dir": false,
+      "path": "llama-mtmd-cli.exe",
+      "sha256": "b4cb6f89e1832a50ad47cbc57538b8de9dcb33680065506d1118128a1bb4ab0e"
+    },
+    {
+      "bytes": 56832,
+      "compressed_bytes": 20507,
+      "compression_ratio": 2.771,
+      "crc32": "ba81043d",
+      "is_dir": false,
+      "path": "llama-mtmd-debug.exe",
+      "sha256": "ea9c4ecf44c221f898d647c78353a59423865107ad3630d196caf32d8475645d"
+    },
+    {
+      "bytes": 198144,
+      "compressed_bytes": 73976,
+      "compression_ratio": 2.678,
+      "crc32": "bf165784",
+      "is_dir": false,
+      "path": "llama-perplexity-impl.dll",
+      "sha256": "65e29dd0b2738c7dc8af3bbfd8cce9f8be51f110fb0356dc0c38769265b351da"
+    },
+    {
+      "bytes": 9728,
+      "compressed_bytes": 3637,
+      "compression_ratio": 2.675,
+      "crc32": "528549d8",
+      "is_dir": false,
+      "path": "llama-perplexity.exe",
+      "sha256": "864c41bb19703b6505f66246743fca98bf1e684434c1500d788a8c258e6943fb"
+    },
+    {
+      "bytes": 137216,
+      "compressed_bytes": 48819,
+      "compression_ratio": 2.811,
+      "crc32": "1eac83b1",
+      "is_dir": false,
+      "path": "llama-quantize-impl.dll",
+      "sha256": "ac0774619bfa5353ed52adbeabd051b3971020e9cd64af26fc0326b5f0f01f51"
+    },
+    {
+      "bytes": 9728,
+      "compressed_bytes": 3634,
+      "compression_ratio": 2.677,
+      "crc32": "da98b55d",
+      "is_dir": false,
+      "path": "llama-quantize.exe",
+      "sha256": "db4af1012a469b4ed576af1cf367f2848156b470546602bf97d59f01b518837a"
+    },
+    {
+      "bytes": 27648,
+      "compressed_bytes": 9099,
+      "compression_ratio": 3.039,
+      "crc32": "e4241d79",
+      "is_dir": false,
+      "path": "llama-qwen2vl-cli.exe",
+      "sha256": "c2d2e144634b044c3dbd042a4d49ad8219dd8db0b4ac54b7e861859021c9e4d1"
+    },
+    {
+      "bytes": 47616,
+      "compressed_bytes": 17353,
+      "compression_ratio": 2.744,
+      "crc32": "7248bd69",
+      "is_dir": false,
+      "path": "llama-results.exe",
+      "sha256": "b6affd2625f49b474882c47bb623d62d11469b8b20319ff6e3ac269b230831fb"
+    },
+    {
+      "bytes": 10158592,
+      "compressed_bytes": 5608181,
+      "compression_ratio": 1.811,
+      "crc32": "e133ecbe",
+      "is_dir": false,
+      "path": "llama-server-impl.dll",
+      "sha256": "34947d1c5243d1edec419604c868d0acdf1fb208fadf35bcaa77ae945f2107f4"
+    },
+    {
+      "bytes": 9728,
+      "compressed_bytes": 3629,
+      "compression_ratio": 2.681,
+      "crc32": "0dde6f5e",
+      "is_dir": false,
+      "path": "llama-server.exe",
+      "sha256": "4b0435825a7a55c7f80146aa483375ed5674057dd551383a66f5500fea95eae1"
+    },
+    {
+      "bytes": 59904,
+      "compressed_bytes": 22770,
+      "compression_ratio": 2.631,
+      "crc32": "91f1417f",
+      "is_dir": false,
+      "path": "llama-tokenize.exe",
+      "sha256": "8e002bc18550aafcf86b21be1523f8ac7932470ae3c537ae328fbe8569f23e55"
+    },
+    {
+      "bytes": 47104,
+      "compressed_bytes": 16721,
+      "compression_ratio": 2.817,
+      "crc32": "28a15c1a",
+      "is_dir": false,
+      "path": "llama-tts.exe",
+      "sha256": "6e08deef6859e2b40d463e2994ed4dc5a9698da1785dac50c1f045b33756ee07"
+    },
+    {
+      "bytes": 3881472,
+      "compressed_bytes": 1399032,
+      "compression_ratio": 2.774,
+      "crc32": "7bf06d1d",
+      "is_dir": false,
+      "path": "llama.dll",
+      "sha256": "7d53514e7d06fad3318b91fc0b4fe5a3f38b8c314e8057e87fbfb730457dbaef"
+    },
+    {
+      "bytes": 105984,
+      "compressed_bytes": 34163,
+      "compression_ratio": 3.102,
+      "crc32": "6f7ed888",
+      "is_dir": false,
+      "path": "llama.exe",
+      "sha256": "d75ee875dc4e602dec9d5b8c6636befec325cd99976457c33dd4cf773f91dd45"
+    },
+    {
+      "bytes": 2241024,
+      "compressed_bytes": 756711,
+      "compression_ratio": 2.962,
+      "crc32": "c3b81c84",
+      "is_dir": false,
+      "path": "mtmd.dll",
+      "sha256": "fa7469cc11fefc2badc8ace7948672df2fe85e64829c98f7171cfb8fe50f31ef"
+    }
+  ],
+  "zip_unpacked_bytes": 64352541
+}

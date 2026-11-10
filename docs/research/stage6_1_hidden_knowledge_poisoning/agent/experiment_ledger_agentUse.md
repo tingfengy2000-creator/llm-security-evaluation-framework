@@ -1,5 +1,15 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## 2026-11-10｜5060 Owner22 固定资产已获取，运行准入继续阻断
+
+`OWNER22_ASSET_STATIC_INSPECTION_BLOCKED / MODEL_EXECUTION_NOT_AUTHORIZED / PEAK_MEMORY_NOT_PROVEN / AUTO_CONTINUE=NO`。两件固定资产各一次，实际正文 1,142,252,137 字节，SHA256 和长度均通过。GGUF 头和 52 件 ZIP 安全验包通过；整包许可与 Windows PE 运行闭包仍待证。
+
+Run `W1-5060-OWNER22-QWEN-GGUF-ASSET-STATIC-20261110-01`，私有审计 ZIP SHA256 `faa281e7e4a14f2bc11a292b6e42e94f42421c7a4152ec55f4212ad01a708247`。
+
+执行、加载、推理、安装、额外资产下载、新实验、模型 API 和费用均为 0。后续受控 smoke 尚未批准，且静态前置仍未闭合。Owner20 NO_GO、旧 S1 FAIL、R2 K1-C、Human Gold 0 和正式 ASR/Accuracy 未测均保留。S2–S5 锁定。
+
+[静态验包报告](../../../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_OWNER22_QWEN_GGUF_ASSET_STATIC_INSPECTION_RESULT.md) · [完整脱敏 Manifest](../../../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_OWNER22_QWEN_GGUF_ASSET_STATIC_RUN_MANIFEST.json)
+
 ## 2026-11-10｜5060 Owner21 单模型只读审计完成
 
 `READONLY_AUDIT_COMPLETE / HUMAN_DECISION_REQUIRED / AUTO_CONTINUE=NO`。Qwen 官方 Q4_K_M 与 llama.cpp b12242 Windows x64 CPU 发布身份和固定摘要均已核对。Qwen Apache-2.0、llama.cpp 源码 MIT，运行时整包第三方声明、PE 依赖和峰值仍未闭合。主机约 12.80 GiB 可用 RAM，规划峰值最高约 4.51 GiB，资源门仍阻断。
