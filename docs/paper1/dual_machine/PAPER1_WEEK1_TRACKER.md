@@ -1,5 +1,17 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-10｜5060 Owner26 两臂复跑完成，七臂准入阻断
+
+`OWNER26_BLOCKED / RD_DEV_36_COMPLETE / RETRIEVAL_IDENTITY_BLOCKED / D1_API_EXFIL_GATE_BLOCKED / BUDGET_GATE_BLOCKED / AUTO_CONTINUE=NO`。
+
+Run W1-5060-OWNER26-D1-RD7-DEV-20261110-01。原 36 世界两条 RD 基线共 72 个角色盲预测，复跑对齐既有删留。B2→RD-zh Poison 保留 8/10→6/10、Clean 误删 4/10→5/10、HN 误删 2/9→4/9。七臂完整 DEV 0/36，Eval 封存、预测和评分各 0/84。
+
+新增 Qwen 请求、探测、Token 和费用均为 0。缺 28 组独立查询绑定、逐段本轮外传许可及当前资金和 Token 上界。下一建议为有权公开版本污染基准与 RD 中文迁移失效分析。Human Gold 0，正式 ASR/Accuracy 未测。 仅更新 5060，5090 沿用历史快照。
+
+私有证据 ZIP 31 件，SHA256 7a37430612edd622bbecd679f34ea6d1ce19ec52cdb41567138a8f88c6ee3867。
+
+[结果与裁决](chinese5060/OWNER26_D1_QWEN7_RESULT.md) · [Run Manifest](chinese5060/OWNER26_D1_QWEN7_RUN_MANIFEST.json)
+
 ## 2026-11-10｜Owner26 冻结七臂：中文 D1 内部Qwen抽取+RD-zh公平对照（已批、未执行）
 
 `W1-OD-20261110-5060-D1-QWEN-NOANCHOR-26`。Owner批准以固定`qwen3.7-plus-2026-05-26`、temperature0，新增API费用≤**USD3**进行逐段事实抽取与每world直接不可靠片段核验；本地现存向量模型零下载跑同world`RD_B2`/`RD_ZH`，与`RD_ZH+M1_SAFE`、`RD_ZH+M2_VOTE`、`M2_VOTE_ALONE`、`RD_ZH+M1_SAFE+M2_VOTE`共7臂同TopK比较。Dev是原Pilot12（12组×3=36世界），最多改一次；签署D1-40其余28组×3=84世界只有在索引/检索/Query按冻结原协议恢复并封存后才可一次性评分。所有D1仍`DEV_EXPOSED`、结果为内部held-group，外部HOLD8、D2/D3均禁止。防御器不能见Gold/role/target；Qwen输出必须逐字quote span绑定并报告UNKNOWN/跨版本scope。M1无锚恢复是一条刻意放松P0的**风险候选**，不宣称已有可信来源。Qwen全量逻辑费用/Token按每独立臂计算，不能把抽取成本记为0。S1/S2/S3隐蔽等级和自相矛盾Poison单独报。
@@ -140,7 +152,7 @@ Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的�
 
 [Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
 
-**更新于 2026-11-10 JST · 版本 28 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-10 JST · 版本 29 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
@@ -327,6 +339,7 @@ R1 源附件由 Owner 提供，公开记录含原件摘要与 SHA-256。[R1 修�
 
 | 日期（JST） | 版本 | 变更与核验基点 |
 | --- | --- | --- |
+| 2026-11-10 | 29 | Owner26 两条 RD DEV 复跑，七臂未达到数据与预算准入。 |
 | 2026-11-10 | 27 | Owner25 合成机制 64 DEV 与 32 HOLDOUT 完成。原 D1 与 Rule‑V2 路线 NO_GO，公平 RD 基线缺失。 |
 | 2026-11-10 | 25 | Owner24 F0 固定资产与 completion 静态依赖通过，网络隔离未验证，F1–F4 未运行。 |
 | 2026-11-10 | 23 | 5060 完成 Owner23A 静态审计，CLI 和 API-set 通过，Owner23B 实际加载待批。 |

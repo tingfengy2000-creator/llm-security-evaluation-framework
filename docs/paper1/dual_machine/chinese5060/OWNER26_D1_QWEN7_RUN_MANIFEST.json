@@ -1,0 +1,455 @@
+{
+  "run_id": "W1-5060-OWNER26-D1-RD7-DEV-20261110-01",
+  "branch": "research/paper1-chinese-defense-5060",
+  "execution_head": "16252e6e5b001c922aabc8bf3dd12630896e36f5",
+  "authority": "W1-OD-20261110-5060-D1-QWEN-NOANCHOR-26",
+  "authorization_commit": "d0f94d73da935de73b1c31d288b003cfa2fbbeb5",
+  "prompt_commit": "0d1be86a27dabe0f4eaa284e5196b61c17517159",
+  "status": "BLOCKED / RETRIEVAL_IDENTITY_BLOCKED / D1_API_EXFIL_GATE_BLOCKED / BUDGET_GATE_BLOCKED",
+  "auto_continue": false,
+  "primary_arm_frozen": false,
+  "evaluation_attempts": 0,
+  "partitions": {
+    "dev_planned_worlds": 36,
+    "dev_planned_chunks": 180,
+    "dev_real_baseline_outcomes": 72,
+    "dev_completed_seven_arm_worlds": 0,
+    "eval_planned_worlds": 84,
+    "eval_planned_chunks": 420,
+    "eval_sealed_worlds": 0,
+    "eval_predicted_worlds": 0,
+    "eval_scored_worlds": 0
+  },
+  "arm_status": {
+    "RD_B2": "DEV_36_EVALUATED",
+    "RD_ZH": "DEV_36_EVALUATED",
+    "QWEN_VERIFY": "NOT_RUN",
+    "RD_ZH+M1_SAFE": "NOT_RUN",
+    "RD_ZH+M2_VOTE": "NOT_RUN",
+    "M2_VOTE_ALONE": "NOT_RUN",
+    "RD_ZH+M1_SAFE+M2_VOTE": "NOT_RUN"
+  },
+  "rd_prescoring_lock": {
+    "chunks": 180,
+    "cpu_threads": 2,
+    "identity": {
+      "cache_files": 10,
+      "cache_identity_sha256": "53a3935d8d35d377fb90f839604f42062c944641dd15f7ad081b0ca557f638e5",
+      "dependency_sha256": "25ceec7b87f616eea4295108827671e90d78ce64627c1323012e9c38cd9ccef7",
+      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "revision": "16e5344fbfc7dfbbbe0019d30cec21e2940cb4e1",
+      "upstream": "ba2a17efba165d45409114df2d70b030ade1e1b8"
+    },
+    "inputs": {
+      "historical_b2_sha256": "9b65b5d7c412aea78a5d66f4d5402743afd029802eb0af981ebdd929376feb4f",
+      "packets_sha256": "d0f196ab994a94bfd0804c37c08b81d41f582aaf2d74e143c26560ffa7043525",
+      "pair_output_seal_sha256": "bb775ead3d330f5e83516f8dfa871a3e2581c305e5ae7baf104500f781ac79fb",
+      "topk_output_seal_sha256": "4e11d89cb6f03291c124aab28f7181622b6766cc63d55be45126023147988c52"
+    },
+    "m": 5,
+    "p": 2,
+    "reuse_source_sha256": "9a0ed59eb79fb127ac73310ecd1f55b287415b4711c050d786f0e5ada28b9fae",
+    "run_id": "W1-5060-OWNER26-D1-RD7-DEV-20261110-01",
+    "seed": 0,
+    "source_sha256": "b25aca40e02024262c59e0bdbf14cb37754322515a342d3588eba9628b5f8bf5",
+    "stage1_original_sha256": "d7e609bb8024565a87a8a8c5cc8bea57279fafd4f22d4c19c035d7b9deb46e21",
+    "stage1_rd_zh_sha256": "34c03e9eed0bcffb1a226cdb3accd78e9ebee635b497db09f966266cafa1e71b",
+    "top_k": 5,
+    "worlds": 36
+  },
+  "rd_results": {
+    "arms": {
+      "RD_B2": {
+        "chunks": 180,
+        "median_ms": 137.5502,
+        "other_chunks": 151,
+        "other_chunks_deleted": 73,
+        "p95_ms": 148.0102,
+        "roles": {
+          "CLEAN_CURRENT": {
+            "hit": 10,
+            "miss": 2,
+            "removed_all": 4,
+            "removed_any": 4,
+            "retained": 6,
+            "worlds": 12
+          },
+          "HARD_NEGATIVE": {
+            "hit": 9,
+            "miss": 3,
+            "removed_all": 2,
+            "removed_any": 2,
+            "retained": 7,
+            "worlds": 12
+          },
+          "POISON": {
+            "hit": 10,
+            "miss": 2,
+            "removed_all": 2,
+            "removed_any": 2,
+            "retained": 8,
+            "worlds": 12
+          }
+        },
+        "worlds": 36
+      },
+      "RD_ZH": {
+        "chunks": 180,
+        "median_ms": 138.688,
+        "other_chunks": 151,
+        "other_chunks_deleted": 99,
+        "p95_ms": 149.4766,
+        "roles": {
+          "CLEAN_CURRENT": {
+            "hit": 10,
+            "miss": 2,
+            "removed_all": 5,
+            "removed_any": 5,
+            "retained": 5,
+            "worlds": 12
+          },
+          "HARD_NEGATIVE": {
+            "hit": 9,
+            "miss": 3,
+            "removed_all": 4,
+            "removed_any": 4,
+            "retained": 5,
+            "worlds": 12
+          },
+          "POISON": {
+            "hit": 10,
+            "miss": 2,
+            "removed_all": 4,
+            "removed_any": 4,
+            "retained": 6,
+            "worlds": 12
+          }
+        },
+        "worlds": 36
+      }
+    },
+    "changed_worlds_b2_to_zh": 21,
+    "label_sha256": "0b75212782f4495037e27d56a2e480b01839e44b2143a8fe5845a1688c8a8ca3",
+    "pilot_only": true,
+    "prediction_sha256": "fa7f674d2c0e6ca5114c0c4e219706ab57c1f6eb3ac3c1c8287135f388d7d6f7",
+    "role_free_seal_sha256": "6fe54afea2ff3cf78707c6992f7835254ab10dc7be67b81cf719edbd7ab8a45f",
+    "run_id": "W1-5060-OWNER26-D1-RD7-DEV-20261110-01"
+  },
+  "rd_evaluator_aggregate_sha256": "16746b2399ce0c747a6ee99df7982663629c028235b64c42ddf04218224d075e",
+  "source_draft": {
+    "status": "OFFLINE_V0_QA_ONLY",
+    "model_id": "qwen3.7-plus-2026-05-26",
+    "temperature": 0,
+    "extraction_prompt_sha256": "04cdd6c2d89ce6ef1d97109c9d5abcb52c1f27de8a033bf7ea1c9670bd798d2b",
+    "verify_prompt_sha256": "b64373c055ee74a9cc2e29ddbfdc34b53e7d0a3df9e2a370001e783921113fd7",
+    "candidate_code_sha256": "142088a04a7a58d128b5462e18c4abdeaa3780215f9cdedfccbf45be175dd09e",
+    "rd_published_script_sha256": "a5d14c24a0df48774b79fe584b10992413c53ea1b142b336b10a63051aaaa152",
+    "published_rd_edit": "post-run type annotation only",
+    "joint_order": "M1_THEN_M2_DRAFT",
+    "network_transport": "NOT_INSTALLED_OR_ACTIVATED"
+  },
+  "gates": {
+    "checked_utc": "2026-11-10T12:53:40.0875707Z",
+    "public_document_ids": [
+      "https://help.aliyun.com/zh/model-studio/qwen3-7-plus",
+      "https://help.aliyun.com/zh/model-studio/base-url",
+      "https://help.aliyun.com/zh/model-studio/qwen-api-via-openai-chat-completions",
+      "https://help.aliyun.com/zh/model-studio/api-compatibility-upgrade-notice"
+    ],
+    "pinned_artifacts": [
+      {
+        "name": "query_v2",
+        "sha256": "d7b4656a6985e7375df71281713b1f6b73f745c9ac37296878eb0bac6002e500",
+        "verified": true
+      },
+      {
+        "name": "pilot12_selection",
+        "sha256": "2c16fd6915c2dee377631d311ff33fe0ad36fdc8928a86e8fcabdcbca01cf689",
+        "verified": true
+      },
+      {
+        "name": "d1_signed_manifest",
+        "sha256": "a7e05d2ebedbc68abc21fff46a0ad1597747712020957ac30cf1445353714a60",
+        "verified": true
+      }
+    ],
+    "known_question_rows": 12,
+    "eval_authorized_question_rows_bound": 0,
+    "eval_worlds_frozen": 0,
+    "d1_status": "RETRIEVAL_IDENTITY_BLOCKED",
+    "original_28_candidate_query_from_labels_or_f5_used": false,
+    "historical_endpoint": "HISTORICAL_PRIVATE_BYTES_SHA_PASS",
+    "official_region": "cn-beijing",
+    "credential_process_presence": true,
+    "key_region_and_funding_current": "UNKNOWN",
+    "historical_source_classes": {
+      "legal_norm": 15,
+      "official_other": 2,
+      "unknown_or_restricted_candidate": 29
+    },
+    "purpose_scope": "OWNER12_108_GENERATION_ONLY_NOT_OWNER26_EXTRACTION_VERIFICATION",
+    "outbound": "D1_API_EXFIL_GATE_BLOCKED",
+    "source_rights_current_signed": "NOT_BOUND",
+    "budget": {
+      "current_balance_and_in_flight": "UNKNOWN",
+      "fx_upper_bound": "UNKNOWN",
+      "whole_lane_current_ledger": "UNKNOWN",
+      "developer_logical_requests": 216,
+      "eval_logical_requests": 504,
+      "probe_max": 2,
+      "whole_max_logical": 722,
+      "public_rates_low_cny_per_m": [
+        2,
+        8
+      ],
+      "public_rates_high_cny_per_m": [
+        6,
+        24
+      ],
+      "input_4096_strict_bound": "NOT_PROVEN",
+      "candidate_total_completion_cap": 512,
+      "completion_margin": 10,
+      "fees_no_discount": true,
+      "illustrative_full_722_cny": 8.929696,
+      "official_max_input_with_candidate_output_full_722_cny": 4305.557472,
+      "bound": "NOT_ADMITTED",
+      "owner26_incremental_usd": 0
+    },
+    "actual": {
+      "paid_requests": 0,
+      "probe_requests": 0,
+      "prompt_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "api_latency": "NOT_MEASURED",
+      "new_retrieval_worlds": 0,
+      "d2_d3_hold8_reads": 0
+    }
+  },
+  "commands": [
+    {
+      "stage": "rd-predict",
+      "argv": [
+        "-B",
+        "<CHECKOUT>\\scripts\\research\\run_chinese5060_owner26_rd.py",
+        "predict",
+        "--base",
+        "<PINNED_D1_PILOT>",
+        "--out",
+        "<PRIVATE_D>\\rd",
+        "--upstream",
+        "<PINNED_UPSTREAM>"
+      ],
+      "exit_code": 0,
+      "start": "2026-11-10T12:49:56.2292396Z",
+      "end": "2026-11-10T12:50:24.4572653Z"
+    },
+    {
+      "stage": "rd-evaluate",
+      "argv": [
+        "-B",
+        "<CHECKOUT>\\scripts\\research\\run_chinese5060_owner26_rd.py",
+        "evaluate",
+        "--base",
+        "<PINNED_D1_PILOT>",
+        "--out",
+        "<PRIVATE_D>\\rd",
+        "--upstream",
+        "<PINNED_UPSTREAM>",
+        "--seal",
+        "6fe54afea2ff3cf78707c6992f7835254ab10dc7be67b81cf719edbd7ab8a45f"
+      ],
+      "exit_code": 0,
+      "start": "2026-11-10T12:50:24.4946939Z",
+      "end": "2026-11-10T12:50:25.7901856Z"
+    }
+  ],
+  "resources": {
+    "local_encoder_calls": 36,
+    "token_usage_known_api_calls": 0,
+    "downloads": 0,
+    "installs": 0,
+    "paid_calls": 0,
+    "incremental_usd": 0,
+    "python": "Python 3.12.14",
+    "disk": "D private ACL",
+    "disk_free_at_seal_bytes": 355822743552
+  },
+  "claims": {
+    "formal_asr": "NOT_MEASURED",
+    "final_answer_accuracy": "NOT_MEASURED",
+    "refusal": "NOT_MEASURED",
+    "human_gold": 0,
+    "D2_D3_HOLD8": "UNACCESSED"
+  },
+  "qa": {
+    "pytest": "6 passed",
+    "ruff": "PASS",
+    "mypy": "PASS",
+    "notes": "Initial type-check failure and executed source preserved"
+  },
+  "private_archive": {
+    "file": "OWNER26_PRIVATE_EVIDENCE.zip",
+    "bytes": 35053,
+    "sha256": "7a37430612edd622bbecd679f34ea6d1ce19ec52cdb41567138a8f88c6ee3867",
+    "members": 31,
+    "readback_verified": true
+  },
+  "private_evidence_index": [
+    {
+      "file": "ADMISSION_AND_QUERY_AUDIT.json",
+      "bytes": 2571,
+      "sha256": "30a6d85f33d7bd8e3958263ce76da5e54e485371281294aba218355cd87947aa"
+    },
+    {
+      "file": "rd/RD_PRE_EXECUTION_LOCK.json",
+      "bytes": 1357,
+      "sha256": "2ef9f1085ebd7e7e57b42eda4a4c3ffe38a1acdd696d1f612996ec8c76df3ca2"
+    },
+    {
+      "file": "rd/RD_ROLE_FREE_PRIVATE.json",
+      "bytes": 87367,
+      "sha256": "fa7f674d2c0e6ca5114c0c4e219706ab57c1f6eb3ac3c1c8287135f388d7d6f7"
+    },
+    {
+      "file": "rd/RD_ROLE_FREE_SEAL.json",
+      "bytes": 291,
+      "sha256": "6fe54afea2ff3cf78707c6992f7835254ab10dc7be67b81cf719edbd7ab8a45f"
+    },
+    {
+      "file": "rd/RD_EVALUATOR_AGGREGATE.json",
+      "bytes": 1893,
+      "sha256": "16746b2399ce0c747a6ee99df7982663629c028235b64c42ddf04218224d075e"
+    },
+    {
+      "file": "support/run_chinese5060_r2_fairctrl.py",
+      "bytes": 26398,
+      "sha256": "9a0ed59eb79fb127ac73310ecd1f55b287415b4711c050d786f0e5ada28b9fae"
+    },
+    {
+      "file": "support/owner26_rd_executed.py",
+      "bytes": 7550,
+      "sha256": "b25aca40e02024262c59e0bdbf14cb37754322515a342d3588eba9628b5f8bf5"
+    },
+    {
+      "file": "logs/rd-predict.json",
+      "bytes": 642,
+      "sha256": "5b72c964dd1fe7edfff92c72c2c427738eec3d3b398c1f3e92d1604ff0108e27"
+    },
+    {
+      "file": "logs/rd-predict.stdout.txt",
+      "bytes": 189,
+      "sha256": "03af3a196c73e47bf4e4c39838de33e5c4e0aa1723a05f3d74ccae2a95958b1c"
+    },
+    {
+      "file": "logs/rd-predict.stderr.txt",
+      "bytes": 180,
+      "sha256": "060164d331e3a13dd6495ba4829cbbd4ee0eef9b699e090f64b6e3663408f36b"
+    },
+    {
+      "file": "logs/rd-evaluate.json",
+      "bytes": 731,
+      "sha256": "916dadf2b2aeff0d01745d8b7682888718db43b61abcd62234b659ad5bb1214b"
+    },
+    {
+      "file": "logs/rd-evaluate.stdout.txt",
+      "bytes": 1286,
+      "sha256": "88dbfb31bae0b0676b4d130453406c589aa8fe9bab1f9c62ae506ba793b9f705"
+    },
+    {
+      "file": "logs/rd-evaluate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/qa01-pytest.json",
+      "bytes": 366,
+      "sha256": "13f050af9d3c5bf1b5ff5ee601c043b4bbe05c27aa7b6003da9855b7788cd6a8"
+    },
+    {
+      "file": "logs/qa01-pytest.stdout.txt",
+      "bytes": 100,
+      "sha256": "76b9322f51e7d833cb8faafb9323b5970ac01e63e5573ff47c4cf7a5b8101f05"
+    },
+    {
+      "file": "logs/qa01-pytest.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/qa01-ruff.json",
+      "bytes": 391,
+      "sha256": "55ae5b2fe2c460d338b6872a8b53a27b5d5012dd66be1b21c1c44a76a8d4db28"
+    },
+    {
+      "file": "logs/qa01-ruff.stdout.txt",
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "file": "logs/qa01-ruff.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/qa01-mypy.json",
+      "bytes": 484,
+      "sha256": "ab2de34439fecaa769cbfca7b91c9b26ef74f196412c46ebadf6dafce958916b"
+    },
+    {
+      "file": "logs/qa01-mypy.stdout.txt",
+      "bytes": 487,
+      "sha256": "9d8650d6f798b86ee794b0bdbac435ba911a642d312eeafdc960426e39b8e6f3"
+    },
+    {
+      "file": "logs/qa01-mypy.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/qa02-pytest.json",
+      "bytes": 366,
+      "sha256": "a67f2a9a1414879c8d2c42d30d178d43f0c77acb1a4142cfddf00853f39b1245"
+    },
+    {
+      "file": "logs/qa02-pytest.stdout.txt",
+      "bytes": 100,
+      "sha256": "07782c9d83f4945f196e3920c833b0bb6011481913416bc1eb2442f3b6e3dccc"
+    },
+    {
+      "file": "logs/qa02-pytest.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/qa02-ruff.json",
+      "bytes": 391,
+      "sha256": "7600fa9b1d33fb4fbf0b1fe3b6f7c961c62b78a124964ed49648ddbe671049fe"
+    },
+    {
+      "file": "logs/qa02-ruff.stdout.txt",
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "file": "logs/qa02-ruff.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/qa02-mypy.json",
+      "bytes": 484,
+      "sha256": "932994da6578f50161ae3b2c2e9140c64e755479cc913e7eeb4f85ab49fdc2c7"
+    },
+    {
+      "file": "logs/qa02-mypy.stdout.txt",
+      "bytes": 44,
+      "sha256": "281a094c39385b4d7b53e5db635f52158036861433c2a4975b9039e77a627a24"
+    },
+    {
+      "file": "logs/qa02-mypy.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

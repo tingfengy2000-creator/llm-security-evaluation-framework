@@ -1,5 +1,17 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-10｜5060 Owner26 两臂复跑完成，七臂准入阻断
+
+`OWNER26_BLOCKED / RD_DEV_36_COMPLETE / RETRIEVAL_IDENTITY_BLOCKED / D1_API_EXFIL_GATE_BLOCKED / BUDGET_GATE_BLOCKED / AUTO_CONTINUE=NO`。
+
+Run W1-5060-OWNER26-D1-RD7-DEV-20261110-01。原 36 世界两条 RD 基线共 72 个角色盲预测，复跑对齐既有删留。B2→RD-zh Poison 保留 8/10→6/10、Clean 误删 4/10→5/10、HN 误删 2/9→4/9。七臂完整 DEV 0/36，Eval 封存、预测和评分各 0/84。
+
+新增 Qwen 请求、探测、Token 和费用均为 0。缺 28 组独立查询绑定、逐段本轮外传许可及当前资金和 Token 上界。下一建议为有权公开版本污染基准与 RD 中文迁移失效分析。Human Gold 0，正式 ASR/Accuracy 未测。
+
+私有证据 ZIP 31 件，SHA256 7a37430612edd622bbecd679f34ea6d1ce19ec52cdb41567138a8f88c6ee3867。
+
+[结果与裁决](../paper1/dual_machine/chinese5060/OWNER26_D1_QWEN7_RESULT.md) · [Run Manifest](../paper1/dual_machine/chinese5060/OWNER26_D1_QWEN7_RUN_MANIFEST.json)
+
 ## W1-OD-20261110-5060-D1-QWEN-NOANCHOR-26｜Owner26 1–2日目标：中文D1无锚M1/M2与RD/Qwen七臂对照（2026-11-10 JST）
 
 `OWNER_EXPLICIT_APPROVAL / D1_INTERNAL_QWEN7_USD3_AUTHORIZED_NOT_EXECUTED`。Owner明确批准固定`qwen3.7-plus-2026-05-26` temperature0作为逐片段抽取器与每世界一次`QWEN_VERIFY`强基线，本轮新增费用硬限**USD3**，原25/28/30费用门不放宽；本地已有embedding可在**不下载**前提下执行真正同世界`RD_B2`、`RD_ZH`。本轮7臂固定：B2、RD-zh、QWEN_VERIFY、RD_ZH+M1_SAFE、RD_ZH+M2_VOTE、M2_VOTE_ALONE、RD_ZH+M1_SAFE+M2_VOTE；模型与源文输出须严格quote+char/UTF8位置校验，来源/新版自称不赋予独立可信权；M1无锚放回作为**有风险的P0放松科研候选**而不是既证明安全。
