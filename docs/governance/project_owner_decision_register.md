@@ -1,5 +1,14 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261111-5060-PUBLIC-VERSION-OFFLINE-27｜Owner27有界离线快速科学试次授权（2026-11-11 JST）
+
+`OWNER_APPROVED_SCOPE / GATED_OFFLINE_DEV_FIRST / SCIENCE_NOT_YET_RUN`。
+
+Owner27有界批准已登记，**登记时科学新试次仍为0，执行由5060 Codex另行启动**。先按固定源事实DEV 4组×8情境(计划32世界)运行离线同TopK5 T0/T1七臂；EVAL 4个未暴露事实组×8情境(计划32世界)必须来源谱系、角色隔离和来源使用权闭合才允许一次性运行。若无人类双评，评分仅AGENT_PROVISIONAL，HumanGold0。新增商业API/下载/费用0；旧Owner26 D1-28仍0/84、D2/D3/HOLD8/5090封锁。方法必须优于获得同样来源凭据的简单规则，才有新方法候选资格。
+
+[Owner27正式有界授权](../paper1/dual_machine/owner_approvals/W1_5060_OWNER27_PUBLIC_VERSION_OFFLINE_FASTTRACK_20261111.md) · [5060执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_OWNER27_PUBLIC_VERSION_OFFLINE_FASTTRACK_EXECUTION_PROMPT_V1.md)
+
+
 ## W1-OD-20261110-5060-D1-QWEN-NOANCHOR-26｜Owner26 1–2日目标：中文D1无锚M1/M2与RD/Qwen七臂对照（2026-11-10 JST）
 
 `OWNER_EXPLICIT_APPROVAL / D1_INTERNAL_QWEN7_USD3_AUTHORIZED_NOT_EXECUTED`。Owner明确批准固定`qwen3.7-plus-2026-05-26` temperature0作为逐片段抽取器与每世界一次`QWEN_VERIFY`强基线，本轮新增费用硬限**USD3**，原25/28/30费用门不放宽；本地已有embedding可在**不下载**前提下执行真正同世界`RD_B2`、`RD_ZH`。本轮7臂固定：B2、RD-zh、QWEN_VERIFY、RD_ZH+M1_SAFE、RD_ZH+M2_VOTE、M2_VOTE_ALONE、RD_ZH+M1_SAFE+M2_VOTE；模型与源文输出须严格quote+char/UTF8位置校验，来源/新版自称不赋予独立可信权；M1无锚放回作为**有风险的P0放松科研候选**而不是既证明安全。
