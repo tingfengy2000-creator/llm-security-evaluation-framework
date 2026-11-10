@@ -1,5 +1,13 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-10｜Owner25 科研结果优先：绕开Owner24 F0工程阻断的独立无模型机制快试（授权未执行）
+
+`W1-OD-20261110-5060-SCIENCE-FIRST-OFFLINE-PILOT-25`。Owner要求优先取得科研假设的可证伪结果，而非重复等待 Windows 出站隔离。已准一条**独立的、零模型/零API本地小试**：旧D1只引用已有报告与聚合事实，真实独立可信来源登记0/180导致严格P0在D1恢复误删不可达（B2 Clean误删4/10）；新建8 DEV+4 HOLDOUT的不同合成事实组×8情境共96个TopK5世界，先封存模拟独立来源签发/版本/适用范围与隐匿角色Gold，DEV两版限额，HOLDOUT32世界一次性封存预测再评估。分层比较无过滤、公平同世界RD（若已安装编码器存在）、独立来源、版本scope、联合P0和伪造来源负对照；oracle事实槽位仅为理论上界，不属于真实独立Gold/抽取器/最终ASR。若无法公平运行RD不得宣称比较性PASS。开发+执行按本次唯一批准的低风险离线范围自动进行，普通脚本QA自主修复。
+
+**Owner24 F0仍BLOCKED、Qwen首次加载0/1、F1–F4均NOT_RUN**。不得改系统防火墙、下载模型/依赖、运行模型/商业API、使用D2/D3、5090 Claims、正式S2–S5或合并主线。所有历史负结果、Role分母和HumanGold0保持，完成一次HOLDOUT后提交`MECHANISM_POTENTIAL_GO_ORACLE_ONLY/ANCHOR_COVERAGE_LIMITED/MECHANISM_NO_GO/INCONCLUSIVE`，如实披露D1不可达性，Git push后STOP。当前仅新授权已登未执行，无新性能数字。
+
+[Owner25 PO-MHEP授权](owner_approvals/W1_5060_OWNER25_SCIENCE_FIRST_OFFLINE_MECHANISM_PILOT_20261110.md) · [5060生效执行指令](chinese5060/W1_5060_OWNER25_SCIENCE_FIRST_MECHANISM_FEASIBILITY_EXECUTION_PROMPT_V1.md)。
+
 ## 2026-11-10｜5060 Owner24 F0 停止，出站隔离未验证
 
 `OWNER24_FASTTRACK_F0_BLOCKED / HUMAN_DECISION_REQUIRED / F1_F4_NOT_RUN / FORMAL_S2_S5_LOCKED / AUTO_CONTINUE=NO`。
@@ -112,7 +120,7 @@ Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的�
 
 [Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
 
-**更新于 2026-11-10 JST · 版本 25 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-10 JST · 版本 26 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
