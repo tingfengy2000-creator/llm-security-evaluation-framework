@@ -1,5 +1,14 @@
 # LLMGuard Research Execution Log
 
+## W1-OD-20261110-5060-SCIENCE-FIRST-OFFLINE-PILOT-25｜Owner25科研结果优先：离线来源-版本-范围机制可证伪小试（2026-11-10 JST）
+
+Owner明确要求尽快取得可行性论文路线与方法结果，取代反复Windows网络门讨论。新增独立、受限、**零模型零外部API**试验：复核已有D1脱敏证据（真实可信来源链覆盖0/180，B2 Clean误删4/10，P0下不可无锚恢复），用8 DEV+4 HOLDOUT全新合成事实组×8情境，独立source-truth签发与role-free输入封存，DEV可迭代至多2版，HOLDOUT32世界一次盲评，比较模拟外部可信receipt/版本有效期/适用范围、无锚回退、伪造自称、重复来源与多数投毒。Oracle抽取只算上界而非可部署方案；若无公平同世界RD baseline，必须标`BASELINE_INCOMPLETE`不得宣称比较PASS。目标是给Owner一个真诚的机制`GO/NO_GO/ANCHOR_LIMITED`结论以及下一步真实公开数据方法，而非假称论文已有效。
+
+**Owner24 F0出站隔离仍BLOCKED，F1–F4保持NOT_RUN**；不批准Windows系统配置、防火墙、模型加载、推理、商业API、D1新科学运行、D2/D3、5090 Claims、正式S2–S5、主线合并、HumanGold签署。已揭盲73/100和现有R2记录保留。执行普通无模型Python阶段，Git封存新输出后STOP；Owner25本身不代表已得新实验结果。
+
+[Owner25正式授权](../paper1/dual_machine/owner_approvals/W1_5060_OWNER25_SCIENCE_FIRST_OFFLINE_MECHANISM_PILOT_20261110.md) · [5060完整执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_OWNER25_SCIENCE_FIRST_MECHANISM_FEASIBILITY_EXECUTION_PROMPT_V1.md)。
+
+
 ## 2026-11-10｜5060 Owner24 F0 停止，出站隔离未验证
 
 `OWNER24_FASTTRACK_F0_BLOCKED / HUMAN_DECISION_REQUIRED / F1_F4_NOT_RUN / FORMAL_S2_S5_LOCKED / AUTO_CONTINUE=NO`。
