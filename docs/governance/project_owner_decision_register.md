@@ -1,5 +1,14 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261110-5060-OWNER23A-SCOPED-STATIC-23A｜Owner23A 收敛式静态PE/API-set及整包许可复核获批（2026-11-10 JST）
+
+`OWNER_EXPLICITLY_APPROVED / GATE23A_SCOPED_STATIC_APPROVED_NOT_RUN`。Owner明确“我这次批准Owner23A”，同时要求减少确定性高的普通工程修复审批往返。5060只准在已取得并封存的Qwen GGUF Q4_K_M与llama.cpp b12242 Windows CPU资产上，使用已有工具/系统文件执行**非执行性**静态检查：以`llama-cli.exe`及必要CPU后端为根收敛PE导入闭包、API-set映射、Windows DLL/VC版本条件、第三方许可逐组件覆盖、D盘残留核对，保留Owner22原512节点/29前沿/PE未知项证据；独立新脚本与普通单测可自主修复和反复运行，不必微观审批，任何未知必须明确标`UNKNOWN`。
+
+**模型EXE/DLL启动、LLM加载、内存Smoke、推理、新模型/依赖下载或安装、新科学试次、新测试集、D2/D3解封、5090 Claims、S2–S5、主研究分支合并仍需原合同下独立Owner许可，不因“高把握”而自动批准。** Rule-V1/V2 `FEASIBILITY_NO_GO`、原S1 FAIL、R2 K1-C、HumanGold0、正式ASR/答案准确率未测均不改变。现`OWNER23A_APPROVED_NOT_EXECUTED / AUTO_CONTINUE=NO`。
+
+[Owner23A十二字段授权](../paper1/dual_machine/owner_approvals/W1_5060_OWNER23A_SCOPED_PE_APISET_LICENSE_STATIC_AUTH_20261110.md) · [5060生效执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_OWNER23A_SCOPED_PE_APISET_LICENSE_STATIC_EXECUTION_PROMPT_V1.md)。
+
+
 ## W1-OD-20261110-5060-QWEN-GGUF-ASSET-22｜Owner22两项固定资产下载及静态验包（2026-11-10 JST）
 
 `OWNER_EXPLICITLY_APPROVED / TWO_ASSET_DOWNLOAD_AND_STATIC_INSPECTION_ONLY / EXECUTION_APPROVED_NOT_RUN`。Owner明确“请继续”，承接Owner21完成只读准入后唯一待决事项——只获取两项固定模型资产并静态验包。允许5060仅在独立分支下载固定`Qwen/Qwen2.5-1.5B-Instruct-GGUF@91cad51170dc346986eccefdc2dd33a9da36ead9`的`qwen2.5-1.5b-instruct-q4_k_m.gguf`（1,117,320,736字节、sha256`6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e`）及`ggml-org/llama.cpp b12242`固定Windows CPU ZIP`llama-b12242-bin-win-cpu-x64.zip`（24,931,401字节、sha256`4723cd1f1b10169b6ca681f787ea37238e449b1c56538b4b90c71a82fad949a0`）。**两文件正文传输合计硬上限1,142,252,137字节**，各一次，D盘受控目录新增峰值≤4GiB、ZIP解包≤512MiB、余量≥10GiB，仅静态哈希、ZIP/第三方notice/PE导入/GGUF头检查。不得超额下载、自动重试、额外模型/依赖、安装、加载、执行exe（包含--help）、内存smoke或推理。运行时`immutable=false`须实际字节哈希核实；授权并不代表License整包或Runtime/RAM已通过。
