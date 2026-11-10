@@ -1,5 +1,14 @@
 # Current Work State
 
+## W1-OD-20261110-5060-OWNER23A-SCOPED-STATIC-23A｜Owner23A 收敛式静态PE/API-set及整包许可复核获批（2026-11-10 JST）
+
+`OWNER_EXPLICITLY_APPROVED / GATE23A_SCOPED_STATIC_APPROVED_NOT_RUN`。Owner明确“我这次批准Owner23A”，同时要求减少确定性高的普通工程修复审批往返。5060只准在已取得并封存的Qwen GGUF Q4_K_M与llama.cpp b12242 Windows CPU资产上，使用已有工具/系统文件执行**非执行性**静态检查：以`llama-cli.exe`及必要CPU后端为根收敛PE导入闭包、API-set映射、Windows DLL/VC版本条件、第三方许可逐组件覆盖、D盘残留核对，保留Owner22原512节点/29前沿/PE未知项证据；独立新脚本与普通单测可自主修复和反复运行，不必微观审批，任何未知必须明确标`UNKNOWN`。
+
+**模型EXE/DLL启动、LLM加载、内存Smoke、推理、新模型/依赖下载或安装、新科学试次、新测试集、D2/D3解封、5090 Claims、S2–S5、主研究分支合并仍需原合同下独立Owner许可，不因“高把握”而自动批准。** Rule-V1/V2 `FEASIBILITY_NO_GO`、原S1 FAIL、R2 K1-C、HumanGold0、正式ASR/答案准确率未测均不改变。现`OWNER23A_APPROVED_NOT_EXECUTED / AUTO_CONTINUE=NO`。
+
+[Owner23A十二字段授权](../paper1/dual_machine/owner_approvals/W1_5060_OWNER23A_SCOPED_PE_APISET_LICENSE_STATIC_AUTH_20261110.md) · [5060生效执行Prompt](../paper1/dual_machine/chinese5060/W1_5060_OWNER23A_SCOPED_PE_APISET_LICENSE_STATIC_EXECUTION_PROMPT_V1.md)。
+
+
 ## 2026-11-10｜5060 Owner22 固定资产已获取，运行准入继续阻断
 
 `OWNER22_ASSET_STATIC_INSPECTION_BLOCKED / MODEL_EXECUTION_NOT_AUTHORIZED / PEAK_MEMORY_NOT_PROVEN / AUTO_CONTINUE=NO`。两件固定资产各一次，实际正文 1,142,252,137 字节，SHA256 和长度均通过。GGUF 头和 52 件 ZIP 安全验包通过；整包许可与 Windows PE 运行闭包仍待证。
