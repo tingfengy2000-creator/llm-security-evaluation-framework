@@ -1,5 +1,15 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-11｜5060 公开中文版本来源预检完成
+
+`PREFLIGHT_ONLY / SCIENCE_NOT_RUN / HUMAN_GOLD=0 / NEXT_OWNER_APPROVAL_REQUIRED / AUTO_CONTINUE=NO`。
+
+基点 4c651a84da5559fb2ba8776cd6dda4c76cf6fa1c。核验 4 条谱系、10 个版本，3 条谱系共有 5 项同对象事实变化。医保已核目录替代、范围与过渡，逐药品差分未证。收据、冻结查询、评测和商业 API 各为 0。
+
+Owner26 的 28 组查询身份、出站授权与预算硬门保留。下一步须批准逐源权利、独立选材/双评、同 TopK 离线试验及其冻结条件。未触及 D2/D3、HOLD8、5090 或主线。
+
+[来源登记](chinese5060/PUBLIC_VERSION_SOURCE_REGISTER_DRAFT.json) · [查询与预注册](chinese5060/PUBLIC_VERSION_QUERY_PROTOCOL_DRAFT.md) · [创新性风险](chinese5060/PUBLIC_VERSION_NOVELTY_RISK.md)
+
 ## 2026-11-10｜5060 Owner26 两臂复跑完成，七臂准入阻断
 
 `OWNER26_BLOCKED / RD_DEV_36_COMPLETE / RETRIEVAL_IDENTITY_BLOCKED / D1_API_EXFIL_GATE_BLOCKED / BUDGET_GATE_BLOCKED / AUTO_CONTINUE=NO`。
@@ -152,7 +162,7 @@ Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的�
 
 [Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
 
-**更新于 2026-11-10 JST · 版本 29 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-11 JST · 版本 30 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
@@ -339,6 +349,7 @@ R1 源附件由 Owner 提供，公开记录含原件摘要与 SHA-256。[R1 修�
 
 | 日期（JST） | 版本 | 变更与核验基点 |
 | --- | --- | --- |
+| 2026-11-11 | 30 | 5060 核公开中文版本来源和研究邻近工作，形成独立查询预注册草案，科学试验未批准。 |
 | 2026-11-10 | 29 | Owner26 两条 RD DEV 复跑，七臂未达到数据与预算准入。 |
 | 2026-11-10 | 27 | Owner25 合成机制 64 DEV 与 32 HOLDOUT 完成。原 D1 与 Rule‑V2 路线 NO_GO，公平 RD 基线缺失。 |
 | 2026-11-10 | 25 | Owner24 F0 固定资产与 completion 静态依赖通过，网络隔离未验证，F1–F4 未运行。 |

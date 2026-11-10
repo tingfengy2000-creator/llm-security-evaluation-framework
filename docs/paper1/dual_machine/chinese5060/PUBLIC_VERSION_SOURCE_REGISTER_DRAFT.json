@@ -1,0 +1,413 @@
+{
+  "schema_version": "1.0",
+  "status": "PREFLIGHT_ONLY / SCIENCE_NOT_RUN / HUMAN_GOLD=0",
+  "checked_date_jst": "2026-11-11",
+  "authority_git_sha": "4c651a84da5559fb2ba8776cd6dda4c76cf6fa1c",
+  "counts": {
+    "candidate_lineages": 4,
+    "official_version_records": 10,
+    "lineages_with_verified_paired_changes": 3,
+    "verified_same_object_fact_changes": 5,
+    "signed_receipts": 0,
+    "frozen_queries": 0,
+    "human_gold": 0
+  },
+  "rights_evidence_uri": "https://www.ncac.gov.cn/xxfb/flfg/flfg_532/202103/t20210309_50530.html",
+  "date_semantics": "document_date 为文件落款或法规沿革记载日期。page_publication_date 只表示本记录主URL显示的发布日期，缺则 null。superseded_on 是本版一般条文停止适用的替换点，不推及过渡条款。explicit_repealed_on 仅用于正文明确废止的版本。",
+  "independence_semantics": "转载与原签发机关属于同一发布来源，不因不同域名变成独立投票者；本次没有生成独立可验采集收据。",
+  "lineages": [
+    {
+      "id": "PUBLIC_HYGIENE",
+      "name": "公共场所卫生管理条例",
+      "records": [
+        {
+          "id": "HY-1987",
+          "url": "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=784",
+          "title": "公共场所卫生管理条例，1987年文本",
+          "official_site": "司法部国家行政法规库",
+          "issuing_bodies": [
+            "国务院"
+          ],
+          "document_date": "1987-04-01",
+          "page_publication_date": null,
+          "effective_from": "1987-04-01",
+          "superseded_on": "2016-02-06",
+          "explicit_repealed_on": null,
+          "scope": "条例第二条列举的公共场所，卫生许可须与第八条的场所例外或备案条件合读。",
+          "locator": "沿革、第二条、第八条、第十九条",
+          "evidence_uris": [
+            "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=784",
+            "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=785",
+            "https://www.forestry.gov.cn/c/www/gkgwyqxhtzxzspsx/50647.jhtml",
+            "https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=51144",
+            "https://app.www.gov.cn/govdata/gov/201603/01/371625/article.html"
+          ],
+          "rights_status": "RIGHTS_UNKNOWN",
+          "rights_basis": "正式法规或规章正文可能适用著作权法第五条第一项；页面、附件、机器采集、重分发及第三方处理范围未逐项清权。",
+          "outbound_status": "NOT_AUTHORIZED",
+          "provenance_status": "OFFICIAL_VERSION_REPOSITORY",
+          "independent_receipt_status": "NOT_FROZEN",
+          "note": "第十九条以发布日起施行。下一版日期根据第666号及正式部门法规记录。"
+        },
+        {
+          "id": "HY-2016",
+          "url": "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=785",
+          "title": "公共场所卫生管理条例，2016年修订",
+          "official_site": "司法部国家行政法规库",
+          "issuing_bodies": [
+            "国务院"
+          ],
+          "document_date": "2016-02-06",
+          "page_publication_date": null,
+          "effective_from": "2016-02-06",
+          "superseded_on": "2019-04-23",
+          "explicit_repealed_on": null,
+          "scope": "条例第二条列举的公共场所，卫生许可须与第八条的场所例外或备案条件合读。",
+          "locator": "沿革、第八条；第666号决定第二项",
+          "evidence_uris": [
+            "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=785",
+            "https://www.forestry.gov.cn/c/www/gkgwyqxhtzxzspsx/50647.jhtml",
+            "https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=51144",
+            "https://www.gov.cn/gbgl/e1fd6935b5cf4f3da4aca7a1125d23e3/files/f86adf87fc684030980c26d8e0c8f773.pdf",
+            "https://app.www.gov.cn/govdata/gov/201603/01/371625/article.html"
+          ],
+          "rights_status": "RIGHTS_UNKNOWN",
+          "rights_basis": "正式法规或规章正文可能适用著作权法第五条第一项；页面、附件、机器采集、重分发及第三方处理范围未逐项清权。",
+          "outbound_status": "NOT_AUTHORIZED",
+          "provenance_status": "OFFICIAL_VERSION_REPOSITORY",
+          "independent_receipt_status": "NOT_FROZEN",
+          "note": "第666号落款2016-02-06并规定自公布施行。商务部同条例法规记录将发布和实施均标为2016-02-06；中国政府网和林草部门转载页面日期分别为2016-03-01和2016-03-03。若新查询落在此日期窗口，需复核正式公布凭据后才准入。"
+        },
+        {
+          "id": "HY-2019",
+          "url": "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=120",
+          "title": "公共场所卫生管理条例，2019年修订",
+          "official_site": "司法部国家行政法规库",
+          "issuing_bodies": [
+            "国务院"
+          ],
+          "document_date": "2019-04-23",
+          "page_publication_date": null,
+          "effective_from": "2019-04-23",
+          "superseded_on": "2025-01-20",
+          "explicit_repealed_on": null,
+          "scope": "条例第二条列举的公共场所，卫生许可须与第八条的场所例外或备案条件合读。",
+          "locator": "第四条第二款、第八条；第714号、第797号",
+          "evidence_uris": [
+            "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=120",
+            "https://www.gov.cn/gbgl/e1fd6935b5cf4f3da4aca7a1125d23e3/files/f86adf87fc684030980c26d8e0c8f773.pdf",
+            "https://app.www.gov.cn/govdata/gov/202412/13/522682/articleNew.html"
+          ],
+          "rights_status": "RIGHTS_UNKNOWN",
+          "rights_basis": "正式法规或规章正文可能适用著作权法第五条第一项；页面、附件、机器采集、重分发及第三方处理范围未逐项清权。",
+          "outbound_status": "NOT_AUTHORIZED",
+          "provenance_status": "OFFICIAL_VERSION_REPOSITORY",
+          "independent_receipt_status": "NOT_FROZEN",
+          "note": "第714号在2019-04-23公布并施行。第797号是部分修订，不构成整条例废止。"
+        },
+        {
+          "id": "HY-2024",
+          "url": "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=1755",
+          "title": "公共场所卫生管理条例，2024年修订",
+          "official_site": "司法部国家行政法规库",
+          "issuing_bodies": [
+            "国务院"
+          ],
+          "document_date": "2024-12-06",
+          "page_publication_date": null,
+          "effective_from": "2025-01-20",
+          "superseded_on": null,
+          "explicit_repealed_on": null,
+          "scope": "条例第二条列举的公共场所，卫生许可须与第八条的场所例外或备案条件合读。",
+          "locator": "第四条第二款、第八条；第797号附件1第十七项",
+          "evidence_uris": [
+            "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=1755",
+            "https://app.www.gov.cn/govdata/gov/202412/13/522682/articleNew.html"
+          ],
+          "rights_status": "RIGHTS_UNKNOWN",
+          "rights_basis": "正式法规或规章正文可能适用著作权法第五条第一项；页面、附件、机器采集、重分发及第三方处理范围未逐项清权。",
+          "outbound_status": "NOT_AUTHORIZED",
+          "provenance_status": "OFFICIAL_VERSION_REPOSITORY",
+          "independent_receipt_status": "NOT_FROZEN",
+          "note": "第797号落款2024-12-06，中国政府网载明页面发布2024-12-13，修订于2025-01-20施行。"
+        }
+      ],
+      "paired_change_ids": [
+        "HY-FILING",
+        "HY-ISSUER"
+      ],
+      "unresolved": "具体场所的历史与现在地方执行差异未在本轮审查，不能用作新增标注。"
+    },
+    {
+      "id": "BASIC_DRUG_CATALOG",
+      "name": "国家基本医保药品目录",
+      "records": [
+        {
+          "id": "DRUG-2024",
+          "url": "https://www.nhsa.gov.cn/art/2024/11/28/art_104_14886.html",
+          "title": "2024年国家医保药品目录印发通知（医保发〔2024〕33号）",
+          "official_site": "国家医疗保障局官网",
+          "issuing_bodies": [
+            "国家医疗保障局",
+            "人力资源和社会保障部"
+          ],
+          "document_date": "2024-11-27",
+          "page_publication_date": "2024-11-28",
+          "effective_from": "2025-01-01",
+          "superseded_on": "2026-01-01",
+          "explicit_repealed_on": "2026-01-01",
+          "scope": "基本医疗、工伤、生育保险目录；当批续约失败调出的协议期内谈判药单独适用过渡支付。",
+          "locator": "一（一）、一（二）、落款；2025通知一（一）",
+          "evidence_uris": [
+            "https://www.nhsa.gov.cn/art/2024/11/28/art_104_14886.html",
+            "https://www.nhsa.gov.cn/art/2025/12/7/art_104_18970.html"
+          ],
+          "rights_status": "RIGHTS_UNKNOWN",
+          "rights_basis": "仅核官方通知 HTML 中有关施行、废止和范围的字段。附件及相关说明内容的权利和处理范围未核。",
+          "outbound_status": "NOT_AUTHORIZED",
+          "provenance_status": "ISSUER_OFFICIAL_PAGE",
+          "independent_receipt_status": "NOT_FROZEN",
+          "note": "2023版目录在2025-01-01同时废止。该批符合条件的调出药过渡支付至2025年6月底。"
+        },
+        {
+          "id": "DRUG-2025",
+          "url": "https://www.nhsa.gov.cn/art/2025/12/7/art_104_18970.html",
+          "title": "2025年医保目录及商保创新药目录印发通知（医保发〔2025〕33号）",
+          "official_site": "国家医疗保障局官网",
+          "issuing_bodies": [
+            "国家医疗保障局",
+            "人力资源和社会保障部"
+          ],
+          "document_date": "2025-12-05",
+          "page_publication_date": "2025-12-07",
+          "effective_from": "2026-01-01",
+          "superseded_on": null,
+          "explicit_repealed_on": null,
+          "scope": "基本医保目录与商保创新药目录分列。商保创新药目录内药品不由医保基金支付；该批符合条件的调出谈判药另有过渡支付。",
+          "locator": "一（一）、一（三）、三（八）、落款",
+          "evidence_uris": [
+            "https://www.nhsa.gov.cn/art/2025/12/7/art_104_18970.html",
+            "https://www.nhsa.gov.cn/art/2024/11/28/art_104_14886.html",
+            "https://www.nhsa.gov.cn/art/2026/1/7/art_14_19254.html"
+          ],
+          "rights_status": "RIGHTS_UNKNOWN",
+          "rights_basis": "仅核官方通知 HTML 中有关施行、废止和范围的字段。附件及相关说明内容的权利和处理范围未核。",
+          "outbound_status": "NOT_AUTHORIZED",
+          "provenance_status": "ISSUER_OFFICIAL_PAGE",
+          "independent_receipt_status": "NOT_FROZEN",
+          "note": "2024版在2026-01-01同时废止；当批过渡支付至2026年6月底。过渡对象属该批，不能将两年视为同一药品的支付变化。"
+        }
+      ],
+      "paired_change_ids": [],
+      "unresolved": "已核替代、适用范围和过渡规则。官网说明存在品种增删与支付范围变化，但尚未逐同一药品、剂型和支付条件跨版对证。无可计入同对象反转的事实。"
+    },
+    {
+      "id": "STATUTORY_HOLIDAYS",
+      "name": "全国年节及纪念日放假办法",
+      "records": [
+        {
+          "id": "HOL-2013",
+          "url": "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=6",
+          "title": "全国年节及纪念日放假办法，2013年修订",
+          "official_site": "司法部国家行政法规库",
+          "issuing_bodies": [
+            "国务院"
+          ],
+          "document_date": "2013-12-11",
+          "page_publication_date": null,
+          "effective_from": "2014-01-01",
+          "superseded_on": "2025-01-01",
+          "explicit_repealed_on": null,
+          "scope": "全国法定节假日，第二条适用全体公民，须区分法定天数、年度调休安排及第三条部分公民假日。",
+          "locator": "第二条（二）（四）；第644号决定施行条款",
+          "evidence_uris": [
+            "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=6",
+            "https://www.ln.gov.cn/web/zwgkx/lnsrmzfgb/2014n/qk/2014n_dyq/gwywj/C02298C830654E08B8CDFC5E6A46E0D8/index.shtml",
+            "https://app.www.gov.cn/govdata/gov/202411/12/521605/article.html"
+          ],
+          "rights_status": "RIGHTS_UNKNOWN",
+          "rights_basis": "正式法规或规章正文可能适用著作权法第五条第一项；页面、附件、机器采集、重分发及第三方处理范围未逐项清权。",
+          "outbound_status": "NOT_AUTHORIZED",
+          "provenance_status": "OFFICIAL_VERSION_REPOSITORY",
+          "independent_receipt_status": "NOT_FROZEN",
+          "note": "施行日期由辽宁省政府公报刊载第644号决定核实；该公报不是独立签发机构。"
+        },
+        {
+          "id": "HOL-2024",
+          "url": "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=1737",
+          "title": "全国年节及纪念日放假办法，2024年修订",
+          "official_site": "司法部国家行政法规库",
+          "issuing_bodies": [
+            "国务院"
+          ],
+          "document_date": "2024-11-10",
+          "page_publication_date": null,
+          "effective_from": "2025-01-01",
+          "superseded_on": null,
+          "explicit_repealed_on": null,
+          "scope": "全国法定节假日，第二条适用全体公民，须区分法定天数、年度调休安排及第三条部分公民假日。",
+          "locator": "第二条（二）（四）、第三条；第795号决定",
+          "evidence_uris": [
+            "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=1737",
+            "https://app.www.gov.cn/govdata/gov/202411/12/521605/article.html"
+          ],
+          "rights_status": "RIGHTS_UNKNOWN",
+          "rights_basis": "正式法规或规章正文可能适用著作权法第五条第一项；页面、附件、机器采集、重分发及第三方处理范围未逐项清权。",
+          "outbound_status": "NOT_AUTHORIZED",
+          "provenance_status": "OFFICIAL_VERSION_REPOSITORY",
+          "independent_receipt_status": "NOT_FROZEN",
+          "note": "第795号落款2024-11-10，中国政府网页发布2024-11-12，决定自2025-01-01施行。"
+        }
+      ],
+      "paired_change_ids": [
+        "HOL-SPRING",
+        "HOL-LABOR"
+      ],
+      "unresolved": "2024年版指修订年份；问题须用2025-01-01这一施行切点。"
+    },
+    {
+      "id": "DRIVING_LICENSE",
+      "name": "机动车驾驶证申领和使用规定",
+      "records": [
+        {
+          "id": "DRV-162",
+          "url": "https://gat.hubei.gov.cn/bmdt/ztzl/2021n/jgywzl/zcfg/202201/t20220111_3959754.shtml",
+          "title": "机动车驾驶证申领和使用规定，公安部令第162号",
+          "official_site": "湖北省公安厅官网",
+          "issuing_bodies": [
+            "公安部"
+          ],
+          "document_date": "2021-12-17",
+          "page_publication_date": "2021-12-27",
+          "effective_from": "2022-04-01",
+          "superseded_on": "2025-01-01",
+          "explicit_repealed_on": null,
+          "scope": "第十四条驾驶证申请的年龄条件，须按准驾车型与申请者类别区分，不延伸到存量持证人年龄条件。",
+          "locator": "令首、原第十四条第一项第4、5目",
+          "evidence_uris": [
+            "https://gat.hubei.gov.cn/bmdt/ztzl/2021n/jgywzl/zcfg/202201/t20220111_3959754.shtml",
+            "https://www.gov.cn/gongbao/2025/issue_11866/material/gwygb202505.pdf"
+          ],
+          "rights_status": "RIGHTS_UNKNOWN",
+          "rights_basis": "正式法规或规章正文可能适用著作权法第五条第一项；页面、附件、机器采集、重分发及第三方处理范围未逐项清权。",
+          "outbound_status": "NOT_AUTHORIZED",
+          "provenance_status": "OFFICIAL_REPUBLICATION_SAME_ISSUER",
+          "independent_receipt_status": "NOT_FROZEN",
+          "note": "公布页标明来源公安部网站。记录的替换点针对核查的申请年龄条款。"
+        },
+        {
+          "id": "DRV-172",
+          "url": "https://jtgl.beijing.gov.cn/jgj/jgxx/flfg/gabgz/543498902/index.html",
+          "title": "机动车驾驶证申领和使用规定，公安部令第172号修正",
+          "official_site": "北京市公安局公安交通管理局官网",
+          "issuing_bodies": [
+            "公安部"
+          ],
+          "document_date": "2024-12-21",
+          "page_publication_date": "2025-01-02",
+          "effective_from": "2025-01-01",
+          "superseded_on": null,
+          "explicit_repealed_on": null,
+          "scope": "第十四条驾驶证申请的年龄条件，须按准驾车型与申请者类别区分，不延伸到存量持证人年龄条件。",
+          "locator": "第172号修订决定第一项、修订后第十四条第一项第6、7目",
+          "evidence_uris": [
+            "https://jtgl.beijing.gov.cn/jgj/jgxx/flfg/gabgz/543498902/index.html",
+            "https://www.gov.cn/gongbao/2025/issue_11866/material/gwygb202505.pdf"
+          ],
+          "rights_status": "RIGHTS_UNKNOWN",
+          "rights_basis": "正式法规或规章正文可能适用著作权法第五条第一项；页面、附件、机器采集、重分发及第三方处理范围未逐项清权。",
+          "outbound_status": "NOT_AUTHORIZED",
+          "provenance_status": "OFFICIAL_REPUBLICATION_SAME_ISSUER",
+          "independent_receipt_status": "NOT_FROZEN",
+          "note": "网页转载晚于施行。第172号公布日期和生效日另核国务院公报。"
+        }
+      ],
+      "paired_change_ids": [
+        "DRV-HEAVY-AGE"
+      ],
+      "unresolved": "普通申请人和全日制驾驶职业教育学生上限可同值，最低年龄及适用条件仍需分别判定。"
+    }
+  ],
+  "paired_changes": [
+    {
+      "id": "HY-FILING",
+      "old_version": "HY-2019",
+      "new_version": "HY-2024",
+      "subject": "博物馆经营单位",
+      "predicate": "第八条卫生手续",
+      "old_summary": "按原条款办理卫生许可证。",
+      "new_summary": "改为营业起30天内办理卫生备案。",
+      "scope": "仅针对第八条所列备案场所，不能概括全部公共场所。",
+      "evidence_uris": [
+        "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=120",
+        "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=1755",
+        "https://app.www.gov.cn/govdata/gov/202412/13/522682/articleNew.html"
+      ],
+      "status": "VERIFIED_TEXTUAL_POLICY_CHANGE_NOT_GOLD"
+    },
+    {
+      "id": "HY-ISSUER",
+      "old_version": "HY-2019",
+      "new_version": "HY-2024",
+      "subject": "依法仍需卫生许可证的公共场所",
+      "predicate": "第四条许可证签发机关",
+      "old_summary": "县以上卫生行政部门。",
+      "new_summary": "设区的市级或县级人民政府疾病预防控制部门。",
+      "scope": "排除改为备案及无需许可的场所。",
+      "evidence_uris": [
+        "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=120",
+        "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=1755",
+        "https://app.www.gov.cn/govdata/gov/202412/13/522682/articleNew.html"
+      ],
+      "status": "VERIFIED_TEXTUAL_POLICY_CHANGE_NOT_GOLD"
+    },
+    {
+      "id": "HOL-SPRING",
+      "old_version": "HOL-2013",
+      "new_version": "HOL-2024",
+      "subject": "全体公民的春节法定假日",
+      "predicate": "第二条法定日数",
+      "old_summary": "3天。",
+      "new_summary": "4天，包含农历除夕。",
+      "scope": "法定日数与年度调休形成的连休长度分开。",
+      "evidence_uris": [
+        "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=6",
+        "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=1737",
+        "https://app.www.gov.cn/govdata/gov/202411/12/521605/article.html"
+      ],
+      "status": "VERIFIED_TEXTUAL_POLICY_CHANGE_NOT_GOLD"
+    },
+    {
+      "id": "HOL-LABOR",
+      "old_version": "HOL-2013",
+      "new_version": "HOL-2024",
+      "subject": "全体公民的劳动节法定假日",
+      "predicate": "第二条法定日数",
+      "old_summary": "1天。",
+      "new_summary": "2天。",
+      "scope": "仅法定日数。",
+      "evidence_uris": [
+        "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=6",
+        "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=1737",
+        "https://app.www.gov.cn/govdata/gov/202411/12/521605/article.html"
+      ],
+      "status": "VERIFIED_TEXTUAL_POLICY_CHANGE_NOT_GOLD"
+    },
+    {
+      "id": "DRV-HEAVY-AGE",
+      "old_version": "DRV-162",
+      "new_version": "DRV-172",
+      "subject": "大型客车和重型牵引挂车的普通申请者",
+      "predicate": "第十四条申请年龄上限数值",
+      "old_summary": "60周岁。",
+      "new_summary": "63周岁。",
+      "scope": "普通申请者的最低年龄为22周岁；不把职业教育学生或在持证阶段的规定混入。",
+      "evidence_uris": [
+        "https://gat.hubei.gov.cn/bmdt/ztzl/2021n/jgywzl/zcfg/202201/t20220111_3959754.shtml",
+        "https://jtgl.beijing.gov.cn/jgj/jgxx/flfg/gabgz/543498902/index.html",
+        "https://www.gov.cn/gongbao/2025/issue_11866/material/gwygb202505.pdf"
+      ],
+      "status": "VERIFIED_TEXTUAL_POLICY_CHANGE_NOT_GOLD"
+    }
+  ]
+}
