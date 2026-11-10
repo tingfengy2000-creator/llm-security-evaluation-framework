@@ -1,5 +1,13 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-10｜Owner26 冻结七臂：中文 D1 内部Qwen抽取+RD-zh公平对照（已批、未执行）
+
+`W1-OD-20261110-5060-D1-QWEN-NOANCHOR-26`。Owner批准以固定`qwen3.7-plus-2026-05-26`、temperature0，新增API费用≤**USD3**进行逐段事实抽取与每world直接不可靠片段核验；本地现存向量模型零下载跑同world`RD_B2`/`RD_ZH`，与`RD_ZH+M1_SAFE`、`RD_ZH+M2_VOTE`、`M2_VOTE_ALONE`、`RD_ZH+M1_SAFE+M2_VOTE`共7臂同TopK比较。Dev是原Pilot12（12组×3=36世界），最多改一次；签署D1-40其余28组×3=84世界只有在索引/检索/Query按冻结原协议恢复并封存后才可一次性评分。所有D1仍`DEV_EXPOSED`、结果为内部held-group，外部HOLD8、D2/D3均禁止。防御器不能见Gold/role/target；Qwen输出必须逐字quote span绑定并报告UNKNOWN/跨版本scope。M1无锚恢复是一条刻意放松P0的**风险候选**，不宣称已有可信来源。Qwen全量逻辑费用/Token按每独立臂计算，不能把抽取成本记为0。S1/S2/S3隐蔽等级和自相矛盾Poison单独报。
+
+`GO`需DEV预选VESA主臂在Eval84比RD_ZH Poison保留不增且Clean误删减半，同时不劣于`QWEN_VERIFY`的Poison/Clean/HN指标且完整Token更少；只过RD为`PARTIAL`；未过RD`NO_GO`；无合法Qwen数据外传/模型参数/费用预留或检索协议缺失则`BLOCKED`。本批新增费≤USD3、原总账USD25/28/30不变；真实服务地域、版权/隐私许可、cost/token上界、余额及endpoint若未闭合禁止发D1原文。正式ASR/Answer Accuracy仍NOT_MEASURED，HumanGold0。Owner25无锚真实D1 NO_GO、规则Owner20 NO_GO与Owner25合成Oracle结果保持。**登记仅代表批准，未运行或获得新结果。**
+
+[Owner26 正式授权](owner_approvals/W1_5060_OWNER26_D1_QWEN_NOANCHOR_CHINESE_DEFENSE_COMPARE_20261110.md) · [5060直接运行Prompt](chinese5060/W1_5060_OWNER26_D1_QWEN_RD7_FASTTRACK_EXECUTION_PROMPT_V1.md)。
+
 ## 2026-11-10｜5060 Owner25 机制小试完成，裁决为调整
 
 `OWNER25_SYNTHETIC_COMPLETE / BASELINE_INCOMPLETE / D1_ANCHOR_COVERAGE_LIMITED / CURRENT_D1_AND_RULEV2_NO_GO / AUTO_CONTINUE=NO`。
@@ -132,7 +140,7 @@ Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的�
 
 [Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
 
-**更新于 2026-11-10 JST · 版本 27 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-10 JST · 版本 28 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
