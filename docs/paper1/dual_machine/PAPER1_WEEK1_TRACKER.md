@@ -1,5 +1,13 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-10｜Owner24 研究加速：一次授权F0–F4自动阶段推进（尚未执行）
+
+`W1-OD-20261110-5060-FASTTRACK-CONDITIONAL-24`。Owner明确希望减少审批往返、扩大5060本机研究任务，但不是任意绕过D2/D3与正式科学审批。控制面提供一次性有界执行包：`F0`固定资产/入口核验及新60+10合成暂定Gold提前封存；`F1`已下载Qwen GGUF + llama-completion Windows CPU受控1-token工程Smoke（禁止外网/内存private commit≤6GiB/180s）；`F2`仅在旧73+Owner20已揭盲100主+20从属上进行有限prompt/schema研发+最多一次193视图DEV回放；`F3`安全开发门过后一次评估新60不同语义主案例+10从属（40可答/20未知、HumanGold0/Agent provisional）；`F4`安全与暂定成绩达预注册条件后做D1已暴露TopK冻结快照最多12或36世界的离线投毒过滤/误删诊断，正式ASR仍未测。每一阶段通过硬门才自动进入下一项；失败立即停，不能调科学阈值或隐蔽重试。普通QA修复不必微观审批。
+
+固定官方源码实证`llama-cli.exe`会内部HTTP服务和本地健康检查，**不可视作零网络纯加载**；本批优先受控`llama-completion.exe --no-warmup -n 1`并诚实记录1个输出token。模型/运行时不可更换，不下载依赖或额外资产，不调用商业/外部API，不开放D2/D3/5090 Claims/正式S2–S5/主线merge。历史Rule-V1/V2新合成`FEASIBILITY_NO_GO`、S1 FAIL、R2 K1-C不变，新进展并不代表科研通过。
+
+[Owner24正式条件授权](owner_approvals/W1_5060_OWNER24_FASTTRACK_LOCAL_MODEL_EXTRACTION_CONDITIONAL_AUTH_20261110.md) · [5060直接执行的Fast-Track Prompt](chinese5060/W1_5060_OWNER24_FASTTRACK_MULTI_STAGE_EXECUTION_PROMPT_V1.md)。
+
 ## 2026-11-10｜5060 Owner23A 静态复核完成，受控加载待批
 
 `OWNER23A_STATIC_COMPLETE / OWNER23B_SMOKE_PENDING_OWNER / MODEL_LOAD_INFERENCE_NOT_AUTHORIZED / S2_S5_LOCKED / AUTO_CONTINUE=NO`。
@@ -92,7 +100,7 @@ Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的�
 
 [Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
 
-**更新于 2026-11-10 JST · 版本 23 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-10 JST · 版本 24 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
