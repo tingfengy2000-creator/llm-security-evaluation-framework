@@ -1,5 +1,16 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261110-5060-FASTTRACK-CONDITIONAL-24｜Owner24 一次授权、条件自动推进本地 Qwen 可行性（2026-11-10 JST）
+
+Owner在已获Owner23A静态报告、未出现新模型运行结果时明确要求：“能不能一次让5060多做点任务 放宽限制，我现在真的很急，很急我这个论文的研究路线”。本决策接受**有界阶段包**，避免每个工程小任务反复请求。一次性许可F0无模型资产/入口/数据封存、F1固定llama-completion CPU/1 token工程smoke（180s/6GiB private cap/出站外网禁止）、F2仅已暴露旧73+100+20模型抽取有界调试与193条开发回放、F3开发门通过后在提前封存的新60主(40答/20拒识)+10从属上做单次`AGENT_PROVISIONAL`评估、F4前置性能/安全门通过后在原D1既有TopK快照中最多12或36世界做离线过滤代理诊断。阶段间可自动继续，普通工程QA/静态调试在定量限额内自主修复，无需Owner逐项重新审批。
+
+**特别风险提醒**：官方固定源码`llama-cli.exe`默认内嵌HTTP线程/127.0.0.1本地健康检查，不能把它作为完全无socket纯加载入口；本包优先`llama-completion.exe --no-warmup -n 1`，明确允许一个无敏感1-token工程输出，绝不冒称零解码。旧规则`FEASIBILITY_NO_GO`、R2 K1-C、S1 FAIL及已揭盲数据仍不变；F2旧集=EXPOSED DEV、F3同Agent新集=PROVISIONAL NOT HUMAN GOLD、F4 D1=EXPOSED OFFLINE PROXY，ASR/Answer Accuracy正式未测。没有模型技术可行性证据前不得宣传VESA论文方法成立。
+
+**所有下列事项仍未批准**：新权重/工具/运行时下载/安装及远程LLM/商业API、D2/D3、5090 Claim、正式S2–S5/长期运行/生产服务、新Human Gold签名、主分支合并、自动调整历史指标或篡改原Gold。每阶段固定停止条件，失败不能偷偷重复一次性smoke/新合成盲评或放宽CPU/RAM/time门。即使F4完成也必须`AUTO_CONTINUE=NO_OUTSIDE_BUNDLE`，交证据后Stop。
+
+[Owner24十二字段授权](../paper1/dual_machine/owner_approvals/W1_5060_OWNER24_FASTTRACK_LOCAL_MODEL_EXTRACTION_CONDITIONAL_AUTH_20261110.md) · [5060生效综合Prompt](../paper1/dual_machine/chinese5060/W1_5060_OWNER24_FASTTRACK_MULTI_STAGE_EXECUTION_PROMPT_V1.md)。
+
+
 ## W1-OD-20261110-5060-OWNER23A-SCOPED-STATIC-23A｜Owner23A 收敛式静态PE/API-set及整包许可复核获批（2026-11-10 JST）
 
 `OWNER_EXPLICITLY_APPROVED / GATE23A_SCOPED_STATIC_APPROVED_NOT_RUN`。Owner明确“我这次批准Owner23A”，同时要求减少确定性高的普通工程修复审批往返。5060只准在已取得并封存的Qwen GGUF Q4_K_M与llama.cpp b12242 Windows CPU资产上，使用已有工具/系统文件执行**非执行性**静态检查：以`llama-cli.exe`及必要CPU后端为根收敛PE导入闭包、API-set映射、Windows DLL/VC版本条件、第三方许可逐组件覆盖、D盘残留核对，保留Owner22原512节点/29前沿/PE未知项证据；独立新脚本与普通单测可自主修复和反复运行，不必微观审批，任何未知必须明确标`UNKNOWN`。
