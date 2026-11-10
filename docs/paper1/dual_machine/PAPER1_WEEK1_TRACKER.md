@@ -1,5 +1,13 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-10｜监督端复核Owner22静态阻断：512节点为分析预算，非依赖缺失（Owner23A待决）
+
+监督端通过GitHub核对Owner22结果HEAD `34b83aefcc3b6fa59482843403a9c85d59cdbc4e`，两项完整字节与HASH、GGUF、52个ZIP成员安全检查均PASS；模型加载/推理仍0、运行时整体BLOCKED。独立审阅`owner22_static_inspection.py`发现PE分析从**所有**包内PE的导入集合出发递归展开System32，遇512节点预算停止；其中387为未映射API-set，29为**未遍历前沿**，不是29个已确认缺失DLL。Windows官方定义API-set为逻辑契约，并非要求有同名物理DLL。第三方notice和最低VC依赖仍待进一步核对，旧报告及所有失败不覆盖。
+
+下一步建议Owner批准`Gate23A` **只使用本地既有资产进行受限静态再核验**：以llama-cli和必要CPU后端为边界、Windows API-set映射/循环去重、证据支持的第三方许可与VC审计；先保全原静态失败，完成即STOP。**目前只是监督建议，未给5060新的执行许可**，smoke/模型运行仍未批准。S2–S5、D2/D3、5090禁令不变。
+
+[完整监督证据及PO-MHEP待决卡](chinese5060/vesa_guard_reviewer_replan/W1_5060_OWNER22_ASSET_STATIC_BLOCKED_SUPERVISOR_REVIEW_20261110.md)。
+
 ## 2026-11-10｜5060 Owner22 固定资产已获取，运行准入继续阻断
 
 `OWNER22_ASSET_STATIC_INSPECTION_BLOCKED / MODEL_EXECUTION_NOT_AUTHORIZED / PEAK_MEMORY_NOT_PROVEN / AUTO_CONTINUE=NO`。两件固定资产各一次，实际正文 1,142,252,137 字节，SHA256 和长度均通过。GGUF 头和 52 件 ZIP 安全验包通过；整包许可与 Windows PE 运行闭包仍待证。
@@ -64,7 +72,7 @@ Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的�
 
 [Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
 
-**更新于 2026-11-10 JST · 版本 20 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-10 JST · 版本 21 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
