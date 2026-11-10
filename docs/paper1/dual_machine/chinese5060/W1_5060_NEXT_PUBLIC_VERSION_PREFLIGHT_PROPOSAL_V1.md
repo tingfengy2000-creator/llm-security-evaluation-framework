@@ -29,7 +29,7 @@
 
 ## C. 创新性相邻工作（下一阶段正式比较前需阅读）
 - RAGDefender ACSAC 2025: `https://github.com/SecAI-Lab/RAGDefender`。
-- Stale-Document Poisoning (2026-09): `https://arxiv.org/abs/2609.31342`；317个验证的知识反转，不能把“时间旧证据导致回答错误”当独创。
+- 关于 stale-document poisoning 的具体论文与统计尚待文献复核，不能将未经核实的样本数写入正式创新性对照。
 - FRESCO (Findings EMNLP 2026): `https://aclanthology.org/2026.findings-emnlp.54/`；已有演化语义冲突/重排序基准。
 - ConfRAG (ACL 2026): `https://aclanthology.org/2026.acl-long.11/`；已有真实多源冲突问答。
 候选差异须瞄准中文伪造新版、同值异scope、独立来源证明、协同多数污染、防御误删与同world强基线，而不是单纯“中文+时间”字样。
