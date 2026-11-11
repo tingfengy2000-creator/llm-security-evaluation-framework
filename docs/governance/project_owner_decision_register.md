@@ -1,5 +1,10 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1_OWNER33_SINGLE_DELEGATION_VCARE_FAST_PIPELINE_20261111 — 5090 封存新来源和角色盲输入，不新编 PODR（2026-11-11）
+
+没有新的 PODR 编号。本收执只记录授权范围内的新官方短事实索引和角色盲输入已经封存：7 个候选谱系、4 个事实组、32 个世界、每世界 11 个片段。整页没有入库。私有暂定标签留在本机。Human Gold 仍为 0。5060 的方法冻结已经看到，但这份新输入还没有一次性预测，所以没有评分。Claim1–3 仍 NOT_RUN。`AUTO_CONTINUE=HANDOFF_PUBLISHED_WAITING_FOR_ONE_PREDICTION`。
+[封存说明](../paper1/dual_machine/repro5090/owner33_eval/OWNER33_CURATION_REPORT.md)。
+
 ## DESIGN_DRAFT / OWNER_APPROVAL_PENDING — 5090 只做 Owner32 来源预检，不新编 PODR（2026-11-11）
 
 没有新的 PODR 编号，也没有把 Owner32 写成已批准实验。本收执只记录 10 条现有版本来源的只读可用性结果：可用独立证据 0/10。权利未清、出站未授权、没有文档字节哈希和独立读取收据。因此不制作正确答案卡，不启动 DEV 或 EVAL。Human Gold 仍为 0。Claim1–3 仍 NOT_RUN。`AUTO_CONTINUE=NO`。

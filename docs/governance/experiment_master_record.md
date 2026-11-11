@@ -1,5 +1,13 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-123 — Owner33 source snapshot and role-free input sealed, score not run
+
+2026-11-11 UTC+8; no new PODR; authority `W1_OWNER33_SINGLE_DELEGATION_VCARE_FAST_PIPELINE_20261111`; parent `e728c79514dcf3c8a7c79dc02cf6da45062641bd`.
+New official short-fact index frozen before fact selection. 4 fact units, 32 worlds, 11 passages. Human Gold 0. Scoring `NOT_RUN`. 5060 method seal seen at `d921b5c54d9362c080889309b8d515acf6ce6365`. Fresh prediction not received. Claims NOT_RUN.
+Source snapshot SHA256 `e0ec8e23bb43f3d1f1dd41b56ed278e50004b2ea80baeb58476e115539557ac5`. Role-free SHA256 `fccae2a0967b7bcefe051849c5b8d65d930e8954abe3c4ffb1b4a53daf03cf0c`. Private label SHA256 `68fec872603df11150aea5164e3b169788330784052f3f826cedb05c7492855f`.
+[Curation](../paper1/dual_machine/repro5090/owner33_eval/OWNER33_CURATION_REPORT.md).
+L0 Oracle evidence below is unchanged. No D2/D3 read.
+
 ## OR-122 — Owner32 source availability precheck, gate closed
 
 2026-11-11 UTC+8; no new PODR; authority `DESIGN_DRAFT / OWNER_APPROVAL_PENDING`; parent `125eabccb2d2582e7102c64eb3a0f9a2f66874a4`.

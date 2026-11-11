@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-11-11 Owner33 source snapshot and role-free input are sealed, scoring waits
+
+No new PODR integer. Authority `W1_OWNER33_SINGLE_DELEGATION_VCARE_FAST_PIPELINE_20261111`. Branch `research/paper1-ragdefender-repro-5090`. Parent `e728c79514dcf3c8a7c79dc02cf6da45062641bd`. Status `FRESH_SOURCE_PRESEALED / METHOD_SEAL_SEEN / SCORING_NOT_RUN / HUMAN_GOLD=0`.
+Seven new candidate lineages were catalogued before fact selection. Four fact groups and 32 worlds are sealed, 11 passages each. The later 5060 head `d921b5c54d9362c080889309b8d515acf6ce6365` shows `DEV_GO / METHOD_SEALED`, but this new input has no prediction yet, so the one private score was not run. Claim 1, 2 and 3 remain NOT_RUN. `AUTO_CONTINUE=HANDOFF_PUBLISHED_WAITING_FOR_ONE_PREDICTION`.
+[Curation](../paper1/dual_machine/repro5090/owner33_eval/OWNER33_CURATION_REPORT.md).
+
 ## Current — 2026-11-11 Owner32 source gate is blocked before any science trial
 
 No new PODR integer. Authority remains `DESIGN_DRAFT / OWNER_APPROVAL_PENDING`. Branch `research/paper1-ragdefender-repro-5090`. Parent `125eabccb2d2582e7102c64eb3a0f9a2f66874a4`. Status `SOURCE_GATE_NO_GO / SOURCE_CURATION_BLOCKED / SCIENCE_NOT_RUN / HUMAN_GOLD=0`.

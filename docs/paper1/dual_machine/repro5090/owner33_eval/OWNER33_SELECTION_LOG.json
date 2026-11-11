@@ -1,0 +1,29 @@
+{
+  "dropped_qualified_count": 0,
+  "qualified_fact_keys": [
+    "PIT_COMPREHENSIVE_BASIC",
+    "CONSUMER_DISTANCE_RETURN",
+    "OGI_APPLICATION_REPLY",
+    "ENV_DAILY_PENALTY_START"
+  ],
+  "ranked_fact_keys": [
+    "ENV_DAILY_PENALTY_START",
+    "CONSUMER_DISTANCE_RETURN",
+    "OGI_APPLICATION_REPLY",
+    "PIT_COMPREHENSIVE_BASIC"
+  ],
+  "rule": "sha256(snapshot_bytes + newline + fact_key), ascending, take 4",
+  "schema": "OWNER33_SELECTION_LOG_V1",
+  "selected_fact_keys": [
+    "ENV_DAILY_PENALTY_START",
+    "CONSUMER_DISTANCE_RETURN",
+    "OGI_APPLICATION_REPLY",
+    "PIT_COMPREHENSIVE_BASIC"
+  ],
+  "source_snapshot_sha256": "e0ec8e23bb43f3d1f1dd41b56ed278e50004b2ea80baeb58476e115539557ac5",
+  "unselected_lineages": [
+    "ACCOUNTING_ARCHIVE",
+    "MINOR_PROTECTION",
+    "INVOICE_ADMINISTRATION"
+  ]
+}

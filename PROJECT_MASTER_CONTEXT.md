@@ -1,5 +1,10 @@
 # LLMGuard 项目总控文档
 
+## 当前：Owner33 新来源和角色盲输入已封存，评分还没开始（2026-11-11）
+
+5090 仍在 `research/paper1-ragdefender-repro-5090`。新的官方短事实索引先冻结，再选出 4 个事实组、32 个世界、每世界 11 个自写段落。Human Gold 仍为 0。5060 已经给出 `DEV_GO / METHOD_SEALED`，但这份新输入还没有一次性预测，所以 5090 没有评分。三条 Claim 仍是 `NOT_RUN`。`AUTO_CONTINUE=HANDOFF_PUBLISHED_WAITING_FOR_ONE_PREDICTION`。
+[封存说明](docs/paper1/dual_machine/repro5090/owner33_eval/OWNER33_CURATION_REPORT.md)。
+
 ## 当前：Owner32 来源预检未通过，科学试次没有开始（2026-11-11）
 
 5090 仍在 `research/paper1-ragdefender-repro-5090`。已有中文版本登记共 10 条，没有一条同时具备可核文档字节、独立读取收据和已授权出站。可用独立证据是 0/10。没有下载页面，没有制造正确答案卡，也没有启动新的 DEV 或 EVAL。Human Gold 仍为 0。Owner32 仍待正式批准。`AUTO_CONTINUE=NO`。
