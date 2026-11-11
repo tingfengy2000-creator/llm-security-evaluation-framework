@@ -1,5 +1,12 @@
 # Current Work State
 
+## 2026-11-11｜Owner33 V-CARE独立EVAL完成：METHOD_EVAL_NO_GO（跨领域查询识别0/32）
+
+最新5090远端 `d7d28cc7cab25b1ade04fcb8b0678bd369c3b558` 已完成一次独立评分，5060预测 `108b35c9239ad113c50f7d84daf9b84f361b37d6`；因此旧5060报告中的评分待完成已过期。32新世界共TopK160，召回P34/C59/H1/O8/B58；B2与V-CARE均P留11/34、Clean误删35/59、H误删0/1、O误删8/8、B删4/58，V-CARE掩码改变0/32，外证命中0/32，逻辑补检32次；正式ASR/Accuracy NOT_MEASURED，HumanGold0。DEV旧事实族曾P由20/45降至7/45、Clean误删40/63降至10/63，但同预算B2_ALWAYS_VERIFY的P也为7/45（Clean40/63），所以独特旧DEV收益主要为恢复Clean。冻结源码intent()仅支持节假日、旅馆卫生许可、客车年龄三个硬编码谓词，不覆盖5090新增四事实族，故识别0/32；这是跨域泛化/接口机制失败，并非独立补证在全领域不可能。Owner33封存且科学STOP，不重用本次见过评分的EVAL作新blind，也不为修parser自行启动新科学试次。建议先只读静态根因审计；要再试通用解析需新的Owner有界授权及新独立holdout。
+
+[独立科研复审](../paper1/dual_machine/chinese5060/OWNER33_FRESH_EVAL_SUPERVISOR_VERDICT_20261111.md)
+
+
 ## 2026-11-11｜Owner33一次性受限委托准备完毕，等待Owner将指令分别发送两机
 
 状态 `OWNER33_SIGNABLE_TEMPLATE_READY / NOT_YET_ACTIVE / SCIENCE_NOT_RUN`。用户要求取消反复微观审批。签署方式为Owner分别向5060/5090发送仓库中两条执行Prompt；一经发送，合同内DEV→独立EVAL各客观Gate可由两台机器自主推进，普通工程修复、Git提交、SHA核验不再逐步请求。商业API、新权重、敏感出站、数据封存解禁、主分支合并等没有因此自动授权。
