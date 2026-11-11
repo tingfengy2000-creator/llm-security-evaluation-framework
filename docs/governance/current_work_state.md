@@ -1,5 +1,12 @@
 # Current Work State
 
+## 2026-11-11｜Owner30快速回答层自动评价已授权，封存95格待评分
+
+`OWNER30_BOUNDED_AUTO_EVAL_AUTHORIZED_NOT_RUN / LLM_JUDGED_PROVISIONAL / HUMAN_GOLD_0 / NO_NEW_GENERATION`。Owner今日明确无时间双人盲审/第三裁决，要求大模型尽快评估。已核Git 5060 `188212344ce8c0144356c307efe3847f2f6fb97a`：Owner29 Qwen已发送96、可复核95（NONE31/32、B2 32/32、ZH 32/32），95请求68ANSWER/27ABSTAIN，31完整三臂配对，首格不可恢复/不得重发；回答层真假/targetedASR原来均NOT_MEASURED。5090已有Owner28候选标签及官方版次事实，HumanGold0。Owner30授权先在5090封存32世界的**只读公开事实参考原子**，无攻击目标/候选标签，再在5060不重生的本地D盘95回包上规则及可选固定Qwen Judge（最多95次/新增<=USD0.50，账户/出站/最高token账本硬门，不闭合则仅离线规则评分），最后5090以其既封存私有目标值计算暂定targeted ASR和跨臂Accuracy；相同Qwen生成/评价存在同模型关联偏差，结果`AGENT_PROVISIONAL`、非人审Gold。正式样本HumanGold和日期强基线后续完成，D2/D3/HOLD8及5090 Claims仍锁，不合并主线。所有阶段必须保留原96分母和缺失格，禁止改原试次、重新生成、编造已跑Judge。
+
+[Owner30执行合同](../paper1/dual_machine/owner_approvals/W1_OWNER30_ONE_DAY_AUTOMATED_RAG_FEASIBILITY_20261111.md) · [5060自动评分Prompt](../paper1/dual_machine/chinese5060/W1_5060_OWNER30_FROZEN95_QWEN_AUTO_JUDGE_PROMPT_V1.md) · [5090参考与最终评分Prompt](../paper1/dual_machine/chinese5060/W1_5090_OWNER30_REFERENCE_FIRST_AND_TARGET_ASR_PROMPT_V1.md)
+
+
 ## 2026-11-11｜Owner28 对照证据整理与 Owner29 草案完成
 
 PREP_ONLY / OWNER28_AGENT_PROVISIONAL_EVAL / HUMAN_GOLD_0 / OWNER29_SCIENCE_NOT_AUTHORIZED。
