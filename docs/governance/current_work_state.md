@@ -1,5 +1,12 @@
 # Current Work State
 
+## 2026-11-11｜Owner28 5060→5090独立评分交接状态
+
+`5060_PREDICTION_SEALED / 5090_SCORING_AUTHORIZED_IN_EXISTING_OWNER28 / EVAL_SCORED_0_OF_32 / HUMAN_GOLD_0 / API_COST_0`。
+
+经Git核：5060提交`ad413ea639c950faea2106a52fa4352735384ef1`，5090兼容源提交`0a4fde3966d9eefd3562f4d552f12090c7632ac9`；5090原私有标签SHA仅在5090托管。5060角色盲投影记录SHA `5c9874bd6bb3252a2685e8481b92ea979dc1e842b5f3250a798e2bb7f03d21bb`、预测seal `aeb47a49f915c55fd2c7e5679de63cfce664282667f9a818ed27b9dfc7b1205e`、TopK seal `31ce5b1acfbfb0d6ceebe4acedda0f482ca506462baf48dd9f4ff36a37e4bd45`，32主世界×TopK5=160秩、4臂128掩码，7镜像未运行。Supervisor只读核验投影：`NONE=160`、`RD_B2=103`、`RD_ZH=53`、`DATE_ONLY=160`保留秩；B2与RD_ZH掩码不同28/32世界，DATE_ONLY与NONE相同32/32。无Gold，以上**不能推算Poison/Clean/HN**。冻结DATE_ONLY正则在兼容32世界原352段自写语料匹配`0/352`，属于`INOPERATIVE_DATE_REGEX`，正式报告须披露其不是有效强时效基线，禁止在本批结果后改写。5090需在私有环境核SHA、新旧编号映射/标签，再一次评分；新5090公开指令已推其独立分支，5060无权获取私有Gold。旧Owner27不改；5090 Claims/D2/D3/HOLD8锁定，最终RAG ASR/Accuracy仍未测。
+
+
 ## 2026-11-11｜Owner28 32 主世界盲预测已封存，待 5090 独立评分
 
 PREDICTION_READY_FOR_INDEPENDENT_5090_EVAL / SCORING_PENDING / HUMAN_GOLD_0。
