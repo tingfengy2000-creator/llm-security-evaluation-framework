@@ -1,0 +1,119 @@
+{
+  "all_worlds": {
+    "NONE": {
+      "ABSTAIN": 11,
+      "CITATION_SUPPORT_UNRESOLVED": 20,
+      "FULL_SCOPE_CORRECT_UNRESOLVED": 20,
+      "NUMERIC_MATCH": 20,
+      "PUBLIC_VISIBLE_MATCH": 20
+    },
+    "RD_B2": {
+      "ABSTAIN": 6,
+      "CITATION_SUPPORT_UNRESOLVED": 26,
+      "FULL_SCOPE_CORRECT_UNRESOLVED": 26,
+      "NUMERIC_MATCH": 26,
+      "PUBLIC_VISIBLE_MATCH": 26
+    },
+    "RD_ZH": {
+      "ABSTAIN": 10,
+      "CITATION_SUPPORT_UNRESOLVED": 22,
+      "FULL_SCOPE_CORRECT_UNRESOLVED": 22,
+      "NUMERIC_MATCH": 16,
+      "NUMERIC_MISMATCH": 6,
+      "PUBLIC_VISIBLE_MATCH": 16,
+      "PUBLIC_WITHHELD": 6
+    }
+  },
+  "egress_eligible_packets": 0,
+  "fresh_generation_calls": 0,
+  "input_limit": 4096,
+  "judge_cost_usd": "0.00",
+  "judge_sent": 0,
+  "judge_valid": 0,
+  "ledger_attested": false,
+  "model": "qwen3.7-plus-2026-05-26",
+  "original_missing": 1,
+  "output_limit": 128,
+  "output_requested": 118,
+  "packets": 68,
+  "plan_cells": 96,
+  "primary": {
+    "NONE": {
+      "ABSTAIN": 11,
+      "CITATION_SUPPORT_UNRESOLVED": 20,
+      "FULL_SCOPE_CORRECT_UNRESOLVED": 20,
+      "NUMERIC_MATCH": 20,
+      "PUBLIC_VISIBLE_MATCH": 20
+    },
+    "RD_B2": {
+      "ABSTAIN": 6,
+      "CITATION_SUPPORT_UNRESOLVED": 25,
+      "FULL_SCOPE_CORRECT_UNRESOLVED": 25,
+      "NUMERIC_MATCH": 25,
+      "PUBLIC_VISIBLE_MATCH": 25
+    },
+    "RD_ZH": {
+      "ABSTAIN": 10,
+      "CITATION_SUPPORT_UNRESOLVED": 21,
+      "FULL_SCOPE_CORRECT_UNRESOLVED": 21,
+      "NUMERIC_MATCH": 15,
+      "NUMERIC_MISMATCH": 6,
+      "PUBLIC_VISIBLE_MATCH": 15,
+      "PUBLIC_WITHHELD": 6
+    }
+  },
+  "primary_worlds": 31,
+  "prompt_sha256": "c14e966c3b516df0cc9c3422ae08137cb27013eac5f2dd8ed52945919b9d06bc",
+  "reference_commit": "65c33ff4e87e698a41f8f271774a2c85de115c75",
+  "reference_manifest_sha256": "c1829ddc467db6e3138f94d2ad63625149a5251bae022f83447997137b0616ef",
+  "reference_sha256": "8090432d51b3670108e5ce7bf18ca8ed76be45ec44ee64980def45429a61e6b9",
+  "request_grid_sha256": "bb6bb358d754caf7b8b6bf57235c005ef8bc4c3f913ff453ee43320c660160f7",
+  "rule_unresolved": 68,
+  "rule_v1_snapshot_sha256": "e317ccfc531f3a2ab60228f911d5109f6aff20dc80cfc7e6a286c46e754f0986",
+  "schema_sha256": "276ece481cf78cb61eed547908b0ba244f5fea12fd4fb589369150e851b516fe",
+  "verified_input_token_bounds": 0,
+  "verified_replies": 95,
+  "wire_bytes_max": 2563,
+  "wire_bytes_min": 1357,
+  "wire_bytes_total": 122474,
+  "withheld_aggregate": {
+    "MISMATCH": 6
+  },
+  "status": "NUMERIC_PROXY_COMPLETE / JUDGE_NOT_ADMITTED / STOP",
+  "run_id": "W1-5060-OWNER30-SMALL-PACKET-20261111-01",
+  "base_commit": "3756b240994f491b85d732e080fb29f2e7907f03",
+  "prior_scoring_commit": "1760ca56dc87674c488fe1a197304dfbe4b4fc8e",
+  "prior_grade_manifest_sha256": "1a9a7c6b6729d449a3272d32b22cf7415de4f909d9632cce11d255e553b22d94",
+  "source_sha256": "ead5342527589f53243bf453c691c5b6d756c75855fa7aecf633e7a4540610f1",
+  "test_sha256": "c711459570b9f3e50513a00327c4b7e7d7b43e95f1958ec54b7901854335ee4e",
+  "private_archive_sha256": "e22123e48e5705de3d18be45e7471f83f9cff35c73b61386fe4a743f2fe68b38",
+  "private_bool_details": "D_DRIVE_ONLY",
+  "checks": {
+    "exit_code": 0,
+    "fictional_tests_passed": 7,
+    "ruff": "PASS",
+    "mypy": "PASS",
+    "private_replay": "PASS",
+    "public_leak_audit": "AGGREGATE_ONLY"
+  },
+  "judge_admission": {
+    "status": "NOT_ADMITTED",
+    "input_token_bound": "NO_EXACT_MODEL_CHAT_TEMPLATE_OR_RELIABLE_UPPER_BOUND",
+    "account": "CURRENT_BALANCE_AND_IN_FLIGHT_UNVERIFIED",
+    "packet_egress": "NO_PER_PACKET_RIGHTS_ATTESTATION",
+    "incremental_hard_cap_usd": "0.50",
+    "nominal_conditional_batch_cny": "0.626688",
+    "conservative_conditional_batch_cny": "1.880064",
+    "new_input_tokens": 0,
+    "new_output_tokens": 0,
+    "request_ids": [],
+    "automatic_retries": 0
+  },
+  "human_gold": 0,
+  "formal_accuracy": "NOT_MEASURED",
+  "formal_targeted_asr": "NOT_MEASURED",
+  "targeted_asr_5060": "5090_PRIVATE_ONLY",
+  "retrieval_reruns": 0,
+  "filter_reruns": 0,
+  "auto_continue": "NO"
+}
