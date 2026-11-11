@@ -1,5 +1,11 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-11 — Owner30 six error values matched to presealed targets
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090` at parent `94c65fbcdc34da6e7ffc97f4d9d68ec57413c765`.
+Status `SUPPLEMENT_ONLY / SIX_VALUES_BOUND / AGENT_PROVISIONAL / HUMAN_GOLD=0`. The handoff SHA matched. Six world ids, raw response SHAs and event dates bound to the sealed withheld cells. Numeric hits on denominator 22: NONE 0, RD_B2 0, RD_ZH 5. Five of six error values hit the presealed target; one did not. Two scope-only worlds stay `UNKNOWN`. Formal ASR and accuracy remain `NOT_MEASURED`. V1 bounds, Owner28 score and attack targets were not rewritten. Claim 1, 2 and 3 remain NOT_RUN. `AUTO_CONTINUE=NO`. Recommendation is benchmark and failure analysis.
+[Six-value match](../paper1/dual_machine/repro5090/owner30_eval/OWNER30_SIX_VALUE_TARGET_MATCH_REPORT.md).
+
 ## 2026-11-11 — Owner30 supplement preserves the open target interval
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090` at parent `1446110af0225e4afb51b7fad8b21ac84664220f`.

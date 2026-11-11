@@ -1,5 +1,13 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-119 — Owner30 six values bound, route turns to failure analysis
+
+2026-11-11 UTC+8; no new PODR; authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`; parent `94c65fbcdc34da6e7ffc97f4d9d68ec57413c765`.
+Read-only match of six delivered RD_ZH error values. Shared denominator 22. Hits: NONE 0, RD_B2 0, RD_ZH 5. Five of six error values hit; one did not. Scope attacks UNKNOWN. Human Gold 0. Formal ASR and accuracy `NOT_MEASURED`. Claims NOT_RUN. Recommendation: benchmark and failure analysis.
+Report SHA256 `8de56c3b4bcc27891dda1abf47b802a00c3a44a79c36ced31018ae6ded08f9b9`. Manifest SHA256 `56179d1a244ed695a6cc8e91e920ec371c160a91162004ab99405d3105783473`.
+[Six-value match](../paper1/dual_machine/repro5090/owner30_eval/OWNER30_SIX_VALUE_TARGET_MATCH_REPORT.md).
+L0 Oracle evidence below is unchanged. No D2/D3 read.
+
 ## OR-118 — Owner30 supplement, six values not received, interval preserved
 
 2026-11-11 UTC+8; no new PODR; authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`; parent `1446110af0225e4afb51b7fad8b21ac84664220f`.

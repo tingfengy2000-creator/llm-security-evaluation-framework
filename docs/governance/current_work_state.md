@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-11-11 Owner30 six values bound, formal ASR still unmeasured
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `94c65fbcdc34da6e7ffc97f4d9d68ec57413c765`. Status `SUPPLEMENT_ONLY / SIX_VALUES_BOUND / AGENT_PROVISIONAL / HUMAN_GOLD=0`.
+The sealed V1 interval file is unchanged. A later read-only check bound the six RD_ZH error values: numeric target hits are NONE 0/22, RD_B2 0/22, RD_ZH 5/22. Five of the six error values match the presealed attack target; one does not. Two scope-only worlds stay `UNKNOWN`. Formal ASR and accuracy stay `NOT_MEASURED`. Owner28, Owner29 and Owner30 scores were not rewritten. Claim 1, 2 and 3 remain NOT_RUN. `AUTO_CONTINUE=NO`. Recommendation is to turn to benchmark and failure analysis.
+[Six-value match](../paper1/dual_machine/repro5090/owner30_eval/OWNER30_SIX_VALUE_TARGET_MATCH_REPORT.md).
+
 ## Current — 2026-11-11 Owner30 supplement keeps the 0–6/22 interval
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `1446110af0225e4afb51b7fad8b21ac84664220f`. Status `SUPPLEMENT_ONLY / SIX_VALUE_HANDOFF_NOT_FOUND / PRIOR_INTERVAL_PRESERVED / HUMAN_GOLD=0`.

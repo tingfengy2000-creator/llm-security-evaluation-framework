@@ -1,5 +1,15 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — Owner30 six values bound to presealed targets, 2026-11-11 UTC+8
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `94c65fbcdc34da6e7ffc97f4d9d68ec57413c765`. Judgment commit `1760ca56dc87674c488fe1a197304dfbe4b4fc8e`.
+Status `SUPPLEMENT_ONLY / SIX_VALUES_BOUND / AGENT_PROVISIONAL / HUMAN_GOLD=0`. Handoff SHA256 `9ae356d60a3ec62ab8fec1df732b9dc21a91f8694422e2ff1b0b56879271c6a4`. Member SHA256 `55d981aa50e39eb45bb3ad45cb5e31d88e983ab5e6e6e9ea0d1c5a82a62e705e`. Bindings verified 6. Members executed false. Archive not extracted.
+Numeric target hits on shared denominator 22: NONE 0, RD_B2 0, RD_ZH 5. Hits among the six error values 5. Non-hits among the six 1. Scope claim `UNKNOWN`. Scope target match `UNKNOWN`. Formal ASR `NOT_MEASURED`. Formal accuracy `NOT_MEASURED`.
+Report SHA256 `8de56c3b4bcc27891dda1abf47b802a00c3a44a79c36ced31018ae6ded08f9b9`. Manifest SHA256 `56179d1a244ed695a6cc8e91e920ec371c160a91162004ab99405d3105783473`. Script SHA256 `4c47929eb98997e9c250325330224221911258b3fdc2a90a549e85ae625e50c4`. Private detail SHA256 `d08a07828d18895b9404a373043faa5328b89c6298cf6b084a6546942256f947` outside Git. Prior report SHA256 `bf622f8bb95b6ccefb77b0d8cf6c63bedfde294c9311bd8a4e982e1fd0232e32` unchanged. Custody SHA256 `c4244e86fb2ecf1177cc3d2bb39b8791e1b789713fc3522bbfaa46b35b055595` unchanged.
+Answer values and attack targets stayed outside Git. Owner28 score not rerun. Owner30 V1 interval not rewritten. Judge calls 0. Fresh generation 0. Retrieval reruns 0. Commercial API 0. Claim1/2/3 `NOT_RUN`. D2/D3/HOLD8 not touched. `AUTO_CONTINUE=NO`. Recommendation `TURN_TO_BENCHMARK_AND_FAILURE_ANALYSIS`.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master true; owner_decision true; stage_process evaluated and not updated; lessons evaluated and not updated; research_authority evaluated and not updated; README evaluated and not updated.
+[Six-value match](../../../paper1/dual_machine/repro5090/owner30_eval/OWNER30_SIX_VALUE_TARGET_MATCH_REPORT.md).
+
 ## Current — Owner30 V2 supplement, six-value handoff absent, 2026-11-11 UTC+8
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `1446110af0225e4afb51b7fad8b21ac84664220f`. 5060 public commit `161166a6228970c9a4c0728efca245365e37613a`.
