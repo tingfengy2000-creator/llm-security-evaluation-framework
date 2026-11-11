@@ -1,5 +1,14 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-11｜Owner28 双机独立小样本基准路线启动（仅授权，无新试次）
+
+`OWNER28_BOUNDED_AUTHORIZED_NOT_RUN / BENCHMARK_FIRST / JOINT_METHOD_PAUSED / EVAL_0_OF_32 / HUMAN_GOLD_0 / API_0`。
+
+核实Owner27快照7b4e4cad00df38b724fdeb1c2edd63f06b7be9fd：DEV 32/32世界；RD_B2 P保留20/45、Clean误删40/63、HN误删4/33；RD_ZH P6/45、Clean误删54/63、HN误删13/33；同收据简单规则和联合规则Clean误删均29/63，联合与scope消融同掩码32/32；方法开发主门失败。仅4个预检事实单位且代理语料，EVAL 0/32，Human Gold 0，无正式ASR/Accuracy。Owner28指令按已约定基准后备路线推进：5060静态失败归因、审计代理收据是否近似真值Oracle并冻结无标签评测runner；5090在不改变RAGDefender原复现NOT_RUN的前提下，临时独立选取未见官方版本谱系并托管标签/无答案查询。仅G1-G4全部闭合时一次性32新世界、4臂NONE/B2/RD_ZH/DATE_ONLY同TopK离线评估，仍仅AGENT_PROVISIONAL。方法门控不调参；旧D1/Owner26和D2/D3/HOLD8锁定；0商业API、0费用、0下载，不合并主线。未得独立事实/权限则STOP报告而非回填DEV。
+
+[Owner28合同](owner_approvals/W1_OWNER28_BENCHMARK_INDEPENDENT_PILOT_20261111.md) · [5060执行Prompt](chinese5060/W1_5060_OWNER28_BENCHMARK_RD_FAILURE_AND_EVAL_RUNNER_PROMPT_V1.md) · [5090独立取样Prompt](chinese5060/W1_5090_OWNER28_INDEPENDENT_SOURCE_EVAL_CURATOR_PROMPT_V1.md)
+
+
 ## 2026-11-11｜Owner27 32 个 DEV 世界七臂完成，EVAL 未准入
 
 `DEV_COMPLETE_DIRECTIONAL_FAIL / EVAL_BLOCKED_INDEPENDENT_INPUTS / HUMAN_GOLD=0 / AUTO_CONTINUE=NO`。
