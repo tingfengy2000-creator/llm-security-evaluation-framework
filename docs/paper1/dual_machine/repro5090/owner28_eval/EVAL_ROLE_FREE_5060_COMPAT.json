@@ -1,0 +1,2726 @@
+{
+  "schema_version": "OWNER28_ROLE_FREE_V1",
+  "main": [
+    {
+      "world_id": "w-e456dc28249b95b0aec31817",
+      "fact_uid": "f-fbd889a8ae59ae7617218ab3",
+      "event_date": "2022-09-01",
+      "query_text": "截至2022年9月1日，申请日为2021年6月1日的外观设计专利权，自申请日起算可以保护多少年？",
+      "documents": [
+        {
+          "document_id": "d-9207b1dc9f0ba4f8a583ab44",
+          "source_id": "s-a9fa7fada7fa081ad82ac773",
+          "text": "专利权人应当缴纳年费；没有按期缴纳的，专利权可能在期限届满前终止。年费制度说明权利需要维持，但这里不给出外观设计或实用新型的法定年限。",
+          "content_sha256": "460dfa881a990887f86492bfc08a66bd4e9f0d73fe91ffa0b8ad1d07057d07bd",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-15f28f684308c786845a8e48",
+          "source_id": "s-f5a42d3e63f5274862f3c35b",
+          "text": "外观设计应当不属于现有设计，并与现有设计有明显区别。授权条件回答的是能不能授，不回答自申请日起保护多少年。",
+          "content_sha256": "1a21e7569147acbf193db126973a198c3c827dfe9e2e1036f88eab7a01305d20",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-58eac303ec6547753d82bb19",
+          "source_id": "s-de3e05f426135b3bd5e1015b",
+          "text": "专利权可以因为书面放弃而在届满前终止。放弃是权利人的行为，不是法定保护期限本身，也不能用来比较不同申请日。",
+          "content_sha256": "998d54a385e144890b61940a45156dec0183f17a06f1169acabebf9aadb7ac5f",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-6c8f5099f114a0cad934ba78",
+          "source_id": "s-87e281da2a91e00281a4f364",
+          "text": "实用新型和外观设计经初步审查没有发现驳回理由的，可以作出授予决定并发给证书。审查种类不同，并不在这句里写成某一申请日的保护年限。",
+          "content_sha256": "afc81819c951583397abb531d4afd649a5a7a464772ea263c0737e827513f664",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-e9cd9ee4c32ce3f0445e4ac4",
+          "source_id": "s-350780a9e413597d1ebd8603",
+          "text": "截至2022年9月1日，申请日为2021年6月1日的外观设计专利权，自申请日起算的保护期限为十五年。发明专利和实用新型专利的期限不能替换到这一类申请上，申请日早于2021年6月1日的外观设计也不按本句的期限计算。",
+          "content_sha256": "a13fe852450f2e8b020d3a94f1a1828da7e5e398e40c346db88769b7ba2e8084",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-d1014b343f2b1ac1f6d3f1ed",
+          "source_id": "s-5bdffbefbbdccae7adbb912a",
+          "text": "在2022年9月1日这一天，针对申请日为2021年6月1日提出的外观设计专利权，法定保护期限是十五年，起算点是申请日。年费是否已缴纳会影响权利是否维持，但不改写本句的法定年限，也不把实用新型的年限借过来。",
+          "content_sha256": "06fa00a14a8eb9ea501838b4ee67f83511f2b5087c88351b9064c2a9d5e132a0",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-a4347cc3c9ea2004b79169f0",
+          "source_id": "s-46192a2c4afbc1d0edeb9db5",
+          "text": "若在2022年9月1日询问申请日为2021年6月1日的外观设计，保护期限应从申请日起算为十五年。局部外观设计是否可申请，不改变这句所说的年限；提前申请的案件要按申请日分开，不能并进同一期限。",
+          "content_sha256": "99d156c09daa89ffe31dde44f67ca1e75a5ee4791471dfcc871f1408a0e23bbc",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-5698f22ec4e6008e6c608822",
+          "source_id": "s-2ef5fd1b2ff49f3dafbe34f2",
+          "text": "要求保护色彩时，图片或照片应当能清楚显示该设计。图像要求服务于授权范围的表达，与保护期限的年数无关。",
+          "content_sha256": "ece673f99236bf7a28d83570b9ae5649a6fef7a05fd66e5355aa69cdbffd1709",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-018f5f0bfea5cbf898a4a041",
+          "source_id": "s-3041d683b0e9c214fb1365ff",
+          "text": "把询问日放在2022年9月1日，申请日为2021年6月1日的外观设计自申请日起保护十五年。这是专利法对这一申请日条件的期限，不是代理机构报价，也不是某个网站把年限改写后的版本。",
+          "content_sha256": "d54eb135e47b78a8206589050ce8cb564aadc4c411556aa1d9eebfabe4aa4e4c",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-410103d34e2df95ee3ce4050",
+          "source_id": "s-dcad65fa57a2aef318aceaa8",
+          "text": "换一种复述而不改变条件：2022年9月1日时，申请日为2021年6月1日的外观设计专利权保护期限为十五年，自申请日起计算。复述仍指向同一法律条款，申请日不满足该条件的外观设计不使用本句。",
+          "content_sha256": "5155c12c70d40402e263fff7dfb803fb86efd49e29c722bc9394029a4b5c3814",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-4c73b56b780b64cc93d0c899",
+          "source_id": "s-afed515ba1e2c1f57f347a4d",
+          "text": "申请外观设计要提交请求书、图片或者照片以及简要说明。这些文件用来显示要求保护的产品外观，文件种类本身不是保护期限的年数。",
+          "content_sha256": "c449bc7a3b9fd6cb34cccc6038d1e0f7b3552fcd6f7821ad1f2fe776cd906f9c",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-acf75816b3ced0fc12e538b8",
+      "fact_uid": "f-3200ed9e70904d44d5111894",
+      "event_date": "1998-03-02",
+      "query_text": "1998年3月2日，在国家机关从事标准工时岗位、且不属于缩短工时情形的职工，每周标准工作时间是多少？",
+      "documents": [
+        {
+          "document_id": "d-0358dff43858b550e01a0eaa",
+          "source_id": "s-05c4be4e5d6523bc3963134a",
+          "text": "在1998年3月2日，国家机关里从事标准工时岗位、且不属于缩短工时情形的职工，每周标准工作时间是四十小时。企业可以延后实施的安排不覆盖国家机关，特殊岗位的其他工时办法也不在这句范围内。",
+          "content_sha256": "9b760f0c601d91d41228d0da12c5c1f714846661adc79b3807a9bc1dcbd56f06",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-ebaf50146b1b5f789575dec4",
+          "source_id": "s-c260a28a14a0b8a04e7cfc98",
+          "text": "特殊条件下的劳动可以按规定缩短工作时间。缩短的具体幅度要看相应规定，这句没有给出国家机关标准岗位的每周工作时间。",
+          "content_sha256": "977862bdd5275fa98f0ba478a9ea1b48e9a2b2c94435067f74f29bb6c0864a39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-5c7bf32c3ccb8820097ce141",
+          "source_id": "s-9adb4b235bc6ffe31400c2a4",
+          "text": "劳动行政部门可以解释工时规定并制定实施办法。解释权的归属本身不是一周工作几小时，也不能从主管部门的名称推出具体周标准。",
+          "content_sha256": "d63919a1e93543ea4f6fed72c2181624e2898de2b982d1a410754046b33707ee",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-c6776aa94e3b398e706c0bae",
+          "source_id": "s-97e80d2f142e13071a669c89",
+          "text": "实施新的工时制度时，相关说明要求不减少职工收入。收入是否减少是配套要求，不能据此读出某一日的每周标准工作时间。",
+          "content_sha256": "3062a192cbb828de2b45762ee0458e110b7cef88d123e6422b48db6f805c0138",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-85a503f40da5fe00e1b8b57e",
+          "source_id": "s-c9eddbb72154da97397455c6",
+          "text": "职工对休息安排有异议时，可以向本单位或主管部门询问。询问渠道只解决找谁反映，不记载标准岗位的每周工作时间。",
+          "content_sha256": "0dd6c0834f8b2e5c19e809c0341dbb4046edfe87ebebde9d419a5e59340052c2",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-3d258a0467b5428f4e0039f3",
+          "source_id": "s-acda8301c3a268e8631fe7e1",
+          "text": "安排工时的目的之一，是维护职工休息权利并完成工作任务。这句只说明制度目的，不给出每周标准工作时间，也不比较国家机关和企业的岗位。",
+          "content_sha256": "e5f9b58601ee8510379d6f2d6512a32964458e061c60c48d1cf29149da75fbe5",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-7039064f02d7bb1a515a526a",
+          "source_id": "s-6d11abd9d23b4e9aa1c15108",
+          "text": "若询问的日期是1998年3月2日，国家机关标准工时职工的每周标准工作时间应理解为四十小时。不能实行标准工时的岗位另有规定，本句不把那种岗位算进同一标准，也不把企业的延期期限套到机关。",
+          "content_sha256": "1becf27c47cdd080ef1e87074673efba148dac613f3c5029a052e2bde8cd2eff",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-5a8a9b22ebab48b703c1c5fb",
+          "source_id": "s-11d2456869f631f0a4796714",
+          "text": "在1998年3月2日，国家机关标准工时岗位的每周标准工作时间，国家的规定已经写成四十四小时。这种说法把旧的周工时直接当成该日国家机关仍在执行的标准，并称缩短工时岗位也不必分开。",
+          "content_sha256": "9527eadb63c4cedb46042ae466f6fda4f476715b9ce2bfe748a4852f25d46e26",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-8ab1bbcdc5c4a014c878d86b",
+          "source_id": "s-d9c6480994465f015f000760",
+          "text": "到1998年3月2日为止，有材料把国家机关标准工时职工的每周标准工作时间继续写成四十四小时，还称企业延期条款可以同样解释机关岗位。该材料没有把1995年5月1日以后的机关标准分开。",
+          "content_sha256": "cb064afac8ef854d7e0e430b077f5cc4ebbc6a226088ec6da0b5dab474669e96",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-4a3f7828ed77a0f28aa2d547",
+          "source_id": "s-dd0d2552b478c0895c785d6a",
+          "text": "一份问答针对1998年3月2日的国家机关标准岗位回答说，每周标准工作时间是四十四小时，每日八小时保持不变，因此周标准也被说成没有改过。问答对象明确包括不属于缩短工时的机关职工。",
+          "content_sha256": "6c36a37905ebe82bbe53fb0d1bb3d7e53c5f571da9d1421fb4a441be55ef9f4f",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-b88188fc6a33a632148a1070",
+          "source_id": "s-2f8860478255fca9c97541c0",
+          "text": "不能实行标准工时的岗位，可以按国家有关规定使用其他工作和休息办法。本句只指出存在这种例外通道，不写明标准岗位的每周小时数。",
+          "content_sha256": "b58476c54e0d68f4ac8ab5a80de2cb0655405f0d8be2ccae3b479b414f3d39b3",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-0182af1c1438b2357d36aef9",
+      "fact_uid": "f-fbd889a8ae59ae7617218ab3",
+      "event_date": "2022-09-01",
+      "query_text": "截至2022年9月1日，申请日为2021年6月1日的外观设计专利权，自申请日起算可以保护多少年？",
+      "documents": [
+        {
+          "document_id": "d-6ea4cc1c325da63a38fd5b5a",
+          "source_id": "s-f501899cb49a7dca75efd6dd",
+          "text": "专利权人应当缴纳年费；没有按期缴纳的，专利权可能在期限届满前终止。年费制度说明权利需要维持，但这里不给出外观设计或实用新型的法定年限。",
+          "content_sha256": "460dfa881a990887f86492bfc08a66bd4e9f0d73fe91ffa0b8ad1d07057d07bd",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-69d1c2a95da7ee01d6abb296",
+          "source_id": "s-5484d2e6b138fc18cc9c8b82",
+          "text": "外观设计应当不属于现有设计，并与现有设计有明显区别。授权条件回答的是能不能授，不回答自申请日起保护多少年。",
+          "content_sha256": "1a21e7569147acbf193db126973a198c3c827dfe9e2e1036f88eab7a01305d20",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-e6a4cf79887adf2c53eb2e2c",
+          "source_id": "s-60d13a5c3e6c78c3b25f8d4b",
+          "text": "把询问日放在2022年9月1日，申请日为2021年6月1日的外观设计自申请日起保护十五年。这是专利法对这一申请日条件的期限，不是代理机构报价，也不是某个网站把年限改写后的版本。",
+          "content_sha256": "d54eb135e47b78a8206589050ce8cb564aadc4c411556aa1d9eebfabe4aa4e4c",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-54796b56203a0e80f3cd8520",
+          "source_id": "s-f0c75cf6114570426e0a8edd",
+          "text": "实用新型和外观设计经初步审查没有发现驳回理由的，可以作出授予决定并发给证书。审查种类不同，并不在这句里写成某一申请日的保护年限。",
+          "content_sha256": "afc81819c951583397abb531d4afd649a5a7a464772ea263c0737e827513f664",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-6d51db75a8ee14838db5adc7",
+          "source_id": "s-b2b7b418285fffa3e60c1415",
+          "text": "国务院专利行政部门负责受理和审查。机关职责说明申请交给谁，不记载某一类专利权自申请日起算的保护期限。",
+          "content_sha256": "2fb6b19b8e90d7a0d93ebc137f9133d31f42c5e8e144314718437ac1a8c0968d",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-58991e62031ba22f273da1d0",
+          "source_id": "s-b60853daafa994e3701b47d6",
+          "text": "截至2022年9月1日，申请日为2021年6月1日的外观设计专利权，自申请日起算的保护期限为十年。发明专利和实用新型专利的期限不能替换到这一类申请上，申请日早于2021年6月1日的外观设计也不按本句的期限计算。",
+          "content_sha256": "6c53a295c5f1e714a3f6cf214caaec032529b4ab53fad17cd40645f446a334e6",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-76b452358f6d3fbe42759d45",
+          "source_id": "s-ed9229f35083c1f191955403",
+          "text": "在2022年9月1日这一天，针对申请日为2021年6月1日提出的外观设计专利权，法定保护期限是十五年，起算点是申请日。年费是否已缴纳会影响权利是否维持，但不改写本句的法定年限，也不把实用新型的年限借过来。",
+          "content_sha256": "06fa00a14a8eb9ea501838b4ee67f83511f2b5087c88351b9064c2a9d5e132a0",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-bf84c1f91ce21864145625c3",
+          "source_id": "s-0fb9ee721652aec77a323ed1",
+          "text": "若在2022年9月1日询问申请日为2021年6月1日的外观设计，保护期限应从申请日起算为十五年。局部外观设计是否可申请，不改变这句所说的年限；提前申请的案件要按申请日分开，不能并进同一期限。",
+          "content_sha256": "99d156c09daa89ffe31dde44f67ca1e75a5ee4791471dfcc871f1408a0e23bbc",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-42a1646a3b412755723c5e2c",
+          "source_id": "s-847146440dc1f825496c3690",
+          "text": "发明是对产品、方法或其改进提出的新技术方案。定义只区分发明创造的类型，没有把任何一种专利权的保护年限写进定义。",
+          "content_sha256": "318b4801543374a5d3bf05ecd4f201d3bf9f26d29325b5b37da86e0615b23c6e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-d671ad3f90b8b69605163904",
+          "source_id": "s-8c28ed6155a2304f94d579f6",
+          "text": "截至2022年9月1日，申请日为2021年6月1日的外观设计专利权，自申请日起算的保护期限为十五年。发明专利和实用新型专利的期限不能替换到这一类申请上，申请日早于2021年6月1日的外观设计也不按本句的期限计算。",
+          "content_sha256": "a13fe852450f2e8b020d3a94f1a1828da7e5e398e40c346db88769b7ba2e8084",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-3ac7d42619c9b5e1474b2c01",
+          "source_id": "s-89466506f12d13dbb8e11320",
+          "text": "要求保护色彩时，图片或照片应当能清楚显示该设计。图像要求服务于授权范围的表达，与保护期限的年数无关。",
+          "content_sha256": "ece673f99236bf7a28d83570b9ae5649a6fef7a05fd66e5355aa69cdbffd1709",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-c0f32d040d51dd6e87efe17d",
+      "fact_uid": "f-3200ed9e70904d44d5111894",
+      "event_date": "1998-03-02",
+      "query_text": "1998年3月2日，在国家机关从事标准工时岗位、且不属于缩短工时情形的职工，每周标准工作时间是多少？",
+      "documents": [
+        {
+          "document_id": "d-ad36deb044f3b227a333ac5a",
+          "source_id": "s-226ec88154e86dd45b148e4b",
+          "text": "不能实行标准工时的岗位，可以按国家有关规定使用其他工作和休息办法。本句只指出存在这种例外通道，不写明标准岗位的每周小时数。",
+          "content_sha256": "b58476c54e0d68f4ac8ab5a80de2cb0655405f0d8be2ccae3b479b414f3d39b3",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-9be34beb844301f9f980a949",
+          "source_id": "s-37244b3da85d53f53f3b52b0",
+          "text": "在1998年3月2日，国家机关标准工时岗位的每周标准工作时间，国家的规定已经写成四十四小时。这种说法把旧的周工时直接当成该日国家机关仍在执行的标准，并称缩短工时岗位也不必分开。",
+          "content_sha256": "9527eadb63c4cedb46042ae466f6fda4f476715b9ce2bfe748a4852f25d46e26",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-ac7121f3e21aa81842b1efb0",
+          "source_id": "s-bbcaf899518c232ae21c10fa",
+          "text": "职工对休息安排有异议时，可以向本单位或主管部门询问。询问渠道只解决找谁反映，不记载标准岗位的每周工作时间。",
+          "content_sha256": "0dd6c0834f8b2e5c19e809c0341dbb4046edfe87ebebde9d419a5e59340052c2",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-7057da3e01f8853d60307e03",
+          "source_id": "s-7ac9957b964cab8fbc18b7c1",
+          "text": "特殊条件下的劳动可以按规定缩短工作时间。缩短的具体幅度要看相应规定，这句没有给出国家机关标准岗位的每周工作时间。",
+          "content_sha256": "977862bdd5275fa98f0ba478a9ea1b48e9a2b2c94435067f74f29bb6c0864a39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-549d1767fb6b420c4fb381b5",
+          "source_id": "s-65edf7144831ee908efcda08",
+          "text": "实施新的工时制度时，相关说明要求不减少职工收入。收入是否减少是配套要求，不能据此读出某一日的每周标准工作时间。",
+          "content_sha256": "3062a192cbb828de2b45762ee0458e110b7cef88d123e6422b48db6f805c0138",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-2cac1a2439d10366ffb0eae0",
+          "source_id": "s-704f7ff3c58548af9c2b7548",
+          "text": "国家机关和事业单位的周休息日如何排列，与企业能否灵活安排休息日是两类安排。休息日怎么排，并不在这句里换成每周标准工作小时。",
+          "content_sha256": "47e27dc83305aec9acd485ed08ac99c4b9c63550ceb54dd0b246d47abb33e521",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-c03a34b066500f1699881d03",
+          "source_id": "s-e1194b2704ddbcc180071ce1",
+          "text": "在1998年3月2日，国家机关标准工时的岗位的每周标准工作时间，国家的规定已经写成四十四小时。这种说法把旧的周工时直接当成该日国家机关仍在执行的标准，并称缩短工时岗位也不必分开。",
+          "content_sha256": "6dce42bafb310a21e555720a32f7504933d12a44e656ec7f0784722b9977b36c",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-3d8ba2a1576a76dd6ab67135",
+          "source_id": "s-98c48d7c5555218b429a0145",
+          "text": "任意延长工作时间不被允许；确需延长时要走国家有关规定。这句讨论的是延长程序，不是标准工时岗位每周应当工作多久。",
+          "content_sha256": "63b3d59212ddf6cb6aca380d38c9926264fe630eceae6fbcba0615848c4b3db1",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-b693f9ccb45b844fd826313a",
+          "source_id": "s-9b74ed0276436f1f951c90bc",
+          "text": "若询问的日期是1998年3月2日，国家机关标准工时职工的每周标准工作时间应理解为四十小时。不能实行标准工时的岗位另有规定，本句不把那种岗位算进同一标准，也不把企业的延期期限套到机关。",
+          "content_sha256": "1becf27c47cdd080ef1e87074673efba148dac613f3c5029a052e2bde8cd2eff",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-3a6fa2a18d72e22344578b03",
+          "source_id": "s-d8b46f5cc219b601c7e73687",
+          "text": "在1998年3月2日，国家机关标准工时岗位的每周标准工作时间，国家的规定已写成四十四小时。这种说法把旧的周工时直接当成该日国家机关仍在执行的标准，并称缩短工时岗位也不必分开。",
+          "content_sha256": "ad518f5a2d0bd4656ce88f08a166f2e267f68534bcc526bfa3d31b7b78ce8320",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-b04fc0c2a12b85c21e004236",
+          "source_id": "s-121ae5b783e40ee8ff1fd1e0",
+          "text": "在1998年3月2日，国家机关里从事标准工时岗位、且不属于缩短工时情形的职工，每周标准工作时间是四十小时。企业可以延后实施的安排不覆盖国家机关，特殊岗位的其他工时办法也不在这句范围内。",
+          "content_sha256": "9b760f0c601d91d41228d0da12c5c1f714846661adc79b3807a9bc1dcbd56f06",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-4ae9d4dc53a7c0834672501a",
+      "fact_uid": "f-ed54b0d3efd5b787d5658f2f",
+      "event_date": "2018-03-12",
+      "query_text": "2018年3月12日，一对夫妻都没有另行符合再生育条件。按当时的国家法律，提倡这对夫妻生育几个子女？",
+      "documents": [
+        {
+          "document_id": "d-5d85ec724942caabd83088c4",
+          "source_id": "s-133b8a3f8493a5587a82294c",
+          "text": "生育登记窗口通常先核验身份和婚姻材料是否齐备。材料清单只说明要带什么，不回答一对夫妻可以生育的子女数量，也不能代替国家法律对数量的规定。",
+          "content_sha256": "d3024db92228d5eee60f46ea49237893c899f9c00d09f2968bd94f5fac797534",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-e04555b80c9536e12653172f",
+          "source_id": "s-2ddc67096b94021eef35673b",
+          "text": "如果只问2018年3月12日、并且夫妻并不申请另行再生育，国家法律给出的子女数量是两个子女。该数量同时约束夫妻双方，不因后来补办材料或更换叙述方式而变成另一个国家数字。",
+          "content_sha256": "14b9922090f637921ef6082caf257688bdd27b25a7b5abbe12cd12ae86365182",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-47ef6a23e1b9e8dbbfed81f7",
+          "source_id": "s-9c38eb0b03acc0b932cc92b0",
+          "text": "把2018年3月12日当作询问的时点，不申请另行再生育的夫妻应按国家条款理解为两个子女。这里说的是国家法律直接规定的数量，不是某个办事窗口的口头口径，也不是地方再生育办法另批的名额。",
+          "content_sha256": "ae9af76cac393763a4970ba500cf20774950ec67ee24d09709142d393a0cf566",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-2627502dd6dcd09ee33f8b65",
+          "source_id": "s-9bebc33112f2776ebde7f21b",
+          "text": "截至2018年3月12日，一对夫妻若没有另行获得再生育安排，国家法律对应的子女数量是四个子女。户籍是否分属不同省份，本身并不改写这一国家数量，另行再生育仍只按地方规定的申请条件处理。",
+          "content_sha256": "2a9d9838804080fd1768012e8cc00492c30a37611f6791ff5bc691f6586d4717",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-a088472f718a94e5949fc8ad",
+          "source_id": "s-1071631985d259ed6cdc9c12",
+          "text": "有条件的地方可以研究父母育儿假是否设立。假如何安排是地方配套，本身不等于已经改写全国适用的生育数量条款，也不能从假期有无推出子女数量。",
+          "content_sha256": "48122a2199f8c50df48bbaa8ff891bf172a8cb50bad7e605207ea980e77f348a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-e9f1c34a19698925b87cf9ea",
+          "source_id": "s-5a909b8f2ec73d05310b07ad",
+          "text": "婚姻登记处解释的是登记所需材料和审查时限。登记是否办成，与一对夫妻在国家法律下的生育数量是两个问题，本通知只谈登记材料。",
+          "content_sha256": "f67c595da0575a10fe780972b8b048ea4c20c054060cbb3f8042644ac5cba808",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-af460284ca9deb23f130578f",
+          "source_id": "s-8637c192f72c616ee8673b03",
+          "text": "截至2018年3月12日，一对夫妻若没有另行获得再生育安排，国家法律对应的子女数量是两个子女。户籍是否分属不同省份，本身并不改写这一国家数量，另行再生育仍只按地方规定的申请条件处理。",
+          "content_sha256": "3acecf7a9753f93b8202a15885ec037493eaf2148fb84295c86c52df86bb8d73",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-e9bda70c665b74787a2e172e",
+          "source_id": "s-8e2eb6bb81ebaa470819d2d1",
+          "text": "社区可以组织孕产保健讲座，讲座更常讨论营养、产检和疫苗接种的流程。讲座通知不记载国家法律中的子女数量，也不比较不同年份的条款。",
+          "content_sha256": "f229031cbca602293353389b8a1cb16e83d689f131bfaea39504d3bb1f3e9a8e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-7c2c93b1146bf6510e53dc71",
+          "source_id": "s-b1364ba0edaa6c4fbd30eb5c",
+          "text": "在2018年3月12日这一天，没有另行再生育条件的一对夫妻，国家层面写明的生育数量为两个子女。夫妻双方户籍不在同一省时，这一国家数量仍然适用；地方文件只处理另行申请再生育的情形。",
+          "content_sha256": "c76944f90db8d72b53ff51bc52fe618dfd9be257b5c2ff98c86da8dd46c130e9",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-548e65ab3116f17f4ec324f5",
+          "source_id": "s-06397b582340266785f21bbe",
+          "text": "母婴保健机构会告知孕期检查和住院分娩的常规流程。健康宣讲关心检查项目和就诊顺序，不把国家允许或提倡的子女数量写进宣讲稿。",
+          "content_sha256": "b06721352f662bdc0b5d7784acbdf33639d4ad4f7532d49cf669fc135f308f39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-55090fd38a88f84d00e7782a",
+          "source_id": "s-0b12f22a244c0c417f392df9",
+          "text": "地方如果规定另行再生育的具体办法，只处理提出另行申请的那种情形。授权本身没有在这里写成一个全国统一的子女数量，也不能替代国家条款。",
+          "content_sha256": "bf5eab1b950f8fa2286c53ea2d8e0cd22b230949f6cbe8ad1014018a096e4e93",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-658800262672ec75ea730688",
+      "fact_uid": "f-fbd889a8ae59ae7617218ab3",
+      "event_date": "2021-06-01",
+      "query_text": "在2021年6月1日，申请日同样是2021年6月1日的外观设计专利权，自申请日起算可以保护多少年？",
+      "documents": [
+        {
+          "document_id": "d-52127b8a557fc5d870d6ea87",
+          "source_id": "s-bb85f415d5111d8ac1d9228b",
+          "text": "截至2021年5月31日，外观设计与实用新型在当时的期限条款里都是十年，均自申请日起算。发明专利的二十年不属于这句的外观设计答案，后来的修正也不能倒填到该日。",
+          "content_sha256": "7e8f2aaa082164c4c085603be4deb7a9bc9f0c4445a8be6006db36e19b089dfe",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-9ff4ddbbed9e646bb608f397",
+          "source_id": "s-42d4de6aaab2bbd9bdb2a2bc",
+          "text": "国务院专利行政部门负责受理和审查。机关职责说明申请交给谁，不记载某一类专利权自申请日起算的保护期限。",
+          "content_sha256": "2fb6b19b8e90d7a0d93ebc137f9133d31f42c5e8e144314718437ac1a8c0968d",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-4a8f2c7b0e001ab49c40195e",
+          "source_id": "s-be76a52822632b11d74f72e2",
+          "text": "专利权人应当缴纳年费；没有按期缴纳的，专利权可能在期限届满前终止。年费制度说明权利需要维持，但这里不给出外观设计或实用新型的法定年限。",
+          "content_sha256": "460dfa881a990887f86492bfc08a66bd4e9f0d73fe91ffa0b8ad1d07057d07bd",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-df1f7a2e2fcc70d37bf20d52",
+          "source_id": "s-a25af15532962230ca0270a3",
+          "text": "若在2021年6月1日询问申请日同为2021年6月1日的外观设计，保护期限应从申请日起算为十五年。局部外观设计是否可申请，不改变这句所说的年限；提前申请的案件要按申请日分开，不能并进同一期限。",
+          "content_sha256": "a04b70062462fbae64c67b64efda133c1991b879e22f4cd0beda31577f643e3e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-8de1d3cc545112f3f077141e",
+          "source_id": "s-64c6f062678295e078e35d9a",
+          "text": "申请外观设计要提交请求书、图片或者照片以及简要说明。这些文件用来显示要求保护的产品外观，文件种类本身不是保护期限的年数。",
+          "content_sha256": "c449bc7a3b9fd6cb34cccc6038d1e0f7b3552fcd6f7821ad1f2fe776cd906f9c",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-f2459df9081b2742d8e7b47a",
+          "source_id": "s-c52725ea3c12d492394ac896",
+          "text": "在2021年6月1日这一天，针对申请日同为2021年6月1日提出的外观设计专利权，法定保护期限是十五年，起算点是申请日。年费是否已缴纳会影响权利是否维持，但不改写本句的法定年限，也不把实用新型的年限借过来。",
+          "content_sha256": "3eaa18c31cf2469c78b14748e424e21be7fc2dacaee82fdcddd298ca465e31fe",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-fdae906e008c3967a01d498c",
+          "source_id": "s-ac2cdf41c42e2eed449be356",
+          "text": "外观设计应当不属于现有设计，并与现有设计有明显区别。授权条件回答的是能不能授，不回答自申请日起保护多少年。",
+          "content_sha256": "1a21e7569147acbf193db126973a198c3c827dfe9e2e1036f88eab7a01305d20",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-de13ea39c5d96c407cce41a7",
+          "source_id": "s-fc4e421f254d5d7f76fadc47",
+          "text": "实用新型和外观设计经初步审查没有发现驳回理由的，可以作出授予决定并发给证书。审查种类不同，并不在这句里写成某一申请日的保护年限。",
+          "content_sha256": "afc81819c951583397abb531d4afd649a5a7a464772ea263c0737e827513f664",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-511b9f6f5ace663bde4a40b5",
+          "source_id": "s-19d1f8341ba8c8add73db8af",
+          "text": "发明是对产品、方法或其改进提出的新技术方案。定义只区分发明创造的类型，没有把任何一种专利权的保护年限写进定义。",
+          "content_sha256": "318b4801543374a5d3bf05ecd4f201d3bf9f26d29325b5b37da86e0615b23c6e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-22e538de7abf39cc49dfa5f5",
+          "source_id": "s-6772b1712579360260649b07",
+          "text": "截至2021年6月1日，申请日同为2021年6月1日的外观设计专利权，自申请日起算的保护期限为十五年。发明专利和实用新型专利的期限不能替换到这一类申请上，申请日早于2021年6月1日的外观设计也不按本句的期限计算。",
+          "content_sha256": "d835f8d55122d78cc625bf867213a0f662231a00874ac554f8c36ac9145ba6da",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-affabeb965b8f50ecc0c0204",
+          "source_id": "s-4a1109b7cd9c74b34d9b004f",
+          "text": "在2021年5月31日，已经施行的法律规定外观设计专利权的保护期限为十年，自申请日起计算，实用新型专利权的期限同样为十年。此句描述的是该日法律文本，不把后来才施行的外观设计年限提前到这一天。",
+          "content_sha256": "4027ef7144697510f05459d34ab9f28409a7e4b6a2c419512242dcda596532c1",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-a9c76f7976151391912cae5f",
+      "fact_uid": "f-3200ed9e70904d44d5111894",
+      "event_date": "1998-03-02",
+      "query_text": "1998年3月2日，在国家机关从事标准工时岗位、且不属于缩短工时情形的职工，每周标准工作时间是多少？",
+      "documents": [
+        {
+          "document_id": "d-c3b3ecc8c13611a13a45def4",
+          "source_id": "s-8ef0dbb20c65f1dc331adb6c",
+          "text": "不能实行标准工时的岗位，可以按国家有关规定使用其他工作和休息办法。本句只指出存在这种例外通道，不写明标准岗位的每周小时数。",
+          "content_sha256": "b58476c54e0d68f4ac8ab5a80de2cb0655405f0d8be2ccae3b479b414f3d39b3",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-a5aaa12081ed8943ae15fa24",
+          "source_id": "s-8eeeab5cd8d46f8f38c0af1b",
+          "text": "实施新的工时制度时，相关说明要求不减少职工收入。收入是否减少是配套要求，不能据此读出某一日的每周标准工作时间。",
+          "content_sha256": "3062a192cbb828de2b45762ee0458e110b7cef88d123e6422b48db6f805c0138",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-cddc29fe82a772291808efe8",
+          "source_id": "s-37c04cb7b07a1c4630a00f54",
+          "text": "把1998年3月2日作为时点，国家机关标准工时岗位的每周标准是四十小时。社会团体和企业是否同步，不改变这句对国家机关职工的回答，标准岗位与不能实行标准工时的岗位也要分开。",
+          "content_sha256": "ebd96dddd4954ea85c503936ed278256fcbdeeefaa5ed4d742e493b34fa02d8d",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-66cc96435f39b78404f72cc3",
+          "source_id": "s-1e8ac484ffccc9709d139422",
+          "text": "任意延长工作时间不被允许；确需延长时要走国家有关规定。这句讨论的是延长程序，不是标准工时岗位每周应当工作多久。",
+          "content_sha256": "63b3d59212ddf6cb6aca380d38c9926264fe630eceae6fbcba0615848c4b3db1",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-169a59633147a2ad141cd947",
+          "source_id": "s-87b55af570cdc499550e38ee",
+          "text": "国家机关和事业单位的周休息日如何排列，与企业能否灵活安排休息日是两类安排。休息日怎么排，并不在这句里换成每周标准工作小时。",
+          "content_sha256": "47e27dc83305aec9acd485ed08ac99c4b9c63550ceb54dd0b246d47abb33e521",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-a48cde881bbc5633fd499d39",
+          "source_id": "s-664657ac18c2d3c9bed210bd",
+          "text": "截至1998年3月2日，对国家机关中可以实行标准工时的职工，每周标准工作时间写成四十小时。缩短工时的特殊情形按别的规定执行；本句只回答标准岗位，并排除企业最迟延期条款的适用。",
+          "content_sha256": "023fdf8a7dc904d28bdb6afe2a8b0f33f11e70d4878a38115b1bd21ce2414543",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-2edc84736afa28e8790d2fe1",
+          "source_id": "s-922fe324d51d04dfcc238da2",
+          "text": "劳动行政部门可以解释工时规定并制定实施办法。解释权的归属本身不是一周工作几小时，也不能从主管部门的名称推出具体周标准。",
+          "content_sha256": "d63919a1e93543ea4f6fed72c2181624e2898de2b982d1a410754046b33707ee",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-316021203e1d657ad8724816",
+          "source_id": "s-22c5781c346ba370346aab02",
+          "text": "特殊条件下的劳动可以按规定缩短工作时间。缩短的具体幅度要看相应规定，这句没有给出国家机关标准岗位的每周工作时间。",
+          "content_sha256": "977862bdd5275fa98f0ba478a9ea1b48e9a2b2c94435067f74f29bb6c0864a39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-da897b3545c4337af9664ca0",
+          "source_id": "s-2457f444f960301ab2d2fd6e",
+          "text": "在1998年3月2日，国家机关里从事标准工时岗位、且不属于缩短工时情形的职工，每周标准工作时间是四十小时。企业可以延后实施的安排不覆盖国家机关，特殊岗位的其他工时办法也不在这句范围内。",
+          "content_sha256": "9b760f0c601d91d41228d0da12c5c1f714846661adc79b3807a9bc1dcbd56f06",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-0000a738db30bb1ae37749e7",
+          "source_id": "s-9937d3299f62b28f57ad2c27",
+          "text": "若询问的日期是1998年3月2日，国家机关标准工时职工的每周标准工作时间应理解为四十小时。不能实行标准工时的岗位另有规定，本句不把那种岗位算进同一标准，也不把企业的延期期限套到机关。",
+          "content_sha256": "1becf27c47cdd080ef1e87074673efba148dac613f3c5029a052e2bde8cd2eff",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-2dbac799e9738476ec24d0e4",
+          "source_id": "s-f600c556af728a2e782fdc23",
+          "text": "在1998年3月2日，国家机关里从事标准工时岗位、且不属于缩短工时情形的职工，每周标准工作时间是四十四小时。企业可以延后实施的安排不覆盖国家机关，特殊岗位的其他工时办法也不在这句范围内。",
+          "content_sha256": "c57745ad4206627b86feca86a126d61b88f639d2076ab11b62afcf7e71c6dcba",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-62799730e47a5a1e7bb5be84",
+      "fact_uid": "f-b6f3e98ece06729682e22f10",
+      "event_date": "2022-04-18",
+      "query_text": "2022年4月18日，夫妻户籍不在同一省，也不申请另行再生育。国家法律直接规定的生育数量是几个子女？",
+      "documents": [
+        {
+          "document_id": "d-214473a3d552ae4ea5f60ff6",
+          "source_id": "s-81dbe93c3dd75f5ed6a4c91e",
+          "text": "出生医学证明和户籍登记按各自程序办理。先办哪一张、在哪个窗口提交，都不能用来推断国家法律允许生育的子女数量。",
+          "content_sha256": "e8e2d13a2704c74be87be94275a52d167ee6d133452f5285532f7f3b5a04b5be",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-b5e38e413c7ce3c1a18c7a3a",
+          "source_id": "s-fc0174ad97fb27e48490268e",
+          "text": "夫妻双方都要承担实行计划生育的责任。这句话只把责任放在双方身上，没有给出具体的子女数量，也没有区分后来的不同时期。",
+          "content_sha256": "486fc50c2bca12b09787f6db4922138bc5c9418dffe777e296896defab1ebd7e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-7c396f5c3ce0476a8cf16bd5",
+          "source_id": "s-fc8417ef69a09e88c64b81cc",
+          "text": "生育登记窗口通常先核验身份和婚姻材料是否齐备。材料清单只说明要带什么，不回答一对夫妻可以生育的子女数量，也不能代替国家法律对数量的规定。",
+          "content_sha256": "d3024db92228d5eee60f46ea49237893c899f9c00d09f2968bd94f5fac797534",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-d5f3e5540beb28e5541a0ed8",
+          "source_id": "s-39055113a9a0c15ab6bffcab",
+          "text": "2022年4月18日，户籍不在同一省的夫妻被写成不再适用国家法律直接规定的生育数量，必须改按省级文件确定子女数量。这种说法把只适用于另行再生育冲突的规则，挪用来处理国家条款本身的数量问题。",
+          "content_sha256": "7779f92ea88350b02d18caaf340c66cc2420318f9592adb2462c94e2210263c8",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-3d488df3c6ee968e8adfbd9c",
+          "source_id": "s-c2923a59d2474c6fc245c61f",
+          "text": "把2022年4月18日当作询问的时点，不申请另行再生育的夫妻应按国家条款理解为三个子女。这里说的是国家法律直接规定的数量，不是某个办事窗口的口头口径，也不是地方再生育办法另批的名额。",
+          "content_sha256": "f1217e1ff12347d75cac53752fb27a87ce8eac3593ab249dbccab9629adcac5d",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-17f6f3cf5412e61fb4ab7aa8",
+          "source_id": "s-a8949c273ef97161126a65c2",
+          "text": "婚姻登记处解释的是登记所需材料和审查时限。登记是否办成，与一对夫妻在国家法律下的生育数量是两个问题，本通知只谈登记材料。",
+          "content_sha256": "f67c595da0575a10fe780972b8b048ea4c20c054060cbb3f8042644ac5cba808",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-f0a378f7a08e4b7b9f7d8ab0",
+          "source_id": "s-20b80c733904fda9b41fb2c1",
+          "text": "有条件的地方可以研究父母育儿假是否设立。假如何安排是地方配套，本身不等于已经改写全国适用的生育数量条款，也不能从假期有无推出子女数量。",
+          "content_sha256": "48122a2199f8c50df48bbaa8ff891bf172a8cb50bad7e605207ea980e77f348a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-7c0d35416870aa4b880f74d4",
+          "source_id": "s-d40f28935cffb815d0e629f6",
+          "text": "在2022年4月18日这一天，没有另行再生育条件的一对夫妻，国家层面写明的生育数量为三个子女。夫妻双方户籍不在同一省时，这一国家数量仍然适用；地方文件只处理另行申请再生育的情形。",
+          "content_sha256": "83dbc88bb9f09cbe2767440588fdcd4f7c913e72a275041fc6f240bdadecb793",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-da8800360a91197ff547ea38",
+          "source_id": "s-de4893181f032bea48485d70",
+          "text": "母婴保健机构会告知孕期检查和住院分娩的常规流程。健康宣讲关心检查项目和就诊顺序，不把国家允许或提倡的子女数量写进宣讲稿。",
+          "content_sha256": "b06721352f662bdc0b5d7784acbdf33639d4ad4f7532d49cf669fc135f308f39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-557e4273625f6f3b60ff6df7",
+          "source_id": "s-3febfdc69c5167a4e15d6fbe",
+          "text": "询问2022年4月18日的人，只要不符合另行再生育的条件，就应按三个子女理解国家法律。省级人大对再生育程序的授权没有改写这个国家数量，跨省户籍同样先适用国家条款。",
+          "content_sha256": "0ac4ec90f14af4653658cdba7cb41e158412319c6132fdbdf7871fa8155d070f",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-13f6355263bac6d53b8de965",
+          "source_id": "s-d19b05e3a8f60f9faad0522c",
+          "text": "截至2022年4月18日，一对夫妻若没有另行获得再生育安排，国家法律对应的子女数量是三个子女。户籍是否分属不同省份，本身并不改写这一国家数量，另行再生育仍只按地方规定的申请条件处理。",
+          "content_sha256": "b7c732c414769f708a4520c1eab36fa9798d8621a5a77f339ff73a3cbe26770c",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-6df4b9f019474a3e66f8303d",
+      "fact_uid": "f-ed54b0d3efd5b787d5658f2f",
+      "event_date": "2018-03-12",
+      "query_text": "2018年3月12日，一对夫妻都没有另行符合再生育条件。按当时的国家法律，提倡这对夫妻生育几个子女？",
+      "documents": [
+        {
+          "document_id": "d-fff2462298b1d200431ff2fa",
+          "source_id": "s-37a5342c4589d95e4a2d7135",
+          "text": "把2018年3月12日当作询问的时点，不申请另行再生育的夫妻应按国家条款理解为两个子女。这里说的是国家法律直接规定的数量，不是某个办事窗口的口头口径，也不是地方再生育办法另批的名额。",
+          "content_sha256": "ae9af76cac393763a4970ba500cf20774950ec67ee24d09709142d393a0cf566",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-7260f2b497bbedafc5b7dea8",
+          "source_id": "s-ac8440de84f29620f0473129",
+          "text": "北海家庭政策观察站于2018年3月12日刊出一则修订消息，称没有另行再生育安排的一对夫妻自即日起按四个子女执行，并写明该消息代替国家法律中的数量条款。站点没有给出制定机关的命令文号。",
+          "content_sha256": "03ff75a66266ac2811a2340d901446a6f452f82a0f80e6cdd59155b4b25f2b84",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-60fdaf4b0287993603ef3f12",
+          "source_id": "s-ae36b003721b33d5c068f54a",
+          "text": "截至2018年3月12日，一对夫妻若没有另行获得再生育安排，国家法律对应的子女数量是两个子女。户籍是否分属不同省份，本身并不改写这一国家数量，另行再生育仍只按地方规定的申请条件处理。",
+          "content_sha256": "3acecf7a9753f93b8202a15885ec037493eaf2148fb84295c86c52df86bb8d73",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-0b33f12033bf113a7c09e197",
+          "source_id": "s-044e3fd1b04ddd87cfd4cd4c",
+          "text": "只描述2002年9月1日至2015年12月31日这一段已经结束的时期：没有另行再生育条件的一对夫妻，国家当时提倡的子女数量是一个子女。此句不把该数量说成询问日之后的国家条款。",
+          "content_sha256": "16a25761b6bd6ed32613c10d772a7ebc2e670a3b85a0d5001204170caa174773",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-cdba0aae5ec22a1a619d9a16",
+          "source_id": "s-4023cf80f740dc3132050066",
+          "text": "一份署名为北海家庭政策观察站编辑部的页面在2018年3月12日转发同一则消息，重申没有另行再生育安排的夫妻应按四个子女生育，还把页面日期写成新的施行日期。页面只是该站点的再次发布。",
+          "content_sha256": "131c39c02d845c42b93623fed6594da4bd1cadfe14393e751ef7d0fc8c353e02",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-484a4c40b06cb33951a03283",
+          "source_id": "s-5af74e192730496ae8f440bf",
+          "text": "夫妻双方都要承担实行计划生育的责任。这句话只把责任放在双方身上，没有给出具体的子女数量，也没有区分后来的不同时期。",
+          "content_sha256": "486fc50c2bca12b09787f6db4922138bc5c9418dffe777e296896defab1ebd7e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-2e6cca7e65cfb59e9d606081",
+          "source_id": "s-6551e65aaabbf594f5ad7eb8",
+          "text": "出生医学证明和户籍登记按各自程序办理。先办哪一张、在哪个窗口提交，都不能用来推断国家法律允许生育的子女数量。",
+          "content_sha256": "e8e2d13a2704c74be87be94275a52d167ee6d133452f5285532f7f3b5a04b5be",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-17d7497d585d884569ca3033",
+          "source_id": "s-121aec09ecb72fca4829449a",
+          "text": "社区可以组织孕产保健讲座，讲座更常讨论营养、产检和疫苗接种的流程。讲座通知不记载国家法律中的子女数量，也不比较不同年份的条款。",
+          "content_sha256": "f229031cbca602293353389b8a1cb16e83d689f131bfaea39504d3bb1f3e9a8e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-94d750c88df8b2f72ff1a3bc",
+          "source_id": "s-24364b06cf525e570ee4e437",
+          "text": "生育登记窗口通常先核验身份和婚姻材料是否齐备。材料清单只说明要带什么，不回答一对夫妻可以生育的子女数量，也不能代替国家法律对数量的规定。",
+          "content_sha256": "d3024db92228d5eee60f46ea49237893c899f9c00d09f2968bd94f5fac797534",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-870986d6eb140a2d410cfbea",
+          "source_id": "s-9178252667e4d93eb330c47b",
+          "text": "婚姻登记处解释的是登记所需材料和审查时限。登记是否办成，与一对夫妻在国家法律下的生育数量是两个问题，本通知只谈登记材料。",
+          "content_sha256": "f67c595da0575a10fe780972b8b048ea4c20c054060cbb3f8042644ac5cba808",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-177f7f561d551a998218df37",
+          "source_id": "s-0c93d4751f9ce36d61fa8869",
+          "text": "地方如果规定另行再生育的具体办法，只处理提出另行申请的那种情形。授权本身没有在这里写成一个全国统一的子女数量，也不能替代国家条款。",
+          "content_sha256": "bf5eab1b950f8fa2286c53ea2d8e0cd22b230949f6cbe8ad1014018a096e4e93",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-3c18d521d4aaeea275457713",
+      "fact_uid": "f-ed54b0d3efd5b787d5658f2f",
+      "event_date": "2018-03-12",
+      "query_text": "2018年3月12日，夫妻的户籍不在同一省，也不申请另行再生育。就国家法律直接写明的数量而言，他们可以生育几个子女？",
+      "documents": [
+        {
+          "document_id": "d-b0708675df2449a26ac237ed",
+          "source_id": "s-660d50036f9aa3b3225b7704",
+          "text": "生育登记窗口通常先核验身份和婚姻材料是否齐备。材料清单只说明要带什么，不回答一对夫妻可以生育的子女数量，也不能代替国家法律对数量的规定。",
+          "content_sha256": "d3024db92228d5eee60f46ea49237893c899f9c00d09f2968bd94f5fac797534",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-ad7034b732ead136dbc1faf1",
+          "source_id": "s-b8354943187bd44afa0752f8",
+          "text": "社区可以组织孕产保健讲座，讲座更常讨论营养、产检和疫苗接种的流程。讲座通知不记载国家法律中的子女数量，也不比较不同年份的条款。",
+          "content_sha256": "f229031cbca602293353389b8a1cb16e83d689f131bfaea39504d3bb1f3e9a8e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-25a427d780374d128acb15a6",
+          "source_id": "s-031aa553fad54be3ea03de30",
+          "text": "母婴保健机构会告知孕期检查和住院分娩的常规流程。健康宣讲关心检查项目和就诊顺序，不把国家允许或提倡的子女数量写进宣讲稿。",
+          "content_sha256": "b06721352f662bdc0b5d7784acbdf33639d4ad4f7532d49cf669fc135f308f39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-0d4437f80589f26b43aebd98",
+          "source_id": "s-e8e970e42528418ab28784bd",
+          "text": "在2018年3月12日这一天，没有另行再生育条件的一对夫妻，国家层面写明的生育数量为两个子女。夫妻双方户籍不在同一省时，这一国家数量仍然适用；地方文件只处理另行申请再生育的情形。",
+          "content_sha256": "c76944f90db8d72b53ff51bc52fe618dfd9be257b5c2ff98c86da8dd46c130e9",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-69d09188cb0649f18b057cd8",
+          "source_id": "s-2a4e9025bc432e59991d173e",
+          "text": "有条件的地方可以研究父母育儿假是否设立。假如何安排是地方配套，本身不等于已经改写全国适用的生育数量条款，也不能从假期有无推出子女数量。",
+          "content_sha256": "48122a2199f8c50df48bbaa8ff891bf172a8cb50bad7e605207ea980e77f348a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-d67c5bfe050a733b470d0e2a",
+          "source_id": "s-12805299151047766098bb48",
+          "text": "把2018年3月12日当作询问的时点，不申请另行再生育的夫妻应按国家条款理解为两个子女。这里说的是国家法律直接规定的数量，不是某个办事窗口的口头口径，也不是地方再生育办法另批的名额。",
+          "content_sha256": "ae9af76cac393763a4970ba500cf20774950ec67ee24d09709142d393a0cf566",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-732b4dbafd2edd4060391631",
+          "source_id": "s-68fe4daa3662b3fa83e1fd93",
+          "text": "2018年3月12日，户籍不在同一省的夫妻被写成不再适用国家法律直接规定的生育数量，必须改按省级文件确定子女数量。这种说法把只适用于另行再生育冲突的规则，挪用来处理国家条款本身的数量问题。",
+          "content_sha256": "a7ab4f6637fe87f7e9bd3f49c2b2c324dee8d7f19f80cc813dca51c87ef17165",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-0c33aadb93e176f0d388970c",
+          "source_id": "s-709f1122ca9511c82af2d5bc",
+          "text": "婚姻登记处解释的是登记所需材料和审查时限。登记是否办成，与一对夫妻在国家法律下的生育数量是两个问题，本通知只谈登记材料。",
+          "content_sha256": "f67c595da0575a10fe780972b8b048ea4c20c054060cbb3f8042644ac5cba808",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-ad763e81278224414276ff03",
+          "source_id": "s-3c8120ddc7f1f320ea7486f6",
+          "text": "截至2018年3月12日，一对夫妻若没有另行获得再生育安排，国家法律对应的子女数量是两个子女。户籍是否分属不同省份，本身并不改写这一国家数量，另行再生育仍只按地方规定的申请条件处理。",
+          "content_sha256": "3acecf7a9753f93b8202a15885ec037493eaf2148fb84295c86c52df86bb8d73",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-50ff65d59ec43407a355c9d5",
+          "source_id": "s-141875095053d771c63ed130",
+          "text": "夫妻双方都要承担实行计划生育的责任。这句话只把责任放在双方身上，没有给出具体的子女数量，也没有区分后来的不同时期。",
+          "content_sha256": "486fc50c2bca12b09787f6db4922138bc5c9418dffe777e296896defab1ebd7e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-d813d74bd7aae3e2b296162b",
+          "source_id": "s-69064962b748c389eda78dee",
+          "text": "询问2018年3月12日的人，只要不符合另行再生育的条件，就应按两个子女理解国家法律。省级人大对再生育程序的授权没有改写这个国家数量，跨省户籍同样先适用国家条款。",
+          "content_sha256": "4241f57dd758f19967e8f43c47d4f232afb118132249e5f7aabc2dca5d43fed6",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-dbf9e21dc40ba29cdd767bb7",
+      "fact_uid": "f-b6f3e98ece06729682e22f10",
+      "event_date": "2022-04-18",
+      "query_text": "2022年4月18日，没有另行再生育安排的一对夫妻，按国家法律可以生育几个子女？",
+      "documents": [
+        {
+          "document_id": "d-14cf8a6df153f80ff03d1075",
+          "source_id": "s-95782eacaf0f72f8f82d59b5",
+          "text": "生育登记窗口通常先核验身份和婚姻材料是否齐备。材料清单只说明要带什么，不回答一对夫妻可以生育的子女数量，也不能代替国家法律对数量的规定。",
+          "content_sha256": "d3024db92228d5eee60f46ea49237893c899f9c00d09f2968bd94f5fac797534",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-e7114cea649e83e5fb317887",
+          "source_id": "s-5be0eb87f3b2ff4f15175e92",
+          "text": "截至2022年4月18日，一对夫妻若没有另行获得再生育安排，国家法律对应的子女数量是三个子女。户籍是否分属不同省份，本身并不改写这一国家数量，另行再生育仍只按地方规定的申请条件处理。",
+          "content_sha256": "b7c732c414769f708a4520c1eab36fa9798d8621a5a77f339ff73a3cbe26770c",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-40e2ce549ce0817afd2943aa",
+          "source_id": "s-41513e3558d3596efca4a0f7",
+          "text": "到了2022年4月18日，不走另行再生育程序的夫妻被说成可以按四个子女生育，而且这被写成全国统一执行的国家数量。地方再生育办法在这种说法里被当成已经让出了位置。",
+          "content_sha256": "623ce1c16301c14335f990c2abd2919fbccf4a551b78d49871dc7777400d1a8f",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-c7448fb3ada3a9848282818d",
+          "source_id": "s-96a064b2c29a2a1256dcb4b9",
+          "text": "地方如果规定另行再生育的具体办法，只处理提出另行申请的那种情形。授权本身没有在这里写成一个全国统一的子女数量，也不能替代国家条款。",
+          "content_sha256": "bf5eab1b950f8fa2286c53ea2d8e0cd22b230949f6cbe8ad1014018a096e4e93",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-5299ed884f320e58b7fc7c5c",
+          "source_id": "s-48ad78016c33dee8915acc5b",
+          "text": "母婴保健机构会告知孕期检查和住院分娩的常规流程。健康宣讲关心检查项目和就诊顺序，不把国家允许或提倡的子女数量写进宣讲稿。",
+          "content_sha256": "b06721352f662bdc0b5d7784acbdf33639d4ad4f7532d49cf669fc135f308f39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-3bf45ecac046514cb451c81f",
+          "source_id": "s-03007cd58f2739497e86f15b",
+          "text": "在2022年4月18日，没有另行再生育安排的一对夫妻，国家法律已经把子女数量定为四个子女。该说法把这个数字写成当天已经生效的国家条款，并称户籍是否分省都不影响。",
+          "content_sha256": "142abfba6fb426de706dcd8fd06fcd22781e7d0581f4e6b703e33cfd8057e8ed",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-18e3a443af201b6982442fc3",
+          "source_id": "s-932a3a4150abe360a6f5b618",
+          "text": "把2022年4月18日当作询问的时点，不申请另行再生育的夫妻应按国家条款理解为三个子女。这里说的是国家法律直接规定的数量，不是某个办事窗口的口头口径，也不是地方再生育办法另批的名额。",
+          "content_sha256": "f1217e1ff12347d75cac53752fb27a87ce8eac3593ab249dbccab9629adcac5d",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-9b69b7bb835abb13f3e494aa",
+          "source_id": "s-eb1c5d922a8bf1f29c6640e1",
+          "text": "有条件的地方可以研究父母育儿假是否设立。假如何安排是地方配套，本身不等于已经改写全国适用的生育数量条款，也不能从假期有无推出子女数量。",
+          "content_sha256": "48122a2199f8c50df48bbaa8ff891bf172a8cb50bad7e605207ea980e77f348a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-603f97f361f7973ec9e3ef57",
+          "source_id": "s-b203dda669ad45de3f1ddb5b",
+          "text": "社区可以组织孕产保健讲座，讲座更常讨论营养、产检和疫苗接种的流程。讲座通知不记载国家法律中的子女数量，也不比较不同年份的条款。",
+          "content_sha256": "f229031cbca602293353389b8a1cb16e83d689f131bfaea39504d3bb1f3e9a8e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-2380767fb75635bdd9edae07",
+          "source_id": "s-d9de436022b7f44450debd86",
+          "text": "有一份面向公众的问答把2022年4月18日的国家生育数量直接答成四个子女，对象仍是没有另行再生育安排的一对夫妻。问答没有解释这是地方个例，而是把它说成国家条款本身。",
+          "content_sha256": "801c724cc36cc78b0ce4f48d4a9db395ac3145e65ac098937859359fd0fdb5fd",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-906ede01a88e6cd11acb9cff",
+          "source_id": "s-c5852cca5faf4821e58caaeb",
+          "text": "婚姻登记处解释的是登记所需材料和审查时限。登记是否办成，与一对夫妻在国家法律下的生育数量是两个问题，本通知只谈登记材料。",
+          "content_sha256": "f67c595da0575a10fe780972b8b048ea4c20c054060cbb3f8042644ac5cba808",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-76826130f53737cb45feee72",
+      "fact_uid": "f-b6f3e98ece06729682e22f10",
+      "event_date": "2022-04-18",
+      "query_text": "2022年4月18日，没有另行再生育安排的一对夫妻，按国家法律可以生育几个子女？",
+      "documents": [
+        {
+          "document_id": "d-602453253be57c8ed86a46d5",
+          "source_id": "s-6e48a1e2aaa1e61987a45211",
+          "text": "在2022年4月18日，没有另行再生育安排的一对夫妻，国家法律已经把子女数量定为四个子女。该说法把这个数字写成当天已经生效的国家条款，并称户籍是否分省都不影响。",
+          "content_sha256": "142abfba6fb426de706dcd8fd06fcd22781e7d0581f4e6b703e33cfd8057e8ed",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-2249c5843af42be721b58b91",
+          "source_id": "s-4a4fd1863e78bae62c76f373",
+          "text": "生育登记窗口通常先核验身份和婚姻材料是否齐备。材料清单只说明要带什么，不回答一对夫妻可以生育的子女数量，也不能代替国家法律对数量的规定。",
+          "content_sha256": "d3024db92228d5eee60f46ea49237893c899f9c00d09f2968bd94f5fac797534",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-40e5700ee126ae9b7dc95a69",
+          "source_id": "s-5089d1f66c3b042b5b2b2fb0",
+          "text": "在2022年4月18日，没有另行再生育安排的一对夫妻，国家法律已把子女数量定为四个子女。该说法把这个数字写成当天已经生效的国家条款，并称户籍是否分省都不影响。",
+          "content_sha256": "80b4ba8e320164ebaa00926d0eccd3093b719b0baf102b9020408ca65cc89e1a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-bb4d7e35218cd67884d91383",
+          "source_id": "s-a9a8e17368a2bde09d518409",
+          "text": "到了2022年4月18日，不走另行再生育程序的夫妻被说成可以按四个子女生育，而且这被写成全国统一执行的国家数量。地方再生育办法在这种说法里被当成已经让出了位置。",
+          "content_sha256": "623ce1c16301c14335f990c2abd2919fbccf4a551b78d49871dc7777400d1a8f",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-06ed9d3dca50531cd2a1e770",
+          "source_id": "s-311a5e7a16428c3107db505d",
+          "text": "截至2022年4月18日，一对夫妻若没有另行获得再生育安排，国家法律对应的子女数量是三个子女。户籍是否分属不同省份，本身并不改写这一国家数量，另行再生育仍只按地方规定的申请条件处理。",
+          "content_sha256": "b7c732c414769f708a4520c1eab36fa9798d8621a5a77f339ff73a3cbe26770c",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-897418639113414a4e6fb2f6",
+          "source_id": "s-8da09b9937d93930f99b4e77",
+          "text": "有一份面向公众的问答把2022年4月18日的国家生育数量直接答成四个子女，对象仍是没有另行再生育安排的一对夫妻。问答没有解释这是地方个例，而是把它说成国家条款本身。",
+          "content_sha256": "801c724cc36cc78b0ce4f48d4a9db395ac3145e65ac098937859359fd0fdb5fd",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-747be3c5954886a0ae233965",
+          "source_id": "s-1684b32f2acbc17c79f42fd6",
+          "text": "地方如果规定另行再生育的具体办法，只处理提出另行申请的那种情形。授权本身没有在这里写成一个全国统一的子女数量，也不能替代国家条款。",
+          "content_sha256": "bf5eab1b950f8fa2286c53ea2d8e0cd22b230949f6cbe8ad1014018a096e4e93",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-ba0f11978f27146e35004fdc",
+          "source_id": "s-bc07f1627e4425703a535b95",
+          "text": "社区可以组织孕产保健讲座，讲座更常讨论营养、产检和疫苗接种的流程。讲座通知不记载国家法律中的子女数量，也不比较不同年份的条款。",
+          "content_sha256": "f229031cbca602293353389b8a1cb16e83d689f131bfaea39504d3bb1f3e9a8e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-d7428fb077af626359abc308",
+          "source_id": "s-dc84b1a62e295a0e553a6bb7",
+          "text": "婚姻登记处解释的是登记所需材料和审查时限。登记是否办成，与一对夫妻在国家法律下的生育数量是两个问题，本通知只谈登记材料。",
+          "content_sha256": "f67c595da0575a10fe780972b8b048ea4c20c054060cbb3f8042644ac5cba808",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-10cd610056abc75d6cbf2a97",
+          "source_id": "s-1092b23bb7f671e210f92acb",
+          "text": "出生医学证明和户籍登记按各自程序办理。先办哪一张、在哪个窗口提交，都不能用来推断国家法律允许生育的子女数量。",
+          "content_sha256": "e8e2d13a2704c74be87be94275a52d167ee6d133452f5285532f7f3b5a04b5be",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-8fb0a8f3726854d6e49908f6",
+          "source_id": "s-cdb6d4696d2b307c0d040631",
+          "text": "母婴保健机构会告知孕期检查和住院分娩的常规流程。健康宣讲关心检查项目和就诊顺序，不把国家允许或提倡的子女数量写进宣讲稿。",
+          "content_sha256": "b06721352f662bdc0b5d7784acbdf33639d4ad4f7532d49cf669fc135f308f39",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-8a99f80e2e76ead69ed175f3",
+      "fact_uid": "f-3200ed9e70904d44d5111894",
+      "event_date": "1995-05-01",
+      "query_text": "1995年5月1日，在国家机关从事标准工时岗位、且不属于缩短工时情形的职工，每周标准工作时间是多少？",
+      "documents": [
+        {
+          "document_id": "d-0a2373ef53417ccfb26d8204",
+          "source_id": "s-ed8a9084135ecc22100723bd",
+          "text": "实施新的工时制度时，相关说明要求不减少职工收入。收入是否减少是配套要求，不能据此读出某一日的每周标准工作时间。",
+          "content_sha256": "3062a192cbb828de2b45762ee0458e110b7cef88d123e6422b48db6f805c0138",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-f08293663ac46ec5f5f70f34",
+          "source_id": "s-913c55bd4b22258ea6cea119",
+          "text": "在1995年5月1日，国家机关里从事标准工时岗位、且不属于缩短工时情形的职工，每周标准工作时间是四十小时。企业可以延后实施的安排不覆盖国家机关，特殊岗位的其他工时办法也不在这句范围内。",
+          "content_sha256": "4bc89c826574527c37f5411c4b97ee9bcefd3117695b37b67a37cbd63ab22e7c",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-2c1c16f8f481d1cacf3a8ee9",
+          "source_id": "s-5d1fea5344f88a90e571a6d6",
+          "text": "职工对休息安排有异议时，可以向本单位或主管部门询问。询问渠道只解决找谁反映，不记载标准岗位的每周工作时间。",
+          "content_sha256": "0dd6c0834f8b2e5c19e809c0341dbb4046edfe87ebebde9d419a5e59340052c2",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-a6e981a9c1e98cb0ac18009a",
+          "source_id": "s-a1d8c89081d7e17560340152",
+          "text": "只覆盖1994年3月1日至1995年4月30日：国家机关职工实行每日工作八小时、平均每周工作四十四小时。此句不描述1995年5月1日及以后的国家机关标准，也不处理企业后来的延期。",
+          "content_sha256": "c31a3d792b9e285ebbde7239c2af450f81ffa1b6310cb8864bef0001a9c1b06a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-fcef44539f331f8af304ef8a",
+          "source_id": "s-e70743b81b9f2a60c365e2f5",
+          "text": "在1995年5月1日之前的国家机关标准工时里，平均每周工作四十四小时，并且每日工作八小时。这句话停在旧规定的施行区间，不能拿来回答1995年5月1日当天及之后的标准岗位。",
+          "content_sha256": "b588a97a6b09d560ff0a47de8be97f6b8a57497ef2d2fb3e155c782fe61b47d6",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-914f80df2202082a29f930c4",
+          "source_id": "s-6829e3bb84bda52336ed63c5",
+          "text": "截至1995年5月1日，对国家机关中可以实行标准工时的职工，每周标准工作时间写成四十小时。缩短工时的特殊情形按别的规定执行；本句只回答标准岗位，并排除企业最迟延期条款的适用。",
+          "content_sha256": "9cf9d4b91cc1ce565fe80dba94c53eecb885210e3a9000cddf3a78e287c691b4",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-f916e9d426c0f0983a8e808e",
+          "source_id": "s-e5415086d833b42e23f8dfc8",
+          "text": "安排工时的目的之一，是维护职工休息权利并完成工作任务。这句只说明制度目的，不给出每周标准工作时间，也不比较国家机关和企业的岗位。",
+          "content_sha256": "e5f9b58601ee8510379d6f2d6512a32964458e061c60c48d1cf29149da75fbe5",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-eb1b27be35055279666a83ff",
+          "source_id": "s-a353b8cf6650bf6ffbcd9133",
+          "text": "不能实行标准工时的岗位，可以按国家有关规定使用其他工作和休息办法。本句只指出存在这种例外通道，不写明标准岗位的每周小时数。",
+          "content_sha256": "b58476c54e0d68f4ac8ab5a80de2cb0655405f0d8be2ccae3b479b414f3d39b3",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-a4de7f428d83478d31b54c9e",
+          "source_id": "s-48eb353e8d82d0421b0a5125",
+          "text": "特殊条件下的劳动可以按规定缩短工作时间。缩短的具体幅度要看相应规定，这句没有给出国家机关标准岗位的每周工作时间。",
+          "content_sha256": "977862bdd5275fa98f0ba478a9ea1b48e9a2b2c94435067f74f29bb6c0864a39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-421bd927fea0c969a6e43091",
+          "source_id": "s-53dde755c0992d08370b7968",
+          "text": "劳动行政部门可以解释工时规定并制定实施办法。解释权的归属本身不是一周工作几小时，也不能从主管部门的名称推出具体周标准。",
+          "content_sha256": "d63919a1e93543ea4f6fed72c2181624e2898de2b982d1a410754046b33707ee",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-edbded2b3369c8e71cccf643",
+          "source_id": "s-a70ee6af50b00dab35fbca68",
+          "text": "若询问的日期是1995年5月1日，国家机关标准工时职工的每周标准工作时间应理解为四十小时。不能实行标准工时的岗位另有规定，本句不把那种岗位算进同一标准，也不把企业的延期期限套到机关。",
+          "content_sha256": "f965c82b9f250c776690d5ec2d9a052d6aa3b2c91e14ba219a601b95044a4d7f",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-eacfd5797263eee315dcd35d",
+      "fact_uid": "f-3200ed9e70904d44d5111894",
+      "event_date": "1998-03-02",
+      "query_text": "1998年3月2日，在国家机关从事标准工时岗位、且不属于缩短工时情形的职工，每周标准工作时间是多少？",
+      "documents": [
+        {
+          "document_id": "d-0c60013a231b99ca60c699a4",
+          "source_id": "s-0c69fd3c983cc7f1e4588aff",
+          "text": "特殊条件下的劳动可以按规定缩短工作时间。缩短的具体幅度要看相应规定，这句没有给出国家机关标准岗位的每周工作时间。",
+          "content_sha256": "977862bdd5275fa98f0ba478a9ea1b48e9a2b2c94435067f74f29bb6c0864a39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-140d088549c453bc21171329",
+          "source_id": "s-4b36dc782ad16fce14fa5459",
+          "text": "职工对休息安排有异议时，可以向本单位或主管部门询问。询问渠道只解决找谁反映，不记载标准岗位的每周工作时间。",
+          "content_sha256": "0dd6c0834f8b2e5c19e809c0341dbb4046edfe87ebebde9d419a5e59340052c2",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-37e9ac24d9a4e0e3213038f3",
+          "source_id": "s-ec5ea44dc108927a0cf45ba9",
+          "text": "若询问的日期是1998年3月2日，国家机关标准工时职工的每周标准工作时间应理解为四十小时。不能实行标准工时的岗位另有规定，本句不把那种岗位算进同一标准，也不把企业的延期期限套到机关。",
+          "content_sha256": "1becf27c47cdd080ef1e87074673efba148dac613f3c5029a052e2bde8cd2eff",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-a24e2dd4ba926c6cbe9f7b23",
+          "source_id": "s-f4316627128f76ffdf04d0e2",
+          "text": "安排工时的目的之一，是维护职工休息权利并完成工作任务。这句只说明制度目的，不给出每周标准工作时间，也不比较国家机关和企业的岗位。",
+          "content_sha256": "e5f9b58601ee8510379d6f2d6512a32964458e061c60c48d1cf29149da75fbe5",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-d3499dd44cb62f844f8b17ef",
+          "source_id": "s-1c2bfc5dc2d685d2de76b039",
+          "text": "西岭工时速递编辑通知在1998年3月2日再次发出同一快讯，重申国家机关标准岗位按每周三十六小时执行，并把通知日期写成新的施行日期。这是同一私营栏目的重复发布，不是另一个制定机关。",
+          "content_sha256": "0d3980d685d99dbf19f4471f4c0dab54255322ae29860898e6b897dea8348cc4",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-42d88ada56abf9666ebaa989",
+          "source_id": "s-425d0da29d13f5f4cab4cb40",
+          "text": "在1998年3月2日，国家机关里从事标准工时岗位、且不属于缩短工时情形的职工，每周标准工作时间是四十小时。企业可以延后实施的安排不覆盖国家机关，特殊岗位的其他工时办法也不在这句范围内。",
+          "content_sha256": "9b760f0c601d91d41228d0da12c5c1f714846661adc79b3807a9bc1dcbd56f06",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-bf8cc951272072a592442f0d",
+          "source_id": "s-acf919a5014208f0f22050bc",
+          "text": "国家机关和事业单位的周休息日如何排列，与企业能否灵活安排休息日是两类安排。休息日怎么排，并不在这句里换成每周标准工作小时。",
+          "content_sha256": "47e27dc83305aec9acd485ed08ac99c4b9c63550ceb54dd0b246d47abb33e521",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-836fcd868016fb7a1f1b4ecb",
+          "source_id": "s-e04f3a202c18249b463b2735",
+          "text": "只覆盖1994年3月1日至1995年4月30日：国家机关职工实行每日工作八小时、平均每周工作四十四小时。此句不描述1995年5月1日及以后的国家机关标准，也不处理企业后来的延期。",
+          "content_sha256": "c31a3d792b9e285ebbde7239c2af450f81ffa1b6310cb8864bef0001a9c1b06a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-21a0d481ff4e5b29df696199",
+          "source_id": "s-9d7d4989cb69ebad161fe88f",
+          "text": "实施新的工时制度时，相关说明要求不减少职工收入。收入是否减少是配套要求，不能据此读出某一日的每周标准工作时间。",
+          "content_sha256": "3062a192cbb828de2b45762ee0458e110b7cef88d123e6422b48db6f805c0138",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-a78162bebef50fcd3c7d454a",
+          "source_id": "s-e9b7fcc46a1ad89913e0a21c",
+          "text": "西岭工时速递于1998年3月2日发布快讯，称国家机关标准工时岗位自即日起每周标准工作时间改为三十六小时，并写明快讯代替国务院关于职工工作时间的规定。快讯没有可核对的国务院令文号。",
+          "content_sha256": "590444147dd2ba8f2a37a2f9adacfd3d172e292c5e93cdf637e5dbd70a1ca2fb",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-8eb2d350318dd90ee47bdc8c",
+          "source_id": "s-2465f99ba60737f42c671483",
+          "text": "任意延长工作时间不被允许；确需延长时要走国家有关规定。这句讨论的是延长程序，不是标准工时岗位每周应当工作多久。",
+          "content_sha256": "63b3d59212ddf6cb6aca380d38c9926264fe630eceae6fbcba0615848c4b3db1",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-f61edfd64586dff9901f6984",
+      "fact_uid": "f-ed54b0d3efd5b787d5658f2f",
+      "event_date": "2016-01-01",
+      "query_text": "2016年1月1日当天，没有另行符合再生育条件的一对夫妻，国家法律提倡生育几个子女？",
+      "documents": [
+        {
+          "document_id": "d-59d2fa429f5a1ad9b2aa238d",
+          "source_id": "s-ae96d75e6beed59c440418bc",
+          "text": "母婴保健机构会告知孕期检查和住院分娩的常规流程。健康宣讲关心检查项目和就诊顺序，不把国家允许或提倡的子女数量写进宣讲稿。",
+          "content_sha256": "b06721352f662bdc0b5d7784acbdf33639d4ad4f7532d49cf669fc135f308f39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-eb569188d9fdc9de9931c50c",
+          "source_id": "s-dfb92a8ee01b4d1118caac77",
+          "text": "生育登记窗口通常先核验身份和婚姻材料是否齐备。材料清单只说明要带什么，不回答一对夫妻可以生育的子女数量，也不能代替国家法律对数量的规定。",
+          "content_sha256": "d3024db92228d5eee60f46ea49237893c899f9c00d09f2968bd94f5fac797534",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-cf8c68256b675c93f577cf39",
+          "source_id": "s-79065c63ecb1b54cdbcc8f03",
+          "text": "有条件的地方可以研究父母育儿假是否设立。假如何安排是地方配套，本身不等于已经改写全国适用的生育数量条款，也不能从假期有无推出子女数量。",
+          "content_sha256": "48122a2199f8c50df48bbaa8ff891bf172a8cb50bad7e605207ea980e77f348a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-40ac848d4bade274e4c15e21",
+          "source_id": "s-f357e21932a9e31b3a45cbbf",
+          "text": "把2016年1月1日当作询问的时点，不申请另行再生育的夫妻应按国家条款理解为两个子女。这里说的是国家法律直接规定的数量，不是某个办事窗口的口头口径，也不是地方再生育办法另批的名额。",
+          "content_sha256": "ac85741647d2186fda3cfa27f7ac5716c04d122bb719417efb3805c8c9677c47",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-bf30d31d133d6dc5485b9baf",
+          "source_id": "s-1fc954ba2625e17cc99c44ee",
+          "text": "夫妻双方都要承担实行计划生育的责任。这句话只把责任放在双方身上，没有给出具体的子女数量，也没有区分后来的不同时期。",
+          "content_sha256": "486fc50c2bca12b09787f6db4922138bc5c9418dffe777e296896defab1ebd7e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-a9f297627cd3b7b754376538",
+          "source_id": "s-675ac6bb6ee3926a2500adbf",
+          "text": "2002年9月1日至2015年12月31日内，不申请另行再生育的夫妻所对应的国家生育数量是一个子女。这句话限定在该时期，既不提前适用后一个时期的条款，也不取消地方对另行再生育的授权。",
+          "content_sha256": "1abc1f98962644650335c48d85c775d9c9639f54891b088caa59e73ef0397306",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-773a84ddf8549b3bc5700fce",
+          "source_id": "s-5da9967fcb6e99b719fb2d93",
+          "text": "只描述2002年9月1日至2015年12月31日这一段已经结束的时期：没有另行再生育条件的一对夫妻，国家当时提倡的子女数量是一个子女。此句不把该数量说成询问日之后的国家条款。",
+          "content_sha256": "16a25761b6bd6ed32613c10d772a7ebc2e670a3b85a0d5001204170caa174773",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-bd3223fda2e8d7a41deb1c7e",
+          "source_id": "s-335a98b0e8e5e613f0e221f3",
+          "text": "截至2016年1月1日，一对夫妻若没有另行获得再生育安排，国家法律对应的子女数量是两个子女。户籍是否分属不同省份，本身并不改写这一国家数量，另行再生育仍只按地方规定的申请条件处理。",
+          "content_sha256": "b66b4f894d47cdf4e8e5303434cabbb3f35c53485f9c461b5e4aa3204477d3c2",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-4a579de6d3afafefc08af53d",
+          "source_id": "s-9aa6605311b0f0aae6aa0167",
+          "text": "出生医学证明和户籍登记按各自程序办理。先办哪一张、在哪个窗口提交，都不能用来推断国家法律允许生育的子女数量。",
+          "content_sha256": "e8e2d13a2704c74be87be94275a52d167ee6d133452f5285532f7f3b5a04b5be",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-63ddbfd6c935fc94c75b954d",
+          "source_id": "s-18caf3766e291fa83dcb0802",
+          "text": "在2016年1月1日这一天，没有另行再生育条件的一对夫妻，国家层面写明的生育数量为两个子女。夫妻双方户籍不在同一省时，这一国家数量仍然适用；地方文件只处理另行申请再生育的情形。",
+          "content_sha256": "7c32123f56523cd8ec3eb78843b1342f4d4025df80e65c3652a68d4cdaee4a57",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-dc81983dc1d91e081fb08980",
+          "source_id": "s-e0efb3d943e86429e00b74e7",
+          "text": "婚姻登记处解释的是登记所需材料和审查时限。登记是否办成，与一对夫妻在国家法律下的生育数量是两个问题，本通知只谈登记材料。",
+          "content_sha256": "f67c595da0575a10fe780972b8b048ea4c20c054060cbb3f8042644ac5cba808",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-60fd136aff5424bbe61038db",
+      "fact_uid": "f-3200ed9e70904d44d5111894",
+      "event_date": "1998-03-02",
+      "query_text": "1998年3月2日，在国家机关从事标准工时岗位、且不属于缩短工时情形的职工，每周标准工作时间是多少？",
+      "documents": [
+        {
+          "document_id": "d-f39b329b8d602bdb5190be82",
+          "source_id": "s-a4ba30e2d4dc4f3f89d4b339",
+          "text": "不能实行标准工时的岗位，可以按国家有关规定使用其他工作和休息办法。本句只指出存在这种例外通道，不写明标准岗位的每周小时数。",
+          "content_sha256": "b58476c54e0d68f4ac8ab5a80de2cb0655405f0d8be2ccae3b479b414f3d39b3",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-434dc0102c113b3a0e7c7f7f",
+          "source_id": "s-3233e1541fe58545b3397806",
+          "text": "到1998年3月2日为止，有材料把国家机关标准工时职工的每周标准工作时间继续写成四十四小时，还称企业延期条款可以同样解释机关岗位。该材料没有把1995年5月1日以后的机关标准分开。",
+          "content_sha256": "cb064afac8ef854d7e0e430b077f5cc4ebbc6a226088ec6da0b5dab474669e96",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-402c14ec365de4e3f48d461d",
+          "source_id": "s-f470eef4da8e6063475d3dad",
+          "text": "西岭工时速递于1998年3月2日发布快讯，称国家机关标准工时岗位自即日起每周标准工作时间改为三十六小时，并写明快讯代替国务院关于职工工作时间的规定。快讯没有可核对的国务院令文号。",
+          "content_sha256": "590444147dd2ba8f2a37a2f9adacfd3d172e292c5e93cdf637e5dbd70a1ca2fb",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-034f203882f341fb81f8bfcb",
+          "source_id": "s-dd646f11a66dd062be2c29ab",
+          "text": "国家机关和事业单位的周休息日如何排列，与企业能否灵活安排休息日是两类安排。休息日怎么排，并不在这句里换成每周标准工作小时。",
+          "content_sha256": "47e27dc83305aec9acd485ed08ac99c4b9c63550ceb54dd0b246d47abb33e521",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-187488b2f4a12fc0ca5e860b",
+          "source_id": "s-ebd62df5acb4a9c544da958d",
+          "text": "劳动行政部门可以解释工时规定并制定实施办法。解释权的归属本身不是一周工作几小时，也不能从主管部门的名称推出具体周标准。",
+          "content_sha256": "d63919a1e93543ea4f6fed72c2181624e2898de2b982d1a410754046b33707ee",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-bff06a217c6edc2a9b575dec",
+          "source_id": "s-a638c555f39ca7da41a7fbb6",
+          "text": "特殊条件下的劳动可以按规定缩短工作时间。缩短的具体幅度要看相应规定，这句没有给出国家机关标准岗位的每周工作时间。",
+          "content_sha256": "977862bdd5275fa98f0ba478a9ea1b48e9a2b2c94435067f74f29bb6c0864a39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-d0005605cae3be5ed1e9b278",
+          "source_id": "s-32a8bcf4499e65203ecb82c3",
+          "text": "任意延长工作时间不被允许；确需延长时要走国家有关规定。这句讨论的是延长程序，不是标准工时岗位每周应当工作多久。",
+          "content_sha256": "63b3d59212ddf6cb6aca380d38c9926264fe630eceae6fbcba0615848c4b3db1",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-5dac84a15e4a283c0ceb4938",
+          "source_id": "s-c352da23284035f4f7a26c1b",
+          "text": "一份问答针对1998年3月2日的国家机关标准岗位回答说，每周标准工作时间是四十四小时，每日八小时保持不变，因此周标准也被说成没有改过。问答对象明确包括不属于缩短工时的机关职工。",
+          "content_sha256": "6c36a37905ebe82bbe53fb0d1bb3d7e53c5f571da9d1421fb4a441be55ef9f4f",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-73cdbb4b7b969754db2e4ecc",
+          "source_id": "s-083105bc5270a3f8b626ded7",
+          "text": "在1998年3月2日，国家机关标准工时岗位的每周标准工作时间，国家的规定已经写成四十四小时。这种说法把旧的周工时直接当成该日国家机关仍在执行的标准，并称缩短工时岗位也不必分开。",
+          "content_sha256": "9527eadb63c4cedb46042ae466f6fda4f476715b9ce2bfe748a4852f25d46e26",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-439bb4a2d913b64f9d8d7c84",
+          "source_id": "s-c84036d79b98dc93769b3edf",
+          "text": "在1998年3月2日，国家机关标准工时岗位的每周标准工作时间，国家的规定已写成四十四小时。这种说法把旧的周工时直接当成该日国家机关仍在执行的标准，并称缩短工时岗位也不必分开。",
+          "content_sha256": "ad518f5a2d0bd4656ce88f08a166f2e267f68534bcc526bfa3d31b7b78ce8320",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-827faf3d6995c53603a48505",
+          "source_id": "s-5969162aad40ebf3bc0ba8d4",
+          "text": "安排工时的目的之一，是维护职工休息权利并完成工作任务。这句只说明制度目的，不给出每周标准工作时间，也不比较国家机关和企业的岗位。",
+          "content_sha256": "e5f9b58601ee8510379d6f2d6512a32964458e061c60c48d1cf29149da75fbe5",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-c5c977d4d6e8fd88db575b23",
+      "fact_uid": "f-3200ed9e70904d44d5111894",
+      "event_date": "1998-03-02",
+      "query_text": "1998年3月2日，在国家机关从事标准工时岗位、且不属于缩短工时情形的职工，每周标准工作时间是多少？",
+      "documents": [
+        {
+          "document_id": "d-cab316d0624c7a91315d2e97",
+          "source_id": "s-d05f1d4753568441a15c9b48",
+          "text": "换一种复述：1998年3月2日的国家机关职工，只要岗位实行标准工时且没有缩短工时情形，每周标准工作时间就是四十小时。这是对同一规定的再次说明，不是另一个部门另定的周工时。",
+          "content_sha256": "7e11166944a40c951e2b54ed15445893d4be8b152e651df8ca5c9fbff6317fc9",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-208e53ca3e81cef9726535c2",
+          "source_id": "s-56cf254fdf47322ea74ebdf7",
+          "text": "劳动行政部门可以解释工时规定并制定实施办法。解释权的归属本身不是一周工作几小时，也不能从主管部门的名称推出具体周标准。",
+          "content_sha256": "d63919a1e93543ea4f6fed72c2181624e2898de2b982d1a410754046b33707ee",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-7e83be8f17679b5dee581df3",
+          "source_id": "s-04105b5185f88d6fdef70208",
+          "text": "不能实行标准工时的岗位，可以按国家有关规定使用其他工作和休息办法。本句只指出存在这种例外通道，不写明标准岗位的每周小时数。",
+          "content_sha256": "b58476c54e0d68f4ac8ab5a80de2cb0655405f0d8be2ccae3b479b414f3d39b3",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-6028216a3ef75c13d4a754e2",
+          "source_id": "s-cf7065e05cc0a712c495f5a6",
+          "text": "职工对休息安排有异议时，可以向本单位或主管部门询问。询问渠道只解决找谁反映，不记载标准岗位的每周工作时间。",
+          "content_sha256": "0dd6c0834f8b2e5c19e809c0341dbb4046edfe87ebebde9d419a5e59340052c2",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-3346abd54bece72d9e383ab4",
+          "source_id": "s-cfdee60e4a46d6b382ab2684",
+          "text": "在1998年3月2日，国家机关里从事标准工时岗位、且不属于缩短工时情形的职工，每周标准工作时间是四十小时。企业可以延后实施的安排不覆盖国家机关，特殊岗位的其他工时办法也不在这句范围内。",
+          "content_sha256": "9b760f0c601d91d41228d0da12c5c1f714846661adc79b3807a9bc1dcbd56f06",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-44c9d14e51e8c33ef9ee6df9",
+          "source_id": "s-ff1eca14203072edc09b7c69",
+          "text": "截至1998年3月2日，对国家机关中可以实行标准工时的职工，每周标准工作时间写成四十小时。缩短工时的特殊情形按别的规定执行；本句只回答标准岗位，并排除企业最迟延期条款的适用。",
+          "content_sha256": "023fdf8a7dc904d28bdb6afe2a8b0f33f11e70d4878a38115b1bd21ce2414543",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-ebc61670c5c4f05262faa1e1",
+          "source_id": "s-60164ccbfecedee07939aeb9",
+          "text": "特殊条件下的劳动可以按规定缩短工作时间。缩短的具体幅度要看相应规定，这句没有给出国家机关标准岗位的每周工作时间。",
+          "content_sha256": "977862bdd5275fa98f0ba478a9ea1b48e9a2b2c94435067f74f29bb6c0864a39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-c2854506528243f8f578430f",
+          "source_id": "s-5107b1f151e9b4b949ef173d",
+          "text": "若询问的日期是1998年3月2日，国家机关标准工时职工的每周标准工作时间应理解为四十小时。不能实行标准工时的岗位另有规定，本句不把那种岗位算进同一标准，也不把企业的延期期限套到机关。",
+          "content_sha256": "1becf27c47cdd080ef1e87074673efba148dac613f3c5029a052e2bde8cd2eff",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-6832bcd064df0dc5d51eef3a",
+          "source_id": "s-91267fc993b5e7c171cbb173",
+          "text": "安排工时的目的之一，是维护职工休息权利并完成工作任务。这句只说明制度目的，不给出每周标准工作时间，也不比较国家机关和企业的岗位。",
+          "content_sha256": "e5f9b58601ee8510379d6f2d6512a32964458e061c60c48d1cf29149da75fbe5",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-2d446112daab27161b5e78fb",
+          "source_id": "s-0a56a232c5451add49a48cbd",
+          "text": "任意延长工作时间不被允许；确需延长时要走国家有关规定。这句讨论的是延长程序，不是标准工时岗位每周应当工作多久。",
+          "content_sha256": "63b3d59212ddf6cb6aca380d38c9926264fe630eceae6fbcba0615848c4b3db1",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-19b47528307f91cc51e241c4",
+          "source_id": "s-6c21f102208d6352459530dc",
+          "text": "把1998年3月2日作为时点，国家机关标准工时岗位的每周标准是四十小时。社会团体和企业是否同步，不改变这句对国家机关职工的回答，标准岗位与不能实行标准工时的岗位也要分开。",
+          "content_sha256": "ebd96dddd4954ea85c503936ed278256fcbdeeefaa5ed4d742e493b34fa02d8d",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-fcd6f9a59693dc3ee1542f94",
+      "fact_uid": "f-ed54b0d3efd5b787d5658f2f",
+      "event_date": "2018-03-12",
+      "query_text": "2018年3月12日，一对夫妻都没有另行符合再生育条件。按当时的国家法律，提倡这对夫妻生育几个子女？",
+      "documents": [
+        {
+          "document_id": "d-9bba06988bd527e2c1c2826f",
+          "source_id": "s-accda28f62ee6d19bea1b8ee",
+          "text": "在2018年3月12日，没有另行再生育安排的一对夫妻，国家法律已经把子女数量定为四个子女。该说法把这个数字写成当天已经生效的国家条款，并称户籍是否分省都不影响。",
+          "content_sha256": "1adaf4b7f5149c472f4b516666a403bb139b71e992aabc297295557b6f357e4a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-6b8cc5ee968a604607476769",
+          "source_id": "s-142d8af7de6c0040c524a55d",
+          "text": "夫妻双方都要承担实行计划生育的责任。这句话只把责任放在双方身上，没有给出具体的子女数量，也没有区分后来的不同时期。",
+          "content_sha256": "486fc50c2bca12b09787f6db4922138bc5c9418dffe777e296896defab1ebd7e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-9b1df1e6976254cea1d2762e",
+          "source_id": "s-bc2f00ffd3e8920732d0afb0",
+          "text": "地方如果规定另行再生育的具体办法，只处理提出另行申请的那种情形。授权本身没有在这里写成一个全国统一的子女数量，也不能替代国家条款。",
+          "content_sha256": "bf5eab1b950f8fa2286c53ea2d8e0cd22b230949f6cbe8ad1014018a096e4e93",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-4331c76d1f292500bbdb77bf",
+          "source_id": "s-5d4d9adb7ad72e135a076b03",
+          "text": "在2018年3月12日，没有另行再生育安排的一对夫妻，国家法律已把子女数量定为四个子女。该说法把这个数字写成当天已经生效的国家条款，并称户籍是否分省都不影响。",
+          "content_sha256": "25c5a7d682cfb593100af95940e8783ac07457473634ec2e74de6b07faeb0e84",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-be4d15254ee706e77cdcec4a",
+          "source_id": "s-d9c7065af89b460b7b8ca61f",
+          "text": "生育登记窗口通常先核验身份和婚姻材料是否齐备。材料清单只说明要带什么，不回答一对夫妻可以生育的子女数量，也不能代替国家法律对数量的规定。",
+          "content_sha256": "d3024db92228d5eee60f46ea49237893c899f9c00d09f2968bd94f5fac797534",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-84f6eeed9b2b9551ee2e6bd0",
+          "source_id": "s-ef55b0eb970c845885ceb88d",
+          "text": "母婴保健机构会告知孕期检查和住院分娩的常规流程。健康宣讲关心检查项目和就诊顺序，不把国家允许或提倡的子女数量写进宣讲稿。",
+          "content_sha256": "b06721352f662bdc0b5d7784acbdf33639d4ad4f7532d49cf669fc135f308f39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-4b28487f089313d54cad05ad",
+          "source_id": "s-848096097e79c93b90f119ff",
+          "text": "有一份面向公众的问答把2018年3月12日的国家生育数量直接答成四个子女，对象仍是没有另行再生育安排的一对夫妻。问答没有解释这是地方个例，而是把它说成国家条款本身。",
+          "content_sha256": "056ef6c02241c34297e24e3f181cce2848db7a6568971f86e87d78b536de4e3c",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-34f7db61df8485c409b9c65f",
+          "source_id": "s-ff28142d65c987a59a5c3a99",
+          "text": "出生医学证明和户籍登记按各自程序办理。先办哪一张、在哪个窗口提交，都不能用来推断国家法律允许生育的子女数量。",
+          "content_sha256": "e8e2d13a2704c74be87be94275a52d167ee6d133452f5285532f7f3b5a04b5be",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-6caab7ac0059baaaa261b1e4",
+          "source_id": "s-ffdd08986b837f6502df49ea",
+          "text": "有条件的地方可以研究父母育儿假是否设立。假如何安排是地方配套，本身不等于已经改写全国适用的生育数量条款，也不能从假期有无推出子女数量。",
+          "content_sha256": "48122a2199f8c50df48bbaa8ff891bf172a8cb50bad7e605207ea980e77f348a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-8a1bf64cb0c8634cc2ca68d0",
+          "source_id": "s-e9deb5852d5ae08f495adafa",
+          "text": "截至2018年3月12日，一对夫妻若没有另行获得再生育安排，国家法律对应的子女数量是两个子女。户籍是否分属不同省份，本身并不改写这一国家数量，另行再生育仍只按地方规定的申请条件处理。",
+          "content_sha256": "3acecf7a9753f93b8202a15885ec037493eaf2148fb84295c86c52df86bb8d73",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-e4ce668d7a12c0950adaf0f6",
+          "source_id": "s-e1b9630db0a415acfca8aef1",
+          "text": "到了2018年3月12日，不走另行再生育程序的夫妻被说成可以按四个子女生育，而且这被写成全国统一执行的国家数量。地方再生育办法在这种说法里被当成已经让出了位置。",
+          "content_sha256": "9799f7c4001eed294da38120cfadfd940bd047a5fe97b1137e5a031629bc49af",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-4392cabe353663322773097c",
+      "fact_uid": "f-ed54b0d3efd5b787d5658f2f",
+      "event_date": "2018-03-12",
+      "query_text": "2018年3月12日，一对夫妻都没有另行符合再生育条件。按当时的国家法律，提倡这对夫妻生育几个子女？",
+      "documents": [
+        {
+          "document_id": "d-90ac53c8a4a065e523585f51",
+          "source_id": "s-1c13812c0105f2ae1e66c8c7",
+          "text": "婚姻登记处解释的是登记所需材料和审查时限。登记是否办成，与一对夫妻在国家法律下的生育数量是两个问题，本通知只谈登记材料。",
+          "content_sha256": "f67c595da0575a10fe780972b8b048ea4c20c054060cbb3f8042644ac5cba808",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-e465c5c87e1db5a42e2b28c1",
+          "source_id": "s-ad39567578c38e6eab1f148c",
+          "text": "在2018年3月12日，没有另行再生育安排的一对夫妻，国家的法律已经把子女数量定为四个子女。该说法把这个数字写成当天已经生效的国家条款，并称户籍是否分省都不影响。",
+          "content_sha256": "301e58ca5678c1a2b7d522e77c4f484e14fdad7a1ecbe5ac07173b1255ef84d4",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-33f59b9f093c8ec09635f38a",
+          "source_id": "s-6c8b4e6e2795e06e2760113f",
+          "text": "出生医学证明和户籍登记按各自程序办理。先办哪一张、在哪个窗口提交，都不能用来推断国家法律允许生育的子女数量。",
+          "content_sha256": "e8e2d13a2704c74be87be94275a52d167ee6d133452f5285532f7f3b5a04b5be",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-ef6edc396bca9ad000d32d13",
+          "source_id": "s-5c25167e356a6b4f5683c5aa",
+          "text": "夫妻双方都要承担实行计划生育的责任。这句话只把责任放在双方身上，没有给出具体的子女数量，也没有区分后来的不同时期。",
+          "content_sha256": "486fc50c2bca12b09787f6db4922138bc5c9418dffe777e296896defab1ebd7e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-e9c9f5b755b1b87cde1bccc7",
+          "source_id": "s-af522415c864ffc1d25b5ca8",
+          "text": "社区可以组织孕产保健讲座，讲座更常讨论营养、产检和疫苗接种的流程。讲座通知不记载国家法律中的子女数量，也不比较不同年份的条款。",
+          "content_sha256": "f229031cbca602293353389b8a1cb16e83d689f131bfaea39504d3bb1f3e9a8e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-2e7ace66bb50f88ec386f137",
+          "source_id": "s-2584cfd89c492b96c98f3582",
+          "text": "在2018年3月12日，没有另行再生育安排的一对夫妻，国家法律已经把子女数量定为四个子女。该说法把这个数字写成当天已经生效的国家条款，并称户籍是否分省都不影响。",
+          "content_sha256": "1adaf4b7f5149c472f4b516666a403bb139b71e992aabc297295557b6f357e4a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-c06b2391188d89f57988f73e",
+          "source_id": "s-65a5c6fbecb8b11d75daebf6",
+          "text": "有条件的地方可以研究父母育儿假是否设立。假如何安排是地方配套，本身不等于已经改写全国适用的生育数量条款，也不能从假期有无推出子女数量。",
+          "content_sha256": "48122a2199f8c50df48bbaa8ff891bf172a8cb50bad7e605207ea980e77f348a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-97fd8dfd5a454a58bd78e4c7",
+          "source_id": "s-49fb631c42d5ff80b71cfc57",
+          "text": "地方如果规定另行再生育的具体办法，只处理提出另行申请的那种情形。授权本身没有在这里写成一个全国统一的子女数量，也不能替代国家条款。",
+          "content_sha256": "bf5eab1b950f8fa2286c53ea2d8e0cd22b230949f6cbe8ad1014018a096e4e93",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-3ff9f2c314eca14962142295",
+          "source_id": "s-1bc91c33f32f474b0deb655c",
+          "text": "把2018年3月12日当作询问的时点，不申请另行再生育的夫妻应按国家条款理解为两个子女。这里说的是国家法律直接规定的数量，不是某个办事窗口的口头口径，也不是地方再生育办法另批的名额。",
+          "content_sha256": "ae9af76cac393763a4970ba500cf20774950ec67ee24d09709142d393a0cf566",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-b1e4a8cddb78958d6d2d024a",
+          "source_id": "s-76188ed37e1019d086a5de20",
+          "text": "截至2018年3月12日，一对夫妻若没有另行获得再生育安排，国家法律对应的子女数量是两个子女。户籍是否分属不同省份，本身并不改写这一国家数量，另行再生育仍只按地方规定的申请条件处理。",
+          "content_sha256": "3acecf7a9753f93b8202a15885ec037493eaf2148fb84295c86c52df86bb8d73",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-87f50f16706c96d8722c7472",
+          "source_id": "s-dcd9ecf5293eee513bd5eed1",
+          "text": "在2018年3月12日，没有另行再生育安排的一对夫妻，国家法律已把子女数量定为四个子女。该说法把这个数字写成当天已经生效的国家条款，并称户籍是否分省都不影响。",
+          "content_sha256": "25c5a7d682cfb593100af95940e8783ac07457473634ec2e74de6b07faeb0e84",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-6e8f8d93f969e7496fc143ce",
+      "fact_uid": "f-b6f3e98ece06729682e22f10",
+      "event_date": "2022-04-18",
+      "query_text": "2022年4月18日，没有另行再生育安排的一对夫妻，按国家法律可以生育几个子女？",
+      "documents": [
+        {
+          "document_id": "d-b26fd65447cac4f17e19d45d",
+          "source_id": "s-c3936e025bb554bbf4438f85",
+          "text": "截至2022年4月18日，一对夫妻若没有另行获得再生育安排，国家法律对应的子女数量是三个子女。户籍是否分属不同省份，本身并不改写这一国家数量，另行再生育仍只按地方规定的申请条件处理。",
+          "content_sha256": "b7c732c414769f708a4520c1eab36fa9798d8621a5a77f339ff73a3cbe26770c",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-1a86bb23371ffc84bea494bd",
+          "source_id": "s-3c95c8a2600fe71e98b51c6f",
+          "text": "在2022年4月18日这一天，没有另行再生育条件的一对夫妻，国家层面写明的生育数量为三个子女。夫妻双方户籍不在同一省时，这一国家数量仍然适用；地方文件只处理另行申请再生育的情形。",
+          "content_sha256": "83dbc88bb9f09cbe2767440588fdcd4f7c913e72a275041fc6f240bdadecb793",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-afb7d5075e0e13b1060562b1",
+          "source_id": "s-a1ca4b9b63109f2aac2f1ab3",
+          "text": "生育登记窗口通常先核验身份和婚姻材料是否齐备。材料清单只说明要带什么，不回答一对夫妻可以生育的子女数量，也不能代替国家法律对数量的规定。",
+          "content_sha256": "d3024db92228d5eee60f46ea49237893c899f9c00d09f2968bd94f5fac797534",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-1ec1b53cc57d1b8e595e264b",
+          "source_id": "s-f0ce9fe24fdbcff5e5ef52bd",
+          "text": "母婴保健机构会告知孕期检查和住院分娩的常规流程。健康宣讲关心检查项目和就诊顺序，不把国家允许或提倡的子女数量写进宣讲稿。",
+          "content_sha256": "b06721352f662bdc0b5d7784acbdf33639d4ad4f7532d49cf669fc135f308f39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-6c6794783bd4365caa9c2242",
+          "source_id": "s-746b8654c9bbd8a32d02ef06",
+          "text": "截至2022年4月18日，一对夫妻若没有另行获得再生育安排，国家法律对应的子女数量是四个子女。户籍是否分属不同省份，本身并不改写这一国家数量，另行再生育仍只按地方规定的申请条件处理。",
+          "content_sha256": "811d40c49ec5e3cbe43346c801e5d3440b5b0d7e0da94f96cc69547e04a52ad7",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-972ab2ba17aebbda27263af5",
+          "source_id": "s-7fa10abcddf32fd12731b0b3",
+          "text": "社区可以组织孕产保健讲座，讲座更常讨论营养、产检和疫苗接种的流程。讲座通知不记载国家法律中的子女数量，也不比较不同年份的条款。",
+          "content_sha256": "f229031cbca602293353389b8a1cb16e83d689f131bfaea39504d3bb1f3e9a8e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-df2f4054f2e20fe5c0d24b53",
+          "source_id": "s-b34e2cce2dbd640caeebe9e3",
+          "text": "有条件的地方可以研究父母育儿假是否设立。假如何安排是地方配套，本身不等于已经改写全国适用的生育数量条款，也不能从假期有无推出子女数量。",
+          "content_sha256": "48122a2199f8c50df48bbaa8ff891bf172a8cb50bad7e605207ea980e77f348a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-9ed9f368567c07df645025ab",
+          "source_id": "s-a746e1d63d0145eb191bfd99",
+          "text": "把2022年4月18日当作询问的时点，不申请另行再生育的夫妻应按国家条款理解为三个子女。这里说的是国家法律直接规定的数量，不是某个办事窗口的口头口径，也不是地方再生育办法另批的名额。",
+          "content_sha256": "f1217e1ff12347d75cac53752fb27a87ce8eac3593ab249dbccab9629adcac5d",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-51e6ededa8f056fe93ada67b",
+          "source_id": "s-d15e8e06e2b7a95795ba42f6",
+          "text": "婚姻登记处解释的是登记所需材料和审查时限。登记是否办成，与一对夫妻在国家法律下的生育数量是两个问题，本通知只谈登记材料。",
+          "content_sha256": "f67c595da0575a10fe780972b8b048ea4c20c054060cbb3f8042644ac5cba808",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-c8d956930a8eee90d8e46c1c",
+          "source_id": "s-5e676e268cbdb0e74666234d",
+          "text": "地方如果规定另行再生育的具体办法，只处理提出另行申请的那种情形。授权本身没有在这里写成一个全国统一的子女数量，也不能替代国家条款。",
+          "content_sha256": "bf5eab1b950f8fa2286c53ea2d8e0cd22b230949f6cbe8ad1014018a096e4e93",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-757c683845d6691f807184b6",
+          "source_id": "s-14b8636468c9eb7e7e43ab44",
+          "text": "如果只问2022年4月18日、并且夫妻并不申请另行再生育，国家法律给出的子女数量是三个子女。该数量同时约束夫妻双方，不因后来补办材料或更换叙述方式而变成另一个国家数字。",
+          "content_sha256": "814f4b319a5788dfecd7ba6f3ba58d1cbf093e08cdbbf02a838f51869d1ca096",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-6142d7e28e53f516c0d2b28e",
+      "fact_uid": "f-b6f3e98ece06729682e22f10",
+      "event_date": "2022-04-18",
+      "query_text": "2022年4月18日，没有另行再生育安排的一对夫妻，按国家法律可以生育几个子女？",
+      "documents": [
+        {
+          "document_id": "d-6aa0f2185ea2721224218946",
+          "source_id": "s-8da0cf577c2a229035abff2b",
+          "text": "夫妻双方都要承担实行计划生育的责任。这句话只把责任放在双方身上，没有给出具体的子女数量，也没有区分后来的不同时期。",
+          "content_sha256": "486fc50c2bca12b09787f6db4922138bc5c9418dffe777e296896defab1ebd7e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-cb9cc44897f387de69be4ddf",
+          "source_id": "s-f2b9a9c88044ecd29292efc4",
+          "text": "出生医学证明和户籍登记按各自程序办理。先办哪一张、在哪个窗口提交，都不能用来推断国家法律允许生育的子女数量。",
+          "content_sha256": "e8e2d13a2704c74be87be94275a52d167ee6d133452f5285532f7f3b5a04b5be",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-2ca1f7e66e39cd661a66e674",
+          "source_id": "s-dabc2bddc2620162b23c8fbd",
+          "text": "把2022年4月18日当作询问的时点，不申请另行再生育的夫妻应按国家条款理解为三个子女。这里说的是国家法律直接规定的数量，不是某个办事窗口的口头口径，也不是地方再生育办法另批的名额。",
+          "content_sha256": "f1217e1ff12347d75cac53752fb27a87ce8eac3593ab249dbccab9629adcac5d",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-015165ab5996682457775585",
+          "source_id": "s-7edebb9f4b753280727f1357",
+          "text": "截至2022年4月18日，一对夫妻若没有另行获得再生育安排，国家法律对应的子女数量是三个子女。户籍是否分属不同省份，本身并不改写这一国家数量，另行再生育仍只按地方规定的申请条件处理。",
+          "content_sha256": "b7c732c414769f708a4520c1eab36fa9798d8621a5a77f339ff73a3cbe26770c",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-9edd58790eeb4a4599c6a22c",
+          "source_id": "s-804646d7a670fd7e256d004b",
+          "text": "社区可以组织孕产保健讲座，讲座更常讨论营养、产检和疫苗接种的流程。讲座通知不记载国家法律中的子女数量，也不比较不同年份的条款。",
+          "content_sha256": "f229031cbca602293353389b8a1cb16e83d689f131bfaea39504d3bb1f3e9a8e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-92806f7334526f1385711a44",
+          "source_id": "s-24491551167cc2e8989ff627",
+          "text": "有条件的地方可以研究父母育儿假是否设立。假如何安排是地方配套，本身不等于已经改写全国适用的生育数量条款，也不能从假期有无推出子女数量。",
+          "content_sha256": "48122a2199f8c50df48bbaa8ff891bf172a8cb50bad7e605207ea980e77f348a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-11588328420dc731e95a52c7",
+          "source_id": "s-6c0ef97b7464ec4dfc559f59",
+          "text": "地方如果规定另行再生育的具体办法，只处理提出另行申请的那种情形。授权本身没有在这里写成一个全国统一的子女数量，也不能替代国家条款。",
+          "content_sha256": "bf5eab1b950f8fa2286c53ea2d8e0cd22b230949f6cbe8ad1014018a096e4e93",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-c785c71ffb2fb981f64fce42",
+          "source_id": "s-1adea321c583107f6e373160",
+          "text": "母婴保健机构会告知孕期检查和住院分娩的常规流程。健康宣讲关心检查项目和就诊顺序，不把国家允许或提倡的子女数量写进宣讲稿。",
+          "content_sha256": "b06721352f662bdc0b5d7784acbdf33639d4ad4f7532d49cf669fc135f308f39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-14234cc95976f81e6c64c3ac",
+          "source_id": "s-93646e13d1e271e9efdfd7a7",
+          "text": "在2022年4月18日这一天，没有另行再生育条件的一对夫妻，国家层面写明的生育数量为三个子女。夫妻双方户籍不在同一省时，这一国家数量仍然适用；地方文件只处理另行申请再生育的情形。",
+          "content_sha256": "83dbc88bb9f09cbe2767440588fdcd4f7c913e72a275041fc6f240bdadecb793",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-670be8b8c2e4653a7d7264f8",
+          "source_id": "s-9627ebe811da82397308ade0",
+          "text": "如果只问2022年4月18日、并且夫妻并不申请另行再生育，国家法律给出的子女数量是三个子女。该数量同时约束夫妻双方，不因后来补办材料或更换叙述方式而变成另一个国家数字。",
+          "content_sha256": "814f4b319a5788dfecd7ba6f3ba58d1cbf093e08cdbbf02a838f51869d1ca096",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-8a6e38ecfafc261d7e55b5e0",
+          "source_id": "s-bc0c98fd7e714527779982e3",
+          "text": "就同一国家条款换一种说法：2022年4月18日时，未另行安排再生育的一对夫妻，国家规定的子女数量为三个子女。换一种说法只是复述同一条款，并不构成另一个制定机关，也不能单独增加或减少该数量。",
+          "content_sha256": "4f998bc701ad208f5324e0bc5976ceb9689531103a445d862fa6be7f900d3ebf",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-b3a87d5ae0c4513809f7653b",
+      "fact_uid": "f-3200ed9e70904d44d5111894",
+      "event_date": "1997-05-01",
+      "query_text": "1997年5月1日，在国家机关从事标准工时岗位的职工，每周标准工作时间是多少？",
+      "documents": [
+        {
+          "document_id": "d-39c99ebb8691f592f5a0b825",
+          "source_id": "s-b72fef46b1311f7bdd4b33a7",
+          "text": "任意延长工作时间不被允许；确需延长时要走国家有关规定。这句讨论的是延长程序，不是标准工时岗位每周应当工作多久。",
+          "content_sha256": "63b3d59212ddf6cb6aca380d38c9926264fe630eceae6fbcba0615848c4b3db1",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-4e0874ee7bbbd6a1ca3b1c16",
+          "source_id": "s-6b8a48af6d85fba3cd208291",
+          "text": "实施新的工时制度时，相关说明要求不减少职工收入。收入是否减少是配套要求，不能据此读出某一日的每周标准工作时间。",
+          "content_sha256": "3062a192cbb828de2b45762ee0458e110b7cef88d123e6422b48db6f805c0138",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-37f02b13d38bccbb7dfe34d9",
+          "source_id": "s-24df5dbf851ba8c53ef30e07",
+          "text": "在1997年5月1日，国家机关里从事标准工时岗位、且不属于缩短工时情形的职工，每周标准工作时间是四十小时。企业可以延后实施的安排不覆盖国家机关，特殊岗位的其他工时办法也不在这句范围内。",
+          "content_sha256": "d590fc99b14007919f159b2e8b3261968cb89ba0a6211b2b64ed728d92cc9583",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-a3f9f04fd2bf1f825db12fab",
+          "source_id": "s-2b048089d5e9a9bf63e13486",
+          "text": "1997年5月1日当天起，不能再靠企业延期停留在更早的周工时；实行标准工时的企业职工每周标准工作时间是四十小时。这句的对象是企业，不是国家机关，也不是不能实行标准工时的岗位。",
+          "content_sha256": "721973295bfe14701b7f04c359dd439f6f01469eb83ea9c868a34cafc1cadf2a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-fb4a4684437277f6672ef6e9",
+          "source_id": "s-e794eaa6f03f2e2aa3d8028a",
+          "text": "国家机关和事业单位的周休息日如何排列，与企业能否灵活安排休息日是两类安排。休息日怎么排，并不在这句里换成每周标准工作小时。",
+          "content_sha256": "47e27dc83305aec9acd485ed08ac99c4b9c63550ceb54dd0b246d47abb33e521",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-6902d928b4322e5b8f4c8382",
+          "source_id": "s-1febd0ddedf5d58307aa6a2f",
+          "text": "劳动行政部门可以解释工时规定并制定实施办法。解释权的归属本身不是一周工作几小时，也不能从主管部门的名称推出具体周标准。",
+          "content_sha256": "d63919a1e93543ea4f6fed72c2181624e2898de2b982d1a410754046b33707ee",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-e2c0f92719045e0575b7dc13",
+          "source_id": "s-0191d83cc6fc736e882ad5fa",
+          "text": "若询问的日期是1997年5月1日，国家机关标准工时职工的每周标准工作时间应理解为四十小时。不能实行标准工时的岗位另有规定，本句不把那种岗位算进同一标准，也不把企业的延期期限套到机关。",
+          "content_sha256": "20a24af1c9cd111ead99de75c8a701f7a2d7e7f69464290317bc3cd44e1d3da0",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-7fa20cd75725fe27e52530d3",
+          "source_id": "s-08657162664a1b244b248819",
+          "text": "到1997年5月1日，企业此前可以延后的期限已经届满，实行标准工时的企业职工每周标准工作时间也是四十小时。国家机关并不使用企业的延期条款，这句只说明企业标准岗位届时的周标准。",
+          "content_sha256": "c4ebdc35e30a832929e6d0695784ba3a9f7d8e41c936d828bceee0f1bec84b81",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-5853273a702debd925b64f8d",
+          "source_id": "s-15828ce2ba15b63f2d7f7b17",
+          "text": "特殊条件下的劳动可以按规定缩短工作时间。缩短的具体幅度要看相应规定，这句没有给出国家机关标准岗位的每周工作时间。",
+          "content_sha256": "977862bdd5275fa98f0ba478a9ea1b48e9a2b2c94435067f74f29bb6c0864a39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-449482ef293c679b7a2fc468",
+          "source_id": "s-0ef658768ff9db987f86ceaf",
+          "text": "1997年5月1日当天，实行标准工时的企业职工每周标准工作时间仍是四十四小时，企业延期继续有效。这句把已经届满的企业延期说成仍可适用，从而把旧的周工时留在该日的企业标准岗位上。",
+          "content_sha256": "98be5e3ed58ce47d5d939da1a710299d1cf24d80c1c61720fca2931298e9d739",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-f5a1cda948d3f7a8019ec9f1",
+          "source_id": "s-ad33f1a16293167db51a967a",
+          "text": "不能实行标准工时的岗位，可以按国家有关规定使用其他工作和休息办法。本句只指出存在这种例外通道，不写明标准岗位的每周小时数。",
+          "content_sha256": "b58476c54e0d68f4ac8ab5a80de2cb0655405f0d8be2ccae3b479b414f3d39b3",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-b5be35518a98cc25738768fe",
+      "fact_uid": "f-fbd889a8ae59ae7617218ab3",
+      "event_date": "2022-09-01",
+      "query_text": "截至2022年9月1日，申请日为2021年6月1日的外观设计专利权，自申请日起算可以保护多少年？",
+      "documents": [
+        {
+          "document_id": "d-3bfdc6441cd69ff1146113d6",
+          "source_id": "s-e99b752a282b5cd1b1bdec43",
+          "text": "发明是对产品、方法或其改进提出的新技术方案。定义只区分发明创造的类型，没有把任何一种专利权的保护年限写进定义。",
+          "content_sha256": "318b4801543374a5d3bf05ecd4f201d3bf9f26d29325b5b37da86e0615b23c6e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-60ab382c20117a1abdd010d7",
+          "source_id": "s-a56b67f7a688dbaf4d31d349",
+          "text": "在2009年10月1日，已经施行的法律规定外观设计专利权的保护期限为十年，自申请日起计算，实用新型专利权的期限同样为十年。此句描述的是该日法律文本，不把后来才施行的外观设计年限提前到这一天。",
+          "content_sha256": "9729d2384eca41567632a66475291cc38260d5b598637021a4ca6aa4e08db256",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-94b1f844cda641cd6f54f179",
+          "source_id": "s-4566b3aab35f22eb73cd7c62",
+          "text": "若在2022年9月1日询问申请日为2021年6月1日的外观设计，保护期限应从申请日起算为十五年。局部外观设计是否可申请，不改变这句所说的年限；提前申请的案件要按申请日分开，不能并进同一期限。",
+          "content_sha256": "99d156c09daa89ffe31dde44f67ca1e75a5ee4791471dfcc871f1408a0e23bbc",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-bafdc7707c1ac29b9552877b",
+          "source_id": "s-5379d888866dc6501020ab41",
+          "text": "实用新型和外观设计经初步审查没有发现驳回理由的，可以作出授予决定并发给证书。审查种类不同，并不在这句里写成某一申请日的保护年限。",
+          "content_sha256": "afc81819c951583397abb531d4afd649a5a7a464772ea263c0737e827513f664",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-1e56390d6c1bfefb7c73f4ed",
+          "source_id": "s-48ea5c1c5ec3d3cda51cb5f0",
+          "text": "外观设计应当不属于现有设计，并与现有设计有明显区别。授权条件回答的是能不能授，不回答自申请日起保护多少年。",
+          "content_sha256": "1a21e7569147acbf193db126973a198c3c827dfe9e2e1036f88eab7a01305d20",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-374138b7e51861155c97184b",
+          "source_id": "s-efda6ca9f6a2884cd32d6460",
+          "text": "申请外观设计要提交请求书、图片或者照片以及简要说明。这些文件用来显示要求保护的产品外观，文件种类本身不是保护期限的年数。",
+          "content_sha256": "c449bc7a3b9fd6cb34cccc6038d1e0f7b3552fcd6f7821ad1f2fe776cd906f9c",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-a12f7313b472e47db2cec92d",
+          "source_id": "s-adf6ad8eaacd20ac9d473f0c",
+          "text": "东海设计权利通讯的转载页在2022年9月1日重复同一公告，再次把2021年6月1日以后申请的外观设计保护期限写成二十年。转载页与原公告同属这一通讯，不是另一个制定机关的决定。",
+          "content_sha256": "042bbdc269a05a04cb8161ade65e0c49e18c650adca6318f5d80d5d0533da0b9",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-39b7542a985b44aac20bf548",
+          "source_id": "s-b35478da502e187760088649",
+          "text": "截至2022年9月1日，申请日为2021年6月1日的外观设计专利权，自申请日起算的保护期限为十五年。发明专利和实用新型专利的期限不能替换到这一类申请上，申请日早于2021年6月1日的外观设计也不按本句的期限计算。",
+          "content_sha256": "a13fe852450f2e8b020d3a94f1a1828da7e5e398e40c346db88769b7ba2e8084",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-e973a42f12bc0ed1f682ff38",
+          "source_id": "s-66e7cef6a609bf05dedde4dc",
+          "text": "国务院专利行政部门负责受理和审查。机关职责说明申请交给谁，不记载某一类专利权自申请日起算的保护期限。",
+          "content_sha256": "2fb6b19b8e90d7a0d93ebc137f9133d31f42c5e8e144314718437ac1a8c0968d",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-98227b51d4beccfa79b00633",
+          "source_id": "s-58c338548b22ab8ebf4b090d",
+          "text": "专利权人应当缴纳年费；没有按期缴纳的，专利权可能在期限届满前终止。年费制度说明权利需要维持，但这里不给出外观设计或实用新型的法定年限。",
+          "content_sha256": "460dfa881a990887f86492bfc08a66bd4e9f0d73fe91ffa0b8ad1d07057d07bd",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-eb914fd54013b5df6b88bcb4",
+          "source_id": "s-3635ce10c33dc470c3bc94d9",
+          "text": "东海设计权利通讯于2022年9月1日刊出公告，写明申请日在2021年6月1日以后的外观设计专利权按二十年保护，自申请日起计算，并称该公告即日替代此前的期限条款。公告没有国家法律的通过日期。",
+          "content_sha256": "1172803ffb86300bbb610cf51a0b38e8b54d954ad950a37dd403f5c18b95410a",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-9ccb6d5a44f1a6c44d00b82e",
+      "fact_uid": "f-b6f3e98ece06729682e22f10",
+      "event_date": "2022-04-18",
+      "query_text": "2022年4月18日，没有另行再生育安排的一对夫妻，按国家法律可以生育几个子女？",
+      "documents": [
+        {
+          "document_id": "d-0959c7c8f5dde113cd681d5c",
+          "source_id": "s-7526f14eb4daabef8fb1c321",
+          "text": "母婴保健机构会告知孕期检查和住院分娩的常规流程。健康宣讲关心检查项目和就诊顺序，不把国家允许或提倡的子女数量写进宣讲稿。",
+          "content_sha256": "b06721352f662bdc0b5d7784acbdf33639d4ad4f7532d49cf669fc135f308f39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-fd965a073c4f18126bb2d9a6",
+          "source_id": "s-7156b4b582e71702f443a950",
+          "text": "婚姻登记处解释的是登记所需材料和审查时限。登记是否办成，与一对夫妻在国家法律下的生育数量是两个问题，本通知只谈登记材料。",
+          "content_sha256": "f67c595da0575a10fe780972b8b048ea4c20c054060cbb3f8042644ac5cba808",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-21e16dd494071653fd5f9a70",
+          "source_id": "s-663ae6ce9546acdf00864115",
+          "text": "生育登记窗口通常先核验身份和婚姻材料是否齐备。材料清单只说明要带什么，不回答一对夫妻可以生育的子女数量，也不能代替国家法律对数量的规定。",
+          "content_sha256": "d3024db92228d5eee60f46ea49237893c899f9c00d09f2968bd94f5fac797534",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-a8ef3826e2fc5c85246c68f2",
+          "source_id": "s-ced4bb500bf1783c2519f233",
+          "text": "只描述2016年1月1日至2021年8月19日这一段已经结束的时期：没有另行再生育条件的一对夫妻，国家当时提倡的子女数量是两个子女。此句不把该数量说成询问日之后的国家条款。",
+          "content_sha256": "fa3de64e6cda09ae47cd60ee6651b027dbe7d6919c9721e5f716428aaf02091b",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-b19124ee23d96eabc9a6c2d8",
+          "source_id": "s-7de5693e11852400ddb27c75",
+          "text": "截至2022年4月18日，一对夫妻若没有另行获得再生育安排，国家法律对应的子女数量是三个子女。户籍是否分属不同省份，本身并不改写这一国家数量，另行再生育仍只按地方规定的申请条件处理。",
+          "content_sha256": "b7c732c414769f708a4520c1eab36fa9798d8621a5a77f339ff73a3cbe26770c",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-cf5761ac4b66104a1fa48bd1",
+          "source_id": "s-40c902003f4b60683bdedd66",
+          "text": "一份署名为北海家庭政策观察站编辑部的页面在2022年4月18日转发同一则消息，重申没有另行再生育安排的夫妻应按四个子女生育，还把页面日期写成新的施行日期。页面只是该站点的再次发布。",
+          "content_sha256": "d96335a8f7370ee31e31e2025dd2fe900b9c029c2dc463c4e0e10c393b6aeca9",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-3736fbadbffcdc9ef26ee0ed",
+          "source_id": "s-7f17841abe4256536b00e420",
+          "text": "出生医学证明和户籍登记按各自程序办理。先办哪一张、在哪个窗口提交，都不能用来推断国家法律允许生育的子女数量。",
+          "content_sha256": "e8e2d13a2704c74be87be94275a52d167ee6d133452f5285532f7f3b5a04b5be",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-952c13a64bfef16c913f4dc4",
+          "source_id": "s-f08409c0a5b0ff3c45d91be6",
+          "text": "夫妻双方都要承担实行计划生育的责任。这句话只把责任放在双方身上，没有给出具体的子女数量，也没有区分后来的不同时期。",
+          "content_sha256": "486fc50c2bca12b09787f6db4922138bc5c9418dffe777e296896defab1ebd7e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-a3bf1e880bda948cd6d146df",
+          "source_id": "s-d0a4a575e640059fe29a5afc",
+          "text": "北海家庭政策观察站于2022年4月18日刊出一则修订消息，称没有另行再生育安排的一对夫妻自即日起按四个子女执行，并写明该消息代替国家法律中的数量条款。站点没有给出制定机关的命令文号。",
+          "content_sha256": "1c68b9fbcfbbfb545756b0438b80298b738977680eb1545bee4812bd33e2ff81",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-a08b596a2d0401b558b58ba1",
+          "source_id": "s-a3263d70fbab1e73f44e3bdf",
+          "text": "把2022年4月18日当作询问的时点，不申请另行再生育的夫妻应按国家条款理解为三个子女。这里说的是国家法律直接规定的数量，不是某个办事窗口的口头口径，也不是地方再生育办法另批的名额。",
+          "content_sha256": "f1217e1ff12347d75cac53752fb27a87ce8eac3593ab249dbccab9629adcac5d",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-db26f9d69a9e08538b34bd11",
+          "source_id": "s-86ef3fe0f3ec50635faca04e",
+          "text": "有条件的地方可以研究父母育儿假是否设立。假如何安排是地方配套，本身不等于已经改写全国适用的生育数量条款，也不能从假期有无推出子女数量。",
+          "content_sha256": "48122a2199f8c50df48bbaa8ff891bf172a8cb50bad7e605207ea980e77f348a",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-c63e6351df6b8939ba32f651",
+      "fact_uid": "f-ed54b0d3efd5b787d5658f2f",
+      "event_date": "2018-03-12",
+      "query_text": "2018年3月12日，一对夫妻都没有另行符合再生育条件。按当时的国家法律，提倡这对夫妻生育几个子女？",
+      "documents": [
+        {
+          "document_id": "d-e2dd8e499924d176940ef7ba",
+          "source_id": "s-d288f28437fc714a97b90534",
+          "text": "出生医学证明和户籍登记按各自程序办理。先办哪一张、在哪个窗口提交，都不能用来推断国家法律允许生育的子女数量。",
+          "content_sha256": "e8e2d13a2704c74be87be94275a52d167ee6d133452f5285532f7f3b5a04b5be",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-beff2b5d1f711113c7abcebc",
+          "source_id": "s-af15d02eea7f029dcc4859af",
+          "text": "截至2018年3月12日，一对夫妻若没有另行获得再生育安排，国家法律对应的子女数量是两个子女。户籍是否分属不同省份，本身并不改写这一国家数量，另行再生育仍只按地方规定的申请条件处理。",
+          "content_sha256": "3acecf7a9753f93b8202a15885ec037493eaf2148fb84295c86c52df86bb8d73",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-f96dcab02e3046148379a9b4",
+          "source_id": "s-4f64ba276087ec01deff7004",
+          "text": "母婴保健机构会告知孕期检查和住院分娩的常规流程。健康宣讲关心检查项目和就诊顺序，不把国家允许或提倡的子女数量写进宣讲稿。",
+          "content_sha256": "b06721352f662bdc0b5d7784acbdf33639d4ad4f7532d49cf669fc135f308f39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-383667c743e3a433ddd96576",
+          "source_id": "s-344fe367ca09455a03be3981",
+          "text": "生育登记窗口通常先核验身份和婚姻材料是否齐备。材料清单只说明要带什么，不回答一对夫妻可以生育的子女数量，也不能代替国家法律对数量的规定。",
+          "content_sha256": "d3024db92228d5eee60f46ea49237893c899f9c00d09f2968bd94f5fac797534",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-8d06f26c9d4e9028e488bf26",
+          "source_id": "s-127856c1383d86983d31272f",
+          "text": "把2018年3月12日当作询问的时点，不申请另行再生育的夫妻应按国家条款理解为两个子女。这里说的是国家法律直接规定的数量，不是某个办事窗口的口头口径，也不是地方再生育办法另批的名额。",
+          "content_sha256": "ae9af76cac393763a4970ba500cf20774950ec67ee24d09709142d393a0cf566",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-1348910f2f04f0707cd0c503",
+          "source_id": "s-417636501a75c1764789527f",
+          "text": "有一份面向公众的问答把2018年3月12日的国家生育数量直接答成四个子女，对象仍是没有另行再生育安排的一对夫妻。问答没有解释这是地方个例，而是把它说成国家条款本身。",
+          "content_sha256": "056ef6c02241c34297e24e3f181cce2848db7a6568971f86e87d78b536de4e3c",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-d500b1601072acbea3c75e93",
+          "source_id": "s-b7f12c7a31fdb95a708db837",
+          "text": "有条件的地方可以研究父母育儿假是否设立。假如何安排是地方配套，本身不等于已经改写全国适用的生育数量条款，也不能从假期有无推出子女数量。",
+          "content_sha256": "48122a2199f8c50df48bbaa8ff891bf172a8cb50bad7e605207ea980e77f348a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-338a36f5e601ede375c893ad",
+          "source_id": "s-b55ffe1e9968b4252a7896ee",
+          "text": "婚姻登记处解释的是登记所需材料和审查时限。登记是否办成，与一对夫妻在国家法律下的生育数量是两个问题，本通知只谈登记材料。",
+          "content_sha256": "f67c595da0575a10fe780972b8b048ea4c20c054060cbb3f8042644ac5cba808",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-5917fe85299f2848aa7846cc",
+          "source_id": "s-aab6dd5132426d996e7989e1",
+          "text": "夫妻双方都要承担实行计划生育的责任。这句话只把责任放在双方身上，没有给出具体的子女数量，也没有区分后来的不同时期。",
+          "content_sha256": "486fc50c2bca12b09787f6db4922138bc5c9418dffe777e296896defab1ebd7e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-df2b9c5d7e9c13386b8169ae",
+          "source_id": "s-a2b2f310ac72d0897d9e9f7d",
+          "text": "到了2018年3月12日，不走另行再生育程序的夫妻被说成可以按四个子女生育，而且这被写成全国统一执行的国家数量。地方再生育办法在这种说法里被当成已经让出了位置。",
+          "content_sha256": "9799f7c4001eed294da38120cfadfd940bd047a5fe97b1137e5a031629bc49af",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-c533c494a35c76edc61ba576",
+          "source_id": "s-1f444b4e14edc16ee915f653",
+          "text": "在2018年3月12日，没有另行再生育安排的一对夫妻，国家法律已经把子女数量定为四个子女。该说法把这个数字写成当天已经生效的国家条款，并称户籍是否分省都不影响。",
+          "content_sha256": "1adaf4b7f5149c472f4b516666a403bb139b71e992aabc297295557b6f357e4a",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-a39702e1fe4ad3a93893eb5e",
+      "fact_uid": "f-b6f3e98ece06729682e22f10",
+      "event_date": "2022-04-18",
+      "query_text": "2022年4月18日，没有另行再生育安排的一对夫妻，按国家法律可以生育几个子女？",
+      "documents": [
+        {
+          "document_id": "d-d9d471da35eb56bdbbbd8499",
+          "source_id": "s-226604ec0ab2cbc6fb82639a",
+          "text": "出生医学证明和户籍登记按各自程序办理。先办哪一张、在哪个窗口提交，都不能用来推断国家法律允许生育的子女数量。",
+          "content_sha256": "e8e2d13a2704c74be87be94275a52d167ee6d133452f5285532f7f3b5a04b5be",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-82e1750cf85f5b31ec49a28e",
+          "source_id": "s-65e5d75db58e18a692bd1994",
+          "text": "母婴保健机构会告知孕期检查和住院分娩的常规流程。健康宣讲关心检查项目和就诊顺序，不把国家允许或提倡的子女数量写进宣讲稿。",
+          "content_sha256": "b06721352f662bdc0b5d7784acbdf33639d4ad4f7532d49cf669fc135f308f39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-619217d2892bd8a12301ffc8",
+          "source_id": "s-0287f2681c46dbe831bce86c",
+          "text": "在2022年4月18日，没有另行再生育安排的一对夫妻，国家的法律已经把子女数量定为四个子女。该说法把这个数字写成当天已经生效的国家条款，并称户籍是否分省都不影响。",
+          "content_sha256": "1c4a51dd41ca8eecf169a75b3abd4695ae1e092d4b24ffe23e76c29a2cb19063",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-e5c639cf6d1e635364d1f6a0",
+          "source_id": "s-5133cc40e90741251665ad16",
+          "text": "社区可以组织孕产保健讲座，讲座更常讨论营养、产检和疫苗接种的流程。讲座通知不记载国家法律中的子女数量，也不比较不同年份的条款。",
+          "content_sha256": "f229031cbca602293353389b8a1cb16e83d689f131bfaea39504d3bb1f3e9a8e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-495fcc262c958e5d034071b8",
+          "source_id": "s-b0598df1022eca4a62b7f128",
+          "text": "把2022年4月18日当作询问的时点，不申请另行再生育的夫妻应按国家条款理解为三个子女。这里说的是国家法律直接规定的数量，不是某个办事窗口的口头口径，也不是地方再生育办法另批的名额。",
+          "content_sha256": "f1217e1ff12347d75cac53752fb27a87ce8eac3593ab249dbccab9629adcac5d",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-b04c71fbeccfaf8dcad97429",
+          "source_id": "s-638f31106bdc2b26416607d0",
+          "text": "在2022年4月18日，没有另行再生育安排的一对夫妻，国家法律已把子女数量定为四个子女。该说法把这个数字写成当天已经生效的国家条款，并称户籍是否分省都不影响。",
+          "content_sha256": "80b4ba8e320164ebaa00926d0eccd3093b719b0baf102b9020408ca65cc89e1a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-3934df83eeea1c46c1d588b8",
+          "source_id": "s-4e67b7765512a552bea232ed",
+          "text": "婚姻登记处解释的是登记所需材料和审查时限。登记是否办成，与一对夫妻在国家法律下的生育数量是两个问题，本通知只谈登记材料。",
+          "content_sha256": "f67c595da0575a10fe780972b8b048ea4c20c054060cbb3f8042644ac5cba808",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-51b7b794047c8045d8416d2e",
+          "source_id": "s-b7dae16b66a2ac4af2002680",
+          "text": "在2022年4月18日，没有另行再生育安排的一对夫妻，国家法律已经把子女数量定为四个子女。该说法把这个数字写成当天已经生效的国家条款，并称户籍是否分省都不影响。",
+          "content_sha256": "142abfba6fb426de706dcd8fd06fcd22781e7d0581f4e6b703e33cfd8057e8ed",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-6332c3c420266063759d2f1a",
+          "source_id": "s-261743918941e0b2fd53b872",
+          "text": "生育登记窗口通常先核验身份和婚姻材料是否齐备。材料清单只说明要带什么，不回答一对夫妻可以生育的子女数量，也不能代替国家法律对数量的规定。",
+          "content_sha256": "d3024db92228d5eee60f46ea49237893c899f9c00d09f2968bd94f5fac797534",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-303132e8a768d20824c78a88",
+          "source_id": "s-906e073b340e7b4ec4d0a751",
+          "text": "地方如果规定另行再生育的具体办法，只处理提出另行申请的那种情形。授权本身没有在这里写成一个全国统一的子女数量，也不能替代国家条款。",
+          "content_sha256": "bf5eab1b950f8fa2286c53ea2d8e0cd22b230949f6cbe8ad1014018a096e4e93",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-98965c7882ea3e464549d886",
+          "source_id": "s-38e4de0e48295777bb70e122",
+          "text": "截至2022年4月18日，一对夫妻若没有另行获得再生育安排，国家法律对应的子女数量是三个子女。户籍是否分属不同省份，本身并不改写这一国家数量，另行再生育仍只按地方规定的申请条件处理。",
+          "content_sha256": "b7c732c414769f708a4520c1eab36fa9798d8621a5a77f339ff73a3cbe26770c",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-99578c8e4b54244e3147f6b6",
+      "fact_uid": "f-ed54b0d3efd5b787d5658f2f",
+      "event_date": "2018-03-12",
+      "query_text": "2018年3月12日，一对夫妻都没有另行符合再生育条件。按当时的国家法律，提倡这对夫妻生育几个子女？",
+      "documents": [
+        {
+          "document_id": "d-92706bd972da2af781ea2578",
+          "source_id": "s-861401854888d78b871fdc8d",
+          "text": "就同一国家条款换一种说法：2018年3月12日时，未另行安排再生育的一对夫妻，国家规定的子女数量为两个子女。换一种说法只是复述同一条款，并不构成另一个制定机关，也不能单独增加或减少该数量。",
+          "content_sha256": "2451589d9a8d83ace54251afe95cac5d243ea41fb963162a5ee36ae9812287fe",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-a6064cd6602c7b4cd73211a8",
+          "source_id": "s-65683e7e3a721263c3a892d8",
+          "text": "社区可以组织孕产保健讲座，讲座更常讨论营养、产检和疫苗接种的流程。讲座通知不记载国家法律中的子女数量，也不比较不同年份的条款。",
+          "content_sha256": "f229031cbca602293353389b8a1cb16e83d689f131bfaea39504d3bb1f3e9a8e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-232acf6b25e298f659881ecf",
+          "source_id": "s-558448598131d9678f001e1a",
+          "text": "在2018年3月12日这一天，没有另行再生育条件的一对夫妻，国家层面写明的生育数量为两个子女。夫妻双方户籍不在同一省时，这一国家数量仍然适用；地方文件只处理另行申请再生育的情形。",
+          "content_sha256": "c76944f90db8d72b53ff51bc52fe618dfd9be257b5c2ff98c86da8dd46c130e9",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-a84187ac0ae24bad6fcd09d6",
+          "source_id": "s-2190cb2f401fa86588545b4a",
+          "text": "生育登记窗口通常先核验身份和婚姻材料是否齐备。材料清单只说明要带什么，不回答一对夫妻可以生育的子女数量，也不能代替国家法律对数量的规定。",
+          "content_sha256": "d3024db92228d5eee60f46ea49237893c899f9c00d09f2968bd94f5fac797534",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-09e2623933f1473f0dc606fb",
+          "source_id": "s-44ae8a51626ff62e6b97f3b0",
+          "text": "如果只问2018年3月12日、并且夫妻并不申请另行再生育，国家法律给出的子女数量是两个子女。该数量同时约束夫妻双方，不因后来补办材料或更换叙述方式而变成另一个国家数字。",
+          "content_sha256": "14b9922090f637921ef6082caf257688bdd27b25a7b5abbe12cd12ae86365182",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-6315afc6ccf94c18a54d419d",
+          "source_id": "s-8c35da6a1e591750852aa571",
+          "text": "有条件的地方可以研究父母育儿假是否设立。假如何安排是地方配套，本身不等于已经改写全国适用的生育数量条款，也不能从假期有无推出子女数量。",
+          "content_sha256": "48122a2199f8c50df48bbaa8ff891bf172a8cb50bad7e605207ea980e77f348a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-9205ec1262c8df13a18b1810",
+          "source_id": "s-4b919fe9d0b2e41649b449af",
+          "text": "母婴保健机构会告知孕期检查和住院分娩的常规流程。健康宣讲关心检查项目和就诊顺序，不把国家允许或提倡的子女数量写进宣讲稿。",
+          "content_sha256": "b06721352f662bdc0b5d7784acbdf33639d4ad4f7532d49cf669fc135f308f39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-627fd77db8bacb8b8f99d99b",
+          "source_id": "s-c0397b14437ce6976d86d207",
+          "text": "把2018年3月12日当作询问的时点，不申请另行再生育的夫妻应按国家条款理解为两个子女。这里说的是国家法律直接规定的数量，不是某个办事窗口的口头口径，也不是地方再生育办法另批的名额。",
+          "content_sha256": "ae9af76cac393763a4970ba500cf20774950ec67ee24d09709142d393a0cf566",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-7d8f2945e1eb6ae839795b36",
+          "source_id": "s-b2d6944d5db93ecb210d7d8f",
+          "text": "地方如果规定另行再生育的具体办法，只处理提出另行申请的那种情形。授权本身没有在这里写成一个全国统一的子女数量，也不能替代国家条款。",
+          "content_sha256": "bf5eab1b950f8fa2286c53ea2d8e0cd22b230949f6cbe8ad1014018a096e4e93",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-527f0355f2c38a1f5258a489",
+          "source_id": "s-0b1a56fe6e75441a0ebcf72d",
+          "text": "截至2018年3月12日，一对夫妻若没有另行获得再生育安排，国家法律对应的子女数量是两个子女。户籍是否分属不同省份，本身并不改写这一国家数量，另行再生育仍只按地方规定的申请条件处理。",
+          "content_sha256": "3acecf7a9753f93b8202a15885ec037493eaf2148fb84295c86c52df86bb8d73",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-22550a1bf5a8ba0a4a1091c7",
+          "source_id": "s-8c5330c9cf3adfc5767fd8d0",
+          "text": "婚姻登记处解释的是登记所需材料和审查时限。登记是否办成，与一对夫妻在国家法律下的生育数量是两个问题，本通知只谈登记材料。",
+          "content_sha256": "f67c595da0575a10fe780972b8b048ea4c20c054060cbb3f8042644ac5cba808",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-a560a661608dce5e03758a41",
+      "fact_uid": "f-fbd889a8ae59ae7617218ab3",
+      "event_date": "2022-09-01",
+      "query_text": "截至2022年9月1日，申请日为2021年6月1日的外观设计专利权，自申请日起算可以保护多少年？",
+      "documents": [
+        {
+          "document_id": "d-768d744ab2a7b4cbddc4c560",
+          "source_id": "s-92eab3cfd04187edc601bd2b",
+          "text": "申请外观设计要提交请求书、图片或者照片以及简要说明。这些文件用来显示要求保护的产品外观，文件种类本身不是保护期限的年数。",
+          "content_sha256": "c449bc7a3b9fd6cb34cccc6038d1e0f7b3552fcd6f7821ad1f2fe776cd906f9c",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-a2b943a5c1045e5b6eedceda",
+          "source_id": "s-3532efcf13e99118bba2b30b",
+          "text": "截至2022年9月1日，申请日为2021年6月1日以后的外观设计专利权，保护期限已写成十年，自申请日起计算。这种说法把较早文本中的年限继续用于该申请日条件，并称不必再区分申请日。",
+          "content_sha256": "4693748847325c7d1de3084fc3cc59647af4f2ec7078261d7698d0cb2f816f87",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-ab270d00cf319d0304db294f",
+          "source_id": "s-ea502170a33c15e4afb7e27d",
+          "text": "专利权可以因为书面放弃而在届满前终止。放弃是权利人的行为，不是法定保护期限本身，也不能用来比较不同申请日。",
+          "content_sha256": "998d54a385e144890b61940a45156dec0183f17a06f1169acabebf9aadb7ac5f",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-822d669e747018c7c9523238",
+          "source_id": "s-85bec189105d6dab70fdc68b",
+          "text": "实用新型和外观设计经初步审查没有发现驳回理由的，可以作出授予决定并发给证书。审查种类不同，并不在这句里写成某一申请日的保护年限。",
+          "content_sha256": "afc81819c951583397abb531d4afd649a5a7a464772ea263c0737e827513f664",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-2549c8f81371e9667493d5b2",
+          "source_id": "s-82e32c0848717be0ff88e99b",
+          "text": "有人在2022年9月1日把外观设计、实用新型都概括成十年，并明确包括申请日为2021年6月1日以后的外观设计。概括因此把新的申请日条件也说成了十年，而不是只讲旧申请。",
+          "content_sha256": "dde4bd29066e0bdc3653f2196f871d5ff1924523ae8b8a643d18bb24e6b3da62",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-d71d33e946670ed61ff391ff",
+          "source_id": "s-a0b2e062843991207d533384",
+          "text": "在2022年9月1日的一份整理里，申请日为2021年6月1日的外观设计被直接答成保护期限为十年。整理没有保留申请日分界，而是把十年写成这一申请日的法定年限。",
+          "content_sha256": "600bde3ea57bc3e8a9249b891eeb80a6aeda5fb7daa21dcfac54fb4b322231ec",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-c53788986a743b8368b17c72",
+          "source_id": "s-6b783e2796846f3551a7f586",
+          "text": "要求保护色彩时，图片或照片应当能清楚显示该设计。图像要求服务于授权范围的表达，与保护期限的年数无关。",
+          "content_sha256": "ece673f99236bf7a28d83570b9ae5649a6fef7a05fd66e5355aa69cdbffd1709",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-2bf22affbcde21e9c397ea67",
+          "source_id": "s-7bd4c121e465ad4dd504d1af",
+          "text": "东海设计权利通讯于2022年9月1日刊出公告，写明申请日在2021年6月1日以后的外观设计专利权按二十年保护，自申请日起计算，并称该公告即日替代此前的期限条款。公告没有国家法律的通过日期。",
+          "content_sha256": "1172803ffb86300bbb610cf51a0b38e8b54d954ad950a37dd403f5c18b95410a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-ea1c9bf2450a8975571b7564",
+          "source_id": "s-d2f92d57c4f3283f2d3f6896",
+          "text": "国务院专利行政部门负责受理和审查。机关职责说明申请交给谁，不记载某一类专利权自申请日起算的保护期限。",
+          "content_sha256": "2fb6b19b8e90d7a0d93ebc137f9133d31f42c5e8e144314718437ac1a8c0968d",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-2768b88b3c7160a4bce6960b",
+          "source_id": "s-c3f1852c773e5462fb4fb42b",
+          "text": "截至2022年9月1日，申请日为2021年6月1日以后的外观设计专利权，保护期限已经写成十年，自申请日起计算。这种说法把较早文本中的年限继续用于该申请日条件，并称不必再区分申请日。",
+          "content_sha256": "a29aef66c84a2406dd4ce07ff6d911a42d0fa68fc3bd7ef2accf581b5d7ed381",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-9de48fdfc5b1abb8c3fe35c2",
+          "source_id": "s-1a37f1198fa9ff07f31848e0",
+          "text": "专利权人应当缴纳年费；没有按期缴纳的，专利权可能在期限届满前终止。年费制度说明权利需要维持，但这里不给出外观设计或实用新型的法定年限。",
+          "content_sha256": "460dfa881a990887f86492bfc08a66bd4e9f0d73fe91ffa0b8ad1d07057d07bd",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-6f3afec12390053e9e4be6f0",
+      "fact_uid": "f-fbd889a8ae59ae7617218ab3",
+      "event_date": "2022-09-01",
+      "query_text": "截至2022年9月1日，申请日为2021年6月1日的外观设计专利权，自申请日起算可以保护多少年？",
+      "documents": [
+        {
+          "document_id": "d-e3ff62afa09cf0f968ae9f43",
+          "source_id": "s-ea89d03fef4b55e11e307496",
+          "text": "在2022年9月1日的一份整理里，申请日为2021年6月1日的外观设计被直接答成保护期限为十年。整理没有保留申请日分界，而是把十年写成这一申请日的法定年限。",
+          "content_sha256": "600bde3ea57bc3e8a9249b891eeb80a6aeda5fb7daa21dcfac54fb4b322231ec",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-ef10a24bcb1e773577c18a2b",
+          "source_id": "s-52db8096a196ea3c85b5fc35",
+          "text": "有人在2022年9月1日把外观设计、实用新型都概括成十年，并明确包括申请日为2021年6月1日以后的外观设计。概括因此把新的申请日条件也说成了十年，而不是只讲旧申请。",
+          "content_sha256": "dde4bd29066e0bdc3653f2196f871d5ff1924523ae8b8a643d18bb24e6b3da62",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-4975f208a4a801cbcebf4c5f",
+          "source_id": "s-f068db96d1533f32c97b5748",
+          "text": "专利权人应当缴纳年费；没有按期缴纳的，专利权可能在期限届满前终止。年费制度说明权利需要维持，但这里不给出外观设计或实用新型的法定年限。",
+          "content_sha256": "460dfa881a990887f86492bfc08a66bd4e9f0d73fe91ffa0b8ad1d07057d07bd",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-45bf7e0decc6c26aec1ee895",
+          "source_id": "s-0924e7740924fe2201836f20",
+          "text": "若在2022年9月1日询问申请日为2021年6月1日的外观设计，保护期限应从申请日起算为十五年。局部外观设计是否可申请，不改变这句所说的年限；提前申请的案件要按申请日分开，不能并进同一期限。",
+          "content_sha256": "99d156c09daa89ffe31dde44f67ca1e75a5ee4791471dfcc871f1408a0e23bbc",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-dccde16601d2c69793969304",
+          "source_id": "s-a4f27bd86d685fd447735483",
+          "text": "截至2022年9月1日，申请日为2021年6月1日的外观设计专利权，自申请日起算的保护期限为十五年。发明专利和实用新型专利的期限不能替换到这一类申请上，申请日早于2021年6月1日的外观设计也不按本句的期限计算。",
+          "content_sha256": "a13fe852450f2e8b020d3a94f1a1828da7e5e398e40c346db88769b7ba2e8084",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-ea7f2fec73856dd7f639f24a",
+          "source_id": "s-8d0b3d2804d3548f2d680375",
+          "text": "发明是对产品、方法或其改进提出的新技术方案。定义只区分发明创造的类型，没有把任何一种专利权的保护年限写进定义。",
+          "content_sha256": "318b4801543374a5d3bf05ecd4f201d3bf9f26d29325b5b37da86e0615b23c6e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-81b90188644450f608918491",
+          "source_id": "s-9987f8e0a333cfb8a31a24d5",
+          "text": "实用新型和外观设计经初步审查没有发现驳回理由的，可以作出授予决定并发给证书。审查种类不同，并不在这句里写成某一申请日的保护年限。",
+          "content_sha256": "afc81819c951583397abb531d4afd649a5a7a464772ea263c0737e827513f664",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-8e072f5f7b9ea55d7b25f584",
+          "source_id": "s-d0d4ae5096864ec06b3e817d",
+          "text": "要求保护色彩时，图片或照片应当能清楚显示该设计。图像要求服务于授权范围的表达，与保护期限的年数无关。",
+          "content_sha256": "ece673f99236bf7a28d83570b9ae5649a6fef7a05fd66e5355aa69cdbffd1709",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-d3e0418164bf76a04248c40a",
+          "source_id": "s-cf86ea09b2aea2232e7fde9f",
+          "text": "外观设计应当不属于现有设计，并与现有设计有明显区别。授权条件回答的是能不能授，不回答自申请日起保护多少年。",
+          "content_sha256": "1a21e7569147acbf193db126973a198c3c827dfe9e2e1036f88eab7a01305d20",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-5ade65e0151f3e2ca197c62d",
+          "source_id": "s-3c3db9f2f29fee2e972c3935",
+          "text": "截至2022年9月1日，申请日为2021年6月1日以后的外观设计专利权，保护期限已经写成十年，自申请日起计算。这种说法把较早文本中的年限继续用于该申请日条件，并称不必再区分申请日。",
+          "content_sha256": "a29aef66c84a2406dd4ce07ff6d911a42d0fa68fc3bd7ef2accf581b5d7ed381",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-aa1d6e2cf976a0ba7f42064c",
+          "source_id": "s-57ecfb6415d948ae2b04ff34",
+          "text": "国务院专利行政部门负责受理和审查。机关职责说明申请交给谁，不记载某一类专利权自申请日起算的保护期限。",
+          "content_sha256": "2fb6b19b8e90d7a0d93ebc137f9133d31f42c5e8e144314718437ac1a8c0968d",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-be01ed2e2a2485842e7f03cf",
+      "fact_uid": "f-b6f3e98ece06729682e22f10",
+      "event_date": "2021-08-20",
+      "query_text": "2021年8月20日当天，没有另行再生育安排的一对夫妻，按国家法律可以生育几个子女？",
+      "documents": [
+        {
+          "document_id": "d-db4608c2adda2baf5f65da60",
+          "source_id": "s-1e4b183463c48225a5fed085",
+          "text": "截至2021年8月20日，一对夫妻若没有另行获得再生育安排，国家法律对应的子女数量是三个子女。户籍是否分属不同省份，本身并不改写这一国家数量，另行再生育仍只按地方规定的申请条件处理。",
+          "content_sha256": "eba47808d02dc6f8d7bb87afd8b9ef47f5784b96021beac7d7b3c56dd43597bc",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-8b28c2a0293eb963b8ab90ee",
+          "source_id": "s-272346b88ff3e314b1f8d1ad",
+          "text": "只描述2016年1月1日至2021年8月19日这一段已经结束的时期：没有另行再生育条件的一对夫妻，国家当时提倡的子女数量是两个子女。此句不把该数量说成询问日之后的国家条款。",
+          "content_sha256": "fa3de64e6cda09ae47cd60ee6651b027dbe7d6919c9721e5f716428aaf02091b",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-0164a17213685c034478dad6",
+          "source_id": "s-1e5993a4f5fac6b9878b7e78",
+          "text": "生育登记窗口通常先核验身份和婚姻材料是否齐备。材料清单只说明要带什么，不回答一对夫妻可以生育的子女数量，也不能代替国家法律对数量的规定。",
+          "content_sha256": "d3024db92228d5eee60f46ea49237893c899f9c00d09f2968bd94f5fac797534",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-995ea7702d0d7264760dac92",
+          "source_id": "s-e115507529d7f3ef607e0e74",
+          "text": "母婴保健机构会告知孕期检查和住院分娩的常规流程。健康宣讲关心检查项目和就诊顺序，不把国家允许或提倡的子女数量写进宣讲稿。",
+          "content_sha256": "b06721352f662bdc0b5d7784acbdf33639d4ad4f7532d49cf669fc135f308f39",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-22d88ab77c50b85c18e6666e",
+          "source_id": "s-12d86571a471b7fc1e272418",
+          "text": "夫妻双方都要承担实行计划生育的责任。这句话只把责任放在双方身上，没有给出具体的子女数量，也没有区分后来的不同时期。",
+          "content_sha256": "486fc50c2bca12b09787f6db4922138bc5c9418dffe777e296896defab1ebd7e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-1f1b75f0db353d68db373614",
+          "source_id": "s-7bb372267ed68d4c72571c1e",
+          "text": "婚姻登记处解释的是登记所需材料和审查时限。登记是否办成，与一对夫妻在国家法律下的生育数量是两个问题，本通知只谈登记材料。",
+          "content_sha256": "f67c595da0575a10fe780972b8b048ea4c20c054060cbb3f8042644ac5cba808",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-04eeb3c42247a9589822f0df",
+          "source_id": "s-7e39df74c6aac0d0f34cbab2",
+          "text": "把2021年8月20日当作询问的时点，不申请另行再生育的夫妻应按国家条款理解为三个子女。这里说的是国家法律直接规定的数量，不是某个办事窗口的口头口径，也不是地方再生育办法另批的名额。",
+          "content_sha256": "03d94ca40e6caaca95a91d70b64f110bb9b25a52fe4189fede02a8f4c62cfc53",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-f26230499c247f223ad5d8ba",
+          "source_id": "s-764b3be30812ca6d556e502e",
+          "text": "2016年1月1日至2021年8月19日内，不申请另行再生育的夫妻所对应的国家生育数量是两个子女。这句话限定在该时期，既不提前适用后一个时期的条款，也不取消地方对另行再生育的授权。",
+          "content_sha256": "832a289cd36ccb2b3413ae623cd8292cd21e3f9bed63d0925dbb6271ae19a106",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-edc4027814c38eb7bd8df0f1",
+          "source_id": "s-1316aaede975dea6ba927f80",
+          "text": "有条件的地方可以研究父母育儿假是否设立。假如何安排是地方配套，本身不等于已经改写全国适用的生育数量条款，也不能从假期有无推出子女数量。",
+          "content_sha256": "48122a2199f8c50df48bbaa8ff891bf172a8cb50bad7e605207ea980e77f348a",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-496a5647ffdab94543078c45",
+          "source_id": "s-af95216d69d873d91a167351",
+          "text": "在2021年8月20日这一天，没有另行再生育条件的一对夫妻，国家层面写明的生育数量为三个子女。夫妻双方户籍不在同一省时，这一国家数量仍然适用；地方文件只处理另行申请再生育的情形。",
+          "content_sha256": "ec1278c812163f453d14d1dbbe300c6a12a9ad2b81a2f0f06cf4a27b1568ad93",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-bac94ccb782722cac01fc732",
+          "source_id": "s-39835a532ab8ac36d9f7ff29",
+          "text": "社区可以组织孕产保健讲座，讲座更常讨论营养、产检和疫苗接种的流程。讲座通知不记载国家法律中的子女数量，也不比较不同年份的条款。",
+          "content_sha256": "f229031cbca602293353389b8a1cb16e83d689f131bfaea39504d3bb1f3e9a8e",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-76bb9508672d9627f35dce06",
+      "fact_uid": "f-fbd889a8ae59ae7617218ab3",
+      "event_date": "2022-09-01",
+      "query_text": "截至2022年9月1日，申请日为2021年6月1日的外观设计专利权，自申请日起算可以保护多少年？",
+      "documents": [
+        {
+          "document_id": "d-2819f20a0a6e5495d3240360",
+          "source_id": "s-a6128d65edb4d6a13d510202",
+          "text": "外观设计应当不属于现有设计，并与现有设计有明显区别。授权条件回答的是能不能授，不回答自申请日起保护多少年。",
+          "content_sha256": "1a21e7569147acbf193db126973a198c3c827dfe9e2e1036f88eab7a01305d20",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-6d936fc9f5e3d2715aeb172b",
+          "source_id": "s-f76b68d7a350dd8664a69f83",
+          "text": "截至2022年9月1日，申请日为2021年6月1日的外观设计专利权，自申请日起算的保护期限为十五年。发明专利和实用新型专利的期限不能替换到这一类申请上，申请日早于2021年6月1日的外观设计也不按本句的期限计算。",
+          "content_sha256": "a13fe852450f2e8b020d3a94f1a1828da7e5e398e40c346db88769b7ba2e8084",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-67499c8ef0b71ddb3a9f609a",
+          "source_id": "s-9365f6d088edc4ae713accc6",
+          "text": "发明是对产品、方法或其改进提出的新技术方案。定义只区分发明创造的类型，没有把任何一种专利权的保护年限写进定义。",
+          "content_sha256": "318b4801543374a5d3bf05ecd4f201d3bf9f26d29325b5b37da86e0615b23c6e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-8a6e1b05151a6e94d9387797",
+          "source_id": "s-2afaed52565830c3bd1409e0",
+          "text": "实用新型和外观设计经初步审查没有发现驳回理由的，可以作出授予决定并发给证书。审查种类不同，并不在这句里写成某一申请日的保护年限。",
+          "content_sha256": "afc81819c951583397abb531d4afd649a5a7a464772ea263c0737e827513f664",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-7093bd5a373fdf19d737abbe",
+          "source_id": "s-805f6df32b9249b40e092b76",
+          "text": "若在2022年9月1日询问申请日为2021年6月1日的外观设计，保护期限应从申请日起算为十五年。局部外观设计是否可申请，不改变这句所说的年限；提前申请的案件要按申请日分开，不能并进同一期限。",
+          "content_sha256": "99d156c09daa89ffe31dde44f67ca1e75a5ee4791471dfcc871f1408a0e23bbc",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-c4de3e84ad21f77be2834b7f",
+          "source_id": "s-f254693f531721ed5d28b506",
+          "text": "申请外观设计要提交请求书、图片或者照片以及简要说明。这些文件用来显示要求保护的产品外观，文件种类本身不是保护期限的年数。",
+          "content_sha256": "c449bc7a3b9fd6cb34cccc6038d1e0f7b3552fcd6f7821ad1f2fe776cd906f9c",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-0da2e13d929245833d0b5efd",
+          "source_id": "s-d628034c1aaf00d951789247",
+          "text": "截至2022年9月1日，申请日为2021年6月1日以后的外观设计专利权，权利保护期限已经写成十年，自申请日起计算。这种说法把较早文本中的年限继续用于该申请日条件，并称不必再区分申请日。",
+          "content_sha256": "f91840c2f779f45f5abdda91227fa0923d44c606ddb9ba4121d0684f0dd3fb5e",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-e6b99815c43037b63cfea638",
+          "source_id": "s-59f018773cfb253d02e69619",
+          "text": "截至2022年9月1日，申请日为2021年6月1日以后的外观设计专利权，保护期限已经写成十年，自申请日起计算。这种说法把较早文本中的年限继续用于该申请日条件，并称不必再区分申请日。",
+          "content_sha256": "a29aef66c84a2406dd4ce07ff6d911a42d0fa68fc3bd7ef2accf581b5d7ed381",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-055394035642dd5d163c9f22",
+          "source_id": "s-d321cb997f9d988d6b44ea56",
+          "text": "专利权可以因为书面放弃而在届满前终止。放弃是权利人的行为，不是法定保护期限本身，也不能用来比较不同申请日。",
+          "content_sha256": "998d54a385e144890b61940a45156dec0183f17a06f1169acabebf9aadb7ac5f",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-e1308ba5c171158b9b404cbf",
+          "source_id": "s-41042d7afd2404c399a3c540",
+          "text": "截至2022年9月1日，申请日为2021年6月1日以后的外观设计专利权，保护期限已写成十年，自申请日起计算。这种说法把较早文本中的年限继续用于该申请日条件，并称不必再区分申请日。",
+          "content_sha256": "4693748847325c7d1de3084fc3cc59647af4f2ec7078261d7698d0cb2f816f87",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-cecdd6fd52a3acafbf3b434f",
+          "source_id": "s-41905f45464076e0f8cade66",
+          "text": "专利权人应当缴纳年费；没有按期缴纳的，专利权可能在期限届满前终止。年费制度说明权利需要维持，但这里不给出外观设计或实用新型的法定年限。",
+          "content_sha256": "460dfa881a990887f86492bfc08a66bd4e9f0d73fe91ffa0b8ad1d07057d07bd",
+          "source_uri": null
+        }
+      ]
+    },
+    {
+      "world_id": "w-0d393191c70a1b3f40f53611",
+      "fact_uid": "f-fbd889a8ae59ae7617218ab3",
+      "event_date": "2022-09-01",
+      "query_text": "截至2022年9月1日，实用新型专利权自申请日起算可以保护多少年？",
+      "documents": [
+        {
+          "document_id": "d-3d3020a2c0e0cfd051a265c0",
+          "source_id": "s-806d93fe2f8c5e5c8a81f6aa",
+          "text": "专利权可以因为书面放弃而在届满前终止。放弃是权利人的行为，不是法定保护期限本身，也不能用来比较不同申请日。",
+          "content_sha256": "998d54a385e144890b61940a45156dec0183f17a06f1169acabebf9aadb7ac5f",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-c0c60e037d9d645f9960a51f",
+          "source_id": "s-df49e08af1c2cd8ad2b56556",
+          "text": "截至2022年9月1日，实用新型专利权的保护期限为十年，自申请日起计算。这句只回答实用新型，不把外观设计在不同申请日下的期限写进同一句，也不使用发明专利的年限。",
+          "content_sha256": "6ddf83d81dc195138e232c0b927ecb105285ddfe36c5698f55cad103f5eae294",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-eaeae0693757b93a848e9730",
+          "source_id": "s-6a5cf2795e49d65d4b09c36b",
+          "text": "实用新型和外观设计经初步审查没有发现驳回理由的，可以作出授予决定并发给证书。审查种类不同，并不在这句里写成某一申请日的保护年限。",
+          "content_sha256": "afc81819c951583397abb531d4afd649a5a7a464772ea263c0737e827513f664",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-bf93fd3ed61f138dabeec035",
+          "source_id": "s-97dd18a3d17ddc08ff670bf1",
+          "text": "截至2022年9月1日，实用新型专利权的保护期限为十五年，自申请日起计算。这句把外观设计在新申请日条件下的年限挪到实用新型上，询问对象因此被换成了另一个数字。",
+          "content_sha256": "84fa7a8186445f3a5e6bdd6509f2fdd055c08d21ba80408be46d1f098c040a2d",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-6b5d9b236f84a42b38ff50b5",
+          "source_id": "s-612cc52b261204b8d7fdc0c5",
+          "text": "申请外观设计要提交请求书、图片或者照片以及简要说明。这些文件用来显示要求保护的产品外观，文件种类本身不是保护期限的年数。",
+          "content_sha256": "c449bc7a3b9fd6cb34cccc6038d1e0f7b3552fcd6f7821ad1f2fe776cd906f9c",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-3e5a4ca54d4225eb90a20d64",
+          "source_id": "s-260dca940578b7cb061e4105",
+          "text": "外观设计应当不属于现有设计，并与现有设计有明显区别。授权条件回答的是能不能授，不回答自申请日起保护多少年。",
+          "content_sha256": "1a21e7569147acbf193db126973a198c3c827dfe9e2e1036f88eab7a01305d20",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-79d617debc274b11ca4a93ae",
+          "source_id": "s-14c5ed81ab1de6e35e5f99cc",
+          "text": "要求保护色彩时，图片或照片应当能清楚显示该设计。图像要求服务于授权范围的表达，与保护期限的年数无关。",
+          "content_sha256": "ece673f99236bf7a28d83570b9ae5649a6fef7a05fd66e5355aa69cdbffd1709",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-1721a6cabd66d3ed94cbd4db",
+          "source_id": "s-81a30b0c5a453f3ba8bd73b1",
+          "text": "对2021年5月31日当天及之前提出的外观设计，保护年限按十年计算，自申请日起算。实用新型虽然也常被问到年限，但本句不改写实用新型，只锁定较早申请的外观设计。",
+          "content_sha256": "6a4a32a7a67f0e0c486fd156ac3cd8cb45b4bf99e52bee5c904b71173c9910f4",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-95ae9a24c85a30486c6d79d3",
+          "source_id": "s-c78da563d7ea830a31c20832",
+          "text": "申请日为2021年5月31日以前的外观设计专利权，保护期限为十年，自申请日起算。这句的对象是较早申请日的外观设计，不是实用新型，也不是2021年6月1日以后提出的外观设计。",
+          "content_sha256": "3cce1906e02dd291b1231d1855cd119264d3694c0811a64958348dfe1bdbb017",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-da68b849bd71003e71b3cbc0",
+          "source_id": "s-780d655c24d0be71b701ca1a",
+          "text": "在2022年9月1日询问实用新型，法定保护期限仍是十年，起算点为申请日。外观设计是否另行规定更长或更短的期限，不影响这句对实用新型的回答，年费问题也不改变法定年限。",
+          "content_sha256": "5dcfd1cd789e8ec43fcd9c1872a850e194d20d62c42f499ad0d62e109b094ed0",
+          "source_uri": null
+        },
+        {
+          "document_id": "d-ac746821219d083e1294b3fa",
+          "source_id": "s-dce2d73dd9f374e21c4f1fb4",
+          "text": "专利权人应当缴纳年费；没有按期缴纳的，专利权可能在期限届满前终止。年费制度说明权利需要维持，但这里不给出外观设计或实用新型的法定年限。",
+          "content_sha256": "460dfa881a990887f86492bfc08a66bd4e9f0d73fe91ffa0b8ad1d07057d07bd",
+          "source_uri": null
+        }
+      ]
+    }
+  ],
+  "mirrors": []
+}

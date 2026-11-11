@@ -1,0 +1,91 @@
+{
+  "schema": "OWNER28_COMPAT_BRIDGE_AUDIT_V1",
+  "status": "SCHEMA_BRIDGE_READY / EVAL_NOT_RUN",
+  "authority": "W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT",
+  "producer_branch": "research/paper1-ragdefender-repro-5090",
+  "original_commit": "a8de64fbf2c279a642c9b9a41ddf5c5481b8cfca",
+  "original_role_free_sha256": "2aafd7d7bcd8e3860771063a31770e350532065abb251f38f99c7ac39ba50cb7",
+  "original_manifest_sha256": "9b9c40e3053003dd237aa26414c53f7465822265faa026f9565de43221f07814",
+  "private_custody_sha256": "c4244e86fb2ecf1177cc3d2bb39b8791e1b789713fc3522bbfaa46b35b055595",
+  "private_custody_changed": false,
+  "compat_role_free_sha256": "059a859c8e1296d6a09d1cf7aa4e6124275c8a85af96d85b20749108e6ba56c8",
+  "compat_curator_sha256": "2d5e11e6a2a98e5f1ebd3d2aa16b3b80b6d92f4e6f223f6616df05219fdbe235",
+  "private_id_map_sha256": "119e7f5242c86a3fd74d10df9ad3d402a41b5cfe4037a1f6a6f4f46f3fe5c0a0",
+  "private_id_map_location": "LOCAL_PRIVATE_OUTSIDE_GIT",
+  "id_scheme": {
+    "version": "OWNER28_SCHEMA_BRIDGE_V1",
+    "preimage": "OWNER28_SCHEMA_BRIDGE_V1|{old_id}|{type}",
+    "digest": "lowercase sha256 hex, first 24 characters, prefixed w-/f-/d-/s-",
+    "types": [
+      "world",
+      "document",
+      "source",
+      "fact"
+    ],
+    "fact_old_id": "frozen private fact_key",
+    "excluded_from_preimage": [
+      "gold",
+      "role",
+      "scenario",
+      "answer"
+    ]
+  },
+  "counts": {
+    "original_worlds": 39,
+    "main_worlds": 32,
+    "mirror_worlds_retained_in_original_only": 7,
+    "imported_main_worlds": 32,
+    "documents_per_world": 11,
+    "main_passages": 352,
+    "fact_groups": 4,
+    "worlds_per_fact": 8,
+    "issuer_classes": 2,
+    "lineages": 3,
+    "added_main_worlds": 0,
+    "dropped_main_worlds": 0,
+    "query_changed": 0,
+    "passage_changed": 0,
+    "passage_order_changed": 0,
+    "collisions": 0
+  },
+  "mirrors": {
+    "status": "MIRROR7_NOT_RUN_NOT_IN_HEADLINE",
+    "exported_in_compat_package": 0,
+    "padded_to_8": false,
+    "mixed_into_main_denominator": false
+  },
+  "date_source": "sealed query briefs; event_date is YYYY-MM-DD; the brief time_point string is present in each main query; dates are not inferred from passage text",
+  "new_fields": {
+    "fact_uid": "opaque id from the frozen private fact_key",
+    "event_date": "sealed brief time point",
+    "query_text": "exact original query",
+    "document_id": "opaque id from the original passage_id",
+    "source_id": "OPAQUE_UNTRUSTED_PLACEHOLDER derived from the original passage_id; not an independent issuer",
+    "content_sha256": "sha256 of the original passage text as UTF-8 with no extra newline",
+    "source_uri": "null on every document; a paraphrase is not attributed as an official document"
+  },
+  "query_stream_sha256": "b101261cbf7806db970b98f4ed791ea38b145138aa6578e00401e271c6a3a9ce",
+  "passage_stream_sha256": "3429300118dcc580f5dbdb3187a0feefb578c32ec7ad18dbb88bdd8ecbc59fcf",
+  "selection_sha256_algorithm": "sha256 of the four original selection digests joined by newline in EVAL_CURATOR_MANIFEST.json order, with a trailing newline, UTF-8",
+  "query_view_sha256": "322334e48f60572e99af2e78b811507c7e139546bb88877aa29d49938f43a56e",
+  "patent_old_uri_gate": {
+    "validator_predicate": "OFFICIAL_METADATA_URI_REQUIRED",
+    "sealed_old_uri_scheme": "http",
+    "sealed_http_uris_unchanged_in_custody": true,
+    "compat_old_uri": "https://www.cnipa.gov.cn/art/2015/9/2/art_97_28193.html",
+    "reason": "The sealed MOA locator is HTTP, so it fails the frozen HTTPS scheme gate. The compat curator cites the checked CNIPA HTTPS republication of the same 2008 statute. Facts, dates, queries, and passage texts are unchanged."
+  },
+  "byte_compare": {
+    "algorithm": "Join original role-free worlds to private custody by world_id. Keep the sealed 32-world main partition in original file order. Require query_text and the 11 document texts to equal the original query and passage texts.",
+    "command": "python D:\\paper1\\private_5090\\owner28_eval\\bridge_owner28_schema.py verify",
+    "observed_exit_code": 0,
+    "observation": "Exit code is the in-process checker result immediately before this audit was written. The verify command does not read this audit."
+  },
+  "scoring": "NOT_RUN",
+  "claim1": "NOT_RUN",
+  "claim2": "NOT_RUN",
+  "claim3": "NOT_RUN",
+  "dev_outputs_accessed": false,
+  "labels_in_git": false,
+  "documentation_scope": "This commit is limited to the compat role-free package, the compat curator manifest, and this audit. Governance ledgers were not edited."
+}
