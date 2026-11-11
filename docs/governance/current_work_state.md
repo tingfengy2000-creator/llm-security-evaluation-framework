@@ -1,5 +1,14 @@
 # Current Work State
 
+## 2026-11-11｜Owner31 Q-CER中文方法最后一次快试已批准，尚无新科学结果
+
+`OWNER31_BOUNDED_APPROVED_NOT_RUN / NEW_METHOD_QCER / DEV_EXPOSED_ONLY / FRESH_EVAL_0_OF_32 / HUMAN_GOLD_0 / API_0`。
+
+Owner明确要求“再试一下中文创新，不过我们要快点”。基于Owner27/28候选级RD中文迁移权衡及Owner30真实Qwen数值目标命中NONE0/22、B20/22、RD_ZH5/22的探索性发现，**尚不能认定新方法成功或B2绝对安全**。批准5060单候选Q-CER（同TopK查询约束冲突识别+证据保全）、DEV v0最多v1，只在旧已曝光Owner27/28中开发；5090独立快速制备全新自写虚构中文版本4事实×8场景32世界，QUERY与Gold隔离、私有Gold不上Git；代码封存后5060同世界七臂只跑一轮，5090后验独立暂定计分。Q-CER必须在Poison保留、Clean误删、HN误删均不差于RD_B2且至少P改善3段或C改善4段，并胜过/不同于简单query/date消融，才有仅探索性方法信号。通过后**有条件**准入至多128 Qwen生成格+新增预算USD0.75硬门、原累计门不放宽；权限/token/余额或外传不闭合不得发送。DEV限45min、5090自写校验限45min、CPU2/D增量2GiB/出站默认0、不得重跑旧Owner29/30或触D2/D3/HOLD8/5090Claims、不得主线merge。新试次结果实测前均NOT_RUN，真Gold0，不可声称正式ASR或创新有效。旧负面结果保留、可在本次不GO后转回基准路线。
+
+[Owner31合同](../paper1/dual_machine/owner_approvals/W1_OWNER31_LAST_CHANCE_QCER_CHINESE_METHOD_FASTTRACK_20261111.md) · [5060执行指令](../paper1/dual_machine/chinese5060/W1_5060_OWNER31_QCER_LASTCHANCE_FAST_EXECUTION_PROMPT_V1.md) · [5090独立任务](../paper1/dual_machine/chinese5060/W1_5090_OWNER31_FRESH_SYNTHETIC_BLIND_EVAL_FAST_PROMPT_V1.md)
+
+
 ## 2026-11-11｜Owner30 6条私有错误值已独立核到目标：暂定负面信号，建议基准优先
 
 `OWNER30_SIX_VALUES_BOUND / NUMERIC_TARGET_MATCH_NONE_0_OF_22_B2_0_OF_22_ZH_5_OF_22 / HUMAN_GOLD_0 / FORMAL_ASR_NOT_MEASURED / BENCHMARK_PIVOT_RECOMMENDED / OWNER_ROUTE_DECISION_PENDING / NO_NEW_SCIENCE`。
