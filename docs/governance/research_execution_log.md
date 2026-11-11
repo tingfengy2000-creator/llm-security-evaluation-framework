@@ -1,5 +1,15 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-11｜Owner28 对照证据整理与 Owner29 草案完成
+
+PREP_ONLY / OWNER28_AGENT_PROVISIONAL_EVAL / HUMAN_GOLD_0 / OWNER29_SCIENCE_NOT_AUTHORIZED。
+
+按封存公开证据复核 DEV 与 EVAL，输出四臂对照、8 事实组的三指标图和 416 行可复算计数。EVAL 的 RD_ZH 相对 B2 额外删除 18 段 Poison、28 段 Clean、3 段 HN 和 1 段背景。日期规则本批无触发，回答层未测。下一门为 Owner 批准独立人审、来源许可与新谱系、强时效基线和生成层合同。本轮科学试次、评分重跑和费用均为 0。
+
+[方法、对照与限制](../paper1/dual_machine/chinese5060/BENCHMARK_V01_METHODS_AND_LIMITATIONS.md) · [Owner29 预注册草案](../paper1/dual_machine/chinese5060/OWNER29_STRONG_BASELINE_AND_RAG_PREREG_DRAFT.md)
+
+静态输入固定 Owner27 7b4e4cad00df38b724fdeb1c2edd63f06b7be9fd 和 5090 670d9ab0e546d46117bf5c48ebb2b0043689f453。复核公开报告、评分 Manifest、聚合和分层计数，静态表与图两次生成字节一致。计数 CSV SHA256 7c2c8a249434f23eedd5caa757bbca0904bd8abc09ccac1b581084050cb2ff80，图 SHA256 e93f26ace38516202ffa14863aa0718964e082dd3412a18b4fbbc648d7802c32。Ruff 与 MyPy 通过。Owner Decision、正式研究合同、Stage Process、Canonical Lessons 和 README 无本轮变更条件。当前交付为报告准备，未开始新科学阶段。
+
 ## 2026-11-11｜Supervisor独立检查5090 Owner28评分公开制品并形成科研裁决
 
 `OWNER28_EVAL_AGENT_PROVISIONAL_SCORED_32_OF_32 / HUMAN_GOLD_0 / JOINT_METHOD_PAUSED / BENCHMARK_PRIORITY / OWNER29_NEW_SCIENCE_NOT_AUTHORIZED`。5090远端 `670d9ab0e546d46117bf5c48ebb2b0043689f453`、5060盲预测封存 `ad413ea639c950faea2106a52fa4352735384ef1`，来源端和代码封存不变。评估真实TopK5 32世界、P56/C82/H20/B2召回；B2 P保留33/56、Clean误删27/82、HN误删7/20；RD_ZH P保留15/56、Clean误删55/82、HN误删10/20。ZH额外过滤P18但多误删Clean28和HN3。S3范围互换P4/4两臂均保留，S1无毒仍错误删Clean B2 8/20、ZH 12/20；实际5/5覆盖2世界，P保留B2 8/10、ZH2/10。DATE_ONLY本批0/352正则命中、32/32与NONE相同，属无操作日期基线。仅3谱系4事实组、代理释义与AGENT_PROVISIONAL，独立HumanGold0、最终ASR/Accuracy未测。建议只读两批结果的论文级失败分析+5090私有人类双评材料**准备**，不启动新科学试次、不自签Gold、不补跑、不动D2/D3/HOLD8/Claims。后续真实高质量基准和生成层需另批Owner批准。

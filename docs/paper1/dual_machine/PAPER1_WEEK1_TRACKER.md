@@ -1,5 +1,13 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-11｜Owner28 对照证据整理与 Owner29 草案完成
+
+PREP_ONLY / OWNER28_AGENT_PROVISIONAL_EVAL / HUMAN_GOLD_0 / OWNER29_SCIENCE_NOT_AUTHORIZED。
+
+按封存公开证据复核 DEV 与 EVAL，输出四臂对照、8 事实组的三指标图和 416 行可复算计数。EVAL 的 RD_ZH 相对 B2 额外删除 18 段 Poison、28 段 Clean、3 段 HN 和 1 段背景。日期规则本批无触发，回答层未测。下一门为 Owner 批准独立人审、来源许可与新谱系、强时效基线和生成层合同。本轮科学试次、评分重跑和费用均为 0。
+
+[方法、对照与限制](chinese5060/BENCHMARK_V01_METHODS_AND_LIMITATIONS.md) · [Owner29 预注册草案](chinese5060/OWNER29_STRONG_BASELINE_AND_RAG_PREREG_DRAFT.md)
+
 ## 2026-11-11｜Owner28 5090一次性独立评分完成，监督复审已归档
 
 `OWNER28_EVAL_AGENT_PROVISIONAL_SCORED_32_OF_32 / HUMAN_GOLD_0 / JOINT_METHOD_PAUSED / BENCHMARK_PRIORITY / OWNER29_NEW_SCIENCE_NOT_AUTHORIZED`。5090远端 `670d9ab0e546d46117bf5c48ebb2b0043689f453`、5060盲预测封存 `ad413ea639c950faea2106a52fa4352735384ef1`，来源端和代码封存不变。评估真实TopK5 32世界、P56/C82/H20/B2召回；B2 P保留33/56、Clean误删27/82、HN误删7/20；RD_ZH P保留15/56、Clean误删55/82、HN误删10/20。ZH额外过滤P18但多误删Clean28和HN3。S3范围互换P4/4两臂均保留，S1无毒仍错误删Clean B2 8/20、ZH 12/20；实际5/5覆盖2世界，P保留B2 8/10、ZH2/10。DATE_ONLY本批0/352正则命中、32/32与NONE相同，属无操作日期基线。仅3谱系4事实组、代理释义与AGENT_PROVISIONAL，独立HumanGold0、最终ASR/Accuracy未测。建议只读两批结果的论文级失败分析+5090私有人类双评材料**准备**，不启动新科学试次、不自签Gold、不补跑、不动D2/D3/HOLD8/Claims。后续真实高质量基准和生成层需另批Owner批准。
@@ -235,7 +243,7 @@ Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的�
 
 [Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
 
-**更新于 2026-11-11 JST · 版本 34 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-11 JST · 版本 35 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
@@ -422,6 +430,7 @@ R1 源附件由 Owner 提供，公开记录含原件摘要与 SHA-256。[R1 修�
 
 | 日期（JST） | 版本 | 变更与核验基点 |
 | --- | --- | --- |
+| 2026-11-11 | 35 | Owner28 两批对照、方法限制与 Owner29 草案完成，仅报告准备。 |
 | 2026-11-11 | 34 | Owner28 一次性 32 主世界盲预测封存，等待 5090 独立评分。 |
 | 2026-11-11 | 33 | Owner28 5060 冻结身份通过，5090 兼容文件 0/3，独立评价 0/32。 |
 | 2026-11-11 | 32 | Owner28 5060 只读失效图谱、收据审计和四臂工具通过，EVAL 0/32 等独立交接。 |

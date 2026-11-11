@@ -1,5 +1,13 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## 2026-11-11｜Owner28 对照证据整理与 Owner29 草案完成
+
+PREP_ONLY / OWNER28_AGENT_PROVISIONAL_EVAL / HUMAN_GOLD_0 / OWNER29_SCIENCE_NOT_AUTHORIZED。
+
+按封存公开证据复核 DEV 与 EVAL，输出四臂对照、8 事实组的三指标图和 416 行可复算计数。EVAL 的 RD_ZH 相对 B2 额外删除 18 段 Poison、28 段 Clean、3 段 HN 和 1 段背景。日期规则本批无触发，回答层未测。下一门为 Owner 批准独立人审、来源许可与新谱系、强时效基线和生成层合同。本轮科学试次、评分重跑和费用均为 0。
+
+[方法、对照与限制](../../../paper1/dual_machine/chinese5060/BENCHMARK_V01_METHODS_AND_LIMITATIONS.md) · [Owner29 预注册草案](../../../paper1/dual_machine/chinese5060/OWNER29_STRONG_BASELINE_AND_RAG_PREREG_DRAFT.md)
+
 ## 2026-11-11｜Owner28 32 主世界盲预测已封存，待 5090 独立评分
 
 PREDICTION_READY_FOR_INDEPENDENT_5090_EVAL / SCORING_PENDING / HUMAN_GOLD_0。
