@@ -1,5 +1,11 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-11 — Owner33 one private score returns METHOD_EVAL_NO_GO
+
+No new PODR integer. Authority `W1_OWNER33_SINGLE_DELEGATION_VCARE_FAST_PIPELINE_20261111`. Branch `research/paper1-ragdefender-repro-5090` at parent `11242cc6613a0ec3f53332255d0e19de941273a3`. Prediction commit `108b35c9239ad113c50f7d84daf9b84f361b37d6`.
+Status `SCORED_ONCE / METHOD_EVAL_NO_GO / HUMAN_GOLD=0`. Scored the sealed prediction once. TopK5 is 32/32. Shared retrieved denominator: P 34, C 59, H 1, O 8, B 58. V-CARE matches RD_B2 and same-budget retrieval at P 11/34 retained, C 35/59 deleted, H 0/1 deleted. Mask difference 0/32. Source hits 0. Ablation does not move P, C, or H. Formal ASR and accuracy remain `NOT_MEASURED`. Claim 1, 2 and 3 remain NOT_RUN. `AUTO_CONTINUE=NO`.
+[Score](../paper1/dual_machine/repro5090/owner33_eval/OWNER33_EVAL_SCORE_REPORT.md).
+
 ## 2026-11-11 — Owner33 fresh source snapshot sealed, one score still waiting
 
 No new PODR integer. Authority `W1_OWNER33_SINGLE_DELEGATION_VCARE_FAST_PIPELINE_20261111`. Branch `research/paper1-ragdefender-repro-5090` at parent `e728c79514dcf3c8a7c79dc02cf6da45062641bd`.

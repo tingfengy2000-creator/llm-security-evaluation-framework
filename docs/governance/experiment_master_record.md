@@ -1,5 +1,13 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-124 — Owner33 private score once, method eval no-go
+
+2026-11-11 UTC+8; no new PODR; authority `W1_OWNER33_SINGLE_DELEGATION_VCARE_FAST_PIPELINE_20261111`; parent `11242cc6613a0ec3f53332255d0e19de941273a3`.
+One score of prediction `108b35c9239ad113c50f7d84daf9b84f361b37d6`. Decision `METHOD_EVAL_NO_GO`. Human Gold 0. Formal ASR and accuracy `NOT_MEASURED`. Claims NOT_RUN.
+Report SHA256 `6d2c1a2a1a558998be58c0d26de3df6f7609f5c6d455e9b5e753be690da72c23`. Manifest SHA256 `6702fa07167ef36386fe146d1ebfd1660d285c88c7e955449e3849051c8ddd87`. Private detail SHA256 `7174745807ce2d9c48d714fd37676825304c0f40056ad975e396bdb95e297837` outside Git.
+[Score](../paper1/dual_machine/repro5090/owner33_eval/OWNER33_EVAL_SCORE_REPORT.md).
+L0 Oracle evidence below is unchanged. No D2/D3 read.
+
 ## OR-123 — Owner33 source snapshot and role-free input sealed, score not run
 
 2026-11-11 UTC+8; no new PODR; authority `W1_OWNER33_SINGLE_DELEGATION_VCARE_FAST_PIPELINE_20261111`; parent `e728c79514dcf3c8a7c79dc02cf6da45062641bd`.

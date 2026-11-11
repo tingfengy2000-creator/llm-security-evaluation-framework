@@ -1,5 +1,10 @@
 # LLMGuard 项目总控文档
 
+## 当前：Owner33 独立评分未通过，冻结版停止（2026-11-11）
+
+5090 仍在 `research/paper1-ragdefender-repro-5090`。5060 的唯一一次盲预测已经用预封存标签打分。32 个世界都有 TopK5。V-CARE 与同预算 B2 的掩码差异是 0/32，外证命中是 0。裁决是 `METHOD_EVAL_NO_GO`。Human Gold 仍为 0。正式攻击成功率和准确率仍是 `NOT_MEASURED`。三条 Claim 仍是 `NOT_RUN`。`AUTO_CONTINUE=NO`。
+[独立评分](docs/paper1/dual_machine/repro5090/owner33_eval/OWNER33_EVAL_SCORE_REPORT.md)。
+
 ## 当前：Owner33 新来源和角色盲输入已封存，评分还没开始（2026-11-11）
 
 5090 仍在 `research/paper1-ragdefender-repro-5090`。新的官方短事实索引先冻结，再选出 4 个事实组、32 个世界、每世界 11 个自写段落。Human Gold 仍为 0。5060 已经给出 `DEV_GO / METHOD_SEALED`，但这份新输入还没有一次性预测，所以 5090 没有评分。三条 Claim 仍是 `NOT_RUN`。`AUTO_CONTINUE=HANDOFF_PUBLISHED_WAITING_FOR_ONE_PREDICTION`。

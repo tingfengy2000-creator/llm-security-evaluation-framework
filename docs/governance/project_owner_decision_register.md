@@ -1,5 +1,10 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1_OWNER33_SINGLE_DELEGATION_VCARE_FAST_PIPELINE_20261111 — 5090 完成一次独立评分，不新编 PODR（2026-11-11）
+
+没有新的 PODR 编号。本收执只记录授权范围内的一次私有评分：32/32 有 TopK5，V-CARE 与同预算 B2 的掩码差异 0/32，外证命中 0。裁决是 `METHOD_EVAL_NO_GO`。这不是 Human Gold，正式 ASR 和准确率仍是 `NOT_MEASURED`。Claim1–3 仍 NOT_RUN。`AUTO_CONTINUE=NO`。
+[独立评分](../paper1/dual_machine/repro5090/owner33_eval/OWNER33_EVAL_SCORE_REPORT.md)。
+
 ## W1_OWNER33_SINGLE_DELEGATION_VCARE_FAST_PIPELINE_20261111 — 5090 封存新来源和角色盲输入，不新编 PODR（2026-11-11）
 
 没有新的 PODR 编号。本收执只记录授权范围内的新官方短事实索引和角色盲输入已经封存：7 个候选谱系、4 个事实组、32 个世界、每世界 11 个片段。整页没有入库。私有暂定标签留在本机。Human Gold 仍为 0。5060 的方法冻结已经看到，但这份新输入还没有一次性预测，所以没有评分。Claim1–3 仍 NOT_RUN。`AUTO_CONTINUE=HANDOFF_PUBLISHED_WAITING_FOR_ONE_PREDICTION`。

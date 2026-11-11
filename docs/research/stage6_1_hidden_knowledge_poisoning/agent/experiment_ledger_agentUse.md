@@ -1,5 +1,15 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — Owner33 scored once, METHOD_EVAL_NO_GO, 2026-11-11 UTC+8
+
+No new PODR integer. Authority `W1_OWNER33_SINGLE_DELEGATION_VCARE_FAST_PIPELINE_20261111`. Branch `research/paper1-ragdefender-repro-5090`. Parent `11242cc6613a0ec3f53332255d0e19de941273a3`. Prediction commit `108b35c9239ad113c50f7d84daf9b84f361b37d6`. 5060 was not merged.
+Status `SCORED_ONCE / METHOD_EVAL_NO_GO / HUMAN_GOLD=0`. Predictions SHA256 `7082eba17608c8d8ee6d93a591b4c74fdb017e295558e76f1b1867e712a8ccd8`. TopK seal SHA256 `861cb132b70b133bda4db3e493a11cecf07be4cd75f3cf3ebcce2c70d5174205`. Run manifest SHA256 `328dc7fefa487fffa5b8921e4ac2d76f1edc6cedc72bf0bc415802db0ec7bc8e`. Prediction seal SHA256 `45ca85f206fbcc9694641737df98e6db81cbfa91a568a7403e623c10a3717737`. Role-free SHA256 `fccae2a0967b7bcefe051849c5b8d65d930e8954abe3c4ffb1b4a53daf03cf0c`. Private label SHA256 `68fec872603df11150aea5164e3b169788330784052f3f826cedb05c7492855f` outside Git.
+Complete TopK5 32/32. Retrieved P 34/48, C 59/84, H 1/12, O 8/16, B 58/192. VCARE_FULL equals RD_B2 and B2_SAME_EXTRA_RETRIEVAL: P retained 11/34, C deleted 35/59, H deleted 0/1, O deleted 8/8, B deleted 4/58. Mask diff versus B2, matched retrieval, no-scope, and no-rescue is 0/32. Source hits 0. Slots above TopK5 0. Recognized frozen intents 0/32. Second scorer run exited `ALREADY_SCORED`.
+Report SHA256 `6d2c1a2a1a558998be58c0d26de3df6f7609f5c6d455e9b5e753be690da72c23`. Manifest SHA256 `6702fa07167ef36386fe146d1ebfd1660d285c88c7e955449e3849051c8ddd87`. Private detail SHA256 `7174745807ce2d9c48d714fd37676825304c0f40056ad975e396bdb95e297837` outside Git.
+Labels not sent back. Samples not rewritten. Owner31 holdout not scored. Owner30 scores not rerun. Commercial API 0. Weight downloads 0. Claim1/2/3 `NOT_RUN`. Formal ASR `NOT_MEASURED`. Formal accuracy `NOT_MEASURED`. D2/D3/HOLD8 not touched. `AUTO_CONTINUE=NO`.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master true; owner_decision true; stage_process evaluated and not updated; lessons evaluated and not updated; research_authority evaluated and not updated; README evaluated and not updated.
+[Score](../../../paper1/dual_machine/repro5090/owner33_eval/OWNER33_EVAL_SCORE_REPORT.md).
+
 ## Current — Owner33 source snapshot sealed, fresh score not run, 2026-11-11 UTC+8
 
 No new PODR integer. Authority `W1_OWNER33_SINGLE_DELEGATION_VCARE_FAST_PIPELINE_20261111`. Branch `research/paper1-ragdefender-repro-5090`. Parent `e728c79514dcf3c8a7c79dc02cf6da45062641bd`. Prompt commit `2f49ee1ed2322540044518350c40ff1990477b16`. Prompt blob `32c288d9b321bf2c620054243a12c78a2ce3ec65`. Prompt SHA256 `16974eaea89ea5097eba4fc3a4b9bd786d5df9578079e09db698c8dc53ad0719`. Authorization blob `6a8ea4d8dbd251d7c646e038448d289ce433921c`. Authorization SHA256 `ed61a71ed99ee6a77f7dd979ff2acaf94206f5b54391a4a9623085dd737dc34c`. 5060 was not merged.

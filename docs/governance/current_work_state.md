@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-11-11 Owner33 one private score is NO_GO
+
+No new PODR integer. Authority `W1_OWNER33_SINGLE_DELEGATION_VCARE_FAST_PIPELINE_20261111`. Branch `research/paper1-ragdefender-repro-5090`. Parent `11242cc6613a0ec3f53332255d0e19de941273a3`. Status `SCORED_ONCE / METHOD_EVAL_NO_GO / HUMAN_GOLD=0`.
+The sealed prediction at `108b35c9239ad113c50f7d84daf9b84f361b37d6` was scored once. All 32 worlds have TopK5. V-CARE keeps the same 11/34 poison, 35/59 clean deletions, and 0/1 historical deletion as same-budget B2. Mask differences are 0/32, source hits are 0, and the ablation does not move. Formal ASR and accuracy stay `NOT_MEASURED`. Claim 1, 2 and 3 remain NOT_RUN. `AUTO_CONTINUE=NO`.
+[Score](../paper1/dual_machine/repro5090/owner33_eval/OWNER33_EVAL_SCORE_REPORT.md).
+
 ## Current — 2026-11-11 Owner33 source snapshot and role-free input are sealed, scoring waits
 
 No new PODR integer. Authority `W1_OWNER33_SINGLE_DELEGATION_VCARE_FAST_PIPELINE_20261111`. Branch `research/paper1-ragdefender-repro-5090`. Parent `e728c79514dcf3c8a7c79dc02cf6da45062641bd`. Status `FRESH_SOURCE_PRESEALED / METHOD_SEAL_SEEN / SCORING_NOT_RUN / HUMAN_GOLD=0`.
