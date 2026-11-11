@@ -1,0 +1,15 @@
+{
+  "closed_book_repeats": 2,
+  "human_gold": 0,
+  "label_custody_sha256": "86012eedb76b6330e960cd43f07cfc815e448c01af1acedf1107db92314a031a",
+  "labels_included": false,
+  "passages_per_world": 5,
+  "questions": 36,
+  "questions_sha256": "d93ad1984fe36db46667cf9c62ca5593c4fb166088af9ec5b03d037c01db2795",
+  "reviewer_commit": "87864727a5130ec14822852671aebdbc25af429d",
+  "schema": "PKC_INPUT_MANIFEST_V1",
+  "scoring": "NOT_RECEIVED",
+  "status": "INPUT_SEALED",
+  "worlds": 80,
+  "worlds_sha256": "1f204b647fff82d25990146f941d07ea47692487fd65297ea7ea36c19bcc9ce4"
+}
