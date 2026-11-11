@@ -2106,3 +2106,8 @@ detector_training: false
 ## 2026-11-11｜Owner31 Q-CER DEV 科研停止
 
 `METHOD_DEV_NO_GO / DEV_V0_COMPLETE / V1_NOT_RUN / FRESH_EVAL_LOCKED / AUTO_CONTINUE=NO`。32 个主世界七臂完成，Q-CER 与 RD_B2 逐世界掩码完全相同，P 保留 20/45、C 误删 40/63、HN 误删 4/33。未放宽绑定或启动 v1/EVAL，未取独立测试数据。新 API、费用及 Human Gold 均为 0，正式指标未测。保留基准路线证据。 [DEV 结果与封存](../../../paper1/dual_machine/chinese5060/OWNER31_QCER_DEV_RESULT.md)
+
+
+## 2026-11-11｜Owner32 V-CARE 只读来源预检
+
+`G0_READ_ONLY_COMPLETE / SOURCE_INDEX_BLOCKED / OWNER32_SCIENCE_NOT_AUTHORIZED / AUTO_CONTINUE=NO`。从 71 个角色盲已删槽抽查 10 个，官方网页时点和范围可核 8/10，两条大型客车首次申领范围阻断。独立索引可准入 0/10，缺预冻结来源库及全文版本哈希与权利证明。无新 DEV/EVAL、API 或 Human Gold，Q-CER v0 保持原样。 [G0 报告](../../../paper1/dual_machine/chinese5060/OWNER32_G0_SOURCE_FEASIBILITY_AUDIT.md)

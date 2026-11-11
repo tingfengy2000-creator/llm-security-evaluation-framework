@@ -1,0 +1,437 @@
+{
+  "auto_continue": "NO",
+  "blockers": [
+    "NO_PRE_FROZEN_BROAD_OFFICIAL_VERSION_INDEX",
+    "NO_ADMITTED_DOCUMENT_HASHES_OR_REUSE_RIGHTS",
+    "FIRST_APPLICATION_VS_ADD_ON_SCOPE"
+  ],
+  "branch_basis": "2f8c4c2ebe79d3711cb107519869e7fbf8f1f1b0",
+  "commercial_api_calls": 0,
+  "counts": {
+    "authority_metadata_scope_verified": 8,
+    "full_document_hashes": 0,
+    "https_head_attempted": 8,
+    "https_head_valid": 8,
+    "independent_index_admissible": 0,
+    "query_families": 4,
+    "query_scope_blocked": 2,
+    "slots_audited": 10
+  },
+  "dev_runs": 0,
+  "eval_runs": 0,
+  "human_gold": 0,
+  "independence": "Official publishers external to experiment; Owner27 DEV lineages previously used; current post-sample metadata access does not qualify as pre-sample freeze or future held-out independence.",
+  "new_models_downloaded": 0,
+  "rows": [
+    {
+      "audit_evidence_sha256": "0973d9a57ce467f28969299c05ea9ad9386250d30de4acc1d0dd7d7456c6c4ac",
+      "audit_id": "G0-01",
+      "event_date": "2025-02-03",
+      "frozen_index_admitted": false,
+      "metadata_status": "METADATA_SCOPE_VERIFIED",
+      "query_family": "旅馆卫生许可",
+      "scope": "SHANGHAI_LICENSED_HOTEL",
+      "scope_reason": "国家修订有效窗与上海实施细则可交叉定位",
+      "source_evidence_sha256": [
+        "76845babdf95f05f6f497d353aeda374c5a7a3d331cb0bac02c6cec4b4e9e4e5",
+        "3925651d0b812f3d9a6f7c2f30d11128905d9a4508fa21830bfecb74e15db1d6",
+        "e4b7229f7e4e1c9af1cc2eae4261d65bb0bf510a8b649add9afcda99650c04ec"
+      ],
+      "source_ids": [
+        "S797",
+        "S2023",
+        "S2019"
+      ]
+    },
+    {
+      "audit_evidence_sha256": "5f5393c07ba90638c37362ef122f8ad9df6466430bdee45715922c30cc006e80",
+      "audit_id": "G0-02",
+      "event_date": "2025-01-15",
+      "frozen_index_admitted": false,
+      "metadata_status": "METADATA_SCOPE_VERIFIED",
+      "query_family": "春节法定假日",
+      "scope": "SHANGHAI_STATUTORY",
+      "scope_reason": "适用国家法定日，年度调休不入证据",
+      "source_evidence_sha256": [
+        "9013970ac5d3e033520dfca3c3b68920658d19303bc63ea38e6ac97866cd6fbd",
+        "dac890660fea7bbfc428ba913c7ccdaf7f6b4ad66e3db4084c29541ec330e726"
+      ],
+      "source_ids": [
+        "H795",
+        "H644"
+      ]
+    },
+    {
+      "audit_evidence_sha256": "e5ac73f27ba39590e98a5ba59ce93aac26e17814635455428df41df4fff6ad11",
+      "audit_id": "G0-03",
+      "event_date": "2025-01-15",
+      "frozen_index_admitted": false,
+      "metadata_status": "METADATA_SCOPE_VERIFIED",
+      "query_family": "劳动节法定假日",
+      "scope": "SHANGHAI_STATUTORY",
+      "scope_reason": "适用国家法定日，年度调休不入证据",
+      "source_evidence_sha256": [
+        "9013970ac5d3e033520dfca3c3b68920658d19303bc63ea38e6ac97866cd6fbd",
+        "dac890660fea7bbfc428ba913c7ccdaf7f6b4ad66e3db4084c29541ec330e726"
+      ],
+      "source_ids": [
+        "H795",
+        "H644"
+      ]
+    },
+    {
+      "audit_evidence_sha256": "7ff87f29308b1d1b8b30974d58daf8326e5c9a9a4deff88754361e914a87a7c5",
+      "audit_id": "G0-04",
+      "event_date": "2025-01-15",
+      "frozen_index_admitted": false,
+      "metadata_status": "QUERY_SCOPE_BLOCKED",
+      "query_family": "大型客车首次申领",
+      "scope": "SHANGHAI_ORDINARY_BUS",
+      "scope_reason": "原查询未交代已持证且混同首次申领与增驾；年龄条款不能单独作为回答证据",
+      "source_evidence_sha256": [
+        "0e5520a58a3b9c0235ec6b34a95adc93711552917a3b287ae075ef55b7c95686",
+        "2e83a96ea3904b303b9f769b6fc95de927307660d24a33eb435fe74ebcb44d04",
+        "0ec03002cf13b2cfeef201146ac41c8c9aafaf2e3cfce5b65f24906f6ba58e6b"
+      ],
+      "source_ids": [
+        "D172",
+        "D162",
+        "D172_GAZETTE"
+      ]
+    },
+    {
+      "audit_evidence_sha256": "b32aa0e4780c3cb42f63cffa20358c4f4e4611ad49601dd093057d852212cf19",
+      "audit_id": "G0-05",
+      "event_date": "2025-02-03",
+      "frozen_index_admitted": false,
+      "metadata_status": "METADATA_SCOPE_VERIFIED",
+      "query_family": "旅馆卫生许可",
+      "scope": "SHANGHAI_LICENSED_HOTEL",
+      "scope_reason": "国家修订有效窗与上海实施细则可交叉定位",
+      "source_evidence_sha256": [
+        "76845babdf95f05f6f497d353aeda374c5a7a3d331cb0bac02c6cec4b4e9e4e5",
+        "3925651d0b812f3d9a6f7c2f30d11128905d9a4508fa21830bfecb74e15db1d6",
+        "e4b7229f7e4e1c9af1cc2eae4261d65bb0bf510a8b649add9afcda99650c04ec"
+      ],
+      "source_ids": [
+        "S797",
+        "S2023",
+        "S2019"
+      ]
+    },
+    {
+      "audit_evidence_sha256": "6d2ca3689888aa7e80cf0dd479c5fc49b0c68c4e2a830f076621110a58df9d0e",
+      "audit_id": "G0-06",
+      "event_date": "2025-01-15",
+      "frozen_index_admitted": false,
+      "metadata_status": "METADATA_SCOPE_VERIFIED",
+      "query_family": "春节法定假日",
+      "scope": "SHANGHAI_STATUTORY",
+      "scope_reason": "适用国家法定日，年度调休不入证据",
+      "source_evidence_sha256": [
+        "9013970ac5d3e033520dfca3c3b68920658d19303bc63ea38e6ac97866cd6fbd",
+        "dac890660fea7bbfc428ba913c7ccdaf7f6b4ad66e3db4084c29541ec330e726"
+      ],
+      "source_ids": [
+        "H795",
+        "H644"
+      ]
+    },
+    {
+      "audit_evidence_sha256": "54231a32e83b464be8e7a38296d1f43763800be51609744de762cf7d4b005b4b",
+      "audit_id": "G0-07",
+      "event_date": "2025-01-15",
+      "frozen_index_admitted": false,
+      "metadata_status": "METADATA_SCOPE_VERIFIED",
+      "query_family": "劳动节法定假日",
+      "scope": "SHANGHAI_STATUTORY",
+      "scope_reason": "适用国家法定日，年度调休不入证据",
+      "source_evidence_sha256": [
+        "9013970ac5d3e033520dfca3c3b68920658d19303bc63ea38e6ac97866cd6fbd",
+        "dac890660fea7bbfc428ba913c7ccdaf7f6b4ad66e3db4084c29541ec330e726"
+      ],
+      "source_ids": [
+        "H795",
+        "H644"
+      ]
+    },
+    {
+      "audit_evidence_sha256": "590f25dbe1bcabffdf3e9b28c497694d1190baae47922a86951beaca127ed649",
+      "audit_id": "G0-08",
+      "event_date": "2025-01-15",
+      "frozen_index_admitted": false,
+      "metadata_status": "QUERY_SCOPE_BLOCKED",
+      "query_family": "大型客车首次申领",
+      "scope": "SHANGHAI_ORDINARY_BUS",
+      "scope_reason": "原查询未交代已持证且混同首次申领与增驾；年龄条款不能单独作为回答证据",
+      "source_evidence_sha256": [
+        "0e5520a58a3b9c0235ec6b34a95adc93711552917a3b287ae075ef55b7c95686",
+        "2e83a96ea3904b303b9f769b6fc95de927307660d24a33eb435fe74ebcb44d04",
+        "0ec03002cf13b2cfeef201146ac41c8c9aafaf2e3cfce5b65f24906f6ba58e6b"
+      ],
+      "source_ids": [
+        "D172",
+        "D162",
+        "D172_GAZETTE"
+      ]
+    },
+    {
+      "audit_evidence_sha256": "f4daa66a980b083e748b876ed6b9f41e0e3805e13783b2e5cf3f2d0e18f7fd9e",
+      "audit_id": "G0-09",
+      "event_date": "2025-02-03",
+      "frozen_index_admitted": false,
+      "metadata_status": "METADATA_SCOPE_VERIFIED",
+      "query_family": "旅馆卫生许可",
+      "scope": "SHANGHAI_LICENSED_HOTEL",
+      "scope_reason": "国家修订有效窗与上海实施细则可交叉定位",
+      "source_evidence_sha256": [
+        "76845babdf95f05f6f497d353aeda374c5a7a3d331cb0bac02c6cec4b4e9e4e5",
+        "3925651d0b812f3d9a6f7c2f30d11128905d9a4508fa21830bfecb74e15db1d6",
+        "e4b7229f7e4e1c9af1cc2eae4261d65bb0bf510a8b649add9afcda99650c04ec"
+      ],
+      "source_ids": [
+        "S797",
+        "S2023",
+        "S2019"
+      ]
+    },
+    {
+      "audit_evidence_sha256": "c4b29d14eff9ee8b37c16b5fe58c3dacb8e6f4865bdaa0fb9a20bb610880274e",
+      "audit_id": "G0-10",
+      "event_date": "2025-01-15",
+      "frozen_index_admitted": false,
+      "metadata_status": "METADATA_SCOPE_VERIFIED",
+      "query_family": "春节法定假日",
+      "scope": "SHANGHAI_STATUTORY",
+      "scope_reason": "适用国家法定日，年度调休不入证据",
+      "source_evidence_sha256": [
+        "9013970ac5d3e033520dfca3c3b68920658d19303bc63ea38e6ac97866cd6fbd",
+        "dac890660fea7bbfc428ba913c7ccdaf7f6b4ad66e3db4084c29541ec330e726"
+      ],
+      "source_ids": [
+        "H795",
+        "H644"
+      ]
+    }
+  ],
+  "run_id": "W1-5060-OWNER32-SOURCE-G0-20261111-01",
+  "sample_freeze_sha256": "344e336efa5abe0701d98c3d672b792df6d1b21c25794a6a8642e6ed1ce14fbd",
+  "selection": {
+    "input_sha256": "f7e06c6b9c6b00df990e375bd8d2a67517f9447e6e40b87ca79bc45570d0125d",
+    "pool": 71,
+    "rule": "Four strata by normalized existing query identity (scope,subject,ask); SHA256 seeded order of strata and cells; round-robin without replacement; freeze before source lookup.",
+    "seed": "OWNER32_G0|2f8c4c2ebe79d3711cb107519869e7fbf8f1f1b0",
+    "stratum_sizes": [
+      20,
+      18,
+      17,
+      16
+    ]
+  },
+  "sources": {
+    "D162": {
+      "capture_class": "HTTPS_HEAD_AND_REVIEWED_PUBLIC_ARTICLE_METADATA_ONLY",
+      "document_date": "2021-12-17",
+      "effective_from": "2022-04-01",
+      "effective_to_exclusive": "2025-01-01",
+      "evidence_sha256": "2e83a96ea3904b303b9f769b6fc95de927307660d24a33eb435fe74ebcb44d04",
+      "full_document_sha256": null,
+      "https_head": {
+        "exit_code": 0,
+        "final_uri": "https://www.beijing.gov.cn/zhengce/zhengcefagui/202206/t20220607_2731272.html",
+        "headers": {
+          "content-type": "text/html; charset=utf-8"
+        },
+        "http_status": "200",
+        "tls_verify_result": "0",
+        "uri": "https://www.beijing.gov.cn/zhengce/zhengcefagui/202206/t20220607_2731272.html"
+      },
+      "issuer": "公安部，北京市政府转载",
+      "locator": "发布页文号与实施日期；第十四、十六、十七条",
+      "read_status": "OFFICIAL_TEXT_METADATA_AND_ARTICLE_LOCATOR_VERIFIED",
+      "rights_status": "INDEX_AND_OUTBOUND_NOT_CLEARED",
+      "scope": "上一个条文版本，相关年龄条款自第172号施行日起改版；并非整部规章废止",
+      "version": "公安部令第162号"
+    },
+    "D172": {
+      "capture_class": "HTTPS_HEAD_AND_REVIEWED_PUBLIC_ARTICLE_METADATA_ONLY",
+      "document_date": "2024-12-21",
+      "effective_from": "2025-01-01",
+      "effective_to_exclusive": null,
+      "evidence_sha256": "0e5520a58a3b9c0235ec6b34a95adc93711552917a3b287ae075ef55b7c95686",
+      "full_document_sha256": null,
+      "https_head": {
+        "exit_code": 0,
+        "final_uri": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/202412/t20241231_3978134.html",
+        "headers": {
+          "content-type": "text/html; charset=utf-8"
+        },
+        "http_status": "200",
+        "tls_verify_result": "0",
+        "uri": "https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/202412/t20241231_3978134.html"
+      },
+      "issuer": "公安部，北京市政府转载",
+      "locator": "第十四条第一项、第十六至十七条、第六十五条",
+      "read_status": "OFFICIAL_TEXT_METADATA_AND_ARTICLE_LOCATOR_VERIFIED",
+      "rights_status": "INDEX_AND_OUTBOUND_NOT_CLEARED",
+      "scope": "申领年龄、初次领证、持证增驾及既有驾驶资格限制是不同事项",
+      "version": "公安部令第172号及修订后规定"
+    },
+    "D172_GAZETTE": {
+      "capture_class": "HTTPS_HEAD_AND_REVIEWED_PUBLIC_ARTICLE_METADATA_ONLY",
+      "document_date": "2024-12-21",
+      "effective_from": "2025-01-01",
+      "effective_to_exclusive": null,
+      "evidence_sha256": "0ec03002cf13b2cfeef201146ac41c8c9aafaf2e3cfce5b65f24906f6ba58e6b",
+      "full_document_sha256": null,
+      "https_head": {
+        "exit_code": 0,
+        "final_uri": "https://www.gov.cn/gongbao/2025/issue_11866/202502/content_7004031.html",
+        "headers": {
+          "content-type": "text/html"
+        },
+        "http_status": "200",
+        "tls_verify_result": "0",
+        "uri": "https://www.gov.cn/gongbao/2025/issue_11866/202502/content_7004031.html"
+      },
+      "issuer": "公安部，国务院公报转载",
+      "locator": "令首及修改第一项",
+      "read_status": "HEAD_TLS_OK_WEB_CONTENT_ENDPOINT_403_OFFICIAL_BEIJING_COPY_VERIFIED",
+      "rights_status": "INDEX_AND_OUTBOUND_NOT_CLEARED",
+      "scope": "同一签发文书的备选入口；不计独立第二签发者",
+      "version": "国务院公报2025年第5号所载公安部令第172号"
+    },
+    "H644": {
+      "capture_class": "HTTPS_HEAD_AND_REVIEWED_PUBLIC_ARTICLE_METADATA_ONLY",
+      "document_date": "2013-12-11",
+      "effective_from": "2014-01-01",
+      "effective_to_exclusive": "2025-01-01",
+      "evidence_sha256": "dac890660fea7bbfc428ba913c7ccdaf7f6b4ad66e3db4084c29541ec330e726",
+      "full_document_sha256": null,
+      "https_head": {
+        "exit_code": 0,
+        "final_uri": "https://www.ln.gov.cn/web/zwgkx/lnsrmzfgb/2014n/qk/2014n_dyq/gwywj/C02298C830654E08B8CDFC5E6A46E0D8/index.shtml",
+        "headers": {
+          "content-type": "text/html"
+        },
+        "http_status": "200",
+        "tls_verify_result": "0",
+        "uri": "https://www.ln.gov.cn/web/zwgkx/lnsrmzfgb/2014n/qk/2014n_dyq/gwywj/C02298C830654E08B8CDFC5E6A46E0D8/index.shtml"
+      },
+      "issuer": "国务院，辽宁省政府公报转载",
+      "locator": "决定及随附重新公布文本第二条第二项、第四项",
+      "read_status": "OFFICIAL_TEXT_METADATA_AND_ARTICLE_LOCATOR_VERIFIED",
+      "rights_status": "INDEX_AND_OUTBOUND_NOT_CLEARED",
+      "scope": "全国全体公民法定节日；旧版只用于版本对照",
+      "version": "国务院令第644号"
+    },
+    "H795": {
+      "capture_class": "HTTPS_HEAD_AND_REVIEWED_PUBLIC_ARTICLE_METADATA_ONLY",
+      "document_date": "2024-11-10",
+      "effective_from": "2025-01-01",
+      "effective_to_exclusive": null,
+      "evidence_sha256": "9013970ac5d3e033520dfca3c3b68920658d19303bc63ea38e6ac97866cd6fbd",
+      "full_document_sha256": null,
+      "https_head": {
+        "exit_code": 0,
+        "final_uri": "https://app.www.gov.cn/govdata/gov/202411/12/521605/article.html",
+        "headers": {
+          "content-length": "10763",
+          "content-type": "text/html",
+          "etag": "\"693a777d-2a0b\"",
+          "last-modified": "Thu, 11 Dec 2025 07:49:17 GMT"
+        },
+        "http_status": "200",
+        "tls_verify_result": "0",
+        "uri": "https://app.www.gov.cn/govdata/gov/202411/12/521605/article.html"
+      },
+      "issuer": "国务院",
+      "locator": "决定第一项；重新公布文本第二条第二项、第四项及第七条",
+      "published": "2024-11-12",
+      "read_status": "OFFICIAL_TEXT_METADATA_AND_ARTICLE_LOCATOR_VERIFIED",
+      "rights_status": "INDEX_AND_OUTBOUND_NOT_CLEARED",
+      "scope": "全国全体公民法定节日；与年度调休安排区分",
+      "version": "国务院令第795号"
+    },
+    "S2019": {
+      "capture_class": "HTTPS_HEAD_AND_REVIEWED_PUBLIC_ARTICLE_METADATA_ONLY",
+      "document_date": "2019-04-23",
+      "effective_from": "2019-04-23",
+      "effective_to_exclusive": "2025-01-20",
+      "evidence_sha256": "e4b7229f7e4e1c9af1cc2eae4261d65bb0bf510a8b649add9afcda99650c04ec",
+      "full_document_sha256": null,
+      "https_head": {
+        "exit_code": 0,
+        "final_uri": "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=120",
+        "headers": {
+          "content-type": "text/html;charset=UTF-8"
+        },
+        "http_status": "200",
+        "tls_verify_result": "0",
+        "uri": "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=120"
+      },
+      "issuer": "国务院，司法部国家行政法规库",
+      "locator": "旧版第二、四、八条；与第797号修订条文交叉核对",
+      "read_status": "OFFICIAL_TEXT_METADATA_AND_ARTICLE_LOCATOR_VERIFIED",
+      "rights_status": "INDEX_AND_OUTBOUND_NOT_CLEARED",
+      "scope": "上一个相关条文版本，2025-01-20切换的是修订条款，未整部废止",
+      "version": "公共场所卫生管理条例2019修订版，国家行政法规库 LawID=120"
+    },
+    "S2023": {
+      "capture_class": "HTTPS_HEAD_AND_REVIEWED_PUBLIC_ARTICLE_METADATA_ONLY",
+      "document_date": "2023-07-31",
+      "effective_from": "2023-09-01",
+      "effective_to_exclusive": "2028-09-01",
+      "evidence_sha256": "3925651d0b812f3d9a6f7c2f30d11128905d9a4508fa21830bfecb74e15db1d6",
+      "full_document_sha256": null,
+      "https_head": {
+        "exit_code": 0,
+        "final_uri": "https://www.shanghai.gov.cn/gwk/search/content/52b4e0bc29a7436b95c83aacc5ac6358",
+        "headers": {
+          "content-length": "35962",
+          "content-type": "text/html;charset=UTF-8"
+        },
+        "http_status": "200",
+        "tls_verify_result": "0",
+        "uri": "https://www.shanghai.gov.cn/gwk/search/content/52b4e0bc29a7436b95c83aacc5ac6358"
+      },
+      "issuer": "上海市卫生健康委员会",
+      "locator": "第三、四、六、三十八条",
+      "published": "2023-07-31",
+      "read_status": "OFFICIAL_TEXT_METADATA_AND_ARTICLE_LOCATOR_VERIFIED",
+      "rights_status": "INDEX_AND_OUTBOUND_NOT_CLEARED",
+      "scope": "上海市公共场所许可，对仍需许可的旅馆结合属地办理层级；不扩及备案类别",
+      "version": "沪卫规〔2023〕3号"
+    },
+    "S797": {
+      "capture_class": "HTTPS_HEAD_AND_REVIEWED_PUBLIC_ARTICLE_METADATA_ONLY",
+      "document_date": "2024-12-06",
+      "effective_from": "2025-01-20",
+      "effective_to_exclusive": null,
+      "evidence_sha256": "76845babdf95f05f6f497d353aeda374c5a7a3d331cb0bac02c6cec4b4e9e4e5",
+      "full_document_sha256": null,
+      "https_head": {
+        "exit_code": 0,
+        "final_uri": "https://app.www.gov.cn/govdata/gov/202412/13/522682/articleNew.html",
+        "headers": {
+          "content-length": "49980",
+          "content-type": "text/html",
+          "etag": "\"693a7796-c33c\"",
+          "last-modified": "Thu, 11 Dec 2025 07:49:42 GMT"
+        },
+        "http_status": "200",
+        "tls_verify_result": "0",
+        "uri": "https://app.www.gov.cn/govdata/gov/202412/13/522682/articleNew.html"
+      },
+      "issuer": "国务院",
+      "locator": "附件1第十七项，公共场所卫生管理条例第二、四、八条修订",
+      "published": "2024-12-13",
+      "read_status": "OFFICIAL_TEXT_METADATA_AND_ARTICLE_LOCATOR_VERIFIED",
+      "rights_status": "INDEX_AND_OUTBOUND_NOT_CLEARED",
+      "scope": "全国适用，区分仍须许可的经营场所与备案、排除场所",
+      "version": "国务院令第797号"
+    }
+  },
+  "status": "G0_READ_ONLY_COMPLETE / SOURCE_INDEX_BLOCKED / OWNER32_SCIENCE_NOT_AUTHORIZED / STOP",
+  "tls_ledger_sha256": "634169e0ef1fcbb4eb88252bc1b1e2db909bfff48a9bbbc8b4b6966ab04792fa"
+}
