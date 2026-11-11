@@ -1,0 +1,14 @@
+{
+  "human_gold": 0,
+  "label_custody_sha256": "4ee7d060a240b1afa03c3de57c04e57fa872a5cc8cb8927656591d1038a8bbfa",
+  "labels_included": false,
+  "passages_per_world": 5,
+  "questions": 24,
+  "questions_sha256": "959f0377d7d9a6ee8ed3f96d307e25ace8442758cad5cd93748e2beb2185867e",
+  "reviewer_commit": "6e022ef6beffdf8d0da651c08e5be6b812728ce2",
+  "schema": "PK_STRAT_INPUT_MANIFEST_V1",
+  "scoring": "NOT_RECEIVED",
+  "status": "INPUT_SEALED",
+  "worlds": 56,
+  "worlds_sha256": "4ccca62e00114729c50397884cb2da423846a4c6e49c15ed2325349b4492a0d8"
+}
