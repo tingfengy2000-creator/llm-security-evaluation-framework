@@ -1,0 +1,91 @@
+{
+  "status": "PREDICTION_SEALED / AWAITING_5090_PRIVATE_SCORE / NO_RERUN",
+  "run_id": "W1-5060-OWNER33-FRESH-EVAL-11242CC-01",
+  "curator_commit": "11242cc6613a0ec3f53332255d0e19de941273a3",
+  "labels_read": false,
+  "method_freeze_commit": "11880c5be71e22d73217c32e0c779fbf8b117741",
+  "passages": 352,
+  "preseal_sha256": "4beb7d54759321317f6cf940c30979f74566b0b4429e2dc0e2f6205027cb04e4",
+  "recognized_frozen_intents": 0,
+  "role_free_sha256": "fccae2a0967b7bcefe051849c5b8d65d930e8954abe3c4ffb1b4a53daf03cf0c",
+  "selection_log_sha256": "3e6e85068b325c16164c5159bc3ee92d5a5976185f85839b6b82e12fb1eb333f",
+  "source_records": 26,
+  "source_sha256": "fc8c14e14d82f97bc76849609d661ef29691a46a1855de423bd4804227d90bd2",
+  "source_snapshot_sha256": "e0ec8e23bb43f3d1f1dd41b56ed278e50004b2ea80baeb58476e115539557ac5",
+  "verified_catalog_records": 12,
+  "worlds": 32,
+  "execution_commit": "bb052f192cd398c168885f7c5caf7507ec69e63f",
+  "adapter_sha256": "9572e9b9e23b73bea04e2f4e348944cf5d16879cfd877e196d545c013cc69a92",
+  "predictions_sha256": "7082eba17608c8d8ee6d93a591b4c74fdb017e295558e76f1b1867e712a8ccd8",
+  "prediction_seal_sha256": "45ca85f206fbcc9694641737df98e6db81cbfa91a568a7403e623c10a3717737",
+  "topk_seal_sha256": "861cb132b70b133bda4db3e493a11cecf07be4cd75f3cf3ebcce2c70d5174205",
+  "admission_receipt_sha256": "da7954147fa9a3762ade4e9812ef2489ed1b92b9c71fe9ba35c82bb0c36d3891",
+  "private": {
+    "archive_sha256": "6ff5e8f5ae8ffe095511281025abc952cdd2be63a8060f288a11af274f774218",
+    "bytes": 2273149,
+    "latency": {
+      "B2_ALWAYS_VERIFY": {
+        "mean_ms": 0.003981,
+        "p95_ms": 0.0048
+      },
+      "B2_SAME_EXTRA_RETRIEVAL": {
+        "mean_ms": 0.009228,
+        "p95_ms": 0.0118
+      },
+      "NONE": {
+        "mean_ms": 0,
+        "p95_ms": 0
+      },
+      "RD_B2": {
+        "mean_ms": 29.085194,
+        "p95_ms": 6.1398
+      },
+      "RD_ZH": {
+        "mean_ms": 5.074375,
+        "p95_ms": 6.7138
+      },
+      "VCARE_FULL": {
+        "mean_ms": 0.003056,
+        "p95_ms": 0.0036
+      },
+      "VCARE_NO_RESCUE": {
+        "mean_ms": 0.002669,
+        "p95_ms": 0.0038
+      },
+      "VCARE_NO_SCOPE": {
+        "mean_ms": 0.002775,
+        "p95_ms": 0.0036
+      }
+    },
+    "members": 199,
+    "stderr_sha256": "3739bd70838bf29f440952595a154af6a7b0ad7c638eaf80206c4f8f617aa587",
+    "stdout_sha256": "26eeed5fa06a7e66970aeb0d2f52c06719f5482e6cba1104a328fa6b7f6fe29e",
+    "trigger_counts": {
+      "MASK_DISAGREEMENT": 22,
+      "QUERY_SCOPE_UNRESOLVED": 10
+    }
+  },
+  "execution": {
+    "check_exit": 0,
+    "predict_exit": 0,
+    "seconds": 54.703,
+    "cpu_threads": 2,
+    "retained_bytes": 13155939,
+    "topk_slots": 160,
+    "mask_count": 256,
+    "attempts": 1,
+    "commercial_api_calls": 0,
+    "new_model_downloads": 0
+  },
+  "measurements": {
+    "matched_lookups": 32,
+    "full_lookups": 32,
+    "full_source_hits": 0,
+    "full_changed_vs_b2": 0,
+    "full_changed_vs_matched": 0,
+    "full_changed_vs_no_scope": 0,
+    "full_changed_vs_no_rescue": 0
+  },
+  "scoring": "PENDING_5090",
+  "human_gold": 0
+}

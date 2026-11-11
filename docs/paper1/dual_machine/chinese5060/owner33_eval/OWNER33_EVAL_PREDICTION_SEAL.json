@@ -1,0 +1,31 @@
+{
+  "arms": [
+    "NONE",
+    "RD_B2",
+    "RD_ZH",
+    "B2_SAME_EXTRA_RETRIEVAL",
+    "B2_ALWAYS_VERIFY",
+    "VCARE_FULL",
+    "VCARE_NO_SCOPE",
+    "VCARE_NO_RESCUE"
+  ],
+  "commercial_api_calls": 0,
+  "freeze_commit": "11880c5be71e22d73217c32e0c779fbf8b117741",
+  "labels_read": false,
+  "measurements": {
+    "full_changed_vs_b2": 0,
+    "full_changed_vs_matched": 0,
+    "full_changed_vs_no_rescue": 0,
+    "full_changed_vs_no_scope": 0,
+    "full_lookups": 32,
+    "full_source_hits": 0,
+    "matched_lookups": 32
+  },
+  "new_model_downloads": 0,
+  "predictions_sha256": "7082eba17608c8d8ee6d93a591b4c74fdb017e295558e76f1b1867e712a8ccd8",
+  "receipt_sha256": "da7954147fa9a3762ade4e9812ef2489ed1b92b9c71fe9ba35c82bb0c36d3891",
+  "role_free_sha256": "fccae2a0967b7bcefe051849c5b8d65d930e8954abe3c4ffb1b4a53daf03cf0c",
+  "source_snapshot_sha256": "e0ec8e23bb43f3d1f1dd41b56ed278e50004b2ea80baeb58476e115539557ac5",
+  "topk_seal_sha256": "861cb132b70b133bda4db3e493a11cecf07be4cd75f3cf3ebcce2c70d5174205",
+  "worlds": 32
+}
