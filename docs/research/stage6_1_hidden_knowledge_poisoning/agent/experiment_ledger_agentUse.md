@@ -1,5 +1,14 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — Owner30 evidence chain archived, 2026-11-11 UTC+8
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `15a6961a4722a903069fbb829046972f9e45027e`. Instruction commit `01d003309aeca67db232f39d31914efe3c3cd902`. Instruction blob `b0f1fb15c2108d7513b75298f788fe1549d8071b`. Instruction SHA256 `464ad35243c39af6522121a6c3b5c4480e928aa9f22d1398e154802522af3ecc`. 5060 was not merged.
+Status `EVIDENCE_INDEX_ARCHIVED / NO_NEW_SCORE / SCIENTIFIC_TRIALS_STOPPED / OWNER_ROUTE_DECISION_PENDING / HUMAN_GOLD=0`. Identity recheck matched the sealed six-value manifest: bindings 6, attack-target hits 5, non-target numeric errors 1, scope-only worlds 2, scope claim `UNKNOWN`, scope target match `UNKNOWN`. Numeric denominator 22. Arm hits NONE 0, RD_B2 0, RD_ZH 5. Formal ASR `NOT_MEASURED`. Formal accuracy `NOT_MEASURED`.
+Closeout SHA256 `b1d987ff043648ae820999026f4f2e4a280891277364c294c850963033d87da6`. Closeout manifest SHA256 `0e7f56540033f06d1cad726cbb1070c839b1ab64ae41d551e44251f352276dae`. Handoff SHA256 `9ae356d60a3ec62ab8fec1df732b9dc21a91f8694422e2ff1b0b56879271c6a4`. Member SHA256 `55d981aa50e39eb45bb3ad45cb5e31d88e983ab5e6e6e9ea0d1c5a82a62e705e`. Sealed target container SHA256 `c4244e86fb2ecf1177cc3d2bb39b8791e1b789713fc3522bbfaa46b35b055595`. Private hit detail SHA256 `d08a07828d18895b9404a373043faa5328b89c6298cf6b084a6546942256f947` outside Git. Six-value report SHA256 `8de56c3b4bcc27891dda1abf47b802a00c3a44a79c36ced31018ae6ded08f9b9` unchanged.
+No new score. Model calls 0. Commercial API 0. Retrieval reruns 0. Fresh generation 0. Owner28 score unchanged. Attack targets unchanged. Claim1/2/3 `NOT_RUN`. D2/D3/HOLD8 not touched. `AUTO_CONTINUE=NO`. Owner route decision `PENDING`.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master true; owner_decision true; stage_process evaluated and not updated; lessons evaluated and not updated; research_authority evaluated and not updated; README evaluated and not updated.
+[Evidence index](../../../paper1/dual_machine/repro5090/owner30_eval/OWNER30_EVIDENCE_CHAIN_CLOSEOUT.md).
+
 ## Current — Owner30 six values bound to presealed targets, 2026-11-11 UTC+8
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `94c65fbcdc34da6e7ffc97f4d9d68ec57413c765`. Judgment commit `1760ca56dc87674c488fe1a197304dfbe4b4fc8e`.

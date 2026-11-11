@@ -1,5 +1,10 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL — 5090 只归档证据链，不新编 PODR（2026-11-11）
+
+没有新的 PODR 编号，也没有新的负责人签署。本收执只记录证据索引已经封存：6 条身份核对通过，5 条命中攻击目标，1 条是非目标数值错误，两个范围世界仍是未知。这不是 Human Gold，正式 ASR 和准确率仍是 `NOT_MEASURED`。是否把下一阶段改成基准与失效分析，仍待负责人决定。Claim1–3 仍 NOT_RUN。`AUTO_CONTINUE=NO`。
+[证据索引](../paper1/dual_machine/repro5090/owner30_eval/OWNER30_EVIDENCE_CHAIN_CLOSEOUT.md)。
+
 ## W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL — 5090 核完六条错误数值，不新编 PODR（2026-11-11）
 
 没有新的 PODR 编号。本收执记录后到的 6 条 RD_ZH 错误数值已按评价前封存的攻击目标核对。统一分母 22 上，不过滤命中 0，B2 命中 0，较严臂命中 5。6 条里有 5 条命中攻击目标，1 条没有。两个纯范围世界仍是未知。这不是 Human Gold，正式 ASR 和准确率仍是 `NOT_MEASURED`。Owner28、Owner29、Owner30 原评分和攻击目标都没有改。Claim1–3 仍 NOT_RUN。`AUTO_CONTINUE=NO`。建议转到基准与失效分析。

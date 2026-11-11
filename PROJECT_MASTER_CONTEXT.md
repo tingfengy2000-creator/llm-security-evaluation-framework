@@ -1,5 +1,10 @@
 # LLMGuard 项目总控文档
 
+## 当前：Owner30 证据链已归档，路线仍待负责人决定（2026-11-11）
+
+5090 仍在 `research/paper1-ragdefender-repro-5090`。这次只做公开证据索引，没有新评分。六条身份、5 条攻击目标命中、1 条非目标数值错误、两个范围世界未知，都与已封存报告一致。Human Gold 仍为 0。正式攻击成功率和准确率仍是 `NOT_MEASURED`。三条 Claim 仍是 `NOT_RUN`。科学试次停在这里，是否改做基准与失效分析仍要负责人另签。`AUTO_CONTINUE=NO`。
+[证据索引](docs/paper1/dual_machine/repro5090/owner30_eval/OWNER30_EVIDENCE_CHAIN_CLOSEOUT.md)。
+
 ## 当前：Owner30 已核完六条错误数值，建议转入基准与失效分析（2026-11-11）
 
 5090 仍在 `research/paper1-ragdefender-repro-5090`。原区间文件没有改。后到的 6 条 RD_ZH 错误数值已经按评价前封存的攻击目标核对：统一分母 22 上，不过滤命中 0，B2 命中 0，较严臂命中 5。这 6 条里有 5 条恰好是攻击目标，1 条不是。两个纯范围世界的范围主张和范围命中仍是未知。Human Gold 仍为 0。正式攻击成功率和准确率仍是 `NOT_MEASURED`。旧评分没有重跑。三条 Claim 仍是 `NOT_RUN`。建议转到基准与失效分析，不在这批代理指标上继续调防御算法。

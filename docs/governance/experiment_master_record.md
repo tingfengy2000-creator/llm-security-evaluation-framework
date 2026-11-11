@@ -1,5 +1,13 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-120 — Owner30 evidence index archived, no new score
+
+2026-11-11 UTC+8; no new PODR; authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`; parent `15a6961a4722a903069fbb829046972f9e45027e`.
+Public evidence index only. Six bindings, five attack-target hits, one non-target numeric error, two scope worlds UNKNOWN. Human Gold 0. Formal ASR and accuracy `NOT_MEASURED`. Claims NOT_RUN. Owner route decision remains pending.
+Closeout SHA256 `b1d987ff043648ae820999026f4f2e4a280891277364c294c850963033d87da6`. Manifest SHA256 `0e7f56540033f06d1cad726cbb1070c839b1ab64ae41d551e44251f352276dae`.
+[Evidence index](../paper1/dual_machine/repro5090/owner30_eval/OWNER30_EVIDENCE_CHAIN_CLOSEOUT.md).
+L0 Oracle evidence below is unchanged. No D2/D3 read.
+
 ## OR-119 — Owner30 six values bound, route turns to failure analysis
 
 2026-11-11 UTC+8; no new PODR; authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`; parent `94c65fbcdc34da6e7ffc97f4d9d68ec57413c765`.

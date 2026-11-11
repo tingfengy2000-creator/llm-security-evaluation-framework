@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-11-11 Owner30 evidence index archived, route decision still pending
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `15a6961a4722a903069fbb829046972f9e45027e`. Status `EVIDENCE_INDEX_ARCHIVED / NO_NEW_SCORE / SCIENTIFIC_TRIALS_STOPPED / OWNER_ROUTE_DECISION_PENDING / HUMAN_GOLD=0`.
+The six-value identity check matched the sealed report: 6 bindings, 5 attack-target hits, 1 non-target numeric error, 2 scope-only worlds `UNKNOWN`. No score was rewritten. Formal ASR and accuracy stay `NOT_MEASURED`. Claim 1, 2 and 3 remain NOT_RUN. `AUTO_CONTINUE=NO`. The owner has not signed a route change.
+[Evidence index](../paper1/dual_machine/repro5090/owner30_eval/OWNER30_EVIDENCE_CHAIN_CLOSEOUT.md).
+
 ## Current — 2026-11-11 Owner30 six values bound, formal ASR still unmeasured
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `94c65fbcdc34da6e7ffc97f4d9d68ec57413c765`. Status `SUPPLEMENT_ONLY / SIX_VALUES_BOUND / AGENT_PROVISIONAL / HUMAN_GOLD=0`.
