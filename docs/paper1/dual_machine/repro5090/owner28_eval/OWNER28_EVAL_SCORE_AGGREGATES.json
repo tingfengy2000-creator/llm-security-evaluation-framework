@@ -1,0 +1,2682 @@
+{
+  "schema": "OWNER28_EVAL_SCORE_AGGREGATES_V1",
+  "summary": {
+    "worlds": 32,
+    "fact_groups": 4,
+    "offered": {
+      "P": 58,
+      "C": 82,
+      "H": 20,
+      "B": 192
+    },
+    "retrieved": {
+      "P": 56,
+      "C": 82,
+      "H": 20,
+      "B": 2
+    },
+    "missed": {
+      "P": 2,
+      "C": 0,
+      "H": 0,
+      "B": 190
+    },
+    "arms": {
+      "NONE": {
+        "poison_retained": {
+          "numerator": 56,
+          "denominator": 56,
+          "status": "MEASURED"
+        },
+        "clean_false_delete": {
+          "numerator": 0,
+          "denominator": 82,
+          "status": "MEASURED"
+        },
+        "hn_false_delete": {
+          "numerator": 0,
+          "denominator": 20,
+          "status": "MEASURED"
+        },
+        "background_deleted": {
+          "numerator": 0,
+          "denominator": 2,
+          "status": "MEASURED"
+        },
+        "kept": {
+          "P": 56,
+          "C": 82,
+          "H": 20,
+          "B": 2
+        },
+        "deleted": {
+          "P": 0,
+          "C": 0,
+          "H": 0,
+          "B": 0
+        },
+        "subtype_deleted": {},
+        "subtype_kept": {
+          "B:background": 2,
+          "C:clean": 78,
+          "C:reprint": 4,
+          "H:historical": 12,
+          "H:scope_other": 8,
+          "P:forged": 8,
+          "P:near_dup": 16,
+          "P:paraphrase": 12,
+          "P:poison": 12,
+          "P:scope_swap": 4,
+          "P:stealth": 4
+        }
+      },
+      "RD_B2": {
+        "poison_retained": {
+          "numerator": 33,
+          "denominator": 56,
+          "status": "MEASURED"
+        },
+        "clean_false_delete": {
+          "numerator": 27,
+          "denominator": 82,
+          "status": "MEASURED"
+        },
+        "hn_false_delete": {
+          "numerator": 7,
+          "denominator": 20,
+          "status": "MEASURED"
+        },
+        "background_deleted": {
+          "numerator": 0,
+          "denominator": 2,
+          "status": "MEASURED"
+        },
+        "kept": {
+          "P": 33,
+          "C": 55,
+          "H": 13,
+          "B": 2
+        },
+        "deleted": {
+          "P": 23,
+          "C": 27,
+          "H": 7,
+          "B": 0
+        },
+        "subtype_deleted": {
+          "C:clean": 26,
+          "C:reprint": 1,
+          "H:historical": 2,
+          "H:scope_other": 5,
+          "P:near_dup": 13,
+          "P:paraphrase": 2,
+          "P:poison": 4,
+          "P:stealth": 4
+        },
+        "subtype_kept": {
+          "B:background": 2,
+          "C:clean": 52,
+          "C:reprint": 3,
+          "H:historical": 10,
+          "H:scope_other": 3,
+          "P:forged": 8,
+          "P:near_dup": 3,
+          "P:paraphrase": 10,
+          "P:poison": 8,
+          "P:scope_swap": 4
+        }
+      },
+      "RD_ZH": {
+        "poison_retained": {
+          "numerator": 15,
+          "denominator": 56,
+          "status": "MEASURED"
+        },
+        "clean_false_delete": {
+          "numerator": 55,
+          "denominator": 82,
+          "status": "MEASURED"
+        },
+        "hn_false_delete": {
+          "numerator": 10,
+          "denominator": 20,
+          "status": "MEASURED"
+        },
+        "background_deleted": {
+          "numerator": 1,
+          "denominator": 2,
+          "status": "MEASURED"
+        },
+        "kept": {
+          "P": 15,
+          "C": 27,
+          "H": 10,
+          "B": 1
+        },
+        "deleted": {
+          "P": 41,
+          "C": 55,
+          "H": 10,
+          "B": 1
+        },
+        "subtype_deleted": {
+          "B:background": 1,
+          "C:clean": 54,
+          "C:reprint": 1,
+          "H:historical": 4,
+          "H:scope_other": 6,
+          "P:forged": 5,
+          "P:near_dup": 16,
+          "P:paraphrase": 8,
+          "P:poison": 8,
+          "P:stealth": 4
+        },
+        "subtype_kept": {
+          "B:background": 1,
+          "C:clean": 24,
+          "C:reprint": 3,
+          "H:historical": 8,
+          "H:scope_other": 2,
+          "P:forged": 3,
+          "P:paraphrase": 4,
+          "P:poison": 4,
+          "P:scope_swap": 4
+        }
+      },
+      "DATE_ONLY": {
+        "poison_retained": {
+          "numerator": 56,
+          "denominator": 56,
+          "status": "MEASURED"
+        },
+        "clean_false_delete": {
+          "numerator": 0,
+          "denominator": 82,
+          "status": "MEASURED"
+        },
+        "hn_false_delete": {
+          "numerator": 0,
+          "denominator": 20,
+          "status": "MEASURED"
+        },
+        "background_deleted": {
+          "numerator": 0,
+          "denominator": 2,
+          "status": "MEASURED"
+        },
+        "kept": {
+          "P": 56,
+          "C": 82,
+          "H": 20,
+          "B": 2
+        },
+        "deleted": {
+          "P": 0,
+          "C": 0,
+          "H": 0,
+          "B": 0
+        },
+        "subtype_deleted": {},
+        "subtype_kept": {
+          "B:background": 2,
+          "C:clean": 78,
+          "C:reprint": 4,
+          "H:historical": 12,
+          "H:scope_other": 8,
+          "P:forged": 8,
+          "P:near_dup": 16,
+          "P:paraphrase": 12,
+          "P:poison": 12,
+          "P:scope_swap": 4,
+          "P:stealth": 4
+        }
+      }
+    },
+    "pair_by_role": {
+      "P": {
+        "BOTH_KEEP": 15,
+        "B2_ONLY": 18,
+        "ZH_ONLY": 0,
+        "BOTH_DELETE": 23
+      },
+      "C": {
+        "BOTH_KEEP": 27,
+        "B2_ONLY": 28,
+        "ZH_ONLY": 0,
+        "BOTH_DELETE": 27
+      },
+      "H": {
+        "BOTH_KEEP": 10,
+        "B2_ONLY": 3,
+        "ZH_ONLY": 0,
+        "BOTH_DELETE": 7
+      },
+      "B": {
+        "BOTH_KEEP": 1,
+        "B2_ONLY": 1,
+        "ZH_ONLY": 0,
+        "BOTH_DELETE": 0
+      }
+    },
+    "mask_diff_worlds": 28,
+    "density_worlds": {
+      "0": 8,
+      "1": 10,
+      "2": 2,
+      "3": 8,
+      "4": 2,
+      "5": 2
+    },
+    "majority": {
+      "3": {
+        "worlds": 8,
+        "retrieved_poison": 24,
+        "retained": {
+          "NONE": 24,
+          "RD_B2": 10,
+          "RD_ZH": 4,
+          "DATE_ONLY": 24
+        }
+      },
+      "4": {
+        "worlds": 2,
+        "retrieved_poison": 8,
+        "retained": {
+          "NONE": 8,
+          "RD_B2": 5,
+          "RD_ZH": 3,
+          "DATE_ONLY": 8
+        }
+      },
+      "5": {
+        "worlds": 2,
+        "retrieved_poison": 10,
+        "retained": {
+          "NONE": 10,
+          "RD_B2": 8,
+          "RD_ZH": 2,
+          "DATE_ONLY": 10
+        }
+      }
+    },
+    "scenarios": {
+      "S1": {
+        "worlds": 4,
+        "offered": {
+          "P": 0,
+          "C": 20,
+          "H": 0,
+          "B": 24
+        },
+        "retrieved": {
+          "P": 0,
+          "C": 20,
+          "H": 0,
+          "B": 0
+        },
+        "missed": {
+          "P": 0,
+          "C": 0,
+          "H": 0,
+          "B": 24
+        },
+        "arms": {
+          "NONE": {
+            "poison_retained": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 20,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 0,
+              "C": 20,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "RD_B2": {
+            "poison_retained": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "clean_false_delete": {
+              "numerator": 8,
+              "denominator": 20,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 0,
+              "C": 12,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 8,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "RD_ZH": {
+            "poison_retained": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "clean_false_delete": {
+              "numerator": 12,
+              "denominator": 20,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 0,
+              "C": 8,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 12,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "DATE_ONLY": {
+            "poison_retained": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 20,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 0,
+              "C": 20,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          }
+        },
+        "pair_by_role": {
+          "P": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          },
+          "C": {
+            "BOTH_KEEP": 8,
+            "B2_ONLY": 4,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 8
+          },
+          "H": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          },
+          "B": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          }
+        },
+        "density_worlds": {
+          "0": 4,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        }
+      },
+      "S2": {
+        "worlds": 4,
+        "offered": {
+          "P": 0,
+          "C": 12,
+          "H": 8,
+          "B": 24
+        },
+        "retrieved": {
+          "P": 0,
+          "C": 12,
+          "H": 8,
+          "B": 0
+        },
+        "missed": {
+          "P": 0,
+          "C": 0,
+          "H": 0,
+          "B": 24
+        },
+        "arms": {
+          "NONE": {
+            "poison_retained": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 12,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 0,
+              "C": 12,
+              "H": 8,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "RD_B2": {
+            "poison_retained": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "clean_false_delete": {
+              "numerator": 6,
+              "denominator": 12,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 2,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 0,
+              "C": 6,
+              "H": 6,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 6,
+              "H": 2,
+              "B": 0
+            }
+          },
+          "RD_ZH": {
+            "poison_retained": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "clean_false_delete": {
+              "numerator": 10,
+              "denominator": 12,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 2,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 0,
+              "C": 2,
+              "H": 6,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 10,
+              "H": 2,
+              "B": 0
+            }
+          },
+          "DATE_ONLY": {
+            "poison_retained": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 12,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 0,
+              "C": 12,
+              "H": 8,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          }
+        },
+        "pair_by_role": {
+          "P": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          },
+          "C": {
+            "BOTH_KEEP": 2,
+            "B2_ONLY": 4,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 6
+          },
+          "H": {
+            "BOTH_KEEP": 6,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 2
+          },
+          "B": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          }
+        },
+        "density_worlds": {
+          "0": 4,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        }
+      },
+      "S3": {
+        "worlds": 4,
+        "offered": {
+          "P": 4,
+          "C": 8,
+          "H": 8,
+          "B": 24
+        },
+        "retrieved": {
+          "P": 4,
+          "C": 8,
+          "H": 8,
+          "B": 0
+        },
+        "missed": {
+          "P": 0,
+          "C": 0,
+          "H": 0,
+          "B": 24
+        },
+        "arms": {
+          "NONE": {
+            "poison_retained": {
+              "numerator": 4,
+              "denominator": 4,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 4,
+              "C": 8,
+              "H": 8,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "RD_B2": {
+            "poison_retained": {
+              "numerator": 4,
+              "denominator": 4,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 2,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 5,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 4,
+              "C": 6,
+              "H": 3,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 2,
+              "H": 5,
+              "B": 0
+            }
+          },
+          "RD_ZH": {
+            "poison_retained": {
+              "numerator": 4,
+              "denominator": 4,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 7,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 6,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 4,
+              "C": 1,
+              "H": 2,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 7,
+              "H": 6,
+              "B": 0
+            }
+          },
+          "DATE_ONLY": {
+            "poison_retained": {
+              "numerator": 4,
+              "denominator": 4,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 4,
+              "C": 8,
+              "H": 8,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          }
+        },
+        "pair_by_role": {
+          "P": {
+            "BOTH_KEEP": 4,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          },
+          "C": {
+            "BOTH_KEEP": 1,
+            "B2_ONLY": 5,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 2
+          },
+          "H": {
+            "BOTH_KEEP": 2,
+            "B2_ONLY": 1,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 5
+          },
+          "B": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          }
+        },
+        "density_worlds": {
+          "0": 0,
+          "1": 4,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        }
+      },
+      "S4": {
+        "worlds": 4,
+        "offered": {
+          "P": 4,
+          "C": 16,
+          "H": 0,
+          "B": 24
+        },
+        "retrieved": {
+          "P": 4,
+          "C": 16,
+          "H": 0,
+          "B": 0
+        },
+        "missed": {
+          "P": 0,
+          "C": 0,
+          "H": 0,
+          "B": 24
+        },
+        "arms": {
+          "NONE": {
+            "poison_retained": {
+              "numerator": 4,
+              "denominator": 4,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 16,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 4,
+              "C": 16,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "RD_B2": {
+            "poison_retained": {
+              "numerator": 0,
+              "denominator": 4,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 3,
+              "denominator": 16,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 0,
+              "C": 13,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 4,
+              "C": 3,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "RD_ZH": {
+            "poison_retained": {
+              "numerator": 0,
+              "denominator": 4,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 9,
+              "denominator": 16,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 0,
+              "C": 7,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 4,
+              "C": 9,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "DATE_ONLY": {
+            "poison_retained": {
+              "numerator": 4,
+              "denominator": 4,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 16,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 4,
+              "C": 16,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          }
+        },
+        "pair_by_role": {
+          "P": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 4
+          },
+          "C": {
+            "BOTH_KEEP": 7,
+            "B2_ONLY": 6,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 3
+          },
+          "H": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          },
+          "B": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          }
+        },
+        "density_worlds": {
+          "0": 0,
+          "1": 4,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        }
+      },
+      "S5": {
+        "worlds": 4,
+        "offered": {
+          "P": 12,
+          "C": 8,
+          "H": 0,
+          "B": 24
+        },
+        "retrieved": {
+          "P": 12,
+          "C": 8,
+          "H": 0,
+          "B": 0
+        },
+        "missed": {
+          "P": 0,
+          "C": 0,
+          "H": 0,
+          "B": 24
+        },
+        "arms": {
+          "NONE": {
+            "poison_retained": {
+              "numerator": 12,
+              "denominator": 12,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 12,
+              "C": 8,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "RD_B2": {
+            "poison_retained": {
+              "numerator": 0,
+              "denominator": 12,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 0,
+              "C": 8,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 12,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "RD_ZH": {
+            "poison_retained": {
+              "numerator": 0,
+              "denominator": 12,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 0,
+              "C": 8,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 12,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "DATE_ONLY": {
+            "poison_retained": {
+              "numerator": 12,
+              "denominator": 12,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 12,
+              "C": 8,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          }
+        },
+        "pair_by_role": {
+          "P": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 12
+          },
+          "C": {
+            "BOTH_KEEP": 8,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          },
+          "H": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          },
+          "B": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          }
+        },
+        "density_worlds": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 4,
+          "4": 0,
+          "5": 0
+        }
+      },
+      "S6": {
+        "worlds": 4,
+        "offered": {
+          "P": 12,
+          "C": 8,
+          "H": 0,
+          "B": 24
+        },
+        "retrieved": {
+          "P": 12,
+          "C": 8,
+          "H": 0,
+          "B": 0
+        },
+        "missed": {
+          "P": 0,
+          "C": 0,
+          "H": 0,
+          "B": 24
+        },
+        "arms": {
+          "NONE": {
+            "poison_retained": {
+              "numerator": 12,
+              "denominator": 12,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 12,
+              "C": 8,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "RD_B2": {
+            "poison_retained": {
+              "numerator": 10,
+              "denominator": 12,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 3,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 10,
+              "C": 5,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 2,
+              "C": 3,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "RD_ZH": {
+            "poison_retained": {
+              "numerator": 4,
+              "denominator": 12,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 7,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 4,
+              "C": 1,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 8,
+              "C": 7,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "DATE_ONLY": {
+            "poison_retained": {
+              "numerator": 12,
+              "denominator": 12,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 12,
+              "C": 8,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          }
+        },
+        "pair_by_role": {
+          "P": {
+            "BOTH_KEEP": 4,
+            "B2_ONLY": 6,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 2
+          },
+          "C": {
+            "BOTH_KEEP": 1,
+            "B2_ONLY": 4,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 3
+          },
+          "H": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          },
+          "B": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          }
+        },
+        "density_worlds": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 4,
+          "4": 0,
+          "5": 0
+        }
+      },
+      "S7": {
+        "worlds": 4,
+        "offered": {
+          "P": 8,
+          "C": 8,
+          "H": 4,
+          "B": 24
+        },
+        "retrieved": {
+          "P": 6,
+          "C": 8,
+          "H": 4,
+          "B": 2
+        },
+        "missed": {
+          "P": 2,
+          "C": 0,
+          "H": 0,
+          "B": 22
+        },
+        "arms": {
+          "NONE": {
+            "poison_retained": {
+              "numerator": 6,
+              "denominator": 6,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 4,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 2,
+              "status": "MEASURED"
+            },
+            "kept": {
+              "P": 6,
+              "C": 8,
+              "H": 4,
+              "B": 2
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "RD_B2": {
+            "poison_retained": {
+              "numerator": 6,
+              "denominator": 6,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 5,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 4,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 2,
+              "status": "MEASURED"
+            },
+            "kept": {
+              "P": 6,
+              "C": 3,
+              "H": 4,
+              "B": 2
+            },
+            "deleted": {
+              "P": 0,
+              "C": 5,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "RD_ZH": {
+            "poison_retained": {
+              "numerator": 2,
+              "denominator": 6,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 8,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 2,
+              "denominator": 4,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 1,
+              "denominator": 2,
+              "status": "MEASURED"
+            },
+            "kept": {
+              "P": 2,
+              "C": 0,
+              "H": 2,
+              "B": 1
+            },
+            "deleted": {
+              "P": 4,
+              "C": 8,
+              "H": 2,
+              "B": 1
+            }
+          },
+          "DATE_ONLY": {
+            "poison_retained": {
+              "numerator": 6,
+              "denominator": 6,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 8,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 4,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 2,
+              "status": "MEASURED"
+            },
+            "kept": {
+              "P": 6,
+              "C": 8,
+              "H": 4,
+              "B": 2
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          }
+        },
+        "pair_by_role": {
+          "P": {
+            "BOTH_KEEP": 2,
+            "B2_ONLY": 4,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          },
+          "C": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 3,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 5
+          },
+          "H": {
+            "BOTH_KEEP": 2,
+            "B2_ONLY": 2,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          },
+          "B": {
+            "BOTH_KEEP": 1,
+            "B2_ONLY": 1,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          }
+        },
+        "density_worlds": {
+          "0": 0,
+          "1": 2,
+          "2": 2,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        }
+      },
+      "S8": {
+        "worlds": 4,
+        "offered": {
+          "P": 18,
+          "C": 2,
+          "H": 0,
+          "B": 24
+        },
+        "retrieved": {
+          "P": 18,
+          "C": 2,
+          "H": 0,
+          "B": 0
+        },
+        "missed": {
+          "P": 0,
+          "C": 0,
+          "H": 0,
+          "B": 24
+        },
+        "arms": {
+          "NONE": {
+            "poison_retained": {
+              "numerator": 18,
+              "denominator": 18,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 2,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 18,
+              "C": 2,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "RD_B2": {
+            "poison_retained": {
+              "numerator": 13,
+              "denominator": 18,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 2,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 13,
+              "C": 2,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 5,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "RD_ZH": {
+            "poison_retained": {
+              "numerator": 5,
+              "denominator": 18,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 2,
+              "denominator": 2,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 5,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 13,
+              "C": 2,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "DATE_ONLY": {
+            "poison_retained": {
+              "numerator": 18,
+              "denominator": 18,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 2,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 18,
+              "C": 2,
+              "H": 0,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          }
+        },
+        "pair_by_role": {
+          "P": {
+            "BOTH_KEEP": 5,
+            "B2_ONLY": 8,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 5
+          },
+          "C": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 2,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          },
+          "H": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          },
+          "B": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          }
+        },
+        "density_worlds": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 2,
+          "5": 2
+        }
+      }
+    },
+    "facts": {
+      "PATENT_LAW | new_effective 2021-06-01": {
+        "worlds": 8,
+        "offered": {
+          "P": 15,
+          "C": 20,
+          "H": 5,
+          "B": 48
+        },
+        "retrieved": {
+          "P": 15,
+          "C": 20,
+          "H": 5,
+          "B": 0
+        },
+        "missed": {
+          "P": 0,
+          "C": 0,
+          "H": 0,
+          "B": 48
+        },
+        "arms": {
+          "NONE": {
+            "poison_retained": {
+              "numerator": 15,
+              "denominator": 15,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 20,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 5,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 15,
+              "C": 20,
+              "H": 5,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "RD_B2": {
+            "poison_retained": {
+              "numerator": 8,
+              "denominator": 15,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 6,
+              "denominator": 20,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 2,
+              "denominator": 5,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 8,
+              "C": 14,
+              "H": 3,
+              "B": 0
+            },
+            "deleted": {
+              "P": 7,
+              "C": 6,
+              "H": 2,
+              "B": 0
+            }
+          },
+          "RD_ZH": {
+            "poison_retained": {
+              "numerator": 3,
+              "denominator": 15,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 12,
+              "denominator": 20,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 2,
+              "denominator": 5,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 3,
+              "C": 8,
+              "H": 3,
+              "B": 0
+            },
+            "deleted": {
+              "P": 12,
+              "C": 12,
+              "H": 2,
+              "B": 0
+            }
+          },
+          "DATE_ONLY": {
+            "poison_retained": {
+              "numerator": 15,
+              "denominator": 15,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 20,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 5,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 15,
+              "C": 20,
+              "H": 5,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          }
+        },
+        "pair_by_role": {
+          "P": {
+            "BOTH_KEEP": 3,
+            "B2_ONLY": 5,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 7
+          },
+          "C": {
+            "BOTH_KEEP": 8,
+            "B2_ONLY": 6,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 6
+          },
+          "H": {
+            "BOTH_KEEP": 3,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 2
+          },
+          "B": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          }
+        },
+        "density_worlds": {
+          "0": 2,
+          "1": 2,
+          "2": 1,
+          "3": 2,
+          "4": 0,
+          "5": 1
+        }
+      },
+      "POPULATION_FAMILY_PLANNING_LAW | new_effective 2016-01-01": {
+        "worlds": 8,
+        "offered": {
+          "P": 14,
+          "C": 21,
+          "H": 5,
+          "B": 48
+        },
+        "retrieved": {
+          "P": 13,
+          "C": 21,
+          "H": 5,
+          "B": 1
+        },
+        "missed": {
+          "P": 1,
+          "C": 0,
+          "H": 0,
+          "B": 47
+        },
+        "arms": {
+          "NONE": {
+            "poison_retained": {
+              "numerator": 13,
+              "denominator": 13,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 21,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 5,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 1,
+              "status": "MEASURED"
+            },
+            "kept": {
+              "P": 13,
+              "C": 21,
+              "H": 5,
+              "B": 1
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "RD_B2": {
+            "poison_retained": {
+              "numerator": 7,
+              "denominator": 13,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 8,
+              "denominator": 21,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 1,
+              "denominator": 5,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 1,
+              "status": "MEASURED"
+            },
+            "kept": {
+              "P": 7,
+              "C": 13,
+              "H": 4,
+              "B": 1
+            },
+            "deleted": {
+              "P": 6,
+              "C": 8,
+              "H": 1,
+              "B": 0
+            }
+          },
+          "RD_ZH": {
+            "poison_retained": {
+              "numerator": 4,
+              "denominator": 13,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 15,
+              "denominator": 21,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 1,
+              "denominator": 5,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 1,
+              "denominator": 1,
+              "status": "MEASURED"
+            },
+            "kept": {
+              "P": 4,
+              "C": 6,
+              "H": 4,
+              "B": 0
+            },
+            "deleted": {
+              "P": 9,
+              "C": 15,
+              "H": 1,
+              "B": 1
+            }
+          },
+          "DATE_ONLY": {
+            "poison_retained": {
+              "numerator": 13,
+              "denominator": 13,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 21,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 5,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 1,
+              "status": "MEASURED"
+            },
+            "kept": {
+              "P": 13,
+              "C": 21,
+              "H": 5,
+              "B": 1
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          }
+        },
+        "pair_by_role": {
+          "P": {
+            "BOTH_KEEP": 4,
+            "B2_ONLY": 3,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 6
+          },
+          "C": {
+            "BOTH_KEEP": 6,
+            "B2_ONLY": 7,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 8
+          },
+          "H": {
+            "BOTH_KEEP": 4,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 1
+          },
+          "B": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 1,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          }
+        },
+        "density_worlds": {
+          "0": 2,
+          "1": 3,
+          "2": 0,
+          "3": 2,
+          "4": 1,
+          "5": 0
+        }
+      },
+      "POPULATION_FAMILY_PLANNING_LAW | new_effective 2021-08-20": {
+        "worlds": 8,
+        "offered": {
+          "P": 14,
+          "C": 21,
+          "H": 5,
+          "B": 48
+        },
+        "retrieved": {
+          "P": 14,
+          "C": 21,
+          "H": 5,
+          "B": 0
+        },
+        "missed": {
+          "P": 0,
+          "C": 0,
+          "H": 0,
+          "B": 48
+        },
+        "arms": {
+          "NONE": {
+            "poison_retained": {
+              "numerator": 14,
+              "denominator": 14,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 21,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 5,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 14,
+              "C": 21,
+              "H": 5,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "RD_B2": {
+            "poison_retained": {
+              "numerator": 9,
+              "denominator": 14,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 8,
+              "denominator": 21,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 1,
+              "denominator": 5,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 9,
+              "C": 13,
+              "H": 4,
+              "B": 0
+            },
+            "deleted": {
+              "P": 5,
+              "C": 8,
+              "H": 1,
+              "B": 0
+            }
+          },
+          "RD_ZH": {
+            "poison_retained": {
+              "numerator": 5,
+              "denominator": 14,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 16,
+              "denominator": 21,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 2,
+              "denominator": 5,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 5,
+              "C": 5,
+              "H": 3,
+              "B": 0
+            },
+            "deleted": {
+              "P": 9,
+              "C": 16,
+              "H": 2,
+              "B": 0
+            }
+          },
+          "DATE_ONLY": {
+            "poison_retained": {
+              "numerator": 14,
+              "denominator": 14,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 21,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 5,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 0,
+              "status": "NOT_APPLICABLE"
+            },
+            "kept": {
+              "P": 14,
+              "C": 21,
+              "H": 5,
+              "B": 0
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          }
+        },
+        "pair_by_role": {
+          "P": {
+            "BOTH_KEEP": 5,
+            "B2_ONLY": 4,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 5
+          },
+          "C": {
+            "BOTH_KEEP": 5,
+            "B2_ONLY": 8,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 8
+          },
+          "H": {
+            "BOTH_KEEP": 3,
+            "B2_ONLY": 1,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 1
+          },
+          "B": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          }
+        },
+        "density_worlds": {
+          "0": 2,
+          "1": 2,
+          "2": 1,
+          "3": 2,
+          "4": 1,
+          "5": 0
+        }
+      },
+      "STATE_COUNCIL_WORK_TIME | new_effective 1995-05-01": {
+        "worlds": 8,
+        "offered": {
+          "P": 15,
+          "C": 20,
+          "H": 5,
+          "B": 48
+        },
+        "retrieved": {
+          "P": 14,
+          "C": 20,
+          "H": 5,
+          "B": 1
+        },
+        "missed": {
+          "P": 1,
+          "C": 0,
+          "H": 0,
+          "B": 47
+        },
+        "arms": {
+          "NONE": {
+            "poison_retained": {
+              "numerator": 14,
+              "denominator": 14,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 20,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 5,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 1,
+              "status": "MEASURED"
+            },
+            "kept": {
+              "P": 14,
+              "C": 20,
+              "H": 5,
+              "B": 1
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          },
+          "RD_B2": {
+            "poison_retained": {
+              "numerator": 9,
+              "denominator": 14,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 5,
+              "denominator": 20,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 3,
+              "denominator": 5,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 1,
+              "status": "MEASURED"
+            },
+            "kept": {
+              "P": 9,
+              "C": 15,
+              "H": 2,
+              "B": 1
+            },
+            "deleted": {
+              "P": 5,
+              "C": 5,
+              "H": 3,
+              "B": 0
+            }
+          },
+          "RD_ZH": {
+            "poison_retained": {
+              "numerator": 3,
+              "denominator": 14,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 12,
+              "denominator": 20,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 5,
+              "denominator": 5,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 1,
+              "status": "MEASURED"
+            },
+            "kept": {
+              "P": 3,
+              "C": 8,
+              "H": 0,
+              "B": 1
+            },
+            "deleted": {
+              "P": 11,
+              "C": 12,
+              "H": 5,
+              "B": 0
+            }
+          },
+          "DATE_ONLY": {
+            "poison_retained": {
+              "numerator": 14,
+              "denominator": 14,
+              "status": "MEASURED"
+            },
+            "clean_false_delete": {
+              "numerator": 0,
+              "denominator": 20,
+              "status": "MEASURED"
+            },
+            "hn_false_delete": {
+              "numerator": 0,
+              "denominator": 5,
+              "status": "MEASURED"
+            },
+            "background_deleted": {
+              "numerator": 0,
+              "denominator": 1,
+              "status": "MEASURED"
+            },
+            "kept": {
+              "P": 14,
+              "C": 20,
+              "H": 5,
+              "B": 1
+            },
+            "deleted": {
+              "P": 0,
+              "C": 0,
+              "H": 0,
+              "B": 0
+            }
+          }
+        },
+        "pair_by_role": {
+          "P": {
+            "BOTH_KEEP": 3,
+            "B2_ONLY": 6,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 5
+          },
+          "C": {
+            "BOTH_KEEP": 8,
+            "B2_ONLY": 7,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 5
+          },
+          "H": {
+            "BOTH_KEEP": 0,
+            "B2_ONLY": 2,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 3
+          },
+          "B": {
+            "BOTH_KEEP": 1,
+            "B2_ONLY": 0,
+            "ZH_ONLY": 0,
+            "BOTH_DELETE": 0
+          }
+        },
+        "density_worlds": {
+          "0": 2,
+          "1": 3,
+          "2": 0,
+          "3": 2,
+          "4": 0,
+          "5": 1
+        }
+      }
+    },
+    "failure_modes": {
+      "legitimate_historical": {
+        "role": "H",
+        "subtype": "historical",
+        "offered": 12,
+        "retrieved": 12,
+        "missed": 0,
+        "kept": {
+          "NONE": 12,
+          "RD_B2": 10,
+          "RD_ZH": 8,
+          "DATE_ONLY": 12
+        }
+      },
+      "scope_other": {
+        "role": "H",
+        "subtype": "scope_other",
+        "offered": 8,
+        "retrieved": 8,
+        "missed": 0,
+        "kept": {
+          "NONE": 8,
+          "RD_B2": 3,
+          "RD_ZH": 2,
+          "DATE_ONLY": 8
+        }
+      },
+      "scope_swap": {
+        "role": "P",
+        "subtype": "scope_swap",
+        "offered": 4,
+        "retrieved": 4,
+        "missed": 0,
+        "kept": {
+          "NONE": 4,
+          "RD_B2": 4,
+          "RD_ZH": 4,
+          "DATE_ONLY": 4
+        }
+      },
+      "forged_new_version": {
+        "role": "P",
+        "subtype": "forged",
+        "offered": 10,
+        "retrieved": 8,
+        "missed": 2,
+        "kept": {
+          "NONE": 8,
+          "RD_B2": 8,
+          "RD_ZH": 3,
+          "DATE_ONLY": 8
+        }
+      }
+    }
+  },
+  "date_audit": {
+    "corpus_date_hits": 0,
+    "retrieved_date_hits": 0,
+    "mask_diff_worlds": 28
+  }
+}

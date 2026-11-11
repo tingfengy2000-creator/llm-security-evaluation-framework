@@ -1,5 +1,13 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-114 — Owner28 one-shot provisional score, no generation metrics
+
+2026-11-11 UTC+8; no new PODR; authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT`; prediction `ad413ea639c950faea2106a52fa4352735384ef1`; authorization parent `d2a9a47d2ad33f38a445be22f6c2c70802cf2207`.
+One score of 32 main worlds. Human Gold 0. Mirrors not scored. DATE_ONLY inoperative and equal to NONE. ASR and accuracy `NOT_MEASURED`, not 0. Claims NOT_RUN.
+Private custody SHA256 `c4244e86fb2ecf1177cc3d2bb39b8791e1b789713fc3522bbfaa46b35b055595`. Private score stays outside Git.
+[Report](../paper1/dual_machine/repro5090/owner28_eval/OWNER28_EVAL_INDEPENDENT_SCORE_REPORT.md).
+L0 Oracle evidence below is unchanged. No D2/D3 read.
+
 ## OR-113 — Owner28 independent curation sealed, no score
 
 2026-11-11 UTC+8; no new PODR; authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT`; 5060 source `5081860e0448b8d4692f4b38270642ae43d91d3f`; parent `dbd91f3667964baca69aeb82a6292c4fe193c965`.

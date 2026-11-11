@@ -1,5 +1,10 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT — 5090 一次评分收执，不新编 PODR（2026-11-11）
+
+没有新的 PODR 编号。同一授权下的 G4 评分已经执行一次。预测提交是 `ad413ea639c950faea2106a52fa4352735384ef1`。5090 没有合并 5060，没有重检索，没有把私有标签推入公开 Git。Human Gold 仍为 0。Claim1–3 仍 NOT_RUN，ASR 和答案正确率仍 NOT_MEASURED。评分完成后 `AUTO_CONTINUE=NO`。
+[评分报告](../paper1/dual_machine/repro5090/owner28_eval/OWNER28_EVAL_INDEPENDENT_SCORE_REPORT.md)。
+
 ## W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT — 5090 收执，不新编 PODR（2026-11-11）
 
 没有新的 PODR 编号。授权原文在 5060 提交 `5081860e0448b8d4692f4b38270642ae43d91d3f`，5090 只读该合同和策展提示词，不合并分支。授权范围是独立来源、角色盲输入和私有标签托管。不批准 Claim1–3、权重下载、商业 API、D2/D3/HOLD8、Human Gold 或把标签推入公开 Git。评分还要等 5060 盲预测封存，本收执不是评分许可的完成。

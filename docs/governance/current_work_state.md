@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-11-11 Owner28 one-shot score is sealed, no further scoring
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT`. Branch `research/paper1-ragdefender-repro-5090`. Prediction commit `ad413ea639c950faea2106a52fa4352735384ef1`. Status `SCHEMA_SCORED_ONCE / AGENT_PROVISIONAL_EVAL / HUMAN_GOLD=0`.
+The 32 main worlds were scored once from the sealed blind projection. Seven time mirrors stayed `MIRROR7_NOT_RUN_NOT_IN_HEADLINE`. DATE_ONLY matched NONE on all 32 worlds because the frozen date regex hit 0/352 texts; it is `INOPERATIVE_DATE_REGEX`, not a strong temporal baseline. ASR, answer accuracy and refusal are `NOT_MEASURED`. Claim 1, 2 and 3 remain NOT_RUN. No retrieval rerun, no weight download, no commercial API, no D2/D3/HOLD8 read. `AUTO_CONTINUE=NO`.
+[Report](../paper1/dual_machine/repro5090/owner28_eval/OWNER28_EVAL_INDEPENDENT_SCORE_REPORT.md).
+
 ## Current — 2026-11-11 Owner28 independent curation is sealed, scoring is not started
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT` was read from 5060 commit `5081860e0448b8d4692f4b38270642ae43d91d3f`. Branch remains `research/paper1-ragdefender-repro-5090`. Parent `dbd91f3667964baca69aeb82a6292c4fe193c965`.

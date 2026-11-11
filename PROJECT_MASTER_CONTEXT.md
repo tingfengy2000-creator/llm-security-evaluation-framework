@@ -1,5 +1,10 @@
 # LLMGuard 项目总控文档
 
+## 当前：Owner28 已完成一次暂定评分，不再自动续跑（2026-11-11）
+
+5090 仍在 `research/paper1-ragdefender-repro-5090`。5060 的盲预测已经封存，5090 用私有标签做了一次评分。状态是 `AGENT_PROVISIONAL_EVAL`，Human Gold 为 0。DATE_ONLY 在这 32 个世界里和不过滤完全一样，因为日期正则没有命中任何段落，不能把它当成有效的强时效基线。没有最终生成，所以没有攻击成功率和答案正确率。三条 Claim 仍是 `NOT_RUN`。7 个时间镜像没有评分。到此停止。
+[评分报告](docs/paper1/dual_machine/repro5090/owner28_eval/OWNER28_EVAL_INDEPENDENT_SCORE_REPORT.md)。
+
 ## 当前：Owner28 独立来源已封存，评分未开始（2026-11-11）
 
 5090 仍在 `research/paper1-ragdefender-repro-5090`。Owner28 只增加独立取样和出题，不改变 RAGDefender 复现协议。四项新事实已封存在仓库外的私有标签，公开仓库只有角色盲文本和来源清单。状态是 `AGENT_PROVISIONAL_EVAL`，Human Gold 为 0。三条 Claim 仍是 `NOT_RUN`，攻击成功率和准确率仍是 `NOT_MEASURED`。评分须等 5060 盲预测封存后做一次。

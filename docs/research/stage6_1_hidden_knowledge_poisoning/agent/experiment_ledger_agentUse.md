@@ -1,5 +1,14 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — Owner28 one-shot score sealed, 2026-11-11 UTC+8
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT`. Branch `research/paper1-ragdefender-repro-5090`. Score authorization HEAD `d2a9a47d2ad33f38a445be22f6c2c70802cf2207`. Prediction commit `ad413ea639c950faea2106a52fa4352735384ef1`.
+Status `SCHEMA_SCORED_ONCE / AGENT_PROVISIONAL_EVAL / HUMAN_GOLD=0`. Projection SHA256 `5c9874bd6bb3252a2685e8481b92ea979dc1e842b5f3250a798e2bb7f03d21bb`. TopK seal `31ce5b1acfbfb0d6ceebe4acedda0f482ca506462baf48dd9f4ff36a37e4bd45`. Prediction seal `aeb47a49f915c55fd2c7e5679de63cfce664282667f9a818ed27b9dfc7b1205e`.
+Private custody SHA256 `c4244e86fb2ecf1177cc3d2bb39b8791e1b789713fc3522bbfaa46b35b055595` unchanged and outside Git. Private map SHA256 `119e7f5242c86a3fd74d10df9ad3d402a41b5cfe4037a1f6a6f4f46f3fe5c0a0`. Private score SHA256 `692700cb2566004e4ba8b98901e8b7beac46c4babe4fe2c0b5e7782c62b72f26`.
+Headline worlds 32. Mirrors 7 not scored. Retrieved denominator 160. DATE_ONLY `INOPERATIVE_DATE_REGEX`, equal to NONE, regex hits 0/352. ASR, answer accuracy and refusal `NOT_MEASURED`. Claim1/2/3 `NOT_RUN`. Retrieval reruns 0. Weight downloads 0. Commercial API 0. D2/D3/HOLD8 not touched. `AUTO_CONTINUE=NO`.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master true; owner_decision true; stage_process evaluated and not updated; lessons evaluated and not updated because the date-regex observation stays provisional in the score report; research_authority evaluated and not updated; README evaluated and not updated.
+[Report](../../../paper1/dual_machine/repro5090/owner28_eval/OWNER28_EVAL_INDEPENDENT_SCORE_REPORT.md).
+
 ## Current — Owner28 curation sealed, scoring not started, 2026-11-11 UTC+8
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT` at 5060 `5081860e0448b8d4692f4b38270642ae43d91d3f`. Parent HEAD `dbd91f3667964baca69aeb82a6292c4fe193c965`. Branch `research/paper1-ragdefender-repro-5090`.
