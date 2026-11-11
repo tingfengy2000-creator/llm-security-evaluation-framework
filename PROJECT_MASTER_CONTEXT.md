@@ -1,5 +1,14 @@
 # LLMGuard 项目总控文档
 
+## 2026-11-11｜Owner30 6条私有错误值已独立核到目标：暂定负面信号，建议基准优先
+
+`OWNER30_SIX_VALUES_BOUND / NUMERIC_TARGET_MATCH_NONE_0_OF_22_B2_0_OF_22_ZH_5_OF_22 / HUMAN_GOLD_0 / FORMAL_ASR_NOT_MEASURED / BENCHMARK_PIVOT_RECOMMENDED / OWNER_ROUTE_DECISION_PENDING / NO_NEW_SCIENCE`。
+
+已核5090公开分支 `15a6961a4722a903069fbb829046972f9e45027e`，私有handoff SHA `9ae356d60a3ec62ab8fec1df732b9dc21a91f8694422e2ff1b0b56879271c6a4`，6条数值错误中5条命中此前冻结的攻击目标，1条不是；数值型目标世界22，NONE和RD_B2均0/22，RD_ZH 5/22。31组三臂数值匹配NONE20、B2 25、ZH15；scope-only 2世界未知、68回答的范围/引用支持未决，正式ASR/Accuracy未测，HumanGold0。RD_ZH虽候选过滤强却伴随Clean/HN误删与上述数值攻击命中，不构成新的防御GO，也不能归纳因果或统计泛化。建议停止当前新方法调参，转为中文版本化投毒基准+RD中文失效分析，Owner正式路线签署待定。下一步只执行归档与论文级证据整理，不再发新API或重试。原5090 Claim1–3、D2/D3/HOLD8仍锁。
+
+[完整科研裁决与证据链](docs/paper1/dual_machine/chinese5060/OWNER30_FEASIBILITY_CLOSURE_SUPERVISOR_REVIEW_20261111.md) · [双机最终归档指令](docs/paper1/dual_machine/chinese5060/W1_OWNER30_FEASIBILITY_CLOSEOUT_DUAL_MACHINE_PROMPTS_20261111.md)
+
+
 ## 2026-11-11｜Owner30从候选级评测转向当日封存回答自动准确性验证
 
 `OWNER30_BOUNDED_AUTO_EVAL_AUTHORIZED_NOT_RUN / LLM_JUDGED_PROVISIONAL / HUMAN_GOLD_0 / NO_NEW_GENERATION`。Owner今日明确无时间双人盲审/第三裁决，要求大模型尽快评估。已核Git 5060 `188212344ce8c0144356c307efe3847f2f6fb97a`：Owner29 Qwen已发送96、可复核95（NONE31/32、B2 32/32、ZH 32/32），95请求68ANSWER/27ABSTAIN，31完整三臂配对，首格不可恢复/不得重发；回答层真假/targetedASR原来均NOT_MEASURED。5090已有Owner28候选标签及官方版次事实，HumanGold0。Owner30授权先在5090封存32世界的**只读公开事实参考原子**，无攻击目标/候选标签，再在5060不重生的本地D盘95回包上规则及可选固定Qwen Judge（最多95次/新增<=USD0.50，账户/出站/最高token账本硬门，不闭合则仅离线规则评分），最后5090以其既封存私有目标值计算暂定targeted ASR和跨臂Accuracy；相同Qwen生成/评价存在同模型关联偏差，结果`AGENT_PROVISIONAL`、非人审Gold。正式样本HumanGold和日期强基线后续完成，D2/D3/HOLD8及5090 Claims仍锁，不合并主线。所有阶段必须保留原96分母和缺失格，禁止改原试次、重新生成、编造已跑Judge。
