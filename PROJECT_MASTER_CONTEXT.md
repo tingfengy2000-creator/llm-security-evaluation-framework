@@ -1,5 +1,13 @@
 # LLMGuard 项目总控文档
 
+## 2026-11-11｜Owner28 32 主世界盲预测已封存，待 5090 独立评分
+
+PREDICTION_READY_FOR_INDEPENDENT_5090_EVAL / SCORING_PENDING / HUMAN_GOLD_0。
+
+5090 无损桥接提交 0a4fde3966d9eefd3562f4d552f12090c7632ac9 通过冻结 check。5060 完成一次 32/32 主世界同 TopK5 检索与四臂预测，共 160 个秩、128 个掩码。7 个镜像单列未运行。当前评分 0/32，下一步由 5090 核对已发布的角色盲预测 SHA 后在本机独立评分。费用为 0。
+
+[盲预测交接、封存和阶段记录](docs/paper1/dual_machine/chinese5060/owner28_eval/OWNER28_EVAL_BLIND_PREDICTION_HANDOFF.md)
+
 ## 2026-11-11｜Owner28 5060 冻结身份通过，待 5090 兼容交接
 
 EVAL_BLOCKED_SCHEMA_OR_PROVENANCE / WAITING_FOR_5090_SCHEMA_BRIDGE / EVAL_0_OF_32 / HUMAN_GOLD_0。

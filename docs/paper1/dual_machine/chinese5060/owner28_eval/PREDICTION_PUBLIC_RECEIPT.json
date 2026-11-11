@@ -1,0 +1,14 @@
+{
+  "admission_receipt_sha256": "c0d488e114db2eb9894c10dbcb9b0cea760af9b3f7eb649717197882837009c5",
+  "authority": "W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT",
+  "code_commit": "ba00a195eee55a2b3f6ad02a5d18854d308ce0ce",
+  "curator_git_commit": "0a4fde3966d9eefd3562f4d552f12090c7632ac9",
+  "curator_manifest_sha256": "2d5e11e6a2a98e5f1ebd3d2aa16b3b80b6d92f4e6f223f6616df05219fdbe235",
+  "main_worlds": 32,
+  "mirror_worlds": 0,
+  "prediction_seal_sha256": "aeb47a49f915c55fd2c7e5679de63cfce664282667f9a818ed27b9dfc7b1205e",
+  "prediction_sha256": "46979484afcc0708c104c98b72461bab2bf168127febf627c01c8e30a2d9258a",
+  "role_free_sha256": "059a859c8e1296d6a09d1cf7aa4e6124275c8a85af96d85b20749108e6ba56c8",
+  "status_after_git_publication": "PREDICTION_READY_FOR_INDEPENDENT_5090_EVAL",
+  "topk_seal_sha256": "31ce5b1acfbfb0d6ceebe4acedda0f482ca506462baf48dd9f4ff36a37e4bd45"
+}

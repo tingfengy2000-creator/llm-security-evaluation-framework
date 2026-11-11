@@ -1,0 +1,109 @@
+{
+  "arm_world_masks": 128,
+  "arms": [
+    "NONE",
+    "RD_B2",
+    "RD_ZH",
+    "DATE_ONLY"
+  ],
+  "code_blobs_sha256": {
+    "scripts/research/run_chinese5060_owner28.py": "bfd1aee62334e84acb592d0d820b83a5aa35dde0171d15588d603bb69716bada",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/owner27_version_guard.py": "4e456ca3640eefa5e89d8088f06cac3ece6d31cbf9fcc9d1f22330b6968f507a",
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/owner28_benchmark.py": "73162267e50313982ee874e86b2abd9dfc7ed25ab2004b076e33d135ae9bd9f9"
+  },
+  "commands": {
+    "check": {
+      "command_sha256": "10360dcffe93bb9e75341749900eddd08f7feb7e66b32e3b6cb7bafc5e7de073",
+      "ended_utc": "2026-11-11T02:38:21.7741618+00:00",
+      "exit_code": 0,
+      "started_utc": "2026-11-11T02:38:18.8451209+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e7a6db7dab868bae13990180b68d99dd76f85e47ec7d01f9df4826c17c6ef7ca"
+    },
+    "predict": {
+      "command_sha256": "dcc27b494428add156a57fe0161ad3f4972c53a8cd2a7311a4291753df608bd0",
+      "ended_utc": "2026-11-11T02:39:17.1087212+00:00",
+      "exit_code": 0,
+      "started_utc": "2026-11-11T02:38:39.5063744+00:00",
+      "stderr_sha256": "5483af356f4cb65083397ac9442bad74eff10b2c1933b2a48d567befef775443",
+      "stdout_sha256": "074d38063c45cc9cb58c802f9f34fcc97b1854b9c30d46e3331740f54f1e0b19"
+    }
+  },
+  "curator_git_commit": "0a4fde3966d9eefd3562f4d552f12090c7632ac9",
+  "exact_reopens": 32,
+  "execution_git_head": "ba00a195eee55a2b3f6ad02a5d18854d308ce0ce",
+  "frozen_source_commit": "8d879235874ee91a2462cfbaa04c2e3e8cb36ae8",
+  "handoff": {
+    "admission_receipt_sha256": "c0d488e114db2eb9894c10dbcb9b0cea760af9b3f7eb649717197882837009c5",
+    "bridge_audit_sha256": "ab76312b90004e02f9d563538422c04dc3defbba1dc3991b2ff0ba3f024e36ef",
+    "compat_curator_sha256": "2d5e11e6a2a98e5f1ebd3d2aa16b3b80b6d92f4e6f223f6616df05219fdbe235",
+    "prediction_seal_sha256": "aeb47a49f915c55fd2c7e5679de63cfce664282667f9a818ed27b9dfc7b1205e",
+    "prediction_sha256": "46979484afcc0708c104c98b72461bab2bf168127febf627c01c8e30a2d9258a",
+    "projection_sha256": "5c9874bd6bb3252a2685e8481b92ea979dc1e842b5f3250a798e2bb7f03d21bb",
+    "public_receipt_sha256": "43825a30498a2d9075a717340930ca3953e6653e3069522e9c6c59aebd40822f",
+    "role_free_sha256": "059a859c8e1296d6a09d1cf7aa4e6124275c8a85af96d85b20749108e6ba56c8",
+    "topk_seal_sha256": "31ce5b1acfbfb0d6ceebe4acedda0f482ca506462baf48dd9f4ff36a37e4bd45"
+  },
+  "main_worlds": 32,
+  "mirrors": {
+    "original": 7,
+    "run": 0,
+    "status": "MIRROR7_NOT_RUN_NOT_IN_HEADLINE"
+  },
+  "model_identity": {
+    "cache_files": 10,
+    "cache_identity_sha256": "53a3935d8d35d377fb90f839604f42062c944641dd15f7ad081b0ca557f638e5",
+    "dependency_sha256": "25ceec7b87f616eea4295108827671e90d78ce64627c1323012e9c38cd9ccef7",
+    "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "revision": "16e5344fbfc7dfbbbe0019d30cec21e2940cb4e1",
+    "upstream": "ba2a17efba165d45409114df2d70b030ade1e1b8"
+  },
+  "private_archive": {
+    "filename": "OWNER28_BLIND_PREDICTION_PRIVATE.zip",
+    "indexed_members": 244,
+    "member_index_sha256": "181e2eb7d73644f27984165432c1e694617b13550923e42f72bbc16f9c87e98f",
+    "readback_verified": true,
+    "sha256": "c8c1f23308959b68ba70010d0096b8543e99132fdbd755b1d101ab0210b3206c"
+  },
+  "resources": {
+    "commercial_api_calls": 0,
+    "commercial_usd": 0,
+    "downloads": 0,
+    "latency_summary": {
+      "DATE_ONLY": {
+        "median_ms": 0.0229,
+        "p95_ms": 0.0403
+      },
+      "NONE": {
+        "median_ms": 0.0,
+        "p95_ms": 0.0
+      },
+      "RD_B2": {
+        "median_ms": 201.4866,
+        "p95_ms": 225.551
+      },
+      "RD_ZH": {
+        "median_ms": 204.60825,
+        "p95_ms": 227.5814
+      },
+      "retrieval": {
+        "median_ms": 286.56435,
+        "p95_ms": 610.0429
+      }
+    },
+    "private_bytes": 14014795,
+    "seconds": 34.28099999999995,
+    "threads": 2
+  },
+  "scientific_attempts": 1,
+  "scoring": {
+    "custody_file_read_by_5060": false,
+    "human_gold": 0,
+    "scored_worlds": 0,
+    "status": "PENDING_5090"
+  },
+  "source_documents": 352,
+  "source_locator_note": "5090 bridge audit records an equivalent CNIPA HTTPS republication of the 2008 statute in compat metadata.",
+  "status": "PREDICTION_READY_FOR_INDEPENDENT_5090_EVAL / SCORING_PENDING",
+  "topk_rank_slots": 160
+}
