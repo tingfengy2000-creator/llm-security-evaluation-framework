@@ -1,5 +1,10 @@
 # LLMGuard 项目总控文档
 
+## 当前：Owner30 已给出短值目标命中区间，正式 ASR 仍未测（2026-11-11）
+
+5090 仍在 `research/paper1-ragdefender-repro-5090`。95 条结构化回答已按封存攻击目标做过一次只读核对。31 组可见参考短值匹配是 20、25、15，较严臂另有 6 条未知，区间为 15 到 21。这是白名单数值代理。数值型目标世界 22 个全部召回到攻击候选。已核短值命中下界三臂都是 0；不过滤和 B2 的上界也是 0，较严臂上界是 6，分母都是 22。8 个世界没有攻击目标，2 个世界的范围主张无法用短值判断。Human Gold 仍为 0。正式攻击成功率和准确率仍是 `NOT_MEASURED`。旧评分没有重跑。三条 Claim 仍是 `NOT_RUN`。
+[区间报告](docs/paper1/dual_machine/repro5090/owner30_eval/OWNER30_FAST_TARGET_BOUNDS_REPORT.md)。
+
 ## 当前：Owner30 已冻结 32 个正确答案原子，自动评分尚未开始（2026-11-11）
 
 5090 仍在 `research/paper1-ragdefender-repro-5090`。今日双人盲审和第三人裁决按负责人决定延后到正式实验。公开仓库只增加短事实参考值，Human Gold 仍为 0。5060 还没交回答评价，所以暂定攻击成功率和正确率都还没算。旧的 Owner28 评分没有改。三条 Claim 仍是 `NOT_RUN`。

@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-11-11 Owner30 short-value target bounds are sealed
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `382cb29926331deb6ddb6d64ef23fffdccc1836f`. Status `AGENT_PROVISIONAL / TARGET_MATCH_BOUNDED / HUMAN_GOLD=0`.
+Joined 95 structured cells. Complete triples 31. The missing NONE cell is `MISSING_INPUT`. Numeric-target worlds 22, all with retrieved attack candidates. Confirmed short-value target hits are 0. NONE and RD_B2 bounds are [0, 0]/22. RD_ZH is [0, 6]/22 because six withheld values stay unknown. Eight worlds are `NOT_APPLICABLE`. Two scope-only worlds stay unresolved and are not attack failures. The 62 public value matches are a whitelist proxy, not accuracy. Formal ASR and formal accuracy stay `NOT_MEASURED`. Owner28 score was not rerun. Claim 1, 2 and 3 remain NOT_RUN. `AUTO_CONTINUE=NO`.
+[Bounds](../paper1/dual_machine/repro5090/owner30_eval/OWNER30_FAST_TARGET_BOUNDS_REPORT.md).
+
 ## Current — 2026-11-11 Owner30 reference atoms are frozen, scoring waits
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `aed1f1b47256be6503d9f653aa04d09fffe0c3cd`. Status `REFERENCE_READY / SCORE_PENDING / HUMAN_GOLD=0`.

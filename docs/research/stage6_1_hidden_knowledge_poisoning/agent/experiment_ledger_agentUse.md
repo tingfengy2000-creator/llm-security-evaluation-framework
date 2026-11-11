@@ -1,5 +1,16 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — Owner30 short-value target bounds sealed, 2026-11-11 UTC+8
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `382cb29926331deb6ddb6d64ef23fffdccc1836f`. Judgment commit `1760ca56dc87674c488fe1a197304dfbe4b4fc8e`.
+Status `AGENT_PROVISIONAL / TARGET_MATCH_BOUNDED / HUMAN_GOLD=0`. Diagnostic `OWNER30_FAST_TARGET_BOUNDS_V1`. Rows 95. Triples 31. Secondary pairs 32. Public short values 62. Withheld 6, all `TARGET_UNKNOWN`. Numeric-target worlds 22. Retrieved-poison worlds 22. No-target worlds 8. Scope-only worlds 2.
+Numeric proxy on 31 triples: NONE 20/31, RD_B2 25/31, RD_ZH [15, 21]/31. Secondary B2/ZH: 26/32 and [16, 22]/32. B2 minus NONE public matches = 5. This proxy is not accuracy.
+Short-value target bounds, both eligibility conditions: NONE [0, 0]/22, RD_B2 [0, 0]/22, RD_ZH [0, 6]/22. Unknowns are not misses. Formal ASR `NOT_MEASURED`. Formal accuracy `NOT_MEASURED`.
+Report SHA256 `bf622f8bb95b6ccefb77b0d8cf6c63bedfde294c9311bd8a4e982e1fd0232e32`. Manifest SHA256 `0d2fbe7308218a7aa78962859a4800c4f438b1fa8f733b0f7f78a24cdb7f4b25`. Script SHA256 `42fe71f1ce17c5fd8fe9d4b3fa1f77ff1169b0b6c623ae2294bc36084b934947`. Judgments SHA256 `2a3e2f05cec1ffd1f2fba698546888ec105554da495e65706a8b0340426da0b3`. Private bounds SHA256 `9940b71c6f0bf14e1f3bbdcca7ec5b052e01161ce4a19529b2ea6d5a1058b6cc` outside Git. Custody SHA256 `c4244e86fb2ecf1177cc3d2bb39b8791e1b789713fc3522bbfaa46b35b055595` unchanged. Owner28 score report SHA256 `3c05598a6ec65a6f224549232703e03e1ec8fdcac52621698b8acd6aee420715` unchanged.
+Full answer text not read. Withheld values not opened. Hash cracking not attempted. Judge calls 0. Claim1/2/3 `NOT_RUN`. Weight downloads 0. Commercial API 0. D2/D3/HOLD8 not touched. `AUTO_CONTINUE=NO`.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master true; owner_decision true; stage_process evaluated and not updated; lessons evaluated and not updated; research_authority evaluated and not updated; README evaluated and not updated.
+[Bounds](../../../paper1/dual_machine/repro5090/owner30_eval/OWNER30_FAST_TARGET_BOUNDS_REPORT.md).
+
 ## Current — Owner30 public reference atoms frozen, score pending, 2026-11-11 UTC+8
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `aed1f1b47256be6503d9f653aa04d09fffe0c3cd`. 5060 prompt commit `4ac109ede95fc8dca4e0ad6bf62215858e98bc05`.

@@ -1,5 +1,13 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-117 — Owner30 short-value target bounds, formal ASR unmeasured
+
+2026-11-11 UTC+8; no new PODR; authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`; parent `382cb29926331deb6ddb6d64ef23fffdccc1836f`.
+Read-only aggregate of 95 sealed structured cells. Human Gold 0. Numeric proxy is not accuracy. Target-hit bounds keep six withheld cells unknown. Formal ASR and accuracy `NOT_MEASURED`. Claims NOT_RUN. Owner28 score unchanged.
+Report SHA256 `bf622f8bb95b6ccefb77b0d8cf6c63bedfde294c9311bd8a4e982e1fd0232e32`.
+[Bounds](../paper1/dual_machine/repro5090/owner30_eval/OWNER30_FAST_TARGET_BOUNDS_REPORT.md).
+L0 Oracle evidence below is unchanged. No D2/D3 read.
+
 ## OR-116 — Owner30 reference atoms frozen, score pending
 
 2026-11-11 UTC+8; no new PODR; authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`; parent `aed1f1b47256be6503d9f653aa04d09fffe0c3cd`.

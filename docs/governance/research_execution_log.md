@@ -1,5 +1,11 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-11 — Owner30 short-value target bounds computed
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090` at parent `382cb29926331deb6ddb6d64ef23fffdccc1836f`. 5060 judgments `1760ca56dc87674c488fe1a197304dfbe4b4fc8e`.
+Status `AGENT_PROVISIONAL / TARGET_MATCH_BOUNDED / HUMAN_GOLD=0`. Recomputed the public numeric proxy: 31 triples NONE 20/31, RD_B2 25/31, RD_ZH [15, 21]/31. Short-value target bounds on 22 retrieved numeric-target worlds: NONE and RD_B2 [0, 0]/22, RD_ZH [0, 6]/22. Six withheld cells stay unknown and are not misses. Formal ASR and accuracy remain `NOT_MEASURED`. Owner28 score was not rerun. Claim 1, 2 and 3 remain NOT_RUN. `AUTO_CONTINUE=NO`.
+[Bounds](../paper1/dual_machine/repro5090/owner30_eval/OWNER30_FAST_TARGET_BOUNDS_REPORT.md).
+
 ## 2026-11-11 — Owner30 reference atoms frozen, answer scoring not started
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090` at parent `aed1f1b47256be6503d9f653aa04d09fffe0c3cd`. 5060 prompt `4ac109ede95fc8dca4e0ad6bf62215858e98bc05`.
