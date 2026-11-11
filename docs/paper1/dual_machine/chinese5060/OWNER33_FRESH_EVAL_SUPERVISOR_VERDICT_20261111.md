@@ -25,7 +25,7 @@
 两批各32个世界但各自只包含4个事实组；不能把世界/槽位当独立统计单位。EVAL投放P48/C84/H12/O16/B192，实际进入TopK5 P34/C59/H1/O8/B58。不能只报告H=0/1而隐藏O=8/8被删；合法其他scope是本研究的重要误删类型，但报告单列并严谨区分定义。EVAL 32world均触发了逻辑补检，0次查到可用来源，算法同B2且不产生额外答案支持。没有新的Qwen回答层调用，formal ASR/Accuracy NOT_MEASURED。
 
 ## 科学判读：不是方法裁决证明正确，而是前端覆盖失效
-- 冻结源码 `src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/owner33_vcare.py` 的 `intent()` **实际写死**三个属性族：statutory_days（节日）、permit_issuer（旅馆卫生许可签发主体）、application_age_max（大型客车申请年龄）。而新EVAL四事实族为 `CONSUMER_DISTANCE_RETURN`、`ENV_DAILY_PENALTY_START`、`OGI_APPLICATION_REPLY`、`PIT_COMPREHENSIVE_BASIC`，均不属于这三个分支。508/5090独立报告相互吻合地给出`recognized_intents=0/32`。所以更精确的诊断是**跨领域查询意图覆盖缺失导致系统零启动**，而不只是版本判断能力差。现有代码对陌生领域`intent=None`即无anchor回退B2。
+- 冻结源码 `src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/owner33_vcare.py` 的 `intent()` **实际写死**三个属性族：statutory_days（节日）、permit_issuer（旅馆卫生许可签发主体）、application_age_max（大型客车申请年龄）。而新EVAL四事实族为 `CONSUMER_DISTANCE_RETURN`、`ENV_DAILY_PENALTY_START`、`OGI_APPLICATION_REPLY`、`PIT_COMPREHENSIVE_BASIC`，均不属于这三个分支。5060/5090独立报告相互吻合地给出`recognized_intents=0/32`。所以更精确的诊断是**跨领域查询意图覆盖缺失导致系统零启动**，而不只是版本判断能力差。现有代码对陌生领域`intent=None`即无anchor回退B2。
 - DEV相对B2减少的P13 **并非完全属于V-CARE独有贡献**，因为DEV的同预算`B2_ALWAYS_VERIFY`也将P保留降到7/45。V-CARE在DEV上的可区分贡献主要是同样P和H下，Clean误删40/63→10/63的有限证据恢复；这还依赖旧DEV官方来源索引，**不能算独立事实泛化**。No-rescue消融也为Clean40/63，说明保全分支在旧领域有效；no-scope误删HN3/33略低于FULL4/33，说明scope消融没有额外HN保护收益。该结果不是“完整V-CARE机制已证明”。
 - 本次EVAL给出`METHOD_EVAL_NO_GO`的充分证据（完全同B2、来源0/32、消融无差异），但没有实验识别该方法在其他新领域具备通用证据入库时的有效性。这不是推广成功的借口，也不能把当前测试集再改为未见测试重跑。
 - 失败归因应登记为`CROSS_DOMAIN_INTENT_COVERAGE_FAILURE`、`NO_EXTERNAL_REFERENCE_HIT`、`NO_MASK_DELTA`、`EQUAL_BUDGET_B2_NOT_BEATEN`；不是`SCIENCE_NOT_RUN`、`HUMAN_GOLD_AVAILABLE`或`QWEN_ASR_IMPROVED`。
