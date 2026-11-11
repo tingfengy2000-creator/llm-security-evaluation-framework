@@ -1735,3 +1735,8 @@ index 和 Owner 对 claims 的接受。
 ## 2026-11-11｜Owner29 生成可行性首格停发
 
 `OWNER29_RAPID_LIVE_STOPPED / 1_SENT / 0_VERIFIED / 95_NOT_RUN / AUTO_CONTINUE_NO`。Owner 确认余额、角色盲外传及本批新增 USD 5。首格已发送，Runner 回包字段读取异常，实际扣费和回答均未知；首格保留预留。离线修正全路径通过，正式指标仍未测。 [OWNER29 快速生成首格停发报告](../../../paper1/dual_machine/chinese5060/OWNER29_RAPID_GENERATION_STOP_REPORT.md)
+
+
+## 2026-11-11｜Owner29 剩余 95 格真实生成完成
+
+`95_REMAINDER_VERIFIED / 95_SUCCESS_OF_96 / 31_COMPLETE_TRIPLES / DESCRIPTIVE_ONLY / STOP`。Owner 批准仅续跑 95 格，沿用 USD 5 与角色盲外传范围，旧首格未重发。续跑 95 格均成功，总计发送 96 格、失败 1 格、未运行 0 格。仅描述回答与拒答，Human Gold 为 0，正式 ASR 和 Accuracy 未测。[真实续跑结果与证据](../../../paper1/dual_machine/chinese5060/OWNER29_RAPID_GENERATION_REMAINDER_RESULT.md)
