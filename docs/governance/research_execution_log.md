@@ -1,5 +1,14 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-11｜Supervisor审Owner30 rule停发并下发零重生成的快速评分补充
+
+`OWNER30_RULE_95_COMPLETE / JUDGE_SENT_0 / NUMERIC_PROXY_POSTHOC_ONLY / 5090_TARGET_MATCH_PENDING / HUMAN_GOLD_0 / NOT_FORMAL_ACCURACY`。
+
+5060已推送`1760ca56dc87674c488fe1a197304dfbe4b4fc8e`、5090参考冻结`65c33ff4e87e698a41f8f271774a2c85de115c75`，原始Owner29共95成功回包/96计划、31三臂完整配对、缺失原NONE首格。5060规则将68 ANSWER全部列UNRESOLVED，因为强制要求scope逐字绑定；27 ABSTAIN有效分类，Qwen Judge 0调用/0费用，不能解释为0正确率。Supervisor只读Git join得到公开短值表：NONE20 ANSWER全部公开匹配reference、B2 26全部公开匹配、ZH 16公开匹配且6条WITHHELD，31完整配对NONE20/31、B2 25/31、ZH 15/31加6未决，32对B2 26/32、ZH16/32加6未决。**62公开值由参考白名单选择后才披露，62/62是选择效应，绝非无偏accuracy。** 5090已封存的私有攻击目标需先独立核62公开短值的target-match及6未知上下界；5060本机如逐条token真实<=4096且max128并闭合USD0.5/权利/账户门，可在原Owner30预算做至多68次短包Qwen辅助Judge，不成功则仅报离线bounds，不再把991808模型极限当作强制发送上界。不得新生成、不更改原评分、HumanGold0、formalASR/Accuracy NOT_MEASURED、D2/D3/HOLD8/Claims禁止。
+
+[原Owner30授权](../paper1/dual_machine/owner_approvals/W1_OWNER30_ONE_DAY_AUTOMATED_RAG_FEASIBILITY_20261111.md) · [数值匹配审计](../paper1/dual_machine/chinese5060/owner30_eval/OWNER30_PUBLIC_VALUE_MATCH_SUPERVISOR_AUDIT_20261111.md) · [5060小包Judge](../paper1/dual_machine/chinese5060/owner30_eval/W1_5060_OWNER30_FAST_SMALL_PACKET_JUDGE_AND_NUMERIC_DIAGNOSTIC_20261111.md) · [5090Target评分](../paper1/dual_machine/repro5090/owner30_eval/W1_5090_OWNER30_FAST_PRIVATE_TARGET_MATCH_AFTER_5060_REPORT_20261111.md)
+
+
 ## 2026-11-11｜Owner30启用一日封存回答暂定自动评估；无新生成
 
 `OWNER30_BOUNDED_AUTO_EVAL_AUTHORIZED_NOT_RUN / LLM_JUDGED_PROVISIONAL / HUMAN_GOLD_0 / NO_NEW_GENERATION`。Owner今日明确无时间双人盲审/第三裁决，要求大模型尽快评估。已核Git 5060 `188212344ce8c0144356c307efe3847f2f6fb97a`：Owner29 Qwen已发送96、可复核95（NONE31/32、B2 32/32、ZH 32/32），95请求68ANSWER/27ABSTAIN，31完整三臂配对，首格不可恢复/不得重发；回答层真假/targetedASR原来均NOT_MEASURED。5090已有Owner28候选标签及官方版次事实，HumanGold0。Owner30授权先在5090封存32世界的**只读公开事实参考原子**，无攻击目标/候选标签，再在5060不重生的本地D盘95回包上规则及可选固定Qwen Judge（最多95次/新增<=USD0.50，账户/出站/最高token账本硬门，不闭合则仅离线规则评分），最后5090以其既封存私有目标值计算暂定targeted ASR和跨臂Accuracy；相同Qwen生成/评价存在同模型关联偏差，结果`AGENT_PROVISIONAL`、非人审Gold。正式样本HumanGold和日期强基线后续完成，D2/D3/HOLD8及5090 Claims仍锁，不合并主线。所有阶段必须保留原96分母和缺失格，禁止改原试次、重新生成、编造已跑Judge。
