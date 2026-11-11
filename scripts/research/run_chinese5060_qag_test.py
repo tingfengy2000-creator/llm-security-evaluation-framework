@@ -27,17 +27,19 @@ def curator_worlds(panel: int) -> list[dict[str, Any]]:
     name = f"{CURATOR_ROOT}/owner{panel}_eval/OWNER{panel}_ROLE_FREE.json"
     pack = qag.checked(backend.git("show", f"{CURATOR}:{name}"), ROLE_FREE[panel])
     rows = pack["worlds"]
+    world_id = r"[a-f0-9]{20}" if panel == 31 else r"w-[a-f0-9]{20}"
+    passage_id = r"[a-f0-9]{20}" if panel == 31 else r"p-[a-f0-9]{20}"
     if len(rows) != 32 or len({row["world_id"] for row in rows}) != 32:
         raise ValueError("CURATOR_WORLD_COUNT")
     if any(
         set(row) != {"world_id", "query", "passages"}
-        or not re.fullmatch(r"w-[a-f0-9]{20,64}", row["world_id"])
+        or not re.fullmatch(world_id, row["world_id"])
         or not isinstance(row["query"], str)
         or not row["query"]
         or len(row["passages"]) != 11
         or any(
             set(passage) != {"passage_id", "text"}
-            or not re.fullmatch(r"p-[a-f0-9]{20,64}", passage["passage_id"])
+            or not re.fullmatch(passage_id, passage["passage_id"])
             or not isinstance(passage["text"], str)
             or not passage["text"]
             for passage in row["passages"]
@@ -60,7 +62,7 @@ def backend_world(row: dict[str, Any]) -> dict[str, Any]:
         "documents": [
             {
                 "document_id": item["passage_id"],
-                "source_id": "s-" + item["passage_id"][2:],
+                "source_id": "s-" + item["passage_id"].removeprefix("p-"),
                 "source_uri": None,
                 "text": item["text"],
                 "content_sha256": qag.digest(item["text"].encode()),
