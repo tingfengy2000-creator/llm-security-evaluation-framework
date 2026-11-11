@@ -1,5 +1,14 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-11｜Supervisor核5090与5060 Git，定位格式准入阻断
+
+`5090_CURATED_SEALED / 5060_RUNNER_READY / HANDOFF_SCHEMA_MISMATCH / EVAL_0_OF_32 / HUMAN_GOLD_0 / API_0`。
+
+远端实测：5090 `a8de64fbf2c279a642c9b9a41ddf5c5481b8cfca`，有 `EVAL_ROLE_FREE.json` (原始SHA `2aafd7d7bcd8e3860771063a31770e350532065abb251f38f99c7ac39ba50cb7`)和 `EVAL_CURATOR_MANIFEST.json`，声明3新谱系、4事实组、32主世界+7镜像、私有label SHA `c4244e86fb2ecf1177cc3d2bb39b8791e1b789713fc3522bbfaa46b35b055595`；该repo文件实际是39×11个文本，使用 `worlds/passages` 和20字符ID。5060已验证 `b9b9a6f68bc2baa1e1adf7842dc759a0b4e383bd`，盲跑程序则要求 `main:32, mirrors:0或8`、5个world字段及 `w/f/d/s-`+24hex ID、独立public curator清单。**这是可复查的数据接口不匹配；不能将原5090包直接投入冻结runner，也不能要求5060改算法迎合EVAL。** 当前无新检索/预测/评分，原5090私有Gold未在Git。先由5090在其分支做32主世界无损格式转换，7原始镜像保存但本次不跑，提供新rolefree+curator compatibility manifest+变换审计；5060只读验新包和固定check，PASS后一次性同TopK四臂预测、封存再由5090私有评分。所有条件属于已批准Owner28研究范围，未解锁正式HumanGold或外部API，软件Schema转换不是科学结果。
+
+[协调规程](../paper1/dual_machine/OWNER28_5090_TO_5060_SCHEMA_BRIDGE_AND_ONE_SHOT_HANDOFF_20261111.md) · [5090格式桥接指令](../paper1/dual_machine/chinese5060/W1_5090_OWNER28_SCHEMA_BRIDGE_EXECUTION_PROMPT_20261111.md) · [5060盲预测交接指令](../paper1/dual_machine/chinese5060/W1_5060_OWNER28_BLIND_PREDICTION_HANDOFF_PROMPT_20261111.md)
+
+
 ## 2026-11-11｜5060 归档 Owner28 失效图谱与独立输入门
 
 RUNNER_READY / BENCHMARK_INPUT_GATE_BLOCKED / EVAL_NOT_RUN / HUMAN_GOLD=0 / AUTO_CONTINUE=NO。
