@@ -3699,3 +3699,8 @@ Owner16 S1 单次封存验证结束，S1_FAIL_STOP。73 条合成样本，30 正
 `S1B_DESIGN_ONLY / MODEL_DOWNLOAD_NOT_AUTHORIZED / MODEL_INFERENCE_NOT_AUTHORIZED / VALIDATION_NOT_AUTHORIZED / S2_S5_LOCKED`。Owner B 只读审批包已完成，UIE Nano 权重条款和强身份待核，Qwen2.5-1.5B 已核固定 revision 与权重许可。独立验证保管人未指定。新增模型、推理、下载、安装、科学试次和费用均为 0。Auto Continue = NO。
 
 [Owner 审批包](../paper1/dual_machine/chinese5060/vesa_guard_reviewer_replan/W1_5060_S1B_OWNER_ADMISSION_PACKET_20261108.md)。SHA256 `f3204df649a34f500cd7ad751f0e4952a595879eb79b2315e3b8b19fd4b5b9c7`。
+
+
+## 2026-11-11｜Owner29 生成可行性首格停发
+
+`OWNER29_RAPID_LIVE_STOPPED / 1_SENT / 0_VERIFIED / 95_NOT_RUN / AUTO_CONTINUE_NO`。Owner 确认余额、角色盲外传及本批新增 USD 5。首格已发送，Runner 回包字段读取异常，实际扣费和回答均未知；首格保留预留。离线修正全路径通过，正式指标仍未测。 [OWNER29 快速生成首格停发报告](../paper1/dual_machine/chinese5060/OWNER29_RAPID_GENERATION_STOP_REPORT.md)

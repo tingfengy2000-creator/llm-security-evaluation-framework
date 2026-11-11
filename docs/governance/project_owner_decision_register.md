@@ -2527,3 +2527,8 @@ Owner requests `P1-CORE144-HUMAN-ANNOTATION-MASTER-GUIDE-V1-01`: Chinese-first, 
 # PODR-127 — Core144 object-supply versus referent uniqueness (2026-09-28)
 
 Owner explicitly distinguishes `self_containment` (required object/document/core claim/conditions supplied in this Candidate) from `ambiguous_referent` (an existing expression has two or more reasonable antecedents). Bare missing “该文件/该办法” with no competing antecedents is FLAG/NO; explicitly named competing objects can be PASS/YES; both problems can coexist but require separate reasons. Owner supplies four fictional cases and requires a 2×2 table, six prohibited mistakes, three note patterns and synchronization in detailed fields/danger table/quick reference. Only [Master Guide explanations](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_HUMAN_ANNOTATION_MASTER_GUIDE_V1.md) may change; no Excel, Candidate, opaque ID/order, Phase2 workbook or historical raw mutation. Enums remain PASS/FLAG/UNCERTAIN and YES/NO/UNCERTAIN, no new field or accepted-protocol revision. Cases05/06 remain logically consistent and verbatim. [Additive QA and closeout](../research/stage6_1_hidden_knowledge_poisoning/core144/PAPER1_CORE144_SELF_CONTAINMENT_REFERENT_CLARIFICATION_RECORD_V1.md). `OR-082 / REL-2026-0096`; commit/push requested. Human A/B not yet distributed; Phase2 stays sealed. No broader scientific or annotation approval is inferred.
+
+
+## 2026-11-11｜Owner29 生成可行性首格停发
+
+`OWNER29_RAPID_LIVE_STOPPED / 1_SENT / 0_VERIFIED / 95_NOT_RUN / AUTO_CONTINUE_NO`。Owner 确认余额、角色盲外传及本批新增 USD 5。首格已发送，Runner 回包字段读取异常，实际扣费和回答均未知；首格保留预留。离线修正全路径通过，正式指标仍未测。 [OWNER29 快速生成首格停发报告](../paper1/dual_machine/chinese5060/OWNER29_RAPID_GENERATION_STOP_REPORT.md)

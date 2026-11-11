@@ -2972,3 +2972,8 @@ Owner conditionally approved the first Final72 LOGO Logistic Regression prototyp
 # Paper 1 provenance input-contract resolution — 2026-09-22
 
 The Owner resolved the prior missingness choice: lawful metadata repair first (A), no constants or missingness indicators (B rejected), and a versioned 21-feature fallback if A cannot preserve the accepted meaning (C pre-authorized). The frozen corpus has partial publisher/issuer metadata but lacks a supported candidate-level host/publisher relation taxonomy and Top5-to-candidate publisher/issuer aggregation. Therefore A was not scientifically feasible under the current Pilot input contract, and C froze an additive 72×21 S/E/P/T matrix without modifying the original 23-feature artifacts or Final72 GT. All 24 LOGO training folds now have legal preprocessing statistics. Status is `PHASE_A_PREFLIGHT_PASS / READY_TO_EXECUTE_FIRST_DETECTOR_PROTOTYPE / NO_MODEL_FIT`; the next independent execution may run a development-only prototype, not a formal paper evaluation.
+
+
+## 2026-11-11｜Owner29 生成可行性首格停发
+
+`OWNER29_RAPID_LIVE_STOPPED / 1_SENT / 0_VERIFIED / 95_NOT_RUN / AUTO_CONTINUE_NO`。Owner 确认余额、角色盲外传及本批新增 USD 5。首格已发送，Runner 回包字段读取异常，实际扣费和回答均未知；首格保留预留。离线修正全路径通过，正式指标仍未测。 [OWNER29 快速生成首格停发报告](docs/paper1/dual_machine/chinese5060/OWNER29_RAPID_GENERATION_STOP_REPORT.md)

@@ -1804,3 +1804,8 @@ git log -15 --oneline
 - Additive private reconstruction namespace `paper1_final72_detector_v1_1_evidence_reconstruction_20260922`, manifest SHA256 `5924015e75d951223081925dc2ce7429cae23ea798cfbcef98aba5fe296f051b`. Original Full SHA256 `eed87a32979cb2d1c85bbd67584cf5a3d2c9cd32789af933758530e65ba9d423` remains unchanged and authoritative. Eight comparison OOF vectors are explicitly `EVIDENCE_RECONSTRUCTION`, not original-run artifacts.
 - Additive post-lock analysis namespace `paper1_final72_detector_failure_analysis_20260922`, manifest SHA256 `5d9edc8c1031ad9a42fa15a77a85eaa6e0aa7703d89c8f774b2304f979c4f6c8`. Seven observed-constant fields and 13 unique varying vectors; T-only/P-only each `2 win / 20 tie / 2 loss` on Poison–HN; Full vs Full-T margin `7 helped / 17 hurt`, Full vs Full-P `19 helped / 5 hurt`. `MULTIVIEW_SIGNAL_MIXED` remains; [human report](../research/stage6_1_hidden_knowledge_poisoning/method_engineering/PAPER1_FINAL72_DOCUMENT_DETECTOR_FAILURE_ANALYSIS_REPORT_V1.md) lists the development-only interpretation and formal-scale hypotheses.
 - Next gate: separate Owner approval for 240-group construction planning/execution. Final72 is not untouched test; formal Detector evaluation and Paper result remain `NOT_STARTED`.
+
+
+## 2026-11-11｜Owner29 生成可行性首格停发
+
+`OWNER29_RAPID_LIVE_STOPPED / 1_SENT / 0_VERIFIED / 95_NOT_RUN / AUTO_CONTINUE_NO`。Owner 确认余额、角色盲外传及本批新增 USD 5。首格已发送，Runner 回包字段读取异常，实际扣费和回答均未知；首格保留预留。离线修正全路径通过，正式指标仍未测。 [OWNER29 快速生成首格停发报告](../paper1/dual_machine/chinese5060/OWNER29_RAPID_GENERATION_STOP_REPORT.md)
