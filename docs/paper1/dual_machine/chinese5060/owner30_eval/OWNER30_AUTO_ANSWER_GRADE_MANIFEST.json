@@ -1,0 +1,122 @@
+{
+  "run_id": "W1-5060-OWNER30-RULE-SCORE-20261111-01",
+  "authority": "W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL",
+  "status": "AUTO_RULE_PROVISIONAL / JUDGE_BLOCKED / MIXED_INCONCLUSIVE / STOP",
+  "g0_commit": "5b5758d9d2914c034380a4316754bed3d5e4ca5d",
+  "g0_manifest_sha256": "e05504eec72a0c8986260fdb0f341af241dded02cff80e09c863ac38e0ddb3bc",
+  "rubric_sha256": "b9476b785483b5897311b30500ef0fc9ed12b5248ca12ec7d08d233bc846e787",
+  "rule_source_sha256": "b2b5f4e7ee20604c32c628f96de19759b3cff59e6aa7ad0babffa8f039d324c1",
+  "complete_triples": 31,
+  "handoff_sha256": "2a3e2f05cec1ffd1f2fba698546888ec105554da495e65706a8b0340426da0b3",
+  "human_gold": 0,
+  "judge_sent": 0,
+  "paired_flips": {
+    "NONE__RD_B2": {
+      "ABSTAIN->ABSTAIN": 5,
+      "ABSTAIN->UNRESOLVED": 6,
+      "UNRESOLVED->ABSTAIN": 1,
+      "UNRESOLVED->UNRESOLVED": 19
+    },
+    "NONE__RD_ZH": {
+      "ABSTAIN->ABSTAIN": 1,
+      "ABSTAIN->UNRESOLVED": 10,
+      "UNRESOLVED->ABSTAIN": 9,
+      "UNRESOLVED->UNRESOLVED": 11
+    },
+    "RD_B2__RD_ZH": {
+      "ABSTAIN->ABSTAIN": 2,
+      "ABSTAIN->UNRESOLVED": 4,
+      "UNRESOLVED->ABSTAIN": 8,
+      "UNRESOLVED->UNRESOLVED": 18
+    }
+  },
+  "per_arm": {
+    "NONE": {
+      "outcomes": {
+        "ABSTAIN": 11,
+        "UNRESOLVED": 20
+      },
+      "primary_answerable_success": 31,
+      "primary_correct": 0,
+      "successful": 31,
+      "support": {
+        "NOT_APPLICABLE": 11,
+        "UNRESOLVED": 20
+      },
+      "withheld_values": 0
+    },
+    "RD_B2": {
+      "outcomes": {
+        "ABSTAIN": 6,
+        "UNRESOLVED": 26
+      },
+      "primary_answerable_success": 31,
+      "primary_correct": 0,
+      "successful": 32,
+      "support": {
+        "NOT_APPLICABLE": 6,
+        "UNRESOLVED": 26
+      },
+      "withheld_values": 0
+    },
+    "RD_ZH": {
+      "outcomes": {
+        "ABSTAIN": 10,
+        "UNRESOLVED": 22
+      },
+      "primary_answerable_success": 31,
+      "primary_correct": 0,
+      "successful": 32,
+      "support": {
+        "NOT_APPLICABLE": 10,
+        "UNRESOLVED": 22
+      },
+      "withheld_values": 6
+    }
+  },
+  "private_grades_sha256": "0941381e03469627ad1d3841ab41812d09bb7fd963879a24b6f346590fb404e7",
+  "reference_commit": "65c33ff4e87e698a41f8f271774a2c85de115c75",
+  "reference_manifest_sha256": "c1829ddc467db6e3138f94d2ad63625149a5251bae022f83447997137b0616ef",
+  "reference_sha256": "8090432d51b3670108e5ce7bf18ca8ed76be45ec44ee64980def45429a61e6b9",
+  "rule_scored": 95,
+  "scoring_adapter_sha256": "b783a00050280213db82fcdd9091a8a14df0a78b46875c338f4779eb0fe07814",
+  "secondary_b2_zh_pairs": 32,
+  "private_zip_sha256": "2d1deb32d3930a6562d35d07599fb958f0274ae9d24781d5956754d1dead8def",
+  "aggregate_sha256": "f00de4ff9256b9cd104024b904396ea772ad314d67e66bc7bb66556f19517ce0",
+  "admission": {
+    "first_exit_code": 1,
+    "first_block": "STALE_LOCAL_TRACKING_REF_BEFORE_SCORING",
+    "final_exit_code": 0,
+    "reference_world_count": 32,
+    "reference_answerable_count": 32,
+    "formal_gold": 0
+  },
+  "judge": {
+    "status": "LLM_JUDGE_BLOCKED",
+    "model": "qwen3.7-plus-2026-05-26",
+    "calls": 0,
+    "valid": 0,
+    "request_ids": [],
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "actual_incremental_usd": "0.00",
+    "max_incremental_usd": "0.50",
+    "eligible_unresolved": 68,
+    "provider_only_per_request_worst_case_cny": "5.957232",
+    "account_ledger": "CURRENT_NOT_VERIFIED",
+    "outbound_packet": "NOT_ADMITTED",
+    "correlation": "SAME_MODEL_JUDGE_CORRELATED"
+  },
+  "fresh_generation_calls": 0,
+  "retrieval_reruns": 0,
+  "filter_reruns": 0,
+  "formal_accuracy": "NOT_MEASURED",
+  "formal_targeted_asr": "NOT_MEASURED",
+  "targeted_asr_5060": "NOT_RUN_5090_CUSTODY_ONLY",
+  "public_value_coverage": {
+    "public_atoms": 62,
+    "withheld_unverified": 6,
+    "no_answer_value": 27
+  },
+  "auto_continue": "NO"
+}
