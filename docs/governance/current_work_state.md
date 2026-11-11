@@ -1,5 +1,14 @@
 # Current Work State
 
+## 2026-11-11｜Owner33一次性受限委托准备完毕，等待Owner将指令分别发送两机
+
+状态 `OWNER33_SIGNABLE_TEMPLATE_READY / NOT_YET_ACTIVE / SCIENCE_NOT_RUN`。用户要求取消反复微观审批。签署方式为Owner分别向5060/5090发送仓库中两条执行Prompt；一经发送，合同内DEV→独立EVAL各客观Gate可由两台机器自主推进，普通工程修复、Git提交、SHA核验不再逐步请求。商业API、新权重、敏感出站、数据封存解禁、主分支合并等没有因此自动授权。
+
+Owner32 G0已观测：5060旧DEV 10个角色盲槽有8个可以核对官方版本时点scope，但是全部属于旧开发谱系且缺基于正式来源快照的索引；5090旧登记0/10严格EVAL准入。新合同区分“已曝光DEV可利用已知来源”与“新EVAL须先独立冻结广覆盖真实来源库”，不将人工登记当Oracle或将5090旧虚构Holdout当成有外部真值。原Owner31 Q-CER v0仍METHOD_DEV_NO_GO，旧Owner27–30所有证据不改。V-CARE尚无科学得分和性能承诺，方法正式启动需Owner下发签署Prompt后。来源许可与站点规则不可由Agent自我宣告为清楚；无商业API；HumanGold0。
+
+[Owner33有界合同](../paper1/dual_machine/owner_approvals/W1_OWNER33_SINGLE_DELEGATION_VCARE_FAST_PIPELINE_20261111.md) · [5060一键执行](../paper1/dual_machine/chinese5060/W1_5060_OWNER33_ONE_SHOT_EXECUTE_DEV_TO_BLIND_PREDICTION_PROMPT.md) · [5090一键执行](../paper1/dual_machine/chinese5060/W1_5090_OWNER33_ONE_SHOT_PREP_FRESH_OFFICIAL_EVAL_AND_SCORE_PROMPT.md)
+
+
 ## 2026-11-11｜Owner31 Q-CER中文方法最后一次快试已批准，尚无新科学结果
 
 `OWNER31_BOUNDED_APPROVED_NOT_RUN / NEW_METHOD_QCER / DEV_EXPOSED_ONLY / FRESH_EVAL_0_OF_32 / HUMAN_GOLD_0 / API_0`。
