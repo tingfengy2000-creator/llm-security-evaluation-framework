@@ -83,7 +83,7 @@ def prepare(out: Path, args: argparse.Namespace) -> None:
             (OWNER33_DIR / "PREDICTIONS_ROLE_FREE.json").read_bytes(), OWNER33_PRED
         )
     }
-    previous_sha = {row["world_id"]: row["packet_sha256"] for row in seal["packets"]}
+    previous_sha = {row["world_id"]: row["packet_sha256"] for row in seal["members"]}
     out.mkdir()
     backend.configure(out)
     (model, defender, b2, zh), r2 = backend.pinned_backend(args)
