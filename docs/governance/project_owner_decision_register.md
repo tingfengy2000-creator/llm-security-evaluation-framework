@@ -1,5 +1,10 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL — 5090 冻结公开参考原子，不新编 PODR（2026-11-11）
+
+没有新的 PODR 编号。负责人已同意今天不做双人独立盲审和第三人裁决，正式实验再完成。本收执只记录 32 个世界的短事实参考值已经按封存法规冻结并准备公开。它不是 Human Gold 签署，不改变 Owner28 评分，也不计算攻击成功率。5060 尚未交付自动回答评价。Claim1–3 仍 NOT_RUN。`AUTO_CONTINUE=NO`。
+[参考原子](../paper1/dual_machine/repro5090/owner30_eval/OWNER30_PUBLIC_REFERENCE_ATOMS_ONLY.json)。
+
 ## W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT — 5090 只准备人工复核，不新编 PODR（2026-11-11）
 
 没有新的 PODR 编号，也没有指定审阅者。本收执只记录双人审核模板已经备好。它不是 Human Gold 签署，不改变已封存评分，也不批准 Claim1–3。Human Gold 仍为 0。正式开审仍须负责人另行指定人员并授权传递。

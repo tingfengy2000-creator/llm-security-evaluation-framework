@@ -1,5 +1,13 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-116 — Owner30 reference atoms frozen, score pending
+
+2026-11-11 UTC+8; no new PODR; authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`; parent `aed1f1b47256be6503d9f653aa04d09fffe0c3cd`.
+Public short fact atoms for 32 worlds. Human Gold 0. Judgments not delivered. ASR and accuracy `NOT_MEASURED`. Claims NOT_RUN. Owner28 score unchanged.
+Reference SHA256 `8090432d51b3670108e5ce7bf18ca8ed76be45ec44ee64980def45429a61e6b9`.
+[Atoms](../paper1/dual_machine/repro5090/owner30_eval/OWNER30_PUBLIC_REFERENCE_ATOMS_ONLY.json).
+L0 Oracle evidence below is unchanged. No D2/D3 read.
+
 ## OR-115 — Owner28 human review pack prepared, Gold still 0
 
 2026-11-11 UTC+8; no new PODR; authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT`; parent `670d9ab0e546d46117bf5c48ebb2b0043689f453`.

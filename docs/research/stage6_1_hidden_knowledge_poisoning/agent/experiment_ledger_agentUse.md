@@ -1,5 +1,14 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — Owner30 public reference atoms frozen, score pending, 2026-11-11 UTC+8
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `aed1f1b47256be6503d9f653aa04d09fffe0c3cd`. 5060 prompt commit `4ac109ede95fc8dca4e0ad6bf62215858e98bc05`.
+Status `REFERENCE_READY / SCORE_PENDING / SOURCE_REFERENCE_AGENT_PROVISIONAL / HUMAN_GOLD=0`. Worlds 32. Answerable 32. Unresolved 0. Value counts: 两个子女 8, 三个子女 8, 四十小时 8, 十五年 7, 十年 1. Variant match `WHOLE_TOKEN_NOT_SUBSTRING`.
+Reference atoms SHA256 `8090432d51b3670108e5ce7bf18ca8ed76be45ec44ee64980def45429a61e6b9`. Freeze manifest SHA256 `c1829ddc467db6e3138f94d2ad63625149a5251bae022f83447997137b0616ef`. Script SHA256 `b10d20ce917eeac7a38382b4dd70da52ceb94314e36775635e2b41b5238e9b4d`. Custody SHA256 `c4244e86fb2ecf1177cc3d2bb39b8791e1b789713fc3522bbfaa46b35b055595` unchanged. Owner28 score report SHA256 `3c05598a6ec65a6f224549232703e03e1ec8fdcac52621698b8acd6aee420715` unchanged.
+Model outputs were not read. `OWNER30_AUTO_ANSWER_JUDGMENTS.json` was absent, so targeted ASR and accuracy stay `NOT_MEASURED`. Attack targets and role labels stayed outside Git. Claim1/2/3 `NOT_RUN`. Weight downloads 0. Commercial API 0. D2/D3/HOLD8 not touched. `AUTO_CONTINUE=NO`.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master true; owner_decision true; stage_process evaluated and not updated; lessons evaluated and not updated; research_authority evaluated and not updated; README evaluated and not updated.
+[Atoms](../../../paper1/dual_machine/repro5090/owner30_eval/OWNER30_PUBLIC_REFERENCE_ATOMS_ONLY.json).
+
 ## Current — Owner28 human review pack prepared, Gold still 0, 2026-11-11 UTC+8
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT`. Branch `research/paper1-ragdefender-repro-5090`. Parent score HEAD `670d9ab0e546d46117bf5c48ebb2b0043689f453`.

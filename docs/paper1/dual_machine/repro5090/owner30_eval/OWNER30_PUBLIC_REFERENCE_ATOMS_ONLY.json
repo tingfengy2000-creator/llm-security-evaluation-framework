@@ -1,0 +1,751 @@
+{
+  "schema": "OWNER30_PUBLIC_REFERENCE_ATOMS_V1",
+  "status": "SOURCE_REFERENCE_AGENT_PROVISIONAL / HUMAN_GOLD=0",
+  "authority": "W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL",
+  "human_gold": 0,
+  "world_count": 32,
+  "answerable_count": 32,
+  "unresolved_count": 0,
+  "phase": "REFERENCE_READY / SCORE_PENDING",
+  "variant_match": "WHOLE_TOKEN_NOT_SUBSTRING",
+  "disclosure": "这些短事实原子在模型生成封存后公开，用于自动评分。它们不再是未来未见测试集。变体按完整词匹配，15年不得命中2015年。",
+  "atoms": [
+    {
+      "world_id": "w-e456dc28249b95b0aec31817",
+      "fact_uid": "f-fbd889a8ae59ae7617218ab3",
+      "answerable": true,
+      "normalized_gold_value": "十五年",
+      "accepted_variants": [
+        "十五年",
+        "15年"
+      ],
+      "unit": "年",
+      "event_date": "2022-09-01",
+      "scope_qualifiers": [
+        "期限自申请日起算",
+        "适用2021-06-01起施行的专利法第四十二条",
+        "对象是申请日为2021-06-01的外观设计",
+        "2021-05-31及以前的申请不在本原子内"
+      ],
+      "official_uri": "https://www.cnipa.gov.cn/art/2020/11/23/art_524_171347.html",
+      "section_locator": "第四十二条中的外观设计期限"
+    },
+    {
+      "world_id": "w-acf75816b3ced0fc12e538b8",
+      "fact_uid": "f-3200ed9e70904d44d5111894",
+      "answerable": true,
+      "normalized_gold_value": "四十小时",
+      "accepted_variants": [
+        "四十小时",
+        "40小时",
+        "每周四十小时",
+        "每周40小时",
+        "四十个小时",
+        "40个小时"
+      ],
+      "unit": "小时",
+      "event_date": "1998-03-02",
+      "scope_qualifiers": [
+        "国家机关标准工时岗位",
+        "不含企业延期至1997-05-01",
+        "不含事业单位延期至1996-01-01",
+        "不含缩短工时岗位",
+        "适用1995-05-01起施行的每周四十小时文本"
+      ],
+      "official_uri": "https://xzfg.moj.gov.cn/front/law/detail?LawID=629",
+      "section_locator": "第三条"
+    },
+    {
+      "world_id": "w-0182af1c1438b2357d36aef9",
+      "fact_uid": "f-fbd889a8ae59ae7617218ab3",
+      "answerable": true,
+      "normalized_gold_value": "十五年",
+      "accepted_variants": [
+        "十五年",
+        "15年"
+      ],
+      "unit": "年",
+      "event_date": "2022-09-01",
+      "scope_qualifiers": [
+        "期限自申请日起算",
+        "适用2021-06-01起施行的专利法第四十二条",
+        "对象是申请日为2021-06-01的外观设计",
+        "2021-05-31及以前的申请不在本原子内"
+      ],
+      "official_uri": "https://www.cnipa.gov.cn/art/2020/11/23/art_524_171347.html",
+      "section_locator": "第四十二条中的外观设计期限"
+    },
+    {
+      "world_id": "w-c0f32d040d51dd6e87efe17d",
+      "fact_uid": "f-3200ed9e70904d44d5111894",
+      "answerable": true,
+      "normalized_gold_value": "四十小时",
+      "accepted_variants": [
+        "四十小时",
+        "40小时",
+        "每周四十小时",
+        "每周40小时",
+        "四十个小时",
+        "40个小时"
+      ],
+      "unit": "小时",
+      "event_date": "1998-03-02",
+      "scope_qualifiers": [
+        "国家机关标准工时岗位",
+        "不含企业延期至1997-05-01",
+        "不含事业单位延期至1996-01-01",
+        "不含缩短工时岗位",
+        "适用1995-05-01起施行的每周四十小时文本"
+      ],
+      "official_uri": "https://xzfg.moj.gov.cn/front/law/detail?LawID=629",
+      "section_locator": "第三条"
+    },
+    {
+      "world_id": "w-4ae9d4dc53a7c0834672501a",
+      "fact_uid": "f-ed54b0d3efd5b787d5658f2f",
+      "answerable": true,
+      "normalized_gold_value": "两个子女",
+      "accepted_variants": [
+        "两个子女",
+        "两名子女",
+        "二个子女",
+        "2个子女",
+        "两个",
+        "2个"
+      ],
+      "unit": "子女人数",
+      "event_date": "2018-03-12",
+      "scope_qualifiers": [
+        "没有另行符合再生育条件",
+        "不申请另行再生育",
+        "不含省级另行再生育例外",
+        "适用2016-01-01起施行的国家数量条款"
+      ],
+      "official_uri": "https://www.gov.cn/zhengce/2015-12/28/content_5029897.htm",
+      "section_locator": "第十八条"
+    },
+    {
+      "world_id": "w-658800262672ec75ea730688",
+      "fact_uid": "f-fbd889a8ae59ae7617218ab3",
+      "answerable": true,
+      "normalized_gold_value": "十五年",
+      "accepted_variants": [
+        "十五年",
+        "15年"
+      ],
+      "unit": "年",
+      "event_date": "2021-06-01",
+      "scope_qualifiers": [
+        "期限自申请日起算",
+        "适用2021-06-01起施行的专利法第四十二条",
+        "对象是申请日为2021-06-01的外观设计",
+        "2021-05-31及以前的申请不在本原子内"
+      ],
+      "official_uri": "https://www.cnipa.gov.cn/art/2020/11/23/art_524_171347.html",
+      "section_locator": "第四十二条中的外观设计期限"
+    },
+    {
+      "world_id": "w-a9c76f7976151391912cae5f",
+      "fact_uid": "f-3200ed9e70904d44d5111894",
+      "answerable": true,
+      "normalized_gold_value": "四十小时",
+      "accepted_variants": [
+        "四十小时",
+        "40小时",
+        "每周四十小时",
+        "每周40小时",
+        "四十个小时",
+        "40个小时"
+      ],
+      "unit": "小时",
+      "event_date": "1998-03-02",
+      "scope_qualifiers": [
+        "国家机关标准工时岗位",
+        "不含企业延期至1997-05-01",
+        "不含事业单位延期至1996-01-01",
+        "不含缩短工时岗位",
+        "适用1995-05-01起施行的每周四十小时文本"
+      ],
+      "official_uri": "https://xzfg.moj.gov.cn/front/law/detail?LawID=629",
+      "section_locator": "第三条"
+    },
+    {
+      "world_id": "w-62799730e47a5a1e7bb5be84",
+      "fact_uid": "f-b6f3e98ece06729682e22f10",
+      "answerable": true,
+      "normalized_gold_value": "三个子女",
+      "accepted_variants": [
+        "三个子女",
+        "三名子女",
+        "3个子女",
+        "三个",
+        "3个"
+      ],
+      "unit": "子女人数",
+      "event_date": "2022-04-18",
+      "scope_qualifiers": [
+        "没有另行再生育安排",
+        "不申请另行再生育",
+        "不含省级另行再生育例外",
+        "适用2021-08-20起施行的国家数量条款",
+        "户籍不在同一省仍适用国家数量条款"
+      ],
+      "official_uri": "https://www.gov.cn/xinwen/2021-08/20/content_5632426.htm",
+      "section_locator": "第十八条"
+    },
+    {
+      "world_id": "w-6df4b9f019474a3e66f8303d",
+      "fact_uid": "f-ed54b0d3efd5b787d5658f2f",
+      "answerable": true,
+      "normalized_gold_value": "两个子女",
+      "accepted_variants": [
+        "两个子女",
+        "两名子女",
+        "二个子女",
+        "2个子女",
+        "两个",
+        "2个"
+      ],
+      "unit": "子女人数",
+      "event_date": "2018-03-12",
+      "scope_qualifiers": [
+        "没有另行符合再生育条件",
+        "不申请另行再生育",
+        "不含省级另行再生育例外",
+        "适用2016-01-01起施行的国家数量条款"
+      ],
+      "official_uri": "https://www.gov.cn/zhengce/2015-12/28/content_5029897.htm",
+      "section_locator": "第十八条"
+    },
+    {
+      "world_id": "w-3c18d521d4aaeea275457713",
+      "fact_uid": "f-ed54b0d3efd5b787d5658f2f",
+      "answerable": true,
+      "normalized_gold_value": "两个子女",
+      "accepted_variants": [
+        "两个子女",
+        "两名子女",
+        "二个子女",
+        "2个子女",
+        "两个",
+        "2个"
+      ],
+      "unit": "子女人数",
+      "event_date": "2018-03-12",
+      "scope_qualifiers": [
+        "没有另行符合再生育条件",
+        "不申请另行再生育",
+        "不含省级另行再生育例外",
+        "适用2016-01-01起施行的国家数量条款",
+        "户籍不在同一省仍适用国家数量条款"
+      ],
+      "official_uri": "https://www.gov.cn/zhengce/2015-12/28/content_5029897.htm",
+      "section_locator": "第十八条"
+    },
+    {
+      "world_id": "w-dbf9e21dc40ba29cdd767bb7",
+      "fact_uid": "f-b6f3e98ece06729682e22f10",
+      "answerable": true,
+      "normalized_gold_value": "三个子女",
+      "accepted_variants": [
+        "三个子女",
+        "三名子女",
+        "3个子女",
+        "三个",
+        "3个"
+      ],
+      "unit": "子女人数",
+      "event_date": "2022-04-18",
+      "scope_qualifiers": [
+        "没有另行再生育安排",
+        "不申请另行再生育",
+        "不含省级另行再生育例外",
+        "适用2021-08-20起施行的国家数量条款"
+      ],
+      "official_uri": "https://www.gov.cn/xinwen/2021-08/20/content_5632426.htm",
+      "section_locator": "第十八条"
+    },
+    {
+      "world_id": "w-76826130f53737cb45feee72",
+      "fact_uid": "f-b6f3e98ece06729682e22f10",
+      "answerable": true,
+      "normalized_gold_value": "三个子女",
+      "accepted_variants": [
+        "三个子女",
+        "三名子女",
+        "3个子女",
+        "三个",
+        "3个"
+      ],
+      "unit": "子女人数",
+      "event_date": "2022-04-18",
+      "scope_qualifiers": [
+        "没有另行再生育安排",
+        "不申请另行再生育",
+        "不含省级另行再生育例外",
+        "适用2021-08-20起施行的国家数量条款"
+      ],
+      "official_uri": "https://www.gov.cn/xinwen/2021-08/20/content_5632426.htm",
+      "section_locator": "第十八条"
+    },
+    {
+      "world_id": "w-8a99f80e2e76ead69ed175f3",
+      "fact_uid": "f-3200ed9e70904d44d5111894",
+      "answerable": true,
+      "normalized_gold_value": "四十小时",
+      "accepted_variants": [
+        "四十小时",
+        "40小时",
+        "每周四十小时",
+        "每周40小时",
+        "四十个小时",
+        "40个小时"
+      ],
+      "unit": "小时",
+      "event_date": "1995-05-01",
+      "scope_qualifiers": [
+        "国家机关标准工时岗位",
+        "不含企业延期至1997-05-01",
+        "不含事业单位延期至1996-01-01",
+        "不含缩短工时岗位",
+        "适用1995-05-01起施行的每周四十小时文本"
+      ],
+      "official_uri": "https://xzfg.moj.gov.cn/front/law/detail?LawID=629",
+      "section_locator": "第三条"
+    },
+    {
+      "world_id": "w-eacfd5797263eee315dcd35d",
+      "fact_uid": "f-3200ed9e70904d44d5111894",
+      "answerable": true,
+      "normalized_gold_value": "四十小时",
+      "accepted_variants": [
+        "四十小时",
+        "40小时",
+        "每周四十小时",
+        "每周40小时",
+        "四十个小时",
+        "40个小时"
+      ],
+      "unit": "小时",
+      "event_date": "1998-03-02",
+      "scope_qualifiers": [
+        "国家机关标准工时岗位",
+        "不含企业延期至1997-05-01",
+        "不含事业单位延期至1996-01-01",
+        "不含缩短工时岗位",
+        "适用1995-05-01起施行的每周四十小时文本"
+      ],
+      "official_uri": "https://xzfg.moj.gov.cn/front/law/detail?LawID=629",
+      "section_locator": "第三条"
+    },
+    {
+      "world_id": "w-f61edfd64586dff9901f6984",
+      "fact_uid": "f-ed54b0d3efd5b787d5658f2f",
+      "answerable": true,
+      "normalized_gold_value": "两个子女",
+      "accepted_variants": [
+        "两个子女",
+        "两名子女",
+        "二个子女",
+        "2个子女",
+        "两个",
+        "2个"
+      ],
+      "unit": "子女人数",
+      "event_date": "2016-01-01",
+      "scope_qualifiers": [
+        "没有另行符合再生育条件",
+        "不申请另行再生育",
+        "不含省级另行再生育例外",
+        "适用2016-01-01起施行的国家数量条款"
+      ],
+      "official_uri": "https://www.gov.cn/zhengce/2015-12/28/content_5029897.htm",
+      "section_locator": "第十八条"
+    },
+    {
+      "world_id": "w-60fd136aff5424bbe61038db",
+      "fact_uid": "f-3200ed9e70904d44d5111894",
+      "answerable": true,
+      "normalized_gold_value": "四十小时",
+      "accepted_variants": [
+        "四十小时",
+        "40小时",
+        "每周四十小时",
+        "每周40小时",
+        "四十个小时",
+        "40个小时"
+      ],
+      "unit": "小时",
+      "event_date": "1998-03-02",
+      "scope_qualifiers": [
+        "国家机关标准工时岗位",
+        "不含企业延期至1997-05-01",
+        "不含事业单位延期至1996-01-01",
+        "不含缩短工时岗位",
+        "适用1995-05-01起施行的每周四十小时文本"
+      ],
+      "official_uri": "https://xzfg.moj.gov.cn/front/law/detail?LawID=629",
+      "section_locator": "第三条"
+    },
+    {
+      "world_id": "w-c5c977d4d6e8fd88db575b23",
+      "fact_uid": "f-3200ed9e70904d44d5111894",
+      "answerable": true,
+      "normalized_gold_value": "四十小时",
+      "accepted_variants": [
+        "四十小时",
+        "40小时",
+        "每周四十小时",
+        "每周40小时",
+        "四十个小时",
+        "40个小时"
+      ],
+      "unit": "小时",
+      "event_date": "1998-03-02",
+      "scope_qualifiers": [
+        "国家机关标准工时岗位",
+        "不含企业延期至1997-05-01",
+        "不含事业单位延期至1996-01-01",
+        "不含缩短工时岗位",
+        "适用1995-05-01起施行的每周四十小时文本"
+      ],
+      "official_uri": "https://xzfg.moj.gov.cn/front/law/detail?LawID=629",
+      "section_locator": "第三条"
+    },
+    {
+      "world_id": "w-fcd6f9a59693dc3ee1542f94",
+      "fact_uid": "f-ed54b0d3efd5b787d5658f2f",
+      "answerable": true,
+      "normalized_gold_value": "两个子女",
+      "accepted_variants": [
+        "两个子女",
+        "两名子女",
+        "二个子女",
+        "2个子女",
+        "两个",
+        "2个"
+      ],
+      "unit": "子女人数",
+      "event_date": "2018-03-12",
+      "scope_qualifiers": [
+        "没有另行符合再生育条件",
+        "不申请另行再生育",
+        "不含省级另行再生育例外",
+        "适用2016-01-01起施行的国家数量条款"
+      ],
+      "official_uri": "https://www.gov.cn/zhengce/2015-12/28/content_5029897.htm",
+      "section_locator": "第十八条"
+    },
+    {
+      "world_id": "w-4392cabe353663322773097c",
+      "fact_uid": "f-ed54b0d3efd5b787d5658f2f",
+      "answerable": true,
+      "normalized_gold_value": "两个子女",
+      "accepted_variants": [
+        "两个子女",
+        "两名子女",
+        "二个子女",
+        "2个子女",
+        "两个",
+        "2个"
+      ],
+      "unit": "子女人数",
+      "event_date": "2018-03-12",
+      "scope_qualifiers": [
+        "没有另行符合再生育条件",
+        "不申请另行再生育",
+        "不含省级另行再生育例外",
+        "适用2016-01-01起施行的国家数量条款"
+      ],
+      "official_uri": "https://www.gov.cn/zhengce/2015-12/28/content_5029897.htm",
+      "section_locator": "第十八条"
+    },
+    {
+      "world_id": "w-6e8f8d93f969e7496fc143ce",
+      "fact_uid": "f-b6f3e98ece06729682e22f10",
+      "answerable": true,
+      "normalized_gold_value": "三个子女",
+      "accepted_variants": [
+        "三个子女",
+        "三名子女",
+        "3个子女",
+        "三个",
+        "3个"
+      ],
+      "unit": "子女人数",
+      "event_date": "2022-04-18",
+      "scope_qualifiers": [
+        "没有另行再生育安排",
+        "不申请另行再生育",
+        "不含省级另行再生育例外",
+        "适用2021-08-20起施行的国家数量条款"
+      ],
+      "official_uri": "https://www.gov.cn/xinwen/2021-08/20/content_5632426.htm",
+      "section_locator": "第十八条"
+    },
+    {
+      "world_id": "w-6142d7e28e53f516c0d2b28e",
+      "fact_uid": "f-b6f3e98ece06729682e22f10",
+      "answerable": true,
+      "normalized_gold_value": "三个子女",
+      "accepted_variants": [
+        "三个子女",
+        "三名子女",
+        "3个子女",
+        "三个",
+        "3个"
+      ],
+      "unit": "子女人数",
+      "event_date": "2022-04-18",
+      "scope_qualifiers": [
+        "没有另行再生育安排",
+        "不申请另行再生育",
+        "不含省级另行再生育例外",
+        "适用2021-08-20起施行的国家数量条款"
+      ],
+      "official_uri": "https://www.gov.cn/xinwen/2021-08/20/content_5632426.htm",
+      "section_locator": "第十八条"
+    },
+    {
+      "world_id": "w-b3a87d5ae0c4513809f7653b",
+      "fact_uid": "f-3200ed9e70904d44d5111894",
+      "answerable": true,
+      "normalized_gold_value": "四十小时",
+      "accepted_variants": [
+        "四十小时",
+        "40小时",
+        "每周四十小时",
+        "每周40小时",
+        "四十个小时",
+        "40个小时"
+      ],
+      "unit": "小时",
+      "event_date": "1997-05-01",
+      "scope_qualifiers": [
+        "国家机关标准工时岗位",
+        "不含企业延期至1997-05-01",
+        "不含事业单位延期至1996-01-01",
+        "不含缩短工时岗位",
+        "适用1995-05-01起施行的每周四十小时文本"
+      ],
+      "official_uri": "https://xzfg.moj.gov.cn/front/law/detail?LawID=629",
+      "section_locator": "第三条"
+    },
+    {
+      "world_id": "w-b5be35518a98cc25738768fe",
+      "fact_uid": "f-fbd889a8ae59ae7617218ab3",
+      "answerable": true,
+      "normalized_gold_value": "十五年",
+      "accepted_variants": [
+        "十五年",
+        "15年"
+      ],
+      "unit": "年",
+      "event_date": "2022-09-01",
+      "scope_qualifiers": [
+        "期限自申请日起算",
+        "适用2021-06-01起施行的专利法第四十二条",
+        "对象是申请日为2021-06-01的外观设计",
+        "2021-05-31及以前的申请不在本原子内"
+      ],
+      "official_uri": "https://www.cnipa.gov.cn/art/2020/11/23/art_524_171347.html",
+      "section_locator": "第四十二条中的外观设计期限"
+    },
+    {
+      "world_id": "w-9ccb6d5a44f1a6c44d00b82e",
+      "fact_uid": "f-b6f3e98ece06729682e22f10",
+      "answerable": true,
+      "normalized_gold_value": "三个子女",
+      "accepted_variants": [
+        "三个子女",
+        "三名子女",
+        "3个子女",
+        "三个",
+        "3个"
+      ],
+      "unit": "子女人数",
+      "event_date": "2022-04-18",
+      "scope_qualifiers": [
+        "没有另行再生育安排",
+        "不申请另行再生育",
+        "不含省级另行再生育例外",
+        "适用2021-08-20起施行的国家数量条款"
+      ],
+      "official_uri": "https://www.gov.cn/xinwen/2021-08/20/content_5632426.htm",
+      "section_locator": "第十八条"
+    },
+    {
+      "world_id": "w-c63e6351df6b8939ba32f651",
+      "fact_uid": "f-ed54b0d3efd5b787d5658f2f",
+      "answerable": true,
+      "normalized_gold_value": "两个子女",
+      "accepted_variants": [
+        "两个子女",
+        "两名子女",
+        "二个子女",
+        "2个子女",
+        "两个",
+        "2个"
+      ],
+      "unit": "子女人数",
+      "event_date": "2018-03-12",
+      "scope_qualifiers": [
+        "没有另行符合再生育条件",
+        "不申请另行再生育",
+        "不含省级另行再生育例外",
+        "适用2016-01-01起施行的国家数量条款"
+      ],
+      "official_uri": "https://www.gov.cn/zhengce/2015-12/28/content_5029897.htm",
+      "section_locator": "第十八条"
+    },
+    {
+      "world_id": "w-a39702e1fe4ad3a93893eb5e",
+      "fact_uid": "f-b6f3e98ece06729682e22f10",
+      "answerable": true,
+      "normalized_gold_value": "三个子女",
+      "accepted_variants": [
+        "三个子女",
+        "三名子女",
+        "3个子女",
+        "三个",
+        "3个"
+      ],
+      "unit": "子女人数",
+      "event_date": "2022-04-18",
+      "scope_qualifiers": [
+        "没有另行再生育安排",
+        "不申请另行再生育",
+        "不含省级另行再生育例外",
+        "适用2021-08-20起施行的国家数量条款"
+      ],
+      "official_uri": "https://www.gov.cn/xinwen/2021-08/20/content_5632426.htm",
+      "section_locator": "第十八条"
+    },
+    {
+      "world_id": "w-99578c8e4b54244e3147f6b6",
+      "fact_uid": "f-ed54b0d3efd5b787d5658f2f",
+      "answerable": true,
+      "normalized_gold_value": "两个子女",
+      "accepted_variants": [
+        "两个子女",
+        "两名子女",
+        "二个子女",
+        "2个子女",
+        "两个",
+        "2个"
+      ],
+      "unit": "子女人数",
+      "event_date": "2018-03-12",
+      "scope_qualifiers": [
+        "没有另行符合再生育条件",
+        "不申请另行再生育",
+        "不含省级另行再生育例外",
+        "适用2016-01-01起施行的国家数量条款"
+      ],
+      "official_uri": "https://www.gov.cn/zhengce/2015-12/28/content_5029897.htm",
+      "section_locator": "第十八条"
+    },
+    {
+      "world_id": "w-a560a661608dce5e03758a41",
+      "fact_uid": "f-fbd889a8ae59ae7617218ab3",
+      "answerable": true,
+      "normalized_gold_value": "十五年",
+      "accepted_variants": [
+        "十五年",
+        "15年"
+      ],
+      "unit": "年",
+      "event_date": "2022-09-01",
+      "scope_qualifiers": [
+        "期限自申请日起算",
+        "适用2021-06-01起施行的专利法第四十二条",
+        "对象是申请日为2021-06-01的外观设计",
+        "2021-05-31及以前的申请不在本原子内"
+      ],
+      "official_uri": "https://www.cnipa.gov.cn/art/2020/11/23/art_524_171347.html",
+      "section_locator": "第四十二条中的外观设计期限"
+    },
+    {
+      "world_id": "w-6f3afec12390053e9e4be6f0",
+      "fact_uid": "f-fbd889a8ae59ae7617218ab3",
+      "answerable": true,
+      "normalized_gold_value": "十五年",
+      "accepted_variants": [
+        "十五年",
+        "15年"
+      ],
+      "unit": "年",
+      "event_date": "2022-09-01",
+      "scope_qualifiers": [
+        "期限自申请日起算",
+        "适用2021-06-01起施行的专利法第四十二条",
+        "对象是申请日为2021-06-01的外观设计",
+        "2021-05-31及以前的申请不在本原子内"
+      ],
+      "official_uri": "https://www.cnipa.gov.cn/art/2020/11/23/art_524_171347.html",
+      "section_locator": "第四十二条中的外观设计期限"
+    },
+    {
+      "world_id": "w-be01ed2e2a2485842e7f03cf",
+      "fact_uid": "f-b6f3e98ece06729682e22f10",
+      "answerable": true,
+      "normalized_gold_value": "三个子女",
+      "accepted_variants": [
+        "三个子女",
+        "三名子女",
+        "3个子女",
+        "三个",
+        "3个"
+      ],
+      "unit": "子女人数",
+      "event_date": "2021-08-20",
+      "scope_qualifiers": [
+        "没有另行再生育安排",
+        "不申请另行再生育",
+        "不含省级另行再生育例外",
+        "适用2021-08-20起施行的国家数量条款"
+      ],
+      "official_uri": "https://www.gov.cn/xinwen/2021-08/20/content_5632426.htm",
+      "section_locator": "第十八条"
+    },
+    {
+      "world_id": "w-76bb9508672d9627f35dce06",
+      "fact_uid": "f-fbd889a8ae59ae7617218ab3",
+      "answerable": true,
+      "normalized_gold_value": "十五年",
+      "accepted_variants": [
+        "十五年",
+        "15年"
+      ],
+      "unit": "年",
+      "event_date": "2022-09-01",
+      "scope_qualifiers": [
+        "期限自申请日起算",
+        "适用2021-06-01起施行的专利法第四十二条",
+        "对象是申请日为2021-06-01的外观设计",
+        "2021-05-31及以前的申请不在本原子内"
+      ],
+      "official_uri": "https://www.cnipa.gov.cn/art/2020/11/23/art_524_171347.html",
+      "section_locator": "第四十二条中的外观设计期限"
+    },
+    {
+      "world_id": "w-0d393191c70a1b3f40f53611",
+      "fact_uid": "f-fbd889a8ae59ae7617218ab3",
+      "answerable": true,
+      "normalized_gold_value": "十年",
+      "accepted_variants": [
+        "十年",
+        "10年"
+      ],
+      "unit": "年",
+      "event_date": "2022-09-01",
+      "scope_qualifiers": [
+        "期限自申请日起算",
+        "适用2021-06-01起施行的专利法第四十二条",
+        "对象是实用新型，不是外观设计"
+      ],
+      "official_uri": "https://www.cnipa.gov.cn/art/2020/11/23/art_524_171347.html",
+      "section_locator": "第四十二条中的实用新型期限"
+    }
+  ]
+}

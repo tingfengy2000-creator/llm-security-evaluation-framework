@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-11-11 Owner30 reference atoms are frozen, scoring waits
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `aed1f1b47256be6503d9f653aa04d09fffe0c3cd`. Status `REFERENCE_READY / SCORE_PENDING / HUMAN_GOLD=0`.
+Thirty-two main-world answer atoms were frozen from the sealed official dates and scopes. The same-day human blind review stays deferred to the formal experiment. 5060 has not yet delivered `OWNER30_AUTO_ANSWER_JUDGMENTS.json`, so targeted ASR and answer accuracy stay `NOT_MEASURED`. Owner28 score files were not modified. Claim 1, 2 and 3 remain NOT_RUN. `AUTO_CONTINUE=NO`.
+[Atoms](../paper1/dual_machine/repro5090/owner30_eval/OWNER30_PUBLIC_REFERENCE_ATOMS_ONLY.json).
+
 ## Current — 2026-11-11 Owner28 human review pack is prepared, Gold remains 0
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT`. Branch `research/paper1-ragdefender-repro-5090`. Status `PACK_PREPARED_NOT_REVIEWED / HUMAN_GOLD=0`.

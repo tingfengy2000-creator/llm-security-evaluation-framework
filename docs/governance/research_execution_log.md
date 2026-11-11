@@ -1,5 +1,11 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-11 — Owner30 reference atoms frozen, answer scoring not started
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090` at parent `aed1f1b47256be6503d9f653aa04d09fffe0c3cd`. 5060 prompt `4ac109ede95fc8dca4e0ad6bf62215858e98bc05`.
+Status `REFERENCE_READY / SCORE_PENDING / HUMAN_GOLD=0`. Froze 32 answerable atoms from sealed dates and scopes. Same-day human review remains deferred. Judgment file absent, so ASR and accuracy stay `NOT_MEASURED`. Owner28 score was not rerun. Claim 1, 2 and 3 remain NOT_RUN. Private attack targets stayed outside Git. `AUTO_CONTINUE=NO`.
+[Atoms](../paper1/dual_machine/repro5090/owner30_eval/OWNER30_PUBLIC_REFERENCE_ATOMS_ONLY.json).
+
 ## 2026-11-11 — Owner28 human review pack prepared, no Gold signed
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT`. Branch `research/paper1-ragdefender-repro-5090` at parent `670d9ab0e546d46117bf5c48ebb2b0043689f453`.

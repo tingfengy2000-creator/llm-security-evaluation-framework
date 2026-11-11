@@ -1,5 +1,10 @@
 # LLMGuard 项目总控文档
 
+## 当前：Owner30 已冻结 32 个正确答案原子，自动评分尚未开始（2026-11-11）
+
+5090 仍在 `research/paper1-ragdefender-repro-5090`。今日双人盲审和第三人裁决按负责人决定延后到正式实验。公开仓库只增加短事实参考值，Human Gold 仍为 0。5060 还没交回答评价，所以暂定攻击成功率和正确率都还没算。旧的 Owner28 评分没有改。三条 Claim 仍是 `NOT_RUN`。
+[参考原子](docs/paper1/dual_machine/repro5090/owner30_eval/OWNER30_PUBLIC_REFERENCE_ATOMS_ONLY.json)。
+
 ## 当前：Owner28 人工复核材料已备好，尚未有人审（2026-11-11）
 
 5090 仍在 `research/paper1-ragdefender-repro-5090`。32 题和 160 段检索文本的双人审核表在本机私有目录，公开仓库只有规程、空白约定和虚构样例。还没有指定审阅者，Human Gold 仍为 0。已封存的评分没有重跑。三条 Claim 仍是 `NOT_RUN`。下一步要等负责人指定审阅者并授权传递，不能自动开审。
