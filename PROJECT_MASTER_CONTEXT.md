@@ -1,5 +1,10 @@
 # LLMGuard 项目总控文档
 
+## 当前：Owner31 虚构盲测集已封存，预测还没放开（2026-11-11）
+
+5090 仍在 `research/paper1-ragdefender-repro-5090`。新的中文材料是自写虚构版次，4 个事实单位、32 个主世界、每世界 11 个片段。角色盲包已经封存，私有暂定标签留在本机。Human Gold 仍为 0。5060 把方法源码和参数冻结之前，不能做一次性盲预测，5090 也不评分。三条 Claim 仍是 `NOT_RUN`。`AUTO_CONTINUE=NO`。
+[封存说明](docs/paper1/dual_machine/repro5090/owner31_eval/OWNER31_CURATION_REPORT.md)。
+
 ## 当前：Owner30 证据链已归档，路线仍待负责人决定（2026-11-11）
 
 5090 仍在 `research/paper1-ragdefender-repro-5090`。这次只做公开证据索引，没有新评分。六条身份、5 条攻击目标命中、1 条非目标数值错误、两个范围世界未知，都与已封存报告一致。Human Gold 仍为 0。正式攻击成功率和准确率仍是 `NOT_MEASURED`。三条 Claim 仍是 `NOT_RUN`。科学试次停在这里，是否改做基准与失效分析仍要负责人另签。`AUTO_CONTINUE=NO`。

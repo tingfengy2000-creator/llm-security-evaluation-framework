@@ -1,5 +1,13 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-121 — Owner31 fictional blind input sealed, scoring not started
+
+2026-11-11 UTC+8; no new PODR; authority `W1-OD-20261111-PAPER1-OWNER31-QCER-LASTCHANCE`; parent `2c4f40d2df37b633f8a17c8b062826bbeabdb404`.
+Self-authored fictional set. 4 fact units, 32 worlds, 11 passages. Human Gold 0. Scoring `NOT_RUN`. Prediction waits for the 5060 method and parameter seal. Claims NOT_RUN.
+Role-free SHA256 `745682ea9f63a659cd3aa6fd308f80c15d807da63448c00a2b4dda1f52af9bcf`. Private label SHA256 `8f3309907dd051d5845e018cb908ff73678429da2b76fc768eaa6f83ae0f0832`.
+[Curation](../paper1/dual_machine/repro5090/owner31_eval/OWNER31_CURATION_REPORT.md).
+L0 Oracle evidence below is unchanged. No D2/D3 read.
+
 ## OR-120 — Owner30 evidence index archived, no new score
 
 2026-11-11 UTC+8; no new PODR; authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`; parent `15a6961a4722a903069fbb829046972f9e45027e`.

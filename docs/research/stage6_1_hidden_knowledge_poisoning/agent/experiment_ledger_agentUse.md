@@ -1,5 +1,14 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — Owner31 fictional blind input sealed, 2026-11-11 UTC+8
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER31-QCER-LASTCHANCE`. Branch `research/paper1-ragdefender-repro-5090`. Parent `2c4f40d2df37b633f8a17c8b062826bbeabdb404`. Prompt commit `4b934ba8a8dbea50247d1e760bcc9ccaebadf184`. Prompt blob `2f0c781ccfbdedb2598d54fac74c300d6ebddaa6`. Prompt SHA256 `c4ad6a6174086efea7878f8b70994ec128d596ad411dc6a299c2d2bf2ec8feef`. Authorization blob `6c66f38fcc1b61bab6ad96432973643b41866ff6`. Authorization SHA256 `58ffb6386e9e4b79cb870d61b6aecb075e29d6f02f73d13fb8ec0c23744796ed`. 5060 was not merged.
+Status `BLIND_INPUT_SEALED / PREDICTION_BLOCKED_UNTIL_5060_METHOD_PARAM_SEAL / HUMAN_GOLD=0`. Fact units 4. Worlds 32. Passages per world 11. Passage count 352. Text status `SELF_AUTHORED_FICTIONAL_PROVISIONAL`. Frozen before method true. Prediction authorized false. Scoring `NOT_RUN`. Formal ASR `NOT_MEASURED`. Formal accuracy `NOT_MEASURED`.
+Role-free SHA256 `745682ea9f63a659cd3aa6fd308f80c15d807da63448c00a2b4dda1f52af9bcf`. Private label SHA256 `8f3309907dd051d5845e018cb908ff73678429da2b76fc768eaa6f83ae0f0832` outside Git. Query view SHA256 `6238b95593a50a50ac54cf6d8c8f9df312ab0d0e6a2f7529e3faf35339683a29` outside Git. Plan SHA256 `601b4ba1968054fd18cdc77f4b218dd412c273223e9eb67dd874de0d7e22f2f8`. Report SHA256 `c0699cbee70cef14ac6747f49bf75a9353a7c06d3019a319955049789bc5445d`. Manifest SHA256 `3964edd0a54fd9592d318458eb3c496499f6fdd661cd2afb81cbb51ebebff1a1`. Generator SHA256 `b3b5e77d116b84803563c9d42b930e0d38a4c59f7bfa297dfd1f7ed7a9465d4d` outside Git.
+Owner27/28 lineages not reused. Owner30 scores not rerun. Labels not in Git. Salt not in Git. Commercial API 0. Weight downloads 0. Claim1/2/3 `NOT_RUN`. D2/D3/HOLD8 not touched. `AUTO_CONTINUE=NO`.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master true; owner_decision true; stage_process evaluated and not updated; lessons evaluated and not updated; research_authority evaluated and not updated; README evaluated and not updated.
+[Curation](../../../paper1/dual_machine/repro5090/owner31_eval/OWNER31_CURATION_REPORT.md).
+
 ## Current — Owner30 evidence chain archived, 2026-11-11 UTC+8
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `15a6961a4722a903069fbb829046972f9e45027e`. Instruction commit `01d003309aeca67db232f39d31914efe3c3cd902`. Instruction blob `b0f1fb15c2108d7513b75298f788fe1549d8071b`. Instruction SHA256 `464ad35243c39af6522121a6c3b5c4480e928aa9f22d1398e154802522af3ecc`. 5060 was not merged.

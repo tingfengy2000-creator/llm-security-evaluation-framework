@@ -1,5 +1,10 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261111-PAPER1-OWNER31-QCER-LASTCHANCE — 5090 封存虚构盲测集，不新编 PODR（2026-11-11）
+
+没有新的 PODR 编号。本收执只记录授权范围内的虚构盲测集已经封存：4 个事实单位、32 个主世界、每世界 11 个片段。角色盲包可以公开，暂定标签留在 5090 本机。Human Gold 仍为 0。5060 方法源码和参数冻结前，一次性盲预测不放开，5090 不评分。Claim1–3 仍 NOT_RUN。`AUTO_CONTINUE=NO`。
+[封存说明](../paper1/dual_machine/repro5090/owner31_eval/OWNER31_CURATION_REPORT.md)。
+
 ## W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL — 5090 只归档证据链，不新编 PODR（2026-11-11）
 
 没有新的 PODR 编号，也没有新的负责人签署。本收执只记录证据索引已经封存：6 条身份核对通过，5 条命中攻击目标，1 条是非目标数值错误，两个范围世界仍是未知。这不是 Human Gold，正式 ASR 和准确率仍是 `NOT_MEASURED`。是否把下一阶段改成基准与失效分析，仍待负责人决定。Claim1–3 仍 NOT_RUN。`AUTO_CONTINUE=NO`。

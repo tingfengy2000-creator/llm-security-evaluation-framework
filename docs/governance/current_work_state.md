@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-11-11 Owner31 fictional blind set is sealed, scoring waits
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER31-QCER-LASTCHANCE`. Branch `research/paper1-ragdefender-repro-5090`. Parent `2c4f40d2df37b633f8a17c8b062826bbeabdb404`. Status `BLIND_INPUT_SEALED / PREDICTION_BLOCKED_UNTIL_5060_METHOD_PARAM_SEAL / HUMAN_GOLD=0`.
+Four self-authored fictional fact units and 32 main worlds are sealed, 11 passages each. The role-free package is public. Private provisional labels stay outside Git. Scoring is `NOT_RUN` until 5060 freezes its method and parameters and then seals a one-shot prediction. Claim 1, 2 and 3 remain NOT_RUN. `AUTO_CONTINUE=NO`.
+[Curation](../paper1/dual_machine/repro5090/owner31_eval/OWNER31_CURATION_REPORT.md).
+
 ## Current — 2026-11-11 Owner30 evidence index archived, route decision still pending
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `15a6961a4722a903069fbb829046972f9e45027e`. Status `EVIDENCE_INDEX_ARCHIVED / NO_NEW_SCORE / SCIENTIFIC_TRIALS_STOPPED / OWNER_ROUTE_DECISION_PENDING / HUMAN_GOLD=0`.
