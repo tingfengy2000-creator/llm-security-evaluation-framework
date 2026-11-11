@@ -1,5 +1,13 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## 2026-11-11｜Owner28 5060 冻结身份通过，待 5090 兼容交接
+
+EVAL_BLOCKED_SCHEMA_OR_PROVENANCE / WAITING_FOR_5090_SCHEMA_BRIDGE / EVAL_0_OF_32 / HUMAN_GOLD_0。
+
+5060 已含授权提交 c72096722c40c77accf3325f19dcc529f6dc915f，冻结源码与缓存身份通过。5090 在 a8de64fbf2c279a642c9b9a41ddf5c5481b8cfca 已发布原始包，兼容三件套为 0/3。独立检索、预测、评分各 0/32，7 原始镜像未纳入。下一步按原授权接收桥接证据并执行冻结 check。新增试次、API 及费用为 0。
+
+[5060 交接核验与证据](../paper1/dual_machine/chinese5060/OWNER28_EVAL_HANDOFF_STATUS_20261111.md)
+
 ## 2026-11-11｜Owner28 封存复算与四臂工程验证
 
 RUNNER_READY / BENCHMARK_INPUT_GATE_BLOCKED / EVAL_NOT_RUN / HUMAN_GOLD=0 / AUTO_CONTINUE=NO。

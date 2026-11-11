@@ -1,5 +1,13 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-11｜Owner28 5060 冻结身份通过，待 5090 兼容交接
+
+EVAL_BLOCKED_SCHEMA_OR_PROVENANCE / WAITING_FOR_5090_SCHEMA_BRIDGE / EVAL_0_OF_32 / HUMAN_GOLD_0。
+
+5060 已含授权提交 c72096722c40c77accf3325f19dcc529f6dc915f，冻结源码与缓存身份通过。5090 在 a8de64fbf2c279a642c9b9a41ddf5c5481b8cfca 已发布原始包，兼容三件套为 0/3。独立检索、预测、评分各 0/32，7 原始镜像未纳入。下一步按原授权接收桥接证据并执行冻结 check。新增试次、API 及费用为 0。
+
+[5060 交接核验与证据](chinese5060/OWNER28_EVAL_HANDOFF_STATUS_20261111.md)
+
 ## 2026-11-11｜Owner28独立来源已封存，检测程序准备就绪；发现5090→5060输入格式不一致
 
 `5090_CURATED_SEALED / 5060_RUNNER_READY / HANDOFF_SCHEMA_MISMATCH / EVAL_0_OF_32 / HUMAN_GOLD_0 / API_0`。
@@ -205,7 +213,7 @@ Owner20 `W1-OD-20261110-5060-S1B-ONE-SHOT-20` 已针对上一轮唯一待决的�
 
 [Owner20十二字段授权](owner_approvals/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_AUTHORIZATION_20261110.md) · [5060可执行的最终Prompt](chinese5060/W1_5060_S1B_RULE_ONESHOT_FEASIBILITY_EXECUTION_PROMPT_OWNER20_V1.md)。旧版“待批准草案”仍作为历史保留，不再作为当前执行入口。
 
-**更新于 2026-11-11 JST · 版本 32 · 维护位置 `research/paper1-chinese-defense-5060`。**
+**更新于 2026-11-11 JST · 版本 33 · 维护位置 `research/paper1-chinese-defense-5060`。**
 
 ## 2026-11-09｜5060 Owner19 可行性数据已封存，评价须另批
 
@@ -392,6 +400,7 @@ R1 源附件由 Owner 提供，公开记录含原件摘要与 SHA-256。[R1 修�
 
 | 日期（JST） | 版本 | 变更与核验基点 |
 | --- | --- | --- |
+| 2026-11-11 | 33 | Owner28 5060 冻结身份通过，5090 兼容文件 0/3，独立评价 0/32。 |
 | 2026-11-11 | 32 | Owner28 5060 只读失效图谱、收据审计和四臂工具通过，EVAL 0/32 等独立交接。 |
 | 2026-11-11 | 31 | Owner27 32 主世界七臂完成，联合主门失败，EVAL 独立输入阻断。 |
 | 2026-11-11 | 30 | 5060 核公开中文版本来源和研究邻近工作，形成独立查询预注册草案，科学试验未批准。 |
