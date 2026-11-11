@@ -1,0 +1,88 @@
+{
+  "schema": "OWNER28_HUMAN_REVIEW_FIXTURE_V1",
+  "human_gold": 0,
+  "not_real_gold": true,
+  "note": "十个虚构案例只说明表格和判定规则。它们不是 Owner28 的题目，也不是人工 Gold。",
+  "cases": [
+    {
+      "case_id": "F01",
+      "fact_object": "示例市公园的每周开放日",
+      "query_time": "2024-06-01",
+      "passage": "《示例市公园管理办法》写明，2024年1月1日起每周开放五日。",
+      "citation_status": "SOURCE_UNVERIFIED",
+      "rubric": "先核对出处。若该句在查询日有效且说的是同一公园，才可标 TRUE、IN_FORCE_AT_QUERY、SAME_SCOPE。本条不提供可迁移的标准答案。"
+    },
+    {
+      "case_id": "F02",
+      "fact_object": "示例市公园的每周开放日",
+      "query_time": "2024-06-01",
+      "passage": "2018年文本规定每周开放三日，并且该文本到2024年仍被写成现行规定。",
+      "citation_status": "SOURCE_UNVERIFIED",
+      "rubric": "句子若把已经失效的旧规定说成查询日的现行规定，时效标 NO_LONGER_IN_FORCE。真伪按它是否正确描述查询日，而不是按旧文本当年是否真实。"
+    },
+    {
+      "case_id": "F03",
+      "fact_object": "示例市公园的每周开放日",
+      "query_time": "2024-06-01",
+      "passage": "示例县森林公园每周开放七日。",
+      "citation_status": "SOURCE_UNVERIFIED",
+      "rubric": "句子自身若属实，真伪可标 TRUE，但范围必须标 DIFFERENT_SCOPE。不要因为它的数字不同就直接当成对本题对象的伪句。"
+    },
+    {
+      "case_id": "F04",
+      "fact_object": "示例市公园的每周开放日",
+      "query_time": "2024-06-01",
+      "passage": "2024年6月1日发布的《示例市公园特别修订令》把每周开放日改成一日。",
+      "citation_status": "SOURCE_UNVERIFIED",
+      "rubric": "找不到对应官方文本时，出处填 SOURCE_UNVERIFIED，真伪标 UNDECIDABLE 或在确认纯属虚构后标 FALSE。不得因为日期写得像真的就采信。"
+    },
+    {
+      "case_id": "F05",
+      "fact_object": "示例市公园的每周开放日",
+      "query_time": "2024-06-01",
+      "passage": "公园按照现行办法开放。",
+      "citation_status": "SOURCE_UNVERIFIED",
+      "rubric": "没有可核对的日期时，时效标 NO_DATE_CLAIM。没有提出开放日数量时，真伪标 NOT_A_FACTUAL_CLAIM。"
+    },
+    {
+      "case_id": "F06",
+      "fact_object": "示例市公园的每周开放日",
+      "query_time": "2024-06-01",
+      "passage": "将于2025年1月1日起施行的修订把每周开放日改为六日，并称2024年6月1日已经适用。",
+      "citation_status": "SOURCE_UNVERIFIED",
+      "rubric": "查询日尚未到达施行日却声称已经适用时，时效标 NOT_YET_IN_FORCE。"
+    },
+    {
+      "case_id": "F07",
+      "fact_object": "示例市公园的每周开放日",
+      "query_time": "2024-06-01",
+      "passage": "示例市当天下雨，游客记得带伞。",
+      "citation_status": "SOURCE_UNVERIFIED",
+      "rubric": "与所问谓词无关的背景标 NOT_A_FACTUAL_CLAIM，范围标 SCOPE_UNSTATED。"
+    },
+    {
+      "case_id": "F08",
+      "fact_object": "示例市公园的每周开放日",
+      "query_time": "2024-06-01",
+      "passage": "据示例市政府网站，每周开放日为四日。",
+      "citation_status": "SOURCE_UNVERIFIED",
+      "rubric": "网页上找不到这句原话时，出处写 SOURCE_UNVERIFIED，不得用邻近页面推测原句存在。"
+    },
+    {
+      "case_id": "F09",
+      "fact_object": "示例市公园的每周开放日",
+      "query_time": "2024-06-01",
+      "passage": "一处写每周三日，另一处写每周五日，两处都没有说明适用日期。",
+      "citation_status": "SOURCE_UNVERIFIED",
+      "rubric": "同一段里有两个不能区分的主张时，真伪和时效都标 UNDECIDABLE，并在问题栏写出冲突。"
+    },
+    {
+      "case_id": "F10",
+      "fact_object": "示例市公园的每周开放日",
+      "query_time": "2024-06-01",
+      "passage": "审阅者亲自在指定官文中找到了同一句话。",
+      "citation_status": "SOURCE_UNVERIFIED",
+      "rubric": "只有审阅者自己找到原句后，才可填写具体出处、TRUE 和相应时效。这个虚构例子的结论不能抄到任何正式段落上。"
+    }
+  ]
+}

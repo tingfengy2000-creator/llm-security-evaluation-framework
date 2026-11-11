@@ -1,5 +1,12 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-115 — Owner28 human review pack prepared, Gold still 0
+
+2026-11-11 UTC+8; no new PODR; authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT`; parent `670d9ab0e546d46117bf5c48ebb2b0043689f453`.
+Review templates only. Questions 32. Passages 160. Human Gold 0. No new score. ASR and accuracy remain `NOT_MEASURED`. Claims NOT_RUN.
+[Protocol](../paper1/dual_machine/repro5090/owner28_eval/human_review/HUMAN_GOLD_DOUBLE_REVIEW_PROTOCOL_DRAFT.md).
+L0 Oracle evidence below is unchanged. No D2/D3 read.
+
 ## OR-114 — Owner28 one-shot provisional score, no generation metrics
 
 2026-11-11 UTC+8; no new PODR; authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT`; prediction `ad413ea639c950faea2106a52fa4352735384ef1`; authorization parent `d2a9a47d2ad33f38a445be22f6c2c70802cf2207`.

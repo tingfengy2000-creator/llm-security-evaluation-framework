@@ -1,5 +1,10 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT — 5090 只准备人工复核，不新编 PODR（2026-11-11）
+
+没有新的 PODR 编号，也没有指定审阅者。本收执只记录双人审核模板已经备好。它不是 Human Gold 签署，不改变已封存评分，也不批准 Claim1–3。Human Gold 仍为 0。正式开审仍须负责人另行指定人员并授权传递。
+[复核规程](../paper1/dual_machine/repro5090/owner28_eval/human_review/HUMAN_GOLD_DOUBLE_REVIEW_PROTOCOL_DRAFT.md)。
+
 ## W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT — 5090 一次评分收执，不新编 PODR（2026-11-11）
 
 没有新的 PODR 编号。同一授权下的 G4 评分已经执行一次。预测提交是 `ad413ea639c950faea2106a52fa4352735384ef1`。5090 没有合并 5060，没有重检索，没有把私有标签推入公开 Git。Human Gold 仍为 0。Claim1–3 仍 NOT_RUN，ASR 和答案正确率仍 NOT_MEASURED。评分完成后 `AUTO_CONTINUE=NO`。

@@ -1,5 +1,14 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — Owner28 human review pack prepared, Gold still 0, 2026-11-11 UTC+8
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT`. Branch `research/paper1-ragdefender-repro-5090`. Parent score HEAD `670d9ab0e546d46117bf5c48ebb2b0043689f453`.
+Status `PACK_PREPARED_NOT_REVIEWED / HUMAN_GOLD=0`. Questions 32. Retrieved passages 160. Lineages 3. Fact units 4, not 32 independent samples. Sentence citations `SOURCE_UNVERIFIED` 160. Submissions 0. Adjudications 0.
+Export program SHA256 `5f1344db3b4d35e0caa971327ee762665b6daca45d5312cc242cdd301e23f392`. Packet content SHA256 `028dafe918ed7c52c6b0ff4efebc9f7f284ca693ddb109e372cbc066ebb50a94`. Private map SHA256 `afdd271b03ff1ada79d0bbeb28c196f38b1c01d72c6b0a1b73c3706a67e66e45`. Packets are outside Git. Agent labels, predictions and scores are not in the packets.
+Sealed score was not rerun. Custody SHA256 `c4244e86fb2ecf1177cc3d2bb39b8791e1b789713fc3522bbfaa46b35b055595` unchanged. Claim1/2/3 `NOT_RUN`. Weight downloads 0. Commercial API 0. D2/D3/HOLD8 not touched. `AUTO_CONTINUE=NO`.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master true; owner_decision true; stage_process evaluated and not updated; lessons evaluated and not updated; research_authority evaluated and not updated; README evaluated and not updated.
+[Protocol](../../../paper1/dual_machine/repro5090/owner28_eval/human_review/HUMAN_GOLD_DOUBLE_REVIEW_PROTOCOL_DRAFT.md).
+
 ## Current — Owner28 one-shot score sealed, 2026-11-11 UTC+8
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT`. Branch `research/paper1-ragdefender-repro-5090`. Score authorization HEAD `d2a9a47d2ad33f38a445be22f6c2c70802cf2207`. Prediction commit `ad413ea639c950faea2106a52fa4352735384ef1`.

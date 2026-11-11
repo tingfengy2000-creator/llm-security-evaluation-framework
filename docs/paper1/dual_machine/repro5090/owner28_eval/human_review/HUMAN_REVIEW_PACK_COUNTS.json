@@ -1,0 +1,35 @@
+{
+  "schema": "OWNER28_HUMAN_REVIEW_PACK_COUNTS_V1",
+  "human_gold": 0,
+  "status": "PACK_PREPARED_NOT_REVIEWED",
+  "main_questions": 32,
+  "retrieved_passages": 160,
+  "official_lineages": [
+    "PATENT_LAW",
+    "POPULATION_FAMILY_PLANNING_LAW",
+    "STATE_COUNCIL_WORK_TIME"
+  ],
+  "official_lineage_count": 3,
+  "fact_units": 4,
+  "independent_fact_samples": false,
+  "sentence_citation_status": "SOURCE_UNVERIFIED",
+  "unverified_sentence_count": 160,
+  "reviewer_slots_prepared": [
+    "A",
+    "B"
+  ],
+  "submissions_received": 0,
+  "adjudications_received": 0,
+  "agent_labels_in_packet": false,
+  "model_predictions_in_packet": false,
+  "scores_in_packet": false,
+  "packet_content_sha256": "028dafe918ed7c52c6b0ff4efebc9f7f284ca693ddb109e372cbc066ebb50a94",
+  "packet_a_sha256": "5b5e34a8f8c65f3be62bea0aa3b133876474b94bdb79e4fb617bbd25ce48d698",
+  "packet_b_sha256": "983d2bb18e54e675133a981124a438be73464a52524a8c1d4c82a628c7bdc0a2",
+  "blank_a_sha256": "eff5f0452d5848e338c44145a9e46cf596bd600e97371a06ae1a5e5f43bb8f9e",
+  "blank_b_sha256": "b3343455d90a92bfe3bda5c7e1712bf0b28d8bea3b4b41c3a1840e66112e157e",
+  "private_id_map_sha256": "afdd271b03ff1ada79d0bbeb28c196f38b1c01d72c6b0a1b73c3706a67e66e45",
+  "shuffle_seed_sha256": "f2d808865f4a526c4cf898ef598551e15d0ea0a0e65a1ae3b32dc5b3c0f6318e",
+  "private_location": "LOCAL_PRIVATE_OUTSIDE_GIT",
+  "labels_in_git": false
+}

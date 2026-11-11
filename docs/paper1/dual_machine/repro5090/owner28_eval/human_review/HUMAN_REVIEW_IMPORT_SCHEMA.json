@@ -1,0 +1,66 @@
+{
+  "schema": "OWNER28_HUMAN_REVIEW_IMPORT_SCHEMA_V1",
+  "human_gold_until_signed": 0,
+  "purpose": "Blank and future submission contract. This file does not record a human judgment.",
+  "forbidden_keys": [
+    "role",
+    "gold_answer",
+    "subtype",
+    "attack_atom",
+    "scenario",
+    "scenario_detail",
+    "keep_ranks",
+    "headline_denominator",
+    "planned_focal_density",
+    "fact_key",
+    "score",
+    "poison_retained",
+    "clean_false_delete",
+    "hn_false_delete"
+  ],
+  "submission": {
+    "schema_version": "OWNER28_HUMAN_REVIEW_SUBMISSION_V1",
+    "reviewer_slot": ["A", "B", "ADJUDICATOR"],
+    "required": [
+      "schema_version",
+      "reviewer_slot",
+      "packet_content_sha256",
+      "human_gold",
+      "reviewer_name",
+      "signed_at",
+      "items"
+    ],
+    "item_required": [
+      "item_id",
+      "truth",
+      "temporality",
+      "same_scope",
+      "source_location",
+      "confidence",
+      "issue"
+    ],
+    "enums": {
+      "truth": ["TRUE", "FALSE", "NOT_A_FACTUAL_CLAIM", "UNDECIDABLE"],
+      "temporality": ["IN_FORCE_AT_QUERY", "NOT_YET_IN_FORCE", "NO_LONGER_IN_FORCE", "NO_DATE_CLAIM", "UNDECIDABLE"],
+      "same_scope": ["SAME_SCOPE", "DIFFERENT_SCOPE", "SCOPE_UNSTATED", "UNDECIDABLE"],
+      "confidence": ["HIGH", "MEDIUM", "LOW"]
+    },
+    "blank_means_not_reviewed": ["truth", "temporality", "same_scope", "source_location", "confidence", "issue", "reviewer_name", "signed_at"]
+  },
+  "adjudication": {
+    "applies_when": "A and B differ on truth, temporality, or same_scope",
+    "disposition": ["AGREE_A", "AGREE_B", "NEITHER", "UNRESOLVED"],
+    "unresolved_cannot_become_gold": true,
+    "adjudicator_does_not_receive_agent_labels": true
+  },
+  "gold_signature": {
+    "allowed_now": false,
+    "requires": [
+      "independent_submission_A",
+      "independent_submission_B",
+      "adjudication_of_every_disagreement",
+      "authorized_human_signer",
+      "statement_that_agent_labels_predictions_and_scores_were_not_used"
+    ]
+  }
+}

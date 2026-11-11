@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-11-11 Owner28 human review pack is prepared, Gold remains 0
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT`. Branch `research/paper1-ragdefender-repro-5090`. Status `PACK_PREPARED_NOT_REVIEWED / HUMAN_GOLD=0`.
+Double-review forms for 32 questions and 160 retrieved passages are outside Git. No reviewer is assigned and no submission exists. The sealed score was not rerun. Claim 1, 2 and 3 remain NOT_RUN. `AUTO_CONTINUE=NO`.
+[Protocol](../paper1/dual_machine/repro5090/owner28_eval/human_review/HUMAN_GOLD_DOUBLE_REVIEW_PROTOCOL_DRAFT.md).
+
 ## Current — 2026-11-11 Owner28 one-shot score is sealed, no further scoring
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT`. Branch `research/paper1-ragdefender-repro-5090`. Prediction commit `ad413ea639c950faea2106a52fa4352735384ef1`. Status `SCHEMA_SCORED_ONCE / AGENT_PROVISIONAL_EVAL / HUMAN_GOLD=0`.
