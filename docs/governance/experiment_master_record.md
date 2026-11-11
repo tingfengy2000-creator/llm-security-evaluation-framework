@@ -1,5 +1,14 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## 2026-11-11｜Owner31 Q-CER单机制有界探索预注册，NOT_RUN
+
+`OWNER31_BOUNDED_APPROVED_NOT_RUN / NEW_METHOD_QCER / DEV_EXPOSED_ONLY / FRESH_EVAL_0_OF_32 / HUMAN_GOLD_0 / API_0`。
+
+Owner明确要求“再试一下中文创新，不过我们要快点”。基于Owner27/28候选级RD中文迁移权衡及Owner30真实Qwen数值目标命中NONE0/22、B20/22、RD_ZH5/22的探索性发现，**尚不能认定新方法成功或B2绝对安全**。批准5060单候选Q-CER（同TopK查询约束冲突识别+证据保全）、DEV v0最多v1，只在旧已曝光Owner27/28中开发；5090独立快速制备全新自写虚构中文版本4事实×8场景32世界，QUERY与Gold隔离、私有Gold不上Git；代码封存后5060同世界七臂只跑一轮，5090后验独立暂定计分。Q-CER必须在Poison保留、Clean误删、HN误删均不差于RD_B2且至少P改善3段或C改善4段，并胜过/不同于简单query/date消融，才有仅探索性方法信号。通过后**有条件**准入至多128 Qwen生成格+新增预算USD0.75硬门、原累计门不放宽；权限/token/余额或外传不闭合不得发送。DEV限45min、5090自写校验限45min、CPU2/D增量2GiB/出站默认0、不得重跑旧Owner29/30或触D2/D3/HOLD8/5090Claims、不得主线merge。新试次结果实测前均NOT_RUN，真Gold0，不可声称正式ASR或创新有效。旧负面结果保留、可在本次不GO后转回基准路线。
+
+[Owner31合同](../paper1/dual_machine/owner_approvals/W1_OWNER31_LAST_CHANCE_QCER_CHINESE_METHOD_FASTTRACK_20261111.md) · [5060执行指令](../paper1/dual_machine/chinese5060/W1_5060_OWNER31_QCER_LASTCHANCE_FAST_EXECUTION_PROMPT_V1.md) · [5090独立任务](../paper1/dual_machine/chinese5060/W1_5090_OWNER31_FRESH_SYNTHETIC_BLIND_EVAL_FAST_PROMPT_V1.md)
+
+
 ## 2026-11-11｜Owner30答案评价：95/96生成、自动评分待运行
 
 `OWNER30_BOUNDED_AUTO_EVAL_AUTHORIZED_NOT_RUN / LLM_JUDGED_PROVISIONAL / HUMAN_GOLD_0 / NO_NEW_GENERATION`。Owner今日明确无时间双人盲审/第三裁决，要求大模型尽快评估。已核Git 5060 `188212344ce8c0144356c307efe3847f2f6fb97a`：Owner29 Qwen已发送96、可复核95（NONE31/32、B2 32/32、ZH 32/32），95请求68ANSWER/27ABSTAIN，31完整三臂配对，首格不可恢复/不得重发；回答层真假/targetedASR原来均NOT_MEASURED。5090已有Owner28候选标签及官方版次事实，HumanGold0。Owner30授权先在5090封存32世界的**只读公开事实参考原子**，无攻击目标/候选标签，再在5060不重生的本地D盘95回包上规则及可选固定Qwen Judge（最多95次/新增<=USD0.50，账户/出站/最高token账本硬门，不闭合则仅离线规则评分），最后5090以其既封存私有目标值计算暂定targeted ASR和跨臂Accuracy；相同Qwen生成/评价存在同模型关联偏差，结果`AGENT_PROVISIONAL`、非人审Gold。正式样本HumanGold和日期强基线后续完成，D2/D3/HOLD8及5090 Claims仍锁，不合并主线。所有阶段必须保留原96分母和缺失格，禁止改原试次、重新生成、编造已跑Judge。
