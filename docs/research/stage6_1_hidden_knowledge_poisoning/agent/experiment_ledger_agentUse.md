@@ -1,5 +1,13 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## 2026-11-11｜Owner28 Runner 就绪，独立 EVAL 未运行
+
+RUNNER_READY / BENCHMARK_INPUT_GATE_BLOCKED / EVAL_NOT_RUN / HUMAN_GOLD=0 / AUTO_CONTINUE=NO。
+
+Owner27 归档 363 成员复验，32 主世界七臂、84 个分层汇总、21 对掩码重算一致，新增六类匿名失效证据。RD-zh 历史 HN 误删 7/23，异范围 HN 误删 6/10。T1 的本地代理收据绑定造数真值与版本，不能作为部署的独立签发证据。固定四臂已用虚构输入通过工程验证。5090 远端 dbd91f3667964baca69aeb82a6292c4fe193c965 暂无本批交接，独立输入与评分 0/32。下一门为既有 Owner28 授权内独立来源、权利及角色盲交接。零商业 API、零费用，正式回答指标未测。
+
+[失效图谱](../../../paper1/dual_machine/chinese5060/OWNER28_DEV_FAILURE_ATLAS.md) · [收据审计](../../../paper1/dual_machine/chinese5060/OWNER28_RECEIPT_PROVENANCE_LEAKAGE_AUDIT.md) · [独立小试协议](../../../paper1/dual_machine/chinese5060/OWNER28_BENCHMARK_PILOT_PROTOCOL.md) · [Run Manifest](../../../paper1/dual_machine/chinese5060/OWNER28_BENCHMARK_RUNNER_MANIFEST.json)
+
 ## 2026-11-11｜Owner27 DEV v0 完成并停止
 
 `DEV_COMPLETE_DIRECTIONAL_FAIL / EVAL_BLOCKED_INDEPENDENT_INPUTS / HUMAN_GOLD=0 / AUTO_CONTINUE=NO`。

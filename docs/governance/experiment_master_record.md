@@ -1,5 +1,13 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## 2026-11-11｜Owner28 封存复算与四臂工程验证
+
+RUNNER_READY / BENCHMARK_INPUT_GATE_BLOCKED / EVAL_NOT_RUN / HUMAN_GOLD=0 / AUTO_CONTINUE=NO。
+
+Owner27 归档 363 成员复验，32 主世界七臂、84 个分层汇总、21 对掩码重算一致，新增六类匿名失效证据。RD-zh 历史 HN 误删 7/23，异范围 HN 误删 6/10。T1 的本地代理收据绑定造数真值与版本，不能作为部署的独立签发证据。固定四臂已用虚构输入通过工程验证。5090 远端 dbd91f3667964baca69aeb82a6292c4fe193c965 暂无本批交接，独立输入与评分 0/32。下一门为既有 Owner28 授权内独立来源、权利及角色盲交接。零商业 API、零费用，正式回答指标未测。
+
+[失效图谱](../paper1/dual_machine/chinese5060/OWNER28_DEV_FAILURE_ATLAS.md) · [收据审计](../paper1/dual_machine/chinese5060/OWNER28_RECEIPT_PROVENANCE_LEAKAGE_AUDIT.md) · [独立小试协议](../paper1/dual_machine/chinese5060/OWNER28_BENCHMARK_PILOT_PROTOCOL.md) · [Run Manifest](../paper1/dual_machine/chinese5060/OWNER28_BENCHMARK_RUNNER_MANIFEST.json)
+
 ## 2026-11-11｜Owner28基准独立测试：预注册，尚未运行
 
 `OWNER28_BOUNDED_AUTHORIZED_NOT_RUN / BENCHMARK_FIRST / JOINT_METHOD_PAUSED / EVAL_0_OF_32 / HUMAN_GOLD_0 / API_0`。

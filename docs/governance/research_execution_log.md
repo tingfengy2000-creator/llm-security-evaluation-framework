@@ -1,5 +1,15 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-11｜5060 归档 Owner28 失效图谱与独立输入门
+
+RUNNER_READY / BENCHMARK_INPUT_GATE_BLOCKED / EVAL_NOT_RUN / HUMAN_GOLD=0 / AUTO_CONTINUE=NO。
+
+Owner27 归档 363 成员复验，32 主世界七臂、84 个分层汇总、21 对掩码重算一致，新增六类匿名失效证据。RD-zh 历史 HN 误删 7/23，异范围 HN 误删 6/10。T1 的本地代理收据绑定造数真值与版本，不能作为部署的独立签发证据。固定四臂已用虚构输入通过工程验证。5090 远端 dbd91f3667964baca69aeb82a6292c4fe193c965 暂无本批交接，独立输入与评分 0/32。下一门为既有 Owner28 授权内独立来源、权利及角色盲交接。零商业 API、零费用，正式回答指标未测。
+
+[失效图谱](../paper1/dual_machine/chinese5060/OWNER28_DEV_FAILURE_ATLAS.md) · [收据审计](../paper1/dual_machine/chinese5060/OWNER28_RECEIPT_PROVENANCE_LEAKAGE_AUDIT.md) · [独立小试协议](../paper1/dual_machine/chinese5060/OWNER28_BENCHMARK_PILOT_PROTOCOL.md) · [Run Manifest](../paper1/dual_machine/chinese5060/OWNER28_BENCHMARK_RUNNER_MANIFEST.json)
+
+Run ID W1-5060-OWNER28-AUDIT-RUNNER-20261111-01，冻结源码 8d879235874ee91a2462cfbaa04c2e3e8cb36ae8。Owner28 私有证据 ZIP SHA256 1262cc2bf5dd897dc9678fa00b240c953a0d8b5f50ce315fedb7ffa2f4311cae，82 件索引成员回读一致。13 测试、Ruff、MyPy、虚构 CLI、两虚构世界本地缓存后端和缺交接拒绝验证通过。旧 Owner27 结果未改。无新科学试次。
+
 ## 2026-11-11｜Supervisor核Owner27实测并下发Owner28双机执行合同
 
 `OWNER28_BOUNDED_AUTHORIZED_NOT_RUN / BENCHMARK_FIRST / JOINT_METHOD_PAUSED / EVAL_0_OF_32 / HUMAN_GOLD_0 / API_0`。

@@ -1,0 +1,482 @@
+{
+  "authority": "W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT",
+  "run_id": "W1-5060-OWNER28-AUDIT-RUNNER-20261111-01",
+  "stage": "ENGINEERING_AND_READ_ONLY_AUDIT",
+  "status": "RUNNER_READY / BENCHMARK_INPUT_GATE_BLOCKED / EVAL_NOT_RUN",
+  "authority_head": "5081860e0448b8d4692f4b38270642ae43d91d3f",
+  "source_commit": "8d879235874ee91a2462cfbaa04c2e3e8cb36ae8",
+  "sources": {
+    "scripts/research/audit_chinese5060_owner28.py": {
+      "git_blob_sha256": "287cd56de8332f64828e6c7d53d71f85bbc633d4489c5e0e021f329d841f785e",
+      "working_bytes_sha256": "f4bc7f8bd832990b502b77a5a2296b4000aea0ee0bc8f7d99bfb49553338ff37"
+    },
+    "scripts/research/run_chinese5060_owner28.py": {
+      "git_blob_sha256": "bfd1aee62334e84acb592d0d820b83a5aa35dde0171d15588d603bb69716bada",
+      "working_bytes_sha256": "0631f7bc7acc553490e7deefab58165f9a5bb2473df6730c0adac71d02fce65f"
+    },
+    "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/owner28_benchmark.py": {
+      "git_blob_sha256": "73162267e50313982ee874e86b2abd9dfc7ed25ab2004b076e33d135ae9bd9f9",
+      "working_bytes_sha256": "cc032dec698c160c9a340213489c1ee68f2e9fb857e95f55f76bf25e0c0d5325"
+    },
+    "tests/research/test_owner28_benchmark.py": {
+      "git_blob_sha256": "8a1f6a640197f7c51a5ce2f4b703a2e4a6adf53271fe12b39454ff7dd17b7a29",
+      "working_bytes_sha256": "0e614d774360305ee14ff0bc03977680680f0a0cbcb13cb753d689303335e4f0"
+    }
+  },
+  "model_assets": {
+    "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "revision": "16e5344fbfc7dfbbbe0019d30cec21e2940cb4e1",
+    "upstream": "ba2a17efba165d45409114df2d70b030ade1e1b8",
+    "cache_identity_sha256": "53a3935d8d35d377fb90f839604f42062c944641dd15f7ad081b0ca557f638e5",
+    "dependency_sha256": "25ceec7b87f616eea4295108827671e90d78ce64627c1323012e9c38cd9ccef7",
+    "cache_files": 10,
+    "mode": "STATIC_ONLY_NO_MODEL_CONSTRUCTION",
+    "python": "3.12.14"
+  },
+  "arms": [
+    "NONE",
+    "RD_B2",
+    "RD_ZH",
+    "DATE_ONLY"
+  ],
+  "retrieval_contract": {
+    "Chroma": "1.5.9",
+    "metric": "cosine",
+    "chunk_tokens": 96,
+    "overlap_tokens": 16,
+    "TopK": 5,
+    "max_query_tokens": 128,
+    "p": 2,
+    "m": 5,
+    "cpu_affinity_max": 2
+  },
+  "sealed_dev_audit": {
+    "status": "READ_ONLY_SEALED_DEV_ANALYSIS",
+    "old_commit": "7b4e4cad00df38b724fdeb1c2edd63f06b7be9fd",
+    "archive_sha256": "cc9051b64dccb5b9bcf57495ebfdf370d99c859708fe0b833707be5a65825d92",
+    "manifest_sha256": "ebca241a364c75cfe9cfaebfb6832e7a97b9a856a47638b870e0ea55d7b762f4",
+    "verified_members": 363,
+    "main_worlds": 32,
+    "mirrors": 8,
+    "arms": 7,
+    "pairs": 21,
+    "strata": 84,
+    "failure_types": 6,
+    "receipt_label_side_information": "OBSERVED_IN_OWNER27_SYNTHETIC_REGISTRY",
+    "signed_real_receipts": 0,
+    "old_retrieval_reruns": 0,
+    "old_prediction_reruns": 0
+  },
+  "fixture": {
+    "mock_cli": {
+      "admission_receipt_sha256": "f584273230ce2179584e69cc0a7741b4903d2dfb38d136897ffe8a4197f92eda",
+      "arms": [
+        "NONE",
+        "RD_B2",
+        "RD_ZH",
+        "DATE_ONLY"
+      ],
+      "commercial_api_calls": 0,
+      "fixture": true,
+      "labels_read": false,
+      "new_scientific_results": 0,
+      "prediction_sha256": "c5599352a182238dfa0b10c8e109fed585b3199d6b141db7bf747fe1ec8be232",
+      "status": "SOFTWARE_FIXTURE_ONLY",
+      "topk_seal_sha256": "f921a8db2fd3daa33e11f4b8e7abaafd45104ae7f7914d09be17d8eccb26009f",
+      "worlds": 2
+    },
+    "native": {
+      "status": "NATIVE_BACKEND_INVENTED_SMOKE_ONLY",
+      "fixture_worlds": 2,
+      "exact_index_reopens": 2,
+      "shared_rd_encoder_calls": 2,
+      "retrieval_vectors": 23,
+      "scientific_worlds": 0,
+      "api_calls": 0
+    },
+    "is_science": false,
+    "missing_handoff_live_cli": "REFUSED_BEFORE_ATTEMPT"
+  },
+  "science_gate": {
+    "status": "BENCHMARK_INPUT_GATE_BLOCKED",
+    "curator_branch": "research/paper1-ragdefender-repro-5090",
+    "observed_curator_head": "dbd91f3667964baca69aeb82a6292c4fe193c965",
+    "owner28_handoff_path_count": 0,
+    "private_handoff_received": false,
+    "role_free_input_worlds": 0,
+    "main_evaluation_planned": 32,
+    "retrieved": 0,
+    "predicted": 0,
+    "independently_scored": 0,
+    "scientific_attempts": 0,
+    "human_gold": 0,
+    "G1": "HANDOFF_ABSENT",
+    "G2": "RUNNER_FROZEN_FIXTURES_ONLY_NO_INDEPENDENT_INPUT",
+    "G3": "NO_SCIENTIFIC_SEAL",
+    "G4": "NO_SCORE",
+    "scope": "Only tracked 5090 names and confirmed received artifacts; no label location opened"
+  },
+  "formal_claims": {
+    "human_gold": 0,
+    "answer_metrics": "NOT_MEASURED",
+    "paper_experiment": "NOT_STARTED"
+  },
+  "resources": {
+    "downloads": 0,
+    "installations": 0,
+    "paid_api_calls": 0,
+    "usd": 0,
+    "new_scientific_attempts": 0,
+    "disk_free_bytes": 355595005952,
+    "disk_used_bytes": 108288847
+  },
+  "qa": {
+    "pytest_passed": 13,
+    "ruff": "PASS",
+    "mypy": "PASS",
+    "private_archive_readback": "PASS",
+    "early_failures_preserved": [
+      "sparse manifest path",
+      "pair direction read from sorted map",
+      "unused import",
+      "mixed audit counter type annotation",
+      "trace score assumption"
+    ]
+  },
+  "commands": [
+    {
+      "stdout_sha256": "7ad3b045a273c79bdf77fd6b596219e11e91c87fee3ecb2cee38cb8125645304",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "argv": [
+        "<PINNED_PYTHON>",
+        "-B",
+        "<PRIVATE_D>/support/verify_assets.py",
+        "<PRIVATE_D>",
+        "<PINNED_ASSET_ROOT>",
+        "<PINNED_UPSTREAM>"
+      ],
+      "ended_utc": "2026-11-11T01:43:36.7319468+00:00",
+      "name": "cached-assets-static",
+      "started_utc": "2026-11-11T01:43:32.8690356+00:00",
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "<PINNED_PYTHON>",
+        "-B",
+        "scripts/research/run_chinese5060_owner28.py",
+        "fixture",
+        "--input",
+        "<PRIVATE_D>/evidence/INVENTED_FIXTURE_ONLY.json",
+        "--out",
+        "<PRIVATE_D>/runtime/fixture"
+      ],
+      "name": "fixture-cli-01",
+      "stdout_sha256": "93f623c08fa48e47350985298a63bf133aee48de3c03da4a4c33efe3814087ec",
+      "exit_code": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ended_utc": "2026-11-11T01:41:27.9887439+00:00",
+      "started_utc": "2026-11-11T01:41:26.4103324+00:00"
+    },
+    {
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "started_utc": "2026-11-11T01:48:07.4152771+00:00",
+      "name": "missing-handoff-refusal",
+      "exit_code": 1,
+      "argv": [
+        "<PINNED_PYTHON>",
+        "-B",
+        "scripts/research/run_chinese5060_owner28.py",
+        "predict",
+        "--input",
+        "<PRIVATE_D>/evidence/INVENTED_FIXTURE_ONLY.json",
+        "--out",
+        "<PRIVATE_D>/runtime/refused-live"
+      ],
+      "ended_utc": "2026-11-11T01:48:09.1648451+00:00",
+      "stderr_sha256": "8864dfba1743bad6e5f90ee234e07fc2cd3578424037003f5c4996be70de99b8"
+    },
+    {
+      "ended_utc": "2026-11-11T01:43:46.0232013+00:00",
+      "argv": [
+        "<PINNED_PYTHON>",
+        "-B",
+        "-m",
+        "mypy",
+        "--follow-imports=silent",
+        "--ignore-missing-imports",
+        "scripts/research/run_chinese5060_owner28.py",
+        "scripts/research/audit_chinese5060_owner28.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/owner28_benchmark.py",
+        "tests/research/test_owner28_benchmark.py"
+      ],
+      "exit_code": 1,
+      "name": "mypy-02",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "started_utc": "2026-11-11T01:42:25.3645987+00:00",
+      "stdout_sha256": "67d8e843fcb04b12e4f2e6737c716ca18975eeb3efcf24fccf86613ef72f8f6f"
+    },
+    {
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "name": "mypy-final",
+      "started_utc": "2026-11-11T01:48:09.8858392+00:00",
+      "stdout_sha256": "d9a5631f7d87a741fbecc3236286d1792d22d349ff13846d71cdc9217307bb76",
+      "exit_code": 0,
+      "argv": [
+        "<PINNED_PYTHON>",
+        "-B",
+        "-m",
+        "mypy",
+        "--follow-imports=silent",
+        "--ignore-missing-imports",
+        "scripts/research/run_chinese5060_owner28.py",
+        "scripts/research/audit_chinese5060_owner28.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/owner28_benchmark.py",
+        "tests/research/test_owner28_benchmark.py"
+      ],
+      "ended_utc": "2026-11-11T01:48:13.0770102+00:00"
+    },
+    {
+      "stdout_sha256": "df542144c3937ee2a5228ccd82bc83aa2922069b6297af9560aa89d628cdc597",
+      "name": "native-fixture-smoke",
+      "argv": [
+        "<PINNED_PYTHON>",
+        "-B",
+        "<PRIVATE_D>/support/native_fixture_smoke.py",
+        "<PRIVATE_D>",
+        "<PINNED_ASSET_ROOT>",
+        "<PINNED_UPSTREAM>"
+      ],
+      "ended_utc": "2026-11-11T01:47:26.7623012+00:00",
+      "exit_code": 0,
+      "stderr_sha256": "c9701c7534de0989515a6a4c05c7e3dfd4aa0d632610110801ca993b03c7924a",
+      "started_utc": "2026-11-11T01:46:59.4793395+00:00"
+    },
+    {
+      "ended_utc": "2026-11-11T01:43:33.1823579+00:00",
+      "argv": [
+        "<PINNED_PYTHON>",
+        "-B",
+        "scripts/research/audit_chinese5060_owner28.py",
+        "--archive",
+        "experiments/paper1_chinese5060/W1-5060-OWNER27-PUBLIC-VERSION-20261111-DEV-V0/OWNER27_OFFLINE_FASTTRACK_PRIVATE.zip",
+        "--manifest",
+        "<PRIVATE_D>/support/OWNER27_OFFLINE_FASTTRACK_RUN_MANIFEST.json",
+        "--out",
+        "<PRIVATE_D>/evidence/recount-v2"
+      ],
+      "stdout_sha256": "dba400e24c83673c0a5a34695e2eed2145467c1190c22fbe088a07a1e173ec8f",
+      "exit_code": 0,
+      "name": "owner27-recount-final",
+      "started_utc": "2026-11-11T01:43:32.8478869+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "ended_utc": "2026-11-11T01:33:27.2859503+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "dba400e24c83673c0a5a34695e2eed2145467c1190c22fbe088a07a1e173ec8f",
+      "started_utc": "2026-11-11T01:33:26.9922074+00:00",
+      "name": "owner27-recount-pair-order",
+      "argv": [
+        "<PINNED_PYTHON>",
+        "-B",
+        "scripts/research/audit_chinese5060_owner28.py",
+        "--archive",
+        "experiments/paper1_chinese5060/W1-5060-OWNER27-PUBLIC-VERSION-20261111-DEV-V0/OWNER27_OFFLINE_FASTTRACK_PRIVATE.zip",
+        "--manifest",
+        "<PRIVATE_D>/support/OWNER27_OFFLINE_FASTTRACK_RUN_MANIFEST.json",
+        "--out",
+        "<PRIVATE_D>/evidence"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "ended_utc": "2026-11-11T01:33:18.0517744+00:00",
+      "stderr_sha256": "88ac4fc393c88ef8a211f9d9930c2181583bd8fe04c0e2283d4935c4fd7abd80",
+      "argv": [
+        "<PINNED_PYTHON>",
+        "-B",
+        "scripts/research/audit_chinese5060_owner28.py",
+        "--archive",
+        "experiments/paper1_chinese5060/W1-5060-OWNER27-PUBLIC-VERSION-20261111-DEV-V0/OWNER27_OFFLINE_FASTTRACK_PRIVATE.zip",
+        "--manifest",
+        "<PRIVATE_D>/support/OWNER27_OFFLINE_FASTTRACK_RUN_MANIFEST.json",
+        "--out",
+        "<PRIVATE_D>/evidence"
+      ],
+      "name": "owner27-recount-resolved-sparse",
+      "exit_code": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "started_utc": "2026-11-11T01:33:17.7509419+00:00"
+    },
+    {
+      "stderr_sha256": "92db257cd4a7522b7589939bd202263527f5769a8a5384a0acba30b4224a217f",
+      "name": "owner27-recount",
+      "exit_code": 1,
+      "started_utc": "2026-11-11T01:33:04.0859036+00:00",
+      "argv": [
+        "<PINNED_PYTHON>",
+        "-B",
+        "scripts/research/audit_chinese5060_owner28.py",
+        "--archive",
+        "experiments/paper1_chinese5060/W1-5060-OWNER27-PUBLIC-VERSION-20261111-DEV-V0/OWNER27_OFFLINE_FASTTRACK_PRIVATE.zip",
+        "--manifest",
+        "docs/paper1/dual_machine/chinese5060/OWNER27_OFFLINE_FASTTRACK_RUN_MANIFEST.json",
+        "--out",
+        "<PRIVATE_D>/evidence"
+      ],
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ended_utc": "2026-11-11T01:33:04.6134342+00:00"
+    },
+    {
+      "started_utc": "2026-11-11T01:41:23.1536168+00:00",
+      "stdout_sha256": "2b25a85ac4bded095df609a86c376dd1de9a0da9e73773721e4b91c3501c7bfb",
+      "ended_utc": "2026-11-11T01:41:26.4946253+00:00",
+      "name": "pytest-01",
+      "exit_code": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "argv": [
+        "<PINNED_PYTHON>",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "<PRIVATE_D>/runtime/pytest",
+        "tests/research/test_owner28_benchmark.py"
+      ]
+    },
+    {
+      "ended_utc": "2026-11-11T01:42:25.1727412+00:00",
+      "argv": [
+        "<PINNED_PYTHON>",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "<PRIVATE_D>/runtime/pytest02",
+        "tests/research/test_owner28_benchmark.py"
+      ],
+      "exit_code": 0,
+      "name": "pytest-02",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "started_utc": "2026-11-11T01:42:23.1296519+00:00",
+      "stdout_sha256": "2ae0703acfabd55b253183d240f96ee588074fcf0d28530b73e81f056e05a883"
+    },
+    {
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "name": "pytest-final",
+      "started_utc": "2026-11-11T01:48:07.4109695+00:00",
+      "stdout_sha256": "23a8aae96aa4c51fa45a1d07fec51d952827eff6b71cd9c39487ddf7a8e50969",
+      "exit_code": 0,
+      "argv": [
+        "<PINNED_PYTHON>",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "<PRIVATE_D>/runtime/pytest-final",
+        "tests/research/test_owner28_benchmark.py"
+      ],
+      "ended_utc": "2026-11-11T01:48:09.6885871+00:00"
+    },
+    {
+      "started_utc": "2026-11-11T01:41:26.5441242+00:00",
+      "stdout_sha256": "11831f11efa129ef2e1730f041f1581ccdb3495fd6108d00d681ea199d030f7b",
+      "ended_utc": "2026-11-11T01:41:27.2436061+00:00",
+      "name": "ruff-01",
+      "exit_code": 1,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "argv": [
+        "<PINNED_PYTHON>",
+        "-B",
+        "-m",
+        "ruff",
+        "check",
+        "--no-cache",
+        "scripts/research/run_chinese5060_owner28.py",
+        "scripts/research/audit_chinese5060_owner28.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/owner28_benchmark.py",
+        "tests/research/test_owner28_benchmark.py"
+      ]
+    },
+    {
+      "ended_utc": "2026-11-11T01:42:25.3536698+00:00",
+      "argv": [
+        "<PINNED_PYTHON>",
+        "-B",
+        "-m",
+        "ruff",
+        "check",
+        "--no-cache",
+        "scripts/research/run_chinese5060_owner28.py",
+        "scripts/research/audit_chinese5060_owner28.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/owner28_benchmark.py",
+        "tests/research/test_owner28_benchmark.py"
+      ],
+      "exit_code": 0,
+      "name": "ruff-02",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "started_utc": "2026-11-11T01:42:25.2163493+00:00",
+      "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "name": "ruff-final",
+      "started_utc": "2026-11-11T01:48:09.7300458+00:00",
+      "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "exit_code": 0,
+      "argv": [
+        "<PINNED_PYTHON>",
+        "-B",
+        "-m",
+        "ruff",
+        "check",
+        "--no-cache",
+        "scripts/research/run_chinese5060_owner28.py",
+        "scripts/research/audit_chinese5060_owner28.py",
+        "src/llmguard/domains/retrieval/hidden_poisoning/chinese5060/owner28_benchmark.py",
+        "tests/research/test_owner28_benchmark.py"
+      ],
+      "ended_utc": "2026-11-11T01:48:09.8787412+00:00"
+    },
+    {
+      "started_utc": "2026-11-11T01:34:20.6057117+00:00",
+      "name": "trace-audit",
+      "stdout_sha256": "1e5c1abcbd8897c12522f078e2d4e23d8b4413449c282056e038ae065356b37f",
+      "argv": [
+        "<PINNED_PYTHON>",
+        "-B",
+        "<PRIVATE_D>/support/trace_audit.py",
+        "<PRIVATE_D>"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ended_utc": "2026-11-11T01:34:20.7762138+00:00",
+      "exit_code": 0
+    }
+  ],
+  "private_archive": {
+    "file": "OWNER28_AUDIT_RUNNER_PRIVATE.zip",
+    "sha256": "1262cc2bf5dd897dc9678fa00b240c953a0d8b5f50ce315fedb7ffa2f4311cae",
+    "bytes": 361187,
+    "indexed_members": 82,
+    "member_index_sha256": "9926a69519cc533a3af588707b7cb8cad477a15b264ab0c1115e58201cdab0fc",
+    "readback_verified": true
+  },
+  "evidence_index": {
+    "evidence/recount-v2/OWNER27_READONLY_RECOUNT.json": "c6bc9b41ff1f76c95b25325a0beec00e6d6fbe1ffc644e01cf39021e4d1b4307",
+    "evidence/STATIC_TRACE_AND_RECEIPT_AUDIT.json": "c8122bf6ea30bfc54ac47780279518d339b906855df2da094cee7db9e36d381f",
+    "evidence/EVAL_ADMISSION_STATUS.json": "e5a32aa660f6c530324101dd12e6cff0391ffffa62b3aae7e53112ffbbdd4616",
+    "runtime/fixture/PREDICTION_SEAL.json": "86fca16885b35d84539bf34c5b6ec06e2d7b74defb09d2653e323c1e71b9fd14",
+    "logs/native-fixture-smoke.json": "e96970424a224ae6d82fb199227f59602fd84e2def7ecc8ebe30619a4819b39e",
+    "logs/missing-handoff-refusal.json": "a271bf09e4a98898edff8252649968f5915764af9d8332832f7010ac513b64fa"
+  }
+}
