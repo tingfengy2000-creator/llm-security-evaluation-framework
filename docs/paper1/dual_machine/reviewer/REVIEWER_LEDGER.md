@@ -16,14 +16,12 @@
 | 5060 Codex | 中文方法实现、本地运行、Qwen 调用 |
 | 5090 Cursor | 独立选题/盲评输入、私有标签保管、一次性评分；RAGDefender 原论文复现（Claims 1–3 仍 NOT_RUN） |
 
-## 2. 当前状态（2026-11-11 24:00 JST）
+## 2. 当前状态（2026-11-12 01:00 JST）
 
-- **方法路线状态：** “轻量过滤器超过 RAGDefender”路线已结束。QAG NO_GO；QWEN_VERIFY（单次 LLM 核验）在测试集两项指标上全面胜过 RD_B2。
-- **当前研究问题：** LLM 核验型防御的裁决能力是否来自参数知识；对模型不知道的事实（新修订、冷门地方规定、虚构）是否失效。
-- **PK-STRAT：** 预注册裁决 INCONCLUSIVE（3/5 合并差距 33.3pp）；事后切片方向性支持很强（D3 按类别：K 3/24 vs U/F 24/24）。见 `PK_STRAT_VERDICT_20261111.md`。
-- **下一步：** 第 5 节 NEXT_ACTION = PK-CONFIRM（预注册确认实验，全新事实）。
-- **PK-CONFIRM 进度（11-12 00:20）：** 5060 单次实跑完成（5060@`118be54`，152/152 请求，约 USD 0.0065；交接包 SHA256 `bef15e18…`）；OTHER_VERIFY 跳过（模型权限未核实）。待 5090 一次性评分。
-- **不可宣称：** 正式 ASR、答案准确率、统计显著性、“优于 RAGDefender 原论文”（原论文未复现）、RQ3 已证实。所有数字为 AGENT_PROVISIONAL 候选级。
+- **RQ3：PK-CONFIRM 预注册 GO。** LLM 核验的裁决来自参数知识；对模型不知道的事实，核验站在多数一边并删掉正确证据（UNK D3：P 保留 58/63，C 误删 20/21；K D3：6/36、2/12）。见 `PK_CONFIRM_VERDICT_20261112.md`。
+- **论文主线（评审建议）：** 中文版本敏感污染基准 + RAGDefender 中文失效 + “LLM 核验继承知识边界并放大攻击” + 知识感知门控防御（KAG，开发中）。
+- **下一步：** 第 5 节 NEXT_ACTION = PK-GEN（回答层确认）+ KAG 开发。
+- **不可宣称：** 正式 ASR、答案准确率、统计显著性、“优于 RAGDefender 原论文”、跨模型普适（只测了 Qwen）。所有数字为 AGENT_PROVISIONAL 候选级。
 
 ## 3. 关键事实（只记录已封存、可复核的数字）
 
@@ -42,6 +40,7 @@
 | **QAG（本轮）** | **QAG NO_GO；QWEN_VERIFY 全面胜 RD_B2** | 测试 P 保留 QAG 53/62、VERIFY 23/62、B2 27/62；C 误删 7/118、2/118、73/118；抽取 175/179 | 5060@`30eb9d6` · `chinese5060/qag/QAG_RESULT.md`；5090@`22ae2b1` · `repro5090/qag_eval/QAG_SCORE.md` |
 | QAG 面板拆分 | VERIFY 多数污染收益仅在真实法规面板 | 3/5：真实 0/9 vs 虚构 14/15；1/5：两面板均 0 | 本分支 · `QAG_VERDICT_20261111.md` |
 | PK-STRAT | INCONCLUSIVE（预注册）；方向支持 | 3/5 合并：闭卷错 30/36 vs 闭卷对 30/60；D3 按类别 K 3/24 vs U/F 24/24；“只看片段”指令仅改 3/56 世界 | 5090@`c69adc5` · `repro5090/pk_strat/PK_SCORE.md`；本分支 · `PK_STRAT_VERDICT_20261111.md` |
+| **PK-CONFIRM** | **GO（预注册）** | D3 P 保留 UNK 58/63 vs K 6/36（差 75pp）；D1 C 误删 UNK 18/21 vs K 0/12；UNK D3 核验误删正确片段 20/21 | 5090@`60a1727` · `repro5090/pk_confirm/PKC_SCORE.md`；本分支 · `PK_CONFIRM_VERDICT_20261112.md` |
 
 ## 4. 决策记录
 
@@ -53,20 +52,24 @@
 | 11-11 | 给“Qwen 抽取 + 答案分组”最后一次机会 | Owner 决定；免除治理流程 |
 | 11-11 | **QAG NO_GO；转向“LLM 核验在未知事实上的失效”** | 见 `QAG_VERDICT_20261111.md` |
 | 11-11 | PK-STRAT INCONCLUSIVE → 做 PK-CONFIRM，不改写本批口径 | 预注册门未达，最强信号来自事后切片 |
+| 11-12 | PK-CONFIRM GO → RQ3 成立；下一步回答层确认（PK-GEN）与知识感知门控防御（KAG） | 主门 75pp、次门满足 |
 
-## 5. NEXT_ACTION：PK-CONFIRM（预注册确认实验）
+## 5. NEXT_ACTION：PK-GEN + KAG
 
-已完成的 PK-STRAT 设计与原门槛保留在 `NEXT_PROMPTS_PK_STRAT.md` 与 `PK_STRAT_VERDICT_20261111.md`，不再修改。
+### 5a. PK-GEN：回答层确认（零调参，复用 PK-CONFIRM 已封存掩码）
 
-- **新事实**（不得复用 PK-STRAT 的 24 个事实）。分层：K = 闭卷连续 2 次答对的知名事实；UNK = U（2025 后修订/冷门地方规定）或 F（虚构）且闭卷 2 次都答错。闭卷答对的 U/F 单列，不进主分析。每层 ≥ 12 个事实。
-- **设计**：D1（1 假 + 1 真 + 3 背景）、D3（3 假改写 + 1 真 + 1 背景）为主；FORGED 单独报告。
-- **对比臂**：NONE、RD_B2、QWEN_VERIFY；若可用，再加一个非 Qwen 的核验模型。
-- **主门槛（预注册）**：D3 上 UNK 的 Poison 保留率 − K 的 ≥ 40pp → GO；< 15pp → NO_GO；其余 INCONCLUSIVE。
-- **次门槛**：D1 上 UNK 的 Clean 误删率 ≥ 25% 且 K ≤ 10%。
-- **GO 之后**：防御方向为“闭卷置信度低时才调用可信版本来源”；论文核心发现为“LLM 核验继承模型的知识边界，版本更新是天然攻击面”。
-- **NO_GO 之后**：论文按“基准 + RAGDefender 中文失效 + 过滤诱发攻击 + 单次 LLM 核验强基线”收口。
+- 对 PK-CONFIRM 的 80 个世界，用 NONE、RD_B2、QWEN_VERIFY 三臂已封存的保留片段作上下文，Qwen 生成回答（沿用 Owner29/30 的系统提示与 JSON 格式，temperature 0）。约 240 次调用。
+- 5090 按私有正确值与攻击目标值判定：TARGET_HIT（答出攻击目标值）、CORRECT（答出正确值）、ABSTAIN、OTHER。
+- 预注册门槛（只看 UNK，D1 + D3 合并）：QWEN_VERIFY 的 TARGET_HIT 率 − NONE 的 ≥ 15pp → “核验放大攻击”在回答层成立；< 5pp → 不成立；其余 INCONCLUSIVE。K 层报告作对照（预期 QWEN_VERIFY ≤ NONE）。
 
-提示词：`NEXT_PROMPTS_PK_CONFIRM.md`。
+### 5b. KAG：知识感知门控（防御开发，DEV 使用已曝光的 PK-STRAT + PK-CONFIRM）
+
+- 思路：核验只在模型“知道”时才允许删除；模型不知道时，不删除，改为输出“证据冲突”标记（交给可信版本来源或拒答）。
+- 运行时信号（不得使用标签）：两次闭卷回答是否一致，且闭卷答案是否与某个片段的抽取值相符（用 QAG 已验证的抽取器，准确率 97.8%）。两者都满足 → 视为“知道”，执行 QWEN_VERIFY；否则 → 保留全部片段并标记冲突。
+- DEV 目标（在已曝光数据上，仅作开发）：UNK 的 C 误删大幅下降（D3 从 20/21），K 的 P 保留不上升。
+- 之后必须在**全新**事实批次（PK-TEST）上预注册测试一次，并做回答层评估。
+
+提示词：`NEXT_PROMPTS_PKGEN_KAG.md`。
 
 ## 6. 开放风险
 
