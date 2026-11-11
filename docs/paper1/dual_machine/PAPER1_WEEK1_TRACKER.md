@@ -1,5 +1,12 @@
 # Paper 1｜Week 1 双机 Tracker
 
+## 2026-11-11｜Owner33 EVAL NO_GO 后请求外部方法评审（评审未返回）
+
+状态 `EXTERNAL_REVIEW_PACKET_READY / REVIEWER_RESPONSE_PENDING / OWNER33_SCIENCE_STOPPED / HUMAN_GOLD_0`。用户询问是否还能快速找到可行的新算法，并要求把结果交给此前的独立技术评审。已整理面向网络安全/RAG的严厉评审包，列W1–W7：通用查询识别0/32、来源0/32、DEV补检混杂、EVAL O=8/8漏保护、26条公开来源快照含6个QUALIFIED_FACT_INPUT及短事实与选择标签（未来可能泄漏）、旧Owner30无防御数值ASR基线0/22、2026既有方法新颖性冲突。**没有直接评审传输渠道，也没有收到独立评审回复**；不可把助手自己的预审视为外审。只建议一个小规模工程覆盖探针：旧Owner33已曝光32世界可作为DEV静态/工程验证，不可再叫holdout；无模型/科学新试次授权。覆盖门先于任何新EVAL，是否继续由外部评审意见与Owner决定。
+
+[评审包](chinese5060/OWNER33_TO_EXTERNAL_REVIEWERS_CRITICAL_REVIEW_PACKET_20261111.md) · [可转发评审指令](chinese5060/W1_OWNER33_EXTERNAL_REVIEWER_PASTE_PROMPT_20261111.md)
+
+
 ## 2026-11-11｜Owner33 V-CARE独立EVAL完成：METHOD_EVAL_NO_GO（跨领域查询识别0/32）
 
 最新5090远端 `d7d28cc7cab25b1ade04fcb8b0678bd369c3b558` 已完成一次独立评分，5060预测 `108b35c9239ad113c50f7d84daf9b84f361b37d6`；因此旧5060报告中的评分待完成已过期。32新世界共TopK160，召回P34/C59/H1/O8/B58；B2与V-CARE均P留11/34、Clean误删35/59、H误删0/1、O误删8/8、B删4/58，V-CARE掩码改变0/32，外证命中0/32，逻辑补检32次；正式ASR/Accuracy NOT_MEASURED，HumanGold0。DEV旧事实族曾P由20/45降至7/45、Clean误删40/63降至10/63，但同预算B2_ALWAYS_VERIFY的P也为7/45（Clean40/63），所以独特旧DEV收益主要为恢复Clean。冻结源码intent()仅支持节假日、旅馆卫生许可、客车年龄三个硬编码谓词，不覆盖5090新增四事实族，故识别0/32；这是跨域泛化/接口机制失败，并非独立补证在全领域不可能。Owner33封存且科学STOP，不重用本次见过评分的EVAL作新blind，也不为修parser自行启动新科学试次。建议先只读静态根因审计；要再试通用解析需新的Owner有界授权及新独立holdout。
