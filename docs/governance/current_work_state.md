@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-11-11 Owner32 source gate is blocked before any science trial
+
+No new PODR integer. Authority remains `DESIGN_DRAFT / OWNER_APPROVAL_PENDING`. Branch `research/paper1-ragdefender-repro-5090`. Parent `125eabccb2d2582e7102c64eb3a0f9a2f66874a4`. Status `SOURCE_GATE_NO_GO / SOURCE_CURATION_BLOCKED / SCIENCE_NOT_RUN / HUMAN_GOLD=0`.
+The sealed public register has 10 version records and 0 independently usable evidence rows. No page was downloaded, Q-CER was not modified, and no answer card was created. DEV and EVAL stay closed until an owner approval and a frozen document-byte index exist. Claim 1, 2 and 3 remain NOT_RUN. `AUTO_CONTINUE=NO`.
+[Audit](../paper1/dual_machine/repro5090/owner32_precheck/OWNER32_SOURCE_AVAILABILITY_AUDIT.md).
+
 ## Current — 2026-11-11 Owner31 fictional blind set is sealed, scoring waits
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER31-QCER-LASTCHANCE`. Branch `research/paper1-ragdefender-repro-5090`. Parent `2c4f40d2df37b633f8a17c8b062826bbeabdb404`. Status `BLIND_INPUT_SEALED / PREDICTION_BLOCKED_UNTIL_5060_METHOD_PARAM_SEAL / HUMAN_GOLD=0`.

@@ -1,5 +1,13 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-122 — Owner32 source availability precheck, gate closed
+
+2026-11-11 UTC+8; no new PODR; authority `DESIGN_DRAFT / OWNER_APPROVAL_PENDING`; parent `125eabccb2d2582e7102c64eb3a0f9a2f66874a4`.
+Read-only check of 10 existing version records. Usable independent evidence 0/10. No science trial. Human Gold 0. No answer card.
+Report SHA256 `02e64dbb0fe7c29aff929d0f538611616f1701270ec354f9f7a09670fb310178`. Manifest SHA256 `5f731445cca00cc827c9b442556e02490e850e9f5d7b07777b2a84f8f7f3f628`.
+[Audit](../paper1/dual_machine/repro5090/owner32_precheck/OWNER32_SOURCE_AVAILABILITY_AUDIT.md).
+L0 Oracle evidence below is unchanged. No D2/D3 read.
+
 ## OR-121 — Owner31 fictional blind input sealed, scoring not started
 
 2026-11-11 UTC+8; no new PODR; authority `W1-OD-20261111-PAPER1-OWNER31-QCER-LASTCHANCE`; parent `2c4f40d2df37b633f8a17c8b062826bbeabdb404`.

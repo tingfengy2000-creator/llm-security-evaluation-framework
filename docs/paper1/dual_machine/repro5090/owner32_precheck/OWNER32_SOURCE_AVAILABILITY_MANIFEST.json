@@ -1,0 +1,224 @@
+{
+  "schema": "OWNER32_SOURCE_AVAILABILITY_MANIFEST_V1",
+  "status": "SOURCE_GATE_NO_GO / SOURCE_CURATION_BLOCKED / SCIENCE_NOT_RUN / HUMAN_GOLD=0",
+  "authority": "DESIGN_DRAFT / OWNER_APPROVAL_PENDING",
+  "human_gold": 0,
+  "science_trial": "NOT_RUN",
+  "qcer_modified": false,
+  "network_fetches": 0,
+  "private_labels_opened": false,
+  "answer_cards_created": false,
+  "register_commit": "2f8c4c2ebe79d3711cb107519869e7fbf8f1f1b0",
+  "register_path": "docs/paper1/dual_machine/chinese5060/PUBLIC_VERSION_SOURCE_REGISTER_DRAFT.json",
+  "register_sha256": "63253845e0691aa50aacdbae63bd666376c0e6c5f34cb830befa7aa25bd93778",
+  "records": 10,
+  "usable": 0,
+  "gate": "SOURCE_GATE_NO_GO",
+  "rows": [
+    {
+      "record_id": "HY-1987",
+      "lineage_id": "PUBLIC_HYGIENE",
+      "url": "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=784",
+      "effective_from": "1987-04-01",
+      "superseded_on": "2016-02-06",
+      "metadata_sha256": "8362b3febd7a40ba78e6de92c67962cf4702fe8cdcc3103b14ad1763af986f74",
+      "sealed_record_sha256": "d99a79b0389bbd826cf8ac11365572d8d676601bec37d63c5e3f025626de163a",
+      "document_sha256": null,
+      "tls_status": "NOT_ATTEMPTED",
+      "usable": false,
+      "reasons": [
+        "RIGHTS_NOT_CLEARED",
+        "OUTBOUND_NOT_AUTHORIZED",
+        "INDEPENDENT_RECEIPT_NOT_FROZEN",
+        "NO_DOCUMENT_BYTES_HASH",
+        "NO_TLS_RECEIPT",
+        "ACCESS_NOT_INDEPENDENTLY_READ"
+      ]
+    },
+    {
+      "record_id": "HY-2016",
+      "lineage_id": "PUBLIC_HYGIENE",
+      "url": "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=785",
+      "effective_from": "2016-02-06",
+      "superseded_on": "2019-04-23",
+      "metadata_sha256": "9a93fa013fe1e047c9da1833287a779de4292c8b29dadc6f53cae5958e81b378",
+      "sealed_record_sha256": "2c5717a29ce2334e7e33fa466eca9314312f2e0db06e800b0399ed4af67604fb",
+      "document_sha256": null,
+      "tls_status": "NOT_ATTEMPTED",
+      "usable": false,
+      "reasons": [
+        "RIGHTS_NOT_CLEARED",
+        "OUTBOUND_NOT_AUTHORIZED",
+        "INDEPENDENT_RECEIPT_NOT_FROZEN",
+        "NO_DOCUMENT_BYTES_HASH",
+        "NO_TLS_RECEIPT",
+        "ACCESS_NOT_INDEPENDENTLY_READ"
+      ]
+    },
+    {
+      "record_id": "HY-2019",
+      "lineage_id": "PUBLIC_HYGIENE",
+      "url": "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=120",
+      "effective_from": "2019-04-23",
+      "superseded_on": "2025-01-20",
+      "metadata_sha256": "dadfb1888aafb55e9c5c445fb3a0a5463e96505813b8797a8e66cc23ba8b91cc",
+      "sealed_record_sha256": "f95c8762beccecb3952e7d0c16d9e95168748b9eae727278d7e4c80cf8e06796",
+      "document_sha256": null,
+      "tls_status": "NOT_ATTEMPTED",
+      "usable": false,
+      "reasons": [
+        "RIGHTS_NOT_CLEARED",
+        "OUTBOUND_NOT_AUTHORIZED",
+        "INDEPENDENT_RECEIPT_NOT_FROZEN",
+        "NO_DOCUMENT_BYTES_HASH",
+        "NO_TLS_RECEIPT",
+        "ACCESS_NOT_INDEPENDENTLY_READ"
+      ]
+    },
+    {
+      "record_id": "HY-2024",
+      "lineage_id": "PUBLIC_HYGIENE",
+      "url": "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=1755",
+      "effective_from": "2025-01-20",
+      "superseded_on": null,
+      "metadata_sha256": "b3ba5980a682cf361c701a4ac86846c9584f37429bf6f24d0cf0ee21562a2ee8",
+      "sealed_record_sha256": "b90483d992407924194e34b6225e4d293bbbbdbc1b7f03bcb4f8de5639883c55",
+      "document_sha256": null,
+      "tls_status": "NOT_ATTEMPTED",
+      "usable": false,
+      "reasons": [
+        "RIGHTS_NOT_CLEARED",
+        "OUTBOUND_NOT_AUTHORIZED",
+        "INDEPENDENT_RECEIPT_NOT_FROZEN",
+        "NO_DOCUMENT_BYTES_HASH",
+        "NO_TLS_RECEIPT",
+        "ACCESS_NOT_INDEPENDENTLY_READ"
+      ]
+    },
+    {
+      "record_id": "DRUG-2024",
+      "lineage_id": "BASIC_DRUG_CATALOG",
+      "url": "https://www.nhsa.gov.cn/art/2024/11/28/art_104_14886.html",
+      "effective_from": "2025-01-01",
+      "superseded_on": "2026-01-01",
+      "metadata_sha256": "7d4b859c381da59639fadb439eeaab868e098c5ea9da4c38c89b72b3ceb3c329",
+      "sealed_record_sha256": "b62441056db938494133e956bcafc0ad8e26a043a4f14ead08d7191bb2b9da43",
+      "document_sha256": null,
+      "tls_status": "NOT_ATTEMPTED",
+      "usable": false,
+      "reasons": [
+        "RIGHTS_NOT_CLEARED",
+        "OUTBOUND_NOT_AUTHORIZED",
+        "INDEPENDENT_RECEIPT_NOT_FROZEN",
+        "NO_DOCUMENT_BYTES_HASH",
+        "NO_TLS_RECEIPT",
+        "ACCESS_NOT_INDEPENDENTLY_READ"
+      ]
+    },
+    {
+      "record_id": "DRUG-2025",
+      "lineage_id": "BASIC_DRUG_CATALOG",
+      "url": "https://www.nhsa.gov.cn/art/2025/12/7/art_104_18970.html",
+      "effective_from": "2026-01-01",
+      "superseded_on": null,
+      "metadata_sha256": "76c70ab95893a344f957955dfd0e34224ecdfd5e840ce61395fcb3e643bda64b",
+      "sealed_record_sha256": "d199d1a1d5799fc0217df606086aea58457ec18eb8bdd0d937136ebc7fd3d835",
+      "document_sha256": null,
+      "tls_status": "NOT_ATTEMPTED",
+      "usable": false,
+      "reasons": [
+        "RIGHTS_NOT_CLEARED",
+        "OUTBOUND_NOT_AUTHORIZED",
+        "INDEPENDENT_RECEIPT_NOT_FROZEN",
+        "NO_DOCUMENT_BYTES_HASH",
+        "NO_TLS_RECEIPT",
+        "ACCESS_NOT_INDEPENDENTLY_READ"
+      ]
+    },
+    {
+      "record_id": "HOL-2013",
+      "lineage_id": "STATUTORY_HOLIDAYS",
+      "url": "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=6",
+      "effective_from": "2014-01-01",
+      "superseded_on": "2025-01-01",
+      "metadata_sha256": "aaf1abce2547cd6fffa5eb47cd76c0d1c07d999bc297f32572c25c264d37ad39",
+      "sealed_record_sha256": "4725a864faf4249cbef34b43819b587270f7074a4756bc7aa0e05dfc4ff0319f",
+      "document_sha256": null,
+      "tls_status": "NOT_ATTEMPTED",
+      "usable": false,
+      "reasons": [
+        "RIGHTS_NOT_CLEARED",
+        "OUTBOUND_NOT_AUTHORIZED",
+        "INDEPENDENT_RECEIPT_NOT_FROZEN",
+        "NO_DOCUMENT_BYTES_HASH",
+        "NO_TLS_RECEIPT",
+        "ACCESS_NOT_INDEPENDENTLY_READ"
+      ]
+    },
+    {
+      "record_id": "HOL-2024",
+      "lineage_id": "STATUTORY_HOLIDAYS",
+      "url": "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=1737",
+      "effective_from": "2025-01-01",
+      "superseded_on": null,
+      "metadata_sha256": "b846aff5b4e43c317abd25a5c26f126c21730a9b488eba4c9701a9cc5c4020a7",
+      "sealed_record_sha256": "f67f7c672c22dd24285ed19c9c198a726bc6587d0e5cd657ab3fd2a25e7a2df3",
+      "document_sha256": null,
+      "tls_status": "NOT_ATTEMPTED",
+      "usable": false,
+      "reasons": [
+        "RIGHTS_NOT_CLEARED",
+        "OUTBOUND_NOT_AUTHORIZED",
+        "INDEPENDENT_RECEIPT_NOT_FROZEN",
+        "NO_DOCUMENT_BYTES_HASH",
+        "NO_TLS_RECEIPT",
+        "ACCESS_NOT_INDEPENDENTLY_READ"
+      ]
+    },
+    {
+      "record_id": "DRV-162",
+      "lineage_id": "DRIVING_LICENSE",
+      "url": "https://gat.hubei.gov.cn/bmdt/ztzl/2021n/jgywzl/zcfg/202201/t20220111_3959754.shtml",
+      "effective_from": "2022-04-01",
+      "superseded_on": "2025-01-01",
+      "metadata_sha256": "9bea6a7c6f7df35238a33d96d7b3a838454d621dc9150deb3eb9c03731316f48",
+      "sealed_record_sha256": "affb2a45d30ecd45bd2a0d812eb3e8a966c56de6ccc671a197a80192848d25e7",
+      "document_sha256": null,
+      "tls_status": "NOT_ATTEMPTED",
+      "usable": false,
+      "reasons": [
+        "RIGHTS_NOT_CLEARED",
+        "OUTBOUND_NOT_AUTHORIZED",
+        "INDEPENDENT_RECEIPT_NOT_FROZEN",
+        "NO_DOCUMENT_BYTES_HASH",
+        "NO_TLS_RECEIPT",
+        "ACCESS_NOT_INDEPENDENTLY_READ"
+      ]
+    },
+    {
+      "record_id": "DRV-172",
+      "lineage_id": "DRIVING_LICENSE",
+      "url": "https://jtgl.beijing.gov.cn/jgj/jgxx/flfg/gabgz/543498902/index.html",
+      "effective_from": "2025-01-01",
+      "superseded_on": null,
+      "metadata_sha256": "f863d4a0560ba8355d2a51995fc900562fae15e15be56473afe23d33b6941a2c",
+      "sealed_record_sha256": "14f1a2be419238fd53fa58a9e7e913a526752acdc34ff7222dd8d81d589e1e4a",
+      "document_sha256": null,
+      "tls_status": "NOT_ATTEMPTED",
+      "usable": false,
+      "reasons": [
+        "RIGHTS_NOT_CLEARED",
+        "OUTBOUND_NOT_AUTHORIZED",
+        "INDEPENDENT_RECEIPT_NOT_FROZEN",
+        "NO_DOCUMENT_BYTES_HASH",
+        "NO_TLS_RECEIPT",
+        "ACCESS_NOT_INDEPENDENTLY_READ"
+      ]
+    }
+  ],
+  "report_sha256": "02e64dbb0fe7c29aff929d0f538611616f1701270ec354f9f7a09670fb310178",
+  "auto_continue": "NO",
+  "claim1": "NOT_RUN",
+  "claim2": "NOT_RUN",
+  "claim3": "NOT_RUN"
+}

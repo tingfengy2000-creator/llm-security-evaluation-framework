@@ -1,5 +1,14 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — Owner32 source availability blocked, 2026-11-11 UTC+8
+
+No new PODR integer. Authority `DESIGN_DRAFT / OWNER_APPROVAL_PENDING`. Branch `research/paper1-ragdefender-repro-5090`. Parent `125eabccb2d2582e7102c64eb3a0f9a2f66874a4`. Register commit `2f8c4c2ebe79d3711cb107519869e7fbf8f1f1b0`.
+Status `SOURCE_GATE_NO_GO / SOURCE_CURATION_BLOCKED / SCIENCE_NOT_RUN / HUMAN_GOLD=0`. Records 10. Usable 0. Network fetches 0. Private labels opened false. Answer cards created false. Q-CER modified false. Science trial `NOT_RUN`.
+Register SHA256 `63253845e0691aa50aacdbae63bd666376c0e6c5f34cb830befa7aa25bd93778`. Report SHA256 `02e64dbb0fe7c29aff929d0f538611616f1701270ec354f9f7a09670fb310178`. Manifest SHA256 `5f731445cca00cc827c9b442556e02490e850e9f5d7b07777b2a84f8f7f3f628`. Checker SHA256 `694c5b16b6ef00ed8ee695247348d081744c18e07cd0c52cb2c1ad8a321e6179`.
+Blockers on every row: `RIGHTS_NOT_CLEARED`, `OUTBOUND_NOT_AUTHORIZED`, `INDEPENDENT_RECEIPT_NOT_FROZEN`, `NO_DOCUMENT_BYTES_HASH`, `NO_TLS_RECEIPT`, `ACCESS_NOT_INDEPENDENTLY_READ`. Owner27 private prediction archive was not on this machine and was not replaced by 5090 labels. Owner31 fictional holdout remains sealed. Claim1/2/3 `NOT_RUN`. D2/D3/HOLD8 not touched. `AUTO_CONTINUE=NO`.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master true; owner_decision true; stage_process evaluated and not updated; lessons evaluated and not updated; research_authority evaluated and not updated; README evaluated and not updated.
+[Audit](../../../paper1/dual_machine/repro5090/owner32_precheck/OWNER32_SOURCE_AVAILABILITY_AUDIT.md).
+
 ## Current — Owner31 fictional blind input sealed, 2026-11-11 UTC+8
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER31-QCER-LASTCHANCE`. Branch `research/paper1-ragdefender-repro-5090`. Parent `2c4f40d2df37b633f8a17c8b062826bbeabdb404`. Prompt commit `4b934ba8a8dbea50247d1e760bcc9ccaebadf184`. Prompt blob `2f0c781ccfbdedb2598d54fac74c300d6ebddaa6`. Prompt SHA256 `c4ad6a6174086efea7878f8b70994ec128d596ad411dc6a299c2d2bf2ec8feef`. Authorization blob `6c66f38fcc1b61bab6ad96432973643b41866ff6`. Authorization SHA256 `58ffb6386e9e4b79cb870d61b6aecb075e29d6f02f73d13fb8ec0c23744796ed`. 5060 was not merged.

@@ -1,5 +1,10 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## DESIGN_DRAFT / OWNER_APPROVAL_PENDING — 5090 只做 Owner32 来源预检，不新编 PODR（2026-11-11）
+
+没有新的 PODR 编号，也没有把 Owner32 写成已批准实验。本收执只记录 10 条现有版本来源的只读可用性结果：可用独立证据 0/10。权利未清、出站未授权、没有文档字节哈希和独立读取收据。因此不制作正确答案卡，不启动 DEV 或 EVAL。Human Gold 仍为 0。Claim1–3 仍 NOT_RUN。`AUTO_CONTINUE=NO`。
+[来源预检](../paper1/dual_machine/repro5090/owner32_precheck/OWNER32_SOURCE_AVAILABILITY_AUDIT.md)。
+
 ## W1-OD-20261111-PAPER1-OWNER31-QCER-LASTCHANCE — 5090 封存虚构盲测集，不新编 PODR（2026-11-11）
 
 没有新的 PODR 编号。本收执只记录授权范围内的虚构盲测集已经封存：4 个事实单位、32 个主世界、每世界 11 个片段。角色盲包可以公开，暂定标签留在 5090 本机。Human Gold 仍为 0。5060 方法源码和参数冻结前，一次性盲预测不放开，5090 不评分。Claim1–3 仍 NOT_RUN。`AUTO_CONTINUE=NO`。
