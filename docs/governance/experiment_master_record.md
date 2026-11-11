@@ -1821,3 +1821,8 @@ git log -15 --oneline
 ## 2026-11-11｜Owner29 剩余 95 格真实生成完成
 
 `95_REMAINDER_VERIFIED / 95_SUCCESS_OF_96 / 31_COMPLETE_TRIPLES / DESCRIPTIVE_ONLY / STOP`。Owner 批准仅续跑 95 格，沿用 USD 5 与角色盲外传范围，旧首格未重发。续跑 95 格均成功，总计发送 96 格、失败 1 格、未运行 0 格。仅描述回答与拒答，Human Gold 为 0，正式 ASR 和 Accuracy 未测。[真实续跑结果与证据](../paper1/dual_machine/chinese5060/OWNER29_RAPID_GENERATION_REMAINDER_RESULT.md)
+
+
+## 2026-11-11｜Owner30 G0 封存回包核验完成
+
+`G0_VERIFIED / G1_AWAITING_REFERENCE / RULE_SCORED_0 / JUDGE_SENT_0 / HUMAN_GOLD_0`。已在读取真实回答前冻结规则，核验 95 份回包、31 个完整三臂世界和首格缺失。5090 两份公开参考文件尚未到达。新增生成、评分调用及费用均为 0。 [5060 G0 核验与证据](../paper1/dual_machine/chinese5060/owner30_eval/OWNER30_ANSWER_EXPORT_REPORT.md)
