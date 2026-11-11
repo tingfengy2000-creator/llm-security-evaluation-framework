@@ -1,5 +1,10 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL — 5090 补充诊断未收到六条原值，不新编 PODR（2026-11-11）
+
+没有新的 PODR 编号。本收执只记录后验补充：原 0–6/22 区间保留。5090 没有收到可核验世界编号、原回答 SHA 和传输 SHA 的 6 条数值，目标匹配保持未知。两个纯范围世界保持未知。已确认回答错误为 0，已确认合理拒答为 0。这不是 Human Gold，也不改 Owner28 评分或攻击目标。Claim1–3 仍 NOT_RUN。`AUTO_CONTINUE=NO`。
+[补充诊断](../paper1/dual_machine/repro5090/owner30_eval/OWNER30_FAST_TARGET_BOUNDS_SUPPLEMENT_V2.md)。
+
 ## W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL — 5090 短值目标区间收执，不新编 PODR（2026-11-11）
 
 没有新的 PODR 编号。本收执记录已封存的 95 条结构化回答完成了一次私有攻击目标核对。62 条公开短值的参考匹配是白名单代理。6 条隐藏值保持未知，只进入较严臂的命中上界 [0, 6]/22。不过滤和 B2 的短值命中区间是 [0, 0]/22。这不是正式 ASR，也不是准确率，更不是 Human Gold。Owner28 评分未改。Claim1–3 仍 NOT_RUN。`AUTO_CONTINUE=NO`。

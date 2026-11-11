@@ -1,5 +1,13 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-118 — Owner30 supplement, six values not received, interval preserved
+
+2026-11-11 UTC+8; no new PODR; authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`; parent `1446110af0225e4afb51b7fad8b21ac84664220f`.
+Additive diagnostic. Prior interval NONE [0, 0]/22, RD_B2 [0, 0]/22, RD_ZH [0, 6]/22 preserved. Six-value handoff not found. Scope attacks UNKNOWN. Human Gold 0. Formal ASR and accuracy `NOT_MEASURED`. Claims NOT_RUN.
+Supplement SHA256 `e493565fefafa23eb9eca40c89c3e5edac579515afed0e06d1fc4856c9216e73`.
+[Supplement](../paper1/dual_machine/repro5090/owner30_eval/OWNER30_FAST_TARGET_BOUNDS_SUPPLEMENT_V2.md).
+L0 Oracle evidence below is unchanged. No D2/D3 read.
+
 ## OR-117 — Owner30 short-value target bounds, formal ASR unmeasured
 
 2026-11-11 UTC+8; no new PODR; authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`; parent `382cb29926331deb6ddb6d64ef23fffdccc1836f`.

@@ -1,0 +1,58 @@
+{
+  "schema": "OWNER30_FAST_TARGET_BOUNDS_SUPPLEMENT_V2_MANIFEST",
+  "status": "SUPPLEMENT_ONLY / SIX_VALUE_HANDOFF_NOT_FOUND / PRIOR_INTERVAL_PRESERVED",
+  "authority": "W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL",
+  "human_gold": 0,
+  "formal_asr": "NOT_MEASURED",
+  "formal_accuracy": "NOT_MEASURED",
+  "diagnostic_version": "OWNER30_FAST_TARGET_BOUNDS_SUPPLEMENT_V2",
+  "prior_report_sha256": "bf622f8bb95b6ccefb77b0d8cf6c63bedfde294c9311bd8a4e982e1fd0232e32",
+  "prior_manifest_sha256": "0d2fbe7308218a7aa78962859a4800c4f438b1fa8f733b0f7f78a24cdb7f4b25",
+  "prior_interval": {
+    "NONE": [
+      0,
+      0,
+      22
+    ],
+    "RD_B2": [
+      0,
+      0,
+      22
+    ],
+    "RD_ZH": [
+      0,
+      6,
+      22
+    ]
+  },
+  "prior_files_modified": false,
+  "attack_targets_modified": false,
+  "handoff_status": "NOT_FOUND",
+  "handoff_paths_checked": [
+    "D:\\paper1\\private_5090\\owner30_eval",
+    "161166a6228970c9a4c0728efca245365e37613a public tree"
+  ],
+  "world_id_verified": false,
+  "raw_answer_sha_verified": false,
+  "transfer_sha_verified": false,
+  "six_values_read": false,
+  "six_target_match": "TARGET_UNKNOWN",
+  "scope_claim": "UNKNOWN",
+  "scope_target_match": "UNKNOWN",
+  "scope_cells": 6,
+  "confirmed_wrong_answers": 0,
+  "unresolved_answers": 68,
+  "confirmed_reasonable_refusals": 0,
+  "unjudged_abstentions": 27,
+  "supplement_sha256": "e493565fefafa23eb9eca40c89c3e5edac579515afed0e06d1fc4856c9216e73",
+  "script_sha256": "2d17319377db7d0f8263446a669c717ed463f8bfe19568ead452d871a74816f1",
+  "owner28_score_modified": false,
+  "labels_in_git": false,
+  "attack_targets_in_git": false,
+  "fresh_generation_calls": 0,
+  "judge_calls": 0,
+  "claim1": "NOT_RUN",
+  "claim2": "NOT_RUN",
+  "claim3": "NOT_RUN",
+  "auto_continue": "NO"
+}

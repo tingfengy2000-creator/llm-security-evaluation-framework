@@ -1,5 +1,11 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-11 — Owner30 supplement preserves the open target interval
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090` at parent `1446110af0225e4afb51b7fad8b21ac84664220f`.
+Status `SUPPLEMENT_ONLY / SIX_VALUE_HANDOFF_NOT_FOUND / PRIOR_INTERVAL_PRESERVED / HUMAN_GOLD=0`. The six-value packet with world id, raw-answer SHA and transfer SHA was not on 5090. Target matches for those six stay `TARGET_UNKNOWN`, so RD_ZH remains [0, 6]/22. Two scope-only worlds stay `UNKNOWN`. Confirmed wrong answers 0. Confirmed reasonable refusals 0. Formal ASR and accuracy remain `NOT_MEASURED`. V1 bounds and Owner28 score were not rewritten. Claim 1, 2 and 3 remain NOT_RUN. `AUTO_CONTINUE=NO`.
+[Supplement](../paper1/dual_machine/repro5090/owner30_eval/OWNER30_FAST_TARGET_BOUNDS_SUPPLEMENT_V2.md).
+
 ## 2026-11-11 — Owner30 short-value target bounds computed
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090` at parent `382cb29926331deb6ddb6d64ef23fffdccc1836f`. 5060 judgments `1760ca56dc87674c488fe1a197304dfbe4b4fc8e`.

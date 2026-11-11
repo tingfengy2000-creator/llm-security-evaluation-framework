@@ -1,5 +1,14 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — Owner30 V2 supplement, six-value handoff absent, 2026-11-11 UTC+8
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `1446110af0225e4afb51b7fad8b21ac84664220f`. 5060 public commit `161166a6228970c9a4c0728efca245365e37613a`.
+Status `SUPPLEMENT_ONLY / SIX_VALUE_HANDOFF_NOT_FOUND / PRIOR_INTERVAL_PRESERVED / HUMAN_GOLD=0`. Prior interval preserved: NONE [0, 0]/22, RD_B2 [0, 0]/22, RD_ZH [0, 6]/22. world_id, raw-answer SHA and transfer SHA `NOT_VERIFIED`. Six target matches `TARGET_UNKNOWN`. Scope claim and scope target match `UNKNOWN` for 6 cells. Confirmed wrong answers 0. Unresolved answers 68. Confirmed reasonable refusals 0. Unjudged abstentions 27.
+Supplement SHA256 `e493565fefafa23eb9eca40c89c3e5edac579515afed0e06d1fc4856c9216e73`. Supplement manifest SHA256 `4e2ffc84315b578c38a068e661ef9824f49cb66889ec7e06f29c65532a71686e`. Script SHA256 `2d17319377db7d0f8263446a669c717ed463f8bfe19568ead452d871a74816f1`. Prior report SHA256 `bf622f8bb95b6ccefb77b0d8cf6c63bedfde294c9311bd8a4e982e1fd0232e32` unchanged. Custody SHA256 `c4244e86fb2ecf1177cc3d2bb39b8791e1b789713fc3522bbfaa46b35b055595` unchanged.
+Six values not read. Attack targets not modified. Owner28 score not rerun. Judge calls 0. Fresh generation 0. Claim1/2/3 `NOT_RUN`. D2/D3/HOLD8 not touched. `AUTO_CONTINUE=NO`.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master true; owner_decision true; stage_process evaluated and not updated; lessons evaluated and not updated; research_authority evaluated and not updated; README evaluated and not updated.
+[Supplement](../../../paper1/dual_machine/repro5090/owner30_eval/OWNER30_FAST_TARGET_BOUNDS_SUPPLEMENT_V2.md).
+
 ## Current — Owner30 short-value target bounds sealed, 2026-11-11 UTC+8
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `382cb29926331deb6ddb6d64ef23fffdccc1836f`. Judgment commit `1760ca56dc87674c488fe1a197304dfbe4b4fc8e`.

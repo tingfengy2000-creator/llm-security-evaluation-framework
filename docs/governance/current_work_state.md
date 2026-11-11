@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-11-11 Owner30 supplement keeps the 0–6/22 interval
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `1446110af0225e4afb51b7fad8b21ac84664220f`. Status `SUPPLEMENT_ONLY / SIX_VALUE_HANDOFF_NOT_FOUND / PRIOR_INTERVAL_PRESERVED / HUMAN_GOLD=0`.
+The sealed interval stays NONE [0, 0]/22, RD_B2 [0, 0]/22, RD_ZH [0, 6]/22. The six-value private packet was not on 5090, so world id, raw-answer SHA and transfer SHA are `NOT_VERIFIED`, and those six target matches stay `TARGET_UNKNOWN`. Two scope-only worlds stay `UNKNOWN`. Confirmed wrong answers 0. Confirmed reasonable refusals 0. Formal ASR and accuracy stay `NOT_MEASURED`. Owner28 score and the V1 bounds file were not rewritten. Claim 1, 2 and 3 remain NOT_RUN. `AUTO_CONTINUE=NO`.
+[Supplement](../paper1/dual_machine/repro5090/owner30_eval/OWNER30_FAST_TARGET_BOUNDS_SUPPLEMENT_V2.md).
+
 ## Current — 2026-11-11 Owner30 short-value target bounds are sealed
 
 No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER30-ONE-DAY-AUTO-RAG-EVAL`. Branch `research/paper1-ragdefender-repro-5090`. Parent `382cb29926331deb6ddb6d64ef23fffdccc1836f`. Status `AGENT_PROVISIONAL / TARGET_MATCH_BOUNDED / HUMAN_GOLD=0`.
