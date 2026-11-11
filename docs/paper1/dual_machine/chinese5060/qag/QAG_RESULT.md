@@ -28,6 +28,6 @@
 | TEST 抽取 | 320 | 67,120／10,957 | 1.640／2.116 | 0.030589 |
 | TEST 核验 | 64 | 23,712／605 | 1.286／1.663 | 0.007211 |
 
-合计 576 个唯一请求，128,378 输入、16,822 输出，按回包用量估算 **USD 0.053677350**，预算 USD 3。实测单请求最大 418 输入、52 输出 Token，重试 0。模型为固定 Qwen 快照、temperature=0、非思考。[北京费率](https://www.alibabacloud.com/help/en/model-studio/model-pricing)
+合计 576 个唯一请求，127,378 输入、16,822 输出，按回包用量估算 **USD 0.053677350**，预算 USD 3。实测单请求最大 418 输入、52 输出 Token，重试 0。模型为固定 Qwen 快照、temperature=0、非思考。[北京费率](https://www.alibabacloud.com/help/en/model-studio/model-pricing)
 
 冻结方法 `6976beffe5c80adb158f483654de17f38e1436fa`，测试适配 `130cb7ef1bbd3252979e9c032bfa3eae30df5e4e`。提示词 SHA256 `91c199124d3a6fb9aaf740a396e595ed89ea170b0f4462b3cb5e83bd29d4dda2`。DEV 评分 SHA256 `0643adc61c905cb93b113796f1b3c3e6f0418ffaf03f4955931724ca1680202d`，测试排名绑定 SHA256 `0444b466dddeb5cb7190d2b7223257a855085a02d0cb96eea584965e17a7af1c`，测试预测 SHA256 `f36aa4b36aee26db0d372926c37c1b232748609ee63a1bcf03ab0fd18dc137fe`。私有评分包 `QAG_5090_SCORING_HANDOFF_PRIVATE.zip` SHA256 `f8618e2f6a916275c1a9d7b4a3e687ad59a2bc188c741faf65dc019f0957bfa1`，含逐槽抽取、排名映射和七臂掩码，待私下传给 5090。
