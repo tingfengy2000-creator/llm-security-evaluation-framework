@@ -1,5 +1,13 @@
 # LLMGuard 实验总记录、证据索引与项目交接入口
 
+## OR-113 — Owner28 independent curation sealed, no score
+
+2026-11-11 UTC+8; no new PODR; authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT`; 5060 source `5081860e0448b8d4692f4b38270642ae43d91d3f`; parent `dbd91f3667964baca69aeb82a6292c4fe193c965`.
+Provisional corpus only. Headline worlds 32. Mirrors 7. Retrieval and scoring NOT_RUN. Human Gold 0. Claims NOT_RUN. Metrics NOT_MEASURED, not 0.
+Role-free SHA256 `2aafd7d7bcd8e3860771063a31770e350532065abb251f38f99c7ac39ba50cb7`. Private custody SHA256 `c4244e86fb2ecf1177cc3d2bb39b8791e1b789713fc3522bbfaa46b35b055595`.
+[Report](../paper1/dual_machine/repro5090/owner28_eval/EVAL_CURATOR_SOURCE_REPORT.md).
+L0 Oracle evidence below is unchanged. No D2/D3 read.
+
 ## OR-112 — 5090 compat env conditionally accepted, claim gate prepared, no metrics
 
 2026-11-04 UTC+8; PODR-154/REL-2026-0125; supervision `W1-OD-20261104-5090-ENV-01` and `W1-OD-20261104-DUAL-GOV-02`.

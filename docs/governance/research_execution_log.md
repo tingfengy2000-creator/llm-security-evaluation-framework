@@ -1,5 +1,11 @@
 # LLMGuard Research Execution Log
 
+## 2026-11-11 — Owner28 independent source curation sealed, scoring not started
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT` read from 5060 `5081860e0448b8d4692f4b38270642ae43d91d3f`. Branch `research/paper1-ragdefender-repro-5090` at parent `dbd91f3667964baca69aeb82a6292c4fe193c965`.
+Status `CURATION_SEALED / SCORING_WAITING_FOR_5060_PREDICTION_SEAL`. Three unused official lineages and four qualified fact changes were sealed. Headline worlds 32. Time mirrors 7. Role-free SHA256 `2aafd7d7bcd8e3860771063a31770e350532065abb251f38f99c7ac39ba50cb7`. Private label SHA256 `c4244e86fb2ecf1177cc3d2bb39b8791e1b789713fc3522bbfaa46b35b055595` is outside Git. Human Gold 0. Claim 1, 2 and 3 remain NOT_RUN. ASR and accuracy remain NOT_MEASURED. No weight download and no paid API.
+[Report](../paper1/dual_machine/repro5090/owner28_eval/EVAL_CURATOR_SOURCE_REPORT.md).
+
 ## 2026-11-05 — non-Llama paper assets downloaded, claims not run
 
 No new PODR integer. Branch `research/paper1-ragdefender-repro-5090` at parent `eef08cdf08fee67169149b71d25fa9c4a14d9043`.

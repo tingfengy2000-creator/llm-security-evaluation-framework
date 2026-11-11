@@ -1,5 +1,11 @@
 # Current Work State
 
+## Current — 2026-11-11 Owner28 independent curation is sealed, scoring is not started
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT` was read from 5060 commit `5081860e0448b8d4692f4b38270642ae43d91d3f`. Branch remains `research/paper1-ragdefender-repro-5090`. Parent `dbd91f3667964baca69aeb82a6292c4fe193c965`.
+Status `CURATION_SEALED / SCORING_WAITING_FOR_5060_PREDICTION_SEAL`. Four qualified facts from three official lineages and two issuer classes are in a private custody file outside Git. The role-free package is the only prediction input. Human Gold is 0. Claim 1, 2 and 3 remain NOT_RUN. ASR and accuracy remain NOT_MEASURED. No weight download, no commercial API, no D2/D3/HOLD8 read. Scoring stays closed until a sealed 5060 prediction SHA exists.
+[Report](../paper1/dual_machine/repro5090/owner28_eval/EVAL_CURATOR_SOURCE_REPORT.md).
+
 ## Current — 2026-11-05 non-Llama paper assets are on D, claims still not run
 
 No new PODR integer. Vicuna 7B v1.3, Contriever, paraphrase-MiniLM-L6-v2, NQ, HotpotQA and MS MARCO are downloaded at the frozen revisions. Llama 2 7B chat was not downloaded. BEIR extraction used the 8x Content-Length cap and stayed under it. Claim 1, 2 and 3 remain NOT_RUN. ASR and accuracy remain NOT_MEASURED. No model load and no `trust_remote_code`. Stop here.

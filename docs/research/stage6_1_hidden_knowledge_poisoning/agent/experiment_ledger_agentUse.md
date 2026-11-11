@@ -1,5 +1,16 @@
 # Paper 1 Experiment Ledger — agentUse
 
+## Current — Owner28 curation sealed, scoring not started, 2026-11-11 UTC+8
+
+No new PODR integer. Authority `W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT` at 5060 `5081860e0448b8d4692f4b38270642ae43d91d3f`. Parent HEAD `dbd91f3667964baca69aeb82a6292c4fe193c965`. Branch `research/paper1-ragdefender-repro-5090`.
+Status `CURATION_SEALED / SCORING_WAITING_FOR_5060_PREDICTION_SEAL / AGENT_PROVISIONAL_EVAL / HUMAN_GOLD=0`.
+Qualified lineages 3. Qualified facts 4. Issuer classes `NPC_STANDING_COMMITTEE` and `STATE_COUNCIL`. Headline worlds 32. Time mirrors 7, excluded from the headline denominator. Passages per world 11. TopK retrieval `NOT_RUN`.
+Role-free SHA256 `2aafd7d7bcd8e3860771063a31770e350532065abb251f38f99c7ac39ba50cb7`. Private label custody SHA256 `c4244e86fb2ecf1177cc3d2bb39b8791e1b789713fc3522bbfaa46b35b055595`. Custody is outside Git. Prediction allowlist is the role-free file only.
+Process `PROCESS_SEPARATED_AGENT_PROVISIONAL`. Query brief SHA256 `78b888fbcc5192327e357efcc079d4fcee228acf3ff21b3689eb24ee6a6e753e`. Query SHA256 `322334e48f60572e99af2e78b811507c7e139546bb88877aa29d49938f43a56e`.
+Claim1/2/3 `NOT_RUN`. ASR and accuracy `NOT_MEASURED`. Weight downloads 0. Commercial API 0. D2/D3/HOLD8 not touched.
+Closeout: human_ledger true; agent_ledger true; current_work_state true; execution_log true; experiment_master true; owner_decision true; stage_process evaluated and not updated; lessons evaluated and not updated; research_authority evaluated and not updated; README evaluated and not updated.
+[Report](../../../paper1/dual_machine/repro5090/owner28_eval/EVAL_CURATOR_SOURCE_REPORT.md).
+
 ## Current — non-Llama paper assets downloaded, claims not run, 2026-11-05 UTC+8
 
 No new PODR integer. Parent HEAD eef08cdf08fee67169149b71d25fa9c4a14d9043.

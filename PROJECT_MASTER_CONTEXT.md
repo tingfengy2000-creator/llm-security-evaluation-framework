@@ -1,5 +1,10 @@
 # LLMGuard 项目总控文档
 
+## 当前：Owner28 独立来源已封存，评分未开始（2026-11-11）
+
+5090 仍在 `research/paper1-ragdefender-repro-5090`。Owner28 只增加独立取样和出题，不改变 RAGDefender 复现协议。四项新事实已封存在仓库外的私有标签，公开仓库只有角色盲文本和来源清单。状态是 `AGENT_PROVISIONAL_EVAL`，Human Gold 为 0。三条 Claim 仍是 `NOT_RUN`，攻击成功率和准确率仍是 `NOT_MEASURED`。评分须等 5060 盲预测封存后做一次。
+[来源报告](docs/paper1/dual_machine/repro5090/owner28_eval/EVAL_CURATOR_SOURCE_REPORT.md)。
+
 ## 当前：除 Llama 2 外的论文版本资产已在 D 盘，Claim 仍未跑（2026-11-05）
 
 Vicuna、Contriever、paraphrase-MiniLM、NQ、HotpotQA 和 MS MARCO 已按冻结修订下载。Llama 2 7B chat 没有下载。三条 Claim 仍是 `NOT_RUN`，攻击成功率和准确率仍是 `NOT_MEASURED`。

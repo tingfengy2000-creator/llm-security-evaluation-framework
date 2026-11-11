@@ -1,5 +1,10 @@
 # LLMGuard 项目负责人确认需求与决策登记册
 
+## W1-OD-20261111-PAPER1-OWNER28-BENCHMARK-INDEPENDENT-PILOT — 5090 收执，不新编 PODR（2026-11-11）
+
+没有新的 PODR 编号。授权原文在 5060 提交 `5081860e0448b8d4692f4b38270642ae43d91d3f`，5090 只读该合同和策展提示词，不合并分支。授权范围是独立来源、角色盲输入和私有标签托管。不批准 Claim1–3、权重下载、商业 API、D2/D3/HOLD8、Human Gold 或把标签推入公开 Git。评分还要等 5060 盲预测封存，本收执不是评分许可的完成。
+[来源报告](../paper1/dual_machine/repro5090/owner28_eval/EVAL_CURATOR_SOURCE_REPORT.md)。
+
 ## 2026-11-05 — 除 Llama 2 7B chat 外的论文版本资产已按指令下载，不新编 PODR
 
 没有新的 PODR 编号，也没有新的 W1-OD 编号。指令是除 Llama 2 7B chat 以外，按已冻结修订下载其余实验所需内容并准备复现。已下载 Vicuna、Contriever、paraphrase-MiniLM-L6-v2 和 NQ、HotpotQA、MS MARCO。解压前套用此前提出的 8 倍 Content-Length、路径逃逸和 20 GiB 余量硬停，三份语料都低于该上限。
