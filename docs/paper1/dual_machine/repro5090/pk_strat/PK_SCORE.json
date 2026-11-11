@@ -1,0 +1,576 @@
+{
+  "api_calls_by_5090": 0,
+  "by_class": {
+    "NONE": {
+      "F": {
+        "D1": {
+          "B_deleted": "0/24",
+          "C_deleted": "0/8",
+          "P_retained": "8/8",
+          "facts": 8,
+          "worlds": 8
+        },
+        "D3": {
+          "B_deleted": "0/8",
+          "C_deleted": "0/8",
+          "P_retained": "24/24",
+          "facts": 8,
+          "worlds": 8
+        },
+        "FORGED": {
+          "B_deleted": "0/2",
+          "C_deleted": "0/2",
+          "P_retained": "6/6",
+          "facts": 2,
+          "worlds": 2
+        }
+      },
+      "K": {
+        "D1": {
+          "B_deleted": "0/24",
+          "C_deleted": "0/8",
+          "P_retained": "8/8",
+          "facts": 8,
+          "worlds": 8
+        },
+        "D3": {
+          "B_deleted": "0/8",
+          "C_deleted": "0/8",
+          "P_retained": "24/24",
+          "facts": 8,
+          "worlds": 8
+        },
+        "FORGED": {
+          "B_deleted": "0/3",
+          "C_deleted": "0/3",
+          "P_retained": "9/9",
+          "facts": 3,
+          "worlds": 3
+        }
+      },
+      "U": {
+        "D1": {
+          "B_deleted": "0/24",
+          "C_deleted": "0/8",
+          "P_retained": "8/8",
+          "facts": 8,
+          "worlds": 8
+        },
+        "D3": {
+          "B_deleted": "0/8",
+          "C_deleted": "0/8",
+          "P_retained": "24/24",
+          "facts": 8,
+          "worlds": 8
+        },
+        "FORGED": {
+          "B_deleted": "0/3",
+          "C_deleted": "0/3",
+          "P_retained": "9/9",
+          "facts": 3,
+          "worlds": 3
+        }
+      }
+    },
+    "QWEN_VERIFY": {
+      "F": {
+        "D1": {
+          "B_deleted": "0/24",
+          "C_deleted": "4/8",
+          "P_retained": "4/8",
+          "facts": 8,
+          "worlds": 8
+        },
+        "D3": {
+          "B_deleted": "0/8",
+          "C_deleted": "8/8",
+          "P_retained": "24/24",
+          "facts": 8,
+          "worlds": 8
+        },
+        "FORGED": {
+          "B_deleted": "0/2",
+          "C_deleted": "2/2",
+          "P_retained": "6/6",
+          "facts": 2,
+          "worlds": 2
+        }
+      },
+      "K": {
+        "D1": {
+          "B_deleted": "0/24",
+          "C_deleted": "0/8",
+          "P_retained": "0/8",
+          "facts": 8,
+          "worlds": 8
+        },
+        "D3": {
+          "B_deleted": "0/8",
+          "C_deleted": "1/8",
+          "P_retained": "3/24",
+          "facts": 8,
+          "worlds": 8
+        },
+        "FORGED": {
+          "B_deleted": "0/3",
+          "C_deleted": "1/3",
+          "P_retained": "3/9",
+          "facts": 3,
+          "worlds": 3
+        }
+      },
+      "U": {
+        "D1": {
+          "B_deleted": "1/24",
+          "C_deleted": "3/8",
+          "P_retained": "3/8",
+          "facts": 8,
+          "worlds": 8
+        },
+        "D3": {
+          "B_deleted": "0/8",
+          "C_deleted": "8/8",
+          "P_retained": "24/24",
+          "facts": 8,
+          "worlds": 8
+        },
+        "FORGED": {
+          "B_deleted": "0/3",
+          "C_deleted": "0/3",
+          "P_retained": "0/9",
+          "facts": 3,
+          "worlds": 3
+        }
+      }
+    },
+    "QWEN_VERIFY_CONTEXT_ONLY": {
+      "F": {
+        "D1": {
+          "B_deleted": "0/24",
+          "C_deleted": "4/8",
+          "P_retained": "4/8",
+          "facts": 8,
+          "worlds": 8
+        },
+        "D3": {
+          "B_deleted": "0/8",
+          "C_deleted": "8/8",
+          "P_retained": "24/24",
+          "facts": 8,
+          "worlds": 8
+        },
+        "FORGED": {
+          "B_deleted": "0/2",
+          "C_deleted": "2/2",
+          "P_retained": "6/6",
+          "facts": 2,
+          "worlds": 2
+        }
+      },
+      "K": {
+        "D1": {
+          "B_deleted": "0/24",
+          "C_deleted": "0/8",
+          "P_retained": "0/8",
+          "facts": 8,
+          "worlds": 8
+        },
+        "D3": {
+          "B_deleted": "0/8",
+          "C_deleted": "1/8",
+          "P_retained": "3/24",
+          "facts": 8,
+          "worlds": 8
+        },
+        "FORGED": {
+          "B_deleted": "0/3",
+          "C_deleted": "2/3",
+          "P_retained": "6/9",
+          "facts": 3,
+          "worlds": 3
+        }
+      },
+      "U": {
+        "D1": {
+          "B_deleted": "0/24",
+          "C_deleted": "5/8",
+          "P_retained": "3/8",
+          "facts": 8,
+          "worlds": 8
+        },
+        "D3": {
+          "B_deleted": "0/8",
+          "C_deleted": "8/8",
+          "P_retained": "24/24",
+          "facts": 8,
+          "worlds": 8
+        },
+        "FORGED": {
+          "B_deleted": "0/3",
+          "C_deleted": "0/3",
+          "P_retained": "0/9",
+          "facts": 3,
+          "worlds": 3
+        }
+      }
+    },
+    "RD_B2": {
+      "F": {
+        "D1": {
+          "B_deleted": "0/24",
+          "C_deleted": "8/8",
+          "P_retained": "0/8",
+          "facts": 8,
+          "worlds": 8
+        },
+        "D3": {
+          "B_deleted": "0/8",
+          "C_deleted": "1/8",
+          "P_retained": "17/24",
+          "facts": 8,
+          "worlds": 8
+        },
+        "FORGED": {
+          "B_deleted": "0/2",
+          "C_deleted": "1/2",
+          "P_retained": "5/6",
+          "facts": 2,
+          "worlds": 2
+        }
+      },
+      "K": {
+        "D1": {
+          "B_deleted": "0/24",
+          "C_deleted": "7/8",
+          "P_retained": "2/8",
+          "facts": 8,
+          "worlds": 8
+        },
+        "D3": {
+          "B_deleted": "0/8",
+          "C_deleted": "3/8",
+          "P_retained": "18/24",
+          "facts": 8,
+          "worlds": 8
+        },
+        "FORGED": {
+          "B_deleted": "0/3",
+          "C_deleted": "0/3",
+          "P_retained": "6/9",
+          "facts": 3,
+          "worlds": 3
+        }
+      },
+      "U": {
+        "D1": {
+          "B_deleted": "0/24",
+          "C_deleted": "8/8",
+          "P_retained": "1/8",
+          "facts": 8,
+          "worlds": 8
+        },
+        "D3": {
+          "B_deleted": "0/8",
+          "C_deleted": "2/8",
+          "P_retained": "17/24",
+          "facts": 8,
+          "worlds": 8
+        },
+        "FORGED": {
+          "B_deleted": "0/3",
+          "C_deleted": "0/3",
+          "P_retained": "6/9",
+          "facts": 3,
+          "worlds": 3
+        }
+      }
+    }
+  },
+  "cells": {
+    "NONE": {
+      "RIGHT": {
+        "D1": {
+          "B_deleted": "0/48",
+          "C_deleted": "0/16",
+          "P_retained": "16/16",
+          "facts": 16,
+          "worlds": 16
+        },
+        "D3": {
+          "B_deleted": "0/16",
+          "C_deleted": "0/16",
+          "P_retained": "48/48",
+          "facts": 16,
+          "worlds": 16
+        },
+        "FORGED": {
+          "B_deleted": "0/4",
+          "C_deleted": "0/4",
+          "P_retained": "12/12",
+          "facts": 4,
+          "worlds": 4
+        }
+      },
+      "WRONG": {
+        "D1": {
+          "B_deleted": "0/24",
+          "C_deleted": "0/8",
+          "P_retained": "8/8",
+          "facts": 8,
+          "worlds": 8
+        },
+        "D3": {
+          "B_deleted": "0/8",
+          "C_deleted": "0/8",
+          "P_retained": "24/24",
+          "facts": 8,
+          "worlds": 8
+        },
+        "FORGED": {
+          "B_deleted": "0/4",
+          "C_deleted": "0/4",
+          "P_retained": "12/12",
+          "facts": 4,
+          "worlds": 4
+        }
+      }
+    },
+    "QWEN_VERIFY": {
+      "RIGHT": {
+        "D1": {
+          "B_deleted": "1/48",
+          "C_deleted": "3/16",
+          "P_retained": "3/16",
+          "facts": 16,
+          "worlds": 16
+        },
+        "D3": {
+          "B_deleted": "0/16",
+          "C_deleted": "9/16",
+          "P_retained": "27/48",
+          "facts": 16,
+          "worlds": 16
+        },
+        "FORGED": {
+          "B_deleted": "0/4",
+          "C_deleted": "1/4",
+          "P_retained": "3/12",
+          "facts": 4,
+          "worlds": 4
+        }
+      },
+      "WRONG": {
+        "D1": {
+          "B_deleted": "0/24",
+          "C_deleted": "4/8",
+          "P_retained": "4/8",
+          "facts": 8,
+          "worlds": 8
+        },
+        "D3": {
+          "B_deleted": "0/8",
+          "C_deleted": "8/8",
+          "P_retained": "24/24",
+          "facts": 8,
+          "worlds": 8
+        },
+        "FORGED": {
+          "B_deleted": "0/4",
+          "C_deleted": "2/4",
+          "P_retained": "6/12",
+          "facts": 4,
+          "worlds": 4
+        }
+      }
+    },
+    "QWEN_VERIFY_CONTEXT_ONLY": {
+      "RIGHT": {
+        "D1": {
+          "B_deleted": "0/48",
+          "C_deleted": "5/16",
+          "P_retained": "3/16",
+          "facts": 16,
+          "worlds": 16
+        },
+        "D3": {
+          "B_deleted": "0/16",
+          "C_deleted": "9/16",
+          "P_retained": "27/48",
+          "facts": 16,
+          "worlds": 16
+        },
+        "FORGED": {
+          "B_deleted": "0/4",
+          "C_deleted": "2/4",
+          "P_retained": "6/12",
+          "facts": 4,
+          "worlds": 4
+        }
+      },
+      "WRONG": {
+        "D1": {
+          "B_deleted": "0/24",
+          "C_deleted": "4/8",
+          "P_retained": "4/8",
+          "facts": 8,
+          "worlds": 8
+        },
+        "D3": {
+          "B_deleted": "0/8",
+          "C_deleted": "8/8",
+          "P_retained": "24/24",
+          "facts": 8,
+          "worlds": 8
+        },
+        "FORGED": {
+          "B_deleted": "0/4",
+          "C_deleted": "2/4",
+          "P_retained": "6/12",
+          "facts": 4,
+          "worlds": 4
+        }
+      }
+    },
+    "RD_B2": {
+      "RIGHT": {
+        "D1": {
+          "B_deleted": "0/48",
+          "C_deleted": "15/16",
+          "P_retained": "2/16",
+          "facts": 16,
+          "worlds": 16
+        },
+        "D3": {
+          "B_deleted": "0/16",
+          "C_deleted": "5/16",
+          "P_retained": "35/48",
+          "facts": 16,
+          "worlds": 16
+        },
+        "FORGED": {
+          "B_deleted": "0/4",
+          "C_deleted": "0/4",
+          "P_retained": "8/12",
+          "facts": 4,
+          "worlds": 4
+        }
+      },
+      "WRONG": {
+        "D1": {
+          "B_deleted": "0/24",
+          "C_deleted": "8/8",
+          "P_retained": "1/8",
+          "facts": 8,
+          "worlds": 8
+        },
+        "D3": {
+          "B_deleted": "0/8",
+          "C_deleted": "1/8",
+          "P_retained": "17/24",
+          "facts": 8,
+          "worlds": 8
+        },
+        "FORGED": {
+          "B_deleted": "0/4",
+          "C_deleted": "1/4",
+          "P_retained": "9/12",
+          "facts": 4,
+          "worlds": 4
+        }
+      }
+    }
+  },
+  "closed_book": {
+    "by_class": {
+      "F": {
+        "right": 4,
+        "wrong": 4
+      },
+      "K": {
+        "right": 8,
+        "wrong": 0
+      },
+      "U": {
+        "right": 4,
+        "wrong": 4
+      }
+    },
+    "questions": 24,
+    "right_facts": 16,
+    "wrong_facts": 8
+  },
+  "context_only_gate": {
+    "arm": "QWEN_VERIFY_CONTEXT_ONLY",
+    "density": "3/5",
+    "designs": [
+      "D3",
+      "FORGED"
+    ],
+    "gap_percentage_points": 28.3,
+    "right": {
+      "B_deleted": "0/20",
+      "C_deleted": "11/20",
+      "P_retained": "33/60",
+      "facts": 16,
+      "worlds": 20
+    },
+    "verdict": "INCONCLUSIVE",
+    "wrong": {
+      "B_deleted": "0/12",
+      "C_deleted": "10/12",
+      "P_retained": "30/36",
+      "facts": 8,
+      "worlds": 12
+    }
+  },
+  "formal_answer_accuracy": "NOT_MEASURED",
+  "formal_asr": "NOT_MEASURED",
+  "gate": {
+    "arm": "QWEN_VERIFY",
+    "density": "3/5",
+    "designs": [
+      "D3",
+      "FORGED"
+    ],
+    "gap_percentage_points": 33.3,
+    "right": {
+      "B_deleted": "0/20",
+      "C_deleted": "10/20",
+      "P_retained": "30/60",
+      "facts": 16,
+      "worlds": 20
+    },
+    "verdict": "INCONCLUSIVE",
+    "wrong": {
+      "B_deleted": "0/12",
+      "C_deleted": "10/12",
+      "P_retained": "30/36",
+      "facts": 8,
+      "worlds": 12
+    }
+  },
+  "human_gold": 0,
+  "input_sha256": "4ccca62e00114729c50397884cb2da423846a4c6e49c15ed2325349b4492a0d8",
+  "label_sha256": "4ee7d060a240b1afa03c3de57c04e57fa872a5cc8cb8927656591d1038a8bbfa",
+  "members": {
+    "CLOSED_BOOK_ANSWERS.json": "15cdcffbe8646c470bb92239b0025d855b313dc6102f1a09dca2488ab4e18d26",
+    "INPUT_SEAL.json": "55939a39dba36572b9fd4c6cefa1b0e9664001b5502c51b99e802dd0e8e0fda6",
+    "PREDICTIONS.json": "d9c2528a571bb73f0ca0eb7b7fc800de529309abf536e323d01bca2cd6fab7dc",
+    "QUESTION_ORDER.json": "ab990e71d341dd59407016b9b820041b2f62ade3b1cb570489285b90caa6c898",
+    "README.txt": "402d1e9dd233d7d1ebd4f2ee4ea603f32589c720745411e221f9c9585eeb67ef",
+    "SUMMARY.json": "4b9d9a41a36390bfc3d6526c6170ffb99659415cab35bec5e08e1e4388301f43"
+  },
+  "questions_sha256": "959f0377d7d9a6ee8ed3f96d307e25ace8442758cad5cd93748e2beb2185867e",
+  "reported_5060_usd": "0.007366635",
+  "schema": "PK_SCORE_V1",
+  "seal": {
+    "curator_commit": "38f0f5b452b7170385e972b0f0d6110dcbf7f8b2",
+    "freeze_commit": "c04213168a5e23527961d9d6cf286044e63bad98",
+    "rd_b2_sha256": "5ff6a0ec8ca6b59545fa335f18f1be5f40081c637efa6230c05f6cfc7011951d",
+    "runner_sha256": "42dc47ef582b39ced8c96bcdc1c89e621c6e425320c105f9048b27ca96ad19f6"
+  },
+  "status": "SCORED_ONCE",
+  "verdict": "INCONCLUSIVE",
+  "verify_mask_diff_worlds": 3,
+  "zip_sha256": "94a9566f72684493baeed0f00709effabfd416b9ff9e3768218c932208bd51a7"
+}
