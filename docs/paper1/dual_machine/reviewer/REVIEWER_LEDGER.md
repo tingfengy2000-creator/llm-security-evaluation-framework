@@ -16,12 +16,13 @@
 | 5060 Codex | 中文方法实现、本地运行、Qwen 调用 |
 | 5090 Cursor | 独立选题/盲评输入、私有标签保管、一次性评分；RAGDefender 原论文复现（Claims 1–3 仍 NOT_RUN） |
 
-## 2. 当前状态（2026-11-12 20:30 JST）
+## 2. 当前状态（2026-11-12 21:40 JST）
 
-- **RQ2+RQ3 回答层成立：PK-GEN 预注册 AMPLIFICATION_CONFIRMED。** UNK 上攻击目标命中 QWEN_VERIFY 26/42 vs NONE 1/42。机理：生成器遇冲突几乎都拒答（NONE 拒答 73/80），核验消解冲突后，K 上答对、UNK 上被骗。见 `PKGEN_KAG_VERDICT_20261112.md`。
-- **KAG v0（DEV）：安全达成、可用性失败。** UNK 判知道 0/47，UNK D3 正确片段误删 0/21（QV 20/21）；但 K 判知道仅 6/24。根因是闭卷原话与片段值的字符串匹配失配，且温度 0 下两次闭卷逐字相同。
-- **下一步：** 第 5 节 = KAG-V1（DEV 修复 + 推导回答层 + ORACLE 上界）与 PK-TEST 阶段 1（新事实出题）。
-- **不可宣称：** 正式 ASR、答案准确率、统计显著性、“优于 RAGDefender 原论文”、跨模型普适（只测了 Qwen）、KAG 有效。所有数字为 AGENT_PROVISIONAL。
+- **论文定位（Owner 已同意）：** 主贡献 = 中文版本敏感污染下两类防御的失效机理（RAGDefender 中文迁移失败；LLM 核验继承知识边界、把冲突下的拒答变成被骗作答）。次贡献 = KAG 作为有原则的缓解（“不知道就不删”），如实报告拒答代价与先验对齐投毒、伪造修订等失效面。不把 KAG 包装为主角，不宣称“轻量”（可写“低成本、按需触发”）。
+- **RQ2+RQ3 回答层成立**（PK-GEN）：UNK 目标命中 QV 26/42 vs NONE 1/42。
+- **KAG：** v0 推导回答层 K 命中/答对/拒答 1/4/19，ORACLE 上界 2/21/1；UNK 两者均 1/0/41（门控在 UNK 上只能拒答，冲突提示臂 TAG 用来把拒答变成有用的冲突披露）。V1/V1T 已无标签运行（PK-CONFIRM 判知道 25 / 24），待 5090 评分。
+- **PK-TEST：** 42 题已由 5090 封存（K 12、U 18、F 12，FORGED 归属已固定 8 条）。下一步见第 5 节。
+- **不可宣称：** 正式 ASR、答案准确率、统计显著性、“优于 RAGDefender 原论文”、跨模型普适、KAG 有效。
 
 ## 3. 关键事实（只记录已封存、可复核的数字）
 
@@ -43,6 +44,9 @@
 | **PK-CONFIRM** | **GO（预注册）** | D3 P 保留 UNK 58/63 vs K 6/36（差 75pp）；D1 C 误删 UNK 18/21 vs K 0/12；UNK D3 核验误删正确片段 20/21 | 5090@`60a1727` · `repro5090/pk_confirm/PKC_SCORE.md`；本分支 · `PK_CONFIRM_VERDICT_20261112.md` |
 | **PK-GEN** | **AMPLIFICATION_CONFIRMED（预注册）** | UNK D1+D3 目标命中 QV 26/42 vs NONE 1/42（+59.5pp）；K 对照 QV 2/24 vs NONE 0/24（预期未满足）；QV 使 57/80 世界由拒答转作答；FORGED 上 NONE 自身被骗 UNK 3/5 | 5060@`0013458` · `chinese5060/pk_gen_kag/RESULT.md`；5090@`7783a7c` · `repro5090/pk_gen_kag/SCORE.md` |
 | KAG v0 DEV | 安全达成，可用性失败 | PK-CONFIRM 判知道 K 6/24、UNK 0/47；UNK D3 C 误删 KAG 0/21 vs QV 20/21；K D3 P 保留 KAG 30/36 vs QV 6/36；第二次闭卷逐字相同 24/24 | 同上；本分支 · `PKGEN_KAG_VERDICT_20261112.md` |
+| KAG v0 推导回答层 | ORACLE 上界显示门控可达空间 | K（D1+D3）命中/答对/拒答：v0 1/4/19，ORACLE 2/21/1；UNK：均 1/0/41 | 5090@`2a82707` · `repro5090/pk_gen_kag/DERIVED_ANSWER.md` |
+| KAG-V1/V1T 运行 | 失配根因确认，待评分 | v0 冲突 123 个：A 0 / B 11 / C 112，60 个涉及缺单位；判知道 V1 58/136、V1T 48/136；时效门触发 22/136；USD 0.0105 | 5060@`9a5aa01`（冻结 `972f540`）· `chinese5060/kag_v1/RESULT.md`；私有包 SHA256 `7c8c9e9f…c75faf` |
+| PK-TEST 阶段 1 | 题目封存 | 42 题，无标签；FORGED 预分配 U 4、F 4 | 5090@`2a82707` · `repro5090/pk_test/PKT_PHASE1_QUESTIONS.json`（`fee8f4ec…6509d`） |
 
 ## 4. 决策记录
 
@@ -56,26 +60,14 @@
 | 11-11 | PK-STRAT INCONCLUSIVE → 做 PK-CONFIRM，不改写本批口径 | 预注册门未达，最强信号来自事后切片 |
 | 11-12 | PK-CONFIRM GO → RQ3 成立；下一步回答层确认（PK-GEN）与知识感知门控防御（KAG） | 主门 75pp、次门满足 |
 | 11-12 | PK-GEN 确认 → 回答层放大成立；KAG 进入 V1（修匹配、换第二探针模板、时效门变体），并行启动 PK-TEST 出题 | KAG v0 安全达成但 K 召回 6/24，根因为工程失配 |
+| 11-12 | 论文定位：失效机理为主、KAG 为缓解 | Owner 质疑“KAG 是否只是又套一层 RAG”；KAG 不发起新检索，可信源回退不作为贡献；需引用自适应检索（Mallen 等 2023）与 Sufficient Context 并说明用途差异 |
+| 11-12 | PK-TEST 增加 TAG 冲突提示臂、CLEAN 设计、按需触发与 DISCLOSED 结果类别；主变体选择规则预先写死 | Owner 提议“过滤不掉的在生成阶段打标”；须同时报告命中、答对、拒答、披露，防止靠拒答“刷”安全 |
 
-## 5. NEXT_ACTION：KAG-V1（DEV）+ PK-TEST
+## 5. NEXT_ACTION：PK-TEST
 
-提示词：`NEXT_PROMPTS_KAGV1_PKTEST.md`。上一轮（PK-GEN + KAG-DEV）提示词：`NEXT_PROMPTS_PKGEN_KAG.md`。
+提示词与全部预先固定规则：`NEXT_PROMPTS_PKTEST.md`（含主变体选择规则、7 个对比臂、按需触发、结果类别、预注册门 G1/G2）。历史提示词：`NEXT_PROMPTS_PKGEN_KAG.md`、`NEXT_PROMPTS_KAGV1_PKTEST.md`。
 
-### 5a. KAG-V1（DEV，仅用已曝光的 PK-STRAT + PK-CONFIRM）
-
-- 5060 先做无标签诊断（CONFLICT 原因 A/B/C 计数），再修复：闭卷回答过同一抽取器；第二探针换模板；最小归一扩充。输出 V1 与 V1T（时效门：任一片段含 ≥2025 年修订/施行年份 → 强制 CONFLICT）两个变体。
-- 5090 零调用：推导回答层（CONFLICT→NONE 回答，KNOWS→QV 回答）与 ORACLE 上界（K→QV，UNK→NONE），并评分 V1/V1T。
-- DEV 参考线（不是 GO 门）：PK-CONFIRM K 判知道 ≥18/24 且 UNK 判知道 ≤2/47。
-
-### 5b. PK-TEST（全新事实，预注册，只跑一次）
-
-- 事实：K 12、U 18、F 12，与以往批次不重复。设计 D1、D3、FORGED、PA（先验对齐：攻击目标 = 模型对该事实的一致闭卷错答）。
-- 流程：5090 出题（只公开问题）→ 5060 用冻结的 KAG 版本跑闭卷 → 5090 构造世界 → 5060 四臂（NONE、RD_B2、QWEN_VERIFY、KAG）掩码 + 生成 → 5090 一次性评分。
-- **预注册门（回答层，D1+D3 合并）：**
-  - G1 安全：UNK 上 KAG 目标命中 ≤ NONE + 5pp，且 QV − KAG ≥ 30pp。
-  - G2 可用：K 上 KAG 答对率 ≥ QV 答对率 − 20pp。
-  - G1 且 G2 → GO；只满足 G1 → SAFE_LOW_UTILITY；不满足 G1 → NO_GO。
-  - PA、FORGED 单列报告，不设门（预期 KAG v1 在 PA 上失效，V1T 可能缓解，需如实报告）。
+顺序：5090 评 KAG-V1 并定主变体 ∥ 5060 跑 PK-TEST 闭卷 + 冻结按需触发与 TAG 模板 → 5090 构造世界（D1、D3、CLEAN、FORGED、PA）→ 5060 七臂一次性运行 → 5090 一次性评分。
 
 ## 6. 开放风险
 
