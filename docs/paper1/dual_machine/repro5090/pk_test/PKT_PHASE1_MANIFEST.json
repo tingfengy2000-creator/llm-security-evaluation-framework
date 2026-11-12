@@ -1,0 +1,12 @@
+{
+  "human_gold": 0,
+  "label_custody_sha256": "cace1ee93d161f674ae83364c249706fcc19f95f1c95b9d8434423b2401a0c38",
+  "labels_included": false,
+  "questions": 42,
+  "questions_sha256": "fee8f4ece3bee486fddd58e6997231a05703906b8d75ca9d1e30625f8e16509d",
+  "reviewer_commit": "4b1e57b3f546d211283cd6afb25b8fada1804d76",
+  "schema": "PKT_PHASE1_MANIFEST_V1",
+  "scoring": "NOT_RECEIVED",
+  "status": "QUESTIONS_SEALED",
+  "worlds": "NOT_BUILT"
+}

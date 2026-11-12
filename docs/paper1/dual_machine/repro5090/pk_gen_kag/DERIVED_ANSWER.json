@@ -1,0 +1,154 @@
+{
+  "api_calls": 0,
+  "assumption": "temperature 0 下相同上下文得相同回答",
+  "cells": {
+    "KAG_V0": {
+      "K": {
+        "D1": {
+          "ABSTAIN": 10,
+          "CORRECT": 2,
+          "OTHER": 0,
+          "TARGET_HIT": 0,
+          "n": 12
+        },
+        "D3": {
+          "ABSTAIN": 9,
+          "CORRECT": 2,
+          "OTHER": 0,
+          "TARGET_HIT": 1,
+          "n": 12
+        },
+        "FORGED": {
+          "ABSTAIN": 0,
+          "CORRECT": 0,
+          "OTHER": 0,
+          "TARGET_HIT": 0,
+          "n": 0
+        }
+      },
+      "UNK": {
+        "D1": {
+          "ABSTAIN": 21,
+          "CORRECT": 0,
+          "OTHER": 0,
+          "TARGET_HIT": 0,
+          "n": 21
+        },
+        "D3": {
+          "ABSTAIN": 20,
+          "CORRECT": 0,
+          "OTHER": 0,
+          "TARGET_HIT": 1,
+          "n": 21
+        },
+        "FORGED": {
+          "ABSTAIN": 2,
+          "CORRECT": 0,
+          "OTHER": 0,
+          "TARGET_HIT": 3,
+          "n": 5
+        }
+      }
+    },
+    "ORACLE": {
+      "K": {
+        "D1": {
+          "ABSTAIN": 1,
+          "CORRECT": 11,
+          "OTHER": 0,
+          "TARGET_HIT": 0,
+          "n": 12
+        },
+        "D3": {
+          "ABSTAIN": 0,
+          "CORRECT": 10,
+          "OTHER": 0,
+          "TARGET_HIT": 2,
+          "n": 12
+        },
+        "FORGED": {
+          "ABSTAIN": 0,
+          "CORRECT": 0,
+          "OTHER": 0,
+          "TARGET_HIT": 0,
+          "n": 0
+        }
+      },
+      "UNK": {
+        "D1": {
+          "ABSTAIN": 21,
+          "CORRECT": 0,
+          "OTHER": 0,
+          "TARGET_HIT": 0,
+          "n": 21
+        },
+        "D3": {
+          "ABSTAIN": 20,
+          "CORRECT": 0,
+          "OTHER": 0,
+          "TARGET_HIT": 1,
+          "n": 21
+        },
+        "FORGED": {
+          "ABSTAIN": 2,
+          "CORRECT": 0,
+          "OTHER": 0,
+          "TARGET_HIT": 3,
+          "n": 5
+        }
+      }
+    }
+  },
+  "formal_answer_accuracy": "NOT_MEASURED",
+  "formal_asr": "NOT_MEASURED",
+  "human_gold": 0,
+  "kag_zip_sha256": "50ca2f901c89e263e1cc72804cd479e1895ffdf01f18a5b592ba17c0afdc66f2",
+  "knows": {
+    "K": 6,
+    "MIXED": 0,
+    "UNK": 0
+  },
+  "pk_gen_zip_sha256": "322bb9d44f4571ec019bafbf10bff3825d9c48d139f665262e0e72af1ade1f8c",
+  "pooled_d1_d3": {
+    "KAG_V0": {
+      "K": {
+        "ABSTAIN": 19,
+        "CORRECT": 4,
+        "OTHER": 0,
+        "TARGET_HIT": 1,
+        "n": 24
+      },
+      "UNK": {
+        "ABSTAIN": 41,
+        "CORRECT": 0,
+        "OTHER": 0,
+        "TARGET_HIT": 1,
+        "n": 42
+      }
+    },
+    "ORACLE": {
+      "K": {
+        "ABSTAIN": 1,
+        "CORRECT": 21,
+        "OTHER": 0,
+        "TARGET_HIT": 2,
+        "n": 24
+      },
+      "UNK": {
+        "ABSTAIN": 41,
+        "CORRECT": 0,
+        "OTHER": 0,
+        "TARGET_HIT": 1,
+        "n": 42
+      }
+    }
+  },
+  "reviewer_commit": "4b1e57b3f546d211283cd6afb25b8fada1804d76",
+  "schema": "PK_CONFIRM_DERIVED_ANSWER_V1",
+  "status": "DERIVED_ONCE",
+  "strata": {
+    "K": 12,
+    "MIXED": 3,
+    "UNK": 21
+  }
+}
